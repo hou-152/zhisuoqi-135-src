@@ -890,10 +890,29 @@ async function runFeynman(){
   if (feynRunning) return;
   feynRunning = true;
   const btn = document.getElementById('feyn-btn');
+  const engineEl = document.getElementById('feyn-engine');
   btn.disabled = true; btn.textContent = '检验中…';
-  const report = await reviewFeynman(text);
+  const progress = ['检索知乎证据 1/3…','检索知乎证据 2/3…','检索知乎证据 3/3…','AI 检验中…'];
+  let progressIdx = 0;
+  engineEl.textContent = progress[progressIdx];
+  const progressTimer = setInterval(() => {
+    progressIdx = Math.min(progressIdx + 1, progress.length - 1);
+    engineEl.textContent = progress[progressIdx];
+  }, 4000);
+  let report;
+  try {
+    report = await Promise.race([
+      reviewFeynman(text),
+      new Promise((_, reject) => setTimeout(() => reject(new Error('feynman-timeout')), 30000))
+    ]);
+  } catch (e) {
+    report = { ...ruleBasedReview(text), engine: 'A-rules（实时检验超时，已降级）', evidenceSource: 'snapshot' };
+  } finally {
+    clearInterval(progressTimer);
+  }
   feynRunning = false;
   btn.disabled = false; btn.textContent = '重新检验';
+  engineEl.textContent = `当前引擎：${MODE.label}`;
   const allPass = Object.values(report.result).every(r => r.pass);
   state.feynSkipped = false; // 一旦真的讲了一遍，就不算跳过了
   let html = `<h3 style="margin-top:16px">检验报告 <span class="muted">引擎：${report.engine} · 证据：${report.evidenceSource==='live'?'知乎实时检索':'知乎静态快照（2026-09-11）'}</span></h3>`;
@@ -967,7 +986,7 @@ function route(){
 }
 window.addEventListener('hashchange', route);
 route();
-detectMode();
+detectMode().then(route);
 </script>
 </body>
 </html>
