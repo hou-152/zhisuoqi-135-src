@@ -47,9 +47,13 @@
 
 **已对齐口径**（勿再纠结）：1=互动阅读器，3=案例决策场，5=技术实验台；费曼是验收层不是模块。会议录音里「案例=第一个」是口误。
 
-## 2. 定位叙事（v2 新增，对外+对评委共用）
+## 2. 定位叙事
 
-同构先例：nashsu/llm_wiki（AI内参 260911 收录）把 Karpathy 的 prompt 模式 gist 做成桌面 app。我们把 **2 个自有 skill（dbs-learning、dbs-standard-answer）+ 1 个概念（费曼）** 工程化成 web。差异：他们模式是别人的，我们方法论是自己的。哲学同框：llm_wiki 知识编译一次持续维护（反 RAG 从零推导），我们方法论写死编排层、模型只做单轮调用（反 agent 全自主）。对照表见人类版第三节，路演稿可直接抄其「继承/改造/新增」形式。
+**正文唯一持有者：`docs/交接-人类版-知所栖135.md` 第三节**（含 llm_wiki 对照表与「可讲的点」，发群／路演直接用那份）。
+
+一句话版本：把 **2 个自有 skill（dbs-learning、dbs-standard-answer）+ 1 个概念（费曼）** 工程化成 web；同构先例是 nashsu/llm_wiki 把 Karpathy 的 gist 做成桌面 app——差别在他们的模式是别人的，我们的方法论是自己的。
+
+> **2026-09-12 注意**：`SOURCE_OF_TRUTH.md` 版本规则第 7 条已把两处相关表述列为**待裁决**（LearnVector 能否当同构背书、外部报告给出的反向提问反例）。裁决前不得升级为事实。
 
 ## 3. 关键结论（已调研核实，别推翻除非有新证据）
 
@@ -103,6 +107,5 @@ node scripts/ab-feynman-test.mjs    # AB 实验（A 免 key；B/C1 走 .private/
 
 ## 8. 文件地图
 
-入口是根目录 `SOURCE_OF_TRUTH.md`（知识库导航：找什么去哪、哪个版本为准），细节见人类版第六节。
-本轮新增：`docs/135-llm_wiki-融合形态方案.md`、`docs/llm_wiki-事实核查.md`、`research/理论来源核实-10条.md`、`research/历史案例-结构同构-10案例.md`、`research/历史案例-图谱视图与第二大脑维护成本.md`、`research/2Sigma-理论锚定.md`。
-已有研究全文：`docs/agent-选型调研.md`（含 Anthropic workflow/agent 定义原话、四类案例、条件答案、来源链接）、`docs/135-基础框架-思路.md`（发群口径）。
+**唯一入口是根目录 `SOURCE_OF_TRUTH.md`**（知识库导航：找什么去哪、哪个版本为准）。本文件不重复维护文件清单。
+`docs/` 目录内部的分组索引见 `docs/README.md`。

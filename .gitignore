@@ -8,3 +8,6 @@
 
 # 部署产物（自身是独立仓库，见 deploy/zhisuoqi/README.md）
 deploy/zhisuoqi/
+
+# 本地安全备份（git 历史本身也是备份）
+.trash/
