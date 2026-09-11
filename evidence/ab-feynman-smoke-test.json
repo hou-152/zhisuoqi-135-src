@@ -1,0 +1,79 @@
+{
+ "at": "2026-09-11T15:10:27.813Z",
+ "model": "deepseek-flash",
+ "summary": {
+  "A-rules": {
+   "n": 2,
+   "tokens": 0,
+   "ms": 1,
+   "avgAccuracy": 1,
+   "avgTokens": 0,
+   "avgMs": 1,
+   "estCostPerCheckYuan": 0
+  },
+  "B-bare-llm": {
+   "n": 2,
+   "tokens": 3275,
+   "ms": 12408,
+   "avgAccuracy": 1,
+   "avgTokens": 1638,
+   "avgMs": 6204,
+   "estCostPerCheckYuan": 0.0016
+  },
+  "C1-lightweight-pipeline": {
+   "n": 2,
+   "tokens": 3255,
+   "ms": 6785,
+   "avgAccuracy": 1,
+   "avgTokens": 1628,
+   "avgMs": 3393,
+   "estCostPerCheckYuan": 0.0016
+  }
+ },
+ "rows": [
+  {
+   "sample": "s1-示例-故意漏运镜",
+   "group": "A-rules",
+   "accuracy": 1,
+   "tokens": 0,
+   "ms": 0
+  },
+  {
+   "sample": "s1-示例-故意漏运镜",
+   "group": "B-bare-llm",
+   "accuracy": 1,
+   "tokens": 1104,
+   "ms": 3270
+  },
+  {
+   "sample": "s1-示例-故意漏运镜",
+   "group": "C1-lightweight-pipeline",
+   "accuracy": 1,
+   "tokens": 1965,
+   "ms": 4789
+  },
+  {
+   "sample": "s2-示例-只讲了运镜",
+   "group": "A-rules",
+   "accuracy": 1,
+   "tokens": 0,
+   "ms": 1
+  },
+  {
+   "sample": "s2-示例-只讲了运镜",
+   "group": "B-bare-llm",
+   "accuracy": 1,
+   "tokens": 2171,
+   "ms": 9138
+  },
+  {
+   "sample": "s2-示例-只讲了运镜",
+   "group": "C1-lightweight-pipeline",
+   "accuracy": 1,
+   "tokens": 1290,
+   "ms": 1996
+  }
+ ],
+ "_note": "冒烟测试，不是 AB 实验结果：样本取自 ab-samples.template.json 的 2 条示例（太简单，三组准确率都是 100%，无法区分 A/B/C1）。本文件只证明三组都能跑通、C1 已走真实检索。正式结论需要 10 份真人复述 + 人工标注真值，填入 scripts/ab-samples.json 后重跑。",
+ "_run_at": "2026-09-11T15:10:27.813Z"
+}

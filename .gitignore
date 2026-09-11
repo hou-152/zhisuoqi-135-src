@@ -1,0 +1,10 @@
+# 凭证与本地状态——绝不入库
+.private/
+.local/
+
+# 系统与工具产物
+.DS_Store
+.mimosa/
+
+# 部署产物（自身是独立仓库，见 deploy/zhisuoqi/README.md）
+deploy/zhisuoqi/

@@ -1,0 +1,7 @@
+82c6bfd9feb036b79c90ba71ae6327a48675954ef3a1e1a5f7258c989a316e73  prototype/知所栖-demo.html
+1ff0d9711a8ec77eee8b9d625e04e5d965368821428e14dc2d06979776938aa6  prototype/知枝-demo.html
+165f4b92d9209aaa6d83664d316d1904ae82ee24756c9b1a74fc4e3615cc4356  prototype/archive/知枝-demo-v2.html
+3ac3d7ffc8d7a758f980cc7c617480dc4dc5cebcd870a7fa43da1cca8f2d35ea  docs/ai-video-map-v1.json
+a4e3028f6a6c747b9c1c53f0efdcf53e6c3116fac642aa9de2de02bed2d12cc8  docs/ai-video-map-v1.manifest.json
+321d9c9d881dc6d98929e98c45ac747564a4b78c0ecb31757532ea17c2515337  WHERE-TO-START.md
+d87025001364cc01aca97eef91e64553dba51f63572921e60c8bc61d7e337e1e  docs/从-Demo-倒推讨论.md

@@ -1,0 +1,352 @@
+{
+  "version": "AI 视频入门地图 v1",
+  "status": "candidate",
+  "scope": "AI 视频入门；18 个原创候选节点，未对齐外部课程标准。",
+  "methodReference": "https://github.com/withmarbleapp/os-taxonomy#readme",
+  "sourceNote": "借鉴结构化节点、可观察表现、依赖理由的方法；未导入 Marble 数据或可视化代码。",
+  "groups": {
+    "camera": {
+      "name": "镜头表达",
+      "color": "#c6e18b"
+    },
+    "visual": {
+      "name": "画面设计",
+      "color": "#b4d6c5"
+    },
+    "generation": {
+      "name": "生成控制",
+      "color": "#a4c6e7"
+    },
+    "story": {
+      "name": "叙事组织",
+      "color": "#d2b5ce"
+    },
+    "finish": {
+      "name": "成片与验证",
+      "color": "#d6c6a0"
+    }
+  },
+  "topics": [
+    {
+      "id": "shot",
+      "name": "景别",
+      "group": "camera",
+      "lessonId": "shot",
+      "description": "选择观众需要看清的信息范围。",
+      "evidence": "给定镜头目标，能解释为什么选择这个景别。"
+    },
+    {
+      "id": "move",
+      "name": "运镜",
+      "group": "camera",
+      "lessonId": "move",
+      "description": "让摄影机的变化服务于信息与表达。",
+      "evidence": "能根据从细节到环境的目标选择移动方向。"
+    },
+    {
+      "id": "prompt",
+      "name": "镜头提示词",
+      "group": "camera",
+      "lessonId": "prompt",
+      "description": "把起始画面、镜头变化和结束画面说清楚。",
+      "evidence": "写出能够检查起点、变化与终点的镜头描述。"
+    },
+    {
+      "id": "composition",
+      "name": "构图与主体",
+      "group": "visual",
+      "description": "安排主体与画面其他元素的位置关系。",
+      "evidence": "能指出画面的注意力中心，并说明安排理由。"
+    },
+    {
+      "id": "light",
+      "name": "光线与氛围",
+      "group": "visual",
+      "description": "观察光线如何帮助主体被看见。",
+      "evidence": "能描述光源方向、明暗关系及想要的效果。"
+    },
+    {
+      "id": "style",
+      "name": "视觉风格",
+      "group": "visual",
+      "description": "给不同画面建立一致的视觉约束。",
+      "evidence": "比较两个画面，指出风格不一致的具体维度。"
+    },
+    {
+      "id": "firstframe",
+      "name": "首帧设计",
+      "group": "generation",
+      "description": "把镜头起点落实成可检查的画面。",
+      "evidence": "首帧能够交代主体、环境和构图。"
+    },
+    {
+      "id": "subject",
+      "name": "主体一致性",
+      "group": "generation",
+      "description": "在不同画面中保持同一主体的关键特征。",
+      "evidence": "能描述需要保持的特征，并发现明显漂移。"
+    },
+    {
+      "id": "motion",
+      "name": "运动约束",
+      "group": "generation",
+      "description": "分别描述主体动作与镜头运动。",
+      "evidence": "能指出是主体移动、摄影机移动，还是两者兼有。"
+    },
+    {
+      "id": "generate",
+      "name": "单镜头生成",
+      "group": "generation",
+      "description": "将一段镜头意图转成可检查的生成结果。",
+      "evidence": "能对照预期检查画面起点、运动和结束状态。"
+    },
+    {
+      "id": "story",
+      "name": "叙事目标",
+      "group": "story",
+      "description": "决定观众看完这一段应知道什么。",
+      "evidence": "能用一句话说明这段故事带来的信息变化。"
+    },
+    {
+      "id": "board",
+      "name": "分镜拆解",
+      "group": "story",
+      "description": "把一段叙事拆成各有作用的镜头。",
+      "evidence": "能为每个分镜说明它带来的新信息。"
+    },
+    {
+      "id": "sequence",
+      "name": "镜头衔接",
+      "group": "story",
+      "description": "让前后镜头的空间、动作与信息关系连贯。",
+      "evidence": "能指出相邻镜头之间令人困惑的变化。"
+    },
+    {
+      "id": "sound",
+      "name": "声音与节奏",
+      "group": "finish",
+      "description": "为叙事选择声音和节奏。",
+      "evidence": "能解释声音怎样配合当前的叙事目标。"
+    },
+    {
+      "id": "review",
+      "name": "结果检查",
+      "group": "finish",
+      "description": "用明确标准检查生成结果，而非只凭感觉。",
+      "evidence": "能指出目标与生成结果之间的一项具体差距。"
+    },
+    {
+      "id": "cut",
+      "name": "剪辑组织",
+      "group": "finish",
+      "description": "选择和排列镜头，形成可理解的一段内容。",
+      "evidence": "能解释镜头顺序，并指出可删除的重复信息。"
+    },
+    {
+      "id": "revision",
+      "name": "定位与修改",
+      "group": "finish",
+      "description": "针对已观察到的问题做一次有目的的修改。",
+      "evidence": "能说明改了什么，以及如何检查改善。"
+    },
+    {
+      "id": "film",
+      "name": "完成首支 AI 短片",
+      "group": "finish",
+      "description": "把镜头、声音与修改连接成一个完整作品。",
+      "evidence": "交付可观看的短片，并说明它与预期的差距。",
+      "goal": true
+    }
+  ],
+  "dependencies": [
+    {
+      "topicId": "prompt",
+      "prerequisiteId": "shot",
+      "strength": "soft",
+      "reason": "先明确画面需要看多近，能把提示词的起始与结束景别说清楚。",
+      "status": "candidate"
+    },
+    {
+      "topicId": "prompt",
+      "prerequisiteId": "move",
+      "strength": "soft",
+      "reason": "先区分推近与拉远，能把镜头的变化方向写具体。",
+      "status": "candidate"
+    },
+    {
+      "topicId": "composition",
+      "prerequisiteId": "shot",
+      "strength": "soft",
+      "reason": "先确定画面范围，再安排这个范围里的主体位置更便于检查。",
+      "status": "candidate"
+    },
+    {
+      "topicId": "style",
+      "prerequisiteId": "composition",
+      "strength": "soft",
+      "reason": "观察元素的位置关系，有助于比较画面的风格差异。",
+      "status": "candidate"
+    },
+    {
+      "topicId": "style",
+      "prerequisiteId": "light",
+      "strength": "soft",
+      "reason": "光线是视觉风格的一项约束，先能描述明暗更便于保持一致。",
+      "status": "candidate"
+    },
+    {
+      "topicId": "firstframe",
+      "prerequisiteId": "composition",
+      "strength": "soft",
+      "reason": "首帧需要交代主体位置，构图提供检查起始画面的线索。",
+      "status": "candidate"
+    },
+    {
+      "topicId": "firstframe",
+      "prerequisiteId": "light",
+      "strength": "soft",
+      "reason": "明确光源和明暗，有助于检查首帧的氛围是否符合预期。",
+      "status": "candidate"
+    },
+    {
+      "topicId": "subject",
+      "prerequisiteId": "prompt",
+      "strength": "soft",
+      "reason": "先把需要保持的主体特征说具体，才便于对照画面查找漂移。",
+      "status": "candidate"
+    },
+    {
+      "topicId": "motion",
+      "prerequisiteId": "move",
+      "strength": "soft",
+      "reason": "区分摄影机怎样移动，有助于把镜头运动与主体动作分开。",
+      "status": "candidate"
+    },
+    {
+      "topicId": "motion",
+      "prerequisiteId": "prompt",
+      "strength": "soft",
+      "reason": "运动约束需要具体表达起点和变化，镜头描述能提供支架。",
+      "status": "candidate"
+    },
+    {
+      "topicId": "generate",
+      "prerequisiteId": "firstframe",
+      "strength": "soft",
+      "reason": "有清楚的起始画面，更便于对照生成结果的起点。",
+      "status": "candidate"
+    },
+    {
+      "topicId": "generate",
+      "prerequisiteId": "subject",
+      "strength": "soft",
+      "reason": "先确定哪些主体特征应保持，再检查生成过程中的变化。",
+      "status": "candidate"
+    },
+    {
+      "topicId": "generate",
+      "prerequisiteId": "motion",
+      "strength": "soft",
+      "reason": "先说明动作与摄影机变化，更便于检查生成结果是否符合意图。",
+      "status": "candidate"
+    },
+    {
+      "topicId": "board",
+      "prerequisiteId": "story",
+      "strength": "soft",
+      "reason": "先明确观众需要得到什么信息，再为每个分镜分配作用。",
+      "status": "candidate"
+    },
+    {
+      "topicId": "board",
+      "prerequisiteId": "shot",
+      "strength": "soft",
+      "reason": "了解不同景别的信息范围，有助于选择分镜中展示的细节。",
+      "status": "candidate"
+    },
+    {
+      "topicId": "sequence",
+      "prerequisiteId": "board",
+      "strength": "soft",
+      "reason": "知道每个镜头承担的信息，才能比较前后连接是否连贯。",
+      "status": "candidate"
+    },
+    {
+      "topicId": "sequence",
+      "prerequisiteId": "move",
+      "strength": "soft",
+      "reason": "理解移动方向，有助于检查切换镜头时的动作和空间变化。",
+      "status": "candidate"
+    },
+    {
+      "topicId": "sound",
+      "prerequisiteId": "story",
+      "strength": "soft",
+      "reason": "声音和节奏服务于叙事目标，先明确目标更便于解释选择。",
+      "status": "candidate"
+    },
+    {
+      "topicId": "review",
+      "prerequisiteId": "generate",
+      "strength": "soft",
+      "reason": "先获得可观看的镜头结果，才有具体对象可供检查。",
+      "status": "candidate"
+    },
+    {
+      "topicId": "review",
+      "prerequisiteId": "prompt",
+      "strength": "soft",
+      "reason": "具体的镜头描述可以作为比较预期与结果的检查依据。",
+      "status": "candidate"
+    },
+    {
+      "topicId": "cut",
+      "prerequisiteId": "generate",
+      "strength": "soft",
+      "reason": "有可选择的镜头素材，才能比较不同排列产生的效果。",
+      "status": "candidate"
+    },
+    {
+      "topicId": "cut",
+      "prerequisiteId": "sequence",
+      "strength": "soft",
+      "reason": "先理解前后镜头的信息连接，更便于选择剪辑顺序。",
+      "status": "candidate"
+    },
+    {
+      "topicId": "revision",
+      "prerequisiteId": "review",
+      "strength": "soft",
+      "reason": "先指出结果与目标的具体差距，再选择有目的的修改。",
+      "status": "candidate"
+    },
+    {
+      "topicId": "revision",
+      "prerequisiteId": "cut",
+      "strength": "soft",
+      "reason": "了解当前镜头的排列作用，有助于判断修改对整段内容的影响。",
+      "status": "candidate"
+    },
+    {
+      "topicId": "film",
+      "prerequisiteId": "cut",
+      "strength": "soft",
+      "reason": "把镜头排列成可理解的内容，是完成短片的一项工作。",
+      "status": "candidate"
+    },
+    {
+      "topicId": "film",
+      "prerequisiteId": "sound",
+      "strength": "soft",
+      "reason": "检查声音与叙事是否配合，有助于形成完整的观看体验。",
+      "status": "candidate"
+    },
+    {
+      "topicId": "film",
+      "prerequisiteId": "revision",
+      "strength": "soft",
+      "reason": "完成一次有依据的修改，有助于说明作品如何接近预期。",
+      "status": "candidate"
+    }
+  ]
+}

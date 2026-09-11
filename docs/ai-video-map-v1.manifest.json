@@ -1,0 +1,18 @@
+{
+  "version": "AI 视频入门地图 v1",
+  "status": "candidate",
+  "counts": {
+    "topics": 18,
+    "dependencies": 27,
+    "availableLessons": 3,
+    "groups": 5
+  },
+  "files": [
+    {
+      "path": "ai-video-map-v1.json",
+      "sha256": "3ac3d7ffc8d7a758f980cc7c617480dc4dc5cebcd870a7fa43da1cca8f2d35ea"
+    }
+  ],
+  "snapshotOf": "../prototype/知所栖-demo.html#atlas-model",
+  "note": "当前数据与知所栖 Demo v3 的内嵌地图一致；节点与候选关系沿用地图 v1，布局改为局部浏览。"
+}

@@ -1,0 +1,20 @@
+#!/usr/bin/env python3
+"""Project-scoped Zhihu CLI. No global credential or PATH changes."""
+import os
+import sys
+from pathlib import Path
+root = Path(__file__).resolve().parent.parent
+args = sys.argv[1:]
+if args[:2] in (["auth", "set"], ["auth", "logout"]) or args[:1] == ["init"]:
+    sys.exit("Global credential changes are disabled. This project uses .private/zhihu/access-secret.")
+secret_file = root / ".private/zhihu/access-secret"
+if not secret_file.is_file():
+    sys.exit("Project credential is missing; global credentials will not be used.")
+secret = secret_file.read_text().strip()
+if not secret:
+    sys.exit("Project credential is empty; global credentials will not be used.")
+env = os.environ.copy()
+env["ZHIHU_CLI_HOME"] = str(root / ".local/zhihu-cli")
+env["ZHIHU_ACCESS_SECRET"] = secret
+binary = root / ".local/zhihu-cli/current/zhihu-cli"
+os.execve(str(binary), [str(binary), *args], env)
