@@ -7,6 +7,8 @@
 | 要找什么 | 去哪里 | 当前状态／备注 |
 |---|---|---|
 | 当前融合方案（llm_wiki × 135：三栏取舍、不做清单、48h 顺序） | `docs/135-llm_wiki-融合形态方案.md` | 当前版本，09-11 夜 |
+| **赛制要求与项目差距**（赛道、评审权重、必交材料、权威度字段实证、已否决方案） | `docs/知乎黑客松-赛制要求与项目差距.md` | 09-12；接新接口或改材料前先读 |
+| **08:30 讨论用分工说明**（1/3/5 各是什么、怎么试、深挖代价、交什么） | `docs/0912-0830讨论-135分工说明.md` | 09-12；发群版 |
 | AI 内参调研 → 落地依据（LearnVector 先例、Anthropic RCT、限速器改造、路演稿三处修订） | `docs/AI内参-落地依据与形态收敛.md` | 09-12，含内参 10 篇证据清单 |
 | llm_wiki 九条宣称的一手核查（README + gist + 源码） | `docs/llm_wiki-事实核查.md` | 09-11 夜，含逐条引文与 URL |
 | 理论依据（10 组来源、三条硬边界） | `research/理论来源核实-10条.md` | 09-11 夜，书目经 Crossref 核对 |
@@ -23,6 +25,7 @@
 | 本地服务与验证脚本 | `scripts/serve-135.mjs`、`scripts/verify-135.mjs`、`scripts/ab-feynman-test.mjs`、`scripts/ab-samples.template.json` | 见交接-agent版第 4 节命令 |
 | LLM 接入配置（勿入库、勿展示） | `.private/llm.env` | 600，gitignored，DeepSeek；serve 自动加载；`/api/health` 看 `llm:true` |
 | AB 冒烟测试证据（**不是**实验结果） | `evidence/ab-feynman-smoke-test.json` | 09-12；只证三组跑通，样本太少无法区分 |
+| **代码仓库** | 本项目已 `git init`（09-12） | 4 个提交；`.private/` `.local/` `.mimosa/` `.DS_Store` `deploy/zhisuoqi/` 均已 gitignore；**未推 GitHub** |
 | 知乎 CLI 用法（勿跑 auth／init） | `docs/知乎CLI-项目安装与调用.md` | 凭证在 `.private/`，不入库 |
 | 知乎 API 能力盘点（额度实况、直答可用、问题推荐**不可用**） | `docs/AI内参-落地依据与形态收敛.md` 第 3.5 节 | 09-12 实测；接新接口前先读 |
 | 早期过程材料（09-06，结论可能已过期） | `docs/从-Demo-倒推讨论.md`、`docs/反馈审查与修订方案.md`、`docs/小能熊-BoK-对标与规模边界.md`、`docs/GitHub-同类项目对标报告.md`、`docs/讨论会-PDF-文本提取.txt`、`docs/路演检验记录模板.md` | 只作背景，不作为当前结论 |
