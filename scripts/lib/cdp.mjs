@@ -1,7 +1,26 @@
 import { spawn } from 'node:child_process';
-import { writeFileSync } from 'node:fs';
+import { existsSync, writeFileSync } from 'node:fs';
 
-export const CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+// CI runs on Linux while local acceptance commonly runs on macOS.  Keep an
+// explicit override for pinned runners, then select a platform-local binary.
+// The old macOS-only constant made every browser check fail before a page was
+// even opened on a GitHub-hosted Linux runner.
+const BROWSER_CANDIDATES = process.env.CHROME_BIN
+  ? [process.env.CHROME_BIN]
+  : process.platform === 'darwin'
+    ? [
+        '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+        '/Applications/Chromium.app/Contents/MacOS/Chromium',
+      ]
+    : process.platform === 'win32'
+      ? [
+          process.env.PROGRAMFILES && `${process.env.PROGRAMFILES}\\Google\\Chrome\\Application\\chrome.exe`,
+          process.env['PROGRAMFILES(X86)'] && `${process.env['PROGRAMFILES(X86)']}\\Google\\Chrome\\Application\\chrome.exe`,
+        ].filter(Boolean)
+      : ['/usr/bin/google-chrome', '/usr/bin/chromium', '/usr/bin/chromium-browser', 'google-chrome', 'chromium'];
+
+export const CHROME = BROWSER_CANDIDATES.find(candidate => candidate && (candidate.includes('/') ? existsSync(candidate) : true))
+  || BROWSER_CANDIDATES[0];
 
 export const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 

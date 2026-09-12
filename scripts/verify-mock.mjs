@@ -23,6 +23,10 @@ for (const f of ['fixtures.json', 'mock-fetch.js', 'README.md']) {
 }
 const F = JSON.parse(S('evidence/mock/fixtures.json'));
 const E = F.endpoints;
+const manifest = JSON.parse(S('knowledge/概念地图-260913/manifest.json'));
+const topics = JSON.parse(S('knowledge/概念地图-260913/topics.json'));
+const dependencies = JSON.parse(S('knowledge/概念地图-260913/dependencies.json'));
+const clusters = JSON.parse(S('knowledge/概念地图-260913/clusters.json'));
 
 // ---------- A. 接口形状（契约 §二） ----------
 console.log('\n[接口形状]');
@@ -80,8 +84,11 @@ ok(['compute', 'judge', 'use', 'accept'].every(k => typeof F.payloadSample.kinds
   'kinds.dist 四类齐全（前端四列分组靠它）');
 ok(F.payloadSample.nodes.length >= 3 && F.payloadSample.edges.length >= 1,
   '样本够画「选中 → 邻居」（≥3 点、≥1 边）');
-ok(JSON.stringify(F.payloadSample._counts) === JSON.stringify({ nodes: 856, edges: 491, tags: 21 }),
-  '样本自报的规模与现行概念地图一致（856 / 491 / 21）');
+const liveCounts = { nodes: topics.topics.length, edges: dependencies.dependencies.length, tags: clusters.clusters.length };
+ok(manifest.topics === liveCounts.nodes && manifest.dependencies === liveCounts.edges && manifest.clusters === liveCounts.tags,
+  `概念地图 manifest 与文件实况一致（${liveCounts.nodes} / ${liveCounts.edges} / ${liveCounts.tags}）`);
+ok(JSON.stringify(F.payloadSample._counts) === JSON.stringify(liveCounts),
+  `样本自报的规模与现行概念地图一致（${liveCounts.nodes} / ${liveCounts.edges} / ${liveCounts.tags}）`);
 
 // ---------- A. 五语义单元 ----------
 console.log('\n[五语义单元样本]');

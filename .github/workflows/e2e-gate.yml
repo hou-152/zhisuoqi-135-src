@@ -1,0 +1,184 @@
+name: zss-e2e-gate
+
+on:
+  workflow_run:
+    workflows: [zss-e2e-pr]
+    types: [completed]
+
+concurrency:
+  group: zss-e2e-gate-${{ github.event.workflow_run.pull_requests[0].number || github.event.workflow_run.head_branch }}
+  cancel-in-progress: true
+
+# 该 workflow 只在默认分支版本上运行。测试作业没有写权限；只有最后的
+# auto-merge 作业拥有 pull-requests:write / contents:write，且它不检出 PR。
+permissions: {}
+
+jobs:
+  gate-test:
+    name: trusted-e2e-gate
+    if: ${{ github.event.workflow_run.event == 'pull_request' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: read
+      pull-requests: read
+    outputs:
+      verdict: ${{ steps.verdict.outputs.verdict }}
+      pr_number: ${{ steps.pr.outputs.number }}
+      head_sha: ${{ steps.pr.outputs.head_sha }}
+    env:
+      GH_TOKEN: ${{ github.token }}
+      PR_NUMBER_FROM_EVENT: ${{ github.event.workflow_run.pull_requests[0].number }}
+      HEAD_SHA_FROM_EVENT: ${{ github.event.workflow_run.head_sha }}
+    steps:
+      - name: Checkout trusted evaluator from default branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          path: evaluator
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Resolve PR and merge candidate
+        id: pr
+        working-directory: evaluator
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const repo = process.env.GITHUB_REPOSITORY;
+          const token = process.env.GH_TOKEN;
+          let number = Number(process.env.PR_NUMBER_FROM_EVENT || 0);
+          const headers = { authorization: `Bearer ${token}`, accept: 'application/vnd.github+json', 'user-agent': 'zss135-trusted-gate' };
+          if (!number) {
+            const r = await fetch(`https://api.github.com/repos/${repo}/commits/${process.env.HEAD_SHA_FROM_EVENT}/pulls`, { headers });
+            if (r.ok) number = Number((await r.json())[0]?.number || 0);
+          }
+          if (!number) throw new Error('找不到 workflow_run 对应的 PR');
+          const p = await (await fetch(`https://api.github.com/repos/${repo}/pulls/${number}`, { headers })).json();
+          if (!p.head?.sha || !p.base?.sha) throw new Error('PR 元数据缺少 head/base SHA');
+          fs.appendFileSync(process.env.GITHUB_OUTPUT, `number=${number}\nhead_sha=${p.head?.sha || ''}\nbase_sha=${p.base?.sha || ''}\n`);
+          NODE
+
+      - name: Checkout PR merge candidate as SUT
+        uses: actions/checkout@v4
+        with:
+          ref: refs/pull/${{ steps.pr.outputs.number }}/merge
+          path: sut
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Verify candidate still contains resolved PR head
+        working-directory: sut
+        env:
+          TESTED_HEAD_SHA: ${{ steps.pr.outputs.head_sha }}
+        run: |
+          parents=$(git show -s --format=%P HEAD)
+          case " $parents " in
+            *" $TESTED_HEAD_SHA "*) ;;
+            *) echo 'PR changed while checking out the merge candidate'; exit 1 ;;
+          esac
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Chromium
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y chromium
+
+      - name: Run evaluator from trusted checkout
+        id: run
+        env:
+          PR_NUMBER: ${{ steps.pr.outputs.number }}
+          HEAD_SHA: ${{ steps.pr.outputs.head_sha }}
+          BASE_SHA: ${{ steps.pr.outputs.base_sha }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p "$GITHUB_WORKSPACE/trusted-artifacts"
+          set +e
+          node "$GITHUB_WORKSPACE/evaluator/scripts/e2e-trusted-gate.mjs" \
+            --base-root="$GITHUB_WORKSPACE/evaluator" \
+            --sut="$GITHUB_WORKSPACE/sut" \
+            --artifacts="$GITHUB_WORKSPACE/trusted-artifacts" \
+            --result="$GITHUB_WORKSPACE/trusted-artifacts/e2e-result.json"
+          code=$?
+          set -e
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          exit "$code"
+
+      - name: Publish machine verdict
+        id: verdict
+        if: always()
+        working-directory: evaluator
+        run: |
+          verdict=$(node -e "try{const j=require(process.argv[1]);process.stdout.write(j.verdict||'BLOCKED')}catch{process.stdout.write('BLOCKED')}" \
+            "$GITHUB_WORKSPACE/trusted-artifacts/e2e-result.json")
+          echo "verdict=$verdict" >> "$GITHUB_OUTPUT"
+
+      - name: Upload trusted evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: zss-e2e-trusted-${{ github.event.workflow_run.id }}
+          path: trusted-artifacts/
+          if-no-files-found: warn
+          retention-days: 30
+
+  report:
+    name: trusted-e2e-report
+    if: always() && needs.gate-test.result != 'cancelled'
+    needs: gate-test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - name: Checkout trusted report tool
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          path: evaluator
+          fetch-depth: 1
+          persist-credentials: false
+      - name: Download trusted evidence
+        uses: actions/download-artifact@v4
+        with:
+          name: zss-e2e-trusted-${{ github.event.workflow_run.id }}
+          path: trusted-artifacts
+      - name: Render report
+        run: node evaluator/scripts/e2e-report.mjs \
+          --input="$GITHUB_WORKSPACE/trusted-artifacts/e2e-result.json" \
+          --out="$GITHUB_WORKSPACE/trusted-artifacts/e2e-report.md"
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: zss-e2e-report-${{ github.event.workflow_run.id }}
+          path: trusted-artifacts/e2e-report.md
+          retention-days: 30
+
+  enable-auto-merge:
+    name: enable-pr-auto-merge
+    if: ${{ needs.gate-test.result == 'success' && needs.gate-test.outputs.verdict == 'PASS' && needs.report.result == 'success' }}
+    needs: [gate-test, report]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      PR_NUMBER: ${{ needs.gate-test.outputs.pr_number }}
+      TESTED_HEAD_SHA: ${{ needs.gate-test.outputs.head_sha }}
+    steps:
+      - name: Recheck latest PR SHA and branch state
+        run: |
+          set -euo pipefail
+          state=$(gh api "repos/${GITHUB_REPOSITORY}/pulls/${PR_NUMBER}" --jq '.state')
+          draft=$(gh api "repos/${GITHUB_REPOSITORY}/pulls/${PR_NUMBER}" --jq '.draft')
+          latest=$(gh api "repos/${GITHUB_REPOSITORY}/pulls/${PR_NUMBER}" --jq '.head.sha')
+          test "$state" = open
+          test "$draft" = false
+          test "$latest" = "$TESTED_HEAD_SHA"
+      - name: Enable auto-merge
+        run: gh pr merge "$PR_NUMBER" --repo "$GITHUB_REPOSITORY" --auto --squash

@@ -35,7 +35,7 @@ const sampleNodes = NODE_IDS.filter(id => byId[id]).map(id => byId[id]);
 const sampleEdges = payload.edges.filter(([a, b]) => NODE_IDS.includes(a) && NODE_IDS.includes(b));
 
 const payloadSample = {
-  _why: '壳 payload 的真结构样本。完整 856 点/491 边在 prototype/知所栖-壳.html 的 const DATA 里，不要复制整份。',
+  _why: '壳 payload 的真结构样本。完整 936 点/531 边在 prototype/知所栖-壳.html 的 const DATA 里，不要复制整份。',
   _fullSource: 'evidence/cm-260913/05-shell-payload.json',
   _counts: { nodes: payload.nodes.length, edges: payload.edges.length, tags: payload.curation.tags.length },
   generatedAt: payload.generatedAt,

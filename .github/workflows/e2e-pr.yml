@@ -1,0 +1,65 @@
+name: zss-e2e-pr
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+  workflow_dispatch:
+
+concurrency:
+  group: zss-e2e-pr-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+# PR 内容是不可信输入。这个 workflow 只读仓库、不读 secrets、不写 GitHub 状态。
+# 可信 required check 由 e2e-gate.yml 在默认分支上重新执行固定 evaluator。
+permissions:
+  contents: read
+
+jobs:
+  untrusted-e2e:
+    name: untrusted-e2e
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+      HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+      BASE_SHA: ${{ github.event.pull_request.base.sha }}
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout PR
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Chromium
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y chromium
+
+      - name: Run deterministic profiles
+        run: |
+          mkdir -p "$GITHUB_WORKSPACE/e2e-artifacts"
+          node scripts/e2e-pr.mjs --profile=auto \
+            --artifacts="$GITHUB_WORKSPACE/e2e-artifacts" \
+            --result="$GITHUB_WORKSPACE/e2e-artifacts/e2e-result.json"
+
+      - name: Write human-readable report
+        if: always() && hashFiles('e2e-artifacts/e2e-result.json') != ''
+        run: node scripts/e2e-report.mjs \
+          --input="$GITHUB_WORKSPACE/e2e-artifacts/e2e-result.json" \
+          --out="$GITHUB_WORKSPACE/e2e-artifacts/e2e-report.md"
+
+      - name: Upload E2E evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: zss-e2e-pr-${{ github.event.pull_request.number || github.run_id }}
+          path: e2e-artifacts/
+          if-no-files-found: warn
+          retention-days: 30

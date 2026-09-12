@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "name": "知所栖 135 · remote PR E2E",
+  "blackBoxRule": "只允许通过可见文字、稳定 DOM 语义、URL 和用户输入操作；禁止读取 state、CONCEPTS、judge、route、localStorage 或内部业务函数。",
+  "evidenceRule": "每个场景保留步骤 DOM 快照、截图、URL 和控制台错误；截图不能单独决定 verdict。",
+  "stableSelectors": [
+    ".concept-card",
+    "#c1 .option",
+    "#c3 .option",
+    "#moveseg button",
+    "#labdone",
+    "#feyn-input",
+    "#feyn-btn",
+    "#toast"
+  ],
+  "scenarios": [
+    {
+      "id": "E2E-CORE-001",
+      "profile": "core-135",
+      "required": true,
+      "path": "首屏 → 概念 → 1 阅读 → 3 决策（先选后看案例再修订）→ 5 实验（3 种运镜）→ 费曼完整复述 → 保存、刷新、恢复",
+      "pass": "页面显示验收通过；刷新恢复后仍能看到已开始、已决策、已动手。"
+    },
+    {
+      "id": "E2E-FAIL-002",
+      "profile": "core-135",
+      "required": true,
+      "path": "离线 LLM 失败 fixture → 费曼输入 → 提交",
+      "pass": "页面显示有漏点且不显示验收通过；失败不能静默变成成功。"
+    },
+    {
+      "id": "E2E-BOUNDARY-003",
+      "profile": "core-135",
+      "required": true,
+      "path": "费曼输入为空或过短 → 提交",
+      "pass": "页面给出明确输入约束，不能发起无效判定。"
+    },
+    {
+      "id": "E2E-PUBLIC-004",
+      "profile": "shell-public",
+      "required": true,
+      "path": "无服务端打开公网单文件 → 主题图谱 → 机械兜底",
+      "pass": "check-public.mjs 全部断言通过。"
+    },
+    {
+      "id": "E2E-DESKTOP-005",
+      "profile": "desktop",
+      "required": true,
+      "path": "macOS Electron → /api/health → 真文件保存 → 越界路径拒绝",
+      "pass": "test-app.mjs 全部断言通过；Linux 上标记 NOT_APPLICABLE。"
+    }
+  ],
+  "failureStates": ["PASS", "FAIL", "BLOCKED", "UNSTABLE", "NOT_APPLICABLE"],
+  "retry": { "maxAutomaticRetriesPerSha": 1, "retrySuccessStatus": "UNSTABLE" },
+  "retentionDays": 30
+}

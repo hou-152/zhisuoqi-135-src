@@ -13,7 +13,7 @@
 
 | # | 屏 | 吃什么 | mock 里用哪条 | 关键约束 |
 |---|---|---|---|---|
-| 0 | 入口 / 概念图 | 壳 payload：`nodes[856]` `edges[491]` `curation.tags[21]` `kinds.dist` | `fixtures.payloadSample` | 完整数据已内联在 `prototype/知所栖-壳.html` 的 `const DATA`，**不要复制第二份** |
+| 0 | 入口 / 概念图 | 壳 payload：`nodes[936]` `edges[531]` `curation.tags[21]` `kinds.dist` | `fixtures.payloadSample` | 完整数据已内联在 `prototype/知所栖-壳.html` 的 `const DATA`，**不要复制第二份** |
 | 1 | 1 阅读 | `POST /api/llm` `{skill:'dbs-learning', json:false}` → `content` | `POST /api/llm · 1 阅读（skill=dbs-learning）` | 三层梯度 L1 直觉 / L2 机制 / L3 应用，**可切**；一次只给 3 个概念，给完就停 |
 | 2 | 3 决策 | 五语义 `CAS-*`（决策场） | `fixtures.unitsSample.CAS` | **先让学习者自己选，再揭晓**。顺序反了这屏就没意义 |
 | 3 | 5 实验 | 五语义 `SOL-*`（方案 → 实验台） | `fixtures.unitsSample.SOL` | 5 次提取练习，每次显示「做什么 / 看什么 / 得出什么」；**必须让他动手判断** |

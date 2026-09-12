@@ -1,0 +1,57 @@
+name: zss-e2e-desktop
+
+on:
+  pull_request:
+    paths:
+      - 'app/**'
+      - 'scripts/test-app.mjs'
+      - 'scripts/build-app.mjs'
+      - 'scripts/lib/cdp.mjs'
+
+# Electron 只能在 macOS profile 上验；这个 workflow 仍然是无密钥、只读 PR 作业。
+# 自动合并不会直接信任它：e2e-gate.yml 对 app/** 变更保留人工边界。
+permissions:
+  contents: read
+
+jobs:
+  desktop:
+    name: desktop-e2e
+    runs-on: macos-14
+    timeout-minutes: 30
+    env:
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+      HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+      BASE_SHA: ${{ github.event.pull_request.base.sha }}
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout PR
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install Electron dependencies
+        run: npm ci --prefix app
+      - name: Run desktop profile
+        run: |
+          mkdir -p "$GITHUB_WORKSPACE/e2e-desktop-artifacts"
+          node scripts/e2e-pr.mjs --profile=desktop \
+            --artifacts="$GITHUB_WORKSPACE/e2e-desktop-artifacts" \
+            --result="$GITHUB_WORKSPACE/e2e-desktop-artifacts/e2e-result.json"
+      - name: Write report
+        if: always() && hashFiles('e2e-desktop-artifacts/e2e-result.json') != ''
+        run: node scripts/e2e-report.mjs \
+          --input="$GITHUB_WORKSPACE/e2e-desktop-artifacts/e2e-result.json" \
+          --out="$GITHUB_WORKSPACE/e2e-desktop-artifacts/e2e-report.md"
+      - name: Upload desktop evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: zss-e2e-desktop-${{ github.event.pull_request.number || github.run_id }}
+          path: e2e-desktop-artifacts/
+          if-no-files-found: warn
+          retention-days: 30
