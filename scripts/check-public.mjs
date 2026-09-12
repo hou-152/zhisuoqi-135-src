@@ -72,8 +72,11 @@ console.log('公网版验收 ' + URL_ + (ONLINE ? '（线上）' : '（本地静
 
 await step('首屏：左栏 5 格 + 默认按「要你怎么处理它」四列', null,
   { js: `document.querySelectorAll('.r-item').length + '|' + [...document.querySelectorAll('#lrows .lrow')].map(e=>e.textContent.trim().replace(/\\d+$/,'')).join(',')`, want: '5|能算的,能判的,能用的,只能认的' });
+// 三档轴的按钮现在长在列表栏的筛选行里（不再有 ax-* 这些 id）
 await step('三档轴都在（怎么验 / 按主题 / 按来源）', null,
-  { js: `['ax-kind','ax-tag','ax-src'].filter(i=>document.getElementById(i)).length`, want: '3' });
+  { js: `[...document.querySelectorAll('#lp-filter button')].map(b=>b.textContent).join(',')`, want: '怎么验,按主题,按来源' });
+await step('三栏都在', null,
+  { js: `['rail','list','main'].filter(i=>document.getElementById(i)).length + '|' + document.querySelectorAll('#lp-body .row').length`, want: '3|194' });
 await step('切回按主题是 10 条线', `setAxis('tag')`,
   { js: `document.querySelectorAll('#lrows .lrow').length`, want: '10' });
 await step('切回怎么验', `setAxis('kind')`, { js: `axis`, want: 'kind' });

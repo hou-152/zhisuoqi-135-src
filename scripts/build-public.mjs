@@ -255,28 +255,15 @@ rep(`  body.innerHTML = head + hint
     + \`<div class="clist" id="clist">\${rows || (activeSkill ? '<div class="mut">说吧，你想学什么。</div>' : '')}</div>\`;`,
 'renderConv');
 
-/* ── ⑥ 样式 + 公网标注 ────────────────────────────────────── */
-rep(`.cmsg.pend{opacity:.55}`,
-`.cmsg.pend{opacity:.55}
-.cmsg.note{background:#1c1a12;border:1px solid #3b3524;color:#d6c894;font-size:11.5px}
-.keyrow{display:flex;gap:6px;margin:8px 0 4px}
-.keyrow input{flex:1;background:#10141a;border:1px solid #242b36;border-radius:8px;padding:7px 10px;
-  color:#e6ebf2;font-size:11.5px;outline:none;font-family:inherit}
-.keyrow button{background:#1a2029;border:1px solid #2f3a48;border-radius:8px;color:#c7ced8;
-  font-size:11px;padding:0 12px;cursor:pointer;font-family:inherit;white-space:nowrap}
-.keyrow button:hover{background:#222b36}`,
-'note css');
+/* ── ⑥ 公网标注 ────────────────────────────────────────────
+   注：.cmsg.note / .keyrow 的样式已随新版 Linear 式外壳进了模板 CSS，这里不再注入。 */
+// 公网快照角标：直接把它显示出来（模板里默认 display:none）
+rep(`<span class="pubtag" id="pubtag" style="display:none">公网快照</span>`,
+    `<span class="pubtag" id="pubtag" title="公网快照：194 个概念 / 10 条策展线 / 15 个 skill 都是 2026-09-12 烘焙好的">公网快照</span>`,
+    'brand');
 
-rep(`<div class="r-brand">知所栖<span>135</span></div>`,
-`<div class="r-brand">知所栖<span>135</span><span class="pubtag" title="公网快照：194 个概念与 10 条策展线是 2026-09-12 烘焙好的">公网快照</span></div>`,
-'brand');
+// 公网版的 key 面板要挂在「对话」列表上方的 hint 里；样式沿用模板已有的 .keyrow
 
-rep(`.r-brand span{margin-left:7px;font-size:11px;font-weight:400;color:#6b7684;
-  border:1px solid #262c37;border-radius:20px;padding:1px 8px}`,
-`.r-brand span{margin-left:7px;font-size:11px;font-weight:400;color:#6b7684;
-  border:1px solid #262c37;border-radius:20px;padding:1px 8px}
-.r-brand .pubtag{border-color:#33507a;color:#7fa8e0}`,
-'brand css');
 
 /* ── 写盘 ─────────────────────────────────────────────────── */
 // 构建横幅：告诉看的人数据是什么时候烘的
