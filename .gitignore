@@ -14,3 +14,6 @@ deploy/zhisuoqi/
 
 # 无头浏览器验收的临时产物（scripts/shot-shell.mjs 用的是 CDP，不需要这个目录）
 .playwright-cli/
+
+# 公网发布仓库（独立 git 仓库，由 scripts/build-public.mjs 生成）
+deploy/zhisuoqi-135/
