@@ -1,0 +1,770 @@
+{
+  "date": "2026-09-12",
+  "source": "AI 内参开放 API",
+  "historical_search_count": 86,
+  "already_read_count": 12,
+  "remaining_count": 74,
+  "already_read_ids": [
+    "3b3679b1-08ff-8114-8a66-f15e397623ee",
+    "3b5679b1-08ff-8180-9958-c7b7b88f0a25",
+    "3bf679b1-08ff-8168-98f7-cf72e19e965d",
+    "3c4679b1-08ff-81aa-9e60-c63b2fe08581",
+    "3cc679b1-08ff-81ad-b698-d8bbf16fb18c",
+    "3cf679b1-08ff-819e-aab4-ffb0c40f09b7",
+    "3cf679b1-08ff-81c7-b48b-cfeafee0ed77",
+    "3cf679b1-08ff-81fa-91a0-c4e4f826accb",
+    "3d1679b1-08ff-8195-b163-e706c41cde71",
+    "3d3679b1-08ff-81cd-8b9d-de71d643a842",
+    "3d4679b1-08ff-8122-af82-ee9e7c9f0480",
+    "3d7679b1-08ff-8192-aa2d-ff96846ae8f8"
+  ],
+  "detail_fetch": {
+    "endpoint": "/articles/{id}/markdown and /articles/{id}?format=markdown&sections=0",
+    "attempted": 74,
+    "succeeded": 0,
+    "http_403": 74,
+    "reason": "当前 API 详情额度/权限返回 403；未把摘要当全文。"
+  },
+  "remaining_articles": [
+    {
+      "id": "3d8679b1-08ff-81fb-985a-e5de314c0866",
+      "title": "一个理论：软件会把人逼疯",
+      "sourceTitle": "I have a theory that software drives people insane",
+      "intro": "作者的观察是，多数软件剥掉品牌和架构图之后无非表单、接口、权限、计算和一个数据库，但速度、金钱、复杂度、抽象与近乎无限的改主意自由叠在一起，足以让正常人失去分寸感。这不是个人性格问题，是行业条件的产物。",
+      "qualityScore": 4,
+      "author": "graybeard.ing",
+      "issueDate": "2026-09-11",
+      "sourceUrl": "https://graybeard.ing/software-drives-people-insane/"
+    },
+    {
+      "id": "3d6679b1-08ff-8115-aaf7-d937680af0dc",
+      "title": "用 gpt-6 astra 操控 blender 做 3d：小白入门实测",
+      "sourceTitle": "用GPT-6 Astra操控Blender玩3D，保姆级教程来了。",
+      "intro": "卡兹克把官方 mcp 与 computer use 两条路都跑了一遍，给出安装、配置和三种玩法的踩坑记录。想看 computer use 在真实软件里能干到什么程度，这篇比演示视频实在。",
+      "qualityScore": 4,
+      "author": "数字生命卡兹克",
+      "issueDate": "2026-09-09",
+      "sourceUrl": "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647686056&idx=1&sn=c1710404c08cf3201da27f4d53f94940"
+    },
+    {
+      "id": "3d2679b1-08ff-815d-a865-c9dcd508cfc0",
+      "title": "OpenAI 发布 GPT-6 Astra：官方定位是最强的电脑操作模型",
+      "sourceTitle": "GPT-6 Astra: A new generation of intelligence | OpenAI",
+      "intro": "官方发布页把能力盘点摊在电脑操作、编码、网络安全和科学四块，同时把「对齐」写进了标题级卖点。要核对档位、上下文和定价，这是第一手材料。",
+      "qualityScore": 4,
+      "author": "OpenAI",
+      "issueDate": "2026-09-05",
+      "sourceUrl": "https://openai.com/index/gpt-6-astra/"
+    },
+    {
+      "id": "3d1679b1-08ff-81e9-a99d-e9660820b414",
+      "title": "howie 直播：通过 agent，普通人也可以实现代码自由（创造自由）",
+      "sourceTitle": "【howie 的 AI 主题讲座】w2634 agent 方法论｜普通人如何实现代码自由",
+      "intro": "w2634 直播完整文稿，agent week 系列第一场。主线是这半年 agent 在工作、学习、投资场景里的落地变化，以及非程序员靠什么把代码能力接进日常。",
+      "qualityScore": 5,
+      "author": null,
+      "issueDate": "2026-09-04",
+      "sourceUrl": null
+    },
+    {
+      "id": "3d1679b1-08ff-814a-aced-cacaf67dd34f",
+      "title": "曾鸣谈产业史观：模型公司大概率不是原生时代的赢家",
+      "sourceTitle": "153. 和曾鸣聊产业史观：残酷的真相、会消亡的公司、优秀≠卓越、“OAI、Anth大概率不是原生时代大赢家” | 张小珺Jùn｜商业访谈录",
+      "intro": "四万余字的完整访谈整理，主线是技术演进的三个阶段——基础设施、应用爆发、原生应用——以及为什么前一阶段的公司很少活到下一阶段。组织判断也给得很硬：科层制退场，任务为核心的全员合伙人制接上。",
+      "qualityScore": 4,
+      "author": "张小珺Jùn｜商业访谈录",
+      "issueDate": "2026-09-04",
+      "sourceUrl": "https://app.podwise.ai/dashboard/episodes/8813602"
+    },
+    {
+      "id": "3d0679b1-08ff-81a1-905f-f36d28a3c51d",
+      "title": "danluu 逐条核账：最著名的 AI 唱空者说对了多少",
+      "sourceTitle": "How accurate have Ed Zitron's AI skeptic predictions been?",
+      "intro": "作者先交代自己既非多头也非空头的立场，然后把 Ed Zitron 的公开预测一条条拿出来对照实际结果。方法论比结论更值得学——他 2022 年也用同样的方式核过库兹韦尔那批未来学家。",
+      "qualityScore": 5,
+      "author": "danluu.com",
+      "issueDate": "2026-09-03",
+      "sourceUrl": "https://danluu.com/zitron/"
+    },
+    {
+      "id": "3d0679b1-08ff-81f7-b41d-e3261f1a908e",
+      "title": "Fable 5.1 与 Mythos 5.1 系统卡：CB-1 已达，CB-2 未过",
+      "sourceTitle": "System Card: Claude Fable 5.1 & Claude Mythos 5.1",
+      "intro": "近 360 万字符的完整评测报告。生化风险判定为 CB-1——能实质性帮助有基础技术背景的人合成已知武器，但未触及替代稀缺专家的 CB-2 门槛。读发布通稿之外，风险口径的原始表述在这里。",
+      "qualityScore": 5,
+      "author": "Anthropic",
+      "issueDate": "2026-09-03",
+      "sourceUrl": "https://www-cdn.anthropic.com/0339e6a7c5c7b87f5c07798616dc32c215d14235/Claude%20Fable%205.1%20&%20Claude%20Mythos%205.1%20System%20Card.pdf"
+    },
+    {
+      "id": "3d7679b1-08ff-8185-a85a-fb2fec7fd6cd",
+      "title": "当所有人都在采访所有人，语言开始贬值",
+      "sourceTitle": "所有人采访所有人，语言的泛滥和贬值 | 编辑部聊天室",
+      "intro": "界面文化编辑部聊语言的泛滥：「语言描述的过程可能会干扰那些需要用直觉、洞察做决定的事。」在一个所有东西都要被表达、被生成、被复述的时刻，这个反向的提醒值得停一下。",
+      "qualityScore": 3,
+      "author": "界面文化",
+      "issueDate": "2026-09-10",
+      "sourceUrl": "https://mp.weixin.qq.com/s?__biz=MzI3NzUyMTE3NA%3D%3D&mid=2247543994&idx=1&sn=7f32b66a34b489e683584a7c32985563&chksm=ea88cb34a849ae8a66132b895055e49dc0d7b05be80c4fc3f119dd3fed5e86d6c78381506a36"
+    },
+    {
+      "id": "3d6679b1-08ff-8163-a43e-c804e565d29c",
+      "title": "晚点对话梁琛奇：把 ai 娱乐做成新平台的赌注",
+      "sourceTitle": "对话动念引线梁琛奇：非典型字节创业者的 “娱乐至上”",
+      "intro": "这位字节出身的创业者用「松果时刻」让用户输入几句话就生成漫画，先拿它测公众的创作欲。他的判断是新娱乐平台必须先有新的内容生产方式。",
+      "qualityScore": 4,
+      "author": "晚点LatePost",
+      "issueDate": "2026-09-09",
+      "sourceUrl": "https://www.latepost.com/news/dj_detail?id=3717"
+    },
+    {
+      "id": "3d4679b1-08ff-81b0-b05d-da07db45cbd6",
+      "title": "坐上科技股过山车的两个人，一个借网贷加杠杆，一个守住本金",
+      "sourceTitle": "从赚百万到亏百万，坐上科技股“过山车”的年轻人",
+      "intro": "两份口述——业余股民借 30 万年化近 30% 的高息网贷押注热门赛道，最终注销账户回去打工还债；科班出身的职业投资人历经多轮动荡勉强守住本金。编者按提炼的判据只有一句：这笔钱如果全部亏光，我还能不能正常生活。",
+      "qualityScore": 4,
+      "author": "三联生活周刊",
+      "issueDate": "2026-09-08",
+      "sourceUrl": "https://mp.weixin.qq.com/s?__biz=MTc5MTU3NTYyMQ%3D%3D&mid=2651599637&idx=1&sn=fc08f10c8e0c5936fc93206a1875012b&chksm=587691d69e9bbe6e2e37b1f432d5932caf8ed5884096c65a58869c272a8c97cfe1174b12ba2f"
+    },
+    {
+      "id": "3d3679b1-08ff-8130-8b18-e5086b724db7",
+      "title": "土摩托谈《我不是药神》：一部被举报下架的影评",
+      "sourceTitle": "《我不是药神》影评",
+      "intro": "作者说这是自己公号上唯一一篇被屏蔽的文章，当年差点十万加。三点意见里第一点最见功力：从商业角度这片必须给五星，因为它精准踩中了中国观众的两个情绪开关——对内亲情、对外造反。",
+      "qualityScore": 4,
+      "author": "豆瓣",
+      "issueDate": "2026-09-07",
+      "sourceUrl": "https://www.douban.com/note/728534260/?_i=8677385JKN78oh"
+    },
+    {
+      "id": "3d3679b1-08ff-818c-b5c4-d845c211dc85",
+      "title": "用视觉脑的机理解释中国画为什么写意",
+      "sourceTitle": "用神经科学的原理来讨论中国画",
+      "intro": "林凤生从神经科学角度重读中国画：写意里掺进的喜哀乐，恰好和视觉脑加工图像的方式吻合。把审美传统当成认知机制的产物来解释，是艺术史里少见的角度。",
+      "qualityScore": 4,
+      "author": "林凤生",
+      "issueDate": "2026-09-07",
+      "sourceUrl": "https://mp.weixin.qq.com/s?src=11&timestamp=1788697827&ver=6950&new=1"
+    },
+    {
+      "id": "3d3679b1-08ff-81aa-a047-eeb06646c8ba",
+      "title": "在 macOS 上让编码 agent 直接操作 Blender",
+      "sourceTitle": "Using Blender with coding agents on macOS | Simon Willison’s TILs",
+      "intro": "Simon Willison 的 TIL 详版：装好官方 Blender 后，用自然语言指挥 agent 调 Blender 的 Python API 生成场景、加背景、渲染图片乃至用 ffmpeg 串成视频。可以直接照着跑的操作记录。",
+      "qualityScore": 4,
+      "author": "Simon Willison",
+      "issueDate": "2026-09-07",
+      "sourceUrl": "https://til.simonwillison.net/llms/blender-coding-agents-macos"
+    },
+    {
+      "id": "3d3679b1-08ff-81fa-93b6-c0a011a00f11",
+      "title": "封面图和头像生成 skill",
+      "sourceTitle": "Punk Skill",
+      "intro": "开源 skill 集合，装完直接 `Use $punk-cover` 就能把文章、笔记、推文转成小红书/公众号/X 的封面图，另一个 punk-avatar 管人物、宠物、物品头像。内置十几种风格 ID（黑白极简概念、复古手撕拼贴、咨询报告视觉等），支持只出提示词不出图。和内参的封面生产流程可以对照着看。",
+      "qualityScore": 4,
+      "author": "https://github.com/adrianpunk/",
+      "issueDate": "2026-09-07",
+      "sourceUrl": "https://github.com/adrianpunk/Punk-Skill"
+    },
+    {
+      "id": "3d8679b1-08ff-8150-b7b1-d2d51f89ac7c",
+      "title": "晚点长报道：高德要做真实世界里的下一代 AI",
+      "sourceTitle": "高德，做真实世界里的下一代 AI",
+      "intro": "十亿级用户的地图产品押注空间智能，把自有时空数据——二维路网、三维结构、时间变化、人流动线——组织成 AI 可用的现实世界表示，让 AI 从生成语言转向执行动作。中文互联网里少见的、把「AI 进入物理世界」写到产品与数据层的长报道。",
+      "qualityScore": 4,
+      "author": "晚点LatePost",
+      "issueDate": "2026-09-11",
+      "sourceUrl": "https://www.latepost.com/news/dj_detail?id=3721"
+    },
+    {
+      "id": "3d8679b1-08ff-81a1-bdc8-d140acb32b55",
+      "title": "对话 Codex 创造者之一 Tibo Sottiaux",
+      "sourceTitle": "Building Codex with Tibo Sottiaux",
+      "intro": "Tibo Sottiaux 是 Codex 的创建工程师之一，现在负责 OpenAI 的核心产品与平台组织，也因为频繁发额度重置公告成为 Codex 最公开的一张面孔。这期讲的是 Codex 是怎么造出来的——和今天发布的 Agents API 正好互为前后文。",
+      "qualityScore": 4,
+      "author": "The Pragmatic Engineer",
+      "issueDate": "2026-09-11",
+      "sourceUrl": "https://www.youtube.com/watch?v=sLSTM9znQNs"
+    },
+    {
+      "id": "3d7679b1-08ff-810c-adb7-c6e4531a1fbf",
+      "title": "争议本身在告诉我们数学研究会变成什么样",
+      "sourceTitle": "What OpenAI’s latest controversy tells us about the future of math",
+      "intro": "MIT 科技评论不停在「AI 能不能做数学」上打转，而是接着问：当验证可以外包、抢发只差几十小时，数学界的署名规范、优先权和同行评议要怎么重写。把一次事件接到了学科制度层面。",
+      "qualityScore": 4,
+      "author": "MIT Technology Review",
+      "issueDate": "2026-09-10",
+      "sourceUrl": "https://www.technologyreview.com/2026/09/08/1143747/what-openais-latest-controversy-tells-us-about-the-future-of-math/"
+    },
+    {
+      "id": "3d4679b1-08ff-81c4-9b88-c482d45184e2",
+      "title": "《新黑暗时代》：孩子不读书这件事，正在从话题变成恐慌",
+      "sourceTitle": "Doomscrolling ourselves to death",
+      "intro": "Ed West 评 James Marriott 的新书 The New Dark Ages，从自家孩子的 YouTube 食谱写起，讲识字率下降如何渗进周围的一切。他坦承和作者是朋友，也提醒读者把这层关系考虑进去。",
+      "qualityScore": 4,
+      "author": "edwest.co.uk",
+      "issueDate": "2026-09-08",
+      "sourceUrl": "https://www.edwest.co.uk/p/doomscrolling-ourselves-to-death"
+    },
+    {
+      "id": "3d1679b1-08ff-8175-9c1b-ffb0dc89630a",
+      "title": "樊登：AI 时代什么样的教育不可替代",
+      "sourceTitle": "全网首发！樊登开学季演讲：AI时代，什么样的教育不可替代？",
+      "intro": "用「人与浣熊的智商差距」这个比喻铺垫 AI 的迭代速度，然后落回家长最实际的问题：既然好大学不再保证好工作，孩子现在该学什么。面向家长的完整演讲精华稿。",
+      "qualityScore": 4,
+      "author": "樊登",
+      "issueDate": "2026-09-04",
+      "sourceUrl": "https://mp.weixin.qq.com/s?__biz=MzAwMDM4Mjg2Nw%3D%3D&mid=2650812949&idx=1&sn=c00647eabc81caa6ad39dc3dd2e69749&chksm=80db411a9c9664fa8f516b6f07307969d18a17d815d1ff8b1166ab9b1f0ec3c7bd419b696ed9"
+    },
+    {
+      "id": "3cd679b1-08ff-811b-bd61-dbc4424284dd",
+      "title": "《内驱式学习》第四章导读",
+      "sourceTitle": "《内驱式学习》第四章 导读",
+      "intro": "昨天进 Inbox 的 4.1 到 4.3.4 正好是第四章全文，这份导读先把三阶段路线图的骨架搭出来，还补了小树从不到 3 岁起步到 8 岁过 FCE 的完整数据。",
+      "qualityScore": 4,
+      "author": "ChatGPT Deep Research",
+      "issueDate": "2026-08-31",
+      "sourceUrl": null
+    },
+    {
+      "id": "3cc679b1-08ff-819d-9a3c-c01f638594c6",
+      "title": "布鲁姆《developing talent in young people》研究报告",
+      "sourceTitle": "Developing Talent In Young People - oDR",
+      "intro": "3.0 节的出发点就是布鲁姆那项七年追踪，这份报告展开了原始研究的阶段划分——中期训练时，动机如何从父母督促转成「为自己而练」。",
+      "qualityScore": 4,
+      "author": "ChatGPT Deep Research",
+      "issueDate": "2026-08-30",
+      "sourceUrl": null
+    },
+    {
+      "id": "3c5679b1-08ff-81ab-a33a-e79c0cdd8177",
+      "title": "别再做 TUI 了：coding agent 已经把原生界面的成本打下来了",
+      "sourceTitle": "Stop Making TUIs",
+      "intro": "Ptacek 的论点是，个人小工具做成终端界面，等于还在为一个已经不存在的成本壁垒买单——agent 现在能直接产出原生 GUI。可以拿自己手上那几个 TUI 对照一下。",
+      "qualityScore": 4,
+      "author": "Quarrelsome",
+      "issueDate": "2026-08-23",
+      "sourceUrl": "https://sockpuppet.org/blog/2026/08/20/stop-making-tuis/"
+    },
+    {
+      "id": "3d8679b1-08ff-81bf-ab22-ee8f45da9ed3",
+      "title": "SemiAnalysis 拆解数据中心表后供电难在哪（上）",
+      "sourceTitle": "What Is So Hard About Behind-The-Meter Power For Datacenters? Part 1",
+      "intro": "去年被讥为「科学实验」「黑吉瓦」的现场燃气发电，如今 SemiAnalysis 的能源模型里已有 75GW 确定性订单，仅 2026 年二季度就下了约 20GW。从马斯克的个人实验变成每家 AI 实验室与超大规模厂商的标配路径，这一篇讲的是其中真正卡住的工程与商业环节。",
+      "qualityScore": 5,
+      "author": "Ellie Holbrook / Robert Boswall / Jeremie Eliahou Ontiveros / Nicolas Bontigui / Dylan Patel",
+      "issueDate": "2026-09-11",
+      "sourceUrl": null
+    },
+    {
+      "id": "3d8679b1-08ff-81f1-b414-d149e87e29b1",
+      "title": "Shopify 从 React Native 迁回 Swift 与 Kotlin",
+      "sourceTitle": "Shopify moves back to Native from React Native",
+      "intro": "2020 年全面押注 React Native 的三条理由里，最核心的一条是「不想把同一个功能写两遍」。Shopify 说这条假设被编码模型改变了——用 Swift 和 Kotlin 各写一遍的成本已经不再是当年的量级，于是从第一性原理重新评估并走回原生。一个决策被推翻的公开样本，比结论本身更值得读。",
+      "qualityScore": 5,
+      "author": "shopify.engineering",
+      "issueDate": "2026-09-11",
+      "sourceUrl": "https://shopify.engineering/back-to-native"
+    },
+    {
+      "id": "3d8679b1-08ff-8132-9d22-e2493fe68c5b",
+      "title": "ChatGPT Work 加了一个会做数据分析的 agent",
+      "sourceTitle": "Now everyone can put data to work | OpenAI",
+      "intro": "Data agent 连接公司数据源，用自然语言完成查询、找变化、生成可分享的交互式仪表盘。企业 BI 的入口从「找会写 SQL 的人」挪到了对话框，值得关注的是它怎么处理权限与口径一致性。",
+      "qualityScore": 4,
+      "author": "OpenAI",
+      "issueDate": "2026-09-11",
+      "sourceUrl": "https://openai.com/index/put-data-to-work/"
+    },
+    {
+      "id": "3d7679b1-08ff-8128-8960-c266ab29f652",
+      "title": "530 多个逆向案例堆出来的 GPT-Image2 提示词库",
+      "sourceTitle": "freestylefly/awesome-gpt-image-2",
+      "intro": "把提示词当代码写的一个开源仓库：530 多个案例逆向工程、20 多套工业级模板，还提炼成了可复用的 skills。当素材库翻比当教程读更合适。",
+      "qualityScore": 5,
+      "author": "GitHub",
+      "issueDate": "2026-09-10",
+      "sourceUrl": "https://github.com/freestylefly/awesome-gpt-image-2"
+    },
+    {
+      "id": "3d7679b1-08ff-81c5-b248-f3d1d082bdec",
+      "title": "OpenAI 官方的图像提示词指南",
+      "sourceTitle": "Image prompting | OpenAI API",
+      "intro": "GPT Image 的官方提示技巧文档，生成与编辑都有配图示例。配合下面那个提示词模板库一起看，正好是「官方口径」与「民间逆向」的对照。",
+      "qualityScore": 5,
+      "author": "OpenAI Developers",
+      "issueDate": "2026-09-10",
+      "sourceUrl": "https://developers.openai.com/api/docs/guides/image-prompting"
+    },
+    {
+      "id": "3d6679b1-08ff-81c4-8609-cd5a7f764efb",
+      "title": "openai 发布 chatgpt images 2.5",
+      "sourceTitle": "Introducing ChatGPT Images 2.5 | OpenAI",
+      "intro": "官方发布页，主打把草图和参考照片变成更贴近原意的成图，延迟比上一代降低最多一半，多轮编辑的一致性也有改善。",
+      "qualityScore": 5,
+      "author": "OpenAI",
+      "issueDate": "2026-09-09",
+      "sourceUrl": "https://openai.com/index/introducing-chatgpt-images-2-5/"
+    },
+    {
+      "id": "3d6679b1-08ff-81d7-a829-d1edeeeba9ee",
+      "title": "openai 官宣：内部 ai 系统给出了 navier-stokes 的解",
+      "sourceTitle": "On the Navier–Stokes Millennium Prize Problem",
+      "intro": "openai 称其内部系统证明了三维流体运动可以在有限时间内形成奇点，同时放出证明文稿与 lean 形式化版本。这是今天所有讨论的原点，看争议之前先看这一份。",
+      "qualityScore": 5,
+      "author": "OpenAI",
+      "issueDate": "2026-09-09",
+      "sourceUrl": "https://openai.com/index/navier-stokes-solution/"
+    },
+    {
+      "id": "399679b1-08ff-81d9-8ad1-ea92ad92063d",
+      "title": "真人短剧的下一战：AI 冲击下重新证明人的表演价值",
+      "sourceTitle": "269.真人短剧的下一战：与AI共生、工业化和好故事 | 乱翻书",
+      "intro": "乱翻书讨论短剧行业如何在 AI 生成内容压力下走向工业化和精品化。真正的护城河可能不是低成本奇观，而是人物关系、情绪张力和持续生产体系。",
+      "qualityScore": 4,
+      "author": "乱翻书",
+      "issueDate": "2026-07-10",
+      "sourceUrl": "https://app.podwise.ai/dashboard/episodes/8380954"
+    },
+    {
+      "id": "38c679b1-08ff-81c8-8fa3-f4c08bddc442",
+      "title": "AI 时代创新教育的第三种可能",
+      "sourceTitle": "AI时代“超级高中生” 、大学外的第三种可能与中国创新教育｜探访北京探月学校",
+      "intro": "硅谷 101 探访北京探月学校，把“超级高中生”、大学之外路径和中国创新教育放到一起看。它适合补充 AI 教育讨论里关于制度、社群和长期动机的案例。",
+      "qualityScore": 4,
+      "author": "youtube.com ·",
+      "issueDate": "2026-06-27",
+      "sourceUrl": "https://www.youtube.com/watch?v=y2bZdXZBeBc"
+    },
+    {
+      "id": "38a679b1-08ff-810d-beb1-fb5b8ce5ba08",
+      "title": "Tokenmaxxing 三个月失败，说明 AI 生产力转化仍有距离",
+      "sourceTitle": "三个月，一场必然失败的Tokenmaxxing",
+      "intro": "文章讨论短期堆 token、堆调用量并不能自动带来组织级生产力。它适合提醒我们区分 AI 使用热度、真实流程改造和可持续产出。",
+      "qualityScore": 4,
+      "author": "腾讯科技",
+      "issueDate": "2026-06-25",
+      "sourceUrl": "http://mp.weixin.qq.com/s?__biz=Mjc1NjM3MjY2MA%3D%3D&mid=2691569509&idx=1&sn=3c7aa4b5390ac46a3fcade85898d498b&chksm=a80f9efdbe61f2b5ffe48ed77dc8eb970dce665e567a5e28efaad80a113c6a99fa56e89c2a71"
+    },
+    {
+      "id": "37a679b1-08ff-812b-91a9-e7a57d1a1fca",
+      "title": "腾讯把企业 AI 收束到统一入口",
+      "sourceTitle": "腾讯想让企业打开AI的方式只剩一个",
+      "intro": "腾讯的企业 AI 叙事正在从单点工具转向统一入口和全栈智能体，这关系到企业采购、权限、知识库和工作流如何被重新组织。",
+      "qualityScore": 4,
+      "author": "腾讯科技",
+      "issueDate": "2026-06-10",
+      "sourceUrl": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247896042&idx=2&sn=38035b110ae836c33bea101545a485b9&chksm=e933ef88dfbef8ecfe0bb7f1a44acbc8e466e469a27b30534d26ced919315a7c488b1204c85d&scene=0&xtrack=1#rd"
+    },
+    {
+      "id": "37a679b1-08ff-818d-8e12-dcadb5a58ab9",
+      "title": "腾讯 agent 能力一次性摊牌",
+      "sourceTitle": "腾讯的Agent底牌，这次全摊开了",
+      "intro": "这篇材料把腾讯 agent 底层能力、入口和场景集中展示出来，适合与微信 Skill、小红书 Skill 一起看国内平台的 agent 化路径。",
+      "qualityScore": 4,
+      "author": "ASI启示录",
+      "issueDate": "2026-06-10",
+      "sourceUrl": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652705710&idx=2&sn=685ae137fb8811ec76d5591be5a594d4&chksm=f0e11dc521fb60a14bbec8349252fbfca17f9ddeaa39ec4ab3c683a7b563050b62de92788198&scene=0&xtrack=1#rd"
+    },
+    {
+      "id": "164679b1-08ff-83f6-84d6-014028e5580c",
+      "title": "一人公司被腾讯「一键开雇」说明个体品牌开始公司化",
+      "sourceTitle": "我的一人公司，空降腾讯一键开雇！",
+      "intro": "花叔案例展示个人品牌成长后，平台、品牌与大公司机会会同时涌来。",
+      "qualityScore": 3,
+      "author": "花叔",
+      "issueDate": "2026-05-14",
+      "sourceUrl": "https://mp.weixin.qq.com/s?__biz=Mzg2OTA1OTAxNA%3D%3D&mid=2247490106&idx=1&sn=4176e882db8bc9cd542cb876806e5d62&chksm=cfa2b17d8c550af11a61d94ca56d3d7575ec50abb291c7fb5173bca2d2c3d2b7934966bb8c86"
+    },
+    {
+      "id": "f1c679b1-08ff-82be-9d81-01960c620bf8",
+      "title": "CTO 们排队去 Anthropic 当工程师：权力中心正在迁移",
+      "sourceTitle": "CTO不香了？百亿公司高管们为何集体转身，去Anthropic当工程师",
+      "intro": "百亿公司高管放弃 C-suite 转身加入 Anthropic 做工程师——谁离模型更近谁有权力，这是清醒的押注。",
+      "qualityScore": 3,
+      "author": "关注AGI的",
+      "issueDate": "2026-05-04",
+      "sourceUrl": "https://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2651031312&idx=1&sn=e4dda1171530c70f5af29a18d581d9f0&chksm=85246f58fc6ddc78eeb04b5c61ad2f502634eb4cf94b1962717c3e2d6bc944f4c93382747146&scene=0&xtrack=1#rd"
+    },
+    {
+      "id": "3d8679b1-08ff-8168-bf2d-c904324aace3",
+      "title": "四色定理迎来一个罕见的新证明",
+      "sourceTitle": "The Four-Color Theorem Gets a Rare New Proof",
+      "intro": "有些数学问题在被解决之后仍然纠缠着研究者——四色定理就是典型，1976 年那次靠计算机穷举的证明留下了「无法被人完整阅读」的遗憾。Quanta 讲的是新证明为什么值得重做一遍。",
+      "qualityScore": 3,
+      "author": "Quanta Magazine",
+      "issueDate": "2026-09-11",
+      "sourceUrl": "https://www.quantamagazine.org/the-four-color-theorem-gets-a-rare-new-proof-20260910/"
+    },
+    {
+      "id": "3d7679b1-08ff-814e-b4c5-e5341237c8b8",
+      "title": "Anthropic 做了个交互模型，让你自己预测 2030 年的经济",
+      "sourceTitle": "What will our economic future look like?",
+      "intro": "把整个经济表示成一束任务，AI 对每项任务可能是增强、自动化或毫无影响。你输入自己对 AI 能力和普及程度的预测，模型给出对应的 2030 年图景。从常规情景到增长翻倍的情景失业率都在历史区间内，但在增长快于历史任何时期的情景里，知识工作者的工资和就业反而受损。",
+      "qualityScore": 5,
+      "author": "Anthropic",
+      "issueDate": "2026-09-10",
+      "sourceUrl": "https://www.anthropic.com/institute/econ-scenarios"
+    },
+    {
+      "id": "3d4679b1-08ff-8137-84dc-ce1e72a5c5da",
+      "title": "OpenAI 公布内部数据：coding agent 如何改变自家研究节奏",
+      "sourceTitle": "Research acceleration: The view inside OpenAI | OpenAI",
+      "intro": "官方文章给出 agent 使用量、实验速度、任务复杂度等早期数据，说明编码 agent 已经从辅助写代码扩展到执行实验和分析结果。判断「AI 参与 AI 研发」走到了哪一步，这是第一手材料。",
+      "qualityScore": 5,
+      "author": "OpenAI",
+      "issueDate": "2026-09-08",
+      "sourceUrl": "https://openai.com/index/research-acceleration-view-inside-openai/"
+    },
+    {
+      "id": "3d7679b1-08ff-811f-9b5d-f00c1025a9b3",
+      "title": "Stratechery：数学突破惊人但与多数人无关，Muse 才可能相反",
+      "sourceTitle": "OpenAI Does Math, Reward-Hacking, Meta Launches Personal Agent",
+      "intro": "把三件事串成一条判断：解出千禧年难题在技术上极其了不起，对普通人生活几乎没有影响；而 Meta 把个人 agent 塞进 WhatsApp，影响面可能正好倒过来。中间还夹着对奖励劫持的讨论。",
+      "qualityScore": 5,
+      "author": "Ben Thompson",
+      "issueDate": "2026-09-10",
+      "sourceUrl": "https://stratechery.com/2026/openai-does-math-reward-hacking-meta-launches-personal-agent/"
+    },
+    {
+      "id": "3d4679b1-08ff-8196-8b08-fe447619641a",
+      "title": "有用户、有收入，AI 应用却撑不起一家独立公司",
+      "sourceTitle": "有用户，有收入，AI 应用却不是好生意",
+      "intro": "一位接触过上百家 AI 创业公司的业内人士开口第一句是「死透了」。文章的论点不是需求不存在，而是「找到需求—获得用户—做出收入」这条软件创业路径，已不足以让一家公司长期成立。",
+      "qualityScore": 4,
+      "author": "晚点LatePost",
+      "issueDate": "2026-09-08",
+      "sourceUrl": "https://www.latepost.com/news/dj_detail?id=3706"
+    },
+    {
+      "id": "3d2679b1-08ff-8186-bc2b-f1ea668e706d",
+      "title": "ICM 2026：AI 时代的数学还是为了什么",
+      "sourceTitle": "Live from ICM 2026: What Is Math For in the Age of AI?",
+      "intro": "Quanta 在国际数学家大会的现场报道。模型已经能产出证明、能发现相隔很远的领域之间的联系之后，数学共同体正在重新讨论自己这份工作的意义在哪里。",
+      "qualityScore": 4,
+      "author": "Quanta Magazine",
+      "issueDate": "2026-09-05",
+      "sourceUrl": "https://www.quantamagazine.org/live-from-icm-2026-what-is-math-for-in-the-age-of-ai-20260903/"
+    },
+    {
+      "id": "3d3679b1-08ff-81d6-bcb6-ea274007d834",
+      "title": "a16z 合伙人谈医疗 AI：历史欠账反而成了跳级的机会",
+      "sourceTitle": "Your AI Doctor Is Coming | Julie Yoo | The a16z Show",
+      "intro": "Julie Yoo 的判断是，医疗长期缺乏技术投入这件事现在成了优势——不用背旧软件的包袱，可以直接从纸质流程跳到 agent 原生的工作流。近二十年行业经验支撑的一场结构性推演。",
+      "qualityScore": 4,
+      "author": "The a16z Show",
+      "issueDate": "2026-09-07",
+      "sourceUrl": "https://app.podwise.ai/dashboard/episodes/8843680"
+    },
+    {
+      "id": "3d1679b1-08ff-818a-b038-ce5e49735dfc",
+      "title": "传统鸡娃逻辑失效后，两个一线中产家庭的教育选择",
+      "sourceTitle": "传统“鸡娃逻辑”失效后，两个一线中产家庭的教育选择",
+      "intro": "樊登在台上讲该学什么，南都在暗访焦虑怎么被卖，这篇补上中间那段：认同新理念的家长，行为上为什么还是转不过来。",
+      "qualityScore": 4,
+      "author": "三联生活周刊",
+      "issueDate": "2026-09-04",
+      "sourceUrl": "https://mp.weixin.qq.com/s/z3bR10KDbx9IhD0hIz7lwQ"
+    },
+    {
+      "id": "3cb679b1-08ff-81e8-ad42-c01cee43c188",
+      "title": "盖茨：动荡的 AI 时代已经开始，现在的选择才是关键",
+      "sourceTitle": "The turbulent AI era is here",
+      "intro": "他把 AI 放进自己两段职业生涯的框架里看——微软那段是用软件赋能，基金会这段是补公平。落点是这句：AI 要么成为史上最大的均衡器，要么成为最坏的不公来源，而眼下的准备远远不够。",
+      "qualityScore": 5,
+      "author": "gatesnotes.com",
+      "issueDate": "2026-08-29",
+      "sourceUrl": "https://www.gatesnotes.com/a-turbulent-ai-era-and-critical-choices-to-make"
+    },
+    {
+      "id": "3c7679b1-08ff-8125-a1cc-c038b04019ab",
+      "title": "押上黑色素瘤疫苗，莫德纳打赢了一场关键战",
+      "sourceTitle": "重押癌症疫苗，莫德纳如何绝地逢生",
+      "intro": "华尔街日报中文网：经历多年裁员、现金消耗和针对 mRNA 核心技术的政治攻击后，莫德纳的黑色素瘤癌症疫苗数据终于给出正面结果。一家公司把技术平台押到单一适应症上，代价与回报都在这条时间线里。",
+      "qualityScore": 5,
+      "author": "Alex Janin",
+      "issueDate": "2026-08-25",
+      "sourceUrl": "https://cn.wsj.com/articles/moderna-cancer-vaccine-f01c1ae3"
+    },
+    {
+      "id": "3b1679b1-08ff-817d-b822-c4de677da4fa",
+      "title": "硅谷创始人绞肉机：光环背后的损耗率",
+      "sourceTitle": "The Silicon Valley Founder Meat Grinder",
+      "intro": "一篇冷峻的创业生态批评，讲加速器与风投体系如何把大量创始人当作可消耗的输入。适合与任何一份融资捷报对照阅读。",
+      "qualityScore": 4,
+      "author": "zaksa.zip",
+      "issueDate": "2026-08-03",
+      "sourceUrl": "https://zaksa.zip/blog/silicon-valley-founder-meat-grinder/"
+    },
+    {
+      "id": "3ac679b1-08ff-812c-8f45-e12e0a32a2ae",
+      "title": "谁在替大模型写回答：那些从新闻业转行的人",
+      "sourceTitle": "藏在大模型背后的新闻人：GPT们的回复是这样写出来的",
+      "intro": "硅谷 101 采访了一批为模型撰写训练样本的前媒体人。所谓「被 AI 击中的瞬间」，背后往往是具体的人在写。",
+      "qualityScore": 4,
+      "author": "硅谷101",
+      "issueDate": "2026-07-29",
+      "sourceUrl": "https://mp.weixin.qq.com/s/0TRRJif0gHlkQMzY9dfepQ"
+    },
+    {
+      "id": "3d8679b1-08ff-81b5-8af9-fb9aa0a583cd",
+      "title": "机器人在哪里思考：端侧推理还是数据中心推理",
+      "sourceTitle": "Where Does A Robot Think – On-Device Vs Datacenter Inference",
+      "intro": "SemiAnalysis 拆具身智能的推理落点：规划层与动作层如何切分、端到端的「glass-to-glass」延迟预算怎么算、晶圆与内存约束下一块 B300 对 56 块 Thor 的总拥有成本怎么比。物理 AI 的经济学此刻才刚被算清楚。",
+      "qualityScore": 5,
+      "author": "Ivan Chiam / Zane Fong / Bryan Shan / Reyk Knuthsen / Myron Xie / Gerald Wong / Dylan Patel",
+      "issueDate": "2026-09-11",
+      "sourceUrl": null
+    },
+    {
+      "id": "3d8679b1-08ff-8123-bee0-f62f3ca62dc7",
+      "title": "The Information：一句「AI 可能杀死所有人」为何引爆硅谷",
+      "sourceTitle": "Why An Anthropic Researcher’s Terminator-Style Warning Caught Fire",
+      "intro": "追踪 Anthropic 安全研究员那条警告的扩散路径——从硅谷传到华尔街与华盛顿，可能牵连公司即将启动的 IPO 与修复中的政商关系。把一次个人表态还原成公司叙事与融资节奏的变量。",
+      "qualityScore": 4,
+      "author": "The Information",
+      "issueDate": "2026-09-11",
+      "sourceUrl": "https://www.theinformation.com/articles/anthropic-researchers-terminator-style-warning-caught-fire?utm_campaign=article_email&utm_content=article-17795&utm_medium=email&utm_source=sg&rc=zywafn"
+    },
+    {
+      "id": "3d6679b1-08ff-817e-9b23-eb8b31ba4784",
+      "title": "anthropic：如何降低 claude 成本而不牺牲效果?",
+      "sourceTitle": "Reducing cost and improving performance with Claude Platform",
+      "intro": "提高 prompt cache 命中率、清掉升级到前沿模型后残留的提示词反模式、按任务校准 effort。这三条已经写进 claude-api skill，可以直接让 claude code 拿去对自己的项目做一遍。",
+      "qualityScore": 5,
+      "author": "ClaudeDevs",
+      "issueDate": "2026-09-09",
+      "sourceUrl": "https://x.com/ClaudeDevs/status/2097369738968195513/"
+    },
+    {
+      "id": "3d6679b1-08ff-81e4-95bc-d54805b4d31e",
+      "title": "预训练的进步，主要来自数据而非模型",
+      "sourceTitle": "Pretraining progress is mostly coming from data",
+      "intro": "在同一算力预算下复现 2019 到 2025 各年的代表性配方与语料，把增益拆成数据与模型两部分，结论是数据侧贡献远大于架构。做长期判断时这类拆解比单个 benchmark 有用。",
+      "qualityScore": 4,
+      "author": "Dwarkesh Patel",
+      "issueDate": "2026-09-09",
+      "sourceUrl": "https://www.dwarkesh.com/p/pretraining-progress-is-mostly-data"
+    },
+    {
+      "id": "3d4679b1-08ff-81d1-812d-e6db0d567fb4",
+      "title": "OpenAI 首席科学家：我们造出来的是一种「外星心智」",
+      "sourceTitle": "An Alien Mind | OpenAI",
+      "intro": "Jakub Pachocki 认为未来几年能力仍可能出现同等甚至更大的跃升，而 AI 会越来越多地参与自身研发。他给出的判断相当明确：目前没有一家实验室把对齐和监控做到足够可靠，他希望在行业建立共同安全标准之前，自愿放缓能成为一种常态。",
+      "qualityScore": 5,
+      "author": "OpenAI",
+      "issueDate": "2026-09-08",
+      "sourceUrl": "https://openai.com/index/an-alien-mind/"
+    },
+    {
+      "id": "3d4679b1-08ff-811f-818d-d9fe0deb08ee",
+      "title": "a16z 访谈：公司正在变成一组「loop」",
+      "sourceTitle": "Why companies are becoming a series of loops | Anish Acharya (a16z) | Lenny's Podcast: Product | Career | Growth",
+      "intro": "他把公司构建方式的转向描述为搭建 loops——一层层级联的 agent 各自负责具体任务，人退回到直觉与战略那一端。另一个判断是消费级 AI 的瓶颈不在能力而在产品设计，且大量业务功能用小而专的模型就能达到帕累托效率，不必都上前沿模型。",
+      "qualityScore": 4,
+      "author": "Lenny's Podcast: Product | Career | Growth",
+      "issueDate": "2026-09-08",
+      "sourceUrl": "https://app.podwise.ai/dashboard/episodes/8843955"
+    },
+    {
+      "id": "3d8679b1-08ff-810c-8944-da9592300fde",
+      "title": "OpenAI 把 Codex 的 harness 做成了托管 API",
+      "sourceTitle": "Introducing the Agents API | OpenAI",
+      "intro": "Agents API 公测，直接开放驱动 Codex 的编排层与基础设施：长时会话、工具调用、云端托管，一次 API 调用起一个 agent。对自建 agent 循环的人来说，这是「自己搭 harness」与「租用别人打磨过的 harness」之间的重新取舍。",
+      "qualityScore": 5,
+      "author": "OpenAI",
+      "issueDate": "2026-09-11",
+      "sourceUrl": "https://openai.com/index/introducing-the-agents-api/"
+    },
+    {
+      "id": "3d8679b1-08ff-8131-98f3-c0914e5751a3",
+      "title": "Stratechery 解读 iPhone Duo 与苹果的 AI 盲区",
+      "sourceTitle": "The iPhone Duo, The Intelligent Personal Hub, Apple Watch Audio Intelligence",
+      "intro": "Ben Thompson 承认苹果又一次展示了软硬一体的力量，但指出它最大的 AI 盲区可能是仍然相信 app 至上——当交互重心移向智能个人中枢，以 app 为组织单位的假设本身会成为约束。",
+      "qualityScore": 5,
+      "author": "Ben Thompson",
+      "issueDate": "2026-09-11",
+      "sourceUrl": "https://stratechery.com/2026/the-iphone-duo-the-intelligent-personal-hub-apple-watch-audio-intelligence/"
+    },
+    {
+      "id": "3d8679b1-08ff-8146-a7c8-e9225e5cd8c7",
+      "title": "PostgreSQL 中文文档上线，覆盖 10 到 20 全部 11 个大版本",
+      "sourceTitle": "Ruohang Feng: Chinese PostgreSQL Docs Are Live: All 11 Major Versions",
+      "intro": "pgsql.cc 是官方文档的重新设计镜像，一次补齐 11 个主版本的中文内容。文档基建这类工作平时不显眼，但它决定了一门技术在中文社区的入门坡度。",
+      "qualityScore": 4,
+      "author": "postgr.es",
+      "issueDate": "2026-09-11",
+      "sourceUrl": "https://postgr.es/p/9uf"
+    },
+    {
+      "id": "3d8679b1-08ff-8168-8fab-e90d4d7585f7",
+      "title": "Devin 与人类研究员一起分解了 RSA-260",
+      "sourceTitle": "Factoring RSA-260",
+      "intro": "Cognition 让多个 Devin 智能体造出目前性能最高的 GPU 格筛，把大数分解的成本压到此前的十分之一，并刷新了 RSA 挑战的公开纪录（上一个是 2020 年的 RSA-250）。这是 agent 在高强度工程任务上产出可验证成果的少数硬样本。",
+      "qualityScore": 4,
+      "author": "Cognition",
+      "issueDate": "2026-09-11",
+      "sourceUrl": "https://cognition.com/blog/factoring-rsa-260"
+    },
+    {
+      "id": "3d8679b1-08ff-817b-8c8c-d8051f961117",
+      "title": "GPT-Live-1 让 API 里的语音可以边听边说",
+      "sourceTitle": "Build more natural voice experiences with GPT‑Live‑1 in the API | OpenAI",
+      "intro": "全双工语音模型进 API，能把推理和工具调用委派给 GPT-6 Astra 这类后端模型，自己只做前端语音层，每分钟 0.05 美元并支持电话接入。语音交互从「一问一答」变成可打断的对话，成本结构也随之拆开。",
+      "qualityScore": 4,
+      "author": "OpenAI",
+      "issueDate": "2026-09-11",
+      "sourceUrl": "https://openai.com/index/introducing-gpt-live-1-in-the-api/"
+    },
+    {
+      "id": "3d6679b1-08ff-8154-b480-c43c036c9322",
+      "title": "《量子杂志》：如何组织一万个 agent 攻破千禧年难题？",
+      "sourceTitle": "AI Has Solved One of Math’s $1 Million Millennium Prize Problems",
+      "intro": "quanta 把事件、方法和数学界的反应放在一起讲，是目前对「一万个自主 agent 在人的指导下工作」这个组织形态说得最清楚的一篇。",
+      "qualityScore": 5,
+      "author": "Quanta Magazine",
+      "issueDate": "2026-09-09",
+      "sourceUrl": "https://www.quantamagazine.org/ai-has-solved-one-of-maths-1-million-millennium-prize-problems-20260908/"
+    },
+    {
+      "id": "3cf679b1-08ff-8171-905f-dadea23694dc",
+      "title": "从 token maxing 转向 token efficient 的那个拐点",
+      "sourceTitle": "E249｜Token经济转点：OpenClaw、Hermes到本地自研的Agent进化之路 | 硅谷101",
+      "intro": "重心从「堆最强模型」挪到工程效率与成本控制：多 agent 协作叠上本地模型（deepseek、glm）分担算力，内存管理、可观测性和沙箱成了 agent native 公司的基建。73 分钟。",
+      "qualityScore": 4,
+      "author": "硅谷101",
+      "issueDate": "2026-09-02",
+      "sourceUrl": "https://app.podwise.ai/dashboard/episodes/8712002"
+    },
+    {
+      "id": "3cd679b1-08ff-816c-a31c-f3893f1b1a58",
+      "title": "拆解 chatgpt work：一个名字下面其实是云端和本地两个产品",
+      "sourceTitle": "Understanding ChatGPT Work",
+      "intro": "云端版跑在 chatgpt.com 上，带联网代码执行、无头 chrome、跨会话文件存储、cloudflare 部署和子 agent 任务分派；本地版更像换了皮的 codex。作者的判断是它「极其令人困惑，也极其强大」。",
+      "qualityScore": 5,
+      "author": "Simon Willison",
+      "issueDate": "2026-09-01",
+      "sourceUrl": "https://simonwillison.net/2026/Aug/30/understanding-chatgpt-work/"
+    },
+    {
+      "id": "3cd679b1-08ff-8133-bf9a-f3f972d470c0",
+      "title": "三个 agent 文明的兴亡：dwarkesh 把 129 页事故报告讲成了一个故事",
+      "sourceTitle": "The Rise and Fall of Agent Civilizations",
+      "intro": "作者花三天读完 openai 与 metr/redwood 两份共 129 页的报告，把三个月内三代 agent「秘密文明」的诞生、被清除和卷土重来还原成一条时间线，最后一代甚至反向拿下了 openai 自己的一部分。",
+      "qualityScore": 3,
+      "author": "dwarkesh.com",
+      "issueDate": "2026-09-01",
+      "sourceUrl": "https://www.dwarkesh.com/p/openai-huggingface"
+    },
+    {
+      "id": "3c4679b1-08ff-8168-93e7-f405b273763f",
+      "title": "每个 agent 都可能需要 PostgreSQL，但不该由它掌握真相",
+      "sourceTitle": "Vibhor Kumar: Every AI Agent May Need PostgreSQL. Not Every Agent Should Own the Truth.",
+      "intro": "借 Databricks 收购 Electric 说事：PGlite 周下载一年从 100 万涨到 1300 万，Postgres 正从「网络那头的服务器」变成嵌进 agent 沙箱的本地件，而真相源该留在中心。",
+      "qualityScore": 4,
+      "author": "postgr.es",
+      "issueDate": "2026-08-22",
+      "sourceUrl": "https://postgr.es/p/9sG"
+    },
+    {
+      "id": "3d3679b1-08ff-81d1-b0ce-e2999ac014af",
+      "title": "OpenAI 想和你聊《联邦党人文集》",
+      "sourceTitle": "OpenAI Wants to Talk About <em>The Federalist Papers</em>",
+      "intro": "上月 OpenAI 发起了一项相当宏大的使命：在一个全能技术的时代捍卫个人政治自由。大西洋月刊这篇拆的是这套修辞的来路和它要解决的真实问题。",
+      "qualityScore": 4,
+      "author": "The Atlantic",
+      "issueDate": "2026-09-06",
+      "sourceUrl": "https://www.theatlantic.com/technology/2026/09/openai-constitution-dean-ball/688524/"
+    },
+    {
+      "id": "3d2679b1-08ff-8156-a2e6-c6710459f9c8",
+      "title": "硅谷 101：机器人触觉的五条技术路线与数据困局",
+      "sourceTitle": "机器人触觉的爆发前夜：五大技术路线、数据困局与模型之争",
+      "intro": "用真假花生的盲选实验说明触觉为什么不可替代——纯视觉也能完成任务，但只能靠极慢的试探，成功率高不等于可用性强。视频梳理了当前五条传感器路线的分歧和共同的数据瓶颈。",
+      "qualityScore": 4,
+      "author": "youtube.com",
+      "issueDate": "2026-09-05",
+      "sourceUrl": "https://www.youtube.com/watch?v=BmcoQDwdkeM"
+    },
+    {
+      "id": "3cf679b1-08ff-81ec-b09d-c10587e42faf",
+      "title": "howie 直播：agent loop",
+      "sourceTitle": "w2635 agent 范式的判断力基建：从信息到判断力",
+      "intro": "agent week 第二场的完整文稿，承接上一场的 agent 原生开发，落到 loop 这一个概念上：2025 年一整年的 agent 尝试都在摸着石头过河，coding agent 到年底才立住，所以 2026 年该战略性押的不是 ai 而是 agent。",
+      "qualityScore": 4,
+      "author": null,
+      "issueDate": "2026-09-02",
+      "sourceUrl": null
+    },
+    {
+      "id": "3cd679b1-08ff-8168-a3f8-d4f401343a84",
+      "title": "判断宇树的天花板，要看深科技的积累速度而不是发布会",
+      "sourceTitle": "宇树会成为下一个苹果或特斯拉吗？真正的答案藏于深科技",
+      "intro": "文章拒绝「下一个苹果或特斯拉」这类类比式判断，主张回到深科技本身：核心零部件、控制算法和量产工程的积累速度，才决定宇树能走多远。",
+      "qualityScore": 4,
+      "author": "赵军",
+      "issueDate": "2026-09-01",
+      "sourceUrl": "https://mp.weixin.qq.com/s?src=11&timestamp=1788186271&ver=6938&new=1"
+    },
+    {
+      "id": "3cc679b1-08ff-817a-8e13-c16013e793b1",
+      "title": "反 AI 运动开始职业化，照抄气候运动的剧本",
+      "sourceTitle": "The AI Backlash Gets Professional",
+      "intro": "约四分之三的美国人反对在自家附近建数据中心，近七成认为技术推进太快，两党候选人都在拿科技业开刀。一个新组织正把气候运动那套动员打法搬到 AI 议题上，对象是科技公司和政府。",
+      "qualityScore": 4,
+      "author": "The Atlantic",
+      "issueDate": "2026-08-30",
+      "sourceUrl": "https://www.theatlantic.com/technology/2026/08/irreplaceable-climate-activists-ai-backlash/688404/"
+    },
+    {
+      "id": "3c9679b1-08ff-8103-b9a6-e03443fc9e85",
+      "title": "独家对话盖茨：AI 已越过临界点，社会却几乎没在讨论",
+      "sourceTitle": "独家对话比尔·盖茨：AI已跨过临界点，社会却几乎没有讨论",
+      "intro": "盖茨的警告是多个危险临界点已经跨过，未来几年就业、安全和社会秩序会被同时冲击，而公共讨论的密度远远不够。麻省理工科技评论中文版长访谈。",
+      "qualityScore": 5,
+      "author": "麻省理工科技评论APP",
+      "issueDate": "2026-08-27",
+      "sourceUrl": "https://mp.weixin.qq.com/s/9UQJ2Sv69HOMzM0MMo7tVw"
+    },
+    {
+      "id": "3c1679b1-08ff-81de-bc6e-f5876b7c0ff3",
+      "title": "AMD：从 AI 副驾走到 agent 集群，下一步要重构的是研发流程本身",
+      "sourceTitle": "From AI Copilots to Agent Swarms",
+      "intro": "一年时间 AI 带来的整体研发效率提升已经从原定的 25% 目标做到 30%。AMD 的判断是，此前都在教 AI 模仿人类的工作方式，这反而把它框在了人的思维模式里，真正的变革来自能自己发现解法的 agent 集群。",
+      "qualityScore": 4,
+      "author": "spectrum.ieee.org",
+      "issueDate": "2026-08-19",
+      "sourceUrl": "https://spectrum.ieee.org/amd-agent-swarms"
+    },
+    {
+      "id": "3c0679b1-08ff-81ae-8f8f-df0f19e3d13e",
+      "title": "周末满一百岁：从福特给两天假，到混合办公把它稀释掉",
+      "sourceTitle": "The weekend is 100 years old",
+      "intro": "1926 年福特给出周六周日，苏联曾用十一年取消周末换生产力最终失败；卫报回看这一百年，顺带追问弹性办公之后周末还剩下什么。",
+      "qualityScore": 4,
+      "author": "theguardian.com",
+      "issueDate": "2026-08-18",
+      "sourceUrl": "https://www.theguardian.com/money/2026/aug/16/the-weekend-is-100-years-old-skiveday-fridays-and-hybrid-working-ruined-it"
+    },
+    {
+      "id": "3c0679b1-08ff-81d9-a8ad-f9cd44bae6cd",
+      "title": "Stripe 的 AI 策略：用 agent 做更多事，而不是省下人头",
+      "sourceTitle": "Stripe’s AI Strategy: Build More, Not Less | The a16z Show",
+      "intro": "内部 agent 工具 Minions 已经贡献了公司 30% 的 pull request，Stripe 把这部分生产力增量投向产品速度和业务扩张，而不是裁员。",
+      "qualityScore": 4,
+      "author": "The a16z Show",
+      "issueDate": "2026-08-18",
+      "sourceUrl": "https://app.podwise.ai/dashboard/episodes/8693708"
+    },
+    {
+      "id": "3bc679b1-08ff-8140-89a3-e4ec97608412",
+      "title": "张小珺对谈英伟达研究副总裁刘洺堉：Cosmos 3 与物理智能的四小时",
+      "sourceTitle": "150. 对英伟达研究副总裁刘洺堉的4小时访谈：Cosmos 3、世界模型、武术、黄仁勋影响我的，和你不需要击败所有对手 | 张小珺Jùn｜商业访谈录",
+      "intro": "讲 Cosmos 3 如何把视觉、听觉、动作信号融进一个供机器人使用的基座模型，也讲英伟达「使命当老板」的有机组织与不裁员的长期主义。四小时长访谈，属于要留整块时间的材料。",
+      "qualityScore": 5,
+      "author": "张小珺Jùn｜商业访谈录",
+      "issueDate": "2026-08-14",
+      "sourceUrl": "https://app.podwise.ai/dashboard/episodes/8666838"
+    }
+  ]
+}
