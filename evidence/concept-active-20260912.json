@@ -1,0 +1,2422 @@
+{
+ "meta": {
+  "generatedAt": "2026-09-12T06:52:31.993Z",
+  "source": "concept-graph-union.json + concept-curation-20260912.json + concept-edges-curated-20260912.json",
+  "rawNodeCount": 194,
+  "candidateNodeCount": 53,
+  "activeEdgeCount": 256,
+  "routeCount": 10,
+  "activeAcceptCount": 3,
+  "originalRouteAdjacencies": 46,
+  "originalInvalidRouteEdges": 14,
+  "invalidRouteEdges": 0
+ },
+ "candidateNodeIds": [
+  "C03",
+  "C06",
+  "C16",
+  "C17",
+  "C20",
+  "C21",
+  "C22",
+  "C25",
+  "C30",
+  "C36",
+  "C37",
+  "C38",
+  "C39",
+  "C40",
+  "C44",
+  "C45",
+  "C48",
+  "C49",
+  "C50",
+  "C55",
+  "C56",
+  "C64",
+  "C66",
+  "C74",
+  "C75",
+  "C94",
+  "C100",
+  "C101",
+  "C111",
+  "C112",
+  "C113",
+  "C117",
+  "C121",
+  "C122",
+  "C129",
+  "C136",
+  "C140",
+  "C150",
+  "C152",
+  "C153",
+  "C154",
+  "C156",
+  "C162",
+  "C174",
+  "C176",
+  "C181",
+  "C183",
+  "C185",
+  "C190",
+  "C191",
+  "C192",
+  "C193",
+  "C194"
+ ],
+ "backgroundAcceptIds": [
+  "C06",
+  "C101",
+  "C121"
+ ],
+ "edges": [
+  {
+   "topicId": "C23",
+   "prerequisiteId": "C22",
+   "votes": 9,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C25",
+   "prerequisiteId": "C22",
+   "votes": 9,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C42",
+   "prerequisiteId": "C39",
+   "votes": 9,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C57",
+   "prerequisiteId": "C55",
+   "votes": 9,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C69",
+   "prerequisiteId": "C68",
+   "votes": 9,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C88",
+   "prerequisiteId": "C52",
+   "votes": 9,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C119",
+   "prerequisiteId": "C117",
+   "votes": 9,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C119",
+   "prerequisiteId": "C118",
+   "votes": 9,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C166",
+   "prerequisiteId": "C163",
+   "votes": 9,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C179",
+   "prerequisiteId": "C52",
+   "votes": 9,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C185",
+   "prerequisiteId": "C183",
+   "votes": 9,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C186",
+   "prerequisiteId": "C183",
+   "votes": 9,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C187",
+   "prerequisiteId": "C183",
+   "votes": 9,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C194",
+   "prerequisiteId": "C193",
+   "votes": 9,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C03",
+   "prerequisiteId": "C01",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C03",
+   "prerequisiteId": "C02",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C04",
+   "prerequisiteId": "C01",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C04",
+   "prerequisiteId": "C02",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C21",
+   "prerequisiteId": "C20",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C22",
+   "prerequisiteId": "C20",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C27",
+   "prerequisiteId": "C20",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C37",
+   "prerequisiteId": "C19",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C39",
+   "prerequisiteId": "C38",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C40",
+   "prerequisiteId": "C39",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C45",
+   "prerequisiteId": "C43",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C50",
+   "prerequisiteId": "C49",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C54",
+   "prerequisiteId": "C43",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C56",
+   "prerequisiteId": "C55",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C59",
+   "prerequisiteId": "C58",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C62",
+   "prerequisiteId": "C61",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C66",
+   "prerequisiteId": "C56",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C70",
+   "prerequisiteId": "C68",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C74",
+   "prerequisiteId": "C68",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C81",
+   "prerequisiteId": "C68",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C99",
+   "prerequisiteId": "C40",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C103",
+   "prerequisiteId": "C104",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C105",
+   "prerequisiteId": "C103",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C114",
+   "prerequisiteId": "C85",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C115",
+   "prerequisiteId": "C114",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C125",
+   "prerequisiteId": "C118",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C131",
+   "prerequisiteId": "C118",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C138",
+   "prerequisiteId": "C133",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C143",
+   "prerequisiteId": "C79",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C144",
+   "prerequisiteId": "C133",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C153",
+   "prerequisiteId": "C152",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C156",
+   "prerequisiteId": "C154",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C159",
+   "prerequisiteId": "C152",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C164",
+   "prerequisiteId": "C163",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C168",
+   "prerequisiteId": "C167",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C170",
+   "prerequisiteId": "C167",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C172",
+   "prerequisiteId": "C171",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C173",
+   "prerequisiteId": "C163",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C177",
+   "prerequisiteId": "C175",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C184",
+   "prerequisiteId": "C183",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C61",
+   "prerequisiteId": "C55",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C123",
+   "prerequisiteId": "C117",
+   "votes": 8,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C24",
+   "prerequisiteId": "C22",
+   "votes": 7,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C27",
+   "prerequisiteId": "C23",
+   "votes": 7,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C31",
+   "prerequisiteId": "C30",
+   "votes": 7,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C41",
+   "prerequisiteId": "C39",
+   "votes": 7,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C43",
+   "prerequisiteId": "C39",
+   "votes": 7,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C47",
+   "prerequisiteId": "C43",
+   "votes": 7,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C48",
+   "prerequisiteId": "C43",
+   "votes": 7,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C63",
+   "prerequisiteId": "C62",
+   "votes": 7,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C112",
+   "prerequisiteId": "C111",
+   "votes": 7,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C124",
+   "prerequisiteId": "C120",
+   "votes": 7,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C134",
+   "prerequisiteId": "C85",
+   "votes": 7,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C149",
+   "prerequisiteId": "C148",
+   "votes": 7,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C151",
+   "prerequisiteId": "C69",
+   "votes": 7,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C158",
+   "prerequisiteId": "C77",
+   "votes": 7,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C161",
+   "prerequisiteId": "C158",
+   "votes": 7,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C169",
+   "prerequisiteId": "C167",
+   "votes": 7,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C178",
+   "prerequisiteId": "C173",
+   "votes": 7,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C194",
+   "prerequisiteId": "C183",
+   "votes": 7,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C05",
+   "prerequisiteId": "C03",
+   "votes": 7,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C67",
+   "prerequisiteId": "C55",
+   "votes": 7,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C72",
+   "prerequisiteId": "C71",
+   "votes": 7,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C86",
+   "prerequisiteId": "C85",
+   "votes": 7,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C87",
+   "prerequisiteId": "C85",
+   "votes": 7,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C100",
+   "prerequisiteId": "C99",
+   "votes": 7,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C106",
+   "prerequisiteId": "C102",
+   "votes": 7,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C108",
+   "prerequisiteId": "C102",
+   "votes": 7,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C129",
+   "prerequisiteId": "C128",
+   "votes": 7,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C154",
+   "prerequisiteId": "C153",
+   "votes": 7,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C183",
+   "prerequisiteId": "C181",
+   "votes": 7,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C186",
+   "prerequisiteId": "C185",
+   "votes": 7,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C187",
+   "prerequisiteId": "C186",
+   "votes": 7,
+   "source": "skeleton"
+  },
+  {
+   "topicId": "C32",
+   "prerequisiteId": "C31",
+   "votes": 4,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C51",
+   "prerequisiteId": "C52",
+   "votes": 4,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C73",
+   "prerequisiteId": "C47",
+   "votes": 4,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C93",
+   "prerequisiteId": "C47",
+   "votes": 4,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C121",
+   "prerequisiteId": "C117",
+   "votes": 4,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C126",
+   "prerequisiteId": "C122",
+   "votes": 4,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C127",
+   "prerequisiteId": "C122",
+   "votes": 4,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C142",
+   "prerequisiteId": "C36",
+   "votes": 4,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C155",
+   "prerequisiteId": "C154",
+   "votes": 4,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C165",
+   "prerequisiteId": "C167",
+   "votes": 4,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C09",
+   "prerequisiteId": "C08",
+   "votes": 3,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C16",
+   "prerequisiteId": "C10",
+   "votes": 3,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C07",
+   "prerequisiteId": "C06",
+   "votes": 3,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C68",
+   "prerequisiteId": "C18",
+   "votes": 3,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C26",
+   "prerequisiteId": "C20",
+   "votes": 3,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C62",
+   "prerequisiteId": "C65",
+   "votes": 3,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C98",
+   "prerequisiteId": "C45",
+   "votes": 3,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C113",
+   "prerequisiteId": "C48",
+   "votes": 3,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C130",
+   "prerequisiteId": "C123",
+   "votes": 3,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C139",
+   "prerequisiteId": "C116",
+   "votes": 3,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C162",
+   "prerequisiteId": "C87",
+   "votes": 3,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C182",
+   "prerequisiteId": "C181",
+   "votes": 3,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C194",
+   "prerequisiteId": "C37",
+   "votes": 3,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C76",
+   "prerequisiteId": "C69",
+   "votes": 3,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C135",
+   "prerequisiteId": "C134",
+   "votes": 3,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C07",
+   "prerequisiteId": "C17",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C15",
+   "prerequisiteId": "C18",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C33",
+   "prerequisiteId": "C133",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C34",
+   "prerequisiteId": "C49",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C35",
+   "prerequisiteId": "C39",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C46",
+   "prerequisiteId": "C43",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C49",
+   "prerequisiteId": "C44",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C60",
+   "prerequisiteId": "C66",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C64",
+   "prerequisiteId": "C66",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C76",
+   "prerequisiteId": "C151",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C102",
+   "prerequisiteId": "C83",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C95",
+   "prerequisiteId": "C58",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C97",
+   "prerequisiteId": "C133",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C107",
+   "prerequisiteId": "C68",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C140",
+   "prerequisiteId": "C76",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C145",
+   "prerequisiteId": "C66",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C157",
+   "prerequisiteId": "C156",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C162",
+   "prerequisiteId": "C156",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C174",
+   "prerequisiteId": "C171",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C176",
+   "prerequisiteId": "C171",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C189",
+   "prerequisiteId": "C181",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C190",
+   "prerequisiteId": "C181",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C191",
+   "prerequisiteId": "C181",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C192",
+   "prerequisiteId": "C181",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C193",
+   "prerequisiteId": "C192",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C09",
+   "prerequisiteId": "C05",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C115",
+   "prerequisiteId": "C37",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C77",
+   "prerequisiteId": "C17",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C98",
+   "prerequisiteId": "C29",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C47",
+   "prerequisiteId": "C35",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C109",
+   "prerequisiteId": "C92",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C101",
+   "prerequisiteId": "C100",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C116",
+   "prerequisiteId": "C105",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C117",
+   "prerequisiteId": "C122",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C145",
+   "prerequisiteId": "C143",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C147",
+   "prerequisiteId": "C146",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C192",
+   "prerequisiteId": "C191",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C19",
+   "prerequisiteId": "C181",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C137",
+   "prerequisiteId": "C28",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C36",
+   "prerequisiteId": "C06",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C44",
+   "prerequisiteId": "C38",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C78",
+   "prerequisiteId": "C51",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C136",
+   "prerequisiteId": "C170",
+   "votes": 2,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C15",
+   "prerequisiteId": "C17",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C29",
+   "prerequisiteId": "C43",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C24",
+   "prerequisiteId": "C36",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C44",
+   "prerequisiteId": "C40",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C57",
+   "prerequisiteId": "C63",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C75",
+   "prerequisiteId": "C113",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C80",
+   "prerequisiteId": "C102",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C82",
+   "prerequisiteId": "C133",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C81",
+   "prerequisiteId": "C133",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C90",
+   "prerequisiteId": "C108",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C91",
+   "prerequisiteId": "C114",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C96",
+   "prerequisiteId": "C52",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C101",
+   "prerequisiteId": "C167",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C99",
+   "prerequisiteId": "C34",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C110",
+   "prerequisiteId": "C51",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C116",
+   "prerequisiteId": "C28",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C111",
+   "prerequisiteId": "C49",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C126",
+   "prerequisiteId": "C124",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C130",
+   "prerequisiteId": "C122",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C132",
+   "prerequisiteId": "C125",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C135",
+   "prerequisiteId": "C85",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C142",
+   "prerequisiteId": "C16",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C147",
+   "prerequisiteId": "C28",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C146",
+   "prerequisiteId": "C143",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C144",
+   "prerequisiteId": "C143",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C172",
+   "prerequisiteId": "C178",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C173",
+   "prerequisiteId": "C169",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C186",
+   "prerequisiteId": "C189",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C13",
+   "prerequisiteId": "C19",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C18",
+   "prerequisiteId": "C08",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C30",
+   "prerequisiteId": "C12",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C15",
+   "prerequisiteId": "C07",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C33",
+   "prerequisiteId": "C20",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C35",
+   "prerequisiteId": "C20",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C32",
+   "prerequisiteId": "C40",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C48",
+   "prerequisiteId": "C45",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C44",
+   "prerequisiteId": "C39",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C46",
+   "prerequisiteId": "C39",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C106",
+   "prerequisiteId": "C51",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C54",
+   "prerequisiteId": "C53",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C66",
+   "prerequisiteId": "C55",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C99",
+   "prerequisiteId": "C63",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C130",
+   "prerequisiteId": "C73",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C75",
+   "prerequisiteId": "C48",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C78",
+   "prerequisiteId": "C43",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C92",
+   "prerequisiteId": "C78",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C148",
+   "prerequisiteId": "C82",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C95",
+   "prerequisiteId": "C49",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C113",
+   "prerequisiteId": "C96",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C144",
+   "prerequisiteId": "C97",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C116",
+   "prerequisiteId": "C103",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C108",
+   "prerequisiteId": "C109",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C109",
+   "prerequisiteId": "C110",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C132",
+   "prerequisiteId": "C122",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C134",
+   "prerequisiteId": "C20",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C141",
+   "prerequisiteId": "C138",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C158",
+   "prerequisiteId": "C156",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C160",
+   "prerequisiteId": "C158",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C165",
+   "prerequisiteId": "C163",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C176",
+   "prerequisiteId": "C174",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C189",
+   "prerequisiteId": "C183",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C37",
+   "prerequisiteId": "C193",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C115",
+   "prerequisiteId": "C194",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C129",
+   "prerequisiteId": "C121",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C145",
+   "prerequisiteId": "C55",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C173",
+   "prerequisiteId": "C180",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C175",
+   "prerequisiteId": "C181",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C170",
+   "prerequisiteId": "C166",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C171",
+   "prerequisiteId": "C93",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C150",
+   "prerequisiteId": "C06",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C191",
+   "prerequisiteId": "C13",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C185",
+   "prerequisiteId": "C11",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C28",
+   "prerequisiteId": "C19",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C26",
+   "prerequisiteId": "C52",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C134",
+   "prerequisiteId": "C23",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C131",
+   "prerequisiteId": "C25",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C110",
+   "prerequisiteId": "C46",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C65",
+   "prerequisiteId": "C192",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C75",
+   "prerequisiteId": "C96",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C80",
+   "prerequisiteId": "C73",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C90",
+   "prerequisiteId": "C86",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C94",
+   "prerequisiteId": "C143",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C95",
+   "prerequisiteId": "C72",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C101",
+   "prerequisiteId": "C85",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C103",
+   "prerequisiteId": "C81",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C123",
+   "prerequisiteId": "C122",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C132",
+   "prerequisiteId": "C130",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C141",
+   "prerequisiteId": "C100",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C160",
+   "prerequisiteId": "C154",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C174",
+   "prerequisiteId": "C94",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C176",
+   "prerequisiteId": "C167",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C188",
+   "prerequisiteId": "C191",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C193",
+   "prerequisiteId": "C189",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C14",
+   "prerequisiteId": "C12",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C80",
+   "prerequisiteId": "C79",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C91",
+   "prerequisiteId": "C52",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C108",
+   "prerequisiteId": "C39",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C138",
+   "prerequisiteId": "C45",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C143",
+   "prerequisiteId": "C49",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C180",
+   "prerequisiteId": "C20",
+   "votes": 1,
+   "source": "curated-keep"
+  },
+  {
+   "topicId": "C125",
+   "prerequisiteId": "C122",
+   "votes": 1,
+   "source": "curated-keep"
+  }
+ ],
+ "collections": [
+  {
+   "tagId": "T1",
+   "name": "人机分工",
+   "why": "机器跑得越来越快，但方向和取舍还得有人扛。这条线帮你想清楚哪些活可以交出去，哪些必须自己拿着。",
+   "color": "#5B8FF9",
+   "size": 8,
+   "primary": 4,
+   "entry": [
+    {
+     "id": "C55",
+     "name": "认知负债（cognitive debt）",
+     "level": 0,
+     "unlocks": 2
+    },
+    {
+     "id": "C03",
+     "name": "数字文艺复兴人（new / digital Renaissance man）",
+     "level": 0,
+     "unlocks": 0
+    },
+    {
+     "id": "C45",
+     "name": "自主度校准",
+     "level": 0,
+     "unlocks": 0
+    }
+   ],
+   "goal": [
+    {
+     "id": "C66",
+     "name": "理解优先于生产力",
+     "level": 2,
+     "needs": 2
+    },
+    {
+     "id": "C64",
+     "name": "2x 而不是 10x",
+     "level": 3,
+     "needs": 1
+    }
+   ],
+   "route": [
+    {
+     "id": "C55",
+     "name": "认知负债（cognitive debt）",
+     "level": 0,
+     "kind": "judge",
+     "background": false,
+     "edgeFromPrev": null
+    },
+    {
+     "id": "C56",
+     "name": "快进无聊部分 vs 外包理解",
+     "level": 1,
+     "kind": "judge",
+     "background": false,
+     "edgeFromPrev": "skel"
+    },
+    {
+     "id": "C66",
+     "name": "理解优先于生产力",
+     "level": 2,
+     "kind": "judge",
+     "background": false,
+     "edgeFromPrev": "skel"
+    }
+   ]
+  },
+  {
+   "tagId": "T2",
+   "name": "智能体工作流",
+   "why": "让智能体真替你干活，靠的不是提示词技巧，而是把任务拆开、把流程编排起来、让验证自己跑。",
+   "color": "#61DDAA",
+   "size": 14,
+   "primary": 6,
+   "entry": [
+    {
+     "id": "C38",
+     "name": "用好 coding agent 是一项可拆解的技能",
+     "level": 0,
+     "unlocks": 2
+    },
+    {
+     "id": "C45",
+     "name": "自主度校准",
+     "level": 0,
+     "unlocks": 1
+    },
+    {
+     "id": "C30",
+     "name": "以终为始的三连追问",
+     "level": 0,
+     "unlocks": 0
+    }
+   ],
+   "goal": [
+    {
+     "id": "C44",
+     "name": "可验证的分解",
+     "level": 3,
+     "needs": 3
+    },
+    {
+     "id": "C75",
+     "name": "Lint 与门禁：AI 时代先行的基础设施",
+     "level": 3,
+     "needs": 2
+    }
+   ],
+   "route": [
+    {
+     "id": "C38",
+     "name": "用好 coding agent 是一项可拆解的技能",
+     "level": 0,
+     "kind": "judge",
+     "background": false,
+     "edgeFromPrev": null
+    },
+    {
+     "id": "C39",
+     "name": "三段高层工作流",
+     "level": 1,
+     "kind": "use",
+     "background": false,
+     "edgeFromPrev": "skel"
+    },
+    {
+     "id": "C40",
+     "name": "关注点从代码转向规格与验证",
+     "level": 2,
+     "kind": "judge",
+     "background": false,
+     "edgeFromPrev": "skel"
+    },
+    {
+     "id": "C44",
+     "name": "可验证的分解",
+     "level": 3,
+     "kind": "judge",
+     "background": false,
+     "edgeFromPrev": "cand"
+    }
+   ]
+  },
+  {
+   "tagId": "T3",
+   "name": "理解优先",
+   "why": "把方案和思考整包丢给机器，人会慢慢看不懂自己在做什么。这条线标出哪些理解不能外包。",
+   "color": "#F6BD16",
+   "size": 5,
+   "primary": 4,
+   "entry": [
+    {
+     "id": "C55",
+     "name": "认知负债（cognitive debt）",
+     "level": 0,
+     "unlocks": 2
+    },
+    {
+     "id": "C56",
+     "name": "快进无聊部分 vs 外包理解",
+     "level": 1,
+     "unlocks": 1
+    },
+    {
+     "id": "C66",
+     "name": "理解优先于生产力",
+     "level": 2,
+     "unlocks": 1
+    }
+   ],
+   "goal": [
+    {
+     "id": "C66",
+     "name": "理解优先于生产力",
+     "level": 2,
+     "needs": 2
+    },
+    {
+     "id": "C64",
+     "name": "2x 而不是 10x",
+     "level": 3,
+     "needs": 1
+    }
+   ],
+   "route": [
+    {
+     "id": "C55",
+     "name": "认知负债（cognitive debt）",
+     "level": 0,
+     "kind": "judge",
+     "background": false,
+     "edgeFromPrev": null
+    },
+    {
+     "id": "C56",
+     "name": "快进无聊部分 vs 外包理解",
+     "level": 1,
+     "kind": "judge",
+     "background": false,
+     "edgeFromPrev": "skel"
+    },
+    {
+     "id": "C66",
+     "name": "理解优先于生产力",
+     "level": 2,
+     "kind": "judge",
+     "background": false,
+     "edgeFromPrev": "skel"
+    }
+   ]
+  },
+  {
+   "tagId": "T4",
+   "name": "不可替代",
+   "why": "职业不再是一条排好队的梯子，先弄清自己那门手艺长在哪，才能在被替代之前长出别人拿不走的东西。",
+   "color": "#7262FD",
+   "size": 6,
+   "primary": 2,
+   "entry": [
+    {
+     "id": "C06",
+     "name": "第二次文艺复兴：工作证明、受众、品味",
+     "level": 0,
+     "unlocks": 1
+    },
+    {
+     "id": "C100",
+     "name": "手艺的让渡与可及性的扩张",
+     "level": 0,
+     "unlocks": 1
+    },
+    {
+     "id": "C03",
+     "name": "数字文艺复兴人（new / digital Renaissance man）",
+     "level": 0,
+     "unlocks": 0
+    }
+   ],
+   "goal": [
+    {
+     "id": "C36",
+     "name": "品味作为不可替代的门槛",
+     "level": 1,
+     "needs": 1
+    },
+    {
+     "id": "C101",
+     "name": "变化的职业（the profession of change）",
+     "level": 1,
+     "needs": 1
+    }
+   ],
+   "route": [
+    {
+     "id": "C06",
+     "name": "第二次文艺复兴：工作证明、受众、品味",
+     "level": 0,
+     "kind": "accept",
+     "background": true,
+     "edgeFromPrev": null
+    },
+    {
+     "id": "C36",
+     "name": "品味作为不可替代的门槛",
+     "level": 1,
+     "kind": "judge",
+     "background": false,
+     "edgeFromPrev": "cand"
+    }
+   ]
+  },
+  {
+   "tagId": "T5",
+   "name": "一人企业",
+   "why": "一个人加几个工具就能撑起一门生意，但这条路上有它自己的套路和淘汰率，值得先看清再下场。",
+   "color": "#78D3F8",
+   "size": 9,
+   "primary": 8,
+   "entry": [
+    {
+     "id": "C152",
+     "name": "粉丝经济打法",
+     "level": 0,
+     "unlocks": 1
+    },
+    {
+     "id": "C06",
+     "name": "第二次文艺复兴：工作证明、受众、品味",
+     "level": 0,
+     "unlocks": 0
+    },
+    {
+     "id": "C16",
+     "name": "创作者即价值创造者",
+     "level": 0,
+     "unlocks": 0
+    }
+   ],
+   "goal": [
+    {
+     "id": "C162",
+     "name": "按周思考与不情感依附",
+     "level": 4,
+     "needs": 1
+    },
+    {
+     "id": "C156",
+     "name": "成功的巧合性与不可复制性",
+     "level": 3,
+     "needs": 1
+    }
+   ],
+   "route": [
+    {
+     "id": "C152",
+     "name": "粉丝经济打法",
+     "level": 0,
+     "kind": "compute",
+     "background": false,
+     "edgeFromPrev": null
+    },
+    {
+     "id": "C153",
+     "name": "独立开发者就是他的客户",
+     "level": 1,
+     "kind": "compute",
+     "background": false,
+     "edgeFromPrev": "skel"
+    },
+    {
+     "id": "C154",
+     "name": "收入集中度",
+     "level": 2,
+     "kind": "compute",
+     "background": false,
+     "edgeFromPrev": "skel"
+    },
+    {
+     "id": "C156",
+     "name": "成功的巧合性与不可复制性",
+     "level": 3,
+     "kind": "judge",
+     "background": false,
+     "edgeFromPrev": "skel"
+    }
+   ]
+  },
+  {
+   "tagId": "T6",
+   "name": "组织边界",
+   "why": "公司为什么存在、边界会被谁划走，这件事决定了未来还有哪些岗位和协作方式，比工具评测更值得看。",
+   "color": "#9661BC",
+   "size": 7,
+   "primary": 6,
+   "entry": [
+    {
+     "id": "C122",
+     "name": "交易成本与企业边界（科斯）",
+     "level": 0,
+     "unlocks": 1
+    },
+    {
+     "id": "C06",
+     "name": "第二次文艺复兴：工作证明、受众、品味",
+     "level": 0,
+     "unlocks": 0
+    },
+    {
+     "id": "C74",
+     "name": "agent onboarding 与 AI native 组织",
+     "level": 0,
+     "unlocks": 0
+    }
+   ],
+   "goal": [
+    {
+     "id": "C129",
+     "name": "蜂巢式协作与动态编队",
+     "level": 3,
+     "needs": 1
+    },
+    {
+     "id": "C121",
+     "name": "Great Flattening（超级扁平化）",
+     "level": 2,
+     "needs": 1
+    }
+   ],
+   "route": [
+    {
+     "id": "C122",
+     "name": "交易成本与企业边界（科斯）",
+     "level": 0,
+     "kind": "compute",
+     "background": false,
+     "edgeFromPrev": null
+    },
+    {
+     "id": "C117",
+     "name": "超级组织",
+     "level": 1,
+     "kind": "judge",
+     "background": false,
+     "edgeFromPrev": "cand"
+    },
+    {
+     "id": "C121",
+     "name": "Great Flattening（超级扁平化）",
+     "level": 2,
+     "kind": "accept",
+     "background": true,
+     "edgeFromPrev": "cand"
+    }
+   ]
+  },
+  {
+   "tagId": "T7",
+   "name": "产品判断",
+   "why": "模型能力每隔几个月就挪一次，什么该现在做、什么该等、什么该扔，判断错了再拼命也白费。",
+   "color": "#F6903D",
+   "size": 11,
+   "primary": 5,
+   "entry": [
+    {
+     "id": "C20",
+     "name": "模型能力边界线",
+     "level": 0,
+     "unlocks": 2
+    },
+    {
+     "id": "C156",
+     "name": "成功的巧合性与不可复制性",
+     "level": 3,
+     "unlocks": 1
+    },
+    {
+     "id": "C30",
+     "name": "以终为始的三连追问",
+     "level": 0,
+     "unlocks": 0
+    }
+   ],
+   "goal": [
+    {
+     "id": "C162",
+     "name": "按周思考与不情感依附",
+     "level": 4,
+     "needs": 1
+    },
+    {
+     "id": "C25",
+     "name": "成本三因子公式",
+     "level": 2,
+     "needs": 1
+    }
+   ],
+   "route": [
+    {
+     "id": "C20",
+     "name": "模型能力边界线",
+     "level": 0,
+     "kind": "compute",
+     "background": false,
+     "edgeFromPrev": null
+    },
+    {
+     "id": "C22",
+     "name": "三条边界：能力、成本、价值",
+     "level": 1,
+     "kind": "use",
+     "background": false,
+     "edgeFromPrev": "skel"
+    },
+    {
+     "id": "C25",
+     "name": "成本三因子公式",
+     "level": 2,
+     "kind": "compute",
+     "background": false,
+     "edgeFromPrev": "skel"
+    }
+   ]
+  },
+  {
+   "tagId": "T8",
+   "name": "验证优先",
+   "why": "生成变便宜之后，贵的是确信它是对的。测试、评测和闸门决定了你到底敢不敢把东西交出去。",
+   "color": "#008685",
+   "size": 12,
+   "primary": 4,
+   "entry": [
+    {
+     "id": "C39",
+     "name": "三段高层工作流",
+     "level": 1,
+     "unlocks": 2
+    },
+    {
+     "id": "C94",
+     "name": "test time compute 换信心",
+     "level": 0,
+     "unlocks": 1
+    },
+    {
+     "id": "C113",
+     "name": "确定性闸门",
+     "level": 2,
+     "unlocks": 1
+    }
+   ],
+   "goal": [
+    {
+     "id": "C44",
+     "name": "可验证的分解",
+     "level": 3,
+     "needs": 2
+    },
+    {
+     "id": "C112",
+     "name": "修原则，不修个例",
+     "level": 6,
+     "needs": 1
+    }
+   ],
+   "route": [
+    {
+     "id": "C39",
+     "name": "三段高层工作流",
+     "level": 1,
+     "kind": "use",
+     "background": false,
+     "edgeFromPrev": null
+    },
+    {
+     "id": "C40",
+     "name": "关注点从代码转向规格与验证",
+     "level": 2,
+     "kind": "judge",
+     "background": false,
+     "edgeFromPrev": "skel"
+    },
+    {
+     "id": "C44",
+     "name": "可验证的分解",
+     "level": 3,
+     "kind": "judge",
+     "background": false,
+     "edgeFromPrev": "cand"
+    }
+   ]
+  },
+  {
+   "tagId": "T9",
+   "name": "学会学习",
+   "why": "好奇、苦练、创造这三段一段都跳不过去。看懂学习本身怎么运转，比多背几个知识点管用得多。",
+   "color": "#F08BB4",
+   "size": 11,
+   "primary": 10,
+   "entry": [
+    {
+     "id": "C181",
+     "name": "学习的元素论",
+     "level": 0,
+     "unlocks": 4
+    },
+    {
+     "id": "C38",
+     "name": "用好 coding agent 是一项可拆解的技能",
+     "level": 0,
+     "unlocks": 0
+    },
+    {
+     "id": "C101",
+     "name": "变化的职业（the profession of change）",
+     "level": 1,
+     "unlocks": 0
+    }
+   ],
+   "goal": [
+    {
+     "id": "C194",
+     "name": "分形式学习循环",
+     "level": 5,
+     "needs": 3
+    },
+    {
+     "id": "C192",
+     "name": "输出巩固（元素四）",
+     "level": 2,
+     "needs": 2
+    }
+   ],
+   "route": [
+    {
+     "id": "C181",
+     "name": "学习的元素论",
+     "level": 0,
+     "kind": "use",
+     "background": false,
+     "edgeFromPrev": null
+    },
+    {
+     "id": "C183",
+     "name": "学习三阶段模型",
+     "level": 1,
+     "kind": "use",
+     "background": false,
+     "edgeFromPrev": "skel"
+    },
+    {
+     "id": "C185",
+     "name": "好奇探索阶段",
+     "level": 2,
+     "kind": "compute",
+     "background": false,
+     "edgeFromPrev": "skel"
+    }
+   ]
+  },
+  {
+   "tagId": "T10",
+   "name": "数学与模型",
+   "why": "数学是模型最经得起检验的战场，它在这里能做什么、卡在哪里、还需要什么样的人，都看得最清楚。",
+   "color": "#7C8CE0",
+   "size": 6,
+   "primary": 4,
+   "entry": [
+    {
+     "id": "C20",
+     "name": "模型能力边界线",
+     "level": 0,
+     "unlocks": 1
+    },
+    {
+     "id": "C94",
+     "name": "test time compute 换信心",
+     "level": 0,
+     "unlocks": 1
+    },
+    {
+     "id": "C22",
+     "name": "三条边界：能力、成本、价值",
+     "level": 1,
+     "unlocks": 1
+    }
+   ],
+   "goal": [
+    {
+     "id": "C25",
+     "name": "成本三因子公式",
+     "level": 2,
+     "needs": 1
+    },
+    {
+     "id": "C176",
+     "name": "模式坍缩",
+     "level": 2,
+     "needs": 1
+    }
+   ],
+   "route": [
+    {
+     "id": "C20",
+     "name": "模型能力边界线",
+     "level": 0,
+     "kind": "compute",
+     "background": false,
+     "edgeFromPrev": null
+    },
+    {
+     "id": "C22",
+     "name": "三条边界：能力、成本、价值",
+     "level": 1,
+     "kind": "use",
+     "background": false,
+     "edgeFromPrev": "skel"
+    },
+    {
+     "id": "C25",
+     "name": "成本三因子公式",
+     "level": 2,
+     "kind": "compute",
+     "background": false,
+     "edgeFromPrev": "skel"
+    }
+   ]
+  }
+ ],
+ "audit": {
+  "skipped": [
+   "C53_C43",
+   "C84_C60",
+   "C10_C09",
+   "C11_C13",
+   "C28_C21",
+   "C28_C22",
+   "C94_C20",
+   "C136_C30",
+   "C137_C116",
+   "C141_C135",
+   "C188_C185",
+   "C157_C155",
+   "C30_C21",
+   "C45_C49",
+   "C61_C65",
+   "C78_C106",
+   "C74_C140",
+   "C100_C36",
+   "C109_C39",
+   "C116_C102",
+   "C112_C95",
+   "C150_C137",
+   "C160_C153",
+   "C158_C154",
+   "C159_C154",
+   "C180_C144",
+   "C164_C166",
+   "C194_C192",
+   "C14_C05",
+   "C16_C17",
+   "C118_C15",
+   "C152_C16",
+   "C80_C25",
+   "C42_C28",
+   "C82_C33",
+   "C143_C40",
+   "C47_C46",
+   "C90_C89",
+   "C91_C48",
+   "C94_C25",
+   "C96_C26",
+   "C150_C140",
+   "C188_C189",
+   "C190_C185",
+   "C191_C190",
+   "C194_C184",
+   "C76_C120",
+   "C178_C95",
+   "C10_C12",
+   "C66_C14",
+   "C107_C99",
+   "C146_C190",
+   "C180_C46",
+   "C28_C30",
+   "C64_C56",
+   "C75_C74",
+   "C82_C81",
+   "C83_C85",
+   "C90_C134",
+   "C92_C43",
+   "C107_C103",
+   "C110_C106",
+   "C111_C50",
+   "C114_C87",
+   "C133_C68",
+   "C144_C92",
+   "C148_C16",
+   "C158_C17",
+   "C161_C36",
+   "C163_C181",
+   "C175_C183",
+   "C183_C11",
+   "C187_C36",
+   "C193_C50",
+   "C118_C17",
+   "C174_C166",
+   "C188_C181",
+   "C130_C129",
+   "C132_C131",
+   "C139_C103",
+   "C147_C137",
+   "C150_C136",
+   "C160_C152"
+  ],
+  "unsure": [
+   "C08_C20",
+   "C06_C03",
+   "C89_C85",
+   "C140_C102",
+   "C28_C13",
+   "C36_C10",
+   "C71_C37",
+   "C140_C129",
+   "C89_C87",
+   "C12_C06",
+   "C29_C40",
+   "C89_C92",
+   "C124_C106",
+   "C117_C102"
+  ],
+  "originalInvalidRouteEdges": [
+   "C45_C49",
+   "C06_C03",
+   "C100_C36",
+   "C16_C17",
+   "C152_C16",
+   "C140_C129",
+   "C74_C140",
+   "C30_C21",
+   "C136_C30",
+   "C150_C136",
+   "C111_C50",
+   "C190_C185",
+   "C191_C190",
+   "C94_C25"
+  ],
+  "invalidRouteEdges": []
+ }
+}
