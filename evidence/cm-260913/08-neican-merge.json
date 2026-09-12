@@ -1,0 +1,614 @@
+{
+ "generatedAt": "2026-09-12T18:51:33.180Z",
+ "model": "deepseek-flash",
+ "tokens": 0,
+ "parsed": 88,
+ "hitExisting": 8,
+ "added": 80,
+ "edges": 40,
+ "failed": [],
+ "hits": [
+  {
+   "neican": "代理技能",
+   "article": "Using Agent Skills with the API（用 API 使用 Agent Skills）",
+   "node": "Agent Skills"
+  },
+  {
+   "neican": "渐进式披露",
+   "article": "Using Agent Skills with the API（用 API 使用 Agent Skills）",
+   "node": "渐进式披露"
+  },
+  {
+   "neican": "技能",
+   "article": "Claude 官方课程 · 第 1 课：什么是 Agent Skills",
+   "node": "Agent Skills"
+  },
+  {
+   "neican": "逐步披露",
+   "article": "Claude 官方课程 · 第 3 课：写好 name 与 description",
+   "node": "渐进披露"
+  },
+  {
+   "neican": "Skills",
+   "article": "Claude 官方课程 · Skills 与其他 Claude Code 功能的比较",
+   "node": "技能化"
+  },
+  {
+   "neican": "CLAUDE.md",
+   "article": "Claude 官方课程 · Skills 与其他 Claude Code 功能的比较",
+   "node": "CLAUDE.md"
+  },
+  {
+   "neican": "Subagents",
+   "article": "Claude 官方课程 · Skills 与其他 Claude Code 功能的比较",
+   "node": "subagents"
+  },
+  {
+   "neican": "Hooks",
+   "article": "Claude 官方课程 · Skills 与其他 Claude Code 功能的比较",
+   "node": "hooks"
+  }
+ ],
+ "added_nodes": [
+  {
+   "id": "cm_226cbc01",
+   "name": "预构建技能与自定义技能",
+   "domain": "Harness 与运行时",
+   "desc": "技能分两类：Anthropic 预置文档技能与用户自定义技能，运行方式相同，来源与共享范围不同。",
+   "article": "Using Agent Skills with the API（用 API 使用 Agent Skills）"
+  },
+  {
+   "id": "cm_d78a3680",
+   "name": "SKILL.md 与 YAML 前置元数据",
+   "domain": "上下文工程",
+   "desc": "SKILL.md 的 YAML 前置元数据以 name 与 description 为必需字段，是技能的发现层。",
+   "article": "Using Agent Skills with the API（用 API 使用 Agent Skills）"
+  },
+  {
+   "id": "cm_dc4f803b",
+   "name": "技能触发与自动使用",
+   "domain": "上下文工程",
+   "desc": "Claude 按请求与 description 的匹配自动触发技能，触发后才用 bash 读取 SKILL.md 正文。",
+   "article": "Using Agent Skills with the API（用 API 使用 Agent Skills）"
+  },
+  {
+   "id": "cm_5face436",
+   "name": "三类内容：说明、代码、资源",
+   "domain": "上下文工程",
+   "desc": "技能内容分说明、代码、资源三类，加载时机不同，代码只把输出带入上下文。",
+   "article": "Using Agent Skills with the API（用 API 使用 Agent Skills）"
+  },
+  {
+   "id": "cm_07e5e0c3",
+   "name": "文件系统型代码执行环境",
+   "domain": "Harness 与运行时",
+   "desc": "技能以目录形式存在于带文件系统、bash 与代码执行的虚拟机中，可读文件、跑脚本。",
+   "article": "Using Agent Skills with the API（用 API 使用 Agent Skills）"
+  },
+  {
+   "id": "cm_ad086a79",
+   "name": "跨产品面的同步与共享边界",
+   "domain": "Harness 与运行时",
+   "desc": "自定义技能不跨产品面同步，claude.ai、API、Claude Code 各自独立，共享范围也不同。",
+   "article": "Using Agent Skills with the API（用 API 使用 Agent Skills）"
+  },
+  {
+   "id": "cm_a2868643",
+   "name": "运行时限制、权限与数据保留边界",
+   "domain": "工具调用与沙箱",
+   "desc": "技能可做的事取决于所在产品面的运行时限制，如 API 无网络、不能装包，且不受 ZDR 覆盖。",
+   "article": "Using Agent Skills with the API（用 API 使用 Agent Skills）"
+  },
+  {
+   "id": "cm_dc9a27be",
+   "name": "安全审计与受信任来源",
+   "domain": "安全权限与合规",
+   "desc": "技能等同要安装的软件：只用可信来源，并审计包内全部文件以防恶意指令与代码。",
+   "article": "Using Agent Skills with the API（用 API 使用 Agent Skills）"
+  },
+  {
+   "id": "cm_a5573df7",
+   "name": "SKILL.md 与前置信息",
+   "domain": "Harness 与运行时",
+   "desc": "SKILL.md 上为前置信息（名称、描述），下为任务说明，如审阅清单或格式偏好。",
+   "article": "Claude 官方课程 · 第 1 课：什么是 Agent Skills"
+  },
+  {
+   "id": "cm_ae03bb56",
+   "name": "技能描述",
+   "domain": "上下文工程",
+   "desc": "技能描述是 Claude 判断是否使用该技能的依据，请求与描述匹配后激活。",
+   "article": "Claude 官方课程 · 第 1 课：什么是 Agent Skills"
+  },
+  {
+   "id": "cm_cc101992",
+   "name": "按需加载",
+   "domain": "上下文工程",
+   "desc": "技能按需加载：起初只加载名称与描述，请求匹配时才加载正文，不占满上下文。",
+   "article": "Claude 官方课程 · 第 1 课：什么是 Agent Skills"
+  },
+  {
+   "id": "cm_369f10ff",
+   "name": "自动激活",
+   "domain": "Harness 与运行时",
+   "desc": "技能无需手动输入，Claude 识别到相应情况时自动激活；斜杠命令则需显式调用。",
+   "article": "Claude 官方课程 · 第 1 课：什么是 Agent Skills"
+  },
+  {
+   "id": "cm_5244b02e",
+   "name": "个人技能与项目技能",
+   "domain": "状态与持久化",
+   "desc": "个人技能放 ~/.claude/skills 跨项目跟随个人；项目技能放仓库 .claude/skills 随代码共享。",
+   "article": "Claude 官方课程 · 第 1 课：什么是 Agent Skills"
+  },
+  {
+   "id": "cm_64663de2",
+   "name": "反复解释同一件事",
+   "domain": "Harness 与运行时",
+   "desc": "反复向 Claude 解释同一件事，是应为该内容写一个技能的触发信号与经验法则。",
+   "article": "Claude 官方课程 · 第 1 课：什么是 Agent Skills"
+  },
+  {
+   "id": "cm_d4a0e687",
+   "name": "技能与 SKILL.md 结构",
+   "domain": "Harness 与运行时",
+   "desc": "技能是一个目录加入口文件 SKILL.md：前置元数据，其下为说明，激活后才执行。",
+   "article": "Claude 官方课程 · 第 2 课：技能的结构（SKILL.md 与 frontmatter）"
+  },
+  {
+   "id": "cm_4b769318",
+   "name": "名称与描述",
+   "domain": "上下文工程",
+   "desc": "名称是技能标识，描述是匹配条件；请求先与描述做语义匹配，允许意图重叠",
+   "article": "Claude 官方课程 · 第 2 课：技能的结构（SKILL.md 与 frontmatter）"
+  },
+  {
+   "id": "cm_28c258d9",
+   "name": "启动时仅加载名称和描述",
+   "domain": "上下文工程",
+   "desc": "Claude Code 启动时扫描技能位置，只加载名称与描述，不载入 SKILL.md 全文",
+   "article": "Claude 官方课程 · 第 2 课：技能的结构（SKILL.md 与 frontmatter）"
+  },
+  {
+   "id": "cm_80dfaf37",
+   "name": "匹配后的确认与完整加载",
+   "domain": "上下文工程",
+   "desc": "匹配成功后先弹出确认，确认后才读取整个 SKILL.md 并执行其中指令",
+   "article": "Claude 官方课程 · 第 2 课：技能的结构（SKILL.md 与 frontmatter）"
+  },
+  {
+   "id": "cm_d793c38e",
+   "name": "名称冲突优先级与技能作用域",
+   "domain": "Harness 与运行时",
+   "desc": "同名技能按企业→个人→项目→插件排优先级，企业版生效并覆盖其他作用域",
+   "article": "Claude 官方课程 · 第 2 课：技能的结构（SKILL.md 与 frontmatter）"
+  },
+  {
+   "id": "cm_325fef11",
+   "name": "技能变更生效条件：编辑、删除、重启",
+   "domain": "Harness 与运行时",
+   "desc": "改技能即改其 SKILL.md，删技能即删目录，之后必须重启 Claude Code 才生效",
+   "article": "Claude 官方课程 · 第 2 课：技能的结构（SKILL.md 与 frontmatter）"
+  },
+  {
+   "id": "cm_6ae99955",
+   "name": "name",
+   "domain": "规格与意图对齐",
+   "desc": "SKILL.md 必填字段，只能用小写字母、数字、连字符，≤64 字符，须与目录同名",
+   "article": "Claude 官方课程 · 第 3 课：写好 name 与 description"
+  },
+  {
+   "id": "cm_cb329146",
+   "name": "description",
+   "domain": "上下文工程",
+   "desc": "必填字段，≤1024 字符，是匹配依据，须写清技能作用与何时使用它",
+   "article": "Claude 官方课程 · 第 3 课：写好 name 与 description"
+  },
+  {
+   "id": "cm_53ec7c9b",
+   "name": "allowed-tools",
+   "domain": "工具调用与沙箱",
+   "desc": "可选字段，列出技能激活时免许可可用的工具；省略则不限制，回到正常权限模型",
+   "article": "Claude 官方课程 · 第 3 课：写好 name 与 description"
+  },
+  {
+   "id": "cm_b3524e24",
+   "name": "共享上下文窗口",
+   "domain": "上下文工程",
+   "desc": "技能与对话共享同一上下文窗口，技能激活时整份 SKILL.md 被载入上下文",
+   "article": "Claude 官方课程 · 第 3 课：写好 name 与 description"
+  },
+  {
+   "id": "cm_40b450ca",
+   "name": "脚本执行",
+   "domain": "缓存与成本控制",
+   "desc": "脚本不必读入上下文即可运行，只有输出消耗 token，SKILL.md 应写'运行脚本'",
+   "article": "Claude 官方课程 · 第 3 课：写好 name 与 description"
+  },
+  {
+   "id": "cm_ae250f40",
+   "name": "仓库提交",
+   "domain": "代码库与工程实践",
+   "desc": ".claude/skills 中的项目技能随 Git 共享，克隆即获得，推送后他人拉取即更新",
+   "article": "Claude 官方课程 · 第 5 课：技能的分发与共享"
+  },
+  {
+   "id": "cm_48ea99ce",
+   "name": "插件与市场",
+   "domain": "AI 产品与组织",
+   "desc": "插件按类似 .claude 的结构打包技能，分发到市场供他人自行发现安装",
+   "article": "Claude 官方课程 · 第 5 课：技能的分发与共享"
+  },
+  {
+   "id": "cm_32e036a5",
+   "name": "企业托管设置（Managed Settings）与 strictKnownMarketplaces",
+   "domain": "安全权限与合规",
+   "desc": "管理员用托管设置下发企业技能，并用 strictKnownMarketplaces 限定插件安装来源白名单",
+   "article": "Claude 官方课程 · 第 5 课：技能的分发与共享"
+  },
+  {
+   "id": "cm_2440f85e",
+   "name": "企业技能的最高优先级",
+   "domain": "安全权限与合规",
+   "desc": "同名技能并存时企业版生效，覆盖个人、项目与插件版本",
+   "article": "Claude 官方课程 · 第 5 课：技能的分发与共享"
+  },
+  {
+   "id": "cm_138a8b67",
+   "name": "子代理的技能隔离",
+   "domain": "多 Agent 编排",
+   "desc": "子代理以全新干净上下文启动，不自动看到主会话技能，须在 skills 字段显式列出",
+   "article": "Claude 官方课程 · 第 5 课：技能的分发与共享"
+  },
+  {
+   "id": "cm_4eb02f12",
+   "name": "内置代理与自定义子代理的技能访问边界",
+   "domain": "Harness 与运行时",
+   "desc": "内置代理（Explorer、Plan、Verify）无法访问技能，只有 .claude/agents 中明确列出技能的自定义子代理可用。",
+   "article": "Claude 官方课程 · 第 5 课：技能的分发与共享"
+  },
+  {
+   "id": "cm_200893a2",
+   "name": "skills 字段",
+   "domain": "Harness 与运行时",
+   "desc": "自定义子代理前置元数据中列出待加载技能的 skills 字段，委派时应用。",
+   "article": "Claude 官方课程 · 第 5 课：技能的分发与共享"
+  },
+  {
+   "id": "cm_058c8106",
+   "name": "四类故障分类框架",
+   "domain": "Harness 与运行时",
+   "desc": "把技能故障归为四类：无法触发、无法加载、存在冲突、运行时失败。",
+   "article": "Claude 官方课程 · 第 6 课：技能排障"
+  },
+  {
+   "id": "cm_2cbdf384",
+   "name": "技能验证器",
+   "domain": "验证与评估门禁",
+   "desc": "命令行技能验证器，用 uv 安装最快，用于在深入调试前先捕获结构性问题。",
+   "article": "Claude 官方课程 · 第 6 课：技能排障"
+  },
+  {
+   "id": "cm_b0946442",
+   "name": "语义匹配（semantic matching）与触发短语",
+   "domain": "上下文工程",
+   "desc": "Claude 靠请求与技能描述在含义上的重叠决定是否触发，重叠不足就不匹配。",
+   "article": "Claude 官方课程 · 第 6 课：技能排障"
+  },
+  {
+   "id": "cm_df8ed356",
+   "name": "SKILL.md 结构性要求",
+   "domain": "Harness 与运行时",
+   "desc": "SKILL.md 必须位于命名目录内，文件名大小写须恰为 SKILL.md。",
+   "article": "Claude 官方课程 · 第 6 课：技能排障"
+  },
+  {
+   "id": "cm_c2266b88",
+   "name": "claude --debug",
+   "domain": "Harness 与运行时",
+   "desc": "查看加载错误的诊断命令，运行后留意提及你技能名称的消息。",
+   "article": "Claude 官方课程 · 第 6 课：技能排障"
+  },
+  {
+   "id": "cm_bc68c1e9",
+   "name": "描述区分度",
+   "domain": "规格与意图对齐",
+   "desc": "描述过于相似会让 Claude 选错技能或困惑，应让描述更具体、更有区分度。",
+   "article": "Claude 官方课程 · 第 6 课：技能排障"
+  },
+  {
+   "id": "cm_43781275",
+   "name": "技能优先级层级结构",
+   "domain": "Harness 与运行时",
+   "desc": "技能按来源分层，企业级高于个人、项目和插件，同名时高优先级者每次胜出。",
+   "article": "Claude 官方课程 · 第 6 课：技能排障"
+  },
+  {
+   "id": "cm_db455b2f",
+   "name": "运行时失败的三类原因",
+   "domain": "工具调用与沙箱",
+   "desc": "运行时失败查三类：缺外部依赖、脚本无执行权限、路径未统一用正斜杠。",
+   "article": "Claude 官方课程 · 第 6 课：技能排障"
+  },
+  {
+   "id": "cm_3ff5d50f",
+   "name": "插件技能缺失",
+   "domain": "Harness 与运行时",
+   "desc": "插件技能不显示时：清缓存、重启 Claude Code、重装，仍无则判为插件结构问题。",
+   "article": "Claude 官方课程 · 第 6 课：技能排障"
+  },
+  {
+   "id": "cm_6db0527f",
+   "name": "MCP servers",
+   "domain": "工具调用与沙箱",
+   "desc": "MCP servers 提供外部工具和集成，与 skills 是完全不同的类别。",
+   "article": "Claude 官方课程 · Skills 与其他 Claude Code 功能的比较"
+  },
+  {
+   "id": "cm_a63808b6",
+   "name": "按需加载与始终加载",
+   "domain": "上下文工程",
+   "desc": "CLAUDE.md 每条对话都加载，适合作通用标准；Skills 按需加载，适合作特定任务知识。",
+   "article": "Claude 官方课程 · Skills 与其他 Claude Code 功能的比较"
+  },
+  {
+   "id": "cm_5a687800",
+   "name": "请求驱动与事件驱动",
+   "domain": "Harness 与运行时",
+   "desc": "Skills 由请求内容激活，Hooks 由文件保存、工具调用等事件触发。",
+   "article": "Claude 官方课程 · Skills 与其他 Claude Code 功能的比较"
+  },
+  {
+   "id": "cm_af4d864f",
+   "name": "功能组合",
+   "domain": "Harness 与运行时",
+   "desc": "各功能各有专长，应结合使用，而不是把所有事情硬塞进 skills。",
+   "article": "Claude 官方课程 · Skills 与其他 Claude Code 功能的比较"
+  },
+  {
+   "id": "cm_2b63a21c",
+   "name": "AI 原生开发",
+   "domain": "AI 产品与组织",
+   "desc": "AI 原生开发不是新流程，而是用新方式跑旧的软件开发流程。",
+   "article": "我的 AI 原生开发流程：一个真实案例的完整复盘"
+  },
+  {
+   "id": "cm_b6da7e6e",
+   "name": "执行主体从人变成 Agent",
+   "domain": "AI 产品与组织",
+   "desc": "流程步骤不变，但分析、设计、编码、调试的执行者由人变成 Agent。",
+   "article": "我的 AI 原生开发流程：一个真实案例的完整复盘"
+  },
+  {
+   "id": "cm_8bb611ea",
+   "name": "人在关键路径确认",
+   "domain": "AI 产品与组织",
+   "desc": "人只在关键节点拍板：做不做、选哪个方案、交互是否友好。",
+   "article": "我的 AI 原生开发流程：一个真实案例的完整复盘"
+  },
+  {
+   "id": "cm_37869804",
+   "name": "可行性分析",
+   "domain": "AI 产品与组织",
+   "desc": "先判断值不值得做：产品看价值与定位，技术看可行与成本。",
+   "article": "我的 AI 原生开发流程：一个真实案例的完整复盘"
+  },
+  {
+   "id": "cm_fb4c75d6",
+   "name": "设计文档",
+   "domain": "上下文工程",
+   "desc": "文档是人与 Agent、Agent 与 Agent 之间的桥梁，也是记忆载体。",
+   "article": "我的 AI 原生开发流程：一个真实案例的完整复盘"
+  },
+  {
+   "id": "cm_f47cd4ad",
+   "name": "Agent Session",
+   "domain": "Harness 与运行时",
+   "desc": "一次上下文窗口有限的工作会话，阶段切换往往开新 Session。",
+   "article": "我的 AI 原生开发流程：一个真实案例的完整复盘"
+  },
+  {
+   "id": "cm_ef696870",
+   "name": "高精度原型设计",
+   "domain": "规格与意图对齐",
+   "desc": "把需求、原型、UI 合成一步，产出含交互与视觉的高保真原型。",
+   "article": "我的 AI 原生开发流程：一个真实案例的完整复盘"
+  },
+  {
+   "id": "cm_78356595",
+   "name": "让 Agent 自行验证",
+   "domain": "验证与评估门禁",
+   "desc": "给 Agent 一个自己的反馈循环，让它在你看到结果前先自检。",
+   "article": "我的 AI 原生开发流程：一个真实案例的完整复盘"
+  },
+  {
+   "id": "cm_f986a343",
+   "name": "确认环节可以合并，但不能省略",
+   "domain": "验证与评估门禁",
+   "desc": "确认环节可以合并加速，但绝不能跳过人的判断。",
+   "article": "我的 AI 原生开发流程：一个真实案例的完整复盘"
+  },
+  {
+   "id": "cm_ac2e95b3",
+   "name": "瓶颈转移到代码两侧",
+   "domain": "AI 产品与组织",
+   "desc": "编码已不是瓶颈，瓶颈移到设计确认与测试验证部署两侧。",
+   "article": "我的 AI 原生开发流程：一个真实案例的完整复盘"
+  },
+  {
+   "id": "cm_f282148c",
+   "name": "把自己当普通用户／黑盒测试",
+   "domain": "验证与评估门禁",
+   "desc": "测试时把自己当普通用户，凭直觉乱点、输入意外内容做黑盒测试。",
+   "article": "我的 AI 原生开发流程：一个真实案例的完整复盘"
+  },
+  {
+   "id": "cm_5bff7310",
+   "name": "两类 Skills",
+   "domain": "Harness 与运行时",
+   "desc": "作者只用两类 Skills：辅助设计确认与自动化减少体力劳动。",
+   "article": "我的 AI 原生开发流程：一个真实案例的完整复盘"
+  },
+  {
+   "id": "cm_e4fb81cb",
+   "name": "以项目创建者为中心",
+   "domain": "AI 产品与组织",
+   "desc": "工具设计以最终用户即项目创建者为中心，个人高效优先于完美报告。",
+   "article": "原则与实践（Linear 的产品原则）"
+  },
+  {
+   "id": "cm_e056dcdf",
+   "name": "为特定用途而设计",
+   "domain": "AI 产品与组织",
+   "desc": "生产力软件应按特定用途设计，过度灵活随团队扩大会变成混乱。",
+   "article": "原则与实践（Linear 的产品原则）"
+  },
+  {
+   "id": "cm_8a12b121",
+   "name": "周期",
+   "domain": "AI 产品与组织",
+   "desc": "用固定长度周期推进工作，常用两周，未完成任务自动滚入下一周期。",
+   "article": "原则与实践（Linear 的产品原则）"
+  },
+  {
+   "id": "cm_e243f570",
+   "name": "目标—项目—日常工作的连接",
+   "domain": "AI 产品与组织",
+   "desc": "把日常工作通过项目挂到更大目标上，启动会审目标日期，排周期计划时回看项目。",
+   "article": "原则与实践（Linear 的产品原则）"
+  },
+  {
+   "id": "cm_65b2c79c",
+   "name": "工具为你服务，而非你为工具服务",
+   "domain": "代码库与工程实践",
+   "desc": "工具应为你服务：你在用工具做事，而不是花时间当工具的开发者与维护者。",
+   "article": "原则与实践（Linear 的产品原则）"
+  },
+  {
+   "id": "cm_6a2735cf",
+   "name": "单一负责人",
+   "domain": "AI 产品与组织",
+   "desc": "每个项目指定一位负责人，由他撰写项目简报并交付成果，责任不摊薄到团队。",
+   "article": "原则与实践（Linear 的产品原则）"
+  },
+  {
+   "id": "cm_026f933a",
+   "name": "简洁规范",
+   "domain": "规格与意图对齐",
+   "desc": "简短的项目规范文档，只回答为什么做、做什么、怎么做，用简短逼团队划清范围。",
+   "article": "原则与实践（Linear 的产品原则）"
+  },
+  {
+   "id": "cm_857d56ba",
+   "name": "分解为小颗粒度工作",
+   "domain": "代码库与工程实践",
+   "desc": "把大任务切成小颗粒，每部分建一个问题，小改动既带来完成感也便于审查。",
+   "article": "原则与实践（Linear 的产品原则）"
+  },
+  {
+   "id": "cm_f65d0103",
+   "name": "反馈作为研究资料库",
+   "domain": "AI 产品与组织",
+   "desc": "把用户反馈当作开发新功能的研究资料库，从中发现趋势，而非逐条满足。",
+   "article": "原则与实践（Linear 的产品原则）"
+  },
+  {
+   "id": "cm_765d717a",
+   "name": "可扩展性",
+   "domain": "AI 产品与组织",
+   "desc": "好工具应小团队易上手，又能随团队规模扩大而不断增强功能。",
+   "article": "原则与实践（Linear 的产品原则）"
+  },
+  {
+   "id": "cm_b4276278",
+   "name": "设计师与工程师的推拉关系",
+   "domain": "AI 产品与组织",
+   "desc": "设计师向前推创意、工程师往回拉可行性，形成自然推拉，最优者两种才能兼具。",
+   "article": "原则与实践（Linear 的产品原则）"
+  },
+  {
+   "id": "cm_be0d6099",
+   "name": "每年超过 10 倍增长",
+   "domain": "AI 算力与基建",
+   "desc": "Habitat 处于每年超过 10 倍增长的约束下，团队必须在超增长过程中同时建设平台。",
+   "article": "Rapidly scaling online storage to serve over 1 billion ChatGPT users（存储平台 Habitat 的扩容复盘）"
+  },
+  {
+   "id": "cm_1da0e9a6",
+   "name": "Habitat",
+   "domain": "状态与持久化",
+   "desc": "OpenAI 的在线存储平台，每秒超 7000 万请求、超 500PB 数据，源自一个 Python 客户端库。",
+   "article": "Rapidly scaling online storage to serve over 1 billion ChatGPT users（存储平台 Habitat 的扩容复盘）"
+  },
+  {
+   "id": "cm_8ff0bd7e",
+   "name": "从客户端库到独立服务",
+   "domain": "状态与持久化",
+   "desc": "把存储逻辑从客户端库解耦为独立服务，形成部署、可观测性与平台增强的统一控制点。",
+   "article": "Rapidly scaling online storage to serve over 1 billion ChatGPT users（存储平台 Habitat 的扩容复盘）"
+  },
+  {
+   "id": "cm_7a436f8a",
+   "name": "集中式数据安全与隐私控制点",
+   "domain": "安全权限与合规",
+   "desc": "以 Habitat 服务为统一控制点，集中执行访问控制、审计日志并限制对底层存储的直接访问。",
+   "article": "Rapidly scaling online storage to serve over 1 billion ChatGPT users（存储平台 Habitat 的扩容复盘）"
+  },
+  {
+   "id": "cm_6c8463ad",
+   "name": "约束型 API 与成本不平衡",
+   "domain": "缓存与成本控制",
+   "desc": "不开放任意 SQL，用简单 NoSQL API 让请求成本可预测，避免写得便宜、跑得昂贵的失衡。",
+   "article": "Rapidly scaling online storage to serve over 1 billion ChatGPT users（存储平台 Habitat 的扩容复盘）"
+  },
+  {
+   "id": "cm_fccba9a9",
+   "name": "对象-边模型与分区",
+   "domain": "状态与持久化",
+   "desc": "客户端预定义对象与边、只查直接边、不支持图遍历的 NoSQL 模型，对象与其边同分区存储。",
+   "article": "Rapidly scaling online storage to serve over 1 billion ChatGPT users（存储平台 Habitat 的扩容复盘）"
+  },
+  {
+   "id": "cm_5676c394",
+   "name": "Rockset 离线二级视图",
+   "domain": "状态与持久化",
+   "desc": "用变更数据捕获把在线存储变化近实时同步到隔离的 Rockset 实例，作为复杂查询的逃生舱。",
+   "article": "Rapidly scaling online storage to serve over 1 billion ChatGPT users（存储平台 Habitat 的扩容复盘）"
+  },
+  {
+   "id": "cm_e66df281",
+   "name": "战略性技术债务：Python 服务",
+   "domain": "代码库与工程实践",
+   "desc": "为优先产品与平台稳定而暂不优化性能，把 Python 服务的性能欠账当作有意识的战略性债务。",
+   "article": "Rapidly scaling online storage to serve over 1 billion ChatGPT users（存储平台 Habitat 的扩容复盘）"
+  },
+  {
+   "id": "cm_983f29fd",
+   "name": "asyncio 调度延迟与尾部延迟",
+   "domain": "Harness 与运行时",
+   "desc": "单请求触发数百次数据库调用时体验由最慢那次决定；asyncio 不绕过 GIL，CPU 密集任务抬高尾部延迟。",
+   "article": "Rapidly scaling online storage to serve over 1 billion ChatGPT users（存储平台 Habitat 的扩容复盘）"
+  },
+  {
+   "id": "cm_cbbe3f8e",
+   "name": "亚稳态故障与 LIFO/FIFO 连接重用",
+   "domain": "Harness 与运行时",
+   "desc": "压力消失后进程仍卡在降级状态；aiohttp 默认 LIFO 重用连接，把流量越推越集中在慢 Pod 上。",
+   "article": "Rapidly scaling online storage to serve over 1 billion ChatGPT users（存储平台 Habitat 的扩容复盘）"
+  },
+  {
+   "id": "cm_f8c2e9ae",
+   "name": "连接扇入",
+   "domain": "Harness 与运行时",
+   "desc": "Python 进程增多导致连接暴涨压垮下游；用 Envoy 升 HTTP/2、连接池与长连接收拢扇入。",
+   "article": "Rapidly scaling online storage to serve over 1 billion ChatGPT users（存储平台 Habitat 的扩容复盘）"
+  },
+  {
+   "id": "cm_74099998",
+   "name": "迁移到 Rust",
+   "domain": "代码库与工程实践",
+   "desc": "平台成熟后，两名工程师用 Codex 与 GPT-5.5 把整个 Python 服务重写为 Rust，承接 95% 生产请求。",
+   "article": "Rapidly scaling online storage to serve over 1 billion ChatGPT users（存储平台 Habitat 的扩容复盘）"
+  }
+ ]
+}

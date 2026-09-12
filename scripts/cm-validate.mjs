@@ -31,6 +31,16 @@ check(manifest.topics === topics.topics.length, `manifest.topics ${manifest.topi
 check(manifest.dependencies === deps.dependencies.length, `manifest.dependencies ${manifest.dependencies} != ${deps.dependencies.length}`);
 check(manifest.clusters === clusters.clusters.length, `manifest.clusters ${manifest.clusters} != ${clusters.clusters.length}`);
 
+/* ── 分布合计必须等于概念数 ──────────────────────────────────
+   2026-09-13 加：byOrigin 曾硬编码三个来源桶，第 08 步并入 neican 后
+   80 条既不算 *Only 也不算 multi —— manifest 自称 936、byOrigin 合计 856，静默漏计。
+   任何一张分布表漏掉一类，这里就红。 */
+for (const key of ['byType', 'byStage', 'byVerification', 'byOrigin']) {
+  const sum = Object.values(manifest[key] || {}).reduce((a, b) => a + b, 0);
+  check(sum === topics.topics.length,
+    `manifest.${key} 合计 ${sum} != topics ${topics.topics.length}（有类型/来源没被计入）`);
+}
+
 /* ── topics ─────────────────────────────────────────────── */
 const TYPES = new Set(['CONCEPTUAL', 'PROCEDURAL', 'REPRESENTATIONAL', 'LANGUAGE', 'META']);
 const STAGES = new Set(['now', 'when-needed', 'deep-dive']);

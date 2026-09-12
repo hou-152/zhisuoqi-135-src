@@ -62,10 +62,10 @@ curl -s localhost:5180/api/health   # {"ok":true,"llm":true,"app":false}
 
 | 产物 | 是什么 | 怎么开 |
 |---|---|---|
-| `knowledge/概念地图-260913/` | **概念唯一真源**。856 概念 / 491 前置依赖 / 21 领域（AI 相关性过滤后；过滤前 1156），os-taxonomy 形态 + JSON Schema + manifest 校验和 | 直接读 JSON |
-| `knowledge/概念wiki-260913/` | 概念链接层，llm_wiki 形态：856 页 + `[[双链]]` + 反链 + index/log | 读 `index.md` 或丢进 Obsidian |
+| `knowledge/概念地图-260913/` | **概念唯一真源**。936 概念 / 531 前置依赖 / 21 领域（四源：Notion 概念库 + Context + Harness + AI 内参 260912；AI 相关性过滤后；过滤前 1156），os-taxonomy 形态 + JSON Schema + manifest 校验和 | 直接读 JSON |
+| `knowledge/概念wiki-260913/` | 概念链接层，llm_wiki 形态：936 页 + `[[双链]]` + 反链 + index/log | 读 `index.md` 或丢进 Obsidian |
 | `prototype/知所栖-135-基础框架.html` | **主产物**。1 阅读 → 3 决策 → 5 实验 → 费曼验收 全流程，单文件 | 双击，或经 serve |
-| `prototype/知所栖-壳.html` | 856 概念图 + 21 条主题线 + 倒逼判定 + 内参 + 对话，Linear 式三栏 | **必须经 serve**（`/api/*` 才通） |
+| `prototype/知所栖-壳.html` | 936 概念图 + 21 条主题线 + 倒逼判定 + 内参 + 对话，Linear 式三栏 | **必须经 serve**（`/api/*` 才通） |
 | `deploy/zhisuoqi-135/` | 公网版（单文件零服务端，对话三条路） | <https://hou-152.github.io/zhisuoqi-135/> |
 | `app/` | 桌面版（Electron，本地数据落真文件） | `cd app && npm start` |
 

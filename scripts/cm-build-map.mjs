@@ -47,7 +47,7 @@ function depth(id, seen) {
   }
   seen.delete(id); memo.set(id, m); return m;
 }
-const SUBJECT = { notion: 'AI 概念库', context: 'Context Engineering', harness: 'Harness Engineering' };
+const SUBJECT = { notion: 'AI 概念库', context: 'Context Engineering', harness: 'Harness Engineering', neican: 'AI 内参 260912' };
 
 /* ── topics.json ───────────────────────────────────────── */
 const topics = nodes.map((n) => {
@@ -148,7 +148,7 @@ const schema = {
             learningStage: { enum: ['now', 'when-needed', 'deep-dive'] },
             verification: { enum: ['compute', 'judge', 'use', 'accept'] },
             mentionCount: { type: 'integer', minimum: 0 },
-            origin: { type: 'array', items: { enum: ['notion', 'context', 'harness'] } },
+            origin: { type: 'array', items: { enum: ['notion', 'context', 'harness', 'neican'] } },
             sources: { type: 'array', items: { type: 'object' } },
           },
         },
@@ -209,6 +209,7 @@ const manifest = {
     'notion-概念库': { raw: 509, nodes: nodes.filter((n) => n.origin.includes('notion')).length, note: '用户 Notion 概念库（原始 509 条，只读；跨源合并后落到节点的 502 个）' },
     'context-engineering': { raw: 358, nodes: nodes.filter((n) => n.origin.includes('context')).length, note: '飞书-Context-Engineering-26+2.md（28 篇）' },
     'harness-engineering': { raw: 432, nodes: nodes.filter((n) => n.origin.includes('harness')).length, note: '飞书-Harness-Engineering-28+2.md（30 篇）' },
+    'neican-260912': { raw: 88, nodes: nodes.filter((n) => n.origin.includes('neican')).length, note: 'AI 内参 260912 期 · 10 篇概念辞典（88 条；撞已有 8 条、新增 80 条，见 08-neican-merge.json）' },
   },
   topics: topics.length,
   dependencies: dependencies.length,
@@ -217,12 +218,17 @@ const manifest = {
   byType: tally(topics, 'type'),
   byStage: tally(topics, 'learningStage'),
   byVerification: tally(topics, 'verification'),
-  byOrigin: {
-    notionOnly: topics.filter((t) => t.origin.length === 1 && t.origin[0] === 'notion').length,
-    contextOnly: topics.filter((t) => t.origin.length === 1 && t.origin[0] === 'context').length,
-    harnessOnly: topics.filter((t) => t.origin.length === 1 && t.origin[0] === 'harness').length,
-    multi: topics.filter((t) => t.origin.length > 1).length,
-  },
+  // 每个来源自动一个 *Only 桶 —— 2026-09-13 修。
+  // 此前硬编码 notion/context/harness 三个，第 08 步并入第四个来源 neican 后，
+  // 那 80 条既不算 *Only 也不算 multi，合计 856 ≠ topics 936，静默漏计。
+  // 键名保持 notionOnly/contextOnly/harnessOnly 不变（向后兼容），只多出 neicanOnly。
+  byOrigin: (() => {
+    const groups = [...new Set(topics.flatMap((t) => t.origin))].sort();
+    const out = {};
+    for (const g of groups) out[`${g}Only`] = topics.filter((t) => t.origin.length === 1 && t.origin[0] === g).length;
+    out.multi = topics.filter((t) => t.origin.length > 1).length;
+    return out;
+  })(),
   checksums,
   license: '源材料为用户私人收藏（Notion 概念库 / AI 内参），本图仅供本项目内部使用，不对外再分发。',
 };

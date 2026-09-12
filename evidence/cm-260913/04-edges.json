@@ -1,18 +1,18 @@
 {
  "generatedAt": "2026-09-12T16:52:56.028Z",
  "stats": {
-  "dependencies": 491,
+  "dependencies": 531,
   "byOrigin": {
-   "llm": 226,
-   "llm-strict": 421
+   "llm": 168,
+   "llm-strict": 363
   },
   "byStrength": {
-   "hard": 230,
-   "soft": 417
+   "hard": 203,
+   "soft": 328
   },
   "droppedForCycle": 0,
   "relations": 3293,
-  "isolated": 264,
+  "isolated": 289,
   "unresolvedCurated": 138,
   "tokens": 0,
   "failedJobs": [],
@@ -5428,6 +5428,366 @@
    "axis": "mechanism",
    "audit": "unaudited",
    "auditIssue": "方向反了：HITL 是回应意图外包后责任漂移的下游机制，不是理解意图延伸的前置。"
+  },
+  {
+   "topicId": "cm_369f10ff",
+   "prerequisiteId": "cm_a5573df7",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂 SKILL.md 顶部的名称与描述就是前置信息、决定技能何时被识别，就写不出让 Claude 自动激活该技能的触发条件。",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_5a687800",
+   "prerequisiteId": "cm_369f10ff",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂技能是 Claude 识别到相应情况自动激活、无需显式调用，就分不清 Skills 与 Hooks 在触发方式上的差异。",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_4eb02f12",
+   "prerequisiteId": "cm_200893a2",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂要在自定义子代理前置元数据的 skills 字段里列出待加载技能，就没法让某个自定义子代理在委派时真正用上技能（内置代理则始终访问不到）。",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_058c8106",
+   "prerequisiteId": "cm_369f10ff",
+   "strength": "soft",
+   "kind": "prerequisite",
+   "reason": "不懂技能靠识别情况自动激活，就判断不出「无法触发」这一类故障到底卡在哪一环。",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_058c8106",
+   "prerequisiteId": "cm_c2266b88",
+   "strength": "soft",
+   "kind": "prerequisite",
+   "reason": "不懂用 claude --debug 查看加载错误、留意提及技能名称的消息，就查不下去「无法加载」这一类故障。",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_3ff5d50f",
+   "prerequisiteId": "cm_43781275",
+   "strength": "soft",
+   "kind": "prerequisite",
+   "reason": "不懂技能按企业、个人、项目、插件分层且同名时高优先级每次胜出，就排查不出插件技能「不显示」是否被同名的高优先级技能盖掉。",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_226cbc01",
+   "prerequisiteId": "cm_ad086a79",
+   "strength": "soft",
+   "kind": "prerequisite",
+   "reason": "不懂自定义技能不跨产品面同步、claude.ai、API、Claude Code 各自独立，就说不清两类技能在来源与共享范围上的区别。",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_f8c2e9ae",
+   "prerequisiteId": "cm_cbbe3f8e",
+   "strength": "soft",
+   "kind": "prerequisite",
+   "reason": "不懂 aiohttp 默认 LIFO 重用连接会把流量越推越集中在慢 Pod 上、压力退去后进程仍卡在降级状态，就做不好用连接池与长连接收拢扇入这件事。",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_28c258d9",
+   "prerequisiteId": "cm_d78a3680",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂 SKILL.md 与 YAML 前置元数据，就做不了启动时仅加载名称和描述里的「从技能位置只读取 YAML 元数据中的 name 与 description 作为发现层」",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_dc4f803b",
+   "prerequisiteId": "cm_ae03bb56",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂技能描述，就做不了技能触发与自动使用里的「按请求与 description 的匹配结果自动决定是否激活技能」",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_dc4f803b",
+   "prerequisiteId": "cm_b0946442",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂语义匹配与触发短语，就做不了技能触发与自动使用里的「靠请求与技能描述在含义上的重叠决定是否触发」",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_cc101992",
+   "prerequisiteId": "cm_4b769318",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂名称与描述，就做不了按需加载里的「起初只加载名称与描述，请求匹配时才加载正文」",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_80dfaf37",
+   "prerequisiteId": "cm_cc101992",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂按需加载，就做不了匹配后的确认与完整加载里的「匹配成功后先确认，再读取整个 SKILL.md 并执行其中指令」",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_5face436",
+   "prerequisiteId": "cm_cc101992",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂按需加载，就做不了三类内容里的「按加载时机区分说明、代码、资源，并让代码只把输出带入上下文」",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_a63808b6",
+   "prerequisiteId": "cm_cc101992",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂按需加载，就做不了按需加载与始终加载里的「区分 CLAUDE.md 每条对话都加载与 Skills 按需加载」",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_cc101992",
+   "prerequisiteId": "cm_b3524e24",
+   "strength": "soft",
+   "kind": "prerequisite",
+   "reason": "不懂共享上下文窗口，就做不了按需加载里的「避免技能激活时整份 SKILL.md 载入而占满对话上下文」",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_53ec7c9b",
+   "prerequisiteId": "cm_a2868643",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂【运行时限制、权限与数据保留边界】里的正常权限模型与 ZDR 不覆盖的前提，就做不了 allowed-tools 的 ⟨判断省略该字段后技能回到什么样的默认权限⟩",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_db455b2f",
+   "prerequisiteId": "cm_a2868643",
+   "strength": "soft",
+   "kind": "prerequisite",
+   "reason": "不懂【运行时限制、权限与数据保留边界】（所在产品面 API 无网络、不能装包），就做不了运行时失败三类原因中 ⟨「缺外部依赖」这一类的定位⟩",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_53ec7c9b",
+   "prerequisiteId": "cm_6db0527f",
+   "strength": "soft",
+   "kind": "prerequisite",
+   "reason": "不懂【MCP servers】是提供外部工具与集成、与 skills 完全不同的类别，就做不了 allowed-tools 的 ⟨把 MCP 提供的外部工具列进免许可可用工具清单⟩",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_32e036a5",
+   "prerequisiteId": "cm_dc9a27be",
+   "strength": "soft",
+   "kind": "prerequisite",
+   "reason": "不懂【安全审计与受信任来源】，就做不了【企业托管设置（Managed Settings）与 strictKnownMarketplaces】的 ⟨判定哪些 marketplace / 插件源有资格进白名单，并解释为什么限定来源白名单本身不等于安全、包内文件仍需逐一审计⟩",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_2440f85e",
+   "prerequisiteId": "cm_32e036a5",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂【企业托管设置（Managed Settings）与 strictKnownMarketplaces】，就做不了【企业技能的最高优先级】的 ⟨让企业版同名技能落到终端上并覆盖个人、项目与插件版本——企业技能本身就是靠托管设置下发、靠 strictKnownMarketplac",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_2440f85e",
+   "prerequisiteId": "cm_dc9a27be",
+   "strength": "soft",
+   "kind": "prerequisite",
+   "reason": "不懂【安全审计与受信任来源】，就做不了【企业技能的最高优先级】的 ⟨解释企业版同名技能凭什么能无条件压过个人、项目与插件版本——只有先把技能当作要审计的软件、只认可信来源，才说得通把最高优先级给企业版⟩",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_8ff0bd7e",
+   "prerequisiteId": "cm_1da0e9a6",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂 Habitat 是从一个 Python 客户端库长出来的在线存储平台，就做不了「把存储逻辑从客户端库解耦为独立服务」这条演化路径的判断",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_5676c394",
+   "prerequisiteId": "cm_fccba9a9",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂在线存储是只查直接边、不支持图遍历的对象-边模型，就做不了「为什么必须专设一个 Rockset 复杂查询逃生舱」的判断",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_5676c394",
+   "prerequisiteId": "cm_8ff0bd7e",
+   "strength": "soft",
+   "kind": "prerequisite",
+   "reason": "不懂存储已解耦为独立服务、有了部署与平台增强的统一控制点，就做不了用变更数据捕获把在线存储变化近实时同步到隔离实例这件事",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_5676c394",
+   "prerequisiteId": "cm_1da0e9a6",
+   "strength": "soft",
+   "kind": "prerequisite",
+   "reason": "不懂 Habitat 在线侧的规模（每秒超 7000 万请求、超 500PB），就做不了「复杂查询为何不能压在主库、须甩到隔离实例」的取舍",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_ef696870",
+   "prerequisiteId": "cm_026f933a",
+   "strength": "soft",
+   "kind": "prerequisite",
+   "reason": "不懂【简洁规范】，就做不了【高精度原型设计】的「把需求、原型、UI 合成一步」——没先用为什么做/做什么/怎么做把范围划死，就无从判断哪些需求该进这一步的高保真原型、哪些交互和视觉纯属越界加戏。",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_bc68c1e9",
+   "prerequisiteId": "cm_026f933a",
+   "strength": "soft",
+   "kind": "prerequisite",
+   "reason": "不懂【简洁规范】，就做不了【描述区分度】的「让描述更具体、更有区分度」——不先逼自己把边界用极短的文字划清，描述只会堆形容词，Claude 依旧分不清这个技能和隔壁技能有什么不同。",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_6c8463ad",
+   "prerequisiteId": "cm_40b450ca",
+   "strength": "soft",
+   "kind": "prerequisite",
+   "reason": "不懂【脚本执行】里『脚本不必读入上下文、运行期只有输出消耗 token』这套运行期成本模型，就做不了【约束型API与成本不平衡】中『判断一次请求实际烧掉多少、从而把 API 设计成成本可预测』这件事",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_74099998",
+   "prerequisiteId": "cm_857d56ba",
+   "strength": "soft",
+   "kind": "prerequisite",
+   "reason": "不懂【分解为小颗粒度工作】，就做不了【迁移到 Rust】的「两名工程师把整个 Python 服务的重写切成小颗粒、逐块建问题、逐块交付与审查」这件事——整块重写既无法审查，也拿不到逐块完成的推进反馈。",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_2b63a21c",
+   "prerequisiteId": "cm_b6da7e6e",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂【执行主体从人变成 Agent】，就做不了【AI 原生开发】里 ⟨用新方式跑旧流程——把分析、设计、编码、调试的执行者由人换成 Agent 这件事⟩",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_ac2e95b3",
+   "prerequisiteId": "cm_b6da7e6e",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂【执行主体从人变成 Agent】，就做不了【瓶颈转移到代码两侧】里 ⟨判断编码已不是瓶颈、瓶颈移到了设计确认与测试验证部署两侧这件事⟩",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_8bb611ea",
+   "prerequisiteId": "cm_37869804",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂【可行性分析】，就做不了【人在关键路径确认】里 ⟨在关键节点对「做不做」拍板这一动作⟩",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_e243f570",
+   "prerequisiteId": "cm_8a12b121",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂【周期】，就做不了【目标—项目—日常工作的连接】里 ⟨排周期计划时回看项目、把日常工作挂到更大目标上这件事⟩",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_8bb611ea",
+   "prerequisiteId": "cm_b6da7e6e",
+   "strength": "soft",
+   "kind": "prerequisite",
+   "reason": "不懂【执行主体从人变成 Agent】，就做不了【人在关键路径确认】里 ⟨划出哪些节点必须留给人拍板这件事⟩",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_765d717a",
+   "prerequisiteId": "cm_e056dcdf",
+   "strength": "soft",
+   "kind": "prerequisite",
+   "reason": "不懂【为特定用途而设计】，就做不了【可扩展性】里 ⟨随着团队规模扩大仍不断增强功能而不滑向混乱这件事⟩",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_b4276278",
+   "prerequisiteId": "cm_37869804",
+   "strength": "soft",
+   "kind": "prerequisite",
+   "reason": "不懂【可行性分析】，就做不了【设计师与工程师的推拉关系】里 ⟨工程师往回拉的那一手——用技术与成本判断把设计拉回地面⟩",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_78356595",
+   "prerequisiteId": "cm_f986a343",
+   "strength": "soft",
+   "kind": "prerequisite",
+   "reason": "不懂【确认环节可以合并，但不能省略】，就做不了【让 Agent 自行验证】里「Agent 自检完之后仍把最终判断留在人的确认环节」这件事——会把自检结果直接当作放行依据。",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_2cbdf384",
+   "prerequisiteId": "cm_f986a343",
+   "strength": "soft",
+   "kind": "prerequisite",
+   "reason": "不懂【确认环节可以合并，但不能省略】，就做不了【技能验证器】里「把它定位成深入调试前的结构性筛查、通过不等于放行」这件事——会拿命令行的通过结果顶替人的判断。",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_78356595",
+   "prerequisiteId": "cm_2cbdf384",
+   "strength": "soft",
+   "kind": "prerequisite",
+   "reason": "不懂【技能验证器】，就做不了【让 Agent 自行验证】里「给 Agent 挂一个在命令行先捕获技能结构性问题的自检关卡」这件事。",
+   "origin": "llm-strict",
+   "axis": "neican"
   }
  ],
  "relations": [

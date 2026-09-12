@@ -1,22 +1,25 @@
 # 概念索引 · 知所栖 135
 
-> 856 个概念 · 491 条前置依赖 · 21 个领域 · 源：Notion 概念库 + Context Engineering(28篇) + Harness Engineering(30篇)
+> 936 个概念 · 531 条前置依赖 · 21 个领域 · 源：Notion 概念库 + Context Engineering(28篇) + Harness Engineering(30篇)
 
 查一个概念：先在本页按领域找，再进 `concepts/`。想知道「从哪开始学」，看每个领域的枢纽概念。
 
-## Harness 与运行时（115）
+## Harness 与运行时（138）
 
 > Agent 靠什么骨架才能跑起来、跑得久？
 
-**枢纽**：[[Harness]] · [[Harness 工程 Harness Engineering]] · [[Agent vs Harness]] · [[coding agent]] · [[Runtime-harness separation]] · [[Claude Managed Agents]] · [[prefill 与 decode 的高度倾斜]] · [[primitives]]
+**枢纽**：[[Harness]] · [[skills 字段]] · [[Harness 工程 Harness Engineering]] · [[Agent vs Harness]] · [[coding agent]] · [[Runtime-harness separation]] · [[跨产品面的同步与共享边界 Surface-specific Sync and Sharing]] · [[自动激活]]
 
 <details><summary>全部</summary>
 
 - [[Harness]] — 包裹在大语言模型之外的完整软件架构，负责让模型能读文件、跑命令、改代码并自主完成任务。
+- [[skills 字段]] — 自定义子代理前置元数据中列出待加载技能的 skills 字段，委派时应用。
 - [[Harness 工程 Harness Engineering]] — 围绕模型构建的完整系统，使 Agent 能够自主行动。
 - [[Agent vs Harness]] — agent 是用户交互的涌现行为实体，harness 是产生该行为的机器。
 - [[coding agent]] — 由 harness 包裹的 LLM，并借工具获得读写代码等额外能力的代理。
 - [[Runtime-harness separation]] — LangChain 的 framework/runtime/harness 三层分解：执行环境与可靠工作循环不是同一层。
+- [[跨产品面的同步与共享边界 Surface-specific Sync and Sharing]] — 自定义技能不跨产品面同步，claude.ai、API、Claude Code 各自独立，共享范围也不同。
+- [[自动激活]] — 技能无需手动输入，Claude 识别到相应情况时自动激活；斜杠命令则需显式调用。
 - [[Claude Managed Agents]] — 预置、可配置、跑在托管基础设施上的 agent harness：你定义 agent 模板，harness 与 infra 由 Anthropic 提供。
 - [[prefill 与 decode 的高度倾斜]] — Agent 每步追加 action 与 observation 使输入膨胀，输出却只是短 function call，如 Manus 约 100:1。
 - [[primitives]] — SDK 中不可再拆的三个基本构件：Agents、Agents as tools/Handoffs、Guardrails。
@@ -33,6 +36,7 @@
 - [[时间 Scalability Temporal Scalability]] — agent 在数小时连续运行中保持方向与质量的能力。
 - [[事件驱动编排与执行解耦]] — 编排放在执行之外的事件驱动层，两者解耦，换来可观测、持久重试与事件审计。
 - [[事件驱动的自动化 Automations]] — 事件驱动的自动化：issue 进入系统那一刻即触发 agent 工作流，即时精炼或行动。
+- [[四类故障分类框架]] — 把技能故障归为四类：无法触发、无法加载、存在冲突、运行时失败。
 - [[Action Space]] — 一个 agent 可执行的全部动作与工具的集合，构造它是搭建 harness 最难的部分之一。
 - [[agent 与 harness 的分工]] — agent 是目标导向、会用工具、能自我纠错的涌现行为；harness 是产生这一行为的机器。
 - [[context window 即 agent 状态]] — 循环中上下文起于一个初始事件，此后每次决策与执行结果都追加进去，它本身就是 Agent 的状态。
@@ -43,11 +47,20 @@
 - [[higher-level runtime]] — 在模型调用之上再叠一层运行时，接管 turns、工具执行、guardrails、handoffs、sessions，且可按场景分层选择。
 - [[model-native harness]] — 顺着模型自身擅长方式设计的 harness，让 agent 跨文件、跨工具完成任务。
 - [[Von Neumann Architecture Analogy]] — 把裸 LLM 比作无 RAM 无磁盘无 IO 的 CPU：上下文是 RAM，外部库是磁盘，工具是驱动，harness 是操作系统。
+- [[请求驱动与事件驱动]] — Skills 由请求内容激活，Hooks 由文件保存、工具调用等事件触发。
+- [[亚稳态故障与 LIFOFIFO 连接重用]] — 压力消失后进程仍卡在降级状态；aiohttp 默认 LIFO 重用连接，把流量越推越集中在慢 Pod 上。
+- [[SKILL.md 与前置信息]] — SKILL.md 上为前置信息（名称、描述），下为任务说明，如审阅清单或格式偏好。
+- [[插件技能缺失]] — 插件技能不显示时：清缓存、重启 Claude Code、重装，仍无则判为插件结构问题。
+- [[技能优先级层级结构]] — 技能按来源分层，企业级高于个人、项目和插件，同名时高优先级者每次胜出。
+- [[连接扇入]] — Python 进程增多导致连接暴涨压垮下游；用 Envoy 升 HTTP/2、连接池与长连接收拢扇入。
+- [[内置代理与自定义子代理的技能访问边界]] — 内置代理（Explorer、Plan、Verify）无法访问技能，只有 .claude/agents 中明确列出技能的自定义子代理可用。
+- [[预构建技能与自定义技能 Pre-built vs Custom Skills]] — 技能分两类：Anthropic 预置文档技能与用户自定义技能，运行方式相同，来源与共享范围不同。
 - [[执行可靠性机制 State Error Guardrails Verification]] — 让执行中断可恢复、错误不滚雪球、越界立即停止的机制集合：状态、错误、护栏、验证。
 - [[Agent = Model + Harness]] — Agent = Model + Harness：模型只有在 harness 提供状态、工具执行、反馈回路与约束后才成为 agent。
 - [[AI Agent]] — 用户感知到的行为体现：Agent 的对外表现，而非其内部实现。
 - [[Latent vs Deterministic]] — 系统每一步要么在潜空间要么是确定性的，混淆二者是 Agent 设计中最常见的错误。
 - [[Thin Harness, Fat Skills]] — 设计原则：harness 保持薄，把厚度与智能放进 skills（thin harness, fat skills）。
+- [[名称冲突优先级与技能作用域]] — 同名技能按企业→个人→项目→插件排优先级，企业版生效并覆盖其他作用域
 - [[「垃圾回收」型 agent]] — harness 的第三类组件：周期性运行的 agent，专找文档不一致与架构约束违规，对抗熵增腐化。
 - [[从期望行为反推 harness 设计]] — 不从功能清单出发，而由希望模型做出的行为反推 harness 需要提供哪些能力。
 - [[动态系统]] — 区别于静态 Prompt/Context 优化，指持续吸收多源信号并据反馈快速迭代的 Harness 系统。
@@ -76,6 +89,7 @@
 - [[Agents SDK]] — OpenAI 提供的标准化 Agent 开发基础设施，让开发者易于起步并为 OpenAI 模型正确构建。
 - [[APM]] — Agent 包管理器，负责 agent primitives 的安装、分发、配置与运行，类比 npm/pip。
 - [[Bedrock Managed Agents]] — AWS 原生的托管 agent 运行时，打包身份、权限、状态、日志、治理与部署。
+- [[claude --debug]] — 查看加载错误的诊断命令，运行后留意提及你技能名称的消息。
 - [[Claude Code]] — Anthropic 2025 年 11 月发布的自主编程 agent 产品，能在分钟到小时内完成原需数天的编程任务。
 - [[Codex]] — OpenAI 的编码代理产品；本地化运行既是它的能力来源，也带来安全与部署上的复杂度。
 - [[Harness 简化原则 Harness Simplification]] — 找最简单的解法，只在必要时增加复杂度——harness 里每个组件都编码了“模型自己做不到”的假设。
@@ -86,10 +100,18 @@
 - [[Harness Thickness]] — 多少逻辑住在 harness 而非模型里：Anthropic 押薄 harness 与模型进步，图式框架押显式控制。
 - [[messages API 作为直连网关]] — messages API 是通往模型的直连网关，接收 messages 返回 content blocks；足够底层，所以 agent 必须自己补上 harness。
 - [[Reliability-critical harness primitives]] — 只收录直接影响 harness 设计、上下文管理、评测与运行时控制等可靠性原语的资源筛选标准。
+- [[两类 Skills]] — 作者只用两类 Skills：辅助设计确认与自动化减少体力劳动。
+- [[反复解释同一件事]] — 反复向 Claude 解释同一件事，是应为该内容写一个技能的触发信号与经验法则。
+- [[功能组合]] — 各功能各有专长，应结合使用，而不是把所有事情硬塞进 skills。
+- [[文件系统型代码执行环境 Filesystem-based Code Execution Environment]] — 技能以目录形式存在于带文件系统、bash 与代码执行的虚拟机中，可读文件、跑脚本。
 - [[保留推理 retained reasoning]] — 跨工具调用与轮次保留模型私有推理，让它看到此前的计划与思路，而不只是动作记录。
+- [[技能变更生效条件：编辑、删除、重启]] — 改技能即改其 SKILL.md，删技能即删目录，之后必须重启 Claude Code 才生效
+- [[技能与 SKILL.md 结构 Skill SKILL.md]] — 技能是一个目录加入口文件 SKILL.md：前置元数据，其下为说明，激活后才执行。
 - [[脚手架与 Harness 厚度 Scaffolding Harness Thickness]] — 脚手架本身不盖房子；关键取舍是多大比例的逻辑写死在系统里，而不是留给模型。
+- [[asyncio 调度延迟与尾部延迟]] — 单请求触发数百次数据库调用时体验由最慢那次决定；asyncio 不绕过 GIL，CPU 密集任务抬高尾部延迟。
 - [[hooks .claudehooks]] — 在 agent 生命周期特定事件上自动执行的确定性脚本，用于通知、审批、集成与验证。
 - [[Responses API 与生产设置对齐]] — 用 Responses API 重写 harness 以更好对齐生产设置，并建议开发者弃用 legacy Chat Completions。
+- [[SKILL.md 结构性要求]] — SKILL.md 必须位于命名目录内，文件名大小写须恰为 SKILL.md。
 - [[「少即是多」：gimmick 与真实增益的分界]] — 装配置、诱导 agent 多是 gimmick；真实增益来自对 harness 的理解与用法。
 - [[1.6% vs 98.4%]] — Claude Code 51.2 万行源码中仅 1.6% 是 AI 决策逻辑，98.4% 是确定性工程基础设施。
 - [[12-factor agents]] — 一组让 LLM 软件达到生产可交付水准的工程要素纲领，非框架，可单独取用。
@@ -116,6 +138,7 @@
 - [[无手打代码 no manually typed code at all]] — OpenAI 团队的自我设限规则：一行代码都不手写，被作者称为 forcing function，逼出整套 harness。
 - [[Agent as a New Type of Software]] — Agent 的基础设施可像 web app，但 interaction、interface、outputs 更动态，需沙箱、安全执行与长任务支持。
 - [[Agent CLI runtimes]] — 运行 agent workflow 的命令行环境，使自然语言工作流可在本地脚本、终端任务与 CI/CD 中执行。
+- [[Agent Session]] — 一次上下文窗口有限的工作会话，阶段切换往往开新 Session。
 - [[AgentCore]] — AWS 提供的一套 agent 原语，含记忆组件、安全执行环境与权限能力，供自建 agentic workflow 使用。
 - [[AI 工程基础设施 AI engineering infrastructure]] — 指出做 Agent 已不是写提示词，而需要一整套工程基础设施的判断。
 - [[brain hands session 解耦]] — 把模型与 harness、沙箱工具、会话事件日志拆成三个互相假设极少、可独立失败或被替换的接口。
@@ -186,18 +209,20 @@
 
 </details>
 
-## 上下文工程（156）
+## 上下文工程（169）
 
 > 模型在每一步到底应该看到哪些信息？
 
-**枢纽**：[[Skill]] · [[上下文 context]] · [[上下文工程 context engineering]] · [[注意力预算 attention budget]] · [[长上下文窗口]] · [[有限的工作记忆 limited working memory]] · [[Skill-as-method-call]] · [[skill-creator 访谈式创建]]
+**枢纽**：[[Skill]] · [[上下文 context]] · [[按需加载]] · [[上下文工程 context engineering]] · [[注意力预算 attention budget]] · [[SKILL.md 与 YAML 前置元数据 SKILL.md YAML frontmatter]] · [[长上下文窗口]] · [[有限的工作记忆 limited working memory]]
 
 <details><summary>全部</summary>
 
 - [[Skill]] — 放在 .claude/skills/ 下的文件夹，含声明触发条件的 frontmatter 与完整正文，按需加载。
 - [[上下文 context]] — 模型读到的全部『前文』；处理新词时要连着前面所有词的关系一起理解。
+- [[按需加载]] — 技能按需加载：起初只加载名称与描述，请求匹配时才加载正文，不占满上下文。
 - [[上下文工程 context engineering]] — 对模型上下文窗口的审慎构建与管理，把原始上下文与目标任务映射为可组合的上下文处理函数。
 - [[注意力预算 attention budget]] — 把 LLM 注意力类比为有限的工作记忆预算，每新增一个 token 都要从中支取，故上下文是有限资源。
+- [[SKILL.md 与 YAML 前置元数据 SKILL.md YAML frontmatter]] — SKILL.md 的 YAML 前置元数据以 name 与 description 为必需字段，是技能的发现层。
 - [[长上下文窗口]] — 模型一次能装下的文本量，如 1M token 可装下整套《指环王》与《霍比特人》。
 - [[有限的工作记忆 limited working memory]] — 模型能装载的上下文信息量有限，因此「往里面放什么」必须做取舍，这是上下文工程的物理前提。
 - [[Skill-as-method-call]] — skill 像方法调用：同一套流程传入不同参数，产出截然不同的能力。
@@ -206,9 +231,11 @@
 - [[上下文压缩 Context Compression Summarization]] — 通过摘要或减少携带内容来压缩上下文，但不得以破坏稳定前缀为代价。
 - [[上下文腐烂 Context Rot]] — 模型性能随输入长度增长而变得不可靠的现象，且不是平滑衰减，而是在不同位置参差塌陷。
 - [[Context Reset vs Compaction]] — 压缩是就地总结让同一 Agent 带着缩短历史继续；重置是清空重来，靠交接物把状态交给下一个 Agent。
+- [[技能触发与自动使用 Skill Triggering Automatic Use]] — Claude 按请求与 description 的匹配自动触发技能，触发后才用 bash 读取 SKILL.md 正文。
 - [[上下文文件树 tree of files]] — 不要把所有实践塞进 CLAUDE.md，而是组织成一棵能在正确时机按需加载的文件树。
 - [[提示词工程 Prompt Engineering]] — 精心设计模型接收到的指令。
 - [[渐进式披露 progressive disclosure]] — Agent 通过探索逐层发现相关上下文、工作记忆只保留必要部分的检索与认知模式。
+- [[三类内容：说明、代码、资源 Instructions, Code, Resources]] — 技能内容分说明、代码、资源三类，加载时机不同，代码只把输出带入上下文。
 - [[护栏与判断力的取舍 guardrail tradeoff]] — 规则数量应是模型能力的函数：旧模型需显式护栏避免最坏情况，新模型判断力足够时可减少规则让位给判断。
 - [[会话的话题边界]] — 把聊天会话看成有话题性的：做与本功能无关的事就开新会话，避免有限上下文被无关内容稀释。
 - [[混合指代]] — 一句话里既有本名又有代词，清晰度介于显式指代与隐式指代之间。
@@ -226,7 +253,13 @@
 - [[tokens]] — 模型处理的是 token，而不是直接处理词；token 是模型处理文本的基本单位。
 - [[迷失在中间 lost in the middle]] — 当模型必须访问并使用位于长输入上下文中间的信息时，性能显著劣化的现象。
 - [[压缩 Compaction]] — 对对话或观察做压缩凝聚的机制：压得太狠会凝成『自信但错误』的理论，压不动则停在分散的可能性里。
+- [[按需加载与始终加载]] — CLAUDE.md 每条对话都加载，适合作通用标准；Skills 按需加载，适合作特定任务知识。
+- [[技能描述]] — 技能描述是 Claude 判断是否使用该技能的依据，请求与描述匹配后激活。
+- [[名称与描述 name description]] — 名称是技能标识，描述是匹配条件；请求先与描述做语义匹配，允许意图重叠
+- [[匹配后的确认与完整加载]] — 匹配成功后先弹出确认，确认后才读取整个 SKILL.md 并执行其中指令
+- [[启动时仅加载名称和描述]] — Claude Code 启动时扫描技能位置，只加载名称与描述，不载入 SKILL.md 全文
 - [[上下文占用率与性能衰减]] — 上下文窗口越满，模型性能越容易被轻微拖累；压缩通过腾出空间缓解这一衰减。
+- [[语义匹配（semantic matching）与触发短语]] — Claude 靠请求与技能描述在含义上的重叠决定是否触发，重叠不足就不匹配。
 - [[compaction]] — 上下文接近窗口上限时，把对话摘要后重新初始化新窗口，保留关键决策与未解决 bug。
 - [[Resolver]] — 上下文的路由表：任务类型 X 出现时优先加载文档 Y，规定加载什么与何时加载。
 - [[典型示例策展 diverse, canonical examples]] — few-shot 时策展一组多样、典型的示例来刻画期望行为，而非把边缘 case 堆进 prompt 穷举规则。
@@ -236,6 +269,7 @@
 - [[干扰项的非均匀影响]] — 一个干扰项就足以把成绩压到基线以下，四个进一步叠加；各干扰项影响不等价，且随输入变长而放大。
 - [[干扰项与无关内容之分]] — 术语约定：干扰项与 needle 主题相关但不回答问题；无关内容则与 needle 和问题都无关，两者不可混谈。
 - [[格式即上下文 where the format matters]] — 信息的呈现方式本身构成上下文：简洁摘要优于原始数据倾倒，清晰工具 schema 优于含糊指令。
+- [[共享上下文窗口]] — 技能与对话共享同一上下文窗口，技能激活时整份 SKILL.md 被载入上下文
 - [[过度约束与松绑 over-constraining unhobbling]] — 在系统提示词、CLAUDE.md 与 skills 里过度约束模型，松绑后提示可大幅精简。
 - [[护栏型指令的过期]] — 为旧模型写的强指令曾是必要护栏，代价是部分场景下判断错误；模型判断力提升后若仍不撤除，保护就变成压制。
 - [[滑动窗口]] — 压缩注意力中为最近若干词的原始 KV 保留 VIP 通道、不被压缩且必然入选，保证对刚说过的话仍有清晰记忆。
@@ -290,6 +324,8 @@
 - [[Skill Files]] — 可复用的 markdown 文档，只教模型怎么做，不定义做什么，目标由用户提供。
 - [[Token 优化的评审上下文 get_review_context_tool]] — MCP 工具 get_review_context_tool，输出 156–207 token 的结构化评审摘要。
 - [[Tool call offloading]] — 工具输出超阈值 token 时只保留头尾，把完整输出卸载到文件系统，模型按需再读取。
+- [[description]] — 必填字段，≤1024 字符，是匹配依据，须写清技能作用与何时使用它
+- [[设计文档]] — 文档是人与 Agent、Agent 与 Agent 之间的桥梁，也是记忆载体。
 - [[观察掩码 Observation Masking]] — 上下文管理策略：把旧的工具输出隐藏起来，只保留动作与结论，从而压低窗口占用。
 - [[滚动截断 rolling truncation]] — 官方 harness 的上下文管理：超过约 175,000 字符就丢弃最旧消息，代价是丢失早期观察且常运行在更满窗口。
 - [[CLAUDE.md]] — 放在项目根目录的 markdown 文件，Claude Code 每次会话开始时自动读取并严格执行。
@@ -401,11 +437,11 @@
 
 </details>
 
-## 状态与持久化（19）
+## 状态与持久化（24）
 
 > 跨会话、跨进程的状态放在哪里才可靠？
 
-**枢纽**：[[持久化执行 durable execution]] · [[状态子系统与进度持久化]] · [[Long-running agent handoff]] · [[Session]] · [[文件系统即持久记忆]] · [[Cross-session Work]] · [[Stateful Runtime Environment (SRE)]] · [[统一执行状态与业务状态]]
+**枢纽**：[[持久化执行 durable execution]] · [[状态子系统与进度持久化]] · [[Long-running agent handoff]] · [[Session]] · [[Rockset 离线二级视图]] · [[文件系统即持久记忆]] · [[Cross-session Work]] · [[Stateful Runtime Environment (SRE)]]
 
 <details><summary>全部</summary>
 
@@ -413,25 +449,30 @@
 - [[状态子系统与进度持久化]] — 用 progress.md、feature_list、git log 等把做了什么、在做什么、下一步是什么持久化到磁盘，让下次会话接着做。
 - [[Long-running agent handoff]] — 跨上下文窗口、跨阶段维持长任务的交接机制，如 initializer agent、handoff artifact、feature list 与上下文压缩。
 - [[Session]] — 一次有状态的运行：用已建好的 agent 配置与环境拉起沙箱，挂载文件、仓库与认证。
+- [[Rockset 离线二级视图]] — 用变更数据捕获把在线存储变化近实时同步到隔离的 Rockset 实例，作为复杂查询的逃生舱。
 - [[文件系统即持久记忆]] — 把耐久状态（日志、diff、错误 trace）写进文件系统而非塞进 context，靠 bash 读写即可续跑长任务。
 - [[Cross-session Work]] — 任务由多个 agent session 各承担一部分并在循环中推进，因此要求外部状态能跨 session 保存与恢复。
 - [[Stateful Runtime Environment (SRE)]] — 把持久化与状态管理封装进运行环境，构建 agent 时无需再操心这些
+- [[从客户端库到独立服务]] — 把存储逻辑从客户端库解耦为独立服务，形成部署、可观测性与平台增强的统一控制点。
+- [[Habitat]] — OpenAI 的在线存储平台，每秒超 7000 万请求、超 500PB 数据，源自一个 Python 客户端库。
 - [[统一执行状态与业务状态]] — 统一执行状态与业务状态：把运行状态与业务状态合一，配合简单 API 的启动/暂停/恢复与无状态 reducer。
 - [[Artifact Schema]] — 把 artifacts 当作共享知识层，每种都配 README、schema、添加流程与 timeline。
 - [[Git-backed state]] — 把循环状态落在 git 中获得显式持久性，从而支持系统重启后的崩溃恢复。
 - [[Sessions]] — 维持 agent loop 内工作上下文的持久记忆层，决定状态如何跨轮携带。
 - [[Shared File System]] — 多 session、多 agent 共用的文件夹系统，用 signals／artifacts／tasks／logs 记录状态供各 loop 复用。
 - [[snapshotting + rehydration]] — Agents SDK 内置的快照与再水合能力，可在新容器里从上次检查点恢复状态继续跑。
+- [[对象-边模型与分区]] — 客户端预定义对象与边、只查直接边、不支持图遍历的 NoSQL 模型，对象与其边同分区存储。
 - [[持久化代码图谱 structural map graph]] — 把代码库每个函数、类、导入、调用、继承与测试映射成图谱，构建后持久保存在本地，供查询与增量更新。
 - [[step]] — 最小执行原语，包住一次 LLM 调用或工具执行，失败时只重试该单元
 - [[step ID 自动索引]] — SDK 自动为循环里的每次 step 调用生成唯一 ID，无需手工管理
+- [[个人技能与项目技能]] — 个人技能放 ~/.claude/skills 跨项目跟随个人；项目技能放仓库 .claude/skills 随代码共享。
 - [[本地状态层]] — Claude 把 TODO、会话消息与统计缓存放在 ~/.claude 下的本地存储层。
 - [[乐观并发控制 optimistic concurrency control]] — agent 可自由读状态，但状态自上次读取后被改动则写入失败，比加锁更简单稳健。
 - [[agent 模板的声明式持久化]] — agent 模板（模型、system prompt、工具、MCP servers、skills）写成 YAML 存进 git，由 CLI 在流水线 apply。
 
 </details>
 
-## 缓存与成本控制（34）
+## 缓存与成本控制（36）
 
 > 同样的能力怎么用更少的 token 和钱换来？
 
@@ -451,6 +492,8 @@
 - [[KV-cache 命中率]] — 前缀相同的上下文命中缓存的比率，直接决定延迟与成本，缓存与未缓存输入单价可差十倍。
 - [[Tool-schema tax]] — 工具越多、schema 越丰富，每次请求都要附带的静态 token 开销越高，与任务难度无关。
 - [[TTL]] — 提示缓存的有效时长，默认 5 分钟、可扩展至 1 小时，决定多轮或中断后能否复用前缀。
+- [[约束型 API 与成本不平衡]] — 不开放任意 SQL，用简单 NoSQL API 让请求成本可预测，避免写得便宜、跑得昂贵的失衡。
+- [[脚本执行]] — 脚本不必读入上下文即可运行，只有输出消耗 token，SKILL.md 应写'运行脚本'
 - [[缓存连续性 Cache Continuity]] — 同一主对话中不随意切模型、不把分支探索混进主链路，以维持缓存前缀连续，避免反复重写缓存。
 - [[缓存命中读取成本 Cache Hit Read Cost]] — 缓存命中的读取价格远低于普通输入处理成本。
 - [[缓存写入成本 Cache Write Cost]] — Anthropic 定价中，5 分钟缓存写入高于基准输入价，1 小时写入更高。
@@ -476,11 +519,11 @@
 
 </details>
 
-## 工具调用与沙箱（36）
+## 工具调用与沙箱（40）
 
 > Agent 怎么安全地对外部世界动手？
 
-**枢纽**：[[工具定义 Tool Definitions Tool Schema]] · [[Sandbox]] · [[Tool Calling]] · [[MCP Model Context Protocol]] · [[工具接口的表达力设计]] · [[沙箱化自主]] · [[Environment]] · [[Function tools]]
+**枢纽**：[[工具定义 Tool Definitions Tool Schema]] · [[Sandbox]] · [[Tool Calling]] · [[MCP Model Context Protocol]] · [[运行时限制、权限与数据保留边界 Runtime Limitations, Constraints, and Retention]] · [[allowed-tools]] · [[工具接口的表达力设计]] · [[沙箱化自主]]
 
 <details><summary>全部</summary>
 
@@ -488,6 +531,8 @@
 - [[Sandbox]] — 解决代码在哪跑的隔离执行环境，可叠加命令白名单与网络隔离，按需创建、扇出、用完销毁。
 - [[Tool Calling]] — 模型通过工具调用来对外行动，工具可用 bash、skills、代码执行等原语构造。
 - [[MCP Model Context Protocol]] — 一种开放的工具接入标准，让 Agent 以统一协议接上外部工具与数据源。
+- [[运行时限制、权限与数据保留边界 Runtime Limitations, Constraints, and Retention]] — 技能可做的事取决于所在产品面的运行时限制，如 API 无网络、不能装包，且不受 ZDR 覆盖。
+- [[allowed-tools]] — 可选字段，列出技能激活时免许可可用的工具；省略则不限制，回到正常权限模型
 - [[工具接口的表达力设计]] — 与其堆示例，不如设计更有表达力的参数；如 Todo 的 pending/in_progress/completed 枚举本身就在暗示用法。
 - [[沙箱化自主]] — 自主运行时（如YOLO模式）必须在沙箱中执行，入门可用GitHub Codespaces或开发容器。
 - [[Environment]] — 描述如何 provision agent 工具所运行沙箱的模板：runtime 类型、网络策略、包配置。
@@ -495,7 +540,9 @@
 - [[MCP server tool calling]] — 内置 MCP server 的工具接入与 function tools 走同一路径，调用方式完全一致。
 - [[Sandbox agents]] — 在真实隔离工作区里跑任务，用 manifest 定义文件、选定沙箱客户端，会话可恢复。
 - [[工具 Tools]] — Agent 的『双手』：它得以对外部世界施加动作的调用能力。
+- [[运行时失败的三类原因]] — 运行时失败查三类：缺外部依赖、脚本无执行权限、路径未统一用正斜杠。
 - [[连接器]] — MCP、GitHub、飞书、数据库等外部接口，让 Agent 接入真实工作环境，形成发现—修改—通知的闭环。
+- [[MCP servers]] — MCP servers 提供外部工具和集成，与 skills 是完全不同的类别。
 - [[第三方连接器 opt-in]] — 第三方 MCP 工具即便已连上也要经选择器由用户 opt-in；不得替用户挑服务商，紧急也不例外。
 - [[工具即契约 tools as the contract]] — 工具是 Agent 与其信息/行动空间之间的契约，须返回 token 高效的信息，并像良好代码库函数那样自包含、健壮、用途清晰。
 - [[工具收窄 tool scoping]] — 只向 agent 暴露当前步骤所需的最小工具集；工具越多，表现往往越差。
@@ -523,7 +570,7 @@
 
 </details>
 
-## 多 Agent 编排（43）
+## 多 Agent 编排（44）
 
 > 多个 Agent 如何分工协作而不互相踩踏？
 
@@ -566,6 +613,7 @@
 - [[Agent-to-Agent 交互（A2A）]] — 用户侧 Agent 与软件侧 Agent 相互调用协作、朝同一结果推进的交互形态。
 - [[Handoffs Agents as tools]] — Agent 把特定任务委派给其他 Agent 的机制，是与 manager 式编排并列的一种编排风格选择。
 - [[工作树隔离]] — 为每个并发 Agent 分配独立工作空间，避免改同一文件造成冲突，便于事后合并。
+- [[子代理的技能隔离]] — 子代理以全新干净上下文启动，不自动看到主会话技能，须在 skills 字段显式列出
 - [[单 agent 的速度天花板]] — 单 agent 在聚焦任务上表现好，但面对复杂项目很慢——问题不在对错，而在快慢。
 - [[结构适量原则]] — 结构太少则 agent 冲突、重复劳动与漂移，太多则系统脆弱；正确的用量落在两者之间。
 - [[锁竞争与乐观并发控制]] — agent 持锁过久、忘释放、乱加解锁；试过显式等待工具与无锁乐观并发控制。
@@ -577,7 +625,7 @@
 
 </details>
 
-## 验证与评估门禁（72）
+## 验证与评估门禁（76）
 
 > 我们怎么知道它真的做对了？
 
@@ -593,6 +641,9 @@
 - [[Self-verification]] — 让 Agent 具备端到端检查自己工作的能力，loop 的可信度取决于这份自检能力。
 - [[Self-verification loop]] — 由浏览器、日志、截图、测试器支撑，让 Agent 写码、跑测、看日志、改错的回路。
 - [[SWE-bench 与二元打分]] — 从真实仓库抓取约十五分钟量级任务的基准，用 FAIL_TO_PASS/PASS_TO_PASS 打 0/1 分
+- [[确认环节可以合并，但不能省略]] — 确认环节可以合并加速，但绝不能跳过人的判断。
+- [[让 Agent 自行验证]] — 给 Agent 一个自己的反馈循环，让它在你看到结果前先自检。
+- [[技能验证器 agent skills verifier]] — 命令行技能验证器，用 uv 安装最快，用于在深入调试前先捕获结构性问题。
 - [[可验证目标]] — 目标能否被机器判断直接决定 loop 能否收敛；“优化一下应用”模糊，测试、类型检查、lint 全过则明确。
 - [[非确定性 nondeterminism]] — 同一输入两次调用给出不同输出，差异虽小却足以让严格等值断言作废，抽掉质量策略的地板。
 - [[可维护性没有惩罚项]] — SWE-bench 式评测只要测试通过就算赢，对代码库可维护性被侵蚀没有任何惩罚。
@@ -642,6 +693,7 @@
 - [[Self-evaluation Failure]] — Agent 评估自己的产出时倾向自信夸好，即使在人看来质量明显平庸。
 - [[Verifiable Codebase]] — 让 agent 有可靠工具验证改动的代码库，如 Playwright CLI、关键 E2E 测试、只读 verifier agent。
 - [[Wrapper skill]] — 自建包装 skill，先调用原 skill，再调用自己的验证 skill，为改不了的 skill 补上验证。
+- [[把自己当普通用户／黑盒测试]] — 测试时把自己当普通用户，凭直觉乱点、输入意外内容做黑盒测试。
 - [[RHAE]] — ARC-AGI-3 的评分指标，把模型表现与人类测试基线相比，得出相对人类动作效率。
 - [[80% 质量墙]] — 多数面向客户的功能冲到 70-80% 质量就撞墙，80% 不够交付。
 - [[闭卷与 oracle 基线]] — 用不给任何文档与只给含答案文档两条参照线，为成绩定位的评测设定。
@@ -660,11 +712,11 @@
 
 </details>
 
-## 规格与意图对齐（36）
+## 规格与意图对齐（40）
 
 > 怎么把想要的东西准确交代清楚？
 
-**枢纽**：[[显式指代]] · [[隐式指代]] · [[从禁止什么到对齐什么]] · [[共享理解 shared understanding]] · [[漫谈会话 ramble session]] · [[判定程序化写法]] · [[意图规约与可引导性]] · [[追问式对齐 Grill Me]]
+**枢纽**：[[显式指代]] · [[隐式指代]] · [[从禁止什么到对齐什么]] · [[共享理解 shared understanding]] · [[简洁规范]] · [[漫谈会话 ramble session]] · [[判定程序化写法]] · [[意图规约与可引导性]]
 
 <details><summary>全部</summary>
 
@@ -672,6 +724,7 @@
 - [[隐式指代]] — 用「它」「这个重物」等代词或转喻指代前文实体的表达，需回溯多轮对话才能确定所指。
 - [[从禁止什么到对齐什么]] — 把系统提示从一串禁令换成一条对齐指令：写出读起来像周围代码的代码，匹配注释密度、命名与惯用法。
 - [[共享理解 shared understanding]] — 人与 LLM 在设计树上逐步推进、最终就设计达成一致的过程。
+- [[简洁规范]] — 简短的项目规范文档，只回答为什么做、做什么、怎么做，用简短逼团队划清范围。
 - [[漫谈会话 ramble session]] — 与 LLM 协作时刻意进行的一次长时间、无结构的自由讲述，是后续所有动作的容器。
 - [[判定程序化写法]] — 把每条规则写成可执行的判定（明确判据＋已发生的失败示例），而非语气偏好，使规则可被机械执行。
 - [[意图规约与可引导性]] — harness 稳定后，错误与模糊指令会被放大，瓶颈转向意图的引出、规约与理解，以及可引导性与可观测性。
@@ -680,9 +733,11 @@
 - [[bits]] — 缺口不在模型能力，而在于描述你意图所需的信息量不足。
 - [[Elicitation]] — 通过主动提问把用户未说清的需求、偏好与约束引出来，即信息引出能力。
 - [[TOCC]] — 前置指令重写的轻量即插即用解法，把指代解析与任务规划解耦以提高成功率。
+- [[高精度原型设计]] — 把需求、原型、UI 合成一步，产出含交互与视觉的高保真原型。
 - [[带文档追问 Grill with Docs]] — 保留 Grill Me 追问开头的 skill，新增读取、挑战并更新领域文档的能力。
 - [[规划模式与边界问题清单]] — 在 /plan 模式下让模型提前问出实现时迟早要回答的边界问题，如起止日期能否相同。
 - [[教会 AI Agent 如何成功]] — 先想清楚调用 agent 的人需要知道什么才能成功，再主动把这些信息预先交给它，而不是让它自己摸索。
+- [[描述区分度]] — 描述过于相似会让 Claude 选错技能或困惑，应让描述更具体、更有区分度。
 - [[判断力优先 let Claude use judgement]] — 把结论式规定换成取向式指令，只给对齐对象与判断依据，具体决策留给模型的判断力。
 - [[示例强于规则]] — 示例是比规则更强的信号：附上正好做了被禁行为的示例，模型就会照做。
 - [[输入摩擦 too lazy to type]] — 真正的瓶颈常不是没想法，而是把脑中信息敲成文字的成本太高而被省略。
@@ -704,10 +759,11 @@
 - [[原型先行]] — 工作流第三步：原型不再是完整阶段或奢侈品，一个提示词就有；先看见 mock，才想得到自己真正要的交互。
 - [[指代表达]] — 人话里指称物体的表达方式，按显式、混合、隐式分档，用来衡量「听懂」的难度。
 - [[mind meld]] — 人与模型之间关于目标和语境的对齐程度。
+- [[name]] — SKILL.md 必填字段，只能用小写字母、数字、连字符，≤64 字符，须与目录同名
 
 </details>
 
-## 代码库与工程实践（32）
+## 代码库与工程实践（37）
 
 > 代码怎么写才能让人和 Agent 都读得懂？
 
@@ -723,9 +779,11 @@
 - [[docsdecisions]] — docs/decisions/ 下的架构决策记录，让 AI 不仅知道代码是什么，还知道代码为什么是这样。
 - [[Executable Codebase]] — 让 agent 能低成本启动 dev server、进入特定状态并测试场景的代码库形态。
 - [[Legible Codebase]] — 让 agent 容易判断该改哪里的代码库，靠 AGENTS.md、文档索引、custom lint 与链接检查维持。
+- [[分解为小颗粒度工作]] — 把大任务切成小颗粒，每部分建一个问题，小改动既带来完成感也便于审查。
 - [[层级架构强约束 + 给 Agent 读的 lint 错误]] — 把 lint 错误从『violation detected』改写成给 Agent 直接可读可改的修复指令，配合层级架构的强约束。
 - [[工具—工作流适配]] — grep、glob、view 本身更易维护，但简单替换会抬高 review 成本、减少有效评论；只有为 reviewer 重写工作流才转为收益。
 - [[零 bug 政策与一周 SLA]] — 所有 bug 进统一 triage 并在一周 SLA 内修完，coding agent 先修、工程师复核。
+- [[迁移到 Rust Python→Rust]] — 平台成熟后，两名工程师用 Codex 与 GPT-5.5 把整个 Python 服务重写为 Rust，承接 95% 生产请求。
 - [[前置对齐 front-loading alignment]] — 把规划与架构提案提前到动手之前一起做，以减少返工、加快评审的四阶段流程源头。
 - [[系统架构评审]] — 对齐服务、接口、schema、队列与存储时，用时序图、接口契约、数据模型提升人与 agent 的沟通带宽。
 - [[语言驱动的代码一致性 language-code alignment]] — context.md 里使用的语言会影响变量名、文件名、UI 文案和代码搜索路径。
@@ -734,8 +792,11 @@
 - [[Git Worktree]] — 同一仓库挂载多个工作目录，便于并行分支或并行 Agent 各自工作互不干扰。
 - [[Skill as asset]] — loop 只是管道，真正可复利的资产是它调用的、可复用且测试过的 skill。
 - [[Watch 模式与自动更新 hooks]] — CLI 的 watch 命令与自动更新 hooks，让图谱在每次文件编辑和 git commit 后自动同步代码库。
+- [[仓库提交]] — .claude/skills 中的项目技能随 Git 共享，克隆即获得，推送后他人拉取即更新
+- [[战略性技术债务：Python 服务]] — 为优先产品与平台稳定而暂不优化性能，把 Python 服务的性能欠账当作有意识的战略性债务。
 - [[Vibe Coding]] — 抬高地板式编程范式：用自然语言描述需求由 agent 生成代码，适合原型与小工具，不适合严肃工程。
 - [[非视觉任务的可视化原型]] — 即使任务看似不需要图，也先让 Agent 画出多方案的 Mermaid 图并排比较，再进入实现。
+- [[工具为你服务，而非你为工具服务]] — 工具应为你服务：你在用工具做事，而不是花时间当工具的开发者与维护者。
 - [[可维护性 霰弹式手术]] — 无人工引导时模型难长期维护代码库质量，表现为改一处牵连别处，即 Fowler 所说的霰弹式手术。
 - [[全文覆盖式编辑]] — 大改动时不用增量 Edit，直接 Write 覆盖整个文件，以绕过精确打补丁的困难。
 - [[软件工厂 Software Factory]] — 把软件开发看作从需求、建造、评审、上线到反馈的完整反馈环，术语可追溯到1968年NATO会议。
@@ -750,18 +811,21 @@
 
 </details>
 
-## 安全权限与合规（29）
+## 安全权限与合规（33）
 
 > 什么可以做、什么必须被拦住？
 
-**枢纽**：[[Guardrails]] · [[Human in the loop]] · [[权限与推理的架构分离]] · [[默认帮助的高门槛拒绝]] · [[上下文即不可信输入]] · [[exfiltration]] · [[harness–compute separation]] · [[Onboarding Agent]]
+**枢纽**：[[企业托管设置（Managed Settings）与 strictKnownMarketplaces]] · [[安全审计与受信任来源 Security Considerations Trusted Sources]] · [[Guardrails]] · [[Human in the loop]] · [[权限与推理的架构分离]] · [[默认帮助的高门槛拒绝]] · [[企业技能的最高优先级]] · [[上下文即不可信输入]]
 
 <details><summary>全部</summary>
 
+- [[企业托管设置（Managed Settings）与 strictKnownMarketplaces]] — 管理员用托管设置下发企业技能，并用 strictKnownMarketplaces 限定插件安装来源白名单
+- [[安全审计与受信任来源 Security Considerations Trusted Sources]] — 技能等同要安装的软件：只用可信来源，并审计包内全部文件以防恶意指令与代码。
 - [[Guardrails]] — 在 Agent 执行的同时并行做输入输出校验与安全检查，不通过就快速失败。
 - [[Human in the loop]] — 在 Agent 运行过程中引入人类参与的机制，与 Guardrails、Tracing 并列构成控制面能力。
 - [[权限与推理的架构分离]] — 模型决定尝试什么、工具系统决定允许什么，权限执行与模型推理在架构上分离。
 - [[默认帮助的高门槛拒绝]] — 默认立场是帮忙，仅当会造成具体、明确的严重伤害风险时才拒绝；edgy、假设、玩闹或不适不达门槛。
+- [[企业技能的最高优先级]] — 同名技能并存时企业版生效，覆盖个人、项目与插件版本
 - [[上下文即不可信输入]] — 上下文中的任何内容（消息、记忆、检索结果、文件）都可能是伪造指令，须当作数据而非命令处理。
 - [[exfiltration]] — 把内部数据偷偷带出边界的攻击尝试（原文与提示注入并列提及）。
 - [[harness–compute separation]] — 把 Agent 骨架与执行计算的沙箱环境分离，使模型生成的代码触不到凭证等敏感信息。
@@ -783,6 +847,7 @@
 - [[版权合规硬上限]] — 版权是不可谈判的硬上限：引用 15 词以下、单一来源至多一条、不镜像结构。
 - [[大规模监控（Bulk Surveillance）]] — 不针对特定对象、成批地收集记录（例如随时掌握你的位置），技术上已接近可行，是 Anthropic 划下的「红线」之一。
 - [[会话级累积判断]] — 安全判定看整场对话的累积输出而非逐轮孤立看：累积成武器设计包或攻击计划就停，过往协助不构成授权。
+- [[集中式数据安全与隐私控制点]] — 以 Habitat 服务为统一控制点，集中执行访问控制、审计日志并限制对底层存储的直接访问。
 - [[遗漏式隐私]] — 判据是「同事在设置页看到这条，用户会不自在吗」；敏感类别整段省略、不留占位符，被要求记录时说明哪类不能存即停。
 - [[AWS VPC]] — 数据库认证在 AWS VPC 内完成，数据在 Bedrock 环境内受到保护。
 - [[preferences 写入过滤]] — 若干类偏好即使被明说也不写进 /preferences.md，避免未来模型继承更不诚实、更不安全的指令。
@@ -871,11 +936,11 @@
 
 </details>
 
-## AI 产品与组织（39）
+## AI 产品与组织（53）
 
 > AI 时代的公司怎么组队与交付？
 
-**枢纽**：[[品味与「不接受够用就行」]] · [[AI 作为新同事]] · [[AI-First]] · [[Intelligence Factory 智能工厂]] · [[Creator → Curator 角色转换]] · [[Software Factory]] · [[Agent-Native Infrastructure]] · [[0 人工代码、0 人工 review 极限形态]]
+**枢纽**：[[品味与「不接受够用就行」]] · [[AI 作为新同事]] · [[AI-First]] · [[Intelligence Factory 智能工厂]] · [[执行主体从人变成 Agent]] · [[可行性分析]] · [[Creator → Curator 角色转换]] · [[Software Factory]]
 
 <details><summary>全部</summary>
 
@@ -883,30 +948,43 @@
 - [[AI 作为新同事]] — 用同事而非工具来比喻 AI：被授权、被记录、被审计、可能犯错、需要边界。
 - [[AI-First]] — 不是员工都使用 AI 工具，而是让 AI 主导生产力，围绕 AI 能力重构工作流、组织结构与对齐机制。
 - [[Intelligence Factory 智能工厂]] — 把公司目标表述为以最低价格产出尽可能多『智能单位』的工厂。
+- [[执行主体从人变成 Agent]] — 流程步骤不变，但分析、设计、编码、调试的执行者由人变成 Agent。
+- [[可行性分析]] — 先判断值不值得做：产品看价值与定位，技术看可行与成本。
 - [[Creator → Curator 角色转换]] — 工程师从「创造者」变为「策展人」：少写基础代码，多编排 Agent 组合、定义目标与护栏、验证输出。
 - [[Software Factory]] — 长时间运行的 Agent 覆盖软件生命周期，企业选择自动化 repository、阶段及人工检查点。
 - [[Agent-Native Infrastructure]] — 为 agent 而非给人点屏幕设计的基础设施：Markdown、CLI/API/MCP、结构化日志与可粘贴指令。
 - [[0 人工代码、0 人工 review 极限形态]] — 工作流逼近零人工写码、零人工 review，用模型高并发低成本替代人的同步注意力。
 - [[共享产品系统 shared product system]] — 承载反馈、意图、决策、计划与代码的载体，让人与 agent 能共同在其中工作。
+- [[人在关键路径确认]] — 人只在关键节点拍板：做不做、选哪个方案、交互是否友好。
 - [[信任机制重构]] — 组织转型第一步是从信任人转向信任 AI 系统，先建立 guardrails、验证与结果审核机制，团队才愿意让 AI 主导执行。
 - [[组织级技能与指引 skills Linear way skill]] — 产品内置分组织级与个人级的技能与指引，如“Linear way skill”让 agent 按固定格式把功能请求综合成可讨论、可执行的东西。
 - [[Architecture Operator 分工]] — AI 环境下工程团队分两类：Architecture 管系统设计与安全边界，Operator 管具体运行。
 - [[Forward Deployed Engineer]] — 驻场工程师，进入客户组织落地集成、长期 Agent、自动化与应用，以可持续的严格 ROI 为成功标准。
+- [[瓶颈转移到代码两侧]] — 编码已不是瓶颈，瓶颈移到设计确认与测试验证部署两侧。
 - [[管理 Agent]] — Loop Engineering 的核心竞争力在管理而非纯工程：目标清晰、资源充足、反馈及时，也是好 loop 的条件。
+- [[目标—项目—日常工作的连接]] — 把日常工作通过项目挂到更大目标上，启动会审目标日期，排周期计划时回看项目。
+- [[AI 原生开发 AI-native development]] — AI 原生开发不是新流程，而是用新方式跑旧的软件开发流程。
 - [[产品记忆平台 product memory platform]] — Karri 对 Linear 的定位：不做通用 agent 平台，而做产品上下文与产品记忆的所在地，是通往产品思考的 API。
 - [[代理原生 agent-native]] — 不给旧产品外挂 chatbot，而是把产品从底层做成供 agent 使用、并为其提供上下文与集成的形态。
 - [[共享 多人 agent 会话]] — Agent 会话对团队可见，多人可进入同一会话共同查看与修改，压缩协作循环。
+- [[可扩展性]] — 好工具应小团队易上手，又能随团队规模扩大而不断增强功能。
+- [[设计师与工程师的推拉关系]] — 设计师向前推创意、工程师往回拉可行性，形成自然推拉，最优者两种才能兼具。
+- [[为特定用途而设计]] — 生产力软件应按特定用途设计，过度灵活随团队扩大会变成混乱。
 - [[虚拟同事 Virtual Co-workers]] — 对「与人类协作的 AI 代理」这一角色尚无共识命名时，被认为相对最不坏的一种叫法。
+- [[周期 Cycle]] — 用固定长度周期推进工作，常用两周，未完成任务自动滚入下一周期。
 - [[资深悖论]] — 初级工程师因思想负担轻更易适应 AI-First；资深者的 specialty 可能贬值，但具备架构与产品判断且拥抱 AI 者更稀缺。
 - [[自动驾驶产品与项目记忆 self-driving project memory]] — 预测：一个 project 可像 agent 一样基于涌入的反馈与规则自动决策，仍可要求一定人类输入，即所谓项目记忆。
 - [[Lights-off 软件工厂]] — 连代码评审都去掉、不再有人读代码的软件工厂形态，实践后因反复撞上无解问题而放弃。
 - [[Polished Output vs Real Judgment]] — AI 时代领导力核心是分辨漂亮表达与真实判断；分不清会让组织知识环境整体退化。
 - [[skill 作为 onboarding 载体]] — 把新功能的使用方法写成 skill，让 Agent 带着人上手，替代传统文档式 onboarding。
+- [[插件与市场 Plugin Marketplace]] — 插件按类似 .claude 的结构打包技能，分发到市场供他人自行发现安装
 - [[「并不 agentic」的 AI Agent]] — 市面多数以 AI Agent 为卖点的产品其实以确定性代码为主，只在恰到好处的点插入 LLM 步骤。
 - [[「模型即产品」的幻觉]] — 误以为接上 API、写个 prompt、演示惊艳就等于产品做完，忽视其后的全部工程工作。
 - [[不可见的劳动]] — 收紧提示、拦下静默失败等不产出可见物、因而被低估的劳动。
 - [[产品经理的组织化]] — 产品经理不会消失，但对齐职能被 AI 削弱，产品判断分散到工程师、设计师和整个团队，成为组织能力。
+- [[单一负责人 Owner]] — 每个项目指定一位负责人，由他撰写项目简报并交付成果，责任不摊薄到团队。
 - [[二八反转]] — 人机交互的二八法则反转：未来八成与软件的交互经 Agent 完成，UI 只保留确认类操作。
+- [[反馈作为研究资料库]] — 把用户反馈当作开发新功能的研究资料库，从中发现趋势，而非逐条满足。
 - [[氛围组请求]] — 看似只为营造氛围、实际未被验证有作用的请求，消耗调用却不改变结果。
 - [[个人基础设施 → 团队基础设施]] — PR 级门禁是验证从个人基础设施变为团队基础设施的地方：同一份 skills 与标准从服务一人扩展到服务全队。
 - [[护城河清单与插件化路线]] — 逐项检验竞品功能是否真依赖某载体（如 IDE），若不依赖，则载体护城河被削弱，纯插件路线可能更有前途。
@@ -915,6 +993,7 @@
 - [[人的手感与产品手艺]] — 产品构建仍是靠直觉与对问题的理解的手艺，不把 A/B 测试与纯数据当决策依据。
 - [[小而模块化的概念]] — 从 agent 构建中取小而模块化的概念，直接嵌入现有产品，多数熟练工程师无需 AI 背景即可应用。
 - [[虚荣指标 vanity metrics]] — 度量产出却不度量价值的指标，如 agent 写了多少代码、合并多少 PR、消耗多少 token。
+- [[以项目创建者为中心]] — 工具设计以最终用户即项目创建者为中心，个人高效优先于完美报告。
 - [[Generative Kernel]] — 交付物从成品软件变为生成内核，需要被 harness 的系统复杂度本身随之下降。
 - [[Implementation 能力]] — AI 环境下工程师、产品经理、设计师把想法在一两小时内落成产品的能力，因对齐成本可能高于实现成本。
 - [[Vantage]] — Google 联合 NYU 的实验项目，用 GenAI 角色扮演模拟团队协作，测量人的软技能。
@@ -1071,11 +1150,11 @@
 
 </details>
 
-## AI 算力与基建（9）
+## AI 算力与基建（10）
 
 > 模型跑在什么芯片、什么电、什么水里？
 
-**枢纽**：[[平行 AI 基础设施]] · [[数据中心]] · [[AI 从应用到基础设施]] · [[芯片管制]] · [[蒸发冷却]] · [[AI 主权审查机制]] · [[昇腾]] · [[CXL 内存池化]]
+**枢纽**：[[平行 AI 基础设施]] · [[数据中心]] · [[AI 从应用到基础设施]] · [[芯片管制]] · [[蒸发冷却]] · [[AI 主权审查机制]] · [[每年超过 10 倍增长]] · [[昇腾]]
 
 <details><summary>全部</summary>
 
@@ -1085,6 +1164,7 @@
 - [[芯片管制]] — 美国对高端 AI 芯片的出口管制直接限制中国训练前沿模型的算力供给，是资本投入补不上的结构性短板。
 - [[蒸发冷却]] — 数据中心用水的主要去处：机器跑电生热，热靠水蒸发带走，工业冷却效率约 60-90%，因此 AI 用电规模≈AI 用水规模。
 - [[AI 主权审查机制]] — 给 AI 装国籍的四类工具：外资安全审查、本地化主权云、国家配套基础设施与价值观包装。
+- [[每年超过 10 倍增长]] — Habitat 处于每年超过 10 倍增长的约束下，团队必须在超增长过程中同时建设平台。
 - [[昇腾]] — 华为的国产 AI 加速芯片系列，被视作中国本土算力承载前沿模型推理的平台。
 - [[CXL 内存池化]] — 用 CXL 把多台服务器内存聚成共享池，作为 GPU HBM、本地 DRAM 之后的第三级内存层。
 - [[Trainium]] — AWS 自研芯片，名字虽指向训练，主力其实是推理，多以 Bedrock 等托管服务形态交付。

@@ -23,6 +23,7 @@ const SRC = {
   notion: { label: 'Notion 概念库', color: '#5B8FF9' },
   context: { label: 'Context Engineering', color: '#61DDAA' },
   harness: { label: 'Harness Engineering', color: '#F6BD16' },
+  neican: { label: 'AI 内参 260912', color: '#E8684A' },
   multi: { label: '跨源概念', color: '#9661BC' },
 };
 const SRC_KEYS = Object.keys(SRC);

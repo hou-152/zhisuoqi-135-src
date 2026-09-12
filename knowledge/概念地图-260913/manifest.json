@@ -1,6 +1,6 @@
 {
  "version": "v1",
- "generatedAt": "2026-09-12T17:42:23.160Z",
+ "generatedAt": "2026-09-12T18:56:55.791Z",
  "name": "知所栖 135 · AI 时代怎么做事 概念地图",
  "sources": {
   "notion-概念库": {
@@ -17,41 +17,47 @@
    "raw": 432,
    "nodes": 373,
    "note": "飞书-Harness-Engineering-28+2.md（30 篇）"
+  },
+  "neican-260912": {
+   "raw": 88,
+   "nodes": 80,
+   "note": "AI 内参 260912 期 · 10 篇概念辞典（88 条；撞已有 8 条、新增 80 条，见 08-neican-merge.json）"
   }
  },
- "topics": 856,
- "dependencies": 491,
- "relations": 3293,
+ "topics": 936,
+ "dependencies": 531,
+ "relations": 3333,
  "clusters": 21,
  "byType": {
-  "CONCEPTUAL": 600,
-  "REPRESENTATIONAL": 107,
+  "CONCEPTUAL": 656,
+  "REPRESENTATIONAL": 121,
   "LANGUAGE": 14,
-  "PROCEDURAL": 131,
+  "PROCEDURAL": 141,
   "META": 4
  },
  "byStage": {
-  "now": 275,
-  "when-needed": 512,
-  "deep-dive": 69
+  "now": 308,
+  "when-needed": 557,
+  "deep-dive": 71
  },
  "byVerification": {
-  "judge": 467,
-  "use": 264,
+  "judge": 519,
+  "use": 284,
   "compute": 26,
-  "accept": 99
+  "accept": 107
  },
  "byOrigin": {
-  "notionOnly": 213,
   "contextOnly": 268,
   "harnessOnly": 319,
+  "neicanOnly": 80,
+  "notionOnly": 213,
   "multi": 56
  },
  "checksums": {
-  "topics.json": "sha256:f33593ab9c97c2d118e762ed7e1f8d85fd7be27bfd8b9a32786072e4d85f0ff4",
-  "dependencies.json": "sha256:178df1d38cdeb0daa2ccd9ea7109c2df57a035e01c6198ff60cc232406580378",
-  "relations.json": "sha256:c615e198e13a31dc12ef4e564583d4d00cf3d787b6966d61e774fd4ed66820c5",
-  "clusters.json": "sha256:c1da87f1d7f95a9185edc5b773093eb8e4e9f79087df4d40c0ec66e6446ba356"
+  "topics.json": "sha256:fa7903c1102062df56c18d60e7475cef7d3689062c7771003121058c61e8651e",
+  "dependencies.json": "sha256:21b296cbb325190df6cbcc47b357d81cfae4ab8af8ad38f4939e347aa4d8e016",
+  "relations.json": "sha256:4e42bdc716ab14f2cff49241fa971ef63c15557ec92951fe3aa943b797cd8478",
+  "clusters.json": "sha256:d0a20b8b5b5c6032981fad4655e1e7a7c51a8e731a07fe3893aaf6b43097bb4c"
  },
  "license": "源材料为用户私人收藏（Notion 概念库 / AI 内参），本图仅供本项目内部使用，不对外再分发。"
 }
