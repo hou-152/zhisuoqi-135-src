@@ -113,7 +113,7 @@
 | **E1** | 认知缺口账本**已裁决「本轮不做」**，5 处仍按「要做」写 | `docs/交接-人类版-知所栖135.md` L54 / L83 / L92；`docs/135-llm_wiki-融合形态方案.md` L234 / L281 |
 | **E2** | 人气奖**已裁决「放弃」**，2 处仍列为未裁决 | `research/聊天室记录-记忆方案-20260912.md` L214；`SOURCE_OF_TRUTH.md` L16 |
 | **E3** | 代号 E5 的提示词**已判「非官方流传文本」**，2 处仍标官方 | `docs/AI内参-落地依据与形态收敛.md` L33 / L135 |
-| E4 | `SOURCE_OF_TRUTH.md` L39 写「4 个提交」→ 实测 **6** | `SOURCE_OF_TRUTH.md` L39 |
+| E4 | ✅**已修** `SOURCE_OF_TRUTH.md` L39 写「4 个提交」→ 实测 **8**（09-12 08:2x `git rev-list --count HEAD`） | `SOURCE_OF_TRUTH.md` L47，已改 |
 | E5 | 同文件 L14 写「47 条来源」→ 实际 **59** 条 | `SOURCE_OF_TRUTH.md` L14 |
 | E6 | 同文件 L71 写「两处冲突」→ 正文列了 ①②③ **三项** | `SOURCE_OF_TRUTH.md` L71 |
 | E7 | 「60 项」→ **61 项**（`verify-135.mjs` 含 62 行 `check(`，其中 L58 是函数定义） | `docs/135-基础框架-思路.md` L12；`docs/交接-人类版-知所栖135.md` L16 |
