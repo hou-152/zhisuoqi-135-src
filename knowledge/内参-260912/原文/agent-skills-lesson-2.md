@@ -2,6 +2,8 @@
 
 - 来源：academy.claude.com
 - 原文：https://academy.claude.com/courses/introduction-to-agent-skills/creating-your-first-skill
+- 作者：Claude Academy
+- 摘要：技能是包含名称和描述的目录，Claude启动时只加载名称和描述，并通过匹配描述来选择使用的技能。用户创建技能时需编辑SKILL.md文件，重启Claude Code后技能才会生效。企业版技能优先级最高，个人版其次，确保技能名称避免冲突。
 - 抓取：Reader 快照（2026-09-12）
 - 字数：1845
 

@@ -2,6 +2,8 @@
 
 - 来源：openai.com
 - 原文：https://openai.com/index/scaling-storage-one-billion-users-part-one/
+- 作者：OpenAI
+- 摘要：OpenAI scaled its online storage to serve over 1 billion ChatGPT users by using Habitat, a simple NoSQL API that avoids costly queries. They switched from Python to Rust, making their service faster and more efficient. Habitat works with Azure Cosmos DB and Rockset to handle massive data and complex queries separately.
 - 抓取：Reader 快照（2026-09-12）
 - 字数：11481
 

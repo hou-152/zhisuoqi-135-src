@@ -2,6 +2,8 @@
 
 - 来源：academy.claude.com
 - 原文：https://academy.claude.com/zh-CN/courses/introduction-to-agent-skills/skills-vs-other-claude-code-features
+- 作者：Claude Academy
+- 摘要：Claude Code 有多种功能，每种解决不同问题。CLAUDE.md 始终加载，Skills 按需激活，Subagents 独立执行，Hooks 事件触发，MCP 提供外部工具。合理组合这些功能，可以实现更灵活和高效的项目定制。
 - 抓取：Reader 快照（2026-09-12）
 - 字数：1766
 

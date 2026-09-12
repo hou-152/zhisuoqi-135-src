@@ -2,6 +2,8 @@
 
 - 来源：academy.claude.com
 - 原文：https://academy.claude.com/zh-CN/courses/introduction-to-agent-skills/sharing-skills
+- 作者：Claude Academy
+- 摘要：共享技能能提高团队价值，主要通过仓库提交、插件和企业托管三种方式分发。自定义子代理必须在配置中明确列出技能，内置代理无法使用技能。企业托管适合强制标准和合规，插件适合广泛社区，仓库适合团队内部共享。
 - 抓取：Reader 快照（2026-09-12）
 - 字数：2138
 
