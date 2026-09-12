@@ -39,7 +39,6 @@ button{font-family:inherit}
 .r-search input{flex:1;background:none;border:0;outline:none;color:var(--fg);font-size:12.5px;
   font-family:inherit;min-width:0}
 .r-search input::placeholder{color:var(--fg4)}
-.r-sec{font-size:11px;color:var(--fg4);padding:12px 8px 4px;letter-spacing:.02em}
 .r-list{display:flex;flex-direction:column;gap:1px}
 .r-item{display:flex;align-items:center;gap:8px;width:100%;height:var(--row);padding:0 8px;
   background:none;border:0;border-radius:6px;cursor:pointer;color:var(--fg2);
@@ -51,7 +50,7 @@ button{font-family:inherit}
 .r-item i{font-style:normal;font-size:11px;color:var(--fg4);white-space:nowrap}
 .r-item.on i{color:var(--fg3)}
 .r-lines{overflow:auto;min-height:0;flex:1 1 auto;scrollbar-width:none;display:flex;
-  flex-direction:column;gap:1px}
+  flex-direction:column;gap:1px;margin-top:10px}   /* 减法后原本由 .r-sec 撑开的间距，改由这里给 */
 .r-lines::-webkit-scrollbar{display:none}
 .lrow{display:flex;align-items:center;gap:8px;height:26px;padding:0 8px;border-radius:5px;
   cursor:pointer;color:var(--fg3);font-size:12px}
@@ -272,7 +271,6 @@ code{background:#161719;border:1px solid var(--line);border-radius:4px;padding:1
       <button class="r-item on" data-view="graph" onclick="setView('graph')"><span class="ic">◧</span><b>知识体系</b><i id="r-all"></i></button>
       <button class="r-item" data-view="neican" onclick="setView('neican')"><span class="ic">▤</span><b>内参</b><i id="r-nei"></i></button>
     </nav>
-    <div class="r-sec" id="lhead">分组</div>
     <div class="r-lines" id="lrows"></div>
     <div class="r-foot">
       <span id="myrow" style="flex:1"></span>
@@ -920,7 +918,6 @@ function buildLegend() {
       <span class="dot" style="background:${g.color}"></span>
       ${esc(g.label)}<span class="n">${cnt}</span></div>`;
   }).join('');
-  document.getElementById('lhead').textContent = '主题 · 点击筛选（数字＝主标签）';
   document.querySelectorAll('#lrows .lrow').forEach(el => {
     el.onclick = () => setFilter(el.dataset.g);
   });
@@ -1134,7 +1131,7 @@ function renderNeican(reset) {
       <span class="why">第 ${a.no} / ${NEI.articles.length} 篇</span>
     </div>
     <div class="nei-hero">${a.hero || ''}</div>
-    <div class="nei-cap">配图 · Claude 官方手绘编辑插画语言（不透明色块 ＋ 不规则象牙白承载形 ＋ 黑色手势线）· 视觉隐喻「${esc(a.metaphor)}」</div>
+    <div class="nei-cap">配图 · 按 Anthropic Newsroom 的已验证两层体系程序化绘制（满幅不透明底色 ＋ 不规则象牙白承载形 ＋ 黑色手势线，粗线 20px ＋ 手抖滤镜）· 视觉隐喻「${esc(a.metaphor)}」</div>
     <div class="nei-link">原文：<a href="${esc(a.url)}" target="_blank" rel="noopener">${esc(a.title)} ↗</a></div>
     <div class="nei-card"><h5>原文简介</h5><p>${esc(a.summary)}</p></div>
     <div class="nei-card"><h5>入选理由</h5><p>${esc(a.why)}</p>
