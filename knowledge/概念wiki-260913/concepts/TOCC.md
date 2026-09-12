@@ -5,8 +5,8 @@ type: REPRESENTATIONAL
 subject: AI 概念库
 domain: spec-intent
 learningStage: when-needed
-verification: use
-centrality: 0.067
+verification: judge
+centrality: 0.126
 depth: 2
 origin: [notion]
 aliases: ["Task-Oriented Coreference Chain（即插即用指代解析层）"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 前置指令重写的轻量即插即用解法，把指代解析与任务规划解耦以提高成功率。
 
-**领域** spec-intent ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
+**领域** spec-intent ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 原文 context
 
@@ -36,11 +36,12 @@ sources: 1
 
 ## 先懂这些（前置 2）
 
-- [[指代表达]] · **hard** — TOCC 把指代解析与任务规划解耦，前提是懂指代表达及其难听的档位。
+- [[显式指代]] · **hard** — 不懂【显式指代】，就做不了 TOCC 把「它」改写成物体本名的那步前置指令重写
 - [[隐式指代]] · **soft** — 它主要处理难解析的隐式指称，理解隐式指代更懂它为何要前置重写。
 
 ## 相关
 
+- [[指代表达]] · related-to（audit） — TOCC 需要的是「指代解析」这一概念本身，不是显式/混合/隐式的三档分类——分档属评测口径，TOCC 的解耦设计不依赖它，应降 soft 或删除。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -55,5 +56,6 @@ sources: 1
 
 ## 反链
 
-- [[指代表达]]
+- [[显式指代]]
 - [[隐式指代]]
+- [[指代表达]]

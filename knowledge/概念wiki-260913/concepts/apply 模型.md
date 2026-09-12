@@ -5,8 +5,8 @@ type: REPRESENTATIONAL
 subject: Harness Engineering
 domain: code-engineering
 learningStage: when-needed
-verification: judge
-centrality: 0.042
+verification: accept
+centrality: 0.017
 depth: 0
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > Cursor 自训的专用 LLM，负责把编辑落到文件上，材料对其成功率存疑。
 
-**领域** code-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** code-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,22 +36,19 @@ cursor 自己训练了一个 LLM 专门做 apply edit，log 里的 edit_file 工
 
 > {{name}} 在 Cursor 编辑流程里做什么，有何争议？
 
-## 懂了它才能懂（解锁 1）
-
-- [[全文覆盖式编辑]] — 全文覆盖是为绕过 apply 模型落编辑的困难，不懂 apply 模型就不懂其动机。
-
 ## 相关
 
-- [[看对话 log]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
+- [[全文覆盖式编辑]] · related-to（audit） — apply 模型只是 Cursor 语境下的动机，不懂它也能理解全文覆盖式编辑；应降为 soft 或移出依赖图。
 - [[对话加确定性缝合]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
 - [[反向代理式窥探]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
+- [[看对话 log]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
 
 ## 出场
 
 - Harness Engineering ｜ 《拆开 Claude Code：一个编码 agent 的 harness 内部长什么样》 ｜ https://xxchan.me/ai/2025/05/06/claude-code.html
 ## 反链
 
-- [[对话加确定性缝合]]
 - [[看对话 log]]
+- [[对话加确定性缝合]]
 - [[反向代理式窥探]]
 - [[全文覆盖式编辑]]

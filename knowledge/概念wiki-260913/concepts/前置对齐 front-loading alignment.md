@@ -7,7 +7,7 @@ subject: Harness Engineering
 domain: code-engineering
 learningStage: now
 verification: use
-centrality: 0.017
+centrality: 0.072
 depth: 0
 origin: [harness]
 aliases: ["front-loading alignment"]
@@ -18,7 +18,7 @@ sources: 1
 
 > 把规划与架构提案提前到动手之前一起做，以减少返工、加快评审的四阶段流程源头。
 
-**领域** code-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** code-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -37,6 +37,10 @@ sources: 1
 
 > 这次返工能不能靠{{name}}在动手前就挡掉？
 
+## 懂了它才能懂（解锁 1）
+
+- [[Agentic Engineering]] — 不懂【前置对齐】就做不了【Agentic Engineering】的 ⟨多 agent 规划协同与减少返工⟩
+
 ## 相关
 
 - [[Lights-off 软件工厂]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
@@ -54,5 +58,6 @@ sources: 1
 ## 反链
 
 - [[Harness 工程 Harness Engineering]]
-- [[软件工厂 Software Factory]]
+- [[Agentic Engineering]]
 - [[Lights-off 软件工厂]]
+- [[软件工厂 Software Factory]]

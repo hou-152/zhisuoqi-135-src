@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: harness-runtime
 learningStage: when-needed
 verification: accept
-centrality: 0.067
-depth: 4
+centrality: 0.017
+depth: 0
 origin: [notion]
 aliases: ["Hermes"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 一个开源 Agent，代码库与文档公开，研究者可直接读源码，而非只能对其行为做逆向工程。
 
-**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.067
+**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,13 +36,10 @@ sources: 1
 
 > 为什么研究 {{name}} 不必只靠逆向工程？
 
-## 先懂这些（前置 2）
-
-- [[model-native harness]] · **soft** — 可读源码的 Agent 是 model-native harness 的实例，不懂设计方式就难读结构。
-- [[higher-level runtime]] · **soft** — 开源 Agent 源码体现运行时如何接管 turns/工具执行。
-
 ## 相关
 
+- [[higher-level runtime]] · rejected（audit） — 源码可读不等于依赖运行时概念；不先懂 higher-level runtime 也能理解 Hermes Agent。
+- [[model-native harness]] · rejected（audit） — Hermes Agent 是开源实例，理解它不依赖先懂 model-native harness；最多是读源码有帮助。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion

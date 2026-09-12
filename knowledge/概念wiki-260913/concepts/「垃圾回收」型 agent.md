@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: when-needed
 verification: use
-centrality: 0.042
-depth: 5
+centrality: 0.072
+depth: 1
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > harness 的第三类组件：周期性运行的 agent，专找文档不一致与架构约束违规，对抗熵增腐化。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -38,7 +38,7 @@ harness 的第三类组件，周期性运行的 agent，专找文档不一致与
 
 ## 先懂这些（前置 1）
 
-- [[Agent = Model + Harness]] · **soft** — 它是周期性运行的 agent，先懂 agent 由模型加 harness 构成。
+- [[架构约束的确定性执行]] · **soft** — 约束没写成 linter 与结构性测试，GC agent 就没有可对照的违规判据去巡检
 
 ## 相关
 
@@ -52,5 +52,6 @@ harness 的第三类组件，周期性运行的 agent，专找文档不一致与
 ## 反链
 
 - [[Harness]]
-- [[Agent = Model + Harness]]
+- [[上下文工程 context engineering]]
+- [[架构约束的确定性执行]]
 - [[无手打代码 no manually typed code at all]]

@@ -39,19 +39,18 @@ sources: 1
 ## 相关
 
 - [[YOLO 模式 Allow All]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
-- [[审批疲劳]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
 - [[沙箱化自主]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
 - [[原型先行]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
-- [[感官模型快于密集文本]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
 - [[非视觉任务的可视化原型]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
 - [[模型一致性与 prompt caching]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
+- [[Autopilot：内建循环]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
+- [[品味与「不接受够用就行」]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
+- [[会话的话题边界]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
+- [[审批疲劳]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
 - [[规划模式与边界问题清单]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
 - [[one-shot 的理论极限]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
-- [[Autopilot：内建循环]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
 - [[开箱即用的编排与子 agent]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
-- [[品味与「不接受够用就行」]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
 - [[橡皮鸭复审]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
-- [[会话的话题边界]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
 - [[今天的魔法咒语，明天的反模式]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
 - [[废料怪兽]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
@@ -61,19 +60,18 @@ sources: 1
 - Harness Engineering ｜ 《GitHub：决定 AI 编码效果的是 harness，不是你换了哪个工具》 ｜ https://github.blog/company/the-harness-is-all-you-need-mostly/
 ## 反链
 
-- [[废料怪兽]]
-- [[开箱即用的编排与子 agent]]
-- [[感官模型快于密集文本]]
+- [[品味与「不接受够用就行」]]
 - [[会话的话题边界]]
+- [[模型一致性与 prompt caching]]
+- [[沙箱化自主]]
+- [[废料怪兽]]
 - [[规划模式与边界问题清单]]
 - [[今天的魔法咒语，明天的反模式]]
-- [[模型一致性与 prompt caching]]
-- [[品味与「不接受够用就行」]]
-- [[沙箱化自主]]
+- [[开箱即用的编排与子 agent]]
 - [[审批疲劳]]
 - [[橡皮鸭复审]]
-- [[one-shot 的理论极限]]
+- [[YOLO 模式 Allow All]]
 - [[非视觉任务的可视化原型]]
 - [[原型先行]]
 - [[Autopilot：内建循环]]
-- [[YOLO 模式 Allow All]]
+- [[one-shot 的理论极限]]

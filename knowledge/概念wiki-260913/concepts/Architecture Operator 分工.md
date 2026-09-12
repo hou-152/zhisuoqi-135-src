@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: agent-org
 learningStage: when-needed
 verification: judge
-centrality: 0.042
-depth: 1
+centrality: 0.126
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > AI 环境下工程团队分两类：Architecture 管系统设计与安全边界，Operator 管具体运行。
 
-**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,12 +36,14 @@ Peter 认为 AI 环境下工程团队可分为 Architecture 和 Operator。Archi
 
 > 按 {{name}}，谁负责安全边界与 sandbox？
 
-## 先懂这些（前置 1）
+## 懂了它才能懂（解锁 2）
 
-- [[Creator → Curator 角色转换]] · **soft** — 策展人角色下再分架构与运营，先懂 Creator→Curator 才懂分工从何而来。
+- [[Creator → Curator 角色转换]] — 不懂【Architecture / Operator 分工】，就说不清策展人到底在定义护栏还是编排运行
+- [[Software Factory]] — 不懂【Architecture / Operator 分工】，就定不出软件工厂里人工检查点该由谁承担
 
 ## 相关
 
+- [[Creator → Curator 角色转换]] · related-to（audit） — Architecture/Operator 是团队组织维度的划分，并未由策展人角色在定义上推出；不懂该转换也能理解两类角色。
 - [[AI-First]] · 同篇出现（co-occurrence） — 同篇出现：harness-14
 - [[信任机制重构]] · 同篇出现（co-occurrence） — 同篇出现：harness-14
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-14
@@ -52,6 +54,7 @@ Peter 认为 AI 环境下工程团队可分为 Architecture 和 Operator。Archi
 ## 反链
 
 - [[Harness 工程 Harness Engineering]]
-- [[Creator → Curator 角色转换]]
-- [[信任机制重构]]
 - [[AI-First]]
+- [[Creator → Curator 角色转换]]
+- [[Software Factory]]
+- [[信任机制重构]]

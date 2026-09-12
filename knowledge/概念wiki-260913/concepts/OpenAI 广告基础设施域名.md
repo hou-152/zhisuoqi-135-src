@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: economy-business
 learningStage: when-needed
 verification: use
-centrality: 0.092
-depth: 5
+centrality: 0.017
+depth: 0
 origin: [notion]
 aliases: ["bzrcdn.openai.com", "bzr.openai.com", "OpenAI ad infrastructure domains"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > bzrcdn.openai.com 托管广告创意与 SDK，bzr.openai.com 收事件上报，是广告网络自建的物理标志。
 
-**领域** economy-business ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.092
+**领域** economy-business ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
 ## 原文 context
 
@@ -34,14 +34,12 @@ sources: 1
 
 > 要屏蔽 OpenAI 广告追踪，{{name}} 里该拦哪个域名？
 
-## 先懂这些（前置 3）
-
-- [[single_advertiser_ad_unit]] · **soft** — 该域名托管广告创意与 SDK，是广告单元送达与投放链路的物理载体。
-- [[oppref]] · **soft** — bzr.openai.com 收事件上报，回传内容正是 oppref 归因数据。
-- [[Token 补贴缺口（Token Subsidy Gap）]] · **soft** — 自建广告网络域名是补贴缺口的变现出口，懂缺口才懂其存在理由。
-
 ## 相关
 
+- [[oppref]] · related-to（audit） — 「bzr 收事件上报」这条定义懂不懂 oppref 都成立，回传内容的具体格式不是理解域名的前提。
+- [[LLM 订阅错配（LLM Subscription Mispricing）]] · rejected（audit） — 域名事实本身不依赖订阅错配；错配只是解释 OpenAI 为何做广告，不是理解 bzrcdn/bzr 的前提。
+- [[single_advertiser_ad_unit]] · related-to（audit） — 域名角色的定义是「托管创意/SDK、收事件上报」，理解它不需要先懂 SSE 广告单元，只是同链条相关。
+- [[Token 补贴缺口（Token Subsidy Gap）]] · related-to（audit） — 域名与 SDK 的归属和功能可独立看懂，补贴缺口只解释「为什么要有它」，属存在理由而非理解前提。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -56,6 +54,7 @@ sources: 1
 
 ## 反链
 
+- [[LLM 订阅错配（LLM Subscription Mispricing）]]
 - [[Token 补贴缺口（Token Subsidy Gap）]]
-- [[single_advertiser_ad_unit]]
 - [[oppref]]
+- [[single_advertiser_ad_unit]]

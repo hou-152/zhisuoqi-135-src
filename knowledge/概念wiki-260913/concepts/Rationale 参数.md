@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: tools-sandbox
 learningStage: when-needed
 verification: use
-centrality: 0.042
+centrality: 0.072
 depth: 1
 origin: [notion]
 aliases: ["理由参数｜让 Agent 在每次工具调用里自报\"为什么\""]
@@ -17,7 +17,7 @@ sources: 1
 
 > 每次 MCP 或 CLI 工具调用都强制带上 rationale 参数，用以事后重建意图。
 
-**领域** tools-sandbox ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** tools-sandbox ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -38,7 +38,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[工具即契约 tools as the contract]] · **soft** — 契约要求调用自包含且用途清晰，rationale 正是让意图事后可重建的手段。
+- [[工具定义 Tool Definitions Tool Schema]] · **hard** — 不懂【工具定义】，就做不了【Rationale 参数】——它必须作为必填参数加进每个工具的 schema
 
 ## 相关
 
@@ -56,4 +56,4 @@ sources: 1
 
 ## 反链
 
-- [[工具即契约 tools as the contract]]
+- [[工具定义 Tool Definitions Tool Schema]]

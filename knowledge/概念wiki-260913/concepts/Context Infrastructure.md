@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: judge
-centrality: 0.067
+centrality: 0.017
 depth: 0
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > Harness 决定 Agent 怎么工作与协调，上下文基础设施决定它拿到什么信息，进而决定质量上限。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,13 +36,10 @@ Harness engineering 的互补方向。Harness 解决「怎么干活」，context
 
 > {{name}} 与 harness 各自负责什么？
 
-## 懂了它才能懂（解锁 2）
-
-- [[Self-Improving Context System]] — 自改进系统持续优化的是 agent 拿到的信息，属上下文基础设施
-- [[Personal Context]] — 个人笔记与框架要靠基础设施系统接入，才可能越用越懂你
-
 ## 相关
 
+- [[Self-Improving Context System]] · related-to（audit） — 这是「子类/实践「属于」基础设施」的包含关系而非前置：自改进系统的定义（每次工作都变好的活系统）本身可独立成立，Context Infrastructure 只是更好定位它。
+- [[Personal Context]] · related-to（audit） — 「个人独有笔记」作为概念本身自足；基础设施只是让它「可被接入」，是落地条件而非理解前提，应降 soft 或移出。
 - [[时间 Scalability Temporal Scalability]] · 同篇出现（co-occurrence） — 同篇出现：harness-A1
 - [[空间 Scalability Spatial Scalability]] · 同篇出现（co-occurrence） — 同篇出现：harness-A1
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-A1
@@ -52,8 +49,7 @@ Harness engineering 的互补方向。Harness 解决「怎么干活」，context
 - Harness Engineering ｜ 《Harness Engineering 三个 Scaling 维度的统一框架》 ｜ https://yage.ai/share/harness-engineering-scalability-20260330.html
 ## 反链
 
-- [[Harness 工程 Harness Engineering]]
-- [[空间 Scalability Spatial Scalability]]
 - [[时间 Scalability Temporal Scalability]]
-- [[Personal Context]]
 - [[Self-Improving Context System]]
+- [[空间 Scalability Spatial Scalability]]
+- [[Personal Context]]

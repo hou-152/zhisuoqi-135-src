@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: verification-eval
 learningStage: when-needed
 verification: judge
-centrality: 0.042
+centrality: 0.126
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > benchmark 同时记录工具路径、输出量、错误和搜索方向，据此判断 agent 是否聚焦证据。
 
-**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -40,10 +40,14 @@ benchmark 同时记录工具路径、输出量、错误和搜索方向。团队�
 
 - [[Tracing]] · **hard** — 据工具路径与错误判聚焦，前提是 trace 可观测。
 
+## 懂了它才能懂（解锁 1）
+
+- [[Trace-based evals]] — 不懂【Trace 驱动评估】，就做不了【Trace-based evals】的 ⟨用轨迹而非最终答案衡量 skill 或 harness 的改动⟩
+
 ## 相关
 
-- [[工具—工作流适配]] · 同篇出现（co-occurrence） — 同篇出现：context-A1
 - [[共享 harness]] · 同篇出现（co-occurrence） — 同篇出现：context-A1
+- [[工具—工作流适配]] · 同篇出现（co-occurrence） — 同篇出现：context-A1
 - [[浏览循环]] · 同篇出现（co-occurrence） — 同篇出现：context-A1
 
 ## 出场
@@ -51,7 +55,8 @@ benchmark 同时记录工具路径、输出量、错误和搜索方向。团队�
 - Context Engineering ｜ 《工具更多反而让 Copilot 代码审查变差，GitHub 如何修正》 ｜ https://github.blog/ai-and-ml/github-copilot/better-tools-made-copilot-code-review-worse-heres-how-we-actually-improved-it/
 ## 反链
 
-- [[工具—工作流适配]]
 - [[Tracing]]
+- [[Trace-based evals]]
+- [[工具—工作流适配]]
 - [[共享 harness]]
 - [[浏览循环]]

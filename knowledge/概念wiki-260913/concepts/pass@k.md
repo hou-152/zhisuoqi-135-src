@@ -1,13 +1,13 @@
 ---
 id: cm_9e82be87
 name: pass@k
-type: REPRESENTATIONAL
+type: CONCEPTUAL
 subject: AI 概念库
 domain: verification-eval
 learningStage: when-needed
 verification: compute
-centrality: 0.042
-depth: 2
+centrality: 0.126
+depth: 1
 origin: [notion]
 aliases: ["pass@1", "pass at k"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 采样 k 次至少一次答对的概率；优化 pass@1 往往以牺牲多样性和 pass@k 为代价。
 
-**领域** verification-eval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.042
+**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.126
 
 ## 原文 context
 
@@ -36,10 +36,15 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[SWE-bench 与二元打分]] · **soft** — 有了 0/1 判定才能统计 k 次中至少一次通过。
+- [[Measurement snapshot]] · **soft** — 不懂 Measurement snapshot，就做不了 pass@k 的跨模型/跨样本量可比报告
+
+## 懂了它才能懂（解锁 1）
+
+- [[SWE-bench 与二元打分]] — 不懂 pass@k，就做不了 SWE-bench 的 pass@1/resolve rate 指标口径
 
 ## 相关
 
+- [[SWE-bench 与二元打分]] · rejected（audit） — pass@k 只需任意 0/1 判定，不依赖 SWE-bench 这一具体基准。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -55,3 +60,4 @@ sources: 1
 ## 反链
 
 - [[SWE-bench 与二元打分]]
+- [[Measurement snapshot]]

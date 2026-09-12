@@ -7,7 +7,7 @@ subject: Harness Engineering
 domain: tools-sandbox
 learningStage: now
 verification: judge
-centrality: 0.092
+centrality: 0.072
 depth: 1
 origin: [harness]
 aliases: ["tool scoping"]
@@ -18,7 +18,7 @@ sources: 1
 
 > 只向 agent 暴露当前步骤所需的最小工具集；工具越多，表现往往越差。
 
-**领域** tools-sandbox ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.092
+**领域** tools-sandbox ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -39,20 +39,15 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[臃肿工具集 bloated tool sets]] · **hard** — 收窄正是针对工具过多导致表现变差的问题，不懂臃肿就不知为何要缩减。
-
-## 懂了它才能懂（解锁 2）
-
-- [[延迟加载工具与 ToolSearch]] — 渐进式披露本质是另一种收窄手段，不懂最小工具集就理解不了它要解决什么。
-- [[logits 掩码与 context-aware 状态机]] — 掩码 logits 本质是动态约束可选工具范围，是收窄思想在解码层的实现。
+- [[臃肿工具集 bloated tool sets]] · **soft** — 不懂【臃肿工具集】，就做不了【工具收窄】的取舍——判断不出哪些工具制造了模糊决策点
 
 ## 相关
 
 - [[MCP Model Context Protocol]] · 常一起用（工作流） — Tool Scoping 可关闭当前不用的 MCP 工具面，减少误选与 Context 占用。
 - [[Tool-schema tax]] · 常一起用（工作流） — 只暴露当前步骤必要工具可同时降低选择噪声与工具 Schema 静态载荷。
-- [[agent 与 harness 的分工]] · 同篇出现（co-occurrence） — 同篇出现：harness-28
 - [[长上下文窗口]] · 常一起用（工作流） — Tool Scoping 减少进入 Context Window 的无关工具描述。
 - [[Harness token floor]] · 常一起用（工作流） — 收窄暴露工具与 Schema 可降低每次请求的固定工具说明负担。
+- [[agent 与 harness 的分工]] · 同篇出现（co-occurrence） — 同篇出现：harness-28
 - [[If you're not the model, you're the harness.]] · 同篇出现（co-occurrence） — 同篇出现：harness-28
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-28
 
@@ -66,12 +61,10 @@ sources: 1
 
 ## 反链
 
-- [[MCP Model Context Protocol]]
 - [[长上下文窗口]]
+- [[MCP Model Context Protocol]]
 - [[Harness token floor]]
+- [[If you're not the model, you're the harness.]]
 - [[agent 与 harness 的分工]]
 - [[Tool-schema tax]]
-- [[If you're not the model, you're the harness.]]
-- [[延迟加载工具与 ToolSearch]]
 - [[臃肿工具集 bloated tool sets]]
-- [[logits 掩码与 context-aware 状态机]]

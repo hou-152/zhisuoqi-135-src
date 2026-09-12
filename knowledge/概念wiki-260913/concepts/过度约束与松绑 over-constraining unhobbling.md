@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: judge
-centrality: 0.017
-depth: 0
+centrality: 0.072
+depth: 1
 origin: [context]
 aliases: ["over-constraining / unhobbling"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 在系统提示词、CLAUDE.md 与 skills 里过度约束模型，松绑后提示可大幅精简。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -37,15 +37,19 @@ sources: 1
 
 > {{name}} 的松绑带来了什么可测量结果？
 
+## 先懂这些（前置 1）
+
+- [[护栏与判断力的取舍 guardrail tradeoff]] · **hard** — 不懂【护栏与判断力的取舍】，就做不了【过度约束与松绑】的按模型能力松绑规则
+
 ## 相关
 
 - [[冲突指令的隐性成本]] · 同篇出现（co-occurrence） — 同篇出现：context-22
 - [[护栏与判断力的取舍 guardrail tradeoff]] · 同篇出现（co-occurrence） — 同篇出现：context-22
 - [[从禁止什么到对齐什么]] · 同篇出现（co-occurrence） — 同篇出现：context-22
-- [[示例会收窄探索空间]] · 同篇出现（co-occurrence） — 同篇出现：context-22
 - [[接口即指令 design interfaces]] · 同篇出现（co-occurrence） — 同篇出现：context-22
 - [[延迟加载工具与 ToolSearch]] · 同篇出现（co-occurrence） — 同篇出现：context-22
 - [[指令就近原则]] · 同篇出现（co-occurrence） — 同篇出现：context-22
+- [[示例会收窄探索空间]] · 同篇出现（co-occurrence） — 同篇出现：context-22
 - [[Rubrics 与验证 agent]] · 同篇出现（co-occurrence） — 同篇出现：context-22
 - [[gotchas 优先的 CLAUDE.md]] · 同篇出现（co-occurrence） — 同篇出现：context-22
 - [[上下文文件树 tree of files]] · 同篇出现（co-occurrence） — 同篇出现：context-22
@@ -65,17 +69,17 @@ sources: 1
 
 ## 反链
 
-- [[渐进式披露 progressive disclosure]]
-- [[接口即指令 design interfaces]]
-- [[Rubrics 与验证 agent]]
-- [[冲突指令的隐性成本]]
-- [[从禁止什么到对齐什么]]
-- [[示例会收窄探索空间]]
-- [[延迟加载工具与 ToolSearch]]
-- [[指令就近原则]]
-- [[gotchas 优先的 CLAUDE.md]]
-- [[富引用 rich references]]
 - [[上下文文件树 tree of files]]
-- [[自动记忆 auto-memory]]
+- [[渐进式披露 progressive disclosure]]
+- [[从禁止什么到对齐什么]]
 - [[护栏与判断力的取舍 guardrail tradeoff]]
+- [[自动记忆 auto-memory]]
+- [[接口即指令 design interfaces]]
+- [[延迟加载工具与 ToolSearch]]
+- [[gotchas 优先的 CLAUDE.md]]
 - [[prompt 与 context 的通用性落差]]
+- [[Rubrics 与验证 agent]]
+- [[富引用 rich references]]
+- [[冲突指令的隐性成本]]
+- [[示例会收窄探索空间]]
+- [[指令就近原则]]

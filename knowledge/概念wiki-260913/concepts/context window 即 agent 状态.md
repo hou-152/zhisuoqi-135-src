@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.042
+centrality: 0.126
 depth: 0
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 循环中上下文起于一个初始事件，此后每次决策与执行结果都追加进去，它本身就是 Agent 的状态。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,21 +36,23 @@ agent 没有记忆器官，它的全部人生经历就是那段被反复喂回�
 
 > 为什么说 {{name}}，它里面都装了什么？
 
-## 懂了它才能懂（解锁 1）
+## 懂了它才能懂（解锁 2）
 
 - [[时间 Scalability Temporal Scalability]] — 长时运行保持方向，前提是把上下文当作可累积的持久状态来管理。
+- [[prefill 与 decode 的高度倾斜]] — 不懂【context window 即 agent 状态】，就做不了分析 prefill/decode 倾斜的成因
 
 ## 相关
 
-- [[12-factor agents]] · 同篇出现（co-occurrence） — 同篇出现：context-06
 - [[「并不 agentic」的 AI Agent]] · 同篇出现（co-occurrence） — 同篇出现：context-06
 - [[软件即有向图]] · 同篇出现（co-occurrence） — 同篇出现：context-06
+- [[12-factor agents]] · 同篇出现（co-occurrence） — 同篇出现：context-06
 
 ## 出场
 
 - Context Engineering ｜ 《12-Factor Agents：让 LLM 软件真能交付给生产用户的十二条原则》 ｜ https://github.com/humanlayer/12-factor-agents
 ## 反链
 
+- [[prefill 与 decode 的高度倾斜]]
 - [[时间 Scalability Temporal Scalability]]
 - [[「并不 agentic」的 AI Agent]]
 - [[12-factor agents]]

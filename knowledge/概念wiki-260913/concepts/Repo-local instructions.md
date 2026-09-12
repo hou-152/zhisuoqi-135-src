@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: context-engineering
 learningStage: now
 verification: use
-centrality: 0.042
-depth: 1
+centrality: 0.126
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 放在仓库内的 CLAUDE.md、AGENTS.md 等规则文件，是 agent 可反复读取的持久化协作接口。
 
-**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,9 +36,10 @@ sources: 1
 
 > 在项目里 {{name}} 应该写什么、放在哪里？
 
-## 先懂这些（前置 1）
+## 懂了它才能懂（解锁 2）
 
-- [[仓库即唯一事实来源]] · **hard** — 仓库内规则文件可反复读取的前提，是仓库对 agent 才是唯一事实来源。
+- [[Instruction-file tax]] — 不懂【Repo-local instructions】，就做不了【Instruction-file tax】的 ⟨界定哪些仓库内规则文件会产生每请求 token 开销⟩
+- [[Self-Improving Context System]] — 不懂【Repo-local instructions】，就做不了【Self-Improving Context System】的 ⟨让 agent 反复读取并更新协作规则⟩
 
 ## 相关
 
@@ -52,6 +53,7 @@ sources: 1
 ## 反链
 
 - [[Harness 工程 Harness Engineering]]
-- [[仓库即唯一事实来源]]
 - [[Context as working memory budget]]
+- [[Instruction-file tax]]
 - [[Reliability-critical harness primitives]]
+- [[Self-Improving Context System]]

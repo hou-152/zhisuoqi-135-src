@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: agent-org
 learningStage: when-needed
 verification: judge
-centrality: 0.042
-depth: 1
+centrality: 0.017
+depth: 0
 origin: [context]
 aliases: ["vanity metrics"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 度量产出却不度量价值的指标，如 agent 写了多少代码、合并多少 PR、消耗多少 token。
 
-**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -37,12 +37,9 @@ Karri 常在 Twitter 上调侃的对象——“如今最大的虚荣指标是�
 
 > 举一个{{name}}的例子，并给出它的真实替代指标。
 
-## 先懂这些（前置 1）
-
-- [[价值定义]] · **hard** — 虚荣指标只度量产出不度量价值，不懂价值定义就无法识别它。
-
 ## 相关
 
+- [[0 人工代码、0 人工 review 极限形态]] · rejected（audit） — 虚荣指标只是要避免的反面度量，不是理解或成立“0人工代码/review”的前置依赖。
 - [[代理原生 agent-native]] · 同篇出现（co-occurrence） — 同篇出现：context-10
 - [[上下文骨架]] · 同篇出现（co-occurrence） — 同篇出现：context-10
 - [[“SaaS 已死”叙事与护城河蒸发]] · 同篇出现（co-occurrence） — 同篇出现：context-10
@@ -57,7 +54,7 @@ Karri 常在 Twitter 上调侃的对象——“如今最大的虚荣指标是�
 
 ## 反链
 
-- [[价值定义]]
-- [[代理原生 agent-native]]
+- [[0 人工代码、0 人工 review 极限形态]]
 - [[“SaaS 已死”叙事与护城河蒸发]]
+- [[代理原生 agent-native]]
 - [[上下文骨架]]

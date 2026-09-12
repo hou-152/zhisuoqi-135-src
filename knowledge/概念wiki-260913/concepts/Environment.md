@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: tools-sandbox
 learningStage: when-needed
 verification: use
-centrality: 0.042
+centrality: 0.126
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 描述如何 provision agent 工具所运行沙箱的模板：runtime 类型、网络策略、包配置。
 
-**领域** tools-sandbox ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** tools-sandbox ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -40,6 +40,10 @@ sources: 1
 
 - [[Sandbox]] · **hard** — Environment 是配置沙箱如何被 provision 的模板，不懂沙箱就不知这些字段在定义什么。
 
+## 懂了它才能懂（解锁 1）
+
+- [[Sandbox agents]] — 不懂【Environment】就做不了【Sandbox agents】的工作区 runtime 与依赖配置
+
 ## 相关
 
 - [[Claude Managed Agents]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
@@ -51,6 +55,8 @@ sources: 1
 - Harness Engineering ｜ 《Anthropic 干脆把 harness 托管了：Claude Managed Agents 的设计取舍》 ｜ https://x.com/rlancemartin/status/2041927992986009773/?s=12
 ## 反链
 
+- [[Harness]]
 - [[Sandbox]]
 - [[Claude Managed Agents]]
+- [[Sandbox agents]]
 - [[messages API 作为直连网关]]

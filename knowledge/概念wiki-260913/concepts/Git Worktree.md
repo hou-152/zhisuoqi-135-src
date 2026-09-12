@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: code-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.042
-depth: 2
+centrality: 0.072
+depth: 0
 origin: [notion]
 aliases: ["Git worktree"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 同一仓库挂载多个工作目录，便于并行分支或并行 Agent 各自工作互不干扰。
 
-**领域** code-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** code-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 掌握证据（做到这些才算会）
 
@@ -28,9 +28,9 @@ sources: 1
 
 > {{name}} 解决了什么并行开发问题？
 
-## 先懂这些（前置 1）
+## 懂了它才能懂（解锁 1）
 
-- [[宏动作]] · **soft** — 并行 agent 各自工作依托 worktree 隔离，便于委派整块宏动作。
+- [[宏动作]] — 并行 agent 各自工作依托 worktree 隔离，便于委派整块宏动作。
 
 ## 相关
 

@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: spec-intent
 learningStage: when-needed
 verification: use
-centrality: 0.017
-depth: 0
+centrality: 0.072
+depth: 2
 origin: [context]
 aliases: ["small interview of a few turns"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 把一次性倾倒式的漫谈改成几轮小问答，通过来回追问把意图逐步交代清楚。
 
-**领域** spec-intent ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** spec-intent ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -37,6 +37,10 @@ sources: 1
 
 > 怎样把一次漫谈改造成 {{name}}，从而问出更清楚的意图？
 
+## 先懂这些（前置 1）
+
+- [[漫谈会话 ramble session]] · **soft** — 不懂【漫谈会话】，就做不了【小访谈变体】里「把一次性倾倒式漫谈改造成几轮小问答」的改造
+
 ## 相关
 
 - [[漫谈会话 ramble session]] · 同篇出现（co-occurrence） — 同篇出现：context-09
@@ -53,6 +57,6 @@ sources: 1
 
 ## 反链
 
-- [[bits]]
 - [[漫谈会话 ramble session]]
+- [[bits]]
 - [[输入摩擦 too lazy to type]]

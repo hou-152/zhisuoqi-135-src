@@ -47,5 +47,5 @@ harness 出故障时，造成失败的「代码」往往是一段英文，唯一
 - Harness Engineering ｜ 《为什么 harness 工程这么难》 ｜ https://x.com/winterarc2125/status/2081042507471696318/?s=12
 ## 反链
 
-- [[「模型即产品」的幻觉]]
 - [[非确定性 nondeterminism]]
+- [[「模型即产品」的幻觉]]

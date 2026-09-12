@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: now
 verification: accept
-centrality: 0.042
+centrality: 0.072
 depth: 0
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 模型的输入称 prompt，输出称 completion 或 response。
 
-**领域** context-engineering ｜ **类型** LANGUAGE ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
+**领域** context-engineering ｜ **类型** LANGUAGE ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -52,6 +52,6 @@ sources: 1
 ## 反链
 
 - [[Harness]]
-- [[LLM Large Language Model]]
 - [[coding agent]]
+- [[LLM Large Language Model]]
 - [[chat templated prompts]]

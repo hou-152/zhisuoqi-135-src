@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: society-law
 learningStage: deep-dive
 verification: judge
-centrality: 0.042
-depth: 2
+centrality: 0.072
+depth: 1
 origin: [notion]
 aliases: ["AI Passport", "AI Nationality", "AI 国籍"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > AI 的可登记身份，不关乎血统，而是一张写明从哪里来、受谁约束、出事找谁的责任地址。
 
-**领域** society-law ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** society-law ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 原文 context
 
@@ -38,10 +38,11 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[责任链条散了]] · **hard** — AI护照正是为修复散掉的责任链条而设，不懂链条散就不知其功能。
+- [[责任链条散了]] · **soft** — 不懂责任链条散了，就做不了 AI 护照为何需要写明“出事找谁”的责任地址的机制说明。
 
 ## 相关
 
+- [[责任链条散了]] · related-to（audit） — ‘责任链条散了’是 AI 护照要解决的问题背景；不懂也能理解护照作为责任地址的定义，应降 soft/弱化。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion

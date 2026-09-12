@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: verification-eval
 learningStage: when-needed
 verification: judge
-centrality: 0.067
+centrality: 0.072
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 用准确性、完整性、抓 bug 潜力、可行洞见四项 1-10 打分，验证省 token 是否牺牲评审质量。
 
-**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
+**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,16 +36,16 @@ sources: 1
 
 > 按 {{name}} 给这份评审打分，并说明有没有掉质量。
 
-## 先懂这些（前置 2）
+## 先懂这些（前置 1）
 
-- [[Rubric]] · **hard** — 四项 1-10 打分本质是把评审质量写成分维 rubric。
-- [[Kappa 系数]] · **soft** — 要证明 AI 评分与专家同级，须用一致度统计。
+- [[Rubric]] · **soft** — 四项 1-10 打分本质是把评审质量写成分维 rubric。
 
 ## 相关
 
+- [[Kappa 系数]] · related-to（audit） — Kappa 只是可选的一致性验证工具，用相关性/其他统计也能证明，评分方法本身不依赖它。
+- [[持久化代码图谱 structural map graph]] · 同篇出现（co-occurrence） — 同篇出现：context-16
 - [[code-review-graph]] · 同篇出现（co-occurrence） — 同篇出现：context-16
 - [[Tree-sitter]] · 同篇出现（co-occurrence） — 同篇出现：context-16
-- [[持久化代码图谱 structural map graph]] · 同篇出现（co-occurrence） — 同篇出现：context-16
 
 ## 出场
 
@@ -53,7 +53,7 @@ sources: 1
 ## 反链
 
 - [[Rubric]]
+- [[Kappa 系数]]
 - [[持久化代码图谱 structural map graph]]
 - [[code-review-graph]]
-- [[Kappa 系数]]
 - [[Tree-sitter]]

@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: code-engineering
 learningStage: when-needed
 verification: judge
-centrality: 0.017
-depth: 0
+centrality: 0.072
+depth: 1
 origin: [context]
 aliases: ["language-code alignment"]
 sources: 1
@@ -16,9 +16,9 @@ sources: 1
 
 # 语言驱动的代码一致性 · language-code alignment
 
-> context.md 里使用的语言会影响变量名、文件名、UI 文案与代码搜索路径，进而影响代码一致性。
+> context.md 里使用的语言会影响变量名、文件名、UI 文案和代码搜索路径。
 
-**领域** code-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** code-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -37,11 +37,14 @@ sources: 1
 
 > {{name}}在 context.md 中具体影响了哪些代码层面？
 
+## 先懂这些（前置 1）
+
+- [[统一语言 ubiquitous language]] · **hard** — 不懂【统一语言】就做不了【语言驱动的代码一致性】的 ⟨变量、文件名与 UI 文案命名对齐⟩
+
 ## 相关
 
 - [[追问式对齐 Grill Me]] · 同篇出现（co-occurrence） — 同篇出现：context-08
 - [[共享理解 shared understanding]] · 同篇出现（co-occurrence） — 同篇出现：context-08
-- [[设计树 design tree]] · 同篇出现（co-occurrence） — 同篇出现：context-08
 
 ## 出场
 
@@ -54,5 +57,5 @@ sources: 1
 ## 反链
 
 - [[共享理解 shared understanding]]
-- [[设计树 design tree]]
+- [[统一语言 ubiquitous language]]
 - [[追问式对齐 Grill Me]]

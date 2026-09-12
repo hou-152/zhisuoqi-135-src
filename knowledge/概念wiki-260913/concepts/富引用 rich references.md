@@ -16,7 +16,7 @@ sources: 2
 
 # 富引用 · rich references
 
-> spec 引用不限于简单 markdown，可用 HTML artifact、测试套件、待移植函数、rubric，且优先选代码形态。
+> spec 不限于 markdown 计划：HTML artifact、测试套件、待移植函数、rubric 都可充当。
 
 **领域** spec-intent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.035
 

@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: agent-org
 learningStage: when-needed
 verification: judge
-centrality: 0.042
-depth: 1
+centrality: 0.072
+depth: 0
 origin: [notion]
 aliases: ["光鲜输出 vs 真判断力", "distinguish polished output from real judgment", "fluency vs depth"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > AI 时代领导力核心是分辨漂亮表达与真实判断；分不清会让组织知识环境整体退化。
 
-**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 原文 context
 
@@ -37,12 +37,13 @@ AI 时代里，文档、答复、PR description 都看起来很 polished——**
 
 > 你会用什么方式在评审中分辨 {{name}}？
 
-## 先懂这些（前置 1）
+## 懂了它才能懂（解锁 1）
 
-- [[价值定义]] · **soft** — 分辨漂亮表达与真实判断，前提是懂人的核心价值在审核与定义方向。
+- [[Creator → Curator 角色转换]] — 不懂【Polished Output vs Real Judgment】，就做不了策展人对 Agent 输出的验证
 
 ## 相关
 
+- [[价值定义]] · related-to（audit） — 同属『为何重要』的解释性关联，价值定义不是分辨漂亮表达与真判断的概念前提。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -57,4 +58,5 @@ AI 时代里，文档、答复、PR description 都看起来很 polished——**
 
 ## 反链
 
+- [[Creator → Curator 角色转换]]
 - [[价值定义]]

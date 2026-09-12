@@ -5,8 +5,8 @@ type: CONCEPTUAL
 subject: Context Engineering
 domain: verification-eval
 learningStage: when-needed
-verification: compute
-centrality: 0.042
+verification: accept
+centrality: 0.072
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 把问答相似度量化成连续余弦谱，跨五个 embedding 模型取平均，相似度越低性能随长度衰减越快。
 
-**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.042
+**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -52,6 +52,6 @@ sources: 1
 ## 反链
 
 - [[上下文腐烂 Context Rot]]
-- [[大海捞针（NIAH）与词面匹配]]
 - [[上下文均匀处理假设]]
 - [[needle-haystack 相似度]]
+- [[大海捞针（NIAH）与词面匹配]]

@@ -6,8 +6,8 @@ subject: AI 概念库 × Harness Engineering
 domain: code-engineering
 learningStage: now
 verification: judge
-centrality: 0.135
-depth: 0
+centrality: 0.253
+depth: 1
 origin: [notion, harness]
 aliases: ["Agentic Engineering", "agentic engineering", "智能体工程", "agent 工程"]
 sources: 2
@@ -17,7 +17,7 @@ sources: 2
 
 > 协调可错、随机而强大的 agent 快速产出，同时守住正确性、安全、品味与可维护性的工程纪律。
 
-**领域** code-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.135
+**领域** code-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.253
 
 ## 费曼一下
 
@@ -51,23 +51,29 @@ Karpathy 说：旧的"10x 工程师"概念会被极大放大——掌握 agentic
 
 > {{name}} 与 vibe coding 的分界在哪里？
 
-## 懂了它才能懂（解锁 4）
+## 先懂这些（前置 3）
 
-- [[宏动作]] — 宏动作是 Agentic Engineering 中编程的最小单位，不懂范式就无法理解委派整块工作。
-- [[Vibe Coding]] — Vibe Coding 是抬高地板子集，不懂工程纪律就守不住质量底线。
-- [[12-factor agents]] — 该纲领在 Agentic Engineering 语境下回答 LLM 软件生产化原则。
-- [[准比快重要]] — 准比快是 agentic engineering 守正确性纪律的一环。
+- [[准比快重要]] · **soft** — 不懂【准比快重要】就做不了【Agentic Engineering】的 ⟨正确性守卫与验收判断⟩
+- [[根因优先]] · **soft** — 不懂【根因优先】就做不了【Agentic Engineering】的 ⟨bug 修复与正确性维护⟩
+- [[前置对齐 front-loading alignment]] · **soft** — 不懂【前置对齐】就做不了【Agentic Engineering】的 ⟨多 agent 规划协同与减少返工⟩
+
+## 懂了它才能懂（解锁 1）
+
+- [[层级架构强约束 + 给 Agent 读的 lint 错误]] — 不懂【Agentic Engineering】就做不了【层级架构强约束 + 给 Agent 读的 lint 错误】的 ⟨给 Agent 读的修复指令设计⟩
 
 ## 相关
 
 - [[Bitter Lesson]] · 同篇出现（co-occurrence） — 同篇出现：harness-26
 - [[Creator → Curator 角色转换]] · 同篇出现（co-occurrence） — 同篇出现：harness-26
+- [[宏动作]] · related-to（audit） — 宏动作立得住的真正前置是「用 agent 委派整块工作」这一范式，而非带纪律/品味色彩的 Agentic Engineering 框架概念；属整体包含子例子的关系，宜降 soft。
 - [[Vibe Coding]] · 同篇出现（co-occurrence） — 同篇出现：harness-26
+- [[Vibe Coding]] · related-to（audit） — Vibe Coding 有独立且更早的出处与含义，不懂 Agentic Engineering 的工程纪律也能理解它；「抬高地板子集」是作者加的定位，非定义依赖
+- [[12-factor agents]] · related-to（audit） — 12-factor agents 是可独立取用的具体纲领，属于 Agentic Engineering 的一个实例，不懂上位术语也能读懂 12 条；实例化不等于依赖
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-26
-- [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-26
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
+- [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-26
 
 ## 出场
 
@@ -80,9 +86,12 @@ Karpathy 说：旧的"10x 工程师"概念会被极大放大——掌握 agentic
 
 ## 反链
 
-- [[宏动作]]
 - [[Creator → Curator 角色转换]]
+- [[根因优先]]
+- [[层级架构强约束 + 给 Agent 读的 lint 错误]]
+- [[宏动作]]
+- [[前置对齐 front-loading alignment]]
+- [[准比快重要]]
 - [[Vibe Coding]]
 - [[12-factor agents]]
-- [[准比快重要]]
 - [[Bitter Lesson]]

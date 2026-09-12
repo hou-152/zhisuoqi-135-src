@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: caching-cost
 learningStage: when-needed
 verification: use
-centrality: 0.042
-depth: 1
+centrality: 0.126
+depth: 2
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 同一功能或 bug 全程不切换模型与推理档位，使对话在模型侧保持缓存，从而享折扣、省 token。
 
-**领域** caching-cost ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** caching-cost ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,9 +36,10 @@ sources: 1
 
 > 针对一个 bug，你会怎样按{{name}}安排模型与档位以省 token？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
 - [[提示词缓存（Prompt Caching）]] · **hard** — 该原则是为保住提示缓存前缀而设，无缓存即无此约束。
+- [[TTL]] · **soft** — 不懂 TTL，就判断不了中断超时后能否继续沿用原模型与档位
 
 ## 相关
 
@@ -52,5 +53,6 @@ sources: 1
 ## 反链
 
 - [[提示词缓存（Prompt Caching）]]
+- [[TTL]]
 - [[废料怪兽]]
 - [[「少即是多」：gimmick 与真实增益的分界]]

@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: agent-org
 learningStage: when-needed
 verification: accept
-centrality: 0.042
+centrality: 0.072
 depth: 1
 origin: [notion]
 aliases: ["Virtual Co-workers", "虚拟员工", "Agent 形态命名"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 对「与人类协作的 AI 代理」这一角色尚无共识命名时，被认为相对最不坏的一种叫法。
 
-**领域** agent-org ｜ **类型** LANGUAGE ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
+**领域** agent-org ｜ **类型** LANGUAGE ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -57,3 +57,6 @@ Sam 给「未来 Agent 形态」的暂定名——**不再是「问一句答一�
 ## 反链
 
 - [[AI 作为新同事]]
+- [[外包思考，但不外包理解]]
+- [[Agent-Native Infrastructure]]
+- [[Sensors 与 Actuators]]

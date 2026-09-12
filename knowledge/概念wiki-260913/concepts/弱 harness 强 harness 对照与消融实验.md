@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: use
-centrality: 0.017
-depth: 0
+centrality: 0.072
+depth: 1
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 同一任务分别用弱harness与强harness跑两次并对比效果，关心效果变化而非写了多少说明文档。
 
-**领域** harness-runtime ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** harness-runtime ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,10 +36,14 @@ sources: 1
 
 > 怎么用{{name}}证明某条harness规则真的有用？
 
+## 先懂这些（前置 1）
+
+- [[Agent vs Harness]] · **hard** — 不懂 Agent vs Harness，就做不了消融实验里「哪部分算 harness、哪部分算 agent」的界定
+
 ## 相关
 
-- [[能力鸿沟]] · 同篇出现（co-occurrence） — 同篇出现：harness-18
 - [[指令子系统与渐进式展开]] · 同篇出现（co-occurrence） — 同篇出现：harness-18
+- [[能力鸿沟]] · 同篇出现（co-occurrence） — 同篇出现：harness-18
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-18
 
 ## 出场
@@ -48,5 +52,6 @@ sources: 1
 ## 反链
 
 - [[Harness 工程 Harness Engineering]]
+- [[Agent vs Harness]]
 - [[能力鸿沟]]
 - [[指令子系统与渐进式展开]]

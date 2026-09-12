@@ -5,9 +5,9 @@ type: CONCEPTUAL
 subject: Harness Engineering
 domain: tools-sandbox
 learningStage: when-needed
-verification: judge
-centrality: 0.042
-depth: 1
+verification: accept
+centrality: 0.072
+depth: 2
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 作者的自我反问：任务管理成为标配后，是否直接外挂一个 MCP todo manager 就够，而不必做 app 原生任务工具；他直觉外挂偏复杂。
 
-**领域** tools-sandbox ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** tools-sandbox ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -38,13 +38,13 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[MCP Model Context Protocol]] · **hard** — 该取舍就是要不要外挂 MCP 工具，不懂 MCP 就无法判断外挂是否更复杂。
+- [[MCP Model Context Protocol]] · **hard** — 不懂【MCP】，就做不了【原生工具与 MCP 外挂】的取舍讨论——这个议题本身就是「要不要外挂 MCP todo manager」
 
 ## 相关
 
-- [[看对话 log]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
 - [[对话加确定性缝合]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
 - [[反向代理式窥探]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
+- [[看对话 log]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
 
 ## 出场
 
@@ -52,6 +52,6 @@ sources: 1
 ## 反链
 
 - [[MCP Model Context Protocol]]
-- [[对话加确定性缝合]]
 - [[看对话 log]]
+- [[对话加确定性缝合]]
 - [[反向代理式窥探]]

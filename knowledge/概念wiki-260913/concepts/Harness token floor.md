@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: caching-cost
 learningStage: now
 verification: compute
-centrality: 0.117
+centrality: 0.181
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 用户任务进入前，harness 已发送的 system prompt、tool schema 与 scaffolding 所占的固定 token 量。
 
-**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.117
+**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.181
 
 ## 费曼一下
 
@@ -36,9 +36,8 @@ sources: 1
 
 > {{name}} 由哪几部分组成，Claude Code 与 OpenCode 各约多少？
 
-## 先懂这些（前置 2）
+## 先懂这些（前置 1）
 
-- [[Tool-schema tax]] · **hard** — 工具 Schema 的固定载荷是 Harness Token 底座中可单独测量的一部分。
 - [[Token count]] · **hard** — harness 固定开销以 token 数计量，先懂 token 才能量化。
 
 ## 懂了它才能懂（解锁 2）
@@ -56,14 +55,15 @@ sources: 1
 - [[Subagent bootstrap multiplier]] · 同篇出现（co-occurrence） — 同篇出现：context-19
 - [[Cache prefix stability]] · 同篇出现（co-occurrence） — 同篇出现：context-19
 - [[Cache temperature]] · 同篇出现（co-occurrence） — 同篇出现：context-19
-- [[Context-window tax]] · 同篇出现（co-occurrence） — 同篇出现：context-19
 - [[Tamper-evident audit trail]] · 同篇出现（co-occurrence） — 同篇出现：context-19
+- [[Context-window tax]] · 同篇出现（co-occurrence） — 同篇出现：context-19
 - [[Measurement snapshot]] · 同篇出现（co-occurrence） — 同篇出现：context-19
 - [[工具收窄 tool scoping]] · 常一起用（工作流） — 收窄暴露工具与 Schema 可降低每次请求的固定工具说明负担。
 - [[系统提示 System Prompt]] · 常一起用（运行时组成） — 系统提示是 Harness Token 底座的固定组成之一。
 - [[API-boundary observability]] · 同篇出现（co-occurrence） — 同篇出现：context-19
 - [[Tool-schema tax]] · 组成（运行时组成） — 工具 Schema 的固定载荷是 Harness Token 底座中可单独测量的一部分。
 - [[Tool-schema tax]] · 同篇出现（co-occurrence） — 同篇出现：context-19
+- [[Tool-schema tax]] · related-to（audit） — 方向上是「组成」：tool-schema tax 是 harness token floor 的一个子构件，懂子构件不要求先懂整体；反之整体才需要子构件，应降 soft 或把方向倒过来。
 - [[长上下文窗口]] · 常一起用（运行时组成） — 固定系统输入会占用 Context Window 容量，即使缓存命中也不消失。
 - [[Harness]] · 常一起用（运行时组成） — Token 底座由 Agent Harness 随每次模型请求附带的静态运行信息产生，但它是负担指标而非 Harness 组件。
 
@@ -72,20 +72,20 @@ sources: 1
 - Context Engineering ｜ 《Claude Code 在读提示词前为何已发送 3.3 万 Token》 ｜ https://systima.ai/blog/claude-code-vs-opencode-token-overhead
 ## 反链
 
-- [[长上下文窗口]]
 - [[Token count]]
+- [[长上下文窗口]]
+- [[Cache prefix stability]]
 - [[系统提示 System Prompt]]
-- [[工具收窄 tool scoping]]
-- [[Baseline-request product]]
-- [[Tool-schema tax]]
-- [[API-boundary observability]]
-- [[Configuration multiplier]]
 - [[Context-window tax]]
+- [[Measurement snapshot]]
+- [[Tool-schema tax]]
+- [[工具收窄 tool scoping]]
+- [[API-boundary observability]]
+- [[Baseline-request product]]
+- [[Cache temperature]]
+- [[Configuration multiplier]]
 - [[Framework-template repetition]]
 - [[Instruction-file tax]]
 - [[MCP schema amplification]]
-- [[Measurement snapshot]]
 - [[Subagent bootstrap multiplier]]
 - [[Tamper-evident audit trail]]
-- [[Cache prefix stability]]
-- [[Cache temperature]]

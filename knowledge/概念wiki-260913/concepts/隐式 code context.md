@@ -15,7 +15,7 @@ sources: 1
 
 # 隐式 code context
 
-> Agent 在接到指令后自动挑选相关文件进入上下文，却看不到对应的 tool use 记录或本地索引。
+> 作者观察到 Claude Code 接到指令后自动把相关文件放入上下文，但既无 tool use 记录，也找不到本地代码索引。
 
 **领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
@@ -38,15 +38,15 @@ sources: 1
 
 ## 相关
 
-- [[看对话 log]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
 - [[对话加确定性缝合]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
 - [[反向代理式窥探]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
+- [[看对话 log]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
 
 ## 出场
 
 - Harness Engineering ｜ 《拆开 Claude Code：一个编码 agent 的 harness 内部长什么样》 ｜ https://xxchan.me/ai/2025/05/06/claude-code.html
 ## 反链
 
-- [[对话加确定性缝合]]
 - [[看对话 log]]
+- [[对话加确定性缝合]]
 - [[反向代理式窥探]]

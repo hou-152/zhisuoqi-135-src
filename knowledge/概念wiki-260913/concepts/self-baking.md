@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: memory-retrieval
 learningStage: when-needed
 verification: judge
-centrality: 0.042
-depth: 1
+centrality: 0.181
+depth: 2
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > Agent 有选择地把自己的上下文消化成持久知识结构，是记忆存储与学习的分界。
 
-**领域** memory-retrieval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** memory-retrieval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.181
 
 ## 费曼一下
 
@@ -36,9 +36,14 @@ sources: 1
 
 > {{name}} 之后，agent 的上下文变成了什么？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
-- [[结构化记事 agentic memory]] · **hard** — self-baking 是 Agent 把上下文消化成持久知识结构，依赖结构化记事。
+- [[结构化记事 agentic memory]] · **soft** — self-baking 是 Agent 把上下文消化成持久知识结构，依赖结构化记事。
+- [[多时间尺度记忆与「记忆只是 hint」]] · **soft** — 不懂【多时间尺度记忆与「记忆只是 hint」】就做不了【self-baking】判定持久知识结构该落在哪一层
+
+## 懂了它才能懂（解锁 1）
+
+- [[跨轮次记忆与连贯策略]] — 不懂【self-baking】就做不了【跨轮次记忆与连贯策略】里「模型随时间学会连贯策略」那一半
 
 ## 相关
 
@@ -51,7 +56,9 @@ sources: 1
 - Context Engineering ｜ 《论文《上下文工程 2.0》：给这门手艺补上它自己的上下文》 ｜ https://arxiv.org/pdf/2510.26493
 ## 反链
 
-- [[上下文工程 context engineering]]
 - [[上下文 context]]
+- [[上下文工程 context engineering]]
+- [[多时间尺度记忆与「记忆只是 hint」]]
+- [[跨轮次记忆与连贯策略]]
 - [[结构化记事 agentic memory]]
 - [[熵减 entropy reduction]]

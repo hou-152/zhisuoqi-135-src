@@ -3,11 +3,11 @@ id: cm_2081e44e
 name: 共享 / 多人 agent 会话
 type: CONCEPTUAL
 subject: Context Engineering
-domain: multi-agent
+domain: agent-org
 learningStage: when-needed
-verification: use
-centrality: 0.117
-depth: 3
+verification: accept
+centrality: 0.072
+depth: 1
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > Agent 会话对团队可见，多人可进入同一会话共同查看与修改，压缩协作循环。
 
-**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.117
+**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,15 +36,9 @@ Linear 演示里的一个关键差异化能力——agent session 对团队可�
 
 > {{name}} 如何压缩协作循环？
 
-## 先懂这些（前置 3）
+## 先懂这些（前置 1）
 
-- [[共享文件加锁的协调机制]] · **soft** — 多人同时改同一会话，需先懂共享状态与锁如何防止并发冲突。
-- [[多智能体架构]] · **soft** — 多人会话建立在多 agent 共同工作的架构之上。
-- [[动态协调 dynamic coordination]] · **soft** — 多人进入同一会话后需按彼此当下动作协调，依赖动态协调。
-
-## 懂了它才能懂（解锁 1）
-
-- [[Orchestra Interface]] — 人留在 flow 中与 Agent 共处，需先懂共享会话这一协作形态。
+- [[共享产品系统 shared product system]] · **soft** — 不懂【共享产品系统】，就做不了【共享 / 多人 agent 会话】——反馈、意图、决策、计划没有共同载体，多人进同一会话无从改起
 
 ## 相关
 
@@ -57,10 +51,7 @@ Linear 演示里的一个关键差异化能力——agent session 对团队可�
 - Context Engineering ｜ 《SaaS 没死，Linear 正把上下文变成 Agent 的骨架》 ｜ https://app.podwise.ai/dashboard/episodes/7673574
 ## 反链
 
-- [[多智能体架构]]
-- [[代理原生 agent-native]]
-- [[动态协调 dynamic coordination]]
-- [[共享文件加锁的协调机制]]
+- [[共享产品系统 shared product system]]
 - [[“SaaS 已死”叙事与护城河蒸发]]
-- [[Orchestra Interface]]
+- [[代理原生 agent-native]]
 - [[上下文骨架]]

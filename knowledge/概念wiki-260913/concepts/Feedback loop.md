@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: verification-eval
 learningStage: now
 verification: use
-centrality: 0.042
+centrality: 0.126
 depth: 0
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 写代码、运行、读取结果、修正构成的闭环，是验证真正起作用、循环能自我纠偏的核心。
 
-**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,12 +36,14 @@ sources: 1
 
 > {{name}} 的四步是什么，缺哪一步会失效？
 
-## 懂了它才能懂（解锁 1）
+## 懂了它才能懂（解锁 2）
 
-- [[形成性评估]] — 持续测量、持续反馈、持续调整，本质就是把写—跑—改的闭环搬进评估。
+- [[验证闭环 verification loop]] — 不懂【Feedback loop】，就做不了【验证闭环】的「让 Claude 自己运行、读结果、修正」
+- [[端到端验证]] — 不懂【Feedback loop】，就做不了【端到端验证】的「跑通完整流程并读结果」
 
 ## 相关
 
+- [[形成性评估]] · related-to（audit） — 形成性评估是教育学原有概念，'持续测量反馈调整'自足；把写—跑—改闭环搬进评估只是类比，不是构词前提。
 - [[Model as subroutine]] · 同篇出现（co-occurrence） — 同篇出现：harness-15
 - [[Continuous orchestration loop]] · 同篇出现（co-occurrence） — 同篇出现：harness-15
 - [[Loop Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-15
@@ -51,7 +53,9 @@ sources: 1
 - Harness Engineering ｜ 《一次关于 Loop 的工程争论》 ｜ https://x.com/mvanhorn/status/2063865685558903149/?rw_tt_thread=True
 ## 反链
 
+- [[验证闭环 verification loop]]
 - [[Loop Engineering]]
-- [[形成性评估]]
 - [[Continuous orchestration loop]]
+- [[端到端验证]]
+- [[形成性评估]]
 - [[Model as subroutine]]

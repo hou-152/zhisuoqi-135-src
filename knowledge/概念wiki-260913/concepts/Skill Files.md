@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: context-engineering
 learningStage: now
 verification: use
-centrality: 0.067
-depth: 2
+centrality: 0.072
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 可复用的 markdown 文档，只教模型怎么做，不定义做什么，目标由用户提供。
 
-**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
+**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,23 +36,21 @@ Skill file 是用 markdown 写的可复用流程文档，告诉模型“怎么�
 
 > {{name}} 该写 what to do 还是 how to do，为什么？
 
-## 先懂这些（前置 1）
-
-- [[Skill]] · **soft** — skill 的正文即可复用的 markdown 文档，懂 Skill Files 更清楚 skill 内容形态。
-
 ## 懂了它才能懂（解锁 1）
 
-- [[skill-creator 访谈式创建]] — 访谈产出的正是可复用的 markdown 文档，懂它更易落地。
+- [[Skill]] — 不懂【SKILL.md】的 frontmatter＋body 契约，就做不了【Skill Files】的 ⟨按最小结构编写可复用 skill⟩
 
 ## 相关
 
+- [[Context Bloat]] · 同篇出现（co-occurrence） — 同篇出现：harness-24
 - [[Skill-as-method-call]] · 同篇出现（co-occurrence） — 同篇出现：harness-24
 - [[Learning Loop]] · 同篇出现（co-occurrence） — 同篇出现：harness-24
-- [[Context Bloat]] · 同篇出现（co-occurrence） — 同篇出现：harness-24
 - [[Resolver]] · 同篇出现（co-occurrence） — 同篇出现：harness-24
 - [[Latent vs Deterministic]] · 同篇出现（co-occurrence） — 同篇出现：harness-24
 - [[Diarization]] · 同篇出现（co-occurrence） — 同篇出现：harness-24
 - [[Thin Harness, Fat Skills]] · 同篇出现（co-occurrence） — 同篇出现：harness-24
+- [[Skill]] · related-to（audit） — 两者几乎是同一物的两种表述（Skill 文件夹里的 markdown 正文），甚至更像反向包含关系；作为前置依赖冗余，应合并或删除。
+- [[skill-creator 访谈式创建]] · related-to（audit） — 与 [6] 重复：产出物本质是 skill 契约，Skill Files 只是其内容形态的局部视角，单独作为前置立不住，建议合并进 [6]。
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-24
 
 ## 出场
@@ -61,11 +59,11 @@ Skill file 是用 markdown 写的可复用流程文档，告诉模型“怎么�
 ## 反链
 
 - [[Skill]]
-- [[Latent vs Deterministic]]
-- [[skill-creator 访谈式创建]]
 - [[Skill-as-method-call]]
+- [[skill-creator 访谈式创建]]
+- [[Latent vs Deterministic]]
+- [[Resolver]]
+- [[Thin Harness, Fat Skills]]
 - [[Context Bloat]]
 - [[Learning Loop]]
 - [[Diarization]]
-- [[Resolver]]
-- [[Thin Harness, Fat Skills]]

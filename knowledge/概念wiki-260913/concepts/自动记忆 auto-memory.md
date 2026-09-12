@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: memory-retrieval
 learningStage: when-needed
 verification: use
-centrality: 0.035
-depth: 0
+centrality: 0.089
+depth: 1
 origin: [context]
 aliases: ["auto-memory"]
 sources: 2
@@ -18,7 +18,7 @@ sources: 2
 
 > 记忆保存从用户手动 # 写入 CLAUDE.md，变成系统自动保存与工作和你相关的记忆。
 
-**领域** memory-retrieval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.035
+**领域** memory-retrieval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.089
 
 ## 费曼一下
 
@@ -36,6 +36,10 @@ sources: 2
 ## 验收问句
 
 > {{name}} 之后，用户还需要手动保存记忆吗？
+
+## 先懂这些（前置 1）
+
+- [[记忆即提示 Memory as Prompt]] · **soft** — 不懂【记忆即提示】的写入与注入原则，就做不了【自动记忆】该自动保存什么、何时注入的策略
 
 ## 相关
 
@@ -56,6 +60,7 @@ sources: 2
 
 ## 反链
 
+- [[记忆即提示 Memory as Prompt]]
 - [[过度约束与松绑 over-constraining unhobbling]]
 - [[护栏型指令的过期]]
 - [[判断力优先 let Claude use judgement]]

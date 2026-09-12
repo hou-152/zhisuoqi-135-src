@@ -7,7 +7,7 @@ subject: Context Engineering × Harness Engineering
 domain: loop-autonomy
 learningStage: now
 verification: judge
-centrality: 0.035
+centrality: 0.144
 depth: 0
 origin: [context, harness]
 aliases: ["Dumb Loop"]
@@ -18,7 +18,7 @@ sources: 2
 
 > 循环本身不含智能，只负责反复调用模型；所有判断与决策都来自模型的输出。
 
-**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.035
+**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.144
 
 ## 费曼一下
 
@@ -36,6 +36,11 @@ sources: 2
 ## 验收问句
 
 > {{name}} 里除了把模型输出再喂回去，还该有什么？
+
+## 懂了它才能懂（解锁 2）
+
+- [[tool loop]] — 不懂【笨循环】，就做不了【tool loop】的“反复调用模型形成循环”。
+- [[Model as subroutine]] — 不懂【笨循环】，就做不了【Model as subroutine】的“让模型被 loop 在某一步调用”。
 
 ## 相关
 
@@ -55,5 +60,7 @@ sources: 2
 ## 反链
 
 - [[Harness]]
-- [[AI Agent]]
 - [[非模型架构 Non-model Architecture]]
+- [[tool loop]]
+- [[AI Agent]]
+- [[Model as subroutine]]

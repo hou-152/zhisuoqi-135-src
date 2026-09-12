@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: memory-retrieval
 learningStage: when-needed
 verification: use
-centrality: 0.067
-depth: 2
+centrality: 0.017
+depth: 0
 origin: [notion]
 aliases: ["prompt memory", "固化提示词记忆", "MEMORY.md", "USER.md", "hermes 提示词记忆"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 把持久记忆存成 MEMORY.md 与 USER.md 两个小文件，约 1300 token 的精选状态。
 
-**领域** memory-retrieval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
+**领域** memory-retrieval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,11 +36,6 @@ sources: 1
 
 > 为什么 {{name}} 只保留约 1300 个 token？
 
-## 先懂这些（前置 2）
-
-- [[跨会话记忆文件系统]] · **hard** — MEMORY.md/USER.md 就是其主题文件实例，不懂文件语义便不懂它。
-- [[冷热分离（记忆）]] · **soft** — 小规模常驻提示词记忆正是冷热分离中『热』的一层。
-
 ## 相关
 
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -57,5 +52,6 @@ sources: 1
 
 ## 反链
 
-- [[跨会话记忆文件系统]]
-- [[冷热分离（记忆）]]
+- [[外包思考，但不外包理解]]
+- [[Agent-Native Infrastructure]]
+- [[Sensors 与 Actuators]]

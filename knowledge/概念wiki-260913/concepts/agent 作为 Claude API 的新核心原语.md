@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: when-needed
 verification: accept
-centrality: 0.042
-depth: 2
+centrality: 0.072
+depth: 3
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > Managed Agents 接管 harness 与基础设施，使 agent 成为 Claude API 的新核心原语，便于多 agent 与长任务探索。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -38,7 +38,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[Claude Managed Agents]] · **hard** — 托管 harness 与基础设施被接管后，agent 才成为 API 的核心原语。
+- [[Claude Managed Agents]] · **soft** — 托管 harness 与基础设施被接管后，agent 才成为 API 的核心原语。
 
 ## 相关
 

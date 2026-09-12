@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: economy-business
 learningStage: when-needed
 verification: accept
-centrality: 0.117
-depth: 4
+centrality: 0.017
+depth: 0
 origin: [notion]
 aliases: ["单广告主广告单元", "single advertiser ad unit"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > ChatGPT SSE 响应流中与模型输出混在一起的结构化广告事件，含品牌、轮播卡片、目标链接与 token。
 
-**领域** economy-business ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.117
+**领域** economy-business ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.017
 
 ## 原文 context
 
@@ -34,18 +34,11 @@ sources: 1
 
 > {{name}} 与独立页面广告位的区别是什么？
 
-## 先懂这些（前置 3）
-
-- [[oppref]] · **soft** — 广告单元里携带的归因 token 就是 oppref，先懂归因 token 才懂该字段用途。
-- [[Token 补贴缺口（Token Subsidy Gap）]] · **soft** — 广告事件混进模型输出流，是因为补贴缺口需要广告变现补血。
-- [[Verification Markets]] · **soft** — 广告事件携带 token，使曝光点击是否真发生可被历史记录裁决。
-
-## 懂了它才能懂（解锁 1）
-
-- [[OpenAI 广告基础设施域名]] — 该域名托管广告创意与 SDK，是广告单元送达与投放链路的物理载体。
-
 ## 相关
 
+- [[oppref]] · related-to（audit） — oppref 只解释了广告单元里 token 这一个字段的用途，整节点（结构化广告事件）不懂它也能立住。
+- [[Token 补贴缺口（Token Subsidy Gap）]] · related-to（audit） — 补贴缺口只是广告变现的动机背景，理解 SSE 里的结构化广告事件不需要先懂算力补贴经济，属可选语境而非构成前提。
+- [[OpenAI 广告基础设施域名]] · related-to（audit） — 域名角色的定义是「托管创意/SDK、收事件上报」，理解它不需要先懂 SSE 广告单元，只是同链条相关。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -63,4 +56,3 @@ sources: 1
 - [[Token 补贴缺口（Token Subsidy Gap）]]
 - [[OpenAI 广告基础设施域名]]
 - [[oppref]]
-- [[Verification Markets]]

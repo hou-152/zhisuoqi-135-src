@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: context-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.042
-depth: 1
+centrality: 0.017
+depth: 0
 origin: [notion]
 aliases: ["Markdown Routing"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 为站点每个页面提供 .md 版本，把约 15000 token 的 HTML 页压到约 3000 token，减少约 80%。
 
-**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,12 +36,9 @@ sources: 1
 
 > 你怎么为站点实现 {{name}} 并验证 token 降幅？
 
-## 先懂这些（前置 1）
-
-- [[llms.txt]] · **soft** — 两者都是给 AI 读的站点文本形态，懂 llms.txt 更易理解路由动机
-
 ## 相关
 
+- [[llms.txt]] · related-to（audit） — Markdown 路由与 llms.txt 是并列的两种「给 AI 读的站点文本」，动机（压缩 token）不依赖 llms.txt 即可懂，仅是同类相邻，最多算 soft 或踢出。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion

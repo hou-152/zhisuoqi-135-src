@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: when-needed
 verification: use
-centrality: 0.042
-depth: 0
+centrality: 0.072
+depth: 1
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 每个 harness 组件都是对模型能力边界的假设，过期速度各异；做法是逐一移除旧组件、验证质量是否真的下降。
 
-**领域** harness-runtime ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** harness-runtime ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,12 +36,13 @@ sources: 1
 
 > 你怎么用 {{name}} 判断某个 harness 组件现在还能不能删？
 
-## 懂了它才能懂（解锁 1）
+## 先懂这些（前置 1）
 
-- [[Harness evolution]] — 组件假设会过期，才需要持续演进 harness。
+- [[harness 的过时假设]] · **hard** — 不懂【harness 的过时假设】，就做不了【Harness 组件生命周期】里逐个移除旧组件、验证质量是否下降的决策。
 
 ## 相关
 
+- [[Harness evolution]] · related-to（audit） — 组件会过期只是演进的一种动因，把生命周期做法当定义前提过强，应降为 soft 或移出 hard 边。
 - [[时间 Scalability Temporal Scalability]] · 同篇出现（co-occurrence） — 同篇出现：harness-A1
 - [[空间 Scalability Spatial Scalability]] · 同篇出现（co-occurrence） — 同篇出现：harness-A1
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-A1
@@ -52,6 +53,7 @@ sources: 1
 ## 反链
 
 - [[Harness 工程 Harness Engineering]]
+- [[时间 Scalability Temporal Scalability]]
+- [[harness 的过时假设]]
 - [[Harness evolution]]
 - [[空间 Scalability Spatial Scalability]]
-- [[时间 Scalability Temporal Scalability]]

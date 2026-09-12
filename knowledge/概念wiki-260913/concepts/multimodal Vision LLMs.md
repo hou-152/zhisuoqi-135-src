@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: model-training
 learningStage: now
 verification: accept
-centrality: 0.092
-depth: 1
+centrality: 0.072
+depth: 0
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 把图像等非文本输入也编码成模型可处理的 token，一并进入同一套处理流程。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.092
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,17 +36,15 @@ sources: 1
 
 > {{name}} 里一张图片最后变成了什么？
 
-## 先懂这些（前置 1）
+## 懂了它才能懂（解锁 1）
 
-- [[Q、K、V]] · **soft** — 图像被编码成 token 后仍走同一套注意力，懂 QKV 才能理解如何融合。
-
-## 懂了它才能懂（解锁 2）
-
-- [[VLM]] — VLM 是视觉-语言模型，属于多模态/视觉 LLM 的具体类型。
-- [[Tiny Engram]] — Tiny Engram 把 Engram 迁到视觉扩散，懂多模态视觉处理更易理解其迁移。
+- [[原始上下文容忍度 tolerance for raw context]] — 不懂【multimodal / Vision LLMs】，就做不了原始上下文容忍度的⟨2.0 直接吃图像视频的度量实施⟩
 
 ## 相关
 
+- [[VLM]] · related-to（audit） — VLM 与 multimodal/Vision LLM 基本是上下位或近义关系，VLM 定义可自含，不构成 hard 前置。
+- [[Tiny Engram]] · related-to（audit） — Tiny Engram 迁到 Stable Diffusion 属视觉生成，不等同多模态 LLM；懂多模态只是背景，不是前置。
+- [[Q、K、V]] · related-to（audit） — 多模态 LLM 的核心是不同模态的编码与对齐；QKV 是 Transformer 底层机制，不懂它仍可理解多模态概念，只是帮助理解融合。
 - [[coding agent]] · 同篇出现（co-occurrence） — 同篇出现：context-14
 - [[LLM Large Language Model]] · 同篇出现（co-occurrence） — 同篇出现：context-14
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：context-14
@@ -56,9 +54,9 @@ sources: 1
 - Context Engineering ｜ 《Coding Agent 如何工作：工具循环与上下文工程》 ｜ https://simonwillison.net/guides/agentic-engineering-patterns/how-coding-agents-work/#atom-everything
 ## 反链
 
-- [[Harness]]
+- [[coding agent]]
 - [[LLM Large Language Model]]
 - [[Q、K、V]]
-- [[coding agent]]
 - [[Tiny Engram]]
+- [[原始上下文容忍度 tolerance for raw context]]
 - [[VLM]]

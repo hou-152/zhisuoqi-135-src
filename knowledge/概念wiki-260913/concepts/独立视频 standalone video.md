@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: media-culture-education
 learningStage: when-needed
 verification: judge
-centrality: 0.042
-depth: 3
+centrality: 0.017
+depth: 0
 origin: [context]
 aliases: ["standalone video"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 不连接任何 lesson 或 course 的视频；AI 需先从文档中读到这一定义才能正确分类。
 
-**领域** media-culture-education ｜ **类型** LANGUAGE ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** media-culture-education ｜ **类型** LANGUAGE ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -37,15 +37,10 @@ sources: 1
 
 > 这段视频算不算 {{name}}，判据是什么？
 
-## 先懂这些（前置 1）
-
-- [[学习脚手架]] · **soft** — “不挂靠课程”是相对课程脚手架而言，先懂脚手架才懂独立视频的定位。
-
 ## 相关
 
 - [[追问式对齐 Grill Me]] · 同篇出现（co-occurrence） — 同篇出现：context-08
 - [[共享理解 shared understanding]] · 同篇出现（co-occurrence） — 同篇出现：context-08
-- [[设计树 design tree]] · 同篇出现（co-occurrence） — 同篇出现：context-08
 
 ## 出场
 
@@ -57,7 +52,5 @@ sources: 1
 
 ## 反链
 
-- [[学习脚手架]]
 - [[共享理解 shared understanding]]
-- [[设计树 design tree]]
 - [[追问式对齐 Grill Me]]

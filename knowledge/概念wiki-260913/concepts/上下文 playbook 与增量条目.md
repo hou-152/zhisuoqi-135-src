@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.042
+centrality: 0.072
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 把上下文当作带（标识符，描述）条目的演化手册，由Generator、Reflector、Curator三者增量维护。
 
-**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -51,6 +51,7 @@ ACE 的核心机制。把 context 当作不断演化的 playbook 而非越来越
 - Harness Engineering ｜ 《Lilian Weng：把 harness 工程接到「递归自我改进」这条老线索上》 ｜ https://lilianweng.github.io/posts/2026-07-04-harness/
 ## 反链
 
-- [[部署系统层]]
-- [[上下文坍塌与简洁偏置]]
+- [[Harness]]
 - [[递归自我改进 RSI]]
+- [[上下文坍塌与简洁偏置]]
+- [[部署系统层]]

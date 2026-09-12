@@ -5,9 +5,9 @@ type: CONCEPTUAL
 subject: Harness Engineering
 domain: context-engineering
 learningStage: when-needed
-verification: judge
-centrality: 0.042
-depth: 0
+verification: accept
+centrality: 0.072
+depth: 1
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > harness 与模型都重要，但 prompt 更重要；协调良好与长期专注靠大量 prompt 实验。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,22 +36,24 @@ sources: 1
 
 > 按 {{name}}，让 agent 不跑偏主要靠什么？
 
-## 懂了它才能懂（解锁 1）
+## 先懂这些（前置 1）
 
-- [[one-shot 的理论极限]] — 它假设靠大量 prompt 实验逼近一次做对，先接受 prompt 更重要才谈得上
+- [[prompt 与 context 的通用性落差]] · **soft** — 不懂【prompt 与 context 的通用性落差】，就做不了【prompt 主导论】的 ⟨论证 prompt 为何比 harness 更关键⟩
 
 ## 相关
 
+- [[one-shot 的理论极限]] · rejected（audit） — one-shot 极限只要求提示/上下文/顺序可完美，不依赖“prompt 比 harness/模型更重要”的排序；只是相关。
 - [[长时程自治编码 long-running autonomous coding]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
-- [[单 agent 的速度天花板]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
 - [[动态协调 dynamic coordination]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
+- [[单 agent 的速度天花板]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
 
 ## 出场
 
 - Harness Engineering ｜ 《Cursor：让 coding agent 连续自治运行数周的工程经验》 ｜ https://cursor.com/blog/scaling-agents
 ## 反链
 
-- [[动态协调 dynamic coordination]]
-- [[单 agent 的速度天花板]]
 - [[长时程自治编码 long-running autonomous coding]]
+- [[动态协调 dynamic coordination]]
+- [[prompt 与 context 的通用性落差]]
+- [[单 agent 的速度天花板]]
 - [[one-shot 的理论极限]]

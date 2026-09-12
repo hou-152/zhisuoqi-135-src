@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: multi-agent
 learningStage: when-needed
 verification: judge
-centrality: 0.042
-depth: 1
+centrality: 0.072
+depth: 2
 origin: [notion]
 aliases: ["用户 Agent ↔ 软件 Agent｜两个 LLM 协作完成一件事"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 用户侧 Agent 与软件侧 Agent 相互调用协作、朝同一结果推进的交互形态。
 
-**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -38,10 +38,11 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[上下文缺口]] · **hard** — A2A 双方各有对方没有的上下文，这是协作的前提假设
+- [[意图理解、路由与升级 understand intent, route, escalate]] · **soft** — 不懂【意图理解、路由与升级】，就做不了【Agent-to-Agent 交互（A2A）】的 ⟨用户侧 Agent 决定调用哪个软件侧 Agent 并在失败时升级⟩
 
 ## 相关
 
+- [[上下文缺口]] · related-to（audit） — 上下文缺口是 A2A 的动机/收益来源，不是定义或机制上非懂不可的前提。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -56,4 +57,5 @@ sources: 1
 
 ## 反链
 
+- [[意图理解、路由与升级 understand intent, route, escalate]]
 - [[上下文缺口]]

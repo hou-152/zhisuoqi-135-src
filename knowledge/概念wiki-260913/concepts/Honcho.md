@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: memory-retrieval
 learningStage: when-needed
 verification: accept
-centrality: 0.042
-depth: 1
+centrality: 0.017
+depth: 0
 origin: [notion]
 aliases: ["honcho", "跨平台用户建模", "跨设备记忆"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 为 Agent 构建的复杂用户模型，目标是实现跨设备、跨平台的记忆连续性。
 
-**领域** memory-retrieval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
+**领域** memory-retrieval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,10 +36,6 @@ sources: 1
 
 > {{name}} 想比本地记忆多解决哪个问题？
 
-## 先懂这些（前置 1）
-
-- [[记忆 Memory]] · **hard** — Honcho 是跨设备记忆连续性的用户模型，不懂记忆连续性无从理解。
-
 ## 相关
 
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -56,4 +52,6 @@ sources: 1
 
 ## 反链
 
-- [[记忆 Memory]]
+- [[外包思考，但不外包理解]]
+- [[Agent-Native Infrastructure]]
+- [[Sensors 与 Actuators]]

@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: safety-governance
 learningStage: when-needed
 verification: accept
-centrality: 0.042
+centrality: 0.017
 depth: 0
 origin: [notion]
 aliases: ["Virtual Private Cloud", "AWS 私有网络隔离区"]
@@ -15,9 +15,9 @@ sources: 1
 
 # AWS VPC
 
-> 数据库认证与数据处理都在 AWS VPC 内完成，数据受 Bedrock 环境保护。
+> 数据库认证在 AWS VPC 内完成，数据在 Bedrock 环境内受到保护。
 
-**领域** safety-governance ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
+**领域** safety-governance ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,12 +36,9 @@ sources: 1
 
 > {{name}} 如何让数据留在受保护的环境里？
 
-## 懂了它才能懂（解锁 1）
-
-- [[harness–compute separation]] — VPC 是隔离在网络层的落地环境，先懂分离目标才懂其用途
-
 ## 相关
 
+- [[harness–compute separation]] · rejected（audit） — VPC 是独立的云网络概念，其含义不依赖 harness–compute separation；这里只是「落地环境/例子」，关系反而更接近反向（分离目标才需要 VPC 这类网络层隔离）。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion

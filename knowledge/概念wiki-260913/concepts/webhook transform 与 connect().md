@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: when-needed
 verification: use
-centrality: 0.042
-depth: 2
+centrality: 0.017
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > transform 在云端把原始 http payload 转成带类型的 event；connect() 从本地建持久 WebSocket，无需公网 endpoint。
 
-**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,12 +36,9 @@ sources: 1
 
 > {{name}} 如何让本地 worker 收到公网事件？
 
-## 先懂这些（前置 1）
-
-- [[higher-level runtime]] · **soft** — 事件接入是运行时接管工具执行与路由的一部分。
-
 ## 相关
 
+- [[higher-level runtime]] · rejected（audit） — webhook/connect 是可独立理解的接入原语，不是理解 higher-level runtime 的前提。
 - [[harness 与 framework 的分野]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[持久化执行 durable execution]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
@@ -51,7 +48,6 @@ sources: 1
 - Harness Engineering ｜ 《你的 agent 需要的是 harness，不是又一个框架》 ｜ https://www.inngest.com/blog/your-agent-needs-a-harness-not-a-framework
 ## 反链
 
-- [[Harness]]
-- [[higher-level runtime]]
 - [[持久化执行 durable execution]]
+- [[higher-level runtime]]
 - [[harness 与 framework 的分野]]

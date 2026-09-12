@@ -2,13 +2,13 @@
 id: cm_3336ded4
 name: 意图理解、路由与升级
 nameEn: understand intent, route, escalate
-type: PROCEDURAL
+type: CONCEPTUAL
 subject: Context Engineering
 domain: multi-agent
 learningStage: when-needed
-verification: use
-centrality: 0.067
-depth: 3
+verification: judge
+centrality: 0.126
+depth: 1
 origin: [context]
 aliases: ["understand intent, route, escalate"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 新系统应具备的运行能力：理解意图、把工作路由给正确的执行者、必要时升级，并保持执行推进。
 
-**领域** multi-agent ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
+**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -37,16 +37,13 @@ sources: 1
 
 > {{name}} 要求系统在需要时做什么动作？
 
-## 先懂这些（前置 2）
+## 先懂这些（前置 1）
 
-- [[多智能体架构]] · **soft** — 路由与升级的前提是有多个各司其职的 agent 可供分派。
-- [[子 Agent 分工]] · **soft** — 把工作路由给正确执行者，就是按分工选择合适子 Agent。
+- [[子 agent 编排 Fork Teammate Worktree]] · **soft** — 不懂【子 agent 编排】，就做不了【意图理解、路由与升级】的 ⟨把工作路由给正确执行者——不知道有哪些可寻址的执行者及其隔离方式⟩
 
-## 相关
+## 懂了它才能懂（解锁 1）
 
-- [[交接模型 handoff model]] · 同篇出现（co-occurrence） — 同篇出现：context-11
-- [[复杂被误认为精密 complexity looked like sophistication]] · 同篇出现（co-occurrence） — 同篇出现：context-11
-- [[流程即工作 the process became the work]] · 同篇出现（co-occurrence） — 同篇出现：context-11
+- [[Agent-to-Agent 交互（A2A）]] — 不懂【意图理解、路由与升级】，就做不了【Agent-to-Agent 交互（A2A）】的 ⟨用户侧 Agent 决定调用哪个软件侧 Agent 并在失败时升级⟩
 
 ## 出场
 
@@ -58,8 +55,5 @@ sources: 1
 
 ## 反链
 
-- [[多智能体架构]]
-- [[子 Agent 分工]]
-- [[交接模型 handoff model]]
-- [[流程即工作 the process became the work]]
-- [[复杂被误认为精密 complexity looked like sophistication]]
+- [[子 agent 编排 Fork Teammate Worktree]]
+- [[Agent-to-Agent 交互（A2A）]]

@@ -7,8 +7,8 @@ subject: Harness Engineering
 domain: context-engineering
 learningStage: now
 verification: use
-centrality: 0.042
-depth: 2
+centrality: 0.072
+depth: 1
 origin: [harness]
 aliases: ["compaction / just-in-time retrieval"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 对抗 context rot 的组合策略：compaction、观察遮蔽、按需 grep/glob、子 agent 只回传摘要。
 
-**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -39,7 +39,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[上下文占用率与性能衰减]] · **hard** — 压缩与检索是为缓解窗口越满性能越衰，不懂这一衰减就不知为何要压缩。
+- [[可恢复的压缩 restorable compression]] · **soft** — 不懂【可恢复的压缩】留下的 URL、沙箱路径等锚点，就做不了【上下文压缩与即时检索】中「按需 grep/glob 取回原文」这件事
 
 ## 相关
 
@@ -57,6 +57,6 @@ sources: 1
 
 ## 反链
 
-- [[上下文占用率与性能衰减]]
-- [[agent 与 harness 的分工]]
 - [[If you're not the model, you're the harness.]]
+- [[可恢复的压缩 restorable compression]]
+- [[agent 与 harness 的分工]]

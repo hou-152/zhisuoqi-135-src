@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: when-needed
 verification: judge
-centrality: 0.092
-depth: 5
+centrality: 0.072
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > harness 本身可在任务、trace、benchmark 与隔离实验中持续改进，相关工具如 Harness Evolver 与 Harbor。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.092
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,17 +36,14 @@ Harness Evolver、Harbor 和 eval-oriented resources 指向一个方向：harnes
 
 > {{name}} 靠哪些信号来推动 harness 本身的改进？
 
-## 先懂这些（前置 2）
-
-- [[Harness 组件生命周期]] · **hard** — 组件假设会过期，才需要持续演进 harness。
-- [[harness over-fitting]] · **soft** — 模型与 harness 耦合导致换 harness 失效，才需持续演进隔离验证。
-
 ## 懂了它才能懂（解锁 1）
 
 - [[service template 与 golden path]] — 类比 harness 按拓扑挑选，需先懂 harness 会持续演进。
 
 ## 相关
 
+- [[Harness 组件生命周期]] · related-to（audit） — 组件会过期只是演进的一种动因，把生命周期做法当定义前提过强，应降为 soft 或移出 hard 边。
+- [[harness over-fitting]] · related-to（audit） — harness 演进动机多元，over-fitting 只是其中一个促因，不构成理解依赖。
 - [[Reliability-critical harness primitives]] · 同篇出现（co-occurrence） — 同篇出现：harness-19
 - [[Context as working memory budget]] · 同篇出现（co-occurrence） — 同篇出现：harness-19
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-19
@@ -56,9 +53,8 @@ Harness Evolver、Harbor 和 eval-oriented resources 指向一个方向：harnes
 - Harness Engineering ｜ 《Harness engineering：把 agent 能力落到工具、约束和循环里》 ｜ https://github.com/walkinglabs/awesome-harness-engineering
 ## 反链
 
-- [[Harness 工程 Harness Engineering]]
+- [[service template 与 golden path]]
 - [[Context as working memory budget]]
+- [[Harness 组件生命周期]]
 - [[harness over-fitting]]
 - [[Reliability-critical harness primitives]]
-- [[Harness 组件生命周期]]
-- [[service template 与 golden path]]

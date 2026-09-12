@@ -6,9 +6,9 @@ type: CONCEPTUAL
 subject: Harness Engineering
 domain: model-training
 learningStage: when-needed
-verification: judge
-centrality: 0.042
-depth: 1
+verification: accept
+centrality: 0.072
+depth: 2
 origin: [harness]
 aliases: ["RL inside the harness"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 用即将发布的确切工具集在 harness 内部对模型做 RL，而非事后适配，这是工具调用成功率优势的来源。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -39,10 +39,11 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[模型训练与 harness 设计的耦合]] · **hard** — Harness内RL正是耦合的落地，不懂耦合就抓不住其动机。
+- [[Co-evolution Principle]] · **hard** — 不懂【Co-evolution Principle】，就做不了 Harness 内 RL 的⟨用确切工具集在环内训练以避免紧耦合掉性能的设计⟩
 
 ## 相关
 
+- [[模型训练与 harness 设计的耦合]] · related-to（audit） — 「耦合」是更抽象的同源概括（甚至可能由该实践归纳而来），Harness 内 RL 的定义已自足；不懂耦合仍能懂它，更像 soft 或方向应反过来。
 - [[Lights-off 软件工厂]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
 - [[软件工厂 Software Factory]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
@@ -57,6 +58,8 @@ sources: 1
 
 ## 反链
 
+- [[Harness 工程 Harness Engineering]]
+- [[Co-evolution Principle]]
 - [[模型训练与 harness 设计的耦合]]
-- [[软件工厂 Software Factory]]
 - [[Lights-off 软件工厂]]
+- [[软件工厂 Software Factory]]

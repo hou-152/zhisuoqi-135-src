@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: loop-autonomy
 learningStage: now
 verification: use
-centrality: 0.042
+centrality: 0.017
 depth: 0
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 收集上下文、动手修改、验证结果、再重复，构成 Agent 的执行节奏。
 
-**领域** loop-autonomy ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** loop-autonomy ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,12 +36,9 @@ Claude Code uses a Gather-Act-Verify cycle: gather context (search files, read c
 
 > {{name}} 的三个阶段各自做什么？
 
-## 懂了它才能懂（解锁 1）
-
-- [[浏览循环]] — 浏览循环是收集—行动—验证节奏在代码阅读上的体现。
-
 ## 相关
 
+- [[浏览循环]] · related-to（audit） — 浏览循环是 GAV 节奏在阅读上的一个应用实例，不懂 GAV 框架也能理解该搜索行为
 - [[Agent vs Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-27
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-27
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-27
@@ -51,5 +48,5 @@ Claude Code uses a Gather-Act-Verify cycle: gather context (search files, read c
 - Harness Engineering ｜ 《The Anatomy of an Agent Harness》 ｜ https://x.com/akshay_pachaar/status/2041146899319971922
 ## 反链
 
-- [[浏览循环]]
 - [[Agent vs Harness]]
+- [[浏览循环]]

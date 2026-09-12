@@ -7,8 +7,8 @@ subject: Harness Engineering
 domain: context-engineering
 learningStage: now
 verification: use
-centrality: 0.017
-depth: 0
+centrality: 0.072
+depth: 1
 origin: [harness]
 aliases: ["pruning"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 上下文超限时的两级裁剪：软裁旧工具结果、硬清超量历史并留占位符。
 
-**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,6 +36,10 @@ sources: 1
 ## 验收问句
 
 > {{name}} 的软裁与硬清阈值分别是多少？
+
+## 先懂这些（前置 1）
+
+- [[可恢复的压缩 restorable compression]] · **soft** — 不懂【可恢复的压缩】的锚点做法，就做不了【两级上下文剪枝】中「硬清历史但留占位符」这一步
 
 ## 相关
 
@@ -55,4 +59,5 @@ sources: 1
 
 - [[Harness]]
 - [[持久化执行 durable execution]]
+- [[可恢复的压缩 restorable compression]]
 - [[harness 与 framework 的分野]]

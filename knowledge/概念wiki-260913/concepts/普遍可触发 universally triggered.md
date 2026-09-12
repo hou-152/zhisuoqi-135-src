@@ -6,8 +6,8 @@ type: CONCEPTUAL
 subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
-verification: use
-centrality: 0.017
+verification: judge
+centrality: 0.072
 depth: 0
 origin: [harness]
 aliases: ["universally triggered"]
@@ -18,7 +18,7 @@ sources: 1
 
 > Harness 设计原则：触发与工作解耦，agent 不关心自己是被 webhook、cron 还是子调用激活的。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,6 +36,10 @@ Utah 名字里的第一个词（Universally Triggered Agent Harness），作者�
 ## 验收问句
 
 > 加一个 Slack bot 触发，在{{name}}下 agent 主体要不要改？
+
+## 懂了它才能懂（解锁 1）
+
+- [[事件驱动的自动化 Automations]] — 不懂普遍可触发，就做不了事件驱动自动化里「不管被 webhook 还是 cron 激活」的触发接线
 
 ## 相关
 
@@ -55,4 +59,5 @@ Utah 名字里的第一个词（Universally Triggered Agent Harness），作者�
 
 - [[Harness]]
 - [[持久化执行 durable execution]]
+- [[事件驱动的自动化 Automations]]
 - [[harness 与 framework 的分野]]

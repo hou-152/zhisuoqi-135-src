@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: model-training
 learningStage: deep-dive
 verification: judge
-centrality: 0.192
-depth: 4
+centrality: 0.181
+depth: 2
 origin: [notion]
 aliases: ["散度 PPO", "Divergence PPO"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 用预估策略散度（TV/KL）定义的信任域，取代 PPO 中基于采样 token 概率比例的裁剪掩码。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.192
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.181
 
 ## 原文 context
 
@@ -34,21 +34,16 @@ sources: 1
 
 > {{name}} 把约束对象从比例换成了什么？
 
-## 先懂这些（前置 4）
+## 先懂这些（前置 3）
 
 - [[信任域]] · **hard** — DPPO用散度定义信任域取代PPO裁剪，不懂信任域就看不懂其替换。
-- [[REINFORCE]] · **hard** — PPO 是带裁剪与重要性加权的策略梯度，基础是 REINFORCE 的加权采样。
-- [[Reward Signal]] · **hard** — PPO 靠奖励信号优化策略，不懂奖励通道就不知道它优化什么。
-- [[价值函数]] · **hard** — PPO靠价值模型做基线来降方差，不懂价值函数就理解不了它的信任域裁剪与优势估计。
-
-## 懂了它才能懂（解锁 3）
-
-- [[RLHF]] — PPO 是 RLHF 默认优化算法，不懂 PPO 就抓不住 RLHF 的优化过程。
-- [[Dr. GRPO]] — GRPO是PPO的变体，去掉critic改用组内相对优势，不懂PPO就不知道它到底改掉了什么。
-- [[RLOO]] — RLOO 放弃 PPO 的裁剪，先懂 PPO 才能理解它做了哪些简化。
+- [[Reward Signal]] · **soft** — PPO 靠奖励信号优化策略，不懂奖励通道就不知道它优化什么。
+- [[REINFORCE]] · **soft** — PPO 是带裁剪与重要性加权的策略梯度，基础是 REINFORCE 的加权采样。
 
 ## 相关
 
+- [[RLOO]] · rejected（audit） — RLOO 的对照或简化对象是 PPO/REINFORCE，不是 DPPO；DPPO 只是另一类信任域方法，不构成前置。
+- [[RLHF]] · rejected（audit） — DPPO 依赖的是 PPO/策略梯度，不是 RLHF；理由讲的是 RLHF 依赖 PPO，方向不对。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -64,12 +59,7 @@ sources: 1
 ## 反链
 
 - [[Reward Signal]]
-- [[Dr. GRPO]]
-- [[RLHF]]
 - [[REINFORCE]]
-- [[外包思考，但不外包理解]]
-- [[价值函数]]
 - [[信任域]]
 - [[RLOO]]
-- [[Agent-Native Infrastructure]]
-- [[Sensors 与 Actuators]]
+- [[RLHF]]

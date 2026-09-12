@@ -6,7 +6,7 @@ type: REPRESENTATIONAL
 subject: Context Engineering
 domain: context-engineering
 learningStage: when-needed
-verification: use
+verification: accept
 centrality: 0.017
 depth: 0
 origin: [context]
@@ -18,7 +18,7 @@ sources: 1
 
 > Linear 的定位：把反馈、意图、决策、计划、代码塑造成工作并带到生产。
 
-**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -37,12 +37,6 @@ Linear 的一句话定位与核心机制——"Linear is the shared product syst
 
 > {{name}} 里上下文在哪一步被转成可执行动作？
 
-## 相关
-
-- [[交接模型 handoff model]] · 同篇出现（co-occurrence） — 同篇出现：context-11
-- [[复杂被误认为精密 complexity looked like sophistication]] · 同篇出现（co-occurrence） — 同篇出现：context-11
-- [[流程即工作 the process became the work]] · 同篇出现（co-occurrence） — 同篇出现：context-11
-
 ## 出场
 
 - Context Engineering ｜ 《产品开发的下一阶段由上下文与行动能力驱动》 ｜ https://linear.app/next
@@ -50,9 +44,3 @@ Linear 的一句话定位与核心机制——"Linear is the shared product syst
 ## 别名
 
 `turn context into execution`
-
-## 反链
-
-- [[交接模型 handoff model]]
-- [[流程即工作 the process became the work]]
-- [[复杂被误认为精密 complexity looked like sophistication]]

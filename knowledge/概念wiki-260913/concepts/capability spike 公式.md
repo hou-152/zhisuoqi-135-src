@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: model-training
 learningStage: deep-dive
 verification: judge
-centrality: 0.067
-depth: 4
+centrality: 0.017
+depth: 0
 origin: [notion]
 aliases: ["capability spike formula", "capability spike", "能力跃迁公式"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > capability spike ≈ 可验证性 × 训练注意力 × 数据覆盖 × 经济价值，四者同时高才可能跃迁。
 
-**领域** model-training ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
+**领域** model-training ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 原文 context
 
@@ -42,11 +42,6 @@ sources: 1
 
 > 用 {{name}} 评估一个新领域，四个因子各打几分？
 
-## 先懂这些（前置 2）
-
-- [[Capability Overhang]] · **soft** — 跃迁条件满足后才冒出未被利用的新能力，不懂余量概念就理解不了spike之后留下的是什么。
-- [[锯齿状智能（Jagged Intelligence）]] · **soft** — 跃迁是局部突变而非整体提升，不懂能力边界不平滑就难以理解为何只有某些任务突然变强。
-
 ## 相关
 
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -63,5 +58,6 @@ sources: 1
 
 ## 反链
 
-- [[锯齿状智能（Jagged Intelligence）]]
-- [[Capability Overhang]]
+- [[外包思考，但不外包理解]]
+- [[Agent-Native Infrastructure]]
+- [[Sensors 与 Actuators]]

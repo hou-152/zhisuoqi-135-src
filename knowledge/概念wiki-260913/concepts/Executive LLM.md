@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: multi-agent
 learningStage: when-needed
 verification: judge
-centrality: 0.067
-depth: 3
+centrality: 0.017
+depth: 0
 origin: [notion]
 aliases: ["Executive LLM", "制造麻烦的 agent", "施压 agent"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 多 agent 系统中按剧本主动制造麻烦、施加压力并实时调整策略的那个角色。
 
-**领域** multi-agent ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
+**领域** multi-agent ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 原文 context
 
@@ -35,11 +35,6 @@ sources: 1
 
 > {{name}} 在编排中做什么、与陪聊有何不同？
 
-## 先懂这些（前置 2）
-
-- [[多智能体架构]] · **hard** — 它是多 agent 系统里的一个角色，没有该架构就无从谈起。
-- [[动态协调 dynamic coordination]] · **soft** — 它需按剧本实时调整施压策略，依赖动态协调的判断能力。
-
 ## 相关
 
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -56,5 +51,6 @@ sources: 1
 
 ## 反链
 
-- [[多智能体架构]]
-- [[动态协调 dynamic coordination]]
+- [[外包思考，但不外包理解]]
+- [[Agent-Native Infrastructure]]
+- [[Sensors 与 Actuators]]

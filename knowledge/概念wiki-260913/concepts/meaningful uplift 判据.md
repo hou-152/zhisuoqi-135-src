@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: safety-governance
 learningStage: now
 verification: judge
-centrality: 0.042
-depth: 2
+centrality: 0.072
+depth: 1
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 武器与 CBRN 红线不看类别，而看输出是否对制造、优化或部署给出实质帮助；框定为防御、虚构也不改变判定。
 
-**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -53,5 +53,5 @@ sources: 1
 
 - [[默认帮助的高门槛拒绝]]
 - [[判定程序化写法]]
-- [[fail-closed 默认]]
 - [[反自我合理化条款]]
+- [[fail-closed 默认]]

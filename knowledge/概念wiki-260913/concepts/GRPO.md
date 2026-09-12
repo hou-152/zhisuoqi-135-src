@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: model-training
 learningStage: deep-dive
 verification: judge
-centrality: 0.017
+centrality: 0.072
 depth: 0
 origin: [notion]
 aliases: ["组相对策略优化", "Group Relative Policy Optimization"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 组相对策略优化：每个 prompt 采一组回复，以同组均值为基线算相对优势，省掉 PPO 的 critic 模型。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 原文 context
 
@@ -34,6 +34,10 @@ sources: 1
 
 > {{name}} 相比 PPO 去掉了什么模型，换来的是什么？
 
+## 懂了它才能懂（解锁 1）
+
+- [[DAPO]] — 不懂【GRPO】，就做不了 DAPO 的⟨在 GRPO 上解耦裁剪上下界、改 token 级损失的设计⟩
+
 ## 出场
 
 - Notion 概念库 ｜ Notion 概念库 ｜ https://app.notion.com/p/GRPO-8ca679b108ff830aaec4814a62ea1002
@@ -41,3 +45,7 @@ sources: 1
 ## 别名
 
 `组相对策略优化`、`Group Relative Policy Optimization`
+
+## 反链
+
+- [[DAPO]]

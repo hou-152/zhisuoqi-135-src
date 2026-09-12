@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: spec-intent
 learningStage: now
 verification: judge
-centrality: 0.042
-depth: 1
+centrality: 0.126
+depth: 0
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 缺口不在模型能力，而在于描述你意图所需的信息量不足。
 
-**领域** spec-intent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** spec-intent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,15 +36,15 @@ sources: 1
 
 > {{name}} 把任务失败的缺口归在模型能力还是别处？
 
-## 先懂这些（前置 1）
+## 懂了它才能懂（解锁 2）
 
-- [[Elicitation]] · **soft** — bits 指描述意图的信息量不足，需要靠信息引出把缺失部分补上。
+- [[Elicitation]] — bits 指描述意图的信息量不足，需要靠信息引出把缺失部分补上。
+- [[意图规约与可引导性]] — 不懂【bits】，就判断不了某次意图规约是否合格——即描述意图所需信息量是否已被补足
 
 ## 相关
 
 - [[通道切换 switch to voice]] · 同篇出现（co-occurrence） — 同篇出现：context-09
 - [[意识流输入 full stream of consciousness]] · 同篇出现（co-occurrence） — 同篇出现：context-09
-- [[前置声明]] · 同篇出现（co-occurrence） — 同篇出现：context-09
 - [[小访谈变体 small interview of a few turns]] · 同篇出现（co-occurrence） — 同篇出现：context-09
 - [[不连贯输入的重构能力]] · 同篇出现（co-occurrence） — 同篇出现：context-09
 - [[回声 echo of your own tangle of thoughts]] · 同篇出现（co-occurrence） — 同篇出现：context-09
@@ -59,15 +59,15 @@ sources: 1
 - Context Engineering ｜ 《用十分钟语音漫谈，让 LLM 帮你整理真正想说的话》 ｜ https://x.com/karpathy/status/2079610838143623371/
 ## 反链
 
+- [[漫谈会话 ramble session]]
+- [[意图规约与可引导性]]
 - [[Elicitation]]
+- [[纠正成本递减 correct things less from that point on]]
+- [[输入摩擦 too lazy to type]]
+- [[小访谈变体 small interview of a few turns]]
+- [[整理增益 cleaner than what you started with]]
 - [[不连贯输入的重构能力]]
 - [[回声 echo of your own tangle of thoughts]]
-- [[前置声明]]
-- [[纠正成本递减 correct things less from that point on]]
-- [[漫谈会话 ramble session]]
-- [[输入摩擦 too lazy to type]]
 - [[通道切换 switch to voice]]
-- [[小访谈变体 small interview of a few turns]]
 - [[意识流输入 full stream of consciousness]]
-- [[整理增益 cleaner than what you started with]]
 - [[mind meld]]

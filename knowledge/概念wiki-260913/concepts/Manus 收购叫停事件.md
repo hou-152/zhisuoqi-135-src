@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: society-law
 learningStage: when-needed
 verification: accept
-centrality: 0.042
-depth: 2
+centrality: 0.017
+depth: 0
 origin: [notion]
 aliases: ["Manus Acquisition Halt"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 中国发改委宣布禁止 Meta 对 Manus 约 20 亿美元的收购并责令撤销，期间召创始人入京、限制出境。
 
-**领域** society-law ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
+**领域** society-law ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.017
 
 ## 原文 context
 
@@ -33,10 +33,6 @@ sources: 1
 ## 验收问句
 
 > {{name}} 显示主权对跨境 AI 交易拥有什么样的干预能力？
-
-## 先懂这些（前置 1）
-
-- [[人事即政治]] · **hard** — 该事件是人事即政治的典型：政治意志可令收购作废并限创始人出境。
 
 ## 相关
 
@@ -54,4 +50,6 @@ sources: 1
 
 ## 反链
 
-- [[人事即政治]]
+- [[外包思考，但不外包理解]]
+- [[Agent-Native Infrastructure]]
+- [[Sensors 与 Actuators]]

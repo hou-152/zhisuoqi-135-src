@@ -6,9 +6,9 @@ type: CONCEPTUAL
 subject: AI 概念库 × Harness Engineering
 domain: memory-retrieval
 learningStage: when-needed
-verification: use
-centrality: 0.12
-depth: 1
+verification: judge
+centrality: 0.07
+depth: 0
 origin: [notion, harness]
 aliases: ["Procedural Memory", "Skills", "智能体技能", "操作记忆", "progressive disclosure", ".claude/skills/"]
 sources: 4
@@ -16,9 +16,9 @@ sources: 4
 
 # 程序记忆（Procedural Memory / Skills） · progressive disclosure
 
-> 智能体记住『如何做事』的记忆，以 Markdown 等声明文件编码工作流、质量门与最佳实践。
+> 智能体需要记住的『如何做事』的记忆，区别于只记名字、偏好、事实的语义回溯。
 
-**领域** memory-retrieval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.12
+**领域** memory-retrieval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.07
 
 ## 费曼一下
 
@@ -37,27 +37,22 @@ sources: 4
 
 > {{name}} 该用什么形式存、又在什么时候被加载？
 
-## 先懂这些（前置 2）
-
-- [[记忆 Memory]] · **hard** — 程序记忆是记忆的一种亚型，不懂记忆分层就无从谈技能记忆。
-- [[即时检索 Just-in-time Retrieval]] · **soft** — 技能按需加载即渐进披露，不懂按需取全文就无法理解其组织方式。
-
 ## 相关
 
 - [[渐进披露 progressive disclosure]] · 常一起用 — 渐进披露既用于 Skill，也用于工具定义的延迟加载。
 - [[Capability Overhang]] · 同篇出现（co-occurrence） — 同篇出现：harness-10
 - [[Inner Loop]] · 同篇出现（co-occurrence） — 同篇出现：harness-10
 - [[AI 工程基础设施 AI engineering infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
-- [[1.6% vs 98.4%]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
 - [[确定性工程基础设施 deterministic engineering infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
-- [[渐进式披露 progressive disclosure]] · 常一起用 — Skill 通过需要时才加载指令、知识或工具来实现渐进式披露。
+- [[1.6% vs 98.4%]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
 - [[Agents SDK]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
+- [[渐进式披露 progressive disclosure]] · 常一起用 — Skill 通过需要时才加载指令、知识或工具来实现渐进式披露。
 - [[model-native harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-10
-- [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
+- [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
 
 ## 出场
 
@@ -72,14 +67,12 @@ sources: 4
 
 ## 反链
 
-- [[记忆 Memory]]
-- [[model-native harness]]
-- [[Capability Overhang]]
 - [[渐进式披露 progressive disclosure]]
-- [[即时检索 Just-in-time Retrieval]]
+- [[model-native harness]]
+- [[渐进披露 progressive disclosure]]
+- [[Agents SDK]]
+- [[Capability Overhang]]
 - [[Inner Loop]]
 - [[1.6% vs 98.4%]]
-- [[Agents SDK]]
-- [[渐进披露 progressive disclosure]]
 - [[确定性工程基础设施 deterministic engineering infrastructure]]
 - [[AI 工程基础设施 AI engineering infrastructure]]

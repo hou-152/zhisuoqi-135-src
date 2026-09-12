@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: spec-intent
 learningStage: when-needed
 verification: use
-centrality: 0.067
+centrality: 0.072
 depth: 0
 origin: [notion]
 aliases: ["Plan Mode", "先对答案再执行"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 让 Agent 先列出打算怎么做，方向确认后再执行，像开工前先开会过方案。
 
-**领域** spec-intent ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
+**领域** spec-intent ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,13 +36,14 @@ sources: 1
 
 > 什么时候该切到 {{name}}，为什么？
 
-## 懂了它才能懂（解锁 2）
+## 懂了它才能懂（解锁 1）
 
-- [[规划模式与边界问题清单]] — 它是 Plan 模式的一种用法：切规划模式后让模型先追问边界问题。
-- [[Spec-driven agent workflow]] — 通过先列计划确认方向，是规格驱动流程里可用的执行前环节。
+- [[规划模式与边界问题清单]] — 不懂【Plan 模式】，就做不了【规划模式与边界问题清单】里「在执行前先过方案、再抛出边界问题」这一环
 
 ## 相关
 
+- [[规划模式与边界问题清单]] · related-to（audit） — 让模型提前追问边界问题可作为一种提问技巧独立理解，不必然需要 Plan 模式的概念
+- [[Spec-driven agent workflow]] · rejected（audit） — Plan 模式只是规格驱动流程里一个可选环节，不是定义或机制上必需的前置
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -57,5 +58,5 @@ sources: 1
 
 ## 反链
 
-- [[Spec-driven agent workflow]]
 - [[规划模式与边界问题清单]]
+- [[Spec-driven agent workflow]]

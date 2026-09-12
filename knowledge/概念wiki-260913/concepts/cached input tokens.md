@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: caching-cost
 learningStage: when-needed
 verification: compute
-centrality: 0.067
+centrality: 0.072
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 请求中与历史请求共享前缀、可被缓存复用从而降低处理成本的那部分输入 token。
 
-**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.067
+**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -40,10 +40,6 @@ sources: 1
 
 - [[提示词缓存（Prompt Caching）]] · **hard** — 该字段指被缓存复用的输入 token，由提示缓存产生。
 
-## 懂了它才能懂（解锁 1）
-
-- [[API-boundary observability]] — 边界计量块里 cached input tokens 是核心字段之一
-
 ## 相关
 
 - [[coding agent]] · 同篇出现（co-occurrence） — 同篇出现：context-14
@@ -57,6 +53,5 @@ sources: 1
 
 - [[Harness]]
 - [[提示词缓存（Prompt Caching）]]
-- [[LLM Large Language Model]]
 - [[coding agent]]
-- [[API-boundary observability]]
+- [[LLM Large Language Model]]

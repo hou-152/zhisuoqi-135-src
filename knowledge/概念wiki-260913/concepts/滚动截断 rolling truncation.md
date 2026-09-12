@@ -39,8 +39,8 @@ sources: 2
 
 ## 相关
 
-- [[基准测试的捆绑测量性]] · 同篇出现（co-occurrence） — 同篇出现：context-A2
 - [[保留推理 retained reasoning]] · 同篇出现（co-occurrence） — 同篇出现：context-A2
+- [[基准测试的捆绑测量性]] · 同篇出现（co-occurrence） — 同篇出现：context-A2
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：context-A2
 
 ## 出场

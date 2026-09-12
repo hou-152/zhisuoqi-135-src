@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: harness-runtime
 learningStage: when-needed
 verification: judge
-centrality: 0.017
-depth: 0
+centrality: 0.072
+depth: 1
 origin: [context]
 aliases: ["correct things less from that point on"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 改进 harness 的收益不只在当轮，而是从该轮起持续减少后续需要人工纠偏的次数。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -37,6 +37,10 @@ sources: 1
 
 > 改进 harness 后，你如何用后续纠偏次数验证{{name}}？
 
+## 先懂这些（前置 1）
+
+- [[技能化 Skills]] · **soft** — 不懂技能化带来的学习复利，就说不清收益为何会从当轮起持续降低纠偏量
+
 ## 相关
 
 - [[漫谈会话 ramble session]] · 同篇出现（co-occurrence） — 同篇出现：context-09
@@ -53,6 +57,7 @@ sources: 1
 
 ## 反链
 
-- [[bits]]
+- [[技能化 Skills]]
 - [[漫谈会话 ramble session]]
+- [[bits]]
 - [[输入摩擦 too lazy to type]]

@@ -5,9 +5,9 @@ type: CONCEPTUAL
 subject: Context Engineering
 domain: harness-runtime
 learningStage: when-needed
-verification: use
-centrality: 0.042
-depth: 3
+verification: judge
+centrality: 0.072
+depth: 1
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 多个产品共用同一套 harness 代码与工具实现，减少重复并让改进跨产品传播。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -42,13 +42,12 @@ Copilot CLI harness 的代码探索工具被 cloud agent 等多个产品使用�
 
 ## 相关
 
-- [[Diff 锚定]] · 同篇出现（co-occurrence） — 同篇出现：context-A1
 - [[最小充分上下文]] · 同篇出现（co-occurrence） — 同篇出现：context-A1
 - [[先收窄、后读取]] · 同篇出现（co-occurrence） — 同篇出现：context-A1
 - [[工具调用批处理]] · 同篇出现（co-occurrence） — 同篇出现：context-A1
-- [[收敛式失败恢复]] · 同篇出现（co-occurrence） — 同篇出现：context-A1
 - [[Trace 驱动评估]] · 同篇出现（co-occurrence） — 同篇出现：context-A1
 - [[任务特定工具说明]] · 同篇出现（co-occurrence） — 同篇出现：context-A1
+- [[收敛式失败恢复]] · 同篇出现（co-occurrence） — 同篇出现：context-A1
 - [[工具—工作流适配]] · 同篇出现（co-occurrence） — 同篇出现：context-A1
 - [[浏览循环]] · 同篇出现（co-occurrence） — 同篇出现：context-A1
 
@@ -58,12 +57,11 @@ Copilot CLI harness 的代码探索工具被 cloud agent 等多个产品使用�
 ## 反链
 
 - [[Harness]]
+- [[Trace 驱动评估]]
 - [[工具—工作流适配]]
 - [[工具调用批处理]]
-- [[浏览循环]]
 - [[任务特定工具说明]]
 - [[收敛式失败恢复]]
 - [[最小充分上下文]]
-- [[Diff 锚定]]
-- [[Trace 驱动评估]]
+- [[浏览循环]]
 - [[先收窄、后读取]]

@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: harness-runtime
 learningStage: when-needed
 verification: judge
-centrality: 0.042
-depth: 1
+centrality: 0.017
+depth: 0
 origin: [notion]
 aliases: ["skill 复利", "永久升级", "codify everything", "不退化不遗忘", "build it once runs forever"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 每个写下的 skill 都是系统永久升级：不遗忘、不退化，模型换代时判断部分自动变强。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,12 +36,9 @@ Garry Tan 提出的一条「为什么 skill-based 架构会复利」的机制。
 
 > 为什么说 {{name}} 不会随时间退化？
 
-## 先懂这些（前置 1）
-
-- [[stateless]] · **hard** — 与每次空白相对，skill 才成为不遗忘不退化的永久升级。
-
 ## 相关
 
+- [[stateless]] · related-to（audit） — skill 的持久性来自外部存储，'永久升级'可独立理解，无状态只是可选对照，宜降 soft。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -57,6 +54,3 @@ Garry Tan 提出的一条「为什么 skill-based 架构会复利」的机制。
 ## 反链
 
 - [[stateless]]
-- [[外包思考，但不外包理解]]
-- [[Agent-Native Infrastructure]]
-- [[Sensors 与 Actuators]]

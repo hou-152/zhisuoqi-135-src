@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: multi-agent
 learningStage: when-needed
 verification: judge
-centrality: 0.042
-depth: 1
+centrality: 0.126
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 让离散任务在隔离子上下文窗口里跑，中间噪音不污染父线程，维持长会话连贯性。
 
-**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,9 +36,10 @@ sources: 1
 
 > {{name}} 在父线程与子 Agent 之间怎么分工？
 
-## 先懂这些（前置 1）
+## 懂了它才能懂（解锁 2）
 
-- [[sub-agent 架构与关注点分离]] · **soft** — 隔离上下文窗口正是为聚焦任务做关注点分离的手段
+- [[Subagent]] — 不懂 context firewall，就做不了 Subagent『独立小上下文、只回流浓缩结果、不污染父线程』的隔离设计
+- [[sub-agent 架构与关注点分离]] — 隔离上下文窗口正是为聚焦任务做关注点分离的手段
 
 ## 相关
 
@@ -53,5 +54,6 @@ sources: 1
 
 - [[Harness]]
 - [[Harness 工程 Harness Engineering]]
-- [[configuration problem]]
+- [[Subagent]]
 - [[sub-agent 架构与关注点分离]]
+- [[configuration problem]]

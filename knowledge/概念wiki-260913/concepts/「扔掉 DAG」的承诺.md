@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: loop-autonomy
 learningStage: when-needed
 verification: judge
-centrality: 0.042
-depth: 1
+centrality: 0.017
+depth: 0
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 认为可抛弃 DAG、只给目标与转移让 LLM 实时决策路径的承诺，作者随即指出它并不完全成立。
 
-**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,15 +36,11 @@ sources: 1
 
 > {{name}} 在你的场景里哪些部分成立、哪些不成立？
 
-## 先懂这些（前置 1）
-
-- [[DAG 编排器]] · **hard** — 要理解“扔掉 DAG”必须先懂被扔掉的 DAG 编排器。
-
 ## 相关
 
-- [[12-factor agents]] · 同篇出现（co-occurrence） — 同篇出现：context-06
 - [[「并不 agentic」的 AI Agent]] · 同篇出现（co-occurrence） — 同篇出现：context-06
 - [[软件即有向图]] · 同篇出现（co-occurrence） — 同篇出现：context-06
+- [[12-factor agents]] · 同篇出现（co-occurrence） — 同篇出现：context-06
 
 ## 出场
 
@@ -54,4 +50,3 @@ sources: 1
 - [[「并不 agentic」的 AI Agent]]
 - [[12-factor agents]]
 - [[软件即有向图]]
-- [[DAG 编排器]]

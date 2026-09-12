@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: when-needed
 verification: judge
-centrality: 0.067
-depth: 4
+centrality: 0.072
+depth: 2
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 前沿模型在自家 harness 上后训练，与特定工具深度耦合；换到没见过的 harness 后名次可能反转。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -38,16 +38,14 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[model-native harness]] · **soft** — 不懂顺着模型设计的 harness，就难理解换 harness 后名次反转。
-
-## 懂了它才能懂（解锁 1）
-
-- [[Harness evolution]] — 模型与 harness 耦合导致换 harness 失效，才需持续演进隔离验证。
+- [[model-native harness]] · **soft** — 不懂【model-native harness】，就做不了【harness over-fitting】中“模型在自家 harness 上后训练”的机制解释。
 
 ## 相关
 
+- [[Harness evolution]] · related-to（audit） — harness 演进动机多元，over-fitting 只是其中一个促因，不构成理解依赖。
 - [[Trace-based evals]] · 常一起用（工作流） — 固定模型、任务与评测条件的跨 Harness 轨迹比较可检验泛化下降。
 - [[configuration problem]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
+- [[model-native harness]] · related-to（audit） — over-fitting 的核心是后训练与特定 harness 耦合，不必先懂 model-native harness 概念。
 - [[Harness 工程 Harness Engineering]] · 常一起用（工作流） — Harness Engineering 需要用真实任务比较原生与替代接口，而不是假设官方配置恒优。
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
 
@@ -57,6 +55,6 @@ sources: 1
 ## 反链
 
 - [[model-native harness]]
+- [[Trace-based evals]]
 - [[Harness evolution]]
 - [[configuration problem]]
-- [[Trace-based evals]]

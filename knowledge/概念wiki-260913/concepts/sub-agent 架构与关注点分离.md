@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: multi-agent
 learningStage: when-needed
 verification: use
-centrality: 0.042
-depth: 0
+centrality: 0.126
+depth: 2
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 专门化子 agent 用干净窗口做聚焦任务，主 agent 靠高层计划协调并接收摘要
 
-**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,9 +36,10 @@ sources: 1
 
 > {{name}} 里主 agent 从子 agent 拿到的是什么？
 
-## 懂了它才能懂（解锁 1）
+## 先懂这些（前置 2）
 
-- [[context firewall]] — 隔离上下文窗口正是为聚焦任务做关注点分离的手段
+- [[Subagent]] · **hard** — 不懂 Subagent，就做不了『专门化子 agent 用干净窗口做聚焦任务、主 agent 收摘要』这件事
+- [[context firewall]] · **soft** — 隔离上下文窗口正是为聚焦任务做关注点分离的手段
 
 ## 相关
 
@@ -53,5 +54,6 @@ sources: 1
 
 - [[上下文工程 context engineering]]
 - [[注意力预算 attention budget]]
+- [[Subagent]]
 - [[上下文腐烂 Context Rot]]
 - [[context firewall]]

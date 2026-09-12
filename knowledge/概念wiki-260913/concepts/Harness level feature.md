@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.092
+centrality: 0.126
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 模型开箱做不到、必须由 harness 提供的能力：跨交互持久状态、执行代码、访问实时知识、搭环境装依赖。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.092
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -38,16 +38,17 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[stateless]] · **hard** — 每次调用从空白开始，才需要 harness 提供跨交互持久状态。
+- [[Harness]] · **hard** — 不懂【Harness】，就做不了判断哪些能力属于 Harness level feature
 
-## 懂了它才能懂（解锁 2）
+## 懂了它才能懂（解锁 1）
 
 - [[Harness Thickness]] — 先知道模型开箱缺什么，才能讨论多少逻辑放 harness。
-- [[model-native harness]] — 顺着模型设计的前提是知道模型开箱做不到什么。
 
 ## 相关
 
+- [[stateless]] · related-to（audit） — harness 级能力多源于模型能力缺口，只有'跨交互持久状态'一项靠无状态对照，不构成整体前提。
 - [[Agent = Model + Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
+- [[model-native harness]] · related-to（audit） — 只需对模型能力边界有大致认知即可，harness level feature 的完整清单不是理解 model-native harness 的必需前置。
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
 
@@ -57,8 +58,7 @@ sources: 1
 ## 反链
 
 - [[Harness]]
-- [[Harness 工程 Harness Engineering]]
-- [[Agent = Model + Harness]]
 - [[stateless]]
 - [[model-native harness]]
+- [[Agent = Model + Harness]]
 - [[Harness Thickness]]

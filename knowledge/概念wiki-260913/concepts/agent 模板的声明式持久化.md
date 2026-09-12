@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: state-persistence
 learningStage: when-needed
 verification: use
-centrality: 0.067
-depth: 5
+centrality: 0.017
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > agent 模板（模型、system prompt、工具、MCP servers、skills）写成 YAML 存进 git，由 CLI 在流水线 apply。
 
-**领域** state-persistence ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
+**领域** state-persistence ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,14 +36,11 @@ sources: 1
 
 > {{name}}怎么做？模板里要写哪些字段？
 
-## 先懂这些（前置 2）
-
-- [[Git-backed state]] · **hard** — 把模型、prompt、工具等存成 YAML 放进 git，需先懂 git 持久状态。
-- [[文件系统即持久记忆]] · **soft** — 声明式配置以文件承载，懂文件系统持久记忆有帮助。
-
 ## 相关
 
-- [[Session]] · 前置（同领域依赖） — 拉起一次 session 要用已声明好的 agent 配置与环境。
+- [[文件系统即持久记忆]] · rejected（audit） — 两者是不同层面的东西：声明式持久化是把配置存文件，不是把运行状态写文件；不懂后者完全能懂前者，不构成前置依赖
+- [[Git-backed state]] · related-to（audit） — 此处 git 用途是存模板配置，与 Git-backed state（循环状态崩溃恢复）并非同一概念，真正前置应是通用的 git 持久化
+- [[Git-backed state]] · rejected（audit） — 两者只是都用 git；模板持久化存的是配置，不依赖循环状态持久化 Git-backed state。
 - [[Claude Managed Agents]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
 - [[messages API 作为直连网关]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
@@ -54,7 +51,6 @@ sources: 1
 ## 反链
 
 - [[文件系统即持久记忆]]
-- [[Git-backed state]]
-- [[Session]]
 - [[Claude Managed Agents]]
+- [[Git-backed state]]
 - [[messages API 作为直连网关]]

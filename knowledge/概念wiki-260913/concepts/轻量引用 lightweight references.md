@@ -53,6 +53,6 @@ sources: 1
 
 ## 反链
 
-- [[上下文工程 context engineering]]
 - [[上下文 context]]
+- [[上下文工程 context engineering]]
 - [[熵减 entropy reduction]]

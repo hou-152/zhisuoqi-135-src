@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.017
-depth: 0
+centrality: 0.072
+depth: 1
 origin: [context]
 aliases: ["progressive disclosure"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 在正确的时机加载正确的上下文，而不是一次性把所有信息常驻在 system prompt 里。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -37,6 +37,10 @@ sources: 1
 
 > {{name}} 对 system prompt 的设计提出了什么要求？
 
+## 先懂这些（前置 1）
+
+- [[检索与推理的双任务负担]] · **soft** — 不懂【检索与推理的双任务负担】，就做不了【渐进披露】中「判断哪些信息该延后加载」这件事
+
 ## 相关
 
 - [[护栏型指令的过期]] · 同篇出现（co-occurrence） — 同篇出现：context-21
@@ -54,6 +58,7 @@ sources: 1
 
 ## 反链
 
-- [[程序记忆（Procedural Memory Skills） progressive disclosure]]
 - [[护栏型指令的过期]]
+- [[检索与推理的双任务负担]]
 - [[判断力优先 let Claude use judgement]]
+- [[程序记忆（Procedural Memory Skills） progressive disclosure]]

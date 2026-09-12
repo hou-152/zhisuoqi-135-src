@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: safety-governance
 learningStage: now
 verification: judge
-centrality: 0.067
-depth: 2
+centrality: 0.126
+depth: 1
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 设计 Agent 系统时应假设 prompt-injection 与数据外泄尝试一定会发生。
 
-**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
+**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -42,10 +42,11 @@ Agent systems should be designed assuming prompt-injection and exfiltration atte
 
 ## 懂了它才能懂（解锁 1）
 
-- [[exfiltration]] — exfiltration 的定义就借助提示注入等手段，不懂注入说不清它
+- [[Guardrails]] — 不懂【prompt-injection】，就做不了【Guardrails】的输入侧注入检测规则。
 
 ## 相关
 
+- [[exfiltration]] · related-to（audit） — 数据外泄是通用安全概念，定义只说『借助提示注入等手段』（等＝非唯一），注入只是可选手段之一，不构成必需前置。
 - [[Guardrails]] · 常一起用（系统职责轴） — 护栏需要识别或限制不受信指令引发的危险行为。
 - [[Agents SDK]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
 - [[model-native harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
@@ -57,7 +58,7 @@ Agent systems should be designed assuming prompt-injection and exfiltration atte
 ## 反链
 
 - [[Guardrails]]
-- [[model-native harness]]
 - [[上下文即不可信输入]]
 - [[exfiltration]]
+- [[model-native harness]]
 - [[Agents SDK]]

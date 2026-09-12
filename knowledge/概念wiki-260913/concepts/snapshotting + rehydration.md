@@ -1,13 +1,13 @@
 ---
 id: cm_36e39546
 name: snapshotting + rehydration
-type: REPRESENTATIONAL
+type: CONCEPTUAL
 subject: Harness Engineering
 domain: state-persistence
 learningStage: when-needed
 verification: use
-centrality: 0.042
-depth: 2
+centrality: 0.126
+depth: 1
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > Agents SDK 内置的快照与再水合能力，可在新容器里从上次检查点恢复状态继续跑。
 
-**领域** state-persistence ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** state-persistence ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -38,10 +38,15 @@ With built-in snapshotting and rehydration, the Agents SDK can restore the agent
 
 ## 先懂这些（前置 1）
 
-- [[Session]] · **soft** — 再水合恢复的是某次 Session 的状态，懂 Session 更清楚恢复对象。
+- [[持久化执行 durable execution]] · **hard** — 不懂【持久化执行】，就做不了【snapshotting + rehydration】的「在新容器里从上次检查点恢复状态并继续跑完未完成 step」
+
+## 懂了它才能懂（解锁 1）
+
+- [[Stateful Runtime Environment (SRE)]] — 不懂【snapshotting + rehydration】，就做不了【Stateful Runtime Environment (SRE)】的「在新容器里从上次检查点恢复 agent 状态继续跑」
 
 ## 相关
 
+- [[Session]] · related-to（audit） — 快照/再水合自身描述已说明恢复对象是检查点状态，不懂 Session 的定义也能理解，Session 只是有助于确定恢复的粒度
 - [[Agents SDK]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
 - [[model-native harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
@@ -51,6 +56,8 @@ With built-in snapshotting and rehydration, the Agents SDK can restore the agent
 - Harness Engineering ｜ 《OpenAI Agents SDK 下一代演进：原生沙箱 + 模型原生 harness》 ｜ https://openai.com/index/the-next-evolution-of-the-agents-sdk/
 ## 反链
 
+- [[持久化执行 durable execution]]
 - [[Session]]
+- [[Stateful Runtime Environment (SRE)]]
 - [[model-native harness]]
 - [[Agents SDK]]

@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: memory-retrieval
 learningStage: when-needed
 verification: judge
-centrality: 0.017
-depth: 0
+centrality: 0.126
+depth: 1
 origin: [notion]
 aliases: ["Retrieval Pool vs Citation"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 页面进入检索池不等于被引用，模型还要再筛选哪些内容值得写进最终回答。
 
-**领域** memory-retrieval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** memory-retrieval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,6 +36,14 @@ AI 引用是两阶段 —— 先被检索到（进入候选池），再被模型
 
 > {{name}} 的落差对评估检索系统意味着什么？
 
+## 先懂这些（前置 1）
+
+- [[检索器-阅读器配置 retriever-reader]] · **soft** — 不懂【检索池 vs 引用】，就做不了【检索器-阅读器配置】中阅读器该引用哪几篇的筛选设计
+
+## 懂了它才能懂（解锁 1）
+
+- [[记忆须改变回答实质]] — 不懂【检索池 vs 引用】，就做不了【记忆须改变回答实质】的『入了池却没改变答案』失败判定
+
 ## 相关
 
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -49,3 +57,11 @@ AI 引用是两阶段 —— 先被检索到（进入候选池），再被模型
 ## 别名
 
 `Retrieval Pool vs Citation`
+
+## 反链
+
+- [[外包思考，但不外包理解]]
+- [[Agent-Native Infrastructure]]
+- [[检索器-阅读器配置 retriever-reader]]
+- [[记忆须改变回答实质]]
+- [[Sensors 与 Actuators]]

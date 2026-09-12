@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: economy-business
 learningStage: when-needed
 verification: judge
-centrality: 0.067
-depth: 1
+centrality: 0.017
+depth: 0
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 大厂靠多卖 token 获利，于是激励都在喊多花 token，没人喊想清楚、花得好。
 
-**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
+**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,16 +36,10 @@ Karri 对“花更多 token=更好”思路的批评。他指出市场上有一�
 
 > {{name}} 下，谁在喊多花 token，谁该喊想清楚？
 
-## 先懂这些（前置 1）
-
-- [[Token 补贴缺口（Token Subsidy Gap）]] · **soft** — 先懂每 token 由谁在亏损，才看清卖家为何只喊多花 token。
-
-## 懂了它才能懂（解锁 1）
-
-- [[Stargate 依赖闭环（Stargate Dependency Loop）]] — 循环需要不断膨胀的 token 需求支撑，激励错配为其提供叙事动力。
-
 ## 相关
 
+- [[Stargate 依赖闭环（Stargate Dependency Loop）]] · related-to（audit） — 融资闭环的单体结构（借债—付费—叙事互绑）可独立理解，激励错配只是解释循环为何能转的叙事燃料，非定义前提。
+- [[Token 补贴缺口（Token Subsidy Gap）]] · related-to（audit） — 激励错配的核心是「卖家按 token 量获利所以只喊多花」，补贴缺口只是补充其不可持续性，非必需。
 - [[代理原生 agent-native]] · 同篇出现（co-occurrence） — 同篇出现：context-10
 - [[上下文骨架]] · 同篇出现（co-occurrence） — 同篇出现：context-10
 - [[“SaaS 已死”叙事与护城河蒸发]] · 同篇出现（co-occurrence） — 同篇出现：context-10
@@ -55,8 +49,8 @@ Karri 对“花更多 token=更好”思路的批评。他指出市场上有一�
 - Context Engineering ｜ 《SaaS 没死，Linear 正把上下文变成 Agent 的骨架》 ｜ https://app.podwise.ai/dashboard/episodes/7673574
 ## 反链
 
-- [[Token 补贴缺口（Token Subsidy Gap）]]
-- [[代理原生 agent-native]]
 - [[“SaaS 已死”叙事与护城河蒸发]]
+- [[代理原生 agent-native]]
 - [[Stargate 依赖闭环（Stargate Dependency Loop）]]
+- [[Token 补贴缺口（Token Subsidy Gap）]]
 - [[上下文骨架]]

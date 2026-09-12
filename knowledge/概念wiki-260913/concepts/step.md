@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: state-persistence
 learningStage: when-needed
 verification: use
-centrality: 0.042
+centrality: 0.072
 depth: 0
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 最小执行原语，包住一次 LLM 调用或工具执行，失败时只重试该单元
 
-**领域** state-persistence ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** state-persistence ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -42,6 +42,7 @@ Utah 的最小执行原语。step.run 包住 LLM 调用与每一次工具执行�
 
 ## 相关
 
+- [[Session]] · rejected（audit） — step 是最小执行原语，理解它不需要 Session；沙箱执行不是 step 定义的一部分。
 - [[harness 与 framework 的分野]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[持久化执行 durable execution]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
@@ -51,7 +52,7 @@ Utah 的最小执行原语。step.run 包住 LLM 调用与每一次工具执行�
 - Harness Engineering ｜ 《你的 agent 需要的是 harness，不是又一个框架》 ｜ https://www.inngest.com/blog/your-agent-needs-a-harness-not-a-framework
 ## 反链
 
-- [[Harness]]
 - [[持久化执行 durable execution]]
+- [[Session]]
 - [[harness 与 framework 的分野]]
 - [[step ID 自动索引]]

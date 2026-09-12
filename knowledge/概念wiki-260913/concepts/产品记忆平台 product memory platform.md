@@ -6,9 +6,9 @@ type: CONCEPTUAL
 subject: Context Engineering
 domain: agent-org
 learningStage: when-needed
-verification: judge
-centrality: 0.042
-depth: 3
+verification: accept
+centrality: 0.072
+depth: 1
 origin: [context]
 aliases: ["product memory platform"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > Karri 对 Linear 的定位：不做通用 agent 平台，而做产品上下文与产品记忆的所在地，是通往产品思考的 API。
 
-**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -39,7 +39,7 @@ Karri 给 Linear 的定位，用来和“通用 agent 平台”划清界限。Li
 
 ## 先懂这些（前置 1）
 
-- [[共享产品系统 shared product system]] · **hard** — 产品记忆必须落在人与 agent 共同使用、承载上下文的系统里。
+- [[共享产品系统 shared product system]] · **soft** — 不懂【共享产品系统】，就做不了【产品记忆平台】——反馈、意图、决策与计划无处沉淀，产品记忆就是空的
 
 ## 相关
 
@@ -57,7 +57,7 @@ Karri 给 Linear 的定位，用来和“通用 agent 平台”划清界限。Li
 
 ## 反链
 
-- [[代理原生 agent-native]]
 - [[共享产品系统 shared product system]]
 - [[“SaaS 已死”叙事与护城河蒸发]]
+- [[代理原生 agent-native]]
 - [[上下文骨架]]

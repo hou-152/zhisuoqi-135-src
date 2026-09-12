@@ -7,7 +7,7 @@ subject: Context Engineering × Harness Engineering
 domain: memory-retrieval
 learningStage: now
 verification: judge
-centrality: 0.285
+centrality: 0.253
 depth: 0
 origin: [context, harness]
 aliases: ["Memory"]
@@ -18,7 +18,7 @@ sources: 2
 
 > 在不同时间尺度上运作的存储：会话内、跨会话、长期沉淀，各层服务于不同的取回需求。
 
-**领域** memory-retrieval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.285
+**领域** memory-retrieval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.253
 
 ## 费曼一下
 
@@ -37,25 +37,19 @@ sources: 2
 
 > 这条经验该进哪一层 {{name}}，为什么？
 
-## 懂了它才能懂（解锁 10）
+## 懂了它才能懂（解锁 4）
 
-- [[Harness]] — Memory 是 Agent Harness 管理跨步骤与跨会话信息的组成部分。
-- [[程序记忆（Procedural Memory Skills） progressive disclosure]] — 程序记忆是记忆的一种亚型，不懂记忆分层就无从谈技能记忆。
-- [[记忆冲刷（Memory Flush）]] — 冲刷是记忆写入的时机策略，先懂记忆才懂何时保存。
-- [[记忆须改变回答实质]] — 被调用的先要是记忆，才有能否改变结论之问。
-- [[Engram]] — Engram 是给模型加的知识查表记忆模块，先懂记忆才懂它。
-- [[Honcho]] — Honcho 是跨设备记忆连续性的用户模型，不懂记忆连续性无从理解。
-- [[Knowledge Graph vs Flat Files]] — 该对比讨论上下文/记忆的组织方式，先懂记忆才谈图与扁平之别。
-- [[Signals]] — Signals 是可追加的观察记录，属记忆的素材层，先懂记忆才懂它。
-- [[stated 出处纪律]] — 它是记忆写入的判据纪律，先懂记忆写入才懂出处优先。
-- [[Hoard]] — 从命名看属囤积式保存，先理解记忆存储才谈其形态。
+- [[项目知识体系]] — 不懂【记忆】，就做不了【项目知识体系】里的经验沉淀与启动上下文装配
+- [[Memory-driven development]] — 不懂【记忆】，就做不了【Memory-driven development】里可被后续 agent 读取的决策与踩坑留存
+- [[跨会话记忆文件系统]] — 不懂【记忆】的跨会话取回需求，就做不了【跨会话记忆文件系统】的六种操作与分主题文件设计
+- [[session_search]] — 不懂【记忆】的跨会话沉淀，就做不了【session_search】的长尾历史会话翻找
 
 ## 相关
 
 - [[压缩 Compaction]] · 常一起用 — 可恢复压缩依靠外部记忆保留原始内容的回取路径。
+- [[渐进式披露 progressive disclosure]] · 常一起用（工作流） — Memory 可用路由文档与主题文件按 Progressive Disclosure 分层加载。
 - [[长上下文窗口]] · 常一起用（运行时组成） — Memory 把进度写出 Context Window，并在后续需要时重新取回。
 - [[长上下文窗口]] · 常一起用 — 长期记忆把进度写出窗口，并在需要时取回，以支持跨会话恢复。
-- [[渐进式披露 progressive disclosure]] · 常一起用（工作流） — Memory 可用路由文档与主题文件按 Progressive Disclosure 分层加载。
 - [[渐进式披露 progressive disclosure]] · 常一起用 — Memory 用路由文档和主题文件分层，让详细知识按需披露。
 - [[AI Agent]] · 同篇出现（co-occurrence） — 同篇出现：context-13
 - [[非模型架构 Non-model Architecture]] · 同篇出现（co-occurrence） — 同篇出现：context-13
@@ -73,18 +67,12 @@ sources: 2
 
 ## 反链
 
-- [[Harness]]
 - [[长上下文窗口]]
-- [[程序记忆（Procedural Memory Skills） progressive disclosure]]
-- [[渐进式披露 progressive disclosure]]
-- [[记忆冲刷（Memory Flush）]]
-- [[Signals]]
-- [[AI Agent]]
-- [[压缩 Compaction]]
-- [[记忆须改变回答实质]]
-- [[Engram]]
-- [[Hoard]]
-- [[Honcho]]
-- [[Knowledge Graph vs Flat Files]]
-- [[stated 出处纪律]]
 - [[非模型架构 Non-model Architecture]]
+- [[渐进式披露 progressive disclosure]]
+- [[压缩 Compaction]]
+- [[项目知识体系]]
+- [[AI Agent]]
+- [[跨会话记忆文件系统]]
+- [[Memory-driven development]]
+- [[session_search]]

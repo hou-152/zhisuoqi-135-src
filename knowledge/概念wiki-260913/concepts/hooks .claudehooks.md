@@ -39,9 +39,10 @@ sources: 2
 
 ## 相关
 
+- [[架构约束的确定性执行]] · rejected（audit） — hooks 只是可选的挂载点；确定性执行靠 linter/结构性测试，在 CI 等也能跑，非依赖。
 - [[AI 工程基础设施 AI engineering infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
-- [[1.6% vs 98.4%]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
 - [[确定性工程基础设施 deterministic engineering infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
+- [[1.6% vs 98.4%]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
 - [[configuration problem]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
@@ -57,7 +58,8 @@ sources: 2
 
 ## 反链
 
-- [[configuration problem]]
+- [[架构约束的确定性执行]]
 - [[1.6% vs 98.4%]]
 - [[确定性工程基础设施 deterministic engineering infrastructure]]
 - [[AI 工程基础设施 AI engineering infrastructure]]
+- [[configuration problem]]

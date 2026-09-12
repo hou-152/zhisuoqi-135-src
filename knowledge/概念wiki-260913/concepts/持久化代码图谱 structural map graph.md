@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: state-persistence
 learningStage: when-needed
 verification: use
-centrality: 0.092
-depth: 5
+centrality: 0.072
+depth: 3
 origin: [context]
 aliases: ["structural map / graph"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 把代码库每个函数、类、导入、调用、继承与测试映射成图谱，构建后持久保存在本地，供查询与增量更新。
 
-**领域** state-persistence ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.092
+**领域** state-persistence ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -37,23 +37,19 @@ sources: 1
 
 > {{name}} 更新一次要多久，能支撑后续增量查询吗？
 
-## 先懂这些（前置 3）
+## 先懂这些（前置 1）
 
-- [[文件系统即持久记忆]] · **hard** — 图谱要“持久保存在本地”，得先懂如何把耐久状态落到文件系统。
-- [[Artifact Schema]] · **soft** — 图谱是被查询的共享知识成果，需要 artifact 的 schema 与更新约定。
-- [[本地状态层]] · **soft** — 图谱持久在本地供查询与增量更新，依赖本地存储层的存在。
+- [[Artifact Schema]] · **soft** — 不懂【Artifact Schema】，就做不了【持久化代码图谱】的「把图谱作为共享知识层定义 README、schema 与增量添加流程」
 
 ## 相关
 
 - [[增量更新 incremental update]] · 同篇出现（co-occurrence） — 同篇出现：context-16
-- [[Blast radius]] · 同篇出现（co-occurrence） — 同篇出现：context-16
 - [[Token 优化的评审上下文 get_review_context_tool]] · 同篇出现（co-occurrence） — 同篇出现：context-16
-- [[Review Quality 评分方法]] · 同篇出现（co-occurrence） — 同篇出现：context-16
 - [[MCP 工具层]] · 同篇出现（co-occurrence） — 同篇出现：context-16
 - [[语义搜索 semantic search embeddings]] · 同篇出现（co-occurrence） — 同篇出现：context-16
 - [[code-review-graphignore 排除配置]] · 同篇出现（co-occurrence） — 同篇出现：context-16
+- [[Review Quality 评分方法]] · 同篇出现（co-occurrence） — 同篇出现：context-16
 - [[Watch 模式与自动更新 hooks]] · 同篇出现（co-occurrence） — 同篇出现：context-16
-- [[多语言结构化解析 12 languages node type mappings]] · 同篇出现（co-occurrence） — 同篇出现：context-16
 - [[code-review-graph]] · 同篇出现（co-occurrence） — 同篇出现：context-16
 - [[Tree-sitter]] · 同篇出现（co-occurrence） — 同篇出现：context-16
 
@@ -67,17 +63,13 @@ sources: 1
 
 ## 反链
 
-- [[文件系统即持久记忆]]
-- [[本地状态层]]
 - [[Artifact Schema]]
-- [[Blast radius]]
 - [[code-review-graph]]
-- [[Review Quality 评分方法]]
 - [[code-review-graphignore 排除配置]]
 - [[MCP 工具层]]
-- [[Tree-sitter]]
-- [[多语言结构化解析 12 languages node type mappings]]
-- [[语义搜索 semantic search embeddings]]
-- [[增量更新 incremental update]]
+- [[Review Quality 评分方法]]
 - [[Token 优化的评审上下文 get_review_context_tool]]
 - [[Watch 模式与自动更新 hooks]]
+- [[语义搜索 semantic search embeddings]]
+- [[增量更新 incremental update]]
+- [[Tree-sitter]]

@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: verification-eval
 learningStage: now
 verification: use
-centrality: 0.042
-depth: 1
+centrality: 0.181
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 把“这设计美吗”这类难一致回答的问题，换成“是否符合我们的设计原则”这类可具体打分的标准。
 
-**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.181
 
 ## 费曼一下
 
@@ -36,12 +36,15 @@ sources: 1
 
 > 把“这个方案好吗”改写成 {{name}} 式的可打分问句，你会怎么写？
 
-## 先懂这些（前置 1）
+## 懂了它才能懂（解锁 3）
 
-- [[弱而模糊的评估器]] · **hard** — 正是因为没有快速精确的 verifier，才要把审美问题改写成可打分标准。
+- [[Sprint Contract]] — 不懂 Grading Criteria，就做不了 Sprint Contract 中把「什么叫完成」落成可打分标准
+- [[Kappa 系数]] — 不懂 Grading Criteria，就做不了 Kappa 系数用于 AI 评分与人类专家按同一口径的一致性测量
+- [[Mutation Testing 与前沿质量评测]] — 不懂 Grading Criteria，就做不了 Mutation Testing 中判官模型查质量的评分
 
 ## 相关
 
+- [[弱而模糊的评估器]] · related-to（audit） — 弱而模糊的评估器只是动机背景；Grading Criteria 作为一种把审美问题改写成可打分标准的做法可独立成立，不构成定义/机制依赖。
 - [[Context Anxiety]] · 同篇出现（co-occurrence） — 同篇出现：harness-09
 - [[Context Reset vs Compaction]] · 同篇出现（co-occurrence） — 同篇出现：harness-09
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-09
@@ -52,5 +55,8 @@ sources: 1
 ## 反链
 
 - [[Context Reset vs Compaction]]
+- [[Kappa 系数]]
+- [[Mutation Testing 与前沿质量评测]]
+- [[Sprint Contract]]
 - [[弱而模糊的评估器]]
 - [[Context Anxiety]]

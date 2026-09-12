@@ -5,9 +5,9 @@ type: REPRESENTATIONAL
 subject: Harness Engineering
 domain: multi-agent
 learningStage: when-needed
-verification: use
-centrality: 0.092
-depth: 2
+verification: accept
+centrality: 0.017
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 用 Elixir/BEAM 构建的持久守护进程，把交互从写 prompt 变成写 ticket 并移动状态
 
-**领域** multi-agent ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.092
+**领域** multi-agent ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,12 +36,6 @@ OpenAI 2026.3 开源的 agent 编排系统。它的创新在于把程序员和 a
 
 > 在 {{name}} 里，你怎么触发一个 agent 任务？
 
-## 先懂这些（前置 3）
-
-- [[共享文件加锁的协调机制]] · **soft** — 以 ticket 与状态流转协作，本质是共享状态加锁协调的持久化。
-- [[Subagent]] · **soft** — 守护进程把工作派发给子代理执行，需先懂子代理封装与回流。
-- [[多智能体架构]] · **soft** — 它是编排多个 Agent 的持久化运行时，前提是多 Agent 架构。
-
 ## 相关
 
 - [[时间 Scalability Temporal Scalability]] · 同篇出现（co-occurrence） — 同篇出现：harness-A1
@@ -54,8 +48,5 @@ OpenAI 2026.3 开源的 agent 编排系统。它的创新在于把程序员和 a
 ## 反链
 
 - [[Harness 工程 Harness Engineering]]
-- [[多智能体架构]]
-- [[共享文件加锁的协调机制]]
-- [[Subagent]]
-- [[空间 Scalability Spatial Scalability]]
 - [[时间 Scalability Temporal Scalability]]
+- [[空间 Scalability Spatial Scalability]]

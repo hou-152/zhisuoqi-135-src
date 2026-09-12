@@ -6,8 +6,8 @@ type: CONCEPTUAL
 subject: Context Engineering
 domain: context-engineering
 learningStage: when-needed
-verification: use
-centrality: 0.042
+verification: judge
+centrality: 0.072
 depth: 2
 origin: [context]
 aliases: ["deferred loading"]
@@ -18,7 +18,7 @@ sources: 1
 
 > 渐进披露在工具层的实现：部分工具须先用 ToolSearch 搜到完整定义才能使用，被需要前不消耗上下文。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -39,7 +39,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[上下文工程 context engineering]] · **soft** — 延迟加载是上下文工程控制工具占用的手段，不懂上下文工程就不懂其动机。
+- [[注意力预算 attention budget]] · **soft** — 不懂【注意力预算】，就做不了【延迟加载工具】的 ⟨被需要前不消耗上下文的披露设计⟩
 
 ## 相关
 
@@ -58,5 +58,6 @@ sources: 1
 ## 反链
 
 - [[上下文工程 context engineering]]
+- [[注意力预算 attention budget]]
 - [[护栏型指令的过期]]
 - [[判断力优先 let Claude use judgement]]

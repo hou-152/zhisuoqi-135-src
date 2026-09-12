@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: multi-agent
 learningStage: when-needed
 verification: use
-centrality: 0.067
-depth: 3
+centrality: 0.126
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 借鉴 GAN，把干活的 Agent 与评判的 Agent 分开，形成生成-评估循环以提升质量。
 
-**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
+**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,16 +36,14 @@ Taking inspiration from Generative Adversarial Networks (GANs), I designed a mul
 
 > {{name}} 中由谁来评判产出？
 
-## 先懂这些（前置 1）
-
-- [[子 Agent 分工]] · **hard** — 生成与评估分离本质上是执行者与审查者的分工
-
-## 懂了它才能懂（解锁 1）
+## 懂了它才能懂（解锁 2）
 
 - [[Planner-Generator-Evaluator 三 Agent 架构]] — 三 Agent 架构把生成-评估循环再加一层规划者
+- [[子 Agent 分工]] — 不懂生成-评估分离，就理解不了『不让写代码的 Agent 给自己打分』为何要拆执行与审查
 
 ## 相关
 
+- [[子 Agent 分工]] · related-to（audit） — 生成-评估循环是「子 Agent 分工」的一个特例，懂特例不必先懂泛化概念，方向应弱化（甚至可视为分工的实例而非依赖）
 - [[Context Anxiety]] · 同篇出现（co-occurrence） — 同篇出现：harness-09
 - [[Context Reset vs Compaction]] · 同篇出现（co-occurrence） — 同篇出现：harness-09
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-09
@@ -55,7 +53,7 @@ Taking inspiration from Generative Adversarial Networks (GANs), I designed a mul
 - Harness Engineering ｜ 《Anthropic 工程实践：如何为长时间运行的 Agent 应用设计 Harness》 ｜ https://www.anthropic.com/engineering/harness-design-long-running-apps
 ## 反链
 
-- [[子 Agent 分工]]
 - [[Context Reset vs Compaction]]
-- [[Context Anxiety]]
+- [[子 Agent 分工]]
 - [[Planner-Generator-Evaluator 三 Agent 架构]]
+- [[Context Anxiety]]

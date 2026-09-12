@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: model-training
 learningStage: deep-dive
 verification: judge
-centrality: 0.042
-depth: 6
+centrality: 0.072
+depth: 1
 origin: [notion]
 aliases: ["解耦优势策略优化", "Decoupled Advantage Policy Optimization"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 解耦优势策略优化：在 GRPO 上把裁剪上下界解耦为 0.28/0.2、损失改 token 级、截断加软惩罚、动态采样过滤。
 
-**领域** model-training ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** model-training ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 原文 context
 
@@ -36,10 +36,11 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[Dr. GRPO]] · **hard** — DAPO在GRPO上解耦裁剪与改损失，不懂GRPO就看不懂它改了什么。
+- [[GRPO]] · **hard** — 不懂【GRPO】，就做不了 DAPO 的⟨在 GRPO 上解耦裁剪上下界、改 token 级损失的设计⟩
 
 ## 相关
 
+- [[Dr. GRPO]] · related-to（audit） — DAPO 的硬前置是 GRPO，不是 Dr. GRPO；二者是 GRPO 的平行改进分支，理由里给的也是 GRPO。懂 Dr. GRPO 有帮助但非必需，应降 soft 或改边指向 GRPO。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -55,3 +56,4 @@ sources: 1
 ## 反链
 
 - [[Dr. GRPO]]
+- [[GRPO]]

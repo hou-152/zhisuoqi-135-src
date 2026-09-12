@@ -6,8 +6,8 @@ subject: Context Engineering × Harness Engineering
 domain: agent-org
 learningStage: when-needed
 verification: judge
-centrality: 0.085
-depth: 1
+centrality: 0.089
+depth: 0
 origin: [context, harness]
 aliases: []
 sources: 2
@@ -15,9 +15,9 @@ sources: 2
 
 # 管理 Agent
 
-> Loop Engineering 的瓶颈在管理而非工程：目标清晰、资源充足、反馈及时，既是带人也是带 loop 的条件。
+> Loop Engineering 的核心竞争力在管理而非纯工程：目标清晰、资源充足、反馈及时，也是好 loop 的条件。
 
-**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.085
+**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.089
 
 ## 费曼一下
 
@@ -36,16 +36,13 @@ sources: 2
 
 > 如果把 Agent 当团队带，{{name}} 每天要做哪几件事？
 
-## 先懂这些（前置 1）
-
-- [[人类上移到更高抽象层]] · **soft** — 管理 loop 要在正确时机与层级给监督，正是人上移到更高抽象层的体现。
-
 ## 懂了它才能懂（解锁 1）
 
-- [[软件工厂 Software Factory]] — 长期运行的 agent 覆盖生命周期，瓶颈在目标、资源与反馈的管理。
+- [[0 人工代码、0 人工 review 极限形态]] — 不懂【管理 Agent】，就做不了【0 人工代码、0 人工 review 极限形态】——目标不清晰、资源不到位、反馈不及时，loop 跑一轮就废
 
 ## 相关
 
+- [[人类上移到更高抽象层]] · related-to（audit） — 管理 loop 可在不懂「人上移抽象层」原则下理解，后者只是前者的另一种表述，非前置。
 - [[Prompt 到 Loop 的跃迁]] · 同篇出现（co-occurrence） — 同篇出现：context-07
 - [[自动循环的心跳]] · 同篇出现（co-occurrence） — 同篇出现：context-07
 - [[Loop Engineering]] · 同篇出现（co-occurrence） — 同篇出现：context-07
@@ -58,6 +55,6 @@ sources: 2
 
 - [[Loop Engineering]]
 - [[自动循环的心跳]]
-- [[软件工厂 Software Factory]]
+- [[0 人工代码、0 人工 review 极限形态]]
 - [[Prompt 到 Loop 的跃迁]]
 - [[人类上移到更高抽象层]]

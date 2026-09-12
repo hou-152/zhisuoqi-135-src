@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: clinical-medicine
 learningStage: when-needed
 verification: accept
-centrality: 0.067
-depth: 3
+centrality: 0.017
+depth: 0
 origin: [notion]
 aliases: ["COCA", "达摩院结直肠癌筛查 AI"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 阿里达摩院与广东省人民医院的肠癌筛查 AI，从最普通的平扫 CT 识别结直肠癌及癌前病变，不加造影、不做肠道准备。
 
-**领域** clinical-medicine ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.067
+**领域** clinical-medicine ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.017
 
 ## 原文 context
 
@@ -38,13 +38,9 @@ sources: 1
 
 > {{name}} 的突破口是「更准」还是「更顺手」？数据多少？
 
-## 先懂这些（前置 2）
-
-- [[平扫 CT + AI 多癌筛查路线]] · **hard** — DAMO COCA是该路线的具体实现，不懂路线就不懂其范式定位。
-- [[平扫 CT]] · **hard** — DAMO COCA从最普通的平扫CT识别肠癌，不懂平扫CT就不懂其输入。
-
 ## 相关
 
+- [[平扫 CT + AI 多癌筛查路线]] · related-to（audit） — DAMO COCA是可独立理解的单癌种模型，路线只是上位范式/背景，不是前提。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -59,5 +55,4 @@ sources: 1
 
 ## 反链
 
-- [[平扫 CT]]
 - [[平扫 CT + AI 多癌筛查路线]]

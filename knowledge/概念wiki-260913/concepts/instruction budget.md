@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.042
-depth: 1
+centrality: 0.072
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 每条无关的工具描述都会消耗 agent 必须处理却毫无收益的注意力额度，这份预算是有限的。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,12 +36,13 @@ sources: 1
 
 > {{name}} 为什么会『还没开工就烧光』？
 
-## 先懂这些（前置 1）
+## 懂了它才能懂（解锁 1）
 
-- [[Context as working memory budget]] · **soft** — 把注意力当作有限的窗口额度，才谈得上这份预算是共用的
+- [[the dumb zone the smart zone]] — 不懂【instruction budget】，就做不了【the dumb zone / the smart zone】的 ⟨解释工具描述为何把模型拖进笨蛋区⟩
 
 ## 相关
 
+- [[Context as working memory budget]] · related-to（audit） — 注意力额度与窗口容量预算分属不同资源，只是共用「预算」隐喻，不构成真依赖
 - [[configuration problem]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
@@ -51,7 +52,7 @@ sources: 1
 - Harness Engineering ｜ 《HumanLayer：harness 工程就是把 coding agent 的配置点用到极致》 ｜ https://www.humanlayer.dev/blog/skill-issue-harness-engineering-for-coding-agents
 ## 反链
 
-- [[Harness]]
 - [[Harness 工程 Harness Engineering]]
 - [[Context as working memory budget]]
+- [[the dumb zone the smart zone]]
 - [[configuration problem]]

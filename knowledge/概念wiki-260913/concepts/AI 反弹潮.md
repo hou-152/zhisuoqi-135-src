@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: media-culture-education
 learningStage: when-needed
 verification: accept
-centrality: 0.092
-depth: 0
+centrality: 0.072
+depth: 1
 origin: [notion]
 aliases: ["AI Backlash", "ai backlash", "AI 厌恶", "AI 反感"]
 sources: 1
@@ -15,9 +15,9 @@ sources: 1
 
 # AI 反弹潮
 
-> 公众亲身使用 AI 后形成的负面情绪，Gen Z 用得最多也最反感，靠宣传无法扭转。
+> 公众对 AI 的负面情绪在加深：过半美国人认为 AI 弊大于利，Gen Z 中仅 18% 抱有希望、31% 感到愤怒。
 
-**领域** media-culture-education ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.092
+**领域** media-culture-education ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
 
 ## 原文 context
 
@@ -35,14 +35,14 @@ sources: 1
 
 > {{name}} 为什么不能靠广告说服来解决？
 
-## 懂了它才能懂（解锁 3）
+## 先懂这些（前置 1）
 
-- [[扁平化]] — 扁平化是 AI 反弹潮中被反复引用的核心意象，不懂这股情绪就看不出它在批判什么。
-- [[营销谬误]] — 营销谬误误诊的对象正是用户对 AI 的真实厌恶，不懂反弹潮就抓不到误诊的根源。
-- [[废料怪兽]] — 这个双重体验比喻是 AI 反弹潮的一种民间表达，不懂反弹潮就读不出它的批判指向。
+- [[扁平化]] · **soft** — 不懂扁平化，就做不了 AI 反弹潮的动因解释——讲不通「人被压成数据库一行」为何激起反弹。
 
 ## 相关
 
+- [[扁平化]] · related-to（audit） — AI 反弹潮只是扁平化被使用的语境，不懂反弹潮也能理解还原论含义。
+- [[废料怪兽]] · related-to（audit） — 废料怪兽比喻本身可独立理解，AI 反弹潮只是其情绪背景。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -57,6 +57,5 @@ sources: 1
 
 ## 反链
 
-- [[废料怪兽]]
 - [[扁平化]]
-- [[营销谬误]]
+- [[废料怪兽]]

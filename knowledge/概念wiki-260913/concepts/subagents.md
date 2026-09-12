@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: multi-agent
 learningStage: when-needed
 verification: use
-centrality: 0.092
-depth: 1
+centrality: 0.126
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 把子 agent 路由到隔离环境执行，用来扩展 agent 的能力与并行度
 
-**领域** multi-agent ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.092
+**领域** multi-agent ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,10 +36,6 @@ route subagents to isolated environments… We’re also working to bring additi
 
 > 什么任务适合交给 {{name}} 去做？
 
-## 先懂这些（前置 1）
-
-- [[工作树隔离]] · **soft** — 子 agent 要路由到隔离环境执行，隔离是并行的前提
-
 ## 懂了它才能懂（解锁 2）
 
 - [[显式且可检查的并行]] — 它派生的就是多个 subagent，不懂 subagent 无从调度
@@ -47,6 +43,7 @@ route subagents to isolated environments… We’re also working to bring additi
 
 ## 相关
 
+- [[工作树隔离]] · related-to（audit） — 工作树隔离只是并行子 agent 在编码场景的一种实现，子 agent 概念本身不依赖它。
 - [[Agents SDK]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
 - [[model-native harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
@@ -56,8 +53,8 @@ route subagents to isolated environments… We’re also working to bring additi
 - Harness Engineering ｜ 《OpenAI Agents SDK 下一代演进：原生沙箱 + 模型原生 harness》 ｜ https://openai.com/index/the-next-evolution-of-the-agents-sdk/
 ## 反链
 
+- [[显式且可检查的并行]]
 - [[model-native harness]]
 - [[开箱即用的编排与子 agent]]
-- [[工作树隔离]]
-- [[显式且可检查的并行]]
 - [[Agents SDK]]
+- [[工作树隔离]]

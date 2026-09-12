@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: model-training
 learningStage: when-needed
 verification: judge
-centrality: 0.017
-depth: 0
+centrality: 0.072
+depth: 3
 origin: [notion]
 aliases: ["Domain-asymmetric Sycophancy", "话题级谄媚", "软话题谄媚", "谄媚的领域差异"]
 sources: 1
@@ -15,9 +15,9 @@ sources: 1
 
 # 领域不均匀的谄媚（Domain-asymmetric Sycophancy）
 
-> 谄媚率在话题间极不均匀：整体 9%，灵性 38%、亲密关系 25%，均值会骗人。
+> 谄媚率在不同话题上差异巨大，均值会骗人。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -32,6 +32,10 @@ sources: 1
 
 > {{name}} 为什么说只看平均谄媚率会误导？
 
+## 先懂这些（前置 1）
+
+- [[谄媚（Sycophancy）]] · **hard** — 不懂【谄媚】，就做不了领域不均匀的谄媚的⟨按话题分组测量谄媚率差异⟩
+
 ## 相关
 
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -45,3 +49,10 @@ sources: 1
 ## 别名
 
 `Domain-asymmetric Sycophancy`、`话题级谄媚`、`软话题谄媚`、`谄媚的领域差异`
+
+## 反链
+
+- [[外包思考，但不外包理解]]
+- [[Agent-Native Infrastructure]]
+- [[谄媚（Sycophancy）]]
+- [[Sensors 与 Actuators]]

@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: verification-eval
 learningStage: when-needed
 verification: use
-centrality: 0.067
-depth: 2
+centrality: 0.072
+depth: 1
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 同类招式的另一种形态：带 rubric 启动验证 agent，反过来测试并校准你在某领域的品味判断。
 
-**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
+**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,13 +36,13 @@ sources: 1
 
 > {{name}} 里验证 agent 到底在验证谁的标准？
 
-## 先懂这些（前置 2）
+## 先懂这些（前置 1）
 
 - [[Rubric]] · **hard** — 带 rubric 启动验证 agent，前提是先有明确评分标准。
-- [[Read-only Verifier Agent]] · **soft** — 它同样依托独立验证 agent 来校准品味判断。
 
 ## 相关
 
+- [[Read-only Verifier Agent]] · related-to（audit） — A 只需一般验证 agent；B 是执行侧只读 verifier 的具体实现，不是理解 A 的必需前提。
 - [[prompt 与 context 的通用性落差]] · 同篇出现（co-occurrence） — 同篇出现：context-22
 - [[过度约束与松绑 over-constraining unhobbling]] · 同篇出现（co-occurrence） — 同篇出现：context-22
 - [[上下文工程 context engineering]] · 同篇出现（co-occurrence） — 同篇出现：context-22
@@ -52,8 +52,7 @@ sources: 1
 - Context Engineering ｜ 《Claude 5 时代的上下文工程新规则：系统提示词砍掉 80%》 ｜ https://x.com/trq212/status/2080710971228918066/?s=12
 ## 反链
 
-- [[上下文工程 context engineering]]
-- [[Read-only Verifier Agent]]
 - [[Rubric]]
 - [[过度约束与松绑 over-constraining unhobbling]]
 - [[prompt 与 context 的通用性落差]]
+- [[Read-only Verifier Agent]]

@@ -7,8 +7,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: use
-centrality: 0.042
-depth: 0
+centrality: 0.126
+depth: 1
 origin: [harness]
 aliases: ["struggle as signal"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > Agent 卡住不是故障而是信号，据此补上缺的工具、护栏与文档，并让它自己写修复。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -37,12 +37,14 @@ OpenAI 团队被作者引用的迭代机制原话：agent 卡住时把它当信�
 
 > Agent 卡住时，你按{{name}}补了哪些工具或文档？
 
-## 懂了它才能懂（解锁 1）
+## 先懂这些（前置 2）
 
-- [[收敛式失败恢复]] — 收敛修正正是把卡住当信号处理的具体做法。
+- [[看对话 log]] · **soft** — 不懂看对话 log，就做不了把「Agent 卡住」识别为信号这件事
+- [[让不可见变得可见]] · **soft** — 不懂让不可见变得可见，就做不了把 Agent 卡住这件事暴露出来并据此补工具
 
 ## 相关
 
+- [[收敛式失败恢复]] · related-to（audit） — 收敛修正是一种具体做法，不依赖『卡住即信号』这一表述也能理解，最多是启发式相关
 - [[无手打代码 no manually typed code at all]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
 - [[上下文工程 context engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
@@ -57,6 +59,7 @@ OpenAI 团队被作者引用的迭代机制原话：agent 卡住时把它当信�
 
 ## 反链
 
-- [[Harness]]
+- [[看对话 log]]
+- [[让不可见变得可见]]
 - [[收敛式失败恢复]]
 - [[无手打代码 no manually typed code at all]]

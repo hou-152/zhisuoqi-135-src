@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.042
+centrality: 0.072
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > CLAUDE.md 写法准则：轻量说明仓库用途，token 主要花在代码库内反直觉的 gotchas 上，不写显而易见的事。
 
-**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -38,10 +38,11 @@ CLAUDE.md 层的具体写法准则。保持轻量、简述 repo 用途，**把�
 
 ## 先懂这些（前置 1）
 
-- [[gotchas 优先原则]] · **hard** — 它是该 token 分配原则在 CLAUDE.md 上的具体落地写法
+- [[gotchas 优先原则]] · **soft** — 不懂【gotchas 优先原则】，就做不了【gotchas 优先的 CLAUDE.md】的 ⟨把 token 主要分配给反直觉 gotchas 而不是显而易见的事⟩
 
 ## 相关
 
+- [[gotchas 优先原则]] · related-to（audit） — 两个节点描述几乎逐字重合，是同一 token 分配原则与其 CLAUDE.md 实例化，属同层重复而非前置；说「CLAUDE.md 立不住」不成立，建议合并或降为 soft
 - [[prompt 与 context 的通用性落差]] · 同篇出现（co-occurrence） — 同篇出现：context-22
 - [[过度约束与松绑 over-constraining unhobbling]] · 同篇出现（co-occurrence） — 同篇出现：context-22
 - [[上下文工程 context engineering]] · 同篇出现（co-occurrence） — 同篇出现：context-22
@@ -51,7 +52,6 @@ CLAUDE.md 层的具体写法准则。保持轻量、简述 repo 用途，**把�
 - Context Engineering ｜ 《Claude 5 时代的上下文工程新规则：系统提示词砍掉 80%》 ｜ https://x.com/trq212/status/2080710971228918066/?s=12
 ## 反链
 
-- [[上下文工程 context engineering]]
-- [[gotchas 优先原则]]
 - [[过度约束与松绑 over-constraining unhobbling]]
+- [[gotchas 优先原则]]
 - [[prompt 与 context 的通用性落差]]

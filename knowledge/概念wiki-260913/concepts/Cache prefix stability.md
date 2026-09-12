@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: caching-cost
 learningStage: when-needed
 verification: judge
-centrality: 0.017
-depth: 0
+centrality: 0.181
+depth: 1
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 请求前缀在多次运行间保持逐字节一致，才能命中缓存、避免中途重写。
 
-**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.181
 
 ## 费曼一下
 
@@ -36,6 +36,15 @@ OpenCode 的 tools、system 与 message prefix 在 run 间 byte-identical；Clau
 
 > 改了 system prompt 后，{{name}} 会怎样影响缓存命中？
 
+## 先懂这些（前置 1）
+
+- [[前缀匹配 Prefix Matching]] · **soft** — 不懂前缀匹配，就做不了Cache prefix stability的判定（前缀是否逐字节一致到能命中）。
+
+## 懂了它才能懂（解锁 2）
+
+- [[缓存连续性 Cache Continuity]] — 不懂Cache prefix stability，就做不了缓存连续性的维护（不切模型、不混分支以保持前缀一致）。
+- [[Cache temperature]] — 不懂Cache prefix stability，就做不了Cache temperature的归因（漂移导致整段重写）。
+
 ## 相关
 
 - [[API-boundary observability]] · 同篇出现（co-occurrence） — 同篇出现：context-19
@@ -47,6 +56,9 @@ OpenCode 的 tools、system 与 message prefix 在 run 间 byte-identical；Clau
 - Context Engineering ｜ 《Claude Code 在读提示词前为何已发送 3.3 万 Token》 ｜ https://systima.ai/blog/claude-code-vs-opencode-token-overhead
 ## 反链
 
+- [[前缀匹配 Prefix Matching]]
 - [[Harness token floor]]
 - [[Tool-schema tax]]
+- [[缓存连续性 Cache Continuity]]
 - [[API-boundary observability]]
+- [[Cache temperature]]

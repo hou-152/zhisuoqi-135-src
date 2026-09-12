@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: memory-retrieval
 learningStage: now
 verification: use
-centrality: 0.092
-depth: 0
+centrality: 0.181
+depth: 1
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > agent 定期把笔记写到上下文窗口之外（待办清单或 NOTES.md）并在需要时取回，以跨上下文重置续接任务。
 
-**领域** memory-retrieval ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.092
+**领域** memory-retrieval ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.181
 
 ## 费曼一下
 
@@ -36,11 +36,14 @@ agent 定期把笔记写到上下文窗口之外并在需要时拉回，形态�
 
 > 用 {{name}} 如何让 agent 跨上下文重置续上？
 
-## 懂了它才能懂（解锁 3）
+## 先懂这些（前置 1）
+
+- [[多时间尺度记忆与「记忆只是 hint」]] · **soft** — 不懂【多时间尺度记忆与「记忆只是 hint」】就做不了【结构化记事 / agentic memory】里「写到上下文窗口之外、需要时再取回」的设计
+
+## 懂了它才能懂（解锁 2）
 
 - [[self-baking]] — self-baking 是 Agent 把上下文消化成持久知识结构，依赖结构化记事。
-- [[记忆冲刷（Memory Flush）]] — 冲刷即把笔记写到上下文之外，正属结构化记事的机制。
-- [[Signals]] — 带时间线的观察记录即写到上下文之外的记事单元。
+- [[跨轮次记忆与连贯策略]] — 不懂【结构化记事 / agentic memory】就做不了【跨轮次记忆与连贯策略】中上下文重置后续接任务的落地
 
 ## 相关
 
@@ -55,7 +58,7 @@ agent 定期把笔记写到上下文窗口之外并在需要时拉回，形态�
 
 - [[上下文工程 context engineering]]
 - [[注意力预算 attention budget]]
+- [[多时间尺度记忆与「记忆只是 hint」]]
+- [[跨轮次记忆与连贯策略]]
 - [[上下文腐烂 Context Rot]]
-- [[记忆冲刷（Memory Flush）]]
-- [[Signals]]
 - [[self-baking]]

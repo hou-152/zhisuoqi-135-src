@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: loop-autonomy
 learningStage: when-needed
 verification: use
-centrality: 0.042
-depth: 2
+centrality: 0.126
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 每个 loop 目录中的 README 契约，写明 goal、workflow、boundaries、backlog 与 timeline，供 agent 每轮读取。
 
-**领域** loop-autonomy ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** loop-autonomy ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,14 +36,16 @@ loop contract 像岗位说明书加交接班记录。它告诉 agent：你负责
 
 > 你能为一个 loop 写出符合 {{name}} 要求的 README 吗？
 
-## 先懂这些（前置 1）
+## 懂了它才能懂（解锁 2）
 
-- [[Loop Engineering]] · **soft** — Loop Contract 是循环工程落地为可读契约的一种形式。
+- [[循环工程 loop engineering]] — 不懂【Loop Contract】，就做不了【循环工程】的“写流程”。
+- [[会话生命周期]] — 不懂【Loop Contract】，就做不了【会话生命周期】的“开工读状态”。
 
 ## 相关
 
 - [[Loop Engineer]] · 同篇出现（co-occurrence） — 同篇出现：harness-16
 - [[Agent loop]] · 同篇出现（co-occurrence） — 同篇出现：harness-16
+- [[Loop Engineering]] · related-to（audit） — Loop Contract 只是循环工程落地的实例之一，不懂循环工程也能读懂一份 README 契约，属例子关系，应降级或移除
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-16
 
 ## 出场
@@ -51,6 +53,8 @@ loop contract 像岗位说明书加交接班记录。它告诉 agent：你负责
 - Harness Engineering ｜ 《Loop Engineer：把 Agent 工作流变成可复用知识模板》 ｜ https://www.youtube.com/watch?v=W6x-hb44C0c
 ## 反链
 
-- [[Loop Engineering]]
+- [[循环工程 loop engineering]]
 - [[Agent loop]]
+- [[Loop Engineering]]
 - [[Loop Engineer]]
+- [[会话生命周期]]

@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: when-needed
 verification: judge
-centrality: 0.067
+centrality: 0.017
 depth: 0
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > SDK 定位宣言：只暴露很小一组原语，抽象极少，学习曲线平缓。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,24 +36,21 @@ sources: 1
 
 > {{name}} 对 SDK 设计意味着什么取舍？
 
-## 懂了它才能懂（解锁 2）
-
-- [[primitives]] — 只暴露极少抽象是 SDK 定位，不懂它就不理解原语为何不可再拆。
-- [[turnkey yet flexible]] — 抽象极少才既默认能跑又方便改造。
-
 ## 相关
 
 - [[Handoffs Agents as tools]] · 同篇出现（co-occurrence） — 同篇出现：harness-08
 - [[Python-first]] · 同篇出现（co-occurrence） — 同篇出现：harness-08
 - [[Function tools]] · 同篇出现（co-occurrence） — 同篇出现：harness-08
 - [[MCP server tool calling]] · 同篇出现（co-occurrence） — 同篇出现：harness-08
-- [[Sessions]] · 同篇出现（co-occurrence） — 同篇出现：harness-08
 - [[Sandbox agents]] · 同篇出现（co-occurrence） — 同篇出现：harness-08
 - [[Human in the loop]] · 同篇出现（co-occurrence） — 同篇出现：harness-08
 - [[Tracing]] · 同篇出现（co-occurrence） — 同篇出现：harness-08
+- [[turnkey yet flexible]] · related-to（audit） — 抽象极少是该取向的机制之一，但不是理解 turnkey yet flexible 的必需前置。
+- [[Sessions]] · 同篇出现（co-occurrence） — 同篇出现：harness-08
 - [[higher-level runtime]] · 同篇出现（co-occurrence） — 同篇出现：harness-08
 - [[Guardrails]] · 同篇出现（co-occurrence） — 同篇出现：harness-08
 - [[primitives]] · 同篇出现（co-occurrence） — 同篇出现：harness-08
+- [[primitives]] · related-to（audit） — '极少抽象'的定位宣言不是理解原语的前提，反而更像由原语反推出来的说法；方向可疑，宜降 soft。
 - [[Agent]] · 同篇出现（co-occurrence） — 同篇出现：harness-08
 - [[Agent loop]] · 同篇出现（co-occurrence） — 同篇出现：harness-08
 
@@ -62,17 +59,17 @@ sources: 1
 - Harness Engineering ｜ 《OpenAI Agents SDK 官方文档：抽象极少的轻量 agent 框架》 ｜ https://openai.github.io/openai-agents-python/
 ## 反链
 
-- [[Agent]]
-- [[Agent loop]]
-- [[Sessions]]
 - [[Guardrails]]
-- [[higher-level runtime]]
-- [[primitives]]
-- [[Function tools]]
-- [[Tracing]]
-- [[turnkey yet flexible]]
-- [[Handoffs Agents as tools]]
 - [[Human in the loop]]
+- [[Agent loop]]
+- [[primitives]]
+- [[Tracing]]
+- [[Agent]]
+- [[Function tools]]
+- [[higher-level runtime]]
 - [[MCP server tool calling]]
-- [[Python-first]]
 - [[Sandbox agents]]
+- [[Sessions]]
+- [[Handoffs Agents as tools]]
+- [[Python-first]]
+- [[turnkey yet flexible]]

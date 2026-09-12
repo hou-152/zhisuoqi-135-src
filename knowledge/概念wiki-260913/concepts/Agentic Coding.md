@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: loop-autonomy
 learningStage: now
 verification: judge
-centrality: 0.067
+centrality: 0.126
 depth: 2
 origin: [notion]
 aliases: ["Agentic Coding Tasks", "agent 编程任务", "agent coding", "agentic programming"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 让模型自主完成读代码、改代码、跑测试、反思再改的多步编程任务，考核的是能不能把活儿干完。
 
-**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
+**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 原文 context
 
@@ -42,14 +42,15 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[Agent loop]] · **hard** — 自主读改写测依赖循环反复驱动，正是 agent loop。
+- [[Agent loop]] · **soft** — 自主读改写测依赖循环反复驱动，正是 agent loop。
 
 ## 懂了它才能懂（解锁 1）
 
-- [[Agentic workflows]] — Agentic Coding 是 Agentic workflows 在编程场景的实例。
+- [[长时程自治编码 long-running autonomous coding]] — 不懂【Agentic Coding】，就做不了【长时程自治编码】的 ⟨把编码自治推到以周为单位这件事⟩
 
 ## 相关
 
+- [[Agentic workflows]] · rejected（audit） — 理由是「Agentic Coding 是 Agentic workflows 的实例」，这是子类/实例关系，靠的是特化而非前置，不懂一般工作流也能懂 Agentic Coding。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -65,4 +66,5 @@ sources: 1
 ## 反链
 
 - [[Agent loop]]
+- [[长时程自治编码 long-running autonomous coding]]
 - [[Agentic workflows]]

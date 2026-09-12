@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: memory-retrieval
 learningStage: when-needed
 verification: judge
-centrality: 0.067
-depth: 1
+centrality: 0.236
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 短期为单会话历史，长期跨会话持久化并分层索引；agent 应把记忆当提示，行动前校验真实状态。
 
-**领域** memory-retrieval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
+**领域** memory-retrieval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.236
 
 ## 费曼一下
 
@@ -36,16 +36,16 @@ sources: 1
 
 > 面对 {{name}} 里的旧记忆，动手前要不要核对？
 
-## 先懂这些（前置 1）
-
-- [[分层记忆架构]] · **hard** — 多时间尺度记忆是分层记忆的具体实现，依赖分层架构。
-
-## 懂了它才能懂（解锁 1）
+## 懂了它才能懂（解锁 4）
 
 - [[跨轮次记忆与连贯策略]] — 跨轮次记忆保留推理历史，依赖多时间尺度记忆的分层设计。
+- [[结构化记事 agentic memory]] — 不懂【多时间尺度记忆与「记忆只是 hint」】就做不了【结构化记事 / agentic memory】里「写到上下文窗口之外、需要时再取回」的设计
+- [[self-baking]] — 不懂【多时间尺度记忆与「记忆只是 hint」】就做不了【self-baking】判定持久知识结构该落在哪一层
+- [[知识端点]] — 不懂【多时间尺度记忆与「记忆只是 hint」】就做不了【知识端点】该把哪些内容收敛进单一入口的取舍
 
 ## 相关
 
+- [[分层记忆架构]] · related-to（audit） — 多时间尺度记忆可独立理解，分层架构只是上位框架，不构成必要前置。
 - [[agent 与 harness 的分工]] · 同篇出现（co-occurrence） — 同篇出现：harness-28
 - [[If you're not the model, you're the harness.]] · 同篇出现（co-occurrence） — 同篇出现：harness-28
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-28
@@ -55,7 +55,10 @@ sources: 1
 - Harness Engineering ｜ 《一个被 harness 套住的 LLM agent：这个词到底指什么》 ｜ https://x.com/akshay_pachaar/status/2045510648474530263/?s=12
 ## 反链
 
-- [[分层记忆架构]]
-- [[agent 与 harness 的分工]]
-- [[If you're not the model, you're the harness.]]
 - [[跨轮次记忆与连贯策略]]
+- [[结构化记事 agentic memory]]
+- [[self-baking]]
+- [[If you're not the model, you're the harness.]]
+- [[分层记忆架构]]
+- [[知识端点]]
+- [[agent 与 harness 的分工]]

@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: multi-agent
 learningStage: now
 verification: judge
-centrality: 0.042
+centrality: 0.126
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 根 planner 掌握全部指令范围、不写代码，遇到可细分的窄片就递归 spawn 拥有该片的 subplanner。
 
-**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -38,10 +38,15 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[Planner–Worker 角色分离]] · **hard** — 根 planner 不写代码、subplanner 接管窄范围，仍是规划/执行分离
+- [[子 agent 编排 Fork Teammate Worktree]] · **soft** — 不懂【子 agent 编排】，就做不了【递归 planner 与 subplanner】的 ⟨递归 spawn 持有窄片的 subplanner 并管理其上下文与工作区⟩
+
+## 懂了它才能懂（解锁 1）
+
+- [[递归并行规划 sub-planner]] — 不懂【递归 planner 与 subplanner】，就做不了【递归并行规划】的 ⟨把规划本身拆成可递归展开的子规划层⟩
 
 ## 相关
 
+- [[Planner–Worker 角色分离]] · related-to（audit） — 递归 planner 只是「规划不写码/worker 执行」这一分离的一个实例，不懂前置也能直接从 subplanner 的 spawn 机制理解，属例化而非依赖，应降 soft。
 - [[自协调与共享协调文件]] · 同篇出现（co-occurrence） — 同篇出现：harness-06
 - [[锁竞争与乐观并发控制]] · 同篇出现（co-occurrence） — 同篇出现：harness-06
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-06
@@ -52,5 +57,7 @@ sources: 1
 ## 反链
 
 - [[Planner–Worker 角色分离]]
+- [[子 agent 编排 Fork Teammate Worktree]]
 - [[自协调与共享协调文件]]
+- [[递归并行规划 sub-planner]]
 - [[锁竞争与乐观并发控制]]

@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: when-needed
 verification: judge
-centrality: 0.042
-depth: 5
+centrality: 0.017
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > Agent 的基础设施可像 web app，但 interaction、interface、outputs 更动态，需沙箱、安全执行与长任务支持。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,10 +36,6 @@ Agent 的基础设施可像 web app，但 interaction、interface、outputs 更�
 
 > {{name}}相比 web app 多要求什么？
 
-## 先懂这些（前置 1）
-
-- [[Agent = Model + Harness]] · **hard** — 它是一种新软件形态，先懂 agent 由模型加 harness 组成。
-
 ## 相关
 
 - [[Capability Overhang]] · 同篇出现（co-occurrence） — 同篇出现：harness-10
@@ -52,6 +48,5 @@ Agent 的基础设施可像 web app，但 interaction、interface、outputs 更�
 ## 反链
 
 - [[Harness 工程 Harness Engineering]]
-- [[Agent = Model + Harness]]
 - [[Capability Overhang]]
 - [[Inner Loop]]

@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: economy-business
 learningStage: when-needed
 verification: judge
-centrality: 0.142
+centrality: 0.072
 depth: 0
 origin: [notion]
 aliases: ["Token Subsidy Gap", "token 补贴差", "AI 补贴缺口"]
@@ -15,9 +15,9 @@ sources: 1
 
 # Token 补贴缺口（Token Subsidy Gap）
 
-> 用户付 1 美元却烧掉约 8–13.5 美元算力的结构性补贴，活跃用户越多亏得越多。
+> 用户每付 1 美元、公司却烧掉约 8–13.5 美元算力，这是 AI 公司单位经济的核心错配。
 
-**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.142
+**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -32,16 +32,15 @@ sources: 1
 
 > 怎么判断一门生意是否陷入 {{name}}？
 
-## 懂了它才能懂（解锁 5）
+## 懂了它才能懂（解锁 1）
 
 - [[Stargate 依赖闭环（Stargate Dependency Loop）]] — 算力烧钱远超收入、必须持续融资，补贴缺口是循环存在的经济根因。
-- [[Token 卖家的激励错配]] — 先懂每 token 由谁在亏损，才看清卖家为何只喊多花 token。
-- [[Reverse Digital Divide]] — 补贴把 AI 内容压到近乎零边际成本，数字通缩由此而来。
-- [[single_advertiser_ad_unit]] — 广告事件混进模型输出流，是因为补贴缺口需要广告变现补血。
-- [[OpenAI 广告基础设施域名]] — 自建广告网络域名是补贴缺口的变现出口，懂缺口才懂其存在理由。
 
 ## 相关
 
+- [[Token 卖家的激励错配]] · related-to（audit） — 激励错配的核心是「卖家按 token 量获利所以只喊多花」，补贴缺口只是补充其不可持续性，非必需。
+- [[single_advertiser_ad_unit]] · related-to（audit） — 补贴缺口只是广告变现的动机背景，理解 SSE 里的结构化广告事件不需要先懂算力补贴经济，属可选语境而非构成前提。
+- [[OpenAI 广告基础设施域名]] · related-to（audit） — 域名与 SDK 的归属和功能可独立看懂，补贴缺口只解释「为什么要有它」，属存在理由而非理解前提。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -56,8 +55,7 @@ sources: 1
 
 ## 反链
 
-- [[single_advertiser_ad_unit]]
-- [[OpenAI 广告基础设施域名]]
-- [[Reverse Digital Divide]]
 - [[Stargate 依赖闭环（Stargate Dependency Loop）]]
+- [[OpenAI 广告基础设施域名]]
+- [[single_advertiser_ad_unit]]
 - [[Token 卖家的激励错配]]

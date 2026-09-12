@@ -47,5 +47,6 @@ sources: 1
 - Context Engineering ｜ 《AI 的新技能不是提示词，而是上下文工程》 ｜ https://www.philschmid.de/context-engineering
 ## 反链
 
+- [[上下文工程 context engineering]]
 - [[有限的工作记忆 limited working memory]]
 - [[上下文（Context）：模型生成之前看到的一切]]

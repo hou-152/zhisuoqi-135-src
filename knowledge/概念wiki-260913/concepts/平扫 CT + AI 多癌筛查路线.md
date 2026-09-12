@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: clinical-medicine
 learningStage: when-needed
 verification: accept
-centrality: 0.092
-depth: 2
+centrality: 0.017
+depth: 0
 origin: [notion]
 aliases: ["DAMO 多癌筛查", "非增强 CT + AI 多癌筛查范式", "DAMO PANDA / GRAPE / COCA"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 一次平扫 CT 同时跑多个 AI 模型，识别消化系统多种高发癌，让已有设备成为多癌筛查入口的范式。
 
-**领域** clinical-medicine ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.092
+**领域** clinical-medicine ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.017
 
 ## 原文 context
 
@@ -40,17 +40,9 @@ sources: 1
 
 > {{name}}与 Grail 液体活检路线在成本和落地上差在哪？
 
-## 先懂这些（前置 2）
-
-- [[平扫 CT]] · **hard** — 该路线以平扫CT为筛查入口，不懂平扫CT就不知其影像基础。
-- [[机会性筛查]] · **hard** — 路线让已有平扫CT顺带多癌筛查，本质是机会性筛查范式。
-
-## 懂了它才能懂（解锁 1）
-
-- [[DAMO COCA]] — DAMO COCA是该路线的具体实现，不懂路线就不懂其范式定位。
-
 ## 相关
 
+- [[DAMO COCA]] · related-to（audit） — DAMO COCA是可独立理解的单癌种模型，路线只是上位范式/背景，不是前提。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -65,6 +57,4 @@ sources: 1
 
 ## 反链
 
-- [[机会性筛查]]
-- [[平扫 CT]]
 - [[DAMO COCA]]

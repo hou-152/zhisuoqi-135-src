@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.042
-depth: 5
+centrality: 0.072
+depth: 2
 origin: [context]
 aliases: ["smallest possible set of high-signal tokens"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 有效 context 的唯一指导原则：找到使期望结果概率最大的最小高信号 token 集合；注意 minimal 并不等于 short。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -39,7 +39,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[注意力预算 attention budget]] · **hard** — 追求最小高信号集合的前提是注意力为有限预算，需做取舍。
+- [[注意力预算 attention budget]] · **hard** — 不懂【注意力预算】，就做不了【最小高信号 token 集合】的 ⟨为何要最小而非最多的取舍⟩
 
 ## 相关
 

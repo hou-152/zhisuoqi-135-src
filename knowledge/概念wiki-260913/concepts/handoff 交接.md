@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: multi-agent
 learningStage: when-needed
 verification: use
-centrality: 0.092
+centrality: 0.181
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > worker 完工后写一份单一交接报告，含所做工作、注意事项、偏差、发现与反馈，由系统交给 planner。
 
-**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.092
+**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.181
 
 ## 费曼一下
 
@@ -38,7 +38,7 @@ worker 完成任务后写的**单一**交接报告，由系统提交给下达该
 
 ## 先懂这些（前置 1）
 
-- [[Planner–Worker 角色分离]] · **hard** — 交接存在的前提是有人只管规划、有人只管执行
+- [[Planner–Worker 角色分离]] · **soft** — 交接存在的前提是有人只管规划、有人只管执行
 
 ## 懂了它才能懂（解锁 2）
 
@@ -56,8 +56,9 @@ worker 完成任务后写的**单一**交接报告，由系统提交给下达该
 - Harness Engineering ｜ 《Cursor 谈「会自动驾驶的代码库」：多 agent 研究 harness 开放预览》 ｜ https://cursor.com/blog/self-driving-codebases
 ## 反链
 
+- [[Harness]]
 - [[Planner–Worker 角色分离]]
 - [[递归 Planner-Worker 架构]]
 - [[自协调与共享协调文件]]
-- [[锁竞争与乐观并发控制]]
 - [[自收敛与免全局同步]]
+- [[锁竞争与乐观并发控制]]

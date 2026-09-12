@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: verification-eval
 learningStage: when-needed
 verification: accept
-centrality: 0.067
-depth: 1
+centrality: 0.017
+depth: 0
 origin: [notion]
 aliases: ["Referring Expression Implicitness Benchmark"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 南洋理工 MARS Lab 发布的机器人模糊指令评测基准，按指代难度×上下文干扰分 9 级，主流任务成功率最高掉 36.9%。
 
-**领域** verification-eval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.067
+**领域** verification-eval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.017
 
 ## 原文 context
 
@@ -34,13 +34,10 @@ sources: 1
 
 > {{name}} 的 9 个层级是按哪两个维度组合出来的？
 
-## 先懂这些（前置 2）
-
-- [[instruction following 的可靠性边界]] · **soft** — 基准给出模糊指令成功率下滑，才能具体理解边界。
-- [[VirtualHome]] · **soft** — 先懂具身基准范式，才定位 REI-Bench 的评测对象。
-
 ## 相关
 
+- [[VirtualHome]] · rejected（audit） — VirtualHome 只是同类具身基准中的旁例，REI-Bench 的评测对象与分级可独立自明，不构成前置。
+- [[instruction following 的可靠性边界]] · rejected（audit） — REI-Bench 只是佐证「可靠性边界」的一个具体基准/例子，概念本身可完全独立成立；作为例子不构成依赖边。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion

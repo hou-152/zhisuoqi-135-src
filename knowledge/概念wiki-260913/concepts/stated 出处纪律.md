@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: memory-retrieval
 learningStage: now
 verification: judge
-centrality: 0.042
-depth: 1
+centrality: 0.072
+depth: 0
 origin: [context]
 aliases: []
 sources: 1
@@ -15,9 +15,9 @@ sources: 1
 
 # stated 出处纪律
 
-> 存储时只保留用户明确说过的内容，判据是出处而不是是否有用
+> 存储时只保留用户明确说过的内容，判据是出处而不是谁最后说的。
 
-**领域** memory-retrieval ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** memory-retrieval ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,9 +36,9 @@ sources: 1
 
 > 这条记录该不该存，按 {{name}} 你怎么判？
 
-## 先懂这些（前置 1）
+## 懂了它才能懂（解锁 1）
 
-- [[记忆 Memory]] · **hard** — 它是记忆写入的判据纪律，先懂记忆写入才懂出处优先。
+- [[Tacit Knowledge]] — 不懂【stated 出处纪律】，就做不了【Tacit Knowledge】的边界划定——说不出哪些推理过程、tradeoffs 属于「未被明确说出的」那一侧
 
 ## 相关
 
@@ -51,7 +51,7 @@ sources: 1
 - Context Engineering ｜ 《Opus 5 系统提示词全文流出：一份近两万字的 agent 行为说明书》 ｜ https://github.com/Eversmile12/leaked-llm-prompts/blob/main/Anthropic/opus-5.md
 ## 反链
 
-- [[记忆 Memory]]
 - [[判定程序化写法]]
-- [[fail-closed 默认]]
 - [[反自我合理化条款]]
+- [[fail-closed 默认]]
+- [[Tacit Knowledge]]

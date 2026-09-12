@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: verification-eval
 learningStage: when-needed
 verification: accept
-centrality: 0.042
+centrality: 0.017
 depth: 0
 origin: [notion]
 aliases: ["VirtualHome"]
@@ -17,7 +17,7 @@ sources: 1
 
 > Puig 等 2018 提出的具身智能基准，用程序化脚本模拟家庭日常活动。
 
-**领域** verification-eval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
+**领域** verification-eval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.017
 
 ## 原文 context
 
@@ -34,12 +34,9 @@ sources: 1
 
 > {{name}} 的指令体系建立在什么假设之上？
 
-## 懂了它才能懂（解锁 1）
-
-- [[REI-Bench]] — 先懂具身基准范式，才定位 REI-Bench 的评测对象。
-
 ## 相关
 
+- [[REI-Bench]] · rejected（audit） — VirtualHome 只是同类具身基准中的旁例，REI-Bench 的评测对象与分级可独立自明，不构成前置。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion

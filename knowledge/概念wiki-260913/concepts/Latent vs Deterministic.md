@@ -6,7 +6,7 @@ subject: AI 概念库 × Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.11
+centrality: 0.089
 depth: 0
 origin: [notion, harness]
 aliases: ["Latent space", "Deterministic", "latent 空间", "确定性", "latent / deterministic 边界", "latent与确定性"]
@@ -15,9 +15,9 @@ sources: 2
 
 # Latent vs Deterministic
 
-> 系统每一步非潜空间即确定性：智能住在潜空间，信任住在确定性层，混淆二者最常见错。
+> 系统每一步要么在潜空间要么是确定性的，混淆二者是 Agent 设计中最常见的错误。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.11
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.089
 
 ## 费曼一下
 
@@ -36,20 +36,18 @@ agent 系统里每一步都必须落在其中一边。
 
 > 你能指出 {{name}} 的实例中哪些步骤属于哪一类吗？
 
-## 懂了它才能懂（解锁 3）
+## 懂了它才能懂（解锁 1）
 
-- [[1.6% vs 98.4%]] — 该统计正是 AI 决策与确定性工程的划分，需先懂此二分。
-- [[会自己重写的地基]] — 模型是可被厂商重写的概率系统，需先懂 latent 与 deterministic。
 - [[对话加确定性缝合]] — 缝合的前提是分清哪层 latent、哪层确定性。
 
 ## 相关
 
 - [[Skill Files]] · 同篇出现（co-occurrence） — 同篇出现：harness-24
 - [[Thin Harness, Fat Skills]] · 同篇出现（co-occurrence） — 同篇出现：harness-24
-- [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-24
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
+- [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-24
 
 ## 出场
 
@@ -62,8 +60,6 @@ agent 系统里每一步都必须落在其中一边。
 
 ## 反链
 
+- [[Thin Harness, Fat Skills]]
 - [[对话加确定性缝合]]
 - [[Skill Files]]
-- [[1.6% vs 98.4%]]
-- [[会自己重写的地基]]
-- [[Thin Harness, Fat Skills]]

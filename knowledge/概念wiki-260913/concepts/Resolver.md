@@ -6,8 +6,8 @@ subject: AI 概念库 × Harness Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.035
-depth: 0
+centrality: 0.089
+depth: 2
 origin: [notion, harness]
 aliases: ["上下文路由器", "routing table for context", "上下文路由表", "context resolver"]
 sources: 2
@@ -17,7 +17,7 @@ sources: 2
 
 > 上下文的路由表：任务类型 X 出现时优先加载文档 Y，规定加载什么与何时加载。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.035
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.089
 
 ## 费曼一下
 
@@ -36,14 +36,18 @@ resolver 是「何时加载哪份文档 / 哪个能力」的路由器。
 
 > 能否为 {{name}} 写出任务类型到文档的映射表并解释优先级？
 
+## 先懂这些（前置 1）
+
+- [[上下文文件树 tree of files]] · **soft** — 不懂【上下文文件树】，就做不了【Resolver】的路由目标与加载层级编排
+
 ## 相关
 
 - [[Skill Files]] · 同篇出现（co-occurrence） — 同篇出现：harness-24
 - [[Thin Harness, Fat Skills]] · 同篇出现（co-occurrence） — 同篇出现：harness-24
-- [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-24
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
+- [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-24
 
 ## 出场
 
@@ -56,5 +60,6 @@ resolver 是「何时加载哪份文档 / 哪个能力」的路由器。
 
 ## 反链
 
-- [[Skill Files]]
+- [[上下文文件树 tree of files]]
 - [[Thin Harness, Fat Skills]]
+- [[Skill Files]]

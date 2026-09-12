@@ -6,8 +6,8 @@ subject: Context Engineering × Harness Engineering
 domain: harness-runtime
 learningStage: when-needed
 verification: use
-centrality: 0.06
-depth: 3
+centrality: 0.035
+depth: 0
 origin: [context, harness]
 aliases: []
 sources: 2
@@ -17,7 +17,7 @@ sources: 2
 
 > 用 Responses API 重写 harness 以更好对齐生产设置，并建议开发者弃用 legacy Chat Completions。
 
-**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.06
+**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.035
 
 ## 费曼一下
 
@@ -36,14 +36,10 @@ sources: 2
 
 > 你的 {{name}} 是否已用 Responses API 而非旧 Chat Completions 实现？
 
-## 先懂这些（前置 1）
-
-- [[Harness 工程 Harness Engineering]] · **soft** — 用新 API 重实现 harness，先要懂 harness 工程怎么搭。
-
 ## 相关
 
-- [[基准测试的捆绑测量性]] · 同篇出现（co-occurrence） — 同篇出现：context-A2
 - [[保留推理 retained reasoning]] · 同篇出现（co-occurrence） — 同篇出现：context-A2
+- [[基准测试的捆绑测量性]] · 同篇出现（co-occurrence） — 同篇出现：context-A2
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：context-A2
 
 ## 出场
@@ -53,6 +49,5 @@ sources: 2
 ## 反链
 
 - [[Harness]]
-- [[Harness 工程 Harness Engineering]]
 - [[基准测试的捆绑测量性]]
 - [[保留推理 retained reasoning]]

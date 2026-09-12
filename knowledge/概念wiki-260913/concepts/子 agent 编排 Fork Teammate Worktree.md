@@ -7,7 +7,7 @@ subject: Harness Engineering
 domain: multi-agent
 learningStage: when-needed
 verification: use
-centrality: 0.017
+centrality: 0.181
 depth: 0
 origin: [harness]
 aliases: ["Fork / Teammate / Worktree"]
@@ -18,7 +18,7 @@ sources: 1
 
 > 三种子 agent 执行模型：Fork 逐字节复制父上下文、Teammate 独立终端加文件信箱、Worktree 各自 git 分支；同时是上下文管理手段。
 
-**领域** multi-agent ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** multi-agent ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.181
 
 ## 费曼一下
 
@@ -37,6 +37,12 @@ Claude Code 的三种执行模型——Fork（父上下文的逐字节副本）�
 
 > 你会用 {{name}} 的哪种形态隔离并行任务？
 
+## 懂了它才能懂（解锁 3）
+
+- [[递归 planner 与 subplanner]] — 不懂【子 agent 编排】，就做不了【递归 planner 与 subplanner】的 ⟨递归 spawn 持有窄片的 subplanner 并管理其上下文与工作区⟩
+- [[integrator 瓶颈]] — 不懂【子 agent 编排】，就做不了【integrator 瓶颈】的 ⟨识别大量并行 worker 汇聚到唯一合并闸口⟩
+- [[意图理解、路由与升级 understand intent, route, escalate]] — 不懂【子 agent 编排】，就做不了【意图理解、路由与升级】的 ⟨把工作路由给正确执行者——不知道有哪些可寻址的执行者及其隔离方式⟩
+
 ## 相关
 
 - [[agent 与 harness 的分工]] · 同篇出现（co-occurrence） — 同篇出现：harness-28
@@ -53,5 +59,8 @@ Claude Code 的三种执行模型——Fork（父上下文的逐字节副本）�
 
 ## 反链
 
-- [[agent 与 harness 的分工]]
 - [[If you're not the model, you're the harness.]]
+- [[递归 planner 与 subplanner]]
+- [[意图理解、路由与升级 understand intent, route, escalate]]
+- [[agent 与 harness 的分工]]
+- [[integrator 瓶颈]]

@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: now
 verification: use
-centrality: 0.017
-depth: 0
+centrality: 0.072
+depth: 1
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 长循环中模型注意力偏向首尾；不断重写 todo 等于把目标复述到上下文末尾，避开中段被忽略。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,6 +36,10 @@ Manus 让复杂任务持续创建并更新 todo.md 的原因。典型任务平�
 
 > 你能用 {{name}} 解释反复重写 todo.md 为什么有效吗？
 
+## 先懂这些（前置 1）
+
+- [[迷失在中间 lost in the middle]] · **hard** — 不懂【迷失在中间】，就做不了【复述（recitation）与 lost-in-the-middle】的把目标复述到上下文末尾的策略
+
 ## 相关
 
 - [[押注 in-context learning]] · 同篇出现（co-occurrence） — 同篇出现：context-04
@@ -48,5 +52,6 @@ Manus 让复杂任务持续创建并更新 todo.md 的原因。典型任务平�
 ## 反链
 
 - [[上下文工程 context engineering]]
+- [[迷失在中间 lost in the middle]]
 - [[押注 in-context learning]]
 - [[与底层模型正交 orthogonal to the underlying models]]

@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: model-training
 learningStage: when-needed
 verification: accept
-centrality: 0.042
-depth: 1
+centrality: 0.017
+depth: 0
 origin: [notion]
 aliases: ["Mixture of Experts", "混合专家", "专家模型"]
 sources: 1
@@ -15,9 +15,9 @@ sources: 1
 
 # MoE
 
-> 把计算稀疏化，每次只激活部分专家，用更少算力换同等能力。
+> 把计算稀疏化，每次只激活一部分专家。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,12 +36,9 @@ sources: 1
 
 > {{name}} 稀疏掉的是计算还是存储？
 
-## 先懂这些（前置 1）
-
-- [[Q、K、V]] · **soft** — MoE 稀疏化的是 Transformer 的 FFN，懂 QKV 注意力才能定位它的替换位置。
-
 ## 相关
 
+- [[Q、K、V]] · rejected（audit） — MoE 稀疏化的是 FFN，与 QKV 注意力是并列组件，不构成依赖，理由定位有误
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion

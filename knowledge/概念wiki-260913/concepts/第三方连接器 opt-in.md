@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: tools-sandbox
 learningStage: now
 verification: use
-centrality: 0.042
+centrality: 0.072
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 第三方 MCP 工具即便已连上也要经选择器由用户 opt-in；不得替用户挑服务商，紧急也不例外。
 
-**领域** tools-sandbox ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** tools-sandbox ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -38,10 +38,11 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[权限与推理的架构分离]] · **soft** — 由选择器而非模型决定工具权限，正是权限与推理分离的体现
+- [[连接器]] · **hard** — 不懂【连接器】，就做不了【第三方连接器 opt-in】的选择器设计——不知道连上了哪些第三方服务，就无从让用户逐项授权
 
 ## 相关
 
+- [[权限与推理的架构分离]] · rejected（audit） — opt-in 是权限分离的一个应用例子，不懂分离也能理解 opt-in，不构成前置依赖。
 - [[判定程序化写法]] · 同篇出现（co-occurrence） — 同篇出现：context-20
 - [[反自我合理化条款]] · 同篇出现（co-occurrence） — 同篇出现：context-20
 - [[fail-closed 默认]] · 同篇出现（co-occurrence） — 同篇出现：context-20
@@ -53,5 +54,6 @@ sources: 1
 
 - [[权限与推理的架构分离]]
 - [[判定程序化写法]]
-- [[fail-closed 默认]]
+- [[连接器]]
 - [[反自我合理化条款]]
+- [[fail-closed 默认]]

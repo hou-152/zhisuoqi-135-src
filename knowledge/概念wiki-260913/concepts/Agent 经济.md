@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: economy-business
 learningStage: when-needed
 verification: judge
-centrality: 0.042
-depth: 1
+centrality: 0.017
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 未来购物、订阅、筛选信息的执行者可能是 Agent，营销素材与产品界面需面向 Agent 消费。
 
-**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,10 +36,6 @@ Clark 提出未来买东西、订阅、筛选信息的可能是 Agent，因此�
 
 > {{name}}成立后，产品界面与营销素材要怎么改？
 
-## 先懂这些（前置 1）
-
-- [[第三方引用杠杆]] · **soft** — 购买主体变成 Agent 后，被第三方引用成为被推荐的关键
-
 ## 相关
 
 - [[AI-First]] · 同篇出现（co-occurrence） — 同篇出现：harness-14
@@ -52,6 +48,5 @@ Clark 提出未来买东西、订阅、筛选信息的可能是 Agent，因此�
 ## 反链
 
 - [[Harness 工程 Harness Engineering]]
-- [[第三方引用杠杆]]
-- [[信任机制重构]]
 - [[AI-First]]
+- [[信任机制重构]]

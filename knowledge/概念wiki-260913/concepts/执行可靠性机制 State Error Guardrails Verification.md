@@ -7,7 +7,7 @@ subject: Context Engineering × Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: use
-centrality: 0.035
+centrality: 0.089
 depth: 0
 origin: [context, harness]
 aliases: ["State / Error / Guardrails / Verification"]
@@ -18,7 +18,7 @@ sources: 2
 
 > 让执行中断可恢复、错误不滚雪球、越界立即停止的机制集合：状态、错误、护栏、验证。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.035
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.089
 
 ## 费曼一下
 
@@ -36,6 +36,10 @@ sources: 2
 ## 验收问句
 
 > 在 {{name}} 里，哪一环负责阻止错误继续放大？
+
+## 懂了它才能懂（解锁 1）
+
+- [[反脆弱]] — 不懂状态、错误、护栏、验证这几件事，就做不到单个 Agent 失败不拖垮整体
 
 ## 相关
 
@@ -55,5 +59,6 @@ sources: 2
 ## 反链
 
 - [[Harness]]
-- [[AI Agent]]
 - [[非模型架构 Non-model Architecture]]
+- [[AI Agent]]
+- [[反脆弱]]

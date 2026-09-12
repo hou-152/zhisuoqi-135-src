@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: economy-business
 learningStage: when-needed
 verification: judge
-centrality: 0.092
-depth: 1
+centrality: 0.017
+depth: 0
 origin: [notion]
 aliases: ["AI Bubble", "AI bubble"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 判定标准不是涨得猛，而是投入与可见收益之间出现失衡，常被类比铁路与互联网泡沫。
 
-**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.092
+**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 原文 context
 
@@ -36,17 +36,10 @@ sources: 1
 
 > 判断 {{name}} 时你会看哪个指标？
 
-## 先懂这些（前置 1）
-
-- [[年化营收]] · **soft** — 不看清年化营收只是延长线，就会把烧钱误读成高收益
-
-## 懂了它才能懂（解锁 2）
-
-- [[次贷式 AI 危机（Subprime AI Crisis）]] — 次贷式崩塌是投入与收益失衡的一种极端表现形式
-- [[LLM 订阅错配（LLM Subscription Mispricing）]] — 订阅错配是 AI 投入与可见收益失衡的一个具体证据
-
 ## 相关
 
+- [[次贷式 AI 危机（Subprime AI Crisis）]] · related-to（audit） — AI 泡沫是上位背景/类型，不是理解次贷式危机机制的前置。
+- [[LLM 订阅错配（LLM Subscription Mispricing）]] · rejected（audit） — 订阅错配是 AI 泡沫的具体证据，不构成理解它的前置依赖。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -61,6 +54,5 @@ sources: 1
 
 ## 反链
 
-- [[次贷式 AI 危机（Subprime AI Crisis）]]
-- [[年化营收]]
 - [[LLM 订阅错配（LLM Subscription Mispricing）]]
+- [[次贷式 AI 危机（Subprime AI Crisis）]]

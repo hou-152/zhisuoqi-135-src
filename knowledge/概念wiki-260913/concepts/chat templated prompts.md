@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: judge
-centrality: 0.042
+centrality: 0.072
 depth: 1
 origin: [context]
 aliases: []
@@ -15,9 +15,9 @@ sources: 1
 
 # chat templated prompts
 
-> 对话式提示只是补全式提示的一种特殊包装，本质仍是前缀文本。
+> 对话式提示只是补全式提示的一种特殊包装。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -52,6 +52,6 @@ sources: 1
 ## 反链
 
 - [[Harness]]
-- [[LLM Large Language Model]]
 - [[coding agent]]
+- [[LLM Large Language Model]]
 - [[prompt completion]]

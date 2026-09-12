@@ -41,15 +41,15 @@ sources: 1
 
 ## 相关
 
-- [[docsdecisions]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
 - [[AI 公司岗位编制]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
+- [[为 AI 设计工作环境]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
+- [[docsdecisions]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
 - [[层级架构强约束 + 给 Agent 读的 lint 错误]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
 - [[0 人工代码、0 人工 review 极限形态]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
-- [[为 AI 设计工作环境]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
 - [[CLAUDE.md]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
 - [[hooks .claudehooks]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
-- [[1.6% vs 98.4%]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
 - [[确定性工程基础设施 deterministic engineering infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
+- [[1.6% vs 98.4%]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
 - [[程序记忆（Procedural Memory Skills） progressive disclosure]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
 - [[Agent = Model + Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
@@ -65,14 +65,14 @@ sources: 1
 
 ## 反链
 
+- [[0 人工代码、0 人工 review 极限形态]]
+- [[docsdecisions]]
 - [[Agent = Model + Harness]]
+- [[层级架构强约束 + 给 Agent 读的 lint 错误]]
 - [[程序记忆（Procedural Memory Skills） progressive disclosure]]
 - [[CLAUDE.md]]
-- [[0 人工代码、0 人工 review 极限形态]]
-- [[1.6% vs 98.4%]]
-- [[层级架构强约束 + 给 Agent 读的 lint 错误]]
-- [[docsdecisions]]
 - [[hooks .claudehooks]]
+- [[1.6% vs 98.4%]]
 - [[确定性工程基础设施 deterministic engineering infrastructure]]
 - [[为 AI 设计工作环境]]
 - [[AI 公司岗位编制]]

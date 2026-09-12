@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: verification-eval
 learningStage: when-needed
 verification: judge
-centrality: 0.067
-depth: 2
+centrality: 0.126
+depth: 1
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 每个冲刺开始前，生成者与评估者先就「什么叫完成」达成一致，再动手写代码
 
-**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
+**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,13 +36,18 @@ Before each sprint, the generator and evaluator negotiated a sprint contract: ag
 
 > {{name}} 中，完成的定义应在什么时候、由谁确认？
 
-## 先懂这些（前置 2）
+## 先懂这些（前置 1）
 
-- [[Rubric]] · **soft** — 契约本质就是开工前双方对齐的验收 rubric。
-- [[Validation gates]] · **soft** — 契约是冲刺起点的一道验收门禁。
+- [[Grading Criteria]] · **soft** — 不懂 Grading Criteria，就做不了 Sprint Contract 中把「什么叫完成」落成可打分标准
+
+## 懂了它才能懂（解锁 1）
+
+- [[Validation gates]] — 不懂 Sprint Contract，就做不了 Validation gates 的「明示验收条件」设定
 
 ## 相关
 
+- [[Rubric]] · related-to（audit） — 契约是开工前对齐「完成标准」，通用 rubric 概念非必需；两者只是概念相邻，应降 soft 或踢出。
+- [[Validation gates]] · related-to（audit） — 契约是对齐验收标准者，本身不是检查点；是门禁取用契约，而非契约依赖门禁。
 - [[Context Anxiety]] · 同篇出现（co-occurrence） — 同篇出现：harness-09
 - [[Context Reset vs Compaction]] · 同篇出现（co-occurrence） — 同篇出现：harness-09
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-09
@@ -52,7 +57,8 @@ Before each sprint, the generator and evaluator negotiated a sprint contract: ag
 - Harness Engineering ｜ 《Anthropic 工程实践：如何为长时间运行的 Agent 应用设计 Harness》 ｜ https://www.anthropic.com/engineering/harness-design-long-running-apps
 ## 反链
 
-- [[Rubric]]
-- [[Context Reset vs Compaction]]
 - [[Validation gates]]
+- [[Context Reset vs Compaction]]
+- [[Grading Criteria]]
+- [[Rubric]]
 - [[Context Anxiety]]

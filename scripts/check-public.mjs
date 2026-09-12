@@ -36,7 +36,19 @@ const ev = async expr => {
 };
 
 await send('Page.enable'); await send('Runtime.enable'); await send('Log.enable');
-await send('Page.navigate', { url: URL_ }); await sleep(2800);
+await send('Page.navigate', { url: URL_ }); await sleep(1200);
+// 线上是 730KB 单文件 + GitHub Pages 延迟，固定 2.8s 会在页面还没初始化时就开始断言
+// （2026-09-13 对线上跑时踩到：DATA is not defined，一堆假失败）。改成轮询到页面就绪。
+{
+  const t0 = Date.now();
+  let ready = false;
+  while (Date.now() - t0 < (ONLINE ? 45000 : 15000)) {
+    if (await ev('typeof DATA === "object" && Array.isArray(DATA.nodes)')) { ready = true; break; }
+    await sleep(500);
+  }
+  console.log(`  页面就绪：${ready ? 'OK' : '超时'}（${((Date.now() - t0) / 1000).toFixed(1)}s${ONLINE ? ' · 线上' : ''}）`);
+  if (!ready) { console.error('页面没初始化，后面断言都会是假失败，先停。'); process.exit(3); }
+}
 // 无头 Chrome 不会把 #panel 的过渡跑完，截图/断言前先禁掉（真实浏览器里不受影响）
 await ev(`(()=>{const s=document.createElement('style');s.textContent='*{transition:none!important;animation:none!important}';document.head.appendChild(s)})()`);
 
@@ -53,7 +65,9 @@ async function step(label, action, expect, waitMs = 900) {
   await sleep(waitMs);
   const bad = events.slice(before)
     .filter(e => e.method === 'Runtime.exceptionThrown' || (e.method === 'Log.entryAdded' && e.params?.entry?.level === 'error'))
-    .filter(e => !/favicon/.test(JSON.stringify(e)));
+    .filter(e => !/favicon/.test(JSON.stringify(e)))
+    // /api/health 的 404 是公网版故意探服务端（探不到才走无服务端分支），不是缺陷
+    .filter(e => !/\/api\/health/.test(JSON.stringify(e)));
   for (const b of bad) fails.push(`${label}｜控制台报错：${JSON.stringify(b).slice(0, 170)}`);
   let got = null;
   if (expect) {

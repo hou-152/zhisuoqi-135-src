@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: safety-governance
 learningStage: now
 verification: judge
-centrality: 0.067
-depth: 4
+centrality: 0.126
+depth: 1
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 把 Agent 骨架与执行计算的沙箱环境分离，使模型生成的代码触不到凭证等敏感信息。
 
-**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
+**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -39,10 +39,11 @@ Separating harness and compute helps keep credentials out of environments where 
 ## 先懂这些（前置 2）
 
 - [[exfiltration]] · **soft** — 隔离沙箱与骨架的目标之一就是防外泄，需先懂 exfiltration
-- [[AWS VPC]] · **soft** — VPC 是隔离在网络层的落地环境，先懂分离目标才懂其用途
+- [[权限与推理的架构分离]] · **soft** — 不懂【权限与推理的架构分离】，就做不了【harness–compute separation】中骨架与计算沙箱之间的权限边界设计。
 
 ## 相关
 
+- [[AWS VPC]] · rejected（audit） — VPC 是独立的云网络概念，其含义不依赖 harness–compute separation；这里只是「落地环境/例子」，关系反而更接近反向（分离目标才需要 VPC 这类网络层隔离）。
 - [[Sandbox]] · 常一起用（运行时组成） — 沙箱承担被隔离的计算侧，是该分层模式的执行端。
 - [[Agents SDK]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
 - [[model-native harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
@@ -55,7 +56,8 @@ Separating harness and compute helps keep credentials out of environments where 
 ## 反链
 
 - [[Sandbox]]
-- [[model-native harness]]
+- [[权限与推理的架构分离]]
 - [[exfiltration]]
+- [[model-native harness]]
 - [[Agents SDK]]
 - [[AWS VPC]]

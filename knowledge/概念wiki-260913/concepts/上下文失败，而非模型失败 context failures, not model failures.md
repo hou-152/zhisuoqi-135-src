@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.042
-depth: 2
+centrality: 0.072
+depth: 1
 origin: [context]
 aliases: ["context failures, not model failures"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 多数 agent 失败已不是模型能力不够，而是上下文装配不对，修系统比换模型更有效。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -39,7 +39,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[上下文工程 context engineering]] · **soft** — 此判断的前提是上下文装配本身可被工程化，不懂上下文工程就无从归因。
+- [[上下文 context]] · **hard** — 不懂【上下文】是调用前装配出来的整体，就做不了【上下文失败，而非模型失败】中「把失败归因到装配而非模型」的判断
 
 ## 相关
 
@@ -57,6 +57,7 @@ sources: 1
 
 ## 反链
 
+- [[上下文 context]]
 - [[上下文工程 context engineering]]
 - [[有限的工作记忆 limited working memory]]
 - [[上下文（Context）：模型生成之前看到的一切]]

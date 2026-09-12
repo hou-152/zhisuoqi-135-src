@@ -5,8 +5,8 @@ type: REPRESENTATIONAL
 subject: Harness Engineering
 domain: tools-sandbox
 learningStage: now
-verification: compute
-centrality: 0.092
+verification: use
+centrality: 0.072
 depth: 0
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 让模型在真实环境里执行 shell 命令、跑代码并读回输出的具名工具。
 
-**领域** tools-sandbox ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.092
+**领域** tools-sandbox ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,14 +36,15 @@ code execution using the shell tool
 
 > 要跑一段脚本验证结果，怎么用 {{name}} 执行并取回输出？
 
-## 懂了它才能懂（解锁 3）
+## 懂了它才能懂（解锁 1）
 
-- [[通用工具与「给模型一台计算机」]] — 该思路就是让 agent 用自带 bash 写代码，不懂 shell tool 就不知它依赖什么。
-- [[code mode]] — 写代码执行代码要靠能跑 shell 的具名工具落地，先懂 shell tool 更具体。
-- [[apply patch tool]] — 两者同属让模型在真实环境改文件与执行的具名工具，懂 shell 才懂 apply patch 的定位。
+- [[通用工具与「给模型一台计算机」]] — 不懂【shell tool】，就做不了【通用工具与「给模型一台计算机」】——让模型写代码执行必须有一个执行 shell 的具名工具
 
 ## 相关
 
+- [[通用工具与「给模型一台计算机」]] · related-to（audit） — shell tool 只是「给模型一台计算机」的一种具体实现，该概念可作为抽象理解，不必先懂 shell tool。
+- [[code mode]] · related-to（audit） — code mode 靠的是代码执行原语，shell tool 只是其中一种落地方式；不懂 shell tool 也能理解 code mode，应降 soft。
+- [[code mode]] · rejected（audit） — code mode 不依赖 shell tool，可用其他代码执行/沙箱实现。
 - [[Agents SDK]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
 - [[model-native harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
@@ -56,5 +57,4 @@ code execution using the shell tool
 - [[model-native harness]]
 - [[通用工具与「给模型一台计算机」]]
 - [[Agents SDK]]
-- [[apply patch tool]]
 - [[code mode]]

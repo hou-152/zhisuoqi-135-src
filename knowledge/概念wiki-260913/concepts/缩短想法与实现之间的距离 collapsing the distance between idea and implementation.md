@@ -6,7 +6,7 @@ type: CONCEPTUAL
 subject: Context Engineering
 domain: code-engineering
 learningStage: when-needed
-verification: judge
+verification: accept
 centrality: 0.017
 depth: 0
 origin: [context]
@@ -18,7 +18,7 @@ sources: 1
 
 > 把 agent 植根于产品与代码库的完整上下文，压缩想法到实现的距离。
 
-**领域** code-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** code-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -37,12 +37,6 @@ sources: 1
 
 > {{name}} 依赖哪些上下文才能成立？
 
-## 相关
-
-- [[交接模型 handoff model]] · 同篇出现（co-occurrence） — 同篇出现：context-11
-- [[复杂被误认为精密 complexity looked like sophistication]] · 同篇出现（co-occurrence） — 同篇出现：context-11
-- [[流程即工作 the process became the work]] · 同篇出现（co-occurrence） — 同篇出现：context-11
-
 ## 出场
 
 - Context Engineering ｜ 《产品开发的下一阶段由上下文与行动能力驱动》 ｜ https://linear.app/next
@@ -50,9 +44,3 @@ sources: 1
 ## 别名
 
 `collapsing the distance between idea and implementation`
-
-## 反链
-
-- [[交接模型 handoff model]]
-- [[流程即工作 the process became the work]]
-- [[复杂被误认为精密 complexity looked like sophistication]]

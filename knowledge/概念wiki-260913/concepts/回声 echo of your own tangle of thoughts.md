@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: thinking-method
 learningStage: when-needed
 verification: judge
-centrality: 0.042
-depth: 5
+centrality: 0.017
+depth: 0
 origin: [context]
 aliases: ["echo of your own tangle of thoughts"]
 sources: 1
@@ -16,9 +16,9 @@ sources: 1
 
 # 回声 · echo of your own tangle of thoughts
 
-> 模型返回的常不是新观点，而是你原有那团缠绕想法的回声，于是对话容易变成自我确认而非真正推进。
+> 模型返回的常不是新观点，而是你原有那团缠绕想法的回声。
 
-**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -37,10 +37,6 @@ sources: 1
 
 > 能否判断这段输出是 {{name}} 还是新观点？
 
-## 先懂这些（前置 1）
-
-- [[局部最优 local optima]] · **soft** — 模型只是回放你那份受自身摸索限制的想法，不懂局部最优就不懂回声。
-
 ## 相关
 
 - [[漫谈会话 ramble session]] · 同篇出现（co-occurrence） — 同篇出现：context-09
@@ -57,7 +53,6 @@ sources: 1
 
 ## 反链
 
-- [[局部最优 local optima]]
-- [[bits]]
 - [[漫谈会话 ramble session]]
+- [[bits]]
 - [[输入摩擦 too lazy to type]]

@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: model-training
 learningStage: when-needed
 verification: use
-centrality: 0.042
-depth: 3
+centrality: 0.072
+depth: 1
 origin: [context]
 aliases: []
 sources: 1
@@ -15,9 +15,9 @@ sources: 1
 
 # reasoning effort
 
-> coding agent 可调高或调低的推理强度，在输出质量与 token 成本之间取舍。
+> coding agent 可调高或调低的推理强度。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -53,6 +53,6 @@ coding agents 可调高或调低 reasoning effort。
 ## 反链
 
 - [[注意力预算 attention budget]]
-- [[LLM Large Language Model]]
 - [[coding agent]]
+- [[LLM Large Language Model]]
 - [[reasoning thinking]]

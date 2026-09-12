@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: harness-runtime
 learningStage: when-needed
 verification: use
-centrality: 0.042
-depth: 1
+centrality: 0.017
+depth: 0
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 一组让 LLM 软件达到生产可交付水准的工程要素纲领，非框架，可单独取用。
 
-**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,23 +36,19 @@ sources: 1
 
 > {{name}} 里哪几条你最该先照做？
 
-## 先懂这些（前置 1）
-
-- [[Agentic Engineering]] · **soft** — 该纲领在 Agentic Engineering 语境下回答 LLM 软件生产化原则。
-
 ## 相关
 
-- [[DAG 编排器]] · 同篇出现（co-occurrence） — 同篇出现：context-06
 - [[「扔掉 DAG」的承诺]] · 同篇出现（co-occurrence） — 同篇出现：context-06
 - [[agent 循环]] · 同篇出现（co-occurrence） — 同篇出现：context-06
 - [[context window 即 agent 状态]] · 同篇出现（co-occurrence） — 同篇出现：context-06
-- [[80% 质量墙]] · 同篇出现（co-occurrence） — 同篇出现：context-06
 - [[框架反向工程]] · 同篇出现（co-occurrence） — 同篇出现：context-06
 - [[小而模块化的概念]] · 同篇出现（co-occurrence） — 同篇出现：context-06
 - [[所有权原则]] · 同篇出现（co-occurrence） — 同篇出现：context-06
 - [[工具即结构化输出]] · 同篇出现（co-occurrence） — 同篇出现：context-06
-- [[统一执行状态与业务状态]] · 同篇出现（co-occurrence） — 同篇出现：context-06
 - [[用工具调用联系人类]] · 同篇出现（co-occurrence） — 同篇出现：context-06
+- [[80% 质量墙]] · 同篇出现（co-occurrence） — 同篇出现：context-06
+- [[统一执行状态与业务状态]] · 同篇出现（co-occurrence） — 同篇出现：context-06
+- [[Agentic Engineering]] · related-to（audit） — 12-factor agents 是可独立取用的具体纲领，属于 Agentic Engineering 的一个实例，不懂上位术语也能读懂 12 条；实例化不等于依赖
 - [[「并不 agentic」的 AI Agent]] · 同篇出现（co-occurrence） — 同篇出现：context-06
 - [[软件即有向图]] · 同篇出现（co-occurrence） — 同篇出现：context-06
 
@@ -62,16 +58,15 @@ sources: 1
 ## 反链
 
 - [[Agentic Engineering]]
+- [[agent 循环]]
 - [[统一执行状态与业务状态]]
+- [[context window 即 agent 状态]]
+- [[框架反向工程]]
+- [[用工具调用联系人类]]
 - [[「并不 agentic」的 AI Agent]]
 - [[「扔掉 DAG」的承诺]]
 - [[80% 质量墙]]
 - [[工具即结构化输出]]
-- [[框架反向工程]]
 - [[软件即有向图]]
-- [[小而模块化的概念]]
-- [[用工具调用联系人类]]
-- [[agent 循环]]
-- [[context window 即 agent 状态]]
-- [[DAG 编排器]]
 - [[所有权原则]]
+- [[小而模块化的概念]]

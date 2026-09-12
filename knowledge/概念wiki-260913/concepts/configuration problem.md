@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.067
-depth: 3
+centrality: 0.017
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 失败根因多在配置而非模型能力；模型越强任务越难，失败仍会以意外方式出现。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,26 +36,22 @@ sources: 1
 
 > 面对一次 Agent 失败，怎么用 {{name}} 定位原因？
 
-## 先懂这些（前置 2）
-
-- [[能力鸿沟]] · **soft** — 失败根因在配置而非模型能力，是能力鸿沟的一种具体表现形式。
-- [[Harness 工程 Harness Engineering]] · **soft** — 失败多源于配置，先懂 harness 工程才知道在哪配置。
-
 ## 相关
 
-- [[instruction budget]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
-- [[the dumb zone the smart zone]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
 - [[context firewall]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
 - [[长上下文的幻觉]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
 - [[agentfile CLAUDE.md 与 AGENTS.md]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
 - [[back-pressure]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
-- [[harness over-fitting]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
+- [[instruction budget]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
+- [[the dumb zone the smart zone]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
 - [[Subagent]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
+- [[harness over-fitting]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
 - [[hooks .claudehooks]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
+- [[能力鸿沟]] · rejected（audit） — 地图理由把 configuration problem 说成能力鸿沟的一种具体表现，即前者是后者的实例；实例不依赖上位概念，反倒应并入或反向，不构成前置边。
 - [[渐进式披露 progressive disclosure]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
 - [[上下文腐烂 Context Rot]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
-- [[上下文工程 context engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
+- [[上下文工程 context engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
 
 ## 出场
@@ -63,16 +59,15 @@ sources: 1
 - Harness Engineering ｜ 《HumanLayer：harness 工程就是把 coding agent 的配置点用到极致》 ｜ https://www.humanlayer.dev/blog/skill-issue-harness-engineering-for-coding-agents
 ## 反链
 
-- [[Harness 工程 Harness Engineering]]
-- [[上下文腐烂 Context Rot]]
-- [[the dumb zone the smart zone]]
-- [[渐进式披露 progressive disclosure]]
 - [[Subagent]]
+- [[上下文腐烂 Context Rot]]
+- [[渐进式披露 progressive disclosure]]
+- [[context firewall]]
+- [[the dumb zone the smart zone]]
 - [[能力鸿沟]]
-- [[back-pressure]]
-- [[harness over-fitting]]
 - [[长上下文的幻觉]]
 - [[agentfile CLAUDE.md 与 AGENTS.md]]
-- [[context firewall]]
+- [[back-pressure]]
+- [[harness over-fitting]]
 - [[instruction budget]]
 - [[hooks .claudehooks]]

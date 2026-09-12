@@ -41,11 +41,11 @@ sources: 2
 
 - [[滚动截断 rolling truncation]] · 同篇出现（co-occurrence） — 同篇出现：context-A2
 - [[跨轮次记忆与连贯策略]] · 同篇出现（co-occurrence） — 同篇出现：context-A2
-- [[RHAE]] · 同篇出现（co-occurrence） — 同篇出现：context-A2
 - [[Responses API 与生产设置对齐]] · 同篇出现（co-occurrence） — 同篇出现：context-A2
-- [[通用 harness 的公平性张力]] · 同篇出现（co-occurrence） — 同篇出现：context-A2
+- [[RHAE]] · 同篇出现（co-occurrence） — 同篇出现：context-A2
 - [[上下文占用率与性能衰减]] · 同篇出现（co-occurrence） — 同篇出现：context-A2
 - [[输出 token 效率]] · 同篇出现（co-occurrence） — 同篇出现：context-A2
+- [[通用 harness 的公平性张力]] · 同篇出现（co-occurrence） — 同篇出现：context-A2
 - [[基准测试的捆绑测量性]] · 同篇出现（co-occurrence） — 同篇出现：context-A2
 - [[上下文压缩 Context Compression Summarization]] · 同篇出现（co-occurrence） — 同篇出现：context-A2
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：context-A2
@@ -61,12 +61,12 @@ sources: 2
 
 ## 反链
 
+- [[上下文压缩 Context Compression Summarization]]
+- [[跨轮次记忆与连贯策略]]
+- [[基准测试的捆绑测量性]]
 - [[上下文占用率与性能衰减]]
 - [[通用 harness 的公平性张力]]
-- [[基准测试的捆绑测量性]]
-- [[跨轮次记忆与连贯策略]]
+- [[滚动截断 rolling truncation]]
 - [[输出 token 效率]]
 - [[Responses API 与生产设置对齐]]
 - [[RHAE]]
-- [[上下文压缩 Context Compression Summarization]]
-- [[滚动截断 rolling truncation]]

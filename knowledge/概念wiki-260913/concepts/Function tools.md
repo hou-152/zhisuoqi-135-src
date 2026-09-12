@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: tools-sandbox
 learningStage: when-needed
 verification: use
-centrality: 0.067
-depth: 0
+centrality: 0.126
+depth: 2
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 把任意 Python 函数变成工具，自动生成 schema 并用 Pydantic 做参数校验。
 
-**领域** tools-sandbox ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
+**领域** tools-sandbox ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,10 +36,13 @@ Turn any Python function into a tool with automatic schema generation and Pydant
 
 > 如何用 {{name}} 把一个函数接入 Agent？
 
-## 懂了它才能懂（解锁 2）
+## 先懂这些（前置 1）
+
+- [[Tool Calling]] · **hard** — 不懂【Tool Calling】就做不了【Function tools】的 schema 生成与调用注册
+
+## 懂了它才能懂（解锁 1）
 
 - [[MCP server tool calling]] — 它与 function tools 走同一调用路径，先懂函数工具更易理解两者为何一致。
-- [[工具即结构化输出]] — 函数自动生成 schema 与参数校验，是『工具即结构化输出』最直接的落地形态。
 
 ## 相关
 
@@ -52,8 +55,8 @@ Turn any Python function into a tool with automatic schema generation and Pydant
 - Harness Engineering ｜ 《OpenAI Agents SDK 官方文档：抽象极少的轻量 agent 框架》 ｜ https://openai.github.io/openai-agents-python/
 ## 反链
 
-- [[Agent]]
+- [[Tool Calling]]
 - [[primitives]]
-- [[very few abstractions]]
-- [[工具即结构化输出]]
+- [[Agent]]
 - [[MCP server tool calling]]
+- [[very few abstractions]]

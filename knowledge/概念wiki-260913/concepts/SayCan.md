@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: harness-runtime
 learningStage: when-needed
 verification: accept
-centrality: 0.042
-depth: 2
+centrality: 0.017
+depth: 0
 origin: [notion]
 aliases: ["Do as I can", "not as I say"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > Google 提出的「LLM 出主意、机器人评估能不能做」的接驳框架，常被当作主流基线。
 
-**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
+**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.017
 
 ## 原文 context
 
@@ -34,12 +34,9 @@ sources: 1
 
 > {{name}} 里由谁判断这个动作当前能不能做？
 
-## 先懂这些（前置 1）
-
-- [[higher-level runtime]] · **soft** — SayCan 在模型调用上做接驳评估，类似运行时接管 handoffs/guardrails。
-
 ## 相关
 
+- [[higher-level runtime]] · rejected（audit） — SayCan 只是与运行时职责相似的历史框架/实例，不懂 higher-level runtime 也能理解，非前置依赖。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion

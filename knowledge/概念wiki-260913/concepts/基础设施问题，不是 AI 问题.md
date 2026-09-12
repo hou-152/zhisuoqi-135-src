@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.042
-depth: 3
+centrality: 0.072
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 可观测性、重试、并发、状态管理、审计、调度这些墙是基础设施问题，所需原语可能已存在，不必以agent之名重造。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,12 +36,13 @@ agent 让人以为一切都是新问题，于是所有人从头造轮子。其�
 
 > 撞上{{name}}这类墙时，应该先去找什么？
 
-## 先懂这些（前置 1）
+## 懂了它才能懂（解锁 1）
 
-- [[Harness 工程 Harness Engineering]] · **soft** — 把墙归为基础设施问题，先要懂 harness 工程能解决什么。
+- [[基础设施挑战而非 harness 设计问题]] — 不懂“这是基础设施问题”的判断，就会把规模化困难归错类、在 harness 里空转
 
 ## 相关
 
+- [[单用户假设的失效]] · rejected（audit） — 单用户假设失效是“基础设施问题非 AI 问题”的一个实例/证据，不是由后者定义；理解该失效本身不必须先认同归类。
 - [[harness 与 framework 的分野]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[持久化执行 durable execution]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
@@ -51,7 +52,7 @@ agent 让人以为一切都是新问题，于是所有人从头造轮子。其�
 - Harness Engineering ｜ 《你的 agent 需要的是 harness，不是又一个框架》 ｜ https://www.inngest.com/blog/your-agent-needs-a-harness-not-a-framework
 ## 反链
 
-- [[Harness]]
-- [[Harness 工程 Harness Engineering]]
 - [[持久化执行 durable execution]]
+- [[基础设施挑战而非 harness 设计问题]]
 - [[harness 与 framework 的分野]]
+- [[单用户假设的失效]]

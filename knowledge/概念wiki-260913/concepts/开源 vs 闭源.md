@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: economy-business
 learningStage: when-needed
 verification: judge
-centrality: 0.067
-depth: 1
+centrality: 0.181
+depth: 0
 origin: [notion]
 aliases: ["Open-source vs Closed-source AI"]
 sources: 1
@@ -15,9 +15,9 @@ sources: 1
 
 # 开源 vs 闭源
 
-> 靠社区传播的开源与靠资本算力循环的闭源之争，胜负取决于产业资本能否持续独立投入。
+> 开源靠社区传播、闭源靠资本算力循环；在中国环境下，开源路线能走多远取决于产业资本能否独立于政府资本持续投入。
 
-**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
+**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.181
 
 ## 原文 context
 
@@ -34,16 +34,15 @@ sources: 1
 
 > 在当前制度与资本环境下，你判断{{name}}中哪条路线能走更远？
 
-## 先懂这些（前置 1）
-
-- [[政府资本 vs 产业资本]] · **soft** — 开源能走多远取决于资本独立性，先分清两类资本的函数
-
-## 懂了它才能懂（解锁 1）
+## 懂了它才能懂（解锁 3）
 
 - [[死亡地带]] — 它是开源追平后闭源卖模型价值归零的线，须先懂两条路线
+- [[DeepSeek Moment]] — 不懂开源 vs 闭源，就理解不了 DeepSeek Moment 为何能把焦点从更大模型推向更开放生态、并冲击闭源路线
+- [[前沿实验室]] — 不懂开源 vs 闭源，就说不清前沿实验室长期真正的对手为何是开源模型而不是彼此
 
 ## 相关
 
+- [[政府资本 vs 产业资本]] · related-to（audit） — 开源 vs 闭源的传播/资本之别可独立理解，「政府资本 vs 产业资本」只是解释胜负的一种框架，且其定义偏向算力语境，非必要条件。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -59,4 +58,6 @@ sources: 1
 ## 反链
 
 - [[死亡地带]]
+- [[前沿实验室]]
+- [[DeepSeek Moment]]
 - [[政府资本 vs 产业资本]]

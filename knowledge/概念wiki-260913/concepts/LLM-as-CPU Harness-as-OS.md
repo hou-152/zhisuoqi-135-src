@@ -6,8 +6,8 @@ subject: Context Engineering × Harness Engineering
 domain: harness-runtime
 learningStage: when-needed
 verification: judge
-centrality: 0.06
-depth: 3
+centrality: 0.144
+depth: 2
 origin: [context, harness]
 aliases: []
 sources: 2
@@ -17,7 +17,7 @@ sources: 2
 
 > 把 LLM 当作 CPU、把 Harness 当作操作系统的类比框架，用于界定二者的职责边界。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.06
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.144
 
 ## 费曼一下
 
@@ -38,13 +38,18 @@ sources: 2
 
 ## 先懂这些（前置 1）
 
-- [[Harness]] · **hard** — 类比的一端就是 Harness，不懂它类比无从谈起。
+- [[非模型架构 Non-model Architecture]] · **soft** — 不懂非模型架构的组成，就分不清 CPU 侧与 OS 侧各自管什么职责
+
+## 懂了它才能懂（解锁 1）
+
+- [[脚手架化 LLM 与冯·诺依曼架构类比]] — 不懂 CPU 与 OS 的职责划分，就做不出上下文窗口=RAM、工具=设备驱动的映射
 
 ## 相关
 
 - [[AI Agent]] · 同篇出现（co-occurrence） — 同篇出现：context-13
 - [[非模型架构 Non-model Architecture]] · 同篇出现（co-occurrence） — 同篇出现：context-13
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：context-13
+- [[Harness]] · related-to（audit） — 类比本身可用于解释 Harness，不懂 Harness 也能理解映射结构，不应是 hard 前置。
 
 ## 出场
 
@@ -52,6 +57,6 @@ sources: 2
 - Harness Engineering ｜ 《Agent Harness 的本质：把模型放进可控的执行系统》 ｜ https://baoyu.io/translations/2026-05-10/akshay-pachaar-2041146899319971922
 ## 反链
 
-- [[Harness]]
-- [[AI Agent]]
 - [[非模型架构 Non-model Architecture]]
+- [[AI Agent]]
+- [[脚手架化 LLM 与冯·诺依曼架构类比]]

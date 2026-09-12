@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: verification-eval
 learningStage: when-needed
 verification: use
-centrality: 0.117
+centrality: 0.072
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 执行 agent 另起一个只读验证 agent，按详细 spec 检查结果，避免执行者自我确认。
 
-**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.117
+**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -40,14 +40,11 @@ sources: 1
 
 - [[Self-evaluation Failure]] · **soft** — 只读校验者存在的理由就是执行者自评会偏乐观。
 
-## 懂了它才能懂（解锁 3）
-
-- [[Rubric 与 verifier agent]] — 这类 verifier agent 是只读校验者的具体用法。
-- [[Rubrics 与验证 agent]] — 它同样依托独立验证 agent 来校准品味判断。
-- [[Verifiable Codebase]] — 只读验证 agent 是可验证代码库所依赖的工具之一。
-
 ## 相关
 
+- [[Rubric 与 verifier agent]] · related-to（audit） — rubric verifier agent 定义自足，是 read-only verifier 的一个具体实例；懂一般概念有帮助但非理解前提。
+- [[Rubrics 与验证 agent]] · related-to（audit） — A 只需一般验证 agent；B 是执行侧只读 verifier 的具体实现，不是理解 A 的必需前提。
+- [[Verifiable Codebase]] · related-to（audit） — B 只是 A 列举的验证工具之一；不懂只读 verifier 仍能通过测试/Playwright 理解可验证代码库。
 - [[Loop Engineer]] · 同篇出现（co-occurrence） — 同篇出现：harness-16
 - [[Agent loop]] · 同篇出现（co-occurrence） — 同篇出现：harness-16
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-16
@@ -58,8 +55,8 @@ sources: 1
 ## 反链
 
 - [[Agent loop]]
-- [[Verifiable Codebase]]
+- [[Loop Engineer]]
 - [[Rubric 与 verifier agent]]
 - [[Rubrics 与验证 agent]]
 - [[Self-evaluation Failure]]
-- [[Loop Engineer]]
+- [[Verifiable Codebase]]

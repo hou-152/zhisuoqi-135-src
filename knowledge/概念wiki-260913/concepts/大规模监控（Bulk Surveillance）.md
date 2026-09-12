@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: safety-governance
 learningStage: when-needed
 verification: judge
-centrality: 0.067
+centrality: 0.017
 depth: 0
 origin: [notion]
 aliases: ["Bulk Surveillance / 无差别监控 / 大规模监视"]
@@ -15,9 +15,9 @@ sources: 1
 
 # 大规模监控（Bulk Surveillance）
 
-> 不挑对象、先把所有人记录下来再批量解读，技术让这种记录成本一降再降，合理性因此需被重新定义。
+> 不针对特定对象、成批地收集记录（例如随时掌握你的位置），技术上已接近可行，是 Anthropic 划下的「红线」之一。
 
-**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
+**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 原文 context
 
@@ -37,11 +37,6 @@ sources: 1
 
 > {{name}}与对某嫌疑人的定向监控，边界差在哪？
 
-## 懂了它才能懂（解锁 2）
-
-- [[看守看守者（Watchmen Watching the Watchmen）]] — 要反向监督监控者，先得存在大规模监控这一被监督对象
-- [[骆驼鼻子探入帐篷（Camel's Nose in the Tent）]] — 该谚语讲监控权限一开就扩张，前提是先有大规模监控
-
 ## 相关
 
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -58,5 +53,6 @@ sources: 1
 
 ## 反链
 
-- [[看守看守者（Watchmen Watching the Watchmen）]]
-- [[骆驼鼻子探入帐篷（Camel's Nose in the Tent）]]
+- [[外包思考，但不外包理解]]
+- [[Agent-Native Infrastructure]]
+- [[Sensors 与 Actuators]]

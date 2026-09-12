@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: multi-agent
 learningStage: when-needed
 verification: judge
-centrality: 0.042
-depth: 2
+centrality: 0.072
+depth: 1
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > Agent 把特定任务委派给其他 Agent 的机制，是与 manager 式编排并列的一种编排风格选择。
 
-**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -38,7 +38,7 @@ allow agents to delegate to other agents for specific tasks，被列为 a powerf
 
 ## 先懂这些（前置 1）
 
-- [[多智能体架构]] · **hard** — 委派机制只在多个 Agent 并存时才成立
+- [[多智能体架构]] · **soft** — 委派机制只在多个 Agent 并存时才成立
 
 ## 相关
 
@@ -52,6 +52,6 @@ allow agents to delegate to other agents for specific tasks，被列为 a powerf
 ## 反链
 
 - [[多智能体架构]]
-- [[Agent]]
 - [[primitives]]
+- [[Agent]]
 - [[very few abstractions]]

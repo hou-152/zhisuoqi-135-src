@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: use
-centrality: 0.042
-depth: 3
+centrality: 0.072
+depth: 1
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > feature_list.json 既是任务来源、进度记录又是范围边界，被视为 harness 的原语。
 
-**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -42,8 +42,8 @@ L08 的主张，「机器可读的范围边界，agent 无法忽略」。feature
 
 ## 相关
 
-- [[能力鸿沟]] · 同篇出现（co-occurrence） — 同篇出现：harness-18
 - [[指令子系统与渐进式展开]] · 同篇出现（co-occurrence） — 同篇出现：harness-18
+- [[能力鸿沟]] · 同篇出现（co-occurrence） — 同篇出现：harness-18
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-18
 
 ## 出场

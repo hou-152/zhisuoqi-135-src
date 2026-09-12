@@ -39,8 +39,8 @@ sources: 1
 
 ## 相关
 
-- [[U 型性能曲线]] · 同篇出现（co-occurrence） — 同篇出现：context-02
 - [[首因偏置 primacy bias]] · 同篇出现（co-occurrence） — 同篇出现：context-02
+- [[U 型性能曲线]] · 同篇出现（co-occurrence） — 同篇出现：context-02
 - [[迷失在中间 lost in the middle]] · 同篇出现（co-occurrence） — 同篇出现：context-02
 
 ## 出场

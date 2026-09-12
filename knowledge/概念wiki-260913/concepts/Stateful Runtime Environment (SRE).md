@@ -5,9 +5,9 @@ type: REPRESENTATIONAL
 subject: AI 概念库
 domain: state-persistence
 learningStage: when-needed
-verification: use
-centrality: 0.067
-depth: 0
+verification: accept
+centrality: 0.181
+depth: 2
 origin: [notion]
 aliases: ["SRE", "有状态 Agent 运行时", "Bedrock SRE"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 把持久化与状态管理封装进运行环境，构建 agent 时无需再操心这些
 
-**领域** state-persistence ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
+**领域** state-persistence ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.181
 
 ## 费曼一下
 
@@ -36,13 +36,16 @@ Bedrock Managed Agents 的内部系统名——**有状态的 Agent 运行时**�
 
 > 在 {{name}} 里构建 agent，你需要自己管状态吗？
 
-## 懂了它才能懂（解锁 2）
+## 先懂这些（前置 3）
 
-- [[Session]] — 一次有状态运行需靠 SRE 拉起沙箱并挂载环境，不懂 SRE 无法理解运行基础。
-- [[统一执行状态与业务状态]] — SRE 常配合无状态 reducer 管理统一状态，懂 SRE 更懂落地方式。
+- [[持久化执行 durable execution]] · **soft** — 不懂【持久化执行】，就做不了【Stateful Runtime Environment (SRE)】的「把可重试 step 与检查点恢复封装进运行环境」
+- [[snapshotting + rehydration]] · **soft** — 不懂【snapshotting + rehydration】，就做不了【Stateful Runtime Environment (SRE)】的「在新容器里从上次检查点恢复 agent 状态继续跑」
+- [[统一执行状态与业务状态]] · **soft** — 不懂【统一执行状态与业务状态】，就做不了【Stateful Runtime Environment (SRE)】的「对外提供简单启动/暂停/恢复 API 并让业务状态随执行状态走」
 
 ## 相关
 
+- [[统一执行状态与业务状态]] · related-to（audit） — SRE 只是统一状态的一种落地实现方式，属于可选的实现例子，不懂 SRE 也能立住统一状态概念
+- [[Session]] · related-to（audit） — Session 自身定义已含「有状态运行」，懂了单次运行不必先懂 SRE 这个抽象层；SRE 更像 Session 的上位/同义概念，方向可疑，建议降 soft 或反向。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -57,5 +60,7 @@ Bedrock Managed Agents 的内部系统名——**有状态的 Agent 运行时**�
 
 ## 反链
 
+- [[持久化执行 durable execution]]
 - [[Session]]
 - [[统一执行状态与业务状态]]
+- [[snapshotting + rehydration]]

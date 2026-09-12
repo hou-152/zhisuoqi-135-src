@@ -7,7 +7,7 @@ subject: Context Engineering × Harness Engineering
 domain: memory-retrieval
 learningStage: when-needed
 verification: judge
-centrality: 0.035
+centrality: 0.089
 depth: 0
 origin: [context, harness]
 aliases: ["Memory as Prompt"]
@@ -18,7 +18,7 @@ sources: 2
 
 > 把记忆当作一种提示来管理：写入什么、何时注入上下文，都由提示工程的原则决定。
 
-**领域** memory-retrieval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.035
+**领域** memory-retrieval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.089
 
 ## 费曼一下
 
@@ -36,6 +36,10 @@ sources: 2
 ## 验收问句
 
 > 既然 {{name}}，这条记录该怎么写才在被取回时管用？
+
+## 懂了它才能懂（解锁 1）
+
+- [[自动记忆 auto-memory]] — 不懂【记忆即提示】的写入与注入原则，就做不了【自动记忆】该自动保存什么、何时注入的策略
 
 ## 相关
 
@@ -55,5 +59,6 @@ sources: 2
 ## 反链
 
 - [[Harness]]
-- [[AI Agent]]
 - [[非模型架构 Non-model Architecture]]
+- [[自动记忆 auto-memory]]
+- [[AI Agent]]

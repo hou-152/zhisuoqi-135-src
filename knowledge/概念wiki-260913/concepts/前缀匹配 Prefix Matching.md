@@ -7,7 +7,7 @@ subject: Context Engineering
 domain: caching-cost
 learningStage: when-needed
 verification: judge
-centrality: 0.017
+centrality: 0.29
 depth: 0
 origin: [context]
 aliases: ["Prefix Matching"]
@@ -18,7 +18,7 @@ sources: 1
 
 > 缓存命中依赖请求前缀完全一致，语义相近不等于前缀一致，前缀稳定性直接决定命中率。
 
-**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.29
 
 ## 费曼一下
 
@@ -37,6 +37,14 @@ sources: 1
 
 > 这里缓存没命中，是{{name}}被破坏了吗？
 
+## 懂了它才能懂（解锁 5）
+
+- [[提示词缓存 Prompt Caching]] — 不懂前缀匹配，就做不了提示词缓存的命中条件判断（哪些前缀能被复用）。
+- [[tools → system → messages 缓存顺序]] — 不懂前缀匹配，就做不了tools→system→messages缓存顺序的设计（稳定内容前置以命中缓存）。
+- [[稳定的 prompt 前缀]] — 不懂前缀匹配，就做不了稳定的prompt前缀的写法（system prompt等逐字稳定以命中KV-cache）。
+- [[Cache prefix stability]] — 不懂前缀匹配，就做不了Cache prefix stability的判定（前缀是否逐字节一致到能命中）。
+- [[KV-cache 命中率]] — 不懂前缀匹配，就做不了KV-cache命中率的统计口径（前缀相同才算命中）。
+
 ## 相关
 
 - [[稳定前缀 Stable Prefix]] · 同篇出现（co-occurrence） — 同篇出现：context-17
@@ -53,6 +61,10 @@ sources: 1
 
 ## 反链
 
-- [[缓存断点 Cache Breakpoint]]
 - [[提示词缓存 Prompt Caching]]
+- [[Cache prefix stability]]
+- [[缓存断点 Cache Breakpoint]]
+- [[KV-cache 命中率]]
+- [[稳定的 prompt 前缀]]
 - [[稳定前缀 Stable Prefix]]
+- [[tools → system → messages 缓存顺序]]

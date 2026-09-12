@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: personal-life
 learningStage: when-needed
 verification: judge
-centrality: 0.042
-depth: 1
+centrality: 0.072
+depth: 0
 origin: [notion]
 aliases: ["Making Yourself Legible to AI", "Make Yourself Legible to AI", "legibility to AI", "让自己对 AI 易读", "把自己变成数据库"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 把文件、邮件、日历、消息开放给 AI，使自己成为 AI 能持续读取并建模的数据库。
 
-**领域** personal-life ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** personal-life ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 原文 context
 
@@ -35,12 +35,13 @@ sources: 1
 
 > {{name}}的收益与代价分别是什么？
 
-## 先懂这些（前置 1）
+## 懂了它才能懂（解锁 1）
 
-- [[信任机制重构]] · **soft** — 把文件邮件开放给 AI，前提是组织已从信任人转向信任 AI 系统与验证机制。
+- [[AI matchmaking]] — 不懂让自己对 AI 可读，就做不了 AI matchmaking 里让 AI 持续建模你偏好这件事
 
 ## 相关
 
+- [[信任机制重构]] · related-to（audit） — 信任机制是让开放被组织接受的条件，而非理解『让自己对 AI 可读』这一做法定义的前提。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -56,3 +57,4 @@ sources: 1
 ## 反链
 
 - [[信任机制重构]]
+- [[AI matchmaking]]

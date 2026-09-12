@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: now
 verification: use
-centrality: 0.017
-depth: 0
+centrality: 0.072
+depth: 1
 origin: [context]
 aliases: ["diverse, canonical examples"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > few-shot 时策展一组多样、典型的示例来刻画期望行为，而非把边缘 case 堆进 prompt 穷举规则。
 
-**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,6 +36,10 @@ sources: 1
 ## 验收问句
 
 > {{name}} 能为一个任务策展出多样的典型示例吗？
+
+## 先懂这些（前置 1）
+
+- [[提示词工程 Prompt Engineering]] · **soft** — 不懂【提示词工程】，就做不了【典型示例策展】的 few-shot 示例编排
 
 ## 相关
 
@@ -56,3 +60,4 @@ sources: 1
 - [[上下文工程 context engineering]]
 - [[注意力预算 attention budget]]
 - [[上下文腐烂 Context Rot]]
+- [[提示词工程 Prompt Engineering]]

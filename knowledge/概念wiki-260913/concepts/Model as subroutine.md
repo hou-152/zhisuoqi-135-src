@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: loop-autonomy
 learningStage: when-needed
 verification: judge
-centrality: 0.017
-depth: 0
+centrality: 0.072
+depth: 1
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > loop 出现后，模型不再是对话对象，而是被 loop 在某一步调用的能力。
 
-**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,17 +36,21 @@ AI 不再是你正在聊天的同事，而像代码里的一个函数。你的�
 
 > 在你的循环里，{{name}} 是被哪一步调用的？
 
+## 先懂这些（前置 1）
+
+- [[笨循环 Dumb Loop]] · **soft** — 不懂【笨循环】，就做不了【Model as subroutine】的“让模型被 loop 在某一步调用”。
+
 ## 相关
 
+- [[Budget ceiling]] · 同篇出现（co-occurrence） — 同篇出现：harness-15
 - [[Context discipline]] · 同篇出现（co-occurrence） — 同篇出现：harness-15
 - [[Decision-maker in the body]] · 同篇出现（co-occurrence） — 同篇出现：harness-15
-- [[Git-backed state]] · 同篇出现（co-occurrence） — 同篇出现：harness-15
 - [[Self-verification]] · 同篇出现（co-occurrence） — 同篇出现：harness-15
 - [[Feedback loop]] · 同篇出现（co-occurrence） — 同篇出现：harness-15
 - [[No-progress detection]] · 同篇出现（co-occurrence） — 同篇出现：harness-15
-- [[Budget ceiling]] · 同篇出现（co-occurrence） — 同篇出现：harness-15
 - [[Skill as asset]] · 同篇出现（co-occurrence） — 同篇出现：harness-15
 - [[Ralph Loop]] · 同篇出现（co-occurrence） — 同篇出现：harness-15
+- [[Git-backed state]] · 同篇出现（co-occurrence） — 同篇出现：harness-15
 - [[Continuous orchestration loop]] · 同篇出现（co-occurrence） — 同篇出现：harness-15
 - [[Loop Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-15
 
@@ -56,13 +60,14 @@ AI 不再是你正在聊天的同事，而像代码里的一个函数。你的�
 ## 反链
 
 - [[Loop Engineering]]
-- [[Git-backed state]]
 - [[Self-verification]]
+- [[笨循环 Dumb Loop]]
+- [[Continuous orchestration loop]]
+- [[Feedback loop]]
+- [[Git-backed state]]
 - [[Ralph Loop]]
 - [[Budget ceiling]]
-- [[Context discipline]]
-- [[Continuous orchestration loop]]
 - [[Decision-maker in the body]]
-- [[Feedback loop]]
 - [[No-progress detection]]
 - [[Skill as asset]]
+- [[Context discipline]]

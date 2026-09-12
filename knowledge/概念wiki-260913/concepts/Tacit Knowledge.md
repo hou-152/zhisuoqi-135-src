@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: memory-retrieval
 learningStage: when-needed
 verification: judge
-centrality: 0.042
+centrality: 0.072
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 记录下来的决策结论之外的推理过程、tradeoffs 与默会背景；企业最大的 context leak。
 
-**领域** memory-retrieval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** memory-retrieval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -38,10 +38,11 @@ CTO 选 PostgreSQL 而非 MongoDB，决策也许被记录了，但推理过程�
 
 ## 先懂这些（前置 1）
 
-- [[项目知识体系]] · **hard** — Tacit Knowledge 是记录决策结论之外的推理过程，属于项目知识体系。
+- [[stated 出处纪律]] · **soft** — 不懂【stated 出处纪律】，就做不了【Tacit Knowledge】的边界划定——说不出哪些推理过程、tradeoffs 属于「未被明确说出的」那一侧
 
 ## 相关
 
+- [[项目知识体系]] · related-to（audit） — Tacit Knowledge 是通用概念，不依赖某项目的知识管理 loop；这里只是「部分-整体」的归属关系，降成 soft 或改画成组成边更合适。
 - [[Agent Drift]] · 同篇出现（co-occurrence） — 同篇出现：context-25
 - [[Context 四种失败模式 Context Pollution Distraction Confusion Clash]] · 同篇出现（co-occurrence） — 同篇出现：context-25
 - [[上下文 context]] · 对照（概念边界） — 隐性知识在未被外化、选择并提供给模型之前，还不是模型当前可见的 Context。
@@ -55,4 +56,5 @@ CTO 选 PostgreSQL 而非 MongoDB，决策也许被记录了，但推理过程�
 - [[上下文 context]]
 - [[项目知识体系]]
 - [[Agent Drift]]
+- [[stated 出处纪律]]
 - [[Context 四种失败模式 Context Pollution Distraction Confusion Clash]]

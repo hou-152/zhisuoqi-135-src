@@ -39,16 +39,16 @@ OpenAI 团队的自我设限规则，作者称之为 forcing function。正是�
 
 ## 相关
 
-- [[架构约束的确定性执行]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
 - [[「垃圾回收」型 agent]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
 - [[熵与腐化 entropy and decay]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
-- [[卡住即信号 struggle as signal]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
 - [[功能与行为验证的缺口]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
 - [[service template 与 golden path]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
 - [[解空间收窄 constraining the solution space]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
 - [[AI 友好度（AI-friendliness）作为选型标准]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
 - [[拓扑作为新抽象层]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
 - [[rigor 的搬迁 relocating rigor]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
+- [[卡住即信号 struggle as signal]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
+- [[架构约束的确定性执行]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
 - [[上下文工程 context engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
 
@@ -62,12 +62,12 @@ OpenAI 团队的自我设限规则，作者称之为 forcing function。正是�
 
 ## 反链
 
-- [[「垃圾回收」型 agent]]
-- [[功能与行为验证的缺口]]
-- [[架构约束的确定性执行]]
-- [[卡住即信号 struggle as signal]]
-- [[AI 友好度（AI-friendliness）作为选型标准]]
 - [[service template 与 golden path]]
+- [[卡住即信号 struggle as signal]]
+- [[「垃圾回收」型 agent]]
+- [[架构约束的确定性执行]]
+- [[AI 友好度（AI-friendliness）作为选型标准]]
+- [[功能与行为验证的缺口]]
 - [[解空间收窄 constraining the solution space]]
 - [[熵与腐化 entropy and decay]]
 - [[拓扑作为新抽象层]]

@@ -34,14 +34,14 @@ Markdown prompt engineering 不是把 prompt 写得更华丽，而是用清晰�
 
 ## 相关
 
-- [[Validation gates]] · 同篇出现（co-occurrence） — 同篇出现：context-23
-- [[Instructions files]] · 同篇出现（co-occurrence） — 同篇出现：context-23
+- [[Agent CLI runtimes]] · 同篇出现（co-occurrence） — 同篇出现：context-23
+- [[APM]] · 同篇出现（co-occurrence） — 同篇出现：context-23
 - [[Chat modes]] · 同篇出现（co-occurrence） — 同篇出现：context-23
 - [[Memory-driven development]] · 同篇出现（co-occurrence） — 同篇出现：context-23
 - [[Agentic workflows]] · 同篇出现（co-occurrence） — 同篇出现：context-23
 - [[Natural language as code]] · 同篇出现（co-occurrence） — 同篇出现：context-23
-- [[Agent CLI runtimes]] · 同篇出现（co-occurrence） — 同篇出现：context-23
-- [[APM]] · 同篇出现（co-occurrence） — 同篇出现：context-23
+- [[Validation gates]] · 同篇出现（co-occurrence） — 同篇出现：context-23
+- [[Instructions files]] · 同篇出现（co-occurrence） — 同篇出现：context-23
 - [[Agentic primitives]] · 同篇出现（co-occurrence） — 同篇出现：context-23
 - [[上下文工程 context engineering]] · 同篇出现（co-occurrence） — 同篇出现：context-23
 
@@ -50,12 +50,12 @@ Markdown prompt engineering 不是把 prompt 写得更华丽，而是用清晰�
 - Context Engineering ｜ 《构建可靠 AI 工作流：智能体原语与上下文工程》 ｜ https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/
 ## 反链
 
-- [[Instructions files]]
 - [[Validation gates]]
+- [[APM]]
+- [[Instructions files]]
+- [[Memory-driven development]]
+- [[Natural language as code]]
 - [[Agent CLI runtimes]]
 - [[Agentic primitives]]
 - [[Agentic workflows]]
-- [[APM]]
 - [[Chat modes]]
-- [[Memory-driven development]]
-- [[Natural language as code]]

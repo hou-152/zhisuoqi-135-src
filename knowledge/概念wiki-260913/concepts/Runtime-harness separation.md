@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.092
-depth: 0
+centrality: 0.236
+depth: 1
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > LangChain 的 framework/runtime/harness 三层分解：执行环境与可靠工作循环不是同一层。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.092
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.236
 
 ## 费曼一下
 
@@ -36,16 +36,22 @@ LangChain 的 framework、runtime、harness 分解，以及 Claude Agent SDK、A
 
 > 举例说明 {{name}} 中三层各自负责什么。
 
-## 懂了它才能懂（解锁 3）
+## 先懂这些（前置 2）
 
-- [[higher-level runtime]] — 不懂运行时与 harness 分层，就不知道这层该接管什么。
-- [[harness 与 framework 的分野]] — 三层分解把 framework 与 harness 分开，才能准确说两者分野。
+- [[stateless]] · **soft** — 不懂【stateless】，就做不了 Runtime-harness separation 里「为什么必须有 harness 这一层来承载可靠工作循环」这件事
+- [[Tracing]] · **soft** — 不懂【Tracing】，就做不了判断「runtime 与 harness 是否真分离、工作循环是否可靠」这件事
+
+## 懂了它才能懂（解锁 2）
+
 - [[Reliability-critical harness primitives]] — 筛选运行时控制原语，需先区分执行环境与可靠工作循环。
+- [[Von Neumann Architecture Analogy]] — 不懂【Runtime-harness separation】，就做不了 Von Neumann 类比中「把 harness 映射为操作系统」这件事
 
 ## 相关
 
+- [[higher-level runtime]] · related-to（audit） — 三层分解是解释性框架；higher-level runtime 按其描述（接管 turns/工具/guardrails/sessions）本身即可理解，应降 soft。
 - [[Reliability-critical harness primitives]] · 同篇出现（co-occurrence） — 同篇出现：harness-19
 - [[Context as working memory budget]] · 同篇出现（co-occurrence） — 同篇出现：harness-19
+- [[harness 与 framework 的分野]] · related-to（audit） — framework 与 harness 的分野靠『谁决定怎么想 / 谁保证动作可靠』即可立住；LangChain 的三层分解只是一例，不是理解该分野的前提。
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-19
 
 ## 出场
@@ -53,8 +59,10 @@ LangChain 的 framework、runtime、harness 分解，以及 Claude Agent SDK、A
 - Harness Engineering ｜ 《Harness engineering：把 agent 能力落到工具、约束和循环里》 ｜ https://github.com/walkinglabs/awesome-harness-engineering
 ## 反链
 
-- [[Harness 工程 Harness Engineering]]
-- [[higher-level runtime]]
+- [[stateless]]
+- [[Tracing]]
 - [[Context as working memory budget]]
+- [[higher-level runtime]]
+- [[Von Neumann Architecture Analogy]]
 - [[harness 与 framework 的分野]]
 - [[Reliability-critical harness primitives]]

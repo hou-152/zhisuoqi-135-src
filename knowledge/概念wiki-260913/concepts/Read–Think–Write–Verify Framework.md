@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: thinking-method
 learningStage: now
 verification: judge
-centrality: 0.042
+centrality: 0.072
 depth: 1
 origin: [notion]
 aliases: ["知识工作四步框架", "RTWV", "Read Think Write Verify", "SemiAnalysis 知识工作框架"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 知识工作通用四步：Read 消费信息、Think 应用知识、Write 产出结构化输出、Verify 对照标准。
 
-**领域** thinking-method ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** thinking-method ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 原文 context
 
@@ -38,10 +38,11 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[外包思考，但不外包理解]] · **soft** — 四步中 Read/Think 属不可外包的理解，先懂这点才懂流程分工。
+- [[整理增益 cleaner than what you started with]] · **soft** — 不懂整理增益，就做不了 Read–Think–Write–Verify Framework 的「判断 Write 产出结构化输出到底值在哪」
 
 ## 相关
 
+- [[HiFi 与 HiEx 信息原则]] · rejected（audit） — 四步框架不依赖具体信息质量原则；HiFi/HiEx 是 Read 阶段的可选标准/组件。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -56,4 +57,5 @@ sources: 1
 
 ## 反链
 
-- [[外包思考，但不外包理解]]
+- [[整理增益 cleaner than what you started with]]
+- [[HiFi 与 HiEx 信息原则]]

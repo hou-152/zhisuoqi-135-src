@@ -6,8 +6,8 @@ type: REPRESENTATIONAL
 subject: Context Engineering
 domain: agent-org
 learningStage: when-needed
-verification: use
-centrality: 0.017
+verification: judge
+centrality: 0.126
 depth: 0
 origin: [context]
 aliases: ["skills / Linear way skill"]
@@ -18,7 +18,7 @@ sources: 1
 
 > 产品内置分组织级与个人级的技能与指引，如“Linear way skill”让 agent 按固定格式把功能请求综合成可讨论、可执行的东西。
 
-**领域** agent-org ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** agent-org ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -37,6 +37,11 @@ Linear 演示中的功能——在产品里内置 skills，分组织级指引和
 
 > 你能用 {{name}} 把零散反馈综合成可执行功能吗？
 
+## 懂了它才能懂（解锁 2）
+
+- [[skill 作为 onboarding 载体]] — 不懂【组织级技能与指引】，就做不了把新功能使用方法写成 onboarding skill 这件事
+- [[自动驾驶产品与项目记忆 self-driving project memory]] — 不懂【组织级技能与指引】，就做不了项目记忆里规则与护栏的组织级配置
+
 ## 相关
 
 - [[代理原生 agent-native]] · 同篇出现（co-occurrence） — 同篇出现：context-10
@@ -53,6 +58,8 @@ Linear 演示中的功能——在产品里内置 skills，分组织级指引和
 
 ## 反链
 
-- [[代理原生 agent-native]]
 - [[“SaaS 已死”叙事与护城河蒸发]]
+- [[代理原生 agent-native]]
+- [[自动驾驶产品与项目记忆 self-driving project memory]]
+- [[skill 作为 onboarding 载体]]
 - [[上下文骨架]]

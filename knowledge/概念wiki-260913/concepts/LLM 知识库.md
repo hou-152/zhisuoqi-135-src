@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: memory-retrieval
 learningStage: when-needed
 verification: use
-centrality: 0.042
-depth: 1
+centrality: 0.017
+depth: 0
 origin: [notion]
 aliases: ["LLM Wiki", "LLM Knowledge Base", "llm wiki", "个人 wiki", "agent 维护的 wiki"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > agent 增量把杂乱原始资料编译成持久 markdown 知识库：摘要、实体页、概念页、矛盾、日志。
 
-**领域** memory-retrieval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** memory-retrieval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
 ## 原文 context
 
@@ -42,12 +42,9 @@ sources: 1
 
 > {{name}} 相比 RAG 在长期积累上强在哪里？
 
-## 先懂这些（前置 1）
-
-- [[项目知识体系]] · **hard** — LLM 知识库是增量编译成持久 markdown 知识库，属于项目知识体系。
-
 ## 相关
 
+- [[项目知识体系]] · related-to（audit） — LLM 知识库是项目知识体系的子集/组件，子集不必依赖全集才能理解。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion

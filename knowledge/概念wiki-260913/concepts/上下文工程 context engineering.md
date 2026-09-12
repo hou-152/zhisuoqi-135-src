@@ -7,7 +7,7 @@ subject: Context Engineering × Harness Engineering
 domain: context-engineering
 learningStage: now
 verification: use
-centrality: 0.393
+centrality: 0.298
 depth: 1
 origin: [context, harness]
 aliases: ["context engineering", "Context Engineering"]
@@ -18,7 +18,7 @@ sources: 14
 
 > 对模型上下文窗口的审慎构建与管理，把原始上下文与目标任务映射为可组合的上下文处理函数。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.393
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.298
 
 ## 费曼一下
 
@@ -39,31 +39,22 @@ sources: 14
 
 ## 先懂这些（前置 1）
 
-- [[即时检索 Just-in-time Retrieval]] · **hard** — Just-in-Time Retrieval 是 Context Engineering 的生产策略之一。
-
-## 懂了它才能懂（解锁 5）
-
-- [[Harness 工程 Harness Engineering]] — 本站工程范围轴采用 Harness Engineering 通常包住 Context Engineering。
-- [[CLAUDE.md]] — CLAUDE.md是上下文工程的产物，先懂工程才知它为何自动读取。
-- [[上下文隔离 context isolation]] — 隔离是上下文工程切分任务、防污染的一种手段，不懂上下文工程就不知为何要隔离。
-- [[上下文失败，而非模型失败 context failures, not model failures]] — 此判断的前提是上下文装配本身可被工程化，不懂上下文工程就无从归因。
-- [[延迟加载工具 deferred loading]] — 延迟加载是上下文工程控制工具占用的手段，不懂上下文工程就不懂其动机。
+- [[上下文 context]] · **hard** — 不懂【上下文】，就做不了【上下文工程】的界定要构建与管理的对象
 
 ## 相关
 
+- [[统一语言 ubiquitous language]] · 常一起用（工作流） — 把领域语言沉淀为可读取资产，可减少跨会话重复解释并改善上下文对齐。
 - [[四阶段演化模型]] · 同篇出现（co-occurrence） — 同篇出现：context-01
 - [[意图翻译者 intention translator]] · 同篇出现（co-occurrence） — 同篇出现：context-01
 - [[原始上下文容忍度 tolerance for raw context]] · 同篇出现（co-occurrence） — 同篇出现：context-01
 - [[上下文协作 context-cooperative]] · 同篇出现（co-occurrence） — 同篇出现：context-01
 - [[最小充分性与语义连续性原则]] · 同篇出现（co-occurrence） — 同篇出现：context-01
-- [[分层记忆架构]] · 同篇出现（co-occurrence） — 同篇出现：context-01
 - [[上下文隔离 context isolation]] · 同篇出现（co-occurrence） — 同篇出现：context-01
 - [[self-baking]] · 同篇出现（co-occurrence） — 同篇出现：context-01
 - [[轻量引用 lightweight references]] · 同篇出现（co-occurrence） — 同篇出现：context-01
 - [[注意力之前的注意力 attention before attention]] · 同篇出现（co-occurrence） — 同篇出现：context-01
 - [[语义操作系统 semantic operating system]] · 同篇出现（co-occurrence） — 同篇出现：context-01
 - [[数字存在 Digital Presence]] · 同篇出现（co-occurrence） — 同篇出现：context-01
-- [[Stochastic Graduate Descent]] · 同篇出现（co-occurrence） — 同篇出现：context-04
 - [[局部最优 local optima]] · 同篇出现（co-occurrence） — 同篇出现：context-04
 - [[KV-cache 命中率]] · 同篇出现（co-occurrence） — 同篇出现：context-04
 - [[prefill 与 decode 的高度倾斜]] · 同篇出现（co-occurrence） — 同篇出现：context-04
@@ -73,44 +64,45 @@ sources: 14
 - [[文件系统即终极上下文]] · 同篇出现（co-occurrence） — 同篇出现：context-04
 - [[复述（recitation）与 lost-in-the-middle]] · 同篇出现（co-occurrence） — 同篇出现：context-04
 - [[保留错误证据与错误恢复]] · 同篇出现（co-occurrence） — 同篇出现：context-04
-- [[few-shot 套路化与受控多样性]] · 同篇出现（co-occurrence） — 同篇出现：context-04
 - [[性能梯度而非硬悬崖 performance gradient rather than a hard cliff]] · 同篇出现（co-occurrence） — 同篇出现：context-05
 - [[最小高信号 token 集合 smallest possible set of high-signal tokens]] · 同篇出现（co-occurrence） — 同篇出现：context-05
 - [[恰当高度 the right altitude]] · 同篇出现（co-occurrence） — 同篇出现：context-05
 - [[工具即契约 tools as the contract]] · 同篇出现（co-occurrence） — 同篇出现：context-05
 - [[臃肿工具集 bloated tool sets]] · 同篇出现（co-occurrence） — 同篇出现：context-05
 - [[典型示例策展 diverse, canonical examples]] · 同篇出现（co-occurrence） — 同篇出现：context-05
-- [[just in time 上下文检索]] · 同篇出现（co-occurrence） — 同篇出现：context-05
 - [[混合检索策略 hybrid strategy]] · 同篇出现（co-occurrence） — 同篇出现：context-05
 - [[结构化记事 agentic memory]] · 同篇出现（co-occurrence） — 同篇出现：context-05
 - [[sub-agent 架构与关注点分离]] · 同篇出现（co-occurrence） — 同篇出现：context-05
-- [[示例的探索空间约束]] · 同篇出现（co-occurrence） — 同篇出现：context-21
 - [[工具接口的表达力设计]] · 同篇出现（co-occurrence） — 同篇出现：context-21
 - [[延迟加载工具 deferred loading]] · 同篇出现（co-occurrence） — 同篇出现：context-21
-- [[Rubric 与 verifier agent]] · 同篇出现（co-occurrence） — 同篇出现：context-21
-- [[gotchas 优先原则]] · 同篇出现（co-occurrence） — 同篇出现：context-21
 - [[代码即高保真引用]] · 同篇出现（co-occurrence） — 同篇出现：context-21
 - [[冲突指令的隐性成本]] · 同篇出现（co-occurrence） — 同篇出现：context-22
 - [[护栏与判断力的取舍 guardrail tradeoff]] · 同篇出现（co-occurrence） — 同篇出现：context-22
 - [[从禁止什么到对齐什么]] · 同篇出现（co-occurrence） — 同篇出现：context-22
-- [[示例会收窄探索空间]] · 同篇出现（co-occurrence） — 同篇出现：context-22
 - [[接口即指令 design interfaces]] · 同篇出现（co-occurrence） — 同篇出现：context-22
 - [[延迟加载工具与 ToolSearch]] · 同篇出现（co-occurrence） — 同篇出现：context-22
 - [[指令就近原则]] · 同篇出现（co-occurrence） — 同篇出现：context-22
-- [[Rubrics 与验证 agent]] · 同篇出现（co-occurrence） — 同篇出现：context-22
-- [[gotchas 优先的 CLAUDE.md]] · 同篇出现（co-occurrence） — 同篇出现：context-22
-- [[Validation gates]] · 同篇出现（co-occurrence） — 同篇出现：context-23
-- [[Instructions files]] · 同篇出现（co-occurrence） — 同篇出现：context-23
-- [[Chat modes]] · 同篇出现（co-occurrence） — 同篇出现：context-23
-- [[Memory-driven development]] · 同篇出现（co-occurrence） — 同篇出现：context-23
-- [[Agentic workflows]] · 同篇出现（co-occurrence） — 同篇出现：context-23
-- [[Natural language as code]] · 同篇出现（co-occurrence） — 同篇出现：context-23
 - [[Agent CLI runtimes]] · 同篇出现（co-occurrence） — 同篇出现：context-23
 - [[APM]] · 同篇出现（co-occurrence） — 同篇出现：context-23
 - [[上下文失败，而非模型失败 context failures, not model failures]] · 同篇出现（co-occurrence） — 同篇出现：context-24
 - [[系统而非字符串 A System, Not a String]] · 同篇出现（co-occurrence） — 同篇出现：context-24
 - [[动态装配 Dynamic]] · 同篇出现（co-occurrence） — 同篇出现：context-24
-- [[正确的信息与工具，在正确的时间]] · 同篇出现（co-occurrence） — 同篇出现：context-24
+- [[知识与能力的双供给 information and tools]] · 同篇出现（co-occurrence） — 同篇出现：context-24
+- [[格式即上下文 where the format matters]] · 同篇出现（co-occurrence） — 同篇出现：context-24
+- [[廉价 demo 与「魔法级」agent]] · 同篇出现（co-occurrence） — 同篇出现：context-24
+- [[Codified Context]] · 同篇出现（co-occurrence） — 同篇出现：context-25
+- [[Knowledge Graph vs Flat Files]] · 同篇出现（co-occurrence） — 同篇出现：context-25
+- [[「垃圾回收」型 agent]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
+- [[熵与腐化 entropy and decay]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
+- [[功能与行为验证的缺口]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
+- [[service template 与 golden path]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
+- [[解空间收窄 constraining the solution space]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
+- [[AI 友好度（AI-friendliness）作为选型标准]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
+- [[拓扑作为新抽象层]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
+- [[rigor 的搬迁 relocating rigor]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
+- [[提示词工程 Prompt Engineering]] · 对照（工程范围轴） — 一个主要设计指令，一个持续装配整轮信息。
+- [[动态系统]] · 常一起用 — Context Engineering 通过动态系统按任务即时生成并格式化模型所需信息与工具。
+- [[Stochastic Graduate Descent]] · 同篇出现（co-occurrence） — 同篇出现：context-04
 
 ## 出场
 
@@ -129,43 +121,43 @@ sources: 14
 
 ## 反链
 
-- [[Harness 工程 Harness Engineering]]
 - [[上下文 context]]
-- [[长上下文窗口]]
 - [[注意力预算 attention budget]]
-- [[上下文腐烂 Context Rot]]
+- [[长上下文窗口]]
 - [[有限的工作记忆 limited working memory]]
+- [[Validation gates]]
+- [[上下文压缩 Context Compression Summarization]]
+- [[上下文腐烂 Context Rot]]
+- [[结构化记事 agentic memory]]
+- [[prefill 与 decode 的高度倾斜]]
+- [[self-baking]]
+- [[service template 与 golden path]]
+- [[非模型架构 Non-model Architecture]]
+- [[上下文文件树 tree of files]]
+- [[提示词工程 Prompt Engineering]]
+- [[渐进式披露 progressive disclosure]]
+- [[从禁止什么到对齐什么]]
 - [[分层记忆架构]]
 - [[工具接口的表达力设计]]
-- [[结构化记事 agentic memory]]
-- [[Context Distraction]]
-- [[Instructions files]]
-- [[渐进式披露 progressive disclosure]]
-- [[即时检索 Just-in-time Retrieval]]
-- [[大海捞针（NIAH）与词面匹配]]
-- [[工具即契约 tools as the contract]]
-- [[接口即指令 design interfaces]]
+- [[护栏与判断力的取舍 guardrail tradeoff]]
 - [[局部最优 local optima]]
-- [[示例的探索空间约束]]
-- [[configuration problem]]
-- [[just in time 上下文检索]]
-- [[prefill 与 decode 的高度倾斜]]
-- [[Rubric 与 verifier agent]]
-- [[Rubrics 与验证 agent]]
-- [[Validation gates]]
-- [[AI Agent]]
-- [[CLAUDE.md]]
-- [[上下文压缩 Context Compression Summarization]]
-- [[压缩 Compaction]]
-- [[「垃圾回收」型 agent]]
-- [[冲突指令的隐性成本]]
-- [[从禁止什么到对齐什么]]
-- [[动态系统]]
-- [[功能与行为验证的缺口]]
-- [[架构约束的确定性执行]]
 - [[卡住即信号 struggle as signal]]
-- [[上下文隔离 context isolation]]
-- [[上下文均匀处理假设]]
-- [[上下文失败，而非模型失败 context failures, not model failures]]
-- [[示例会收窄探索空间]]
-- [[四阶段演化模型]]
+- [[可恢复的压缩 restorable compression]]
+- [[统一语言 ubiquitous language]]
+- [[KV-cache 命中率]]
+- [[sub-agent 架构与关注点分离]]
+- [[压缩 Compaction]]
+- [[即时检索 Just-in-time Retrieval]]
+- [[自动记忆 auto-memory]]
+- [[AI Agent]]
+- [[「垃圾回收」型 agent]]
+- [[典型示例策展 diverse, canonical examples]]
+- [[动态系统]]
+- [[复述（recitation）与 lost-in-the-middle]]
+- [[格式即上下文 where the format matters]]
+- [[工具即契约 tools as the contract]]
+- [[过度约束与松绑 over-constraining unhobbling]]
+- [[护栏型指令的过期]]
+- [[混合检索策略 hybrid strategy]]
+- [[架构约束的确定性执行]]
+- [[渐进披露 progressive disclosure]]

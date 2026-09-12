@@ -53,6 +53,6 @@ sources: 1
 
 ## 反链
 
-- [[验证闭环 verification loop]]
 - [[skill-creator 访谈式创建]]
+- [[验证闭环 verification loop]]
 - [[把重复步骤编码成 Skill]]

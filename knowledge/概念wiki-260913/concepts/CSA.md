@@ -1,13 +1,13 @@
 ---
 id: cm_bdf121d1
 name: CSA
-type: REPRESENTATIONAL
+type: CONCEPTUAL
 subject: AI 概念库
 domain: model-training
 learningStage: deep-dive
 verification: judge
-centrality: 0.067
-depth: 3
+centrality: 0.072
+depth: 0
 origin: [notion]
 aliases: ["Compressed Sparse Attention", "压缩稀疏注意力"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 压缩稀疏注意力：把 KV 分组压缩、每步只挑关键 KV 并保留滑动窗口，抑制上下文 n² 暴增。
 
-**领域** model-training ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 原文 context
 
@@ -39,16 +39,13 @@ sources: 1
 
 > {{name}} 用哪三件事压住注意力成本？代价是什么？
 
-## 先懂这些（前置 1）
-
-- [[多头注意力]] · **hard** — CSA压缩分组KV并挑关键KV，需先懂多头注意力中KV的角色。
-
 ## 懂了它才能懂（解锁 1）
 
 - [[混合注意力]] — 混合注意力由CSA与HCA交替构成，不懂CSA那半就说不清其设计。
 
 ## 相关
 
+- [[多头注意力]] · related-to（audit） — CSA 核心是 KV 压缩与稀疏选择，懂注意力机制的 QKV/KV cache 即可；多头注意力不是硬前置。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion

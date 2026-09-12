@@ -7,7 +7,7 @@ subject: Context Engineering
 domain: memory-retrieval
 learningStage: when-needed
 verification: use
-centrality: 0.017
+centrality: 0.126
 depth: 0
 origin: [context]
 aliases: ["retriever-reader"]
@@ -18,7 +18,7 @@ sources: 1
 
 > 开放域问答的标准架构：检索器取回前 k 篇文档，语言模型作为阅读器基于这些文档作答。
 
-**领域** memory-retrieval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** memory-retrieval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -37,10 +37,15 @@ sources: 1
 
 > 用 {{name}} 搭问答系统，检索器与阅读器各负责什么？
 
+## 懂了它才能懂（解锁 2）
+
+- [[检索池 vs 引用]] — 不懂【检索池 vs 引用】，就做不了【检索器-阅读器配置】中阅读器该引用哪几篇的筛选设计
+- [[门控机制]] — 不懂【检索器-阅读器配置】，就做不了【门控机制】该在取回结果哪一步屏蔽的定位
+
 ## 相关
 
-- [[U 型性能曲线]] · 同篇出现（co-occurrence） — 同篇出现：context-02
 - [[首因偏置 primacy bias]] · 同篇出现（co-occurrence） — 同篇出现：context-02
+- [[U 型性能曲线]] · 同篇出现（co-occurrence） — 同篇出现：context-02
 - [[迷失在中间 lost in the middle]] · 同篇出现（co-occurrence） — 同篇出现：context-02
 
 ## 出场
@@ -53,6 +58,8 @@ sources: 1
 
 ## 反链
 
+- [[检索池 vs 引用]]
 - [[迷失在中间 lost in the middle]]
+- [[门控机制]]
 - [[首因偏置 primacy bias]]
 - [[U 型性能曲线]]

@@ -7,7 +7,7 @@ subject: Context Engineering × Harness Engineering
 domain: memory-retrieval
 learningStage: when-needed
 verification: use
-centrality: 0.085
+centrality: 0.089
 depth: 0
 origin: [context, harness]
 aliases: ["Just-in-time Retrieval"]
@@ -18,7 +18,7 @@ sources: 2
 
 > 上下文里只保留轻量级标识符（路径、ID、链接），需要时再取全文，而不是把内容全塞进去。
 
-**领域** memory-retrieval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.085
+**领域** memory-retrieval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.089
 
 ## 费曼一下
 
@@ -37,10 +37,9 @@ sources: 2
 
 > 上下文里只放标识符时，{{name}} 靠什么把需要的内容取回来？
 
-## 懂了它才能懂（解锁 2）
+## 懂了它才能懂（解锁 1）
 
-- [[上下文工程 context engineering]] — Just-in-Time Retrieval 是 Context Engineering 的生产策略之一。
-- [[程序记忆（Procedural Memory Skills） progressive disclosure]] — 技能按需加载即渐进披露，不懂按需取全文就无法理解其组织方式。
+- [[混合检索策略 hybrid strategy]] — 不懂【即时检索】，就做不了【混合检索策略】的『预检索与即时检索折中』设计
 
 ## 相关
 
@@ -48,8 +47,8 @@ sources: 2
 - [[观察掩码 Observation Masking]] · 常一起用（工作流） — 被移出窗口的旧观察可保留轻量线索，并在再次需要时按需取回。
 - [[即时检索 Just-in-time Retrieval]] · 常一起用 — 即时检索把上下文窗口当缓存，只在需要时加载具体内容。
 - [[即时检索 Just-in-time Retrieval]] · 常一起用 — 即时检索把上下文窗口当缓存，只在需要时加载具体内容。
-- [[长上下文窗口]] · 常一起用（工作流） — Just-in-Time Retrieval 把 Context Window 当缓存，只在需要时加载详情。
 - [[渐进式披露 progressive disclosure]] · 对照（概念边界） — JIT 强调取数时机；渐进披露强调逐层发现。
+- [[长上下文窗口]] · 常一起用（工作流） — Just-in-Time Retrieval 把 Context Window 当缓存，只在需要时加载详情。
 - [[AI Agent]] · 同篇出现（co-occurrence） — 同篇出现：context-13
 - [[非模型架构 Non-model Architecture]] · 同篇出现（co-occurrence） — 同篇出现：context-13
 - [[上下文工程 context engineering]] · 组成（工程范围轴） — Just-in-Time Retrieval 是 Context Engineering 的生产策略之一。
@@ -66,11 +65,10 @@ sources: 2
 
 ## 反链
 
-- [[上下文工程 context engineering]]
 - [[长上下文窗口]]
-- [[程序记忆（Procedural Memory Skills） progressive disclosure]]
-- [[渐进式披露 progressive disclosure]]
-- [[AI Agent]]
 - [[非模型架构 Non-model Architecture]]
-- [[观察掩码 Observation Masking]]
+- [[渐进式披露 progressive disclosure]]
 - [[可恢复的压缩 restorable compression]]
+- [[AI Agent]]
+- [[混合检索策略 hybrid strategy]]
+- [[观察掩码 Observation Masking]]

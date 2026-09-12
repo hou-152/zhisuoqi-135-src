@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: judge
-centrality: 0.092
+centrality: 0.126
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 上下文被工具描述等填充后模型变笨为笨蛋区；把子任务拆给 sub-agents 可让主线程留在聪明区。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.092
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,17 +36,16 @@ sources: 1
 
 > {{name}} 由什么决定，怎么把主线程拉回聪明区？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
-- [[tokens]] · **hard** — 上下文被工具描述填满按 token 计，不懂 token 就无法理解笨蛋区成因。
-
-## 懂了它才能懂（解锁 2）
-
-- [[Tool call offloading]] — 卸载的动机是让主线程不至于掉进笨蛋区。
-- [[Skills Hell]] — skill 膨胀填充上下文会让模型掉进笨蛋区，二者互为印证。
+- [[instruction budget]] · **soft** — 不懂【instruction budget】，就做不了【the dumb zone / the smart zone】的 ⟨解释工具描述为何把模型拖进笨蛋区⟩
+- [[Context Management 四策略]] · **soft** — 不懂【Context Management 四策略】，就做不了【the dumb zone / the smart zone】的 ⟨通过拆分子任务让主线程留在聪明区⟩
 
 ## 相关
 
+- [[Skills Hell]] · related-to（audit） — skills hell 的要点是数量膨胀、互相冲突与失修；'互为印证'是相关而非依赖，dumb zone 非其构成条件。
+- [[Tool call offloading]] · related-to（audit） — 卸载机制（阈值+文件系统+按需读回）本身可独立理解，dumb zone 只是其动机/好处，不是机制前提。
+- [[tokens]] · related-to（audit） — 笨蛋区成因的关键是上下文窗口被工具描述等噪声占满，token 只是计量单位，不懂 token 定义也完全能理解该现象，hard 定高了
 - [[configuration problem]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
@@ -56,9 +55,9 @@ sources: 1
 - Harness Engineering ｜ 《HumanLayer：harness 工程就是把 coding agent 的配置点用到极致》 ｜ https://www.humanlayer.dev/blog/skill-issue-harness-engineering-for-coding-agents
 ## 反链
 
-- [[Harness]]
-- [[Harness 工程 Harness Engineering]]
+- [[Skills Hell]]
 - [[tokens]]
+- [[Context Management 四策略]]
+- [[instruction budget]]
 - [[Tool call offloading]]
 - [[configuration problem]]
-- [[Skills Hell]]

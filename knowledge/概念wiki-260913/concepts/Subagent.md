@@ -6,8 +6,8 @@ subject: Context Engineering × Harness Engineering
 domain: multi-agent
 learningStage: when-needed
 verification: use
-centrality: 0.085
-depth: 0
+centrality: 0.253
+depth: 1
 origin: [context, harness]
 aliases: []
 sources: 2
@@ -17,7 +17,7 @@ sources: 2
 
 > 把一整个 session 工作封装、只回流浓缩结果的子代理，拥有全新而小的上下文窗口与指令预算。
 
-**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.085
+**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.253
 
 ## 费曼一下
 
@@ -36,10 +36,15 @@ We also saw Opus 4.5 also get much better at using subagents, but how could suba
 
 > 你能否用 {{name}} 并行解一个超长任务并只回收结论？
 
-## 懂了它才能懂（解锁 2）
+## 先懂这些（前置 1）
+
+- [[context firewall]] · **hard** — 不懂 context firewall，就做不了 Subagent『独立小上下文、只回流浓缩结果、不污染父线程』的隔离设计
+
+## 懂了它才能懂（解锁 3）
 
 - [[子 agent 与 step.invoke()]] — step.invoke() 启动的正是带独立 session key 的子代理会话
-- [[Symphony]] — 守护进程把工作派发给子代理执行，需先懂子代理封装与回流。
+- [[sub-agent 架构与关注点分离]] — 不懂 Subagent，就做不了『专门化子 agent 用干净窗口做聚焦任务、主 agent 收摘要』这件事
+- [[显式且可检查的并行]] — 不懂 Subagent，就做不了 harness 派生多个可监控后台子作业并合并结果
 
 ## 相关
 
@@ -56,9 +61,11 @@ We also saw Opus 4.5 also get much better at using subagents, but how could suba
 - Harness Engineering ｜ 《HumanLayer：harness 工程就是把 coding agent 的配置点用到极致》 ｜ https://www.humanlayer.dev/blog/skill-issue-harness-engineering-for-coding-agents
 ## 反链
 
-- [[Symphony]]
+- [[显式且可检查的并行]]
 - [[Action Space]]
-- [[configuration problem]]
+- [[context firewall]]
 - [[Elicitation]]
+- [[sub-agent 架构与关注点分离]]
 - [[子 agent 与 step.invoke()]]
+- [[configuration problem]]
 - [[See Like an Agent]]

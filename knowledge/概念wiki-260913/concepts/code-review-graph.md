@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.067
-depth: 3
+centrality: 0.072
+depth: 0
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 用 Tree-sitter 为代码库构建结构化图谱并增量追踪变化，让 Claude 只读相关文件的工具。
 
-**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
+**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,10 +36,6 @@ sources: 1
 
 > {{name}} 相比每次全库重读，给模型的上下文少了什么？
 
-## 先懂这些（前置 1）
-
-- [[just in time 上下文检索]] · **soft** — 只让 Claude 读相关文件，正是按引用动态取数的即时检索思路
-
 ## 懂了它才能懂（解锁 1）
 
 - [[code-review-graphignore 排除配置]] — 它是图谱索引的排除清单，没有图谱这个工具就无所谓排除
@@ -47,16 +43,15 @@ sources: 1
 ## 相关
 
 - [[增量更新 incremental update]] · 同篇出现（co-occurrence） — 同篇出现：context-16
-- [[Blast radius]] · 同篇出现（co-occurrence） — 同篇出现：context-16
 - [[Token 优化的评审上下文 get_review_context_tool]] · 同篇出现（co-occurrence） — 同篇出现：context-16
-- [[Review Quality 评分方法]] · 同篇出现（co-occurrence） — 同篇出现：context-16
 - [[MCP 工具层]] · 同篇出现（co-occurrence） — 同篇出现：context-16
 - [[语义搜索 semantic search embeddings]] · 同篇出现（co-occurrence） — 同篇出现：context-16
 - [[code-review-graphignore 排除配置]] · 同篇出现（co-occurrence） — 同篇出现：context-16
+- [[Review Quality 评分方法]] · 同篇出现（co-occurrence） — 同篇出现：context-16
 - [[Watch 模式与自动更新 hooks]] · 同篇出现（co-occurrence） — 同篇出现：context-16
-- [[多语言结构化解析 12 languages node type mappings]] · 同篇出现（co-occurrence） — 同篇出现：context-16
-- [[Tree-sitter]] · 同篇出现（co-occurrence） — 同篇出现：context-16
+- [[just in time 上下文检索]] · related-to（audit） — 工具本身可独立理解，JIT 只是其所体现的方法，非机制前提
 - [[持久化代码图谱 structural map graph]] · 同篇出现（co-occurrence） — 同篇出现：context-16
+- [[Tree-sitter]] · 同篇出现（co-occurrence） — 同篇出现：context-16
 
 ## 出场
 
@@ -64,14 +59,12 @@ sources: 1
 ## 反链
 
 - [[持久化代码图谱 structural map graph]]
-- [[Blast radius]]
-- [[just in time 上下文检索]]
-- [[Review Quality 评分方法]]
 - [[code-review-graphignore 排除配置]]
+- [[just in time 上下文检索]]
 - [[MCP 工具层]]
-- [[Tree-sitter]]
-- [[多语言结构化解析 12 languages node type mappings]]
-- [[语义搜索 semantic search embeddings]]
-- [[增量更新 incremental update]]
+- [[Review Quality 评分方法]]
 - [[Token 优化的评审上下文 get_review_context_tool]]
 - [[Watch 模式与自动更新 hooks]]
+- [[语义搜索 semantic search embeddings]]
+- [[增量更新 incremental update]]
+- [[Tree-sitter]]

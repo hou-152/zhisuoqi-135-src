@@ -5,9 +5,9 @@ type: CONCEPTUAL
 subject: Context Engineering
 domain: tools-sandbox
 learningStage: deep-dive
-verification: use
-centrality: 0.042
-depth: 2
+verification: judge
+centrality: 0.072
+depth: 1
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 不在迭代中途增删工具，而用上下文感知的状态机在解码时掩码 logits，配合一致动作名前缀约束可选范围。
 
-**领域** tools-sandbox ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** tools-sandbox ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -38,7 +38,7 @@ Manus 对 action space 膨胀的解法。不在迭代中途增删工具，而是
 
 ## 先懂这些（前置 1）
 
-- [[工具收窄 tool scoping]] · **soft** — 掩码 logits 本质是动态约束可选工具范围，是收窄思想在解码层的实现。
+- [[工具定义 Tool Definitions Tool Schema]] · **soft** — 不懂【工具定义】，就做不了【logits 掩码与状态机】的动作名前缀约束——掩码要按定义里的动作名逐位对齐
 
 ## 相关
 
@@ -51,7 +51,7 @@ Manus 对 action space 膨胀的解法。不在迭代中途增删工具，而是
 - Context Engineering ｜ 《Manus 的上下文工程实战：几轮重写换来的一组局部最优》 ｜ https://manus.im/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus
 ## 反链
 
+- [[工具定义 Tool Definitions Tool Schema]]
 - [[上下文工程 context engineering]]
-- [[工具收窄 tool scoping]]
 - [[押注 in-context learning]]
 - [[与底层模型正交 orthogonal to the underlying models]]

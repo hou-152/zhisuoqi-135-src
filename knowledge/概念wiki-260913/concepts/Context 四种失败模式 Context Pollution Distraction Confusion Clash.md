@@ -2,13 +2,13 @@
 id: cm_f4ee6204
 name: Context 四种失败模式
 nameEn: Context Pollution / Distraction / Confusion / Clash
-type: REPRESENTATIONAL
+type: CONCEPTUAL
 subject: Context Engineering
 domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.042
-depth: 2
+centrality: 0.017
+depth: 0
 origin: [context]
 aliases: ["Context Pollution / Distraction / Confusion / Clash"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 把上下文失效归为污染、分心、混淆、冲突四类，统一解法是不倾倒、只策展。
 
-**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -40,16 +40,13 @@ sources: 1
 
 > 用 {{name}} 把这次失败归类，并给出解法？
 
-## 先懂这些（前置 1）
-
-- [[Context Distraction]] · **soft** — 分心是四类失败之一，先理解它才能把握整套分类
-
 ## 相关
 
 - [[Codified Context]] · 同篇出现（co-occurrence） — 同篇出现：context-25
 - [[Knowledge Graph vs Flat Files]] · 同篇出现（co-occurrence） — 同篇出现：context-25
 - [[Self-Improving Context System]] · 同篇出现（co-occurrence） — 同篇出现：context-25
 - [[Tacit Knowledge]] · 同篇出现（co-occurrence） — 同篇出现：context-25
+- [[Context Distraction]] · related-to（audit） — 把握整体分类不强依赖先懂其中某一成员，分心只是组成之一
 - [[Agent Drift]] · 同篇出现（co-occurrence） — 同篇出现：context-25
 - [[渐进式披露 progressive disclosure]] · 同篇出现（co-occurrence） — 同篇出现：context-25
 - [[上下文工程 context engineering]] · 同篇出现（co-occurrence） — 同篇出现：context-25
@@ -64,10 +61,10 @@ sources: 1
 
 ## 反链
 
-- [[Context Distraction]]
 - [[渐进式披露 progressive disclosure]]
 - [[Agent Drift]]
-- [[Codified Context]]
-- [[Knowledge Graph vs Flat Files]]
 - [[Self-Improving Context System]]
 - [[Tacit Knowledge]]
+- [[Codified Context]]
+- [[Context Distraction]]
+- [[Knowledge Graph vs Flat Files]]

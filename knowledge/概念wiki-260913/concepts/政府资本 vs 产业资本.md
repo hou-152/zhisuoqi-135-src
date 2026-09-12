@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: economy-business
 learningStage: when-needed
 verification: judge
-centrality: 0.042
+centrality: 0.017
 depth: 0
 origin: [notion]
 aliases: ["State Capital vs Industrial / Venture Capital"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 政府资本以政策意志、KPI、政治安全为决策函数求「可控」；产业资本以风险—回报为函数求指数级回报。
 
-**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 原文 context
 
@@ -34,12 +34,9 @@ sources: 1
 
 > 你能用 {{name}} 判断这笔 AI 投入更适合哪类资本吗？
 
-## 懂了它才能懂（解锁 1）
-
-- [[开源 vs 闭源]] — 开源能走多远取决于资本独立性，先分清两类资本的函数
-
 ## 相关
 
+- [[开源 vs 闭源]] · related-to（audit） — 开源 vs 闭源的传播/资本之别可独立理解，「政府资本 vs 产业资本」只是解释胜负的一种框架，且其定义偏向算力语境，非必要条件。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion

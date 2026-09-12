@@ -39,6 +39,7 @@ sources: 1
 
 ## 相关
 
+- [[链式 Chained]] · rejected（audit） — 链式是连接多个 skill；嵌入是校验自动触发的一种接入方式，二者正交，链式不依赖嵌入。
 - [[把重复步骤编码成 Skill]] · 同篇出现（co-occurrence） — 同篇出现：context-12
 - [[skill-creator 访谈式创建]] · 同篇出现（co-occurrence） — 同篇出现：context-12
 - [[验证闭环 verification loop]] · 同篇出现（co-occurrence） — 同篇出现：context-12
@@ -53,6 +54,7 @@ sources: 1
 
 ## 反链
 
-- [[验证闭环 verification loop]]
 - [[skill-creator 访谈式创建]]
+- [[验证闭环 verification loop]]
 - [[把重复步骤编码成 Skill]]
+- [[链式 Chained]]

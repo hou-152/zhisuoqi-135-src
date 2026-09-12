@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.017
-depth: 0
+centrality: 0.072
+depth: 1
 origin: [context]
 aliases: ["Messages Layer"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 把真正会变化的信息放进消息层，而非频繁改动前面的固定指令，保持提示前缀稳定。
 
-**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -37,6 +37,10 @@ sources: 1
 
 > 为什么应当把易变内容放进 {{name}}，而不是改固定指令？
 
+## 先懂这些（前置 1）
+
+- [[系统提示 System Prompt]] · **hard** — 不懂【系统提示】，就做不了【消息层】的 ⟨与固定指令前缀分离的定义⟩
+
 ## 相关
 
 - [[稳定前缀 Stable Prefix]] · 同篇出现（co-occurrence） — 同篇出现：context-17
@@ -53,6 +57,7 @@ sources: 1
 
 ## 反链
 
-- [[缓存断点 Cache Breakpoint]]
 - [[提示词缓存 Prompt Caching]]
+- [[缓存断点 Cache Breakpoint]]
+- [[系统提示 System Prompt]]
 - [[稳定前缀 Stable Prefix]]

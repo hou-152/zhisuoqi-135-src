@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: verification-eval
 learningStage: when-needed
 verification: judge
-centrality: 0.067
-depth: 1
+centrality: 0.181
+depth: 3
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 从真实仓库抓取约十五分钟量级任务的基准，用 FAIL_TO_PASS/PASS_TO_PASS 打 0/1 分
 
-**领域** verification-eval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
+**领域** verification-eval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.181
 
 ## 费曼一下
 
@@ -36,16 +36,16 @@ sources: 1
 
 > {{name}} 是怎么判定一次修复算不算通过的？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 3）
 
-- [[Mutation Testing 与前沿质量评测]] · **soft** — FAIL_TO_PASS 正是「补丁前必失败」的变异测试思想。
-
-## 懂了它才能懂（解锁 1）
-
-- [[pass@k]] — 有了 0/1 判定才能统计 k 次中至少一次通过。
+- [[Validation gates]] · **soft** — 不懂 Validation gates，就做不了 SWE-bench 的 FAIL_TO_PASS/PASS_TO_PASS 通过失败判定
+- [[Infrastructure noise]] · **soft** — 不懂 Infrastructure noise，就做不了 SWE-bench 成绩扣除环境差异后的公平解读
+- [[pass@k]] · **soft** — 不懂 pass@k，就做不了 SWE-bench 的 pass@1/resolve rate 指标口径
 
 ## 相关
 
+- [[Mutation Testing 与前沿质量评测]] · rejected（audit） — 两者只是思想类比（补丁前失败 vs 变异测试），SWE-bench 的二元打分可独立定义。
+- [[pass@k]] · rejected（audit） — pass@k 只需任意 0/1 判定，不依赖 SWE-bench 这一具体基准。
 - [[Lights-off 软件工厂]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
 - [[软件工厂 Software Factory]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
@@ -55,8 +55,9 @@ sources: 1
 - Harness Engineering ｜ 《为什么「软件工厂」会失败：光有 harness 工程还不够》 ｜ https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/wsff.md
 ## 反链
 
-- [[Harness 工程 Harness Engineering]]
-- [[软件工厂 Software Factory]]
-- [[Lights-off 软件工厂]]
+- [[Validation gates]]
+- [[Infrastructure noise]]
 - [[Mutation Testing 与前沿质量评测]]
 - [[pass@k]]
+- [[Lights-off 软件工厂]]
+- [[软件工厂 Software Factory]]

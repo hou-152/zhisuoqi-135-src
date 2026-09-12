@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: geo-infrastructure
 learningStage: when-needed
 verification: accept
-centrality: 0.042
-depth: 1
+centrality: 0.017
+depth: 0
 origin: [notion]
 aliases: ["CXL Memory Pooling", "CXL Pool"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 用 CXL 把多台服务器内存聚成共享池，作为 GPU HBM、本地 DRAM 之后的第三级内存层。
 
-**领域** geo-infrastructure ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
+**领域** geo-infrastructure ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,12 +36,10 @@ sources: 1
 
 > {{name}} 在内存层级中排第几级、解决什么问题？
 
-## 先懂这些（前置 1）
-
-- [[数据中心]] · **hard** — CXL 内存池化是数据中心内服务器内存共享技术，离开数据中心便无场景。
-
 ## 相关
 
+- [[昇腾]] · rejected（audit） — CXL 内存池化是昇腾推理集群的可选扩展内存方案，昇腾芯片本身不依赖它，属于可选组件。
+- [[数据中心]] · related-to（audit） — 核心前提是服务器与CXL互连，不是数据中心；数据中心只是部署场景，应降soft或移除。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -57,3 +55,4 @@ sources: 1
 ## 反链
 
 - [[数据中心]]
+- [[昇腾]]

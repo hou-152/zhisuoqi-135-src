@@ -15,7 +15,7 @@ sources: 1
 
 # PPO
 
-> 近端策略优化：带信任域裁剪与重要性加权的策略梯度，用价值模型降方差，是 RLHF 默认算法。
+> 近端策略优化：带信任域裁剪与重要性加权的策略梯度，用价值模型降方差，曾是 RLHF 的默认算法。
 
 **领域** model-training ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
@@ -34,6 +34,11 @@ sources: 1
 
 > {{name}} 的裁剪在做什么，为什么要引入价值模型？
 
+## 相关
+
+- [[SFT Feedback Loop]] · rejected（audit） — PPO 只是产生 rollout 的一种可选算法，回收 rollout 作 SFT 不依赖它。
+- [[ScaleRL]] · rejected（audit） — PPO 只是被 scaling 的算法之一，S 型性能-算力曲线方法不依赖具体 RL 算法。
+
 ## 出场
 
 - Notion 概念库 ｜ Notion 概念库 ｜ https://app.notion.com/p/PPO-2c1679b108ff8229b9c081fb4afedd6d
@@ -41,3 +46,8 @@ sources: 1
 ## 别名
 
 `近端策略优化`、`Proximal Policy Optimization`
+
+## 反链
+
+- [[ScaleRL]]
+- [[SFT Feedback Loop]]

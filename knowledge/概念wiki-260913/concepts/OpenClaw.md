@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: memory-retrieval
 learningStage: when-needed
 verification: use
-centrality: 0.042
-depth: 2
+centrality: 0.017
+depth: 0
 origin: [notion]
 aliases: ["小龙虾"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 一种记忆方案，以 Markdown 为中心的存储，日志与长效文件是主要事实来源。
 
-**领域** memory-retrieval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** memory-retrieval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,12 +36,9 @@ sources: 1
 
 > {{name}} 把记忆主要存在哪里、以什么为事实来源？
 
-## 先懂这些（前置 1）
-
-- [[跨会话记忆文件系统]] · **hard** — OpenClaw 以 Markdown 为中心的存储方案，依赖跨会话记忆文件系统。
-
 ## 相关
 
+- [[跨会话记忆文件系统]] · rejected（audit） — OpenClaw 是「跨会话记忆文件系统」的一个具体实现/样例，不是它的下游消费者；懂不懂通用方案不影响理解 OpenClaw 本身。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion

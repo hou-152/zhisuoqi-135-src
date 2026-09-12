@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: verification-eval
 learningStage: when-needed
 verification: compute
-centrality: 0.042
+centrality: 0.017
 depth: 0
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 用哈希链串联请求与响应记录，使内容可被第三方检查、追溯并验证无断裂。
 
-**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.042
+**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,10 +36,6 @@ sources: 1
 
 > 你能否为 {{name}} 设计哈希链并验证无断裂？
 
-## 懂了它才能懂（解锁 1）
-
-- [[Ledger of Record]] — 底账的不可篡改性正是哈希链审计机制。
-
 ## 相关
 
 - [[API-boundary observability]] · 同篇出现（co-occurrence） — 同篇出现：context-19
@@ -54,4 +50,3 @@ sources: 1
 - [[Harness token floor]]
 - [[Tool-schema tax]]
 - [[API-boundary observability]]
-- [[Ledger of Record]]

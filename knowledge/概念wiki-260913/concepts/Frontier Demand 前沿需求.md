@@ -5,9 +5,9 @@ type: CONCEPTUAL
 subject: AI 概念库
 domain: economy-business
 learningStage: when-needed
-verification: judge
-centrality: 0.092
-depth: 2
+verification: accept
+centrality: 0.017
+depth: 0
 origin: [notion]
 aliases: ["Frontier Demand", "前沿模型需求", "绝对前沿"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 总市场需求中出乎意料地大的一部分，落在绝对前沿而非中间地带。
 
-**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.092
+**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,12 +36,6 @@ sources: 1
 
 > {{name}} 对产品定位意味着什么？
 
-## 先懂这些（前置 3）
-
-- [[出海]] · **soft** — 前沿需求最常在出海市场先暴露，竖屏短剧出海即其案例。
-- [[“SaaS 已死”叙事与护城河蒸发]] · **soft** — 中间地带护城河蒸发，需求才涌向绝对前沿，不懂前者就看不懂后者。
-- [[边际成本]] · **soft** — 边际成本塌陷，原本无法服务的前沿需求才突然变得可服务且巨大。
-
 ## 相关
 
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -58,6 +52,6 @@ sources: 1
 
 ## 反链
 
-- [[“SaaS 已死”叙事与护城河蒸发]]
-- [[边际成本]]
-- [[出海]]
+- [[外包思考，但不外包理解]]
+- [[Agent-Native Infrastructure]]
+- [[Sensors 与 Actuators]]

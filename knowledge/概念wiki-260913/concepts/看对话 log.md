@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: use
-centrality: 0.067
-depth: 2
+centrality: 0.126
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 研究一个 AI app 怎么工作，最直接的方式是把它与模型之间的请求与响应截下来逐条读。
 
-**领域** harness-runtime ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
+**领域** harness-runtime ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,49 +36,50 @@ AI 产品对外是一个界面，对内只是一串发给模型的消息。与�
 
 > 用{{name}}的方法，说说某个 app 发给模型的请求长什么样。
 
-## 先懂这些（前置 1）
+## 懂了它才能懂（解锁 2）
 
-- [[对话加确定性缝合]] · **soft** — 知道应用即对话加缝合，才知道该读哪段 log。
-
-## 懂了它才能懂（解锁 1）
-
-- [[反向代理式窥探]] — 它只是看对话 log 的一种具体手段。
+- [[框架反向工程]] — 不懂看对话 log，就做不了框架反向工程里「把请求与响应逐条还原」这件事
+- [[卡住即信号 struggle as signal]] — 不懂看对话 log，就做不了把「Agent 卡住」识别为信号这件事
 
 ## 相关
 
-- [[大小模型分工]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
-- [[氛围组请求]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
-- [[new topic 判定]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
 - [[系统 prompt 的体量差]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
 - [[TodoWrite 与 TodoRead]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
 - [[原生工具与 MCP 外挂]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
-- [[本地状态层]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
+- [[隐式 code context]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
+- [[氛围组请求]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
+- [[new topic 判定]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
 - [[全文覆盖式编辑]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
 - [[apply 模型]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
+- [[大小模型分工]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
+- [[本地状态层]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
 - [[instruction following 的可靠性边界]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
 - [[WebFetch 两阶段总结]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
-- [[隐式 code context]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
 - [[护城河清单与插件化路线]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
 - [[对话加确定性缝合]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
 - [[反向代理式窥探]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
+- [[反向代理式窥探]] · rejected（audit） — 它只是「看对话 log」的一种具体手段/例子，不懂一般方法也能懂这个技术。
+- [[对话加确定性缝合]] · related-to（audit） — 直接截读请求/响应 log 无需先建立「对话+缝合」框架即可理解，宜降 soft 或踢出。
 
 ## 出场
 
 - Harness Engineering ｜ 《拆开 Claude Code：一个编码 agent 的 harness 内部长什么样》 ｜ https://xxchan.me/ai/2025/05/06/claude-code.html
 ## 反链
 
+- [[卡住即信号 struggle as signal]]
+- [[对话加确定性缝合]]
+- [[框架反向工程]]
+- [[原生工具与 MCP 外挂]]
 - [[本地状态层]]
 - [[大小模型分工]]
-- [[对话加确定性缝合]]
-- [[护城河清单与插件化路线]]
-- [[instruction following 的可靠性边界]]
-- [[TodoWrite 与 TodoRead]]
-- [[WebFetch 两阶段总结]]
 - [[反向代理式窥探]]
 - [[氛围组请求]]
+- [[护城河清单与插件化路线]]
 - [[全文覆盖式编辑]]
-- [[原生工具与 MCP 外挂]]
-- [[apply 模型]]
-- [[new topic 判定]]
 - [[系统 prompt 的体量差]]
 - [[隐式 code context]]
+- [[apply 模型]]
+- [[instruction following 的可靠性边界]]
+- [[new topic 判定]]
+- [[TodoWrite 与 TodoRead]]
+- [[WebFetch 两阶段总结]]

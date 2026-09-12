@@ -7,8 +7,8 @@ subject: Harness Engineering
 domain: multi-agent
 learningStage: now
 verification: judge
-centrality: 0.042
-depth: 1
+centrality: 0.072
+depth: 0
 origin: [harness]
 aliases: ["risk-averse agents"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 没有层级时 Agent 会趋避风险，只做小而安全的改动，难题无人负责、长期空转无进展。
 
-**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -37,15 +37,16 @@ sources: 1
 
 > 出现 {{name}} 时，你靠哪些迹象判断是层级缺失？
 
-## 先懂这些（前置 1）
+## 懂了它才能懂（解锁 1）
 
-- [[自协调与共享协调文件]] · **hard** — 风险规避正源于平等无层级、无人负责的自协调方案
+- [[所有权与问责]] — 不懂【无层级导致的风险规避】，就做不了【所有权与问责】的 ⟨分离角色动机的设计——为何必须让每个 agent 拥有难题而非集体回避⟩
 
 ## 相关
 
 - [[长时程自治编码 long-running autonomous coding]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
-- [[单 agent 的速度天花板]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
 - [[动态协调 dynamic coordination]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
+- [[单 agent 的速度天花板]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
+- [[自协调与共享协调文件]] · related-to（audit） — 风险规避源于「无层级、无人负责」，是通用现象，共享协调文件只是它发生的场景，非理解前提，降 soft
 
 ## 出场
 
@@ -57,7 +58,8 @@ sources: 1
 
 ## 反链
 
-- [[动态协调 dynamic coordination]]
-- [[单 agent 的速度天花板]]
 - [[长时程自治编码 long-running autonomous coding]]
+- [[动态协调 dynamic coordination]]
+- [[所有权与问责]]
 - [[自协调与共享协调文件]]
+- [[单 agent 的速度天花板]]

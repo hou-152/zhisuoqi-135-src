@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: loop-autonomy
 learningStage: now
 verification: compute
-centrality: 0.042
-depth: 1
+centrality: 0.126
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 带 steps 的 while 循环：调 LLM 思考、执行工具、把结果回灌 messages，返回纯文本即本轮结束。
 
-**领域** loop-autonomy ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.042
+**领域** loop-autonomy ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,12 +36,14 @@ Utah 的 agent loop 形态，也是作者认为不需要框架就能写出来的
 
 > {{name}} 三步各做什么，何时算一轮结束？
 
-## 先懂这些（前置 1）
+## 懂了它才能懂（解锁 2）
 
-- [[ReAct loop]] · **soft** — think-act-observe 骨架源自 ReAct，不懂 ReAct 就不知它为何分这三步。
+- [[编排循环 Orchestration Loop TAO ReAct]] — 不懂【think → act → observe 循环】，就做不了【编排循环】的“以思考—行动—观察为一轮推进任务”。
+- [[ReAct loop]] — 不懂【think → act → observe 循环】，就做不了【ReAct loop】的“推理→行动→观察在 while 循环里重复”。
 
 ## 相关
 
+- [[ReAct loop]] · related-to（audit） — think-act-observe 与 ReAct 近乎同义，靠'循环调模型/执行工具/回灌结果'的常识即可懂，ReAct 只是叫法来源。
 - [[harness 与 framework 的分野]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[持久化执行 durable execution]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
@@ -51,7 +53,7 @@ Utah 的 agent loop 形态，也是作者认为不需要框架就能写出来的
 - Harness Engineering ｜ 《你的 agent 需要的是 harness，不是又一个框架》 ｜ https://www.inngest.com/blog/your-agent-needs-a-harness-not-a-framework
 ## 反链
 
-- [[Harness]]
 - [[持久化执行 durable execution]]
+- [[编排循环 Orchestration Loop TAO ReAct]]
 - [[harness 与 framework 的分野]]
 - [[ReAct loop]]

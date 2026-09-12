@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: safety-governance
 learningStage: deep-dive
 verification: judge
-centrality: 0.042
+centrality: 0.072
 depth: 1
 origin: [notion]
 aliases: ["Logits Leakage U-Curve / U 型泄密曲线"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 仅看前 2 个候选词几乎只有噪声，取 30 至 80 个 logits 时探针准确率最高，再扩大反而跌破随机水平。
 
-**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 原文 context
 

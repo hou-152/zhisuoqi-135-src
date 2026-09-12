@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: accept
-centrality: 0.042
-depth: 1
+centrality: 0.017
+depth: 0
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 对上下文工程实际做法的戏称：手工架构搜索、prompt 摆弄与经验猜测的混合
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,12 +36,9 @@ sources: 1
 
 > {{name}} 说的是什么做法，为什么不优雅但有效？
 
-## 先懂这些（前置 1）
-
-- [[Software 3.0]] · **soft** — 它是对 Software 3.0 式上下文工程手法的自嘲式命名。
-
 ## 相关
 
+- [[Software 3.0]] · rejected（audit） — SGD 的梗源自 Stochastic Gradient Descent 的缩写与自嘲，和 Software 3.0 只是主题相邻，不通后者照样懂这个戏称。
 - [[押注 in-context learning]] · 同篇出现（co-occurrence） — 同篇出现：context-04
 - [[与底层模型正交 orthogonal to the underlying models]] · 同篇出现（co-occurrence） — 同篇出现：context-04
 - [[上下文工程 context engineering]] · 同篇出现（co-occurrence） — 同篇出现：context-04
@@ -52,6 +49,6 @@ sources: 1
 ## 反链
 
 - [[上下文工程 context engineering]]
-- [[Software 3.0]]
 - [[押注 in-context learning]]
 - [[与底层模型正交 orthogonal to the underlying models]]
+- [[Software 3.0]]

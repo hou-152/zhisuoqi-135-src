@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: economy-business
 learningStage: when-needed
 verification: judge
-centrality: 0.042
+centrality: 0.072
 depth: 2
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 模式洞察：Linear 仍是 SaaS 的粘性界面，是工作发起与信息记录处，却不为 token 付费；成本由模型厂商和 coding agent 承担。
 
-**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -38,7 +38,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[Aggregation Theory]] · **soft** — 粘性界面正是聚合需求端的体现，再看成本转给谁
+- [[LLM 订阅错配（LLM Subscription Mispricing）]] · **hard** — 不懂【LLM 订阅错配】，就做不了判断 token 成本为何被推给模型厂商与 coding agent
 
 ## 相关
 
@@ -51,7 +51,7 @@ sources: 1
 - Context Engineering ｜ 《SaaS 没死，Linear 正把上下文变成 Agent 的骨架》 ｜ https://app.podwise.ai/dashboard/episodes/7673574
 ## 反链
 
-- [[代理原生 agent-native]]
+- [[LLM 订阅错配（LLM Subscription Mispricing）]]
 - [[“SaaS 已死”叙事与护城河蒸发]]
-- [[Aggregation Theory]]
+- [[代理原生 agent-native]]
 - [[上下文骨架]]

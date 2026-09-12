@@ -1,13 +1,13 @@
 ---
 id: cm_231cf0b4
 name: RLVR 与编码 agent 的 RL 训练循环
-type: PROCEDURAL
+type: CONCEPTUAL
 subject: Harness Engineering
 domain: model-training
 learningStage: deep-dive
-verification: compute
-centrality: 0.117
-depth: 3
+verification: judge
+centrality: 0.072
+depth: 1
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 生成编码 agent 的 trace、用 verifier 打分、更新权重强化好 trace 抑制坏的，循环上百万次数周到数月。
 
-**领域** model-training ｜ **类型** PROCEDURAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.117
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,18 +36,15 @@ sources: 1
 
 > 描述 {{name}} 的一轮循环里谁打分、谁更新。
 
-## 先懂这些（前置 2）
+## 先懂这些（前置 1）
 
 - [[Reward Signal]] · **hard** — RLVR 用 verifier 打分作为奖励信号，不懂奖励通道就不懂循环如何强化。
-- [[reasoning thinking]] · **hard** — RLVR 训练编码 agent 的推理 trace，不懂思考模式就不知道它在生成什么。
-
-## 懂了它才能懂（解锁 2）
-
-- [[ScaleRL]] — ScaleRL 要替代单点对比，懂典型 RLVR 长循环更易理解其算力曲线。
-- [[RL Circuits]] — RL 电路指应用落在训练分布切片，懂 RLVR 长循环更易理解电路如何形成。
 
 ## 相关
 
+- [[RL Circuits]] · related-to（audit） — RL Circuits 泛指训练分布切片；RLVR 编码 agent 循环只是形成电路的一种具体训练方式，不是理解该概念的必要前提。
+- [[reasoning thinking]] · rejected（audit） — reasoning/thinking 只是编码 trace 的可选内容，RL 训练循环机制不依赖它，应移出依赖图。
+- [[ScaleRL]] · related-to（audit） — RLVR 长循环是 ScaleRL 的一个测量实例，不懂该具体循环也能理解算力曲线主张
 - [[Lights-off 软件工厂]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
 - [[软件工厂 Software Factory]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
@@ -57,10 +54,9 @@ sources: 1
 - Harness Engineering ｜ 《为什么「软件工厂」会失败：光有 harness 工程还不够》 ｜ https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/wsff.md
 ## 反链
 
-- [[Harness 工程 Harness Engineering]]
 - [[Reward Signal]]
-- [[软件工厂 Software Factory]]
 - [[reasoning thinking]]
-- [[ScaleRL]]
 - [[Lights-off 软件工厂]]
+- [[软件工厂 Software Factory]]
 - [[RL Circuits]]
+- [[ScaleRL]]

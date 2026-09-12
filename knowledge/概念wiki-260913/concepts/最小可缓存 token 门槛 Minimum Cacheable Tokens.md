@@ -7,7 +7,7 @@ subject: Context Engineering
 domain: caching-cost
 learningStage: when-needed
 verification: accept
-centrality: 0.017
+centrality: 0.072
 depth: 0
 origin: [context]
 aliases: ["Minimum Cacheable Tokens"]
@@ -18,7 +18,7 @@ sources: 1
 
 > Anthropic 各模型可缓存内容的最小 token 门槛不同，不能默认所有新模型是同一个数。
 
-**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.017
+**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -37,6 +37,10 @@ sources: 1
 
 > {{name}}在不同 Anthropic 模型上是同一个数吗？该怎么查？
 
+## 懂了它才能懂（解锁 1）
+
+- [[提示词缓存 Prompt Caching]] — 不懂最小可缓存 token 门槛，就做不了提示词缓存的可行性判断（该段是否够长可缓存）。
+
 ## 相关
 
 - [[稳定前缀 Stable Prefix]] · 同篇出现（co-occurrence） — 同篇出现：context-17
@@ -53,6 +57,6 @@ sources: 1
 
 ## 反链
 
-- [[缓存断点 Cache Breakpoint]]
 - [[提示词缓存 Prompt Caching]]
+- [[缓存断点 Cache Breakpoint]]
 - [[稳定前缀 Stable Prefix]]

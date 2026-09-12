@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: economy-business
 learningStage: when-needed
 verification: judge
-centrality: 0.042
-depth: 3
+centrality: 0.126
+depth: 2
 origin: [notion]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > DeepSeek 每发一代模型就冲击一次市场：集中暴露闭源路线脆弱性，把焦点从更大模型推向更高效率与更开放生态。
 
-**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 原文 context
 
@@ -35,8 +35,9 @@ sources: 1
 
 > {{name}} 每次出现时重新提出了什么问题？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
+- [[开源 vs 闭源]] · **hard** — 不懂开源 vs 闭源，就理解不了 DeepSeek Moment 为何能把焦点从更大模型推向更开放生态、并冲击闭源路线
 - [[死亡地带]] · **soft** — DeepSeek 冲击正是逼近死亡地带的标志性事件
 
 ## 相关
@@ -50,4 +51,8 @@ sources: 1
 - Notion 概念库 ｜ Notion 概念库 ｜ https://app.notion.com/p/DeepSeek-Moment-4d2679b108ff823abd5c8176428c4aae
 ## 反链
 
+- [[外包思考，但不外包理解]]
+- [[开源 vs 闭源]]
 - [[死亡地带]]
+- [[Agent-Native Infrastructure]]
+- [[Sensors 与 Actuators]]

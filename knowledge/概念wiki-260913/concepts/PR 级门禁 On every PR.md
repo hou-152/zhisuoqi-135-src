@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: verification-eval
 learningStage: when-needed
 verification: use
-centrality: 0.017
-depth: 0
+centrality: 0.072
+depth: 3
 origin: [context]
 aliases: ["On every PR"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 让同一条链在每个 PR 上自动跑的同级门禁，不依赖作者是否记得调用。
 
-**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -37,6 +37,10 @@ sources: 1
 
 > {{name}} 上了之后，队友忘记调用也会被拦吗？
 
+## 先懂这些（前置 1）
+
+- [[Validation gates]] · **hard** — 不懂 Validation gates，就做不了 PR 级门禁在每个 PR 上自动跑的「检查点链」
+
 ## 相关
 
 - [[把重复步骤编码成 Skill]] · 同篇出现（co-occurrence） — 同篇出现：context-12
@@ -53,6 +57,7 @@ sources: 1
 
 ## 反链
 
-- [[验证闭环 verification loop]]
 - [[skill-creator 访谈式创建]]
+- [[Validation gates]]
+- [[验证闭环 verification loop]]
 - [[把重复步骤编码成 Skill]]

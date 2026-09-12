@@ -5,9 +5,9 @@ type: CONCEPTUAL
 subject: Harness Engineering
 domain: loop-autonomy
 learningStage: now
-verification: compute
-centrality: 0.067
-depth: 1
+verification: accept
+centrality: 0.126
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > Agent 运行的心跳：循环执行 Thought-Action-Observation，机制上常只是一个 while 循环。
 
-**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.067
+**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,16 +36,14 @@ This is the heartbeat. It implements the Thought-Action-Observation (TAO) cycle,
 
 > {{name}} 的每一步分别发生什么？
 
-## 先懂这些（前置 1）
-
-- [[ReAct loop]] · **soft** — 该命名是 ReAct 的扩展叫法，ReAct 是它的机制内核。
-
-## 懂了它才能懂（解锁 1）
+## 懂了它才能懂（解锁 2）
 
 - [[Continuous orchestration loop]] — 连续编排循环是编排循环的长期监督扩展，先有编排循环才谈持续监督。
+- [[Agent loop]] — 不懂【Orchestration Loop / TAO Cycle / ReAct Loop】，就做不了【Agent loop】的 ⟨调工具—回喂—再调用的迭代机制⟩
 
 ## 相关
 
+- [[ReAct loop]] · rejected（audit） — 该节点名已直接包含 ReAct Loop，再依赖 ReAct loop 构成自指/重复，应合并而非建边。
 - [[Agent vs Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-27
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-27
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-27
@@ -55,6 +53,8 @@ This is the heartbeat. It implements the Thought-Action-Observation (TAO) cycle,
 - Harness Engineering ｜ 《The Anatomy of an Agent Harness》 ｜ https://x.com/akshay_pachaar/status/2041146899319971922
 ## 反链
 
-- [[ReAct loop]]
-- [[Continuous orchestration loop]]
+- [[Harness 工程 Harness Engineering]]
 - [[Agent vs Harness]]
+- [[Agent loop]]
+- [[Continuous orchestration loop]]
+- [[ReAct loop]]

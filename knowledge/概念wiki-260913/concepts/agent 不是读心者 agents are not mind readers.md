@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.042
-depth: 3
+centrality: 0.017
+depth: 0
 origin: [context]
 aliases: ["agents are not mind readers"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > agent 无法读心，只能靠上下文变得有用，因此上下文是整套新系统的核心。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -37,16 +37,6 @@ sources: 1
 
 > {{name}}这句话推出什么设计结论？
 
-## 先懂这些（前置 1）
-
-- [[上下文 context]] · **hard** — 正因 agent 读不到心，只能靠上下文变有用，不懂上下文就无此论断。
-
-## 相关
-
-- [[交接模型 handoff model]] · 同篇出现（co-occurrence） — 同篇出现：context-11
-- [[复杂被误认为精密 complexity looked like sophistication]] · 同篇出现（co-occurrence） — 同篇出现：context-11
-- [[流程即工作 the process became the work]] · 同篇出现（co-occurrence） — 同篇出现：context-11
-
 ## 出场
 
 - Context Engineering ｜ 《产品开发的下一阶段由上下文与行动能力驱动》 ｜ https://linear.app/next
@@ -54,10 +44,3 @@ sources: 1
 ## 别名
 
 `agents are not mind readers`
-
-## 反链
-
-- [[上下文 context]]
-- [[交接模型 handoff model]]
-- [[流程即工作 the process became the work]]
-- [[复杂被误认为精密 complexity looked like sophistication]]

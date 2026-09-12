@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: model-training
 learningStage: deep-dive
 verification: accept
-centrality: 0.067
-depth: 3
+centrality: 0.126
+depth: 1
 origin: [notion]
 aliases: ["视觉 Engram", "Vision Engram"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 基于 Qwen-3 复现文本 Engram 后，把 Engram 迁到 Stable Diffusion 的视觉版本。
 
-**领域** model-training ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.067
+**领域** model-training ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -38,11 +38,13 @@ sources: 1
 
 ## 先懂这些（前置 2）
 
-- [[multimodal Vision LLMs]] · **soft** — Tiny Engram 把 Engram 迁到视觉扩散，懂多模态视觉处理更易理解其迁移。
-- [[VLM]] · **soft** — 视觉版 Engram 与 VLM 同属视觉-语言处理，懂 VLM 更易定位它的目标。
+- [[Q、K、V]] · **hard** — 不懂 Q、K、V，就做不了 Tiny Engram 把 Engram 挂到 Stable Diffusion 交叉注意力层的迁移
+- [[N-gram]] · **soft** — 不懂 N-gram，就做不了 Tiny Engram 里 Engram 记忆的哈希查找复现
 
 ## 相关
 
+- [[VLM]] · rejected（audit） — VLM 是理解型多模态模型，Tiny Engram 视觉版是扩散生成；两者只是相邻，不构成前置依赖。
+- [[multimodal Vision LLMs]] · related-to（audit） — Tiny Engram 迁到 Stable Diffusion 属视觉生成，不等同多模态 LLM；懂多模态只是背景，不是前置。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -57,8 +59,7 @@ sources: 1
 
 ## 反链
 
-- [[外包思考，但不外包理解]]
+- [[Q、K、V]]
 - [[multimodal Vision LLMs]]
+- [[N-gram]]
 - [[VLM]]
-- [[Agent-Native Infrastructure]]
-- [[Sensors 与 Actuators]]

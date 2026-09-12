@@ -6,8 +6,8 @@ subject: Context Engineering × Harness Engineering
 domain: context-engineering
 learningStage: now
 verification: use
-centrality: 0.035
-depth: 0
+centrality: 0.089
+depth: 2
 origin: [context, harness]
 aliases: []
 sources: 2
@@ -17,7 +17,7 @@ sources: 2
 
 > 上下文接近窗口上限时，把对话摘要后重新初始化新窗口，保留关键决策与未解决 bug。
 
-**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.035
+**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.089
 
 ## 费曼一下
 
@@ -36,7 +36,14 @@ sources: 2
 
 > {{name}} 触发后，哪些内容必须被带进新窗口？
 
+## 先懂这些（前置 1）
+
+- [[上下文压缩 Context Compression Summarization]] · **soft** — 不懂【上下文压缩】，就做不了【compaction】的窗口重初始化时摘要保留
+
 ## 出场
 
 - Context Engineering ｜ 《Anthropic：有效的上下文工程，是为 agent 找到最小充分信息集》 ｜ https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents
 - Harness Engineering ｜ 《LangChain 解剖 agent harness：Agent = 模型 + harness》 ｜ https://blog.langchain.com/the-anatomy-of-an-agent-harness/
+## 反链
+
+- [[上下文压缩 Context Compression Summarization]]

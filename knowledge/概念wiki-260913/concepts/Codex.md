@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: harness-runtime
 learningStage: when-needed
 verification: accept
-centrality: 0.042
+centrality: 0.072
 depth: 2
 origin: [notion]
 aliases: ["OpenAI Codex", "代码 Agent 样板"]
@@ -17,7 +17,7 @@ sources: 1
 
 > OpenAI 的编码代理产品；本地化运行既是它的能力来源，也带来安全与部署上的复杂度。
 
-**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
+**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -57,3 +57,6 @@ OpenAI 的代码 Agent 产品，本文里被反复当作 **「Agent 应该长什
 ## 反链
 
 - [[coding agent]]
+- [[外包思考，但不外包理解]]
+- [[Agent-Native Infrastructure]]
+- [[Sensors 与 Actuators]]

@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: memory-retrieval
 learningStage: when-needed
 verification: use
-centrality: 0.017
-depth: 0
+centrality: 0.072
+depth: 1
 origin: [context]
 aliases: ["hybrid strategy"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 预检索与即时检索的折中：先取一部分数据保速度，再由 agent 用 glob、grep 等原语自行深入，适合内容不太动态的场景。
 
-**领域** memory-retrieval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** memory-retrieval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,6 +36,10 @@ sources: 1
 ## 验收问句
 
 > 能否为这个代码库设计一套 {{name}}？
+
+## 先懂这些（前置 1）
+
+- [[即时检索 Just-in-time Retrieval]] · **hard** — 不懂【即时检索】，就做不了【混合检索策略】的『预检索与即时检索折中』设计
 
 ## 相关
 
@@ -56,3 +60,4 @@ sources: 1
 - [[上下文工程 context engineering]]
 - [[注意力预算 attention budget]]
 - [[上下文腐烂 Context Rot]]
+- [[即时检索 Just-in-time Retrieval]]
