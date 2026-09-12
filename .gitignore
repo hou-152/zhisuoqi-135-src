@@ -17,3 +17,6 @@ deploy/zhisuoqi/
 
 # 公网发布仓库（独立 git 仓库，由 scripts/build-public.mjs 生成）
 deploy/zhisuoqi-135/
+
+# 根站（独立 git 仓库）：让 hou-152.github.io 不 404
+deploy/root-site/
