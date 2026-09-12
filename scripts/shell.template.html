@@ -139,6 +139,9 @@ button{font-family:inherit}
 #panel .deep .mut{font-size:12px;line-height:1.8;color:var(--fg3);white-space:pre-wrap}
 #panel .deep ul{margin:6px 0 0;padding-left:16px}
 #panel .deep li{font-size:12px;line-height:1.75;color:var(--fg3);margin:3px 0}
+#nei-body .nm .tomap{background:none;border:0;color:var(--fg);font:inherit;font-size:14px;font-weight:600;cursor:pointer;padding:0;text-align:left;border-bottom:1px dashed var(--line2)}
+#nei-body .nm .tomap:hover{color:var(--accent2);border-bottom-color:var(--accent2)}
+#nei-body .nm .tomap i{font-style:normal;font-size:10.5px;color:var(--fg4);margin-left:4px}
 #panel .metrics{display:flex;gap:20px;padding:12px 0;border-top:1px solid var(--line);
   border-bottom:1px solid var(--line);margin-bottom:18px}
 #panel .m{flex:1}
@@ -1316,6 +1319,12 @@ function srcLabel(a) {
 }
 function hideReader() { const r = document.getElementById('reader'); if (r) r.classList.remove('on'); }
 window.hideReader = hideReader;
+/* 从内参的概念卡跳到地图：关掉阅读区 → 回知识体系 → 打开那张卡 */
+function mapFromNeican(id) {
+  if (!byId.has(id)) return;
+  hideReader(); setView('graph'); openPanel(id);
+}
+window.mapFromNeican = mapFromNeican;
 
 function openNeican(slug) {
   const a = neiOf(slug); if (!a) return;
@@ -1338,11 +1347,17 @@ window.neiTab = neiTab;
 function neiBody(a) {
   if (neiTabName === 'concept') {
     const cs = a.conceptCards || [];
-    return cs.length ? cs.map((c, i) => `<div class="concept">
-      <span class="nm">${i + 1}. ${esc(c.name)}</span>
+    if (!cs.length) return '<div class="mut">这一篇没有概念卡。</div>';
+    const inMap = cs.filter(c => c.nodeId).length;
+    const head = `<div class="mut" style="margin-bottom:12px">本文 <b>${cs.length}</b> 个概念 ·
+      其中 <b>${inMap}</b> 个已并进概念地图（点名字跳到地图那张卡）；
+      其余是本文特有的细粒度提取。</div>`;
+    return head + cs.map((c, i) => `<div class="concept">
+      <span class="nm">${i + 1}. ${c.nodeId
+        ? `<button class="tomap" onclick="mapFromNeican('${c.nodeId}')">${esc(c.name)} <i>↗ 地图</i></button>`
+        : esc(c.name)}</span>
       ${(c.quotes || []).map(q => `<div class="q">${q}</div>`).join('')}
-      ${c.feynman ? `<div class="fy"><i>费曼一下</i>${c.feynman}</div>` : ''}</div>`).join('')
-      : '<div class="mut">这一篇没有概念卡。</div>';
+      ${c.feynman ? `<div class="fy"><i>费曼一下</i>${c.feynman}</div>` : ''}</div>`).join('');
   }
   if (neiTabName === 'feynman') {
     const f = a.feynman || {};

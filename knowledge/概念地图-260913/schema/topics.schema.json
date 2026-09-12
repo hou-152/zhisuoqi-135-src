@@ -113,7 +113,8 @@
        "enum": [
         "notion",
         "context",
-        "harness"
+        "harness",
+        "neican"
        ]
       }
      },

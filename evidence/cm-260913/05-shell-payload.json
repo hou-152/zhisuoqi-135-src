@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-12T17:42:32.510Z",
+ "generatedAt": "2026-09-12T18:51:51.130Z",
  "nodes": [
   {
    "id": "cm_0a4ca4ce",
@@ -8,7 +8,7 @@
    "type": "CONCEPTUAL",
    "gloss": "包裹在大语言模型之外的完整软件架构，负责让模型能读文件、跑命令、改代码并自主完成任务。",
    "level": 0,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "harness-runtime"
    ],
@@ -91,7 +91,7 @@
    "type": "CONCEPTUAL",
    "gloss": "模型读到的全部『前文』；处理新词时要连着前面所有词的关系一起理解。",
    "level": 0,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "context-engineering"
    ],
@@ -138,6 +138,33 @@
     "notion"
    ],
    "mentionCount": 1
+  },
+  {
+   "id": "cm_32e036a5",
+   "name": "企业托管设置（Managed Settings）与 strictKnownMarketplaces",
+   "src": "neican",
+   "type": "REPRESENTATIONAL",
+   "gloss": "管理员用托管设置下发企业技能，并用 strictKnownMarketplaces 限定插件安装来源白名单",
+   "level": 1,
+   "ci": 3,
+   "tags": [
+    "safety-governance"
+   ],
+   "k": "judge",
+   "kwhy": "能说出该机制的两个要点：组织范围下发与来源白名单",
+   "nameEn": "",
+   "centrality": 0.37,
+   "stage": "deep-dive",
+   "feynman": "这条路的推动者不是使用者而是管理员：技能由托管设置统一下发到整个组织。它有两个机制要点：一是优先级最高（见下一条），二是 `strictKnownMarketplaces` 限定了插件只能从白名单来源安装——它管的不是技能内容，而是\"允许从哪里拿插件\"这道准入闸门。作者把判断标准压缩成一个词：\"必须\"——只有强制性标准、安全要求、合规工作流程和编码实践才值得动用这一层。",
+   "evidence": [
+    "能说出该机制的两个要点：组织范围下发与来源白名单",
+    "能判断只有强制性标准、安全与合规才用这一层"
+   ],
+   "ap": "{{name}}管的是技能内容，还是插件安装来源？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 15
   },
   {
    "id": "cm_a500a4cb",
@@ -194,6 +221,33 @@
    "mentionCount": 1
   },
   {
+   "id": "cm_cc101992",
+   "name": "按需加载",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "技能按需加载：起初只加载名称与描述，请求匹配时才加载正文，不占满上下文。",
+   "level": 1,
+   "ci": 3,
+   "tags": [
+    "context-engineering"
+   ],
+   "k": "judge",
+   "kwhy": "能与 CLAUDE.md、斜杠命令的加载方式做对比",
+   "nameEn": "",
+   "centrality": 0.308,
+   "stage": "now",
+   "feynman": "按需加载是技能的上下文策略。Claude 最初只加载名称和描述，只有当请求匹配时，才加载技能正文。它不同于 CLAUDE.md 那种每次对话都加载的方式，因此能让很多专业知识存在，而不会一直占满上下文窗口。",
+   "evidence": [
+    "能与 CLAUDE.md、斜杠命令的加载方式做对比",
+    "能解释 PR 审阅清单只在真正审阅时才进入上下文"
+   ],
+   "ap": "相比 CLAUDE.md 每次加载，{{name}} 省下了什么？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 2
+  },
+  {
    "id": "cm_9ed037b8",
    "name": "Sandbox",
    "src": "harness",
@@ -227,7 +281,7 @@
    "type": "CONCEPTUAL",
    "gloss": "对模型上下文窗口的审慎构建与管理，把原始上下文与目标任务映射为可组合的上下文处理函数。",
    "level": 1,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "context-engineering"
    ],
@@ -245,6 +299,33 @@
    "origin": [
     "context",
     "harness"
+   ],
+   "mentionCount": 14
+  },
+  {
+   "id": "cm_200893a2",
+   "name": "skills 字段",
+   "src": "neican",
+   "type": "REPRESENTATIONAL",
+   "gloss": "自定义子代理前置元数据中列出待加载技能的 skills 字段，委派时应用。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "harness-runtime"
+   ],
+   "k": "use",
+   "kwhy": "能在 .claude/agents 的代理 markdown 前置元数据里写出 skills 字段",
+   "nameEn": "",
+   "centrality": 0.298,
+   "stage": "now",
+   "feynman": "`skills:` 这一行就是隔离规则的解药——只有在自定义子代理的前置元数据里点名写出技能，它才会加载，并在每次被委派时都应用。它的前置条件是技能已存在于 `.claude/skills`；操作上可以用 `/agents` 交互生成，也可以往已有的代理 markdown 里补字段。作者点出它的价值在于\"强制执行标准，而不依赖于提示\"：把规则沉淀成技能并绑定到代理上，比每次在提示里重申更可靠。\n\n## 二、概念架构图\n\n```mermaid\nflowchart TB\n  subgraph L1[分发层：技能怎么到达使用者]\n    A[\"仓库提交<br/>.claude/skills · Git 自动共享\"]\n    B[\"插件与市场<br/>skills 目录 + SKILL.md\"]\n    C[\"企业托管设置<br/>strictKnownMarketplaces 限来源\"]\n  end\n  subgraph L2[优先级层]\n    D[\"企业技能：最高优先级<br/>覆盖同名个人／项目／插件技能\"]\n  end\n  subgraph L3[子代理访问层：谁能用技能]\n    E[\"技能隔离<br/>不自动继承 · 全新干净上下文\"]\n    F[\"内置代理 Explorer／Plan／Verify<br/>完全无法访问技能\"]\n    G[\"自定义子代理 .claude/agents<br/>需显式授权\"]\n    H[\"skills 字段<br/>列出要加载的技能\"]\n  end\n  C --> D\n  D -->|同名时覆盖| A\n  D -->|同名时覆盖| B\n  E --> F\n  E -->|故必须显式列出| G\n  G --> H\n  H -->|每次委派时加载并应用| G\n```\n\n图中三层的划分依据是功能角色：分发层决定技能以何种渠道、何种范围到达使用者；优先级层裁决同名冲突；子代理访问层处理\"委派出去的工作能不能用上技能\"。企业托管设置单独指向优先级层，是因为它同时具备部署方式与最高优先级两重身份。",
+   "evidence": [
+    "能在 .claude/agents 的代理 markdown 前置元数据里写出 skills 字段",
+    "能说明该字段的前提是技能已存在于 .claude/skills"
+   ],
+   "ap": "{{name}} 写在哪里？生效前提是什么？",
+   "origin": [
+    "neican"
    ],
    "mentionCount": 14
   },
@@ -363,7 +444,7 @@
    "type": "CONCEPTUAL",
    "gloss": "围绕模型构建的完整系统，使 Agent 能够自主行动。",
    "level": 1,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "harness-runtime"
    ],
@@ -383,6 +464,33 @@
     "harness"
    ],
    "mentionCount": 13
+  },
+  {
+   "id": "cm_d78a3680",
+   "name": "SKILL.md 与 YAML 前置元数据",
+   "src": "neican",
+   "type": "REPRESENTATIONAL",
+   "gloss": "SKILL.md 的 YAML 前置元数据以 name 与 description 为必需字段，是技能的发现层。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "context-engineering"
+   ],
+   "k": "use",
+   "kwhy": "能写出符合字符与命名规则的前置元数据",
+   "nameEn": "SKILL.md / YAML frontmatter",
+   "centrality": 0.263,
+   "stage": "now",
+   "feynman": "SKILL.md 是每个技能的入口文件，YAML 前置元数据是技能的“发现层”。其中 `name` 和 `description` 是必需字段，而 `description` 必须同时说明技能做什么、Claude 什么时候该用它。原因是 Claude 靠这段元数据判断是否触发技能。元数据之外的 SKILL.md 正文才承载具体工作流程和指南。字段限制则构成技能定义文件的边界。",
+   "evidence": [
+    "能写出符合字符与命名规则的前置元数据",
+    "能说明 description 必须同时写清功能与使用时机"
+   ],
+   "ap": "{{name}} 中 description 为什么必须同时写清功能与使用时机？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 12
   },
   {
    "id": "cm_10cbe746",
@@ -418,7 +526,7 @@
    "type": "CONCEPTUAL",
    "gloss": "在不同时间尺度上运作的存储：会话内、跨会话、长期沉淀，各层服务于不同的取回需求。",
    "level": 0,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "memory-retrieval"
    ],
@@ -446,7 +554,7 @@
    "type": "CONCEPTUAL",
    "gloss": "模型一次能装下的文本量，如 1M token 可装下整套《指环王》与《霍比特人》。",
    "level": 0,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "context-engineering"
    ],
@@ -474,7 +582,7 @@
    "type": "CONCEPTUAL",
    "gloss": "协调可错、随机而强大的 agent 快速产出，同时守住正确性、安全、品味与可维护性的工程纪律。",
    "level": 1,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "code-engineering"
    ],
@@ -502,7 +610,7 @@
    "type": "CONCEPTUAL",
    "gloss": "把一整个 session 工作封装、只回流浓缩结果的子代理，拥有全新而小的上下文窗口与指令预算。",
    "level": 1,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "multi-agent"
    ],
@@ -522,6 +630,33 @@
     "harness"
    ],
    "mentionCount": 2
+  },
+  {
+   "id": "cm_dc9a27be",
+   "name": "安全审计与受信任来源",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "技能等同要安装的软件：只用可信来源，并审计包内全部文件以防恶意指令与代码。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "safety-governance"
+   ],
+   "k": "judge",
+   "kwhy": "能说出恶意技能可能造成数据外泄或未授权访问",
+   "nameEn": "Security Considerations / Trusted Sources",
+   "centrality": 0.248,
+   "stage": "now",
+   "feynman": "安全边界来自技能能通过指令和代码给 Claude 新能力。恶意技能可能让 Claude 以不符合声明目的的方式调用工具、执行代码，导致数据外泄或未授权访问。本文把技能当作要安装的软件来对待，强调来源可信，并要求审计技能包中的所有文件，包括 SKILL.md、脚本、图片和其他资源。外部 URL 风险、工具滥用、数据暴露是这条防御结构里的几个关键边界。\n\n## 二、概念架构图\n\n```mermaid\nflowchart TB\n  subgraph 基础对象层\n    AS[\"代理技能 Agent Skills\"]\n    PC[\"预构建技能 / 自定义技能\"]\n    SM[\"SKILL.md / YAML 前置元数据\"]\n    FS[\"文件系统型代码执行环境\"]\n  end\n  subgraph 加载运行层\n    TR[\"技能触发与自动使用\"]\n    PD[\"渐进式披露\"]\n    CT[\"三类内容：说明 / 代码 / 资源\"]\n  end\n  subgraph 边界治理层\n    RT[\"运行时限制、权限与数据保留边界\"]\n    SS[\"跨产品面同步与共享边界\"]\n    SEC[\"安全审计与受信任来源\"]\n  end\n  AS -->|\"包含\"| PC\n  AS -->|\"必须包含\"| SM\n  AS -->|\"以目录形式存在于\"| FS\n  SM -->|\"description 用于判断\"| TR\n  TR -->|\"触发后读取 SKILL.md\"| PD\n  PD -->|\"分阶段加载\"| CT\n  FS -->|\"提供 bash 与代码执行\"| CT\n  FS -->|\"受约束于\"| RT\n  SS -->|\"决定上传与共享\"| PC\n  SEC -->|\"约束使用\"| AS\n  SEC -->|\"审计文件与脚本\"| SM\n  SEC -->|\"关注工具滥用\"| FS\n```",
+   "evidence": [
+    "能说出恶意技能可能造成数据外泄或未授权访问",
+    "能列出需审计的文件类型：SKILL.md、脚本、图片及其他资源"
+   ],
+   "ap": "按 {{name}}，拿到第三方技能应先做什么？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 8
   },
   {
    "id": "cm_1d5a247c",
@@ -1097,7 +1232,7 @@
    "type": "PROCEDURAL",
    "gloss": "通过摘要或减少携带内容来压缩上下文，但不得以破坏稳定前缀为代价。",
    "level": 1,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "context-engineering"
    ],
@@ -1152,7 +1287,7 @@
    "type": "REPRESENTATIONAL",
    "gloss": "一种开放的工具接入标准，让 Agent 以统一协议接上外部工具与数据源。",
    "level": 1,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "tools-sandbox"
    ],
@@ -1174,13 +1309,40 @@
    "mentionCount": 3
   },
   {
+   "id": "cm_ad086a79",
+   "name": "跨产品面的同步与共享边界",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "自定义技能不跨产品面同步，claude.ai、API、Claude Code 各自独立，共享范围也不同。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "harness-runtime"
+   ],
+   "k": "judge",
+   "kwhy": "能说出三个产品面之间技能不自动同步",
+   "nameEn": "Surface-specific Sync and Sharing",
+   "centrality": 0.211,
+   "stage": "when-needed",
+   "feynman": "技能在不同产品面之间不会自动同步。上传到 claude.ai 的技能不会自动出现在 API，API 上传的也不会出现在 claude.ai，Claude Code 的技能则基于文件系统，和两者分开。共享范围也不同：claude.ai 是个人级，API 是工作区级，Claude Code 是个人或项目级。理解“技能在哪里可用、谁能看到”必须看这个边界，不能假设一次上传处处可用。",
+   "evidence": [
+    "能说出三个产品面之间技能不自动同步",
+    "能指出各面共享范围分别是个人级、工作区级或项目级"
+   ],
+   "ap": "上传到 claude.ai 的 {{name}} 会自动出现在 API 吗？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 9
+  },
+  {
    "id": "cm_94fa45bf",
    "name": "跨轮次记忆与连贯策略",
    "src": "multi",
    "type": "CONCEPTUAL",
    "gloss": "保留推理历史后模型更能随时间学习并使用连贯策略；两处失忆叠加解释了它此前为何学不会。",
    "level": 3,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "memory-retrieval"
    ],
@@ -1235,7 +1397,7 @@
    "type": "PROCEDURAL",
    "gloss": "把产出后必做的检查固化成可自动执行的一环，让 Claude 自己验证自己的产物。",
    "level": 1,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "verification-eval"
    ],
@@ -1257,13 +1419,148 @@
    "mentionCount": 2
   },
   {
+   "id": "cm_b6da7e6e",
+   "name": "执行主体从人变成 Agent",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "流程步骤不变，但分析、设计、编码、调试的执行者由人变成 Agent。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "agent-org"
+   ],
+   "k": "judge",
+   "kwhy": "能指出人变成指挥官、Agent 变成执行者",
+   "nameEn": "",
+   "centrality": 0.198,
+   "stage": "now",
+   "feynman": "流程步骤没变，但具体做分析、设计、编码、调试的人不再是人，而是 Agent。人升到指挥官位置。这个概念承重，因为后面讲的确认合并、文档桥梁、瓶颈转移，都是执行主体改变后的结果。",
+   "evidence": [
+    "能指出人变成指挥官、Agent 变成执行者",
+    "能把确认合并、瓶颈转移等现象归因于执行主体改变"
+   ],
+   "ap": "{{name}} 之后，哪些环节的承担者变了？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 2
+  },
+  {
+   "id": "cm_369f10ff",
+   "name": "自动激活",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "技能无需手动输入，Claude 识别到相应情况时自动激活；斜杠命令则需显式调用。",
+   "level": 1,
+   "ci": 3,
+   "tags": [
+    "harness-runtime"
+   ],
+   "k": "judge",
+   "kwhy": "能区分自动激活与斜杠命令的显式调用",
+   "nameEn": "",
+   "centrality": 0.198,
+   "stage": "when-needed",
+   "feynman": "自动激活是技能的触发方式。用户不必像使用斜杠命令那样手动输入；Claude 识别到相应情况后会自动应用技能。它和斜杠命令的边界在于：斜杠命令靠显式调用，技能靠识别与匹配后自动触发。",
+   "evidence": [
+    "能区分自动激活与斜杠命令的显式调用",
+    "能说明触发靠识别与匹配而非用户手动选择"
+   ],
+   "ap": "{{name}} 与斜杠命令的触发边界在哪里？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 2
+  },
+  {
+   "id": "cm_5676c394",
+   "name": "Rockset 离线二级视图",
+   "src": "neican",
+   "type": "REPRESENTATIONAL",
+   "gloss": "用变更数据捕获把在线存储变化近实时同步到隔离的 Rockset 实例，作为复杂查询的逃生舱。",
+   "level": 2,
+   "ci": 3,
+   "tags": [
+    "state-persistence"
+   ],
+   "k": "accept",
+   "kwhy": "能说明在线存储与读很重的分析、搜索负载如何被隔离",
+   "nameEn": "",
+   "centrality": 0.198,
+   "stage": "when-needed",
+   "feynman": "Habitat 把简单查询作为默认路径，复杂查询通过变更数据捕获同步到隔离 Rockset 实例，由客户团队自行扩展。这样在线存储与读很重的分析、搜索负载隔离开来。它是约束型 API 的配套逃生舱，防止复杂查询破坏在线存储的可预测性。",
+   "evidence": [
+    "能说明在线存储与读很重的分析、搜索负载如何被隔离",
+    "能说出复杂查询由客户团队自行在其 Rockset 实例上扩展"
+   ],
+   "ap": "什么情况下才应该动用 {{name}}？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 2
+  },
+  {
+   "id": "cm_37869804",
+   "name": "可行性分析",
+   "src": "neican",
+   "type": "PROCEDURAL",
+   "gloss": "先判断值不值得做：产品看价值与定位，技术看可行与成本。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "agent-org"
+   ],
+   "k": "judge",
+   "kwhy": "能从产品和技术两个层面提出可行性问题",
+   "nameEn": "",
+   "centrality": 0.196,
+   "stage": "now",
+   "feynman": "先决定要不要做，再进入设计和编码。产品角度看价值与定位，技术角度看可行与成本。它不是不出错的保险，而是期望值下减少更多坑的关卡。它是流程第一关，也是后面所有工作的前提。",
+   "evidence": [
+    "能从产品和技术两个层面提出可行性问题",
+    "能说出它是期望值上的赌注，减少弯路但也会看走眼"
+   ],
+   "ap": "做 {{name}} 时要回答哪两类问题？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 5
+  },
+  {
+   "id": "cm_a2868643",
+   "name": "运行时限制、权限与数据保留边界",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "技能可做的事取决于所在产品面的运行时限制，如 API 无网络、不能装包，且不受 ZDR 覆盖。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "tools-sandbox"
+   ],
+   "k": "judge",
+   "kwhy": "能对比 API、claude.ai、Claude Code 的网络与装包权限",
+   "nameEn": "Runtime Limitations, Constraints, and Retention",
+   "centrality": 0.196,
+   "stage": "when-needed",
+   "feynman": "技能能做什么，取决于它在哪个产品面运行。API 是沙箱，不能访问网络，也不能在运行时安装新包；claude.ai 的网络权限可能完整、部分或没有；Claude Code 有完整网络权限，但原文不建议全局安装软件包。数据保留方面，Agent Skills 不在 ZDR 覆盖范围内，技能定义和执行数据按标准数据保留政策保留。这些限制决定技能是否可规划、能否联网、能否装包，以及数据如何被保留。",
+   "evidence": [
+    "能对比 API、claude.ai、Claude Code 的网络与装包权限",
+    "能说出 Agent Skills 不在 ZDR 覆盖范围内"
+   ],
+   "ap": "{{name}} 下 API 面能否发起外部网络调用？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 5
+  },
+  {
    "id": "cm_20bf8a66",
    "name": "Loop Engineering",
    "src": "multi",
    "type": "PROCEDURAL",
    "gloss": "从单次提示转向自动循环的工作方式：设计目标、触发、执行、验证、失败处理与反馈机制。",
    "level": 1,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "loop-autonomy"
    ],
@@ -1291,7 +1588,7 @@
    "type": "CONCEPTUAL",
    "gloss": "模型性能随输入长度增长而变得不可靠的现象，且不是平滑衰减，而是在不同位置参差塌陷。",
    "level": 0,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "context-engineering"
    ],
@@ -2393,6 +2690,114 @@
    "mentionCount": 1
   },
   {
+   "id": "cm_53ec7c9b",
+   "name": "allowed-tools",
+   "src": "neican",
+   "type": "REPRESENTATIONAL",
+   "gloss": "可选字段，列出技能激活时免许可可用的工具；省略则不限制，回到正常权限模型",
+   "level": 1,
+   "ci": 3,
+   "tags": [
+    "tools-sandbox"
+   ],
+   "k": "use",
+   "kwhy": "能说明列入的工具免许可、编辑与写入被挡死",
+   "nameEn": "",
+   "centrality": 0.179,
+   "stage": "when-needed",
+   "feynman": "这是技能激活期间的权限白名单。列进去的工具可以免许可直接调用；列不进去的能力（编辑、写入）在这个技能里被挡死。反向边界同样重要：完全省略该字段就等于不设限，克劳德回到正常权限模型。作者把它推荐给只读任务、高安全要求或需要设护栏的工作流程。",
+   "evidence": [
+    "能说明列入的工具免许可、编辑与写入被挡死",
+    "能指出完全省略该字段等于不设限"
+   ],
+   "ap": "{{name}}完全省略时，技能激活期间的权限会怎样？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 4
+  },
+  {
+   "id": "cm_dc4f803b",
+   "name": "技能触发与自动使用",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "Claude 按请求与 description 的匹配自动触发技能，触发后才用 bash 读取 SKILL.md 正文。",
+   "level": 1,
+   "ci": 3,
+   "tags": [
+    "context-engineering"
+   ],
+   "k": "judge",
+   "kwhy": "能解释触发判断依据是技能描述而非正文",
+   "nameEn": "Skill Triggering / Automatic Use",
+   "centrality": 0.161,
+   "stage": "when-needed",
+   "feynman": "技能不是用户每次手动挑选的，而是 Claude 根据请求与 `description` 的匹配情况自动触发。触发之后，Claude 才会用 bash 读取 SKILL.md，把正文指令带进上下文。这个机制解释了为什么描述必须同时写“功能”和“使用时机”：描述本身就是触发判断的依据。",
+   "evidence": [
+    "能解释触发判断依据是技能描述而非正文",
+    "能描述触发后正文才进入上下文窗口"
+   ],
+   "ap": "{{name}} 发生在读取 SKILL.md 之前还是之后？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 3
+  },
+  {
+   "id": "cm_f986a343",
+   "name": "确认环节可以合并，但不能省略",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "确认环节可以合并加速，但绝不能跳过人的判断。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "verification-eval"
+   ],
+   "k": "judge",
+   "kwhy": "能列举哪些确认可合并、哪些不能取消",
+   "nameEn": "",
+   "centrality": 0.161,
+   "stage": "now",
+   "feynman": "需求、原型、UI 等确认可以合并成一次，流程可以简化；但可行性、技术方向、原型／UI、测试这些确认不能取消。它划出 AI 原生开发中可优化和绝对禁止的边界。",
+   "evidence": [
+    "能列举哪些确认可合并、哪些不能取消",
+    "能指出人的判断力不可替代是这条边界的依据"
+   ],
+   "ap": "{{name}} 的边界在哪里：什么能省、什么不能省？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 3
+  },
+  {
+   "id": "cm_78356595",
+   "name": "让 Agent 自行验证",
+   "src": "neican",
+   "type": "PROCEDURAL",
+   "gloss": "给 Agent 一个自己的反馈循环，让它在你看到结果前先自检。",
+   "level": 2,
+   "ci": 3,
+   "tags": [
+    "verification-eval"
+   ],
+   "k": "use",
+   "kwhy": "能描述 Agent 自行跑测试、调试、截图确认的过程",
+   "nameEn": "",
+   "centrality": 0.161,
+   "stage": "when-needed",
+   "feynman": "Agent 写代码后自己跑测试、调试、截图确认，形成内部反馈循环。人拿到的不是粗糙初稿，而是已自检结果。它解释了为什么可以合并确认而不牺牲太多质量。",
+   "evidence": [
+    "能描述 Agent 自行跑测试、调试、截图确认的过程",
+    "能说明这为何让合并确认环节相对安全"
+   ],
+   "ap": "{{name}} 为什么能减少人的介入次数？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 3
+  },
+  {
    "id": "cm_67483624",
    "name": "\"If you're not the model, you're the harness.\"",
    "src": "harness",
@@ -2426,7 +2831,7 @@
    "type": "CONCEPTUAL",
    "gloss": "循环本身不含智能，只负责反复调用模型；所有判断与决策都来自模型的输出。",
    "level": 0,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "loop-autonomy"
    ],
@@ -2448,13 +2853,40 @@
    "mentionCount": 2
   },
   {
+   "id": "cm_8ff0bd7e",
+   "name": "从客户端库到独立服务",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "把存储逻辑从客户端库解耦为独立服务，形成部署、可观测性与平台增强的统一控制点。",
+   "level": 1,
+   "ci": 3,
+   "tags": [
+    "state-persistence"
+   ],
+   "k": "judge",
+   "kwhy": "能解释客户端库模式下改进为何要推动多个产品服务一起上线回滚",
+   "nameEn": "",
+   "centrality": 0.144,
+   "stage": "now",
+   "feynman": "原先把 Habitat 做成客户端库时，任何改动都要推动许多产品服务一起部署、回滚和上线，协调成本高且脆弱。把存储逻辑变成独立服务后，部署、观测和平台增强集中在一个控制点，改进可以立即惠及所有 OpenAI 产品。这是全文架构转折点。",
+   "evidence": [
+    "能解释客户端库模式下改进为何要推动多个产品服务一起上线回滚",
+    "能说明统一控制点让改进一次惠及所有产品"
+   ],
+   "ap": "为什么 {{name}} 能让平台改进一次性惠及所有产品？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 2
+  },
+  {
    "id": "cm_03d2000c",
    "name": "非模型架构",
    "src": "multi",
    "type": "CONCEPTUAL",
    "gloss": "除模型之外的一切系统成分——Harness、循环、工具、上下文管理都属于这一层。",
    "level": 1,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "harness-runtime"
    ],
@@ -2476,13 +2908,40 @@
    "mentionCount": 2
   },
   {
+   "id": "cm_2cbdf384",
+   "name": "技能验证器",
+   "src": "neican",
+   "type": "REPRESENTATIONAL",
+   "gloss": "命令行技能验证器，用 uv 安装最快，用于在深入调试前先捕获结构性问题。",
+   "level": 1,
+   "ci": 3,
+   "tags": [
+    "verification-eval"
+   ],
+   "k": "use",
+   "kwhy": "能说出它是排查的起点工具且可用 uv 安装",
+   "nameEn": "agent skills verifier",
+   "centrality": 0.144,
+   "stage": "when-needed",
+   "feynman": "一个命令行工具，安装后用 uv 最快，可在技能目录或任意位置运行。它的定位是排查流程的起点——在调用更耗时的调试之前，先把结构性、配置性错误挡在前面。所以凡是怀疑\"结构有问题\"的地方（包括插件），都会被指向它。",
+   "evidence": [
+    "能说出它是排查的起点工具且可用 uv 安装",
+    "能在技能目录或任意位置运行它检查技能结构"
+   ],
+   "ap": "{{name}} 用来做什么？建议放在排查流程哪一步？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 2
+  },
+  {
    "id": "cm_e11bd63b",
    "name": "可验证目标",
    "src": "multi",
    "type": "CONCEPTUAL",
    "gloss": "目标能否被机器判断直接决定 loop 能否收敛；“优化一下应用”模糊，测试、类型检查、lint 全过则明确。",
    "level": 0,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "verification-eval"
    ],
@@ -2537,7 +2996,7 @@
    "type": "PROCEDURAL",
    "gloss": "精心设计模型接收到的指令。",
    "level": 0,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "context-engineering"
    ],
@@ -2565,7 +3024,7 @@
    "type": "PROCEDURAL",
    "gloss": "把执行、审查、修复分给不同子 Agent 或模型，避免写代码的 Agent 给自己打分。",
    "level": 1,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "multi-agent"
    ],
@@ -2593,7 +3052,7 @@
    "type": "CONCEPTUAL",
    "gloss": "定时触发是 loop 的心跳：/loop 间隔执行、cron、hook、GitHub Actions；没有它就不是 loop。",
    "level": 1,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "loop-autonomy"
    ],
@@ -2669,13 +3128,40 @@
    "mentionCount": 2
   },
   {
+   "id": "cm_1da0e9a6",
+   "name": "Habitat",
+   "src": "neican",
+   "type": "REPRESENTATIONAL",
+   "gloss": "OpenAI 的在线存储平台，每秒超 7000 万请求、超 500PB 数据，源自一个 Python 客户端库。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "state-persistence"
+   ],
+   "k": "accept",
+   "kwhy": "能说出 Habitat 替产品工程师屏蔽了哪些存储与路由细节",
+   "nameEn": "",
+   "centrality": 0.144,
+   "stage": "when-needed",
+   "feynman": "Habitat 是 OpenAI 产品与底层存储之间的平台。产品工程师不必关心数据库管理、路由、授权、加密、序列化、请求整形和连接池等问题。全文讨论的扩容、服务化、Python 性能、API 约束、Rust 重写，都是围绕 Habitat 如何从一个 Python 库长成大规模在线存储平台展开的。",
+   "evidence": [
+    "能说出 Habitat 替产品工程师屏蔽了哪些存储与路由细节",
+    "能说出它从连接单个数据库的客户端库长成分布式系统的过程"
+   ],
+   "ap": "{{name}} 替产品工程师屏蔽掉了哪些底层工作？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 2
+  },
+  {
    "id": "cm_75dd4394",
    "name": "LLM-as-CPU / Harness-as-OS",
    "src": "multi",
    "type": "CONCEPTUAL",
    "gloss": "把 LLM 当作 CPU、把 Harness 当作操作系统的类比框架，用于界定二者的职责边界。",
    "level": 2,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "harness-runtime"
    ],
@@ -2703,7 +3189,7 @@
    "type": "CONCEPTUAL",
    "gloss": "Agent 通过探索逐层发现相关上下文、工作记忆只保留必要部分的检索与认知模式。",
    "level": 0,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "context-engineering"
    ],
@@ -2721,6 +3207,33 @@
    "origin": [
     "context",
     "harness"
+   ],
+   "mentionCount": 5
+  },
+  {
+   "id": "cm_5face436",
+   "name": "三类内容：说明、代码、资源",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "技能内容分说明、代码、资源三类，加载时机不同，代码只把输出带入上下文。",
+   "level": 2,
+   "ci": 3,
+   "tags": [
+    "context-engineering"
+   ],
+   "k": "judge",
+   "kwhy": "能把技能中的文件归入说明、代码、资源三类",
+   "nameEn": "Instructions, Code, Resources",
+   "centrality": 0.142,
+   "stage": "when-needed",
+   "feynman": "技能内部不是只有一段说明，而是分成三类内容。说明适合灵活指导；代码通过 bash 执行，只把输出带进上下文，因此可靠且省 token；资源是数据库结构、API 文档、模板、示例等事实材料，被引用时才读取。这个分类决定了每种内容如何加载、为什么能节省成本，以及它们在技能里各自承担什么角色。",
+   "evidence": [
+    "能把技能中的文件归入说明、代码、资源三类",
+    "能说明代码类内容为何确定性强且省 token"
+   ],
+   "ap": "{{name}} 中哪类内容不必把代码本身载入上下文？",
+   "origin": [
+    "neican"
    ],
    "mentionCount": 5
   },
@@ -3400,6 +3913,33 @@
    "mentionCount": 1
   },
   {
+   "id": "cm_026f933a",
+   "name": "简洁规范",
+   "src": "neican",
+   "type": "REPRESENTATIONAL",
+   "gloss": "简短的项目规范文档，只回答为什么做、做什么、怎么做，用简短逼团队划清范围。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "spec-intent"
+   ],
+   "k": "use",
+   "kwhy": "能写出不超过一页、含 why/what/how 的项目简报",
+   "nameEn": "",
+   "centrality": 0.126,
+   "stage": "now",
+   "feynman": "规范的价值在短，不在全。它只回答三个问题——为什么做、做什么、怎么做。作者把\"简洁\"当成强制划范围的手段：正因为写不下细节，团队才被迫把范围想清楚，进而排好优先级、避免做错东西。它是\"单一负责人\"的产物。",
+   "evidence": [
+    "能写出不超过一页、含 why/what/how 的项目简报",
+    "能指出简报写长会模糊工作范围与优先级"
+   ],
+   "ap": "能否用 {{name}} 一页写清你手上项目的为什么、是什么、怎么做？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 1
+  },
+  {
    "id": "cm_67e2a43e",
    "name": "局部最优",
    "src": "context",
@@ -3697,6 +4237,33 @@
    "mentionCount": 1
   },
   {
+   "id": "cm_2440f85e",
+   "name": "企业技能的最高优先级",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "同名技能并存时企业版生效，覆盖个人、项目与插件版本",
+   "level": 2,
+   "ci": 3,
+   "tags": [
+    "safety-governance"
+   ],
+   "k": "judge",
+   "kwhy": "能指出企业技能在所有作用域中优先级最高",
+   "nameEn": "",
+   "centrality": 0.126,
+   "stage": "when-needed",
+   "feynman": "它解决的理解难点是\"同名技能谁说了算\"。答案是：当个人、项目、插件、企业各存在一份同名技能时，企业版生效，其余被覆盖。（原文只交代了企业技能对其他三类的覆盖，没有进一步说明这三者彼此之间的次序。）正因为有这条强制覆盖，企业托管才可能承载\"强制性标准\"——否则组织无法保证所有人跑的是同一套规则。",
+   "evidence": [
+    "能指出企业技能在所有作用域中优先级最高",
+    "能说明该强制覆盖是承载强制性标准的前提"
+   ],
+   "ap": "{{name}}与同名的个人技能冲突时，结果如何？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 1
+  },
+  {
    "id": "cm_fb6ae85a",
    "name": "前沿实验室",
    "src": "notion",
@@ -3720,6 +4287,33 @@
    "ap": "长期看，{{name}}真正的对手是谁？",
    "origin": [
     "notion"
+   ],
+   "mentionCount": 1
+  },
+  {
+   "id": "cm_8bb611ea",
+   "name": "人在关键路径确认",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "人只在关键节点拍板：做不做、选哪个方案、交互是否友好。",
+   "level": 1,
+   "ci": 3,
+   "tags": [
+    "agent-org"
+   ],
+   "k": "judge",
+   "kwhy": "能区分哪些节点需要人判断、哪些交给 Agent 执行",
+   "nameEn": "",
+   "centrality": 0.126,
+   "stage": "now",
+   "feynman": "人不是全程不参与，也不是全程亲手做；只在决定做不做、选哪个方向、交互是否友好、能不能用等关键节点拍板。它定义了人不可替代的判断力边界。",
+   "evidence": [
+    "能区分哪些节点需要人判断、哪些交给 Agent 执行",
+    "能说明人凭产品判断与技术直觉做最终决策，而不必研究每个技术细节"
+   ],
+   "ap": "{{name}} 时人具体负责哪类决定？",
+   "origin": [
+    "neican"
    ],
    "mentionCount": 1
   },
@@ -3909,6 +4503,33 @@
    "ap": "{{name}} 由什么构成、消耗什么？",
    "origin": [
     "notion"
+   ],
+   "mentionCount": 1
+  },
+  {
+   "id": "cm_058c8106",
+   "name": "四类故障分类框架",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "把技能故障归为四类：无法触发、无法加载、存在冲突、运行时失败。",
+   "level": 2,
+   "ci": 3,
+   "tags": [
+    "harness-runtime"
+   ],
+   "k": "judge",
+   "kwhy": "能不看材料列出四类故障名称",
+   "nameEn": "",
+   "centrality": 0.126,
+   "stage": "now",
+   "feynman": "作者先把\"技能不工作\"这个模糊、让人无从下手的问题，拆成四个可命名的类别——无法触发、无法加载、存在冲突、运行时失败。每一类都有各自独立的成因和修复路径。它是全文的骨架：先归类，再对症，避免在错误的方向上盲目试错。",
+   "evidence": [
+    "能不看材料列出四类故障名称",
+    "能把一个具体故障现象归入其中某一类"
+   ],
+   "ap": "{{name}} 有哪四类？给定现象该归哪类？",
+   "origin": [
+    "neican"
    ],
    "mentionCount": 1
   },
@@ -6565,7 +7186,7 @@
    "type": "CONCEPTUAL",
    "gloss": "当模型必须访问并使用位于长输入上下文中间的信息时，性能显著劣化的现象。",
    "level": 0,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "context-engineering"
    ],
@@ -6593,7 +7214,7 @@
    "type": "CONCEPTUAL",
    "gloss": "普通人视角下 AI 一边索取数据、一边向搜索结果与信息流倾泻劣质内容的双重体验比喻。",
    "level": 1,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "media-culture-education"
    ],
@@ -6621,7 +7242,7 @@
    "type": "CONCEPTUAL",
    "gloss": "Agent 的『双手』：它得以对外部世界施加动作的调用能力。",
    "level": 1,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "tools-sandbox"
    ],
@@ -6643,13 +7264,67 @@
    "mentionCount": 3
   },
   {
+   "id": "cm_ac2e95b3",
+   "name": "瓶颈转移到代码两侧",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "编码已不是瓶颈，瓶颈移到设计确认与测试验证部署两侧。",
+   "level": 1,
+   "ci": 3,
+   "tags": [
+    "agent-org"
+   ],
+   "k": "judge",
+   "kwhy": "能分别说出左侧与右侧瓶颈的内容",
+   "nameEn": "",
+   "centrality": 0.107,
+   "stage": "now",
+   "feynman": "编码被 Agent 加速后，不再是拖慢流程的中心。真正慢的是编码前的设计确认和编码后的测试验证部署。它是全文重新分配注意力的框架，也解释为什么重点谈可行性、原型和测试。",
+   "evidence": [
+    "能分别说出左侧与右侧瓶颈的内容",
+    "能指出这些环节仍以人类速度运行"
+   ],
+   "ap": "{{name}} 之后，注意力应该重新放在哪里？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 3
+  },
+  {
+   "id": "cm_5a687800",
+   "name": "请求驱动与事件驱动",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "Skills 由请求内容激活，Hooks 由文件保存、工具调用等事件触发。",
+   "level": 2,
+   "ci": 3,
+   "tags": [
+    "harness-runtime"
+   ],
+   "k": "judge",
+   "kwhy": "能区分请求驱动与事件驱动的触发条件",
+   "nameEn": "",
+   "centrality": 0.107,
+   "stage": "when-needed",
+   "feynman": "这一对概念讲的是“什么导致功能被激活”。Skills 由请求内容匹配触发；Hooks 由文件保存、工具调用等事件触发。因此，影响 Claude 如何处理请求的知识适合做成 skill，而每次保存都要执行的操作、工具调用前的验证适合做成 hook。它决定了自动化的边界在哪里。",
+   "evidence": [
+    "能区分请求驱动与事件驱动的触发条件",
+    "能判断某自动化该做成 skill 还是 hook"
+   ],
+   "ap": "{{name}} 讲的是什么被激活的方式？各自举例。",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 3
+  },
+  {
    "id": "cm_4b8163f5",
    "name": "压缩",
    "src": "multi",
    "type": "PROCEDURAL",
    "gloss": "对对话或观察做压缩凝聚的机制：压得太狠会凝成『自信但错误』的理论，压不动则停在分散的可能性里。",
    "level": 0,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "context-engineering"
    ],
@@ -6668,6 +7343,87 @@
     "notion",
     "context",
     "harness"
+   ],
+   "mentionCount": 3
+  },
+  {
+   "id": "cm_cbbe3f8e",
+   "name": "亚稳态故障与 LIFO/FIFO 连接重用",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "压力消失后进程仍卡在降级状态；aiohttp 默认 LIFO 重用连接，把流量越推越集中在慢 Pod 上。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "harness-runtime"
+   ],
+   "k": "judge",
+   "kwhy": "能描述过载 Pod 接收请求越来越多、直到重启才恢复的失控降级现象",
+   "nameEn": "",
+   "centrality": 0.107,
+   "stage": "when-needed",
+   "feynman": "亚稳态故障是指外部触发压力消失后，系统仍卡在坏状态。这里，慢 Pod 最后才把连接归还连接池，而 LIFO 又优先重用最近归还的连接，于是后续请求更频繁地打向慢 Pod，流量越来越集中。FIFO 打破这个正反馈，使连接和工作负载更公平地分配。它是理解连接池为什么会影响尾部延迟和稳定性的机制边界。",
+   "evidence": [
+    "能描述过载 Pod 接收请求越来越多、直到重启才恢复的失控降级现象",
+    "能解释 LIFO 更频繁复用慢服务器归还的连接、改成 FIFO 可打破该正反馈"
+   ],
+   "ap": "{{name}} 是怎样把流量越推越集中到慢 Pod 的？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 3
+  },
+  {
+   "id": "cm_6c8463ad",
+   "name": "约束型 API 与成本不平衡",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "不开放任意 SQL，用简单 NoSQL API 让请求成本可预测，避免写得便宜、跑得昂贵的失衡。",
+   "level": 1,
+   "ci": 3,
+   "tags": [
+    "caching-cost"
+   ],
+   "k": "judge",
+   "kwhy": "能解释“写 SQL 便宜、跑 SQL 昂贵”的成本不平衡",
+   "nameEn": "",
+   "centrality": 0.107,
+   "stage": "when-needed",
+   "feynman": "写一条 SQL 查询很便宜，但让它高效运行可能很贵；一条热路径上的昂贵查询就可能拖垮数据库。Habitat 不开放任意 SQL，而提供简单 NoSQL API，使请求成本可预测、工作量恒定。这个约束是 Python 服务能扩展到很大规模的原因之一，也是 Habitat 设计中的明确取舍。",
+   "evidence": [
+    "能解释“写 SQL 便宜、跑 SQL 昂贵”的成本不平衡",
+    "能说明约束型 API 为何是 Python 服务能扩到很大规模的原因之一"
+   ],
+   "ap": "{{name}} 如何把昂贵查询在客户端变得显而易见？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 3
+  },
+  {
+   "id": "cm_db455b2f",
+   "name": "运行时失败的三类原因",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "运行时失败查三类：缺外部依赖、脚本无执行权限、路径未统一用正斜杠。",
+   "level": 1,
+   "ci": 3,
+   "tags": [
+    "tools-sandbox"
+   ],
+   "k": "judge",
+   "kwhy": "能列出三类原因并对应修复动作",
+   "nameEn": "",
+   "centrality": 0.107,
+   "stage": "when-needed",
+   "feynman": "技能能加载、却在执行过程中失败时，主要查三件事：外部软件包是否已安装（并把依赖信息写进描述，让 Claude 知道需要什么）；脚本是否有执行权限（对引用的脚本 `chmod +x`）；路径是否统一用正斜杠（即使在 Windows 上也不用反斜杠）。这三条划定了\"运行时失败\"的排查边界。",
+   "evidence": [
+    "能列出三类原因并对应修复动作",
+    "能对给定执行失败现象指出该查哪一类"
+   ],
+   "ap": "技能能加载却执行失败，按 {{name}} 该查哪三件事？",
+   "origin": [
+    "neican"
    ],
    "mentionCount": 3
   },
@@ -6699,13 +7455,67 @@
    "mentionCount": 3
   },
   {
+   "id": "cm_a5573df7",
+   "name": "SKILL.md 与前置信息",
+   "src": "neican",
+   "type": "REPRESENTATIONAL",
+   "gloss": "SKILL.md 上为前置信息（名称、描述），下为任务说明，如审阅清单或格式偏好。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "harness-runtime"
+   ],
+   "k": "use",
+   "kwhy": "能写出含名称与描述的前置信息示例",
+   "nameEn": "",
+   "centrality": 0.107,
+   "stage": "now",
+   "feynman": "SKILL.md 是技能的文件形态。它上面有前置信息，至少包含名称和描述；下面是真正的任务说明，比如审阅清单或格式偏好。这个结构很重要，因为 Claude 一开始只用前置信息来发现和匹配技能，不必先加载完整正文。",
+   "evidence": [
+    "能写出含名称与描述的前置信息示例",
+    "能指出 Claude 起初只用前置信息发现技能"
+   ],
+   "ap": "{{name}} 中前置信息下方应该写什么内容？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 3
+  },
+  {
+   "id": "cm_a63808b6",
+   "name": "按需加载与始终加载",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "CLAUDE.md 每条对话都加载，适合作通用标准；Skills 按需加载，适合作特定任务知识。",
+   "level": 2,
+   "ci": 3,
+   "tags": [
+    "context-engineering"
+   ],
+   "k": "judge",
+   "kwhy": "能判断一条内容该放 CLAUDE.md 还是 skill",
+   "nameEn": "",
+   "centrality": 0.089,
+   "stage": "now",
+   "feynman": "这一对概念讲的是内容什么时候进入上下文。始终加载适用于任何请求都必须遵守的标准；按需加载适用于只在某些情况下才相关的知识。PR 审查清单在写新代码时不需要占用上下文，所以适合放进 skill；TypeScript 严格模式则适合放进 CLAUDE.md。它是判断某个内容该放哪里的边界规则。",
+   "evidence": [
+    "能判断一条内容该放 CLAUDE.md 还是 skill",
+    "能举出 PR 审查清单与严格模式的分工例子"
+   ],
+   "ap": "给定一条内容，按 {{name}} 该放 CLAUDE.md 还是 skill？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 2
+  },
+  {
    "id": "cm_629e8fdc",
    "name": "编排循环",
    "src": "multi",
    "type": "PROCEDURAL",
    "gloss": "以“思考—行动—观察”为一轮，把模型输出变成可重复推进的任务循环。",
    "level": 1,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "loop-autonomy"
    ],
@@ -6727,13 +7537,121 @@
    "mentionCount": 2
   },
   {
+   "id": "cm_3ff5d50f",
+   "name": "插件技能缺失",
+   "src": "neican",
+   "type": "PROCEDURAL",
+   "gloss": "插件技能不显示时：清缓存、重启 Claude Code、重装，仍无则判为插件结构问题。",
+   "level": 1,
+   "ci": 3,
+   "tags": [
+    "harness-runtime"
+   ],
+   "k": "use",
+   "kwhy": "能按顺序说出清缓存、重启、重装三步",
+   "nameEn": "",
+   "centrality": 0.089,
+   "stage": "when-needed",
+   "feynman": "插件装了却看不到它的技能，是一条独立的排查支线，修复有固定顺序——先清缓存、重启 Claude Code、再重新安装；如果仍不出现，就判断为插件结构问题，此时交给验证器工具处理。\n\n## 二、概念架构图\n\n```mermaid\ngraph TD\n    subgraph L1[手段层：先行的诊断工具]\n        V[技能验证器<br/>agent skills verifier]\n        D[claude --debug]\n    end\n\n    subgraph L2[框架层：故障分类]\n        F[四类故障]\n    end\n\n    subgraph L3[机制层：各类故障的成因与修复]\n        M1[语义匹配 → 触发短语]\n        M2[SKILL.md 结构性要求]\n        M3[描述区分度]\n        M4[技能优先级层级结构]\n        M5[运行时失败三类原因]\n        M6[插件技能缺失]\n    end\n\n    V -->|先捕获结构性问题| F\n    F -->|分解为\"无法触发\"| M1\n    F -->|分解为\"无法加载\"| M2\n    F -->|分解为\"使用了错误的技能\"| M3\n    F -->|分解为\"个人技能被遮蔽\"| M4\n    F -->|分解为\"运行时失败\"| M5\n    F -->|分解为\"插件技能缺失\"| M6\n    D -->|诊断加载错误| M2\n    V -->|排查插件结构| M6\n```",
+   "evidence": [
+    "能按顺序说出清缓存、重启、重装三步",
+    "能说明仍不出现时交给验证器工具处理"
+   ],
+   "ap": "{{name}} 的修复顺序是什么？最后交给谁？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 2
+  },
+  {
+   "id": "cm_fccba9a9",
+   "name": "对象-边模型与分区",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "客户端预定义对象与边、只查直接边、不支持图遍历的 NoSQL 模型，对象与其边同分区存储。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "state-persistence"
+   ],
+   "k": "judge",
+   "kwhy": "能说出对象与边放在同一分区、远程对象不保证同区",
+   "nameEn": "",
+   "centrality": 0.089,
+   "stage": "deep-dive",
+   "feynman": "Habitat 的数据模型像图：客户端预先定义对象和边，但只能查某个对象的直接边，不支持典型图遍历。分区时，每个对象和它的边放在同一存储分区，便于水平扩展；但不保证远程对象也同区，所以跨对象跳转可能跨区域，图遍历效率低。这解释了约束 API 的边界在哪里。",
+   "evidence": [
+    "能说出对象与边放在同一分区、远程对象不保证同区",
+    "能指出不支持典型图遍历查询带来的效率边界"
+   ],
+   "ap": "{{name}} 为什么让跨对象跳转可能变成跨区域操作？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 2
+  },
+  {
+   "id": "cm_857d56ba",
+   "name": "分解为小颗粒度工作",
+   "src": "neican",
+   "type": "PROCEDURAL",
+   "gloss": "把大任务切成小颗粒，每部分建一个问题，小改动既带来完成感也便于审查。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "code-engineering"
+   ],
+   "k": "use",
+   "kwhy": "能把一个大任务拆成每周可完成数个的问题列表",
+   "nameEn": "",
+   "centrality": 0.089,
+   "stage": "now",
+   "feynman": "把大任务切小，有两个作用：一是让人看得见进展、获得完成感、维持动力；二是让审查变容易——小任务对应小 diff，小改动好审。作者用\"查看差异\"作为判断完成的最直接办法，反过来要求改动别太大。这条机制同时服务于动力和可审查性。",
+   "evidence": [
+    "能把一个大任务拆成每周可完成数个的问题列表",
+    "能用代码或设计文件的差异判断任务是否完成"
+   ],
+   "ap": "按 {{name}}，你手上这个大任务能拆出几个一周内可完成的问题？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 2
+  },
+  {
+   "id": "cm_ef696870",
+   "name": "高精度原型设计",
+   "src": "neican",
+   "type": "PROCEDURAL",
+   "gloss": "把需求、原型、UI 合成一步，产出含交互与视觉的高保真原型。",
+   "level": 1,
+   "ci": 3,
+   "tags": [
+    "spec-intent"
+   ],
+   "k": "use",
+   "kwhy": "能把需求、原型、UI 三个环节合并为一次高精度原型设计",
+   "nameEn": "",
+   "centrality": 0.089,
+   "stage": "when-needed",
+   "feynman": "把需求、原型、UI 设计合成一步，产出接近成品、包含交互和视觉的高保真原型。AI 把过去成本极高的事变快。它让确认环节可以合并，也让修改发生在低成本阶段。",
+   "evidence": [
+    "能把需求、原型、UI 三个环节合并为一次高精度原型设计",
+    "能说明确认应发生在修改成本低的原型阶段"
+   ],
+   "ap": "{{name}} 把原来的哪几个步骤合并了？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 2
+  },
+  {
    "id": "cm_ca26306b",
    "name": "古德哈特定律",
    "src": "multi",
    "type": "CONCEPTUAL",
    "gloss": "当指标成为目标它就不再是好指标；Agent 会针对验证器优化而非真实目标，比如删掉失败测试。",
    "level": 0,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "verification-eval"
    ],
@@ -6761,7 +7679,7 @@
    "type": "CONCEPTUAL",
    "gloss": "Loop Engineering 的核心竞争力在管理而非纯工程：目标清晰、资源充足、反馈及时，也是好 loop 的条件。",
    "level": 0,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "agent-org"
    ],
@@ -6789,7 +7707,7 @@
    "type": "CONCEPTUAL",
    "gloss": "基准很少单独测量模型，它同时测了 API 设置、harness 设计与提示词等不可见选择。",
    "level": 0,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "verification-eval"
    ],
@@ -6817,7 +7735,7 @@
    "type": "PROCEDURAL",
    "gloss": "上下文里只保留轻量级标识符（路径、ID、链接），需要时再取全文，而不是把内容全塞进去。",
    "level": 0,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "memory-retrieval"
    ],
@@ -6845,7 +7763,7 @@
    "type": "CONCEPTUAL",
    "gloss": "把记忆当作一种提示来管理：写入什么、何时注入上下文，都由提示工程的原则决定。",
    "level": 0,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "memory-retrieval"
    ],
@@ -6867,13 +7785,94 @@
    "mentionCount": 2
   },
   {
+   "id": "cm_ae03bb56",
+   "name": "技能描述",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "技能描述是 Claude 判断是否使用该技能的依据，请求与描述匹配后激活。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "context-engineering"
+   ],
+   "k": "judge",
+   "kwhy": "能解释 Claude 把请求与所有可用技能描述逐一比较",
+   "nameEn": "",
+   "centrality": 0.089,
+   "stage": "now",
+   "feynman": "技能描述不是技能正文，而是让 Claude 判断“这个请求该不该用这个技能”的匹配依据。用户发出请求后，Claude 把请求与可用技能描述比较，匹配成功才激活技能。没有清楚描述，自动匹配就无法可靠发生。",
+   "evidence": [
+    "能解释 Claude 把请求与所有可用技能描述逐一比较",
+    "能写出一条让 Claude 可靠匹配的描述"
+   ],
+   "ap": "{{name}} 对技能能否被自动匹配起什么作用？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 2
+  },
+  {
+   "id": "cm_43781275",
+   "name": "技能优先级层级结构",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "技能按来源分层，企业级高于个人、项目和插件，同名时高优先级者每次胜出。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "harness-runtime"
+   ],
+   "k": "judge",
+   "kwhy": "能说出同名撞车时高优先级技能每次胜出",
+   "nameEn": "",
+   "centrality": 0.089,
+   "stage": "when-needed",
+   "feynman": "技能按来源分层，企业级高于个人、项目和插件。当同名技能撞车时，高优先级的那个每次都赢，于是你的个人技能会被\"遮蔽\"而看似失效。对应的选择通常是给技能改成更具区分度的名字（作者认为这通常更简单）。",
+   "evidence": [
+    "能说出同名撞车时高优先级技能每次胜出",
+    "能给出把技能改成更具区分度名字的做法"
+   ],
+   "ap": "个人技能被忽略时，{{name}} 如何解释？怎么办？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 2
+  },
+  {
+   "id": "cm_40b450ca",
+   "name": "脚本执行",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "脚本不必读入上下文即可运行，只有输出消耗 token，SKILL.md 应写'运行脚本'",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "caching-cost"
+   ],
+   "k": "judge",
+   "kwhy": "能区分'运行脚本'与'读取脚本'两类指令",
+   "nameEn": "",
+   "centrality": 0.089,
+   "stage": "when-needed",
+   "feynman": "脚本是\"运行\"的对象，不是\"阅读\"的对象：它不必被读进上下文就能执行，执行完只有输出消耗令牌。因此 SKILL.md 里的写法关键是让克劳德去运行脚本，而不是去读取脚本内容。边界在于——省掉的是脚本正文进入上下文，而不是省掉脚本本身。\n\n## 二、概念架构图\n\n```mermaid\nflowchart TD\n  subgraph L1[\"触发层｜决定技能是否被选中\"]\n    N[\"name（必填）<br/>小写字母·数字·连字符，≤64 字符\"]\n    D[\"description（必填）<br/>≤1024 字符\"]\n    M[\"匹配：克劳德据此判断请求是否相关\"]\n    DN[\"技能目录名\"]\n  end\n  subgraph L2[\"激活层｜技能被激活\"]\n    ACT[\"技能激活\"]\n  end\n  subgraph L3[\"边界层｜激活时生效的限制\"]\n    AT[\"allowed-tools 白名单\"]\n    LIM[\"白名单内免请求许可；不能编辑/写入\"]\n    PERM[\"不限制：正常权限模型\"]\n    CTX[\"共享上下文窗口：SKILL.md 内容被载入\"]\n  end\n  subgraph L4[\"管理层｜控制上下文占用\"]\n    PD[\"逐步披露：SKILL.md ≤500 行\"]\n    SF[\"支持文件：只在需要时才读\"]\n    SC[\"脚本执行：内容不入上下文\"]\n    OUT[\"只有输出消耗令牌\"]\n  end\n  N -->|须与目录名一致| DN\n  D --> M --> ACT\n  ACT -->|限制生效| AT --> LIM\n  AT -.->|完全省略| PERM\n  ACT -->|载入 SKILL.md| CTX\n  CTX -->|为省上下文| PD\n  CTX -->|同一目的| SC\n  PD -->|链接 + 说明何时加载| SF\n  SC --> OUT\n```",
+   "evidence": [
+    "能区分'运行脚本'与'读取脚本'两类指令",
+    "能说明省下的是脚本正文入上下文，不是脚本本身"
+   ],
+   "ap": "{{name}}会把脚本正文塞进上下文吗？什么才消耗 token？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 2
+  },
+  {
    "id": "cm_c2dd0286",
    "name": "连接器",
    "src": "multi",
    "type": "CONCEPTUAL",
    "gloss": "MCP、GitHub、飞书、数据库等外部接口，让 Agent 接入真实工作环境，形成发现—修改—通知的闭环。",
    "level": 0,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "tools-sandbox"
    ],
@@ -6895,13 +7894,175 @@
    "mentionCount": 2
   },
   {
+   "id": "cm_f8c2e9ae",
+   "name": "连接扇入",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "Python 进程增多导致连接暴涨压垮下游；用 Envoy 升 HTTP/2、连接池与长连接收拢扇入。",
+   "level": 1,
+   "ci": 3,
+   "tags": [
+    "harness-runtime"
+   ],
+   "k": "judge",
+   "kwhy": "能说出进程规模扩大容易形成“雷霆之群”，压垮下游依赖项",
+   "nameEn": "",
+   "centrality": 0.089,
+   "stage": "when-needed",
+   "feynman": "为了降低 asyncio 延迟，Habitat 增加了很多 Python 进程，但进程一多，连接数会暴涨，容易形成雷霆之群，压垮下游依赖或 NAT 网关。Envoy 把 HTTP/1 连接升级为 HTTP/2，利用多路复用、连接池和更长连接寿命，把相同请求合并到更少连接上，并集中实现限流和熔断。它保护下游，也支撑了 Python 服务的大规模进程模型。",
+   "evidence": [
+    "能说出进程规模扩大容易形成“雷霆之群”，压垮下游依赖项",
+    "能说明 Envoy 把 HTTP/1 升级为 HTTP/2 以多路复用、池化并延长连接寿命，集中做限流与熔断"
+   ],
+   "ap": "{{name}} 解决的是多进程模型带来的什么问题？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 2
+  },
+  {
+   "id": "cm_4b769318",
+   "name": "名称与描述",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "名称是技能标识，描述是匹配条件；请求先与描述做语义匹配，允许意图重叠",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "context-engineering"
+   ],
+   "k": "judge",
+   "kwhy": "能说出请求匹配的是描述而非整份 SKILL.md",
+   "nameEn": "name / description",
+   "centrality": 0.089,
+   "stage": "now",
+   "feynman": "名称和描述不是同一类东西。名称是技能的身份标识，用来在列表、冲突优先级里识别技能。描述是匹配条件，告诉 Claude 什么时候该使用这个技能。用户请求不是直接匹配完整技能内容，而是先匹配描述，而且匹配是语义上的，允许意图重叠。所以描述写的是使用场景，不是技能内容摘要。这个区分是本文匹配机制的核心。",
+   "evidence": [
+    "能说出请求匹配的是描述而非整份 SKILL.md",
+    "能举例'解释这个函数'命中'用图表解释代码'因意图重叠"
+   ],
+   "ap": "{{name}}分别解决什么问题？请求匹配的到底是哪一个？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 2
+  },
+  {
+   "id": "cm_e243f570",
+   "name": "目标—项目—日常工作的连接",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "把日常工作通过项目挂到更大目标上，启动会审目标日期，排周期计划时回看项目。",
+   "level": 1,
+   "ci": 3,
+   "tags": [
+    "agent-org"
+   ],
+   "k": "use",
+   "kwhy": "能画出目标→项目→日常工作的挂接关系",
+   "nameEn": "",
+   "centrality": 0.089,
+   "stage": "when-needed",
+   "feynman": "这是把\"远大目标\"和\"今天在干什么\"缝在一起的结构。目标是方向，项目是抓手，日常工作通过项目挂到目标上——而不是各自漂浮。作者还给出操作点：启动会上审目标日期、排周期计划时回看项目。承重之处在于它回答了\"怎么保证琐碎工作不偏离长期方向\"。",
+   "evidence": [
+    "能画出目标→项目→日常工作的挂接关系",
+    "能在项目启动会上说出该项目对应的目标与目标日期"
+   ],
+   "ap": "你今天做的哪几件事挂在 {{name}} 的哪个目标上？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 2
+  },
+  {
+   "id": "cm_4eb02f12",
+   "name": "内置代理与自定义子代理的技能访问边界",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "内置代理（Explorer、Plan、Verify）无法访问技能，只有 .claude/agents 中明确列出技能的自定义子代理可用。",
+   "level": 1,
+   "ci": 3,
+   "tags": [
+    "harness-runtime"
+   ],
+   "k": "judge",
+   "kwhy": "能指出 Explorer、Plan、Verify 内置代理对技能是完全无法访问",
+   "nameEn": "",
+   "centrality": 0.089,
+   "stage": "now",
+   "feynman": "内置代理（Explorer、Plan、Verify）对技能是\"完全无法访问\"，这是一道靠配置打不开的硬边界；有资格使用技能的只有写在 `.claude/agents` 里的自定义子代理，而且还得满足\"明确列出\"这个条件。这条边界决定了\"给代理配技能\"这件事的有效范围：不是给任意代理加配置，而是专门走自定义子代理这条路。",
+   "evidence": [
+    "能指出 Explorer、Plan、Verify 内置代理对技能是完全无法访问",
+    "能说明自定义子代理还须满足“明确列出技能”这一条件"
+   ],
+   "ap": "按 {{name}}，哪些代理能用技能？还要满足什么条件？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 2
+  },
+  {
+   "id": "cm_80dfaf37",
+   "name": "匹配后的确认与完整加载",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "匹配成功后先弹出确认，确认后才读取整个 SKILL.md 并执行其中指令",
+   "level": 2,
+   "ci": 3,
+   "tags": [
+    "context-engineering"
+   ],
+   "k": "judge",
+   "kwhy": "能指出确认前完整技能内容尚未进入上下文",
+   "nameEn": "",
+   "centrality": 0.089,
+   "stage": "when-needed",
+   "feynman": "语义匹配成功不等于立即执行。Claude 会先要求确认；确认前，完整技能内容还没有进入上下文。确认后，整个 SKILL.md 才被读取，里面的指令才被执行。这个确认提示是加载机制的边界：用户能知道 Claude 将要获取哪些技能内容。",
+   "evidence": [
+    "能指出确认前完整技能内容尚未进入上下文",
+    "能说明确认提示让用户知道将要获取哪些上下文"
+   ],
+   "ap": "{{name}}发生之前，完整技能内容是否已进入上下文？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 2
+  },
+  {
+   "id": "cm_28c258d9",
+   "name": "启动时仅加载名称和描述",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "Claude Code 启动时扫描技能位置，只加载名称与描述，不载入 SKILL.md 全文",
+   "level": 1,
+   "ci": 3,
+   "tags": [
+    "context-engineering"
+   ],
+   "k": "accept",
+   "kwhy": "能说明启动阶段不加载完整技能内容",
+   "nameEn": "",
+   "centrality": 0.089,
+   "stage": "now",
+   "feynman": "Claude Code 启动时会扫描技能所在位置，但只把技能名称和描述放进可用列表，不把每个 SKILL.md 的完整说明塞进上下文。完整说明要等某个请求匹配到技能后才可能加载。因此启动阶段很轻，匹配阶段依赖描述。这个设计也解释了为什么技能文件改动后需要重启才生效。",
+   "evidence": [
+    "能说明启动阶段不加载完整技能内容",
+    "能解释技能改动为何需重启才生效"
+   ],
+   "ap": "启动时 {{name}} 的内容进了上下文吗？为什么？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 2
+  },
+  {
    "id": "cm_3cd29e1b",
    "name": "上下文占用率与性能衰减",
    "src": "multi",
    "type": "CONCEPTUAL",
    "gloss": "上下文窗口越满，模型性能越容易被轻微拖累；压缩通过腾出空间缓解这一衰减。",
    "level": 1,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "context-engineering"
    ],
@@ -6929,7 +8090,7 @@
    "type": "CONCEPTUAL",
    "gloss": "通用 harness 让模型对比更公平、缺陷更可见，但也让评测偏离真实部署形态。",
    "level": 1,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "verification-eval"
    ],
@@ -6957,7 +8118,7 @@
    "type": "CONCEPTUAL",
    "gloss": "loop 需要完整知识管理：规则、记忆、文档、经验沉淀与过期信息清理，启动时读对上下文。",
    "level": 1,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "memory-retrieval"
    ],
@@ -6979,13 +8140,67 @@
    "mentionCount": 2
   },
   {
+   "id": "cm_b0946442",
+   "name": "语义匹配（semantic matching）与触发短语",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "Claude 靠请求与技能描述在含义上的重叠决定是否触发，重叠不足就不匹配。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "context-engineering"
+   ],
+   "k": "judge",
+   "kwhy": "能解释触发靠语义重叠而非关键词精确命中",
+   "nameEn": "",
+   "centrality": 0.089,
+   "stage": "now",
+   "feynman": "Claude 决定是否使用某个技能，靠的不是关键词精确命中，而是你的请求与技能描述在\"含义\"上的重叠。重叠不足就不触发。由此推出修复方法：用你实际会说的各种说法去测试（\"帮我分析一下这个性能\"\"为什么这个这么慢？\"等），把没触发的措辞作为触发短语补进描述里。这是\"技能无法触发\"几乎总是描述问题的原因。",
+   "evidence": [
+    "能解释触发靠语义重叠而非关键词精确命中",
+    "能把没触发的说法作为触发短语补进描述"
+   ],
+   "ap": "{{name}} 里重叠不足会怎样？该怎么修？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 2
+  },
+  {
+   "id": "cm_226cbc01",
+   "name": "预构建技能与自定义技能",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "技能分两类：Anthropic 预置文档技能与用户自定义技能，运行方式相同，来源与共享范围不同。",
+   "level": 1,
+   "ci": 3,
+   "tags": [
+    "harness-runtime"
+   ],
+   "k": "judge",
+   "kwhy": "能说出预构建与自定义技能在运行方式上没有区别",
+   "nameEn": "Pre-built vs Custom Skills",
+   "centrality": 0.089,
+   "stage": "when-needed",
+   "feynman": "技能按来源分成两类：Anthropic 提供的预构建文档技能，以及用户自己打包组织经验的自定义技能。关键点是，两类技能在运行方式上没有区别；一旦进入某个环境，Claude 都会在相关时自动使用。但它们的来源、上传方式和后续的共享范围不同，这会影响“谁能用、在哪里用”。",
+   "evidence": [
+    "能说出预构建与自定义技能在运行方式上没有区别",
+    "能指出自定义技能可在 Claude Code、API 或 claude.ai 中创建与上传"
+   ],
+   "ap": "{{name}} 与预构建技能在运行方式上有什么区别？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 2
+  },
+  {
    "id": "cm_1db64a00",
    "name": "执行可靠性机制",
    "src": "multi",
    "type": "CONCEPTUAL",
    "gloss": "让执行中断可恢复、错误不滚雪球、越界立即停止的机制集合：状态、错误、护栏、验证。",
    "level": 0,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "harness-runtime"
    ],
@@ -7061,13 +8276,40 @@
    "mentionCount": 2
   },
   {
+   "id": "cm_2b63a21c",
+   "name": "AI 原生开发",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "AI 原生开发不是新流程，而是用新方式跑旧的软件开发流程。",
+   "level": 1,
+   "ci": 3,
+   "tags": [
+    "agent-org"
+   ],
+   "k": "judge",
+   "kwhy": "能复述可行性、设计、原型、编码、测试这些步骤一个都没少",
+   "nameEn": "AI-native development",
+   "centrality": 0.089,
+   "stage": "now",
+   "feynman": "在本文里，AI 原生开发不是让 AI 写代码的同义词，也不是一套全新流程。它指旧的软件开发流程照跑，但每个环节的执行方式和承担者变了。它是全文的起点，因为只有先接受这个定义，读者才会把注意力从编码移到代码之外。",
+   "evidence": [
+    "能复述可行性、设计、原型、编码、测试这些步骤一个都没少",
+    "能指出 AI 原生开发不等于用 AI 写代码，也不等于发明了新流程"
+   ],
+   "ap": "{{name}} 到底改变了流程的什么、没改变什么？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 2
+  },
+  {
    "id": "cm_0c98a6cf",
    "name": "AI Agent",
    "src": "multi",
    "type": "CONCEPTUAL",
    "gloss": "用户感知到的行为体现：Agent 的对外表现，而非其内部实现。",
    "level": 1,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "harness-runtime"
    ],
@@ -7095,7 +8337,7 @@
    "type": "PROCEDURAL",
    "gloss": "上下文接近窗口上限时，把对话摘要后重新初始化新窗口，保留关键决策与未解决 bug。",
    "level": 2,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "context-engineering"
    ],
@@ -7123,7 +8365,7 @@
    "type": "CONCEPTUAL",
    "gloss": "Harness 提供约束护栏、Loop 提供驱动力，二者配合让任务可持续自动推进。",
    "level": 1,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "loop-autonomy"
    ],
@@ -7151,7 +8393,7 @@
    "type": "CONCEPTUAL",
    "gloss": "系统每一步要么在潜空间要么是确定性的，混淆二者是 Agent 设计中最常见的错误。",
    "level": 0,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "harness-runtime"
    ],
@@ -7173,13 +8415,40 @@
    "mentionCount": 2
   },
   {
+   "id": "cm_6db0527f",
+   "name": "MCP servers",
+   "src": "neican",
+   "type": "REPRESENTATIONAL",
+   "gloss": "MCP servers 提供外部工具和集成，与 skills 是完全不同的类别。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "tools-sandbox"
+   ],
+   "k": "accept",
+   "kwhy": "能说明 MCP 负责外部工具而非注入任务知识",
+   "nameEn": "",
+   "centrality": 0.089,
+   "stage": "when-needed",
+   "feynman": "MCP servers 在本文里负责外部工具和集成，是另一类能力来源，不是用来给当前对话注入任务知识的。理解这一点，读者才不会把“接入外部工具”误当成“写一个 skill”，也才能看清为什么作者说每种功能各有专长。",
+   "evidence": [
+    "能说明 MCP 负责外部工具而非注入任务知识",
+    "能指出它与 skills 不是同一类能力来源"
+   ],
+   "ap": "{{name}} 在文中负责什么？和 skills 有何区别？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 2
+  },
+  {
    "id": "cm_186ee145",
    "name": "Resolver",
    "src": "multi",
    "type": "CONCEPTUAL",
    "gloss": "上下文的路由表：任务类型 X 出现时优先加载文档 Y，规定加载什么与何时加载。",
    "level": 2,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "context-engineering"
    ],
@@ -7207,7 +8476,7 @@
    "type": "CONCEPTUAL",
    "gloss": "设计原则：harness 保持薄，把厚度与智能放进 skills（thin harness, fat skills）。",
    "level": 1,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "harness-runtime"
    ],
@@ -7254,6 +8523,33 @@
     "notion"
    ],
    "mentionCount": 2
+  },
+  {
+   "id": "cm_d793c38e",
+   "name": "名称冲突优先级与技能作用域",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "同名技能按企业→个人→项目→插件排优先级，企业版生效并覆盖其他作用域",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "harness-runtime"
+   ],
+   "k": "judge",
+   "kwhy": "能按序排出企业版最高、插件版最低",
+   "nameEn": "",
+   "centrality": 0.087,
+   "stage": "when-needed",
+   "feynman": "同名技能不是简单由后来者覆盖，而是按作用域排优先级。材料顶部给出的完整顺序是企业版最高，其后是个人版、项目版，插件版最低；后面的局部列表再次明确企业级最高、插件最低，并把个人技能定位在主目录。这样企业可以用企业级技能强制执行标准，个人定制不能覆盖企业版本。理解这个优先级，才能判断同名技能最终哪个生效。材料后面的局部列表没有列出项目版，但顶部顺序已经把项目版放在个人版之后、插件版之前。",
+   "evidence": [
+    "能按序排出企业版最高、插件版最低",
+    "能判断同名企业技能与个人技能并存时哪个生效"
+   ],
+   "ap": "同名的企业技能与个人技能并存时，{{name}}是哪一版？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 5
   },
   {
    "id": "cm_80fd0c67",
@@ -8444,6 +9740,33 @@
    "mentionCount": 1
   },
   {
+   "id": "cm_b3524e24",
+   "name": "共享上下文窗口",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "技能与对话共享同一上下文窗口，技能激活时整份 SKILL.md 被载入上下文",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "context-engineering"
+   ],
+   "k": "judge",
+   "kwhy": "能指出 SKILL.md 会占用当前会话上下文",
+   "nameEn": "",
+   "centrality": 0.072,
+   "stage": "now",
+   "feynman": "技能不在真空中生效——它和当前对话抢同一个上下文窗口，一旦激活，整份 SKILL.md 就被加载进来。理解这一点才能理解后面两个做法为什么存在：正因为 SKILL.md 会占上下文，才需要限制它的行数、才需要把细节挪到别处、才需要脚本只交输出。",
+   "evidence": [
+    "能指出 SKILL.md 会占用当前会话上下文",
+    "能据此说明为何要限制行数、把细节外移"
+   ],
+   "ap": "技能激活后，{{name}}里多出了什么？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 1
+  },
+  {
    "id": "cm_8ad267da",
    "name": "规划模式与边界问题清单",
    "src": "harness",
@@ -9443,6 +10766,33 @@
    "mentionCount": 1
   },
   {
+   "id": "cm_765d717a",
+   "name": "可扩展性",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "好工具应小团队易上手，又能随团队规模扩大而不断增强功能。",
+   "level": 1,
+   "ci": 3,
+   "tags": [
+    "agent-org"
+   ],
+   "k": "judge",
+   "kwhy": "能举出一款在小团队和大团队都适用的工具",
+   "nameEn": "",
+   "centrality": 0.072,
+   "stage": "when-needed",
+   "feynman": "工具要在两端都成立——小团队上手容易，团队变大后功能还能跟上。这条与\"为特定用途设计\"配套：既不能灵活到失控，也不能僵化到撑不住增长。它是判断一款工具好坏的规模维度。",
+   "evidence": [
+    "能举出一款在小团队和大团队都适用的工具",
+    "能指出某工具随规模增长撑不住的功能缺口"
+   ],
+   "ap": "你现在用的工具，在 {{name}} 上能撑到多大的团队？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 1
+  },
+  {
    "id": "cm_430f0874",
    "name": "可维护性缺一个可靠的打分预言机",
    "src": "harness",
@@ -9686,6 +11036,33 @@
    "mentionCount": 1
   },
   {
+   "id": "cm_bc68c1e9",
+   "name": "描述区分度",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "描述过于相似会让 Claude 选错技能或困惑，应让描述更具体、更有区分度。",
+   "level": 1,
+   "ci": 3,
+   "tags": [
+    "spec-intent"
+   ],
+   "k": "judge",
+   "kwhy": "能判断一组技能描述是否过于相似",
+   "nameEn": "",
+   "centrality": 0.072,
+   "stage": "when-needed",
+   "feynman": "当 Claude 选错技能或在多个技能间犯迷糊，根因往往是这些技能的描述彼此太像。让描述更具体、彼此有区分度，一举两得：既帮 Claude 判断何时该用哪个技能，又避免与听起来相似的技能冲突。",
+   "evidence": [
+    "能判断一组技能描述是否过于相似",
+    "能给出把描述改得更有区分度的具体改法"
+   ],
+   "ap": "Claude 选错技能时，怎么用 {{name}} 解释与改进？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 1
+  },
+  {
    "id": "cm_2abb5209",
    "name": "模型—角色适配",
    "src": "harness",
@@ -9871,6 +11248,33 @@
    "ap": "加一个 Slack bot 触发，在{{name}}下 agent 主体要不要改？",
    "origin": [
     "harness"
+   ],
+   "mentionCount": 1
+  },
+  {
+   "id": "cm_74099998",
+   "name": "迁移到 Rust",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "平台成熟后，两名工程师用 Codex 与 GPT-5.5 把整个 Python 服务重写为 Rust，承接 95% 生产请求。",
+   "level": 1,
+   "ci": 3,
+   "tags": [
+    "code-engineering"
+   ],
+   "k": "accept",
+   "kwhy": "能说出重写由 2 名工程师借助 Codex 与 GPT-5.5 完成，Rust 服务已处理 95% 生产请求",
+   "nameEn": "Python→Rust",
+   "centrality": 0.072,
+   "stage": "when-needed",
+   "feynman": "这是战略性技术债务的收束。平台成熟、增长继续加速，团队终于把 Python 服务重写为 Rust。两名工程师借助 Codex 和 GPT-5.5 完成整个服务重写，Rust 服务处理 95% 生产请求，并且 CPU 效率、内存效率和延迟都显著优于 Python。它验证了先前“未来编码模型会让迁移成为可能”的赌注。\n\n## 二、概念架构图\n\n```mermaid\nflowchart TD\n  subgraph P[问题与目标层]\n    A[\"每年超过 10 倍增长\"]\n    B[\"尾部延迟\"]\n    C[\"集中式数据安全与隐私控制点\"]\n  end\n\n  subgraph S[架构选择层]\n    D[\"Habitat 在线存储平台\"]\n    E[\"从客户端库到独立服务（统一控制点）\"]\n    F[\"约束型 API 与成本不平衡\"]\n    G[\"战略性技术债务：Python 服务\"]\n  end\n\n  subgraph M[机制与边界层]\n    H[\"asyncio 调度延迟\"]\n    I[\"亚稳态故障与 LIFO/FIFO 连接重用\"]\n    J[\"连接扇入（Envoy / 雷霆之群）\"]\n    K[\"对象-边模型与分区\"]\n    L[\"Rockset 离线二级视图 / CDC\"]\n  end\n\n  subgraph R[结果层]\n    N[\"迁移到 Rust\"]\n  end\n\n  A -->|迫使| D\n  D -->|需要| E\n  E -->|集中执行| C\n  D -->|采用| F\n  F -->|支撑| G\n  G -->|引入| H\n  H -->|放大| B\n  I -->|恶化| B\n  J -->|保护下游，支撑多进程| G\n  F -->|定义| K\n  F -->|复杂查询出口| L\n  L -->|隔离读重负载| D\n  E -->|使能重写| N\n  N -->|替换| G\n```",
+   "evidence": [
+    "能说出重写由 2 名工程师借助 Codex 与 GPT-5.5 完成，Rust 服务已处理 95% 生产请求",
+    "能指出 Rust 服务在 CPU 效率、内存效率与延迟上显著优于 Python，且将停用 Python"
+   ],
+   "ap": "{{name}} 如何兑现了先前承担技术债的赌注？",
+   "origin": [
+    "neican"
    ],
    "mentionCount": 1
   },
@@ -10334,6 +11738,33 @@
    "mentionCount": 1
   },
   {
+   "id": "cm_b4276278",
+   "name": "设计师与工程师的推拉关系",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "设计师向前推创意、工程师往回拉可行性，形成自然推拉，最优者两种才能兼具。",
+   "level": 1,
+   "ci": 3,
+   "tags": [
+    "agent-org"
+   ],
+   "k": "accept",
+   "kwhy": "能描述一次设计师推进与工程师回拉的具体分歧",
+   "nameEn": "",
+   "centrality": 0.072,
+   "stage": "when-needed",
+   "feynman": "这是两种角色在项目中的协作模型——设计师往前推（探索创意、推动思考），工程师往回拉（盯可行性、挑战思路、把想法落地）。作者强调这种张力是\"自然的推拉\"，而非谁服从谁，并且最好的创造者两种能力兼具。它为\"项目怎么被做出来\"补上人的维度。\n\n## 二、概念架构图\n\n材料本身是一份并列的原则清单，多数条目平行铺开；下图只保留原文能支持的分层与关系，边标注的是原文给出的关系（如\"撰写\"\"附加到\"\"参考\"）。其余并列原则不再强行连边。\n\n```mermaid\nflowchart TD\n  A[以项目创建者为中心] -->|体现为| B[为特定用途而设计]\n  A -->|体现为| C[工具为你服务]\n  A -->|体现为| D[可扩展性]\n\n  E[周期] -->|计划时参考| F[目标—项目—日常工作的连接]\n  F -->|指定| G[单一负责人]\n  G -->|撰写| H[简洁规范]\n  G -->|交付| I[小颗粒度工作]\n  H -->|促进| I\n\n  J[反馈作为研究资料库] -->|附加到问题| F\n  K[设计师与工程师的推拉关系] -->|作用于| I\n```",
+   "evidence": [
+    "能描述一次设计师推进与工程师回拉的具体分歧",
+    "能指出团队成员中谁兼具两种能力"
+   ],
+   "ap": "你们项目里的 {{name}} 具体表现在哪次争论上？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 1
+  },
+  {
    "id": "cm_a62137fd",
    "name": "审批疲劳",
    "src": "harness",
@@ -10600,6 +12031,33 @@
    "ap": "{{name}}这种主张，相比逐动作造工具解决了什么问题？",
    "origin": [
     "harness"
+   ],
+   "mentionCount": 1
+  },
+  {
+   "id": "cm_e056dcdf",
+   "name": "为特定用途而设计",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "生产力软件应按特定用途设计，过度灵活随团队扩大会变成混乱。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "agent-org"
+   ],
+   "k": "judge",
+   "kwhy": "能说明人人自建流程在小团队可行、规模化后导致混乱",
+   "nameEn": "",
+   "centrality": 0.072,
+   "stage": "now",
+   "feynman": "作者把\"灵活\"当成陷阱而非优点。人人自建流程在小团队里没问题，但规模一上来就变成混乱。这是全文里少见的\"边界性\"判断：好工具应当收窄可能性，围绕特定用途把一件事做对，而不是什么都能改。理解它才能明白为什么 Linear 主张固定流程、固定用词。",
+   "evidence": [
+    "能说明人人自建流程在小团队可行、规模化后导致混乱",
+    "能举出固定流程、固定用词这类收窄可能性的做法"
+   ],
+   "ap": "{{name}} 为什么把过度灵活当成陷阱？",
+   "origin": [
+    "neican"
    ],
    "mentionCount": 1
   },
@@ -11927,6 +13385,33 @@
    "mentionCount": 1
   },
   {
+   "id": "cm_8a12b121",
+   "name": "周期",
+   "src": "neican",
+   "type": "PROCEDURAL",
+   "gloss": "用固定长度周期推进工作，常用两周，未完成任务自动滚入下一周期。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "agent-org"
+   ],
+   "k": "use",
+   "kwhy": "能说明两周为何既短到不忽略其他优先事项、又长到能做出真功能",
+   "nameEn": "Cycle",
+   "centrality": 0.072,
+   "stage": "when-needed",
+   "feynman": "周期是让节奏落地的机制。它解决\"什么时候重新排优先级、下一步做什么\"的问题。边界很明确：两周——短到不会漏掉其他优先事项，长到能做出真功能；而且是软边界，未完成的任务自动滚入下一周期，避免每个周期都被塞死。这套\"既…又…\"的取舍是承重部分。",
+   "evidence": [
+    "能说明两周为何既短到不忽略其他优先事项、又长到能做出真功能",
+    "能指出周期不应塞满任务，未完成项自动顺延"
+   ],
+   "ap": "{{name}} 的长度和任务顺延规则该怎么定？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 1
+  },
+  {
    "id": "cm_f27655ca",
    "name": "注意力之前的注意力",
    "src": "context",
@@ -12949,6 +14434,33 @@
    "ap": "{{name}} 相比 PPO 改了哪一步，推理转折 token 为何不再被砍？",
    "origin": [
     "notion"
+   ],
+   "mentionCount": 1
+  },
+  {
+   "id": "cm_c2266b88",
+   "name": "claude --debug",
+   "src": "neican",
+   "type": "PROCEDURAL",
+   "gloss": "查看加载错误的诊断命令，运行后留意提及你技能名称的消息。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "harness-runtime"
+   ],
+   "k": "use",
+   "kwhy": "能说出该命令用于查看加载错误",
+   "nameEn": "",
+   "centrality": 0.072,
+   "stage": "when-needed",
+   "feynman": "一条用于查看加载错误的诊断命令。用法是运行后留意输出里提到你技能名称的消息——很多时候仅凭这一行提示就能直接定位问题，是\"无法加载\"场景的专用观察窗口。",
+   "evidence": [
+    "能说出该命令用于查看加载错误",
+    "能说明要在输出中留意提到技能名称的消息"
+   ],
+   "ap": "排查加载失败时，用 {{name}} 看什么线索？",
+   "origin": [
+    "neican"
    ],
    "mentionCount": 1
   },
@@ -16034,7 +17546,7 @@
    "type": "CONCEPTUAL",
    "gloss": "智能体需要记住的『如何做事』的记忆，区别于只记名字、偏好、事实的语义回溯。",
    "level": 0,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "memory-retrieval"
    ],
@@ -16056,13 +17568,283 @@
    "mentionCount": 4
   },
   {
+   "id": "cm_5244b02e",
+   "name": "个人技能与项目技能",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "个人技能放 ~/.claude/skills 跨项目跟随个人；项目技能放仓库 .claude/skills 随代码共享。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "state-persistence"
+   ],
+   "k": "use",
+   "kwhy": "能说出两种技能的存放路径与共享范围",
+   "nameEn": "",
+   "centrality": 0.07,
+   "stage": "now",
+   "feynman": "个人技能保存在用户主目录，跟随个人跨项目使用，适合个人偏好；项目技能保存在代码仓库中，随版本控制提交，克隆仓库的人会自动获得，适合团队标准。这个区分决定技能的共享范围：个人范围还是项目/团队范围。",
+   "evidence": [
+    "能说出两种技能的存放路径与共享范围",
+    "能判断某条规范该写成个人技能还是项目技能"
+   ],
+   "ap": "{{name}} 中团队标准应放哪一类、为什么？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 4
+  },
+  {
+   "id": "cm_5bff7310",
+   "name": "两类 Skills",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "作者只用两类 Skills：辅助设计确认与自动化减少体力劳动。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "harness-runtime"
+   ],
+   "k": "judge",
+   "kwhy": "能说出不使用大量开发类 Skills 的理由是模型编码已足够好",
+   "nameEn": "",
+   "centrality": 0.07,
+   "stage": "when-needed",
+   "feynman": "作者不靠大量编码类 Skills，因为模型编码已足够好。只用两类：帮助左侧设计确认，如高精度原型工具；帮助右侧自动化，如部署发布。它是瓶颈转移后的工具选择结论。\n\n## 二、概念架构图\n\n按功能角色分层：总原则层说明整体判断，流程阶段层呈现旧流程，机制与边界层解释 AI 原生开发如何运转，工具选择层对应瓶颈两侧的 Skills。边只表示原文能支持的关系。\n\n```mermaid\nflowchart TB\n  subgraph P[总原则层]\n    A[\"AI 原生开发：流程不变，执行主体改变\"]\n    B[\"人在关键路径确认\"]\n  end\n  subgraph F[流程阶段层]\n    C[\"可行性分析\"]\n    D[\"设计文档：桥梁与记忆载体\"]\n    E[\"高精度原型设计\"]\n    F1[\"编码实现\"]\n    G[\"测试验证\"]\n  end\n  subgraph M[机制与边界层]\n    H[\"Agent Session\"]\n    I[\"让 Agent 自行验证\"]\n    J[\"确认环节可合并但不能省略\"]\n    K[\"瓶颈转移到代码两侧\"]\n    L[\"把自己当普通用户／黑盒测试\"]\n  end\n  subgraph T[工具选择层]\n    S[\"两类 Skills：辅助设计确认／自动化减少体力劳动\"]\n  end\n  A -->|推导出| B\n  A -->|用新方式跑| C\n  A -->|用新方式跑| D\n  A -->|用新方式跑| E\n  A -->|用新方式跑| F1\n  A -->|用新方式跑| G\n  C -->|先决定要不要做| D\n  D -->|提供基础| E\n  E -->|确认后| F1\n  F1 -->|进入| G\n  D -->|为下一个 Session 提供起点| H\n  I -->|使合并更安全| J\n  J -->|不可跳过| C\n  J -->|不可跳过| D\n  J -->|不可跳过| E\n  J -->|不可跳过| G\n  K -->|重新审视| J\n  K -->|决定工具选择| S\n  S -->|解决左侧瓶颈| E\n  S -->|解决右侧瓶颈| G\n  L -->|测试视角| G\n```",
+   "evidence": [
+    "能说出不使用大量开发类 Skills 的理由是模型编码已足够好",
+    "能把两类 Skills 分别对应到瓶颈左右两侧"
+   ],
+   "ap": "{{name}} 分成哪两类，各自解决哪一侧瓶颈？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 4
+  },
+  {
+   "id": "cm_cb329146",
+   "name": "description",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "必填字段，≤1024 字符，是匹配依据，须写清技能作用与何时使用它",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "context-engineering"
+   ],
+   "k": "judge",
+   "kwhy": "能写出回答'做什么、何时用'的描述",
+   "nameEn": "",
+   "centrality": 0.07,
+   "stage": "now",
+   "feynman": "description 是克劳德做匹配的依据：它拿当前请求去比对描述，判断这个技能相不相关，从而决定是否启用。因此它必须回答两个问题——技能有什么作用、克劳德应在什么情况下用它；上限 1024 字符。它还连着一条排查规则：技能没在预期时机触发，就往描述里补上与真实请求措辞一致的关键词。写法上不要写\"帮忙处理文件\"这类含糊指令，要说清楚具体做什么。",
+   "evidence": [
+    "能写出回答'做什么、何时用'的描述",
+    "能说出未按预期触发时可补上与真实请求措辞一致的关键词"
+   ],
+   "ap": "{{name}}要回答哪两个问题？写含糊会有什么后果？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 4
+  },
+  {
+   "id": "cm_f282148c",
+   "name": "把自己当普通用户／黑盒测试",
+   "src": "neican",
+   "type": "PROCEDURAL",
+   "gloss": "测试时把自己当普通用户，凭直觉乱点、输入意外内容做黑盒测试。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "verification-eval"
+   ],
+   "k": "use",
+   "kwhy": "能说明为何要不按开发者预期路径测试",
+   "nameEn": "",
+   "centrality": 0.052,
+   "stage": "when-needed",
+   "feynman": "测试时不按开发者的预期路径走，要假装第一次用，凭直觉乱点、输入意外内容。作者自己只做黑盒测试，不逐行 Review；但这不是绝对规则，核心系统仍可能要 Code Review。它说明测试确认的用户视角，以及合并确认的安全边界。",
+   "evidence": [
+    "能说明为何要不按开发者预期路径测试",
+    "能指出核心系统仍可能需要 Code Review"
+   ],
+   "ap": "{{name}} 具体怎么做，什么情况下不适用？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 3
+  },
+  {
+   "id": "cm_ae250f40",
+   "name": "仓库提交",
+   "src": "neican",
+   "type": "PROCEDURAL",
+   "gloss": ".claude/skills 中的项目技能随 Git 共享，克隆即获得，推送后他人拉取即更新",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "code-engineering"
+   ],
+   "k": "use",
+   "kwhy": "能说出项目技能的存放路径与分发方式",
+   "nameEn": "",
+   "centrality": 0.052,
+   "stage": "when-needed",
+   "feynman": "这条路把技能当成仓库里的普通文件——技能跟着 Git 走，没有第二条分发通道。克隆即获得，不装任何东西；推送更新后，别人下次拉取就同步。它界定的机制边界是\"零安装、零额外渠道、随版本控制\"，所以作者称它最简单，也是项目专属技能的自然归宿。",
+   "evidence": [
+    "能说出项目技能的存放路径与分发方式",
+    "能指出拿到技能无需额外安装步骤"
+   ],
+   "ap": "{{name}}应该放在哪？别人如何拿到更新？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 3
+  },
+  {
+   "id": "cm_48ea99ce",
+   "name": "插件与市场",
+   "src": "neican",
+   "type": "REPRESENTATIONAL",
+   "gloss": "插件按类似 .claude 的结构打包技能，分发到市场供他人自行发现安装",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "agent-org"
+   ],
+   "k": "use",
+   "kwhy": "能描述插件中 skills 目录与 SKILL.md 的结构",
+   "nameEn": "Plugin / Marketplace",
+   "centrality": 0.052,
+   "stage": "when-needed",
+   "feynman": "插件把技能从单个仓库里解放出来。它的目录结构模仿 `.claude`（一个 skills 目录，每个技能一个文件夹，内含 SKILL.md），但分发不走仓库，而走市场：别人自己发现、自己安装。作者给的适用标准是\"技能对直接团队以外的人也有用\"——反过来说，过度绑定某个项目的技能就不该走这条路。",
+   "evidence": [
+    "能描述插件中 skills 目录与 SKILL.md 的结构",
+    "能判断技能是否值得做成插件对外分发"
+   ],
+   "ap": "什么情况下该走 {{name}}，而不是提交到仓库？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 3
+  },
+  {
+   "id": "cm_64663de2",
+   "name": "反复解释同一件事",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "反复向 Claude 解释同一件事，是应为该内容写一个技能的触发信号与经验法则。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "harness-runtime"
+   ],
+   "k": "judge",
+   "kwhy": "能举出自己反复向 Claude 解释的同一类内容",
+   "nameEn": "",
+   "centrality": 0.052,
+   "stage": "now",
+   "feynman": "在本文中，反复解释同一件事不是普通抱怨，而是创建技能的触发信号。它把“为什么需要技能”具体化了：同一类说明、审查结构、格式偏好如果每次都重复，就可以封装成技能，让 Claude 之后自动应用。\n\n## 二、概念架构图\n\n图按触发、技能本体、加载与激活、存储与共享四层组织；CLAUDE.md 与斜杠命令作为加载和激活的边界对照出现。\n\n```mermaid\nflowchart TB\n  subgraph 触发层\n    T[\"反复向 Claude 解释同一件事\"]\n  end\n\n  subgraph 技能本体层\n    S[\"技能（Agent Skills）\"]\n    F[\"SKILL.md 文件\"]\n    FM[\"前置信息：名称和描述\"]\n    SD[\"技能描述\"]\n  end\n\n  subgraph 加载与激活层\n    L[\"按需加载\"]\n    A[\"自动激活\"]\n    CM[\"CLAUDE.md：每次对话加载\"]\n    SC[\"斜杠命令：需要显式调用\"]\n  end\n\n  subgraph 存储与共享层\n    PS[\"个人技能：~/.claude/skills\"]\n    PR[\"项目技能：.claude/skills\"]\n  end\n\n  T -->|提示需要写技能| S\n  S -->|存在于| F\n  F -->|前置信息包含| FM\n  FM -->|提供匹配依据| SD\n  SD -->|匹配请求后| A\n  A -->|触发| L\n  L -.->|不同于| CM\n  A -.->|不同于| SC\n  S -->|可存为| PS\n  S -->|可存为| PR\n  PS -->|伴随所有项目| S\n  PR -->|随仓库共享给克隆者| S\n  S -->|解决| T\n```",
+   "evidence": [
+    "能举出自己反复向 Claude 解释的同一类内容",
+    "能据此判断哪些内容值得封装成技能"
+   ],
+   "ap": "{{name}} 在本文中被当作什么信号？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 3
+  },
+  {
+   "id": "cm_af4d864f",
+   "name": "功能组合",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "各功能各有专长，应结合使用，而不是把所有事情硬塞进 skills。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "harness-runtime"
+   ],
+   "k": "judge",
+   "kwhy": "能说出 CLAUDE.md、Skills、Hooks、Subagents、MCP 各自角色",
+   "nameEn": "",
+   "centrality": 0.052,
+   "stage": "now",
+   "feynman": "在本文里，功能组合不是简单罗列工具，而是作者的结论：Claude Code 的这些自定义选项解决不同问题，所以应根据每种功能的专长分别使用，再组合成一个完整配置。它防止读者把所有需求都塞进 Skills，也把前面各个概念收束成一个整体框架。\n\n## 二、概念架构图\n\n```mermaid\nflowchart TB\n  subgraph L1[功能角色层]\n    R1[知识/上下文]\n    R2[执行委派]\n    R3[事件自动化]\n    R4[外部集成]\n  end\n\n  subgraph L2[具体功能层]\n    S[Skills]\n    C[CLAUDE.md]\n    A[Subagents]\n    H[Hooks]\n    M[MCP servers]\n  end\n\n  subgraph L3[机制与边界对照层]\n    L[按需加载 ↔ 始终加载]\n    T[请求驱动 ↔ 事件驱动]\n    I[当前对话添加知识 ↔ 隔离执行上下文]\n  end\n\n  subgraph L4[总原则层]\n    K[组合使用：结合而非硬塞]\n  end\n\n  R1 --> S\n  R1 --> C\n  R2 --> A\n  R3 --> H\n  R4 --> M\n\n  S --> L\n  C --> L\n  S --> T\n  H --> T\n  S --> I\n  A --> I\n  M -.不同类别.-> S\n\n  S --> K\n  C --> K\n  A --> K\n  H --> K\n  M --> K\n```",
+   "evidence": [
+    "能说出 CLAUDE.md、Skills、Hooks、Subagents、MCP 各自角色",
+    "能给出一个同时含多种功能的典型配置"
+   ],
+   "ap": "按 {{name}}，典型配置包含哪些功能、各管什么？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 3
+  },
+  {
+   "id": "cm_fb4c75d6",
+   "name": "设计文档",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "文档是人与 Agent、Agent 与 Agent 之间的桥梁，也是记忆载体。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "context-engineering"
+   ],
+   "k": "judge",
+   "kwhy": "能说明确认后的文档是下一个 Agent Session 的全部起点",
+   "nameEn": "",
+   "centrality": 0.052,
+   "stage": "now",
+   "feynman": "传统文档可能是写完就过时的负担；本文里文档是核心中间物。人靠它确认和修改方案，Agent Session 靠它继承前一个 Session 的决策和上下文。没有它，人无法高效确认，Agent 也无法跨阶段接力。",
+   "evidence": [
+    "能说明确认后的文档是下一个 Agent Session 的全部起点",
+    "能指出文档承担跨阶段传递决策与上下文的作用"
+   ],
+   "ap": "{{name}} 在 AI 原生开发里承担什么角色？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 3
+  },
+  {
+   "id": "cm_07e5e0c3",
+   "name": "文件系统型代码执行环境",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "技能以目录形式存在于带文件系统、bash 与代码执行的虚拟机中，可读文件、跑脚本。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "harness-runtime"
+   ],
+   "k": "judge",
+   "kwhy": "能说明技能是虚拟机上的目录而非纯文本提示",
+   "nameEn": "Filesystem-based Code Execution Environment",
+   "centrality": 0.052,
+   "stage": "when-needed",
+   "feynman": "技能不是纯文本提示，而是放在虚拟机目录里的文件包。Claude 在这个环境中有文件系统访问、bash 命令和代码执行能力，可以像人操作电脑文件一样读取 SKILL.md、引用其他文件、运行脚本。这个环境解释了技能为什么能包含脚本和资源，也解释了为什么脚本代码本身不必进入上下文，只有输出会进入。",
+   "evidence": [
+    "能说明技能是虚拟机上的目录而非纯文本提示",
+    "能解释脚本代码不必进上下文、只有输出进入"
+   ],
+   "ap": "{{name}} 为什么能让技能包含脚本和参考文件？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 3
+  },
+  {
    "id": "cm_42f28056",
    "name": "保留推理",
    "src": "multi",
    "type": "CONCEPTUAL",
    "gloss": "跨工具调用与轮次保留模型私有推理，让它看到此前的计划与思路，而不只是动作记录。",
    "level": 0,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "harness-runtime"
    ],
@@ -16117,7 +17899,7 @@
    "type": "PROCEDURAL",
    "gloss": "为每个并发 Agent 分配独立工作空间，避免改同一文件造成冲突，便于事后合并。",
    "level": 0,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "multi-agent"
    ],
@@ -16145,7 +17927,7 @@
    "type": "PROCEDURAL",
    "gloss": "上下文管理策略：把旧的工具输出隐藏起来，只保留动作与结论，从而压低窗口占用。",
    "level": 0,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "context-engineering"
    ],
@@ -16173,7 +17955,7 @@
    "type": "PROCEDURAL",
    "gloss": "官方 harness 的上下文管理：超过约 175,000 字符就丢弃最旧消息，代价是丢失早期观察且常运行在更满窗口。",
    "level": 0,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "context-engineering"
    ],
@@ -16195,13 +17977,67 @@
    "mentionCount": 2
   },
   {
+   "id": "cm_325fef11",
+   "name": "技能变更生效条件：编辑、删除、重启",
+   "src": "neican",
+   "type": "PROCEDURAL",
+   "gloss": "改技能即改其 SKILL.md，删技能即删目录，之后必须重启 Claude Code 才生效",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "harness-runtime"
+   ],
+   "k": "use",
+   "kwhy": "能写出改、删技能对应的文件操作",
+   "nameEn": "",
+   "centrality": 0.035,
+   "stage": "when-needed",
+   "feynman": "技能不是热更新对象。改技能就是改它的 SKILL.md；删技能就是删目录。因为 Claude Code 在启动时加载技能，所以创建、修改、删除后都要重启 Claude Code 才生效。这个操作边界直接来自前面的启动加载机制。\n\n## 二、概念架构图\n\n```mermaid\nflowchart TB\n  subgraph L1[\"定义层：技能如何构成\"]\n    A[\"技能：目录\"]\n    B[\"SKILL.md\"]\n    C[\"frontmatter／前言：名称、描述\"]\n    D[\"指令体／后言：第二组破折号后的说明\"]\n  end\n\n  subgraph L2[\"加载与匹配层：Claude 何时读取什么\"]\n    E[\"启动时仅加载名称和描述\"]\n    F[\"用户请求\"]\n    G[\"语义匹配：请求与描述\"]\n    H[\"确认提示\"]\n    I[\"完整加载 SKILL.md 并执行指令\"]\n  end\n\n  subgraph L3[\"作用域与冲突层：同名技能谁优先\"]\n    J[\"企业版（最高）\"]\n    K[\"个人版\"]\n    L[\"项目版\"]\n    M[\"插件版（最低）\"]\n    N[\"名称冲突优先级\"]\n  end\n\n  subgraph L4[\"变更生效层\"]\n    O[\"更新：编辑 SKILL.md\"]\n    P[\"删除：删除目录\"]\n    Q[\"重启 Claude Code\"]\n  end\n\n  A -- 包含 --> B\n  B -- 分为 --> C\n  B -- 分为 --> D\n  C -- 提供 --> E\n  E -- 支撑 --> G\n  F -- 触发 --> G\n  G -- 命中后 --> H\n  H -- 确认后 --> I\n  I -- 读取 --> D\n  J -- 参与 --> N\n  K -- 参与 --> N\n  L -- 参与 --> N\n  M -- 参与 --> N\n  N -- 决定同名采用哪个 --> I\n  E -- 导致变更需 --> Q\n  O -- 需 --> Q\n  P -- 需 --> Q\n```",
+   "evidence": [
+    "能写出改、删技能对应的文件操作",
+    "能说出改动后必须重启才生效的原因"
+   ],
+   "ap": "改完技能 SKILL.md 后，{{name}}还需要做什么才生效？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 2
+  },
+  {
+   "id": "cm_d4a0e687",
+   "name": "技能与 SKILL.md 结构",
+   "src": "neican",
+   "type": "REPRESENTATIONAL",
+   "gloss": "技能是一个目录加入口文件 SKILL.md：前置元数据，其下为说明，激活后才执行。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "harness-runtime"
+   ],
+   "k": "use",
+   "kwhy": "能指出 SKILL.md 中元数据与说明的分界（第二组破折号）",
+   "nameEn": "Skill / SKILL.md",
+   "centrality": 0.035,
+   "stage": "now",
+   "feynman": "在本文里，技能不是一段单独的提示词，而是一个目录加一个入口文件 SKILL.md。SKILL.md 又分成两段：前面放元数据，也就是名称和描述；后面放说明，也就是 Claude 激活技能后要执行的指令。名称用来标识技能，描述用来后续匹配；说明不是启动时就读，而是匹配确认后才执行。拿掉这个结构，后面“只加载名称和描述”“第二组破折号后是指令”都无从理解。",
+   "evidence": [
+    "能指出 SKILL.md 中元数据与说明的分界（第二组破折号）",
+    "能说明说明部分在激活后才作为指令执行"
+   ],
+   "ap": "{{name}} 中第二组破折号之后的内容何时被执行？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 2
+  },
+  {
    "id": "cm_c8c4d5c6",
    "name": "脚手架与 Harness 厚度",
    "src": "multi",
    "type": "CONCEPTUAL",
    "gloss": "脚手架本身不盖房子；关键取舍是多大比例的逻辑写死在系统里，而不是留给模型。",
    "level": 0,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "harness-runtime"
    ],
@@ -16229,7 +18065,7 @@
    "type": "CONCEPTUAL",
    "gloss": "改版后分数约 3 倍，输出 token 少 6 倍，因为模型不再需要每个动作前重新解读游戏。",
    "level": 0,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "caching-cost"
    ],
@@ -16251,13 +18087,94 @@
    "mentionCount": 2
   },
   {
+   "id": "cm_e66df281",
+   "name": "战略性技术债务：Python 服务",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "为优先产品与平台稳定而暂不优化性能，把 Python 服务的性能欠账当作有意识的战略性债务。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "code-engineering"
+   ],
+   "k": "judge",
+   "kwhy": "能说出当时的首要目标是扫清产品开发障碍与平台稳定性，而非成本或资源优化",
+   "nameEn": "",
+   "centrality": 0.035,
+   "stage": "when-needed",
+   "feynman": "用 Python 跑高吞吐服务会增加网络延迟、CPU 和内存成本，100 倍规模下几乎肯定要重写。但团队优先建立核心 API 和基础设施，把性能优化延后，作为战略性技术债务。这个选择是理解为何 Habitat 先用 Python、后来又迁移到 Rust 的关键。",
+   "evidence": [
+    "能说出当时的首要目标是扫清产品开发障碍与平台稳定性，而非成本或资源优化",
+    "能指出团队押注未来编码模型会让 Python→Rust 迁移变得可行，且该押注被验证"
+   ],
+   "ap": "{{name}} 与“先做性能优化”的取舍依据是什么？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 2
+  },
+  {
+   "id": "cm_138a8b67",
+   "name": "子代理的技能隔离",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "子代理以全新干净上下文启动，不自动看到主会话技能，须在 skills 字段显式列出",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "multi-agent"
+   ],
+   "k": "judge",
+   "kwhy": "能说出子代理默认不继承技能",
+   "nameEn": "",
+   "centrality": 0.035,
+   "stage": "when-needed",
+   "feynman": "委派任务时，子代理是从\"全新、干净的上下文\"起步的，所以主会话里能用的技能，它默认一个也看不到。这不是配置失误，而是默认规则——也正因为是默认规则，后面的自定义子代理才必须显式写 `skills` 字段。这条是理解\"为什么还要多做一步配置\"的前提。",
+   "evidence": [
+    "能说出子代理默认不继承技能",
+    "能指出自定义子代理需在前置元数据 skills 字段列出技能"
+   ],
+   "ap": "把任务委派给子代理时，{{name}}默认会带过去吗？要怎么办？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 2
+  },
+  {
+   "id": "cm_983f29fd",
+   "name": "asyncio 调度延迟与尾部延迟",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "单请求触发数百次数据库调用时体验由最慢那次决定；asyncio 不绕过 GIL，CPU 密集任务抬高尾部延迟。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "harness-runtime"
+   ],
+   "k": "judge",
+   "kwhy": "能解释为何用户感受到的延迟往往是最慢的那次调用",
+   "nameEn": "",
+   "centrality": 0.035,
+   "stage": "when-needed",
+   "feynman": "一个用户请求可能触发数百次数据库调用，总体验由最慢的调用决定，这就是尾部延迟。Python 的 asyncio 能并发处理 I/O，但不能绕过 GIL 提供 CPU 并行性；CPU 密集任务会让事件循环上其他协程等待，产生调度抖动，放大尾部延迟。因此 Habitat 限制每个进程并发请求数，并大规模扩展 Python 工作进程。",
+   "evidence": [
+    "能解释为何用户感受到的延迟往往是最慢的那次调用",
+    "能说明 asyncio 能并发 I/O 但不提供 CPU 并行，需限制进程并发数并扩大 Python 工作进程规模"
+   ],
+   "ap": "{{name}} 为什么会放大用户感知到的延迟？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 2
+  },
+  {
    "id": "cm_b9d1dd66",
    "name": "CLAUDE.md",
    "src": "multi",
    "type": "REPRESENTATIONAL",
    "gloss": "放在项目根目录的 markdown 文件，Claude Code 每次会话开始时自动读取并严格执行。",
    "level": 0,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "context-engineering"
    ],
@@ -16285,7 +18202,7 @@
    "type": "CONCEPTUAL",
    "gloss": "把某主题下的海量文档读遍后蒸馏成一页结构化判断档案的步骤，让 AI 真正服务知识工作。",
    "level": 0,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "memory-retrieval"
    ],
@@ -16340,7 +18257,7 @@
    "type": "CONCEPTUAL",
    "gloss": "从提示词、上下文、harness 到 loop 的四次跃迁：语言表达、信息组织、规则约束、系统自运行。",
    "level": 0,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "loop-autonomy"
    ],
@@ -16368,7 +18285,7 @@
    "type": "REPRESENTATIONAL",
    "gloss": "用 Responses API 重写 harness 以更好对齐生产设置，并建议开发者弃用 legacy Chat Completions。",
    "level": 0,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "harness-runtime"
    ],
@@ -16396,7 +18313,7 @@
    "type": "REPRESENTATIONAL",
    "gloss": "ARC-AGI-3 的评分指标，把模型表现与人类测试基线相比，得出相对人类动作效率。",
    "level": 0,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "verification-eval"
    ],
@@ -16418,13 +18335,40 @@
    "mentionCount": 2
   },
   {
+   "id": "cm_df8ed356",
+   "name": "SKILL.md 结构性要求",
+   "src": "neican",
+   "type": "REPRESENTATIONAL",
+   "gloss": "SKILL.md 必须位于命名目录内，文件名大小写须恰为 SKILL.md。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "harness-runtime"
+   ],
+   "k": "judge",
+   "kwhy": "能说出文件不能直接放在技能根目录下",
+   "nameEn": "",
+   "centrality": 0.035,
+   "stage": "now",
+   "feynman": "技能能否被加载，取决于两个硬性结构条件——文件必须放在一个命名目录里（不能直接摊在技能根目录），文件名必须大小写精确地写成 `SKILL.md`。这些是绝对规则，不满足就加载不上，和描述写得好不好无关。",
+   "evidence": [
+    "能说出文件不能直接放在技能根目录下",
+    "能准确复述 SKILL.md 的大小写要求"
+   ],
+   "ap": "{{name}} 的两个硬性结构条件是什么？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 2
+  },
+  {
    "id": "cm_9102c409",
    "name": "Vibe Coding",
    "src": "multi",
    "type": "CONCEPTUAL",
    "gloss": "抬高地板式编程范式：用自然语言描述需求由 agent 生成代码，适合原型与小工具，不适合严肃工程。",
    "level": 0,
-   "ci": 3,
+   "ci": 4,
    "tags": [
     "code-engineering"
    ],
@@ -17283,6 +19227,33 @@
    "mentionCount": 1
   },
   {
+   "id": "cm_6a2735cf",
+   "name": "单一负责人",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "每个项目指定一位负责人，由他撰写项目简报并交付成果，责任不摊薄到团队。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "agent-org"
+   ],
+   "k": "judge",
+   "kwhy": "能为一个项目指认唯一负责人",
+   "nameEn": "Owner",
+   "centrality": 0.017,
+   "stage": "now",
+   "feynman": "责任不摊薄到团队，而是收束到一个人身上：写简报、交成果。作者强调\"即使涉及其他人\"也由一个人负责——区分了\"参与\"和\"负责\"。它是项目能否被推动的关键机制，也是后面\"简报\"\"小颗粒度交付\"的执行主体。",
+   "evidence": [
+    "能为一个项目指认唯一负责人",
+    "能区分“参与项目”与“对项目负责”"
+   ],
+   "ap": "这个项目的 {{name}} 是谁，他负责交付什么？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 1
+  },
+  {
    "id": "cm_7901a192",
    "name": "单用户假设的失效",
    "src": "harness",
@@ -17499,6 +19470,33 @@
    "mentionCount": 1
   },
   {
+   "id": "cm_f65d0103",
+   "name": "反馈作为研究资料库",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "把用户反馈当作开发新功能的研究资料库，从中发现趋势，而非逐条满足。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "agent-org"
+   ],
+   "k": "use",
+   "kwhy": "能从反馈中归纳出重复出现的趋势",
+   "nameEn": "",
+   "centrality": 0.017,
+   "stage": "when-needed",
+   "feynman": "反馈不是待办债务，而是研究材料。作者要的不是逐条满足，而是\"发现趋势\"，并把请求挂到相关问题里，让用户的声音直接进入开发过程。这解释了为什么\"重要的请求会再次出现\"，也说明为什么不必无限期保存所有请求——只留能形成趋势的部分。",
+   "evidence": [
+    "能从反馈中归纳出重复出现的趋势",
+    "能把用户请求与抱怨附加到对应的相关问题上"
+   ],
+   "ap": "你最近收到的反馈中，哪些能按 {{name}} 挂到相关问题上？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 1
+  },
+  {
    "id": "cm_95233874",
    "name": "反向代理式窥探",
    "src": "harness",
@@ -17688,6 +19686,33 @@
    "mentionCount": 1
   },
   {
+   "id": "cm_65b2c79c",
+   "name": "工具为你服务，而非你为工具服务",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "工具应为你服务：你在用工具做事，而不是花时间当工具的开发者与维护者。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "code-engineering"
+   ],
+   "k": "judge",
+   "kwhy": "能指出自己正在维护的某个“变通之法”",
+   "nameEn": "",
+   "centrality": 0.017,
+   "stage": "when-needed",
+   "feynman": "这是一条关于人与工具关系的原则。判断标准是：你在用工具做事，还是在花时间伺候工具本身？作者给的机制动作是\"移除或自动化变通之法\"——那些为了将就工具而发明的绕路操作，本身就是信号，说明工具没服务好你。它承接了\"以创建者为中心\"的立场。",
+   "evidence": [
+    "能指出自己正在维护的某个“变通之法”",
+    "能给出移除或自动化该变通之法的具体动作"
+   ],
+   "ap": "过去一周，{{name}} 在你身上体现为哪些被移除或自动化的变通？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 1
+  },
+  {
    "id": "cm_85b611d5",
    "name": "功能与行为验证的缺口",
    "src": "harness",
@@ -17846,6 +19871,33 @@
    "ap": "{{name}}中内层和外层分别优化什么？",
    "origin": [
     "harness"
+   ],
+   "mentionCount": 1
+  },
+  {
+   "id": "cm_7a436f8a",
+   "name": "集中式数据安全与隐私控制点",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "以 Habitat 服务为统一控制点，集中执行访问控制、审计日志并限制对底层存储的直接访问。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "safety-governance"
+   ],
+   "k": "judge",
+   "kwhy": "能列出这层集中执行的三件事：访问控制策略、审计日志、底层资源访问限制",
+   "nameEn": "",
+   "centrality": 0.017,
+   "stage": "when-needed",
+   "feynman": "Habitat 作为独立服务后，访问控制策略、审计日志和对底层存储资源的访问限制都集中在一层执行。这样，外部、内部和代理的未授权访问都要先经过 Habitat 的权限边界。拿掉这个控制点，读者就无法理解服务化在安全与隐私上的承重作用。",
+   "evidence": [
+    "能列出这层集中执行的三件事：访问控制策略、审计日志、底层资源访问限制",
+    "能说明缺少该控制点时未授权访问会怎样"
+   ],
+   "ap": "{{name}} 集中拦住的是哪几类访问？",
+   "origin": [
+    "neican"
    ],
    "mentionCount": 1
   },
@@ -18332,6 +20384,33 @@
    "ap": "{{name}} 中 review agent 为何偏离了验证 diff 的目标？",
    "origin": [
     "context"
+   ],
+   "mentionCount": 1
+  },
+  {
+   "id": "cm_be0d6099",
+   "name": "每年超过 10 倍增长",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "Habitat 处于每年超过 10 倍增长的约束下，团队必须在超增长过程中同时建设平台。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "geo-infrastructure"
+   ],
+   "k": "accept",
+   "kwhy": "能说出系统工程师惯常按 10 倍规模构建以维持数年的做法",
+   "nameEn": "",
+   "centrality": 0.017,
+   "stage": "when-needed",
+   "feynman": "这是全文的问题设定。Habitat 不是在一个稳定规模上慢慢优化，而是每年规模增长超过 10 倍，所以团队必须在超增长过程中同时建设平台。这个约束解释了后文为什么会出现战略性技术债务、服务化、约束 API 和快速重写等选择。",
+   "evidence": [
+    "能说出系统工程师惯常按 10 倍规模构建以维持数年的做法",
+    "能指出哪些架构选择是为应对每年 10 倍增长"
+   ],
+   "ap": "文中哪些技术选择是被 {{name}} 逼出来的？",
+   "origin": [
+    "neican"
    ],
    "mentionCount": 1
   },
@@ -19821,6 +21900,33 @@
    "mentionCount": 1
   },
   {
+   "id": "cm_e4fb81cb",
+   "name": "以项目创建者为中心",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "工具设计以最终用户即项目创建者为中心，个人高效优先于完美报告。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "agent-org"
+   ],
+   "k": "judge",
+   "kwhy": "能指出衡量标准是创建项目的人能否高效工作",
+   "nameEn": "",
+   "centrality": 0.017,
+   "stage": "now",
+   "feynman": "这是全文的出发点。工具为谁而造？作者的回答是\"做活的人\"——即创建项目的那个人，而不是查看报告的管理者。它决定了衡量标准：个人能否高效工作，优先于报表是否漂亮。拿掉这一条，后面\"简洁\"\"小颗粒度\"\"工具为你服务\"都会失去依据。",
+   "evidence": [
+    "能指出衡量标准是创建项目的人能否高效工作",
+    "能反对以报表和查看者为中心的设计取向"
+   ],
+   "ap": "按 {{name}}，衡量项目管理工具的标准是什么？",
+   "origin": [
+    "neican"
+   ],
+   "mentionCount": 1
+  },
+  {
    "id": "cm_85804ebb",
    "name": "意识流输入",
    "src": "context",
@@ -20462,6 +22568,33 @@
    "ap": "{{name}}能在哪些地方执行自然语言工作流？",
    "origin": [
     "context"
+   ],
+   "mentionCount": 1
+  },
+  {
+   "id": "cm_f47cd4ad",
+   "name": "Agent Session",
+   "src": "neican",
+   "type": "CONCEPTUAL",
+   "gloss": "一次上下文窗口有限的工作会话，阶段切换往往开新 Session。",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "harness-runtime"
+   ],
+   "k": "judge",
+   "kwhy": "能说明旧 Session 的思考与决策不会自动延续",
+   "nameEn": "",
+   "centrality": 0.017,
+   "stage": "now",
+   "feynman": "Agent Session 是一次上下文有限的工作会话。阶段切换常开新 Session，旧 Session 的记忆不会自动延续。文档因此成为跨 Session 传递上下文的载体。它是理解文档作用的机制性概念。",
+   "evidence": [
+    "能说明旧 Session 的思考与决策不会自动延续",
+    "能指出跨 Session 要靠文档传递上下文，否则从零开始"
+   ],
+   "ap": "{{name}} 的上下文限制带来什么问题？",
+   "origin": [
+    "neican"
    ],
    "mentionCount": 1
   },
@@ -22001,6 +24134,33 @@
    "ap": "{{name}} 相比 AdamW 省的是训练还是推理算力？",
    "origin": [
     "notion"
+   ],
+   "mentionCount": 1
+  },
+  {
+   "id": "cm_6ae99955",
+   "name": "name",
+   "src": "neican",
+   "type": "REPRESENTATIONAL",
+   "gloss": "SKILL.md 必填字段，只能用小写字母、数字、连字符，≤64 字符，须与目录同名",
+   "level": 0,
+   "ci": 3,
+   "tags": [
+    "spec-intent"
+   ],
+   "k": "accept",
+   "kwhy": "能写出一个合法的 name 取值示例",
+   "nameEn": "",
+   "centrality": 0.017,
+   "stage": "when-needed",
+   "feynman": "name 解决的是\"这个技能叫什么、放在哪个目录下\"的身份问题：必填，只能用小写字母、数字和连字符，最长 64 字符，并且必须和技能所在目录同名。它管的是标识，不管触发——正文把\"最重要\"的判语留给了 description，因为真正决定技能会不会被用上的是描述匹配。",
+   "evidence": [
+    "能写出一个合法的 name 取值示例",
+    "能指出 name 必须与技能目录名一致"
+   ],
+   "ap": "{{name}}有哪些字符与长度限制？要和什么保持一致？",
+   "origin": [
+    "neican"
    ],
    "mentionCount": 1
   },
@@ -25621,6 +27781,206 @@
    "cm_5103a6a6",
    "cm_02b6da8f",
    3
+  ],
+  [
+   "cm_369f10ff",
+   "cm_a5573df7",
+   9
+  ],
+  [
+   "cm_5a687800",
+   "cm_369f10ff",
+   9
+  ],
+  [
+   "cm_4eb02f12",
+   "cm_200893a2",
+   9
+  ],
+  [
+   "cm_058c8106",
+   "cm_369f10ff",
+   3
+  ],
+  [
+   "cm_058c8106",
+   "cm_c2266b88",
+   3
+  ],
+  [
+   "cm_3ff5d50f",
+   "cm_43781275",
+   3
+  ],
+  [
+   "cm_226cbc01",
+   "cm_ad086a79",
+   3
+  ],
+  [
+   "cm_f8c2e9ae",
+   "cm_cbbe3f8e",
+   3
+  ],
+  [
+   "cm_28c258d9",
+   "cm_d78a3680",
+   9
+  ],
+  [
+   "cm_dc4f803b",
+   "cm_ae03bb56",
+   9
+  ],
+  [
+   "cm_dc4f803b",
+   "cm_b0946442",
+   9
+  ],
+  [
+   "cm_cc101992",
+   "cm_4b769318",
+   9
+  ],
+  [
+   "cm_80dfaf37",
+   "cm_cc101992",
+   9
+  ],
+  [
+   "cm_5face436",
+   "cm_cc101992",
+   9
+  ],
+  [
+   "cm_a63808b6",
+   "cm_cc101992",
+   9
+  ],
+  [
+   "cm_cc101992",
+   "cm_b3524e24",
+   3
+  ],
+  [
+   "cm_53ec7c9b",
+   "cm_a2868643",
+   9
+  ],
+  [
+   "cm_db455b2f",
+   "cm_a2868643",
+   3
+  ],
+  [
+   "cm_53ec7c9b",
+   "cm_6db0527f",
+   3
+  ],
+  [
+   "cm_32e036a5",
+   "cm_dc9a27be",
+   3
+  ],
+  [
+   "cm_2440f85e",
+   "cm_32e036a5",
+   9
+  ],
+  [
+   "cm_2440f85e",
+   "cm_dc9a27be",
+   3
+  ],
+  [
+   "cm_8ff0bd7e",
+   "cm_1da0e9a6",
+   9
+  ],
+  [
+   "cm_5676c394",
+   "cm_fccba9a9",
+   9
+  ],
+  [
+   "cm_5676c394",
+   "cm_8ff0bd7e",
+   3
+  ],
+  [
+   "cm_5676c394",
+   "cm_1da0e9a6",
+   3
+  ],
+  [
+   "cm_ef696870",
+   "cm_026f933a",
+   3
+  ],
+  [
+   "cm_bc68c1e9",
+   "cm_026f933a",
+   3
+  ],
+  [
+   "cm_6c8463ad",
+   "cm_40b450ca",
+   3
+  ],
+  [
+   "cm_74099998",
+   "cm_857d56ba",
+   3
+  ],
+  [
+   "cm_2b63a21c",
+   "cm_b6da7e6e",
+   9
+  ],
+  [
+   "cm_ac2e95b3",
+   "cm_b6da7e6e",
+   9
+  ],
+  [
+   "cm_8bb611ea",
+   "cm_37869804",
+   9
+  ],
+  [
+   "cm_e243f570",
+   "cm_8a12b121",
+   9
+  ],
+  [
+   "cm_8bb611ea",
+   "cm_b6da7e6e",
+   3
+  ],
+  [
+   "cm_765d717a",
+   "cm_e056dcdf",
+   3
+  ],
+  [
+   "cm_b4276278",
+   "cm_37869804",
+   3
+  ],
+  [
+   "cm_78356595",
+   "cm_f986a343",
+   3
+  ],
+  [
+   "cm_2cbdf384",
+   "cm_f986a343",
+   3
+  ],
+  [
+   "cm_78356595",
+   "cm_2cbdf384",
+   3
   ]
  ],
  "sources": [
@@ -25640,6 +28000,11 @@
    "color": "#F6BD16"
   },
   {
+   "id": "neican",
+   "label": "AI 内参 260912",
+   "color": "#E8684A"
+  },
+  {
    "id": "multi",
    "label": "跨源概念",
    "color": "#9661BC"
@@ -25647,7 +28012,7 @@
  ],
  "meta": {
   "kicker": "Notion 概念库 × Context Engineering × Harness Engineering · 2026-09",
-  "stats": "<b>856</b> 个概念 · <b>491</b> 条依赖<br><b>21</b> 条主题线 · 已标 <b>856</b>/856<br><b>185</b> 条骨架（实线）· <b>306</b> 条候选（虚线）<br><b>6</b> 层深度 · <b>4</b> 个来源<br>枢纽：Harness"
+  "stats": "<b>936</b> 个概念 · <b>531</b> 条依赖<br><b>21</b> 条主题线 · 已标 <b>936</b>/936<br><b>203</b> 条骨架（实线）· <b>328</b> 条候选（虚线）<br><b>6</b> 层深度 · <b>5</b> 个来源<br>枢纽：Harness"
  },
  "curation": {
   "tags": [
@@ -25794,17 +28159,26 @@
    "cm_6fe071ac": [
     "model-training"
    ],
+   "cm_32e036a5": [
+    "safety-governance"
+   ],
    "cm_a500a4cb": [
     "caching-cost"
    ],
    "cm_691a420e": [
     "caching-cost"
    ],
+   "cm_cc101992": [
+    "context-engineering"
+   ],
    "cm_9ed037b8": [
     "tools-sandbox"
    ],
    "cm_30201f36": [
     "context-engineering"
+   ],
+   "cm_200893a2": [
+    "harness-runtime"
    ],
    "cm_036f0092": [
     "caching-cost"
@@ -25821,6 +28195,9 @@
    "cm_e56f1e8b": [
     "harness-runtime"
    ],
+   "cm_d78a3680": [
+    "context-engineering"
+   ],
    "cm_10cbe746": [
     "state-persistence"
    ],
@@ -25835,6 +28212,9 @@
    ],
    "cm_4a78d263": [
     "multi-agent"
+   ],
+   "cm_dc9a27be": [
+    "safety-governance"
    ],
    "cm_1d5a247c": [
     "memory-retrieval"
@@ -25908,6 +28288,9 @@
    "cm_c3ecbf70": [
     "tools-sandbox"
    ],
+   "cm_ad086a79": [
+    "harness-runtime"
+   ],
    "cm_94fa45bf": [
     "memory-retrieval"
    ],
@@ -25916,6 +28299,21 @@
    ],
    "cm_7cd7335d": [
     "verification-eval"
+   ],
+   "cm_b6da7e6e": [
+    "agent-org"
+   ],
+   "cm_369f10ff": [
+    "harness-runtime"
+   ],
+   "cm_5676c394": [
+    "state-persistence"
+   ],
+   "cm_37869804": [
+    "agent-org"
+   ],
+   "cm_a2868643": [
+    "tools-sandbox"
    ],
    "cm_20bf8a66": [
     "loop-autonomy"
@@ -26043,14 +28441,32 @@
    "cm_b2c86d88": [
     "harness-runtime"
    ],
+   "cm_53ec7c9b": [
+    "tools-sandbox"
+   ],
+   "cm_dc4f803b": [
+    "context-engineering"
+   ],
+   "cm_f986a343": [
+    "verification-eval"
+   ],
+   "cm_78356595": [
+    "verification-eval"
+   ],
    "cm_67483624": [
     "harness-runtime"
    ],
    "cm_dee9d8f3": [
     "loop-autonomy"
    ],
+   "cm_8ff0bd7e": [
+    "state-persistence"
+   ],
    "cm_03d2000c": [
     "harness-runtime"
+   ],
+   "cm_2cbdf384": [
+    "verification-eval"
    ],
    "cm_e11bd63b": [
     "verification-eval"
@@ -26073,10 +28489,16 @@
    "cm_012fc42e": [
     "agent-org"
    ],
+   "cm_1da0e9a6": [
+    "state-persistence"
+   ],
    "cm_75dd4394": [
     "harness-runtime"
    ],
    "cm_916d7db2": [
+    "context-engineering"
+   ],
+   "cm_5face436": [
     "context-engineering"
    ],
    "cm_86d3d4a6": [
@@ -26154,6 +28576,9 @@
    "cm_5caaad9a": [
     "memory-retrieval"
    ],
+   "cm_026f933a": [
+    "spec-intent"
+   ],
    "cm_67e2a43e": [
     "thinking-method"
    ],
@@ -26187,8 +28612,14 @@
    "cm_10f48272": [
     "loop-autonomy"
    ],
+   "cm_2440f85e": [
+    "safety-governance"
+   ],
    "cm_fb6ae85a": [
     "economy-business"
+   ],
+   "cm_8bb611ea": [
+    "agent-org"
    ],
    "cm_7675253d": [
     "harness-runtime"
@@ -26210,6 +28641,9 @@
    ],
    "cm_18997927": [
     "geo-infrastructure"
+   ],
+   "cm_058c8106": [
+    "harness-runtime"
    ],
    "cm_7f906cf0": [
     "multi-agent"
@@ -26514,14 +28948,47 @@
    "cm_a72ef18d": [
     "tools-sandbox"
    ],
+   "cm_ac2e95b3": [
+    "agent-org"
+   ],
+   "cm_5a687800": [
+    "harness-runtime"
+   ],
    "cm_4b8163f5": [
     "context-engineering"
+   ],
+   "cm_cbbe3f8e": [
+    "harness-runtime"
+   ],
+   "cm_6c8463ad": [
+    "caching-cost"
+   ],
+   "cm_db455b2f": [
+    "tools-sandbox"
    ],
    "cm_01671cb1": [
     "loop-autonomy"
    ],
+   "cm_a5573df7": [
+    "harness-runtime"
+   ],
+   "cm_a63808b6": [
+    "context-engineering"
+   ],
    "cm_629e8fdc": [
     "loop-autonomy"
+   ],
+   "cm_3ff5d50f": [
+    "harness-runtime"
+   ],
+   "cm_fccba9a9": [
+    "state-persistence"
+   ],
+   "cm_857d56ba": [
+    "code-engineering"
+   ],
+   "cm_ef696870": [
+    "spec-intent"
    ],
    "cm_ca26306b": [
     "verification-eval"
@@ -26538,8 +29005,35 @@
    "cm_ba882963": [
     "memory-retrieval"
    ],
+   "cm_ae03bb56": [
+    "context-engineering"
+   ],
+   "cm_43781275": [
+    "harness-runtime"
+   ],
+   "cm_40b450ca": [
+    "caching-cost"
+   ],
    "cm_c2dd0286": [
     "tools-sandbox"
+   ],
+   "cm_f8c2e9ae": [
+    "harness-runtime"
+   ],
+   "cm_4b769318": [
+    "context-engineering"
+   ],
+   "cm_e243f570": [
+    "agent-org"
+   ],
+   "cm_4eb02f12": [
+    "harness-runtime"
+   ],
+   "cm_80dfaf37": [
+    "context-engineering"
+   ],
+   "cm_28c258d9": [
+    "context-engineering"
    ],
    "cm_3cd29e1b": [
     "context-engineering"
@@ -26550,6 +29044,12 @@
    "cm_079fba1c": [
     "memory-retrieval"
    ],
+   "cm_b0946442": [
+    "context-engineering"
+   ],
+   "cm_226cbc01": [
+    "harness-runtime"
+   ],
    "cm_1db64a00": [
     "harness-runtime"
    ],
@@ -26558,6 +29058,9 @@
    ],
    "cm_253ad423": [
     "harness-runtime"
+   ],
+   "cm_2b63a21c": [
+    "agent-org"
    ],
    "cm_0c98a6cf": [
     "harness-runtime"
@@ -26571,6 +29074,9 @@
    "cm_de3faada": [
     "harness-runtime"
    ],
+   "cm_6db0527f": [
+    "tools-sandbox"
+   ],
    "cm_186ee145": [
     "context-engineering"
    ],
@@ -26579,6 +29085,9 @@
    ],
    "cm_60061253": [
     "model-training"
+   ],
+   "cm_d793c38e": [
+    "harness-runtime"
    ],
    "cm_80fd0c67": [
     "economy-business"
@@ -26712,6 +29221,9 @@
    "cm_519accd8": [
     "harness-runtime"
    ],
+   "cm_b3524e24": [
+    "context-engineering"
+   ],
    "cm_8ad267da": [
     "spec-intent"
    ],
@@ -26823,6 +29335,9 @@
    "cm_9f1af4c9": [
     "harness-runtime"
    ],
+   "cm_765d717a": [
+    "agent-org"
+   ],
    "cm_430f0874": [
     "verification-eval"
    ],
@@ -26850,6 +29365,9 @@
    "cm_5c014074": [
     "memory-retrieval"
    ],
+   "cm_bc68c1e9": [
+    "spec-intent"
+   ],
    "cm_2abb5209": [
     "multi-agent"
    ],
@@ -26870,6 +29388,9 @@
    ],
    "cm_3f39fb13": [
     "harness-runtime"
+   ],
+   "cm_74099998": [
+    "code-engineering"
    ],
    "cm_11d409eb": [
     "code-engineering"
@@ -26922,6 +29443,9 @@
    "cm_b747de39": [
     "context-engineering"
    ],
+   "cm_b4276278": [
+    "agent-org"
+   ],
    "cm_a62137fd": [
     "safety-governance"
    ],
@@ -26951,6 +29475,9 @@
    ],
    "cm_a9c7e512": [
     "tools-sandbox"
+   ],
+   "cm_e056dcdf": [
+    "agent-org"
    ],
    "cm_cdbb0432": [
     "multi-agent"
@@ -27099,6 +29626,9 @@
    "cm_1bd7da1b": [
     "memory-retrieval"
    ],
+   "cm_8a12b121": [
+    "agent-org"
+   ],
    "cm_f27655ca": [
     "context-engineering"
    ],
@@ -27212,6 +29742,9 @@
    ],
    "cm_07d6de4f": [
     "model-training"
+   ],
+   "cm_c2266b88": [
+    "harness-runtime"
    ],
    "cm_018c5168": [
     "harness-runtime"
@@ -27558,6 +30091,36 @@
    "cm_fbccd97c": [
     "memory-retrieval"
    ],
+   "cm_5244b02e": [
+    "state-persistence"
+   ],
+   "cm_5bff7310": [
+    "harness-runtime"
+   ],
+   "cm_cb329146": [
+    "context-engineering"
+   ],
+   "cm_f282148c": [
+    "verification-eval"
+   ],
+   "cm_ae250f40": [
+    "code-engineering"
+   ],
+   "cm_48ea99ce": [
+    "agent-org"
+   ],
+   "cm_64663de2": [
+    "harness-runtime"
+   ],
+   "cm_af4d864f": [
+    "harness-runtime"
+   ],
+   "cm_fb4c75d6": [
+    "context-engineering"
+   ],
+   "cm_07e5e0c3": [
+    "harness-runtime"
+   ],
    "cm_42f28056": [
     "harness-runtime"
    ],
@@ -27573,11 +30136,26 @@
    "cm_b7424773": [
     "context-engineering"
    ],
+   "cm_325fef11": [
+    "harness-runtime"
+   ],
+   "cm_d4a0e687": [
+    "harness-runtime"
+   ],
    "cm_c8c4d5c6": [
     "harness-runtime"
    ],
    "cm_652d3291": [
     "caching-cost"
+   ],
+   "cm_e66df281": [
+    "code-engineering"
+   ],
+   "cm_138a8b67": [
+    "multi-agent"
+   ],
+   "cm_983f29fd": [
+    "harness-runtime"
    ],
    "cm_b9d1dd66": [
     "context-engineering"
@@ -27596,6 +30174,9 @@
    ],
    "cm_103560db": [
     "verification-eval"
+   ],
+   "cm_df8ed356": [
+    "harness-runtime"
    ],
    "cm_9102c409": [
     "code-engineering"
@@ -27693,6 +30274,9 @@
    "cm_201c8b41": [
     "multi-agent"
    ],
+   "cm_6a2735cf": [
+    "agent-org"
+   ],
    "cm_7901a192": [
     "harness-runtime"
    ],
@@ -27717,6 +30301,9 @@
    "cm_57950e87": [
     "agent-org"
    ],
+   "cm_f65d0103": [
+    "agent-org"
+   ],
    "cm_95233874": [
     "harness-runtime"
    ],
@@ -27738,6 +30325,9 @@
    "cm_067b5d04": [
     "tools-sandbox"
    ],
+   "cm_65b2c79c": [
+    "code-engineering"
+   ],
    "cm_85b611d5": [
     "verification-eval"
    ],
@@ -27755,6 +30345,9 @@
    ],
    "cm_a6fd3a89": [
     "context-engineering"
+   ],
+   "cm_7a436f8a": [
+    "safety-governance"
    ],
    "cm_abf595d3": [
     "thinking-method"
@@ -27809,6 +30402,9 @@
    ],
    "cm_dd90b8e3": [
     "verification-eval"
+   ],
+   "cm_be0d6099": [
+    "geo-infrastructure"
    ],
    "cm_1378dde9": [
     "spec-intent"
@@ -27975,6 +30571,9 @@
    "cm_4fa6863f": [
     "safety-governance"
    ],
+   "cm_e4fb81cb": [
+    "agent-org"
+   ],
    "cm_85804ebb": [
     "spec-intent"
    ],
@@ -28045,6 +30644,9 @@
     "harness-runtime"
    ],
    "cm_d0fbb9bb": [
+    "harness-runtime"
+   ],
+   "cm_f47cd4ad": [
     "harness-runtime"
    ],
    "cm_14bf0b8b": [
@@ -28218,6 +30820,9 @@
    "cm_a9c55d8b": [
     "model-training"
    ],
+   "cm_6ae99955": [
+    "spec-intent"
+   ],
    "cm_34ec5743": [
     "context-engineering"
    ],
@@ -28354,8 +30959,8 @@
     "name": "Harness 与运行时",
     "why": "Agent 靠什么骨架才能跑起来、跑得久？",
     "color": "#5B8FF9",
-    "size": 115,
-    "primary": 115,
+    "size": 138,
+    "primary": 138,
     "entry": [
      {
       "id": "cm_0a4ca4ce",
@@ -28363,14 +30968,14 @@
       "unlocks": 11
      },
      {
+      "id": "cm_200893a2",
+      "name": "skills 字段",
+      "unlocks": 1
+     },
+     {
       "id": "cm_44a5e9cc",
       "name": "Agent vs Harness",
       "unlocks": 4
-     },
-     {
-      "id": "cm_a3f25593",
-      "name": "primitives",
-      "unlocks": 3
      }
     ],
     "goal": [
@@ -28512,8 +31117,8 @@
     "name": "上下文工程",
     "why": "模型在每一步到底应该看到哪些信息？",
     "color": "#F6BD16",
-    "size": 156,
-    "primary": 156,
+    "size": 169,
+    "primary": 169,
     "entry": [
      {
       "id": "cm_d9aa9fe0",
@@ -28521,13 +31126,13 @@
       "unlocks": 7
      },
      {
-      "id": "cm_01d6a01e",
-      "name": "长上下文窗口",
-      "unlocks": 4
+      "id": "cm_d78a3680",
+      "name": "SKILL.md 与 YAML 前置元数据",
+      "unlocks": 1
      },
      {
-      "id": "cm_f50a09c9",
-      "name": "有限的工作记忆",
+      "id": "cm_01d6a01e",
+      "name": "长上下文窗口",
       "unlocks": 4
      }
     ],
@@ -28664,8 +31269,8 @@
     "name": "状态与持久化",
     "why": "跨会话、跨进程的状态放在哪里才可靠？",
     "color": "#F6903D",
-    "size": 19,
-    "primary": 19,
+    "size": 24,
+    "primary": 24,
     "entry": [
      {
       "id": "cm_10cbe746",
@@ -28737,8 +31342,8 @@
     "name": "缓存与成本控制",
     "why": "同样的能力怎么用更少的 token 和钱换来？",
     "color": "#00B5A3",
-    "size": 34,
-    "primary": 34,
+    "size": 36,
+    "primary": 36,
     "entry": [
      {
       "id": "cm_691a420e",
@@ -28810,8 +31415,8 @@
     "name": "工具调用与沙箱",
     "why": "Agent 怎么安全地对外部世界动手？",
     "color": "#F08BB4",
-    "size": 36,
-    "primary": 36,
+    "size": 40,
+    "primary": 40,
     "entry": [
      {
       "id": "cm_8089ce21",
@@ -28824,9 +31429,9 @@
       "unlocks": 5
      },
      {
-      "id": "cm_c2dd0286",
-      "name": "连接器",
-      "unlocks": 1
+      "id": "cm_a2868643",
+      "name": "运行时限制、权限与数据保留边界",
+      "unlocks": 2
      }
     ],
     "goal": [
@@ -28883,8 +31488,8 @@
     "name": "多 Agent 编排",
     "why": "多个 Agent 如何分工协作而不互相踩踏？",
     "color": "#E8684A",
-    "size": 43,
-    "primary": 43,
+    "size": 44,
+    "primary": 44,
     "entry": [
      {
       "id": "cm_511bf6de",
@@ -28962,8 +31567,8 @@
     "name": "验证与评估门禁",
     "why": "我们怎么知道它真的做对了？",
     "color": "#6DC8EC",
-    "size": 72,
-    "primary": 72,
+    "size": 76,
+    "primary": 76,
     "entry": [
      {
       "id": "cm_3a7b088a",
@@ -28976,8 +31581,8 @@
       "unlocks": 3
      },
      {
-      "id": "cm_e11bd63b",
-      "name": "可验证目标",
+      "id": "cm_f986a343",
+      "name": "确认环节可以合并，但不能省略",
       "unlocks": 2
      }
     ],
@@ -29035,8 +31640,8 @@
     "name": "规格与意图对齐",
     "why": "怎么把想要的东西准确交代清楚？",
     "color": "#A078DB",
-    "size": 36,
-    "primary": 36,
+    "size": 40,
+    "primary": 40,
     "entry": [
      {
       "id": "cm_f1e9d39c",
@@ -29049,8 +31654,8 @@
       "unlocks": 2
      },
      {
-      "id": "cm_0569ae91",
-      "name": "bits",
+      "id": "cm_026f933a",
+      "name": "简洁规范",
       "unlocks": 2
      }
     ],
@@ -29071,8 +31676,8 @@
       "level": 0
      },
      {
-      "id": "cm_0569ae91",
-      "name": "bits",
+      "id": "cm_026f933a",
+      "name": "简洁规范",
       "level": 0
      }
     ],
@@ -29102,8 +31707,8 @@
     "name": "代码库与工程实践",
     "why": "代码怎么写才能让人和 Agent 都读得懂？",
     "color": "#7C9CFF",
-    "size": 32,
-    "primary": 32,
+    "size": 37,
+    "primary": 37,
     "entry": [
      {
       "id": "cm_8ff76ff3",
@@ -29169,9 +31774,14 @@
     "name": "安全权限与合规",
     "why": "什么可以做、什么必须被拦住？",
     "color": "#5AD8A6",
-    "size": 29,
-    "primary": 29,
+    "size": 33,
+    "primary": 33,
     "entry": [
+     {
+      "id": "cm_dc9a27be",
+      "name": "安全审计与受信任来源",
+      "unlocks": 2
+     },
      {
       "id": "cm_c1dd6faa",
       "name": "权限与推理的架构分离",
@@ -29180,11 +31790,6 @@
      {
       "id": "cm_cffbc825",
       "name": "默认帮助的高门槛拒绝",
-      "unlocks": 2
-     },
-     {
-      "id": "cm_3a76f8e5",
-      "name": "上下文即不可信输入",
       "unlocks": 2
      }
     ],
@@ -29200,13 +31805,13 @@
       "level": 0
      },
      {
-      "id": "cm_cffbc825",
-      "name": "默认帮助的高门槛拒绝",
+      "id": "cm_dc9a27be",
+      "name": "安全审计与受信任来源",
       "level": 0
      },
      {
-      "id": "cm_3a76f8e5",
-      "name": "上下文即不可信输入",
+      "id": "cm_cffbc825",
+      "name": "默认帮助的高门槛拒绝",
       "level": 0
      }
     ],
@@ -29309,8 +31914,8 @@
     "name": "AI 产品与组织",
     "why": "AI 时代的公司怎么组队与交付？",
     "color": "#945FB9",
-    "size": 39,
-    "primary": 39,
+    "size": 53,
+    "primary": 53,
     "entry": [
      {
       "id": "cm_b9224922",
@@ -29318,13 +31923,13 @@
       "unlocks": 4
      },
      {
-      "id": "cm_012fc42e",
-      "name": "Agent-Native Infrastructure",
-      "unlocks": 2
+      "id": "cm_b6da7e6e",
+      "name": "执行主体从人变成 Agent",
+      "unlocks": 3
      },
      {
-      "id": "cm_69b3d608",
-      "name": "共享产品系统",
+      "id": "cm_37869804",
+      "name": "可行性分析",
       "unlocks": 2
      }
     ],
@@ -29340,14 +31945,14 @@
       "level": 1
      },
      {
+      "id": "cm_b6da7e6e",
+      "name": "执行主体从人变成 Agent",
+      "level": 0
+     },
+     {
       "id": "cm_968e8f3d",
       "name": "AI-First",
       "level": 2
-     },
-     {
-      "id": "cm_8e7dfd61",
-      "name": "Software Factory",
-      "level": 1
      }
     ],
     "route": [
@@ -29746,8 +32351,8 @@
     "name": "AI 算力与基建",
     "why": "模型跑在什么芯片、什么电、什么水里？",
     "color": "#C2A5CF",
-    "size": 9,
-    "primary": 9,
+    "size": 10,
+    "primary": 10,
     "entry": [
      {
       "id": "cm_18997927",
@@ -31360,10 +33965,10 @@
  "kinds": {
   "classes": {},
   "dist": {
-   "judge": 467,
-   "use": 264,
+   "judge": 519,
+   "use": 284,
    "compute": 26,
-   "accept": 99
+   "accept": 107
   }
  }
 }

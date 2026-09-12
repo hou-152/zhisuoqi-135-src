@@ -42,7 +42,7 @@ for (const t of topics) {
 const linkFor = (id) => `[[${pageOf.get(id)}]]`;
 const NAME = { compute: '能算', judge: '能判', use: '能用', accept: '只能认' };
 const STAGE = { now: '现在先懂', 'when-needed': '做到这里再懂', 'deep-dive': '深入研究再懂' };
-const ORIGIN = { notion: 'Notion 概念库', context: 'Context Engineering', harness: 'Harness Engineering' };
+const ORIGIN = { notion: 'Notion 概念库', context: 'Context Engineering', harness: 'Harness Engineering', neican: 'AI 内参 260912' };
 
 /* ── 邻接 ───────────────────────────────────────────────── */
 const needs = new Map(), unlocks = new Map(), related = new Map();

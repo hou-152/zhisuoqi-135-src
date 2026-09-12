@@ -1,6 +1,6 @@
 {
  "version": "v1",
- "generatedAt": "2026-09-12T17:42:23.154Z",
+ "generatedAt": "2026-09-12T18:56:55.785Z",
  "count": 21,
  "clusters": [
   {
@@ -8,9 +8,10 @@
    "label": "Harness 与运行时",
    "question": "Agent 靠什么骨架才能跑起来、跑得久？",
    "order": 1,
-   "topicCount": 115,
+   "topicCount": 138,
    "subjects": {
     "AI 概念库 × Context Engineering × Harness Engineering": 1,
+    "AI 内参 260912": 23,
     "Context Engineering × Harness Engineering": 8,
     "Harness Engineering": 78,
     "Context Engineering": 19,
@@ -18,36 +19,36 @@
     "AI 概念库": 7
    },
    "types": {
-    "CONCEPTUAL": 84,
+    "CONCEPTUAL": 100,
+    "REPRESENTATIONAL": 21,
     "LANGUAGE": 2,
-    "REPRESENTATIONAL": 17,
-    "PROCEDURAL": 11,
+    "PROCEDURAL": 14,
     "META": 1
    },
    "stages": {
-    "now": 56,
-    "when-needed": 55,
+    "now": 65,
+    "when-needed": 69,
     "deep-dive": 4
    },
    "hubTopics": [
     "cm_0a4ca4ce",
+    "cm_200893a2",
     "cm_e56f1e8b",
     "cm_44a5e9cc",
     "cm_e09e7cfa",
     "cm_a47a4e89",
-    "cm_ba8d0829",
-    "cm_49b4fe8b",
-    "cm_a3f25593"
+    "cm_ad086a79",
+    "cm_369f10ff"
    ],
    "hubNames": [
     "Harness",
+    "skills 字段",
     "Harness 工程",
     "Agent vs Harness",
     "coding agent",
     "Runtime-harness separation",
-    "Claude Managed Agents",
-    "prefill 与 decode 的高度倾斜",
-    "primitives"
+    "跨产品面的同步与共享边界",
+    "自动激活"
    ]
   },
   {
@@ -98,10 +99,11 @@
    "label": "上下文工程",
    "question": "模型在每一步到底应该看到哪些信息？",
    "order": 3,
-   "topicCount": 156,
+   "topicCount": 169,
    "subjects": {
     "AI 概念库": 14,
     "AI 概念库 × Context Engineering": 2,
+    "AI 内参 260912": 13,
     "Context Engineering × Harness Engineering": 10,
     "Context Engineering": 85,
     "Harness Engineering": 42,
@@ -109,35 +111,35 @@
     "AI 概念库 × Harness Engineering": 2
    },
    "types": {
-    "REPRESENTATIONAL": 17,
-    "CONCEPTUAL": 110,
+    "REPRESENTATIONAL": 18,
+    "CONCEPTUAL": 122,
     "PROCEDURAL": 26,
     "LANGUAGE": 3
    },
    "stages": {
-    "now": 64,
-    "when-needed": 86,
+    "now": 74,
+    "when-needed": 89,
     "deep-dive": 6
    },
    "hubTopics": [
     "cm_34b33e00",
     "cm_d9aa9fe0",
+    "cm_cc101992",
     "cm_30201f36",
     "cm_05146d91",
+    "cm_d78a3680",
     "cm_01d6a01e",
-    "cm_f50a09c9",
-    "cm_a0ca0f95",
-    "cm_30fb0c9b"
+    "cm_f50a09c9"
    ],
    "hubNames": [
     "Skill",
     "上下文",
+    "按需加载",
     "上下文工程",
     "注意力预算",
+    "SKILL.md 与 YAML 前置元数据",
     "长上下文窗口",
-    "有限的工作记忆",
-    "Skill-as-method-call",
-    "skill-creator 访谈式创建"
+    "有限的工作记忆"
    ]
   },
   {
@@ -189,40 +191,42 @@
    "label": "状态与持久化",
    "question": "跨会话、跨进程的状态放在哪里才可靠？",
    "order": 5,
-   "topicCount": 19,
+   "topicCount": 24,
    "subjects": {
     "Harness Engineering": 16,
+    "AI 内参 260912": 5,
     "AI 概念库": 1,
     "Context Engineering": 2
    },
    "types": {
-    "CONCEPTUAL": 14,
+    "CONCEPTUAL": 17,
     "PROCEDURAL": 2,
-    "REPRESENTATIONAL": 3
+    "REPRESENTATIONAL": 5
    },
    "stages": {
-    "now": 7,
-    "when-needed": 12
+    "now": 9,
+    "when-needed": 14,
+    "deep-dive": 1
    },
    "hubTopics": [
     "cm_10cbe746",
     "cm_be951649",
     "cm_b8e70a87",
     "cm_fcbdc4c2",
+    "cm_5676c394",
     "cm_03726492",
     "cm_a46abbb1",
-    "cm_894f275b",
-    "cm_00f1e097"
+    "cm_894f275b"
    ],
    "hubNames": [
     "持久化执行",
     "状态子系统与进度持久化",
     "Long-running agent handoff",
     "Session",
+    "Rockset 离线二级视图",
     "文件系统即持久记忆",
     "Cross-session Work",
-    "Stateful Runtime Environment (SRE)",
-    "统一执行状态与业务状态"
+    "Stateful Runtime Environment (SRE)"
    ]
   },
   {
@@ -230,20 +234,21 @@
    "label": "缓存与成本控制",
    "question": "同样的能力怎么用更少的 token 和钱换来？",
    "order": 6,
-   "topicCount": 34,
+   "topicCount": 36,
    "subjects": {
     "Context Engineering": 27,
     "AI 概念库": 3,
     "Harness Engineering": 3,
+    "AI 内参 260912": 2,
     "Context Engineering × Harness Engineering": 1
    },
    "types": {
-    "CONCEPTUAL": 26,
+    "CONCEPTUAL": 28,
     "LANGUAGE": 2,
     "PROCEDURAL": 6
    },
    "stages": {
-    "when-needed": 26,
+    "when-needed": 28,
     "now": 7,
     "deep-dive": 1
    },
@@ -273,21 +278,22 @@
    "label": "工具调用与沙箱",
    "question": "Agent 怎么安全地对外部世界动手？",
    "order": 7,
-   "topicCount": 36,
+   "topicCount": 40,
    "subjects": {
     "Context Engineering": 15,
     "Harness Engineering": 13,
     "Context Engineering × Harness Engineering": 3,
+    "AI 内参 260912": 4,
     "AI 概念库": 5
    },
    "types": {
-    "REPRESENTATIONAL": 8,
-    "CONCEPTUAL": 22,
+    "REPRESENTATIONAL": 10,
+    "CONCEPTUAL": 24,
     "PROCEDURAL": 6
    },
    "stages": {
     "now": 13,
-    "when-needed": 22,
+    "when-needed": 26,
     "deep-dive": 1
    },
    "hubTopics": [
@@ -295,20 +301,20 @@
     "cm_9ed037b8",
     "cm_51de352d",
     "cm_c3ecbf70",
+    "cm_a2868643",
+    "cm_53ec7c9b",
     "cm_c3159c94",
-    "cm_5faf59f3",
-    "cm_c6e454d9",
-    "cm_319174c9"
+    "cm_5faf59f3"
    ],
    "hubNames": [
     "工具定义",
     "Sandbox",
     "Tool Calling",
     "MCP",
+    "运行时限制、权限与数据保留边界",
+    "allowed-tools",
     "工具接口的表达力设计",
-    "沙箱化自主",
-    "Environment",
-    "Function tools"
+    "沙箱化自主"
    ]
   },
   {
@@ -316,20 +322,21 @@
    "label": "多 Agent 编排",
    "question": "多个 Agent 如何分工协作而不互相踩踏？",
    "order": 8,
-   "topicCount": 43,
+   "topicCount": 44,
    "subjects": {
     "Context Engineering × Harness Engineering": 3,
     "Harness Engineering": 34,
     "AI 概念库": 4,
-    "Context Engineering": 2
+    "Context Engineering": 2,
+    "AI 内参 260912": 1
    },
    "types": {
-    "CONCEPTUAL": 32,
+    "CONCEPTUAL": 33,
     "REPRESENTATIONAL": 8,
     "PROCEDURAL": 3
    },
    "stages": {
-    "when-needed": 30,
+    "when-needed": 31,
     "now": 11,
     "deep-dive": 2
    },
@@ -359,22 +366,23 @@
    "label": "验证与评估门禁",
    "question": "我们怎么知道它真的做对了？",
    "order": 9,
-   "topicCount": 72,
+   "topicCount": 76,
    "subjects": {
     "Context Engineering": 22,
     "Context Engineering × Harness Engineering": 6,
     "Harness Engineering": 32,
-    "AI 概念库": 12
+    "AI 概念库": 12,
+    "AI 内参 260912": 4
    },
    "types": {
-    "CONCEPTUAL": 38,
-    "PROCEDURAL": 24,
-    "REPRESENTATIONAL": 9,
+    "CONCEPTUAL": 39,
+    "PROCEDURAL": 26,
+    "REPRESENTATIONAL": 10,
     "META": 1
    },
    "stages": {
-    "now": 30,
-    "when-needed": 39,
+    "now": 31,
+    "when-needed": 42,
     "deep-dive": 3
    },
    "hubTopics": [
@@ -403,41 +411,42 @@
    "label": "规格与意图对齐",
    "question": "怎么把想要的东西准确交代清楚？",
    "order": 10,
-   "topicCount": 36,
+   "topicCount": 40,
    "subjects": {
     "AI 概念库": 8,
     "Context Engineering": 22,
+    "AI 内参 260912": 4,
     "Harness Engineering": 6
    },
    "types": {
     "LANGUAGE": 1,
-    "CONCEPTUAL": 19,
-    "PROCEDURAL": 11,
-    "REPRESENTATIONAL": 5
+    "CONCEPTUAL": 20,
+    "REPRESENTATIONAL": 7,
+    "PROCEDURAL": 12
    },
    "stages": {
-    "when-needed": 21,
-    "now": 15
+    "when-needed": 24,
+    "now": 16
    },
    "hubTopics": [
     "cm_f1e9d39c",
     "cm_4805cdf5",
     "cm_6d5da93d",
     "cm_492ee3e8",
+    "cm_026f933a",
     "cm_2efed2e0",
     "cm_64e86aa5",
-    "cm_fa98c676",
-    "cm_e5f2ba8e"
+    "cm_fa98c676"
    ],
    "hubNames": [
     "显式指代",
     "隐式指代",
     "从\"禁止什么\"到\"对齐什么\"",
     "共享理解",
+    "简洁规范",
     "漫谈会话",
     "判定程序化写法",
-    "意图规约与可引导性",
-    "追问式对齐"
+    "意图规约与可引导性"
    ]
   },
   {
@@ -445,22 +454,23 @@
    "label": "代码库与工程实践",
    "question": "代码怎么写才能让人和 Agent 都读得懂？",
    "order": 11,
-   "topicCount": 32,
+   "topicCount": 37,
    "subjects": {
     "AI 概念库 × Harness Engineering": 2,
     "Harness Engineering": 18,
     "AI 概念库": 3,
-    "Context Engineering": 9
+    "Context Engineering": 9,
+    "AI 内参 260912": 5
    },
    "types": {
-    "CONCEPTUAL": 16,
+    "CONCEPTUAL": 19,
     "REPRESENTATIONAL": 6,
-    "PROCEDURAL": 9,
+    "PROCEDURAL": 11,
     "LANGUAGE": 1
    },
    "stages": {
-    "now": 4,
-    "when-needed": 28
+    "now": 5,
+    "when-needed": 32
    },
    "hubTopics": [
     "cm_f45e5118",
@@ -488,41 +498,42 @@
    "label": "安全权限与合规",
    "question": "什么可以做、什么必须被拦住？",
    "order": 12,
-   "topicCount": 29,
+   "topicCount": 33,
    "subjects": {
+    "AI 内参 260912": 4,
     "Harness Engineering": 10,
     "Context Engineering": 10,
     "AI 概念库": 9
    },
    "types": {
-    "CONCEPTUAL": 25,
-    "PROCEDURAL": 3,
-    "REPRESENTATIONAL": 1
+    "REPRESENTATIONAL": 2,
+    "CONCEPTUAL": 28,
+    "PROCEDURAL": 3
    },
    "stages": {
-    "when-needed": 12,
-    "now": 14,
-    "deep-dive": 3
+    "deep-dive": 4,
+    "now": 15,
+    "when-needed": 14
    },
    "hubTopics": [
+    "cm_32e036a5",
+    "cm_dc9a27be",
     "cm_285b2834",
     "cm_5103a6a6",
     "cm_c1dd6faa",
     "cm_cffbc825",
-    "cm_3a76f8e5",
-    "cm_a9276da2",
-    "cm_a5b42ae5",
-    "cm_fe668e3c"
+    "cm_2440f85e",
+    "cm_3a76f8e5"
    ],
    "hubNames": [
+    "企业托管设置（Managed Settings）与 strictKnownMarketplaces",
+    "安全审计与受信任来源",
     "Guardrails",
     "Human in the loop",
     "权限与推理的架构分离",
     "默认帮助的高门槛拒绝",
-    "上下文即不可信输入",
-    "exfiltration",
-    "harness–compute separation",
-    "Onboarding Agent"
+    "企业技能的最高优先级",
+    "上下文即不可信输入"
    ]
   },
   {
@@ -573,22 +584,23 @@
    "label": "AI 产品与组织",
    "question": "AI 时代的公司怎么组队与交付？",
    "order": 14,
-   "topicCount": 39,
+   "topicCount": 53,
    "subjects": {
     "Harness Engineering": 19,
     "AI 概念库": 7,
+    "AI 内参 260912": 14,
     "Context Engineering": 12,
     "Context Engineering × Harness Engineering": 1
    },
    "types": {
-    "CONCEPTUAL": 34,
-    "REPRESENTATIONAL": 2,
-    "LANGUAGE": 1,
-    "PROCEDURAL": 2
+    "CONCEPTUAL": 45,
+    "PROCEDURAL": 4,
+    "REPRESENTATIONAL": 3,
+    "LANGUAGE": 1
    },
    "stages": {
-    "when-needed": 34,
-    "now": 1,
+    "when-needed": 40,
+    "now": 9,
     "deep-dive": 4
    },
    "hubTopics": [
@@ -596,20 +608,20 @@
     "cm_b9224922",
     "cm_968e8f3d",
     "cm_8e93fc18",
+    "cm_b6da7e6e",
+    "cm_37869804",
     "cm_ca69391c",
-    "cm_8e7dfd61",
-    "cm_012fc42e",
-    "cm_86d3d4a6"
+    "cm_8e7dfd61"
    ],
    "hubNames": [
     "品味与「不接受够用就行」",
     "AI 作为新同事",
     "AI-First",
     "Intelligence Factory 智能工厂",
+    "执行主体从人变成 Agent",
+    "可行性分析",
     "Creator → Curator 角色转换",
-    "Software Factory",
-    "Agent-Native Infrastructure",
-    "0 人工代码、0 人工 review 极限形态"
+    "Software Factory"
    ]
   },
   {
@@ -831,16 +843,17 @@
    "label": "AI 算力与基建",
    "question": "模型跑在什么芯片、什么电、什么水里？",
    "order": 22,
-   "topicCount": 9,
+   "topicCount": 10,
    "subjects": {
-    "AI 概念库": 9
+    "AI 概念库": 9,
+    "AI 内参 260912": 1
    },
    "types": {
-    "CONCEPTUAL": 6,
+    "CONCEPTUAL": 7,
     "REPRESENTATIONAL": 3
    },
    "stages": {
-    "when-needed": 7,
+    "when-needed": 8,
     "deep-dive": 2
    },
    "hubTopics": [
@@ -850,8 +863,8 @@
     "cm_dc8d4037",
     "cm_eb2997be",
     "cm_1f0a5c75",
-    "cm_afd87770",
-    "cm_bf8b94c6"
+    "cm_be0d6099",
+    "cm_afd87770"
    ],
    "hubNames": [
     "平行 AI 基础设施",
@@ -860,8 +873,8 @@
     "芯片管制",
     "蒸发冷却",
     "AI 主权审查机制",
-    "昇腾",
-    "CXL 内存池化"
+    "每年超过 10 倍增长",
+    "昇腾"
    ]
   }
  ]

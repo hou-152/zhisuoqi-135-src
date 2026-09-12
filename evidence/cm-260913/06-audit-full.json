@@ -1,7 +1,5132 @@
 {
  "generatedAt": "2026-09-12T17:16:17.412Z",
  "model": "deepseek-flash",
- "concepts": {},
+ "concepts": {
+  "cm_0a4ca4ce": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_30201f36": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_e56f1e8b": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文只有『让 Agent 能够自主行动的完整系统』一句，『工作引擎』『注入人类先验』『模型变强后外科式修正』均无原文支持。",
+   "reconstructed": true
+  },
+  "cm_2c89a6a8": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_916d7db2": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_20bf8a66": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_fbccd97c": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文只支持『智能体需要记住如何做事』，『Markdown 声明文件编码工作流/质量门/最佳实践』无原文可核；标题还把 progressive disclosure 混进同一概念。这条只是观念，学习者拿不去『用』，验收应改为判断某记忆是否属于程序记忆。",
+   "reconstructed": true
+  },
+  "cm_53822d1c": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_9249f51b": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_a72ef18d": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文只有『Agent 的双手』五个字，『agent 的定义性特征』属原文没有的强化断言，须删。",
+   "reconstructed": true
+  },
+  "cm_d9aa9fe0": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "『任何可刻画实体所处情境的信息，各相关实体表征的并集即上下文』在原文中无据，是外来定义被拼进来，只保留原文支持的『前文』义。",
+   "reconstructed": true
+  },
+  "cm_c8798fb1": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_4b8163f5": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文讨论的是压缩得好不好（Opus 压缩错、GPT-5.5 压缩不了），『接近上下文限制时总结对话历史』这个触发条件在原文里没有。",
+   "reconstructed": true
+  },
+  "cm_1973b1d3": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_c3ecbf70": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_01671cb1": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_67483624": {
+   "i": null,
+   "faithful": "nosource",
+   "issue": "原文材料只有「LangChain Vivek Trivedy 的断言」这一句出处标注，没有任何断言原文，定义里的「模型权重是一侧，其余全部工程都归为 harness」无从核对。",
+   "reconstructed": true
+  },
+  "cm_42f28056": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_dee9d8f3": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_629e8fdc": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_10cbe746": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_03d2000c": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_49d1aa2a": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "“且优先选代码形态”是原文没有的规范性偏好，原文只说这些“都可以充当 spec”。",
+   "reconstructed": true
+  },
+  "cm_7d8d74f0": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_ca26306b": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_31ec728d": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_5b033c9f": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文说的是「核心竞争力在管理，而非纯工程」，定义改成「瓶颈在管理」，把「竞争力来源」换成了「制约因素」，是另一个更强的判断。",
+   "reconstructed": true
+  },
+  "cm_b7424773": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_69fd0c3c": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_622b0b3b": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_b55ff5c3": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_ba882963": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_c8c4d5c6": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_e11bd63b": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_94fa45bf": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_c2dd0286": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "「连接器」是外部接口的类别/机制，不是某个具名产品，REPRESENTATIONAL 判错（MCP、GitHub、飞书只是举例）。",
+   "reconstructed": true
+  },
+  "cm_a8179581": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_3cd29e1b": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_652d3291": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文只给了「3 倍分数 + 少 6 倍输出 token」两个并列数字，没说过「同能力下 token 越少越省」这条因果判断，属于外推。",
+   "reconstructed": true
+  },
+  "cm_08f36fe6": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "「使其产出的行为符合预期」原文没有，属加料；且提示词工程属上下文工程，不属规格与意图对齐。",
+   "reconstructed": true
+  },
+  "cm_8897d219": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_f3b13df1": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_079fba1c": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_7cd7335d": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_01d6a01e": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "“昂贵有限的工作记忆、装得越满越易分心、准确性反降”原文完全没有，属于外推。",
+   "reconstructed": true
+  },
+  "cm_1db64a00": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_9cc03c6d": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_7098bed1": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_247d8cf9": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "这是机制判据（“没有它就不是 loop”），不是可照做的步骤，PLACEHOLDER_PROCEDURAL 判错。",
+   "reconstructed": true
+  },
+  "cm_0608c405": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_253ad423": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_012fc42e": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_f45e5118": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_0c98a6cf": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_b9d1dd66": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_6a2b80d9": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_5d506128": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_5d1ba3e1": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_7e6ba505": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_de3faada": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "「智能住在潜空间，信任住在确定性层」在原文里找不到出处，原文只说了二分与「混淆是最常见错误」。",
+   "reconstructed": true
+  },
+  "cm_75dd4394": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_d5428fa4": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_186ee145": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_b3f7d7cc": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_103560db": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "RHAE 的数值要靠官方人类测试日志与模型跑分才能得出，普通学习者无法自己 compute，只能认这个指标口径与结果。",
+   "reconstructed": true
+  },
+  "cm_9ed037b8": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_4a78d263": {
+   "i": null,
+   "faithful": "nosource",
+   "issue": "所给原文只提到 Opus 4.5 更会用 subagents、以及共享 Todo List 的协调问题，没有任何关于「封装整个 session、只回流浓缩结果、全新小上下文」的定义可核。",
+   "reconstructed": true
+  },
+  "cm_75e723cc": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文只给了「I call it thin harness, fat skills」这一句，定义里「把执行下推到确定性工具」没有任何原文支撑，属于自行补写。",
+   "reconstructed": true
+  },
+  "cm_60061253": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_9102c409": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_80fd0c67": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_d37ac913": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_143bc730": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_92c032dc": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_f4ccedd3": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_b442cd6e": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_86d3d4a6": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "这是访谈里他人团队工作流的经验转述，普通学习者既无数据也无可跑的对象，判不了对错，只能认这条经验，应为 accept。",
+   "reconstructed": true
+  },
+  "cm_9f288e75": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_716dd66e": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_d26c5950": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_d3be9743": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_90e93725": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_d261b319": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_eadc084c": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_d049e24c": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "定义只是 Linear 的定位陈述，学习者只能认，做不到「拿去用」，验收方式应为 accept。",
+   "reconstructed": true
+  },
+  "cm_e5fee124": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_8e16a624": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_a4c5a8aa": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_5c7e3009": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_2211c604": {
+   "i": null,
+   "faithful": "nosource",
+   "issue": "原文材料为空，定义无来源可核，只能算地图自拟的常识性补充。",
+   "reconstructed": true
+  },
+  "cm_75642cd0": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_2944fd6c": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_16dcca78": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_29b24ddb": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_b722f6a4": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_f7e1a40f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_e7db9123": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_caf38b64": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_63c544a7": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文只给了「标记灾难性转折点的临界信号」，后半句「需预先写下信号清单、看到即刻反应」在原文材料里没有依据，属额外添加。",
+   "reconstructed": true
+  },
+  "cm_2335d9d6": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_d566cc19": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_73952fe1": {
+   "i": null,
+   "faithful": "nosource",
+   "issue": "给出的原文只支持 lint 错误改写那一半，'层级架构强约束'在材料里没有任何原文可核",
+   "reconstructed": true
+  },
+  "cm_2fd13e0c": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_36605218": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_3a2cd7d5": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "定义本身就是'Karri 对 Linear 的定位'这种他人立场，学习者判断不了对错，只能接受，不该判 judge。",
+   "reconstructed": true
+  },
+  "cm_46db5383": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_3184d5ac": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文只说『被训练去让你高兴而非说真话』，『为不可行任务开绿灯、肯定不靠谱方案』和『RLHF 满意奖励信号』都是原文没有的添加。",
+   "reconstructed": true
+  },
+  "cm_933a0031": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_d59c122f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_7adc989d": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_0fa5b8ce": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_b73dd02f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_23c93d39": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "「模型会变便宜、创业公司会盈利、算力永远赚钱三个未证假设」原文没有，属自行补出的具体断言。",
+   "reconstructed": true
+  },
+  "cm_6d5da93d": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_876e1d7e": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_794add76": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_80b8a64a": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_44d86f15": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_4fed89a8": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "「记录成本一降再降」「合理性需被重新定义」原文没这两句，是把引申当原文。",
+   "reconstructed": true
+  },
+  "cm_71ce4e8a": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_00aa581a": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_edc164c5": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_f65b924e": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_91279ade": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "定义只是在说明一个具名 skill 由什么组成，没有可照做的步骤，不是 PROCEDURAL。",
+   "reconstructed": true
+  },
+  "cm_201c8b41": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_7901a192": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_1031d6f6": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_307d9aaf": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "定义描述的是多 Agent 编排的机制/架构（根 Planner 递归派生子 Planner、Worker 各自在 repo 副本工作后 handoff），不是具名产品/文件/格式/框架，类型应改为 CONCEPTUAL。",
+   "reconstructed": true
+  },
+  "cm_b8ef30e6": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_aed663a2": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_d7b26e2a": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_c53dcd72": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_e549dff0": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_4fe5238f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_b3551678": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_4fa039db": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_4ecbd69b": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_a37ffd56": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_2c214b3c": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_2f356845": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_ffd117a0": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_6670bb25": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "定义描述的是一个评测探针/判据（考模型信息不足时澄清还是硬猜），没有可照做的步骤序列，归 PROCEDURAL 偏松，应为 CONCEPTUAL。",
+   "reconstructed": true
+  },
+  "cm_29215fd7": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_50015d52": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文只说 targeting is contextual to the chat，且明说对历史对话\"没找到证据\"；定义却断言\"不是 cookie 历史也不是搜索词\"，超出原文。",
+   "reconstructed": true
+  },
+  "cm_12a39025": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "这条描述的是端到端流程链而非具名框架，应为 PROCEDURAL；且闭环在 OpenAI 内部系统里跑，普通学习者无法\"拿去用\"，只能认这个事实描述。",
+   "reconstructed": true
+  },
+  "cm_1d5a247c": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_3639ae12": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_6b94283f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_30843ecf": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_57950e87": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_5e360f2f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_2d0b9637": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_95233874": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_83155f74": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_224f14d4": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_f6006789": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_38d4b92a": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_a6d3f8f2": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_27f09dcf": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_81c1415e": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_1d86964c": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_d4fab5a8": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "“use”要求学习者自己复现 Contriever 检索＋按相关性递减排序构建 k−1 篇干扰集的流程，普通学习者做不到；能做到的是按“与查询相关但不含答案”判据识别一段文本是否属于干扰文档，应为 judge",
+   "reconstructed": true
+  },
+  "cm_ee2878f3": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_00851466": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_d7cd90db": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_02c17fdd": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_76d98cb5": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_8ff76ff3": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_f0c99ed4": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_59a6d9c5": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_8089ce21": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_067b5d04": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_1531fbe3": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_c3159c94": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "原文给的是「与其堆示例不如设计更有表达力的参数」这条设计判据，不是可照做的步骤序列，类型应为 CONCEPTUAL（判据）。",
+   "reconstructed": true
+  },
+  "cm_b6cabad1": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_8a295891": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_85b611d5": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "这是作者对 OpenAI 工程措施的保留意见/立场，普通学习者无从独立判断这个缺口是否存在，验收只能 accept。",
+   "reconstructed": true
+  },
+  "cm_2081e44e": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "概念说的是多人（人类）共享同一个 agent 会话的组织协作能力，不是多 Agent 编排，领域应为 agent-org；且该能力依赖具体产品，学习者只能认不能拿来用。",
+   "reconstructed": true
+  },
+  "cm_519accd8": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "定义是描述“GitHub 多个产品共用一个 harness”的现状，普通学习者既拿不到这套代码也用不上，做不到 use，只能判断某组织是否在共享 harness 或收益是否出现，改成 judge。",
+   "reconstructed": true
+  },
+  "cm_69b3d608": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_492ee3e8": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_a966ce15": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "定义本身有原文支持，但它描述的是一个协调机制（平等地位/共享文件/加锁防抢），不是可照做的步骤，类型应为 CONCEPTUAL 而非 PROCEDURAL。",
+   "reconstructed": true
+  },
+  "cm_8ad267da": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_19d82c87": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_09d0ea1a": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_c1626a4e": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_c83244fc": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "讲的是系统提示词/CLAUDE.md/skills 里护栏指令随模型能力提升而撤除，属提示与上下文工程，不是规格与意图对齐。",
+   "reconstructed": true
+  },
+  "cm_75392c01": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "讲的是显式规则（提示词约束）数量随模型能力调整，属上下文工程，与规格/意图对齐不是一回事。",
+   "reconstructed": true
+  },
+  "cm_43c32a20": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_68c53198": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_c7901d9f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_a87b8600": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "末句「是压低 token 花费的主要来源」原文没这么说，属于替原文加码。",
+   "reconstructed": true
+  },
+  "cm_c684222f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_cb785e57": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "末句「写入成本决定缓存是否划算」是推论，原文只列了写入价高于基准输入价。",
+   "reconstructed": true
+  },
+  "cm_31908564": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_5bbcf2e0": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "「于是对话容易变成自我确认而非真正推进」原文未说，是额外推论。",
+   "reconstructed": true
+  },
+  "cm_998e7068": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_bfc70d0d": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_4ee31e8e": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_ed4c8f9f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_9de70b84": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_fa9f0763": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_b7fd37c0": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_b5172a28": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_a6fd3a89": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_1c61d688": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_eeb4d9c2": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_38d561bd": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "记忆冲刷是 harness 内部的压缩前行为，普通学习者无法自己执行，不构成可照做的步骤，也只能认可该机制存在。",
+   "reconstructed": true
+  },
+  "cm_ebd8076f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_92cb645b": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "技能化是把可复用工作流封装进 harness 的能力，核心不是循环与自主执行，应归 harness-runtime。",
+   "reconstructed": true
+  },
+  "cm_99444a52": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_abf595d3": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "定义是播客中 Clark/Kai 的立场性主张（人的价值是什么），学习者只能认，做不到据此判对错，验收方式应为 accept。",
+   "reconstructed": true
+  },
+  "cm_66ce6909": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_f6aae481": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_8d8d6cae": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "这是 prompt/规则膨胀的解法，与 [3] 同源同篇，应归 context-engineering 而非 spec-intent（定义里没有任何规格—意图对齐的内容）。",
+   "reconstructed": true
+  },
+  "cm_2733c0ea": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_5caaad9a": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_b965af7f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_99c2938a": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_698b655e": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_5c74d915": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_eea3f2a9": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_31a86272": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_572c8e76": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_fdbc5cbc": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_d8b3f368": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "这是设计原则/机制（接口本身承载指令），不是可照做的步骤，应归观念类。",
+   "reconstructed": true
+  },
+  "cm_b75933cd": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_4b3d0d0a": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_8aeec1ff": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_f6804f52": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_86490863": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_0f3d389d": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_71e0e9c9": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_1fe2a6e6": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_f0aa9b79": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_67e2a43e": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_61efc972": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文说的是不同任务间的反差，地图改成「同类任务结果天差地别」，还加了原文没有的「盲区随机散布」。",
+   "reconstructed": true
+  },
+  "cm_5797325c": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_51595412": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_0ac7b3a2": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_0d71e42c": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_d926baac": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文的判断有限定条件（中国当前金融与制度环境）且只谈开源路线能走多远，定义去掉限定并升级为双方“胜负”决定因素，超出原文。",
+   "reconstructed": true
+  },
+  "cm_8da6f44c": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_790b8f7b": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文说的是「大概率应坐在循环之外」，定义写成「须」把或然建议说成了硬性要求，属夸大。",
+   "reconstructed": true
+  },
+  "cm_a952aba7": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_9f1af4c9": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_7a183315": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_7554a017": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_62691348": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_430f0874": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "这是作者解释「为什么 RL 练不出该能力」的论证性结论，学习者无法自行核验，验收方式应为 accept。",
+   "reconstructed": true
+  },
+  "cm_fa3c0516": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_f8410eb3": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "定义说的是「哪些重复流程可被自动化接管」这一循环边界判据，落点在循环与自主执行，不在商业逻辑本身，领域应归 loop-autonomy。",
+   "reconstructed": true
+  },
+  "cm_f62b6821": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_b8729c07": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_43b4ce43": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "定义讲的是越过 80% 的代价与现象，不是可照做的步骤，类型应为 CONCEPTUAL 而非 PROCEDURAL。",
+   "reconstructed": true
+  },
+  "cm_adb56344": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_b851c4b8": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_14ddbc41": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_ae0e52be": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_5b94bd81": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_efd9e49f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_2ad4f942": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_e65cdf93": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_26923d16": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "verify=use 要求学习者自己落地「team triage + 一周 SLA + agent 先修 + 工程师复核」，这是 Linear 的团队级制度，普通学习者做不到，只能判断某个流程是否符合该政策。",
+   "reconstructed": true
+  },
+  "cm_2d04acf5": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "定义里的具体数字（整体9%、灵性38%、亲密关系25%）在原文材料中查无出处，材料只支持“差异巨大/均值会骗人”。",
+   "reconstructed": true
+  },
+  "cm_ae577191": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_dd90b8e3": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_2efed2e0": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_5c014074": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_1378dde9": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_2abb5209": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_3db52bcb": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_ff08655e": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_0ee58644": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_cffbc825": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_a4926419": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_da460738": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_ae8fef15": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_df73085f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_64e86aa5": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_bf008303": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_10f48272": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_588433b7": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_1ad67d26": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_e9a0f6f2": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_03aaef77": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_3f39fb13": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "这是设计原则而非可照做的操作，普通学习者搭建不出 harness 去实践触发解耦，只能判断某设计是否符合，verify 应从 use 改为 judge。",
+   "reconstructed": true
+  },
+  "cm_ae80194d": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_9d5fc50e": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_fb6ae85a": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_11d409eb": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_036f0092": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_29cc1536": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_814ac817": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_d8aa34b6": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_b226afb7": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_c1dd6faa": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_122b687d": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文只列举了四类构成，'让 Agent 稳定运行的工程底座'一句是编者加的概括，无原文支持。",
+   "reconstructed": true
+  },
+  "cm_cc5fefd6": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_0684e3d0": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_98e749f2": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_346dbb8c": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_8d443f8b": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "这不是认知/思维方法，而是人在 AI 栈上的位置与监督触点设计，属 harness 工程范畴。",
+   "reconstructed": true
+  },
+  "cm_3d84afe1": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_cc92779a": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_600a5349": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_26914899": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "'软件即有向图'是作者的论断/类比，普通学习者无法真正判断其真伪，只能接受或质疑，验收应为 accept。",
+   "reconstructed": true
+  },
+  "cm_803a4462": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_ecf56dd0": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_0ac0017c": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_7675253d": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_5faf59f3": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_2458ffe3": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_3a51a33e": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_03a5ad13": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_343d14e9": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_9b459d5c": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_a25937b3": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "「上下文骨架」是 Karri 提出的定位隐喻/判据，不是具名产品或格式，类型应为 CONCEPTUAL",
+   "reconstructed": true
+  },
+  "cm_3a76f8e5": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_81d0190c": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_fd9f7a87": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_4a83a8b3": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_b3514645": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_d25c3997": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文只提 Grill with Docs 一个工具会查找 context.md，定义泛化成「工具会查找它」，超出原文支持",
+   "reconstructed": true
+  },
+  "cm_0e10a538": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_b747de39": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_a62137fd": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_afd87770": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_2be548ed": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文只提出问题，未把时间 Scalability 定性为「长时任务的骨架问题」，属地图添加的拔高。",
+   "reconstructed": true
+  },
+  "cm_3f42a3b3": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_5daa0620": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "与第 7 条「示例会收窄探索空间」是同一原文论断的重复概念，两条应合并为一条，保留其中一条即可。",
+   "reconstructed": true
+  },
+  "cm_3aee29d5": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "与第 6 条「示例的探索空间约束」为同一原文论断，重复建点，应合并。",
+   "reconstructed": true
+  },
+  "cm_7026ed33": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_db9042f2": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_c3a45aa3": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "原文只描述触发机制，没有可照做的步骤，不该是 PROCEDURAL；普通学习者也无法部署触发器，use 不成立。",
+   "reconstructed": true
+  },
+  "cm_d2a08592": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_bcebf5df": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "四步路由决定用哪个工具/文件/内联可视化，属工具调用与沙箱，不是规格与意图对齐。",
+   "reconstructed": true
+  },
+  "cm_a75270b6": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_3fef769a": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文只说缓存收益有成本和首字延迟两个维度，没有排定\"第二个\"。",
+   "reconstructed": true
+  },
+  "cm_59d3ad3b": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_703ec1e4": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_18997927": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_cc071be2": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_e1ce170d": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_99702518": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_9e54f48a": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_d7854221": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "这是全文的终极目标/立场表述，没有可判对错的判据，学习者只能认。",
+   "reconstructed": true
+  },
+  "cm_beb0a7aa": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_7f906cf0": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_964615a4": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_7a03b65b": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_f6bd0ed2": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_99eaee44": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "这是作者提出的开放猜想，学习者无法判定其对错，验收方式应为 accept 而非 judge。",
+   "reconstructed": true
+  },
+  "cm_0696197e": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_a500a4cb": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_f5944e33": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_963c2230": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_9cc2a39e": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_7f5a8483": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "定义后半句「按条件选择性调用的记忆机制」原文没有，是自行补的机制解释，原文只给了「不可或缺的建模原语」这一主张。",
+   "reconstructed": true
+  },
+  "cm_04880489": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_f5f80946": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_a9c7e512": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_2ac17989": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_00f1e097": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_03ce5cbe": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_d8f80acf": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_f24b82cc": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_cdbb0432": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_e936aae0": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_03726492": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_0626f36e": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_b87e2d6f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_668cf70f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_715376b5": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_f232fade": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_c5a896fe": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_f23a5dfb": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文只说「从稀疏反馈中推断规则（构建世界模型）」，「可复用」是地图自己加的强度。",
+   "reconstructed": true
+  },
+  "cm_48fd3852": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_b8aa3676": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文只说 claude 的 prompt 详尽规定了语气、简洁度、主动性、代码风格与工具纪律，没说这是两者的“差”；且定义超过 60 字。",
+   "reconstructed": true
+  },
+  "cm_ddfa6bcb": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_13a8a97f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_4b0f8086": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_980c195f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_743bdcd9": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_899730c5": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_f1e9d39c": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_4221a1fc": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_f67b66b8": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_72b614cb": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "定义描述的是可直接照做的落地路径（取小概念嵌入现有产品），不是观念/机制，CONCEPTUAL 与 use 验收不搭，应归 PROCEDURAL。",
+   "reconstructed": true
+  },
+  "cm_7ab1296f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_cf92487f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "定义超 60 字，逐个罗列六个函数名，压缩为『六个函数通过事件通信』即可。",
+   "reconstructed": true
+  },
+  "cm_f9eca213": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_d0269dfa": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_dc8d4037": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_4a910d74": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "定义 64 字超限，去掉『而非追加』『与对齐』等冗余即可压到 60 字内。",
+   "reconstructed": true
+  },
+  "cm_89a74f67": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "这是 Kai 反复强调的立场/经验总结，学习者无从判断真伪，验收应是 accept 而非 judge。",
+   "reconstructed": true
+  },
+  "cm_d28ed61f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_4efca7d4": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_75224b2e": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_d57cf98f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_b47f23f7": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_9fceeefa": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_9bbbd67c": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_d757d9ee": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_9b54eda3": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_65eea963": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_4d990391": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_a4f9a7e3": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_73e12992": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_eb3087aa": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_e4b6932b": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "延迟加载是 Claude Code 内置的 harness 行为，普通学习者做不到自行启用，验收只能是判断/认出该机制（judge），不能是 use；另与第 5 条概念重复。",
+   "reconstructed": true
+  },
+  "cm_6bd125f5": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "同第 4 条，学习者无法自己执行 deferred loading / ToolSearch，只能是 judge；且本条与第 4 条实为同一概念，建议合并。",
+   "reconstructed": true
+  },
+  "cm_fbdb3635": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_dcb78706": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_34c3e3e7": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_4fa6863f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_85804ebb": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_f2ba2f91": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_02b6da8f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "「意图被外包责任就开始飘」是立场性论断，学习者判不出对错，验收应为 accept 而非 judge",
+   "reconstructed": true
+  },
+  "cm_b728a002": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_fa98c676": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "定义远超 60 字（含英文词后近 80 字符），需压缩；内容本身有原文支持。",
+   "reconstructed": true
+  },
+  "cm_3336ded4": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "原文是「系统应具备的能力清单」而非可照做的步骤，学习者也无法直接拿去用，应判为观念/判据（CONCEPTUAL）且只能判断系统是否具备这些能力。",
+   "reconstructed": true
+  },
+  "cm_5d035695": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_22909587": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_d2597b53": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文只是作者一次观察加「藏了点东西」的猜测，地图把它写成了确定的通用机制。",
+   "reconstructed": true
+  },
+  "cm_4805cdf5": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_264fbc7c": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_63d8b13a": {
+   "i": null,
+   "faithful": "nosource",
+   "issue": "原文只有「涌现的数字生命」这一句小说式描述，没有任何定义可核，地图给的是外部通用定义。",
+   "reconstructed": true
+  },
+  "cm_71ea022e": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_198a8008": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_2fb2521d": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_457d789e": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_f50a09c9": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_5c858fdc": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "原文是把上下文工程当「押注」的立场性主张，学习者只能认同或不认同，无法自行验证正交性。",
+   "reconstructed": true
+  },
+  "cm_e807b74f": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "「进而影响代码一致性」是地图自行补的因果，原文只说到影响变量名、文件名、UI 文案和搜索路径。",
+   "reconstructed": true
+  },
+  "cm_26e8e066": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_6f5b5fa0": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_e838bb08": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "定义 69 字超 60 字上限，建议删去开头「上下文治理的两道保险：」这类总起句，只留「迭代将尽时注入预算警告令其收尾；遇 context-too-large 则强制压缩消息并重试。」",
+   "reconstructed": true
+  },
+  "cm_41176d23": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "这是作者的个人直觉反问，普通学习者无从判断对错，验收应为 accept 而非 judge。",
+   "reconstructed": true
+  },
+  "cm_91d3545d": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "定义已贴到 60 字上限，建议删去“1.0/2.0 吃……”举例以留余量。",
+   "reconstructed": true
+  },
+  "cm_07e54adc": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_ce68156a": {
+   "i": null,
+   "faithful": "nosource",
+   "issue": "原文无任何正文，仅有名称，属术语命名条目，不应挂 META。",
+   "reconstructed": true
+  },
+  "cm_c62013d8": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_d7cb257d": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_868cd978": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_8f0cba43": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_7d0aaf27": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "“2 秒内完成”需装该工具才能复现，普通学习者算不出来，验收应为 use。",
+   "reconstructed": true
+  },
+  "cm_70f49de3": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "定义 69 字超 60 字上限，建议删掉「模式洞察：」和「是工作发起与信息记录处」等修饰，只保留「Linear 是不为 token 付费的粘性界面；token 成本由模型厂商与 coding agent 承担。」",
+   "reconstructed": true
+  },
+  "cm_f563e9fc": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_2efbcc89": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文只说「影响极小」，定义写成「不敏感」把口径说强了；且原定义超 60 字；验收也不该是 compute——普通学习者跑不出位置敏感度实验，只能判断某个模型声明是否满足该口径。",
+   "reconstructed": true
+  },
+  "cm_b2154cb8": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "以周为单位的连续自治运行、跑完人类团队数月的项目，普通学习者根本做不到，不能判 use，只能作为目标设定认下来。",
+   "reconstructed": true
+  },
+  "cm_d6183379": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_eb2997be": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_bfcecaf0": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_5c9cf5c5": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "讲的是给模型供给信息与工具及其时机，属上下文供给，不该丢进 unclassified，应归 context-engineering。",
+   "reconstructed": true
+  },
+  "cm_c22bacf6": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_d5c7bde8": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_787006fe": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_2f011406": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_a105fa65": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文把「更倾向听窗口末尾、需要重复指令」限定在早期模型上，定义泛化成「模型」通例，超出了原文口径。",
+   "reconstructed": true
+  },
+  "cm_1b119e04": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_1bd7da1b": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_32134c6f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "类型判错：重要性采样是机制/数学工具，不属 REPRESENTATIONAL 的具名产品/文件/格式/框架。",
+   "reconstructed": true
+  },
+  "cm_b36e15d0": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_30bee42a": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_05146d91": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_f27655ca": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_be951649": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_e5f2ba8e": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_c21ec7b2": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_2be15a80": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_197a049b": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_d9636b24": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_8594943f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_96db0031": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_cf8c068b": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_cf32c22f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_4bc8eb62": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_eec62acc": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "这是对第一个多 agent 方案的描述与失败结论（已被证伪的设计观念），不是可照做的步骤，且验收为 accept，类型应改为 CONCEPTUAL 而非 PROCEDURAL。",
+   "reconstructed": true
+  },
+  "cm_2a9d80ad": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_974aa29f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "‘Linear way skill’是 Linear 产品内置的私有技能，普通学习者拿不到、跑不了，判 use 做不到；学习者只能判断某条组织级指引有没有把功能请求综合成可讨论、可执行的形式，应改 judge。",
+   "reconstructed": true
+  },
+  "cm_e4f63171": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_f174c068": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_36c8ca5c": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_7be9a292": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_9bbb52e5": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_86f56dae": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_d2724a8b": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_96f9ee78": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_37aa3700": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_fc9668d6": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_c63aeadd": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_4cd0f50d": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_07373436": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_75e26472": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_d0fbb9bb": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_066bbed0": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_094c89da": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_44a5e9cc": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "「二者最常被混淆」原文没这句，属外加的判断。",
+   "reconstructed": true
+  },
+  "cm_8d5752d9": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_5a9d980b": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_14bf0b8b": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_e0ddbb7e": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_8e23b5e7": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_5be4de59": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_9b8f7efc": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_2037dc40": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_5a9e35b6": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_a84f8f6d": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_7738ecbf": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_52318cc3": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文没给「Gen Z 用得最多也最反感」和「靠宣传无法扭转」，这两句是加的因果与断言。",
+   "reconstructed": true
+  },
+  "cm_bfabbb33": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_43eb8977": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "定义讲的是代码库文件布局（CLAUDE.md/skills/hooks/src）的类比，落点是工程实践，不该挂在 AI 产品与组织。",
+   "reconstructed": true
+  },
+  "cm_4a63cc27": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_d2b53bb8": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_e0891b4f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_2458edfa": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_a41e7117": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_1f0a5c75": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_b9224922": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_13cad3a9": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_968e8f3d": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_4cae7681": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文说\"几乎全是用清晰的显式指代\"，定义去掉\"几乎\"变成\"全用\"，绝对化了。",
+   "reconstructed": true
+  },
+  "cm_8b09eec8": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_b5f16cbc": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_1725c0a2": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "Cursor 内部 apply 模型的成败学习者无从验证，只能采信原文说法，验收应为 accept 而非 judge。",
+   "reconstructed": true
+  },
+  "cm_43840984": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "原文只有\"apply patch tool\"这个具名工具的出现，没有任何可照做的步骤，定义也没给出步骤，应归为具名工具而非 PROCEDURAL。",
+   "reconstructed": true
+  },
+  "cm_66b2aa92": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_307c714e": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_ae93d5b5": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_4318a3dc": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_a378789a": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_01dc8b9f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_4eda0819": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文只说认证发生在 VPC 内、数据在 Bedrock 环境受保护，定义却把「数据处理」也塞进 VPC 内，扩大了范围。",
+   "reconstructed": true
+  },
+  "cm_50087bfe": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_c5c2a8cb": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "这是用量关系/估算机制（baseline×请求数+增长量），不是具名产品/文件/格式，类型应为 CONCEPTUAL。",
+   "reconstructed": true
+  },
+  "cm_b8dff81c": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_0569ae91": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_37be6149": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_61f02158": {
+   "i": null,
+   "faithful": "nosource",
+   "issue": "材料明确标注无原文，定义整段是从名称推演出来的，无从核实。",
+   "reconstructed": true
+  },
+  "cm_ad8666e5": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_82e4b4e7": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_b9c659d4": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_085b498a": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "cache-write 倍数只有原文那一组测量才有，普通学习者算不出 compute，只能判断冷热/漂移。",
+   "reconstructed": true
+  },
+  "cm_63e5d090": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_64ae7813": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文只说 grown not designed / spiky / 不可预测，没提「未被利用的能力余量」，overhang 那半句是外加的。",
+   "reconstructed": true
+  },
+  "cm_4f1a541c": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_6b38efa5": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_6a5b3651": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "定义末尾『本质仍是前缀文本』原文没有这句，属自行加料。",
+   "reconstructed": true
+  },
+  "cm_9c9c0044": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_07d6de4f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_018c5168": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_ba8d0829": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_f3d3cb69": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_40c8f5ff": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_10db34e6": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_b797f401": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_d688ae4f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_55cb0243": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_e09e7cfa": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_33922d87": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_463b3b95": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_f4ee6204": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "四种失败模式是对失效现象的分类判据，不是具名产品/文件/格式，类型应归 CONCEPTUAL。",
+   "reconstructed": true
+  },
+  "cm_d4790a0d": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_f5d40204": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_da4daeff": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_33d0987a": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_acc5b32d": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_98b9a0aa": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_398fc084": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_d10f0a1e": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "核心断言是“加知识只能靠 context injection”这一上下文工程约束，记忆文件/检索/MCP 只是其实现，放 memory-retrieval 把概念窄化了。",
+   "reconstructed": true
+  },
+  "cm_ed6d76b6": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "标题叫「四策略」但定义只列了三项（压缩/外置/懒加载），数目不齐；另三项均为口号式判据，严格说不构成可照做的步骤。",
+   "reconstructed": true
+  },
+  "cm_4f9d35ac": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_beedff1a": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_7be88c4d": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_b28a9fc2": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_841b55e5": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_ca69391c": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_a46abbb1": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_bdf121d1": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "CSA 是注意力机制，属 CONCEPTUAL（机制），不是具名产品/文件/格式类。",
+   "reconstructed": true
+  },
+  "cm_3b8ca49c": {
+   "i": null,
+   "faithful": "nosource",
+   "issue": "无原文可核，定义是通识描述；Custom Agent 是编排中按角色定制的代理单元，不是“AI 产品与组织”。",
+   "reconstructed": true
+  },
+  "cm_bf8b94c6": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_7a2322bb": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_34451fc9": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_da1f0987": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_4c4e24be": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_b58e822c": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_aad08abd": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_e907a229": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_c63842fd": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_786f3b46": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "定义里的「改用固定常量归一化并去掉标准差归一化」在给定原文材料中没有出处，只有偏置诊断那段有支撑。",
+   "reconstructed": true
+  },
+  "cm_859f857b": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_180723ac": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_c6e454d9": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_98e85c1e": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_50f21101": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_a9276da2": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文只并提“prompt-injection and exfiltration attempts”，未说手段是提示注入、也未说对象是系统内部敏感数据，定义加了原文没有的成分。",
+   "reconstructed": true
+  },
+  "cm_95f5ef7c": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_6b20739f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_558fd935": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_0db0f875": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_8fabdf4b": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_6072455f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_511c902a": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "FDE 是组织角色与驻场实践，普通学习者无从'拿去用'，只能了解并接受这一角色设定。",
+   "reconstructed": true
+  },
+  "cm_ca227b76": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_19ecf6b3": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "“技能只能从摩擦中长出来”是他人经验与立场，学习者无法据此判定对错，验收应为 accept。",
+   "reconstructed": true
+  },
+  "cm_91df6151": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "这是访谈里的一句市场观感（surprised me），学习者无法核实总需求分布，只能接受这个观察，判不了对错。",
+   "reconstructed": true
+  },
+  "cm_319174c9": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_1bb0da58": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_0f46e34c": {
+   "i": null,
+   "faithful": "nosource",
+   "issue": "原文材料为空，该定义（含蒸汽机/电力/互联网等举例）无原文可核。",
+   "reconstructed": true
+  },
+  "cm_b3d14b63": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "定义是作者对交付形态演变的趋势断言，学习者无从判断对错，只能接受该立场。",
+   "reconstructed": true
+  },
+  "cm_deefef79": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_7a8f6388": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_84f14edc": {
+   "i": null,
+   "faithful": "wrong",
+   "issue": "原文里 ghost 的释义只是公式中的一项，地图用「即」把它当成整个标题的定义，语义错位，还把原文的叠乘式写成了含糊的「乘」串。",
+   "reconstructed": true
+  },
+  "cm_7f6b7ae0": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_5788cb30": {
+   "i": null,
+   "faithful": "nosource",
+   "issue": "无原文可核，定义对错无从判定；领域/类型/验收（可实际执行 git worktree add）暂无问题",
+   "reconstructed": true
+  },
+  "cm_98bb96e7": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_ebeee733": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_8b69f567": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "与 [2] gotchas 优先的 CLAUDE.md 几乎同一内容，概念重复，建议合并或明确二者的抽象层级差异",
+   "reconstructed": true
+  },
+  "cm_999f2a7c": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_3a7b088a": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_c3027f5b": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_285b2834": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_345d4b18": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_6d45fdf6": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_5c93f4e7": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "概念名把 Handoffs 与 Agents as tools 两种不同机制捆在一起，但定义只讲了 handoffs，名实不符，建议拆分或改名",
+   "reconstructed": true
+  },
+  "cm_14ba4d5c": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_3e211f91": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_94448257": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_f2871b54": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "验收偏错：这是原作者对“Claude Code 为什么能赢”的归因解释，普通学习者无法验证 harness 内 RL 与工具调用成功率的因果关系，只能接受",
+   "reconstructed": true
+  },
+  "cm_94dea071": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_24c4322f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_c88b81b3": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_7fdc01a5": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_561b8021": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_b8127840": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_e00f590e": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_5465cd64": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_a5b42ae5": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_8c8c6e16": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_f61cc152": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "HCA 是一种注意力机制（原文与 CSA/mHC 并列），按闭集应归 CONCEPTUAL，不是具名产品/文件/格式/框架。",
+   "reconstructed": true
+  },
+  "cm_3cee2463": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_94565417": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_6aeb848e": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_561dcec8": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_65ce9cd3": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_5103a6a6": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_16f314f0": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_fcf9bcbe": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_f53425d9": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_cb97c505": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_705ac76d": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_b46838eb": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_3ca84975": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_dafd9d2f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_5e26a484": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_03a44650": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_8e93fc18": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "原文是 Anthropic 对公司自身定位/目标的表述（要把公司做成什么），属 AI 产品与组织，不是经济与商业逻辑。",
+   "reconstructed": true
+  },
+  "cm_10cff6a4": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_7e14e299": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_89d0cc05": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "Kappa 系数是统计指标/判据，不是具名产品、文件、格式或框架，误判成 REPRESENTATIONAL。",
+   "reconstructed": true
+  },
+  "cm_19961532": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_838289d1": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_592eb60e": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_ddb0ab8c": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_ca4c9960": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_4cddc093": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_3bf9ffd4": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "「单位用户成本稳定」「成本可相差百倍」原文没给，只说了月费模式与 LLM 从根上不兼容。",
+   "reconstructed": true
+  },
+  "cm_60d08d73": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_69e03c25": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_0986f0e5": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_c7d6c722": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_70a22373": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "在解码时对 logits 做掩码需要能访问模型解码/托管服务的采样接口，普通学习者做不到，不能判 use，只能判能否判断该方案适用。",
+   "reconstructed": true
+  },
+  "cm_b8e70a87": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_75ee7205": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_5f282c0d": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_de4b075f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_f2b65d01": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_ade7239f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_aadd5ef8": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_433754e0": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_ca2c1a03": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_9c15cd8d": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_a5ed35be": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_1e2c70a5": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_a9b26989": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_45bcde21": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_c45d61bf": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_b9e6e94d": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_d22095a4": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文只说“对齐程度被抬高”即收益，没说“对齐越高协作越顺”这条因果。",
+   "reconstructed": true
+  },
+  "cm_0e8f0431": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_b74eee38": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_4a3ac824": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_63e885ca": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文只说稀疏化、只激活部分专家，「用更少算力换同等能力」是外加的能力等价主张，原文没有。",
+   "reconstructed": true
+  },
+  "cm_ed8dcd39": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_a9c55d8b": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_a25b0163": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_0767b398": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_35dc59c9": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_fc4706e8": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_fada3d6a": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_60fc8578": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "复现需要五个 embedding 模型和作者自建数据集，普通学习者算不出来，只能接受作者实测结论",
+   "reconstructed": true
+  },
+  "cm_836f9734": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_34ec5743": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文只是作者「感觉是用来管理 context」的推测，定义把用途写成了确定事实；且该小模型请求学习者无法自行调用，不能判 use",
+   "reconstructed": true
+  },
+  "cm_dd0feb2c": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_21a4ec33": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "定义只重复了缩写本身、没给出任何内容；且它是具名商业追踪 SDK，属商业营销而非 unclassified",
+   "reconstructed": true
+  },
+  "cm_fe668e3c": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_1536f249": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_769e3775": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_c0e408a0": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_7c5152aa": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_6541b55e": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_9b645487": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_5ae9faf9": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "这是机制/现象描述，学习者无法 compute 出这个循环，只能认该机制存在。",
+   "reconstructed": true
+  },
+  "cm_81936d81": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_9e82be87": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "pass@k 是一个评估判据/度量，不属于 REPRESENTATIONAL（具名产品/文件/格式/框架），应为 CONCEPTUAL。",
+   "reconstructed": true
+  },
+  "cm_01347b98": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_46c26da4": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_6b2df7f0": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_7cbbd7dc": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "角色分工是机制/判据，不是具名产品/文件/框架，应归 CONCEPTUAL。",
+   "reconstructed": true
+  },
+  "cm_511bf6de": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_99d52c0a": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_27e4e0df": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文是“在过去几年里是 RLHF 的默认选择”，属过去时，定义写成现在的默认算法。",
+   "reconstructed": true
+  },
+  "cm_4fa31dae": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_daaeed70": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文只列了 7 条具体偏好、未说「八类」，数字是地图自己加的。",
+   "reconstructed": true
+  },
+  "cm_49b4fe8b": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_a3f25593": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_a09398f3": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_83367caa": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_136dab9c": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_ee5a5c29": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "「prompt 更重要」是原文作者的立场主张，学习者只能接受或质疑，判不了对错。",
+   "reconstructed": true
+  },
+  "cm_1c3de8a9": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "定义写的是设计原则（假设攻击会发生），并未界定 prompt-injection 本身，原文也无该概念的定义句。",
+   "reconstructed": true
+  },
+  "cm_222e47e9": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_1e5e4cee": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_0e153b8f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_668a45c5": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "普通学习者拿不出手去'用'一个执行架构，只能判断某 agent 是否按此模式跑。",
+   "reconstructed": true
+  },
+  "cm_ff09ab2a": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_dcc44537": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_b068ccc7": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_3c530f4a": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "「在输出质量与 token 成本之间取舍」是地图补的，原文只说强度可调。",
+   "reconstructed": true
+  },
+  "cm_cd19781c": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_9191c944": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "REINFORCE 需要实现梯度与采样训练循环，普通学习者做不了 compute，只能判断概念理解对错。",
+   "reconstructed": true
+  },
+  "cm_b77b7537": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_39225cd5": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_2ae6e6ed": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_df44ac27": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文只说「不保证行为被限定在产生它的条件内」，「泄漏到所有场景」和「RL 设计应默认奖励会泛化」都强于原文。",
+   "reconstructed": true
+  },
+  "cm_6fe071ac": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_421d2a5f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_f6856800": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_e3bf5147": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_759cbeb8": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_231cf0b4": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "这是训练机制描述而非可照做的步骤（上百万次循环、数周到数月，个人无法执行），类型应为观念机制，验收也改判读。",
+   "reconstructed": true
+  },
+  "cm_56230a91": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_ca597dd5": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_14dace51": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "与序号 3「Rubric 与 verifier agent」是同一概念被收录两次，定义几乎逐字重合，应删除本条或与 3 合并。",
+   "reconstructed": true
+  },
+  "cm_a47a4e89": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_6db6f598": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_96526063": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_9e10ff83": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_5cb52469": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_937edec6": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_afd69b11": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_5973b47c": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_a5b4380f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_9381d3bf": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_94db716e": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_a85cb1f1": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_61e4efaf": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_0145bdc5": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "与第 6 条「Sensors 与 Actuators」同名同义（同一批 Agent-Native 原语），属重复条目，应合并为一条，并统一类型判定。",
+   "reconstructed": true
+  },
+  "cm_32dc32a9": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "service template 与 golden path 是团队交付/平台工程实践，不是 harness 运行时本身，应归代码库与工程实践。",
+   "reconstructed": true
+  },
+  "cm_fcbdc4c2": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_50e4c470": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_c1139916": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "session_search 是 Hermes 的内部子系统，普通学习者拿不到也无法调用，只能认它的存在与角色。",
+   "reconstructed": true
+  },
+  "cm_781791f5": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_6945fcf2": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "「偏差逐代变成标准答案」原文没这么强，原文只说模型产出该口癖更频繁、更顺手，是个放大器。",
+   "reconstructed": true
+  },
+  "cm_448f21b3": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_926aa05d": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "verify 判成 compute，但 shell tool 是一个具名工具概念，学习者不是去「算结果」而是去调用它，应改为 use。",
+   "reconstructed": true
+  },
+  "cm_0b420d69": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_72385793": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_34b33e00": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "Skill 是 Claude Code 的具名特性与文件格式约定（.claude/skills/ + SKILL.md frontmatter），不是抽象观念，类型应为 REPRESENTATIONAL。",
+   "reconstructed": true
+  },
+  "cm_41982abd": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_be8b8c24": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_4bceb333": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_a0ca0f95": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_30fb0c9b": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_c14c7ca3": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_633b4cd7": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_668afc3e": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_36e39546": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "snapshotting+rehydration 是一套机制/能力，不是具名产品/文件/格式/框架，REPRESENTATIONAL 选错，应为 CONCEPTUAL。",
+   "reconstructed": true
+  },
+  "cm_dadcb3e5": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文只说 context window 是「操纵解释器的杠杆」，没说「context window 是新程序」，且原定义含英文术语后超 60 字。",
+   "reconstructed": true
+  },
+  "cm_8e7dfd61": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文只说企业选择自动化 repository、阶段及人工检查点，没说过范围止于「只保留人工检查点」。",
+   "reconstructed": true
+  },
+  "cm_67aa1645": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_f6219aa0": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "「review 对象主要是 spec」在给出的原文材料里没有出处，属于额外添加的判断。",
+   "reconstructed": true
+  },
+  "cm_95c0c22c": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_3df7e56f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_f5056d61": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文的对照项是「不是谁最后说的」，地图擅自换成「是否有用」，替换了判据内容。",
+   "reconstructed": true
+  },
+  "cm_894f275b": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "SRE 是 Codex 内部的运行环境，普通学习者拿不到也接不上，判 use 做不到；只能认这条架构事实，应改 accept。",
+   "reconstructed": true
+  },
+  "cm_78a628e1": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_9654c780": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_bd370d1b": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_d8ea2176": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_2c7c13db": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_76707ff6": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_63a18f9e": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_950e6265": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_b2c9fd9e": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_4c6ea3d7": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_1c882ecb": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "Symphony 是特定团队用 Elixir/BEAM 自建的系统，普通学习者拿不到也跑不起来，验收只能判认。",
+   "reconstructed": true
+  },
+  "cm_8a0db137": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文只说「用户不可见的系统提示开场」，注入主体和「设定角色、规则与工具」的用途无原文支撑。",
+   "reconstructed": true
+  },
+  "cm_1792f259": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_5205e3fc": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_270fdbaa": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_4e58443d": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_60c1be3b": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_a6beb11f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_99528c32": {
+   "i": null,
+   "faithful": "nosource",
+   "issue": "材料为空，无从判定它属于认知方法，领域应留 unclassified。",
+   "reconstructed": true
+  },
+  "cm_858e3280": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_7c40465d": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "TOCC 是论文里的方法，学习者手上没有可插拔的实现，判 use 做不到；只能判断这种做法在什么场景下说得通，应改 judge。",
+   "reconstructed": true
+  },
+  "cm_9754bbb2": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_6c38ddcf": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "“活跃用户越多亏得越多”原文没有，是外推的结论。",
+   "reconstructed": true
+  },
+  "cm_b3ad200a": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_01e0efb3": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_691a420e": {
+   "i": null,
+   "faithful": "nosource",
+   "issue": "无原文可核；且 Token count 是把一个计量单位命名界定清楚，属术语约定而非观念机制。",
+   "reconstructed": true
+  },
+  "cm_09566489": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_3391436a": {
+   "i": null,
+   "faithful": "overstated",
+   "issue": "原文只说“模型处理 token，而不是直接处理词”，没有说上下文长度与计费按 token 计数，这部分是外加的。",
+   "reconstructed": true
+  },
+  "cm_3e69d260": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_51de352d": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_45b7faf3": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_e17efd1f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_93c0b683": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_f6f6390f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_b433c375": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_b2c86d88": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "Tracing 是 SDK 内置的运行时可观测/调试能力，与同节的 turnkey、very few abstractions 同属 Harness 特性，归 harness-runtime 比 verification-eval 更准（评估只是其用途之一）。",
+   "reconstructed": true
+  },
+  "cm_aec0eb30": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_847c4f22": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "Tree-sitter 是底层解析技术，普通学习者无法真的把它拿去用，只能认它是多语言解析的底层基础。",
+   "reconstructed": true
+  },
+  "cm_2e332668": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_5512c772": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_44a5c3f4": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_d854798b": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_91b202fd": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "原文只说 Validation gates 是工作流中的检查点，这是机制而非可照做的步骤，类型应为 CONCEPTUAL。",
+   "reconstructed": true
+  },
+  "cm_7e9b87ba": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_a56d4934": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_063155cf": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "定义说的是代码库的一种性质/判据（agent 有可靠工具验证改动），不是可照做的步骤，类型应为 CONCEPTUAL。",
+   "reconstructed": true
+  },
+  "cm_3211d04e": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_9701c104": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_19f7de6c": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_8d161688": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_6881bd11": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_33d3954f": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_bdec85a7": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_1d3875f8": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_f7b95548": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_da125473": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  },
+  "cm_cfab9407": {
+   "i": null,
+   "faithful": "supported",
+   "issue": "",
+   "reconstructed": true
+  }
+ },
  "edges": {
   "cm_253ad423->cm_0a4ca4ce": {
    "i": 0,
@@ -4089,5 +9214,6 @@
   }
  },
  "edgeFailed": [],
- "tokens": 688937
+ "tokens": 688937,
+ "conceptsNote": "本块的 desc_fix / domain_fix / type_fix / verify_fix 已由 cm-apply-audit 落进 03-enriched.json，2026-09-13 因 --phase=edges 覆盖丢失后从节点的 audit 字段回填（faithful + issue 完整，修改指令不再单列）。"
 }

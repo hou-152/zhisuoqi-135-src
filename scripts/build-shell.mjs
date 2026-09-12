@@ -31,7 +31,26 @@ function loadNeican() {
     return { period: '260912', articles: [] };
   }
   const d = JSON.parse(fs.readFileSync(f, 'utf8'));
+  // 内参的概念卡要接回地图：能对上的填 nodeId，点名字直接跳到地图那张卡。
+  // 归一化必须用 \p{P}\p{S} 那一套（JS 的 \W 只认 ASCII，中文会被吃光 → 假命中）。
+  const topics = JSON.parse(fs.readFileSync(path.join(ROOT, 'knowledge', '概念地图-260913', 'topics.json'), 'utf8')).topics;
+  const norm = (x) => String(x).toLowerCase().replace(/[\s\p{P}\p{S}]+/gu, '');
+  const parts = (x) => { const m = String(x).match(/^(.+?)\s*[（(]([^()（）]+)[)）]\s*$/); return m ? [m[1].trim(), m[2].trim()] : [String(x).trim()]; };
+  const stripParen = (x) => parts(x)[0];
+  const idx = new Map();
+  for (const t of topics) for (const k of [t.name, t.nameEn, ...(t.aliases || [])]) if (k && !idx.has(norm(k))) idx.set(norm(k), t.id);
+  let linked = 0, total = 0;
+  for (const art of d.articles) for (const c of art.conceptCards || []) {
+    total++;
+    const full = c.name || '';
+    // 三种写法都要试：剥括号的中文名 / 括号里的英文名 / 整串（「代理技能（Agent Skills）」要能撞上「Agent Skills」）
+    const id = parts(full).map(norm).map((k) => idx.get(k)).find(Boolean) || idx.get(norm(full)) || null;
+    if (id) { c.nodeId = id; linked++; }
+  }
+  const fail = JSON.parse(fs.readFileSync(path.join(ROOT, 'knowledge', '概念地图-260913', 'topics.json'), 'utf8')).topics
+    .filter((t) => t.origin.includes('neican')).length;
   console.log(`内参：${d.period} 期 ${d.articles.length} 篇（LLM ${d.llmCalls} 次 / ${d.tokens} tokens）`);
+  console.log(`  概念卡 ${total} 张 · 已接回地图 ${linked} 张 · 地图里来自内参的节点 ${fail} 个`);
   return d;
 }
 
