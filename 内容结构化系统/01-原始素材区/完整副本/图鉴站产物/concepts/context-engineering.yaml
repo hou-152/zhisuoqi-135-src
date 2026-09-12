@@ -1,0 +1,37 @@
+schema_version: 1
+record_kind: canonical_concept
+id: context-engineering
+slug: context-engineering
+name_zh: 上下文工程
+name_en: Context Engineering
+aliases: []
+category_id: context-delivery
+learning_stage: now
+definition_status: industry-common
+remember: 上下文工程是设计动态系统，在正确时机以合适格式选择、装配并更新模型所需的信息与工具描述。
+feynman: 它不像反复润色一张固定便条，更像每次开工前都重新布置工作台：从资料池里挑出这项任务真正需要的东西，整理成模型容易使用的形式，再送到它眼前。任务变了，工作台也随之变化。
+scenario:
+  type: hypothetical
+  text: 邮件 Agent 收到“帮我安排明天的同步会”后，系统按当下任务取回日历、联系人和往来语气，选择可用工具并压缩成清楚输入，再交给模型判断下一步。
+image_mnemonic: 一个从信息池开始，依次经过选择与格式装配，最终把当轮材料送入当前任务位的四段流程。
+source_context: Philipp Schmid 把 Context Engineering 定义为设计并构建动态系统，在正确时间、以正确格式提供正确的信息与工具，让 LLM 拥有完成任务所需的一切；这一定义强调它是主模型调用前运行的系统，而不是一条静态字符串。
+boundaries:
+  - 它不等于 Prompt Engineering；提示词工程主要处理指令怎样表达，上下文工程管理每轮整体信息怎样进入模型。
+  - Context 是被管理的对象，Context Engineering 是持续选择、装配、更新这一对象的工程实践。
+  - 工程范围轴上，本站采用 Harness Engineering 通常包住 Context Engineering；系统职责轴上，Context 侧主要管信息，Harness 侧主要管运行。两条轴不能混成单一包含关系。
+  - “提供完成任务所需的一切”不表示把所有可用资料一次性塞入窗口，也不保证模型输出必然正确。
+how_to:
+  - 从任务决策倒推模型这一轮必须知道什么、可以稍后再取什么、什么应留在窗口外。
+  - 为进入模型的资料设计清楚格式、来源和更新时间，并在任务阶段变化时重新装配。
+  - 用真实失败检查是信息缺失、选择错误、格式失真还是运行系统问题，不要把所有失败都归因于模型。
+transfer_question: 同一条 Prompt 没变，只把过期长日志换成当前任务的日历摘要和工具说明，为什么结果可能显著改善？
+source_ids:
+  - SRC-philipp-context-engineering
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/context-engineering/visual.png
+  alt: 蓝色物质感信息图从“信息池”依次流向“选择”“格式装配”和“当前送入”，表示上下文工程动态准备当轮模型输入。
+  prompt_record: src/assets/concepts/context-engineering/PROMPT.md
+  receipt: src/assets/concepts/context-engineering/receipt.yaml
+  visual_qa: passed

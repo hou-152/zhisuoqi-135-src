@@ -1,0 +1,40 @@
+schema_version: 1
+record_kind: canonical_concept
+id: context-rot
+slug: context-rot
+name_zh: 上下文腐烂
+name_en: Context Rot
+aliases:
+  - 上下文退化
+category_id: context-delivery
+learning_stage: now
+definition_status: evolving
+remember: Chroma 用“上下文腐烂”概括一组受控观察：在任务难度不变时，仅增加输入长度，也会使受测模型的表现更不可靠，而且退化并不均匀。
+feynman: 同一道题、同一条关键证据都不变，只往输入里加入更多材料。如果输入越长，模型越容易漏用证据、混入干扰项或放弃作答，那么增加长度本身就带来了可靠性成本。
+scenario:
+  type: hypothetical
+  text: 先确认模型在短输入条件下能稳定完成同一项问答，再保持问题、关键证据和评分方法不变，只分档增加无关材料；若表现随长度下降，才有依据把输入长度列为退化变量。
+image_mnemonic: 一条持续变长的纸带从清晰走向多处局部起雾，模糊点分散在不同位置，强调输入增长后的利用不稳，而不是固定的中间低谷。
+source_context: Chroma 在 18 个模型上完成 194,480 次调用，并以“固定任务难度、只改变输入长度”为主要控制思路。语义检索、带干扰项问答、LongMemEval 与重复词复制等实验共同显示：长度增加时，可靠性会以不同方式下降。报告观察的是行为结果；关于结构为何影响注意力的解释仍是推测，未被证明为统一机制。
+boundaries:
+  - Context Rot 不等于 Context Window；前者谈实际利用可靠性，后者谈一次调用可承载的容量边界。
+  - 它不等于 Lost in the Middle；后者专指位置效应，而 Chroma 的语义相似度实验跨 11 个 needle 位置没有观察到显著位置影响。
+  - 报告没有给出统一失效阈值。更长输入仍可能带来信息增益，是否值得取决于具体任务、模型与实测。
+  - 不同模型会以漏答、幻觉、拒答或复制错误等不同方式表现不可靠；只统计一种失败姿态会读错结果。
+  - needle-haystack 相似度实验只覆盖两个主题，作者明确认为证据不足以支持普遍结论。
+how_to:
+  - 先证明模型在短输入条件下能完成任务，再固定任务难度、相关证据与评分方法，只改变输入长度。
+  - 将无关内容、近似干扰项、材料结构与证据位置分开记录，避免把多个变量揉成一个结论。
+  - 同时统计正确、幻觉、弃答与复制错误等结果；平均准确率可能掩盖不同失败姿态。
+  - 减少低信号内容后，用真实任务复测；不要只凭 NIAH 成绩或窗口标称值判断长上下文可靠性。
+transfer_question: 如果模型在 100K 输入里偶尔漏答，但把相同证据放到 10K 输入就稳定，下一步应先查模型容量，还是查输入增长带来的利用退化？
+source_ids:
+  - SRC-chroma-context-rot
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/context-rot/visual.png
+  alt: 一条输入纸带向右持续变长，起初内容清晰，随后在多个不同位置出现局部起雾与模糊，表示输入增长后利用逐渐不稳，而非只在中间位置失效。
+  prompt_record: src/assets/concepts/context-rot/PROMPT.md
+  receipt: src/assets/concepts/context-rot/receipt.yaml
+  visual_qa: passed

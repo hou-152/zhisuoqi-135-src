@@ -1,0 +1,39 @@
+schema_version: 1
+record_kind: canonical_concept
+id: harness-compute-separation
+slug: harness-compute-separation
+name_zh: Harness 与计算分离
+name_en: Harness-Compute Separation
+aliases:
+  - Harness–Compute Separation
+category_id: human-control
+learning_stage: when-needed
+definition_status: evolving
+remember: 将负责 Agent 控制、状态与凭据的 Harness 层，同运行模型生成代码的计算环境分开，使两层可以分别隔离、恢复和扩展。
+feynman: 把「带着 agent 运行的控制层」与「agent 在里面跑代码的执行层」分开。好处三个字：安全、持久、可扩展。模型生成的代码在 sandbox 里跑，而 credentials 住在 harness 端不给模型碰。
+scenario:
+  type: hypothetical
+  text: 假设控制层保存任务状态和云端凭据，模型生成的代码只在可销毁沙箱中运行；沙箱崩溃后重建，任务仍能从控制层恢复。
+image_mnemonic: 一张只表达「Harness 与计算分离」的纸面机制图：中心呈现「将负责 Agent 控制、状态与凭据的 Harness 层，同运行模型生成代码的计算环境分开，使两层可以分别隔离、恢复和扩展」，边缘用明确界线排除「它是运行架构分层，不是把 Harness 或沙箱从 Agent 系统中移除」；不画候选关系。
+source_context: 本卡只采用以下来源范围：《OpenAI Agents SDK 下一代演进：原生沙箱 + 模型原生 harness》：这段直接给出控制层与执行层分离的架构做法及其凭据隔离目的；《Harness engineering：把 agent 能力落到工具、约束和循环里》：这段从 runtime 与 Harness 的职责区分补充执行环境和可靠工作循环不能混为一层的证据。未被来源直接支持的产品结论、普遍因果或关系身份不写入本卡。
+boundaries:
+  - 它是运行架构分层，不是把 Harness 或沙箱从 Agent 系统中移除。
+  - 分离能降低执行环境接触凭据的机会，但不能单独消除提示注入或数据外泄风险。
+  - 具体进程、网络和存储边界仍由实现决定。
+  - 当前证据缺口：需要明确不同部署形态下状态、凭据与网络边界的实现差异。
+how_to:
+  - 列出状态、凭据、控制决策与不可信计算，分别指定所属层和通信接口。
+  - 让执行环境只获得当前动作所需的短期能力，并限制文件、网络和资源。
+  - 销毁计算环境后恢复任务，再用越权读取演练检查凭据没有泄漏。
+transfer_question: 哪些中间状态必须留在 Harness 才能安全恢复，哪些放进沙箱反而更便于隔离和复现？
+source_ids:
+  - SRC-openai-agent-runtime
+  - SRC-harness-engineering-practice
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/harness-compute-separation/visual.png
+  alt: 一张只表达「Harness 与计算分离」的纸面机制图：中心呈现「将负责 Agent 控制、状态与凭据的 Harness 层，同运行模型生成代码的计算环境分开，使两层可以分别隔离、恢复和扩展」，边缘用明确界线排除「它是运行架构分层，不是把 Harness 或沙箱从 Agent 系统中移除」；不画候选关系。
+  prompt_record: src/assets/concepts/harness-compute-separation/PROMPT.md
+  receipt: src/assets/concepts/harness-compute-separation/receipt.yaml
+  visual_qa: passed

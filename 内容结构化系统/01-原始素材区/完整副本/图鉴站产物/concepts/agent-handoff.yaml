@@ -1,0 +1,38 @@
+schema_version: 1
+record_kind: canonical_concept
+id: agent-handoff
+slug: agent-handoff
+name_zh: Agent 交接
+name_en: Agent Handoff
+aliases:
+  - 智能体交接
+category_id: continuous-action
+learning_stage: when-needed
+definition_status: evolving
+remember: Agent Handoff 是把任务控制权连同可恢复的进度、证据、失败和下一步从 Agent A 移交给 Agent B，并由 B 确认接管。
+feynman: 它不像给同事发一条“你继续”的消息，更像正式交班。上一班要交出做到哪、什么已经验证、哪里失败、下一步该做什么；下一班读完后明确接管，任务所有权才真正换手。缺了交接包，B 只能重猜；缺了接管确认，双方都可能以为对方负责。
+scenario:
+  type: hypothetical
+  text: Agent A 的上下文即将耗尽，它把已完成范围、测试证据、当前失败、关键文件和下一步写入结构化交接包。Agent B 先核对真实仓库状态，再确认接管并从未完成处继续。
+image_mnemonic: Agent A 把包含“进度证据”和“失败下一步”的交接包移交给 Agent B；B 在阅读后作出“确认接管”，表示控制权而不只是信息发生转移。
+source_context: Awesome Harness Engineering 将 long-running agent handoff 描述为跨上下文窗口、跨阶段延续任务的机制，依赖 initializer agents、handoff artifacts、feature lists 与 context condensation。本站进一步把所有权转移与接管确认列为必要边界。
+boundaries:
+  - 把子 Agent 当工具调用后拿回结果，不等于把当前任务的控制权完整交给另一个 Agent。
+  - Handoff artifact 是可恢复的任务状态，不是把整段聊天或全部上下文原样倾倒给下一位 Agent。
+  - 发出交接请求不等于完成交接；接收方应核对证据、真实状态与责任范围后确认接管。
+  - 交接能延续工作，不保证前一位 Agent 的判断正确；关键事实仍需对真实文件、测试或外部状态复核。
+how_to:
+  - 交接包至少写清目标、当前进度、已验证证据、失败与阻塞、关键位置、未完成项和明确下一步。
+  - 标明哪些是事实、推测和未知，并给出可复查的文件、命令、运行 ID 或其他证据指针。
+  - Agent B 接手后先读取交接包并核对真实状态，再明确记录“已接管”的范围与发现的差异。
+transfer_question: 如果 Agent A 只说“剩下的你继续”，Agent B 也没有确认责任范围，任务真的完成交接了吗？
+source_ids:
+  - SRC-harness-engineering-practice
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/agent-handoff/visual.png
+  alt: Agent A 将标有“进度证据”和“失败下一步”的交接包送到 Agent B，B 阅读后标记“确认接管”，表示任务控制权和可恢复状态一起转移。
+  prompt_record: src/assets/concepts/agent-handoff/PROMPT.md
+  receipt: src/assets/concepts/agent-handoff/receipt.yaml
+  visual_qa: passed

@@ -1,0 +1,36 @@
+schema_version: 1
+record_kind: canonical_concept
+id: observation-masking
+slug: observation-masking
+name_zh: 观察掩码
+name_en: Observation Masking
+aliases: []
+category_id: context-delivery
+learning_stage: when-needed
+definition_status: evolving
+remember: 在保留工具调用发生记录的同时，隐藏或移出旧工具输出细节，以减少其对当前推理的干扰和上下文占用。
+feynman: 观察掩码不是删除历史，而是降低旧工具结果对当前推理的干扰。模型仍知道发生过调用，但不必反复看到沉重的输出细节。
+scenario:
+  type: hypothetical
+  text: 假设 Agent 早期读取了完整构建日志，后续修复只需知道“构建失败过”和错误摘要；每轮重送全部日志持续挤压当前代码上下文。
+image_mnemonic: 一张只表达「观察掩码」的纸面机制图：中心呈现「在保留工具调用发生记录的同时，隐藏或移出旧工具输出细节，以减少其对当前推理的干扰和上下文占用」，边缘用明确界线排除「掩码不是删除整个交互历史；调用痕迹仍可保留，沉重的观察内容不再反复进入当前输入」；不画候选关系。
+source_context: 本卡只采用以下来源范围：《Agent Harness 的本质：把模型放进可控的执行系统》：逐字定义观察掩码隐藏旧工具输出但保留调用历史的上下文治理机制。未被来源直接支持的产品结论、普遍因果或关系身份不写入本卡。
+boundaries:
+  - 掩码不是删除整个交互历史；调用痕迹仍可保留，沉重的观察内容不再反复进入当前输入。
+  - 被隐藏的信息若后续仍需要，系统应保留可重新取回的路径。
+  - 当前证据缺口：当前证据未说明哪些工具输出可安全掩码，以及重新取回时如何恢复引用关系。
+how_to:
+  - 标出已经完成作用、但不必继续逐字可见的旧工具输出。
+  - 保留调用时间、工具名、结论和回取引用，把沉重正文移出当前输入。
+  - 继续任务并设置恢复触发条件，验证需要细节时能重新取得原输出。
+transfer_question: 哪些旧工具结果可以只保留调用痕迹，哪些必须保留关键数值或原文才能避免后续误判？
+source_ids:
+  - SRC-akshay-agent-harness
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/observation-masking/visual.png
+  alt: 一张只表达「观察掩码」的纸面机制图：中心呈现「在保留工具调用发生记录的同时，隐藏或移出旧工具输出细节，以减少其对当前推理的干扰和上下文占用」，边缘用明确界线排除「掩码不是删除整个交互历史；调用痕迹仍可保留，沉重的观察内容不再反复进入当前输入」；不画候选关系。
+  prompt_record: src/assets/concepts/observation-masking/PROMPT.md
+  receipt: src/assets/concepts/observation-masking/receipt.yaml
+  visual_qa: passed

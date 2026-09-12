@@ -1,0 +1,38 @@
+schema_version: 1
+record_kind: canonical_concept
+id: agent-loop
+slug: agent-loop
+name_zh: Agent 循环
+name_en: Agent Loop
+aliases:
+  - Agent Loop
+category_id: continuous-action
+learning_stage: now
+definition_status: industry-common
+remember: Agent Loop 是模型选择下一步、Harness 执行工具、观察结果回到模型，再重复或退出的运行循环。
+feynman: 模型先看当前信息并选择下一步。如果它请求工具，外部系统就执行工具，把结果作为新观察交还模型；模型根据这个新结果决定继续、换一种做法，或给出最终答案。循环的关键不是绕圈，而是每次观察都会影响下一步，并且有明确的退出条件。
+scenario:
+  type: hypothetical
+  text: Agent 先搜索仓库，看到结果后打开相关文件，再修改代码并运行测试；测试失败成为下一轮观察，测试通过且任务满足条件时退出循环。
+image_mnemonic: 模型选择、工具执行、观察回传形成带反馈的三段循环，旁边有独立退出支路；每次回传都会改变下一步，而不是机械重复。
+source_context: Simon Willison 说明 coding agent 的实际工作方式是模型提出下一步、Harness 执行工具、结果重新进入上下文，模型再决定回答、继续调用工具或调整方案。本站补充生产边界：循环还要受停止条件、预算和用户中断约束。
+boundaries:
+  - Agent Loop 只描述单个 Agent 内部“选择—执行—观察—再选择”的行动心跳，不等于外层持续工作流、多 Agent 编排或 Loop Engineering。
+  - 模型生成工具调用请求，不是模型亲自执行工具；执行和结果封装由 Harness 完成。
+  - 退出不能只依赖模型随口说“完成”；真实系统还应有最大回合、预算、无进展、权限拒绝与用户中断等边界。
+  - 循环持续运行不等于任务已经正确完成，仍需独立验证结果。
+how_to:
+  - 记录每一轮的输入、模型选择、工具参数、工具结果和停止原因，定位空转、早停与错误回灌。
+  - 为每个循环设置清楚的退出条件、最大回合或预算，并提供用户中断路径。
+  - 当循环重复同一动作却没有新证据时，触发无进展检测，而不是继续消耗预算。
+transfer_question: 一个系统反复调用工具，却从不把结果送回模型，这还构成完整的 Agent Loop 吗？
+source_ids:
+  - SRC-simon-coding-agents
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/agent-loop/visual.png
+  alt: 模型选择下一步后指向工具执行，工具结果通过观察回传返回模型；另一条独立支路通向退出条件，表示 Agent Loop 会依据新观察继续或停止。
+  prompt_record: src/assets/concepts/agent-loop/PROMPT.md
+  receipt: src/assets/concepts/agent-loop/receipt.yaml
+  visual_qa: passed

@@ -1,0 +1,38 @@
+schema_version: 1
+record_kind: canonical_concept
+id: tool
+slug: tool
+name_zh: 工具
+name_en: Tool
+aliases:
+  - Tools
+category_id: external-access
+learning_stage: now
+definition_status: industry-common
+remember: Tool 是让 Agent 读取、计算或改变外部世界的结构化能力接口；模型提出调用，外层系统负责校验、执行并把结果送回来。
+feynman: 模型本身只能生成内容，Tool 像装在它身边的一只机械臂。模型可以按规定格式说“用这只手做什么”，但真正伸手、检查参数、执行动作和收回结果的是 Harness。有没有这只手，和模型知不知道该怎么用这只手，是两件事。
+scenario:
+  type: hypothetical
+  text: 一个代码 Agent 想读取文件，会按文件工具的名称和参数结构提出调用；工具层检查路径与权限，实际读取文件，再把内容作为结果返回给模型。
+image_mnemonic: 一只机械臂通过三针结构化插口操作外部盒子的操纵杆；接口形状规定怎样调用，机械臂代表可执行能力，外部盒子代表模型之外的世界。
+source_context: Akshay 对 Agent Harness 的拆解把工具称为 Agent 的“双手”：工具以名称、描述和参数类型暴露给模型，工具层负责注册、校验、参数提取、沙箱执行、结果捕获与观察格式化。该来源用于划清模型请求与外层执行的边界。
+boundaries:
+  - Tool Definition、Tool Call、Tool Execution 与 Tool Result 是连续但不同的环节；看到调用请求不等于动作已经执行成功。
+  - Tool 是具体能力接口，MCP 是连接一组外部能力的标准协议；二者不能互作同义词。
+  - Skill 主要沉淀“怎么做”的可复用方法，它可以指导调用 Tool，但不是 Tool 本身。
+  - 工具存在不保证 Agent 会选对工具、填对参数或获得权限；这些问题要分别检查。
+how_to:
+  - 排错时依次检查工具是否注册、描述是否清楚、参数是否通过校验、权限是否允许、执行是否成功、结果是否正确回传。
+  - 只向当前任务暴露必要工具，避免无关能力增加选择噪声与权限面。
+  - 对高风险 Tool 把权限检查和执行日志放在模型外层，不依赖提示词自我约束。
+transfer_question: 当模型能准确描述如何读取文件，却始终拿不到文件内容时，你应该先检查模型知识，还是 Tool 的注册、权限与执行链？
+source_ids:
+  - SRC-akshay-agent-harness
+visual:
+  type: metaphor
+  skill: anthropic-art
+  source_image: src/assets/concepts/tool/visual.png
+  alt: 冷白纸底上，一只手绘机械臂通过三针结构化插口操作外部盒子的操纵杆，表示 Tool 是模型借助外层系统执行外部动作的结构化能力接口。
+  prompt_record: src/assets/concepts/tool/PROMPT.md
+  receipt: src/assets/concepts/tool/receipt.yaml
+  visual_qa: passed

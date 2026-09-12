@@ -1,0 +1,37 @@
+schema_version: 1
+record_kind: canonical_concept
+id: multi-step-reliability-decay
+slug: multi-step-reliability-decay
+name_zh: 多步可靠性衰减
+name_en: Multi-Step Reliability Decay
+aliases:
+  - 错误复利
+category_id: result-trust
+learning_stage: now
+definition_status: evolving
+remember: 多步 Agent 流程的端到端成功率受每一步条件成功率共同约束，单步的小概率失败会随步骤增加累积成显著的整体可靠性损失。
+feynman: 单步「几乎不出错」在多步流程里是一句安慰话。可靠性像利息，只是复的是负利。
+scenario:
+  type: hypothetical
+  text: 假设五步流程每步单测都约九成九成功，端到端运行仍偶发失败；加入相关故障和重试后，简单相乘已无法描述真实可靠性。
+image_mnemonic: 一张只表达「多步可靠性衰减」的纸面机制图：中心呈现「多步 Agent 流程的端到端成功率受每一步条件成功率共同约束，单步的小概率失败会随步骤增加累积成显著的整体可靠性损失」，边缘用明确界线排除「各步独立时可用成功率乘积作简化估计；存在相关失败、重试或恢复路径时必须按真实条件概率与流程图计算」；不画候选关系。
+source_context: 本卡只采用以下来源范围：《一个被 harness 套住的 LLM agent：这个词到底指什么》：这段用连续步骤成功率的乘积说明微小单步失败会在长流程中累积为显著端到端损失。未被来源直接支持的产品结论、普遍因果或关系身份不写入本卡。
+boundaries:
+  - 各步独立时可用成功率乘积作简化估计；存在相关失败、重试或恢复路径时必须按真实条件概率与流程图计算。
+  - 它描述可靠性随流程组合而下降的机制，不是某个固定步数或固定百分比的经验定律。
+  - 当前证据缺口：需要带相关失败与恢复分支的真实 Agent 轨迹验证估算方式。
+how_to:
+  - 画出步骤、条件分支、重试和恢复路径，并测量每条边的条件成功率。
+  - 在独立假设成立时先计算乘积基线，再用端到端重复运行校准。
+  - 找出贡献最大的失败节点，优先缩短链路、增强验证或增加恢复。
+transfer_question: 当两个步骤会被同一网络故障同时影响时，为什么不能直接相乘；还需要收集什么联合失败数据？
+source_ids:
+  - SRC-harness-term-explainer
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/multi-step-reliability-decay/visual.png
+  alt: 一张只表达「多步可靠性衰减」的纸面机制图：中心呈现「多步 Agent 流程的端到端成功率受每一步条件成功率共同约束，单步的小概率失败会随步骤增加累积成显著的整体可靠性损失」，边缘用明确界线排除「各步独立时可用成功率乘积作简化估计；存在相关失败、重试或恢复路径时必须按真实条件概率与流程图计算」；不画候选关系。
+  prompt_record: src/assets/concepts/multi-step-reliability-decay/PROMPT.md
+  receipt: src/assets/concepts/multi-step-reliability-decay/receipt.yaml
+  visual_qa: passed

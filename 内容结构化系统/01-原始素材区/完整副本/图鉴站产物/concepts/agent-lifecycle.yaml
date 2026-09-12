@@ -1,0 +1,37 @@
+schema_version: 1
+record_kind: canonical_concept
+id: agent-lifecycle
+slug: agent-lifecycle
+name_zh: Agent 生命周期
+name_en: Agent Lifecycle
+aliases:
+  - 会话生命周期
+category_id: continuous-action
+learning_stage: when-needed
+definition_status: evolving
+remember: Agent 生命周期把一次运行组织成有边界的开工、运行、暂停／恢复与收尾，让每次状态转换都可检查、可交接。
+feynman: 把一次 Agent 运行想成一班值班。上岗先读规则、检查环境和接收交接；值班中执行、验证并记录状态；需要中断时留下可恢复位置；下岗前清理现场、登记未完成项并交给下一班。Lifecycle 管的是这些阶段怎样转换，不是 Agent 此刻具体写哪段内容。
+scenario:
+  type: hypothetical
+  text: Coding Agent 开工时运行环境检查并读取进度，执行中持续验证；临时暂停前保存当前状态，恢复后核对工作区，收尾时记录未完成项并留下干净的下一次入口。
+image_mnemonic: 一条清楚的值班流程从开工进入运行，可在中途暂停后恢复，最后完成收尾并留下下一次入口。
+source_context: Harness 工程学习仓库把会话组织为开工、选择、执行、收尾的结构化生命周期，并要求状态持久化、验证和干净交接。本站将暂停／恢复显式加入主卡，以表达长任务会跨会话继续；Lifecycle Hook 只作为在阶段转换点触发确定性动作的实现手段，不独立成概念。
+boundaries:
+  - Lifecycle 定义阶段、转换和交接责任，不等于 Agent Loop 的逐步推理与工具调用循环。
+  - 暂停不是结束，恢复也不是重新开始；二者需要可读状态、环境核对和明确所有权。
+  - Hook 是在生命周期事件上执行检查、通知或清理的一种实现方式，不是 Lifecycle 的同义词，也不能替代阶段设计。
+how_to:
+  - 为开工、运行、暂停、恢复和收尾分别定义入口条件、必要动作、产出证据与退出条件。
+  - 在关键转换点用 Hook 或中间件执行必须发生的确定性动作，例如环境检查、状态落盘、验证与清理。
+  - 收尾时明确已完成、未完成、未验证和下一步，避免把一次运行结束冒充任务完成。
+transfer_question: 一个 Agent 会持续调用工具，却每次重启都从头做起，它缺的是循环能力，还是可暂停、恢复和交接的 Lifecycle？
+source_ids:
+  - SRC-harness-learning-repo
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/agent-lifecycle/visual.png
+  alt: Agent 运行从开工进入运行，可在中途暂停后恢复，并在最后收尾交接，表示结构化生命周期管理阶段转换。
+  prompt_record: src/assets/concepts/agent-lifecycle/PROMPT.md
+  receipt: src/assets/concepts/agent-lifecycle/receipt.yaml
+  visual_qa: passed

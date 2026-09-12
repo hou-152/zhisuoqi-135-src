@@ -1,0 +1,40 @@
+schema_version: 1
+record_kind: canonical_concept
+id: harness-token-floor
+slug: harness-token-floor
+name_zh: Harness Token 底座
+name_en: Harness Token Floor
+aliases:
+  - Fixed Context Occupancy
+  - Context-Window Tax
+category_id: current-view
+learning_stage: when-needed
+definition_status: evolving
+remember: 在具体用户任务进入前，Harness 每次模型请求已经携带的系统提示、工具定义与运行脚手架所形成的基础 Token 负担及固定窗口占用。
+feynman: 像打车的起步价，车还没走就已经计费。Agent 的起步价不仅占钱，也占上下文座位。
+scenario:
+  type: hypothetical
+  text: 假设用户只发一句“继续”，请求却仍携带系统规则、几十个工具 Schema 和运行说明；短任务的固定前缀比用户内容大得多。
+image_mnemonic: 一张只表达「Harness Token 底座」的纸面机制图：中心呈现「在具体用户任务进入前，Harness 每次模型请求已经携带的系统提示、工具定义与运行脚手架所形成的基础 Token 负担及固定窗口占用」，边缘用明确界线排除「Token 底座不是一次性启动费；在无服务端状态的调用中，它会被每次请求重发或缓存读取」；不画候选关系。
+source_context: 本卡只采用以下来源范围：《Claude Code 在读提示词前为何已发送 3.3 万 Token》：逐字定义用户任务进入前由系统提示、工具 Schema 与脚手架组成的 Harness Token 固定底座；《Claude Code 在读提示词前为何已发送 3.3 万 Token》：逐字说明缓存命中降低计费却不减少固定底座对上下文窗口的物理占用。未被来源直接支持的产品结论、普遍因果或关系身份不写入本卡。
+boundaries:
+  - Token 底座不是一次性启动费；在无服务端状态的调用中，它会被每次请求重发或缓存读取。
+  - 缓存命中可以降低计费或延迟，却不会让固定前缀从本轮模型可见输入与窗口占用中消失。
+  - 绝对 Token 底座与它占上下文窗口的比例是同一负担的两种量法，不拆成两张候选卡。
+  - 底座较大不必然使整项任务更贵，请求次数、批处理能力与会话增长也会共同决定总量。
+  - 当前证据缺口：需要针对当前版本和真实配置在 API 边界重新测量，并核对各模型的缓存与窗口计量规则，才能比较具体产品。
+how_to:
+  - 在 API 边界分别计算系统提示、工具定义、脚手架、历史和用户输入的 Token。
+  - 连续发出几条短请求，确认哪些固定内容每轮重发或以缓存形式读取。
+  - 删除未使用工具或下沉说明后复测窗口占用、费用和任务成功率。
+transfer_question: 如果缓存降低了固定前缀费用，却没有增加可用窗口，产品应该怎样解释这两种收益的差别？
+source_ids:
+  - SRC-v2-398431a5f118
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/harness-token-floor/visual.png
+  alt: 一张只表达「Harness Token 底座」的纸面机制图：中心呈现「在具体用户任务进入前，Harness 每次模型请求已经携带的系统提示、工具定义与运行脚手架所形成的基础 Token 负担及固定窗口占用」，边缘用明确界线排除「Token 底座不是一次性启动费；在无服务端状态的调用中，它会被每次请求重发或缓存读取」；不画候选关系。
+  prompt_record: src/assets/concepts/harness-token-floor/PROMPT.md
+  receipt: src/assets/concepts/harness-token-floor/receipt.yaml
+  visual_qa: passed

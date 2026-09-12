@@ -1,0 +1,37 @@
+schema_version: 1
+record_kind: canonical_concept
+id: persistent-code-graph
+slug: persistent-code-graph
+name_zh: 持久化代码图谱
+name_en: Persistent Code Graph
+aliases:
+  - 持久化代码结构图
+category_id: information-storage
+learning_stage: when-needed
+definition_status: evolving
+remember: 跨任务保存并持续更新代码实体及其调用、导入、继承与测试关系的结构化图谱，可供 Agent 按需查询代码库结构。
+feynman: 不是每次都临时给代码拍一张快照，而是造一张一直存在、可以反复查阅、还会自己更新的"代码关系网地图"。
+scenario:
+  type: hypothetical
+  text: 假设 Agent 第二天再次分析仓库时，不必重读所有文件，而是查询昨天已建立并按新提交更新的调用与测试关系图。
+image_mnemonic: 一张只表达「持久化代码图谱」的纸面机制图：中心呈现「跨任务保存并持续更新代码实体及其调用、导入、继承与测试关系的结构化图谱，可供 Agent 按需查询代码库结构」，边缘用明确界线排除「它不是一次任务临时生成的代码摘要，也不等同于只按文本相似度检索代码片段」；不画候选关系。
+source_context: 本卡只采用以下来源范围：《用持久化代码图谱给 AI Review 精准上下文》：逐字定义持久化代码图谱所映射的代码实体与关系，并说明它可跨任务查询和增量更新。未被来源直接支持的产品结论、普遍因果或关系身份不写入本卡。
+boundaries:
+  - 它不是一次任务临时生成的代码摘要，也不等同于只按文本相似度检索代码片段。
+  - 图谱是否可用取决于解析覆盖、更新及时性与关系正确性；持久化不自动保证新鲜。
+  - 当前证据缺口：需要更多实现来源比较图谱更新漂移、动态语言解析与跨仓库扩展性。
+how_to:
+  - 定义要持久化的代码实体、关系类型、版本标识和来源位置。
+  - 在提交或索引变更时增量更新，并检测删除、重命名和解析失败。
+  - 用已知调用链和动态依赖抽样核对图谱，过期或低覆盖区域明确降级为未知。
+transfer_question: 如果图谱查询很快但落后主分支三天，Agent 应如何判断它还能用于影响分析还是必须重建？
+source_ids:
+  - SRC-v2-344d46b0f790
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/persistent-code-graph/visual.png
+  alt: 一张只表达「持久化代码图谱」的纸面机制图：中心呈现「跨任务保存并持续更新代码实体及其调用、导入、继承与测试关系的结构化图谱，可供 Agent 按需查询代码库结构」，边缘用明确界线排除「它不是一次任务临时生成的代码摘要，也不等同于只按文本相似度检索代码片段」；不画候选关系。
+  prompt_record: src/assets/concepts/persistent-code-graph/PROMPT.md
+  receipt: src/assets/concepts/persistent-code-graph/receipt.yaml
+  visual_qa: passed

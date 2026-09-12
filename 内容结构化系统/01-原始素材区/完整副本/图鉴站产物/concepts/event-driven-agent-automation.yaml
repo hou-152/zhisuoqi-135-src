@@ -1,0 +1,36 @@
+schema_version: 1
+record_kind: canonical_concept
+id: event-driven-agent-automation
+slug: event-driven-agent-automation
+name_zh: 事件驱动的 Agent 自动化
+name_en: Event-Driven Agent Automation
+aliases: []
+category_id: continuous-action
+learning_stage: when-needed
+definition_status: evolving
+remember: 由新事件进入系统自动触发 Agent 工作流，使其立即处理新增上下文并执行预设动作的运行机制。
+feynman: 不用等人有空来处理，事情一发生就自动开跑。新问题一进来，系统立刻去归类、去查重、去补充关联信息，甚至直接动手。把"人来了才处理"变成"事一来就处理"，等待时间被压到接近零。
+scenario:
+  type: hypothetical
+  text: 假设新工单进入队列就自动触发分类、查重和补充资料；同一事件被重复投递时，系统差点创建两份处理任务。
+image_mnemonic: 一张只表达「事件驱动的 Agent 自动化」的纸面机制图：中心呈现「由新事件进入系统自动触发 Agent 工作流，使其立即处理新增上下文并执行预设动作的运行机制」，边缘用明确界线排除「事件触发只决定何时启动，不自动保证后续动作正确、幂等或安全」；不画候选关系。
+source_context: 本卡只采用以下来源范围：《产品开发的下一阶段由上下文与行动能力驱动》：逐字说明由新事件触发 Agent 工作流并立即精炼、综合或行动的机制。未被来源直接支持的产品结论、普遍因果或关系身份不写入本卡。
+boundaries:
+  - 事件触发只决定何时启动，不自动保证后续动作正确、幂等或安全。
+  - 它不同于持续轮询，也不同于由人手动发起一次 Agent 会话。
+  - 当前证据缺口：当前证据未覆盖重复事件、失败重试和副作用控制。
+how_to:
+  - 定义可触发的事件、必要载荷和事件唯一标识，并过滤无关变化。
+  - 为后续动作设计幂等键、权限边界、失败重试和人工升级条件。
+  - 用重复、乱序和缺字段事件演练，确认启动时机正确且不会重复副作用。
+transfer_question: 当事件频繁更新同一对象时，系统应每次立即启动、合并窗口还是取消重跑；依据是什么？
+source_ids:
+  - SRC-v2-8e2243bbd540
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/event-driven-agent-automation/visual.png
+  alt: 一张只表达「事件驱动的 Agent 自动化」的纸面机制图：中心呈现「由新事件进入系统自动触发 Agent 工作流，使其立即处理新增上下文并执行预设动作的运行机制」，边缘用明确界线排除「事件触发只决定何时启动，不自动保证后续动作正确、幂等或安全」；不画候选关系。
+  prompt_record: src/assets/concepts/event-driven-agent-automation/PROMPT.md
+  receipt: src/assets/concepts/event-driven-agent-automation/receipt.yaml
+  visual_qa: passed

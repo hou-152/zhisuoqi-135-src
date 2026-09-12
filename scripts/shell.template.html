@@ -133,6 +133,12 @@ button{font-family:inherit}
 #panel .src{font-size:11px;color:var(--fg3);margin-bottom:9px;padding-right:32px;line-height:1.7}
 #panel h2{font-size:19px;font-weight:550;line-height:1.35;margin-bottom:12px;letter-spacing:-.01em}
 #panel .gloss{font-size:13px;line-height:1.85;color:var(--fg2);margin-bottom:20px}
+#panel .deep{border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin:0 0 18px;background:#141518}
+#panel .deep summary{cursor:pointer;font-size:11.5px;color:var(--fg4);outline:none}
+#panel .deep h5{margin-top:12px}
+#panel .deep .mut{font-size:12px;line-height:1.8;color:var(--fg3);white-space:pre-wrap}
+#panel .deep ul{margin:6px 0 0;padding-left:16px}
+#panel .deep li{font-size:12px;line-height:1.75;color:var(--fg3);margin:3px 0}
 #panel .metrics{display:flex;gap:20px;padding:12px 0;border-top:1px solid var(--line);
   border-bottom:1px solid var(--line);margin-bottom:18px}
 #panel .m{flex:1}
@@ -229,6 +235,40 @@ button{font-family:inherit}
 .cmsg.assistant{background:#111214;border:1px solid var(--line);color:#c2ccd8}
 .cmsg.pend{opacity:.5}
 .cmsg.note{background:#1a1710;border:1px solid #3a3320;color:#d3c48d;font-size:11.5px}
+.orch-card{margin:12px 0 14px;padding:12px 13px;background:#111722;border:1px solid #283552;border-radius:8px}
+.orch-card.draft{border-color:#35446d}
+.orch-card.sending{border-color:#5c4a26;background:#17140f}
+.orch-card.done{border-color:#2b4a37;background:#101913}
+.orch-card.error{border-color:#5c2f2b;background:#1c1110}
+.orch-head{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.orch-head b{font-size:12.5px;color:#e5e9f3;font-weight:550}
+.orch-status{margin-left:auto;font-size:10.5px;color:#9aa8c8;border:1px solid #39476a;border-radius:4px;padding:2px 6px}
+.orch-card.sending .orch-status{color:#e2cf9e;border-color:#5c4a26}
+.orch-card.done .orch-status{color:#a9e5c4;border-color:#2f5a41}
+.orch-card.error .orch-status{color:#efc3bf;border-color:#5c2f2b}
+.orch-task{font-size:12px;line-height:1.7;color:#d7dce7;margin-bottom:9px;white-space:pre-wrap;word-break:break-word}
+.orch-flow{display:flex;gap:5px;flex-wrap:wrap;align-items:center;margin:8px 0 10px}
+.orch-pill{font-size:10.5px;color:#b9c0f0;background:#20263f;border:1px solid #39406b;border-radius:5px;padding:3px 7px}
+.orch-pill.aux{color:#aeb7c6;background:#171b25;border-color:#303949}
+.orch-arrow{font-size:10px;color:#5f6b84}
+.orch-note{font-size:11px;color:#929bad;line-height:1.7;margin:6px 0 9px}
+.orch-more{border-top:1px solid #283047;padding-top:8px;margin-top:8px}
+.orch-more summary{cursor:pointer;color:#a9b5d1;font-size:11px;outline:none}
+.orch-prompt{margin:8px 0 0;padding:9px 10px;background:#0a0d13;border:1px solid #242c41;border-radius:6px;
+  color:#cbd3e2;font:11px/1.7 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;word-break:break-word;max-height:300px;overflow:auto}
+.orch-actions{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.orch-actions button{height:27px;padding:0 10px;border-radius:5px;cursor:pointer;font:11.5px inherit}
+.orch-send{background:#5e6ad2;border:0;color:#fff}
+.orch-send:hover{background:#7c86e8}
+.orch-send:disabled{opacity:.5;cursor:default}
+.orch-reset{background:#171a21;border:1px solid #303949;color:#aeb7c6}
+.orch-reset:hover{background:#20242d;color:#e5e9f3}
+.orch-receipt{margin-top:10px;padding-top:9px;border-top:1px solid #283047;color:#aeb7c6;font-size:10.5px;line-height:1.75}
+.orch-receipt b{color:#d7dce7;font-weight:500}
+.orch-sources{margin:5px 0 0;padding-left:16px}
+.orch-sources a{color:#9fb0e2;text-decoration:none}
+.orch-sources a:hover{text-decoration:underline}
+.orch-error{color:#efc3bf;font-size:11px;line-height:1.7;margin-top:7px}
 .clist{margin-top:10px}
 .keyrow{display:flex;gap:6px;margin:8px 0 4px}
 .keyrow input{flex:1;background:#0a0b0c;border:1px solid var(--line2);border-radius:6px;
@@ -267,6 +307,58 @@ code{background:#161719;border:1px solid var(--line);border-radius:4px;padding:1
   #list{display:none}
   #panel{width:100%}
 }
+
+/* ── 内参（第六格）：AI 内参图文格式的阅读区 ─────────────────────────
+   主区原来只有画布。内参是「读」的界面，所以它盖在画布上，不影响图谱布局。 */
+#reader{position:absolute;inset:0;z-index:18;background:var(--bg);overflow:auto;display:none}
+#reader.on{display:block}
+.nei{max-width:768px;margin:0 auto;padding:20px 30px 90px}
+.nei-crumb{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--fg3)}
+.nei-crumb b{color:var(--fg2);font-weight:500}
+.nei-crumb .sp{flex:1}
+.nei-title{font-size:26px;line-height:1.3;font-weight:600;margin:12px 0 10px;letter-spacing:-.01em}
+.nei-meta{display:flex;align-items:center;gap:9px;flex-wrap:wrap;color:var(--fg2);font-size:12.5px}
+.nei-meta .stars{color:#f2c94c;letter-spacing:1.5px}
+.nei-meta .tag{border:1px solid var(--line2);border-radius:5px;padding:1px 7px;color:var(--fg2);font-size:11.5px}
+.nei-meta .why{color:var(--fg4)}
+.nei-hero{margin:16px 0 8px;border-radius:9px;overflow:hidden;border:1px solid var(--line);height:296px}
+.nei-hero svg{display:block;width:100%;height:100%}
+.nei-cap{color:var(--fg3);font-size:11.5px}
+.nei-card{border:1px solid var(--line);background:var(--panel2);border-radius:9px;padding:12px 14px;margin:14px 0}
+.nei-card h5{margin-bottom:6px}
+.nei-card p{color:var(--fg2);line-height:1.7}
+.nei-link{margin:14px 0 0;font-size:12.5px;color:var(--fg2)}
+.nei-link a{color:var(--accent2);text-decoration:none}
+.nei-link a:hover{text-decoration:underline}
+.nei-tabs{display:flex;gap:2px;margin:20px 0 0;border-bottom:1px solid var(--line)}
+.nei-tabs button{background:none;border:0;border-bottom:2px solid transparent;color:var(--fg2);
+  font-size:12.5px;padding:8px 11px;cursor:pointer;margin-bottom:-1px}
+.nei-tabs button:hover{color:var(--fg)}
+.nei-tabs button.on{color:var(--fg);border-bottom-color:var(--accent)}
+.nei-body{padding-top:14px;font-size:13.5px;line-height:1.78}
+.nei-body h2,.nei-body h3{font-size:15px;margin:20px 0 8px;color:var(--fg)}
+.nei-body h4,.nei-body h5,.nei-body h6{font-size:13px;margin:16px 0 6px;color:var(--fg2)}
+.nei-body p{margin:8px 0}
+.nei-body ul{margin:6px 0 10px 18px}
+.nei-body li{margin:3px 0}
+.nei-body li.s{margin-left:14px;color:var(--fg2)}
+.nei-body blockquote{border-left:2px solid var(--line2);padding:2px 0 2px 12px;margin:8px 0;color:var(--fg2)}
+.nei-body hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+.nei-body code{background:var(--panel2);border:1px solid var(--line);border-radius:4px;padding:0 4px;font-size:12px}
+.nei-body pre{background:var(--panel2);border:1px solid var(--line);border-radius:7px;padding:10px 12px;overflow:auto;margin:10px 0}
+.nei-body pre code{border:0;background:none;padding:0}
+.concept{border:1px solid var(--line);border-radius:9px;padding:12px 14px;margin:12px 0;background:var(--panel2)}
+.concept .nm{display:block;font-size:13.5px;font-weight:600;margin-bottom:7px}
+.concept .q{border-left:2px solid var(--line2);padding-left:10px;color:var(--fg2);margin:7px 0;font-size:12.5px;line-height:1.7}
+.concept .fy{margin-top:9px;font-size:13px;line-height:1.75}
+.concept .fy i{color:var(--accent2);font-style:normal;font-size:11.5px;margin-right:6px}
+.fybox{border:1px solid var(--line);border-radius:9px;padding:12px 14px;margin:10px 0;background:var(--panel2)}
+.fybox .k{font-size:11.5px;color:var(--accent2);margin-bottom:7px}
+.fybox .mut{color:var(--fg3);font-size:11.5px;margin-bottom:8px}
+.fybox ul{margin:6px 0 0 18px}
+.fybox li{margin:4px 0;line-height:1.7}
+.fybox li b{color:var(--fg)}
+.nei-foot{margin-top:26px;padding-top:12px;border-top:1px solid var(--line);color:var(--fg3);font-size:11.5px}
 </style>
 </head>
 <body>
@@ -277,6 +369,7 @@ code{background:#161719;border:1px solid var(--line);border-radius:4px;padding:1
     <nav class="r-list">
       <button class="r-item on" data-view="graph" onclick="setView('graph')"><span class="ic">◧</span><b>知识体系</b><i id="r-all"></i></button>
       <button class="r-item" data-view="curate" onclick="setView('curate')"><span class="ic">◇</span><b>策展</b><i id="r-cur"></i></button>
+      <button class="r-item" data-view="neican" onclick="setView('neican')"><span class="ic">▤</span><b>内参</b><i id="r-nei"></i></button>
       <button class="r-item" data-view="todo" onclick="setView('todo')"><span class="ic">◑</span><b>待你看一眼</b><i id="r-todo"></i></button>
       <button class="r-item" data-view="mine" onclick="setView('mine')"><span class="ic">●</span><b>我在学</b><i id="r-mine"></i></button>
       <button class="r-item" data-view="chat" onclick="setView('chat')"><span class="ic">✳</span><b>对话</b><i id="r-chat">选方法论</i></button>
@@ -308,6 +401,7 @@ code{background:#161719;border:1px solid var(--line);border-radius:4px;padding:1
       <span class="mm" id="main-meta"></span>
     </div>
     <div id="hero-mini"><div class="kicker" id="kicker"></div><div class="stats" id="stats"></div></div>
+    <div id="reader"><div class="nei" id="nei-wrap"></div></div>
     <aside id="panel">
       <button class="close" onclick="closePanel()">✕</button>
       <div id="pbody"></div>
@@ -340,6 +434,8 @@ const ITERS     = 260;
 const nodes = DATA.nodes, edges = DATA.edges, sources = DATA.sources, meta = DATA.meta;
 // 策展层：主题标签 + 策展集（路线）+ 机器已判的边
 const CUR = DATA.curation || { tags: [], assign: {}, collections: [], edgeAuto: [], edgeHuman: [] };
+// 内参一栏：AI 内参图文格式（主题 / 重要等级 / 地址 / 配图 / 原文子链接 / 简介 / 入选理由 / 三产物）
+const NEI = DATA.neican || { period: '', articles: [] };
 const AUTO = new Map((CUR.edgeAuto || []).map(a => [a.key, a]));
 
 /* ── 验收方式分类 ─────────────────────────────────────────────
@@ -892,6 +988,19 @@ function openPanel(id) {
     <div class="src" style="margin-top:6px">${tags.length ? tags.join(' · ') : (src ? src.label : n.src)} · ${n.type}</div>
     <h2>${n.name}</h2>
     <div class="gloss">${n.gloss}</div>
+    ${((n.evidence||[]).length || n.ap) ? `<details class="deep"${kk === "accept" ? " open" : ""}>
+      <summary>深看 · 做到这些才算会${n.ap ? " · 验收问句" : ""}</summary>
+      ${(n.evidence||[]).length ? `<h5>掌握证据（可观察的行为，不是「理解了」）</h5><ul>${n.evidence.map(e => `<li>${esc(e)}</li>`).join('')}</ul>` : ''}
+      ${n.ap ? `<h5>验收问句</h5><div class="mut">${esc(n.ap)}</div>` : ''}
+      ${n.stage ? `<h5>什么时候学</h5><div class="mut">${({now:'现在先懂——不懂就没法往下',"when-needed":'做到这里再懂——用得到时再学',"deep-dive":'深入研究再懂——要专门花时间'})[n.stage] || ''}</div>` : ''}
+    </details>` : ''}
+    ${(mk && (mk.state === 'pass' || mk.state === 'mech' || mk.state === 'read')) ? `<details class="deep">
+      <summary>过了才给 · 费曼一下 / 原文 context / 别名</summary>
+      ${n.feynman ? `<h5>费曼一下</h5><div class="mut">${esc(n.feynman)}</div>` : ''}
+      ${n.sourceContext ? `<h5>原文 context</h5><div class="mut">${esc(String(n.sourceContext).slice(0, 900))}</div>` : ''}
+      ${(n.aliases||[]).length ? `<h5>别名</h5><div class="mut">${n.aliases.map(a => esc(a)).join('、')}</div>` : ''}
+      ${n.nameEn ? `<h5>英文</h5><div class="mut">${esc(n.nameEn)}</div>` : ''}
+    </details>` : ''}
     <div class="metrics">
       <div class="m"><b>${pre.length}</b><span>前置</span></div>
       <div class="m"><b>${post.length}</b><span>解锁</span></div>
@@ -1058,6 +1167,8 @@ function refreshRail() {
   if (e2) e2.textContent = pending;
   if (e3) e3.textContent = mine;
   if (e5) e5.textContent = (CUR.tags || []).length;
+  const e6 = document.getElementById('r-nei');
+  if (e6) e6.textContent = (NEI.articles || []).length;
   const e4 = document.getElementById('r-chat');
   if (e4) e4.textContent = activeSkill ? activeSkill : String((typeof ALLSKILLS !== 'undefined' && ALLSKILLS ? ALLSKILLS.length : 15));
   const mm = document.getElementById('main-meta');
@@ -1069,7 +1180,7 @@ window.refreshRail = refreshRail;
    之前没有这一栏——所以没有 Linear 的味道。
    它是当前导航项的**可扫列表**：一行一个东西，右边是元信息，点开看详情。 */
 let currentView = 'graph';
-const VIEW_TITLE = { graph: '知识体系', curate: '策展', todo: '待你看一眼', mine: '我在学', chat: '对话 · 方法论' };
+const VIEW_TITLE = { graph: '知识体系', curate: '策展', neican: '内参 · 260912 期', todo: '待你看一眼', mine: '我在学', chat: '对话 · 方法论' };
 const ST_COLOR = { pass: '#4cb782', fail: '#eb5757', mech: '#f2c94c', read: '#9b7fe8' };
 
 function rowHTML(inner, onclick, on) {
@@ -1092,7 +1203,10 @@ function renderList() {
     const list = nodes.filter(n => matches(n) && hit(n.name + n.gloss))
       .sort((a, b) => (a.level - b.level) || a.name.localeCompare(b.name));
     cnt = list.length;
-    html = list.slice(0, 400).map(n => {
+    // 概念地图 v2 有 1000+ 个点，列表不再切在 400：全量渲染，只在真的渲染不完时才提示。
+    const LIST_CAP = 3000;
+    const shown = list.slice(0, LIST_CAP);
+    html = shown.map(n => {
       const st = marks[n.id];
       return rowHTML(
         `<span class="rd" style="background:${KIND[kOf(n)].color}"></span>`
@@ -1101,6 +1215,7 @@ function renderList() {
         + (st ? `<span class="st" style="background:${ST_COLOR[st.state] || '#3c3f44'}"></span>` : ''),
         `openPanel('${n.id}')`, selected === n.id);
     }).join('') || '<div class="lp-empty">没有符合条件的点。<br>（左侧换个分组，或清掉筛选）</div>';
+    if (cnt > shown.length) html += `<div class="lp-empty">只渲染了前 ${shown.length} 条，共 ${cnt} 条。<br>（用上面的搜索或左侧分组缩小范围）</div>`;
   } else if (currentView === 'curate') {
     const C = (CUR.collections || []).filter(c => hit(c.name + c.why));
     cnt = C.length;
@@ -1146,9 +1261,18 @@ function renderList() {
     html = list.map(s => rowHTML(
       `<span class="rd" style="background:${s.name === activeSkill ? '#5e6ad2' : '#2b2c30'}"></span>`
       + `<span class="rn">${esc(s.name)}</span><span class="rm">${(s.bytes / 1024).toFixed(0)}K</span>`,
-      `pickAgent('${s.name}'${PUB.skillMD && PUB.skillMD[s.name] ? `,'${s.name}'` : (PINNED.some(p => p.name === s.name) ? ',null' : '')})`,
+      `pickAgent('${s.name}'${typeof PUB !== 'undefined' && PUB.skillMD && PUB.skillMD[s.name] ? `,'${s.name}'` : (PINNED.some(p => p.name === s.name) ? ',null' : '')})`,
       s.name === activeSkill)).join('')
       || '<div class="lp-empty">正读 skill 清单…</div>';
+  } else if (currentView === 'neican') {
+    const list = (NEI.articles || []).filter(a => hit(a.title + a.topic + a.author));
+    cnt = list.length;
+    html = list.map(a => rowHTML(
+      `<span class="rd" style="background:${a.paletteBg || '#5e6ad2'}"></span>`
+      + `<span class="rn" title="${esc(a.title)}">${a.no}. ${esc(a.topic || a.title)}</span>`
+      + `<span class="rm" style="color:#f2c94c">${STARS(a.stars)}</span>`,
+      `openNeican('${a.slug}')`, neiSlug === a.slug)).join('')
+      || '<div class="lp-empty">这一期还没生成。<br>（跑 node scripts/build-neican.mjs）</div>';
   }
   box.innerHTML = html;
   if (cntEl) cntEl.textContent = cnt;
@@ -1166,15 +1290,108 @@ function syncListSel() {
 
 function setView(v) {
   currentView = v;
+  if (v !== 'neican') hideReader();
   document.querySelectorAll('.r-item').forEach(b => b.classList.toggle('on', b.dataset.view === v));
   if (v === 'mine') { onlyMine = true; closePanel(); }
   else if (v === 'graph') { onlyMine = false; closePanel(); }
   else if (v === 'curate') { onlyMine = false; openCurate(); }
+  else if (v === 'neican') { onlyMine = false; closePanel(); openNeican(neiSlug); }
   else if (v === 'todo') { onlyMine = false; openInsert(); }
   else if (v === 'chat') { onlyMine = false; openAgent(); }
   refreshRail(); renderList();
 }
 window.setView = setView;
+
+/* ══ 内参：AI 内参图文格式的一栏 ═══════════════════════════════
+   格式照所有者给的《serious AI 内参》与飞书两份主题精选：
+     主题 · 重要等级 · 地址 → 配图 → 原文子链接 + 原文简介 + 入选理由
+     → 三级笔记 / 概念网络 / 费曼 ×3 / 阅读原文
+   「收藏」「公开笔记」没做——还没有账号登录（所有者口径）。
+   数据来自 knowledge/内参-260912/内参-页面数据.json（scripts/build-neican.mjs 生成）。 */
+let neiSlug = null, neiTabName = 'notes';
+const STARS = n => '★'.repeat(Math.max(0, Math.min(5, n))) + '☆'.repeat(Math.max(0, 5 - n));
+const neiOf = slug => (NEI.articles || []).find(a => a.slug === slug) || (NEI.articles || [])[0];
+function srcLabel(a) {
+  try { return new URL(a.url).host.replace(/^www\./, ''); } catch (e) { return a.author || '来源'; }
+}
+function hideReader() { const r = document.getElementById('reader'); if (r) r.classList.remove('on'); }
+window.hideReader = hideReader;
+
+function openNeican(slug) {
+  const a = neiOf(slug); if (!a) return;
+  neiSlug = a.slug;
+  neiTabName = 'notes';
+  renderNeican(true);
+  document.getElementById('reader').classList.add('on');
+  if (document.getElementById('reader').scrollTo) document.getElementById('reader').scrollTo(0, 0);
+  renderList();
+}
+window.openNeican = openNeican;
+
+function neiTab(k) {
+  neiTabName = k;
+  document.querySelectorAll('.nei-tabs button').forEach(b => b.classList.toggle('on', b.dataset.k === k));
+  document.getElementById('nei-body').innerHTML = neiBody(neiOf(neiSlug));
+}
+window.neiTab = neiTab;
+
+function neiBody(a) {
+  if (neiTabName === 'concept') {
+    const cs = a.conceptCards || [];
+    return cs.length ? cs.map((c, i) => `<div class="concept">
+      <span class="nm">${i + 1}. ${esc(c.name)}</span>
+      ${(c.quotes || []).map(q => `<div class="q">${q}</div>`).join('')}
+      ${c.feynman ? `<div class="fy"><i>费曼一下</i>${c.feynman}</div>` : ''}</div>`).join('')
+      : '<div class="mut">这一篇没有概念卡。</div>';
+  }
+  if (neiTabName === 'feynman') {
+    const f = a.feynman || {};
+    return `<div class="fybox"><div class="k">① 30 秒版 · 讲给完全不懂的人</div><div>${esc(f.short || '')}</div></div>
+      <div class="fybox"><div class="k">② 3 分钟版 · 讲清机制</div>${f.long || ''}</div>
+      <div class="fybox"><div class="k">③ 验收版 · 讲完要答得出的点</div>
+        <div class="mut">费曼不是「再讲一遍」，是讲完之后能被这几个点问住。答不出，就回到上面两版重讲。</div>
+        ${(f.rubric || []).map(r => `<div style="margin-top:10px"><b>${esc(r.concept)}</b>
+          <ul>${(r.points || []).map(p => `<li>${esc(p)}</li>`).join('')}</ul></div>`).join('')}</div>`;
+  }
+  if (neiTabName === 'source') {
+    return `<div class="fybox"><div class="k">原文</div>
+      <div style="line-height:1.85">${esc(a.title)}<br>
+      <a href="${esc(a.url)}" target="_blank" rel="noopener" style="color:var(--accent2)">${esc(a.url)} ↗</a></div>
+      <div class="mut" style="margin-top:10px">来源 ${esc(srcLabel(a))} · 作者 ${esc(a.author || '—')}
+        · 原文 ${a.words} 字 · 抓取 ${esc(a.fetched || '')}</div>
+      <div class="mut">这一栏只放子链接与元信息，不转载全文。</div></div>`;
+  }
+  return a.notes || '';
+}
+
+function renderNeican(reset) {
+  const a = neiOf(neiSlug);
+  const wrap = document.getElementById('nei-wrap');
+  if (!a) { wrap.innerHTML = '<div class="lp-empty">这一期还没生成。<br>（跑 node scripts/build-neican.mjs）</div>'; return; }
+  const tabs = [['notes', '三级笔记'], ['concept', '概念网络'], ['feynman', '费曼 ×3'], ['source', '阅读原文']];
+  wrap.innerHTML = `
+    <div class="nei-crumb"><b>AI 内参</b><span>›</span><span>${esc(NEI.period)} 期</span>
+      <span class="sp"></span><span>${esc(NEI.date || '')} ${esc(NEI.weekday || '')}</span></div>
+    <h1 class="nei-title">${esc(a.title)}</h1>
+    <div class="nei-meta">
+      <span class="stars" title="${esc(a.starReason)}">${STARS(a.stars)}</span>
+      <span>${esc(srcLabel(a))}</span><span>·</span><span>${esc(a.author || '')}</span>
+      <span>·</span><span>约 ${Math.max(1, Math.round(a.words / 500))} 分钟</span>
+      <span class="tag">${esc(a.topic)}</span>
+      <span class="why">第 ${a.no} / ${NEI.articles.length} 篇</span>
+    </div>
+    <div class="nei-hero">${a.hero || ''}</div>
+    <div class="nei-cap">配图 · Claude 官方手绘编辑插画语言（不透明色块 ＋ 不规则象牙白承载形 ＋ 黑色手势线）· 视觉隐喻「${esc(a.metaphor)}」</div>
+    <div class="nei-link">原文：<a href="${esc(a.url)}" target="_blank" rel="noopener">${esc(a.title)} ↗</a></div>
+    <div class="nei-card"><h5>原文简介</h5><p>${esc(a.summary)}</p></div>
+    <div class="nei-card"><h5>入选理由</h5><p>${esc(a.why)}</p>
+      <p style="margin-top:8px;color:var(--fg3);font-size:11.5px">重要等级 ${STARS(a.stars)} —— ${esc(a.starReason)}</p></div>
+    <div class="nei-tabs">${tabs.map(([k, t]) =>
+      `<button data-k="${k}" class="${k === neiTabName ? 'on' : ''}" onclick="neiTab('${k}')">${t}</button>`).join('')}</div>
+    <div class="nei-body" id="nei-body">${neiBody(a)}</div>
+    <div class="nei-foot">${esc(NEI.pipeline || '')}<br>${esc(NEI.source || '')}<br>生成 ${esc(NEI.generatedAt || '')}</div>`;
+  if (reset) wrap.parentElement.scrollTop = 0;
+}
 
 /* 一条候选边的详情（列表里点进来） */
 function openEdgeDetail(k) {
@@ -1342,8 +1559,11 @@ function renderAgent(pinned, foot) {
   document.getElementById('pbody').innerHTML = `
     <div class="src">Agent · 用哪套方法论</div>
     <h2>先问一句：这个课题有标准答案吗？</h2>
-    <div class="mut">有 → 135 闭环；没有 → dbs-learning-beta。<br>
+    <div class="mut">输入 <code>/dbs 你的任务</code>，先生成编排提示词，再由你点击发送。<br>
+    有 → 135 闭环；没有 → dbs-learning-beta。<br>
     <b>选中的 skill 原文</b>（不是摘要）会被当成 system prompt 发给模型。<br>${foot}</div>
+    <div class="alist"><button class="acard" onclick="startOrchestration('')">
+      <b>/dbs · 组合编排</b><span>先看主 Skill、辅助 Skill、执行顺序和完整提示词</span><i>生成后停在「待发送」</i></button></div>
     <div class="alist">${rows}</div>
     ${others.length ? `<h5>其余已装 skill（点一下直接用）</h5>
     <div class="alist">${others.map(x => `<button class="acard" onclick="pickAgent('${x.name}', '${x.name}')">
@@ -1351,9 +1571,6 @@ function renderAgent(pinned, foot) {
       <i>${(x.bytes / 1024).toFixed(1)} KB · SKILL.md 原文</i></button>`).join('')}</div>` : ''}`;
 }
 window.openAgent = openAgent;
-
-refreshRail();
-
 
 /* ══ 对话：选一个方法论，然后真的能问 ─────────────────────────
    经 http://127.0.0.1:5180/知所栖-壳.html 打开时走 /api/llm（真 LLM）；
@@ -1386,6 +1603,84 @@ const SKILLS = {
 var activeSkill = null;
 var activeFile = null;   // 非空 = 用 .agents/skills/<activeFile>/SKILL.md 当 system prompt
 var msgs = [];
+var orchestration = null; // /dbs 的编排收据：draft → sending → done / error
+
+const ORCH_ROLE = {
+  'dbs-learning-beta': { label: 'dbs-learning-beta', kind: '主 Skill', note: '判题型、判据、代价和个人裁决点' },
+  'dbs-standard-answer': { label: 'dbs-standard-answer', kind: '辅助 Skill', note: '答案等级、理论、历史同构和失效边界' },
+  'zhihu': { label: 'zhihu', kind: '辅助 Skill', note: '检索知乎原始回答、作者和链接' },
+};
+
+function buildOrchestration(task) {
+  const personal = /我(要不要|是否|该不该)|要不要|是否应该|该不该|值不值得|选择|辞职|转行|做独立|怎么办/.test(task);
+  const skills = personal
+    ? ['dbs-learning-beta', 'dbs-standard-answer', 'zhihu']
+    : ['dbs-standard-answer', 'zhihu'];
+  const main = skills[0];
+  const aux = skills.slice(1);
+  const flow = personal
+    ? [
+        '1. dbs-learning-beta 先判定题型；如果是知识型，报告并交回 135 闭环。',
+        '2. zhihu 只检索与任务直接相关的回答、作者、链接和摘要，摘要不当全文。',
+        '3. dbs-standard-answer 判断答案等级，核对理论、案例、反例与证据边界。',
+        '4. beta 根据用户约束整理判据、代价和最小实验，不替用户做决定。',
+      ]
+    : [
+        '1. zhihu 检索原始材料，记录标题、作者、链接和摘要。',
+        '2. dbs-standard-answer 挖掘理论和历史同构，判断证据能支持到哪一层。',
+      ];
+  const stop = personal
+    ? '题型冲突、材料无法核验或用户约束缺失时，停止并报告缺口。'
+    : '来源无法核验、理论与案例不匹配或没有统一答案时，停止并照实标注。';
+  const prompt = [
+    '组合任务：' + task,
+    '主 Skill：/' + main,
+    '辅助 Skill：' + aux.map(x => '/' + x).join('、'),
+    '',
+    '执行顺序：', ...flow,
+    '',
+    '边界：',
+    '区分事实、推断和未知；知乎搜索只提供待核验来源；保留用户的最终决定权。',
+    '停止条件：' + stop,
+    '',
+    '最终只交付一份由主 Skill 统领的结果，附来源、证据缺口和下一步由用户决定的事项。',
+  ].join('\n');
+  return { task, skills, main, aux, prompt, status: 'draft', result: null, error: null };
+}
+
+function safeHref(url) {
+  const s = String(url || '');
+  return /^https?:\/\//i.test(s) ? esc(s) : '#';
+}
+
+function renderOrchestration() {
+  const o = orchestration;
+  if (!o) return '';
+  const labels = { draft: '待发送', sending: '执行中', done: '已完成', error: '执行失败' };
+  const role = x => ORCH_ROLE[x] || { label: x, kind: 'Skill', note: '已安装 Skill' };
+  const flow = [o.main, ...o.aux].map((x, i) =>
+    `<span class="orch-pill ${i ? 'aux' : ''}">${i ? '辅' : '主'} · /${esc(role(x).label)}</span>`).join('<span class="orch-arrow">→</span>');
+  const r = o.result;
+  const receipt = r ? `<div class="orch-receipt">
+      <b>执行收据</b>　${esc((r.model || '本地模型'))}${r.tokens ? ` · ${esc(r.tokens)} tokens` : ''}<br>
+      已加载：${r.skills.map(x => '/' + esc(x)).join('、')}<br>
+      知乎来源：${r.sources.length} 条${r.sourceError ? `（检索失败：${esc(r.sourceError)}）` : ''}
+      ${r.sources.length ? `<ol class="orch-sources">${r.sources.map(s => `<li><a href="${safeHref(s.url)}" target="_blank" rel="noreferrer">${esc(s.title || '无标题')}</a> · ${esc(s.author || '未知作者')}</li>`).join('')}</ol>` : ''}
+    </div>` : '';
+  return `<section class="orch-card ${esc(o.status)}">
+    <div class="orch-head"><b>/dbs · 编排收据</b><span class="orch-status">${labels[o.status] || '待发送'}</span></div>
+    <div class="orch-task">${esc(o.task)}</div>
+    <div class="orch-flow">${flow}</div>
+    <div class="orch-note">提示词已经生成。${o.status === 'draft' ? '点击发送后才会调用下游 Skill 和知乎 API。' : '下游执行状态和来源写在下面。'}</div>
+    <details class="orch-more" ${o.status === 'draft' ? 'open' : ''}><summary>展开完整组合提示词</summary><pre class="orch-prompt">${esc(o.prompt)}</pre></details>
+    <div class="orch-actions">
+      <button class="orch-send" onclick="sendOrchestration()" ${o.status === 'sending' || o.status === 'done' ? 'disabled' : ''}>${o.status === 'error' ? '重试发送' : '发送到下游'}</button>
+      <button class="orch-reset" onclick="clearOrchestration()">重新编排</button>
+    </div>
+    ${o.error ? `<div class="orch-error">${esc(o.error)}</div>` : ''}
+    ${receipt}
+  </section>`;
+}
 
 function renderConv() {
   const body = document.getElementById('pbody');
@@ -1398,9 +1693,9 @@ function renderConv() {
   const head = activeSkill
     ? `<div class="src">会话 · ${activeSkill}${activeFile ? ' · SKILL.md 原文' : ' · 内置'}</div><h2>${tagOf}</h2>`
     : `<div class="src">会话</div><h2>先选一个方法论</h2>`;
-  const hint = activeSkill ? '' :
+  const hint = (activeSkill ? '' : (orchestration ? '' :
     `<div class="mut">点底栏的 <b>Agent</b> 选一个，再在下面的输入框里问我。<br>
-     <b>选哪个不由系统替你决定。</b></div>`;
+     <b>选哪个不由系统替你决定。</b></div>`)) + renderOrchestration();
   const rows = msgs.map((m, i) => `<div class="cmsg ${m.role}${m.pending ? ' pend' : ''}">${
     esc(m.content).replace(/\n/g, '<br>')}${
     (APP.on && m.role === 'assistant' && !m.pending && i > 0)
@@ -1415,10 +1710,85 @@ function esc(t) { return String(t).replace(/[&<>]/g, c => ({ '&': '&amp;', '<': 
 
 function openConv() { renderConv(); }
 
+function startOrchestration(raw) {
+  const task = String(raw || '').replace(/^\/dbs\b\s*/i, '').trim();
+  const q = document.getElementById('b-q');
+  if (!task) {
+    orchestration = null;
+    msgs = [];
+    currentView = 'chat';
+    document.querySelectorAll('.r-item').forEach(b => b.classList.toggle('on', b.dataset.view === 'chat'));
+    refreshRail(); renderList(); renderConv();
+    q.placeholder = '/dbs 你的任务（先生成提示词，再点击发送）';
+    q.focus();
+    return;
+  }
+  orchestration = buildOrchestration(task);
+  activeSkill = null;
+  activeFile = null;
+  msgs = [{ role: 'assistant', content: '已生成 /dbs 组合提示词，当前停在「待发送」。' }];
+  currentView = 'chat';
+  document.querySelectorAll('.r-item').forEach(b => b.classList.toggle('on', b.dataset.view === 'chat'));
+  refreshRail(); renderList(); renderConv();
+  q.placeholder = '继续输入 /dbs 任务，或点击上面的「发送到下游」';
+}
+
+async function sendOrchestration() {
+  const o = orchestration;
+  if (!o || o.status === 'sending' || o.status === 'done') return;
+  o.status = 'sending'; o.error = null;
+  msgs = [{ role: 'user', content: o.task }, { role: 'assistant', content: '下游执行中：加载 Skill → 检索知乎 → 生成结果…', pending: true }];
+  renderConv();
+  try {
+    let j;
+    const local = /^(127\.0\.0\.1|localhost|\[::1\])$/.test(location.hostname) || location.protocol === 'file:';
+    if (local) {
+      const r = await fetch('/api/orchestrate', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ task: o.task, skills: o.skills, prompt: o.prompt }),
+      });
+      j = await r.json();
+    } else {
+      // 公网静态版没有本地知乎代理：有访客 key 时仍可运行烘焙的 Skill，来源缺口要明说。
+      if (typeof llmCall !== 'function') throw new Error('当前页面没有可用的下游运行时');
+      const baked = typeof PUB !== 'undefined' ? PUB.skillMD || {} : {};
+      const sys = o.skills.map(x => baked[x] || (SKILLS[x] || {}).sys || '').filter(Boolean).join('\n\n')
+        + '\n\n公网运行限制：无法调用本地知乎 API，不得编造知乎来源；需要来源时明确写出缺口。';
+      const res = await llmCall(sys, [{ role: 'user', content: o.task }], null);
+      if (!res.ok) throw new Error(res.why || '公网下游调用失败');
+      j = { ok: true, content: res.content, skills: o.skills, sources: [], sourceError: '公网版没有本地知乎检索代理', model: res.via || '' };
+    }
+    if (j.error) throw new Error(j.error + (j.detail ? ' — ' + String(j.detail).slice(0, 160) : ''));
+    o.status = 'done';
+    o.result = { skills: j.skills || o.skills, sources: j.sources || [], sourceError: j.sourceError || '', model: j.model || '', tokens: j.tokens || 0 };
+    const out = j.content ?? j.text ?? j.choices?.[0]?.message?.content ?? j.data?.content ?? JSON.stringify(j);
+    msgs[1] = { role: 'assistant', content: String(out || '下游没有返回内容。') };
+  } catch (e) {
+    o.status = 'error'; o.error = e.message || String(e);
+    msgs[1] = { role: 'assistant', content: '这次没有得到下游结果。看上面的执行收据和错误，可直接重试。' };
+  }
+  renderConv(); refreshRail();
+}
+
+function clearOrchestration() {
+  orchestration = null; msgs = [];
+  const q = document.getElementById('b-q');
+  q.placeholder = '我想学 ____  （回车走 135 闭环）';
+  renderConv(); q.focus();
+}
+window.startOrchestration = startOrchestration;
+window.sendOrchestration = sendOrchestration;
+window.clearOrchestration = clearOrchestration;
+
 async function send() {
   const q = document.getElementById('b-q');
   const text = (q.value || '').trim();
   if (!text) return;
+  if (/^\/dbs(?:\s|$)/i.test(text)) {
+    q.value = '';
+    startOrchestration(text);
+    return;
+  }
   q.value = '';
   msgs.push({ role: 'user', content: text });
   if (!activeSkill) {
@@ -1454,6 +1824,7 @@ window.openConv = openConv;
 
 /* Agent 卡片：选中即生效，并切到会话 */
 window.pickAgent = function (label, file) {
+  orchestration = null;
   activeSkill = label;
   activeFile = file || null;
   const q = document.getElementById('b-q');
@@ -1467,6 +1838,7 @@ window.pickAgent = function (label, file) {
   renderConv(); refreshRail();
   q.focus();
 };
+refreshRail();
 
 /* 底栏输入框：回车发送 */
 document.getElementById('b-q').addEventListener('keydown', e => {

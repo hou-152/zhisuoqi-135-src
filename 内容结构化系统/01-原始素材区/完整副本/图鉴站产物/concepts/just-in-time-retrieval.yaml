@@ -1,0 +1,39 @@
+schema_version: 1
+record_kind: canonical_concept
+id: just-in-time-retrieval
+slug: just-in-time-retrieval
+name_zh: 即时检索
+name_en: Just-in-Time Retrieval
+aliases:
+  - 按需检索
+  - JIT Retrieval
+category_id: context-delivery
+learning_stage: when-needed
+definition_status: evolving
+remember: 即时检索让 Agent 平时只保留轻量引用，在任务需要时再查询外部信息，把相关部分送进当前 Context。
+feynman: 你不用把整座图书馆搬到书桌，只要先留下一张索书号清单。做到某一步发现需要某份材料时，再按索引去查，只把相关几页拿回来。这样桌面更轻，但也更依赖检索工具、索引和判断时机。
+scenario:
+  type: hypothetical
+  text: 一个代码 Agent 先看到文件路径和目录结构，只有当报错指向某个模块时才用搜索与局部读取取得相关函数，把命中的片段放进当前 Context，而不是启动时加载整个仓库。
+image_mnemonic: 一张轻量引用卡触发“需要时查”，从外部资料架取出一小块相关内容，再把它送进当前上下文框；未命中的资料继续留在外部。
+source_context: Anthropic 从 Agent 设计与 Claude Code 实践视角，描述只维护文件路径、已存查询或网页链接，并在运行时用工具动态加载数据的策略。来源也明确指出运行时探索更慢且依赖工具与启发式；本站不把它写成预检索的全面替代。
+boundaries:
+  - 即时检索不等于把所有可能相关资料预先塞进 Context；关键差别是按任务进展触发取回。
+  - 它不等于 Progressive Disclosure；即时检索是取数时机策略，渐进式披露是逐层发现信息的更广组织模式。
+  - 它也不等于普通 RAG 的唯一实现；预检索、即时探索与混合策略应按任务动态程度和延迟要求选择。
+  - 引用过期、工具误用、搜索死胡同或漏识别关键信息都会让按需检索失败。
+how_to:
+  - 在 Context 中保留稳定且轻量的文件路径、查询、网页链接或记录 ID，而不是完整对象。
+  - 为 Agent 提供范围可控、返回精简的搜索和局部读取工具，并明确何时应该继续深入。
+  - 检查被取回内容是否真的与当前步骤相关，同时记录延迟、漏检和 Context 消耗。
+transfer_question: 当资料变化频繁且体量很大时，为什么“先存路径、需要时再局部读取”可能比启动时全部加载更稳？
+source_ids:
+  - SRC-anthropic-effective-context
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/just-in-time-retrieval/visual.png
+  alt: 轻量引用卡在需要时触发查询，从外部资料架取出一块相关内容，并只把这部分送进当前上下文，其他资料仍留在外部。
+  prompt_record: src/assets/concepts/just-in-time-retrieval/PROMPT.md
+  receipt: src/assets/concepts/just-in-time-retrieval/receipt.yaml
+  visual_qa: passed

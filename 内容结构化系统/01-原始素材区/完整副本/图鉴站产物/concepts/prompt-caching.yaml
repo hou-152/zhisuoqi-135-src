@@ -1,0 +1,37 @@
+schema_version: 1
+record_kind: canonical_concept
+id: prompt-caching
+slug: prompt-caching
+name_zh: 提示词缓存
+name_en: Prompt Caching
+aliases:
+  - Prompt Cache
+category_id: continuous-action
+learning_stage: when-needed
+definition_status: evolving
+remember: 复用多次模型请求中未变化输入前缀的已处理计算，以降低重复输入的成本和首字延迟的机制。
+feynman: 提示词缓存就是让模型别每轮都重新处理那段已经处理过、又几乎没变的输入前缀。它省下的不是回答本身，而是重复阅读同一大段上下文的计算成本。
+scenario:
+  type: hypothetical
+  text: 假设客服 Agent 的系统规则和工具说明连续十轮不变，只有末尾用户消息变化；把动态时间戳放到最前面后，缓存收益突然消失。
+image_mnemonic: 一张只表达「提示词缓存」的纸面机制图：中心呈现「复用多次模型请求中未变化输入前缀的已处理计算，以降低重复输入的成本和首字延迟的机制」，边缘用明确界线排除「缓存的是稳定输入前缀的处理结果，不是上一轮答案，也不是按语义相似检索整段对话」；不画候选关系。
+source_context: 本卡只采用以下来源范围：《提示词缓存不是小优化，而是 agent 成本结构的关键变量》：逐字定义提示词缓存复用稳定输入前缀的计算结果，并把它放在长对话与 Agent 的成本结构中。未被来源直接支持的产品结论、普遍因果或关系身份不写入本卡。
+boundaries:
+  - 缓存的是稳定输入前缀的处理结果，不是上一轮答案，也不是按语义相似检索整段对话。
+  - 首次写入可能更贵，收益取决于后续复用次数、前缀稳定性、模型门槛与缓存有效期。
+  - 当前证据缺口：需要按当前各模型提供方文档核对缓存匹配粒度、计价与失效规则。
+how_to:
+  - 把稳定规则和工具说明排在前缀，把会话状态与本轮输入放在后部。
+  - 对比首次写入、重复命中和前缀微调三类请求的缓存量、费用与延迟。
+  - 找出破坏前缀稳定的时间戳、随机顺序和无关字段，修正后用真实流量复验。
+transfer_question: 某段历史语义完全相同但序列化顺序变化时，为什么缓存仍可能失效；应在哪一层稳定它？
+source_ids:
+  - SRC-v2-c1d00a81c46f
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/prompt-caching/visual.png
+  alt: 一张只表达「提示词缓存」的纸面机制图：中心呈现「复用多次模型请求中未变化输入前缀的已处理计算，以降低重复输入的成本和首字延迟的机制」，边缘用明确界线排除「缓存的是稳定输入前缀的处理结果，不是上一轮答案，也不是按语义相似检索整段对话」；不画候选关系。
+  prompt_record: src/assets/concepts/prompt-caching/PROMPT.md
+  receipt: src/assets/concepts/prompt-caching/receipt.yaml
+  visual_qa: passed

@@ -1,0 +1,38 @@
+schema_version: 1
+record_kind: canonical_concept
+id: harness-overfitting
+slug: harness-overfitting
+name_zh: Harness 过拟合
+name_en: Harness Overfitting
+aliases:
+  - 模型—Harness 过拟合
+category_id: result-trust
+learning_stage: deep-dive
+definition_status: evolving
+remember: 模型因在特定 Harness 的工具与交互协议中后训练而过度依赖其实现细节，换用等价但不同的运行接口时表现反而下降。
+feynman: 像只在一种键盘布局上练成的打字员：换一把功能等价的键盘就明显失速，暴露他学到的是接口习惯，不是任务本领。
+scenario:
+  type: hypothetical
+  text: 假设同一模型在原生工具协议上完成率很高，换成能力等价、名称和反馈格式不同的 Harness 后大幅下降。
+image_mnemonic: 一张只表达「Harness 过拟合」的纸面机制图：中心呈现「模型因在特定 Harness 的工具与交互协议中后训练而过度依赖其实现细节，换用等价但不同的运行接口时表现反而下降」，边缘用明确界线排除「与原生 Harness 协同良好不自动等于过拟合；只有跨等价接口的泛化下降才支持该判断」；不画候选关系。
+source_context: 本卡只采用以下来源范围：《LangChain 解剖 agent harness：Agent = 模型 + harness》：原文说明模型与 Harness 共同后训练可能造成对特定工具逻辑的依赖，并把它明确称为过拟合；《HumanLayer：harness 工程就是把 coding agent 的配置点用到极致》：第二篇文章再次明确模型可能对原生 Harness 过拟合，并以跨 Harness 表现差异支撑其可检验性。未被来源直接支持的产品结论、普遍因果或关系身份不写入本卡。
+boundaries:
+  - 与原生 Harness 协同良好不自动等于过拟合；只有跨等价接口的泛化下降才支持该判断。
+  - 原厂 Harness 也不必然最优，必须固定模型与任务做跨 Harness 比较。
+  - 当前证据缺口：需要排除工具能力、提示与资源配置差异后再归因于过拟合。
+how_to:
+  - 固定模型、任务、权限和评分，准备两套能力尽量等价的 Harness 接口。
+  - 交叉运行并记录工具选择、参数错误、恢复路径和最终成功率。
+  - 逐项对齐能力差异后再判断是否存在接口依赖，避免把实现缺陷误叫过拟合。
+transfer_question: 如果换 Harness 后下降来自更慢的工具而非协议陌生，怎样调整实验才能支持或推翻过拟合判断？
+source_ids:
+  - SRC-langchain-agent-harness
+  - SRC-v2-6b1c0707b89f
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/harness-overfitting/visual.png
+  alt: 一张只表达「Harness 过拟合」的纸面机制图：中心呈现「模型因在特定 Harness 的工具与交互协议中后训练而过度依赖其实现细节，换用等价但不同的运行接口时表现反而下降」，边缘用明确界线排除「与原生 Harness 协同良好不自动等于过拟合；只有跨等价接口的泛化下降才支持该判断」；不画候选关系。
+  prompt_record: src/assets/concepts/harness-overfitting/PROMPT.md
+  receipt: src/assets/concepts/harness-overfitting/receipt.yaml
+  visual_qa: passed

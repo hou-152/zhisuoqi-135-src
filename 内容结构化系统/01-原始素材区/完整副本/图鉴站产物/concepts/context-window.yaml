@@ -1,0 +1,36 @@
+schema_version: 1
+record_kind: canonical_concept
+id: context-window
+slug: context-window
+name_zh: 上下文窗口
+name_en: Context Window
+aliases: []
+category_id: current-view
+learning_stage: now
+definition_status: industry-common
+remember: 上下文窗口是一次推理能承载和处理 Context 的有限边界；它不是 Context，也不是长期记忆。
+feynman: 窗口像桌子的尺寸。桌子变大，只说明能摊更多材料，不保证材料摆得好，也不保证模型能同时可靠地用好每一页。
+scenario:
+  type: hypothetical
+  text: 系统把几十份文档全部塞进一个大窗口，关键规则确实装得下，却仍被模型漏用。
+image_mnemonic: 连续的信息带穿过固定大小的取景框，框外材料仍存在，但一次只有框内部分可见。
+source_context: 来源文章用 Claude Code 的长窗口讨论会话管理；本站只采用“单次推理容量与处理边界”的稳定口径，不继承具体产品阈值。
+boundaries:
+  - 容量边界不等于实际 Context 内容。
+  - 更大窗口不自动带来更好的检索、注意或推理。
+  - 上下文窗口不等于跨会话长期记忆。
+how_to:
+  - 同时检查窗口上限与当前实际占用。
+  - 检查关键内容的位置、干扰项和利用可靠性。
+  - 不要只用“还装得下”判断 Context 质量。
+transfer_question: 换成更大窗口后任务准确率没有提升，你下一步应验证容量之外的哪些变量？
+source_ids:
+  - SRC-thariq-session-management
+visual:
+  type: metaphor
+  skill: anthropic-art
+  source_image: src/assets/concepts/context-window/visual.png
+  alt: 连续的信息带穿过固定大小的取景框，框外内容仍存在，但一次只有框内一段清楚可见。
+  prompt_record: src/assets/concepts/context-window/PROMPT.md
+  receipt: src/assets/concepts/context-window/receipt.yaml
+  visual_qa: passed

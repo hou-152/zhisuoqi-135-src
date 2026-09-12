@@ -1,0 +1,36 @@
+schema_version: 1
+record_kind: canonical_concept
+id: error-handling
+slug: error-handling
+name_zh: 错误处理
+name_en: Error Handling
+aliases: []
+category_id: continuous-action
+learning_stage: when-needed
+definition_status: industry-common
+remember: 错误处理不是一律重试，而是先判断错误类型，再选择重试、把反馈交给模型、暂停等人、上报或终止。
+feynman: 出错像医院分诊。短暂网络抖动可以稍后再试，工具参数有误可以把错误交回 Agent 调整，缺少用户资料要暂停等待，未知故障要上报调查，高风险异常则应终止。所有错误都按同一种方式处理，只会把小问题滚成大失败。
+scenario:
+  type: hypothetical
+  text: Agent 调用支付接口超时后，Harness 先查询请求是否已成功，再按幂等策略有限重试；如果仍无法确认，就暂停并上报，而不是无限重放付款。
+image_mnemonic: 错误先进入分类节点，再沿不同路径去重试、暂停等人、上报或终止；路线由错误性质决定。
+source_context: Akshay 的 Harness 拆解把错误分为临时性、模型可恢复、用户可修复和意外错误，并强调 Harness 要决定重试、向模型反馈、等待人类或上报调试。本站将“先分类再路由”作为稳定主线，不继承任何框架的固定重试次数。
+boundaries:
+  - Error Handling 不等于 retry；对权限拒绝、无效输入或不可重复副作用盲目重试，可能扩大损失。
+  - 把错误返回模型只适用于模型能据此修正的情形；系统异常与安全事件仍需确定性的上报或停止路径。
+  - 处理完成不等于结果正确；错误恢复后仍需要验证循环确认任务产物。
+how_to:
+  - 至少区分瞬时、模型可恢复、用户可修复、意外和安全类错误，并为每类规定次数、退避、超时与退出条件。
+  - 保留原始错误、步骤、输入摘要和已发生副作用，避免重试把证据覆盖掉。
+  - 对不确定是否已执行成功的外部动作先查询或对账，再决定是否重试。
+transfer_question: 同一个“工具失败”提示，什么时候应该重试，什么时候应该暂停等人，什么时候必须终止？
+source_ids:
+  - SRC-akshay-agent-harness
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/error-handling/visual.png
+  alt: 一个错误分类节点把故障分别路由到重试、暂停等人、上报或终止，表示错误处理要按类型选择不同动作。
+  prompt_record: src/assets/concepts/error-handling/PROMPT.md
+  receipt: src/assets/concepts/error-handling/receipt.yaml
+  visual_qa: passed

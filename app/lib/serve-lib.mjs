@@ -1,4 +1,4 @@
-// 知所栖 135 的本地服务：静态页 + 三个接口。CLI 壳在 scripts/serve-135.mjs，
+// 知所栖 135 的本地服务：静态页 + 搜索 / skill / LLM / 编排接口。CLI 壳在 scripts/serve-135.mjs，
 // 桌面版（app/main.js）直接 import 这个模块——两边跑的是同一份代码，不是两份。
 //
 //   GET  /api/health           → {ok, llm}
@@ -131,6 +131,56 @@ export function createZssServer(opts = {}) {
       const out = await llmForward(messages, { json: body.json });
       if (skillNote && !out.error) out.skill = skillNote;
       return json(out);
+    }
+
+    // /dbs 的两段式交接：先把组合提示词交给用户审阅，再由按钮触发这里。
+    // 这里才真正加载多个 SKILL.md，并把知乎搜索结果放进同一轮下游上下文。
+    if (url.pathname === '/api/orchestrate' && req.method === 'POST') {
+      const body = await readBody(req);
+      const task = String(body.task || '').trim().slice(0, 4000);
+      const requested = Array.isArray(body.skills) ? body.skills : [];
+      const skills = [...new Set(requested.map(x => String(x || '').trim()).filter(Boolean))].slice(0, 3);
+      if (!task) return json({ error: 'task-required' });
+      if (!skills.length) return json({ error: 'skills-required' });
+      if (requested.length > 3) return json({ error: 'too-many-skills（最多 1 个主 Skill + 2 个辅助 Skill）' });
+
+      const skillTexts = [];
+      for (const name of skills) {
+        const txt = readSkill(name);
+        if (!txt) return json({ error: 'skill-not-found', skill: name });
+        skillTexts.push({ name, text: txt });
+      }
+
+      const prompt = String(body.prompt || '').trim().slice(0, 20000);
+      if (!prompt) return json({ error: 'prompt-required' });
+      if (body.preview) {
+        return json({ ok: true, preview: true, task, skills, prompt, sources: [] });
+      }
+
+      let sources = [];
+      let sourceError = null;
+      if (skills.includes('zhihu')) {
+        const found = await zhihuSearch(task.slice(0, 80));
+        if (found.error) sourceError = found.error;
+        sources = found.items || [];
+      }
+      const sourceBlock = sources.length
+        ? '\n\n知乎检索材料（只作为待核验来源，不把摘要当全文）：\n'
+          + sources.map((s, i) => `${i + 1}. ${s.title || '无标题'} — ${s.author || '未知作者'}\n${s.excerpt || ''}\n${s.url || ''}`).join('\n')
+        : (sourceError ? `\n\n知乎检索失败：${sourceError}。请在结果中明确标注材料缺口。` : '');
+      const system = [
+        '你正在执行一次由 /dbs 编排的组合任务。严格遵守下面的任务提示词、Skill 原文、顺序和停止条件。',
+        '最终只交付一份由主 Skill 统领的结果；区分事实、推断、未知；保留用户的决定权。',
+        '—— 组合提示词 ——\n' + prompt,
+        ...skillTexts.map(s => `\n—— /${s.name} · SKILL.md 原文 ——\n${s.text}`),
+        sourceBlock,
+      ].join('\n');
+      const out = await llmForward([
+        { role: 'system', content: system },
+        { role: 'user', content: task },
+      ], { json: false });
+      if (out.error) return json({ ...out, task, skills, prompt, sources, sourceError });
+      return json({ ok: true, ...out, task, skills, prompt, sources, sourceError });
     }
 
     // 写文件：只有桌面版开放（DATA_DIR 非空）。这是网页版做不到的那一件事——

@@ -1,0 +1,37 @@
+schema_version: 1
+record_kind: canonical_concept
+id: human-escalation-tool-call
+slug: human-escalation-tool-call
+name_zh: 人类升级工具调用
+name_en: Human Escalation Tool Call
+aliases:
+  - 人类介入工具调用
+category_id: human-control
+learning_stage: when-needed
+definition_status: evolving
+remember: 把请求人类授权、判断或承担责任设计成 Agent 可调用并等待结果的显式工具，使人工介入成为可恢复工作流的一部分。
+feynman: 把「问一下人」做成 agent 可以调用的一个普通工具，而不是流程崩溃时的例外分支。这样一来，人不是 agent 失败后的补丁，而是它工具箱里的一件工具——需要授权、需要判断、需要担责的时候就调用，调用完循环继续走。
+scenario:
+  type: hypothetical
+  text: 假设采购 Agent 遇到超预算报价，它暂停下单，把差额、备选方案和截止时间组成审批请求；负责人选择方案后，流程从原步骤恢复。
+image_mnemonic: 一张只表达「人类升级工具调用」的纸面机制图：中心呈现「把请求人类授权、判断或承担责任设计成 Agent 可调用并等待结果的显式工具，使人工介入成为可恢复工作流的一部分」，边缘用明确界线排除「它不是把人当作无条件执行器；调用应包含清晰问题、必要证据和权限范围」；不画候选关系。
+source_context: 本卡只采用以下来源范围：《12-Factor Agents：让 LLM 软件真能交付给生产用户的十二条原则》：原文明确提出把请求人类判断建模为 Agent 循环中的普通工具调用，而不是流程外异常。未被来源直接支持的产品结论、普遍因果或关系身份不写入本卡。
+boundaries:
+  - 它不是把人当作无条件执行器；调用应包含清晰问题、必要证据和权限范围。
+  - 它不同于 Agent 失败后由运维人员临时接管的非结构化兜底。
+  - 「人类升级工具调用」只表示候选定义覆盖的机制；它不单独证明某个产品已经正确实现该机制或因此获得结果保证。
+how_to:
+  - 明确哪些风险、金额或责任判断必须升级给人，并把它们编码成可触发条件。
+  - 请求中只放决策问题、必要证据、可选项和不回应的后果，避免让人重新调查全案。
+  - 保存等待状态和关联任务，收到答复后从断点继续，并把决定写入回执。
+transfer_question: 如果人工答复可能几小时后才到，工作流还要保存哪些状态，才能让升级成为可恢复工具调用而不是临时接管？
+source_ids:
+  - SRC-v2-e9eb05e2bf38
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/human-escalation-tool-call/visual.png
+  alt: 一张只表达「人类升级工具调用」的纸面机制图：中心呈现「把请求人类授权、判断或承担责任设计成 Agent 可调用并等待结果的显式工具，使人工介入成为可恢复工作流的一部分」，边缘用明确界线排除「它不是把人当作无条件执行器；调用应包含清晰问题、必要证据和权限范围」；不画候选关系。
+  prompt_record: src/assets/concepts/human-escalation-tool-call/PROMPT.md
+  receipt: src/assets/concepts/human-escalation-tool-call/receipt.yaml
+  visual_qa: passed

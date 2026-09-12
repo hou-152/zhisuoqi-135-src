@@ -1,0 +1,36 @@
+schema_version: 1
+record_kind: canonical_concept
+id: skill-trigger-condition
+slug: skill-trigger-condition
+name_zh: Skill 触发条件
+name_en: Skill Trigger Condition
+aliases: []
+category_id: context-delivery
+learning_stage: when-needed
+definition_status: evolving
+remember: 写在 Skill 元数据中的适用场景声明，用来帮助运行环境判断何时自动加载或调用该 Skill。
+feynman: 相当于卡片上的「适用场景」贴纸。写清楚「碰到 X 情况就翻我出来」，系统才会在对的时刻主动想起这张卡；贴纸写得含糊，卡片就躺在抽屉里没人用。
+scenario:
+  type: hypothetical
+  text: 假设“写文档时使用”的描述让 Skill 几乎处处触发；改成“创建或修改 PDF 时”后，相关任务能命中，普通 Markdown 编辑不再误载。
+image_mnemonic: 一张只表达「Skill 触发条件」的纸面机制图：中心呈现「写在 Skill 元数据中的适用场景声明，用来帮助运行环境判断何时自动加载或调用该 Skill」，边缘用明确界线排除「触发条件决定何时被考虑，不等同于 Skill 的任务步骤或工具权限」；不画候选关系。
+source_context: 本卡只采用以下来源范围：《用 Skills 在 Claude Code 里搭建验证闭环》：逐字说明 Skill 的 description 如何声明适用场景并控制自动加载时机。未被来源直接支持的产品结论、普遍因果或关系身份不写入本卡。
+boundaries:
+  - 触发条件决定何时被考虑，不等同于 Skill 的任务步骤或工具权限。
+  - 描述过宽会造成误触发，描述过窄会使 Skill 在需要时无法被拉入上下文。
+  - 当前证据缺口：当前证据聚焦 Claude Code 的 description 字段，跨运行环境是否采用相同触发合同仍需核对。
+how_to:
+  - 从真实请求中列出应该触发、容易混淆和明确不应触发的样本。
+  - 用用户可观察的场景、对象和动作写描述，避免只写宽泛能力名。
+  - 回放正负样本，分别统计漏触发和误触发，再收窄或补充条件。
+transfer_question: 一个 Skill 同时服务“读取”和“编辑”两类任务时，触发条件应合并还是拆分；你会依据什么失败样本决定？
+source_ids:
+  - SRC-delba-verification-skills
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/skill-trigger-condition/visual.png
+  alt: 一张只表达「Skill 触发条件」的纸面机制图：中心呈现「写在 Skill 元数据中的适用场景声明，用来帮助运行环境判断何时自动加载或调用该 Skill」，边缘用明确界线排除「触发条件决定何时被考虑，不等同于 Skill 的任务步骤或工具权限」；不画候选关系。
+  prompt_record: src/assets/concepts/skill-trigger-condition/PROMPT.md
+  receipt: src/assets/concepts/skill-trigger-condition/receipt.yaml
+  visual_qa: passed

@@ -1,0 +1,37 @@
+schema_version: 1
+record_kind: canonical_concept
+id: ubiquitous-language
+slug: ubiquitous-language
+name_zh: 统一语言
+name_en: Ubiquitous Language
+aliases:
+  - 领域共同语言
+category_id: context-delivery
+learning_stage: now
+definition_status: evolving
+remember: 在一个领域范围内，由领域专家、开发者、代码、文档与 AI 共同使用并持续校准的词汇体系，使同一个词稳定指向同一个业务对象或规则。
+feynman: 团队像在合写一本会运行的词典：会议里说“会员”，代码、表格和规则里也必须指向同一对象。词义一漂，系统就会把语言分歧执行成业务错误。
+scenario:
+  type: hypothetical
+  text: 假设运营说“激活用户”指完成首单，数据团队却指登录过一次；同一指标进入看板和推荐代码后，两边都以为自己理解一致。
+image_mnemonic: 一个只表达「统一语言」的单一纸片隐喻：主体对应「在一个领域范围内，由领域专家、开发者、代码、文档与 AI 共同使用并持续校准的词汇体系，使同一个词稳定指向同一个业务对象或规则」，留出一处明确界线排除「它不是全局通用词典；同一词在不同限界上下文中可以有不同含义」；不画候选关系。
+source_context: 本卡只采用以下来源范围：《从 /grill-me 到 /grill-with-docs：用对话先对齐领域语言》：原文给出统一语言在领域专家、开发者、代码与 AI 之间保持同一术语含义的定义与用途。未被来源直接支持的产品结论、普遍因果或关系身份不写入本卡。
+boundaries:
+  - 它不是全局通用词典；同一词在不同限界上下文中可以有不同含义。
+  - 它不要求一次性达到完美，而要让命名、代码和讨论中的差异可被发现并更新。
+  - 「统一语言」只表示候选定义覆盖的机制；它不单独证明某个产品已经正确实现该机制或因此获得结果保证。
+how_to:
+  - 从争议频繁的业务动作中收集术语及各角色的实际定义。
+  - 为每个术语给出对象、规则、示例和反例，并同步到代码命名与文档。
+  - 在评审中把新说法与现有词表对齐；发现一词多义时标明所属边界。
+transfer_question: 当市场团队和风控团队必须保留不同的“有效客户”定义时，怎样维护统一语言而不强行统一词义？
+source_ids:
+  - SRC-v2-3908c0a1cbd6
+visual:
+  type: metaphor
+  skill: anthropic-art
+  source_image: src/assets/concepts/ubiquitous-language/visual.png
+  alt: 一个只表达「统一语言」的单一纸片隐喻：主体对应「在一个领域范围内，由领域专家、开发者、代码、文档与 AI 共同使用并持续校准的词汇体系，使同一个词稳定指向同一个业务对象或规则」，留出一处明确界线排除「它不是全局通用词典；同一词在不同限界上下文中可以有不同含义」；不画候选关系。
+  prompt_record: src/assets/concepts/ubiquitous-language/PROMPT.md
+  receipt: src/assets/concepts/ubiquitous-language/receipt.yaml
+  visual_qa: passed

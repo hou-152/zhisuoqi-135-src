@@ -1,0 +1,38 @@
+schema_version: 1
+record_kind: canonical_concept
+id: instruction-locality
+slug: instruction-locality
+name_zh: 指令就近原则
+name_en: Instruction Locality
+aliases:
+  - Instructions Near Their Target
+category_id: human-control
+learning_stage: when-needed
+definition_status: evolving
+remember: 将对象的使用说明保存在它直接作用的接口或描述旁，而不是在系统提示等上层位置重复同一指令。
+feynman: 洗衣说明缝在衣服标签上，比贴在整栋楼大厅更可靠。指令越靠近它实际约束的工具、文件或接口，越不容易重复、冲突和被无关任务带走。
+scenario:
+  type: hypothetical
+  text: 假设工具参数的使用限制既写在系统提示又写在工具描述，两处更新不同步；模型按旧的全局说明调用了已经变更的接口。
+image_mnemonic: 一张只表达「指令就近原则」的纸面机制图：中心呈现「将对象的使用说明保存在它直接作用的接口或描述旁，而不是在系统提示等上层位置重复同一指令」，边缘用明确界线排除「它回答指令应放在哪里，不回答信息应在何时加载，因此不等同于渐进式披露」；不画候选关系。
+source_context: 本卡只采用以下来源范围：《Claude 5 世代的上下文工程，规则变了》：这段把工具专属说明从系统提示移到工具描述，给出“指令靠近作用对象”的具体放置方法；《Claude 5 时代的上下文工程新规则：系统提示词砍掉 80%》：这段直接命名指令就近原则，并以系统提示与工具描述的去重说明其操作边界。未被来源直接支持的产品结论、普遍因果或关系身份不写入本卡。
+boundaries:
+  - 它回答指令应放在哪里，不回答信息应在何时加载，因此不等同于渐进式披露。
+  - 就近放置减少重复与冲突，但不保证指令本身正确、完整或具有更高优先级。
+  - 当前证据缺口：需要验证该原则在多工具共享约束或跨对象规则中的放置边界。
+how_to:
+  - 为每条指令标出它直接约束的对象、维护者和生效位置。
+  - 把对象专属说明移动到工具描述、目录规则或接口旁，删除上层重复副本。
+  - 修改一次对象规则并追踪所有读取路径，确认不存在陈旧镜像。
+transfer_question: 一条同时约束多个工具的安全规则应该放在哪里，才能兼顾就近维护与全局一致？
+source_ids:
+  - SRC-v2-8e418fc06184
+  - SRC-v2-aa1b1ea88e57
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/instruction-locality/visual.png
+  alt: 一张只表达「指令就近原则」的纸面机制图：中心呈现「将对象的使用说明保存在它直接作用的接口或描述旁，而不是在系统提示等上层位置重复同一指令」，边缘用明确界线排除「它回答指令应放在哪里，不回答信息应在何时加载，因此不等同于渐进式披露」；不画候选关系。
+  prompt_record: src/assets/concepts/instruction-locality/PROMPT.md
+  receipt: src/assets/concepts/instruction-locality/receipt.yaml
+  visual_qa: passed

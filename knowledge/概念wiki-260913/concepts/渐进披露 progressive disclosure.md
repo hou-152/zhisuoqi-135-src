@@ -1,0 +1,59 @@
+---
+id: cm_99c2938a
+name: 渐进披露
+nameEn: progressive disclosure
+type: PROCEDURAL
+subject: Context Engineering
+domain: context-engineering
+learningStage: now
+verification: use
+centrality: 0.017
+depth: 0
+origin: [context]
+aliases: ["progressive disclosure"]
+sources: 1
+---
+
+# 渐进披露 · progressive disclosure
+
+> 在正确时机加载正确上下文，把不常用能力放进可按需调用的技能里。
+
+**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+
+## 费曼一下
+
+不要开场就把整本手册念完，而是把手册放在它伸手就能拿到的地方。上下文的稀缺性决定了：能延后加载的东西，就不该提前占位。
+
+## 原文 context
+
+贯穿全文的机制，定义是「在正确的时机加载正确的上下文」。Claude Code 把 verification 与 code review 从 system prompt 挪进可被选择调用的 skill；CLAUDE.md 一节也要求「大量使用」它。
+
+## 掌握证据（做到这些才算会）
+
+- 能说出 verification 与 code review 从 system prompt 移入 skill
+- 能说明 CLAUDE.md 要求大量使用它
+
+## 验收问句
+
+> 你能用 {{name}} 设计一个按需加载上下文的方案吗？
+
+## 相关
+
+- [[护栏型指令的过期]] · 同篇出现（co-occurrence） — 同篇出现：context-21
+- [[判断力优先 let Claude use judgement]] · 同篇出现（co-occurrence） — 同篇出现：context-21
+- [[程序记忆（Procedural Memory Skills） progressive disclosure]] · 常一起用 — 渐进披露既用于 Skill，也用于工具定义的延迟加载。
+- [[上下文工程 context engineering]] · 同篇出现（co-occurrence） — 同篇出现：context-21
+
+## 出场
+
+- Context Engineering ｜ 《Claude 5 世代的上下文工程，规则变了》 ｜ https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models
+
+## 别名
+
+`progressive disclosure`
+
+## 反链
+
+- [[程序记忆（Procedural Memory Skills） progressive disclosure]]
+- [[护栏型指令的过期]]
+- [[判断力优先 let Claude use judgement]]

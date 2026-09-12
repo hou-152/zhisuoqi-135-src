@@ -1,0 +1,36 @@
+schema_version: 1
+record_kind: canonical_concept
+id: restorable-compression
+slug: restorable-compression
+name_zh: 可恢复压缩
+name_en: Restorable Compression
+aliases: []
+category_id: information-storage
+learning_stage: when-needed
+definition_status: evolving
+remember: 从当前窗口省略大块内容时保留稳定的回取引用，使上下文得以缩短，同时让被移除的信息仍可在需要时恢复。
+feynman: 扔掉正文、留下地址，跟撕掉整页纸是两回事。前者是收纳，后者是失忆。
+scenario:
+  type: hypothetical
+  text: 假设一次排障产生了两万行日志；当前会话只保留故障结论、日志文件路径、时间区间和 Hash，需要复核时再取回原片段。
+image_mnemonic: 一张只表达「可恢复压缩」的纸面机制图：中心呈现「从当前窗口省略大块内容时保留稳定的回取引用，使上下文得以缩短，同时让被移除的信息仍可在需要时恢复」，边缘用明确界线排除「它不同于把原文不可逆地浓缩成摘要；核心要求是仍存在可用回取路径」；不画候选关系。
+source_context: 本卡只采用以下来源范围：《Manus 的上下文工程实战：几轮重写换来的一组局部最优》：原文明确给出压缩后保留 URL 或路径、使被省略内容仍可回取的可恢复性原则。未被来源直接支持的产品结论、普遍因果或关系身份不写入本卡。
+boundaries:
+  - 它不同于把原文不可逆地浓缩成摘要；核心要求是仍存在可用回取路径。
+  - 留下 URL 或路径不自动保证未来仍有权限、网络或原文件可用。
+  - 「可恢复压缩」只表示候选定义覆盖的机制；它不单独证明某个产品已经正确实现该机制或因此获得结果保证。
+how_to:
+  - 把准备移出窗口的原文保存到稳定载体，并记录可校验的定位信息。
+  - 在当前上下文留下内容摘要、移除原因、回取入口和何时需要恢复。
+  - 用一个空白会话实际按引用取回材料，核对权限、完整性和定位精度。
+transfer_question: 如果引用仍存在但访问权限会过期，这份压缩还算可恢复吗；系统应增加什么保障？
+source_ids:
+  - SRC-v2-13ffd54fc159
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/restorable-compression/visual.png
+  alt: 一张只表达「可恢复压缩」的纸面机制图：中心呈现「从当前窗口省略大块内容时保留稳定的回取引用，使上下文得以缩短，同时让被移除的信息仍可在需要时恢复」，边缘用明确界线排除「它不同于把原文不可逆地浓缩成摘要；核心要求是仍存在可用回取路径」；不画候选关系。
+  prompt_record: src/assets/concepts/restorable-compression/PROMPT.md
+  receipt: src/assets/concepts/restorable-compression/receipt.yaml
+  visual_qa: passed

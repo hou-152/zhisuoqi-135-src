@@ -1,0 +1,39 @@
+schema_version: 1
+record_kind: canonical_concept
+id: subagent-orchestration
+slug: subagent-orchestration
+name_zh: 子 Agent 编排
+name_en: Subagent Orchestration
+aliases:
+  - Sub-Agent Orchestration
+category_id: continuous-action
+learning_stage: when-needed
+definition_status: evolving
+remember: 把边界明确的探索或执行任务分派给子 Agent，再将其压缩结果、证据或状态带回主流程的组织机制。
+feynman: 分工不只是多请两个人；每个人都要重新培训、配工具，最后主管还要把所有人的完整报告再读一遍。
+scenario:
+  type: hypothetical
+  text: 假设主 Agent 把依赖调查交给子 Agent；子任务只返回相关文件、证据和不确定项，主流程据此继续修改，而不是接收整段探索历史。
+image_mnemonic: 一张只表达「子 Agent 编排」的纸面机制图：中心呈现「把边界明确的探索或执行任务分派给子 Agent，再将其压缩结果、证据或状态带回主流程的组织机制」，边缘用明确界线排除「它不等同于只启动更多 Agent；编排还需定义任务边界、结果回传与主流程如何消费结果」；不画候选关系。
+source_context: 本卡只采用以下来源范围：《Agent Harness 的本质：把模型放进可控的执行系统》：逐字列出子 Agent 的调用与移交模式，并说明把探索结果压缩回传以降低主上下文负担的机制价值；《Claude Code 在读提示词前为何已发送 3.3 万 Token》：这段补足子 Agent 编排的成本边界：每个 Worker 复制独立启动底座，Parent 还会再次摄入返回 Transcript。未被来源直接支持的产品结论、普遍因果或关系身份不写入本卡。
+boundaries:
+  - 它不等同于只启动更多 Agent；编排还需定义任务边界、结果回传与主流程如何消费结果。
+  - 子 Agent 的并行或深度探索会增加协调成本，并可能在压缩回传时损失信息。
+  - 每个子 Agent 还可能复制独立启动底座，主流程摄入返回记录时会形成第二次上下文放大。
+  - 当前证据缺口：当前证据未比较单 Agent、并行子 Agent 与顺序移交的适用阈值和信息损耗。
+how_to:
+  - 切出边界清晰、可独立验证且不会争用同一写入面的子任务。
+  - 给子 Agent 明确输入、禁止范围、交付格式和停止条件。
+  - 回收压缩结果与证据，检查缺口后再决定合并、追问或丢弃。
+transfer_question: 当子任务之间共享大量背景且会修改同一文件时，并行编排仍值得吗；你会怎样估算协调成本？
+source_ids:
+  - SRC-akshay-agent-harness
+  - SRC-v2-398431a5f118
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/subagent-orchestration/visual.png
+  alt: 一张只表达「子 Agent 编排」的纸面机制图：中心呈现「把边界明确的探索或执行任务分派给子 Agent，再将其压缩结果、证据或状态带回主流程的组织机制」，边缘用明确界线排除「它不等同于只启动更多 Agent；编排还需定义任务边界、结果回传与主流程如何消费结果」；不画候选关系。
+  prompt_record: src/assets/concepts/subagent-orchestration/PROMPT.md
+  receipt: src/assets/concepts/subagent-orchestration/receipt.yaml
+  visual_qa: passed

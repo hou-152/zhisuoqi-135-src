@@ -1,0 +1,349 @@
+# 双轴星图场的概念定位（策展层视图）
+#
+# 数据合同：
+# - scope: 工程范围轴（ADR-0001 轴 01），取 prompt / context / harness 三层之一，
+#   表示该概念的工程实践主要发生在哪一层覆盖范围内。
+# - responsibility: 系统职责轴（ADR-0001 轴 02），取 0-100 的策展定位值。
+#   0 = 主要管理信息（Context 侧），100 = 主要管理运行（Harness 侧），
+#   50 附近 = 运行时装配接缝。该值是策展定位，不是测量结果。
+# - kind: 默认 practice（工程实践）；kind: model 表示被组织、被包裹的模型本体，
+#   在图上以不同形状呈现，避免把"模型"误读成某层工程实践。
+#
+# 本文件是视图层数据：概念页为准，这里只负责定位与导航，不新增定义。
+
+schema_version: 1
+
+axis:
+  scope:
+    - id: prompt
+      label: 01 Prompt Engineering
+      hint: 把单次指令说清楚
+    - id: context
+      label: 02 Context Engineering
+      hint: 动态装配模型所需的信息
+    - id: harness
+      label: 03 Harness Engineering
+      hint: 把模型组织进可运行、可恢复、可验证的系统
+  responsibility:
+    left: 管理信息
+    right: 管理运行
+    seam: 运行时装配
+  note: 本站采用的观察视图（ADR-0001）：范围通常逐级扩大，职责在运行时装配处交叉；不把包含关系当成唯一行业共识。
+
+placements:
+  # ---- 01 Prompt Engineering：指令层，集中在信息侧 ----
+  - id: large-language-model
+    scope: prompt
+    responsibility: 8
+    kind: model
+  - id: prompt
+    scope: prompt
+    responsibility: 22
+  - id: system-prompt
+    scope: prompt
+    responsibility: 34
+  - id: prompt-engineering
+    scope: prompt
+    responsibility: 47
+
+  # ---- 02 Context Engineering：信息层，从"看到什么"渐移到"怎么装配" ----
+  - id: context
+    scope: context
+    responsibility: 3
+  - id: context-window
+    scope: context
+    responsibility: 11
+  - id: attention-budget
+    scope: context
+    responsibility: 19
+  - id: context-rot
+    scope: context
+    responsibility: 27
+  - id: lost-in-the-middle
+    scope: context
+    responsibility: 35
+  - id: minimal-sufficient-context
+    scope: context
+    responsibility: 43
+  - id: context-selection
+    scope: context
+    responsibility: 51
+  - id: just-in-time-retrieval
+    scope: context
+    responsibility: 59
+  - id: progressive-disclosure
+    scope: context
+    responsibility: 67
+  - id: memory
+    scope: context
+    responsibility: 39
+  - id: context-compaction
+    scope: context
+    responsibility: 84
+  - id: context-engineering
+    scope: context
+    responsibility: 75
+  - id: dynamic-context-assembly
+    scope: context
+    responsibility: 93
+
+  # ---- 03 Harness Engineering：运行层，从"接缝"渐移到"纯运行" ----
+  - id: skill
+    scope: harness
+    responsibility: 10
+  - id: model-context-protocol
+    scope: harness
+    responsibility: 16
+  - id: tool
+    scope: harness
+    responsibility: 22
+  - id: tool-scoping
+    scope: harness
+    responsibility: 34
+  - id: state-management
+    scope: harness
+    responsibility: 40
+  - id: agent
+    scope: harness
+    responsibility: 28
+  - id: permission-boundary
+    scope: harness
+    responsibility: 46
+  - id: sandbox
+    scope: harness
+    responsibility: 52
+  - id: guardrails
+    scope: harness
+    responsibility: 62
+  - id: error-handling
+    scope: harness
+    responsibility: 72
+  - id: agent-loop
+    scope: harness
+    responsibility: 57
+  - id: agent-handoff
+    scope: harness
+    responsibility: 67
+  - id: agent-lifecycle
+    scope: harness
+    responsibility: 76
+  - id: agent-harness
+    scope: harness
+    responsibility: 80
+  - id: harness-engineering
+    scope: harness
+    responsibility: 93
+  - id: durable-execution
+    scope: harness
+    responsibility: 87
+  - id: observability
+    scope: harness
+    responsibility: 90
+  - id: verification-loop
+    scope: harness
+    responsibility: 80
+  - id: trace-based-evals
+    scope: harness
+    responsibility: 96
+
+  # ---- Phase C：V2.0 新概念策展草案（已独立复核，仍为 draft） ----
+  - id: agent-tool-contract
+    scope: harness
+    responsibility: 72
+    curation_status: draft
+    decision_ref: D-060
+  - id: tool-workflow-fit
+    scope: harness
+    responsibility: 68
+    curation_status: draft
+    decision_ref: D-060
+  - id: agent-action-space
+    scope: harness
+    responsibility: 64
+    curation_status: draft
+    decision_ref: D-060
+  - id: agent-elicitation
+    scope: harness
+    responsibility: 58
+    curation_status: draft
+    decision_ref: D-060
+  - id: agent-session-management
+    scope: context
+    responsibility: 66
+    curation_status: draft
+    decision_ref: D-060
+  - id: harness-token-floor
+    scope: harness
+    responsibility: 54
+    curation_status: draft
+    decision_ref: D-060
+  - id: llm-statelessness
+    scope: prompt
+    responsibility: 8
+    curation_status: draft
+    decision_ref: D-060
+  - id: prompt-caching
+    scope: context
+    responsibility: 56
+    curation_status: draft
+    decision_ref: D-060
+  - id: subagent-orchestration
+    scope: harness
+    responsibility: 86
+    curation_status: draft
+    decision_ref: D-060
+  - id: agent-stop-conditions
+    scope: harness
+    responsibility: 91
+    curation_status: draft
+    decision_ref: D-060
+  - id: harness-compute-separation
+    scope: harness
+    responsibility: 96
+    curation_status: draft
+    decision_ref: D-060
+  - id: prompt-injection
+    scope: harness
+    responsibility: 88
+    curation_status: draft
+    decision_ref: D-060
+  - id: runnable-evidence
+    scope: harness
+    responsibility: 82
+    curation_status: draft
+    decision_ref: D-060
+  - id: verifiable-goal
+    scope: harness
+    responsibility: 74
+    curation_status: draft
+    decision_ref: D-060
+  - id: multi-step-reliability-decay
+    scope: harness
+    responsibility: 70
+    curation_status: draft
+    decision_ref: D-060
+  - id: bounded-context
+    scope: context
+    responsibility: 14
+    curation_status: draft
+    decision_ref: D-060
+  - id: browsing-loop
+    scope: context
+    responsibility: 52
+    curation_status: draft
+    decision_ref: D-060
+  - id: human-escalation-tool-call
+    scope: harness
+    responsibility: 88
+    curation_status: draft
+    decision_ref: D-060
+  - id: restorable-compression
+    scope: context
+    responsibility: 72
+    curation_status: draft
+    decision_ref: D-060
+  - id: retrieval-reasoning-dual-task-load
+    scope: context
+    responsibility: 24
+    curation_status: draft
+    decision_ref: D-060
+  - id: system-prompt-altitude
+    scope: prompt
+    responsibility: 38
+    curation_status: draft
+    decision_ref: D-060
+  - id: ubiquitous-language
+    scope: context
+    responsibility: 18
+    curation_status: draft
+    decision_ref: D-060
+  - id: change-impact-analysis
+    scope: harness
+    responsibility: 76
+    curation_status: draft
+    decision_ref: D-060
+  - id: chat-template
+    scope: prompt
+    responsibility: 28
+    curation_status: draft
+    decision_ref: D-060
+  - id: event-driven-agent-automation
+    scope: harness
+    responsibility: 92
+    curation_status: draft
+    decision_ref: D-060
+  - id: llm-token
+    scope: prompt
+    responsibility: 6
+    curation_status: draft
+    decision_ref: D-060
+  - id: observation-masking
+    scope: context
+    responsibility: 78
+    curation_status: draft
+    decision_ref: D-060
+  - id: persistent-code-graph
+    scope: context
+    responsibility: 58
+    curation_status: draft
+    decision_ref: D-060
+  - id: reasoning-effort
+    scope: harness
+    responsibility: 55
+    curation_status: draft
+    decision_ref: D-060
+  - id: skill-chaining
+    scope: harness
+    responsibility: 82
+    curation_status: draft
+    decision_ref: D-060
+  - id: skill-trigger-condition
+    scope: context
+    responsibility: 62
+    curation_status: draft
+    decision_ref: D-060
+  - id: tool-schema-tax
+    scope: harness
+    responsibility: 48
+    curation_status: draft
+    decision_ref: D-060
+  - id: agent-cli-runtime
+    scope: harness
+    responsibility: 84
+    curation_status: draft
+    decision_ref: D-060
+  - id: instruction-locality
+    scope: prompt
+    responsibility: 44
+    curation_status: draft
+    decision_ref: D-060
+  - id: tacit-knowledge
+    scope: context
+    responsibility: 8
+    curation_status: draft
+    decision_ref: D-060
+  - id: code-execution
+    scope: harness
+    responsibility: 94
+    curation_status: draft
+    decision_ref: D-060
+  - id: filesystem-workspace
+    scope: harness
+    responsibility: 68
+    curation_status: draft
+    decision_ref: D-060
+  - id: harness-overfitting
+    scope: harness
+    responsibility: 86
+    curation_status: draft
+    decision_ref: D-060
+  - id: repository-source-of-truth
+    scope: context
+    responsibility: 46
+    curation_status: draft
+    decision_ref: D-060
+  - id: risk-tiered-autofixing
+    scope: harness
+    responsibility: 96
+    curation_status: draft
+    decision_ref: D-060

@@ -1,0 +1,39 @@
+schema_version: 1
+record_kind: canonical_concept
+id: lost-in-the-middle
+slug: lost-in-the-middle
+name_zh: 迷失在中间
+name_en: Lost in the Middle
+aliases:
+  - 中间迷失
+  - 中间位置效应
+category_id: context-delivery
+learning_stage: when-needed
+definition_status: relatively-stable
+remember: Liu 等人在多文档问答与合成键值检索中观察到一种位置效应：不少受测模型更善用输入首尾的信息，相关信息移到中部时表现会下降。
+feynman: 同一道题、同一组资料，只把含答案的那一段从开头移到中间，再移到结尾。如果中间位置更容易答错，问题不在资料有没有放进去，而在模型能不能稳定用到它。
+scenario:
+  type: hypothetical
+  text: 评测时固定问题、文档内容和评分方法，只改变含答案文档的位置，分别放在首部、中部与尾部；若中部条件持续更差，才把差异归入位置相关的利用问题。
+image_mnemonic: 同一条长纸带的开头、中间和结尾各放一枚相同信息块，首尾清晰有力，中间下陷变弱，形成不带具体数值的 U 型位置隐喻。
+source_context: Liu 等人设置了两类受控任务：多文档问答中只有一篇文档含答案，合成键值检索则尽量剥离自然语言语义；实验改变输入长度与相关信息位置，其他条件保持不变。多种当时模型由此呈现首尾较强、中部较弱的 U 型表现，但模型、任务与提示结构之间仍有明显差异。
+boundaries:
+  - 它描述的是相关信息位置变化带来的表现差异，不等于所有长输入都会整体变差，也不表示每个模型都出现同样深的 U 型曲线。
+  - 它不等于 Context Rot；后者是输入增长后利用可靠性变差的更广经验现象，可能受噪声、干扰、结构和任务类型共同影响。
+  - 扩大 Context Window 只改变可容纳容量；论文发现，在同一输入同时能装进普通版与扩展版时，扩展版未必表现得更稳健。
+  - 查询前置在合成键值检索中显著改善结果，却未在多文档问答中复现同等收益；不能把单一缓解手段外推到所有长文本任务。
+how_to:
+  - 评测时固定问题、文档集合和评分方法，只移动关键证据位置，分别比较首、中、尾条件。
+  - 对重排序、查询前置或结构化分段逐项做对照；某项措施是否有效，以目标任务的实测结果为准。
+  - 不用“窗口很大”代替利用率验收；要报告最好与最坏位置之间的差距，并检查最不利位置下能否稳定取用。
+transfer_question: 一个模型能接收 100K token，但同一证据移到中段后经常答错，这说明容量和利用率分别告诉了你什么？
+source_ids:
+  - SRC-lost-in-the-middle-paper
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/lost-in-the-middle/visual.png
+  alt: 一条长纸带上有开头、中间、结尾三个相同信息块，开头和结尾清晰有力，中间位置下陷且变弱，表示同一信息在中段可能更难被利用；图中不含具体数值。
+  prompt_record: src/assets/concepts/lost-in-the-middle/PROMPT.md
+  receipt: src/assets/concepts/lost-in-the-middle/receipt.yaml
+  visual_qa: passed

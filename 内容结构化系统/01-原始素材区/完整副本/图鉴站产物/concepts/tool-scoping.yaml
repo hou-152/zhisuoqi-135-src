@@ -1,0 +1,38 @@
+schema_version: 1
+record_kind: canonical_concept
+id: tool-scoping
+slug: tool-scoping
+name_zh: 工具收窄
+name_en: Tool Scoping
+aliases:
+  - 工具范围控制
+category_id: external-access
+learning_stage: when-needed
+definition_status: evolving
+remember: Tool Scoping 是按当前步骤只向模型暴露最小必要工具集的策略，用更少选择降低误选、权限面和 Context 噪声。
+feynman: 工具库像一整面工具架，但模型当前只需要完成一步工作。系统先看这一步要做什么，再从工具架上挑出少量合适工具放到模型面前。工具没有消失，也没有被重新发明；改变的是此刻哪些工具对模型可见、可选和可调用。
+scenario:
+  type: hypothetical
+  text: 一个 Agent 先做资料检索时只看到搜索与读取工具，进入代码修改阶段后才看到编辑和测试工具；部署工具在没有进入发布步骤前始终不暴露。
+image_mnemonic: 一面大型工具架经过“当前步骤”选择器，只把一个小托盘的最小工具集送到模型面前；重点是暴露范围，不是工具本体。
+source_context: Akshay 的 Harness 术语解释把 Tool Scoping 列为七项设计决策之一，并给出“只暴露当前步骤所需最小工具集”的原则。来源同时用删减工具与懒加载案例说明工具过多可能带来误选和 Context 成本；具体效果仍需在真实任务上验证。
+boundaries:
+  - Tool Scoping 不是 Tool 本体，也不是设计工具 schema 的全部工作；它只决定某个步骤向模型暴露哪些已有工具。
+  - 收窄工具可以减少选择与权限面，但不自动证明模型会选对工具，也不能替代每次调用的权限检查。
+  - 最小工具集不是固定越少越好；过度收窄会让任务缺少必要能力，应按步骤、角色与真实失败记录动态调整。
+  - 多 Agent 拆分可以形成不同工具范围，但 Tool Scoping 不要求一定采用多 Agent。
+how_to:
+  - 按任务阶段列出“这一步必须用”“可能需要”“当前不应暴露”三组工具，并默认只开放第一组。
+  - 记录工具误选、无工具可用、权限拒绝和工具说明占用的 Context，再依据证据调整范围。
+  - 工具范围变化时同时检查权限配置，避免“看不见但仍可调用”或“看得见却无授权”的不一致。
+transfer_question: 如果模型总在十几个相似工具之间选错，第一步应该继续补长工具说明，还是先缩小当前可见工具集？
+source_ids:
+  - SRC-harness-term-explainer
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/tool-scoping/visual.png
+  alt: 一面装满工具的大型工具架经过当前步骤选择器，只把少量最小工具集放到模型可见托盘中，表示 Tool Scoping 控制暴露范围而不是改变工具本体。
+  prompt_record: src/assets/concepts/tool-scoping/PROMPT.md
+  receipt: src/assets/concepts/tool-scoping/receipt.yaml
+  visual_qa: passed

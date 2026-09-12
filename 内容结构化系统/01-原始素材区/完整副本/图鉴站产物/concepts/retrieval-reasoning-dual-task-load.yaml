@@ -1,0 +1,36 @@
+schema_version: 1
+record_kind: canonical_concept
+id: retrieval-reasoning-dual-task-load
+slug: retrieval-reasoning-dual-task-load
+name_zh: 检索—推理双任务负担
+name_en: Retrieval–Reasoning Dual-Task Load
+aliases: []
+category_id: current-view
+learning_stage: when-needed
+definition_status: evolving
+remember: 当模型在一次调用中既要从长输入定位相关证据、又要基于证据推理时，检索步骤会额外消耗可靠性，使其表现低于已提供聚焦证据的同等推理任务。
+feynman: 这解释了为什么「把所有历史都塞进去」不是省事而是加活。你没有帮模型准备好材料，你只是把找材料的工作也外包给了它，而它并不擅长在一次前向里既当图书管理员又当分析师。RAG 的价值不在省 token，在于把两件事拆开。
+scenario:
+  type: hypothetical
+  text: 假设分析师让模型从整座合同库找违约条款并判断责任；另一组先由检索器给出三页相关条款，再让同一模型做相同判断，结果稳定性明显不同。
+image_mnemonic: 一张只表达「检索—推理双任务负担」的纸面机制图：中心呈现「当模型在一次调用中既要从长输入定位相关证据、又要基于证据推理时，检索步骤会额外消耗可靠性，使其表现低于已提供聚焦证据的同等推理任务」，边缘用明确界线排除「它描述检索与推理被捆在一次调用中的复合负担，不表示所有检索增强都会降低表现」；不画候选关系。
+source_context: 本卡只采用以下来源范围：《Chroma 实测上下文腐烂：输入越长，模型并非均匀地可靠》：原文用 focused/full 对照把同一次调用中先检索、再推理的额外负担单独呈现。未被来源直接支持的产品结论、普遍因果或关系身份不写入本卡。
+boundaries:
+  - 它描述检索与推理被捆在一次调用中的复合负担，不表示所有检索增强都会降低表现。
+  - focused/full 的性能差还可能受歧义、干扰项和模型拒答策略影响。
+  - 「检索—推理双任务负担」只表示候选定义覆盖的机制；它不单独证明某个产品已经正确实现该机制或因此获得结果保证。
+how_to:
+  - 准备答案与推理难度相同的任务，分别提供完整材料和已聚焦证据。
+  - 记录模型引用了哪些证据、是否漏检，以及在证据已给定时推理是否正确。
+  - 根据差异决定把检索拆成独立步骤、增加证据排序，还是保留一次调用。
+transfer_question: 当完整输入组表现更差时，怎样排除歧义、干扰项和拒答策略，而不是把差值全部算成检索负担？
+source_ids:
+  - SRC-chroma-context-rot
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/retrieval-reasoning-dual-task-load/visual.png
+  alt: 一张只表达「检索—推理双任务负担」的纸面机制图：中心呈现「当模型在一次调用中既要从长输入定位相关证据、又要基于证据推理时，检索步骤会额外消耗可靠性，使其表现低于已提供聚焦证据的同等推理任务」，边缘用明确界线排除「它描述检索与推理被捆在一次调用中的复合负担，不表示所有检索增强都会降低表现」；不画候选关系。
+  prompt_record: src/assets/concepts/retrieval-reasoning-dual-task-load/PROMPT.md
+  receipt: src/assets/concepts/retrieval-reasoning-dual-task-load/receipt.yaml
+  visual_qa: passed

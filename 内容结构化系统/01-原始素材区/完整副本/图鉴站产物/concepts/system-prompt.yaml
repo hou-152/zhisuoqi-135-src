@@ -1,0 +1,40 @@
+schema_version: 1
+record_kind: canonical_concept
+id: system-prompt
+slug: system-prompt
+name_zh: 系统提示
+name_en: System Prompt
+aliases:
+  - 系统提示词
+  - System Message
+category_id: human-control
+learning_stage: now
+definition_status: industry-common
+remember: System Prompt 是应用在系统层放入模型输入的高优先级约束，用来设定角色、边界和工具规则，但不是能绝对支配模型的意志。
+feynman: 一次模型调用像把几层纸叠在一起交进去：系统层先规定工作身份和基本边界，工具层说明可用能力，历史与用户层再提供当前任务。系统层通常优先级更高，却仍只是模型要解释的输入；它可能与其他内容冲突，也不能替代外部权限检查和真实执行控制。
+scenario:
+  type: hypothetical
+  text: 一个代码助手的系统提示要求它先检查仓库规则、按约定格式请求工具并避免越权修改；用户随后要求改文件。模型会同时接收这些分层输入，而真正是否允许写入仍由工具权限决定。
+image_mnemonic: 四层输入纸从上到下装入同一模型入口，最上方系统层用蓝色边框标出，表示它优先约束其他输入，但外侧仍有独立权限闸门。
+source_context: Simon Willison 将 system prompt 描述为 Agent 的隐形操作手册，可覆盖角色、任务边界、工具协议与安全约束；同时，来源明确说明模型只是请求工具，真实执行由 Harness 完成。不同 API 的消息角色与拼接优先级可能不同。
+boundaries:
+  - System Prompt 是输入层约束，不是模型权重、长期记忆或不可违抗的内部人格。
+  - 高优先级不等于绝对保证；冲突、提示注入、模型误解或实现差异仍可能导致偏离。
+  - 安全与授权不能只靠 System Prompt；高风险动作还需要工具权限、沙箱、护栏和人工确认。
+  - 不同模型 API 对 system、developer、user 等角色的支持与优先级并不完全相同，应以实际接口和运行日志为准。
+how_to:
+  - 在系统层写稳定的角色、边界、工具规则和成功标准，避免塞入容易过时的长篇资料。
+  - 让约束足够具体以指导行为，又保留模型处理例外的空间；不要把脆弱的复杂 if-else 全写进提示。
+  - 用真实运行记录测试冲突与越权情形，并把关键权限落实在模型外的执行层。
+transfer_question: 如果系统提示写着“禁止删除文件”，但工具仍允许无确认删除，真正需要补强的是哪一层控制？
+source_ids:
+  - SRC-simon-coding-agents
+  - SRC-anthropic-effective-context
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/system-prompt/visual.png
+  alt: 四层输入纸依次进入模型：系统约束、工具说明、对话历史和用户任务；系统层突出但旁边仍有独立权限闸门，表示系统提示优先约束却不能替代执行控制。
+  prompt_record: src/assets/concepts/system-prompt/PROMPT.md
+  receipt: src/assets/concepts/system-prompt/receipt.yaml
+  visual_qa: passed

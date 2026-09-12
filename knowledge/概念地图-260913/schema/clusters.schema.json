@@ -1,0 +1,53 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Concept Map Clusters",
+ "type": "object",
+ "required": [
+  "version",
+  "count",
+  "clusters"
+ ],
+ "properties": {
+  "version": {
+   "type": "string"
+  },
+  "count": {
+   "type": "integer"
+  },
+  "clusters": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "label",
+     "topicCount"
+    ],
+    "properties": {
+     "id": {
+      "type": "string"
+     },
+     "label": {
+      "type": "string"
+     },
+     "question": {
+      "type": "string"
+     },
+     "order": {
+      "type": "integer"
+     },
+     "topicCount": {
+      "type": "integer",
+      "minimum": 0
+     },
+     "hubTopics": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     }
+    }
+   }
+  }
+ }
+}

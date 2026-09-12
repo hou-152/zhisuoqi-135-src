@@ -1,0 +1,39 @@
+schema_version: 1
+record_kind: canonical_concept
+id: skill
+slug: skill
+name_zh: Agent Skill
+name_en: Agent Skill
+aliases:
+  - Skill
+  - 技能
+category_id: human-control
+learning_stage: when-needed
+definition_status: evolving
+remember: Agent Skill 是把可复用做法、说明与必要资源组织起来，让 Agent 在合适任务中按同一方法工作的载体。
+feynman: Tool 像一把能真正动手的工具，Skill 更像一副可重复使用的工艺夹具。它把你的步骤、判断点和注意事项固定成一条清楚的动作路径，Agent 每次遇到相似任务都能沿着它工作；夹具会指导动作，却不会自己替你完成外部操作。
+scenario:
+  type: hypothetical
+  text: 团队把“修改前端后如何跑端到端检查、发现问题后怎样修复并复验”写成一个 Skill。以后 Agent 遇到对应任务时可以加载这套方法，并调用浏览器和测试 Tool 执行检查。
+image_mnemonic: 一只手用笔沿着可复用工艺夹具的凹槽运动，旁边留有上一次的淡色轨迹；夹具约束方法但不自行行动。
+source_context: Anthropic 的 Agent Skills 实践把重复步骤编码成可复用指令单元，并可带上执行所需的资源；本站以 Agent Skill 为主名称，保留 Skill 与“技能”为 Alias，同时明确不同产品在格式、发现、加载和工具授权上的实现并不一致。
+boundaries:
+  - Skill 沉淀的是可复用方法与任务上下文，不是可直接执行外部动作的 Tool。
+  - Skill 可以说明如何使用 Tool，但能否使用仍由实际工具面、权限和运行环境决定。
+  - Skill 也不是 MCP；前者是方法载体，后者是外部能力接入协议。
+  - 不同产品对 Skill 的目录、元数据、触发方式、渐进加载与允许工具没有统一实现，迁移时必须核对实际运行时。
+how_to:
+  - 把稳定、重复、可检查的做法写进 Skill，并明确什么时候用、输入是什么、步骤怎样走、什么算完成。
+  - 保持 Skill 边界单一；需要外部行动时显式说明依赖哪些 Tool 与权限。
+  - 用一个全新任务验证 Skill 是否真的被发现、加载并按预期执行，不以文件存在代替运行证据。
+transfer_question: 如果一份 Skill 把步骤写得很清楚，但当前会话没有文件写入 Tool，它能仅靠这份 Skill 修改文件吗？
+source_ids:
+  - SRC-anthropic-agent-skills
+visual:
+  type: metaphor
+  skill: anthropic-art
+  source_image: src/assets/concepts/skill/visual.png
+  alt: 冷白纸底上，一只手用笔沿可复用工艺夹具的凹槽运动，旁边留有较淡的旧轨迹，表示 Skill 固定并复用做事方法，但不等于执行工具。
+  prompt_record: src/assets/concepts/skill/PROMPT.md
+  receipt: src/assets/concepts/skill/receipt.yaml
+  visual_qa: passed

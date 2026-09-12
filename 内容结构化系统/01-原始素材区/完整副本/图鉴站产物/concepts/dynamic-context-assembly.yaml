@@ -1,0 +1,38 @@
+schema_version: 1
+record_kind: canonical_concept
+id: dynamic-context-assembly
+slug: dynamic-context-assembly
+name_zh: 动态上下文装配
+name_en: Dynamic Context Assembly
+aliases:
+  - 动态上下文组装
+  - 动态装配
+category_id: context-delivery
+learning_stage: now
+definition_status: evolving
+remember: 动态上下文装配是在每次模型调用前，按当前任务与时机把所需信息、工具和历史组合成这一次的模型输入。
+feynman: 它不像提前准备一个永远不变的万能资料包，更像每次开工前重新摆桌面：这次要排会议，就放日历、联系人和发邀请工具；下次要查合同，就换成条款、往来记录和检索工具。装配结果是当前 Context，不是长期资料库本身。
+scenario:
+  type: hypothetical
+  text: 一个助理收到“帮我约下周的同步会”后，系统先识别当前任务，再取得日历、联系人、往来语气和发邀请工具，把这些内容按合适格式组成这一次模型输入；下一项任务会得到另一套组合。
+image_mnemonic: 资料、工具与“此刻需要”的时机信号汇入同一个装配托盘，托盘只把本轮所需组合送进当前模型输入。
+source_context: Philipp Schmid 从 Context Engineering 的倡议者视角，把上下文描述为主模型调用前动态系统的输出：正确的信息与工具要在正确时间、以正确格式提供。本站据此抽出“动态装配”机制；这不是来源声称的统一行业标准，也不表示装得越多越好。
+boundaries:
+  - 动态装配不等于 Context Selection；选择回答“取什么”，装配还要处理来源、时机、格式、顺序与本轮输入的组合。
+  - 动态装配不等于一次写死的 Prompt 模板；同一任务在状态、权限或外部数据变化后，装配结果也可能变化。
+  - 它不保证输出正确；来源质量、冲突、权限、工具失败和模型能力仍需独立验证。
+how_to:
+  - 先列出当前任务真正需要的信息与能力，再为每项明确来源、触发时机和呈现格式。
+  - 检查最终模型输入，而不只检查上游资料是否存在；资料没被装进本轮 Context 就不会参与判断。
+  - 记录每次装配的来源和取舍，便于排查缺项、过载、旧状态与顺序问题。
+transfer_question: 同一位助理上午排会议、下午审合同，为什么不该让两项任务始终共享一份固定的大 Prompt？
+source_ids:
+  - SRC-philipp-context-engineering
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/dynamic-context-assembly/visual.png
+  alt: 资料来源、可用工具和“此刻需要”的时机信号汇入装配托盘，托盘只把本轮所需组合送进当前输入，表示上下文会按任务动态装配。
+  prompt_record: src/assets/concepts/dynamic-context-assembly/PROMPT.md
+  receipt: src/assets/concepts/dynamic-context-assembly/receipt.yaml
+  visual_qa: passed

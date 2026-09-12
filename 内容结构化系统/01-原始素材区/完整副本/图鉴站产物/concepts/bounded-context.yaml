@@ -1,0 +1,36 @@
+schema_version: 1
+record_kind: canonical_concept
+id: bounded-context
+slug: bounded-context
+name_zh: 限界上下文
+name_en: Bounded Context
+aliases: []
+category_id: context-delivery
+learning_stage: when-needed
+definition_status: evolving
+remember: 一个领域模型和统一语言保持同一含义的明确适用范围；跨出该范围后，相同术语、实体或规则可以采用另一套定义。
+feynman: 同一个“订单”，销售团队关心承诺了什么，履约团队关心包裹走到哪；词没变，规则和对象已经换了房间。限界上下文就是给每套含义画门牌，过门时再明确翻译。
+scenario:
+  type: hypothetical
+  text: 假设销售模块把“客户”定义为签约主体，客服模块却把每位联系人都叫客户；一次数据合并让两个团队对人数和权限产生了相反结论。
+image_mnemonic: 一张只表达「限界上下文」的纸面机制图：中心呈现「一个领域模型和统一语言保持同一含义的明确适用范围；跨出该范围后，相同术语、实体或规则可以采用另一套定义」，边缘用明确界线排除「它来自领域驱动设计，不等于 LLM 的 Context 或 Context Window」；不画候选关系。
+source_context: 本卡只采用以下来源范围：《从 /grill-me 到 /grill-with-docs：用对话先对齐领域语言》：原文明确把 bounded context 定义为应用中使用同一套语言的一块范围，并说明大型仓库可存在多个边界。未被来源直接支持的产品结论、普遍因果或关系身份不写入本卡。
+boundaries:
+  - 它来自领域驱动设计，不等于 LLM 的 Context 或 Context Window。
+  - 仓库目录可以承载边界，但目录结构本身不会自动形成清晰的领域边界。
+  - 「限界上下文」只表示候选定义覆盖的机制；它不单独证明某个产品已经正确实现该机制或因此获得结果保证。
+how_to:
+  - 找出一个经常引发争议的业务词，分别记录各团队用它做什么决定。
+  - 对比该词对应的对象、规则和生命周期，把含义稳定的一组工作圈成边界。
+  - 为跨边界交换的数据写明转换规则，避免直接复用同名字段制造假一致。
+transfer_question: 当两个团队都使用“账户”一词时，你会依据哪些业务规则判断它们应共享一个模型，还是需要两个限界上下文？
+source_ids:
+  - SRC-v2-3908c0a1cbd6
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/bounded-context/visual.png
+  alt: 一张只表达「限界上下文」的纸面机制图：中心呈现「一个领域模型和统一语言保持同一含义的明确适用范围；跨出该范围后，相同术语、实体或规则可以采用另一套定义」，边缘用明确界线排除「它来自领域驱动设计，不等于 LLM 的 Context 或 Context Window」；不画候选关系。
+  prompt_record: src/assets/concepts/bounded-context/PROMPT.md
+  receipt: src/assets/concepts/bounded-context/receipt.yaml
+  visual_qa: passed

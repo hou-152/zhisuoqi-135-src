@@ -1,0 +1,38 @@
+schema_version: 1
+record_kind: canonical_concept
+id: verifiable-goal
+slug: verifiable-goal
+name_zh: 可验证目标
+name_en: Verifiable Goal
+aliases:
+  - 机器可验证目标
+category_id: result-trust
+learning_stage: now
+definition_status: evolving
+remember: 用可重复执行或明确判定的条件描述任务成功，使 Agent 循环能够据此决定继续、修正、停止或报告失败。
+feynman: 可验证目标就是红绿灯。绿了就停，红了就继续修。没有红绿灯，AI 只能凭感觉开车。
+scenario:
+  type: hypothetical
+  text: 假设任务目标从“把搜索做好”改成“给定十个查询，正确结果进入前三且无内部路径泄漏”；Agent 可据测试继续或停止。
+image_mnemonic: 一张只表达「可验证目标」的纸面机制图：中心呈现「用可重复执行或明确判定的条件描述任务成功，使 Agent 循环能够据此决定继续、修正、停止或报告失败」，边缘用明确界线排除「它不同于测试本身；目标说明要达到什么，验证机制提供判定证据」；不画候选关系。
+source_context: 本卡只采用以下来源范围：《从 Prompt 转向 Loop Engineering 的工作流拐点》：这段将目标是否可由机器判断与循环能否知道继续或停止直接关联。未被来源直接支持的产品结论、普遍因果或关系身份不写入本卡。
+boundaries:
+  - 它不同于测试本身；目标说明要达到什么，验证机制提供判定证据。
+  - 可机器判断不等于真实价值已被完整表达，仍需同时规定禁止路径与质量边界。
+  - 目标无法满足时应触发失败或升级，不应诱导 Agent 无限重试。
+  - 当前证据缺口：需要补充主观质量目标如何转译为可复核判据的来源。
+how_to:
+  - 把成功写成可重复输入、明确判定和允许误差，并列出不可接受路径。
+  - 准备至少一个应通过和一个应失败的样本，验证判定器不是恒绿。
+  - 让 Agent 每轮运行证据，根据结果修正、停止或如实报告无法达到。
+transfer_question: 一个目标容易机器判定却遗漏用户感受时，怎样增加人工质量边界而不让停止条件失去确定性？
+source_ids:
+  - SRC-v2-e70c38d2c825
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/verifiable-goal/visual.png
+  alt: 一张只表达「可验证目标」的纸面机制图：中心呈现「用可重复执行或明确判定的条件描述任务成功，使 Agent 循环能够据此决定继续、修正、停止或报告失败」，边缘用明确界线排除「它不同于测试本身；目标说明要达到什么，验证机制提供判定证据」；不画候选关系。
+  prompt_record: src/assets/concepts/verifiable-goal/PROMPT.md
+  receipt: src/assets/concepts/verifiable-goal/receipt.yaml
+  visual_qa: passed
