@@ -141,17 +141,29 @@ console.log(`    ${wiki.r.n} 个文件 · ${mb(wiki.r.total)} 正文 · ${ms(wik
 ok(wiki.t < 3000, `全量读 <3s（实测 ${ms(wiki.t)}）—— Obsidian/编辑器打开这一层要多久`);
 
 /* ── 8. 壳 payload ──────────────────────────────────────── */
-console.log('\n[8] 单文件壳 —— 787KB 内联 payload 的 parse 成本');
-const pubPath = P('deploy', 'zhisuoqi-135', 'index.html');
-const pubSrc = fs.readFileSync(pubPath, 'utf8');
-const m = pubSrc.match(/const DATA\s*=\s*(\{[\s\S]*?\});\s*\n/);
-ok(!!m, `能在单文件里定位内联 DATA（文件 ${mb(Buffer.byteLength(pubSrc))}）`);
-if (m) {
-  const p = time(() => JSON.parse(m[1]));
-  console.log(`    payload ${mb(Buffer.byteLength(m[1]))} · parse ${ms(p.t)}`);
-  ok(p.t < 1000, `payload parse <1s（实测 ${ms(p.t)}）—— 弱机首屏就卡在这`);
-  console.log(`    首屏成本 = 下载 ${mb(Buffer.byteLength(pubSrc))} + parse ${ms(p.t)}` +
-    `（3G 网络约 ${(Buffer.byteLength(pubSrc) * 8 / 1.6e6).toFixed(1)}s 下载）`);
+console.log('\n[8] 单文件壳 —— 内联 payload 的 parse 成本');
+// deploy/ 是**独立的产物仓库**，不在源仓库里 —— 全新 clone 里没有它。
+// 所以这里按优先级找现成的那个，一个都没有就跳过，不能崩。
+const ARTIFACTS = [
+  ['deploy/zhisuoqi-135/index.html', '公网版（产物仓库）'],
+  ['prototype/知所栖-壳.html', '壳（源仓库里有）'],
+];
+const found = ARTIFACTS.map(([p, label]) => [P(p), label, fs.existsSync(P(p))]).find(([, , e]) => e);
+if (!found) {
+  console.log('    （找不到任何已构建的单文件产物，跳过 —— deploy/ 是独立仓库，clone 里本来就没有）');
+} else {
+  const [pubPath, label] = found;
+  const pubSrc = fs.readFileSync(pubPath, 'utf8');
+  console.log(`    被测：${path.relative(ROOT, pubPath)}（${label}）`);
+  const m = pubSrc.match(/const DATA\s*=\s*(\{[\s\S]*?\});\s*\n/);
+  ok(!!m, `能在单文件里定位内联 DATA（文件 ${mb(Buffer.byteLength(pubSrc))}）`);
+  if (m) {
+    const p = time(() => JSON.parse(m[1]));
+    console.log(`    payload ${mb(Buffer.byteLength(m[1]))} · parse ${ms(p.t)}`);
+    ok(p.t < 1000, `payload parse <1s（实测 ${ms(p.t)}）—— 弱机首屏就卡在这`);
+    console.log(`    首屏成本 = 下载 ${mb(Buffer.byteLength(pubSrc))} + parse ${ms(p.t)}` +
+      `（3G 网络约 ${(Buffer.byteLength(pubSrc) * 8 / 1.6e6).toFixed(1)}s 下载）`);
+  }
 }
 
 /* ── 9. 服务端并发 ──────────────────────────────────────── */

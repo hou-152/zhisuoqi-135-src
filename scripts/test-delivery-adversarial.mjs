@@ -197,7 +197,6 @@ const shellSrc = read('scripts/shell.template.html');
 
 /* ── 7. XSS：动态验证（真无头浏览器） ─────────────────────── */
 console.log('\n[7] XSS 动态验证 —— 真投毒 + 真浏览器');
-console.log('    被测产物：deploy/zhisuoqi-135/index.html（**已构建的那个**，不是源码）');
 console.log('    注意：第 6 节查的是**源码** scripts/shell.template.html；这一节查的是**产物**。');
 console.log('          源码修了但没重建，这里就会红 —— 这正是要暴露的落差。');
 if (NO_BROWSER) {
@@ -205,12 +204,25 @@ if (NO_BROWSER) {
 } else {
   const { CHROME, openCDP, sleep, spawnProcess, waitForPage } = await import('./lib/cdp.mjs');
   const PAYLOAD = '<img src=x onerror="window.__XSS__=1">';
+  // deploy/ 是**独立的产物仓库**，全新 clone 里没有它；prototype/ 是源仓库里的产物。
+  // 两个都找不到就明确跳过，不能崩 —— 测试要能在队友的 clone 里跑起来。
+  const CANDIDATES = [
+    ['deploy/zhisuoqi-135/index.html', '公网版（产物仓库）'],
+    ['prototype/知所栖-壳.html', '壳（源仓库里有）'],
+  ];
+  const hit = CANDIDATES.map(([p, label]) => [P(p), label, fs.existsSync(P(p))]).find(([, , e]) => e);
+  if (!hit) {
+    console.log('    （找不到任何已构建的单文件产物，跳过浏览器验证）');
+    console.log('    ⚠ 注意：跳过不等于通过 —— 这一节没跑，XSS 就没有动态证据。');
+  } else {
+  const [artifactPath, artifactLabel] = hit;
+  console.log(`    被测产物：${path.relative(ROOT, artifactPath)}（${artifactLabel}）`);
   const dir = fs.mkdtempSync(path.join(TMP, 'xss-'));
-  const pub = read('deploy/zhisuoqi-135/index.html');
+  const pub = fs.readFileSync(artifactPath, 'utf8');
   const mm = pub.match(/const DATA\s*=\s*(\{[\s\S]*?\});\s*\n/);
   const d = JSON.parse(mm[1]);
   const victim = d.nodes.find(n => n.name && n.name.length > 2);
-  victim.name = PAYLOAD + victim.name;              // ← 名字字段投毒（L992 走裸插）
+  victim.name = PAYLOAD + victim.name;              // ← 名字字段投毒
   fs.writeFileSync(path.join(dir, 'index.html'), pub.replace(mm[1], JSON.stringify(d)));
 
   const srv = spawnProcess('python3', ['-m', 'http.server', '9411', '--bind', '127.0.0.1'], { cwd: dir, stdio: 'ignore' });
@@ -293,6 +305,7 @@ if (NO_BROWSER) {
   try { srv.kill(); } catch {}
   await sleep(400);
   fs.rmSync(dir, { recursive: true, force: true, maxRetries: 10, retryDelay: 150 });
+  }  // ← 关掉「找到产物」那个 else
 }
 
 /* ── 8. 路径穿越：wiki 文件名（从真源码现抽表达式） ────────── */
