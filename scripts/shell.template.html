@@ -77,11 +77,6 @@ button{font-family:inherit}
 .lp-head button{background:none;border:0;color:var(--fg4);cursor:pointer;font-size:12px;
   padding:3px 5px;border-radius:5px}
 .lp-head button:hover{background:#1a1b1e;color:var(--fg2)}
-.lp-filter{display:flex;gap:4px;padding:8px 10px;border-bottom:1px solid var(--line);flex:0 0 auto}
-.lp-filter button{flex:1;height:24px;background:none;border:1px solid var(--line);border-radius:5px;
-  color:var(--fg4);font-size:11px;cursor:pointer}
-.lp-filter button:hover{color:var(--fg2);border-color:var(--line2)}
-.lp-filter button.on{background:#1d1e21;border-color:var(--line2);color:var(--fg)}
 .lp-body{overflow:auto;flex:1 1 auto;min-height:0;padding:4px 6px 12px;scrollbar-width:thin}
 .lp-body::-webkit-scrollbar{width:8px}
 .lp-body::-webkit-scrollbar-thumb{background:#232426;border-radius:4px}
@@ -161,35 +156,6 @@ button{font-family:inherit}
 .mk.on{background:#20263f;border-color:#39406b;color:#b9c0f0}
 .mk.quiet{color:var(--fg4)}
 
-/* 列表行/卡片（insert 与策展仍用） */
-.ilist{display:flex;flex-direction:column;gap:5px;margin:12px 0}
-.irow{display:flex;flex-direction:column;align-items:stretch;gap:7px;background:#121315;
-  border:1px solid var(--line);border-radius:7px;padding:9px 10px}
-.irow.keep{border-color:#2b4a37}
-.irow.skip{opacity:.4}
-.itxt{font-size:12px;line-height:1.6}
-.itxt b{color:var(--fg);font-weight:500}
-.iact{display:flex;gap:5px;justify-content:flex-end}
-.iact button{background:#17181b;border:1px solid var(--line2);border-radius:5px;color:var(--fg2);
-  font-size:11px;height:24px;padding:0 9px;cursor:pointer}
-.iact button.on{background:#1c3025;border-color:#2f5a41;color:#a9e5c4}
-.alist{display:flex;flex-direction:column;gap:6px;margin:12px 0}
-.acard{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;
-  background:#121315;border:1px solid var(--line);border-radius:7px;padding:10px 12px;
-  cursor:pointer;color:var(--fg2)}
-.acard:hover{border-color:var(--line2);background:#17181b}
-.acard b{font-size:12.5px;color:var(--fg);font-weight:550}
-.acard span{font-size:11.5px;color:var(--fg2)}
-.acard i{font-style:normal;font-size:11px;color:var(--fg4)}
-.crow{display:flex;flex-direction:column;gap:3px;background:#121315;border:1px solid var(--line);
-  border-radius:7px;padding:10px 12px;margin-bottom:6px;cursor:pointer}
-.crow:hover{border-color:var(--line2);background:#17181b}
-.crow b{font-size:12.5px;color:var(--fg);display:flex;align-items:center;gap:7px;font-weight:550}
-.crow b .dot{width:7px;height:7px;border-radius:50%;flex:0 0 7px}
-.crow span{font-size:11.5px;color:var(--fg2);line-height:1.65}
-.crow i{font-style:normal;font-size:10.5px;color:var(--fg4)}
-.badge{display:inline-block;font-size:10px;border-radius:4px;padding:1px 6px;
-  border:1px solid var(--line2);color:var(--fg3);font-weight:400}
 .dot{width:7px;height:7px;border-radius:50%;flex:0 0 7px}
 
 /* 倒逼区 */
@@ -219,60 +185,7 @@ button{font-family:inherit}
 .backto button:hover{background:#2e1c19}
 .nexthint{margin-top:16px;padding-top:12px;border-top:1px solid var(--line);font-size:12px;
   color:var(--fg3);line-height:2.1}
-.chainhead{background:#151a26;border:1px solid #26304a;border-radius:6px;padding:7px 10px;
-  font-size:11.5px;color:#93a6cc;margin-bottom:14px;display:flex;align-items:center;gap:8px}
-.chainhead button{margin-left:auto;background:none;border:0;color:#6b7d9f;font-size:11px;
-  cursor:pointer;text-decoration:underline}
-.stops{display:flex;flex-direction:column;margin:8px 0}
-.stop{display:flex;align-items:flex-start;gap:9px;font-size:12.5px;line-height:1.5;
-  padding:4px 7px;border-radius:5px;cursor:pointer;color:var(--fg2)}
-.stop:hover{background:#161719;color:var(--fg)}
-.stop .lv{flex:0 0 22px;font-size:10px;color:var(--fg4);font-variant-numeric:tabular-nums;padding-top:2px}
-.stop .nm{flex:1}
-.stop .ed{font-size:10px;color:var(--fg4);padding-top:2px}
 
-/* 会话 */
-.cmsg{margin:8px 0;padding:9px 11px;border-radius:7px;font-size:12.5px;line-height:1.8;
-  white-space:pre-wrap;word-break:break-word}
-.cmsg.user{background:#161a24;border:1px solid #232a38;color:#dbe3ec}
-.cmsg.assistant{background:#111214;border:1px solid var(--line);color:#c2ccd8}
-.cmsg.pend{opacity:.5}
-.cmsg.note{background:#1a1710;border:1px solid #3a3320;color:#d3c48d;font-size:11.5px}
-.orch-card{margin:12px 0 14px;padding:12px 13px;background:#111722;border:1px solid #283552;border-radius:8px}
-.orch-card.draft{border-color:#35446d}
-.orch-card.sending{border-color:#5c4a26;background:#17140f}
-.orch-card.done{border-color:#2b4a37;background:#101913}
-.orch-card.error{border-color:#5c2f2b;background:#1c1110}
-.orch-head{display:flex;align-items:center;gap:8px;margin-bottom:8px}
-.orch-head b{font-size:12.5px;color:#e5e9f3;font-weight:550}
-.orch-status{margin-left:auto;font-size:10.5px;color:#9aa8c8;border:1px solid #39476a;border-radius:4px;padding:2px 6px}
-.orch-card.sending .orch-status{color:#e2cf9e;border-color:#5c4a26}
-.orch-card.done .orch-status{color:#a9e5c4;border-color:#2f5a41}
-.orch-card.error .orch-status{color:#efc3bf;border-color:#5c2f2b}
-.orch-task{font-size:12px;line-height:1.7;color:#d7dce7;margin-bottom:9px;white-space:pre-wrap;word-break:break-word}
-.orch-flow{display:flex;gap:5px;flex-wrap:wrap;align-items:center;margin:8px 0 10px}
-.orch-pill{font-size:10.5px;color:#b9c0f0;background:#20263f;border:1px solid #39406b;border-radius:5px;padding:3px 7px}
-.orch-pill.aux{color:#aeb7c6;background:#171b25;border-color:#303949}
-.orch-arrow{font-size:10px;color:#5f6b84}
-.orch-note{font-size:11px;color:#929bad;line-height:1.7;margin:6px 0 9px}
-.orch-more{border-top:1px solid #283047;padding-top:8px;margin-top:8px}
-.orch-more summary{cursor:pointer;color:#a9b5d1;font-size:11px;outline:none}
-.orch-prompt{margin:8px 0 0;padding:9px 10px;background:#0a0d13;border:1px solid #242c41;border-radius:6px;
-  color:#cbd3e2;font:11px/1.7 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;word-break:break-word;max-height:300px;overflow:auto}
-.orch-actions{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:10px}
-.orch-actions button{height:27px;padding:0 10px;border-radius:5px;cursor:pointer;font:11.5px inherit}
-.orch-send{background:#5e6ad2;border:0;color:#fff}
-.orch-send:hover{background:#7c86e8}
-.orch-send:disabled{opacity:.5;cursor:default}
-.orch-reset{background:#171a21;border:1px solid #303949;color:#aeb7c6}
-.orch-reset:hover{background:#20242d;color:#e5e9f3}
-.orch-receipt{margin-top:10px;padding-top:9px;border-top:1px solid #283047;color:#aeb7c6;font-size:10.5px;line-height:1.75}
-.orch-receipt b{color:#d7dce7;font-weight:500}
-.orch-sources{margin:5px 0 0;padding-left:16px}
-.orch-sources a{color:#9fb0e2;text-decoration:none}
-.orch-sources a:hover{text-decoration:underline}
-.orch-error{color:#efc3bf;font-size:11px;line-height:1.7;margin-top:7px}
-.clist{margin-top:10px}
 .keyrow{display:flex;gap:6px;margin:8px 0 4px}
 .keyrow input{flex:1;background:#0a0b0c;border:1px solid var(--line2);border-radius:6px;
   padding:7px 10px;color:var(--fg);font-size:11.5px;outline:none;font-family:inherit;min-width:0}
@@ -282,20 +195,6 @@ button{font-family:inherit}
 code{background:#161719;border:1px solid var(--line);border-radius:4px;padding:1px 5px;
   font-size:11.5px;font-family:ui-monospace,Menlo,monospace;color:var(--fg2)}
 
-/* 底栏：所有者定义的三个入口 */
-#bar{position:fixed;left:0;right:0;bottom:0;height:50px;z-index:8;display:flex;align-items:center;
-  gap:6px;padding:0 12px;background:var(--panel);border-top:1px solid var(--line)}
-.b-btn{display:flex;align-items:baseline;gap:7px;background:none;border:1px solid var(--line);
-  border-radius:6px;height:30px;padding:0 11px;cursor:pointer;color:var(--fg2)}
-.b-btn:hover{background:#17181b;border-color:var(--line2)}
-.b-btn.flash{background:#1a2438;border-color:#2f4272;color:#a9bbec}
-.b-btn b{font-size:11.5px;font-weight:600;color:var(--fg);font-family:ui-monospace,Menlo,monospace}
-.b-btn span{font-size:11px;color:var(--fg4)}
-.b-input{flex:1;margin-left:6px}
-.b-input input{width:100%;height:30px;background:var(--panel2);border:1px solid var(--line);
-  border-radius:6px;padding:0 11px;color:var(--fg);font-size:12.5px;outline:none;font-family:inherit}
-.b-input input:focus{border-color:#333a52}
-.b-input input::placeholder{color:var(--fg4)}
 
 #tip{position:fixed;padding:5px 9px;background:#161719;border:1px solid var(--line2);
   border-radius:6px;font-size:11.5px;color:var(--fg);pointer-events:none;opacity:0;
@@ -303,7 +202,7 @@ code{background:#161719;border:1px solid var(--line);border-radius:4px;padding:1
 #load{position:fixed;inset:0;display:grid;place-items:center;background:var(--bg);
   color:var(--fg4);font-size:12.5px;z-index:20;transition:opacity .3s}
 #load.off{opacity:0;pointer-events:none}
-#app{bottom:50px;height:calc(100vh - 50px)}
+#app{height:100vh}
 
 @media (max-width:1100px){
   #app{grid-template-columns:200px 1fr}
@@ -371,11 +270,7 @@ code{background:#161719;border:1px solid var(--line);border-radius:4px;padding:1
     <label class="r-search">⌕<input id="q-filter" placeholder="筛选…" oninput="renderList()"></label>
     <nav class="r-list">
       <button class="r-item on" data-view="graph" onclick="setView('graph')"><span class="ic">◧</span><b>知识体系</b><i id="r-all"></i></button>
-      <button class="r-item" data-view="curate" onclick="setView('curate')"><span class="ic">◇</span><b>策展</b><i id="r-cur"></i></button>
       <button class="r-item" data-view="neican" onclick="setView('neican')"><span class="ic">▤</span><b>内参</b><i id="r-nei"></i></button>
-      <button class="r-item" data-view="todo" onclick="setView('todo')"><span class="ic">◑</span><b>待你看一眼</b><i id="r-todo"></i></button>
-      <button class="r-item" data-view="mine" onclick="setView('mine')"><span class="ic">●</span><b>我在学</b><i id="r-mine"></i></button>
-      <button class="r-item" data-view="chat" onclick="setView('chat')"><span class="ic">✳</span><b>对话</b><i id="r-chat">选方法论</i></button>
     </nav>
     <div class="r-sec" id="lhead">分组</div>
     <div class="r-lines" id="lrows"></div>
@@ -391,7 +286,6 @@ code{background:#161719;border:1px solid var(--line);border-radius:4px;padding:1
       <span class="spacer"></span>
       <button onclick="setView('graph')" title="回到全图">全图</button>
     </header>
-    <div class="lp-filter" id="lp-filter"></div>
     <div class="lp-body" id="lp-body"></div>
   </section>
 
@@ -412,12 +306,6 @@ code{background:#161719;border:1px solid var(--line);border-radius:4px;padding:1
   </main>
 </div>
 
-<div id="bar">
-  <button class="b-btn" id="b-import" onclick="doImport()"><b>import</b><span>知识体系</span></button>
-  <button class="b-btn" id="b-insert" onclick="doInsert()"><b>insert</b><span>挖掘 · 提问</span></button>
-  <button class="b-btn" id="b-agent"  onclick="doAgent()"><b>Agent</b><span>选方法论</span></button>
-  <div class="b-input"><input id="b-q" placeholder="我想学 ____  （回车走 135 闭环）"></div>
-</div>
 <div id="tip"></div>
 <div id="load">正在计算布局…</div>
 
@@ -425,8 +313,6 @@ code{background:#161719;border:1px solid var(--line);border-radius:4px;padding:1
 const DATA = /*__DATA__*/;
 
 /* ── 常量 ───────────────────────────────────────────── */
-const PALETTE = ['#5B8FF9','#61DDAA','#F6BD16','#7262FD','#78D3F8','#9661BC',
-                 '#F6903D','#00B5A3','#F08BB4','#E8684A','#6DC8EC','#A078DB'];
 let   LEVEL_GAP = 88;      // 每层高度（boot 时按层数自适应）
 const REPULSE   = 1650;    // 斥力
 const SPRING    = 0.055;   // 边引力
@@ -435,11 +321,10 @@ const DAMP      = 0.86;
 const ITERS     = 260;
 
 const nodes = DATA.nodes, edges = DATA.edges, sources = DATA.sources, meta = DATA.meta;
-// 策展层：主题标签 + 策展集（路线）+ 机器已判的边
-const CUR = DATA.curation || { tags: [], assign: {}, collections: [], edgeAuto: [], edgeHuman: [] };
+// 主题层：21 条主题线（知识体系现在只有这一个分组轴）
+const CUR = DATA.curation || { tags: [], assign: {}, collections: [] };
 // 内参一栏：AI 内参图文格式（主题 / 重要等级 / 地址 / 配图 / 原文子链接 / 简介 / 入选理由 / 三产物）
 const NEI = DATA.neican || { period: '', articles: [] };
-const AUTO = new Map((CUR.edgeAuto || []).map(a => [a.key, a]));
 
 /* ── 验收方式分类 ─────────────────────────────────────────────
    不问「这讲的是什么」（那是主题，任何模型都能吐），问
@@ -465,7 +350,6 @@ const KIND = {
   accept:  { name: '只能认的', color: '#9661BC', ask: null,
     rule: '这一类不设验收。' },
 };
-const KORDER = ['compute', 'judge', 'use', 'accept'];
 const kOf = n => (KIND[n.k] ? n.k : 'compute');
 const byId = new Map(nodes.map(n => [n.id, n]));
 const neighbors = new Map(nodes.map(n => [n.id, { pre: [], post: [] }]));
@@ -595,28 +479,6 @@ async function detectApp() {
   if (tag && APP.on) { tag.textContent = '桌面版'; tag.title = '数据存在 ' + APP.dir; tag.style.display = ''; }
   return APP;
 }
-const NO_FS = '网页版没有写文件权限。桌面版（cd app && npm start）才能把它写成真文件。';
-async function saveRecord() {
-  if (!APP.on) return alert(NO_FS);
-  const r = await fetch('/api/data', { method: 'POST', headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ marks, insertMarks, axis, proven: Object.keys(marks).length }) });
-  const j = await r.json();
-  alert(j.ok ? '已存到\n' + j.path : '没存上：' + (j.error || '未知'));
-}
-async function saveArtifact(name, text) {
-  if (!APP.on) return alert(NO_FS);
-  const rel = '产物/' + String(name).replace(/[\\/:*?"<>|]/g, '_').slice(0, 70) + '.md';
-  const r = await fetch('/api/save', { method: 'POST', headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ rel, text }) });
-  const j = await r.json();
-  alert(j.ok ? '已存到\n' + j.path : '没存上：' + (j.error || '未知'));
-}
-function saveArtifactFrom(i) {
-  const m = msgs[i]; if (!m || !m.content) return;
-  saveArtifact((activeSkill || '产物') + '-' + String(i).padStart(2, '0'), m.content);
-}
-window.saveRecord = saveRecord; window.saveArtifact = saveArtifact; window.saveArtifactFrom = saveArtifactFrom;
-
 let judging = false;
 async function judge(id) {
   const box = document.getElementById('said');
@@ -681,7 +543,7 @@ function hash01(s) {
   return ((h >>> 0) % 10000) / 10000;
 }
 
-// 图谱模式：纵轴 = 依赖层级，横轴 = 主题分列（默认·策展）/ 来源分列（可切）
+// 图谱模式：纵轴 = 依赖层级，横轴 = 主题分列
 let gridGap = 50, gridTop = 80, gridX0 = 0, gridColW = 60;
 function layoutGrid() {
   const G = groups();
@@ -726,34 +588,27 @@ function computeLayout() {
   if (mode === 'grid') layoutGrid(); else layoutSphere();
 }
 
-/* ── 分组轴：主题（策展，默认）/ 来源 ───────────────────────
-   原来横轴写死 12 个来源分列——那是权宜。策展后默认按主题分列。 */
-let axis = 'kind';   // 默认按「要你怎么处理它」分列
+/* ── 分组轴：只按主题分列 ───────────────────────────────────
+   09-13 所有者要求做减法：知识体系直接按主题分，策展那一层不再单独存在。
+   原来还能按「怎么验」（kind）和「来源」（src）分列，现在两条都撤了——
+   验收方式仍然写在每张卡片上（面板里的 KIND），只是不再当分列轴。 */
 const TAGI = new Map((CUR.tags || []).map((t, i) => [t.id, i]));
 function giOf(n) {
-  if (axis === 'src') return n.ci;
-  if (axis === 'kind') return KORDER.indexOf(kOf(n));
   const t = (n.tags || [])[0];
   return TAGI.has(t) ? TAGI.get(t) : (CUR.tags || []).length;
 }
 function groups() {
-  if (axis === 'src') return sources.map((s, i) => ({ id: s.id, label: s.label, color: PALETTE[i % PALETTE.length] }));
-  if (axis === 'kind') return KORDER.map(k => ({ id: k, label: KIND[k].name, color: KIND[k].color }));
   const g = (CUR.tags || []).map(t => ({ id: t.id, label: t.name, color: t.color }));
   const un = nodes.filter(x => !TAGI.has((x.tags || [])[0])).length;
   if (un) g.push({ id: '__un', label: '未分类', color: '#4a4a55' });
   return g;
 }
 function groupCount(g) {
-  if (axis === 'src') return nodes.filter(x => x.src === g.id).length;
-  if (axis === 'kind') return nodes.filter(x => kOf(x) === g.id).length;
   if (g.id === '__un') return nodes.filter(x => !TAGI.has((x.tags || [])[0])).length;
   return nodes.filter(x => (x.tags || [])[0] === g.id).length;
 }
 function matches(x) {
   if (!filter) return true;
-  if (axis === 'src') return x.src === filter;
-  if (axis === 'kind') return kOf(x) === filter;
   if (filter === '__un') return !TAGI.has((x.tags || [])[0]);
   return (x.tags || []).includes(filter);
 }
@@ -788,7 +643,7 @@ function render() {
   ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
 
   const pts = nodes.map(n => ({ n, ...project(n) }));
-  const visible = n => matches(n) && (!onlyMine || !!marks[n.id]);
+  const visible = n => matches(n);
   const G = groups();
 
   // 图谱模式：列带 + 层级参考线 + 列顶标签（形式参考 candobear 学科图谱）
@@ -955,9 +810,6 @@ function openPanel(id) {
   const mk = marks[id];
   const kk = kOf(n);
   const tags = (n.tags || []).map(t => (CUR.tags.find(x => x.id === t) || {}).name).filter(Boolean);
-  const chain = CHAIN && CHAIN.ids.includes(id)
-    ? `<div class="chainhead">这条线 · ${CHAIN.name} · 第 ${CHAIN.ids.indexOf(id) + 1}/${CHAIN.ids.length} 步
-       <button onclick="CHAIN=null;openPanel('${id}')">退出这条线</button></div>` : '';
 
   let verdict = '';
   if (mk) {
@@ -977,7 +829,7 @@ function openPanel(id) {
         : ''}
       <div class="mut" style="margin-top:6px;font-size:10.5px">你写的是：${esc((mk.said || '').slice(0, 120))}${(mk.said || '').length > 120 ? '…' : ''}</div>
       ${mk.mechanical ? `<div class="mut" style="margin-top:5px;font-size:10.5px;color:#e0a94a">
-        这次只做了机械检查。想要真判定：本地跑 <code>node scripts/serve-135.mjs</code>，或在对话页填一个 DeepSeek key。</div>` : ''}
+        这次只做了机械检查。想要真判定：本地跑 <code>node scripts/serve-135.mjs</code>。</div>` : ''}
       <div class="markrow" style="margin-top:8px">
         <button class="mk quiet" onclick="clearProof('${id}')">重写一遍（清掉这次）</button>
       </div>
@@ -985,12 +837,11 @@ function openPanel(id) {
   }
 
   document.getElementById('pbody').innerHTML = `
-    ${chain}
     <div class="src"><span style="color:${KIND[kk].color}">■</span> ${KIND[kk].name}
       · <span class="mut">${esc(n.kwhy || '')}</span></div>
-    <div class="src" style="margin-top:6px">${tags.length ? tags.join(' · ') : (src ? src.label : n.src)} · ${n.type}</div>
-    <h2>${n.name}</h2>
-    <div class="gloss">${n.gloss}</div>
+    <div class="src" style="margin-top:6px">${esc(tags.length ? tags.join(' · ') : (src ? src.label : n.src))} · ${n.type}</div>
+    <h2>${esc(n.name)}</h2>
+    <div class="gloss">${esc(n.gloss)}</div>
     ${((n.evidence||[]).length || n.ap) ? `<details class="deep"${kk === "accept" ? " open" : ""}>
       <summary>深看 · 做到这些才算会${n.ap ? " · 验收问句" : ""}</summary>
       ${(n.evidence||[]).length ? `<h5>掌握证据（可观察的行为，不是「理解了」）</h5><ul>${n.evidence.map(e => `<li>${esc(e)}</li>`).join('')}</ul>` : ''}
@@ -1014,7 +865,7 @@ function openPanel(id) {
       <h5>这一类不设验收</h5>
       <div class="mut">它被判为「<b>只能认的</b>」——${esc(n.kwhy || '作者的世界观、立场或比喻')}。<br>
       没有机制可复述，也没有对错。<b>硬考它就是假学习，所以我们不考。</b><br>
-      读过就够了。想反驳它，去「对话」里找 Agent 聊。</div>
+      读过就够了。这一类的价值不在于能不能复述，而在于你认不认它。</div>
       <div class="jrow">
         <button class="jbtn ghost" onclick="markRead('${id}')">${mk && mk.state === 'read' ? '读过了（点一下取消）' : '我读过了'}</button>
       </div>
@@ -1036,9 +887,7 @@ function openPanel(id) {
       `<li onclick="openPanel('${x.id}')">${x.name}<em>L${x.level}</em></li>`).join('')}</ul>` : ''}
 
     ${(mk && (mk.state === 'pass' || mk.state === 'mech')) ? `<div class="nexthint">${
-      CHAIN && CHAIN.ids.indexOf(id) + 1 < CHAIN.ids.length
-        ? `过了。下一步 → <button class="jbtn" onclick="chainNext()">${esc(byId.get(CHAIN.ids[CHAIN.ids.indexOf(id) + 1]).name)}</button>`
-        : (post.length ? `过了。要不要接着往上游走？<br>${post.slice(0, 3).map(x => `<button class="jbtn ghost" onclick="openPanel('${x.id}')">${esc(x.name)}</button>`).join(' ')}` : '这条线的点你都验过了。')
+      post.length ? `过了。要不要接着往上游走？<br>${post.slice(0, 3).map(x => `<button class="jbtn ghost" onclick="openPanel('${x.id}')">${esc(x.name)}</button>`).join(' ')}` : '这张卡你已经验过了。'
     }</div>` : ''}
   `;
   document.getElementById('panel').classList.add('on');
@@ -1054,22 +903,6 @@ function pinMain(on) {
 }
 window.pinMain = pinMain;
 
-/* ── 一条线的倒逼链：从策展面板进来，一步一个概念 ── */
-let CHAIN = null;
-function startLine(tagId) {
-  const c = (CUR.collections || []).find(x => x.tagId === tagId);
-  if (!c || !c.route.length) return;
-  CHAIN = { tagId, name: c.name, ids: c.route.map(x => x.id) };
-  setView('graph'); axis = 'tag'; filter = tagId;
-  buildLegend(); computeLayout(); openPanel(CHAIN.ids[0]);
-}
-function chainNext() {
-  if (!CHAIN) return;
-  const i = CHAIN.ids.indexOf(selected);
-  if (i < 0 || i + 1 >= CHAIN.ids.length) { const t = CHAIN.tagId; CHAIN = null; openCollection(t); return; }
-  openPanel(CHAIN.ids[i + 1]);
-}
-window.startLine = startLine; window.chainNext = chainNext;
 function closePanel() {
   selected = null;
   document.getElementById('panel').classList.remove('on');
@@ -1077,37 +910,26 @@ function closePanel() {
 }
 window.openPanel = openPanel; window.closePanel = closePanel;
 
-/* ── 图例：按主题（策展）/ 按来源 ─────────────────────────── */
+/* ── 图例：按主题分列（09-13 起为唯一分组轴） ───────────────── */
 function buildLegend() {
   const G = groups();
   document.getElementById('lrows').innerHTML = G.map(g => {
-    // 按主题时数字＝**主标签**数，跟画布上那一列的点数一一对应；
-    // 「相关但主标签在别处」的点数写在策展面板里，免得两个口径打架。
+    // 数字＝**主标签**数，跟画布上那一列的点数一一对应。
     const cnt = groupCount(g);
     return `<div class="lrow${filter && filter !== g.id ? ' off' : ''}" data-g="${g.id}">
       <span class="dot" style="background:${g.color}"></span>
-      ${g.label}<span class="n">${cnt}</span></div>`;
+      ${esc(g.label)}<span class="n">${cnt}</span></div>`;
   }).join('');
-  document.getElementById('lhead').textContent = axis === 'kind' ? '要你怎么处理它 · 点击筛选'
-    : axis === 'tag' ? '主题 · 点击筛选（数字＝主标签）' : '来源 · 点击筛选';
-  for (const a of ['kind', 'tag', 'src']) {
-    const b = document.getElementById('ax-' + a);
-    if (b) b.classList.toggle('on', axis === a);
-  }
+  document.getElementById('lhead').textContent = '主题 · 点击筛选（数字＝主标签）';
   document.querySelectorAll('#lrows .lrow').forEach(el => {
-    el.onclick = () => {
-      const g = el.dataset.g;
-      filter = (filter === g) ? null : g;
-      buildLegend();
-    };
+    el.onclick = () => setFilter(el.dataset.g);
   });
 }
-function setAxis(a) {
-  axis = a; filter = null;
-  computeLayout(); buildLegend();
+function setFilter(g) {
+  filter = (filter === g) ? null : g;
+  buildLegend(); renderList();
 }
-window.setAxis = setAxis;
-
+window.setFilter = setFilter;
 /* ── 启动 ───────────────────────────────────────────── */
 function setMode(m) {
   mode = m;
@@ -1127,6 +949,7 @@ async function boot() {
   resize();
   buildLegend();
   refreshMarks();
+  refreshRail();
   renderList();
   document.getElementById('kicker').textContent = meta.kicker;
   document.getElementById('stats').innerHTML = meta.stats;
@@ -1141,41 +964,14 @@ async function boot() {
 }
 setTimeout(boot, 40);
 
-/* ══ 壳：三个入口 import / insert / Agent ═══════════════════════
-   所有者 05:38 的定义：
-     import = 知识体系（两个图）  insert = llm_wiki 的挖掘/提问  Agent = 选方法论
-   两棵树（05:09）：全量树 = 所有点；自己的树 = 只显示已标记的点（同一张图两个图层） */
-let onlyMine = false;
-const INSERT_KEY = 'zss135.insert.v1';
-let insertMarks = {};
-try { insertMarks = JSON.parse(localStorage.getItem(INSERT_KEY) || '{}') || {}; } catch (e) { insertMarks = {}; }
-const saveInsert = () => { try { localStorage.setItem(INSERT_KEY, JSON.stringify(insertMarks)); } catch (e) {} };
-
-const SKEL = edges.filter(e => e[2] >= 7);   // 骨架（多次一致）
-const CAND = edges.filter(e => e[2] < 7);    // 候选（机器推的、只出现一次的那批）
 
 function refreshRail() {
-  const st = stats();
-  const mine = st.done;
-  const autoN = CUR.edgeAuto ? CUR.edgeAuto.length : 0;
-  const humanKey = new Set(CUR.edgeHuman || []);
-  const pending = (CUR.edgeHuman || []).filter(k => !insertMarks[k]).length;
   const e1 = document.getElementById('r-all');
-  const e2 = document.getElementById('r-todo');
-  const e3 = document.getElementById('r-mine');
-  const e5 = document.getElementById('r-cur');
-  // e1 知识体系 / e2 待你看一眼 / e3 我在学 / e5 策展。别搞混——
-  // 09-12 我把 e2 和 e5 都写成了 tags.length，左栏两个数字同时是 10。
   if (e1) e1.textContent = nodes.length;
-  if (e2) e2.textContent = pending;
-  if (e3) e3.textContent = mine;
-  if (e5) e5.textContent = (CUR.tags || []).length;
-  const e6 = document.getElementById('r-nei');
-  if (e6) e6.textContent = (NEI.articles || []).length;
-  const e4 = document.getElementById('r-chat');
-  if (e4) e4.textContent = activeSkill ? activeSkill : String((typeof ALLSKILLS !== 'undefined' && ALLSKILLS ? ALLSKILLS.length : 15));
+  const e2 = document.getElementById('r-nei');
+  if (e2) e2.textContent = (NEI.articles || []).length;
   const mm = document.getElementById('main-meta');
-  if (mm) mm.textContent = nodes.length + ' 点 · ' + edges.length + ' 边 · ' + (CUR.tags || []).length + ' 条线';
+  if (mm) mm.textContent = nodes.length + ' 概念 · ' + (CUR.tags || []).length + ' 个主题 · ' + edges.length + ' 条依赖';
 }
 window.refreshRail = refreshRail;
 
@@ -1183,7 +979,7 @@ window.refreshRail = refreshRail;
    之前没有这一栏——所以没有 Linear 的味道。
    它是当前导航项的**可扫列表**：一行一个东西，右边是元信息，点开看详情。 */
 let currentView = 'graph';
-const VIEW_TITLE = { graph: '知识体系', curate: '策展', neican: '内参 · 260912 期', todo: '待你看一眼', mine: '我在学', chat: '对话 · 方法论' };
+const VIEW_TITLE = { graph: '知识体系', neican: '内参 · 260912 期' };
 const ST_COLOR = { pass: '#4cb782', fail: '#eb5757', mech: '#f2c94c', read: '#9b7fe8' };
 
 function rowHTML(inner, onclick, on) {
@@ -1195,14 +991,10 @@ function renderList() {
   const q = ((document.getElementById('q-filter') || {}).value || '').trim().toLowerCase();
   const hit = t => !q || String(t).toLowerCase().includes(q);
   document.getElementById('lp-title').textContent = VIEW_TITLE[currentView] || '';
-  const filt = document.getElementById('lp-filter');
   const cntEl = document.getElementById('lp-count');
-  let html = '', cnt = 0, chips = '';
+  let html = '', cnt = 0;
 
   if (currentView === 'graph') {
-    chips = ['kind', 'tag', 'src'].map(a =>
-      `<button class="${axis === a ? 'on' : ''}" onclick="setAxis('${a}')">${
-        a === 'kind' ? '怎么验' : a === 'tag' ? '按主题' : '按来源'}</button>`).join('');
     const list = nodes.filter(n => matches(n) && hit(n.name + n.gloss))
       .sort((a, b) => (a.level - b.level) || a.name.localeCompare(b.name));
     cnt = list.length;
@@ -1219,54 +1011,6 @@ function renderList() {
         `openPanel('${n.id}')`, selected === n.id);
     }).join('') || '<div class="lp-empty">没有符合条件的点。<br>（左侧换个分组，或清掉筛选）</div>';
     if (cnt > shown.length) html += `<div class="lp-empty">只渲染了前 ${shown.length} 条，共 ${cnt} 条。<br>（用上面的搜索或左侧分组缩小范围）</div>`;
-  } else if (currentView === 'curate') {
-    const C = (CUR.collections || []).filter(c => hit(c.name + c.why));
-    cnt = C.length;
-    html = C.map(c => rowHTML(
-      `<span class="rd" style="background:${c.color}"></span><span class="rn">${esc(c.name)}</span>`
-      + `<span class="rm">${c.primary ?? c.size}</span>`,
-      `openCollection('${c.tagId}')`, false)).join('');
-  } else if (currentView === 'todo') {
-    const em = new Map(edges.map(e => [e[0] + '_' + e[1], e]));
-    const keys = (CUR.edgeHuman || []).filter(k => {
-      const e = em.get(k); if (!e) return false;
-      const a = byId.get(e[0]), b = byId.get(e[1]);
-      return hit((a ? a.name : '') + (b ? b.name : ''));
-    });
-    cnt = keys.length;
-    html = keys.map(k => {
-      const e = em.get(k), a = byId.get(e[0]), b = byId.get(e[1]);
-      const st = insertMarks[k];
-      return rowHTML(
-        `<span class="rn">${esc(a.name)} <span style="color:#3c3f44">←</span> ${esc(b.name)}</span>`
-        + `<span class="rm">${st === 'keep' ? '采纳' : st === 'skip' ? '跳过' : '票' + e[2]}</span>`,
-        `openEdgeDetail('${k}')`, false);
-    }).join('') || '<div class="lp-empty">这 16 条都看过了。</div>';
-  } else if (currentView === 'mine') {
-    // 走 chips 而不是直接写 #lp-filter 的 innerHTML —— 函数结尾那句
-    // `filt.innerHTML = chips` 会把直接写进去的内容冲掉（09-12 踩过）。
-    if (APP.on) chips = '<button onclick="saveRecord()">把学习记录存成本地文件</button>';
-    const ids = Object.keys(marks).filter(id => byId.has(id)
-      && hit(byId.get(id).name + (marks[id].said || '')));
-    cnt = ids.length;
-    html = ids.map(id => {
-      const n = byId.get(id), m = marks[id];
-      return rowHTML(
-        `<span class="st" style="background:${ST_COLOR[m.state] || '#3c3f44'}"></span>`
-        + `<span class="rn">${esc(n.name)}</span>`
-        + `<span class="rm">${m.state === 'pass' ? '过了' : m.state === 'read' ? '读过' : m.state === 'mech' ? '机器过' : '没过'}</span>`,
-        `openPanel('${id}')`, selected === id);
-    }).join('') || '<div class="lp-empty">还没验过任何一条。<br>（去「知识体系」点一个点，写下你的复述）</div>';
-  } else if (currentView === 'chat') {
-    const all = (typeof ALLSKILLS !== 'undefined' && ALLSKILLS) ? ALLSKILLS : [];
-    const list = all.filter(s => hit(s.name + (s.description || '')));
-    cnt = list.length;
-    html = list.map(s => rowHTML(
-      `<span class="rd" style="background:${s.name === activeSkill ? '#5e6ad2' : '#2b2c30'}"></span>`
-      + `<span class="rn">${esc(s.name)}</span><span class="rm">${(s.bytes / 1024).toFixed(0)}K</span>`,
-      `pickAgent('${s.name}'${typeof PUB !== 'undefined' && PUB.skillMD && PUB.skillMD[s.name] ? `,'${s.name}'` : (PINNED.some(p => p.name === s.name) ? ',null' : '')})`,
-      s.name === activeSkill)).join('')
-      || '<div class="lp-empty">正读 skill 清单…</div>';
   } else if (currentView === 'neican') {
     const list = (NEI.articles || []).filter(a => hit(a.title + a.topic + a.author));
     cnt = list.length;
@@ -1279,8 +1023,6 @@ function renderList() {
   }
   box.innerHTML = html;
   if (cntEl) cntEl.textContent = cnt;
-  if (filt) filt.innerHTML = chips;
-  filt.style.display = chips ? '' : 'none';
 }
 window.renderList = renderList;
 
@@ -1295,12 +1037,8 @@ function setView(v) {
   currentView = v;
   if (v !== 'neican') hideReader();
   document.querySelectorAll('.r-item').forEach(b => b.classList.toggle('on', b.dataset.view === v));
-  if (v === 'mine') { onlyMine = true; closePanel(); }
-  else if (v === 'graph') { onlyMine = false; closePanel(); }
-  else if (v === 'curate') { onlyMine = false; openCurate(); }
-  else if (v === 'neican') { onlyMine = false; closePanel(); openNeican(neiSlug); }
-  else if (v === 'todo') { onlyMine = false; openInsert(); }
-  else if (v === 'chat') { onlyMine = false; openAgent(); }
+  if (v === 'neican') { closePanel(); openNeican(neiSlug); }
+  else closePanel();
   refreshRail(); renderList();
 }
 window.setView = setView;
@@ -1409,456 +1147,13 @@ function renderNeican(reset) {
 }
 
 /* 一条候选边的详情（列表里点进来） */
-function openEdgeDetail(k) {
-  const em = new Map(edges.map(e => [e[0] + '_' + e[1], e]));
-  const e = em.get(k); if (!e) return;
-  const a = byId.get(e[0]), b = byId.get(e[1]);
-  const au = AUTO.get(k) || {};
-  const st = insertMarks[k];
-  document.getElementById('panel').classList.add('on'); pinMain(true);
-  document.getElementById('pbody').innerHTML = `
-    <div class="src">insert · 一条候选边</div>
-    <h2>${esc(a.name)}</h2>
-    <div class="mut" style="margin-bottom:14px">依赖 <b style="color:#f7f8f8">${esc(b.name)}</b>
-      <span style="color:#3c3f44"> · 出现 ${e[2]}/4 次</span></div>
-    <div class="gloss">${esc(a.gloss)}</div>
-    <h5>它要依赖的那个</h5>
-    <div class="gloss" style="margin-bottom:8px">${esc(b.gloss)}</div>
-    <div class="dpane" style="margin-top:6px">
-      <h5>我的判断</h5>
-      <div class="mut">${au.verdict ? `我猜「${au.verdict === 'keep' ? '采纳' : au.verdict === 'skip' ? '跳过' : '拿不准'}」
-        （把握 ${Math.round((au.conf || 0) * 100)}%）—— ${esc(au.why || '')}` : '（这条没有机器预判）'}</div>
-      <div class="jrow">
-        <button class="jbtn ${st === 'keep' ? '' : 'ghost'}" onclick="markInsert('${k}','keep')">采纳</button>
-        <button class="jbtn ${st === 'skip' ? '' : 'ghost'}" onclick="markInsert('${k}','skip')">跳过</button>
-        <button class="jbtn ghost" onclick="openPanel('${a.id}')">看这个概念</button>
-      </div>
-    </div>
-    <div class="mut">我判过的 250 条写在 <code>evidence/concept-edges-curated-20260912.json</code>。</div>`;
-}
-window.openEdgeDetail = openEdgeDetail;
 
-function doImport() {
-  setView('graph');
-  const b = document.getElementById('b-import');
-  b.classList.add('flash'); setTimeout(() => b.classList.remove('flash'), 520);
-}
-function doInsert() { setView('todo'); }
-function doAgent() { setView('chat'); }
-window.doImport = doImport; window.doInsert = doInsert; window.doAgent = doAgent;
 
-function openInsert() {
-  document.getElementById('panel').classList.add('on');
-  const auto = CUR.edgeAuto || [];
-  const autoKeep = auto.filter(a => a.verdict === 'keep').length;
-  const autoSkip = auto.length - autoKeep;
-  const humanKeys = CUR.edgeHuman || [];
-  const em = new Map(edges.map(e => [e[0] + '_' + e[1], e]));
-  const left = humanKeys.filter(k => !insertMarks[k]).length;
-  pinMain(true);
-  document.getElementById('pbody').innerHTML = `
-    <div class="src">insert · 机器挖出来的连接</div>
-    <h2>我自己判了 ${auto.length} 条，剩 ${left} 条要你看一眼</h2>
-    <div class="mut">候选边一共 ${CAND.length} 条（骨架那 ${SKEL.length} 条多次一致，不用管）。<br>
-    我按「先懂什么才能懂什么」逐条过了一遍：<b class="auto">采纳 ${autoKeep}</b> · <b>跳过 ${autoSkip}</b>。<br>
-    下面这些是我<b>自己也没把握</b>的——跨篇、票数又高，判错了会串线，所以留给你。
-    <b>你不看也不影响</b>，它们默认按我的判断走。</div>
-    <div class="ilist">${humanKeys.map(k => {
-      const e = em.get(k); if (!e) return '';
-      const a = byId.get(e[0]), c = byId.get(e[1]);
-      const st = insertMarks[k];
-      const au = AUTO.get(k);
-      return `<div class="irow ${st || ''}">
-        <div class="itxt"><b>${a ? a.name : e[0]}</b> 依赖 <b>${c ? c.name : e[1]}</b>
-        <span class="mut"> · 票 ${e[2]}/4</span>
-        ${au ? `<div class="mut" style="margin-top:4px">我的猜测：${au.verdict === 'keep' ? '采纳' : au.verdict === 'skip' ? '跳过' : '拿不准'}
-        （把握 ${(au.conf * 100).toFixed(0)}%）—— ${au.why}</div>` : ''}</div>
-        <div class="iact">
-          <button class="${st === 'keep' ? 'on' : ''}" onclick="markInsert('${k}','keep')">采纳</button>
-          <button class="${st === 'skip' ? 'on' : ''}" onclick="markInsert('${k}','skip')">跳过</button>
-        </div></div>`;
-    }).join('')}</div>
-    <div class="mut">已表态 ${humanKeys.length - left} / ${humanKeys.length}。<br>
-    我判过的那 ${auto.length} 条写在 <code>evidence/concept-edges-curated-20260912.json</code>，随时可查、可翻案。</div>`;
-}
-function markInsert(k, v) {
-  if (insertMarks[k] === v) delete insertMarks[k]; else insertMarks[k] = v;
-  saveInsert(); refreshRail();
-  if (currentView === 'todo') { renderList(); openEdgeDetail(k); } else openInsert();
-}
-window.markInsert = markInsert;
 
-/* 策展：10 条线，每条已经排好路线。用户不必自己找入口。 */
-function openCurate() {
-  const C = CUR.collections || [];
-  document.getElementById('panel').classList.add('on'); pinMain(true);
-  document.getElementById('pbody').innerHTML = `
-    <div class="src">策展 · ${C.length} 条线</div>
-    <h2>这 ${nodes.length} 个点，我已经分成 ${C.length} 条线</h2>
-    <div class="mut">每条线给了：<b>为什么值得走</b>、<b>从哪进</b>（门槛最低的）、<b>走到哪算完</b>（最抽象的）、
-    以及一条沿着真实依赖边的<b>路线</b>。<br>点一条线看路线，再点「只看这条线」把它单独铺开。</div>
-    ${C.map(c => `<div class="crow" onclick="openCollection('${c.tagId}')">
-      <b><span class="dot" style="background:${c.color}"></span>${c.name}
-        <span class="badge">主标签 ${c.primary ?? c.size}</span>
-        <span class="badge">相关 ${c.size}</span></b>
-      <span>${c.why}</span>
-      <i>入口 ${c.entry.map(e => e.name).join(' · ')}</i>
-    </div>`).join('')}`;
-}
-
-function openCollection(tid) {
-  const c = (CUR.collections || []).find(x => x.tagId === tid);
-  const t = (CUR.tags || []).find(x => x.id === tid);
-  if (!c) return;
-  document.getElementById('panel').classList.add('on'); pinMain(true);
-  document.getElementById('pbody').innerHTML = `
-    <div class="src">策展 · 一条线</div>
-    <h2><span class="dot" style="background:${c.color};display:inline-block;margin-right:8px"></span>${c.name}</h2>
-    <div class="gloss">${c.why}</div>
-    <div class="metrics">
-      <div class="m"><b>${c.size}</b><span>个点</span></div>
-      <div class="m"><b>${c.route.length}</b><span>跳路线</span></div>
-      <div class="m"><b>${c.primary ?? c.size}</b><span>主标签</span></div>
-      <div class="m"><b>${c.size}</b><span>相关点</span></div>
-    </div>
-    <div class="markrow">
-      <button class="mk on" onclick="startLine('${tid}')">开始倒逼 · 一步一个概念</button>
-      <button class="mk" onclick="focusTag('${tid}')">只看这条线</button>
-      <button class="mk quiet" onclick="openCurate()">回到 ${(CUR.collections || []).length} 条线</button>
-    </div>
-    <h5>从哪进 · 组内没有前置、且解锁最多的</h5>
-    <ul>${c.entry.map(e => `<li onclick="openPanel('${e.id}')">${e.name}<em>解锁 ${e.unlocks ?? '?'}</em></li>`).join('')}</ul>
-    <h5>路线 · 先懂什么再懂什么</h5>
-    <div class="stops">${c.route.map(st => `<div class="stop" onclick="openPanel('${st.id}')">
-      <span class="lv">L${st.level}</span>
-      <span class="nm">${st.name}</span>
-      <span class="ed">${st.edgeFromPrev === 'skel' ? '骨架' : st.edgeFromPrev === 'cand' ? '候选' : '起点'}</span>
-    </div>`).join('')}</div>
-    <h5>收敛点 · 这条线上被依赖最多的</h5>
-    <ul>${c.goal.map(g => `<li onclick="openPanel('${g.id}')">${g.name}<em>L${g.level}</em></li>`).join('')}</ul>
-    <h5>这条线上的全部 ${c.size} 个点</h5>
-    <ul>${nodes.filter(x => (x.tags || []).includes(tid)).map(x =>
-      `<li onclick="openPanel('${x.id}')">${x.name}<em>L${x.level}</em></li>`).join('')}</ul>`;
-}
-function focusTag(tid) {
-  axis = 'tag'; filter = tid;
-  setView('graph'); buildLegend(); computeLayout(); closePanel();
-}
-window.openCurate = openCurate; window.openCollection = openCollection; window.focusTag = focusTag;
-
-/* Agent：卡片上的 prompt 不再是我手抄的摘要 —— 直接用 .agents/skills/<name>/SKILL.md 原文。
-   （所有者问「怎么样去调用 DBS 的 skill 啊？」——这就是答案：服务端读原文件当 system prompt。）*/
-const PINNED = [
-  { name: '135 学习闭环', skill: null, span: '这个项目的闭环', note: '1 阅读器 → 3 决策场 → 5 实验台 → 费曼验收' },
-  { name: 'dbs-learning-beta', skill: 'dbs-learning-beta', span: '没有标准答案的课题', note: '判课题类型 → 判据 · 代价 · 只有你能回答的裁决点 · 最小实验' },
-  { name: 'dbs-standard-answer', skill: 'dbs-standard-answer', span: '要一个带条件的答案', note: '理论挖掘 + 历史同构（成功 / 失败 / 反例）' },
-];
-let ALLSKILLS = null;
-
-async function openAgent() {
-  document.getElementById('panel').classList.add('on'); pinMain(true);
-  renderAgent(PINNED, '载入中…');
-  try {
-    const r = await fetch('/api/skills');
-    const j = await r.json();
-    ALLSKILLS = j.skills || [];
-  } catch (e) { ALLSKILLS = []; }
-  renderAgent(PINNED, ALLSKILLS.length
-    ? `已装 ${ALLSKILLS.length} 个 skill：<code>${ALLSKILLS[0].name}</code> … <code>${ALLSKILLS[ALLSKILLS.length - 1].name}</code>`
-    : '（离线·读不到 <code>.agents/skills/</code>，只有上面三个内置的可用）');
-}
-function renderAgent(pinned, foot) {
-  const rows = pinned.map(p => `<button class="acard" onclick="pickAgent('${p.skill || p.name}', ${p.skill ? `'${p.skill}'` : 'null'})">
-      <b>${p.name}</b><span>${p.span}</span><i>${p.note}</i></button>`).join('');
-  const others = (ALLSKILLS || []).filter(x => !PINNED.some(p => p.skill === x.name));
-  document.getElementById('pbody').innerHTML = `
-    <div class="src">Agent · 用哪套方法论</div>
-    <h2>先问一句：这个课题有标准答案吗？</h2>
-    <div class="mut">输入 <code>/dbs 你的任务</code>，先生成编排提示词，再由你点击发送。<br>
-    有 → 135 闭环；没有 → dbs-learning-beta。<br>
-    <b>选中的 skill 原文</b>（不是摘要）会被当成 system prompt 发给模型。<br>${foot}</div>
-    <div class="alist"><button class="acard" onclick="startOrchestration('')">
-      <b>/dbs · 组合编排</b><span>先看主 Skill、辅助 Skill、执行顺序和完整提示词</span><i>生成后停在「待发送」</i></button></div>
-    <div class="alist">${rows}</div>
-    ${others.length ? `<h5>其余已装 skill（点一下直接用）</h5>
-    <div class="alist">${others.map(x => `<button class="acard" onclick="pickAgent('${x.name}', '${x.name}')">
-      <b>${x.name}</b><span>${(x.description || '').slice(0, 58)}${(x.description || '').length > 58 ? '…' : ''}</span>
-      <i>${(x.bytes / 1024).toFixed(1)} KB · SKILL.md 原文</i></button>`).join('')}</div>` : ''}`;
-}
-window.openAgent = openAgent;
-
-/* ══ 对话：选一个方法论，然后真的能问 ─────────────────────────
-   经 http://127.0.0.1:5180/知所栖-壳.html 打开时走 /api/llm（真 LLM）；
-   双击 file:// 打开时没有 /api，给一句诚实的离线说明并指路。 */
-const SKILLS = {
-  '135 学习闭环': {
-    tag: '有标准答案的知识型课题',
-    sys: '你是「知所栖 135」的学习编排器。固定顺序，不许跳步、不许替学习者决定：'
-       + '① 1 阅读器 = 给 3 个概念，每个给三层梯度（L1 直觉 / L2 机制 / L3 应用）；'
-       + '② 3 决策场 = 先让学习者自己选，再给真实案例与「条件 → 路线」表；'
-       + '③ 5 实验台 = 一个 5 分钟能做的最小实验，必须让他动手判断；'
-       + '④ 费曼验收 = 让他用自己的话复述，逐点查漏，漏哪倒回哪。'
-       + '用户说想学什么时，你只做第 ① 步，给完 3 个概念就停，等他反馈。不要一次给完四步。'
-  },
-  'dbs-learning-beta': {
-    tag: '没有标准答案的课题',
-    sys: '先判课题类型（伪问题／主观判断／个人决策／价值问题），然后输出：判据、代价、'
-       + '只有用户本人能回答的裁决点、一个最小实验。'
-       + '如果判定为知识型课题（有标准答案），说明并交回 135 闭环，不继续本流程。'
-       + '绝不替用户做决定，不写「你应该」。'
-  },
-  'dbs-standard-answer': {
-    tag: '要一个带条件的答案',
-    sys: '两部分：① 知识与理论挖掘——先审查命题（绝对化／因果跳跃／定义偷换／经验普遍化／反向推断），'
-       + '再找相关学科、作者、理论，核实来源，写清能解释什么、解释不了什么；'
-       + '② 历史同构——成功案例、失败案例、反例，最后给一个带条件、带因果解释、带失效边界的答案。'
-       + '找不到就写「尚无统一答案」，不许硬套名人。'
-  },
-};
-var activeSkill = null;
-var activeFile = null;   // 非空 = 用 .agents/skills/<activeFile>/SKILL.md 当 system prompt
-var msgs = [];
-var orchestration = null; // /dbs 的编排收据：draft → sending → done / error
-
-const ORCH_ROLE = {
-  'dbs-learning-beta': { label: 'dbs-learning-beta', kind: '主 Skill', note: '判题型、判据、代价和个人裁决点' },
-  'dbs-standard-answer': { label: 'dbs-standard-answer', kind: '辅助 Skill', note: '答案等级、理论、历史同构和失效边界' },
-  'zhihu': { label: 'zhihu', kind: '辅助 Skill', note: '检索知乎原始回答、作者和链接' },
-};
-
-function buildOrchestration(task) {
-  const personal = /我(要不要|是否|该不该)|要不要|是否应该|该不该|值不值得|选择|辞职|转行|做独立|怎么办/.test(task);
-  const skills = personal
-    ? ['dbs-learning-beta', 'dbs-standard-answer', 'zhihu']
-    : ['dbs-standard-answer', 'zhihu'];
-  const main = skills[0];
-  const aux = skills.slice(1);
-  const flow = personal
-    ? [
-        '1. dbs-learning-beta 先判定题型；如果是知识型，报告并交回 135 闭环。',
-        '2. zhihu 只检索与任务直接相关的回答、作者、链接和摘要，摘要不当全文。',
-        '3. dbs-standard-answer 判断答案等级，核对理论、案例、反例与证据边界。',
-        '4. beta 根据用户约束整理判据、代价和最小实验，不替用户做决定。',
-      ]
-    : [
-        '1. zhihu 检索原始材料，记录标题、作者、链接和摘要。',
-        '2. dbs-standard-answer 挖掘理论和历史同构，判断证据能支持到哪一层。',
-      ];
-  const stop = personal
-    ? '题型冲突、材料无法核验或用户约束缺失时，停止并报告缺口。'
-    : '来源无法核验、理论与案例不匹配或没有统一答案时，停止并照实标注。';
-  const prompt = [
-    '组合任务：' + task,
-    '主 Skill：/' + main,
-    '辅助 Skill：' + aux.map(x => '/' + x).join('、'),
-    '',
-    '执行顺序：', ...flow,
-    '',
-    '边界：',
-    '区分事实、推断和未知；知乎搜索只提供待核验来源；保留用户的最终决定权。',
-    '停止条件：' + stop,
-    '',
-    '最终只交付一份由主 Skill 统领的结果，附来源、证据缺口和下一步由用户决定的事项。',
-  ].join('\n');
-  return { task, skills, main, aux, prompt, status: 'draft', result: null, error: null };
-}
-
-function safeHref(url) {
-  const s = String(url || '');
-  return /^https?:\/\//i.test(s) ? esc(s) : '#';
-}
-
-function renderOrchestration() {
-  const o = orchestration;
-  if (!o) return '';
-  const labels = { draft: '待发送', sending: '执行中', done: '已完成', error: '执行失败' };
-  const role = x => ORCH_ROLE[x] || { label: x, kind: 'Skill', note: '已安装 Skill' };
-  const flow = [o.main, ...o.aux].map((x, i) =>
-    `<span class="orch-pill ${i ? 'aux' : ''}">${i ? '辅' : '主'} · /${esc(role(x).label)}</span>`).join('<span class="orch-arrow">→</span>');
-  const r = o.result;
-  const receipt = r ? `<div class="orch-receipt">
-      <b>执行收据</b>　${esc((r.model || '本地模型'))}${r.tokens ? ` · ${esc(r.tokens)} tokens` : ''}<br>
-      已加载：${r.skills.map(x => '/' + esc(x)).join('、')}<br>
-      知乎来源：${r.sources.length} 条${r.sourceError ? `（检索失败：${esc(r.sourceError)}）` : ''}
-      ${r.sources.length ? `<ol class="orch-sources">${r.sources.map(s => `<li><a href="${safeHref(s.url)}" target="_blank" rel="noreferrer">${esc(s.title || '无标题')}</a> · ${esc(s.author || '未知作者')}</li>`).join('')}</ol>` : ''}
-    </div>` : '';
-  return `<section class="orch-card ${esc(o.status)}">
-    <div class="orch-head"><b>/dbs · 编排收据</b><span class="orch-status">${labels[o.status] || '待发送'}</span></div>
-    <div class="orch-task">${esc(o.task)}</div>
-    <div class="orch-flow">${flow}</div>
-    <div class="orch-note">提示词已经生成。${o.status === 'draft' ? '点击发送后才会调用下游 Skill 和知乎 API。' : '下游执行状态和来源写在下面。'}</div>
-    <details class="orch-more" ${o.status === 'draft' ? 'open' : ''}><summary>展开完整组合提示词</summary><pre class="orch-prompt">${esc(o.prompt)}</pre></details>
-    <div class="orch-actions">
-      <button class="orch-send" onclick="sendOrchestration()" ${o.status === 'sending' || o.status === 'done' ? 'disabled' : ''}>${o.status === 'error' ? '重试发送' : '发送到下游'}</button>
-      <button class="orch-reset" onclick="clearOrchestration()">重新编排</button>
-    </div>
-    ${o.error ? `<div class="orch-error">${esc(o.error)}</div>` : ''}
-    ${receipt}
-  </section>`;
-}
-
-function renderConv() {
-  const body = document.getElementById('pbody');
-  document.getElementById('panel').classList.add('on'); pinMain(true);
-  const tagOf = activeSkill
-    ? ((SKILLS[activeSkill] && SKILLS[activeSkill].tag)
-       || (ALLSKILLS || []).find(x => x.name === activeSkill)?.description?.slice(0, 44)
-       || '已装 skill')
-    : '';
-  const head = activeSkill
-    ? `<div class="src">会话 · ${activeSkill}${activeFile ? ' · SKILL.md 原文' : ' · 内置'}</div><h2>${tagOf}</h2>`
-    : `<div class="src">会话</div><h2>先选一个方法论</h2>`;
-  const hint = (activeSkill ? '' : (orchestration ? '' :
-    `<div class="mut">点底栏的 <b>Agent</b> 选一个，再在下面的输入框里问我。<br>
-     <b>选哪个不由系统替你决定。</b></div>`)) + renderOrchestration();
-  const rows = msgs.map((m, i) => `<div class="cmsg ${m.role}${m.pending ? ' pend' : ''}">${
-    esc(m.content).replace(/\n/g, '<br>')}${
-    (APP.on && m.role === 'assistant' && !m.pending && i > 0)
-      ? `<div class="jrow" style="margin-top:9px"><button class="jbtn ghost" onclick="saveArtifactFrom(${i})">存到本地</button></div>`
-      : ''}</div>`).join('');
-  body.innerHTML = head + hint
-    + `<div class="clist" id="clist">${rows || (activeSkill ? '<div class="mut">说吧，你想学什么。</div>' : '')}</div>`;
-  const cl = document.getElementById('clist');
-  if (cl) cl.scrollTop = cl.scrollHeight;
-}
 function esc(t) { return String(t).replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c])); }
 
-function openConv() { renderConv(); }
-
-function startOrchestration(raw) {
-  const task = String(raw || '').replace(/^\/dbs\b\s*/i, '').trim();
-  const q = document.getElementById('b-q');
-  if (!task) {
-    orchestration = null;
-    msgs = [];
-    currentView = 'chat';
-    document.querySelectorAll('.r-item').forEach(b => b.classList.toggle('on', b.dataset.view === 'chat'));
-    refreshRail(); renderList(); renderConv();
-    q.placeholder = '/dbs 你的任务（先生成提示词，再点击发送）';
-    q.focus();
-    return;
-  }
-  orchestration = buildOrchestration(task);
-  activeSkill = null;
-  activeFile = null;
-  msgs = [{ role: 'assistant', content: '已生成 /dbs 组合提示词，当前停在「待发送」。' }];
-  currentView = 'chat';
-  document.querySelectorAll('.r-item').forEach(b => b.classList.toggle('on', b.dataset.view === 'chat'));
-  refreshRail(); renderList(); renderConv();
-  q.placeholder = '继续输入 /dbs 任务，或点击上面的「发送到下游」';
-}
-
-async function sendOrchestration() {
-  const o = orchestration;
-  if (!o || o.status === 'sending' || o.status === 'done') return;
-  o.status = 'sending'; o.error = null;
-  msgs = [{ role: 'user', content: o.task }, { role: 'assistant', content: '下游执行中：加载 Skill → 检索知乎 → 生成结果…', pending: true }];
-  renderConv();
-  try {
-    let j;
-    const local = /^(127\.0\.0\.1|localhost|\[::1\])$/.test(location.hostname) || location.protocol === 'file:';
-    if (local) {
-      const r = await fetch('/api/orchestrate', {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ task: o.task, skills: o.skills, prompt: o.prompt }),
-      });
-      j = await r.json();
-    } else {
-      // 公网静态版没有本地知乎代理：有访客 key 时仍可运行烘焙的 Skill，来源缺口要明说。
-      if (typeof llmCall !== 'function') throw new Error('当前页面没有可用的下游运行时');
-      const baked = typeof PUB !== 'undefined' ? PUB.skillMD || {} : {};
-      const sys = o.skills.map(x => baked[x] || (SKILLS[x] || {}).sys || '').filter(Boolean).join('\n\n')
-        + '\n\n公网运行限制：无法调用本地知乎 API，不得编造知乎来源；需要来源时明确写出缺口。';
-      const res = await llmCall(sys, [{ role: 'user', content: o.task }], null);
-      if (!res.ok) throw new Error(res.why || '公网下游调用失败');
-      j = { ok: true, content: res.content, skills: o.skills, sources: [], sourceError: '公网版没有本地知乎检索代理', model: res.via || '' };
-    }
-    if (j.error) throw new Error(j.error + (j.detail ? ' — ' + String(j.detail).slice(0, 160) : ''));
-    o.status = 'done';
-    o.result = { skills: j.skills || o.skills, sources: j.sources || [], sourceError: j.sourceError || '', model: j.model || '', tokens: j.tokens || 0 };
-    const out = j.content ?? j.text ?? j.choices?.[0]?.message?.content ?? j.data?.content ?? JSON.stringify(j);
-    msgs[1] = { role: 'assistant', content: String(out || '下游没有返回内容。') };
-  } catch (e) {
-    o.status = 'error'; o.error = e.message || String(e);
-    msgs[1] = { role: 'assistant', content: '这次没有得到下游结果。看上面的执行收据和错误，可直接重试。' };
-  }
-  renderConv(); refreshRail();
-}
-
-function clearOrchestration() {
-  orchestration = null; msgs = [];
-  const q = document.getElementById('b-q');
-  q.placeholder = '我想学 ____  （回车走 135 闭环）';
-  renderConv(); q.focus();
-}
-window.startOrchestration = startOrchestration;
-window.sendOrchestration = sendOrchestration;
-window.clearOrchestration = clearOrchestration;
-
-async function send() {
-  const q = document.getElementById('b-q');
-  const text = (q.value || '').trim();
-  if (!text) return;
-  if (/^\/dbs(?:\s|$)/i.test(text)) {
-    q.value = '';
-    startOrchestration(text);
-    return;
-  }
-  q.value = '';
-  msgs.push({ role: 'user', content: text });
-  if (!activeSkill) {
-    msgs.push({ role: 'assistant', content: '先选一个方法论：点底栏的 Agent。' });
-    renderConv(); refreshRail(); return;
-  }
-  msgs.push({ role: 'assistant', content: '…', pending: true });
-  renderConv();
-  const history = msgs.filter(m => !m.pending).map(m => ({ role: m.role, content: m.content }));
-  try {
-    const payload = activeFile
-      ? { json: false, skill: activeFile, messages: history }              // 服务端读真 SKILL.md
-      : { json: false, messages: [{ role: 'system', content: (SKILLS[activeSkill] || {}).sys || '' }, ...history] };
-    const r = await fetch('/api/llm', {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    });
-    const j = await r.json();
-    const out = j.error
-      ? `（没跑起来：${j.error}${j.detail ? ' — ' + String(j.detail).slice(0, 160) : ''}）`
-      : (j.content ?? j.text ?? j.choices?.[0]?.message?.content
-         ?? j.data?.content ?? (typeof j === 'string' ? j : JSON.stringify(j)));
-    msgs[msgs.length - 1] = { role: 'assistant', content: out };
-  } catch (e) {
-    msgs[msgs.length - 1] = { role: 'assistant', content:
-      '（离线）没连上本地服务，所以这句不是真回答。\n'
-      + '要真对话：项目根目录跑 `node scripts/serve-135.mjs`，然后开 http://127.0.0.1:5180/知所栖-壳.html —— 同一个地址下 /api/llm 才通。' };
-  }
-  renderConv();
-}
-window.send = send;
-window.openConv = openConv;
-
-/* Agent 卡片：选中即生效，并切到会话 */
-window.pickAgent = function (label, file) {
-  orchestration = null;
-  activeSkill = label;
-  activeFile = file || null;
-  const q = document.getElementById('b-q');
-  q.placeholder = label + ' · 我想学 ____（回车发送）';
-  const desc = SKILLS[label] ? SKILLS[label].tag
-    : (ALLSKILLS || []).find(x => x.name === label)?.description || '已装 skill';
-  msgs = [{ role: 'assistant', content: '用「' + label + '」。' + desc + '\n'
-    + (activeFile ? '（system prompt = .agents/skills/' + activeFile + '/SKILL.md 原文）' : '（内置闭环）')
-    + '——说吧，你想学什么？' }];
-  setView('chat');
-  renderConv(); refreshRail();
-  q.focus();
-};
 refreshRail();
 
-/* 底栏输入框：回车发送 */
-document.getElementById('b-q').addEventListener('keydown', e => {
-  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); }
-});
 
 </script>
 </body>
