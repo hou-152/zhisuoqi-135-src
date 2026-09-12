@@ -1,0 +1,943 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>知所栖 135 · AI 时代要学的每一件事</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%;overflow:hidden;background:#08080a;color:#fff;
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  canvas{position:fixed;inset:0;display:block;cursor:grab;touch-action:none}
+  canvas.drag{cursor:grabbing}
+  #ui{position:fixed;inset:0;pointer-events:none;z-index:2}
+  .brand{position:absolute;top:26px;left:34px;font-size:12px;letter-spacing:.24em;
+    font-weight:600;color:#fff}
+  .brand span{color:#5a5a63;font-weight:400;letter-spacing:.1em;margin-left:10px}
+  .tabs{position:absolute;top:56px;left:34px;display:flex;gap:6px;pointer-events:auto}
+  .tab{background:none;border:1px solid #1d1d24;color:#6a6a73;font-size:11px;
+    padding:6px 15px;border-radius:15px;cursor:pointer;transition:all .16s;
+    font-family:inherit;letter-spacing:.06em}
+  .tab:hover{color:#c8c8d0;border-color:#2e2e38}
+  .tab.on{background:#1a1a22;color:#fff;border-color:#34343f}
+  .hero{position:absolute;left:34px;top:50%;transform:translateY(-56%);max-width:380px}
+  .kicker{font-size:10px;letter-spacing:.22em;color:#63636b;margin-bottom:16px}
+  h1{font-family:Georgia,"Songti SC","Times New Roman",serif;font-size:41px;
+    line-height:1.15;font-weight:400;letter-spacing:-.015em}
+  .stats{margin-top:22px;font-size:12px;line-height:1.75;color:#84848d}
+  .stats b{color:#e8e8ee;font-weight:500}
+  .legend{position:absolute;left:34px;bottom:30px;pointer-events:auto;
+    max-height:44vh;overflow:auto;scrollbar-width:none}
+  .legend::-webkit-scrollbar{display:none}
+  .legend h4{font-size:9.5px;letter-spacing:.2em;color:#5c5c64;margin-bottom:11px;font-weight:500}
+  .lrow{display:flex;align-items:center;gap:8px;font-size:11px;color:#8e8e97;
+    padding:2.5px 0;cursor:pointer;transition:color .15s,opacity .15s;white-space:nowrap;
+    opacity:1}
+  .lrow:hover{color:#fff}
+  .lrow.off{opacity:.26}
+  .dot{width:7px;height:7px;border-radius:50%;flex:0 0 7px}
+  .lrow .n{margin-left:auto;color:#55555d;font-size:10px;padding-left:12px}
+  .hint{position:absolute;right:34px;bottom:30px;text-align:right;font-size:10.5px;
+    line-height:1.9;color:#55555d;letter-spacing:.03em}
+  .hint b{color:#84848d;font-weight:500}
+  #panel{position:fixed;top:0;right:0;height:100%;width:400px;background:#0d0d10;
+    border-left:1px solid #1a1a1f;padding:34px 28px;transform:translateX(100%);
+    transition:transform .26s cubic-bezier(.4,0,.2,1);z-index:3;overflow-y:auto}
+  #panel.on{transform:none}
+  #panel .close{position:absolute;top:22px;right:24px;width:28px;height:28px;
+    border-radius:50%;background:#17171c;border:0;color:#8a8a93;cursor:pointer;
+    font-size:15px;line-height:1}
+  #panel .close:hover{background:#22222a;color:#fff}
+  #panel .src{font-size:9.5px;letter-spacing:.16em;color:#63636b;margin-bottom:12px}
+  #panel h2{font-family:Georgia,"Songti SC",serif;font-size:23px;line-height:1.3;
+    font-weight:400;margin-bottom:16px}
+  #panel .gloss{font-size:12.5px;line-height:1.85;color:#a2a2ac;margin-bottom:24px}
+  #panel .metrics{display:flex;gap:22px;padding:15px 0;border-top:1px solid #1a1a1f;
+    border-bottom:1px solid #1a1a1f;margin-bottom:22px}
+  #panel .m{flex:1}
+  #panel .m b{display:block;font-size:19px;font-weight:400;color:#fff;line-height:1.2}
+  #panel .m span{font-size:9.5px;letter-spacing:.1em;color:#5c5c64}
+  .markrow{display:flex;gap:7px;margin:22px 0 4px}
+  .mk{flex:1;background:#141419;border:1px solid #26262f;border-radius:6px;
+    color:#8e8e97;font-size:11.5px;padding:7px 0;cursor:pointer;font-family:inherit;
+    transition:all .15s}
+  .mk:hover{border-color:#3a3a46;color:#fff}
+  .mk.on{background:rgba(94,224,192,.14);border-color:#5ee0c0;color:#5ee0c0}
+  .mk.gap.on{background:rgba(255,77,77,.14);border-color:#ff4d4d;color:#ff4d4d}
+  .mk.quiet{color:#55555d}
+  #myrow{display:flex;align-items:center;gap:7px;font-size:11px;color:#8e8e97;
+    padding:9px 0 11px;border-top:1px solid #1a1a22;margin-top:4px;flex-wrap:wrap}
+  #myrow .dot{width:7px;height:7px;border-radius:50%;flex:0 0 auto}
+  #myrow .n{margin-left:5px;color:#fff;font-size:10.5px}
+  #panel h5{font-size:9.5px;letter-spacing:.18em;color:#5c5c64;margin:18px 0 9px;font-weight:500}
+  #panel ul{list-style:none}
+  #panel li{font-size:12px;line-height:1.6;color:#9a9aa4;padding:5px 0;
+    border-bottom:1px solid #141418;cursor:pointer}
+  #panel li:hover{color:#fff}
+  #panel li em{font-style:normal;color:#55555d;font-size:10px;margin-left:6px}
+  #tip{position:fixed;padding:5px 9px;background:#16161c;border:1px solid #26262e;
+    border-radius:5px;font-size:11px;color:#d8d8e0;pointer-events:none;opacity:0;
+    transition:opacity .12s;z-index:4;white-space:nowrap}
+  #tip.on{opacity:1}
+  #load{position:fixed;inset:0;display:grid;place-items:center;background:#08080a;
+    z-index:9;font-size:11px;letter-spacing:.2em;color:#5c5c64;transition:opacity .4s}
+  #load.off{opacity:0;pointer-events:none}
+  @media(max-width:820px){
+    .hero{top:auto;bottom:auto;transform:none;top:96px;max-width:200px}
+    h1{font-size:28px}.stats{font-size:11px}
+    .legend{bottom:auto;top:300px;max-height:30vh}
+    .hint{display:none}#panel{width:100%}
+  }
+
+/* ══ 壳：左侧栏 + 底栏三入口（import / insert / Agent）══ */
+#rail{position:fixed;left:0;top:0;bottom:64px;width:228px;padding:18px 14px 12px;
+  display:flex;flex-direction:column;gap:14px;z-index:6;overflow:hidden;
+  background:linear-gradient(180deg,rgba(8,10,14,.94),rgba(8,10,14,.66));
+  backdrop-filter:blur(10px);border-right:1px solid #1b2029}
+.r-brand{font-size:17px;font-weight:700;letter-spacing:.2px;color:#fff}
+.r-brand span{margin-left:7px;font-size:11px;font-weight:400;color:#6b7684;
+  border:1px solid #262c37;border-radius:20px;padding:1px 8px}
+.r-list{display:flex;flex-direction:column;gap:3px}
+.r-item{display:flex;flex-direction:column;align-items:flex-start;gap:2px;width:100%;
+  background:transparent;border:0;border-radius:9px;padding:8px 10px;cursor:pointer;
+  text-align:left;color:#c7ced8;font-family:inherit}
+.r-item:hover{background:#161b23}
+.r-item.on{background:#1d232d}
+.r-item b{font-size:13.5px;font-weight:600}
+.r-item.on b{color:#fff}
+.r-item i{font-style:normal;font-size:11px;color:#77808d}
+.r-list{flex:0 0 auto}
+.r-foot{margin-top:auto;display:flex;flex-direction:column;gap:8px;min-height:0;flex:0 1 auto}
+.r-tabs{display:flex;gap:6px}
+.legend{font-size:11.5px;color:#98a1ad;position:static;left:auto;bottom:auto;
+  flex:1 1 auto;min-height:0;overflow:auto;scrollbar-width:none}
+.legend::-webkit-scrollbar{display:none}
+.legend h4{font-size:10.5px;color:#5d6673;margin:8px 0 5px;font-weight:500}
+.legend .lrow{display:flex;align-items:center;gap:7px;padding:2px 0;cursor:pointer}
+.legend .lrow.off{opacity:.35}
+.legend .dot{width:8px;height:8px;border-radius:50%;flex:0 0 8px}
+.legend .n{margin-left:auto;color:#5d6673}
+#hero-mini{position:fixed;left:252px;top:16px;z-index:5;pointer-events:none;max-width:430px}
+#hero-mini .kicker{font-size:10.5px;color:#6b7684;letter-spacing:.6px}
+#hero-mini .stats{font-size:11.5px;color:#98a1ad;line-height:1.7;margin-top:5px}
+#bar{position:fixed;left:0;right:0;bottom:0;height:64px;z-index:7;display:flex;
+  align-items:center;gap:8px;padding:0 16px;background:rgba(8,10,14,.95);
+  backdrop-filter:blur(12px);border-top:1px solid #1b2029}
+.b-btn{display:flex;flex-direction:column;align-items:flex-start;gap:1px;min-width:118px;
+  background:#141920;border:1px solid #242b36;border-radius:10px;padding:7px 12px;
+  cursor:pointer;color:#c7ced8;font-family:inherit}
+.b-btn:hover{background:#1b212a;border-color:#39424f}
+.b-btn.flash{background:#1d2a22;border-color:#2f5a41}
+.b-btn b{font-size:12.5px;font-weight:700;color:#fff;font-family:ui-monospace,Menlo,monospace}
+.b-btn span{font-size:10.5px;color:#77808d}
+.b-input{flex:1;margin-left:6px}
+.b-input input{width:100%;background:#10141a;border:1px solid #242b36;border-radius:10px;
+  padding:10px 13px;color:#e6ebf2;font-size:13px;outline:none;font-family:inherit}
+.b-input input:focus{border-color:#39424f}
+.mut{color:#7d8794;font-size:12px;line-height:1.75}
+.ilist{display:flex;flex-direction:column;gap:5px;margin:12px 0;max-height:50vh;overflow:auto}
+.irow{display:flex;flex-direction:column;align-items:stretch;gap:7px;background:#12161c;
+  border:1px solid #1e242e;border-radius:9px;padding:9px 11px}
+.irow.keep{border-color:#2f5a41}
+.irow.skip{opacity:.4}
+.itxt{flex:1;font-size:12px;line-height:1.55}
+.itxt b{color:#e6ebf2;font-weight:600}
+.iact{display:flex;gap:5px;justify-content:flex-end}
+.iact button{background:#1a2029;border:1px solid #262e3a;border-radius:7px;color:#aeb7c2;
+  font-size:11px;padding:4px 9px;cursor:pointer;font-family:inherit}
+.iact button.on{background:#22402f;border-color:#356b4c;color:#c9f5dd}
+.alist{display:flex;flex-direction:column;gap:8px;margin:12px 0}
+.acard{display:flex;flex-direction:column;align-items:flex-start;gap:3px;text-align:left;
+  background:#12161c;border:1px solid #1e242e;border-radius:10px;padding:11px 13px;
+  cursor:pointer;color:#c7ced8;font-family:inherit}
+.acard:hover{border-color:#39424f;background:#171d25}
+.acard b{font-size:13px;color:#fff}
+.acard span{font-size:11.5px;color:#98a1ad}
+.acard i{font-style:normal;font-size:11px;color:#69727e}
+
+.axtog{display:flex;gap:4px;margin:6px 0 2px}
+.axtog button{flex:1;background:#12161c;border:1px solid #1e242e;border-radius:7px;
+  color:#7d8794;font-size:10.5px;padding:4px 0;cursor:pointer;font-family:inherit}
+.axtog button.on{background:#1d232d;border-color:#39424f;color:#fff}
+.crow{display:flex;flex-direction:column;gap:3px;background:#12161c;border:1px solid #1e242e;
+  border-radius:10px;padding:10px 12px;margin-bottom:7px;cursor:pointer}
+.crow:hover{border-color:#39424f;background:#171d25}
+.crow b{font-size:13px;color:#fff;display:flex;align-items:center;gap:7px}
+.crow b .dot{width:8px;height:8px;border-radius:50%}
+.crow span{font-size:11.5px;color:#98a1ad;line-height:1.6}
+.crow i{font-style:normal;font-size:10.5px;color:#69727e}
+.stops{display:flex;flex-direction:column;gap:0;margin:10px 0}
+.stop{display:flex;align-items:flex-start;gap:9px;font-size:12.5px;line-height:1.5;padding:5px 0;
+  cursor:pointer;color:#c7ced8}
+.stop:hover{color:#fff}
+.stop .lv{flex:0 0 24px;font-size:10px;color:#69727e;font-family:ui-monospace,Menlo,monospace;
+  padding-top:2px}
+.stop .nm{flex:1}
+.stop .ed{font-size:9.5px;color:#4f5866;padding-top:3px}
+.badge{display:inline-block;font-size:9.5px;letter-spacing:.08em;border-radius:20px;
+  padding:1px 7px;border:1px solid #2a3340;color:#8b95a3;margin-left:6px;vertical-align:1px}
+.badge.auto{border-color:#2f5a41;color:#79c9a0}
+.cmsg{margin:9px 0;padding:9px 11px;border-radius:10px;font-size:12.5px;line-height:1.75}
+.cmsg.user{background:#182029;border:1px solid #232c38;color:#dbe3ec}
+.cmsg.assistant{background:#111720;border:1px solid #1c2431;color:#c2ccd8}
+.cmsg.pend{opacity:.55}
+.clist{max-height:60vh;overflow:auto;margin-top:10px}
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="rail">
+  <div class="r-brand">知所栖<span>135</span></div>
+  <div class="r-list">
+    <button class="r-item on" data-view="graph" onclick="setView('graph')"><b>知识体系</b><i id="r-all"></i></button>
+    <button class="r-item" data-view="curate" onclick="setView('curate')"><b>策展</b><i id="r-cur"></i></button>
+    <button class="r-item" data-view="todo" onclick="setView('todo')"><b>待你看一眼</b><i id="r-todo"></i></button>
+    <button class="r-item" data-view="mine" onclick="setView('mine')"><b>我在学</b><i id="r-mine"></i></button>
+    <button class="r-item" data-view="chat" onclick="setView('chat')"><b>对话</b><i id="r-chat">选方法论</i></button>
+  </div>
+  <div class="r-foot">
+    <div class="r-tabs">
+      <button class="tab on" data-mode="grid">图谱</button>
+      <button class="tab" data-mode="sphere">星球</button>
+    </div>
+    <div class="legend">
+      <h4>我的 · 位置不动，只变环</h4><div id="myrow"></div>
+      <h4>操作</h4><div id="rhint"></div>
+      <div class="axtog">
+        <button id="ax-tag" class="on" onclick="setAxis('tag')">按主题</button>
+        <button id="ax-src" onclick="setAxis('src')">按来源</button>
+      </div>
+      <h4 id="lhead">主题 · 点击筛选（策展）</h4><div id="lrows"></div>
+    </div>
+  </div>
+</div>
+<div id="hero-mini"><div class="kicker" id="kicker"></div><div class="stats" id="stats"></div></div>
+<div id="bar">
+  <button class="b-btn" id="b-import" onclick="doImport()"><b>import</b><span>知识体系</span></button>
+  <button class="b-btn" id="b-insert" onclick="doInsert()"><b>insert</b><span>挖掘 · 提问</span></button>
+  <button class="b-btn" id="b-agent"  onclick="doAgent()"><b>Agent</b><span>选方法论</span></button>
+  <div class="b-input"><input id="b-q" placeholder="我想学 ____  （回车走 135 闭环）"></div>
+</div>
+<aside id="panel">
+  <button class="close" onclick="closePanel()">✕</button>
+  <div id="pbody"></div>
+</aside>
+<div id="tip"></div>
+<div id="load">正在计算布局…</div>
+
+<script>
+const DATA = {"nodes":[{"id":"C01","name":"纯粹派（the purists）","src":"S1","type":"概念型","gloss":"拒绝 AI、退回无屏幕生活的人，病症是拒斥外部世界","level":0,"ci":0,"tags":["T1"]},{"id":"C02","name":"自动机 / 赛博格（automatons or cyborgs）","src":"S1","type":"概念型","gloss":"把每个决定都外包出去，对摩擦过敏、对优化上瘾","level":0,"ci":0,"tags":["T1","T2"]},{"id":"C03","name":"数字文艺复兴人（new / digital Renaissance man）","src":"S1","type":"概念型","gloss":"第三条路：全做，但把注意力灌注进一门手艺的达·芬奇式多维度人","level":1,"ci":0,"tags":["T4","T1"]},{"id":"C04","name":"四象限与整合理论","src":"S1","type":"工具型","gloss":"借肯·威尔伯四象限，定位前两类人各自砍掉了哪半个现实","level":1,"ci":0,"tags":["T1"]},{"id":"C05","name":"技能树的互联性","src":"S1","type":"概念型","gloss":"只点一项能力会在游戏其他部分输，钱/心智/身体要一起长","level":2,"ci":0,"tags":["T9","T4"]},{"id":"C06","name":"第二次文艺复兴：工作证明、受众、品味","src":"S1","type":"概念型","gloss":"时代命名：proof of work 取代简历、audience 取代雇主、taste 取代 credentials","level":2,"ci":0,"tags":["T5","T4","T6"]},{"id":"C07","name":"线性职业 vs 指数职业","src":"S1","type":"概念型","gloss":"工业化把线性职业变成默认，指数职业才是本来面貌","level":3,"ci":0,"tags":["T5","T6"]},{"id":"C08","name":"AI 只擅长已知信息","src":"S1","type":"概念型","gloss":"AI 输出没有视角，来自经验、扎进未知的信息才是人的工作","level":1,"ci":0,"tags":["T4","T1"]},{"id":"C09","name":"不可替代技能栈的三层","src":"S1","type":"概念型","gloss":"人性与心理学地基 → 领域痴迷 → 技术工具，价值排序倒过来了","level":3,"ci":0,"tags":["T4","T9"]},{"id":"C10","name":"手艺的三重交叉点","src":"S1","type":"概念型","gloss":"你在乎什么 × 你能独特做什么 × 别人愿为什么付钱","level":4,"ci":0,"tags":["T7","T4"]},{"id":"C11","name":"危险的自学（dangerously self-educated）","src":"S1","type":"概念型","gloss":"学校是社会操作系统，真正的教育是发现","level":3,"ci":0,"tags":["T9","T3"]},{"id":"C12","name":"愿景与目标是心智的过滤器","src":"S1","type":"概念型","gloss":"有目标才滤掉干扰看见信号，不必断网","level":3,"ci":0,"tags":["T9","T3"]},{"id":"C13","name":"先做后学","src":"S1","type":"概念型","gloss":"只有试过才知道一条信息值不值，顺序是先做再被激活","level":2,"ci":0,"tags":["T9","T8"]},{"id":"C14","name":"反差胜过平衡","src":"S1","type":"概念型","gloss":"意义在极端之间的反差里，赢家深度工作也深度休息","level":4,"ci":0,"tags":["T9","T4"]},{"id":"C15","name":"一人企业（one human business）","src":"S1","type":"概念型","gloss":"一个人＋技术＋智能体产出相当于 10 到 20 人","level":4,"ci":0,"tags":["T5","T2","T6"]},{"id":"C16","name":"创作者即价值创造者","src":"S1","type":"概念型","gloss":"剥掉网红联想：创作者＝解决问题并帮别人也这么做的人","level":5,"ci":0,"tags":["T5","T4"]},{"id":"C17","name":"无需许可的杠杆","src":"S1","type":"概念型","gloss":"互联网是你不需要任何人批准就能用的杠杆","level":0,"ci":0,"tags":["T5"]},{"id":"C18","name":"把 AI 当数字员工","src":"S1","type":"概念型","gloss":"反驳\"AI 只会产 slop\"：第一版都烂，靠反复迭代取胜","level":2,"ci":0,"tags":["T2","T1","T8"]},{"id":"C19","name":"AI 原生思维","src":"S2","type":"概念型","gloss":"像训练大模型一样训练自己：建反馈循环、敢推翻旧权重","level":1,"ci":1,"tags":["T9","T10"]},{"id":"C20","name":"模型能力边界线","src":"S2","type":"概念型","gloss":"需求一直都在，是能力边界刚好扫过了它","level":0,"ci":1,"tags":["T7","T10"]},{"id":"C21","name":"判断 AI 需求的三问","src":"S2","type":"工具型","gloss":"痛点够不够硬／我是不是用户／AI 是不是刚好够到","level":1,"ci":1,"tags":["T7","T8"]},{"id":"C22","name":"三条边界：能力、成本、价值","src":"S2","type":"工具型","gloss":"判断需求值不值得做的三关，多数人只盯第一关","level":1,"ci":1,"tags":["T7","T10"]},{"id":"C23","name":"会动的线与不动的线","src":"S2","type":"概念型","gloss":"能力线和成本线会动，价值线锚在人性上不动","level":2,"ci":1,"tags":["T7","T4"]},{"id":"C24","name":"价值边界与 AI 垃圾","src":"S2","type":"概念型","gloss":"用户买的是结果，还是结果背后的人","level":6,"ci":1,"tags":["T7","T4"]},{"id":"C25","name":"成本三因子公式","src":"S2","type":"工具型","gloss":"调用次数 × 每次 Token 量 × 单价","level":2,"ci":1,"tags":["T10","T7"]},{"id":"C26","name":"模型输出简单格式，复杂解析交给程序","src":"S2","type":"概念型","gloss":"别让模型直出结构化 JSON，把解析挪回程序","level":1,"ci":1,"tags":["T2","T10"]},{"id":"C27","name":"产品三问与搭架子等模型","src":"S2","type":"工具型","gloss":"现在能做的马上做／半年后的搭架子等模型／很久的用工程补或别做","level":3,"ci":1,"tags":["T7","T10"]},{"id":"C28","name":"让坏想法死得早","src":"S2","type":"概念型","gloss":"最小验证的目标是把反馈周期从几周压到几小时","level":5,"ci":1,"tags":["T8","T7"]},{"id":"C29","name":"在不熟悉的领域开始","src":"S2","type":"概念型","gloss":"用熟的语言你老想自己控制代码，一控制你就成了瓶颈","level":3,"ci":1,"tags":["T1","T2"]},{"id":"C30","name":"以终为始的三连追问","src":"S2","type":"工具型","gloss":"不问原流程哪步还能优化，从终点倒推连追三问","level":4,"ci":1,"tags":["T2","T7"]},{"id":"C31","name":"不要让 AI 模仿人","src":"S2","type":"概念型","gloss":"V1 到 V2 的分水岭：别照搬人类字幕组的五步流程","level":5,"ci":1,"tags":["T2","T1"]},{"id":"C32","name":"给设计规范，不给模板","src":"S2","type":"概念型","gloss":"模板是专家捷径，给规范让模型自己决定","level":6,"ci":1,"tags":["T2"]},{"id":"C33","name":"把 App 做成 Agent 的插件","src":"S2","type":"概念型","gloss":"入口迁移：用户先打开 Agent，详情页变成 Agent 的数据源","level":5,"ci":1,"tags":["T7","T2"]},{"id":"C34","name":"验证题给 Agent，判断题留给人","src":"S2","type":"概念型","gloss":"测试编译截图交给 Agent，方向体验值不值得留给人","level":5,"ci":1,"tags":["T1","T8"]},{"id":"C35","name":"瓶颈转移到代码两侧","src":"S2","type":"概念型","gloss":"Agent 几小时写完代码，卡在设计确认与测试部署","level":2,"ci":1,"tags":["T2","T1"]},{"id":"C36","name":"品味作为不可替代的门槛","src":"S2","type":"概念型","gloss":"人人都能生成，想流行还得有自己的品味","level":5,"ci":1,"tags":["T4","T7"]},{"id":"C37","name":"反馈循环与推翻旧权重","src":"S2","type":"概念型","gloss":"小循环做项目、大循环做分享，把成长做成 Loop Engineering","level":10,"ci":1,"tags":["T9","T2"]},{"id":"C38","name":"用好 coding agent 是一项可拆解的技能","src":"S3","type":"概念型","gloss":"立论：不是笼统会用工具，而是一套高层工作流＋五项子技能","level":0,"ci":2,"tags":["T2","T9"]},{"id":"C39","name":"三段高层工作流","src":"S3","type":"工具型","gloss":"规划（brainstorm/spec/plan）→ 执行（构建/验证）→ 部署与监控","level":1,"ci":2,"tags":["T2","T8"]},{"id":"C40","name":"关注点从代码转向规格与验证","src":"S3","type":"概念型","gloss":"少看代码，多做决定做什么、设计架构、写 spec、验输出","level":2,"ci":2,"tags":["T1","T2","T8"]},{"id":"C41","name":"greenfield 与 brownfield 的规格投入差","src":"S3","type":"概念型","gloss":"从零原型一句 prompt 就够，老系统要大量精力撰写与验证","level":2,"ci":2,"tags":["T2","T8"]},{"id":"C42","name":"迭代回溯","src":"S3","type":"概念型","gloss":"验证失败或监控暴露问题时，把流程推回上一步","level":6,"ci":2,"tags":["T2","T8"]},{"id":"C43","name":"Directing the workflow（导航工作流）","src":"S3","type":"工具型","gloss":"五项技能之首：分配人机投入、决定何时回退迭代","level":2,"ci":2,"tags":["T1","T2"]},{"id":"C44","name":"可验证的分解","src":"S3","type":"概念型","gloss":"把工作拆成可被验证的步骤","level":3,"ci":2,"tags":["T8","T2"]},{"id":"C45","name":"自主度校准","src":"S3","type":"概念型","gloss":"盯着来回交互还是整块委派，是分阶段主动选的变量","level":5,"ci":2,"tags":["T1","T2"]},{"id":"C46","name":"上下文管理与假设的中途变更","src":"S3","type":"概念型","gloss":"把关键学习、用户反馈、改过的假设捕获给下游 agent","level":3,"ci":2,"tags":["T2"]},{"id":"C47","name":"并行 agent 与人类注意力预算","src":"S3","type":"概念型","gloss":"多 agent 并行后，人的注意力成了要管理的资源","level":4,"ci":2,"tags":["T2","T1"]},{"id":"C48","name":"安全运行与权限闸门","src":"S3","type":"概念型","gloss":"设权限、给动作加闸门，别让 agent 毁文件或生产数据","level":6,"ci":2,"tags":["T2"]},{"id":"C49","name":"行为验证与功能验证","src":"S3","type":"概念型","gloss":"测试按任务匹配，可让 agent 交截图作证据，定性用 eval set","level":4,"ci":2,"tags":["T8","T2"]},{"id":"C50","name":"测试本身也要被评估","src":"S3","type":"概念型","gloss":"得评估测试是否对得上目标，不对就演化它","level":5,"ci":2,"tags":["T8"]},{"id":"C51","name":"agent 与环境的定制","src":"S3","type":"概念型","gloss":"skills、plugins、MCP、hooks 与 AGENTS.md 常驻上下文","level":1,"ci":2,"tags":["T2"]},{"id":"C52","name":"harness 包裹 LLM","src":"S3","type":"概念型","gloss":"agent 的本质＝在 LLM 外面包一层 harness","level":0,"ci":2,"tags":["T2","T10"]},{"id":"C53","name":"失败模式识别","src":"S3","type":"概念型","gloss":"过度工程化、缺显式验证而失严谨、没到目标就停、危险动作","level":3,"ci":2,"tags":["T2","T8"]},{"id":"C54","name":"长时程自主运行被高估","src":"S3","type":"概念型","gloss":"跑数小时烧千万 token 的效用被放大，最有效的是高判断力介入的迭代","level":4,"ci":2,"tags":["T2","T1"]},{"id":"C55","name":"认知负债（cognitive debt）","src":"S4","type":"概念型","gloss":"放任编程助手在项目里自由撒野会留下巨额认知负债","level":0,"ci":3,"tags":["T3","T1"]},{"id":"C56","name":"快进无聊部分 vs 外包理解","src":"S4","type":"概念型","gloss":"划界：问题无聊可以快进，理解不能外包","level":1,"ci":3,"tags":["T3","T1"]},{"id":"C57","name":"一次性生成整个特性（one-shot entire features）","src":"S4","type":"概念型","gloss":"作者明确不喜欢：结果不差，但他在自己项目里迷路了","level":13,"ci":3,"tags":["T3","T1"]},{"id":"C58","name":"机器人提 PR、人类做审查","src":"S4","type":"概念型","gloss":"作者对 2026 年行业默认解法的概括，称之为 brave new world","level":0,"ci":3,"tags":["T1","T2"]},{"id":"C59","name":"过度防御、注释糟糕、错得微妙的代码","src":"S4","type":"概念型","gloss":"拒绝 review AI 生成 PR 的三个具体理由","level":1,"ci":3,"tags":["T8","T3"]},{"id":"C60","name":"个人项目的乐趣来自过程而非结果","src":"S4","type":"概念型","gloss":"个人项目首先得好玩，乐趣在过程而不是产出","level":6,"ci":3,"tags":["T9","T4"]},{"id":"C61","name":"把 AI 关在聊天窗口里（chat-only 工作流）","src":"S4","type":"工具型","gloss":"写进 agents 文件：不许动文件，只准在聊天里展示，由人来敲","level":10,"ci":3,"tags":["T1","T2"]},{"id":"C62","name":"手敲即减速阀","src":"S4","type":"概念型","gloss":"打字逼你慢下来，才更可能发现幻觉和糟糕设计","level":11,"ci":3,"tags":["T3","T8"]},{"id":"C63","name":"代码库的空间地图（spatial map）","src":"S4","type":"概念型","gloss":"最大收获：知道每块功能住在哪、要改动该去哪里改","level":12,"ci":3,"tags":["T3"]},{"id":"C64","name":"2x 而不是 10x","src":"S4","type":"概念型","gloss":"对自己方案的诚实定价：比不用快，比让机器替你想的慢","level":6,"ci":3,"tags":["T1","T3"]},{"id":"C65","name":"永远不要复制粘贴（抄写式学习传统）","src":"S4","type":"概念型","gloss":"少年学编程的告诫，与手敲 LLM 代码是同一条学习路径","level":9,"ci":3,"tags":["T9","T3"]},{"id":"C66","name":"理解优先于生产力","src":"S4","type":"概念型","gloss":"最终取舍：不做与 LLM 协作最高效的那种人","level":5,"ci":3,"tags":["T3","T1"]},{"id":"C67","name":"职业操守上的失职（professional malpractice）","src":"S4","type":"概念型","gloss":"担心终将没人理解数字基础设施如何拼装","level":1,"ci":3,"tags":["T3","T1"]},{"id":"C68","name":"agent 即实习生","src":"S5","type":"概念型","gloss":"agent 现在是 co-pilot、实习生，产出要挂人的 credit","level":3,"ci":4,"tags":["T1","T2"]},{"id":"C69","name":"credit（信用背书）","src":"S5","type":"概念型","gloss":"产出挂钩一个人的信用，mentor 必须审计它的所有产出","level":4,"ci":4,"tags":["T1","T8"]},{"id":"C70","name":"思考权外包","src":"S5","type":"概念型","gloss":"方案全由 agent 出，就没法形成有效的讨论","level":4,"ci":4,"tags":["T1","T3"]},{"id":"C71","name":"认知梯度","src":"S5","type":"概念型","gloss":"工作要有梯度，才有个人梯度下降与认知更新","level":11,"ci":4,"tags":["T9","T10"]},{"id":"C72","name":"局部最优解与外部监督者","src":"S5","type":"概念型","gloss":"靠外部监督者、逐 checkpoint 审查、训练集外测试跳出局部最优","level":12,"ci":4,"tags":["T8","T10"]},{"id":"C73","name":"单点吞吐率与协同瓶颈","src":"S5","type":"概念型","gloss":"先提升单点吞吐，再解决协同方式（GitHub、Linear 已不够用）","level":5,"ci":4,"tags":["T2","T6"]},{"id":"C74","name":"agent onboarding 与 AI native 组织","src":"S5","type":"概念型","gloss":"新员工必须带 agent 入职，文档写给团队里所有人的 agent 看","level":8,"ci":4,"tags":["T6","T2"]},{"id":"C75","name":"Lint 与门禁：AI 时代先行的基础设施","src":"S5","type":"工具型","gloss":"把规范写进 agents.md 与 Lint，用单测门禁对齐 AI 产出","level":9,"ci":4,"tags":["T2","T8"]},{"id":"C76","name":"ownership 先于头衔","src":"S5","type":"概念型","gloss":"头衔是名副其实之后才给的，不是先给再让你承担","level":6,"ci":4,"tags":["T6"]},{"id":"C77","name":"Building Public","src":"S5","type":"概念型","gloss":"不是 Elon Musk，只能靠公开构建吸取关注","level":1,"ci":4,"tags":["T5","T7"]},{"id":"C78","name":"Dynamic Workflow","src":"S5","type":"工具型","gloss":"Claude Code 里可命名保存的编排，稳定度高于 skill","level":4,"ci":4,"tags":["T2"]},{"id":"C79","name":"code 的可验证性","src":"S5","type":"概念型","gloss":"从编程切入的根本理由：code 是一个最好被 verify 的问题","level":0,"ci":4,"tags":["T8"]},{"id":"C80","name":"任务完成率取代停留时长","src":"S5","type":"概念型","gloss":"停留时长虚无缥缈，改看任务完成率、代码接受率、token 消耗","level":6,"ci":4,"tags":["T8","T7"]},{"id":"C81","name":"全生命周期 agent","src":"S5","type":"概念型","gloss":"不只管写，还管审、分享、上架、发布、处理反馈","level":5,"ci":4,"tags":["T2"]},{"id":"C82","name":"Personal Agent 与 intelligence with everyone","src":"S5","type":"概念型","gloss":"agent 定义持续外扩，everyone 是世界的每一个人","level":6,"ci":4,"tags":["T2","T7"]},{"id":"C83","name":"蒸汽机类比与生产力跃迁","src":"S5","type":"概念型","gloss":"蒸汽机先被塞进旧生产环节，人也难受；改造工作流本身就是大工作量","level":1,"ci":4,"tags":["T2","T6"]},{"id":"C84","name":"退休即全情投入","src":"S5","type":"概念型","gloss":"没做真正热爱的事不叫退休，只是换了个活法上班","level":7,"ci":4,"tags":["T5","T4"]},{"id":"C85","name":"技术的货架期（shelf life）","src":"S6","type":"概念型","gloss":"过去以年计，现在技术每两个月就在你脚下发生根本性位移","level":0,"ci":5,"tags":["T9","T10"]},{"id":"C86","name":"越过前沿去感受边缘（past the frontier）","src":"S6","type":"概念型","gloss":"要越过前沿一点才摸到那条边，同时还得服务今天在用模型的人","level":1,"ci":5,"tags":["T10","T7"]},{"id":"C87","name":"对造出来的东西保持不执着（unattached）","src":"S6","type":"概念型","gloss":"to-do list 一年后彻底消失，造的东西会很快消失","level":1,"ci":5,"tags":["T7","T5"]},{"id":"C88","name":"harness 作为模型缺陷的补丁","src":"S6","type":"概念型","gloss":"harness 是兜住模型当前 failure mode 的补丁，模型变好就该删","level":1,"ci":5,"tags":["T2","T10"]},{"id":"C89","name":"任务规模上移与 coherence 工具","src":"S6","type":"概念型","gloss":"删旧特性的同时在接更大任务，需要新的 coherence 工具","level":6,"ci":5,"tags":["T2","T7"]},{"id":"C90","name":"精神时光屋（hyperbolic time chamber）","src":"S6","type":"概念型","gloss":"团队把软件开发要去的地方提前压缩演练","level":8,"ci":5,"tags":["T6","T2"]},{"id":"C91","name":"primitive 分层叠加","src":"S6","type":"概念型","gloss":"先造权限、可视化等 primitive，它们会层层叠加长出产品","level":7,"ci":5,"tags":["T2","T7"]},{"id":"C92","name":"从 session 到 loop","src":"S6","type":"概念型","gloss":"不再 prompt 一个 session，而是去 prompt 高一层的东西","level":5,"ci":5,"tags":["T2"]},{"id":"C93","name":"fan out 与 coalesce","src":"S6","type":"概念型","gloss":"大幅并行探索再收敛，难点在收敛端（信息量大到必须过滤）","level":5,"ci":5,"tags":["T2"]},{"id":"C94","name":"test time compute 换信心","src":"S6","type":"概念型","gloss":"建立信心的方式就是往问题上砸推理时间","level":6,"ci":5,"tags":["T10","T8"]},{"id":"C95","name":"adversarial review（对抗性复核）","src":"S6","type":"概念型","gloss":"每个 bug 再从三个不同视角复核，判断是不是真 bug","level":13,"ci":5,"tags":["T8"]},{"id":"C96","name":"确定性代码 × agentic 行为的混合","src":"S6","type":"概念型","gloss":"for loop 不会漏项、对所有项一视同仁，这种确定性提升信任","level":2,"ci":5,"tags":["T2","T8"]},{"id":"C97","name":"UI 与 transcript 解耦","src":"S6","type":"概念型","gloss":"Claude Tag 第一次让用户界面与 transcript 充分解耦","level":5,"ci":5,"tags":["T2","T7"]},{"id":"C98","name":"let Claude cook 与 forcing function","src":"S6","type":"概念型","gloss":"被迫放手后发现模型已好到不必细盯，这件事本身是 forcing function","level":6,"ci":5,"tags":["T1","T2"]},{"id":"C99","name":"把人类抬到抽象层（code review 的重定位）","src":"S6","type":"概念型","gloss":"nitpick 交给 Claude，人管 API 为什么长这样这类结构性理由","level":13,"ci":5,"tags":["T1","T3"]},{"id":"C100","name":"手艺的让渡与可及性的扩张","src":"S6","type":"概念型","gloss":"失去手调渐变的 mastery，换来整个软件工程对我变得可及","level":14,"ci":5,"tags":["T1","T4"]},{"id":"C101","name":"变化的职业（the profession of change）","src":"S6","type":"概念型","gloss":"你在解决不同的问题，但你仍然是在解决问题","level":15,"ci":5,"tags":["T9","T4"]},{"id":"C102","name":"AI 原生公司（AI-native company）","src":"S7","type":"概念型","gloss":"分界线：从零重造公司怎么运转，而不是\"恰好在用 AI 的公司\"","level":2,"ci":6,"tags":["T6","T2"]},{"id":"C103","name":"人人都能发版（Everyone ships）","src":"S7","type":"概念型","gloss":"agentic coding 降门槛，最懂问题的人可以交付第一版修复","level":6,"ci":6,"tags":["T2","T6"]},{"id":"C104","name":"传声筒问题（broken telephone problem）","src":"S7","type":"概念型","gloss":"想法经 PM→设计→工程转述后精髓流失，上线时已不像原样","level":0,"ci":6,"tags":["T6","T7"]},{"id":"C105","name":"从 0 到 1 的开放","src":"S7","type":"概念型","gloss":"分工没消失，开放的是把想法变成可用原型那一步","level":7,"ci":6,"tags":["T2","T6"]},{"id":"C106","name":"共享技能（skills）","src":"S7","type":"工具型","gloss":"把团队标准和上下文编码进去的可复用指令文件","level":3,"ci":6,"tags":["T2","T6"]},{"id":"C107","name":"机械的 80%","src":"S7","type":"概念型","gloss":"智能体拥有机械的 80%，工程师盯真正需要判断力的案例","level":14,"ci":6,"tags":["T1","T2"]},{"id":"C108","name":"AI 原生的软件开发生命周期","src":"S7","type":"概念型","gloss":"各阶段改成自主循环，修不稳定测试的 agent 成了仓库第二大贡献者","level":7,"ci":6,"tags":["T2","T6"]},{"id":"C109","name":"循环（loops）与停机条件","src":"S7","type":"概念型","gloss":"循环＝重复工作周期直到满足停机条件；构建循环≠部署代码","level":6,"ci":6,"tags":["T2"]},{"id":"C110","name":"不变量（invariants）与项目记忆文件","src":"S7","type":"概念型","gloss":"写下什么必须无论如何为真，放进 CLAUDE.md 随每次会话旅行","level":4,"ci":6,"tags":["T2","T8"]},{"id":"C111","name":"黄金评测集（golden set）","src":"S7","type":"工具型","gloss":"一组经验证的问答对，上线前跑出回归、防止漂移","level":6,"ci":6,"tags":["T8","T2"]},{"id":"C112","name":"修原则，不修个例","src":"S7","type":"概念型","gloss":"反面是过拟合：别累积补丁，要强制归纳出一般原则","level":14,"ci":6,"tags":["T3","T8"]},{"id":"C113","name":"确定性闸门","src":"S7","type":"概念型","gloss":"Hooks 在生命周期固定点触发，无论模型怎么决定都会执行","level":7,"ci":6,"tags":["T2","T8"]},{"id":"C114","name":"为重建而建（Build for rebuilding）","src":"S7","type":"概念型","gloss":"模型能力在团队脚下移动，几乎没有什么是永久的","level":2,"ci":6,"tags":["T2","T6"]},{"id":"C115","name":"自我改进飞轮","src":"S7","type":"概念型","gloss":"现在的护城河是它必须自我改进，此后每份贡献都会复利","level":12,"ci":6,"tags":["T6","T2"]},{"id":"C116","name":"原型—内部试用—产品化","src":"S7","type":"工具型","gloss":"用 Claude Code 造内部 agent → dogfood → 提升为面向客户的产品","level":8,"ci":6,"tags":["T2","T7"]},{"id":"C117","name":"超级组织","src":"S8","type":"概念型","gloss":"要证伪的命题：仍以科层制组织大量人力、又被 AI 强化的大企业","level":3,"ci":7,"tags":["T6"]},{"id":"C118","name":"超级个体与一人公司（OPC）","src":"S8","type":"概念型","gloss":"配对出现的流行叙事：周鸿祎演讲、韦青\"2026 年成为 OPC\"","level":5,"ci":7,"tags":["T5","T6"]},{"id":"C119","name":"互相吞噬的命题","src":"S8","type":"概念型","gloss":"承认超级企业就必承认超级个体，反之亦然，两者彼此拆台","level":6,"ci":7,"tags":["T6","T5"]},{"id":"C120","name":"组织的隐性地图","src":"S8","type":"概念型","gloss":"离职者带走的、无法写进简历的组织内部知识","level":0,"ci":7,"tags":["T6"]},{"id":"C121","name":"Great Flattening（超级扁平化）","src":"S8","type":"概念型","gloss":"亚马逊 1.4 万岗位削减与管理层扁平化被放进同一叙事","level":4,"ci":7,"tags":["T6"]},{"id":"C122","name":"交易成本与企业边界（科斯）","src":"S8","type":"概念型","gloss":"科斯 1937：企业存在是因为市场交易有成本","level":0,"ci":7,"tags":["T6"]},{"id":"C123","name":"超级平台与超级组织的偷换","src":"S8","type":"概念型","gloss":"平台叙事只证明平台强，不证明组织被 AI 强化","level":4,"ci":7,"tags":["T6"]},{"id":"C124","name":"能力蒸馏：员工是可被提取的数据源","src":"S8","type":"概念型","gloss":"AI 正进入企业能力理论那一层，话术/规范/流程都可被提取","level":4,"ci":7,"tags":["T6","T1"]},{"id":"C125","name":"竞争单位的颗粒度","src":"S8","type":"概念型","gloss":"一人公司改变的不是就业形态，是竞争单位的大小","level":6,"ci":7,"tags":["T5","T6"]},{"id":"C126","name":"unbundle the BPO（外包的产品化与拆包）","src":"S8","type":"工具型","gloss":"a16z 提出的机制：3000 亿美元 BPO 市场从两侧被拆包","level":5,"ci":7,"tags":["T6","T5"]},{"id":"C127","name":"PLG 与 shadow AI adoption","src":"S8","type":"工具型","gloss":"AI 支出 27% 来自 PLG，员工私下使用让\"由谁划企业边界\"变了","level":1,"ci":7,"tags":["T6","T7"]},{"id":"C128","name":"人单合一：从帝国到雨林","src":"S8","type":"事件型","gloss":"海尔把 7 万多名员工拆成 4000 多个自管理微型企业","level":0,"ci":7,"tags":["T6"]},{"id":"C129","name":"蜂巢式协作与动态编队","src":"S8","type":"概念型","gloss":"事业部压缩成几十到几百人，只保留少量关键判断者","level":5,"ci":7,"tags":["T6","T2"]},{"id":"C130","name":"超级协作与协议枢纽","src":"S8","type":"概念型","gloss":"结论：没有超级组织，只有超级平台之下的超级协作（Git/GitHub）","level":6,"ci":7,"tags":["T6","T5"]},{"id":"C131","name":"按次计费的尾巴","src":"S8","type":"概念型","gloss":"个体与小团队并未真正独立，上游调价直接传导下游","level":6,"ci":7,"tags":["T5","T6"]},{"id":"C132","name":"应用层碎片化与基础设施层集中化","src":"S8","type":"概念型","gloss":"应用层拿到 63% 份额，基础设施层 incumbent 仍握 56%","level":7,"ci":7,"tags":["T6","T7"]},{"id":"C133","name":"ai 产品的第三时代：持久化同事","src":"S9","type":"概念型","gloss":"chat → 和 agent 一起工作 → 与持久化同事协作","level":4,"ci":8,"tags":["T7","T2"]},{"id":"C134","name":"两到三个月建造窗口","src":"S9","type":"概念型","gloss":"按模型今天做会失败，按一年后做也失败，唯一方式是两到三个月","level":3,"ci":8,"tags":["T7","T2"]},{"id":"C135","name":"多产而经验主义","src":"S9","type":"概念型","gloss":"being prolific and empirical 胜过 academic or theoretical","level":4,"ci":8,"tags":["T7","T8"]},{"id":"C136","name":"Eigen question","src":"S9","type":"工具型","gloss":"借 Shishir Mehrotra：决定这个产品成或不成的那个最本质问题","level":5,"ci":8,"tags":["T7"]},{"id":"C137","name":"mocks, not docs","src":"S9","type":"工具型","gloss":"能让人上手试、或有 A/B 结果，比文档本身好得多","level":9,"ci":8,"tags":["T7","T8"]},{"id":"C138","name":"划桨与掌舵","src":"S9","type":"概念型","gloss":"agent 替你划桨，你的角色越来越是把船指向正确方向","level":6,"ci":8,"tags":["T1","T2"]},{"id":"C139","name":"mainline it","src":"S9","type":"工具型","gloss":"OpenAI 内部口头禅：你把它打到主线上了吗（dogfooding 新版）","level":9,"ci":8,"tags":["T2","T6"]},{"id":"C140","name":"founders-led","src":"S9","type":"概念型","gloss":"不是 founder-led：每个人在自己领域里都是某种创始人","level":7,"ci":8,"tags":["T6","T5"]},{"id":"C141","name":"野心成为新瓶颈","src":"S9","type":"概念型","gloss":"简单和难的事都变容易后，区分人的只剩能有多大野心","level":15,"ci":8,"tags":["T1","T4"]},{"id":"C142","name":"auteur 式软件观","src":"S9","type":"概念型","gloss":"软件像电影不像房地产，存在作者式的意见与艺术性","level":6,"ci":8,"tags":["T7","T4"]},{"id":"C143","name":"知识工作的验证难题","src":"S9","type":"概念型","gloss":"编码可用测试验证，deck 上的 90% 没法只看结果就相信","level":5,"ci":8,"tags":["T8","T7"]},{"id":"C144","name":"协作者式产品：思维链与引证","src":"S9","type":"概念型","gloss":"让用户看到进行中的工作、引证与输入，跟着走到产出","level":6,"ci":8,"tags":["T7","T2"]},{"id":"C145","name":"写作即思考 vs 写作即汇报","src":"S9","type":"概念型","gloss":"汇报乐意自动化，思考永远不会自动化","level":6,"ci":8,"tags":["T3","T1"]},{"id":"C146","name":"准备时间对等纪律","src":"S9","type":"概念型","gloss":"会前投入时间不少于所有参会者将花掉的时间总和","level":7,"ci":8,"tags":["T6"]},{"id":"C147","name":"70% 完成度文档","src":"S9","type":"工具型","gloss":"写到 70% 就给人，打磨完美的想法会把别人弹开","level":10,"ci":8,"tags":["T6","T7"]},{"id":"C148","name":"可塑的个人软件","src":"S9","type":"概念型","gloss":"接上 Alan Kay：真正的个人计算机应该是有个人软件的","level":7,"ci":8,"tags":["T7","T5"]},{"id":"C149","name":"cozy software","src":"S9","type":"概念型","gloss":"给五个朋友做工具、大家一起用的运动","level":8,"ci":8,"tags":["T5","T7"]},{"id":"C150","name":"product-marketing fit","src":"S9","type":"工具型","gloss":"谈论产品的方式与围绕它建立的叙事可以先于产品被建造","level":10,"ci":8,"tags":["T7"]},{"id":"C151","name":"人作为问责主体","src":"S9","type":"概念型","gloss":"可以把 agent 当下属，但最终产出归人负责","level":5,"ci":8,"tags":["T1","T6"]},{"id":"C152","name":"粉丝经济打法","src":"S10","type":"概念型","gloss":"卖的不是产品解决客户问题，是\"独立开发能轻易成功\"的梦","level":6,"ci":9,"tags":["T5","T7"]},{"id":"C153","name":"独立开发者就是他的客户","src":"S10","type":"概念型","gloss":"你就是他的客户，他就是发给你看的","level":7,"ci":9,"tags":["T5"]},{"id":"C154","name":"收入集中度","src":"S10","type":"概念型","gloss":"六个面向独立开发者的产品占近 95% 收入","level":8,"ci":9,"tags":["T5"]},{"id":"C155","name":"非同行产品的对照组","src":"S10","type":"概念型","gloss":"姿势矫正、习惯打卡这类非产品几乎不赚钱","level":9,"ci":9,"tags":["T7","T5"]},{"id":"C156","name":"成功的巧合性与不可复制性","src":"S10","type":"概念型","gloss":"有独特性与巧合性，结论是他们不可复制","level":9,"ci":9,"tags":["T5","T7"]},{"id":"C157","name":"社会实验式反证","src":"S10","type":"事件型","gloss":"作者把置顶项目做成对照实验，同时间对标 outbid 重做同一类项目","level":10,"ci":9,"tags":["T8","T7"]},{"id":"C158","name":"build in public 的适用边界","src":"S10","type":"工具型","gloss":"受众不是独立开发就别跟着 building public，你吸引的都是同行","level":10,"ci":9,"tags":["T5","T7"]},{"id":"C159","name":"MRR 截图飞轮","src":"S10","type":"概念型","gloss":"靠收入截图获取流量、涨粉和飞轮增长","level":9,"ci":9,"tags":["T5"]},{"id":"C160","name":"卖给 maker 的基础设施","src":"S10","type":"概念型","gloss":"AI 打掉了 course 和 boilerplate，只剩卖给 maker 的基础设施","level":11,"ci":9,"tags":["T5","T7"]},{"id":"C161","name":"深耕 niche","src":"S10","type":"概念型","gloss":"独立开发仍可走，但要埋下头深耕 niche、到真客户那里宣传","level":11,"ci":9,"tags":["T7","T5"]},{"id":"C162","name":"按周思考与不情感依附","src":"S10","type":"概念型","gloss":"不按年思考、不做大梦，快速做小项目然后更快放弃","level":10,"ci":9,"tags":["T5","T7"]},{"id":"C163","name":"理解优先于论文","src":"S11","type":"概念型","gloss":"数学的目的是产出理解，理解只住在模型权重里让人不满意","level":1,"ci":10,"tags":["T3","T10"]},{"id":"C164","name":"事后判断原则","src":"S11","type":"概念型","gloss":"post-hoc 看它引入的新想法有没有被别人拿去做别的事","level":3,"ci":10,"tags":["T10","T8"]},{"id":"C165","name":"last mile 结果","src":"S11","type":"概念型","gloss":"人类数学家做完很深的工作，模型只补上最后一步","level":2,"ci":10,"tags":["T10","T1"]},{"id":"C166","name":"开放问题作为失败的度量","src":"S11","type":"概念型","gloss":"开放问题不是待办任务，是度量你失败理解的 benchmark","level":2,"ci":10,"tags":["T10","T3"]},{"id":"C167","name":"问题求解者与理论建构者","src":"S11","type":"概念型","gloss":"模型擅长求解侧（套已知技巧），建构侧才需要发展新技术","level":0,"ci":10,"tags":["T10","T1"]},{"id":"C168","name":"非严格的类比哲学","src":"S11","type":"概念型","gloss":"完全不严格的类比催生几十年数学，模型几乎看不到这类推理","level":1,"ci":10,"tags":["T10","T3"]},{"id":"C169","name":"做物理，只不过对象是概念","src":"S11","type":"概念型","gloss":"替代\"追求美\"：问什么是基本的、什么最能打开进一步理解","level":1,"ci":10,"tags":["T10","T3"]},{"id":"C170","name":"找到正确的问题","src":"S11","type":"概念型","gloss":"提出猜想本身常常比解决已知猜想更难","level":3,"ci":10,"tags":["T10"]},{"id":"C171","name":"大规模并行的例子搜索","src":"S11","type":"概念型","gloss":"模型最实在的用途：一次跑一千个例子、开十个子 agent","level":6,"ci":10,"tags":["T10","T2"]},{"id":"C172","name":"人类无法硬啃","src":"S11","type":"概念型","gloss":"模型证不出的引理逼他手算大量例子、找到更好的陈述","level":15,"ci":10,"tags":["T10","T3"]},{"id":"C173","name":"概念性解释","src":"S11","type":"概念型","gloss":"十页暴力计算完全正确，但不会导向后来找到的漂亮解释","level":8,"ci":10,"tags":["T3","T10"]},{"id":"C174","name":"玩老虎机的激励","src":"S11","type":"概念型","gloss":"反复摇模型直到吐出但愿正确的证明，甚至不必事先挑定理","level":7,"ci":10,"tags":["T10","T8"]},{"id":"C175","name":"人力资本与数学管道","src":"S11","type":"概念型","gloss":"前沿依赖成千上万正在学习数学思维的人这条管道","level":5,"ci":10,"tags":["T10","T9"]},{"id":"C176","name":"模式坍缩","src":"S11","type":"概念型","gloss":"同一定理的三五篇论文几天内用完全相同的证明先后出现","level":8,"ci":10,"tags":["T10"]},{"id":"C177","name":"最优不等于会发生","src":"S11","type":"概念型","gloss":"即便假设模型超人仍要有人类数学家：这变成社会设计问题","level":6,"ci":10,"tags":["T10","T6"]},{"id":"C178","name":"对证明做模糊的单元测试","src":"S11","type":"概念型","gloss":"人检查论文不是逐行核对，而是理解全局结构并做压力测试","level":14,"ci":10,"tags":["T8","T10"]},{"id":"C179","name":"harness 与可靠性的取舍","src":"S11","type":"概念型","gloss":"以产出证明为目标的 harness 会降低可靠性","level":1,"ci":10,"tags":["T2","T10"]},{"id":"C180","name":"theory of mind 缺口","src":"S11","type":"概念型","gloss":"模型判断不准你已经知道什么，解释不是太浅就是跳步","level":7,"ci":10,"tags":["T10","T3"]},{"id":"C181","name":"学习的元素论","src":"S12","type":"概念型","gloss":"像找 94 种自然元素那样，提炼学习的基本元素及运作机制","level":0,"ci":11,"tags":["T9"]},{"id":"C182","name":"掌握造船术，而非穷尽知识之海","src":"S12","type":"概念型","gloss":"目标不是穷尽知识之海，而是掌握科学学习的造船术","level":1,"ci":11,"tags":["T9"]},{"id":"C183","name":"学习三阶段模型","src":"S12","type":"工具型","gloss":"好奇探索 → 严肃训练 → 创造性应用，每一阶段都不可跳过","level":4,"ci":11,"tags":["T9"]},{"id":"C184","name":"漏斗结构隐喻","src":"S12","type":"概念型","gloss":"漏斗口要足够打开、漏斗颈又长又窄、再重新进入广阔空间","level":5,"ci":11,"tags":["T9"]},{"id":"C185","name":"好奇探索阶段","src":"S12","type":"概念型","gloss":"大致 10 岁前，看似没产出却不可跨越","level":5,"ci":11,"tags":["T9"]},{"id":"C186","name":"严肃训练阶段","src":"S12","type":"概念型","gloss":"中学大学，强调严格准确熟练；燃料来自上一阶段的热爱","level":6,"ci":11,"tags":["T9"]},{"id":"C187","name":"创造性应用阶段","src":"S12","type":"概念型","gloss":"提炼出自己的体系，用它重新进入广阔世界","level":7,"ci":11,"tags":["T9"]},{"id":"C188","name":"与我有关","src":"S12","type":"概念型","gloss":"\"喜欢\"的前提是内容与自己的兴趣和经验产生关联","level":8,"ci":11,"tags":["T9"]},{"id":"C189","name":"最近学习区（元素一）","src":"S12","type":"概念型","gloss":"学习内容不过难也不过易","level":5,"ci":11,"tags":["T9"]},{"id":"C190","name":"共同注意（元素二）","src":"S12","type":"概念型","gloss":"思考的水车需要注意力资源，先学会调集和引导注意力","level":6,"ci":11,"tags":["T9"]},{"id":"C191","name":"主动参与（元素三）","src":"S12","type":"概念型","gloss":"大脑不是等待塞满知识货物的空仓库","level":7,"ci":11,"tags":["T9"]},{"id":"C192","name":"输出巩固（元素四）","src":"S12","type":"概念型","gloss":"输出巩固让学习事半功倍","level":8,"ci":11,"tags":["T9"]},{"id":"C193","name":"有效反馈（元素五）","src":"S12","type":"概念型","gloss":"恢复学习应有的快乐，把结果送回下一轮难度判断","level":9,"ci":11,"tags":["T9"]},{"id":"C194","name":"分形式学习循环","src":"S12","type":"概念型","gloss":"人生、一门学科、一节课是同构的分形反馈循环","level":11,"ci":11,"tags":["T9"]}],"edges":[["C23","C22",9],["C25","C22",9],["C42","C39",9],["C57","C55",9],["C69","C68",9],["C88","C52",9],["C119","C117",9],["C119","C118",9],["C166","C163",9],["C179","C52",9],["C185","C183",9],["C186","C183",9],["C187","C183",9],["C194","C193",9],["C03","C01",8],["C03","C02",8],["C04","C01",8],["C04","C02",8],["C21","C20",8],["C22","C20",8],["C27","C20",8],["C37","C19",8],["C39","C38",8],["C40","C39",8],["C45","C43",8],["C50","C49",8],["C54","C43",8],["C56","C55",8],["C59","C58",8],["C62","C61",8],["C66","C56",8],["C70","C68",8],["C74","C68",8],["C81","C68",8],["C99","C40",8],["C103","C104",8],["C105","C103",8],["C114","C85",8],["C115","C114",8],["C125","C118",8],["C131","C118",8],["C138","C133",8],["C143","C79",8],["C144","C133",8],["C153","C152",8],["C156","C154",8],["C159","C152",8],["C164","C163",8],["C168","C167",8],["C170","C167",8],["C172","C171",8],["C173","C163",8],["C177","C175",8],["C184","C183",8],["C61","C55",8],["C123","C117",8],["C24","C22",7],["C27","C23",7],["C31","C30",7],["C41","C39",7],["C43","C39",7],["C47","C43",7],["C48","C43",7],["C63","C62",7],["C112","C111",7],["C124","C120",7],["C134","C85",7],["C149","C148",7],["C151","C69",7],["C158","C77",7],["C161","C158",7],["C169","C167",7],["C178","C173",7],["C194","C183",7],["C05","C03",7],["C67","C55",7],["C72","C71",7],["C86","C85",7],["C87","C85",7],["C100","C99",7],["C106","C102",7],["C108","C102",7],["C129","C128",7],["C154","C153",7],["C183","C181",7],["C186","C185",7],["C187","C186",7],["C32","C31",4],["C51","C52",4],["C53","C43",4],["C73","C47",4],["C84","C60",4],["C93","C47",4],["C121","C117",4],["C126","C122",4],["C127","C122",4],["C142","C36",4],["C155","C154",4],["C165","C167",4],["C09","C08",3],["C16","C10",3],["C07","C06",3],["C68","C18",3],["C26","C20",3],["C62","C65",3],["C98","C45",3],["C113","C48",3],["C130","C123",3],["C139","C116",3],["C162","C87",3],["C182","C181",3],["C194","C37",3],["C76","C69",3],["C135","C134",3],["C08","C20",2],["C07","C17",2],["C10","C09",2],["C11","C13",2],["C15","C18",2],["C06","C03",2],["C33","C133",2],["C34","C49",2],["C35","C39",2],["C28","C21",2],["C28","C22",2],["C46","C43",2],["C49","C44",2],["C60","C66",2],["C64","C66",2],["C76","C151",2],["C102","C83",2],["C89","C85",2],["C94","C20",2],["C95","C58",2],["C97","C133",2],["C107","C68",2],["C136","C30",2],["C137","C116",2],["C140","C76",2],["C141","C135",2],["C145","C66",2],["C157","C156",2],["C162","C156",2],["C174","C171",2],["C176","C171",2],["C188","C185",2],["C189","C181",2],["C190","C181",2],["C191","C181",2],["C192","C181",2],["C193","C192",2],["C09","C05",2],["C115","C37",2],["C77","C17",2],["C98","C29",2],["C47","C35",2],["C109","C92",2],["C101","C100",2],["C140","C102",2],["C116","C105",2],["C117","C122",2],["C145","C143",2],["C147","C146",2],["C157","C155",2],["C192","C191",2],["C19","C181",2],["C137","C28",2],["C36","C06",2],["C44","C38",2],["C78","C51",2],["C136","C170",2],["C28","C13",1],["C15","C17",1],["C36","C10",1],["C29","C43",1],["C30","C21",1],["C24","C36",1],["C44","C40",1],["C45","C49",1],["C61","C65",1],["C57","C63",1],["C75","C113",1],["C78","C106",1],["C80","C102",1],["C82","C133",1],["C74","C140",1],["C81","C133",1],["C90","C108",1],["C91","C114",1],["C96","C52",1],["C101","C167",1],["C99","C34",1],["C100","C36",1],["C109","C39",1],["C110","C51",1],["C116","C28",1],["C116","C102",1],["C112","C95",1],["C111","C49",1],["C126","C124",1],["C130","C122",1],["C132","C125",1],["C135","C85",1],["C142","C16",1],["C147","C28",1],["C150","C137",1],["C146","C143",1],["C144","C143",1],["C160","C153",1],["C158","C154",1],["C159","C154",1],["C180","C144",1],["C172","C178",1],["C173","C169",1],["C164","C166",1],["C194","C192",1],["C186","C189",1],["C13","C19",1],["C18","C08",1],["C30","C12",1],["C14","C05",1],["C15","C07",1],["C16","C17",1],["C33","C20",1],["C35","C20",1],["C32","C40",1],["C71","C37",1],["C118","C15",1],["C152","C16",1],["C80","C25",1],["C42","C28",1],["C82","C33",1],["C143","C40",1],["C48","C45",1],["C44","C39",1],["C46","C39",1],["C47","C46",1],["C106","C51",1],["C54","C53",1],["C66","C55",1],["C99","C63",1],["C130","C73",1],["C75","C48",1],["C78","C43",1],["C92","C78",1],["C148","C82",1],["C90","C89",1],["C91","C48",1],["C94","C25",1],["C95","C49",1],["C96","C26",1],["C113","C96",1],["C144","C97",1],["C116","C103",1],["C108","C109",1],["C109","C110",1],["C132","C122",1],["C134","C20",1],["C141","C138",1],["C150","C140",1],["C158","C156",1],["C160","C158",1],["C165","C163",1],["C176","C174",1],["C189","C183",1],["C188","C189",1],["C190","C185",1],["C191","C190",1],["C194","C184",1],["C37","C193",1],["C115","C194",1],["C129","C121",1],["C140","C129",1],["C76","C120",1],["C145","C55",1],["C173","C180",1],["C175","C181",1],["C170","C166",1],["C171","C93",1],["C178","C95",1],["C10","C12",1],["C66","C14",1],["C150","C06",1],["C191","C13",1],["C185","C11",1],["C28","C19",1],["C26","C52",1],["C134","C23",1],["C131","C25",1],["C110","C46",1],["C65","C192",1],["C75","C96",1],["C80","C73",1],["C89","C87",1],["C90","C86",1],["C94","C143",1],["C95","C72",1],["C101","C85",1],["C107","C99",1],["C103","C81",1],["C123","C122",1],["C132","C130",1],["C141","C100",1],["C146","C190",1],["C160","C154",1],["C174","C94",1],["C176","C167",1],["C180","C46",1],["C188","C191",1],["C193","C189",1],["C12","C06",1],["C14","C12",1],["C28","C30",1],["C29","C40",1],["C64","C56",1],["C75","C74",1],["C80","C79",1],["C82","C81",1],["C83","C85",1],["C89","C92",1],["C90","C134",1],["C91","C52",1],["C92","C43",1],["C107","C103",1],["C110","C106",1],["C108","C39",1],["C111","C50",1],["C114","C87",1],["C124","C106",1],["C133","C68",1],["C138","C45",1],["C143","C49",1],["C144","C92",1],["C148","C16",1],["C158","C17",1],["C161","C36",1],["C163","C181",1],["C175","C183",1],["C183","C11",1],["C187","C36",1],["C193","C50",1],["C117","C102",1],["C118","C17",1],["C174","C166",1],["C180","C20",1],["C188","C181",1],["C125","C122",1],["C130","C129",1],["C132","C131",1],["C139","C103",1],["C147","C137",1],["C150","C136",1],["C160","C152",1]],"sources":[{"id":"S1","label":"三类人"},{"id":"S2","label":"原生方法论"},{"id":"S3","label":"技能地图"},{"id":"S4","label":"手敲代码"},{"id":"S5","label":"实习生"},{"id":"S6","label":"Claude Code"},{"id":"S7","label":"五条规则"},{"id":"S8","label":"隐性地图"},{"id":"S9","label":"OpenAI PM"},{"id":"S10","label":"别学 Marc"},{"id":"S11","label":"数学家的 AI"},{"id":"S12","label":"内驱式学习"}],"meta":{"kicker":"AI 内参 · 12 篇 · 2026-09","stats":"<b>194<\/b> 个概念 · <b>353<\/b> 条依赖<br><b>10<\/b> 条主题线 · 已标 <b>194<\/b>/194<br><b>87<\/b> 条骨架（实线）· <b>266<\/b> 条候选（虚线）<br><b>16<\/b> 层深度 · <b>12<\/b> 个来源<br>枢纽：模型能力边界线"},"curation":{"tags":[{"id":"T1","name":"人机分工","why":"机器跑得越来越快，但方向和取舍还得有人扛。这条线帮你想清楚哪些活可以交出去，哪些必须自己拿着。","color":"#5B8FF9"},{"id":"T2","name":"智能体工作流","why":"让智能体真替你干活，靠的不是提示词技巧，而是把任务拆开、把流程编排起来、让验证自己跑。","color":"#61DDAA"},{"id":"T3","name":"理解优先","why":"把方案和思考整包丢给机器，人会慢慢看不懂自己在做什么。这条线标出哪些理解不能外包。","color":"#F6BD16"},{"id":"T4","name":"不可替代","why":"职业不再是一条排好队的梯子，先弄清自己那门手艺长在哪，才能在被替代之前长出别人拿不走的东西。","color":"#7262FD"},{"id":"T5","name":"一人企业","why":"一个人加几个工具就能撑起一门生意，但这条路上有它自己的套路和淘汰率，值得先看清再下场。","color":"#78D3F8"},{"id":"T6","name":"组织边界","why":"公司为什么存在、边界会被谁划走，这件事决定了未来还有哪些岗位和协作方式，比工具评测更值得看。","color":"#9661BC"},{"id":"T7","name":"产品判断","why":"模型能力每隔几个月就挪一次，什么该现在做、什么该等、什么该扔，判断错了再拼命也白费。","color":"#F6903D"},{"id":"T8","name":"验证优先","why":"生成变便宜之后，贵的是确信它是对的。测试、评测和闸门决定了你到底敢不敢把东西交出去。","color":"#008685"},{"id":"T9","name":"学会学习","why":"好奇、苦练、创造这三段一段都跳不过去。看懂学习本身怎么运转，比多背几个知识点管用得多。","color":"#F08BB4"},{"id":"T10","name":"数学与模型","why":"数学是模型最经得起检验的战场，它在这里能做什么、卡在哪里、还需要什么样的人，都看得最清楚。","color":"#7C8CE0"}],"assign":{"C01":["T1"],"C02":["T1","T2"],"C03":["T4","T1"],"C04":["T1"],"C05":["T9","T4"],"C06":["T5","T4","T6"],"C07":["T5","T6"],"C08":["T4","T1"],"C09":["T4","T9"],"C10":["T7","T4"],"C11":["T9","T3"],"C12":["T9","T3"],"C13":["T9","T8"],"C14":["T9","T4"],"C15":["T5","T2","T6"],"C16":["T5","T4"],"C17":["T5"],"C18":["T2","T1","T8"],"C19":["T9","T10"],"C20":["T7","T10"],"C21":["T7","T8"],"C22":["T7","T10"],"C23":["T7","T4"],"C24":["T7","T4"],"C25":["T10","T7"],"C26":["T2","T10"],"C27":["T7","T10"],"C28":["T8","T7"],"C29":["T1","T2"],"C30":["T2","T7"],"C31":["T2","T1"],"C32":["T2"],"C33":["T7","T2"],"C34":["T1","T8"],"C35":["T2","T1"],"C36":["T4","T7"],"C37":["T9","T2"],"C38":["T2","T9"],"C39":["T2","T8"],"C40":["T1","T2","T8"],"C41":["T2","T8"],"C42":["T2","T8"],"C43":["T1","T2"],"C44":["T8","T2"],"C45":["T1","T2"],"C46":["T2"],"C47":["T2","T1"],"C48":["T2"],"C49":["T8","T2"],"C50":["T8"],"C51":["T2"],"C52":["T2","T10"],"C53":["T2","T8"],"C54":["T2","T1"],"C55":["T3","T1"],"C56":["T3","T1"],"C57":["T3","T1"],"C58":["T1","T2"],"C59":["T8","T3"],"C60":["T9","T4"],"C61":["T1","T2"],"C62":["T3","T8"],"C63":["T3"],"C64":["T1","T3"],"C65":["T9","T3"],"C66":["T3","T1"],"C67":["T3","T1"],"C68":["T1","T2"],"C69":["T1","T8"],"C70":["T1","T3"],"C71":["T9","T10"],"C72":["T8","T10"],"C73":["T2","T6"],"C74":["T6","T2"],"C75":["T2","T8"],"C76":["T6"],"C77":["T5","T7"],"C78":["T2"],"C79":["T8"],"C80":["T8","T7"],"C81":["T2"],"C82":["T2","T7"],"C83":["T2","T6"],"C84":["T5","T4"],"C85":["T9","T10"],"C86":["T10","T7"],"C87":["T7","T5"],"C88":["T2","T10"],"C89":["T2","T7"],"C90":["T6","T2"],"C91":["T2","T7"],"C92":["T2"],"C93":["T2"],"C94":["T10","T8"],"C95":["T8"],"C96":["T2","T8"],"C97":["T2","T7"],"C98":["T1","T2"],"C99":["T1","T3"],"C100":["T1","T4"],"C101":["T9","T4"],"C102":["T6","T2"],"C103":["T2","T6"],"C104":["T6","T7"],"C105":["T2","T6"],"C106":["T2","T6"],"C107":["T1","T2"],"C108":["T2","T6"],"C109":["T2"],"C110":["T2","T8"],"C111":["T8","T2"],"C112":["T3","T8"],"C113":["T2","T8"],"C114":["T2","T6"],"C115":["T6","T2"],"C116":["T2","T7"],"C117":["T6"],"C118":["T5","T6"],"C119":["T6","T5"],"C120":["T6"],"C121":["T6"],"C122":["T6"],"C123":["T6"],"C124":["T6","T1"],"C125":["T5","T6"],"C126":["T6","T5"],"C127":["T6","T7"],"C128":["T6"],"C129":["T6","T2"],"C130":["T6","T5"],"C131":["T5","T6"],"C132":["T6","T7"],"C133":["T7","T2"],"C134":["T7","T2"],"C135":["T7","T8"],"C136":["T7"],"C137":["T7","T8"],"C138":["T1","T2"],"C139":["T2","T6"],"C140":["T6","T5"],"C141":["T1","T4"],"C142":["T7","T4"],"C143":["T8","T7"],"C144":["T7","T2"],"C145":["T3","T1"],"C146":["T6"],"C147":["T6","T7"],"C148":["T7","T5"],"C149":["T5","T7"],"C150":["T7"],"C151":["T1","T6"],"C152":["T5","T7"],"C153":["T5"],"C154":["T5"],"C155":["T7","T5"],"C156":["T5","T7"],"C157":["T8","T7"],"C158":["T5","T7"],"C159":["T5"],"C160":["T5","T7"],"C161":["T7","T5"],"C162":["T5","T7"],"C163":["T3","T10"],"C164":["T10","T8"],"C165":["T10","T1"],"C166":["T10","T3"],"C167":["T10","T1"],"C168":["T10","T3"],"C169":["T10","T3"],"C170":["T10"],"C171":["T10","T2"],"C172":["T10","T3"],"C173":["T3","T10"],"C174":["T10","T8"],"C175":["T10","T9"],"C176":["T10"],"C177":["T10","T6"],"C178":["T8","T10"],"C179":["T2","T10"],"C180":["T10","T3"],"C181":["T9"],"C182":["T9"],"C183":["T9"],"C184":["T9"],"C185":["T9"],"C186":["T9"],"C187":["T9"],"C188":["T9"],"C189":["T9"],"C190":["T9"],"C191":["T9"],"C192":["T9"],"C193":["T9"],"C194":["T9"]},"collections":[{"tagId":"T1","name":"人机分工","why":"机器跑得越来越快，但方向和取舍还得有人扛。这条线帮你想清楚哪些活可以交出去，哪些必须自己拿着。","color":"#5B8FF9","size":37,"primary":21,"entry":[{"id":"C55","name":"认知负债（cognitive debt）","level":0,"b":3,"unlocks":6},{"id":"C43","name":"Directing the workflow（导航工作流）","level":2,"b":3,"unlocks":4},{"id":"C01","name":"纯粹派（the purists）","level":0,"b":2,"unlocks":2}],"goal":[{"id":"C141","name":"野心成为新瓶颈","level":15,"a":4,"needs":2},{"id":"C107","name":"机械的 80%","level":14,"a":4,"needs":2}],"route":[{"id":"C55","name":"认知负债（cognitive debt）","level":0,"edgeFromPrev":null},{"id":"C56","name":"快进无聊部分 vs 外包理解","level":1,"edgeFromPrev":"cand"},{"id":"C66","name":"理解优先于生产力","level":5,"edgeFromPrev":"cand"},{"id":"C64","name":"2x 而不是 10x","level":6,"edgeFromPrev":"cand"}]},{"tagId":"T2","name":"智能体工作流","why":"让智能体真替你干活，靠的不是提示词技巧，而是把任务拆开、把流程编排起来、让验证自己跑。","color":"#61DDAA","size":67,"primary":41,"entry":[{"id":"C52","name":"harness 包裹 LLM","level":0,"b":4,"unlocks":6},{"id":"C38","name":"用好 coding agent 是一项可拆解的技能","level":0,"b":3,"unlocks":2},{"id":"C18","name":"把 AI 当数字员工","level":2,"b":2,"unlocks":2}],"goal":[{"id":"C75","name":"Lint 与门禁：AI 时代先行的基础设施","level":9,"a":2,"needs":4},{"id":"C90","name":"精神时光屋（hyperbolic time chamber）","level":8,"a":4,"needs":3}],"route":[{"id":"C38","name":"用好 coding agent 是一项可拆解的技能","level":0,"edgeFromPrev":null},{"id":"C39","name":"三段高层工作流","level":1,"edgeFromPrev":"cand"},{"id":"C40","name":"关注点从代码转向规格与验证","level":2,"edgeFromPrev":"cand"},{"id":"C44","name":"可验证的分解","level":3,"edgeFromPrev":"cand"},{"id":"C49","name":"行为验证与功能验证","level":4,"edgeFromPrev":"cand"},{"id":"C45","name":"自主度校准","level":5,"edgeFromPrev":"cand"},{"id":"C48","name":"安全运行与权限闸门","level":6,"edgeFromPrev":"cand"},{"id":"C113","name":"确定性闸门","level":7,"edgeFromPrev":"cand"},{"id":"C75","name":"Lint 与门禁：AI 时代先行的基础设施","level":9,"edgeFromPrev":"cand"}]},{"tagId":"T3","name":"理解优先","why":"把方案和思考整包丢给机器，人会慢慢看不懂自己在做什么。这条线标出哪些理解不能外包。","color":"#F6BD16","size":23,"primary":11,"entry":[{"id":"C55","name":"认知负债（cognitive debt）","level":0,"b":3,"unlocks":5},{"id":"C163","name":"理解优先于论文","level":1,"b":4,"unlocks":2},{"id":"C169","name":"做物理，只不过对象是概念","level":1,"b":4,"unlocks":1}],"goal":[{"id":"C173","name":"概念性解释","level":8,"a":3,"needs":3},{"id":"C57","name":"一次性生成整个特性（one-shot entire features）","level":13,"a":2,"needs":2}],"route":[{"id":"C55","name":"认知负债（cognitive debt）","level":0,"edgeFromPrev":null},{"id":"C56","name":"快进无聊部分 vs 外包理解","level":1,"edgeFromPrev":"cand"},{"id":"C66","name":"理解优先于生产力","level":5,"edgeFromPrev":"cand"},{"id":"C64","name":"2x 而不是 10x","level":6,"edgeFromPrev":"cand"}]},{"tagId":"T4","name":"不可替代","why":"职业不再是一条排好队的梯子，先弄清自己那门手艺长在哪，才能在被替代之前长出别人拿不走的东西。","color":"#7262FD","size":17,"primary":4,"entry":[{"id":"C03","name":"数字文艺复兴人（new / digital Renaissance man）","level":1,"b":3,"unlocks":2},{"id":"C08","name":"AI 只擅长已知信息","level":1,"b":2,"unlocks":1},{"id":"C60","name":"个人项目的乐趣来自过程而非结果","level":6,"b":2,"unlocks":1}],"goal":[{"id":"C142","name":"auteur 式软件观","level":6,"a":4,"needs":2},{"id":"C09","name":"不可替代技能栈的三层","level":3,"a":4,"needs":2}],"route":[{"id":"C03","name":"数字文艺复兴人（new / digital Renaissance man）","level":1,"edgeFromPrev":null},{"id":"C06","name":"第二次文艺复兴：工作证明、受众、品味","level":2,"edgeFromPrev":"cand"},{"id":"C36","name":"品味作为不可替代的门槛","level":5,"edgeFromPrev":"cand"},{"id":"C100","name":"手艺的让渡与可及性的扩张","level":14,"edgeFromPrev":"cand"},{"id":"C101","name":"变化的职业（the profession of change）","level":15,"edgeFromPrev":"cand"}]},{"tagId":"T5","name":"一人企业","why":"一个人加几个工具就能撑起一门生意，但这条路上有它自己的套路和淘汰率，值得先看清再下场。","color":"#78D3F8","size":27,"primary":19,"entry":[{"id":"C17","name":"无需许可的杠杆","level":0,"b":2,"unlocks":6},{"id":"C87","name":"对造出来的东西保持不执着（unattached）","level":1,"b":2,"unlocks":1},{"id":"C06","name":"第二次文艺复兴：工作证明、受众、品味","level":2,"b":3,"unlocks":1}],"goal":[{"id":"C160","name":"卖给 maker 的基础设施","level":11,"a":3,"needs":4},{"id":"C158","name":"build in public 的适用边界","level":10,"a":3,"needs":4}],"route":[{"id":"C17","name":"无需许可的杠杆","level":0,"edgeFromPrev":null},{"id":"C16","name":"创作者即价值创造者","level":5,"edgeFromPrev":"cand"},{"id":"C152","name":"粉丝经济打法","level":6,"edgeFromPrev":"cand"},{"id":"C153","name":"独立开发者就是他的客户","level":7,"edgeFromPrev":"cand"},{"id":"C154","name":"收入集中度","level":8,"edgeFromPrev":"cand"},{"id":"C156","name":"成功的巧合性与不可复制性","level":9,"edgeFromPrev":"cand"},{"id":"C162","name":"按周思考与不情感依附","level":10,"edgeFromPrev":"cand"}]},{"tagId":"T6","name":"组织边界","why":"公司为什么存在、边界会被谁划走，这件事决定了未来还有哪些岗位和协作方式，比工具评测更值得看。","color":"#9661BC","size":38,"primary":22,"entry":[{"id":"C122","name":"交易成本与企业边界（科斯）","level":0,"b":5,"unlocks":7},{"id":"C120","name":"组织的隐性地图","level":0,"b":3,"unlocks":2},{"id":"C104","name":"传声筒问题（broken telephone problem）","level":0,"b":2,"unlocks":1}],"goal":[{"id":"C132","name":"应用层碎片化与基础设施层集中化","level":7,"a":4,"needs":4},{"id":"C130","name":"超级协作与协议枢纽","level":6,"a":5,"needs":4}],"route":[{"id":"C122","name":"交易成本与企业边界（科斯）","level":0,"edgeFromPrev":null},{"id":"C117","name":"超级组织","level":3,"edgeFromPrev":"cand"},{"id":"C121","name":"Great Flattening（超级扁平化）","level":4,"edgeFromPrev":"cand"},{"id":"C129","name":"蜂巢式协作与动态编队","level":5,"edgeFromPrev":"cand"},{"id":"C140","name":"founders-led","level":7,"edgeFromPrev":"cand"},{"id":"C74","name":"agent onboarding 与 AI native 组织","level":8,"edgeFromPrev":"cand"}]},{"tagId":"T7","name":"产品判断","why":"模型能力每隔几个月就挪一次，什么该现在做、什么该等、什么该扔，判断错了再拼命也白费。","color":"#F6903D","size":44,"primary":20,"entry":[{"id":"C20","name":"模型能力边界线","level":0,"b":3,"unlocks":5},{"id":"C133","name":"ai 产品的第三时代：持久化同事","level":4,"b":3,"unlocks":4},{"id":"C156","name":"成功的巧合性与不可复制性","level":9,"b":3,"unlocks":3}],"goal":[{"id":"C144","name":"协作者式产品：思维链与引证","level":6,"a":4,"needs":3},{"id":"C28","name":"让坏想法死得早","level":5,"a":3,"needs":3}],"route":[{"id":"C20","name":"模型能力边界线","level":0,"edgeFromPrev":null},{"id":"C21","name":"判断 AI 需求的三问","level":1,"edgeFromPrev":"cand"},{"id":"C30","name":"以终为始的三连追问","level":4,"edgeFromPrev":"cand"},{"id":"C136","name":"Eigen question","level":5,"edgeFromPrev":"cand"},{"id":"C150","name":"product-marketing fit","level":10,"edgeFromPrev":"cand"}]},{"tagId":"T8","name":"验证优先","why":"生成变便宜之后，贵的是确信它是对的。测试、评测和闸门决定了你到底敢不敢把东西交出去。","color":"#008685","size":34,"primary":13,"entry":[{"id":"C39","name":"三段高层工作流","level":1,"b":3,"unlocks":4},{"id":"C79","name":"code 的可验证性","level":0,"b":3,"unlocks":2},{"id":"C96","name":"确定性代码 × agentic 行为的混合","level":2,"b":4,"unlocks":2}],"goal":[{"id":"C143","name":"知识工作的验证难题","level":5,"a":4,"needs":3},{"id":"C112","name":"修原则，不修个例","level":14,"a":3,"needs":2}],"route":[{"id":"C39","name":"三段高层工作流","level":1,"edgeFromPrev":null},{"id":"C40","name":"关注点从代码转向规格与验证","level":2,"edgeFromPrev":"cand"},{"id":"C44","name":"可验证的分解","level":3,"edgeFromPrev":"cand"},{"id":"C49","name":"行为验证与功能验证","level":4,"edgeFromPrev":"cand"},{"id":"C50","name":"测试本身也要被评估","level":5,"edgeFromPrev":"cand"},{"id":"C111","name":"黄金评测集（golden set）","level":6,"edgeFromPrev":"cand"},{"id":"C112","name":"修原则，不修个例","level":14,"edgeFromPrev":"cand"}]},{"tagId":"T9","name":"学会学习","why":"好奇、苦练、创造这三段一段都跳不过去。看懂学习本身怎么运转，比多背几个知识点管用得多。","color":"#F08BB4","size":29,"primary":26,"entry":[{"id":"C181","name":"学习的元素论","level":0,"b":3,"unlocks":9},{"id":"C05","name":"技能树的互联性","level":2,"b":2,"unlocks":2},{"id":"C85","name":"技术的货架期（shelf life）","level":0,"b":2,"unlocks":1}],"goal":[{"id":"C194","name":"分形式学习循环","level":11,"a":4,"needs":5},{"id":"C188","name":"与我有关","level":8,"a":3,"needs":4}],"route":[{"id":"C181","name":"学习的元素论","level":0,"edgeFromPrev":null},{"id":"C183","name":"学习三阶段模型","level":4,"edgeFromPrev":"cand"},{"id":"C185","name":"好奇探索阶段","level":5,"edgeFromPrev":"cand"},{"id":"C190","name":"共同注意（元素二）","level":6,"edgeFromPrev":"cand"},{"id":"C191","name":"主动参与（元素三）","level":7,"edgeFromPrev":"cand"},{"id":"C192","name":"输出巩固（元素四）","level":8,"edgeFromPrev":"cand"},{"id":"C193","name":"有效反馈（元素五）","level":9,"edgeFromPrev":"cand"},{"id":"C37","name":"反馈循环与推翻旧权重","level":10,"edgeFromPrev":"cand"},{"id":"C194","name":"分形式学习循环","level":11,"edgeFromPrev":"cand"}]},{"tagId":"T10","name":"数学与模型","why":"数学是模型最经得起检验的战场，它在这里能做什么、卡在哪里、还需要什么样的人，都看得最清楚。","color":"#7C8CE0","size":31,"primary":17,"entry":[{"id":"C20","name":"模型能力边界线","level":0,"b":3,"unlocks":5},{"id":"C167","name":"问题求解者与理论建构者","level":0,"b":4,"unlocks":5},{"id":"C163","name":"理解优先于论文","level":1,"b":4,"unlocks":4}],"goal":[{"id":"C176","name":"模式坍缩","level":8,"a":4,"needs":3},{"id":"C173","name":"概念性解释","level":8,"a":3,"needs":3}],"route":[{"id":"C20","name":"模型能力边界线","level":0,"edgeFromPrev":null},{"id":"C22","name":"三条边界：能力、成本、价值","level":1,"edgeFromPrev":"cand"},{"id":"C25","name":"成本三因子公式","level":2,"edgeFromPrev":"cand"},{"id":"C94","name":"test time compute 换信心","level":6,"edgeFromPrev":"cand"},{"id":"C174","name":"玩老虎机的激励","level":7,"edgeFromPrev":"cand"},{"id":"C176","name":"模式坍缩","level":8,"edgeFromPrev":"cand"}]}],"edgeAuto":[{"key":"C32_C31","verdict":"keep","conf":0.7,"why":"先认下别模仿人类流程，才懂为何给规范而非给模板"},{"key":"C51_C52","verdict":"keep","conf":0.8,"why":"先懂 agent＝LLM 加 harness，才谈得上 skills、MCP、hooks 定制"},{"key":"C53_C43","verdict":"skip","conf":0.55,"why":"两条同属技能清单，谁先谁后无所谓，非真前置"},{"key":"C73_C47","verdict":"keep","conf":0.6,"why":"先承认人注意力是稀缺资源，才会把协同当作下一个瓶颈"},{"key":"C84_C60","verdict":"skip","conf":0.55,"why":"同篇相邻话题，讲热爱与讲过程乐趣并不互为前提"},{"key":"C93_C47","verdict":"keep","conf":0.75,"why":"先懂人的注意力预算有限，才明白 fan out 后收敛为何最难"},{"key":"C121_C117","verdict":"keep","conf":0.55,"why":"先立超级组织这个待证伪命题，扁平化案例才是在回应它"},{"key":"C126_C122","verdict":"keep","conf":0.85,"why":"先懂科斯交易成本，才懂 BPO 为何被两侧拆包"},{"key":"C127_C122","verdict":"keep","conf":0.8,"why":"先懂企业边界由交易成本划定，PLG 动摇边界才讲得通"},{"key":"C142_C36","verdict":"keep","conf":0.7,"why":"先认品味是不可替代的门槛，auteur 式软件观才成立"},{"key":"C155_C154","verdict":"keep","conf":0.55,"why":"先看收入高度集中，非同行对照组才显出为何几乎不赚钱"},{"key":"C165_C167","verdict":"keep","conf":0.75,"why":"先分求解者与建构者，才懂模型只补最后一公里的定位"},{"key":"C09_C08","verdict":"keep","conf":0.6,"why":"先懂 AI 只擅长已知信息，三层技能栈的价值倒挂才成立"},{"key":"C16_C10","verdict":"keep","conf":0.55,"why":"先有在乎、独特、付费的交叉，创作者定义才落得下来"},{"key":"C07_C06","verdict":"keep","conf":0.6,"why":"先懂时代三换，线性职业为何是默认才清楚"},{"key":"C68_C18","verdict":"keep","conf":0.65,"why":"先接受 AI 是数字员工，agent 即实习生才有依据"},{"key":"C26_C20","verdict":"keep","conf":0.7,"why":"先懂模型能力边界在哪，才知道结构化解析该交回程序"},{"key":"C62_C65","verdict":"keep","conf":0.7,"why":"先认同别复制粘贴的抄写式学习，手敲减速才有意义"},{"key":"C98_C45","verdict":"keep","conf":0.7,"why":"先建立自主度可调的认知，放手本身是 forcing function 才讲得通"},{"key":"C113_C48","verdict":"keep","conf":0.7,"why":"先有权限闸门概念，Hooks 式确定性闸门才有落点"},{"key":"C130_C123","verdict":"keep","conf":0.75,"why":"先破平台强不等于组织强的偷换，超级协作结论才立得住"},{"key":"C139_C116","verdict":"keep","conf":0.7,"why":"先懂内部试用到产品化的路径，mainline 才有落点"},{"key":"C162_C87","verdict":"keep","conf":0.5,"why":"先认同造物终会消失，按周思考与不执着才说得通"},{"key":"C182_C181","verdict":"keep","conf":0.65,"why":"先有学习元素论，造船术式的学习观才不是空话"},{"key":"C194_C37","verdict":"keep","conf":0.65,"why":"先懂反馈循环与推翻旧权重，分形学习循环才成立"},{"key":"C76_C69","verdict":"keep","conf":0.55,"why":"先把产出与个人信用挂钩，ownership 先于头衔才成立"},{"key":"C135_C134","verdict":"keep","conf":0.65,"why":"先接受两三个月建造窗口，多产而经验主义才是解法"},{"key":"C07_C17","verdict":"keep","conf":0.6,"why":"先懂互联网是无需许可的杠杆，指数职业才讲得通"},{"key":"C10_C09","verdict":"skip","conf":0.55,"why":"两个框架同篇并列，交叉点不依赖技能栈三层"},{"key":"C11_C13","verdict":"skip","conf":0.5,"why":"同篇相邻，教育即发现并不以前置的先做后学为条件"},{"key":"C15_C18","verdict":"keep","conf":0.65,"why":"先认 AI 是数字员工，一人顶十人规模才立得住"},{"key":"C33_C133","verdict":"keep","conf":0.65,"why":"先懂第三时代是持久化同事，App 变插件才讲得通"},{"key":"C34_C49","verdict":"keep","conf":0.65,"why":"先分行为验证与功能验证，验证交给谁才有依据"},{"key":"C35_C39","verdict":"keep","conf":0.6,"why":"先懂规划、执行、部署三段，瓶颈移位才看得见"},{"key":"C28_C21","verdict":"skip","conf":0.5,"why":"三问与快速验证是同题的两种说法，不构成前置"},{"key":"C28_C22","verdict":"skip","conf":0.5,"why":"三条边界是判断标准，与让坏想法早死并列而不依赖"},{"key":"C46_C43","verdict":"keep","conf":0.6,"why":"先懂如何导航工作流，上下文与假设变更才找得到位置"},{"key":"C49_C44","verdict":"keep","conf":0.65,"why":"先能把工作拆成可验证步骤，验证分类才用得上"},{"key":"C60_C66","verdict":"keep","conf":0.55,"why":"先立理解优先于生产力，过程乐趣才不是自我安慰"},{"key":"C64_C66","verdict":"keep","conf":0.6,"why":"先认理解优先于生产力，2x 的诚实定价才成立"},{"key":"C76_C151","verdict":"keep","conf":0.6,"why":"先认人始终是问责主体，ownership 先于头衔才成立"},{"key":"C102_C83","verdict":"keep","conf":0.7,"why":"先懂蒸汽机先塞进旧流程的类比，AI 原生公司才有分界"},{"key":"C94_C20","verdict":"skip","conf":0.65,"why":"两者各说各的，无前置关系"},{"key":"C95_C58","verdict":"keep","conf":0.6,"why":"先懂机器人提PR人审流程，才懂对抗复核"},{"key":"C97_C133","verdict":"keep","conf":0.7,"why":"先懂持久化同事时代，才懂UI与transcript解耦"},{"key":"C107_C68","verdict":"keep","conf":0.6,"why":"先懂agent是实习生的定位，才懂机械80%分工"},{"key":"C136_C30","verdict":"skip","conf":0.6,"why":"两条同讲追问，无先后依赖"},{"key":"C137_C116","verdict":"skip","conf":0.7,"why":"原型流程更具体，不能当前置抽象原则"},{"key":"C140_C76","verdict":"keep","conf":0.75,"why":"先懂ownership先于头衔，才懂人人founder"},{"key":"C141_C135","verdict":"skip","conf":0.6,"why":"两者并列主张，没有先懂谁的问题"},{"key":"C145_C66","verdict":"keep","conf":0.7,"why":"先懂理解优先于生产力，才懂写作两类之分"},{"key":"C157_C156","verdict":"keep","conf":0.65,"why":"先懂成功不可复制，才懂社会实验式反证"},{"key":"C162_C156","verdict":"keep","conf":0.62,"why":"先懂成功不可复制，才懂按周思考不依附"},{"key":"C174_C171","verdict":"keep","conf":0.6,"why":"先懂大规模并行搜索，才懂老虎机式激励"},{"key":"C176_C171","verdict":"keep","conf":0.6,"why":"先懂大规模并行搜索，才懂模式坍缩成因"},{"key":"C188_C185","verdict":"skip","conf":0.6,"why":"两者同属学习话题，先后并不确定"},{"key":"C189_C181","verdict":"keep","conf":0.82,"why":"先懂学习元素论，才懂最近学习区这一元素"},{"key":"C190_C181","verdict":"keep","conf":0.82,"why":"先懂学习元素论，才懂共同注意这一元素"},{"key":"C191_C181","verdict":"keep","conf":0.82,"why":"先懂学习元素论，才懂主动参与这一元素"},{"key":"C192_C181","verdict":"keep","conf":0.82,"why":"先懂学习元素论，才懂输出巩固这一元素"},{"key":"C193_C192","verdict":"keep","conf":0.65,"why":"先懂输出巩固，才谈得上有效反馈闭环"},{"key":"C09_C05","verdict":"keep","conf":0.6,"why":"先懂技能树互联，才懂不可替代三层栈"},{"key":"C115_C37","verdict":"keep","conf":0.72,"why":"先懂反馈循环与推翻旧权重，才懂自我改进飞轮"},{"key":"C77_C17","verdict":"keep","conf":0.8,"why":"先懂无需许可的杠杆，才懂公开构建"},{"key":"C98_C29","verdict":"keep","conf":0.7,"why":"先懂在不熟悉领域开始，才懂放手让模型做"},{"key":"C47_C35","verdict":"keep","conf":0.75,"why":"先懂瓶颈转到代码两侧，才懂注意力预算"},{"key":"C109_C92","verdict":"keep","conf":0.78,"why":"先懂从session到loop，才懂循环与停机条件"},{"key":"C101_C100","verdict":"keep","conf":0.7,"why":"先懂手艺让渡与可及性扩张，才懂职业变化"},{"key":"C116_C105","verdict":"keep","conf":0.7,"why":"先懂从0到1开放，才懂原型到产品化"},{"key":"C117_C122","verdict":"keep","conf":0.85,"why":"先懂科斯交易成本，才懂超级组织命题"},{"key":"C145_C143","verdict":"keep","conf":0.75,"why":"先懂知识工作验证难题，才懂写作两类之分"},{"key":"C147_C146","verdict":"keep","conf":0.62,"why":"先懂准备时间对等纪律，才懂70%文档分享"},{"key":"C157_C155","verdict":"skip","conf":0.65,"why":"非同行对照是具体例子，当前置反了"},{"key":"C192_C191","verdict":"keep","conf":0.68,"why":"先懂主动参与，才懂输出巩固为何有效"},{"key":"C19_C181","verdict":"keep","conf":0.6,"why":"先懂学习元素论，才懂AI原生思维训练"},{"key":"C137_C28","verdict":"keep","conf":0.72,"why":"先懂让坏想法早死，才懂mocks胜过docs"},{"key":"C36_C06","verdict":"keep","conf":0.8,"why":"先懂第二次文艺复兴命名，才懂品味门槛"},{"key":"C44_C38","verdict":"keep","conf":0.78,"why":"先懂coding agent可拆解技能，才懂可验证分解"},{"key":"C78_C51","verdict":"keep","conf":0.7,"why":"先懂agent环境定制，才懂动态工作流编排"},{"key":"C136_C170","verdict":"keep","conf":0.75,"why":"先懂找到正确问题之难，才懂Eigen question"},{"key":"C15_C17","verdict":"keep","conf":0.8,"why":"先懂无需许可杠杆，才懂一人企业可能"},{"key":"C29_C43","verdict":"keep","conf":0.65,"why":"先懂导航工作流，才懂陌生领域放手"},{"key":"C30_C21","verdict":"skip","conf":0.8,"why":"两条三问近义重复，无真正前置"},{"key":"C24_C36","verdict":"keep","conf":0.65,"why":"先懂品味门槛，才懂价值边界与AI垃圾"},{"key":"C44_C40","verdict":"keep","conf":0.68,"why":"先懂规格验证的转向，才谈得上可验证分解"},{"key":"C45_C49","verdict":"skip","conf":0.62,"why":"验证方法不是自主度校准的前置，只是同域工具"},{"key":"C61_C65","verdict":"skip","conf":0.6,"why":"不复制粘贴是理由，不是聊天工作流的前置概念"},{"key":"C57_C63","verdict":"keep","conf":0.64,"why":"先有代码空间地图，才敢一次性生成整个特性"},{"key":"C75_C113","verdict":"keep","conf":0.66,"why":"先懂确定性闸门，才懂 Lint 与门禁为何先行"},{"key":"C78_C106","verdict":"skip","conf":0.65,"why":"共享技能与动态工作流是并列能力，无先后依赖"},{"key":"C80_C102","verdict":"keep","conf":0.65,"why":"先成为 AI 原生公司，才谈得上换任务完成率指标"},{"key":"C82_C133","verdict":"keep","conf":0.7,"why":"先懂持久化同事时代，才懂个人 agent 外扩"},{"key":"C74_C140","verdict":"skip","conf":0.62,"why":"founders-led 是文化，不是 agent 入职的前置概念"},{"key":"C81_C133","verdict":"keep","conf":0.7,"why":"先有持久化同事阶段，才谈全生命周期 agent"},{"key":"C90_C108","verdict":"keep","conf":0.66,"why":"先懂 AI 原生开发生命周期，才懂时光屋演练什么"},{"key":"C91_C114","verdict":"keep","conf":0.7,"why":"先懂为重建而建，才懂 primitive 为何要分层叠加"},{"key":"C96_C52","verdict":"keep","conf":0.75,"why":"先懂 harness 包裹 LLM，才懂确定性代码混合 agent"},{"key":"C101_C167","verdict":"keep","conf":0.66,"why":"先懂求解者与建构者之分，才懂职业为何变化"},{"key":"C99_C34","verdict":"keep","conf":0.78,"why":"先懂验证给 agent、判断留人，才懂 review 上移"},{"key":"C100_C36","verdict":"skip","conf":0.65,"why":"品味门槛是并行条件，不是手艺让渡的前置原因"},{"key":"C109_C39","verdict":"skip","conf":0.62,"why":"三段工作流与循环停机是相邻话题，无严格先后"},{"key":"C110_C51","verdict":"keep","conf":0.68,"why":"先懂 agent 环境定制，才懂不变量写进项目记忆"},{"key":"C116_C28","verdict":"keep","conf":0.7,"why":"先懂让坏想法早死，才懂原型到产品化的节奏"},{"key":"C116_C102","verdict":"skip","conf":0.62,"why":"AI 原生公司是背景，不是原型产品化的直接前置"},{"key":"C112_C95","verdict":"skip","conf":0.64,"why":"对抗性复核是手段，不是修原则不修个例的前置"},{"key":"C111_C49","verdict":"keep","conf":0.75,"why":"先懂行为与功能验证，才懂黄金评测集怎么建"},{"key":"C126_C124","verdict":"keep","conf":0.72,"why":"先懂能力可蒸馏，才懂 BPO 市场为何被拆包"},{"key":"C130_C122","verdict":"keep","conf":0.8,"why":"先懂科斯交易成本，才懂超级协作而非超级组织"},{"key":"C132_C125","verdict":"keep","conf":0.68,"why":"先懂竞争单位颗粒度，才懂应用碎片与基建集中"},{"key":"C135_C85","verdict":"keep","conf":0.75,"why":"先懂技术货架期变短，才懂为何要多产而经验主义"},{"key":"C142_C16","verdict":"keep","conf":0.62,"why":"先懂创作者即价值创造者，才懂 auteur 软件观"},{"key":"C147_C28","verdict":"keep","conf":0.72,"why":"先懂让坏想法早死，才懂文档写到七成就要给人"},{"key":"C150_C137","verdict":"skip","conf":0.6,"why":"mocks 不是 PMF 的前置，只是同篇里的证据偏好"},{"key":"C146_C143","verdict":"keep","conf":0.72,"why":"先懂知识工作验证难，才懂准备时间要对等"},{"key":"C144_C143","verdict":"keep","conf":0.78,"why":"先懂知识工作验证难，才懂协作者产品要晒思维链"},{"key":"C160_C153","verdict":"skip","conf":0.65,"why":"独立开发者即客户，只是同一受众观察，不是前置"},{"key":"C158_C154","verdict":"skip","conf":0.65,"why":"收入集中度是背景数据，不决定 build in public 边界"},{"key":"C159_C154","verdict":"skip","conf":0.66,"why":"收入集中度与 MRR 飞轮无前置关系，只是同篇语境"},{"key":"C180_C144","verdict":"skip","conf":0.8,"why":"协作者产品是 ToM 缺口的解法，方向反了"},{"key":"C172_C178","verdict":"keep","conf":0.6,"why":"先懂人如何模糊验证证明，才懂为何不能硬啃"},{"key":"C173_C169","verdict":"keep","conf":0.65,"why":"先懂做概念物理的问法，才懂概念性解释的价值"},{"key":"C164_C166","verdict":"skip","conf":0.65,"why":"开放问题作度量与事后判断是并列评价，无前置"},{"key":"C194_C192","verdict":"skip","conf":0.68,"why":"输出巩固是学习元素之一，不构成分形循环的前置"},{"key":"C186_C189","verdict":"keep","conf":0.7,"why":"先懂最近学习区，才懂严肃训练阶段为何有效"},{"key":"C13_C19","verdict":"keep","conf":0.65,"why":"先懂 AI 原生思维，才懂先做后学的顺序"},{"key":"C18_C08","verdict":"keep","conf":0.66,"why":"先懂 AI 只擅长已知信息，才懂如何当数字员工用"},{"key":"C30_C12","verdict":"keep","conf":0.75,"why":"先懂愿景目标是过滤器，才懂以终为始三连问"},{"key":"C14_C05","verdict":"skip","conf":0.68,"why":"技能树互联性与反差胜过平衡无前置，只是并列"},{"key":"C15_C07","verdict":"keep","conf":0.72,"why":"先懂线性到指数职业，才懂一人企业为何可能"},{"key":"C16_C17","verdict":"skip","conf":0.55,"why":"两者是同一叙事里的相邻主张，不构成先后前置"},{"key":"C33_C20","verdict":"keep","conf":0.55,"why":"先懂能力边界扫到哪，才谈得上入口迁进 Agent"},{"key":"C35_C20","verdict":"keep","conf":0.55,"why":"先懂能力边界，才知道瓶颈为何移到代码两侧"},{"key":"C32_C40","verdict":"keep","conf":0.6,"why":"先懂关注点转向规格验证，才谈只给规范"},{"key":"C118_C15","verdict":"skip","conf":0.85,"why":"一人公司与一人企业基本同义，属重复"},{"key":"C152_C16","verdict":"skip","conf":0.7,"why":"是形成对照的两种打法，不问谁先懂谁"},{"key":"C80_C25","verdict":"skip","conf":0.7,"why":"指标替换与成本公式无关，只是同篇相邻"},{"key":"C42_C28","verdict":"skip","conf":0.5,"why":"回退流程与尽早杀坏想法并列，无先后"},{"key":"C82_C33","verdict":"skip","conf":0.5,"why":"宏大愿景含具体做法，方向反了非前置"},{"key":"C143_C40","verdict":"skip","conf":0.5,"why":"验证难题与转向规格验证是问题与对策并列"},{"key":"C48_C45","verdict":"keep","conf":0.6,"why":"先定自主度这个变量，才知闸门设多严"},{"key":"C44_C39","verdict":"keep","conf":0.55,"why":"先懂三段流程，才知分解落在规划段哪里"},{"key":"C46_C39","verdict":"keep","conf":0.55,"why":"先懂三段流程，才懂上下文要在阶段间传递"},{"key":"C47_C46","verdict":"skip","conf":0.5,"why":"注意力预算与上下文管理并列，无依赖"},{"key":"C106_C51","verdict":"keep","conf":0.55,"why":"先懂环境定制包含哪些，才谈得上共享技能"},{"key":"C54_C53","verdict":"keep","conf":0.55,"why":"先懂失败模式，才理解长时程自主为何被高估"},{"key":"C66_C55","verdict":"keep","conf":0.65,"why":"先懂认知负债，才有理解优先于生产力的取舍"},{"key":"C99_C63","verdict":"keep","conf":0.6,"why":"先有代码库空间地图，人才管得到结构性理由"},{"key":"C130_C73","verdict":"keep","conf":0.65,"why":"先懂单点吞吐与协同瓶颈，才推出超级协作"},{"key":"C75_C48","verdict":"keep","conf":0.55,"why":"权限闸门是上位概念，Lint 与门禁是其中一种"},{"key":"C78_C43","verdict":"keep","conf":0.6,"why":"先懂怎么导航工作流，才谈编排成动态工作流"},{"key":"C92_C78","verdict":"keep","conf":0.6,"why":"先懂可命名保存的编排，才会从 session 升到 loop"},{"key":"C148_C82","verdict":"keep","conf":0.5,"why":"先懂 Personal Agent 外扩，才谈可塑的个人软件"},{"key":"C90_C89","verdict":"skip","conf":0.5,"why":"压缩演练与规模上移是并列背景，不成前置"},{"key":"C94_C25","verdict":"skip","conf":0.5,"why":"砸推理时间与成本公式是两回事，同篇相邻"},{"key":"C95_C49","verdict":"keep","conf":0.55,"why":"先懂行为与功能验证，才谈得上对抗性复核"},{"key":"C96_C26","verdict":"skip","conf":0.5,"why":"后者只是前者的一个具体实例，方向反了"},{"key":"C113_C96","verdict":"keep","conf":0.55,"why":"先懂确定性代码与 agentic 混合，才懂 Hooks"},{"key":"C144_C97","verdict":"keep","conf":0.55,"why":"先懂 UI 与 transcript 解耦，才做出协作者式产品"},{"key":"C116_C103","verdict":"keep","conf":0.55,"why":"先有人人可发版这个前提，才谈原型到产品化"},{"key":"C108_C109","verdict":"keep","conf":0.6,"why":"先懂循环与停机条件，才谈 AI 原生 SDLC"},{"key":"C109_C110","verdict":"keep","conf":0.5,"why":"先懂不变量，才写得出循环的停机条件"},{"key":"C132_C122","verdict":"keep","conf":0.6,"why":"先懂科斯交易成本，才解释层间集中与碎片"},{"key":"C134_C20","verdict":"keep","conf":0.55,"why":"先懂能力边界在哪，才懂窗口为何两三个月"},{"key":"C141_C138","verdict":"keep","conf":0.55,"why":"先懂划桨与掌舵的分工，才懂瓶颈变成野心"},{"key":"C158_C156","verdict":"keep","conf":0.55,"why":"先懂成功不可复制，才谈 build in public 边界"},{"key":"C160_C158","verdict":"keep","conf":0.5,"why":"先划清 build in public 边界，才谈卖基础设施"},{"key":"C165_C163","verdict":"keep","conf":0.55,"why":"先懂数学求理解，才谈模型只补最后一步"},{"key":"C176_C174","verdict":"keep","conf":0.6,"why":"先懂摇老虎机的激励，才理解模式坍缩"},{"key":"C189_C183","verdict":"keep","conf":0.55,"why":"先懂三阶段模型，才定位最近学习区在哪一环"},{"key":"C188_C189","verdict":"skip","conf":0.5,"why":"两者同属学习要素，并列不构成前置"},{"key":"C190_C185","verdict":"skip","conf":0.5,"why":"共同注意与好奇探索阶段并列，无先后依赖"},{"key":"C191_C190","verdict":"skip","conf":0.6,"why":"同话题并列元素，先懂注意力不必然推出主动参与"},{"key":"C194_C184","verdict":"skip","conf":0.65,"why":"漏斗是具体隐喻，不能当抽象分形循环的前置"},{"key":"C37_C193","verdict":"keep","conf":0.6,"why":"先懂有效反馈的机制，才谈得上把成长做成反馈循环"},{"key":"C115_C194","verdict":"keep","conf":0.6,"why":"分形循环是更一般的模型，自我改进飞轮是其应用"},{"key":"C129_C121","verdict":"keep","conf":0.6,"why":"先懂扁平化趋势，才懂蜂巢式协作为何出现"},{"key":"C76_C120","verdict":"skip","conf":0.6,"why":"隐性地图讲离职知识，与头衔次序无前置关系"},{"key":"C145_C55","verdict":"keep","conf":0.6,"why":"先懂认知负债的代价，才懂思考为何不能被自动化"},{"key":"C173_C180","verdict":"keep","conf":0.6,"why":"先懂模型的心智缺口，才懂为何要概念性解释"},{"key":"C175_C181","verdict":"keep","conf":0.6,"why":"学习元素论是方法论，数学管道是其具体应用"},{"key":"C170_C166","verdict":"keep","conf":0.55,"why":"先懂开放问题是失败度量，才谈得上找正确问题"},{"key":"C171_C93","verdict":"keep","conf":0.65,"why":"先懂 fan out/coalesce，才懂大规模并行搜索的收敛难点"},{"key":"C178_C95","verdict":"skip","conf":0.6,"why":"两者都是具体复核手法，近义重复"},{"key":"C10_C12","verdict":"skip","conf":0.55,"why":"同篇相邻，愿景过滤器不是交叉点的必要前提"},{"key":"C66_C14","verdict":"skip","conf":0.6,"why":"两种人生取舍，无直接前置关系"},{"key":"C150_C06","verdict":"keep","conf":0.6,"why":"先懂时代叙事更替，才懂 product-marketing fit 为何先于产品"},{"key":"C191_C13","verdict":"keep","conf":0.6,"why":"先做后学是主动参与的具体机制"},{"key":"C185_C11","verdict":"keep","conf":0.55,"why":"危险的自学是理念，好奇探索阶段是其具体阶段"},{"key":"C28_C19","verdict":"keep","conf":0.65,"why":"AI 原生思维是抽象框架，早死坏想法是其应用"},{"key":"C26_C52","verdict":"keep","conf":0.65,"why":"先懂 harness 架构，才懂为何解析要挪回程序"},{"key":"C134_C23","verdict":"keep","conf":0.7,"why":"先懂动线/不动线，才懂为何窗口是两到三个月"},{"key":"C131_C25","verdict":"keep","conf":0.7,"why":"先懂成本三因子，才懂按次计费如何传导"},{"key":"C110_C46","verdict":"keep","conf":0.65,"why":"先懂上下文管理，才懂不变量文件要写什么"},{"key":"C65_C192","verdict":"keep","conf":0.6,"why":"先懂输出巩固，才懂为何手敲优于复制粘贴"},{"key":"C75_C96","verdict":"keep","conf":0.65,"why":"先懂确定性×agentic 混合，才懂 Lint 门禁的意义"},{"key":"C80_C73","verdict":"keep","conf":0.6,"why":"先懂吞吐与协同瓶颈，才懂指标为何换"},{"key":"C90_C86","verdict":"keep","conf":0.6,"why":"先懂越过前沿，才懂精神时光屋要演练什么"},{"key":"C94_C143","verdict":"keep","conf":0.7,"why":"先懂知识工作验证难题，才懂 test time compute 换信心"},{"key":"C95_C72","verdict":"keep","conf":0.65,"why":"先懂外部监督者跳局部最优，才懂对抗性复核"},{"key":"C101_C85","verdict":"keep","conf":0.65,"why":"先懂技术货架期变短，才懂职业为何持续变化"},{"key":"C107_C99","verdict":"skip","conf":0.6,"why":"与把人类抬到抽象层近义重复，说的是同一件事"},{"key":"C103_C81","verdict":"keep","conf":0.65,"why":"先懂全生命周期 agent，才懂人人可发版"},{"key":"C123_C122","verdict":"keep","conf":0.75,"why":"先懂科斯企业边界，才懂平台≠组织的偷换"},{"key":"C132_C130","verdict":"keep","conf":0.6,"why":"超级协作是更抽象的结论，应用层碎片化是其表现"},{"key":"C141_C100","verdict":"keep","conf":0.65,"why":"先懂手艺让渡与可及性扩张，才懂野心成瓶颈"},{"key":"C146_C190","verdict":"skip","conf":0.6,"why":"共同注意是学习元素，与会议准备纪律无前置关系"},{"key":"C160_C154","verdict":"keep","conf":0.6,"why":"先懂收入高度集中，才懂为何只剩卖给 maker 的基础设施"},{"key":"C174_C94","verdict":"keep","conf":0.6,"why":"先懂 test time compute，才懂玩老虎机激励怎么来的"},{"key":"C176_C167","verdict":"keep","conf":0.65,"why":"先懂求解者/建构者之分，才懂模式坍缩为何发生"},{"key":"C180_C46","verdict":"skip","conf":0.6,"why":"方向反了：上下文管理是应对缺口的手段，不是其前置"},{"key":"C188_C191","verdict":"keep","conf":0.6,"why":"先懂主动参与，才懂与我有关为何是条件"},{"key":"C193_C189","verdict":"keep","conf":0.65,"why":"先懂最近学习区，才懂有效反馈如何调难度"},{"key":"C14_C12","verdict":"keep","conf":0.55,"why":"先懂愿景过滤器，才懂反差为何能产生意义"},{"key":"C28_C30","verdict":"skip","conf":0.6,"why":"同话题相邻出现，没有谁先谁后的前置"},{"key":"C64_C56","verdict":"skip","conf":0.5,"why":"定价诚实与划界是并列观点，无前置关系"},{"key":"C75_C74","verdict":"skip","conf":0.55,"why":"组织话题与工程实践并列，不构成先懂关系"},{"key":"C80_C79","verdict":"keep","conf":0.62,"why":"先懂代码可验证，才谈得上用完成率度量"},{"key":"C82_C81","verdict":"skip","conf":0.6,"why":"两者说的是 agent 外扩的不同侧面，无前置"},{"key":"C83_C85","verdict":"skip","conf":0.55,"why":"货架期与蒸汽机类比是并列观察，无先后"},{"key":"C90_C134","verdict":"skip","conf":0.5,"why":"建造窗口是策略细节，不是精神时光屋的前置"},{"key":"C91_C52","verdict":"keep","conf":0.55,"why":"先懂 harness 包 LLM，才懂 primitive 如何叠加"},{"key":"C92_C43","verdict":"skip","conf":0.55,"why":"两项技能并列，不是 loop 概念的前置知识"},{"key":"C107_C103","verdict":"skip","conf":0.6,"why":"两条各说一面，无人人发版也能懂机械 80%"},{"key":"C110_C106","verdict":"skip","conf":0.55,"why":"都是规范载体，属近义重复而非真前置"},{"key":"C108_C39","verdict":"keep","conf":0.6,"why":"先懂三段工作流，才懂 AI 原生 SDLC 如何分段"},{"key":"C111_C50","verdict":"skip","conf":0.5,"why":"黄金集是测试里的一个做法，顺序无所谓"},{"key":"C114_C87","verdict":"skip","conf":0.65,"why":"两条都在说别执着，属近义重复"},{"key":"C133_C68","verdict":"skip","conf":0.6,"why":"这是时间演进序列，不是概念前置"},{"key":"C138_C45","verdict":"keep","conf":0.55,"why":"先懂自主度校准，才懂何时该掌舵"},{"key":"C143_C49","verdict":"keep","conf":0.6,"why":"先懂验证方式分类，才懂知识工作的验证难"},{"key":"C144_C92","verdict":"skip","conf":0.55,"why":"协作者式产品与 loop 无必然先后"},{"key":"C148_C16","verdict":"skip","conf":0.6,"why":"个人软件与创作者定义并列，无前置"},{"key":"C158_C17","verdict":"skip","conf":0.55,"why":"杠杆是背景条件，不是适用边界的前置"},{"key":"C161_C36","verdict":"skip","conf":0.55,"why":"品味是并列论据，非深耕 niche 的前置"},{"key":"C163_C181","verdict":"skip","conf":0.5,"why":"理解与元素论都讲学习，谁先谁后无所谓"},{"key":"C175_C183","verdict":"skip","conf":0.5,"why":"数学管道与三阶段并列，无前置关系"},{"key":"C183_C11","verdict":"skip","conf":0.5,"why":"危险自学与三阶段是相邻观点，非前置"},{"key":"C187_C36","verdict":"skip","conf":0.55,"why":"品味是并列论据，非创造应用阶段的前置"},{"key":"C193_C50","verdict":"skip","conf":0.55,"why":"有效反馈与测试评估并列，无先后"},{"key":"C118_C17","verdict":"skip","conf":0.6,"why":"无需许可杠杆是宏观背景，非直接前置"},{"key":"C174_C166","verdict":"skip","conf":0.55,"why":"老虎机激励与开放问题度量是并列观察"},{"key":"C180_C20","verdict":"keep","conf":0.55,"why":"先懂模型能力边界，才懂 theory of mind 缺口"},{"key":"C188_C181","verdict":"skip","conf":0.55,"why":"与我有关和元素论同属学习话题，顺序随意"},{"key":"C125_C122","verdict":"keep","conf":0.65,"why":"先懂科斯交易成本，才懂竞争单位颗粒度"},{"key":"C130_C129","verdict":"skip","conf":0.55,"why":"两条讲组织形态的不同面，无前置"},{"key":"C132_C131","verdict":"skip","conf":0.55,"why":"按次计费与分层格局是并列观察，无先后"},{"key":"C139_C103","verdict":"skip","conf":0.6,"why":"mainline it 是人人都能发版的一个实例"},{"key":"C147_C137","verdict":"skip","conf":0.62,"why":"两条都在说先给半成品，属近义重复"},{"key":"C150_C136","verdict":"skip","conf":0.5,"why":"Eigen question 与 PMF 是并列概念，无前置"},{"key":"C160_C152","verdict":"skip","conf":0.55,"why":"粉丝经济与卖给 maker 并列，无先后"}],"edgeHuman":["C08_C20","C140_C102","C28_C13","C36_C10","C71_C37","C91_C48","C140_C129","C29_C40","C124_C106","C117_C102","C06_C03","C89_C85","C150_C140","C89_C87","C12_C06","C89_C92"]}};
+
+/* ── 常量 ───────────────────────────────────────────── */
+const PALETTE = ['#5B8FF9','#61DDAA','#F6BD16','#7262FD','#78D3F8','#9661BC',
+                 '#F6903D','#00B5A3','#F08BB4','#E8684A','#6DC8EC','#A078DB'];
+let   LEVEL_GAP = 88;      // 每层高度（boot 时按层数自适应）
+const REPULSE   = 1650;    // 斥力
+const SPRING    = 0.055;   // 边引力
+const YSPRING   = 0.15;    // 层弹簧
+const DAMP      = 0.86;
+const ITERS     = 260;
+
+const nodes = DATA.nodes, edges = DATA.edges, sources = DATA.sources, meta = DATA.meta;
+// 策展层：主题标签 + 策展集（路线）+ 机器已判的边
+const CUR = DATA.curation || { tags: [], assign: {}, collections: [], edgeAuto: [], edgeHuman: [] };
+const AUTO = new Map((CUR.edgeAuto || []).map(a => [a.key, a]));
+const byId = new Map(nodes.map(n => [n.id, n]));
+const neighbors = new Map(nodes.map(n => [n.id, { pre: [], post: [] }]));
+
+/* ── 状态 ───────────────────────────────────────────── */
+let mode = 'grid';
+let rotX = -0.22, rotY = 0.5, zoom = 1.08, panX = 0, panY = 0;
+let selected = null, hovered = null, filter = null;
+
+/* ── 我的标记层：位置永不动，只加环 ────────────────────
+   learned = 学过（青环）· gap = 漏点没补（红环）· 缺省 = 没学过（无环）
+   关键：布局只由 nodes/edges 决定，标记不参与任何坐标计算。 */
+const MARK_KEY = 'zss135.canvas.v1';
+let marks = {};
+try { marks = JSON.parse(localStorage.getItem(MARK_KEY) || '{}') || {}; } catch (e) { marks = {}; }
+function saveMarks() { try { localStorage.setItem(MARK_KEY, JSON.stringify(marks)); } catch (e) {} }
+function refreshMarks() {
+  const L = nodes.filter(n => marks[n.id] === 'learned').length;
+  const G = nodes.filter(n => marks[n.id] === 'gap').length;
+  const el = document.getElementById('myrow');
+  if (el) el.innerHTML =
+    `<span class="dot" style="background:#5ee0c0"></span>学过<span class="n">${L}</span>` +
+    `<span class="dot gap" style="background:#ff4d4d;margin-left:14px"></span>漏点没补<span class="n">${G}</span>` +
+    `<span class="n" style="margin-left:14px">共 ${nodes.length}</span>`;
+}
+function setMark(id, v) {
+  if (v === 'none' || marks[id] === v) delete marks[id]; else marks[id] = v;
+  saveMarks(); refreshMarks(); if (window.refreshRail) refreshRail();
+  if (selected === id) openPanel(id);
+}
+window.setMark = setMark;
+let W = 0, H = 0, CX = 0, CY = 0, DPR = 1;
+const cvs = document.getElementById('c'), ctx = cvs.getContext('2d');
+const tip = document.getElementById('tip');
+
+/* ── 建立邻接 ───────────────────────────────────────── */
+for (const [tid, pid] of edges) {
+  neighbors.get(tid).pre.push(pid);
+  neighbors.get(pid).post.push(tid);
+}
+
+/* ── 布局 ───────────────────────────────────────────── */
+// 确定性伪随机：同一概念每次抖动一致，resize / 切模式不会跳动
+function hash01(s) {
+  let h = 2166136261;
+  for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); }
+  return ((h >>> 0) % 10000) / 10000;
+}
+
+// 图谱模式：纵轴 = 依赖层级，横轴 = 主题分列（默认·策展）/ 来源分列（可切）
+let gridGap = 50, gridTop = 80, gridX0 = 0, gridColW = 60;
+function layoutGrid() {
+  const G = groups();
+  const maxLv = Math.max(...nodes.map(n => n.level));
+  const x0 = W * 0.29, x1 = W * 0.94;
+  const colW = (x1 - x0) / Math.max(1, G.length);
+  const gap = Math.min(54, (H * 0.78) / Math.max(1, maxLv));
+  const yTop = H * 0.135;
+  const buckets = G.map(() => new Map());
+  for (const n of nodes) {
+    const b = buckets[Math.min(giOf(n), G.length - 1)];
+    if (!b.has(n.level)) b.set(n.level, []);
+    b.get(n.level).push(n);
+  }
+  for (let ci = 0; ci < G.length; ci++) {
+    for (const [lv, arr] of buckets[ci]) {
+      arr.forEach((n, i) => {
+        const t = arr.length === 1 ? 0.5 : i / (arr.length - 1);
+        n.gx = x0 + ci * colW + colW * (0.17 + t * 0.66) + (hash01(n.id) - 0.5) * colW * 0.40;
+        n.gy = yTop + lv * gap + (hash01(n.id + 'y') - 0.5) * gap * 0.55;
+      });
+    }
+  }
+  gridGap = gap; gridTop = yTop; gridX0 = x0; gridColW = colW;
+}
+
+// 星球模式：球面均布（形式参考 candobear 智慧星球）
+// 不跑力导向 —— 边引力会把均匀球面拉歪；用 hash 打散顺序，颜色自然混合
+function layoutSphere() {
+  const R = 430;
+  const order = nodes.slice().sort((a, b) => hash01(a.id) - hash01(b.id));
+  const N = order.length, ga = Math.PI * (3 - Math.sqrt(5));
+  order.forEach((n, i) => {
+    const y = 1 - (i / Math.max(1, N - 1)) * 2;
+    const r = Math.sqrt(Math.max(0, 1 - y * y));
+    const th = ga * i;
+    n.x = Math.cos(th) * r * R; n.y = y * R; n.z = Math.sin(th) * r * R;
+  });
+}
+
+function computeLayout() {
+  if (mode === 'grid') layoutGrid(); else layoutSphere();
+}
+
+/* ── 分组轴：主题（策展，默认）/ 来源 ───────────────────────
+   原来横轴写死 12 个来源分列——那是权宜。策展后默认按主题分列。 */
+let axis = 'tag';
+const TAGI = new Map((CUR.tags || []).map((t, i) => [t.id, i]));
+function giOf(n) {
+  if (axis === 'src') return n.ci;
+  const t = (n.tags || [])[0];
+  return TAGI.has(t) ? TAGI.get(t) : (CUR.tags || []).length;   // 未分类进最后一列
+}
+function groups() {
+  if (axis === 'src') return sources.map((s, i) => ({ id: s.id, label: s.label, color: PALETTE[i % PALETTE.length] }));
+  const g = (CUR.tags || []).map(t => ({ id: t.id, label: t.name, color: t.color }));
+  const un = nodes.filter(x => !TAGI.has((x.tags || [])[0])).length;
+  if (un) g.push({ id: '__un', label: '未分类', color: '#4a4a55' });
+  return g;
+}
+function matches(x) {
+  if (!filter) return true;
+  if (axis === 'src') return x.src === filter;
+  if (filter === '__un') return !TAGI.has((x.tags || [])[0]);
+  return (x.tags || []).includes(filter);
+}
+
+/* ── 投影 ───────────────────────────────────────────── */
+function project(n) {
+  if (mode === 'grid') {                    // 图谱：正交，无透视
+    const s = zoom;
+    return { sx: CX + (n.gx + panX - CX) * s, sy: CY + (n.gy + panY - CY) * s, s: s * 1.25, z: 0 };
+  }
+  const cy = Math.cos(rotY), sy = Math.sin(rotY);
+  let x = n.x * cy - n.z * sy;
+  let z = n.x * sy + n.z * cy;
+  const cx = Math.cos(rotX), sx = Math.sin(rotX);
+  const y = n.y * cx - z * sx;
+  const z2 = n.y * sx + z * cx;
+  const D = 1500;
+  const s = zoom * D / (D + z2 + 700);
+  return { sx: CX + x * s, sy: CY - y * s, s, z: z2 };
+}
+
+/* ── 渲染 ───────────────────────────────────────────── */
+let frame = 0;
+function render() {
+  frame++;
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  ctx.clearRect(0, 0, W, H);
+  // 背景微光
+  const g = ctx.createRadialGradient(CX, CY, 0, CX, CY, Math.max(W, H) * 0.62);
+  g.addColorStop(0, 'rgba(30,32,48,0.55)');
+  g.addColorStop(1, 'rgba(8,8,10,0)');
+  ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+
+  const pts = nodes.map(n => ({ n, ...project(n) }));
+  const visible = n => matches(n) && (!onlyMine || !!marks[n.id]);
+  const G = groups();
+
+  // 图谱模式：列带 + 层级参考线 + 列顶标签（形式参考 candobear 学科图谱）
+  if (mode === 'grid') {
+    const s = zoom;
+    const gx0 = CX + (gridX0 + panX - CX) * s;
+    const colW = gridColW * s;
+    const maxLv = Math.max(...nodes.map(n => n.level));
+    for (let i = 0; i < G.length; i++) {
+      ctx.globalAlpha = (!filter || filter === G[i].id) ? 0.055 : 0.012;
+      ctx.fillStyle = G[i].color;
+      ctx.fillRect(gx0 + i * colW, 0, colW - 1.5, H);
+    }
+    ctx.globalAlpha = 1;
+    ctx.font = '9px -apple-system,"PingFang SC",sans-serif';
+    ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+    ctx.lineWidth = 1;
+    for (let lv = 0; lv <= maxLv; lv++) {
+      const y = CY + (gridTop + lv * gridGap + panY - CY) * s;
+      if (y < 58 || y > H - 26) continue;
+      ctx.beginPath(); ctx.moveTo(gx0, y); ctx.lineTo(gx0 + G.length * colW, y); ctx.stroke();
+      ctx.fillStyle = 'rgba(255,255,255,0.2)'; ctx.textAlign = 'left';
+      ctx.fillText('L' + lv, gx0 + G.length * colW + 9, y + 3);
+    }
+    ctx.textAlign = 'center';
+    for (let i = 0; i < G.length; i++) {
+      ctx.globalAlpha = (!filter || filter === G[i].id) ? 0.8 : 0.2;
+      ctx.fillStyle = G[i].color;
+      const cnt = axis === 'src' ? nodes.filter(x => x.src === G[i].id).length
+        : G[i].id === '__un' ? nodes.filter(x => !TAGI.has((x.tags || [])[0])).length
+        : nodes.filter(x => (x.tags || [])[0] === G[i].id).length;
+      ctx.fillText(G[i].label + ' ' + cnt, gx0 + i * colW + colW / 2, gridTop - 28);
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  // 边：票数分档 —— 骨架（≥7 票，多次投票一致）画实线，候选（1–4 票）画虚线
+  ctx.lineWidth = 1;
+  for (const [tid, pid, votes] of edges) {
+    const a = byId.get(tid), b = byId.get(pid);
+    if (!visible(a) || !visible(b)) continue;
+    const pa = project(a), pb = project(b);
+    const depth = (pa.z + pb.z) / 2;
+    const hot = selected && (tid === selected || pid === selected)
+             || hovered && (tid === hovered || pid === hovered);
+    const solid = votes >= 7;
+    const mid = votes >= 2;
+    const base = solid ? 0.26 : mid ? 0.12 : 0.06;
+    const alpha = hot ? 0.8 : Math.max(0.022, base - depth / 12000);
+    ctx.strokeStyle = hot ? 'rgba(255,255,255,' + alpha + ')'
+                          : solid ? 'rgba(178,188,225,' + alpha + ')'
+                                  : 'rgba(120,128,165,' + alpha + ')';
+    ctx.lineWidth = hot ? 1.6 : solid ? 1.05 : 0.6;
+    if (!solid && !hot) ctx.setLineDash(votes >= 2 ? [2.5, 3] : [1.5, 4]);
+    ctx.beginPath(); ctx.moveTo(pa.sx, pa.sy); ctx.lineTo(pb.sx, pb.sy); ctx.stroke();
+    if (!solid && !hot) ctx.setLineDash([]);
+  }
+
+  // 点（远的先画）
+  pts.sort((a, b) => b.z - a.z);
+  for (const p of pts) {
+    const n = p.n;
+    const on = visible(n);
+    const isSel = selected === n.id, isHov = hovered === n.id;
+    const base = (2.2 + Math.sqrt(neighbors.get(n.id).pre.length +
+                   neighbors.get(n.id).post.length) * 1.05) * p.s;
+    const r = Math.max(1.1, base * (isSel ? 2.1 : isHov ? 1.65 : 1));
+    const col = G[Math.min(giOf(n), G.length - 1)].color;
+    ctx.globalAlpha = on ? Math.min(1, 0.42 + p.s * 0.7) : 0.06;
+    // 光晕
+    if (isSel || isHov) {
+      ctx.shadowBlur = 22; ctx.shadowColor = col;
+    }
+    ctx.beginPath(); ctx.arc(p.sx, p.sy, r, 0, 6.2832);
+    ctx.fillStyle = col; ctx.fill();
+    ctx.shadowBlur = 0;
+    // 我的标记环：只加环，不改填充色，不动坐标
+    const mk = marks[n.id];
+    if (mk && on) {
+      ctx.globalAlpha = (isSel || isHov) ? 1 : 0.92;
+      ctx.strokeStyle = mk === 'gap' ? '#ff4d4d' : '#5ee0c0';
+      ctx.lineWidth = mk === 'gap' ? 2 : 1.4;
+      ctx.beginPath(); ctx.arc(p.sx, p.sy, r + 2.8, 0, 6.2832); ctx.stroke();
+    }
+    if (isSel) {
+      ctx.strokeStyle = '#fff'; ctx.lineWidth = 1.4; ctx.globalAlpha = 1;
+      ctx.beginPath(); ctx.arc(p.sx, p.sy, r + 3.5, 0, 6.2832); ctx.stroke();
+    }
+  }
+  ctx.globalAlpha = 1;
+  requestAnimationFrame(render);
+}
+
+/* ── 尺寸 ───────────────────────────────────────────── */
+function resize() {
+  DPR = Math.min(2, window.devicePixelRatio || 1);
+  W = window.innerWidth; H = window.innerHeight;
+  cvs.width = W * DPR; cvs.height = H * DPR;
+  cvs.style.width = W + 'px'; cvs.style.height = H + 'px';
+  CX = W * (W > 820 ? 0.63 : 0.5);
+  CY = H * 0.52;
+  if (mode === 'grid' && nodes.length) layoutGrid();
+}
+window.addEventListener('resize', resize);
+
+/* ── 交互 ───────────────────────────────────────────── */
+let dragging = false, moved = 0, lastX = 0, lastY = 0;
+cvs.addEventListener('pointerdown', e => {
+  dragging = true; moved = 0; lastX = e.clientX; lastY = e.clientY;
+  cvs.classList.add('drag'); cvs.setPointerCapture(e.pointerId);
+});
+cvs.addEventListener('pointermove', e => {
+  if (dragging) {
+    const dx = e.clientX - lastX, dy = e.clientY - lastY;
+    moved += Math.abs(dx) + Math.abs(dy);
+    if (mode === 'grid') { panX += dx; panY += dy; }
+    else { rotY += dx * 0.0062; rotX = Math.max(-1.25, Math.min(1.25, rotX + dy * 0.0062)); }
+    lastX = e.clientX; lastY = e.clientY;
+  } else {
+    hovered = pick(e.clientX, e.clientY);
+    cvs.style.cursor = hovered ? 'pointer' : 'grab';
+    if (hovered) {
+      const n = byId.get(hovered);
+      tip.textContent = n.name;
+      tip.style.left = (e.clientX + 14) + 'px';
+      tip.style.top = (e.clientY - 10) + 'px';
+      tip.classList.add('on');
+    } else tip.classList.remove('on');
+  }
+});
+cvs.addEventListener('pointerup', e => {
+  dragging = false; cvs.classList.remove('drag');
+  if (moved < 5) { const hit = pick(e.clientX, e.clientY); hit ? openPanel(hit) : closePanel(); }
+});
+cvs.addEventListener('pointerleave', () => { tip.classList.remove('on'); hovered = null; });
+cvs.addEventListener('wheel', e => {
+  e.preventDefault();
+  zoom = Math.max(0.35, Math.min(3.2, zoom * (1 - e.deltaY * 0.0011)));
+}, { passive: false });
+
+function pick(mx, my) {
+  let best = null, bestD = 15;
+  for (const n of nodes) {
+    const p = project(n);
+    const d = Math.hypot(p.sx - mx, p.sy - my);
+    if (d < bestD) { bestD = d; best = n.id; }
+  }
+  return best;
+}
+
+/* ── 面板 ───────────────────────────────────────────── */
+function openPanel(id) {
+  selected = id;
+  const n = byId.get(id), nb = neighbors.get(id);
+  const src = sources.find(s => s.id === n.src);
+  const pre = nb.pre.map(x => byId.get(x)).filter(Boolean);
+  const post = nb.post.map(x => byId.get(x)).filter(Boolean);
+  document.getElementById('pbody').innerHTML = `
+    <div class="src">${src ? src.label : n.src} · ${n.type}</div>
+    <h2>${n.name}</h2>
+    <div class="gloss">${n.gloss}</div>
+    <div class="metrics">
+      <div class="m"><b>${pre.length}</b><span>前置</span></div>
+      <div class="m"><b>${post.length}</b><span>解锁</span></div>
+      <div class="m"><b>L${n.level}</b><span>层级</span></div>
+    </div>
+    <div class="markrow">
+      <button class="mk${marks[id] === 'learned' ? ' on' : ''}" onclick="setMark('${id}','learned')">学过</button>
+      <button class="mk gap${marks[id] === 'gap' ? ' on' : ''}" onclick="setMark('${id}','gap')">漏点没补</button>
+      <button class="mk${marks[id] ? '' : ' quiet'}" onclick="setMark('${id}','none')">清除</button>
+    </div>
+    ${pre.length ? `<h5>要理解它，先懂这些</h5><ul>${pre.map(x =>
+      `<li onclick="openPanel('${x.id}')">${x.name}<em>L${x.level}</em></li>`).join('')}</ul>` : ''}
+    ${post.length ? `<h5>懂了它，才能懂这些</h5><ul>${post.map(x =>
+      `<li onclick="openPanel('${x.id}')">${x.name}<em>L${x.level}</em></li>`).join('')}</ul>` : ''}
+  `;
+  document.getElementById('panel').classList.add('on');
+}
+function closePanel() {
+  selected = null;
+  document.getElementById('panel').classList.remove('on');
+}
+window.openPanel = openPanel; window.closePanel = closePanel;
+
+/* ── 图例：按主题（策展）/ 按来源 ─────────────────────────── */
+function buildLegend() {
+  const G = groups();
+  document.getElementById('lrows').innerHTML = G.map(g => {
+    // 按主题时数字＝**主标签**数，跟画布上那一列的点数一一对应；
+    // 「相关但主标签在别处」的点数写在策展面板里，免得两个口径打架。
+    const cnt = axis === 'src' ? nodes.filter(x => x.src === g.id).length
+      : g.id === '__un' ? nodes.filter(x => !TAGI.has((x.tags || [])[0])).length
+      : nodes.filter(x => (x.tags || [])[0] === g.id).length;
+    return `<div class="lrow${filter && filter !== g.id ? ' off' : ''}" data-g="${g.id}">
+      <span class="dot" style="background:${g.color}"></span>
+      ${g.label}<span class="n">${cnt}</span></div>`;
+  }).join('');
+  document.getElementById('lhead').textContent = axis === 'tag'
+    ? '主题 · 点击筛选（数字＝主标签）' : '来源 · 点击筛选';
+  document.getElementById('ax-tag').classList.toggle('on', axis === 'tag');
+  document.getElementById('ax-src').classList.toggle('on', axis === 'src');
+  document.querySelectorAll('#lrows .lrow').forEach(el => {
+    el.onclick = () => {
+      const g = el.dataset.g;
+      filter = (filter === g) ? null : g;
+      buildLegend();
+    };
+  });
+}
+function setAxis(a) {
+  axis = a; filter = null;
+  computeLayout(); buildLegend();
+}
+window.setAxis = setAxis;
+
+/* ── 启动 ───────────────────────────────────────────── */
+function setMode(m) {
+  mode = m;
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('on', t.dataset.mode === m));
+  panX = panY = 0; rotX = -0.22; rotY = 0.5; zoom = m === 'grid' ? 1 : 1.35;
+  const h = document.querySelector('.hint');   // 壳里已无 .hint，改写到左栏
+  if (h) h.innerHTML = '<b>实线</b> 骨架 · <b>虚线</b> 候选';
+  const rh = document.getElementById('rhint');
+  if (rh) rh.innerHTML = (m === 'grid'
+    ? '<b>拖拽</b> 平移 · <b>滚轮</b> 缩放'
+    : '<b>拖拽</b> 旋转 · <b>滚轮</b> 缩放') + '<br><b>点一个点</b> 看它的来路';
+  computeLayout();
+}
+
+function boot() {
+  resize();
+  buildLegend();
+  refreshMarks();
+  document.getElementById('kicker').textContent = meta.kicker;
+  document.getElementById('stats').innerHTML = meta.stats;
+  document.querySelectorAll('.tab').forEach(t => { t.onclick = () => setMode(t.dataset.mode); });
+  computeLayout();
+  render();
+  requestAnimationFrame(() => document.getElementById('load').classList.add('off'));
+  const h = decodeURIComponent(location.hash.slice(1));
+  if (h === 'sphere' || h === 'grid') setMode(h);
+  else if (h && byId.has(h)) openPanel(h);
+}
+setTimeout(boot, 40);
+
+/* ══ 壳：三个入口 import / insert / Agent ═══════════════════════
+   所有者 05:38 的定义：
+     import = 知识体系（两个图）  insert = llm_wiki 的挖掘/提问  Agent = 选方法论
+   两棵树（05:09）：全量树 = 所有点；自己的树 = 只显示已标记的点（同一张图两个图层） */
+let onlyMine = false;
+const INSERT_KEY = 'zss135.insert.v1';
+let insertMarks = {};
+try { insertMarks = JSON.parse(localStorage.getItem(INSERT_KEY) || '{}') || {}; } catch (e) { insertMarks = {}; }
+const saveInsert = () => { try { localStorage.setItem(INSERT_KEY, JSON.stringify(insertMarks)); } catch (e) {} };
+
+const SKEL = edges.filter(e => e[2] >= 7);   // 骨架（多次一致）
+const CAND = edges.filter(e => e[2] < 7);    // 候选（机器推的、只出现一次的那批）
+
+function refreshRail() {
+  const mine = nodes.filter(n => marks[n.id]).length;
+  const autoN = CUR.edgeAuto ? CUR.edgeAuto.length : 0;
+  const humanKey = new Set(CUR.edgeHuman || []);
+  const pending = (CUR.edgeHuman || []).filter(k => !insertMarks[k]).length;
+  const e1 = document.getElementById('r-all');
+  const e2 = document.getElementById('r-todo');
+  const e3 = document.getElementById('r-mine');
+  const e5 = document.getElementById('r-cur');
+  if (e1) e1.textContent = nodes.length + ' 点 · ' + (CUR.tags || []).length + ' 条线 · ' + SKEL.length + ' 骨架';
+  if (e2) e2.textContent = pending + ' 条要你看（我自己判了 ' + autoN + ' 条）';
+  if (e3) e3.textContent = mine ? mine + ' 个已标记' : '还没标过';
+  if (e5) e5.textContent = (CUR.tags || []).length + ' 条线已排好路线';
+  const e4 = document.getElementById('r-chat');
+  if (e4) e4.textContent = activeSkill ? ('用：' + activeSkill) : '选方法论';
+}
+window.refreshRail = refreshRail;
+
+function setView(v) {
+  document.querySelectorAll('.r-item').forEach(b => b.classList.toggle('on', b.dataset.view === v));
+  if (v === 'mine') { onlyMine = true; closePanel(); }
+  else if (v === 'graph') { onlyMine = false; closePanel(); }
+  else if (v === 'curate') { onlyMine = false; openCurate(); }
+  else if (v === 'todo') { onlyMine = false; openInsert(); }
+  else if (v === 'chat') { onlyMine = false; openAgent(); }
+  refreshRail();
+}
+window.setView = setView;
+
+function doImport() {
+  setView('graph');
+  const b = document.getElementById('b-import');
+  b.classList.add('flash'); setTimeout(() => b.classList.remove('flash'), 520);
+}
+function doInsert() { setView('todo'); }
+function doAgent() { setView('chat'); }
+window.doImport = doImport; window.doInsert = doInsert; window.doAgent = doAgent;
+
+function openInsert() {
+  document.getElementById('panel').classList.add('on');
+  const auto = CUR.edgeAuto || [];
+  const autoKeep = auto.filter(a => a.verdict === 'keep').length;
+  const autoSkip = auto.length - autoKeep;
+  const humanKeys = CUR.edgeHuman || [];
+  const em = new Map(edges.map(e => [e[0] + '_' + e[1], e]));
+  const left = humanKeys.filter(k => !insertMarks[k]).length;
+  document.getElementById('pbody').innerHTML = `
+    <div class="src">insert · 机器挖出来的连接</div>
+    <h2>我自己判了 ${auto.length} 条，剩 ${left} 条要你看一眼</h2>
+    <div class="mut">候选边一共 ${CAND.length} 条（骨架那 ${SKEL.length} 条多次一致，不用管）。<br>
+    我按「先懂什么才能懂什么」逐条过了一遍：<b class="auto">采纳 ${autoKeep}</b> · <b>跳过 ${autoSkip}</b>。<br>
+    下面这些是我<b>自己也没把握</b>的——跨篇、票数又高，判错了会串线，所以留给你。
+    <b>你不看也不影响</b>，它们默认按我的判断走。</div>
+    <div class="ilist">${humanKeys.map(k => {
+      const e = em.get(k); if (!e) return '';
+      const a = byId.get(e[0]), c = byId.get(e[1]);
+      const st = insertMarks[k];
+      const au = AUTO.get(k);
+      return `<div class="irow ${st || ''}">
+        <div class="itxt"><b>${a ? a.name : e[0]}</b> 依赖 <b>${c ? c.name : e[1]}</b>
+        <span class="mut"> · 票 ${e[2]}/4</span>
+        ${au ? `<div class="mut" style="margin-top:4px">我的猜测：${au.verdict === 'keep' ? '采纳' : au.verdict === 'skip' ? '跳过' : '拿不准'}
+        （把握 ${(au.conf * 100).toFixed(0)}%）—— ${au.why}</div>` : ''}</div>
+        <div class="iact">
+          <button class="${st === 'keep' ? 'on' : ''}" onclick="markInsert('${k}','keep')">采纳</button>
+          <button class="${st === 'skip' ? 'on' : ''}" onclick="markInsert('${k}','skip')">跳过</button>
+        </div></div>`;
+    }).join('')}</div>
+    <div class="mut">已表态 ${humanKeys.length - left} / ${humanKeys.length}。<br>
+    我判过的那 ${auto.length} 条写在 <code>evidence/concept-edges-curated-20260912.json</code>，随时可查、可翻案。</div>`;
+}
+function markInsert(k, v) {
+  if (insertMarks[k] === v) delete insertMarks[k]; else insertMarks[k] = v;
+  saveInsert(); openInsert(); refreshRail();
+}
+window.markInsert = markInsert;
+
+/* 策展：10 条线，每条已经排好路线。用户不必自己找入口。 */
+function openCurate() {
+  const C = CUR.collections || [];
+  document.getElementById('panel').classList.add('on');
+  document.getElementById('pbody').innerHTML = `
+    <div class="src">策展 · ${C.length} 条线</div>
+    <h2>这 ${nodes.length} 个点，我已经分成 ${C.length} 条线</h2>
+    <div class="mut">每条线给了：<b>为什么值得走</b>、<b>从哪进</b>（门槛最低的）、<b>走到哪算完</b>（最抽象的）、
+    以及一条沿着真实依赖边的<b>路线</b>。<br>点一条线看路线，再点「只看这条线」把它单独铺开。</div>
+    ${C.map(c => `<div class="crow" onclick="openCollection('${c.tagId}')">
+      <b><span class="dot" style="background:${c.color}"></span>${c.name}
+        <span class="badge">主标签 ${c.primary ?? c.size}</span>
+        <span class="badge">相关 ${c.size}</span></b>
+      <span>${c.why}</span>
+      <i>入口 ${c.entry.map(e => e.name).join(' · ')}</i>
+    </div>`).join('')}`;
+}
+
+function openCollection(tid) {
+  const c = (CUR.collections || []).find(x => x.tagId === tid);
+  const t = (CUR.tags || []).find(x => x.id === tid);
+  if (!c) return;
+  document.getElementById('panel').classList.add('on');
+  document.getElementById('pbody').innerHTML = `
+    <div class="src">策展 · 一条线</div>
+    <h2><span class="dot" style="background:${c.color};display:inline-block;margin-right:8px"></span>${c.name}</h2>
+    <div class="gloss">${c.why}</div>
+    <div class="metrics">
+      <div class="m"><b>${c.size}</b><span>个点</span></div>
+      <div class="m"><b>${c.route.length}</b><span>跳路线</span></div>
+      <div class="m"><b>${c.primary ?? c.size}</b><span>主标签</span></div>
+      <div class="m"><b>${c.size}</b><span>相关点</span></div>
+    </div>
+    <div class="markrow">
+      <button class="mk" onclick="focusTag('${tid}')">只看这条线</button>
+      <button class="mk quiet" onclick="openCurate()">回到 ${(CUR.collections || []).length} 条线</button>
+    </div>
+    <h5>从哪进 · 组内没有前置、且解锁最多的</h5>
+    <ul>${c.entry.map(e => `<li onclick="openPanel('${e.id}')">${e.name}<em>解锁 ${e.unlocks ?? '?'}</em></li>`).join('')}</ul>
+    <h5>路线 · 先懂什么再懂什么</h5>
+    <div class="stops">${c.route.map(st => `<div class="stop" onclick="openPanel('${st.id}')">
+      <span class="lv">L${st.level}</span>
+      <span class="nm">${st.name}</span>
+      <span class="ed">${st.edgeFromPrev === 'skel' ? '骨架' : st.edgeFromPrev === 'cand' ? '候选' : '起点'}</span>
+    </div>`).join('')}</div>
+    <h5>收敛点 · 这条线上被依赖最多的</h5>
+    <ul>${c.goal.map(g => `<li onclick="openPanel('${g.id}')">${g.name}<em>L${g.level}</em></li>`).join('')}</ul>
+    <h5>这条线上的全部 ${c.size} 个点</h5>
+    <ul>${nodes.filter(x => (x.tags || []).includes(tid)).map(x =>
+      `<li onclick="openPanel('${x.id}')">${x.name}<em>L${x.level}</em></li>`).join('')}</ul>`;
+}
+function focusTag(tid) {
+  axis = 'tag'; filter = tid;
+  setView('graph'); buildLegend(); computeLayout(); closePanel();
+}
+window.openCurate = openCurate; window.openCollection = openCollection; window.focusTag = focusTag;
+
+/* Agent：卡片上的 prompt 不再是我手抄的摘要 —— 直接用 .agents/skills/<name>/SKILL.md 原文。
+   （所有者问「怎么样去调用 DBS 的 skill 啊？」——这就是答案：服务端读原文件当 system prompt。）*/
+const PINNED = [
+  { name: '135 学习闭环', skill: null, span: '这个项目的闭环', note: '1 阅读器 → 3 决策场 → 5 实验台 → 费曼验收' },
+  { name: 'dbs-learning-beta', skill: 'dbs-learning-beta', span: '没有标准答案的课题', note: '判课题类型 → 判据 · 代价 · 只有你能回答的裁决点 · 最小实验' },
+  { name: 'dbs-standard-answer', skill: 'dbs-standard-answer', span: '要一个带条件的答案', note: '理论挖掘 + 历史同构（成功 / 失败 / 反例）' },
+];
+let ALLSKILLS = null;
+
+async function openAgent() {
+  document.getElementById('panel').classList.add('on');
+  renderAgent(PINNED, '载入中…');
+  try {
+    const r = await fetch('/api/skills');
+    const j = await r.json();
+    ALLSKILLS = j.skills || [];
+  } catch (e) { ALLSKILLS = []; }
+  renderAgent(PINNED, ALLSKILLS.length
+    ? `已装 ${ALLSKILLS.length} 个 skill：<code>${ALLSKILLS[0].name}</code> … <code>${ALLSKILLS[ALLSKILLS.length - 1].name}</code>`
+    : '（离线·读不到 <code>.agents/skills/</code>，只有上面三个内置的可用）');
+}
+function renderAgent(pinned, foot) {
+  const rows = pinned.map(p => `<button class="acard" onclick="pickAgent('${p.skill || p.name}', ${p.skill ? `'${p.skill}'` : 'null'})">
+      <b>${p.name}</b><span>${p.span}</span><i>${p.note}</i></button>`).join('');
+  const others = (ALLSKILLS || []).filter(x => !PINNED.some(p => p.skill === x.name));
+  document.getElementById('pbody').innerHTML = `
+    <div class="src">Agent · 用哪套方法论</div>
+    <h2>先问一句：这个课题有标准答案吗？</h2>
+    <div class="mut">有 → 135 闭环；没有 → dbs-learning-beta。<br>
+    <b>选中的 skill 原文</b>（不是摘要）会被当成 system prompt 发给模型。<br>${foot}</div>
+    <div class="alist">${rows}</div>
+    ${others.length ? `<h5>其余已装 skill（点一下直接用）</h5>
+    <div class="alist">${others.map(x => `<button class="acard" onclick="pickAgent('${x.name}', '${x.name}')">
+      <b>${x.name}</b><span>${(x.description || '').slice(0, 58)}${(x.description || '').length > 58 ? '…' : ''}</span>
+      <i>${(x.bytes / 1024).toFixed(1)} KB · SKILL.md 原文</i></button>`).join('')}</div>` : ''}`;
+}
+window.openAgent = openAgent;
+
+refreshRail();
+
+
+/* ══ 对话：选一个方法论，然后真的能问 ─────────────────────────
+   经 http://127.0.0.1:5180/知所栖-壳.html 打开时走 /api/llm（真 LLM）；
+   双击 file:// 打开时没有 /api，给一句诚实的离线说明并指路。 */
+const SKILLS = {
+  '135 学习闭环': {
+    tag: '有标准答案的知识型课题',
+    sys: '你是「知所栖 135」的学习编排器。固定顺序，不许跳步、不许替学习者决定：'
+       + '① 1 阅读器 = 给 3 个概念，每个给三层梯度（L1 直觉 / L2 机制 / L3 应用）；'
+       + '② 3 决策场 = 先让学习者自己选，再给真实案例与「条件 → 路线」表；'
+       + '③ 5 实验台 = 一个 5 分钟能做的最小实验，必须让他动手判断；'
+       + '④ 费曼验收 = 让他用自己的话复述，逐点查漏，漏哪倒回哪。'
+       + '用户说想学什么时，你只做第 ① 步，给完 3 个概念就停，等他反馈。不要一次给完四步。'
+  },
+  'dbs-learning-beta': {
+    tag: '没有标准答案的课题',
+    sys: '先判课题类型（伪问题／主观判断／个人决策／价值问题），然后输出：判据、代价、'
+       + '只有用户本人能回答的裁决点、一个最小实验。'
+       + '如果判定为知识型课题（有标准答案），说明并交回 135 闭环，不继续本流程。'
+       + '绝不替用户做决定，不写「你应该」。'
+  },
+  'dbs-standard-answer': {
+    tag: '要一个带条件的答案',
+    sys: '两部分：① 知识与理论挖掘——先审查命题（绝对化／因果跳跃／定义偷换／经验普遍化／反向推断），'
+       + '再找相关学科、作者、理论，核实来源，写清能解释什么、解释不了什么；'
+       + '② 历史同构——成功案例、失败案例、反例，最后给一个带条件、带因果解释、带失效边界的答案。'
+       + '找不到就写「尚无统一答案」，不许硬套名人。'
+  },
+};
+var activeSkill = null;
+var activeFile = null;   // 非空 = 用 .agents/skills/<activeFile>/SKILL.md 当 system prompt
+var msgs = [];
+
+function renderConv() {
+  const body = document.getElementById('pbody');
+  document.getElementById('panel').classList.add('on');
+  const tagOf = activeSkill
+    ? ((SKILLS[activeSkill] && SKILLS[activeSkill].tag)
+       || (ALLSKILLS || []).find(x => x.name === activeSkill)?.description?.slice(0, 44)
+       || '已装 skill')
+    : '';
+  const head = activeSkill
+    ? `<div class="src">会话 · ${activeSkill}${activeFile ? ' · SKILL.md 原文' : ' · 内置'}</div><h2>${tagOf}</h2>`
+    : `<div class="src">会话</div><h2>先选一个方法论</h2>`;
+  const hint = activeSkill ? '' :
+    `<div class="mut">点底栏的 <b>Agent</b> 选一个，再在下面的输入框里问我。<br>
+     <b>选哪个不由系统替你决定。</b></div>`;
+  const rows = msgs.map(m => `<div class="cmsg ${m.role}${m.pending ? ' pend' : ''}">${
+    esc(m.content).replace(/\n/g, '<br>')}</div>`).join('');
+  body.innerHTML = head + hint
+    + `<div class="clist" id="clist">${rows || (activeSkill ? '<div class="mut">说吧，你想学什么。</div>' : '')}</div>`;
+  const cl = document.getElementById('clist');
+  if (cl) cl.scrollTop = cl.scrollHeight;
+}
+function esc(t) { return String(t).replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c])); }
+
+function openConv() { renderConv(); }
+
+async function send() {
+  const q = document.getElementById('b-q');
+  const text = (q.value || '').trim();
+  if (!text) return;
+  q.value = '';
+  msgs.push({ role: 'user', content: text });
+  if (!activeSkill) {
+    msgs.push({ role: 'assistant', content: '先选一个方法论：点底栏的 Agent。' });
+    renderConv(); refreshRail(); return;
+  }
+  msgs.push({ role: 'assistant', content: '…', pending: true });
+  renderConv();
+  const history = msgs.filter(m => !m.pending).map(m => ({ role: m.role, content: m.content }));
+  try {
+    const payload = activeFile
+      ? { json: false, skill: activeFile, messages: history }              // 服务端读真 SKILL.md
+      : { json: false, messages: [{ role: 'system', content: (SKILLS[activeSkill] || {}).sys || '' }, ...history] };
+    const r = await fetch('/api/llm', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const j = await r.json();
+    const out = j.error
+      ? `（没跑起来：${j.error}${j.detail ? ' — ' + String(j.detail).slice(0, 160) : ''}）`
+      : (j.content ?? j.text ?? j.choices?.[0]?.message?.content
+         ?? j.data?.content ?? (typeof j === 'string' ? j : JSON.stringify(j)));
+    msgs[msgs.length - 1] = { role: 'assistant', content: out };
+  } catch (e) {
+    msgs[msgs.length - 1] = { role: 'assistant', content:
+      '（离线）没连上本地服务，所以这句不是真回答。\n'
+      + '要真对话：项目根目录跑 `node scripts/serve-135.mjs`，然后开 http://127.0.0.1:5180/知所栖-壳.html —— 同一个地址下 /api/llm 才通。' };
+  }
+  renderConv();
+}
+window.send = send;
+window.openConv = openConv;
+
+/* Agent 卡片：选中即生效，并切到会话 */
+window.pickAgent = function (label, file) {
+  activeSkill = label;
+  activeFile = file || null;
+  const q = document.getElementById('b-q');
+  q.placeholder = label + ' · 我想学 ____（回车发送）';
+  const desc = SKILLS[label] ? SKILLS[label].tag
+    : (ALLSKILLS || []).find(x => x.name === label)?.description || '已装 skill';
+  msgs = [{ role: 'assistant', content: '用「' + label + '」。' + desc + '\n'
+    + (activeFile ? '（system prompt = .agents/skills/' + activeFile + '/SKILL.md 原文）' : '（内置闭环）')
+    + '——说吧，你想学什么？' }];
+  setView('chat');
+  renderConv(); refreshRail();
+  q.focus();
+};
+
+/* 底栏输入框：回车发送 */
+document.getElementById('b-q').addEventListener('keydown', e => {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); }
+});
+
+</script>
+</body>
+</html>

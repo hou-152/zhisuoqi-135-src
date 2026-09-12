@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>知所栖 · 泛化版（任意课题）</title>
+<style>
+:root{--bg:#0f1115;--card:#171a21;--ink:#e9ecf3;--muted:#98a1b0;--line:#272c37;--accent:#7c5cff;--ok:#35c46a;--warn:#e8b13a;--bad:#ff6b6b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.75 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+header{padding:12px 20px;border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:center;position:sticky;top:0;background:rgba(15,17,21,.92);backdrop-filter:blur(8px);z-index:9;flex-wrap:wrap}
+header b{font-size:15px}
+.badge{font-size:12px;padding:2px 9px;border-radius:20px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.badge.on{color:var(--ok);border-color:#22503a}
+main{max-width:880px;margin:0 auto;padding:22px 20px 90px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:14px}
+h1{font-size:22px;margin:0 0 6px}
+h2{font-size:17px;margin:0 0 10px}
+h3{font-size:15px;margin:16px 0 8px;color:var(--muted)}
+p{margin:8px 0}
+.muted{color:var(--muted);font-size:13px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+input[type=text],textarea{width:100%;background:#11141a;border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:11px 13px;font:inherit;font-size:15px}
+textarea{min-height:110px;resize:vertical}
+button{background:var(--accent);color:#fff;border:0;border-radius:10px;padding:10px 16px;font:inherit;font-size:14px;cursor:pointer}
+button.ghost{background:transparent;border:1px solid var(--line);color:var(--ink)}
+button:disabled{opacity:.5;cursor:default}
+.tag{display:inline-block;font-size:12px;color:var(--accent);border:1px solid #322a5c;border-radius:20px;padding:1px 9px;margin-right:6px}
+.concept{border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:10px;cursor:pointer}
+.concept:hover{border-color:#3a4152}
+.concept .en{font-size:12px;color:var(--muted)}
+.opt{display:block;width:100%;text-align:left;background:#11141a;border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:12px 14px;margin:6px 0;cursor:pointer;font-size:14px;line-height:1.6}
+.opt:hover{border-color:#3a4152}
+.opt.picked{border-color:var(--accent);background:#1b1730}
+.verdict{border-radius:10px;padding:12px 14px;margin-top:10px;font-size:14px}
+.verdict.ok{background:#12271a;border:1px solid #22503a}
+.verdict.no{background:#2a1517;border:1px solid #55272b}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#3a4152;margin-right:5px}
+.dot.ok{background:var(--ok)}.dot.no{background:var(--bad)}.dot.warn{background:var(--warn)}
+#toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:#22262f;border:1px solid var(--line);color:var(--ink);padding:9px 16px;border-radius:10px;font-size:13px;opacity:0;transition:.22s;pointer-events:none}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.spin{display:inline-block;width:12px;height:12px;border:2px solid #ffffff55;border-top-color:#fff;border-radius:50%;animation:sp .7s linear infinite;vertical-align:-1px;margin-right:6px}
+@keyframes sp{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<header>
+  <b>知所栖 · 泛化版</b>
+  <span class="badge" id="mode">检测中…</span>
+  <span class="badge">任意课题 → 1 阅读 / 3 决策 / 5 实验 / 费曼验收</span>
+</header>
+<main id="app"></main>
+<div id="toast"></div>
+<script>
+/* ============================================================
+   知所栖 · 泛化版
+   与 135 基础框架的区别：内容层不再写死。任何课题进来，
+   1 阅读（3 概念×三档梯度）、5 实验（最小实验）、费曼要点
+   全部运行时由真实检索 + LLM 生成。
+   后端契约与 135 相同：POST /api/search、POST /api/llm
+   ============================================================ */
+
+const app = document.getElementById('app');
+let MODE = { live:false, llm:false };
+let S = { topic:'', concepts:[], exp:null, feyn:null, picks:{} };
+let BUSY = false;
+
+/* ---------- 工具 ---------- */
+const esc = s => String(s==null?'':s).replace(/[&<>"]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
+function toast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(t._t); t._t=setTimeout(()=>t.classList.remove('show'),2000); }
+
+/* 模型偶尔会把 JSON 包在 ```json 围栏里——必须剥掉，否则静默降级（135 走查里踩过） */
+function parseJSON(s){
+  if (typeof s !== 'string') throw new Error('返回不是文本');
+  const t = s.trim().replace(/^```(?:json)?\s*/i,'').replace(/\s*```$/,'');
+  try { return JSON.parse(t); }
+  catch { const m = t.match(/[{\[][\s\S]*[}\]]/); if (m) return JSON.parse(m[0]); throw new Error('JSON 解析失败'); }
+}
+
+/* 所有网络调用带超时，避免按钮永久卡在「进行中」 */
+async function withTimeout(promise, ms, label){
+  let timer;
+  const timeout = new Promise((_, rej) => { timer = setTimeout(()=>rej(new Error((label||'请求')+'超时（'+Math.round(ms/1000)+'s）')), ms); });
+  try { return await Promise.race([promise, timeout]); } finally { clearTimeout(timer); }
+}
+
+async function api(path, payload, ms){
+  const r = await withTimeout(fetch(path, {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}), ms||60000, path);
+  if (!r.ok) throw new Error(path+' HTTP '+r.status);
+  return r.json();
+}
+async function search(q, n){
+  const j = await api('/api/search', {query:q}, 45000);
+  if (j.error) throw new Error('检索失败：'+j.error);
+  return (j.items||[]).slice(0, n||3);
+}
+async function ask(system, user, ms){
+  const j = await api('/api/llm', {messages:[{role:'system',content:system},{role:'user',content:user}]}, ms||90000);
+  if (j.error) throw new Error(j.error);
+  return { data: parseJSON(j.content), tokens: j.tokens||0, model: j.model };
+}
+
+/* ---------- 检测模式 ---------- */
+async function detectMode(){
+  try{
+    const r = await fetch('/api/health');
+    if (r.ok){ const j = await r.json(); MODE.live = true; MODE.llm = !!j.llm; }
+  }catch{ MODE.live = false; }
+  const b = document.getElementById('mode');
+  b.textContent = MODE.live ? (MODE.llm ? '真实检索 + LLM 已接通' : '真实检索已接通 · LLM 未配置') : '离线（需 node scripts/serve-135.mjs）';
+  b.className = 'badge' + ((MODE.live && MODE.llm) ? ' on' : '');
+}
+
+/* ---------- 站 0：任意课题输入 ---------- */
+function viewHome(){
+  app.innerHTML = `
+  <div class="card">
+    <h1>输入任意课题</h1>
+    <p class="muted">不预设任何领域。产品去知乎取真实材料，现生成 3 个概念与三档讲解，再给一个 5 分钟最小实验，最后用费曼验收查漏。</p>
+    <div class="row" style="margin-top:12px">
+      <input type="text" id="topic" placeholder="例如：维特根斯坦的家族相似 / 具身认知 / 社会学的想象力 / 期权定价">
+      <button id="go" onclick="start()">开始</button>
+    </div>
+    <div class="row" style="margin-top:10px">
+      ${['维特根斯坦的家族相似','具身认知','社会学的想象力'].map(t=>`<button class="ghost" onclick="document.getElementById('topic').value='${t}';start()">${t}</button>`).join('')}
+    </div>
+    <p class="muted" id="msg" style="margin-top:14px"></p>
+  </div>`;
+  document.getElementById('topic').focus();
+}
+
+function busy(btn, label){
+  BUSY = true;
+  if (btn){ btn.disabled = true; btn.innerHTML = '<span class="spin"></span>'+label; }
+  const m = document.getElementById('msg'); if (m) m.textContent = label;
+}
+function done(btn, label){ BUSY = false; if (btn){ btn.disabled = false; btn.textContent = label; } }
+
+/* ---------- 站 1+2：真实检索 → 3 概念 × 三档梯度 ---------- */
+async function start(){
+  if (BUSY) return;
+  const topic = (document.getElementById('topic').value||'').trim();
+  if (topic.length < 2) return toast('先写一个课题');
+  const btn = document.getElementById('go');
+  busy(btn, '正在检索知乎真实材料…');
+  try{
+    const items = await search(topic, 3);
+    const material = items.map(i => `${i.title}（${i.author}）：${i.excerpt}`).join('\n');
+    busy(btn, '正在生成 3 个概念与三档讲解…');
+    const { data, tokens } = await ask(
+      '你是学习产品的内容引擎。只输出 JSON，不要解释。',
+      `从下面真实材料里提取 3 个支撑论证的核心概念。
+每个概念给：id（英文短横线）、name（中文）、oneLiner（一句话）、
+L1 直觉（≤40字）、L2 机制（≤80字）、L3 应用（≤80字）、points（3 条可当场判定的费曼要点，每条≤20字）。
+若材料与课题关系不大，照实标注在 note 字段，不要编造。
+输出 {"concepts":[{"id":"","name":"","oneLiner":"","L1":"","L2":"","L3":"","points":["","",""],"note":""}]}
+
+材料：
+${material}`
+    );
+    S.topic = topic; S.concepts = data.concepts||[]; S.exp = null; S.feyn = null; S.picks = {};
+    S.material = items; S.tokens = tokens;
+    viewConcepts();
+  }catch(e){
+    toast(e.message);
+    const m = document.getElementById('msg'); if (m) m.textContent = '失败：'+e.message;
+  }finally{ done(btn, '开始'); }
+}
+
+function viewConcepts(){
+  app.innerHTML = `
+  <div class="card">
+    <button class="btn ghost" onclick="go()">← 换个课题</button>
+    <h1 style="margin-top:12px">${esc(S.topic)}</h1>
+    <p class="muted">材料来自知乎真实检索（${(S.material||[]).length} 条）· 概念由 LLM 现生成 · ${S.tokens||0} tokens</p>
+    <h3>3 个概念</h3>
+    ${S.concepts.map((c,i)=>`
+      <div class="concept" onclick="viewReader(${i})">
+        <div><span class="tag">${i+1}</span><b>${esc(c.name)}</b> <span class="en">${esc(c.id)}</span></div>
+        <div class="muted" style="margin-top:4px">${esc(c.oneLiner)}</div>
+        ${c.note?`<div class="muted" style="color:var(--warn);margin-top:4px">材料提示：${esc(c.note)}</div>`:''}
+      </div>`).join('')}
+    <h3>真实材料</h3>
+    ${(S.material||[]).map(i=>`<p class="muted">· <a href="${esc(i.url)}" target="_blank" rel="noopener" style="color:var(--muted)">${esc(i.title)}</a> — ${esc(i.author)}</p>`).join('')}
+    <h3>下一步</h3>
+    <div class="row">
+      <button onclick="viewReader(0)">1 阅读（三档梯度）</button>
+      <button class="ghost" onclick="makeExperiment()">5 实验（最小实验）</button>
+      <button class="ghost" onclick="viewFeynman()">费曼验收</button>
+    </div>
+    <p class="muted" id="msg" style="margin-top:12px"></p>
+  </div>`;
+}
+
+/* ---------- 站 3：互动阅读器（L1/L2/L3 现生成的梯度） ---------- */
+let RI = 0, RL = 'L1';
+function viewReader(i){
+  RI = i; RL = 'L1';
+  const c = S.concepts[i];
+  app.innerHTML = `
+  <div class="card">
+    <button class="ghost" onclick="viewConcepts()">← 返回概念</button>
+    <div style="margin-top:12px"><span class="tag">1 阅读器</span><span class="muted">dbs-learning · 三档梯度</span></div>
+    <h1>${esc(c.name)}</h1>
+    <p class="muted">${esc(c.oneLiner)}</p>
+    <div class="row" style="margin:14px 0">
+      ${['L1','L2','L3'].map(l=>`<button class="${l===RL?'':'ghost'}" id="tab-${l}" onclick="setL('${l}')">${l} ${l==='L1'?'直觉':l==='L2'?'机制':'应用'}</button>`).join('')}
+    </div>
+    <div id="lv" style="font-size:16px;line-height:1.9">${esc(c[RL]||'')}</div>
+    <h3>费曼要点（验收时按这几条查）</h3>
+    <ol class="muted" style="padding-left:20px">${(c.points||[]).map(p=>`<li>${esc(p)}</li>`).join('')}</ol>
+    <div class="row" style="margin-top:16px">
+      <button onclick="${RI < S.concepts.length-1 ? `viewReader(${RI+1})` : 'viewConcepts()'}">${RI < S.concepts.length-1 ? '下一个概念 →' : '看完了，去实验 →'}</button>
+      <button class="ghost" onclick="makeExperiment()">5 实验</button>
+      <button class="ghost" onclick="viewFeynman()">费曼验收</button>
+    </div>
+  </div>`;
+}
+function setL(l){ RL = l; ['L1','L2','L3'].forEach(x=>{ const b=document.getElementById('tab-'+x); if(b) b.className = (x===l?'':'ghost'); }); document.getElementById('lv').textContent = S.concepts[RI][l]||''; }
+
+/* ---------- 站 4：5 实验 = 最小实验（给新例子，必须判断，做完能验） ---------- */
+async function makeExperiment(){
+  if (BUSY) return;
+  viewConcepts();
+  const m = document.getElementById('msg');
+  if (m) m.textContent = '正在设计一个 5 分钟能做完的最小实验…';
+  try{
+    const { data } = await ask(
+      '你是学习产品的提取练习设计引擎。只输出 JSON，不要解释。',
+      `课题：${S.topic}
+概念：${JSON.stringify(S.concepts.map(c=>c.name+'：'+c.oneLiner))}
+设计一个 5 分钟内能做完的「最小实验」：给学习者一个他大概率没见过的具体例子（可以是虚构但自洽的），
+让他必须用这几个概念做一次判断，做完立刻能验证对错。
+输出 {"case":"","question":"","options":["",""],"answer":"","why":"","pitfall":""}`
+    );
+    S.exp = data; S.picks = {};
+    viewExperiment();
+  }catch(e){ toast(e.message); if (m) m.textContent = '失败：'+e.message; }
+}
+function viewExperiment(){
+  const e = S.exp;
+  app.innerHTML = `
+  <div class="card">
+    <button class="ghost" onclick="viewConcepts()">← 返回概念</button>
+    <div style="margin-top:12px"><span class="tag">5 实验台</span><span class="muted">提取练习 · 先判断，再看依据</span></div>
+    <h1>最小实验</h1>
+    <h3>例子</h3><p>${esc(e.case)}</p>
+    <h3>${esc(e.question)}</h3>
+    <div id="opts">${(e.options||[]).map((o,i)=>`<button class="opt" onclick="pick(${i})"><b>${String.fromCharCode(65+i)}.</b> ${esc(o)}</button>`).join('')}</div>
+    <div id="fb"></div>
+  </div>`;
+}
+function pick(i){
+  S.picks.exp = i;
+  document.querySelectorAll('#opts .opt').forEach((b,j)=>b.classList.toggle('picked', j===i));
+  const e = S.exp;
+  const correct = String(e.answer||'').trim().toUpperCase().startsWith(String.fromCharCode(65+i));
+  document.getElementById('fb').innerHTML = `
+    <div class="verdict ${correct?'ok':'no'}">
+      <b>${correct?'判断正确':'再看一眼依据'}</b><br>
+      <span class="muted">答案：${esc(e.answer)}</span><br>${esc(e.why)}
+    </div>
+    <div class="verdict" style="background:#1a1d24;border:1px solid var(--line)"><b>常见陷阱：</b>${esc(e.pitfall)}</div>
+    <div class="row" style="margin-top:14px">
+      <button onclick="viewFeynman()">讲一遍验收 →</button>
+      <button class="ghost" onclick="makeExperiment()">换一个实验</button>
+    </div>`;
+}
+
+/* ---------- 站 5：费曼验收（按现生成的要点判） ---------- */
+function viewFeynman(){
+  app.innerHTML = `
+  <div class="card">
+    <button class="ghost" onclick="viewConcepts()">← 返回概念</button>
+    <div style="margin-top:12px"><span class="tag">费曼验收</span><span class="muted">复述 → 查漏 → 漏哪倒回哪</span></div>
+    <h1>用你自己的话讲一遍</h1>
+    <p class="muted">题目：讲讲「${esc(S.topic)}」——这几个概念分别在说什么，它们怎么用在真实判断里。每个概念至少讲到 2 条要点才算过。</p>
+    <textarea id="fx" placeholder="用自己的话，不用背术语。"></textarea>
+    <div class="row" style="margin-top:12px">
+      <button id="fbtn" onclick="runFeyn()">开始检验</button>
+      <button class="ghost" onclick="viewConcepts()">先不检验</button>
+      <span class="muted" id="fst"></span>
+    </div>
+    <div id="fout"></div>
+  </div>`;
+}
+async function runFeyn(){
+  const text = (document.getElementById('fx').value||'').trim();
+  if (text.length < 10) return toast('再多写几句');
+  const btn = document.getElementById('fbtn'), st = document.getElementById('fst');
+  btn.disabled = true; btn.innerHTML = '<span class="spin"></span>检验中…'; st.textContent = '正在按生成的要点逐条比对';
+  try{
+    const checklist = S.concepts.map(c=>({id:c.id,name:c.name,points:c.points}));
+    const { data, tokens } = await ask(
+      '你是学习产品的费曼检验引擎。只输出 JSON。',
+      `学习者复述了所学内容。请逐概念判断每条要点是否被覆盖（covered 为要点下标数组），每概念 ≥2 条才算 pass。
+对没讲到的概念必须如实判 fail，不要因为语气自信就给过。
+输出 {"result":{"概念id":{"pass":bool,"covered":[下标]}}}
+
+要点：${JSON.stringify(checklist)}
+复述：${text}`,
+      90000
+    );
+    const res = data.result||{};
+    let passed = 0;
+    const rows = S.concepts.map(c=>{
+      const r = res[c.id]||{}; const cov = new Set(r.covered||[]);
+      const hits = (c.points||[]).filter((_,i)=>cov.has(i)).length;
+      if (r.pass) passed++;
+      return `<div class="verdict ${r.pass?'ok':'no'}">
+        <b><span class="dot ${r.pass?'ok':'no'}"></span>${esc(c.name)}</b>
+        <span class="muted">覆盖 ${hits}/${(c.points||[]).length}${r.pass?'':' · 已记入待补'}</span>
+        ${(c.points||[]).map((p,i)=>`<div class="muted">${cov.has(i)?'✓':'○'} ${esc(p)} ${cov.has(i)?'':`<a href="#" onclick="viewReader(${S.concepts.indexOf(c)});return false" style="color:var(--warn)">回阅读器补这个 →</a>`}</div>`).join('')}
+      </div>`;
+    }).join('');
+    document.getElementById('fout').innerHTML = `
+      <h3>检验报告 <span class="muted">引擎：真实 LLM · ${tokens} tokens</span></h3>
+      ${rows}
+      <div class="verdict" style="background:#1a1d24;border:1px solid var(--line)">
+        <b>${passed}/${S.concepts.length} 个概念讲到位</b>
+        <div class="muted">${passed===S.concepts.length?'全部通过——可以换个课题了。':'漏点已标出，点「回阅读器补这个」倒回去。'}</div>
+      </div>
+      <div class="row" style="margin-top:12px">
+        <button onclick="viewConcepts()">回到概念</button>
+        <button class="ghost" onclick="go()">换一个课题</button>
+      </div>`;
+  }catch(e){
+    document.getElementById('fout').innerHTML = `<div class="verdict no">检验失败：${esc(e.message)}<br><span class="muted">没有静默降级——失败就是失败，不会拿规则引擎冒充。</span></div>`;
+  }finally{ btn.disabled = false; btn.textContent = '重新检验'; st.textContent = ''; }
+}
+
+/* ---------- 启动 ---------- */
+function go(){ S = {topic:'',concepts:[],exp:null,feyn:null,picks:{}}; viewHome(); }
+viewHome();
+detectMode().then(()=>{ /* 探测完成后不重渲染正文，避免状态闪回（135 走查的教训） */ });
+</script>
+</body>
+</html>

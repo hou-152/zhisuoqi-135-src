@@ -11,3 +11,6 @@ deploy/zhisuoqi/
 
 # 本地安全备份（git 历史本身也是备份）
 .trash/
+
+# 无头浏览器验收的临时产物（scripts/shot-shell.mjs 用的是 CDP，不需要这个目录）
+.playwright-cli/

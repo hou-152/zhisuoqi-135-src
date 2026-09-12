@@ -1,0 +1,539 @@
+{
+  "meta": {
+    "generatedAt": "2026-09-11T20:45:47.368Z",
+    "model": "deepseek-flash",
+    "temperature": 0,
+    "perArticle": 3,
+    "source": "research/内参概念池-AI时代怎么做事-20260912.md",
+    "reference": "Marble Skill Taxonomy v1: 1590 topics / 3221 edges = 2.03 edges per node, 94% intra-subject",
+    "verdict": "FAIL",
+    "fails": [
+      "F1 边数 23 < 24"
+    ]
+  },
+  "stats": {
+    "nodes": 36,
+    "edges": 23,
+    "edgesPerNode": 0.64,
+    "hard": 10,
+    "soft": 13,
+    "isolatedDeclared": 2,
+    "nodesWithNoEdge": 2,
+    "danglingRefs": 0,
+    "cycles": 0,
+    "vagueReasons": 0,
+    "vagueRate": 0,
+    "maxDepth": 2
+  },
+  "nodes": [
+    {
+      "cid": "C01",
+      "art": "S1",
+      "name": "纯粹派（the purists）",
+      "type": "概念型",
+      "gloss": "拒绝 AI、退回无屏幕生活的人，病症是拒斥外部世界"
+    },
+    {
+      "cid": "C02",
+      "art": "S1",
+      "name": "自动机 / 赛博格（automatons or cyborgs）",
+      "type": "概念型",
+      "gloss": "把每个决定都外包出去，对摩擦过敏、对优化上瘾"
+    },
+    {
+      "cid": "C03",
+      "art": "S1",
+      "name": "数字文艺复兴人（new / digital Renaissance man）",
+      "type": "概念型",
+      "gloss": "第三条路：全做，但把注意力灌注进一门手艺的达·芬奇式多维度人"
+    },
+    {
+      "cid": "C04",
+      "art": "S2",
+      "name": "AI 原生思维",
+      "type": "概念型",
+      "gloss": "像训练大模型一样训练自己：建反馈循环、敢推翻旧权重"
+    },
+    {
+      "cid": "C05",
+      "art": "S2",
+      "name": "模型能力边界线",
+      "type": "概念型",
+      "gloss": "需求一直都在，是能力边界刚好扫过了它"
+    },
+    {
+      "cid": "C06",
+      "art": "S2",
+      "name": "判断 AI 需求的三问",
+      "type": "工具型",
+      "gloss": "痛点够不够硬／我是不是用户／AI 是不是刚好够到"
+    },
+    {
+      "cid": "C07",
+      "art": "S3",
+      "name": "用好 coding agent 是一项可拆解的技能",
+      "type": "概念型",
+      "gloss": "立论：不是笼统会用工具，而是一套高层工作流＋五项子技能"
+    },
+    {
+      "cid": "C08",
+      "art": "S3",
+      "name": "三段高层工作流",
+      "type": "工具型",
+      "gloss": "规划（brainstorm/spec/plan）→ 执行（构建/验证）→ 部署与监控"
+    },
+    {
+      "cid": "C09",
+      "art": "S3",
+      "name": "关注点从代码转向规格与验证",
+      "type": "概念型",
+      "gloss": "少看代码，多做决定做什么、设计架构、写 spec、验输出"
+    },
+    {
+      "cid": "C10",
+      "art": "S4",
+      "name": "认知负债（cognitive debt）",
+      "type": "概念型",
+      "gloss": "放任编程助手在项目里自由撒野会留下巨额认知负债"
+    },
+    {
+      "cid": "C11",
+      "art": "S4",
+      "name": "快进无聊部分 vs 外包理解",
+      "type": "概念型",
+      "gloss": "划界：问题无聊可以快进，理解不能外包"
+    },
+    {
+      "cid": "C12",
+      "art": "S4",
+      "name": "一次性生成整个特性（one-shot entire features）",
+      "type": "概念型",
+      "gloss": "作者明确不喜欢：结果不差，但他在自己项目里迷路了"
+    },
+    {
+      "cid": "C13",
+      "art": "S5",
+      "name": "agent 即实习生",
+      "type": "概念型",
+      "gloss": "agent 现在是 co-pilot、实习生，产出要挂人的 credit"
+    },
+    {
+      "cid": "C14",
+      "art": "S5",
+      "name": "credit（信用背书）",
+      "type": "概念型",
+      "gloss": "产出挂钩一个人的信用，mentor 必须审计它的所有产出"
+    },
+    {
+      "cid": "C15",
+      "art": "S5",
+      "name": "思考权外包",
+      "type": "概念型",
+      "gloss": "方案全由 agent 出，就没法形成有效的讨论"
+    },
+    {
+      "cid": "C16",
+      "art": "S6",
+      "name": "技术的货架期（shelf life）",
+      "type": "概念型",
+      "gloss": "过去以年计，现在技术每两个月就在你脚下发生根本性位移"
+    },
+    {
+      "cid": "C17",
+      "art": "S6",
+      "name": "越过前沿去感受边缘（past the frontier）",
+      "type": "概念型",
+      "gloss": "要越过前沿一点才摸到那条边，同时还得服务今天在用模型的人"
+    },
+    {
+      "cid": "C18",
+      "art": "S6",
+      "name": "对造出来的东西保持不执着（unattached）",
+      "type": "概念型",
+      "gloss": "to-do list 一年后彻底消失，造的东西会很快消失"
+    },
+    {
+      "cid": "C19",
+      "art": "S7",
+      "name": "AI 原生公司（AI-native company）",
+      "type": "概念型",
+      "gloss": "分界线：从零重造公司怎么运转，而不是\"恰好在用 AI 的公司\""
+    },
+    {
+      "cid": "C20",
+      "art": "S7",
+      "name": "人人都能发版（Everyone ships）",
+      "type": "概念型",
+      "gloss": "agentic coding 降门槛，最懂问题的人可以交付第一版修复"
+    },
+    {
+      "cid": "C21",
+      "art": "S7",
+      "name": "传声筒问题（broken telephone problem）",
+      "type": "概念型",
+      "gloss": "想法经 PM→设计→工程转述后精髓流失，上线时已不像原样"
+    },
+    {
+      "cid": "C22",
+      "art": "S8",
+      "name": "超级组织",
+      "type": "概念型",
+      "gloss": "要证伪的命题：仍以科层制组织大量人力、又被 AI 强化的大企业"
+    },
+    {
+      "cid": "C23",
+      "art": "S8",
+      "name": "超级个体与一人公司（OPC）",
+      "type": "概念型",
+      "gloss": "配对出现的流行叙事：周鸿祎演讲、韦青\"2026 年成为 OPC\""
+    },
+    {
+      "cid": "C24",
+      "art": "S8",
+      "name": "互相吞噬的命题",
+      "type": "概念型",
+      "gloss": "承认超级企业就必承认超级个体，反之亦然，两者彼此拆台"
+    },
+    {
+      "cid": "C25",
+      "art": "S9",
+      "name": "ai 产品的第三时代：持久化同事",
+      "type": "概念型",
+      "gloss": "chat → 和 agent 一起工作 → 与持久化同事协作"
+    },
+    {
+      "cid": "C26",
+      "art": "S9",
+      "name": "两到三个月建造窗口",
+      "type": "概念型",
+      "gloss": "按模型今天做会失败，按一年后做也失败，唯一方式是两到三个月"
+    },
+    {
+      "cid": "C27",
+      "art": "S9",
+      "name": "多产而经验主义",
+      "type": "概念型",
+      "gloss": "being prolific and empirical 胜过 academic or theoretical"
+    },
+    {
+      "cid": "C28",
+      "art": "S10",
+      "name": "粉丝经济打法",
+      "type": "概念型",
+      "gloss": "卖的不是产品解决客户问题，是\"独立开发能轻易成功\"的梦"
+    },
+    {
+      "cid": "C29",
+      "art": "S10",
+      "name": "独立开发者就是他的客户",
+      "type": "概念型",
+      "gloss": "你就是他的客户，他就是发给你看的"
+    },
+    {
+      "cid": "C30",
+      "art": "S10",
+      "name": "收入集中度",
+      "type": "概念型",
+      "gloss": "六个面向独立开发者的产品占近 95% 收入"
+    },
+    {
+      "cid": "C31",
+      "art": "S11",
+      "name": "理解优先于论文",
+      "type": "概念型",
+      "gloss": "数学的目的是产出理解，理解只住在模型权重里让人不满意"
+    },
+    {
+      "cid": "C32",
+      "art": "S11",
+      "name": "事后判断原则",
+      "type": "概念型",
+      "gloss": "post-hoc 看它引入的新想法有没有被别人拿去做别的事"
+    },
+    {
+      "cid": "C33",
+      "art": "S11",
+      "name": "last mile 结果",
+      "type": "概念型",
+      "gloss": "人类数学家做完很深的工作，模型只补上最后一步"
+    },
+    {
+      "cid": "C34",
+      "art": "S12",
+      "name": "学习的元素论",
+      "type": "概念型",
+      "gloss": "像找 94 种自然元素那样，提炼学习的基本元素及运作机制"
+    },
+    {
+      "cid": "C35",
+      "art": "S12",
+      "name": "掌握造船术，而非穷尽知识之海",
+      "type": "概念型",
+      "gloss": "目标不是穷尽知识之海，而是掌握科学学习的造船术"
+    },
+    {
+      "cid": "C36",
+      "art": "S12",
+      "name": "学习三阶段模型",
+      "type": "工具型",
+      "gloss": "好奇探索 → 严肃训练 → 创造性应用，每一阶段都不可跳过"
+    }
+  ],
+  "edges": [
+    {
+      "topicId": "C03",
+      "prerequisiteId": "C01",
+      "strength": "soft",
+      "reason": "不懂 C01 的纯粹派退回无屏幕生活，就看不出 C03 的“第三条路”在否定哪种拒绝 AI 的活法。"
+    },
+    {
+      "topicId": "C03",
+      "prerequisiteId": "C02",
+      "strength": "soft",
+      "reason": "不懂 C02 的自动机把决定外包给 AI，就看不出 C03 为何强调全做但把注意力灌注进手艺。"
+    },
+    {
+      "topicId": "C06",
+      "prerequisiteId": "C05",
+      "strength": "hard",
+      "reason": "不懂 C05 的模型能力边界线，就无法回答 C06 第三问“AI 是不是刚好够到”，会把需求误判为现在能做或永远不能做。"
+    },
+    {
+      "topicId": "C08",
+      "prerequisiteId": "C07",
+      "strength": "soft",
+      "reason": "不懂 C07 的“用好 coding agent 是可拆解技能”，C08 的三段工作流就只是普通项目流程，看不到它是能力地图中的一层。"
+    },
+    {
+      "topicId": "C09",
+      "prerequisiteId": "C08",
+      "strength": "soft",
+      "reason": "不懂 C08 的规划→执行→部署监控，就不知道 C09 说的写 spec 属于规划、验输出属于执行，注意力该往哪移。"
+    },
+    {
+      "topicId": "C11",
+      "prerequisiteId": "C10",
+      "strength": "hard",
+      "reason": "不懂 C10 的认知负债，C11 的“理解不能外包”就像个人偏好，看不出它是在阻止项目里积累看不懂的代码债。"
+    },
+    {
+      "topicId": "C12",
+      "prerequisiteId": "C11",
+      "strength": "hard",
+      "reason": "不懂 C11 的“可快进无聊部分、不可外包理解”，C12 的一次性生成整个特性会被误读为只是风格偏好，而非把理解整段外包。"
+    },
+    {
+      "topicId": "C14",
+      "prerequisiteId": "C13",
+      "strength": "hard",
+      "reason": "不懂 C13 的 agent 即实习生，C14 的 credit 就不知道是给谁背书、为何 mentor 必须审计 agent 的所有产出。"
+    },
+    {
+      "topicId": "C15",
+      "prerequisiteId": "C13",
+      "strength": "soft",
+      "reason": "不懂 C13 的 agent 即实习生，C15 的思考权外包就不知道外包给了谁，也看不出为何人退出后无法形成有效讨论。"
+    },
+    {
+      "topicId": "C25",
+      "prerequisiteId": "C13",
+      "strength": "soft",
+      "reason": "不懂 C13 的 agent 即实习生/co-pilot，C25 的第三时代“持久化同事”就缺少前一阶段，不知道从哪种协作关系升级而来。"
+    },
+    {
+      "topicId": "C17",
+      "prerequisiteId": "C16",
+      "strength": "hard",
+      "reason": "不懂 C16 的技术货架期缩短，C17 的“越过前沿去感受边缘”就像盲目追新，看不出是要在快速位移中提前摸到边界。"
+    },
+    {
+      "topicId": "C18",
+      "prerequisiteId": "C16",
+      "strength": "soft",
+      "reason": "不懂 C16 的技术货架期，C18 的“对造出来的东西保持不执着”会被当成消极，而非承认 to-do list 和造物会很快消失。"
+    },
+    {
+      "topicId": "C26",
+      "prerequisiteId": "C16",
+      "strength": "hard",
+      "reason": "不懂 C16 的技术每两个月发生根本位移，C26 的“唯一方式是两到三个月”就像拍脑袋，看不出按今天或一年后做都会失败。"
+    },
+    {
+      "topicId": "C27",
+      "prerequisiteId": "C26",
+      "strength": "soft",
+      "reason": "不懂 C26 的两到三个月建造窗口，C27 的多产而经验主义就只是工作风格，而非应对模型快速变化的必然策略。"
+    },
+    {
+      "topicId": "C20",
+      "prerequisiteId": "C21",
+      "strength": "hard",
+      "reason": "不懂 C21 的传声筒问题，C20 的“人人都能发版”就只是权限下放，看不出它是为了让人直接交付、避免转述损耗。"
+    },
+    {
+      "topicId": "C24",
+      "prerequisiteId": "C22",
+      "strength": "hard",
+      "reason": "不懂 C22 的超级组织命题，C24 说“承认超级企业就必承认超级个体”就失去前半对象。"
+    },
+    {
+      "topicId": "C24",
+      "prerequisiteId": "C23",
+      "strength": "hard",
+      "reason": "不懂 C23 的超级个体与 OPC 叙事，C24 的另一半命题缺失，看不出两者为何互相拆台。"
+    },
+    {
+      "topicId": "C29",
+      "prerequisiteId": "C28",
+      "strength": "soft",
+      "reason": "不懂 C28 的粉丝经济打法，C29 的“独立开发者就是他的客户”就不知道客户为何是同行，而非普通产品用户。"
+    },
+    {
+      "topicId": "C30",
+      "prerequisiteId": "C29",
+      "strength": "hard",
+      "reason": "不懂 C29 的“独立开发者就是他的客户”，C30 的 95% 收入集中度只是财务数字，看不出它证明客户群体单一。"
+    },
+    {
+      "topicId": "C32",
+      "prerequisiteId": "C31",
+      "strength": "soft",
+      "reason": "不懂 C31 的“理解优先于论文”，C32 的事后判断原则就像普通同行评议，看不出它是在检验模型有没有贡献可迁移的理解。"
+    },
+    {
+      "topicId": "C33",
+      "prerequisiteId": "C31",
+      "strength": "soft",
+      "reason": "不懂 C31 的数学目的是产出理解，C33 的 last mile 结果会被误读为模型也做了深工作，而不是只补最后一步。"
+    },
+    {
+      "topicId": "C35",
+      "prerequisiteId": "C34",
+      "strength": "soft",
+      "reason": "不懂 C34 的学习元素论，C35 的“掌握造船术”就只是比喻，不知道它指掌握学习的基本元素和机制。"
+    },
+    {
+      "topicId": "C36",
+      "prerequisiteId": "C34",
+      "strength": "soft",
+      "reason": "不懂 C34 的学习元素论，C36 的三阶段模型就只是普通流程，看不到它是被提炼出的学习机制之一。"
+    }
+  ],
+  "isolated": [
+    "C04",
+    "C19"
+  ],
+  "cycles": [],
+  "manualSample": [
+    {
+      "edge": "数字文艺复兴人（new / digital Renaissance man）  ← 依赖 ←  纯粹派（the purists）",
+      "topicId": "C03",
+      "prerequisiteId": "C01",
+      "strength": "soft",
+      "reason": "不懂 C01 的纯粹派退回无屏幕生活，就看不出 C03 的“第三条路”在否定哪种拒绝 AI 的活法。",
+      "verdict": null
+    },
+    {
+      "edge": "数字文艺复兴人（new / digital Renaissance man）  ← 依赖 ←  自动机 / 赛博格（automatons or cyborgs）",
+      "topicId": "C03",
+      "prerequisiteId": "C02",
+      "strength": "soft",
+      "reason": "不懂 C02 的自动机把决定外包给 AI，就看不出 C03 为何强调全做但把注意力灌注进手艺。",
+      "verdict": null
+    },
+    {
+      "edge": "判断 AI 需求的三问  ← 依赖 ←  模型能力边界线",
+      "topicId": "C06",
+      "prerequisiteId": "C05",
+      "strength": "hard",
+      "reason": "不懂 C05 的模型能力边界线，就无法回答 C06 第三问“AI 是不是刚好够到”，会把需求误判为现在能做或永远不能做。",
+      "verdict": null
+    },
+    {
+      "edge": "三段高层工作流  ← 依赖 ←  用好 coding agent 是一项可拆解的技能",
+      "topicId": "C08",
+      "prerequisiteId": "C07",
+      "strength": "soft",
+      "reason": "不懂 C07 的“用好 coding agent 是可拆解技能”，C08 的三段工作流就只是普通项目流程，看不到它是能力地图中的一层。",
+      "verdict": null
+    },
+    {
+      "edge": "关注点从代码转向规格与验证  ← 依赖 ←  三段高层工作流",
+      "topicId": "C09",
+      "prerequisiteId": "C08",
+      "strength": "soft",
+      "reason": "不懂 C08 的规划→执行→部署监控，就不知道 C09 说的写 spec 属于规划、验输出属于执行，注意力该往哪移。",
+      "verdict": null
+    },
+    {
+      "edge": "快进无聊部分 vs 外包理解  ← 依赖 ←  认知负债（cognitive debt）",
+      "topicId": "C11",
+      "prerequisiteId": "C10",
+      "strength": "hard",
+      "reason": "不懂 C10 的认知负债，C11 的“理解不能外包”就像个人偏好，看不出它是在阻止项目里积累看不懂的代码债。",
+      "verdict": null
+    },
+    {
+      "edge": "一次性生成整个特性（one-shot entire features）  ← 依赖 ←  快进无聊部分 vs 外包理解",
+      "topicId": "C12",
+      "prerequisiteId": "C11",
+      "strength": "hard",
+      "reason": "不懂 C11 的“可快进无聊部分、不可外包理解”，C12 的一次性生成整个特性会被误读为只是风格偏好，而非把理解整段外包。",
+      "verdict": null
+    },
+    {
+      "edge": "credit（信用背书）  ← 依赖 ←  agent 即实习生",
+      "topicId": "C14",
+      "prerequisiteId": "C13",
+      "strength": "hard",
+      "reason": "不懂 C13 的 agent 即实习生，C14 的 credit 就不知道是给谁背书、为何 mentor 必须审计 agent 的所有产出。",
+      "verdict": null
+    },
+    {
+      "edge": "思考权外包  ← 依赖 ←  agent 即实习生",
+      "topicId": "C15",
+      "prerequisiteId": "C13",
+      "strength": "soft",
+      "reason": "不懂 C13 的 agent 即实习生，C15 的思考权外包就不知道外包给了谁，也看不出为何人退出后无法形成有效讨论。",
+      "verdict": null
+    },
+    {
+      "edge": "ai 产品的第三时代：持久化同事  ← 依赖 ←  agent 即实习生",
+      "topicId": "C25",
+      "prerequisiteId": "C13",
+      "strength": "soft",
+      "reason": "不懂 C13 的 agent 即实习生/co-pilot，C25 的第三时代“持久化同事”就缺少前一阶段，不知道从哪种协作关系升级而来。",
+      "verdict": null
+    },
+    {
+      "edge": "越过前沿去感受边缘（past the frontier）  ← 依赖 ←  技术的货架期（shelf life）",
+      "topicId": "C17",
+      "prerequisiteId": "C16",
+      "strength": "hard",
+      "reason": "不懂 C16 的技术货架期缩短，C17 的“越过前沿去感受边缘”就像盲目追新，看不出是要在快速位移中提前摸到边界。",
+      "verdict": null
+    },
+    {
+      "edge": "对造出来的东西保持不执着（unattached）  ← 依赖 ←  技术的货架期（shelf life）",
+      "topicId": "C18",
+      "prerequisiteId": "C16",
+      "strength": "soft",
+      "reason": "不懂 C16 的技术货架期，C18 的“对造出来的东西保持不执着”会被当成消极，而非承认 to-do list 和造物会很快消失。",
+      "verdict": null
+    }
+  ],
+  "prompt": "下面 36 个概念，抄自 12 篇「AI 时代怎么做事」主题的文章。\n\nC01 ｜ S1《未来的三类人，别成为前两类》｜ 纯粹派（the purists） ｜ 拒绝 AI、退回无屏幕生活的人，病症是拒斥外部世界\nC02 ｜ S1《未来的三类人，别成为前两类》｜ 自动机 / 赛博格（automatons or cyborgs） ｜ 把每个决定都外包出去，对摩擦过敏、对优化上瘾\nC03 ｜ S1《未来的三类人，别成为前两类》｜ 数字文艺复兴人（new / digital Renaissance man） ｜ 第三条路：全做，但把注意力灌注进一门手艺的达·芬奇式多维度人\nC04 ｜ S2《ai 原生方法论：找需求、判边界、最小验证、重设计、落地》｜ AI 原生思维 ｜ 像训练大模型一样训练自己：建反馈循环、敢推翻旧权重\nC05 ｜ S2《ai 原生方法论：找需求、判边界、最小验证、重设计、落地》｜ 模型能力边界线 ｜ 需求一直都在，是能力边界刚好扫过了它\nC06 ｜ S2《ai 原生方法论：找需求、判边界、最小验证、重设计、落地》｜ 判断 AI 需求的三问 ｜ 痛点够不够硬／我是不是用户／AI 是不是刚好够到\nC07 ｜ S3《吴恩达的 AI 工程技能地图：用好 coding agent 是可以拆解的》｜ 用好 coding agent 是一项可拆解的技能 ｜ 立论：不是笼统会用工具，而是一套高层工作流＋五项子技能\nC08 ｜ S3《吴恩达的 AI 工程技能地图：用好 coding agent 是可以拆解的》｜ 三段高层工作流 ｜ 规划（brainstorm/spec/plan）→ 执行（构建/验证）→ 部署与监控\nC09 ｜ S3《吴恩达的 AI 工程技能地图：用好 coding agent 是可以拆解的》｜ 关注点从代码转向规格与验证 ｜ 少看代码，多做决定做什么、设计架构、写 spec、验输出\nC10 ｜ S4《手敲一遍 AI 生成的代码，用来偿还认知负债》｜ 认知负债（cognitive debt） ｜ 放任编程助手在项目里自由撒野会留下巨额认知负债\nC11 ｜ S4《手敲一遍 AI 生成的代码，用来偿还认知负债》｜ 快进无聊部分 vs 外包理解 ｜ 划界：问题无聊可以快进，理解不能外包\nC12 ｜ S4《手敲一遍 AI 生成的代码，用来偿还认知负债》｜ 一次性生成整个特性（one-shot entire features） ｜ 作者明确不喜欢：结果不差，但他在自己项目里迷路了\nC13 ｜ S5《林亦对话 AI 编程智能体负责人何涛：把 agent 当需要你背书的实习生》｜ agent 即实习生 ｜ agent 现在是 co-pilot、实习生，产出要挂人的 credit\nC14 ｜ S5《林亦对话 AI 编程智能体负责人何涛：把 agent 当需要你背书的实习生》｜ credit（信用背书） ｜ 产出挂钩一个人的信用，mentor 必须审计它的所有产出\nC15 ｜ S5《林亦对话 AI 编程智能体负责人何涛：把 agent 当需要你背书的实习生》｜ 思考权外包 ｜ 方案全由 agent 出，就没法形成有效的讨论\nC16 ｜ S6《Claude Code 团队自己怎么用 Claude Code》｜ 技术的货架期（shelf life） ｜ 过去以年计，现在技术每两个月就在你脚下发生根本性位移\nC17 ｜ S6《Claude Code 团队自己怎么用 Claude Code》｜ 越过前沿去感受边缘（past the frontier） ｜ 要越过前沿一点才摸到那条边，同时还得服务今天在用模型的人\nC18 ｜ S6《Claude Code 团队自己怎么用 Claude Code》｜ 对造出来的东西保持不执着（unattached） ｜ to-do list 一年后彻底消失，造的东西会很快消失\nC19 ｜ S7《Anthropic 给创业公司的 Claude Code 五条规则》｜ AI 原生公司（AI-native company） ｜ 分界线：从零重造公司怎么运转，而不是\"恰好在用 AI 的公司\"\nC20 ｜ S7《Anthropic 给创业公司的 Claude Code 五条规则》｜ 人人都能发版（Everyone ships） ｜ agentic coding 降门槛，最懂问题的人可以交付第一版修复\nC21 ｜ S7《Anthropic 给创业公司的 Claude Code 五条规则》｜ 传声筒问题（broken telephone problem） ｜ 想法经 PM→设计→工程转述后精髓流失，上线时已不像原样\nC22 ｜ S8《给「AI 赋能组织」浇冰水：裁掉的不是手，是组织的隐性地图》｜ 超级组织 ｜ 要证伪的命题：仍以科层制组织大量人力、又被 AI 强化的大企业\nC23 ｜ S8《给「AI 赋能组织」浇冰水：裁掉的不是手，是组织的隐性地图》｜ 超级个体与一人公司（OPC） ｜ 配对出现的流行叙事：周鸿祎演讲、韦青\"2026 年成为 OPC\"\nC24 ｜ S8《给「AI 赋能组织」浇冰水：裁掉的不是手，是组织的隐性地图》｜ 互相吞噬的命题 ｜ 承认超级企业就必承认超级个体，反之亦然，两者彼此拆台\nC25 ｜ S9《openai 产品负责人：pm 这份活正在从执行变成给 agent 掌舵》｜ ai 产品的第三时代：持久化同事 ｜ chat → 和 agent 一起工作 → 与持久化同事协作\nC26 ｜ S9《openai 产品负责人：pm 这份活正在从执行变成给 agent 掌舵》｜ 两到三个月建造窗口 ｜ 按模型今天做会失败，按一年后做也失败，唯一方式是两到三个月\nC27 ｜ S9《openai 产品负责人：pm 这份活正在从执行变成给 agent 掌舵》｜ 多产而经验主义 ｜ being prolific and empirical 胜过 academic or theoretical\nC28 ｜ S10《别学 Marc：一个独立开发者做的社会实验》｜ 粉丝经济打法 ｜ 卖的不是产品解决客户问题，是\"独立开发能轻易成功\"的梦\nC29 ｜ S10《别学 Marc：一个独立开发者做的社会实验》｜ 独立开发者就是他的客户 ｜ 你就是他的客户，他就是发给你看的\nC30 ｜ S10《别学 Marc：一个独立开发者做的社会实验》｜ 收入集中度 ｜ 六个面向独立开发者的产品占近 95% 收入\nC31 ｜ S11《数学家丹尼尔·利特：ai 会套技巧会算，但不会建理论》｜ 理解优先于论文 ｜ 数学的目的是产出理解，理解只住在模型权重里让人不满意\nC32 ｜ S11《数学家丹尼尔·利特：ai 会套技巧会算，但不会建理论》｜ 事后判断原则 ｜ post-hoc 看它引入的新想法有没有被别人拿去做别的事\nC33 ｜ S11《数学家丹尼尔·利特：ai 会套技巧会算，但不会建理论》｜ last mile 结果 ｜ 人类数学家做完很深的工作，模型只补上最后一步\nC34 ｜ S12《《内驱式学习》3.0 学习五元素》｜ 学习的元素论 ｜ 像找 94 种自然元素那样，提炼学习的基本元素及运作机制\nC35 ｜ S12《《内驱式学习》3.0 学习五元素》｜ 掌握造船术，而非穷尽知识之海 ｜ 目标不是穷尽知识之海，而是掌握科学学习的造船术\nC36 ｜ S12《《内驱式学习》3.0 学习五元素》｜ 学习三阶段模型 ｜ 好奇探索 → 严肃训练 → 创造性应用，每一阶段都不可跳过\n\n任务：找出概念之间的【前置依赖】关系，产出一张有向无环图，输出 JSON。\n\n边的方向定义：topicId depends on prerequisiteId\n读作：**要真正理解 B，必须先理解 A** → B = topicId，A = prerequisiteId\n\n严格要求：\n1. 只在确有「必须先懂 A 才可能懂 B」的认知顺序时才连边。两个概念只是**相关、并列、同属一个话题、可以互相印证**，一律不连。\n2. 宁缺毋滥。孤立节点是允许的，也是预期结果之一，不要为了让每个概念都有边而硬凑。\n3. 每条边必须给 reason：一句话，具体说明「不懂 A 会卡在哪里」。禁止「前者是后者的基础」「后者依赖前者」这类空话，reason 里必须出现 A 或 B 的具体内容。\n4. strength：hard = 不懂 A 就完全无法理解 B；soft = 有帮助但非必须。\n5. 严禁环：不许出现 A→B 的同时 B→A，也不许更长的环。\n6. 一个概念可以有多条前置，也可以一条都没有。\n\n只输出这个 JSON，不要别的内容：\n{\"edges\":[{\"topicId\":\"C12\",\"prerequisiteId\":\"C03\",\"strength\":\"hard\",\"reason\":\"...\"}],\"isolated\":[\"C05\",\"C07\"]}",
+  "usage": {
+    "prompt_tokens": 2188,
+    "completion_tokens": 18843,
+    "total_tokens": 21031,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 17568
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 2188
+  }
+}
