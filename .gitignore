@@ -5,6 +5,7 @@
 # 桌面版依赖与打包产物
 app/node_modules/
 app/dist/
+app/assets/   # 由 scripts/build-app.mjs 从 prototype/ 与 .agents/ 生成，只打包时用
 
 # 系统与工具产物
 .DS_Store
