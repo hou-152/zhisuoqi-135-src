@@ -145,18 +145,25 @@ const fmtMin = (w) => Math.max(1, Math.round(w / 400));
 const ok = results.filter(r => r.ok);
 const bad = results.filter(r => !r.ok);
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const PASTEL = ['#e9efe2', '#ece7f4', '#f8e8e2', '#f3ecda', '#e3edf2', '#f0e6f0'];
+const GLYPH = { 概念文: '概', 工程复盘: '工', 实践复盘: '实', 观点文: '观', 课程: '课' };
 const card = (r, i) => {
   const notes = fs.readFileSync(path.join(OUT, '三级笔记', r.slug + '.md'), 'utf8');
   const concepts = fs.readFileSync(path.join(OUT, '概念辞典', r.slug + '.md'), 'utf8');
   const feyn = fs.readFileSync(path.join(OUT, 'AI费曼', r.slug + '.md'), 'utf8');
-  const block = (title, body) => `<details${title === 'AI 费曼示范' ? ' open' : ''}><summary>${title}</summary><div class="body">${body}</div></details>`;
-  return `<article>
-  <h2><span class="no">${i + 1}</span> <a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.title)}</a></h2>
-  <p class="meta">${esc(r.source)} ｜ ${esc(r.tag)} ｜ 约 ${fmtMin(r.words)} 分钟 ｜ ${r.words.toLocaleString()} 字</p>
-  <p class="gist">一句话主旨：${esc(r.gist)}</p>
-  ${block('AI 费曼示范', feyn)}
-  ${block('三级笔记（骨架 + 血肉）', notes)}
-  ${block('概念辞典（概念 + 费曼一下 + 架构图）', concepts)}
+  const block = (title, body) => `<details><summary>${title}</summary><div class="body">${body}</div></details>`;
+  return `<article id="${r.slug}" style="--tint:${PASTEL[i % PASTEL.length]}">
+  <div class="head">
+    <div class="thumb">${GLYPH[r.tag] || '文'}</div>
+    <div class="headtext">
+      <div class="kicker"><span class="no">${String(i + 1).padStart(2, '0')}</span><span class="chip">${esc(r.tag)}</span><span>${esc(r.source)}</span><span>·</span><span>约 ${fmtMin(r.words)} 分钟</span><span>·</span><span>${r.words.toLocaleString()} 字</span></div>
+      <h2><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.title)}</a></h2>
+    </div>
+  </div>
+  <p class="gist">${esc(r.gist)}</p>
+  <section class="feyn"><div class="label">AI 费曼示范</div><div class="body">${feyn}</div></section>
+  ${block('三级笔记 · 骨架与血肉', notes)}
+  ${block('概念辞典 · 概念 / 费曼一下 / 架构图', concepts)}
 </article>`;
 };
 const mdCard = (r, i) => {
@@ -167,6 +174,12 @@ const mdCard = (r, i) => {
 };
 
 const totalTokens = calls.reduce((s, c) => s + c.tokens, 0);
+// 累计烧量（跨重跑累加；seed 为 260912 深夜历史：日报 145542 + 拆解 139927 + AI筛选 9624）
+const tokFile = path.join(OUT, '.tokens.json');
+let tokTotal = 295093;
+try { tokTotal = JSON.parse(fs.readFileSync(tokFile, 'utf8')).total || tokTotal; } catch { fs.writeFileSync(tokFile, JSON.stringify({ total: tokTotal })); }
+tokTotal += totalTokens;
+fs.writeFileSync(tokFile, JSON.stringify({ total: tokTotal }));
 const totalMs = Math.max(...calls.map(c => c.ms));
 const genAt = new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai', hour12: false });
 
@@ -186,35 +199,63 @@ ${ok.map((r, i) => `${i + 1}. **${r.title}**（${r.source}）—— ${r.gist}`).
 
 const htmlHead = `<!doctype html><html lang="zh"><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AI 内参 · 260912 期</title>
+<title>AI 内参 · 260912 期（倒推版）</title>
 <style>
-:root{--fg:#1a1a1a;--dim:#6b7280;--line:#e5e7eb;--bg:#fafafa}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
-font:15px/1.75 -apple-system,"PingFang SC","Segoe UI",sans-serif}
-main{max-width:760px;margin:0 auto;padding:40px 20px 80px}
-h1{font-size:26px;margin:0 0 6px}.sub{color:var(--dim);font-size:13px;margin-bottom:28px}
-.toc{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 20px;margin-bottom:28px}
-.toc li{margin:6px 0}.toc a{color:var(--fg);text-decoration:none}.toc a:hover{text-decoration:underline}
-article{background:#fff;border:1px solid var(--line);border-radius:12px;padding:24px 26px;margin-bottom:22px}
-article h2{font-size:19px;margin:0 0 4px;line-height:1.4}.no{color:var(--dim);font-weight:400}
-article a{color:var(--fg)}
-.meta{color:var(--dim);font-size:12.5px;margin:2px 0 10px}
-.gist{font-size:14px;margin:0 0 14px;padding:10px 14px;background:#f4f4f5;border-radius:8px}
-summary{cursor:pointer;font-weight:600;font-size:14px;padding:8px 0;color:#374151;user-select:none}
-details{border-top:1px dashed var(--line)}
-.body{font-size:14.5px;padding:4px 2px 12px;overflow-x:auto}
-.body h1,.body h2,.body h3{font-size:15.5px;margin:16px 0 6px}.body pre{background:#f4f4f5;padding:12px;border-radius:8px;overflow-x:auto;font-size:12.5px}
-.body code{background:#f4f4f5;padding:1px 5px;border-radius:4px;font-size:13px}
-.skip{color:var(--dim);font-size:13px}.foot{color:var(--dim);font-size:12.5px;margin-top:36px;border-top:1px solid var(--line);padding-top:16px}
+:root{--bg:#f6f3ee;--card:#fffefa;--ink:#221e19;--dim:#8b8377;--line:#e7e0d4;--accent:#b95c22;--tint:#e9efe2}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.85 -apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}
+main{max-width:800px;margin:0 auto;padding:48px 22px 90px}
+.mast{border-bottom:3px double var(--ink);padding-bottom:20px;margin-bottom:28px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
+.mast h1{font-family:"Songti SC","STSong","Noto Serif SC",serif;font-size:34px;letter-spacing:2px;margin:0;font-weight:700}
+.mast h1 small{font-size:15px;color:var(--dim);letter-spacing:0;font-weight:400}
+.issue{font-family:"Songti SC",serif;font-size:14px;color:var(--accent);border:1.5px solid var(--accent);padding:4px 12px;border-radius:999px;white-space:nowrap}
+.subline{color:var(--dim);font-size:12.5px;margin-top:10px;display:flex;gap:14px;flex-wrap:wrap}
+.toc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 24px;margin-bottom:34px}
+.toc .label{font-size:12px;letter-spacing:4px;color:var(--dim);margin-bottom:8px}
+.toc ol{margin:0;padding:0;list-style:none;counter-reset:toc}
+.toc li{counter-increment:toc;padding:8px 0;border-top:1px dashed var(--line);font-size:14px;display:flex;gap:10px;line-height:1.6}
+.toc li:first-child{border-top:0}
+.toc li::before{content:counter(toc,decimal-leading-zero);font-family:ui-monospace,Menlo,monospace;color:var(--accent);font-size:12px;padding-top:2px;flex:none}
+.toc a{color:var(--ink);text-decoration:none;font-weight:600}
+.toc a:hover{color:var(--accent)}
+.toc .g{color:var(--dim);font-size:13px}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 28px;margin-bottom:26px;box-shadow:0 1px 2px rgba(60,50,30,.05)}
+.head{display:flex;gap:16px;align-items:flex-start}
+.thumb{width:52px;height:52px;border-radius:12px;background:var(--tint);display:flex;align-items:center;justify-content:center;font-family:"Songti SC",serif;font-size:26px;color:rgba(34,30,25,.72);flex:none;margin-top:2px}
+.kicker{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--dim);margin-bottom:7px;flex-wrap:wrap}
+.no{font-family:ui-monospace,Menlo,monospace;color:var(--accent);font-weight:700;font-size:13px}
+.chip{background:var(--tint);border-radius:999px;padding:1px 10px;color:var(--ink)}
+h2{font-family:"Songti SC","STSong","Noto Serif SC",serif;font-size:20px;line-height:1.5;margin:0;font-weight:700}
+h2 a{color:var(--ink);text-decoration:none}
+h2 a:hover{color:var(--accent)}
+.gist{margin:16px 0 0;padding:10px 14px;border-left:3px solid var(--accent);background:linear-gradient(90deg,rgba(185,92,34,.07),transparent);border-radius:0 8px 8px 0;font-size:14px}
+.feyn{margin-top:16px;background:var(--tint);border-radius:12px;padding:14px 16px}
+.feyn .label{font-size:11px;letter-spacing:3px;color:var(--accent);font-weight:700;margin-bottom:6px}
+.feyn .body{font-size:14.5px}
+details{border-top:1px dashed var(--line);margin-top:14px}
+summary{cursor:pointer;font-size:13px;color:var(--dim);padding:12px 0 4px;list-style:none;display:flex;align-items:center;gap:8px}
+summary::-webkit-details-marker{display:none}
+summary::before{content:'＋';color:var(--accent);font-weight:700}
+details[open] summary::before{content:'－'}
+summary:hover{color:var(--ink)}
+.body{font-size:14.5px;padding:2px 2px 10px;overflow-x:auto}
+.body h1,.body h2,.body h3{font-size:15.5px;margin:16px 0 6px}.body pre{background:#f1ede5;padding:12px;border-radius:8px;overflow-x:auto;font-size:12.5px}
+.body code{background:#f1ede5;padding:1px 5px;border-radius:4px;font-size:13px}
+.skip{color:var(--dim);font-size:13px;margin-top:24px}
+.foot{color:var(--dim);font-size:12.5px;margin-top:28px;border-top:1px solid var(--line);padding-top:16px}
 </style><main>`;
 
 const html = htmlHead + `
-<h1>AI 内参 · 260912 期 <span style="font-size:13px;color:var(--dim)">倒推版</span></h1>
-<p class="sub">今日 Readwise 精选 ${ITEMS.length + SKIPPED.length} 篇 ｜ 处理 ${ok.length} · 跳过 ${SKIPPED.length + bad.length} ｜ ${LLM_MODEL} ｜ ${totalTokens.toLocaleString()} tokens ｜ ${genAt}</p>
-<div class="toc"><strong>今日导读</strong><ol>${ok.map(r => `<li><a href="#${r.slug}">${esc(r.title)}</a> —— ${esc(r.gist)}</li>`).join('')}</ol></div>
-${ok.map((r, i) => card(r, i).replace('<article>', `<article id="${r.slug}">`)).join('\n')}
+<div class="mast">
+  <div>
+    <h1>AI 内参 <small>· 倒推版</small></h1>
+    <div class="subline"><span>2026 年 9 月 12 日 · 星期六</span><span>Readwise 今日精选 → 三级笔记 → 概念 → 费曼</span><span>处理 ${ok.length} · 跳过 ${SKIPPED.length + bad.length}</span><span>${LLM_MODEL}</span><span>累计 ${tokTotal.toLocaleString()} tokens</span></div>
+  </div>
+  <div class="issue">第 260912 期</div>
+</div>
+<div class="toc"><div class="label">今 日 目 录</div><ol>${ok.map(r => `<li><span><a href="#${r.slug}">${esc(r.title)}</a> <span class="g">—— ${esc(r.gist.length > 34 ? r.gist.slice(0, 34) + '……' : r.gist)}</span></span></li>`).join('')}</ol></div>
+${ok.map((r, i) => card(r, i)).join('\n')}
 <p class="skip"><strong>跳过记账</strong>：${[...SKIPPED, ...bad].map(s => `${esc(s.title)}（${esc(s.reason)}）`).join('；')}</p>
-<p class="foot">流水线：原文快照 → 三级笔记（note-taking-pro SOP）→ 概念辞典（concept-learning SOP，含 Mermaid 架构图源码）→ AI 费曼示范。产物与记账：knowledge/内参-260912/。</p>
+<p class="foot">流水线：原文快照 → 三级笔记（note-taking-pro SOP）→ 概念辞典（concept-learning SOP，含 Mermaid 架构图源码）→ AI 费曼示范 → 五维拆解（另册）。产物与记账：knowledge/内参-260912/。</p>
 </main></html>`;
 
 const md = head + ok.map(mdCard).join('\n') + `\n## 跳过记账\n\n${[...SKIPPED, ...bad].map(s => `- ${s.title} —— ${s.reason}`).join('\n')}\n`;

@@ -1,42 +1,75 @@
 <!doctype html><html lang="zh"><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AI 内参 · 260912 期</title>
+<title>AI 内参 · 260912 期（倒推版）</title>
 <style>
-:root{--fg:#1a1a1a;--dim:#6b7280;--line:#e5e7eb;--bg:#fafafa}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
-font:15px/1.75 -apple-system,"PingFang SC","Segoe UI",sans-serif}
-main{max-width:760px;margin:0 auto;padding:40px 20px 80px}
-h1{font-size:26px;margin:0 0 6px}.sub{color:var(--dim);font-size:13px;margin-bottom:28px}
-.toc{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 20px;margin-bottom:28px}
-.toc li{margin:6px 0}.toc a{color:var(--fg);text-decoration:none}.toc a:hover{text-decoration:underline}
-article{background:#fff;border:1px solid var(--line);border-radius:12px;padding:24px 26px;margin-bottom:22px}
-article h2{font-size:19px;margin:0 0 4px;line-height:1.4}.no{color:var(--dim);font-weight:400}
-article a{color:var(--fg)}
-.meta{color:var(--dim);font-size:12.5px;margin:2px 0 10px}
-.gist{font-size:14px;margin:0 0 14px;padding:10px 14px;background:#f4f4f5;border-radius:8px}
-summary{cursor:pointer;font-weight:600;font-size:14px;padding:8px 0;color:#374151;user-select:none}
-details{border-top:1px dashed var(--line)}
-.body{font-size:14.5px;padding:4px 2px 12px;overflow-x:auto}
-.body h1,.body h2,.body h3{font-size:15.5px;margin:16px 0 6px}.body pre{background:#f4f4f5;padding:12px;border-radius:8px;overflow-x:auto;font-size:12.5px}
-.body code{background:#f4f4f5;padding:1px 5px;border-radius:4px;font-size:13px}
-.skip{color:var(--dim);font-size:13px}.foot{color:var(--dim);font-size:12.5px;margin-top:36px;border-top:1px solid var(--line);padding-top:16px}
+:root{--bg:#f6f3ee;--card:#fffefa;--ink:#221e19;--dim:#8b8377;--line:#e7e0d4;--accent:#b95c22;--tint:#e9efe2}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.85 -apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}
+main{max-width:800px;margin:0 auto;padding:48px 22px 90px}
+.mast{border-bottom:3px double var(--ink);padding-bottom:20px;margin-bottom:28px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
+.mast h1{font-family:"Songti SC","STSong","Noto Serif SC",serif;font-size:34px;letter-spacing:2px;margin:0;font-weight:700}
+.mast h1 small{font-size:15px;color:var(--dim);letter-spacing:0;font-weight:400}
+.issue{font-family:"Songti SC",serif;font-size:14px;color:var(--accent);border:1.5px solid var(--accent);padding:4px 12px;border-radius:999px;white-space:nowrap}
+.subline{color:var(--dim);font-size:12.5px;margin-top:10px;display:flex;gap:14px;flex-wrap:wrap}
+.toc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 24px;margin-bottom:34px}
+.toc .label{font-size:12px;letter-spacing:4px;color:var(--dim);margin-bottom:8px}
+.toc ol{margin:0;padding:0;list-style:none;counter-reset:toc}
+.toc li{counter-increment:toc;padding:8px 0;border-top:1px dashed var(--line);font-size:14px;display:flex;gap:10px;line-height:1.6}
+.toc li:first-child{border-top:0}
+.toc li::before{content:counter(toc,decimal-leading-zero);font-family:ui-monospace,Menlo,monospace;color:var(--accent);font-size:12px;padding-top:2px;flex:none}
+.toc a{color:var(--ink);text-decoration:none;font-weight:600}
+.toc a:hover{color:var(--accent)}
+.toc .g{color:var(--dim);font-size:13px}
+article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 28px;margin-bottom:26px;box-shadow:0 1px 2px rgba(60,50,30,.05)}
+.head{display:flex;gap:16px;align-items:flex-start}
+.thumb{width:52px;height:52px;border-radius:12px;background:var(--tint);display:flex;align-items:center;justify-content:center;font-family:"Songti SC",serif;font-size:26px;color:rgba(34,30,25,.72);flex:none;margin-top:2px}
+.kicker{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--dim);margin-bottom:7px;flex-wrap:wrap}
+.no{font-family:ui-monospace,Menlo,monospace;color:var(--accent);font-weight:700;font-size:13px}
+.chip{background:var(--tint);border-radius:999px;padding:1px 10px;color:var(--ink)}
+h2{font-family:"Songti SC","STSong","Noto Serif SC",serif;font-size:20px;line-height:1.5;margin:0;font-weight:700}
+h2 a{color:var(--ink);text-decoration:none}
+h2 a:hover{color:var(--accent)}
+.gist{margin:16px 0 0;padding:10px 14px;border-left:3px solid var(--accent);background:linear-gradient(90deg,rgba(185,92,34,.07),transparent);border-radius:0 8px 8px 0;font-size:14px}
+.feyn{margin-top:16px;background:var(--tint);border-radius:12px;padding:14px 16px}
+.feyn .label{font-size:11px;letter-spacing:3px;color:var(--accent);font-weight:700;margin-bottom:6px}
+.feyn .body{font-size:14.5px}
+details{border-top:1px dashed var(--line);margin-top:14px}
+summary{cursor:pointer;font-size:13px;color:var(--dim);padding:12px 0 4px;list-style:none;display:flex;align-items:center;gap:8px}
+summary::-webkit-details-marker{display:none}
+summary::before{content:'＋';color:var(--accent);font-weight:700}
+details[open] summary::before{content:'－'}
+summary:hover{color:var(--ink)}
+.body{font-size:14.5px;padding:2px 2px 10px;overflow-x:auto}
+.body h1,.body h2,.body h3{font-size:15.5px;margin:16px 0 6px}.body pre{background:#f1ede5;padding:12px;border-radius:8px;overflow-x:auto;font-size:12.5px}
+.body code{background:#f1ede5;padding:1px 5px;border-radius:4px;font-size:13px}
+.skip{color:var(--dim);font-size:13px;margin-top:24px}
+.foot{color:var(--dim);font-size:12.5px;margin-top:28px;border-top:1px solid var(--line);padding-top:16px}
 </style><main>
-<h1>AI 内参 · 260912 期 <span style="font-size:13px;color:var(--dim)">倒推版</span></h1>
-<p class="sub">今日 Readwise 精选 11 篇 ｜ 处理 10 · 跳过 1 ｜ deepseek-flash ｜ 145,542 tokens ｜ 2026/9/12 22:37:06</p>
-<div class="toc"><strong>今日导读</strong><ol><li><a href="#agent-skills-api">Using Agent Skills with the API（用 API 使用 Agent Skills）</a> —— Skills 文件系统按需加载；API 靠代码执行工具。</li><li><a href="#openai-habitat-storage">Rapidly scaling online storage to serve over 1 billion ChatGPT users（存储平台 Habitat 的扩容复盘）</a> —— Habitat 用受限 API 与 Python 服务撑住超高速增长，最终迁到 Rust。</li><li><a href="#baoyu-ai-native-workflow">我的 AI 原生开发流程：一个真实案例的完整复盘</a> —— AI 原生开发流程没变，变的是执行主体——人成了指挥官。</li><li><a href="#linear-principles">原则与实践（Linear 的产品原则）</a> —— 项目管理工具应服务用户，以周期、目标和精简流程保持团队势头。</li><li><a href="#agent-skills-lesson-1">Claude 官方课程 · 第 1 课：什么是 Agent Skills</a> —— 技能把重复解释变成按需自动加载的任务指令。</li><li><a href="#agent-skills-lesson-2">Claude 官方课程 · 第 2 课：技能的结构（SKILL.md 与 frontmatter）</a> —— 技能靠名称与描述被匹配，确认后才加载全文执行。</li><li><a href="#agent-skills-lesson-3">Claude 官方课程 · 第 3 课：写好 name 与 description</a> —— description 是最重要字段，决定 Claude 何时匹配并触发技能。</li><li><a href="#agent-skills-vs-features">Claude 官方课程 · Skills 与其他 Claude Code 功能的比较</a> —— 各功能各有专长，应按需求组合使用，避免硬塞进 skills。</li><li><a href="#agent-skills-lesson-5">Claude 官方课程 · 第 5 课：技能的分发与共享</a> —— 技能共享更有价值；仓库、插件、企业分发，子代理需显式列技能。</li><li><a href="#agent-skills-lesson-6">Claude 官方课程 · 第 6 课：技能排障</a> —— 技能失效可归入几类可预测的故障，每类都有直接对应的修复方法。</li></ol></div>
-<article id="agent-skills-api">
-  <h2><span class="no">1</span> <a href="https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview" target="_blank" rel="noopener">Using Agent Skills with the API（用 API 使用 Agent Skills）</a></h2>
-  <p class="meta">platform.claude.com ｜ 概念文 ｜ 约 31 分钟 ｜ 12,223 字</p>
-  <p class="gist">一句话主旨：Skills 文件系统按需加载；API 靠代码执行工具。</p>
-  <details open><summary>AI 费曼示范</summary><div class="body">这篇文章回答的是：怎样让 Claude 不靠一次次重复提示，而是自动获得特定领域能力？答案是“代理技能”——把指令、脚本和资料打包成文件系统里的文件夹，Claude 需要时自动使用。
+<div class="mast">
+  <div>
+    <h1>AI 内参 <small>· 倒推版</small></h1>
+    <div class="subline"><span>2026 年 9 月 12 日 · 星期六</span><span>Readwise 今日精选 → 三级笔记 → 概念 → 费曼</span><span>处理 10 · 跳过 1</span><span>deepseek-flash</span><span>累计 295,093 tokens</span></div>
+  </div>
+  <div class="issue">第 260912 期</div>
+</div>
+<div class="toc"><div class="label">今 日 目 录</div><ol><li><span><a href="#agent-skills-api">Using Agent Skills with the API（用 API 使用 Agent Skills）</a> <span class="g">—— Skills 文件系统按需加载；API 靠代码执行工具。</span></span></li><li><span><a href="#openai-habitat-storage">Rapidly scaling online storage to serve over 1 billion ChatGPT users（存储平台 Habitat 的扩容复盘）</a> <span class="g">—— Habitat 用受限 API 与 Python 服务撑住超高速增长……</span></span></li><li><span><a href="#baoyu-ai-native-workflow">我的 AI 原生开发流程：一个真实案例的完整复盘</a> <span class="g">—— AI 原生开发流程没变，变的是执行主体——人成了指挥官。</span></span></li><li><span><a href="#linear-principles">原则与实践（Linear 的产品原则）</a> <span class="g">—— 项目管理工具应服务用户，以周期、目标和精简流程保持团队势头。</span></span></li><li><span><a href="#agent-skills-lesson-1">Claude 官方课程 · 第 1 课：什么是 Agent Skills</a> <span class="g">—— 技能把重复解释变成按需自动加载的任务指令。</span></span></li><li><span><a href="#agent-skills-lesson-2">Claude 官方课程 · 第 2 课：技能的结构（SKILL.md 与 frontmatter）</a> <span class="g">—— 技能靠名称与描述被匹配，确认后才加载全文执行。</span></span></li><li><span><a href="#agent-skills-lesson-3">Claude 官方课程 · 第 3 课：写好 name 与 description</a> <span class="g">—— description 是最重要字段，决定 Claude 何时匹配并……</span></span></li><li><span><a href="#agent-skills-vs-features">Claude 官方课程 · Skills 与其他 Claude Code 功能的比较</a> <span class="g">—— 各功能各有专长，应按需求组合使用，避免硬塞进 skills。</span></span></li><li><span><a href="#agent-skills-lesson-5">Claude 官方课程 · 第 5 课：技能的分发与共享</a> <span class="g">—— 技能共享更有价值；仓库、插件、企业分发，子代理需显式列技能。</span></span></li><li><span><a href="#agent-skills-lesson-6">Claude 官方课程 · 第 6 课：技能排障</a> <span class="g">—— 技能失效可归入几类可预测的故障，每类都有直接对应的修复方法。</span></span></li></ol></div>
+<article id="agent-skills-api" style="--tint:#e9efe2">
+  <div class="head">
+    <div class="thumb">概</div>
+    <div class="headtext">
+      <div class="kicker"><span class="no">01</span><span class="chip">概念文</span><span>platform.claude.com</span><span>·</span><span>约 31 分钟</span><span>·</span><span>12,223 字</span></div>
+      <h2><a href="https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview" target="_blank" rel="noopener">Using Agent Skills with the API（用 API 使用 Agent Skills）</a></h2>
+    </div>
+  </div>
+  <p class="gist">Skills 文件系统按需加载；API 靠代码执行工具。</p>
+  <section class="feyn"><div class="label">AI 费曼示范</div><div class="body">这篇文章回答的是：怎样让 Claude 不靠一次次重复提示，而是自动获得特定领域能力？答案是“代理技能”——把指令、脚本和资料打包成文件系统里的文件夹，Claude 需要时自动使用。
 
 核心机制叫“渐进式披露”：启动时只加载每个技能的名字和描述，约一百词；你的请求匹配描述后，Claude 才用 bash（命令行）读 `SKILL.md` 主说明，再按需读附带文件或运行脚本。脚本代码本身不进上下文，只有输出进入，所以省空间又能带很多资料。
 
 类比：新员工先拿到一张技能清单，真遇到做 PPT 或填 PDF 表格，才翻对应手册、附件和工具，用完不必把整柜文件塞进脑子。
 
 代价是：在 Claude API 上，技能跑在沙盒容器里，没有网络访问，也不能运行时安装新包，只能用预装依赖。所以规划技能时必须顺着这些限制来。
-</div></details>
-  <details><summary>三级笔记（骨架 + 血肉）</summary><div class="body"># Using Agent Skills with the API（用 API 使用 Agent Skills）
+</div></section>
+  <details><summary>三级笔记 · 骨架与血肉</summary><div class="body"># Using Agent Skills with the API（用 API 使用 Agent Skills）
 
 ## 一句话主旨
 Skills 文件系统按需加载；API 靠代码执行工具。
@@ -143,7 +176,7 @@ Skills 文件系统按需加载；API 靠代码执行工具。
 - 反例与风险：恶意 Skill、外部 URL 内容、外部依赖变化、工具滥用、数据暴露都可能改变 Skills 的安全适用范围；作者要求只从可信来源使用，并像安装软件一样对待。
 - 未展开或需转指：API 端到端调用细节、预装包清单、扫描范围外治理、企业部署细节，原文均指向其他文档，未在本页完整给出。
 </div></details>
-  <details><summary>概念辞典（概念 + 费曼一下 + 架构图）</summary><div class="body"># 概念解析辞典
+  <details><summary>概念辞典 · 概念 / 费曼一下 / 架构图</summary><div class="body"># 概念解析辞典
 
 > 针对《Using Agent Skills with the API（用 API 使用 Agent Skills）》（Claude Platform Docs，platform.claude.com）的概念提取
 
@@ -331,19 +364,24 @@ flowchart TB
 ```
 </div></details>
 </article>
-<article id="openai-habitat-storage">
-  <h2><span class="no">2</span> <a href="https://openai.com/index/scaling-storage-one-billion-users-part-one/" target="_blank" rel="noopener">Rapidly scaling online storage to serve over 1 billion ChatGPT users（存储平台 Habitat 的扩容复盘）</a></h2>
-  <p class="meta">openai.com ｜ 工程复盘 ｜ 约 29 分钟 ｜ 11,481 字</p>
-  <p class="gist">一句话主旨：Habitat 用受限 API 与 Python 服务撑住超高速增长，最终迁到 Rust。</p>
-  <details open><summary>AI 费曼示范</summary><div class="body">OpenAI 讲的是存储平台 Habitat 如何在三年里每年增长十倍，撑住每周十亿用户、每秒七千万次请求。答案是把存储逻辑从各产品自带的 Python 小库抽出来，变成集中式服务，统一管路由、授权、加密、缓存和数据来源。
+<article id="openai-habitat-storage" style="--tint:#ece7f4">
+  <div class="head">
+    <div class="thumb">工</div>
+    <div class="headtext">
+      <div class="kicker"><span class="no">02</span><span class="chip">工程复盘</span><span>openai.com</span><span>·</span><span>约 29 分钟</span><span>·</span><span>11,481 字</span></div>
+      <h2><a href="https://openai.com/index/scaling-storage-one-billion-users-part-one/" target="_blank" rel="noopener">Rapidly scaling online storage to serve over 1 billion ChatGPT users（存储平台 Habitat 的扩容复盘）</a></h2>
+    </div>
+  </div>
+  <p class="gist">Habitat 用受限 API 与 Python 服务撑住超高速增长，最终迁到 Rust。</p>
+  <section class="feyn"><div class="label">AI 费曼示范</div><div class="body">OpenAI 讲的是存储平台 Habitat 如何在三年里每年增长十倍，撑住每周十亿用户、每秒七千万次请求。答案是把存储逻辑从各产品自带的 Python 小库抽出来，变成集中式服务，统一管路由、授权、加密、缓存和数据来源。
 
 关键机制是故意“做少”：只提供简单 NoSQL 接口，不开放任意 SQL，让每个请求开销可预测。为抢速度，他们明知 Python 不优仍用它当战略负债——每个进程只处理少量并发，靠大量进程扛吞吐；修掉功能标志定时解析带来的卡顿；把连接复用从后进先出改成先进先出，打断慢服务器越接越多请求的循环。最后靠 Codex 和 GPT‑5.5，两名工程师把服务重写成 Rust，CPU 效率提升六倍。
 
 类比：以前每户自己管水电，现在改成统一物业，但物业只准用小功率电器；谁要复杂查询，得自己去外面租 Rockset。
 
 作者承认的代价正是这个：API 不强大是明确取舍，复杂遍历效率低，客户还得自己维护 Rockset，平添麻烦。
-</div></details>
-  <details><summary>三级笔记（骨架 + 血肉）</summary><div class="body"># 《Rapidly scaling online storage to serve over 1 billion ChatGPT users（存储平台 Habitat 的扩容复盘）》
+</div></section>
+  <details><summary>三级笔记 · 骨架与血肉</summary><div class="body"># 《Rapidly scaling online storage to serve over 1 billion ChatGPT users（存储平台 Habitat 的扩容复盘）》
 
 ## 一句话主旨
 Habitat 用受限 API 与 Python 服务撑住超高速增长，最终迁到 Rust。
@@ -451,7 +489,7 @@ Habitat 用受限 API 与 Python 服务撑住超高速增长，最终迁到 Rust
 - 亚稳态故障的叙述带有偶然发现色彩；作者用“怀疑—验证—根因”链条推进，而非一开始就定位。
 - 存储层细节、多租户可靠性、读取分层、Cosmos DB 扩容合作明确留到第二篇，本文未给出。
 </div></details>
-  <details><summary>概念辞典（概念 + 费曼一下 + 架构图）</summary><div class="body"># 概念解析辞典
+  <details><summary>概念辞典 · 概念 / 费曼一下 / 架构图</summary><div class="body"># 概念解析辞典
 
 > 针对《Rapidly scaling online storage to serve over 1 billion ChatGPT users（存储平台 Habitat 的扩容复盘）》（openai.com｜OpenAI）的概念提取
 
@@ -621,17 +659,22 @@ flowchart TD
 ```
 </div></details>
 </article>
-<article id="baoyu-ai-native-workflow">
-  <h2><span class="no">3</span> <a href="https://baoyu.io/blog/2026-08-24/ai-native-dev-workflow" target="_blank" rel="noopener">我的 AI 原生开发流程：一个真实案例的完整复盘</a></h2>
-  <p class="meta">baoyu.io ｜ 实践复盘 ｜ 约 17 分钟 ｜ 6,681 字</p>
-  <p class="gist">一句话主旨：AI 原生开发流程没变，变的是执行主体——人成了指挥官。</p>
-  <details open><summary>AI 费曼示范</summary><div class="body">这篇文章回答的是：AI 时代加一个功能该怎么走流程？答案是流程一步没少，但干活的人换成了 Agent，人退到关键节点拍板。
+<article id="baoyu-ai-native-workflow" style="--tint:#f8e8e2">
+  <div class="head">
+    <div class="thumb">实</div>
+    <div class="headtext">
+      <div class="kicker"><span class="no">03</span><span class="chip">实践复盘</span><span>baoyu.io</span><span>·</span><span>约 17 分钟</span><span>·</span><span>6,681 字</span></div>
+      <h2><a href="https://baoyu.io/blog/2026-08-24/ai-native-dev-workflow" target="_blank" rel="noopener">我的 AI 原生开发流程：一个真实案例的完整复盘</a></h2>
+    </div>
+  </div>
+  <p class="gist">AI 原生开发流程没变，变的是执行主体——人成了指挥官。</p>
+  <section class="feyn"><div class="label">AI 费曼示范</div><div class="body">这篇文章回答的是：AI 时代加一个功能该怎么走流程？答案是流程一步没少，但干活的人换成了 Agent，人退到关键节点拍板。
 
 具体机制是：需求从用户留言来，先让 Agent 做可行性分析，由你决定做不做；再让它写设计文档，文档像一张"记忆卡"，把决策固定下来，成为下一个对话窗口的起点；然后反复打磨高精度原型，最后才让 Agent 按文档写代码，并自己跑测试、自己截图验证。人只管判断：要不要做、方向对不对、好不好用。类比一下，你从泥瓦匠变成了装修业主——不亲手砌墙，但定方案、看效果图、最后验收。
 
 作者承认的代价是：他这次偷懒细看设计文档，也跳过了代码审查，只做黑盒测试，理由是 Agent 已自验证；但这只在普通功能上成立，金融核心逻辑仍需 Review。此外可行性分析也会看走眼，他曾因此白干几天；文档若不及时更新，反而会给 Agent 喂错上下文。
-</div></details>
-  <details><summary>三级笔记（骨架 + 血肉）</summary><div class="body"># 《我的 AI 原生开发流程：一个真实案例的完整复盘》
+</div></section>
+  <details><summary>三级笔记 · 骨架与血肉</summary><div class="body"># 《我的 AI 原生开发流程：一个真实案例的完整复盘》
 
 ## 一句话主旨
 AI 原生开发流程没变，变的是执行主体——人成了指挥官。
@@ -742,7 +785,7 @@ AI 到底怎样改变了软件开发？在一个真实功能开发案例中，�
 - 文档的新风险：版本未及时更新会产生错误的上下文。
 - 效率提升"数量级"为作者的主观感受，文中未给出量化数据；结论主要基于单个个人项目案例。
 </div></details>
-  <details><summary>概念辞典（概念 + 费曼一下 + 架构图）</summary><div class="body"># 概念解析辞典
+  <details><summary>概念辞典 · 概念 / 费曼一下 / 架构图</summary><div class="body"># 概念解析辞典
 
 > 针对《我的 AI 原生开发流程：一个真实案例的完整复盘》（宝玉，baoyu.io）的概念提取
 
@@ -933,19 +976,24 @@ flowchart TB
 ```
 </div></details>
 </article>
-<article id="linear-principles">
-  <h2><span class="no">4</span> <a href="https://linear.app/method/introduction" target="_blank" rel="noopener">原则与实践（Linear 的产品原则）</a></h2>
-  <p class="meta">linear.app ｜ 观点文 ｜ 约 4 分钟 ｜ 1,563 字</p>
-  <p class="gist">一句话主旨：项目管理工具应服务用户，以周期、目标和精简流程保持团队势头。</p>
-  <details open><summary>AI 费曼示范</summary><div class="body">这篇文章问：团队做软件，工具和流程该围着什么转？答案是围着做事的人转，让人高效专注、持续交付，而不是追求完美报告和复杂流程。
+<article id="linear-principles" style="--tint:#f3ecda">
+  <div class="head">
+    <div class="thumb">观</div>
+    <div class="headtext">
+      <div class="kicker"><span class="no">04</span><span class="chip">观点文</span><span>linear.app</span><span>·</span><span>约 4 分钟</span><span>·</span><span>1,563 字</span></div>
+      <h2><a href="https://linear.app/method/introduction" target="_blank" rel="noopener">原则与实践（Linear 的产品原则）</a></h2>
+    </div>
+  </div>
+  <p class="gist">项目管理工具应服务用户，以周期、目标和精简流程保持团队势头。</p>
+  <section class="feyn"><div class="label">AI 费曼示范</div><div class="body">这篇文章问：团队做软件，工具和流程该围着什么转？答案是围着做事的人转，让人高效专注、持续交付，而不是追求完美报告和复杂流程。
 
 核心机制是：目标清楚，再拆成小项目，每个项目只设一个负责人；用固定短周期推进，周期里别塞满，没做完就顺延；文档只讲清“为什么、是什么、怎么做”；反馈挂到具体事项；大任务切小，方便完成和审查；工具服务人，别让人维护它。周期就是固定一小段时间，比如两周一轮。
 
 像厨房出菜：目标明确，每道菜一个主厨，按晚市一轮轮出；不记住所有点过的菜，只留会再点的，靠反馈调整。
 
 代价是聚焦：作者承认，不必无限期保存所有功能请求，所以低优先级请求可能永远不解决；有时也没有最佳答案，只能先决定再前进。
-</div></details>
-  <details><summary>三级笔记（骨架 + 血肉）</summary><div class="body"># 《原则与实践（Linear 的产品原则）》
+</div></section>
+  <details><summary>三级笔记 · 骨架与血肉</summary><div class="body"># 《原则与实践（Linear 的产品原则）》
 
 ## 一句话主旨
 项目管理工具应服务用户，以周期、目标和精简流程保持团队势头。
@@ -1037,7 +1085,7 @@ flowchart TB
 - 明确边界/反例：过于灵活软件在团队扩大后导致混乱；工具不应让人成为开发者/维护者；自创术语可能造成混淆；周期不应塞满，未完成自动进入下周期；无需无限期保存所有功能请求/反馈，低优先级可能永远不会解决；漏洞数量远超能修复范围；邮箱爆满是好兆头，除非是bug报告；避免大规模拉取请求或大设计变更；并非总有最佳答案。
 - 不确定性：原文以原则式断言展开，未提供数据、来源或统一论证；除上述限定外，未明确列出反例、不适用场景或未解决矛盾。
 </div></details>
-  <details><summary>概念辞典（概念 + 费曼一下 + 架构图）</summary><div class="body"># 概念解析辞典
+  <details><summary>概念辞典 · 概念 / 费曼一下 / 架构图</summary><div class="body"># 概念解析辞典
 
 > 针对《原则与实践（Linear 的产品原则）》（linear.app）的概念提取
 
@@ -1156,15 +1204,20 @@ flowchart TD
 ```
 </div></details>
 </article>
-<article id="agent-skills-lesson-1">
-  <h2><span class="no">5</span> <a href="https://academy.claude.com/courses/introduction-to-agent-skills/what-are-skills" target="_blank" rel="noopener">Claude 官方课程 · 第 1 课：什么是 Agent Skills</a></h2>
-  <p class="meta">academy.claude.com ｜ 课程 ｜ 约 4 分钟 ｜ 1,464 字</p>
-  <p class="gist">一句话主旨：技能把重复解释变成按需自动加载的任务指令。</p>
-  <details open><summary>AI 费曼示范</summary><div class="body">这篇文章在回答 **Claude Code 的“技能”是什么、有什么用**。答案是：把你反复要交代的做事方法写成一份 SKILL.md，让 Claude 在合适时自动发现并套用，不必每次重讲。
+<article id="agent-skills-lesson-1" style="--tint:#e3edf2">
+  <div class="head">
+    <div class="thumb">课</div>
+    <div class="headtext">
+      <div class="kicker"><span class="no">05</span><span class="chip">课程</span><span>academy.claude.com</span><span>·</span><span>约 4 分钟</span><span>·</span><span>1,464 字</span></div>
+      <h2><a href="https://academy.claude.com/courses/introduction-to-agent-skills/what-are-skills" target="_blank" rel="noopener">Claude 官方课程 · 第 1 课：什么是 Agent Skills</a></h2>
+    </div>
+  </div>
+  <p class="gist">技能把重复解释变成按需自动加载的任务指令。</p>
+  <section class="feyn"><div class="label">AI 费曼示范</div><div class="body">这篇文章在回答 **Claude Code 的“技能”是什么、有什么用**。答案是：把你反复要交代的做事方法写成一份 SKILL.md，让 Claude 在合适时自动发现并套用，不必每次重讲。
 
 核心机制像办公室文件柜：每个文件夹外贴着名称和描述，里面才是审阅清单、格式偏好等详细说明。你提出请求后，Claude 先扫这些“标签”，拿请求和技能描述比对，匹配上才打开文件读指令。个人技能放在 `~/.claude/skills`，跟着你所有项目；项目技能放在仓库 `.claude/skills`，克隆仓库
-</div></details>
-  <details><summary>三级笔记（骨架 + 血肉）</summary><div class="body"># 《Claude 官方课程 · 第 1 课：什么是 Agent Skills》
+</div></section>
+  <details><summary>三级笔记 · 骨架与血肉</summary><div class="body"># 《Claude 官方课程 · 第 1 课：什么是 Agent Skills》
 
 ## 一句话主旨
 技能把重复解释变成按需自动加载的任务指令。
@@ -1228,7 +1281,7 @@ flowchart TD
 - 原文未给出不适用或失败场景的反例；未明确技能与 CLAUDE.md、斜杠命令是完全替代还是互补，只作对比。
 - 原文提到“以下是技能的前置信息示例”，但正文未给出实际示例内容；创建第一个技能留到下一课。
 </div></details>
-  <details><summary>概念辞典（概念 + 费曼一下 + 架构图）</summary><div class="body"># 概念解析辞典
+  <details><summary>概念辞典 · 概念 / 费曼一下 / 架构图</summary><div class="body"># 概念解析辞典
 
 > 针对《Claude 官方课程 · 第 1 课：什么是 Agent Skills》（Claude Academy，academy.claude.com）的概念提取
 
@@ -1357,17 +1410,22 @@ flowchart TB
 ```
 </div></details>
 </article>
-<article id="agent-skills-lesson-2">
-  <h2><span class="no">6</span> <a href="https://academy.claude.com/courses/introduction-to-agent-skills/creating-your-first-skill" target="_blank" rel="noopener">Claude 官方课程 · 第 2 课：技能的结构（SKILL.md 与 frontmatter）</a></h2>
-  <p class="meta">academy.claude.com ｜ 课程 ｜ 约 5 分钟 ｜ 1,845 字</p>
-  <p class="gist">一句话主旨：技能靠名称与描述被匹配，确认后才加载全文执行。</p>
-  <details open><summary>AI 费曼示范</summary><div class="body">技能就是一个目录，里面放一个 SKILL.md。这个文件被两行 `---` 分成两半：上半是“名片”，只有名称和描述；下半是“说明书”，写具体怎么做。Claude 启动时只看名片，不看说明书——它靠语义匹配，把你的请求和所有技能的描述比对，找到匹配的就先问你一句“要不要加载”，你确认后才把整份说明书读进上下文去执行。
+<article id="agent-skills-lesson-2" style="--tint:#f0e6f0">
+  <div class="head">
+    <div class="thumb">课</div>
+    <div class="headtext">
+      <div class="kicker"><span class="no">06</span><span class="chip">课程</span><span>academy.claude.com</span><span>·</span><span>约 5 分钟</span><span>·</span><span>1,845 字</span></div>
+      <h2><a href="https://academy.claude.com/courses/introduction-to-agent-skills/creating-your-first-skill" target="_blank" rel="noopener">Claude 官方课程 · 第 2 课：技能的结构（SKILL.md 与 frontmatter）</a></h2>
+    </div>
+  </div>
+  <p class="gist">技能靠名称与描述被匹配，确认后才加载全文执行。</p>
+  <section class="feyn"><div class="label">AI 费曼示范</div><div class="body">技能就是一个目录，里面放一个 SKILL.md。这个文件被两行 `---` 分成两半：上半是“名片”，只有名称和描述；下半是“说明书”，写具体怎么做。Claude 启动时只看名片，不看说明书——它靠语义匹配，把你的请求和所有技能的描述比对，找到匹配的就先问你一句“要不要加载”，你确认后才把整份说明书读进上下文去执行。
 
 生活类比：像一柜贴着标签的工具。平时你只扫标签，不翻说明书；真要用哪个，才把说明书抽出来看，而且抽之前还问你一声。标签写得含糊，就会拿错工具。
 
 同一名字撞车时，优先级是：企业版 → 个人版 → 项目版 → 插件版，所以公司能强制统一标准，你仍可在个人层面自定义。作者也点明了代价：新增或修改技能后必须重启 Claude Code 才生效。
-</div></details>
-  <details><summary>三级笔记（骨架 + 血肉）</summary><div class="body"># Claude 官方课程 · 第 2 课：技能的结构（SKILL.md 与 frontmatter）
+</div></section>
+  <details><summary>三级笔记 · 骨架与血肉</summary><div class="body"># Claude 官方课程 · 第 2 课：技能的结构（SKILL.md 与 frontmatter）
 
 ## 一句话主旨
 技能靠名称与描述被匹配，确认后才加载全文执行。
@@ -1450,7 +1508,7 @@ description: Writes pull request descriptions. Use when creating a PR, writing a
 - 材料存在翻译或笔误：如“前言/后言”“重启游戏”等表述，按后文应理解为 frontmatter/正文，以及重启 Claude Code。
 - 未说明确认提示是否可跳过、匹配失败如何处理、多个技能同时匹配时如何选择。
 </div></details>
-  <details><summary>概念辞典（概念 + 费曼一下 + 架构图）</summary><div class="body"># 概念解析辞典
+  <details><summary>概念辞典 · 概念 / 费曼一下 / 架构图</summary><div class="body"># 概念解析辞典
 
 > 针对《Claude 官方课程 · 第 2 课：技能的结构（SKILL.md 与 frontmatter）》（Claude Academy，academy.claude.com）的概念提取
 
@@ -1573,19 +1631,24 @@ flowchart TB
 ```
 </div></details>
 </article>
-<article id="agent-skills-lesson-3">
-  <h2><span class="no">7</span> <a href="https://academy.claude.com/courses/introduction-to-agent-skills/configuration-and-multi-file-skills" target="_blank" rel="noopener">Claude 官方课程 · 第 3 课：写好 name 与 description</a></h2>
-  <p class="meta">academy.claude.com ｜ 课程 ｜ 约 5 分钟 ｜ 1,909 字</p>
-  <p class="gist">一句话主旨：description 是最重要字段，决定 Claude 何时匹配并触发技能。</p>
-  <details open><summary>AI 费曼示范</summary><div class="body">这篇文章在回答：怎么给 Claude 的“技能”写名字和描述，让它在正确的时候被叫出来。答案是 name 和 description 必填，描述最重要，要说清“技能做什么、何时该用它”；名字只用小写、数字、连字符，并与目录一致。
+<article id="agent-skills-lesson-3" style="--tint:#e9efe2">
+  <div class="head">
+    <div class="thumb">课</div>
+    <div class="headtext">
+      <div class="kicker"><span class="no">07</span><span class="chip">课程</span><span>academy.claude.com</span><span>·</span><span>约 5 分钟</span><span>·</span><span>1,909 字</span></div>
+      <h2><a href="https://academy.claude.com/courses/introduction-to-agent-skills/configuration-and-multi-file-skills" target="_blank" rel="noopener">Claude 官方课程 · 第 3 课：写好 name 与 description</a></h2>
+    </div>
+  </div>
+  <p class="gist">description 是最重要字段，决定 Claude 何时匹配并触发技能。</p>
+  <section class="feyn"><div class="label">AI 费曼示范</div><div class="body">这篇文章在回答：怎么给 Claude 的“技能”写名字和描述，让它在正确的时候被叫出来。答案是 name 和 description 必填，描述最重要，要说清“技能做什么、何时该用它”；名字只用小写、数字、连字符，并与目录一致。
 
 核心机制是：Claude 靠描述匹配你的请求，所以措辞要贴近你的实际说法；allowed-tools 是可选的工具白名单，设了它，技能激活时只能用这些工具，比如只读不能改，省略则完全不限制。SKILL.md 是技能主文件，最好 500 行内，详细资料放旁边文件，需要时才加载；脚本可只运行不读内容，只有输出会消耗 token（上下文额度）。
 
 类比：技能像工具箱，门口标签写清“修水管用”，箱里放薄说明书，厚手册用时再翻；allowed-tools 像只给螺丝刀、不给锤子。
 
 作者承认的边界是：技能会和对话共享上下文窗口，激活时 SKILL.md 内容要加载进去，塞太多既占空间又难维护；省略 allowed-tools 则没有安全锁。
-</div></details>
-  <details><summary>三级笔记（骨架 + 血肉）</summary><div class="body"># Claude 官方课程 · 第 3 课：写好 name 与 description
+</div></section>
+  <details><summary>三级笔记 · 骨架与血肉</summary><div class="body"># Claude 官方课程 · 第 3 课：写好 name 与 description
 
 ## 一句话主旨
 description 是最重要字段，决定 Claude 何时匹配并触发技能。
@@ -1642,7 +1705,7 @@ description 是最重要字段，决定 Claude 何时匹配并触发技能。
 - 开放标准目录组织只明确列出 `assets/` 一类。
 - 本课聚焦关键字段、description 最佳实践、工具限制和更复杂技能构建；下一课才比较技能与 CLAUDE.md、子代理、钩子、MCP 服务器等其他自定义 Claude Code 的方式。
 </div></details>
-  <details><summary>概念辞典（概念 + 费曼一下 + 架构图）</summary><div class="body"># 概念解析辞典
+  <details><summary>概念辞典 · 概念 / 费曼一下 / 架构图</summary><div class="body"># 概念解析辞典
 
 > 针对《Claude 官方课程 · 第 3 课：写好 name 与 description》（Claude Academy，academy.claude.com）的概念提取
 
@@ -1759,19 +1822,24 @@ flowchart TD
 ```
 </div></details>
 </article>
-<article id="agent-skills-vs-features">
-  <h2><span class="no">8</span> <a href="https://academy.claude.com/zh-CN/courses/introduction-to-agent-skills/skills-vs-other-claude-code-features" target="_blank" rel="noopener">Claude 官方课程 · Skills 与其他 Claude Code 功能的比较</a></h2>
-  <p class="meta">academy.claude.com ｜ 课程 ｜ 约 4 分钟 ｜ 1,766 字</p>
-  <p class="gist">一句话主旨：各功能各有专长，应按需求组合使用，避免硬塞进 skills。</p>
-  <details open><summary>AI 费曼示范</summary><div class="body">这篇文章在回答：Claude Code 有 Skills、CLAUDE.md、subagents、hooks、MCP 这么多种自定义方式，到底什么时候用哪一种？答案是它们不是互相替代，而是各管一摊，最好组合使用，别把所有需求都硬塞进 Skills。
+<article id="agent-skills-vs-features" style="--tint:#ece7f4">
+  <div class="head">
+    <div class="thumb">课</div>
+    <div class="headtext">
+      <div class="kicker"><span class="no">08</span><span class="chip">课程</span><span>academy.claude.com</span><span>·</span><span>约 4 分钟</span><span>·</span><span>1,766 字</span></div>
+      <h2><a href="https://academy.claude.com/zh-CN/courses/introduction-to-agent-skills/skills-vs-other-claude-code-features" target="_blank" rel="noopener">Claude 官方课程 · Skills 与其他 Claude Code 功能的比较</a></h2>
+    </div>
+  </div>
+  <p class="gist">各功能各有专长，应按需求组合使用，避免硬塞进 skills。</p>
+  <section class="feyn"><div class="label">AI 费曼示范</div><div class="body">这篇文章在回答：Claude Code 有 Skills、CLAUDE.md、subagents、hooks、MCP 这么多种自定义方式，到底什么时候用哪一种？答案是它们不是互相替代，而是各管一摊，最好组合使用，别把所有需求都硬塞进 Skills。
 
 核心机制是“什么时候把什么加入当前对话”。CLAUDE.md 像一直贴在桌上的项目守则，每次对话都加载；Skills 像按需抽出的专业手册，只有请求匹配时才激活；subagents 像把任务交给单独房间的同事，在隔离上下文里干完再交结果；hooks 像传感器，文件保存、工具调用等事件一发生就触发；MCP 则是接外部工具和集成的插头。区别就在于：始终生效还是按需加载，加入当前对话还是隔离运行，事件驱动还是请求驱动，内部知识还是外部集成。
 
 日常类比：厨房里，CLAUDE.md 是餐厅常驻卫生标准，Skills 是某道菜才翻开的菜谱，subagents 是外包厨师，hooks 是烤箱定时器，MCP 是外卖接口。
 
 作者承认的边界是：Skills 按需加载，所以不会始终生效；当其他选项更合适时，不要把所有事情都硬塞进 Skills，而应组合使用。
-</div></details>
-  <details><summary>三级笔记（骨架 + 血肉）</summary><div class="body"># Claude 官方课程 · Skills 与其他 Claude Code 功能的比较
+</div></section>
+  <details><summary>三级笔记 · 骨架与血肉</summary><div class="body"># Claude 官方课程 · Skills 与其他 Claude Code 功能的比较
 
 ## 一句话主旨
 各功能各有专长，应按需求组合使用，避免硬塞进 skills。
@@ -1829,7 +1897,7 @@ Claude Code 的 Skills 与 CLAUDE.md、subagents、hooks、MCP servers 分别解
 - MCP servers 与 skills 被归为“完全不同的类别”，原文没有给出两者的具体取舍标准。
 - 原文未给出反例、失败案例或未解决矛盾；也未展开 MCP 的使用场景。
 </div></details>
-  <details><summary>概念辞典（概念 + 费曼一下 + 架构图）</summary><div class="body"># 概念解析辞典
+  <details><summary>概念辞典 · 概念 / 费曼一下 / 架构图</summary><div class="body"># 概念解析辞典
 
 > 针对《Claude 官方课程 · Skills 与其他 Claude Code 功能的比较》（Claude Academy，academy.claude.com）的概念提取
 
@@ -1980,19 +2048,24 @@ flowchart TB
 ```
 </div></details>
 </article>
-<article id="agent-skills-lesson-5">
-  <h2><span class="no">9</span> <a href="https://academy.claude.com/zh-CN/courses/introduction-to-agent-skills/sharing-skills" target="_blank" rel="noopener">Claude 官方课程 · 第 5 课：技能的分发与共享</a></h2>
-  <p class="meta">academy.claude.com ｜ 课程 ｜ 约 5 分钟 ｜ 2,138 字</p>
-  <p class="gist">一句话主旨：技能共享更有价值；仓库、插件、企业分发，子代理需显式列技能。</p>
-  <details open><summary>AI 费曼示范</summary><div class="body">文章在回答：团队里写好的 Claude 技能，怎么分给别人用、以及怎么让子代理用上它。答案是三条路——提交进仓库、做成插件、企业统一托管——外加一个坑：子代理不会自动继承技能，得手动点名。
+<article id="agent-skills-lesson-5" style="--tint:#f8e8e2">
+  <div class="head">
+    <div class="thumb">课</div>
+    <div class="headtext">
+      <div class="kicker"><span class="no">09</span><span class="chip">课程</span><span>academy.claude.com</span><span>·</span><span>约 5 分钟</span><span>·</span><span>2,138 字</span></div>
+      <h2><a href="https://academy.claude.com/zh-CN/courses/introduction-to-agent-skills/sharing-skills" target="_blank" rel="noopener">Claude 官方课程 · 第 5 课：技能的分发与共享</a></h2>
+    </div>
+  </div>
+  <p class="gist">技能共享更有价值；仓库、插件、企业分发，子代理需显式列技能。</p>
+  <section class="feyn"><div class="label">AI 费曼示范</div><div class="body">文章在回答：团队里写好的 Claude 技能，怎么分给别人用、以及怎么让子代理用上它。答案是三条路——提交进仓库、做成插件、企业统一托管——外加一个坑：子代理不会自动继承技能，得手动点名。
 
 机制上，技能就是存在 .claude/skills 里的文件夹。放进仓库，谁克隆谁就有，推送更新后大家拉取即可同步，靠 Git 版本控制。做成插件，则像上架应用市场，别人自行发现安装，适合不局限于单个项目的通用技能。企业托管优先级最高，同名技能一律被它覆盖，还能限定只允许从批准的来源安装插件——凡带"必须"二字的标准、合规、安全要求，就该用它。子代理则是被派活时从零开始、干干净净的助手，所以它看不见你已有的技能；只有在自定义代理文件开头的 skills 字段里明确列出，它才会加载。内置的 Explorer、Plan、Verify 则完全用不了技能。
 
 类比：仓库共享像把工具箱放进公司储物间，谁进这间屋都能拿；插件像超市货架上的成品工具；企业托管像公司强制配发的标准装备。而子代理像个新来的外包同事——你不把工具清单写给他，他就空手干活。
 
 作者承认的代价：企业技能会覆盖同名的个人和项目技能，优先级是把双刃剑，用不好会压掉你自己的定制。
-</div></details>
-  <details><summary>三级笔记（骨架 + 血肉）</summary><div class="body"># Claude 官方课程 · 第 5 课：技能的分发与共享
+</div></section>
+  <details><summary>三级笔记 · 骨架与血肉</summary><div class="body"># Claude 官方课程 · 第 5 课：技能的分发与共享
 
 ## 一句话主旨
 技能共享更有价值；仓库、插件、企业分发，子代理需显式列技能。
@@ -2060,7 +2133,7 @@ flowchart TB
 - 结尾未给出具体分发选择答案，而是提问：哪种共享方法（仓库、插件、企业）最有意义；哪些工作流程中带特定技能的自定义子代理能提高委派一致性。
 - 本课未详述故障排查；结尾预告最后一课将讲无法触发的技能、优先级冲突、运行时错误，并提供实用检查清单。
 </div></details>
-  <details><summary>概念辞典（概念 + 费曼一下 + 架构图）</summary><div class="body"># 概念解析辞典
+  <details><summary>概念辞典 · 概念 / 费曼一下 / 架构图</summary><div class="body"># 概念解析辞典
 
 > 针对《Claude 官方课程 · 第 5 课：技能的分发与共享》（academy.claude.com｜Claude Academy）的概念提取
 
@@ -2198,19 +2271,24 @@ flowchart TB
 图中三层的划分依据是功能角色：分发层决定技能以何种渠道、何种范围到达使用者；优先级层裁决同名冲突；子代理访问层处理"委派出去的工作能不能用上技能"。企业托管设置单独指向优先级层，是因为它同时具备部署方式与最高优先级两重身份。
 </div></details>
 </article>
-<article id="agent-skills-lesson-6">
-  <h2><span class="no">10</span> <a href="https://academy.claude.com/zh-CN/courses/introduction-to-agent-skills/troubleshooting-skills" target="_blank" rel="noopener">Claude 官方课程 · 第 6 课：技能排障</a></h2>
-  <p class="meta">academy.claude.com ｜ 课程 ｜ 约 5 分钟 ｜ 1,868 字</p>
-  <p class="gist">一句话主旨：技能失效可归入几类可预测的故障，每类都有直接对应的修复方法。</p>
-  <details open><summary>AI 费曼示范</summary><div class="body">这篇文章在说：Claude 的技能不按预期工作时，该怎么系统排查。答案是把故障分成四类——不触发、不加载、用错技能、运行时报错，先跑验证器抓结构问题，再按类修。
+<article id="agent-skills-lesson-6" style="--tint:#f3ecda">
+  <div class="head">
+    <div class="thumb">课</div>
+    <div class="headtext">
+      <div class="kicker"><span class="no">10</span><span class="chip">课程</span><span>academy.claude.com</span><span>·</span><span>约 5 分钟</span><span>·</span><span>1,868 字</span></div>
+      <h2><a href="https://academy.claude.com/zh-CN/courses/introduction-to-agent-skills/troubleshooting-skills" target="_blank" rel="noopener">Claude 官方课程 · 第 6 课：技能排障</a></h2>
+    </div>
+  </div>
+  <p class="gist">技能失效可归入几类可预测的故障，每类都有直接对应的修复方法。</p>
+  <section class="feyn"><div class="label">AI 费曼示范</div><div class="body">这篇文章在说：Claude 的技能不按预期工作时，该怎么系统排查。答案是把故障分成四类——不触发、不加载、用错技能、运行时报错，先跑验证器抓结构问题，再按类修。
 
 核心机制是，Claude 不是按文件名硬找技能，而是拿你的请求和技能描述做“语义匹配”，意思有重叠才会用；所以不触发通常要补触发短语，用错则常因几个描述太像。加载要求文件放在命名目录里、名字恰好叫 SKILL.md；运行时还要依赖已安装、脚本有执行权限、路径用正斜杠。术语拆掉：验证器就是自动检查文件结构的小工具；语义匹配就是看意思像不像。
 
 这像公司里找同事办事：门牌写清楚、擅长事项写具体，别人才能找对人；若两个部门都叫“审核”，就很容易走错门。
 
 作者也点明一个边界：若你的个人技能和企业级技能同名，企业级每次胜出，你通常只能重命名，而不能让个人版优先。
-</div></details>
-  <details><summary>三级笔记（骨架 + 血肉）</summary><div class="body"># Claude 官方课程 · 第 6 课：技能排障
+</div></section>
+  <details><summary>三级笔记 · 骨架与血肉</summary><div class="body"># Claude 官方课程 · 第 6 课：技能排障
 
 ## 一句话主旨
 技能失效可归入几类可预测的故障，每类都有直接对应的修复方法。
@@ -2271,7 +2349,7 @@ flowchart TB
 - 冲突与触发两类问题同源于"描述过于相似"，作者未给出量化区分标准，只给方向（更具区分度、更具体）。
 - 文末提出两个开放问题（遇到哪些故障、如何建立团队验证流程）未作解答，属引导性提问而非结论。
 </div></details>
-  <details><summary>概念辞典（概念 + 费曼一下 + 架构图）</summary><div class="body"># 概念解析辞典
+  <details><summary>概念辞典 · 概念 / 费曼一下 / 架构图</summary><div class="body"># 概念解析辞典
 
 > 针对《Claude 官方课程 · 第 6 课：技能排障》（Claude Academy）的概念提取
 
@@ -2396,5 +2474,5 @@ graph TD
 </div></details>
 </article>
 <p class="skip"><strong>跳过记账</strong>：The Information（Just a moment...）（Cloudflare 反爬，Reader 与直抓均无正文（41 字））</p>
-<p class="foot">流水线：原文快照 → 三级笔记（note-taking-pro SOP）→ 概念辞典（concept-learning SOP，含 Mermaid 架构图源码）→ AI 费曼示范。产物与记账：knowledge/内参-260912/。</p>
+<p class="foot">流水线：原文快照 → 三级笔记（note-taking-pro SOP）→ 概念辞典（concept-learning SOP，含 Mermaid 架构图源码）→ AI 费曼示范 → 五维拆解（另册）。产物与记账：knowledge/内参-260912/。</p>
 </main></html>
