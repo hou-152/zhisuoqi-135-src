@@ -91,6 +91,17 @@ await step('只看一条线', `setView('graph'); focusTag('T2')`, { js: `filter`
 await step('待你看一眼（已策展）', `filter=null; setAxis('tag'); setView('todo')`,
   { js: `document.getElementById('pbody').innerText.includes('我自己判了') ? 'OK' : 'NO'`, want: 'OK' });
 
+// 倒逼层：公网无模型时必须走机械兜底，并且**不能**给出「过了」
+await step('概念面板有复述输入框', `openPanel('C04')`,
+  { js: `document.getElementById('said') ? 'OK' : 'NO'`, want: 'OK' });
+await step('无自报通道', `document.getElementById('pbody').innerHTML.includes('setMark') ? '还在' : 'OK'`,
+  { js: `document.getElementById('pbody').innerHTML.includes('setMark') ? '还在' : 'OK'`, want: 'OK' });
+await step('无模型时交卷 → 机械兜底，且不冒充「过了」',
+  `document.getElementById('said').value='用四象限把现实分成内在外在和个体集体四个格子，前两类人各砍掉一半。'; judge('C04')`,
+  { js: `(()=>{const m=marks['C04']||{}; return (m.state==='pass'?'❌给了过了':m.state)+'|'+(m.mechanical?'mech':'sem')})()`, want: 'mech' });
+await step('无模型时明确标注「没经语义判定」', null,
+  { js: `document.getElementById('pbody').innerText.includes('没经语义判定') ? 'OK' : 'NO'`, want: 'OK' });
+
 console.log(fails.length ? `\n❌ 失败 ${fails.length} 条:\n` + fails.join('\n') : '\n✅ 公网版验收全过');
 ws.close(); chrome.kill();
 try { (await import('node:fs')).rmSync(PROF, { recursive: true, force: true, maxRetries: 5 }); } catch {}

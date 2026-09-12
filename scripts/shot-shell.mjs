@@ -161,6 +161,28 @@ await step('真对话（dbs-learning-beta）', async () => {
 const conv = await cdp.eval(`document.getElementById('clist') ? document.getElementById('clist').innerText.slice(-420) : '(无会话)'`);
 console.log('--- 会话结尾 ---\n' + conv + '\n---');
 
+await step('概念 · 倒逼输入框', async () => {
+  await cdp.eval(`closePanel(); setAxis('tag'); filter=null; localStorage.removeItem('zss135.proof.v2'); marks={}; refreshMarks(); openPanel('C04')`);
+  shots.push(await cdp.shot('21-倒逼-输入框.png'));
+});
+
+await step('没过 · 漏点 · 倒回先修', async () => {
+  await cdp.eval(`document.getElementById('said').value='就是一个理论吧，感觉挺有道理的，讲人的不同方面。'; judge('C04')`);
+  await sleep(15000);
+  shots.push(await cdp.shot('22-倒逼-没过倒回.png'));
+});
+
+await step('说清楚了才给过', async () => {
+  await cdp.eval(`openPanel('C04'); document.getElementById('said').value='威尔伯的四象限是两条轴交叉：一条是内在经验 vs 外在行为，一条是个体 vs 集体，两两组合出四个格子。纯粹派和自动机各砍掉了一半现实——一个只认内在、退回无屏幕生活，一个只认外在可优化的部分。用四象限是把被砍掉的那半个现实放回来，判断一个人或一件事要同时在四个格子里看。'; judge('C04')`);
+  await sleep(16000);
+  shots.push(await cdp.shot('23-倒逼-过了.png'));
+});
+
+await step('一条线的倒逼链', async () => {
+  await cdp.eval(`startLine('T2')`);
+  shots.push(await cdp.shot('24-倒逼-一条线的链.png'));
+});
+
 await step('星球', async () => {
   await cdp.eval(`closePanel(); setMode('sphere')`);
   shots.push(await cdp.shot('18-壳-星球.png'));
