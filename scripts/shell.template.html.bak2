@@ -178,33 +178,6 @@
 .badge{display:inline-block;font-size:9.5px;letter-spacing:.08em;border-radius:20px;
   padding:1px 7px;border:1px solid #2a3340;color:#8b95a3;margin-left:6px;vertical-align:1px}
 .badge.auto{border-color:#2f5a41;color:#79c9a0}
-.chainhead{background:#1a2130;border:1px solid #2c3a52;border-radius:9px;padding:7px 10px;
-  font-size:11px;color:#9fb4d4;margin-bottom:14px;display:flex;align-items:center;gap:8px}
-.chainhead button{margin-left:auto;background:none;border:0;color:#6f86a8;font-size:10.5px;
-  cursor:pointer;font-family:inherit;text-decoration:underline}
-.dpane{background:#101620;border:1px solid #22303f;border-radius:11px;padding:13px 14px;margin:16px 0}
-.dpane h5{margin:0 0 8px}
-.dpane textarea{width:100%;min-height:88px;background:#0b1017;border:1px solid #223041;border-radius:9px;
-  padding:10px 11px;color:#e6ebf2;font-size:12.5px;line-height:1.75;outline:none;font-family:inherit;
-  resize:vertical;margin-top:9px}
-.dpane textarea:focus{border-color:#3a5372}
-.jrow{display:flex;align-items:center;gap:10px;margin-top:9px}
-.jbtn{background:#1d4e3a;border:1px solid #2f7a58;border-radius:9px;color:#c9f5dd;font-size:12px;
-  padding:8px 14px;cursor:pointer;font-family:inherit}
-.jbtn:hover{background:#245f47}
-.jbtn.ghost{background:#1a2029;border-color:#2f3a48;color:#c7ced8;padding:6px 11px}
-.jerr{font-size:11px;color:#e0a94a}
-.jverdict{border-radius:10px;padding:11px 13px;margin:12px 0;font-size:12.5px;line-height:1.7}
-.jverdict.ok{background:#0f2019;border:1px solid #2f7a58;color:#c9f5dd}
-.jverdict.mech{background:#221c10;border:1px solid #7a5f2f;color:#e8d3a0}
-.jverdict.bad{background:#20120f;border:1px solid #7a352f;color:#f5cdc9}
-.jmiss{margin-top:6px;font-size:12px}
-.backto{margin-top:9px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
-.backto button{background:#2a1a18;border:1px solid #6d3a33;border-radius:8px;color:#f0c4bd;
-  font-size:11.5px;padding:5px 10px;cursor:pointer;font-family:inherit}
-.backto button:hover{background:#38211d}
-.nexthint{margin-top:16px;padding-top:13px;border-top:1px solid #1a1a1f;font-size:12px;
-  color:#98a1ad;line-height:2}
 .cmsg{margin:9px 0;padding:9px 11px;border-radius:10px;font-size:12.5px;line-height:1.75}
 .cmsg.user{background:#182029;border:1px solid #232c38;color:#dbe3ec}
 .cmsg.assistant{background:#111720;border:1px solid #1c2431;color:#c2ccd8}
@@ -278,130 +251,28 @@ let mode = 'grid';
 let rotX = -0.22, rotY = 0.5, zoom = 1.08, panX = 0, panY = 0;
 let selected = null, hovered = null, filter = null;
 
-/* ── 我的标记层：**不能自己标「学过」** ──────────────────────────
-   所有者 09-12 08:47 的批评：「变成了一个摆设……这样子干你没法倒逼」
-   原来自报——点一下「学过」就变绿，零证据。那就是摆设。
-   现在：只有**写过一次复述、被判过**才可能有环。判定人不是学习者自己。
-     pass = 复述过了（青环）
-     fail = 验过、没过，正在倒回（红环）
-     mech = 只过了机械覆盖检查，没经语义判定（琥珀环，不算学会）
-     无环 = 没验过
-   布局只由 nodes/edges 决定，标记不参与任何坐标计算。 */
-const MARK_KEY = 'zss135.proof.v2';   // v1 是自报的，作废不迁移
-let marks = {};   // { [id]: {state, said, missing:[], wrong:[], backTo:[], why, at} }
+/* ── 我的标记层：位置永不动，只加环 ────────────────────
+   learned = 学过（青环）· gap = 漏点没补（红环）· 缺省 = 没学过（无环）
+   关键：布局只由 nodes/edges 决定，标记不参与任何坐标计算。 */
+const MARK_KEY = 'zss135.canvas.v1';
+let marks = {};
 try { marks = JSON.parse(localStorage.getItem(MARK_KEY) || '{}') || {}; } catch (e) { marks = {}; }
-// 老版本存的是字符串 'learned'/'gap'，直接丢掉——那是自报，不是证据
-for (const k of Object.keys(marks)) if (typeof marks[k] === 'string') delete marks[k];
 function saveMarks() { try { localStorage.setItem(MARK_KEY, JSON.stringify(marks)); } catch (e) {} }
-
-function stats() {
-  const v = Object.values(marks);
-  return {
-    pass: v.filter(x => x.state === 'pass').length,
-    fail: v.filter(x => x.state === 'fail').length,
-    mech: v.filter(x => x.state === 'mech').length,
-    done: v.length,
-  };
-}
 function refreshMarks() {
-  const s = stats();
+  const L = nodes.filter(n => marks[n.id] === 'learned').length;
+  const G = nodes.filter(n => marks[n.id] === 'gap').length;
   const el = document.getElementById('myrow');
   if (el) el.innerHTML =
-    `<span class="dot" style="background:#5ee0c0"></span>复述过了<span class="n">${s.pass}</span>` +
-    `<span class="dot" style="background:#ff4d4d;margin-left:12px"></span>没过·倒回中<span class="n">${s.fail}</span>` +
-    (s.mech ? `<span class="dot" style="background:#e0a94a;margin-left:12px"></span>只过机器检查<span class="n">${s.mech}</span>` : '') +
-    `<div class="n" style="margin-left:0;margin-top:5px">验过 ${s.done} · 没验过 ${nodes.length - s.done} · 共 ${nodes.length}</div>`;
-  if (window.refreshRail) refreshRail();
+    `<span class="dot" style="background:#5ee0c0"></span>学过<span class="n">${L}</span>` +
+    `<span class="dot gap" style="background:#ff4d4d;margin-left:14px"></span>漏点没补<span class="n">${G}</span>` +
+    `<span class="n" style="margin-left:14px">共 ${nodes.length}</span>`;
 }
-function clearProof(id) {
-  delete marks[id]; saveMarks(); refreshMarks();
+function setMark(id, v) {
+  if (v === 'none' || marks[id] === v) delete marks[id]; else marks[id] = v;
+  saveMarks(); refreshMarks(); if (window.refreshRail) refreshRail();
   if (selected === id) openPanel(id);
 }
-window.clearProof = clearProof;
-
-/* ── 费曼验收：遮住原文，用自己的话说，系统挑漏，漏哪倒回哪 ────────
-   判定口径写在提示词里：照抄不算过、只写几个词不算过、
-   「意思差不多」不放过——因为判定器的工作是**挑漏**，不是发安慰分。 */
-const JUDGE_SYS = '你是费曼验收的判定器。学习者刚看过一个概念，现在要他遮住原文、用自己的话说一遍。'
-  + '你的任务是**挑漏**，不是鼓励，不许给安慰分。\n'
-  + '只输出 json：\n'
-  + '{"verdict":"pass" 或 "fail",'
-  + '"missing":["他漏掉的要点，每条 6-18 字，最多 3 条"],'
-  + '"wrong":["他说错的地方，没有就空数组"],'
-  + '"backTo":["先修概念 id，只能从下面给出的前置 id 里挑；漏的根在某个前置概念上就指向它，否则空数组"],'
-  + '"why":"一句话 20-40 字，直接说他哪里没说清，不要客套"}\n'
-  + '判定口径：\n'
-  + '- pass：说清了「它讲的是什么」里的核心机制，且没有事实错误。\n'
-  + '- fail：漏掉核心机制、说了错话、或只是把原句换个说法照抄（照抄不算过）。\n'
-  + '- 只写了几个词、没成句 → fail。\n'
-  + '- 拿不准就 fail。不要因为「意思差不多」放过。';
-
-function judgeUserMsg(nd, said) {
-  const pre = (neighbors.get(nd.id).pre || []).map(x => byId.get(x)).filter(Boolean);
-  return '概念名：' + nd.name + '\n'
-    + '它讲的是什么（唯一判据）：' + nd.gloss + '\n'
-    + '它的前置概念（backTo 只能指向这些 id）：\n'
-    + (pre.length ? pre.map(x => '  ' + x.id + ' ｜ ' + x.name + ' ｜ ' + x.gloss).join('\n') : '  （没有前置）')
-    + '\n\n学习者用自己的话说：' + said;
-}
-
-/* 机械兜底：没有模型可判时，只做**关键词覆盖检查**，并且如实标注它不是语义判定。
-   它**不会**把概念标成 pass——只标 mech（琥珀环），因为过没过机器检查不等于懂没懂。 */
-const STOP = new Set(['一个','这个','那个','的是','可以','就是','不是','或者','以及','通过','因为','所以','需要','没有','已经','什么','怎么','这样','那样','自己','我们','他们','这些','那些','但是','而且','如果','它们','也就是','指的是','一种','用来','能够','不会','会有','时候','东西','事情','问题','方式','方法','过程','情况','状态']);
-function mechJudge(nd, said) {
-  const raw = nd.gloss.match(/[A-Za-z][A-Za-z0-9+#.-]{1,}|[\u4e00-\u9fa5]{2,4}/g) || [];
-  const key = [...new Set(raw)].filter(t => !STOP.has(t)).slice(0, 16);
-  const miss = key.filter(t => !said.includes(t));
-  const cover = key.length ? (key.length - miss.length) / key.length : 0;
-  return {
-    verdict: cover >= 0.5 ? 'mech' : 'fail',
-    coverage: cover, missing: miss.slice(0, 5), wrong: [], backTo: [],
-    why: '关键词覆盖 ' + Math.round(cover * 100) + '%（机械检查，不是语义判定）', mechanical: true,
-  };
-}
-
-let judging = false;
-async function judge(id) {
-  const box = document.getElementById('said');
-  const said = (box ? box.value : '').trim();
-  const nd = byId.get(id);
-  const err = document.getElementById('jerr');
-  if (!nd || judging) return;
-  if (said.length < 10) {
-    if (err) err.textContent = said.length ? '太短了——至少写成一句话（10 字以上）。几个词不算复述。' : '先写点什么。遮住上面那句，用你自己的话说。';
-    return;
-  }
-  judging = true;
-  if (err) err.textContent = '判定中…';
-  let v;
-  try {
-    v = await judgeCall(nd, said);
-  } catch (e) {
-    v = { verdict: 'fail', missing: [], wrong: [], backTo: [], why: '判定失败：' + (e.message || e) };
-  }
-  judging = false;
-  marks[id] = {
-    state: v.verdict, said, missing: v.missing || [], wrong: v.wrong || [],
-    backTo: (v.backTo || []).filter(x => byId.has(x)), why: v.why || '',
-    coverage: v.coverage, mechanical: !!v.mechanical, at: Date.now(),
-  };
-  saveMarks(); refreshMarks();
-  if (selected === id) openPanel(id);
-}
-window.judge = judge;
-
-/* 服务端/本地壳用的判定调用。公网版会把这一段换掉（见 scripts/build-public.mjs）。 */
-async function judgeCall(nd, said) {
-  const r = await fetch('/api/llm', {
-    method: 'POST', headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ messages: [{ role: 'system', content: JUDGE_SYS },
-                                      { role: 'user', content: judgeUserMsg(nd, said) }] }),
-  });
-  const j = await r.json();
-  if (j.error) return mechJudge(nd, said);
-  const txt = j.content || '{}';
-  try { return JSON.parse(txt); } catch (e) { return mechJudge(nd, said); }
-}
+window.setMark = setMark;
 let W = 0, H = 0, CX = 0, CY = 0, DPR = 1;
 const cvs = document.getElementById('c'), ctx = cvs.getContext('2d');
 const tip = document.getElementById('tip');
@@ -598,10 +469,9 @@ function render() {
     // 我的标记环：只加环，不改填充色，不动坐标
     const mk = marks[n.id];
     if (mk && on) {
-      const st = mk.state || 'fail';
       ctx.globalAlpha = (isSel || isHov) ? 1 : 0.92;
-      ctx.strokeStyle = st === 'pass' ? '#5ee0c0' : st === 'mech' ? '#e0a94a' : '#ff4d4d';
-      ctx.lineWidth = st === 'pass' ? 2 : 1.6;
+      ctx.strokeStyle = mk === 'gap' ? '#ff4d4d' : '#5ee0c0';
+      ctx.lineWidth = mk === 'gap' ? 2 : 1.4;
       ctx.beginPath(); ctx.arc(p.sx, p.sy, r + 2.8, 0, 6.2832); ctx.stroke();
     }
     if (isSel) {
@@ -677,39 +547,8 @@ function openPanel(id) {
   const src = sources.find(s => s.id === n.src);
   const pre = nb.pre.map(x => byId.get(x)).filter(Boolean);
   const post = nb.post.map(x => byId.get(x)).filter(Boolean);
-  const mk = marks[id];
-  const tags = (n.tags || []).map(t => (CUR.tags.find(x => x.id === t) || {}).name).filter(Boolean);
-  const chain = CHAIN && CHAIN.ids.includes(id)
-    ? `<div class="chainhead">这条线 · ${CHAIN.name} · 第 ${CHAIN.ids.indexOf(id) + 1}/${CHAIN.ids.length} 步
-       <button onclick="CHAIN=null;openPanel('${id}')">退出这条线</button></div>` : '';
-
-  let verdict = '';
-  if (mk) {
-    const tone = mk.state === 'pass' ? 'ok' : mk.state === 'mech' ? 'mech' : 'bad';
-    const title = mk.state === 'pass' ? '复述过了'
-      : mk.mechanical ? '没过 · 只做了机械检查（没经语义判定）'
-      : mk.state === 'mech' ? '只过了机械检查（没经语义判定，不算学会）'
-      : '没过 · 正在倒回';
-    verdict = `<div class="jverdict ${tone}">
-      <b>${title}</b>
-      ${mk.why ? `<div class="mut" style="margin-top:4px">${esc(mk.why)}</div>` : ''}
-      ${mk.missing && mk.missing.length ? `<div class="jmiss">漏了：${mk.missing.map(esc).join(' · ')}</div>` : ''}
-      ${mk.wrong && mk.wrong.length ? `<div class="jmiss">说错了：${mk.wrong.map(esc).join(' · ')}</div>` : ''}
-      ${mk.backTo && mk.backTo.length
-        ? `<div class="backto">倒回 → ${mk.backTo.map(b => `<button onclick="openPanel('${b}')">${esc(byId.get(b).name)}</button>`).join('')}</div>`
-        : ''}
-      <div class="mut" style="margin-top:6px;font-size:10.5px">你写的是：${esc((mk.said || '').slice(0, 120))}${(mk.said || '').length > 120 ? '…' : ''}</div>
-      ${mk.mechanical ? `<div class="mut" style="margin-top:5px;font-size:10.5px;color:#e0a94a">
-        这次只做了机械检查。想要真判定：本地跑 <code>node scripts/serve-135.mjs</code>，或在对话页填一个 DeepSeek key。</div>` : ''}
-      <div class="markrow" style="margin-top:8px">
-        <button class="mk quiet" onclick="clearProof('${id}')">重写一遍（清掉这次）</button>
-      </div>
-    </div>`;
-  }
-
   document.getElementById('pbody').innerHTML = `
-    ${chain}
-    <div class="src">${tags.length ? tags.join(' · ') : (src ? src.label : n.src)} · ${n.type}</div>
+    <div class="src">${src ? src.label : n.src} · ${n.type}</div>
     <h2>${n.name}</h2>
     <div class="gloss">${n.gloss}</div>
     <div class="metrics">
@@ -717,49 +556,18 @@ function openPanel(id) {
       <div class="m"><b>${post.length}</b><span>解锁</span></div>
       <div class="m"><b>L${n.level}</b><span>层级</span></div>
     </div>
-
-    <div class="dpane">
-      <h5>倒逼 · 你不能自己标「学过」</h5>
-      <div class="mut">遮住上面那句，用你自己的话说一遍它讲的是什么。<br>
-      判定器会挑你漏了什么、说错了什么，<b>漏在哪就把你倒回哪个先修概念</b>。</div>
-      <textarea id="said" placeholder="用自己的话说，别抄上面那句。抄了不算过。">${mk ? esc(mk.said || '') : ''}</textarea>
-      <div class="jrow">
-        <button class="jbtn" onclick="judge('${id}')">交卷，让系统挑漏</button>
-        <span id="jerr" class="jerr"></span>
-      </div>
+    <div class="markrow">
+      <button class="mk${marks[id] === 'learned' ? ' on' : ''}" onclick="setMark('${id}','learned')">学过</button>
+      <button class="mk gap${marks[id] === 'gap' ? ' on' : ''}" onclick="setMark('${id}','gap')">漏点没补</button>
+      <button class="mk${marks[id] ? '' : ' quiet'}" onclick="setMark('${id}','none')">清除</button>
     </div>
-    ${verdict}
-
     ${pre.length ? `<h5>要理解它，先懂这些</h5><ul>${pre.map(x =>
-      `<li onclick="openPanel('${x.id}')">${x.name}<em>L${x.level}${marks[x.id] ? (marks[x.id].state === 'pass' ? ' · 已过' : marks[x.id].state === 'mech' ? ' · 机器过' : ' · 没过') : ''}</em></li>`).join('')}</ul>` : ''}
+      `<li onclick="openPanel('${x.id}')">${x.name}<em>L${x.level}</em></li>`).join('')}</ul>` : ''}
     ${post.length ? `<h5>懂了它，才能懂这些</h5><ul>${post.map(x =>
       `<li onclick="openPanel('${x.id}')">${x.name}<em>L${x.level}</em></li>`).join('')}</ul>` : ''}
-
-    ${(mk && (mk.state === 'pass' || mk.state === 'mech')) ? `<div class="nexthint">${
-      CHAIN && CHAIN.ids.indexOf(id) + 1 < CHAIN.ids.length
-        ? `过了。下一步 → <button class="jbtn" onclick="chainNext()">${esc(byId.get(CHAIN.ids[CHAIN.ids.indexOf(id) + 1]).name)}</button>`
-        : (post.length ? `过了。要不要接着往上游走？<br>${post.slice(0, 3).map(x => `<button class="jbtn ghost" onclick="openPanel('${x.id}')">${esc(x.name)}</button>`).join(' ')}` : '这条线的点你都验过了。')
-    }</div>` : ''}
   `;
   document.getElementById('panel').classList.add('on');
 }
-
-/* ── 一条线的倒逼链：从策展面板进来，一步一个概念 ── */
-let CHAIN = null;
-function startLine(tagId) {
-  const c = (CUR.collections || []).find(x => x.tagId === tagId);
-  if (!c || !c.route.length) return;
-  CHAIN = { tagId, name: c.name, ids: c.route.map(x => x.id) };
-  setView('graph'); axis = 'tag'; filter = tagId;
-  buildLegend(); computeLayout(); openPanel(CHAIN.ids[0]);
-}
-function chainNext() {
-  if (!CHAIN) return;
-  const i = CHAIN.ids.indexOf(selected);
-  if (i < 0 || i + 1 >= CHAIN.ids.length) { const t = CHAIN.tagId; CHAIN = null; openCollection(t); return; }
-  openPanel(CHAIN.ids[i + 1]);
-}
-window.startLine = startLine; window.chainNext = chainNext;
 function closePanel() {
   selected = null;
   document.getElementById('panel').classList.remove('on');
@@ -841,8 +649,7 @@ const SKEL = edges.filter(e => e[2] >= 7);   // 骨架（多次一致）
 const CAND = edges.filter(e => e[2] < 7);    // 候选（机器推的、只出现一次的那批）
 
 function refreshRail() {
-  const st = stats();
-  const mine = st.done;
+  const mine = nodes.filter(n => marks[n.id]).length;
   const autoN = CUR.edgeAuto ? CUR.edgeAuto.length : 0;
   const humanKey = new Set(CUR.edgeHuman || []);
   const pending = (CUR.edgeHuman || []).filter(k => !insertMarks[k]).length;
@@ -852,7 +659,7 @@ function refreshRail() {
   const e5 = document.getElementById('r-cur');
   if (e1) e1.textContent = nodes.length + ' 点 · ' + (CUR.tags || []).length + ' 条线 · ' + SKEL.length + ' 骨架';
   if (e2) e2.textContent = pending + ' 条要你看（我自己判了 ' + autoN + ' 条）';
-  if (e3) e3.textContent = mine ? ('验过 ' + st.pass + ' 过 / ' + st.fail + ' 没过' + (st.mech ? ' / ' + st.mech + ' 机器过' : '')) : '一个都还没验过';
+  if (e3) e3.textContent = mine ? mine + ' 个已标记' : '还没标过';
   if (e5) e5.textContent = (CUR.tags || []).length + ' 条线已排好路线';
   const e4 = document.getElementById('r-chat');
   if (e4) e4.textContent = activeSkill ? ('用：' + activeSkill) : '选方法论';
@@ -952,7 +759,6 @@ function openCollection(tid) {
       <div class="m"><b>${c.size}</b><span>相关点</span></div>
     </div>
     <div class="markrow">
-      <button class="mk on" onclick="startLine('${tid}')">开始倒逼 · 一步一个概念</button>
       <button class="mk" onclick="focusTag('${tid}')">只看这条线</button>
       <button class="mk quiet" onclick="openCurate()">回到 ${(CUR.collections || []).length} 条线</button>
     </div>

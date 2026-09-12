@@ -123,6 +123,47 @@ rep(`    const payload = activeFile
     }`,
 'send');
 
+/* ── ③b 判定器：公网版同样三条路，没有模型时退回机械覆盖检查 ──── */
+rep(`async function judgeCall(nd, said) {
+  const r = await fetch('/api/llm', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ messages: [{ role: 'system', content: JUDGE_SYS },
+                                      { role: 'user', content: judgeUserMsg(nd, said) }] }),
+  });
+  const j = await r.json();
+  if (j.error) return mechJudge(nd, said);
+  const txt = j.content || '{}';
+  try { return JSON.parse(txt); } catch (e) { return mechJudge(nd, said); }
+}`,
+`async function judgeCall(nd, said) {
+  const msgs = [{ role: 'system', content: JUDGE_SYS }, { role: 'user', content: judgeUserMsg(nd, said) }];
+  if (await probeServer()) {
+    try {
+      const r = await fetch('/api/llm', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: msgs }) });
+      const j = await r.json();
+      if (!j.error) { try { return JSON.parse(j.content || '{}'); } catch (e) {} }
+    } catch (e) {}
+  }
+  const key = getKey();
+  if (key) {
+    try {
+      const r = await fetch('https://api.deepseek.com/chat/completions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + key },
+        body: JSON.stringify({ model: PUB.model || 'deepseek-chat', temperature: 0,
+          response_format: { type: 'json_object' }, messages: msgs }),
+      });
+      const j = await r.json();
+      if (!j.error) { try { return JSON.parse(j.choices?.[0]?.message?.content || '{}'); } catch (e) {} }
+    } catch (e) {}
+  }
+  // 两个都没有 → 机械覆盖检查。它**不会**把概念标成「过了」，只标 mech（琥珀环），
+  // 因为过了关键词检查不等于懂。这一点页面上写明了。
+  return mechJudge(nd, said);
+}`,
+'judgeCall');
+
 /* ── ④ 离线兜底改写（公网版不存在 file:// 那套说辞） ───────── */
 rep(`      '（离线）没连上本地服务，所以这句不是真回答。\\n'
       + '要真对话：项目根目录跑 \`node scripts/serve-135.mjs\`，然后开 http://127.0.0.1:5180/知所栖-壳.html —— 同一个地址下 /api/llm 才通。' };`,
