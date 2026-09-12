@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 把裸 LLM 比作无 RAM 无磁盘无 IO 的 CPU：上下文是 RAM，外部库是磁盘，工具是驱动，harness 是操作系统。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -38,7 +38,7 @@ A raw LLM is a CPU with no RAM, no disk, and no I/O. The context window serves a
 
 ## 先懂这些（前置 1）
 
-- [[stateless]] · **soft** — 把上下文比作 RAM，前提是每次调用都不携带状态
+- [[stateless]] · **hard** — 裸 LLM 如无 RAM 的 CPU，因为每次调用无状态，不懂就看不懂类比。
 
 ## 相关
 

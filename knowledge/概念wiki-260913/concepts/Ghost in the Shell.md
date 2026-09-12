@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: media-culture-education
 learningStage: when-needed
 verification: accept
-centrality: 0.072
-depth: 3
+centrality: 0.067
+depth: 2
 origin: [notion]
 aliases: ["幽灵与壳 / 攻壳 / ghost in the shell / 攻壳机动队"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 赛博脑乘义体乘幽灵，即寄宿于义体之中的意识的构想。
 
-**领域** media-culture-education ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
+**领域** media-culture-education ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -36,13 +36,10 @@ sources: 1
 
 > {{name}} 中的幽灵指的是什么？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
-- [[Hypnopaedia]] · **soft** — 义体意识可被技术改写，才懂睡眠灌输为何能改写人心
-
-## 懂了它才能懂（解锁 1）
-
-- [[Human-Only Social Networks]] — 义体与赛博脑模糊人机边界，才懂真人网络为何要生物验证
+- [[Human-Only Social Networks]] · **soft** — 义体与幽灵的身份问题，让人理解真人网络中'如何证明是人'的困难。
+- [[Hypnopaedia]] · **soft** — 意识可被外部塑造与寄宿义体，两者都关涉意识的可改造性。
 
 ## 相关
 

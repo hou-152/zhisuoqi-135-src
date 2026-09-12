@@ -4,9 +4,9 @@ name: 锯齿状智能（Jagged Intelligence）
 type: CONCEPTUAL
 subject: AI 概念库
 domain: model-training
-learningStage: when-needed
+learningStage: now
 verification: judge
-centrality: 0.126
+centrality: 0.117
 depth: 2
 origin: [notion]
 aliases: ["Jagged Intelligence", "不平滑能力", "AI 能力锯齿", "能力边界不平滑"]
@@ -15,9 +15,9 @@ sources: 1
 
 # 锯齿状智能（Jagged Intelligence）
 
-> LLM 能力边界不平滑，某些任务表现惊艳，相邻的简单任务却莫名失败。
+> LLM 能力边界不平滑，同类任务结果可能天差地别，盲区随机散布在任务空间里。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.117
 
 ## 费曼一下
 
@@ -25,12 +25,12 @@ LLM 的能力**不是一条平滑曲线**——在博士级数学题上吊打人
 
 ## 掌握证据（做到这些才算会）
 
-- 能举出同一模型强项与莫名失败的对照例子
-- 能说明锯齿在订阅制与按 token 计费下代价不同
+- 能举出相邻同类任务表现差异巨大的实例
+- 能说明为何不能假设模型在某类任务上稳定，需要冗余校验与人工兜底
 
 ## 验收问句
 
-> 你能指出 {{name}} 的表现并据此保留冗余校验与人工兜底吗？
+> 举一个{{name}}的例子，并说明为何不能假设同类任务稳定。
 
 ## 先懂这些（前置 2）
 

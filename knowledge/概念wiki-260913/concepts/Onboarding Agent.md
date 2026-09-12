@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: safety-governance
 learningStage: now
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [notion]
 aliases: ["部署 Agent 像 onboarding 新员工", "AI Agent 入职", "AI 员工化", "AI Agent governance as onboarding"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 把 Agent 部署当作 onboarding 新人：给权限、定边界、记录行为、审计理由，而不是装个插件。
 
-**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 原文 context
 

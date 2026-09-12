@@ -7,7 +7,7 @@ subject: AI 概念库 × Context Engineering
 domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.134
+centrality: 0.177
 depth: 2
 origin: [notion, context]
 aliases: ["Context", "context"]
@@ -18,7 +18,7 @@ sources: 3
 
 > 任何可刻画实体所处情境的信息；各相关实体表征的并集即上下文，也指模型读到的全部前文。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.134
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.177
 
 ## 费曼一下
 
@@ -43,10 +43,12 @@ sources: 3
 
 - [[系统提示 System Prompt]] · **hard** — System Prompt 是模型生成响应前可见 Context 的组成之一。
 
-## 懂了它才能懂（解锁 2）
+## 懂了它才能懂（解锁 4）
 
 - [[短上下文]] — 短上下文是上下文的一种裁剪形态，先懂上下文。
-- [[自回归下输出也是上下文]] — 模型自回归生成也进入自身输入，先懂上下文含生成前全部信息
+- [[有限的工作记忆 limited working memory]] — 工作记忆指的是上下文能装载的信息量，不理解上下文就无从谈其有限性。
+- [[自回归下输出也是上下文]] — 该命题说的是输出进入模型自身输入，前提是先理解什么是上下文。
+- [[agent 不是读心者 agents are not mind readers]] — 正因 agent 读不到心，只能靠上下文变有用，不懂上下文就无此论断。
 
 ## 相关
 
@@ -62,8 +64,8 @@ sources: 3
 - [[注意力之前的注意力 attention before attention]] · 同篇出现（co-occurrence） — 同篇出现：context-01
 - [[语义操作系统 semantic operating system]] · 同篇出现（co-occurrence） — 同篇出现：context-01
 - [[数字存在 Digital Presence]] · 同篇出现（co-occurrence） — 同篇出现：context-01
-- [[Tacit Knowledge】]] · 对照（概念边界） — 隐性知识在未被外化、选择并提供给模型之前，还不是模型当前可见的 Context。
-- [[限界上下文】 bounded context]] · 对照（概念边界） — 限界上下文规定领域语言的适用边界，LLM 上下文则是当前推理可获得的信息集合。
+- [[Tacit Knowledge]] · 对照（概念边界） — 隐性知识在未被外化、选择并提供给模型之前，还不是模型当前可见的 Context。
+- [[限界上下文 bounded context]] · 对照（概念边界） — 限界上下文规定领域语言的适用边界，LLM 上下文则是当前推理可获得的信息集合。
 - [[系统提示 System Prompt]] · 组成（运行时组成） — System Prompt 是模型生成响应前可见 Context 的组成之一。
 - [[系统提示 System Prompt]] · 常一起用 — System Prompt 和可用工具定义都是来源列出的 Context 构成。
 - [[交接模型 handoff model]] · 同篇出现（co-occurrence） — 同篇出现：context-11
@@ -94,22 +96,24 @@ sources: 3
 - [[长上下文窗口]]
 - [[交接模型 handoff model]]
 - [[系统提示 System Prompt]]
+- [[有限的工作记忆 limited working memory]]
 - [[分层记忆架构]]
 - [[流程即工作 the process became the work]]
-- [[注意力之前的注意力 attention before attention]]
-- [[短上下文]]
-- [[熵减 entropy reduction]]
-- [[四阶段演化模型]]
 - [[自回归下输出也是上下文]]
+- [[短上下文]]
+- [[上下文隔离 context isolation]]
+- [[四阶段演化模型]]
+- [[注意力之前的注意力 attention before attention]]
 - [[最小充分性与语义连续性原则]]
+- [[agent 不是读心者 agents are not mind readers]]
 - [[self-baking]]
-- [[Tacit Knowledge】]]
+- [[Tacit Knowledge]]
 - [[复杂被误认为精密 complexity looked like sophistication]]
 - [[轻量引用 lightweight references]]
-- [[上下文隔离 context isolation]]
+- [[熵减 entropy reduction]]
 - [[上下文协作 context-cooperative]]
 - [[数字存在 Digital Presence]]
-- [[限界上下文】 bounded context]]
+- [[限界上下文 bounded context]]
 - [[意图翻译者 intention translator]]
 - [[语义操作系统 semantic operating system]]
 - [[原始上下文容忍度 tolerance for raw context]]

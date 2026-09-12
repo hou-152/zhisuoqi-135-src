@@ -4,9 +4,9 @@ name: 看对话 log
 type: PROCEDURAL
 subject: Harness Engineering
 domain: harness-runtime
-learningStage: when-needed
+learningStage: now
 verification: use
-centrality: 0.072
+centrality: 0.067
 depth: 2
 origin: [harness]
 aliases: []
@@ -15,9 +15,9 @@ sources: 1
 
 # 看对话 log
 
-> 研究一个 AI app 怎么工作，最直接的办法是把它与模型之间的对话记录截下来读。
+> 研究一个 AI app 怎么工作，最直接的方式是把它与模型之间的请求与响应截下来逐条读。
 
-**领域** harness-runtime ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** harness-runtime ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ AI 产品对外是一个界面，对内只是一串发给模型的消息。与�
 
 ## 掌握证据（做到这些才算会）
 
-- 能通过 request log 或自制代理抓到一段真实对话
-- 能从 log 里读出该 app 的提示词与调用结构
+- 能通过 platform log、gateway 日志或自建代理抓到一轮完整对话
+- 能从截下的对话里读出该 app 的提示结构与工具调用方式
 
 ## 验收问句
 
-> 面对一个陌生 AI app，你会用 {{name}} 先摸清它的行为吗？
+> 用{{name}}的方法，说说某个 app 发给模型的请求长什么样。
 
 ## 先懂这些（前置 1）
 
@@ -77,8 +77,8 @@ AI 产品对外是一个界面，对内只是一串发给模型的消息。与�
 - [[反向代理式窥探]]
 - [[氛围组请求]]
 - [[全文覆盖式编辑]]
-- [[系统 prompt 的体量差]]
-- [[隐式 code context]]
 - [[原生工具与 MCP 外挂]]
 - [[apply 模型]]
 - [[new topic 判定]]
+- [[系统 prompt 的体量差]]
+- [[隐式 code context]]

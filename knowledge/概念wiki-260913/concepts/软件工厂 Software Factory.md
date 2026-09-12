@@ -7,7 +7,7 @@ subject: Harness Engineering
 domain: code-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.099
+centrality: 0.092
 depth: 2
 origin: [harness]
 aliases: ["Software Factory"]
@@ -16,9 +16,9 @@ sources: 1
 
 # 软件工厂 · Software Factory
 
-> 以流水线视角看软件交付：需求进 tracker、建造、评审、上线、监控、用户反馈再回到 tracker 的反馈环。
+> 把软件开发看作从需求、建造、评审、上线到反馈的完整反馈环，术语可追溯到1968年NATO会议。
 
-**领域** code-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.099
+**领域** code-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.092
 
 ## 费曼一下
 
@@ -30,21 +30,21 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能画出 2022 年基线的完整反馈环并标出每个环节的产物
-- 能用它对比 AI 介入后哪一环被改变、哪一环不变
+- 能画出2022年AI之前的基线反馈环
+- 能指出AI之后反馈环的哪一环被改变
 
 ## 验收问句
 
-> 按{{name}}说出从需求到用户反馈的完整环节。
+> 用{{name}}画出AI之前那条完整反馈环。
 
 ## 先懂这些（前置 2）
 
 - [[管理 Agent]] · **hard** — 长期运行的 agent 覆盖生命周期，瓶颈在目标、资源与反馈的管理。
-- [[Tiger Team]] · **soft** — 软件工厂保留的人工检查点常由临时跨职能小队承担，不懂 Tiger Team 难理解其组织前提。
+- [[Tiger Team]] · **soft** — Software Factory 保留的人工检查点常由临时小队承担，理解 Tiger Team 才能想象其人力协作形态
 
 ## 懂了它才能懂（解锁 1）
 
-- [[Vantage]] — 两者都以 agent 承担流程角色、人保留判断；懂 Software Factory 更易定位 Vantage 的边界。
+- [[skill 作为 onboarding 载体]] — 只有理解 Agent 长期运转、流程被自动化的 Software Factory，才明白为何用 skill 替代文档做 onboarding
 
 ## 相关
 
@@ -79,11 +79,11 @@ sources: 1
 - [[RLVR 与编码 agent 的 RL 训练循环]]
 - [[可维护性没有惩罚项]]
 - [[Capability Overhang]]
+- [[Tiger Team]]
 - [[管理 Agent]]
 - [[Inner Loop]]
+- [[skill 作为 onboarding 载体]]
 - [[SWE-bench 与二元打分]]
-- [[Tiger Team]]
-- [[Vantage]]
 - [[2026 版约束理论]]
 - [[垂直切片 Tracer Bullet]]
 - [[可维护性 霰弹式手术]]

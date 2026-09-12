@@ -6,7 +6,7 @@ subject: Context Engineering × Harness Engineering
 domain: verification-eval
 learningStage: deep-dive
 verification: judge
-centrality: 0.117
+centrality: 0.11
 depth: 1
 origin: [context, harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 2
 
 > 通用 harness 让模型对比更公平、缺陷更可见，但也让评测偏离真实部署形态。
 
-**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.117
+**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.11
 
 ## 费曼一下
 

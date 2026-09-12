@@ -3,10 +3,10 @@ id: cm_01f99beb
 name: 超人（Übermensch）
 type: CONCEPTUAL
 subject: AI 概念库
-domain: media-culture-education
-learningStage: deep-dive
+domain: thinking-method
+learningStage: when-needed
 verification: accept
-centrality: 0.045
+centrality: 0.042
 depth: 2
 origin: [notion]
 aliases: ["Übermensch", "overman", "尼采的超人"]
@@ -15,9 +15,9 @@ sources: 1
 
 # 超人（Übermensch）
 
-> 尼采笔下征服并抛弃此前所有较低文化形式的“超人”，材料中与 Pananthropos 相对照。
+> 尼采的『超人』：征服并超越、抛弃一切既有较低文化形式的超越者，与 Pananthropos 相对照。
 
-**领域** media-culture-education ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.045
+**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能说明 Übermensch 的超越与抛弃旧文化形式的含义
-- 能指出它与 Pananthropos 的对照关系
+- 能说出 Übermensch 与 Pananthropos 的对立点
+- 能解释『超越并丢弃既有文化形式』的含义
 
 ## 验收问句
 
-> 材料怎样用 {{name}} 对照 Pananthropos？
+> {{name}} 与 Pananthropos 的核心分歧是什么？
 
 ## 先懂这些（前置 1）
 

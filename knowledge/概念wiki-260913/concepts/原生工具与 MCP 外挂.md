@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: tools-sandbox
 learningStage: when-needed
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 作者的自我反问：任务管理成为标配后，是否直接外挂一个 MCP todo manager 就够，而不必做 app 原生任务工具；他直觉外挂偏复杂。
 
-**领域** tools-sandbox ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** tools-sandbox ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 

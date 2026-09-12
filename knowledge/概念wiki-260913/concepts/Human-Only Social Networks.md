@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: media-culture-education
 learningStage: when-needed
 verification: accept
-centrality: 0.126
-depth: 4
+centrality: 0.117
+depth: 1
 origin: [notion]
 aliases: ["纯人类社交网络 / 仅人类社交网络"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 只允许真人参与的网络，靠生物验证、Web of Trust 与类 Snapchat 的文化设计抵御 AI 群发污染公共空间。
 
-**领域** media-culture-education ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.126
+**领域** media-culture-education ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.117
 
 ## 原文 context
 
@@ -36,15 +36,15 @@ sources: 1
 
 > {{name}} 要靠哪几层来挡住非真人参与者？
 
-## 先懂这些（前置 3）
+## 先懂这些（前置 2）
 
-- [[GEO]] · **soft** — 理解 AI 可见性优化，才懂真人网络为何要抵御机器内容
-- [[Ghost in the Shell]] · **soft** — 义体与赛博脑模糊人机边界，才懂真人网络为何要生物验证
-- [[death of the social]] · **soft** — 公共社交空间衰退后，真人网络成为替代性公共领域的尝试
+- [[GEO]] · **soft** — 懂 AI 可见性可被批量优化，才懂为何要防 AI 污染公共空间。
+- [[Trutherism]] · **soft** — 理解公共讨论如何被反向利用，才懂真人网络要防的不只是机器人。
 
-## 懂了它才能懂（解锁 1）
+## 懂了它才能懂（解锁 2）
 
-- [[Trutherism]] — 真人网络试图保卫公共领域，才懂 Trutherism 如何反转利用自由讨论
+- [[Universal Zulu Nation]] — Zulu Nation 用文化认同维系社区信任，是 Web of Trust 式真人网络的前身。
+- [[Ghost in the Shell]] — 义体与幽灵的身份问题，让人理解真人网络中'如何证明是人'的困难。
 
 ## 相关
 
@@ -62,7 +62,7 @@ sources: 1
 
 ## 反链
 
-- [[death of the social]]
 - [[Ghost in the Shell]]
 - [[Trutherism]]
+- [[Universal Zulu Nation]]
 - [[GEO]]

@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: economy-business
 learningStage: deep-dive
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 1
 origin: [notion]
 aliases: ["聚合理论"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 解释平台如何靠聚合需求端、以近零边际成本分发而获得垄断地位的商业理论。
 
-**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 费曼一下
 

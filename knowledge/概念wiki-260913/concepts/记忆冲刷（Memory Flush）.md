@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: memory-retrieval
 learningStage: when-needed
 verification: use
-centrality: 0.072
+centrality: 0.067
 depth: 1
 origin: [notion]
 aliases: ["Memory Flush", "记忆抢救", "压缩前抢救"]
@@ -15,9 +15,9 @@ sources: 1
 
 # 记忆冲刷（Memory Flush）
 
-> 压缩前向模型下达保存指令，优先留存用户偏好、修正建议与重复模式而非任务细节。
+> 会话压缩前先发指令让模型保存值得记住的东西，优先用户偏好、修正建议与重复模式。
 
-**领域** memory-retrieval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** memory-retrieval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能写出压缩前这条记忆保存指令的要点
-- 能在会话压缩流程中实际部署并验证其效果
+- 能写出这条压缩前指令要保存的优先项
+- 能说明它与具体任务细节之间的取舍
 
 ## 验收问句
 
-> {{name}} 触发时应该优先保存哪类内容？
+> {{name}}发生前会先做什么、优先保存什么？
 
 ## 先懂这些（前置 2）
 

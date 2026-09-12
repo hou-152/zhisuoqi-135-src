@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: verification-eval
 learningStage: when-needed
 verification: use
-centrality: 0.072
+centrality: 0.067
 depth: 2
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 同类招式的另一种形态：带 rubric 启动验证 agent，反过来测试并校准你在某领域的品味判断。
 
-**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -55,5 +55,5 @@ sources: 1
 - [[上下文工程 context engineering]]
 - [[Read-only Verifier Agent]]
 - [[Rubric]]
-- [[prompt 与 context 的通用性落差]]
 - [[过度约束与松绑 over-constraining unhobbling]]
+- [[prompt 与 context 的通用性落差]]

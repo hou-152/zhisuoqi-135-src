@@ -7,7 +7,7 @@ subject: Harness Engineering
 domain: model-training
 learningStage: when-needed
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [harness]
 aliases: ["RL inside the harness"]
@@ -18,7 +18,7 @@ sources: 1
 
 > 用即将发布的确切工具集在 harness 内部对模型做 RL，而非事后适配，这是工具调用成功率优势的来源。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 

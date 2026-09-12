@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: verification-eval
 learningStage: now
 verification: judge
-centrality: 0.045
+centrality: 0.067
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 用上下文高效的自我验证给 agent 施加压力：解决成功率与自验证能力高度相关。
 
-**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -36,9 +36,10 @@ sources: 1
 
 > {{name}} 为什么不许 agent 每次改完都跑全量测试？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
-- [[验证闭环 verification loop]] · **hard** — 自我验证压力本身就是闭环里的一环，不懂闭环就无从施加。
+- [[验证闭环 verification loop]] · **soft** — back-pressure 靠 agent 自我验证施压，不懂验证闭环就不知压力来自哪。
+- [[可验证目标]] · **soft** — 自我验证要成立，前提是目标能被机器判定，否则成功与否无从衡量。
 
 ## 相关
 
@@ -53,4 +54,5 @@ sources: 1
 
 - [[Harness 工程 Harness Engineering]]
 - [[验证闭环 verification loop]]
+- [[可验证目标]]
 - [[configuration problem]]

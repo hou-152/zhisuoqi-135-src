@@ -7,7 +7,7 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.126
+centrality: 0.092
 depth: 1
 origin: [harness]
 aliases: ["co-evolution principle"]
@@ -18,7 +18,7 @@ sources: 1
 
 > 模型是带着特定 harness 一起做后训练的，harness 与模型紧耦合，换掉工具实现可能反而降低性能。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.092
 
 ## 费曼一下
 
@@ -37,9 +37,8 @@ sources: 1
 
 > 为什么在 {{name}} 下，替换工具实现不必然带来性能提升？
 
-## 先懂这些（前置 3）
+## 先懂这些（前置 2）
 
-- [[agent 与 harness 的分工]] · **hard** — 模型与 harness 一起后训练，前提是两者可分离且可配对。
 - [[模型训练与 harness 设计的耦合]] · **hard** — 共同演化原则以模型-harness耦合为前提，不懂耦合就无从谈起。
 - [[模型训练与 harness 设计的耦合]] · **hard** — 共同演化说的正是模型与harness在同一训练环里互相塑造，不懂这个耦合回路就无从谈共演化。
 
@@ -65,8 +64,8 @@ sources: 1
 
 ## 反链
 
-- [[agent 与 harness 的分工]]
 - [[模型训练与 harness 设计的耦合]]
+- [[agent 与 harness 的分工]]
+- [[Model-relative Curriculum]]
 - [[If you're not the model, you're the harness.]]
 - [[Agent vs Harness]]
-- [[Model-relative Curriculum]]

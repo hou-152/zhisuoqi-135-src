@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: economy-business
 learningStage: when-needed
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [harness]
 aliases: []
@@ -15,9 +15,9 @@ sources: 1
 
 # Agent 经济
 
-> 买东西、订阅、筛信息的主体可能变成 Agent，营销素材与产品界面需同时被 Agent 消费。
+> 未来购物、订阅、筛选信息的执行者可能是 Agent，营销素材与产品界面需面向 Agent 消费。
 
-**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ Clark 提出未来买东西、订阅、筛选信息的可能是 Agent，因此�
 
 ## 掌握证据（做到这些才算会）
 
-- 能说明 Agent 成为买家后对产品界面的影响
-- 能举出为 Agent 而非人优化界面的做法
+- 能举例说明哪些界面需改成 Agent 可读
+- 能推断被 Agent 消费后营销素材写法的变化
 
 ## 验收问句
 
-> {{name}} 下，产品界面为何要兼顾被 Agent 消费？
+> {{name}}成立后，产品界面与营销素材要怎么改？
 
 ## 先懂这些（前置 1）
 

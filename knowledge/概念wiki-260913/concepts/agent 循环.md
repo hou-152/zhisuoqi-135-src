@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: loop-autonomy
 learningStage: now
 verification: compute
-centrality: 0.045
+centrality: 0.042
 depth: 2
 origin: [context]
 aliases: []
@@ -15,9 +15,9 @@ sources: 1
 
 # agent 循环
 
-> LLM 输出结构化 json 决定 tool call，确定性代码执行，结果回 append 到上下文，循环至 intent 为 done。
+> LLM 输出结构化 JSON 决定下一步，确定性代码执行 tool call，结果回灌上下文，直到 intent 为 done。
 
-**领域** loop-autonomy ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.045
+**领域** loop-autonomy ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能写出该 while True 循环的伪代码
-- 能指出循环终止条件是 next_step 的 intent 为 done
+- 能写出该循环的 while True 伪代码
+- 能指出循环中哪一步是确定性的、结果如何回灌
 
 ## 验收问句
 
-> 按 {{name}} 说出四步并给出终止条件。
+> {{name}}的一次迭代包含哪几步？何时结束？
 
 ## 先懂这些（前置 1）
 
@@ -43,7 +43,7 @@ sources: 1
 ## 相关
 
 - [[12-factor agents]] · 同篇出现（co-occurrence） — 同篇出现：context-06
-- [[并不 agentic」的 AI Agent]] · 同篇出现（co-occurrence） — 同篇出现：context-06
+- [[「并不 agentic」的 AI Agent]] · 同篇出现（co-occurrence） — 同篇出现：context-06
 - [[软件即有向图]] · 同篇出现（co-occurrence） — 同篇出现：context-06
 
 ## 出场
@@ -52,6 +52,6 @@ sources: 1
 ## 反链
 
 - [[范围控制与显式的完成定义]]
+- [[「并不 agentic」的 AI Agent]]
 - [[12-factor agents]]
-- [[并不 agentic」的 AI Agent]]
 - [[软件即有向图]]

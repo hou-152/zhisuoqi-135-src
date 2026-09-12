@@ -4,9 +4,9 @@ name: Sandbox
 type: CONCEPTUAL
 subject: Harness Engineering
 domain: tools-sandbox
-learningStage: now
+learningStage: when-needed
 verification: use
-centrality: 0.171
+centrality: 0.16
 depth: 0
 origin: [harness]
 aliases: []
@@ -15,9 +15,9 @@ sources: 2
 
 # Sandbox
 
-> 解决代码在哪里跑：提供安全隔离的执行环境，可叠命令白名单与网络隔离，按需创建、扇出、用完销毁。
+> 解决代码在哪跑的隔离执行环境，可叠加命令白名单与网络隔离，按需创建、扇出、用完销毁。
 
-**领域** tools-sandbox ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.171
+**领域** tools-sandbox ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.16
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ sources: 2
 
 ## 掌握证据（做到这些才算会）
 
-- 能列出沙箱要挡住的本地执行风险
-- 能说明如何叠 allow-list 与网络隔离并扇出多个实例
+- 能说明本地跑 agent 代码与大规模负载各自的风险
+- 能为一个 agent 任务设计可销毁的隔离执行环境
 
 ## 验收问句
 
-> agent 生成的代码该放进 {{name}} 里怎么跑？
+> 你的 {{name}} 是否做到按需创建、用完即毁并限制网络？
 
 ## 懂了它才能懂（解锁 5）
 
@@ -68,11 +68,11 @@ sources: 2
 - [[验证闭环 verification loop]]
 - [[Agent = Model + Harness]]
 - [[Guardrails]]
+- [[model-native harness]]
 - [[持久化执行 durable execution]]
 - [[harness–compute separation]]
 - [[沙箱化自主]]
 - [[Agents SDK]]
 - [[Environment]]
-- [[model-native harness]]
 - [[native sandbox execution]]
 - [[Sandbox agents]]

@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: media-culture-education
 learningStage: when-needed
 verification: accept
-centrality: 0.045
+centrality: 0.067
 depth: 3
 origin: [notion]
 aliases: ["普世祖鲁国"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 由 Bronx 黑桃帮转型而来的文化组织，以"和平、爱、团结、享乐"为口号。
 
-**领域** media-culture-education ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.045
+**领域** media-culture-education ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -36,9 +36,10 @@ Universal Zulu Nation 是 Bambaataa 把布朗克斯街头帮派 Black Spades 改
 
 > {{name}} 是从什么转变而来，又主张什么？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
-- [[death of the social]] · **soft** — 公共社交空间衰退是 Zulu Nation 提供替代性社区的历史前提
+- [[Human-Only Social Networks]] · **soft** — Zulu Nation 用文化认同维系社区信任，是 Web of Trust 式真人网络的前身。
+- [[Disney hierarchy]] · **soft** — 文化组织靠内部认同排名维系成员，与粉丝资历阶梯同构。
 
 ## 相关
 
@@ -56,4 +57,5 @@ Universal Zulu Nation 是 Bambaataa 把布朗克斯街头帮派 Black Spades 改
 
 ## 反链
 
-- [[death of the social]]
+- [[Human-Only Social Networks]]
+- [[Disney hierarchy]]

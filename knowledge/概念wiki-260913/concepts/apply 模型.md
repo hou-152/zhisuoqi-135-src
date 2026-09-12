@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: code-engineering
 learningStage: when-needed
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 0
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > Cursor 自训的专用 LLM，负责把编辑落到文件上，材料对其成功率存疑。
 
-**领域** code-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** code-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 

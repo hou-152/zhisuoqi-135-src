@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: judge
-centrality: 0.072
-depth: 2
+centrality: 0.042
+depth: 1
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 过大的 AGENTS.md/CLAUDE.md 会在每个请求上多花大量 token，且是否被识别取决于 harness 与启动方式。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -38,11 +38,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[Context-window tax]] · **hard** — 规则文件每请求的固定开销，是窗口税的具体情形
-
-## 懂了它才能懂（解锁 1）
-
-- [[Context Bloat]] — 膨胀的 CLAUDE.md 之所以有害，因其带来每请求固定开销
+- [[agentfile CLAUDE.md 与 AGENTS.md]] · **hard** — 该税指的正是 AGENTS.md/CLAUDE.md 的 token 开销，不懂 agentfile 就无从谈税。
 
 ## 相关
 
@@ -56,7 +52,6 @@ sources: 1
 ## 反链
 
 - [[Harness token floor]]
-- [[Context Bloat]]
-- [[Context-window tax]]
 - [[Tool-schema tax]]
+- [[agentfile CLAUDE.md 与 AGENTS.md]]
 - [[API-boundary observability]]

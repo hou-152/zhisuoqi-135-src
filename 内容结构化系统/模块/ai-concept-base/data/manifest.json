@@ -1,0 +1,16 @@
+{
+ "generated": "2026-09-13",
+ "count": 538,
+ "byType": {
+  "方案单元": 76,
+  "案例单元": 76,
+  "概念单元": 76,
+  "观点单元": 169,
+  "问题单元": 141
+ },
+ "sources": [
+  "SRC-EXT-001 Context Engineering 26+2",
+  "SRC-EXT-002 Harness Engineering 28+2",
+  "SRC-EXT-003 「Context × Harness 图鉴」已审计概念卡"
+ ]
+}

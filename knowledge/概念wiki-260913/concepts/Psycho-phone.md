@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: mind-body
 learningStage: when-needed
 verification: accept
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [notion]
 aliases: ["心理电话机", "夜读机", "Saliger's Psycho-phone"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 1932 年 Saliger 专利的定时留声机，声称人睡着时也能听进并记住肯定语。
 
-**领域** mind-body ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.045
+**领域** mind-body ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 费曼一下
 

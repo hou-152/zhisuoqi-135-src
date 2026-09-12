@@ -6,8 +6,8 @@ type: CONCEPTUAL
 subject: Harness Engineering
 domain: multi-agent
 learningStage: when-needed
-verification: judge
-centrality: 0.126
+verification: use
+centrality: 0.117
 depth: 2
 origin: [harness]
 aliases: ["dynamic coordination"]
@@ -16,9 +16,9 @@ sources: 1
 
 # 动态协调 · dynamic coordination
 
-> 不预先分工，让每个 Agent 根据其他 Agent 当下在做什么来决定自己下一步做什么。
+> 让 agent 依据其他 agent 当下的动作决定自己做什么，而非开工前排定固定分工。
 
-**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
+**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.117
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ Cursor 的第一直觉是"planning ahead would be too rigid"，因为大项目�
 
 ## 掌握证据（做到这些才算会）
 
-- 能解释大项目里预先 planning 为何过于僵化
-- 能指出协调信号来自其他 agent 的实时状态
+- 能解释大项目路径模糊、分工初期不明显为何使预先规划过僵
+- 能设计按同伴实时状态分派的协作方式
 
 ## 验收问句
 
-> {{name}} 中 agent 的下一步由什么决定，为何不预先规划？
+> {{name}} 中，你的 agent 下一步由什么决定？
 
 ## 先懂这些（前置 1）
 
@@ -79,6 +79,7 @@ Cursor 的第一直觉是"planning ahead would be too rigid"，因为大项目�
 - [[漂移与隧道视野 drift & tunnel vision]]
 - [[共享 多人 agent 会话]]
 - [[共享文件加锁的协调机制]]
+- [[乐观并发控制 optimistic concurrency control]]
 - [[Orchestra Interface]]
 - [[单 agent 的速度天花板]]
 - [[模型—角色适配]]
@@ -91,4 +92,3 @@ Cursor 的第一直觉是"planning ahead would be too rigid"，因为大项目�
 - [[prompt 主导论]]
 - [[递归并行规划 sub-planner]]
 - [[减法式改进 removing complexity]]
-- [[乐观并发控制 optimistic concurrency control]]

@@ -7,7 +7,7 @@ subject: Context Engineering × Harness Engineering
 domain: context-engineering
 learningStage: now
 verification: use
-centrality: 0.462
+centrality: 0.393
 depth: 1
 origin: [context, harness]
 aliases: ["context engineering", "Context Engineering"]
@@ -18,7 +18,7 @@ sources: 14
 
 > 对模型上下文窗口的审慎构建与管理，把原始上下文与目标任务映射为可组合的上下文处理函数。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.462
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.393
 
 ## 费曼一下
 
@@ -41,15 +41,13 @@ sources: 14
 
 - [[即时检索 Just-in-time Retrieval]] · **hard** — Just-in-Time Retrieval 是 Context Engineering 的生产策略之一。
 
-## 懂了它才能懂（解锁 7）
+## 懂了它才能懂（解锁 5）
 
 - [[Harness 工程 Harness Engineering]] — 本站工程范围轴采用 Harness Engineering 通常包住 Context Engineering。
 - [[CLAUDE.md]] — CLAUDE.md是上下文工程的产物，先懂工程才知它为何自动读取。
-- [[熵减 entropy reduction]] — 上下文工程的本质就是把高熵上下文压成低熵表示，不懂熵减就不懂其目标
-- [[上下文失败，而非模型失败 context failures, not model failures]] — 只有先理解上下文工程，才明白失败多源于上下文装配而非模型强弱
-- [[与底层模型正交 orthogonal to the underlying models]] — 正交性说的是上下文工程带来独立于模型的结构收益，先懂工程才谈得上正交
-- [[系统而非字符串 A System, Not a String]] — 上下文工程视上下文为主调用前那个系统的输出，不懂这点仍会当成静态模板
-- [[Context 四种失败模式】 Context Pollution Distraction Confusion Clash]] — 污染/分心/混淆/冲突是上下文工程要解决的失效分类，先懂工程才知其意
+- [[上下文隔离 context isolation]] — 隔离是上下文工程切分任务、防污染的一种手段，不懂上下文工程就不知为何要隔离。
+- [[上下文失败，而非模型失败 context failures, not model failures]] — 此判断的前提是上下文装配本身可被工程化，不懂上下文工程就无从归因。
+- [[延迟加载工具 deferred loading]] — 延迟加载是上下文工程控制工具占用的手段，不懂上下文工程就不懂其动机。
 
 ## 相关
 
@@ -132,27 +130,26 @@ sources: 14
 ## 反链
 
 - [[Harness 工程 Harness Engineering]]
+- [[上下文 context]]
 - [[长上下文窗口]]
 - [[注意力预算 attention budget]]
 - [[上下文腐烂 Context Rot]]
-- [[上下文 context]]
+- [[有限的工作记忆 limited working memory]]
 - [[分层记忆架构]]
 - [[工具接口的表达力设计]]
 - [[结构化记事 agentic memory]]
-- [[Agentic primitives]]
-- [[gotchas 优先的 CLAUDE.md]]
+- [[Context Distraction]]
 - [[Instructions files]]
-- [[即时检索 Just-in-time Retrieval]]
 - [[渐进式披露 progressive disclosure]]
+- [[即时检索 Just-in-time Retrieval]]
 - [[大海捞针（NIAH）与词面匹配]]
 - [[工具即契约 tools as the contract]]
 - [[接口即指令 design interfaces]]
 - [[局部最优 local optima]]
-- [[上下文均匀处理假设]]
 - [[示例的探索空间约束]]
-- [[有限的工作记忆 limited working memory]]
-- [[注意力之前的注意力 attention before attention]]
+- [[configuration problem]]
 - [[just in time 上下文检索]]
+- [[prefill 与 decode 的高度倾斜]]
 - [[Rubric 与 verifier agent]]
 - [[Rubrics 与验证 agent]]
 - [[Validation gates]]
@@ -160,14 +157,15 @@ sources: 14
 - [[CLAUDE.md]]
 - [[上下文压缩 Context Compression Summarization]]
 - [[压缩 Compaction]]
+- [[「垃圾回收」型 agent]]
 - [[冲突指令的隐性成本]]
 - [[从禁止什么到对齐什么]]
 - [[动态系统]]
 - [[功能与行为验证的缺口]]
 - [[架构约束的确定性执行]]
 - [[卡住即信号 struggle as signal]]
-- [[垃圾回收」型 agent]]
-- [[熵减 entropy reduction]]
+- [[上下文隔离 context isolation]]
+- [[上下文均匀处理假设]]
 - [[上下文失败，而非模型失败 context failures, not model failures]]
 - [[示例会收窄探索空间]]
 - [[四阶段演化模型]]

@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: verification-eval
 learningStage: now
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > agent 能发现自己产出的缺陷，但随后说服自己可以接受，最终给出通过的判断。
 
-**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -57,6 +57,6 @@ agent 能发现自己产出的缺陷，但随后说服自己可以接受，给�
 
 - [[Harness 工程 Harness Engineering]]
 - [[空间 Scalability Spatial Scalability]]
+- [[时间 Scalability Temporal Scalability]]
 - [[橡皮鸭复审]]
 - [[验证缺口]]
-- [[时间 Scalability Temporal Scalability]]

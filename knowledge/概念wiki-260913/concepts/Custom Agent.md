@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: agent-org
 learningStage: when-needed
 verification: use
-centrality: 0.045
+centrality: 0.042
 depth: 0
 origin: [notion]
 aliases: ["自定义 Agent", "自定义助手"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 自定义 Agent：按具体任务与角色专门配置的 Agent，而非通用默认 Agent（材料仅给出名称）。
 
-**领域** agent-org ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** agent-org ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 掌握证据（做到这些才算会）
 

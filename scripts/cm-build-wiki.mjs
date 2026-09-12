@@ -17,6 +17,8 @@ const ROOT = path.resolve(import.meta.dirname, '..');
 const MAP = path.join(ROOT, 'knowledge', '概念地图-260913');
 const OUT = path.join(ROOT, 'knowledge', '概念wiki-260913');
 const PAGES = path.join(OUT, 'concepts');
+// 概念改名后旧页会留下；先清空再写，否则页数对不上（2026-09-13 踩过：1201 vs 1156）。
+fs.rmSync(PAGES, { recursive: true, force: true });
 fs.mkdirSync(PAGES, { recursive: true });
 
 const topics = JSON.parse(fs.readFileSync(path.join(MAP, 'topics.json'), 'utf8')).topics;

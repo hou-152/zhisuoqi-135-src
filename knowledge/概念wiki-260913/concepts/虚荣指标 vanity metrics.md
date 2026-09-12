@@ -7,7 +7,7 @@ subject: Context Engineering
 domain: agent-org
 learningStage: when-needed
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [context]
 aliases: ["vanity metrics"]
@@ -18,7 +18,7 @@ sources: 1
 
 > 度量产出却不度量价值的指标，如 agent 写了多少代码、合并多少 PR、消耗多少 token。
 
-**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 

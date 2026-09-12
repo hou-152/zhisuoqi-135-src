@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: when-needed
 verification: judge
-centrality: 0.062
-depth: 4
+centrality: 0.06
+depth: 3
 origin: [harness]
 aliases: []
 sources: 2
@@ -17,7 +17,7 @@ sources: 2
 
 > Vivek Trivedy 的划界公式：模型权重是一侧，其余全部工程都归为 harness。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.062
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.06
 
 ## 费曼一下
 
@@ -47,7 +47,7 @@ LangChain Vivek Trivedy 的断言。
 - [[编排循环与「dumb loop」]] · 同篇出现（co-occurrence） — 同篇出现：harness-28
 - [[context rot（上下文腐烂）与 Lost in the Middle]] · 同篇出现（co-occurrence） — 同篇出现：harness-28
 - [[上下文压缩与即时检索 compaction just-in-time retrieval]] · 同篇出现（co-occurrence） — 同篇出现：harness-28
-- [[多时间尺度记忆与「记忆只是 hint]] · 同篇出现（co-occurrence） — 同篇出现：harness-28
+- [[多时间尺度记忆与「记忆只是 hint」]] · 同篇出现（co-occurrence） — 同篇出现：harness-28
 - [[错误复利 compounding errors]] · 同篇出现（co-occurrence） — 同篇出现：harness-28
 - [[权限与推理的架构分离]] · 同篇出现（co-occurrence） — 同篇出现：harness-28
 - [[验证循环：guides 与 sensors]] · 同篇出现（co-occurrence） — 同篇出现：harness-28
@@ -69,20 +69,20 @@ LangChain Vivek Trivedy 的断言。
 ## 反链
 
 - [[Harness]]
-- [[agent 与 harness 的分工]]
 - [[权限与推理的架构分离]]
-- [[协同进化与紧耦合 co-evolution principle]]
 - [[编排循环与「dumb loop」]]
 - [[工具收窄 tool scoping]]
-- [[三层工程 prompt context harness engineering]]
-- [[多时间尺度记忆与「记忆只是 hint]]
-- [[验证循环：guides 与 sensors]]
+- [[协同进化与紧耦合 co-evolution principle]]
+- [[agent 与 harness 的分工]]
 - [[context rot（上下文腐烂）与 Lost in the Middle]]
+- [[多时间尺度记忆与「记忆只是 hint」]]
 - [[脚手架化 LLM 与冯·诺依曼架构类比]]
-- [[能力外置化决策]]
 - [[上下文压缩与即时检索 compaction just-in-time retrieval]]
-- [[未来防腐测试 future-proofing test]]
-- [[Agent vs Harness]]
+- [[验证循环：guides 与 sensors]]
 - [[错误复利 compounding errors]]
+- [[能力外置化决策]]
+- [[三层工程 prompt context harness engineering]]
+- [[未来防腐测试 future-proofing test]]
 - [[子 agent 编排 Fork Teammate Worktree]]
+- [[Agent vs Harness]]
 - [[harness 厚薄 thin vs thick]]

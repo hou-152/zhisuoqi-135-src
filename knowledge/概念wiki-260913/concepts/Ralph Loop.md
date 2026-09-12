@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: loop-autonomy
 learningStage: deep-dive
 verification: use
-centrality: 0.079
+centrality: 0.077
 depth: 2
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 3
 
 > 一种 harness 模式：用 hook 拦截模型退出企图，在干净上下文中重注入原始 prompt，逼 Agent 继续。
 
-**领域** loop-autonomy ｜ **类型** PROCEDURAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.079
+**领域** loop-autonomy ｜ **类型** PROCEDURAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.077
 
 ## 费曼一下
 
@@ -60,6 +60,6 @@ sources: 3
 - [[Loop Engineering]]
 - [[Agent loop]]
 - [[Agent = Model + Harness]]
-- [[Agent vs Harness]]
 - [[Continuous orchestration loop]]
+- [[Agent vs Harness]]
 - [[Model as subroutine]]

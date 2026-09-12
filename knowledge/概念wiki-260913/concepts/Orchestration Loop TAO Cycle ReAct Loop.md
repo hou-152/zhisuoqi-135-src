@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: loop-autonomy
 learningStage: now
 verification: compute
-centrality: 0.072
+centrality: 0.067
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > Agent 运行的心跳：循环执行 Thought-Action-Observation，机制上常只是一个 while 循环。
 
-**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.072
+**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -56,5 +56,5 @@ This is the heartbeat. It implements the Thought-Action-Observation (TAO) cycle,
 ## 反链
 
 - [[ReAct loop]]
-- [[Agent vs Harness]]
 - [[Continuous orchestration loop]]
+- [[Agent vs Harness]]

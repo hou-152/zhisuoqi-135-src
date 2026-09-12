@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: verification-eval
 learningStage: when-needed
 verification: accept
-centrality: 0.045
+centrality: 0.042
 depth: 0
 origin: [notion]
 aliases: ["ARC-AGI-3 benchmark", "ARC-AGI"]
@@ -17,7 +17,7 @@ sources: 1
 
 > Chollet 团队新一代基准，测新颖性、模糊性、规划、适应性的最低共同集合。
 
-**领域** verification-eval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.045
+**领域** verification-eval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 费曼一下
 

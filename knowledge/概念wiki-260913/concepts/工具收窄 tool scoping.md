@@ -6,8 +6,8 @@ type: CONCEPTUAL
 subject: Harness Engineering
 domain: tools-sandbox
 learningStage: now
-verification: use
-centrality: 0.099
+verification: judge
+centrality: 0.092
 depth: 1
 origin: [harness]
 aliases: ["tool scoping"]
@@ -16,9 +16,9 @@ sources: 1
 
 # 工具收窄 · tool scoping
 
-> 工具越多往往表现越差：只暴露当前步骤所需的最小工具集，重叠工具超过约 10 个时应考虑拆分多 agent。
+> 只向 agent 暴露当前步骤所需的最小工具集；工具越多，表现往往越差。
 
-**领域** tools-sandbox ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.099
+**领域** tools-sandbox ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.092
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能给出裁剪工具集后效果改善的实例
-- 能按重叠工具数量判断是否需要拆分多 agent
+- 能举出 Vercel 从 v0 删掉 80% 工具后结果更好的例子
+- 能为某步骤列出最小工具集，并用「重叠工具超过约 10 个」判断是否该拆多 agent
 
 ## 验收问句
 
-> 按{{name}}，什么时候该考虑拆分多 agent？
+> 按 {{name}}，某步骤该保留哪些工具、何时该拆多 Agent？
 
 ## 先懂这些（前置 1）
 
@@ -66,10 +66,10 @@ sources: 1
 
 ## 反链
 
-- [[agent 与 harness 的分工]]
-- [[长上下文窗口]]
 - [[MCP Model Context Protocol]]
+- [[长上下文窗口]]
 - [[Harness token floor]]
+- [[agent 与 harness 的分工]]
 - [[Tool-schema tax]]
 - [[If you're not the model, you're the harness.]]
 - [[延迟加载工具与 ToolSearch]]

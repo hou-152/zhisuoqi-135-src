@@ -4,9 +4,9 @@ name: 冰 XXII
 type: REPRESENTATIONAL
 subject: AI 概念库
 domain: geo-infrastructure
-learningStage: when-needed
+learningStage: deep-dive
 verification: accept
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [notion]
 aliases: ["Ice XXII"]
@@ -15,9 +15,9 @@ sources: 1
 
 # 冰 XXII
 
-> 东京大学小林宏树团队复现冰 XXI 时发现的相邻新相，每 304 个水分子才重复一次，刷新最复杂冰纪录。
+> 东京大学团队复现冰 XXI 时附带发现、每 304 个分子重复的相邻新相。
 
-**领域** geo-infrastructure ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.045
+**领域** geo-infrastructure ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 原文 context
 
@@ -29,12 +29,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能说出它是在复现冰 XXI 时的附带发现
-- 能对比记忆 304 与 152 的差别
+- 能说出冰 XXII 的 304 分子重复周期
+- 能说明它是发现冰 XXI 时的附带收获
 
 ## 验收问句
 
-> {{name}} 与冰 XXI 在晶胞重复周期上相差多少？
+> {{name}} 把最复杂冰的纪录翻到了多少个分子？
 
 ## 先懂这些（前置 1）
 

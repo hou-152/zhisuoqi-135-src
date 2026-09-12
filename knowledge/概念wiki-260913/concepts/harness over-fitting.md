@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: when-needed
 verification: judge
-centrality: 0.072
-depth: 1
+centrality: 0.067
+depth: 4
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 前沿模型在自家 harness 上后训练，与特定工具深度耦合；换到没见过的 harness 后名次可能反转。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -38,11 +38,11 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[model-native harness]] · **soft** — 后训练与特定工具耦合，反衬出顺着模型设计的必要
+- [[model-native harness]] · **soft** — 不懂顺着模型设计的 harness，就难理解换 harness 后名次反转。
 
 ## 懂了它才能懂（解锁 1）
 
-- [[Hermes Agent]] — 可读源码才能验证它是否只与特定 harness 深度耦合
+- [[Harness evolution]] — 模型与 harness 耦合导致换 harness 失效，才需持续演进隔离验证。
 
 ## 相关
 
@@ -56,7 +56,7 @@ sources: 1
 - Harness Engineering ｜ 《HumanLayer：harness 工程就是把 coding agent 的配置点用到极致》 ｜ https://www.humanlayer.dev/blog/skill-issue-harness-engineering-for-coding-agents
 ## 反链
 
-- [[Hermes Agent]]
-- [[Trace-based evals]]
-- [[configuration problem]]
 - [[model-native harness]]
+- [[Harness evolution]]
+- [[configuration problem]]
+- [[Trace-based evals]]

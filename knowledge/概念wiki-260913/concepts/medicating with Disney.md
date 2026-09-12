@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: personal-life
 learningStage: when-needed
 verification: accept
-centrality: 0.045
+centrality: 0.042
 depth: 2
 origin: [notion]
 aliases: ["用迪士尼自我疗愈 / 把迪士尼当药"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 把迪士尼当药：用无意外、被设计过的环境对冲现实的不确定与焦虑，目的是停止思考而非取乐。
 
-**领域** personal-life ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.045
+**领域** personal-life ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 原文 context
 

@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: state-persistence
 learningStage: now
 verification: use
-centrality: 0.181
+centrality: 0.142
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 一次有状态的运行：用已建好的 agent 配置与环境拉起沙箱，挂载文件、仓库与认证。
 
-**领域** state-persistence ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.181
+**领域** state-persistence ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.142
 
 ## 费曼一下
 
@@ -40,16 +40,16 @@ sources: 1
 
 - [[Stateful Runtime Environment (SRE)]] · **hard** — 一次有状态运行需靠 SRE 拉起沙箱并挂载环境，不懂 SRE 无法理解运行基础。
 
-## 懂了它才能懂（解锁 5）
+## 懂了它才能懂（解锁 4）
 
 - [[Sessions]] — Sessions 是维持 session 内上下文的持久记忆层，需先懂单次 Session。
 - [[Cross-session Work]] — 跨 session 任务由多个 Session 各承担一部分，不懂 Session 无法理解分工。
-- [[Cross-session Work]] — 跨 session 任务以“一次有状态运行”为分工单位，不懂 Session 就无法理解任务如何切分与传递。
-- [[Sessions]] — Sessions 是跨轮携带上下文的持久记忆层，建立在单次有状态运行之上。
+- [[Sessions]] — 要维持 loop 内工作上下文，必须先有“一次有状态运行”的概念。
 - [[snapshotting + rehydration]] — 再水合恢复的是某次 Session 的状态，懂 Session 更清楚恢复对象。
 
 ## 相关
 
+- [[agent 模板的声明式持久化]] · 前置（同领域依赖） — 拉起一次 session 要用已声明好的 agent 配置与环境。
 - [[Claude Managed Agents]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
 - [[messages API 作为直连网关]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
@@ -61,7 +61,8 @@ sources: 1
 
 - [[Cross-session Work]]
 - [[Sessions]]
+- [[agent 模板的声明式持久化]]
+- [[Claude Managed Agents]]
 - [[messages API 作为直连网关]]
 - [[Stateful Runtime Environment (SRE)]]
-- [[Claude Managed Agents]]
 - [[snapshotting + rehydration]]

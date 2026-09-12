@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: thinking-method
 learningStage: when-needed
 verification: judge
-centrality: 0.045
-depth: 2
+centrality: 0.042
+depth: 3
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 把 Agent 的支撑结构比作施工脚手架：临时、可拆除，楼盖好就该撤走。
 
-**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 

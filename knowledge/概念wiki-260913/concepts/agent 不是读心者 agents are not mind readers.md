@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.072
-depth: 0
+centrality: 0.042
+depth: 3
 origin: [context]
 aliases: ["agents are not mind readers"]
 sources: 1
@@ -16,9 +16,9 @@ sources: 1
 
 # agent 不是读心者 · agents are not mind readers
 
-> agent 不读心，只能靠上下文变得有用——这条第一性原理推出上下文是新系统的核心。
+> agent 无法读心，只能靠上下文变得有用，因此上下文是整套新系统的核心。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -30,17 +30,16 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能复述该命题并解释它与上下文工程的关系
-- 能举出因缺上下文导致 agent 失灵的实例
+- 能复述该第一性原理并说出它的推论
+- 能据此判断某次失败是上下文缺失而非模型不行
 
 ## 验收问句
 
-> {{name}} 这句话为什么直接推出上下文是核心？
+> {{name}}这句话推出什么设计结论？
 
-## 懂了它才能懂（解锁 2）
+## 先懂这些（前置 1）
 
-- [[prompt 主导论]] — agent 只能靠输入变有用，才推出 prompt 比 harness 更关键
-- [[Repo-local instructions]] — agent 不读心，约定才必须写成仓库内可反复读取的文件
+- [[上下文 context]] · **hard** — 正因 agent 读不到心，只能靠上下文变有用，不懂上下文就无此论断。
 
 ## 相关
 
@@ -58,8 +57,7 @@ sources: 1
 
 ## 反链
 
+- [[上下文 context]]
 - [[交接模型 handoff model]]
-- [[Repo-local instructions]]
 - [[流程即工作 the process became the work]]
-- [[prompt 主导论]]
 - [[复杂被误认为精密 complexity looked like sophistication]]

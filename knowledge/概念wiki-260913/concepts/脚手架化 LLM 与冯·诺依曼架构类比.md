@@ -1,13 +1,13 @@
 ---
 id: cm_31a86272
 name: 脚手架化 LLM 与冯·诺依曼架构类比
-type: REPRESENTATIONAL
+type: CONCEPTUAL
 subject: Harness Engineering
 domain: harness-runtime
-learningStage: when-needed
+learningStage: now
 verification: judge
-centrality: 0.045
-depth: 5
+centrality: 0.042
+depth: 4
 origin: [harness]
 aliases: []
 sources: 1
@@ -15,9 +15,9 @@ sources: 1
 
 # 脚手架化 LLM 与冯·诺依曼架构类比
 
-> 裸 LLM 是 CPU，上下文窗口是 RAM，外部数据库是磁盘，工具是设备驱动，harness 是操作系统。
+> 把裸 LLM 比作无内存 CPU，上下文窗口是 RAM，外部数据库是磁盘，工具集成是设备驱动，harness 是操作系统。
 
-**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ Beren Millidge 2023 年文章《Scaffolded LLMs as Natural Language Computers》
 
 ## 掌握证据（做到这些才算会）
 
-- 能复述各组件的一一映射
-- 能说出「我们重新发明了冯·诺依曼架构」这一结论
+- 能复述该类比中的五组对应关系
+- 能据此判断某项功能该落在 harness 层还是模型层
 
 ## 验收问句
 
-> 你能用 {{name}} 说明 harness 各部分分别对应什么吗？
+> 按 {{name}}，上下文窗口相当于什么？
 
 ## 先懂这些（前置 1）
 
@@ -51,6 +51,6 @@ Beren Millidge 2023 年文章《Scaffolded LLMs as Natural Language Computers》
 - Harness Engineering ｜ 《一个被 harness 套住的 LLM agent：这个词到底指什么》 ｜ https://x.com/akshay_pachaar/status/2045510648474530263/?s=12
 ## 反链
 
-- [[agent 与 harness 的分工]]
 - [[操作系统类比]]
+- [[agent 与 harness 的分工]]
 - [[If you're not the model, you're the harness.]]

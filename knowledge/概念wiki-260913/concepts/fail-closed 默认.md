@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: safety-governance
 learningStage: now
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 0
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 不确定时默认拒绝或降级：宁可误伤少量无害请求，也不放过可能造成严重伤害的输出。
 
-**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 费曼一下
 

@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: verification-eval
 learningStage: now
 verification: use
-centrality: 0.072
+centrality: 0.067
 depth: 3
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 由浏览器、日志、截图、测试器支撑，让 Agent 写码、跑测、看日志、改错的回路。
 
-**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
 
 ## 费曼一下
 

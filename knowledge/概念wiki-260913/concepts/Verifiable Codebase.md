@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: verification-eval
 learningStage: when-needed
 verification: use
-centrality: 0.099
+centrality: 0.092
 depth: 2
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 让 agent 有可靠工具验证改动的代码库，如 Playwright CLI、关键 E2E 测试、只读 verifier agent。
 
-**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.099
+**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.092
 
 ## 费曼一下
 

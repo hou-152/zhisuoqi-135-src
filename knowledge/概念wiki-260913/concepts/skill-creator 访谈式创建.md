@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.099
+centrality: 0.092
 depth: 3
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 装上 skill-creator，让 Claude 反过来访谈你的工作流，快速生成 skill。
 
-**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.099
+**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.092
 
 ## 费曼一下
 
@@ -66,17 +66,17 @@ sources: 1
 
 - [[Skill]]
 - [[验证闭环 verification loop]]
-- [[嵌入 Embedded]]
 - [[Skill Files]]
 - [[把重复步骤编码成 Skill]]
 - [[个人基础设施 → 团队基础设施]]
-- [[灵活性与自动化的权衡]]
 - [[description 作为触发条件]]
-- [[SKILL.md：frontmatter＋body 契约]]
 - [[Wrapper skill]]
 - [[独立调用 Standalone]]
 - [[可编辑性边界]]
 - [[链式 Chained]]
+- [[灵活性与自动化的权衡]]
+- [[嵌入 Embedded]]
 - [[习惯变契约 habit → contract]]
 - [[循环工程 loop engineering]]
 - [[PR 级门禁 On every PR]]
+- [[SKILL.md：frontmatter＋body 契约]]

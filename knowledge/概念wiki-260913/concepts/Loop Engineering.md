@@ -6,7 +6,7 @@ subject: Context Engineering × Harness Engineering
 domain: loop-autonomy
 learningStage: now
 verification: use
-centrality: 0.251
+centrality: 0.237
 depth: 1
 origin: [context, harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 5
 
 > 从单次提示转向自动循环的工作方式：设计目标、触发、执行、验证、失败处理与反馈机制。
 
-**领域** loop-autonomy ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.251
+**领域** loop-autonomy ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.237
 
 ## 费曼一下
 
@@ -89,13 +89,14 @@ sources: 5
 
 - [[子 Agent 分工]]
 - [[Git-backed state]]
+- [[可验证目标]]
 - [[Self-verification]]
 - [[自动循环的心跳]]
 - [[Capability Overhang]]
 - [[管理 Agent]]
-- [[可验证目标]]
 - [[项目知识体系]]
 - [[Ralph Loop]]
+- [[部署系统层]]
 - [[Inner Loop]]
 - [[工作树隔离]]
 - [[古德哈特定律]]
@@ -103,7 +104,6 @@ sources: 5
 - [[Harness 与 Loop 的配合]]
 - [[Prompt 到 Loop 的跃迁]]
 - [[闭环]]
-- [[部署系统层]]
 - [[Budget ceiling]]
 - [[Context discipline]]
 - [[Continuous orchestration loop]]

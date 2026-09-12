@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: spec-intent
 learningStage: now
 verification: use
-centrality: 0.045
+centrality: 0.042
 depth: 2
 origin: [notion]
 aliases: ["Spec-First Workflow", "Spec-First", "规格先行", "spec-first development", "spec-driven"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 先与 agent 把规格/文档写细到能当蓝图，再让 agent 实现，review 对象主要是 spec
 
-**领域** spec-intent ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** spec-intent ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 原文 context
 

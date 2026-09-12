@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.045
+centrality: 0.017
 depth: 0
 origin: [harness]
 aliases: []
@@ -15,9 +15,9 @@ sources: 1
 
 # Agent vs Harness
 
-> agent 是用户交互的涌现行为实体，harness 是产生这一行为的机器，两者不可混为一谈。
+> agent 是用户交互的涌现行为实体，harness 是产生该行为的机器，二者最常被混淆。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -29,16 +29,12 @@ The "agent" is the emergent behavior: the goal-directed, tool-using, self-correc
 
 ## 掌握证据（做到这些才算会）
 
-- 能用一句话各自定义 agent 与 harness
-- 能指出把两者混同会导致的错误表述
+- 能用一句话分别定义 agent 与 harness
+- 能对一个具体项目指认哪部分属于 harness
 
 ## 验收问句
 
-> {{name}} 的边界在哪，说「做了个 agent」实际是什么？
-
-## 懂了它才能懂（解锁 1）
-
-- [[coding agent]] — coding agent 的定义就是被 harness 包裹、借工具获得读写代码能力的 LLM。
+> {{name}}的区别是什么？举例说明。
 
 ## 相关
 
@@ -67,13 +63,12 @@ The "agent" is the emergent behavior: the goal-directed, tool-using, self-correc
 - [[上下文腐烂 Context Rot]]
 - [[协同进化与紧耦合 co-evolution principle]]
 - [[Context Management 四策略]]
-- [[coding agent]]
+- [[Harness Thickness]]
 - [[Ralph Loop]]
-- [[Orchestration Loop TAO Cycle ReAct Loop]]
 - [[迷失在中间 lost in the middle]]
+- [[Orchestration Loop TAO Cycle ReAct Loop]]
 - [[If you're not the model, you're the harness.]]
 - [[原则侧]]
 - [[Gather-Act-Verify Cycle]]
 - [[Scaffolding Metaphor]]
 - [[Von Neumann Architecture Analogy]]
-- [[Harness Thickness]]

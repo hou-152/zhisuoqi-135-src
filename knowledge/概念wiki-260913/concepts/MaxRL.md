@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: model-training
 learningStage: deep-dive
 verification: judge
-centrality: 0.045
-depth: 5
+centrality: 0.092
+depth: 6
 origin: [notion]
 aliases: ["最大似然强化学习", "Maximum Likelihood RL"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 把 RL 目标从 pass@1 期望奖励改为 N 次采样至少一次成功，只对成功样本求平均梯度，困难 prompt 自动获高权重。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.092
 
 ## 原文 context
 
@@ -34,9 +34,11 @@ sources: 1
 
 > {{name}} 与标准 RL 的目标差在哪里，为何对测试时扩展更划算？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 3）
 
+- [[REINFORCE]] · **hard** — MaxRL 仍是策略梯度，只对成功样本平均梯度，基础是 REINFORCE 的加权形式。
 - [[Dr. GRPO]] · **hard** — MaxRL沿用组采样与相对思路，只把目标换成至少一次成功，不懂GRPO就接不上它的基线设定。
+- [[Reward Signal]] · **soft** — MaxRL 改变奖励聚合方式，懂奖励信号更易理解它为何只重成功样本。
 
 ## 相关
 
@@ -54,4 +56,6 @@ sources: 1
 
 ## 反链
 
+- [[Reward Signal]]
 - [[Dr. GRPO]]
+- [[REINFORCE]]

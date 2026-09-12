@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: thinking-method
 learningStage: when-needed
 verification: judge
-centrality: 0.072
+centrality: 0.017
 depth: 0
 origin: [notion]
 aliases: ["Taste", "Judgment", "Taste and Judgment", "品味", "工程判断", "taste 与 judgment"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 在美学、判断与取舍上的品味，负责在多个可运行方案中挑出对的、优雅的那个。
 
-**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 原文 context
 
@@ -40,11 +40,6 @@ nanoGPT 简化案例：他怎么 prompt 都让模型简化不动 → 明显「�
 
 > {{name}} 为什么仍是 agent 接管不了的领域？
 
-## 懂了它才能懂（解锁 2）
-
-- [[Friction-based Skill Formation]] — 品味只能从犯错、溯源、碰壁的摩擦中长出来。
-- [[Universal appeal — makes, not has]] — 判断普遍性如何在读者身上被制造出来，需要品味。
-
 ## 相关
 
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -62,7 +57,5 @@ nanoGPT 简化案例：他怎么 prompt 都让模型简化不动 → 明显「�
 ## 反链
 
 - [[外包思考，但不外包理解]]
-- [[Friction-based Skill Formation]]
 - [[Agent-Native Infrastructure]]
-- [[Universal appeal — makes, not has]]
 - [[Sensors 与 Actuators]]

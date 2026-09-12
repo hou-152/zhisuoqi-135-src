@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: society-law
 learningStage: when-needed
 verification: accept
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [notion]
 aliases: ["网络国家 / 1000 Communities / Network School"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 把世界拆成可申请加入的社群，用选国家替代选总统，以退出权恢复被治理者的同意。
 
-**领域** society-law ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.045
+**领域** society-law ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 原文 context
 

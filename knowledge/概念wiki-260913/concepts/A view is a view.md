@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: media-culture-education
 learningStage: when-needed
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 2
 origin: [notion]
 aliases: ["一次观看就是一次观看 / A view is a view", "a listen is a listen"]
@@ -15,9 +15,9 @@ sources: 1
 
 # A view is a view
 
-> clip 播放与直播观看在广告计价上等价，一次点亮即一次流量，无高低之分。
+> 一次播放、收听、曝光本身就是等价的注意力单位，广告主只算屏幕被点亮几次，clip 流量因此可变现。
 
-**领域** media-culture-education ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** media-culture-education ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 原文 context
 
@@ -27,12 +27,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能解释为何 250 万 clip 播放不等于次等流量
-- 能据此论证传统媒体 clip 库存的变现空间
+- 能解释传统媒体为何把 clip 当次等流量
+- 能按等价曝光算出把 clip 并入库存后的价值
 
 ## 验收问句
 
-> 按 {{name}}，clip 播放为何能与直播观众等价变现？
+> {{name}}为什么是 clip 库存变现的认知前提？
 
 ## 先懂这些（前置 1）
 

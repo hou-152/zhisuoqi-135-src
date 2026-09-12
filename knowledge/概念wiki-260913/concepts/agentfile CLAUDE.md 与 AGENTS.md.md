@@ -4,10 +4,10 @@ name: agentfile
 nameEn: CLAUDE.md 与 AGENTS.md
 type: REPRESENTATIONAL
 subject: Harness Engineering
-domain: code-engineering
-learningStage: when-needed
+domain: context-engineering
+learningStage: now
 verification: judge
-centrality: 0.017
+centrality: 0.042
 depth: 0
 origin: [harness]
 aliases: ["CLAUDE.md 与 AGENTS.md"]
@@ -16,9 +16,9 @@ sources: 1
 
 # agentfile · CLAUDE.md 与 AGENTS.md
 
-> 仓库顶层被 harness 注入系统提示的 markdown 文件；LLM 生成反损性能，人工撰写仅微增益，目录总览无用。
+> 仓库顶层被 harness 确定性注入系统提示的 markdown 文件；研究显示手写收益小、LLM 生成反损性能。
 
-**领域** code-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -30,12 +30,16 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能说出 138 个 agentfile 研究的核心结论
-- 能据此写出不到 60 行的人工 agentfile
+- 能说出手写 agentfile 的收益与 token 开销量级
+- 能指出代码库总览、目录清单这类无用内容
 
 ## 验收问句
 
-> 人工撰写与 LLM 生成 {{name}}，效果与成本差多少？
+> {{name}}该写什么、不该写什么？代价多大？
+
+## 懂了它才能懂（解锁 1）
+
+- [[Instruction-file tax]] — 该税指的正是 AGENTS.md/CLAUDE.md 的 token 开销，不懂 agentfile 就无从谈税。
 
 ## 相关
 
@@ -56,3 +60,4 @@ sources: 1
 - [[Harness]]
 - [[Harness 工程 Harness Engineering]]
 - [[configuration problem]]
+- [[Instruction-file tax]]

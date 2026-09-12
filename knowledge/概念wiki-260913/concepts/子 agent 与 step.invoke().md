@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: multi-agent
 learningStage: when-needed
 verification: use
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 用 step.invoke() 启动独立 agent run 并 fork 带自己 session key 的子会话，工具集去掉 delegate_task 禁止递归，最后向父级回摘要。
 
-**领域** multi-agent ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** multi-agent ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -38,7 +38,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[Subagent】]] · **hard** — step.invoke() 启动的正是带独立 session key 的子代理会话
+- [[Subagent]] · **hard** — step.invoke() 启动的正是带独立 session key 的子代理会话
 
 ## 相关
 
@@ -53,5 +53,5 @@ sources: 1
 
 - [[Harness]]
 - [[持久化执行 durable execution]]
-- [[Subagent】]]
+- [[Subagent]]
 - [[harness 与 framework 的分野]]

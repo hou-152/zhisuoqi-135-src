@@ -4,11 +4,11 @@ name: 持久化代码图谱
 nameEn: structural map / graph
 type: REPRESENTATIONAL
 subject: Context Engineering
-domain: memory-retrieval
+domain: state-persistence
 learningStage: when-needed
 verification: use
-centrality: 0.017
-depth: 0
+centrality: 0.092
+depth: 5
 origin: [context]
 aliases: ["structural map / graph"]
 sources: 1
@@ -16,9 +16,9 @@ sources: 1
 
 # 持久化代码图谱 · structural map / graph
 
-> 把代码库的函数、类、导入、调用、继承与测试全部映射并持久保存在本地，供后续查询与增量更新。
+> 把代码库每个函数、类、导入、调用、继承与测试映射成图谱，构建后持久保存在本地，供查询与增量更新。
 
-**领域** memory-retrieval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** state-persistence ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.092
 
 ## 费曼一下
 
@@ -30,12 +30,18 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能列出图谱覆盖的关系类型
-- 能说明持久化相对每次任务临时生成的优势
+- 能说明图谱覆盖哪些代码关系
+- 能解释持久保存与每次任务临时生成的区别与收益
 
 ## 验收问句
 
-> {{name}} 覆盖哪些关系、靠什么更新？
+> {{name}} 更新一次要多久，能支撑后续增量查询吗？
+
+## 先懂这些（前置 3）
+
+- [[文件系统即持久记忆]] · **hard** — 图谱要“持久保存在本地”，得先懂如何把耐久状态落到文件系统。
+- [[Artifact Schema]] · **soft** — 图谱是被查询的共享知识成果，需要 artifact 的 schema 与更新约定。
+- [[本地状态层]] · **soft** — 图谱持久在本地供查询与增量更新，依赖本地存储层的存在。
 
 ## 相关
 
@@ -61,6 +67,9 @@ sources: 1
 
 ## 反链
 
+- [[文件系统即持久记忆]]
+- [[本地状态层]]
+- [[Artifact Schema]]
 - [[Blast radius]]
 - [[code-review-graph]]
 - [[Review Quality 评分方法]]

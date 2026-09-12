@@ -7,7 +7,7 @@ subject: Context Engineering × Harness Engineering
 domain: memory-retrieval
 learningStage: when-needed
 verification: use
-centrality: 0.089
+centrality: 0.085
 depth: 0
 origin: [context, harness]
 aliases: ["Just-in-time Retrieval"]
@@ -18,7 +18,7 @@ sources: 2
 
 > 上下文里只保留轻量级标识符（路径、ID、链接），需要时再取全文，而不是把内容全塞进去。
 
-**领域** memory-retrieval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.089
+**领域** memory-retrieval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.085
 
 ## 费曼一下
 

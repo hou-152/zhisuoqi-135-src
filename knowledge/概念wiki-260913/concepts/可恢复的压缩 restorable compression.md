@@ -2,7 +2,7 @@
 id: cm_7a183315
 name: 可恢复的压缩
 nameEn: restorable compression
-type: PROCEDURAL
+type: CONCEPTUAL
 subject: Context Engineering
 domain: context-engineering
 learningStage: when-needed
@@ -16,9 +16,9 @@ sources: 1
 
 # 可恢复的压缩 · restorable compression
 
-> 压缩时只丢可再取回的内容：正文可弃，只要 URL 或沙箱路径还在。
+> 压缩上下文时保留可恢复的锚点：网页留 URL、文档留沙箱路径，缩短而不永久丢信息。
 
-**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ Manus 压缩策略的设计原则。网页内容可以从上下文中丢弃，�
 
 ## 掌握证据（做到这些才算会）
 
-- 能说出哪些内容可丢、哪些引用必须保留
-- 能设计一个凭引用即可还原的压缩方案
+- 能列出哪些内容可丢弃、对应的锚点是什么
+- 能演示凭锚点重新取回被丢弃的原文
 
 ## 验收问句
 
-> 上下文超长时，你能按 {{name}} 压缩而不永久丢信息吗？
+> 按{{name}}，哪些内容可以从上下文里丢弃而信息不丢？
 
 ## 相关
 

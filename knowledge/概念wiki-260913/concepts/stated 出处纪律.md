@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: memory-retrieval
 learningStage: now
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 存储时只保留用户明确说过的内容，判据是出处而不是是否有用
 
-**领域** memory-retrieval ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** memory-retrieval ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 

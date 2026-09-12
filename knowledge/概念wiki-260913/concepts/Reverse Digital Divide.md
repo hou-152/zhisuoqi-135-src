@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: economy-business
 learningStage: when-needed
 verification: judge
-centrality: 0.099
+centrality: 0.092
 depth: 1
 origin: [notion]
 aliases: ["反向数字鸿沟 / 数字鸿沟反转"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 数字内容被极致通缩、人人同价可得，稀缺性转移到物理体验，线下因此重新变成高价值信号。
 
-**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.099
+**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.092
 
 ## 原文 context
 

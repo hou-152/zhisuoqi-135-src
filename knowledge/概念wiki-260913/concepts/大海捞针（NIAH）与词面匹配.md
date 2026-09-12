@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: verification-eval
 learningStage: when-needed
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 0
 origin: [context]
 aliases: []
@@ -15,9 +15,9 @@ sources: 1
 
 # 大海捞针（NIAH）与词面匹配
 
-> 把已知事实埋入大段无关文本再让模型找回，实质考察词面匹配，能力窄却造成“长上下文已解决”的错觉。
+> 最广泛使用的长上下文基准：把已知事实埋进大量无关文本让模型找回，实质只考察词面匹配。
 
-**领域** verification-eval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** verification-eval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能描述 needle 与 haystack 的构造方式
-- 能解释为何近满分成绩不能推出长上下文能力已解决
+- 能说明它考察的是 direct lexical matching 这一窄能力
+- 能解释它为何催生长上下文基本已解决的错觉
 
 ## 验收问句
 
-> {{name}} 真正考察哪种能力，为什么会误导人？
+> 为什么{{name}}拿高分不等于长上下文真的可用？
 
 ## 懂了它才能懂（解锁 2）
 
@@ -63,15 +63,15 @@ sources: 1
 ## 反链
 
 - [[上下文腐烂 Context Rot]]
-- [[上下文均匀处理假设]]
 - [[输入长度与任务难度的混淆]]
 - [[长上下文评测协议]]
-- [[噪声上下文]]
 - [[自回归下输出也是上下文]]
+- [[非尝试率与拒答模式]]
+- [[上下文均匀处理假设]]
+- [[噪声上下文]]
 - [[haystack 结构连贯性效应]]
 - [[needle-haystack 相似度]]
 - [[needle-question 语义相似度谱系]]
-- [[非尝试率与拒答模式]]
 - [[干扰项的非均匀影响]]
 - [[干扰项与无关内容之分]]
 - [[检索与推理的双任务负担]]

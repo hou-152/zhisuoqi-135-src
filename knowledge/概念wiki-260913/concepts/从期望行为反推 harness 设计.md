@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: use
-centrality: 0.045
-depth: 4
+centrality: 0.042
+depth: 3
 origin: [harness]
 aliases: []
 sources: 1
@@ -15,9 +15,9 @@ sources: 1
 
 # 从期望行为反推 harness 设计
 
-> 从期望模型表现的行为出发，反推需要哪些 harness 功能，而不做穷举清单。
+> 不从功能清单出发，而由希望模型做出的行为反推 harness 需要提供哪些能力。
 
-**领域** harness-runtime ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** harness-runtime ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能写出“期望行为 → harness 设计”的推导链条
-- 能依据“帮模型做有用的工作”这一出发点筛掉无关功能
+- 能写出一对「期望行为 → 设计支撑」的推导示例
+- 能说明为何不做穷举功能清单
 
 ## 验收问句
 
-> 设计 harness 时，{{name}} 的推导起点是什么？
+> 给你一个期望行为，你怎么用{{name}}推出所需功能？
 
 ## 先懂这些（前置 1）
 

@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: verification-eval
 learningStage: when-needed
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 运行时配置与环境差异等基础设施噪声可能显著影响 coding benchmark 分数，解读成绩时需扣除。
 
-**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 

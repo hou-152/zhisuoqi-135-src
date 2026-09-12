@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: geo-infrastructure
 learningStage: deep-dive
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 2
 origin: [notion]
 aliases: ["CFIUS", "FDI Screening Framework", "Sovereign Cloud", "主权云", "OpenAI for Countries", "Democratic AI rails", "主权 AI"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 给 AI 装国籍的四类工具：外资安全审查、本地化主权云、国家配套基础设施与价值观包装。
 
-**领域** geo-infrastructure ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** geo-infrastructure ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 原文 context
 

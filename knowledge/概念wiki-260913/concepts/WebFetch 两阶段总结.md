@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.072
+centrality: 0.067
 depth: 3
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 大模型产出 tool call 与 prompt，小模型读网页并按 prompt 总结，只把一小段文字回传作上下文。
 
-**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
 
 ## 费曼一下
 

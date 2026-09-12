@@ -4,9 +4,9 @@ name: 工具定义
 nameEn: Tool Definitions / Tool Schema
 type: REPRESENTATIONAL
 subject: Context Engineering
-domain: context-engineering
-learningStage: when-needed
-verification: judge
+domain: tools-sandbox
+learningStage: now
+verification: use
 centrality: 0.017
 depth: 0
 origin: [context]
@@ -16,9 +16,9 @@ sources: 1
 
 # 工具定义 · Tool Definitions / Tool Schema
 
-> 在 Agent 场景里，工具 schema 本身常常占据大量 token，并且位于缓存前缀的最前部。
+> 描述工具名称、参数与用途的 schema，在 Agent 场景常占大量 token，且位于缓存前缀最前部。
 
-**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** tools-sandbox ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能测出某次请求中工具定义占用的 token 比例
-- 能说明它在缓存前缀中的位置带来的影响
+- 能写出一份简洁完整的工具 schema
+- 能估算其 token 占用并说明它处在缓存前缀最前部的影响
 
 ## 验收问句
 
-> {{name}}在上下文与缓存里为何值得特别关注？
+> 你能说明 {{name}} 为什么值得放进缓存前缀吗？
 
 ## 相关
 

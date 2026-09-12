@@ -4,9 +4,9 @@ name: 交互 Scalability / Interaction Scalability
 type: CONCEPTUAL
 subject: Harness Engineering
 domain: agent-org
-learningStage: when-needed
+learningStage: deep-dive
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [harness]
 aliases: []
@@ -15,9 +15,9 @@ sources: 1
 
 # 交互 Scalability / Interaction Scalability
 
-> 当 agent 产出速度远超人类注意力，需要新界面来 steer 整个系统。
+> 当 Agent 产出速度远超人类注意力时，人应当通过什么界面来有效 steer 整个系统。
 
-**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ agent 产出速度远超人类注意力时，人应该通过什么界面来 stee
 
 ## 掌握证据（做到这些才算会）
 
-- 能指出人类注意力成为新瓶颈
-- 能提出至少一种 steer 界面形态
+- 能指出瓶颈在人的注意力而不是 Agent 的吞吐
+- 能提出一种让人只处理关键决策点的 steer 界面
 
 ## 验收问句
 
-> 你会如何为 {{name}} 问题设计人类介入的界面？
+> {{name}} 要解决的核心矛盾是什么？
 
 ## 先懂这些（前置 1）
 

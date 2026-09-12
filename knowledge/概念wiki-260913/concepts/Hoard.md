@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: memory-retrieval
 learningStage: when-needed
 verification: accept
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [notion]
 aliases: ["囤积", "hoard things you know how to do"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 材料仅列名称、无正文，含义待补；从命名看或与收藏、囤积式保存有关。
 
-**领域** memory-retrieval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.045
+**领域** memory-retrieval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 掌握证据（做到这些才算会）
 

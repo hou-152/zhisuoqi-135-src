@@ -7,7 +7,7 @@ subject: Context Engineering × Harness Engineering
 domain: harness-runtime
 learningStage: when-needed
 verification: judge
-centrality: 0.444
+centrality: 0.451
 depth: 2
 origin: [context, harness]
 aliases: ["Harness Engineering"]
@@ -18,7 +18,7 @@ sources: 13
 
 > 围绕模型构建系统、把模型变成工作引擎的工程方式，用于注入人类先验并在模型变强后做外科式修正。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.444
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.451
 
 ## 费曼一下
 
@@ -42,9 +42,10 @@ Harness 工程比提示词和上下文更大。它把工具、状态、错误、
 - [[上下文工程 context engineering]] · **hard** — 本站工程范围轴采用 Harness Engineering 通常包住 Context Engineering。
 - [[Guardrails]] · **hard** — Guardrails 是 Harness Engineering 约束循环行动路径的实践之一。
 
-## 懂了它才能懂（解锁 6）
+## 懂了它才能懂（解锁 7）
 
 - [[可执行搜索空间]] — 把 harness 设计写成可搜索代码，先要懂 harness 工程要素。
+- [[harness 的过时假设]] — 过时假设正是 harness 工程要外科式修正的对象，不懂工程就不知假设从哪来、如何改。
 - [[Responses API 与生产设置对齐]] — 用新 API 重实现 harness，先要懂 harness 工程怎么搭。
 - [[基础设施挑战而非 harness 设计问题]] — 判断它不是 harness 设计问题，先要懂 harness 设计是什么。
 - [[基础设施问题，不是 AI 问题]] — 把墙归为基础设施问题，先要懂 harness 工程能解决什么。
@@ -57,7 +58,7 @@ Harness 工程比提示词和上下文更大。它把工具、状态、错误、
 - [[从期望行为反推 harness 设计]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
 - [[Filesystem 作为最基础的 harness 原语]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
 - [[ReAct loop]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
-- [[通用工具与「给模型一台计算机]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
+- [[通用工具与「给模型一台计算机」]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
 - [[Self-verification loop]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
 - [[Context injection]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
 - [[Memory file 与 continual learning]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
@@ -138,36 +139,36 @@ Harness 工程比提示词和上下文更大。它把工具、状态、错误、
 - [[Sandbox]]
 - [[价值定义]]
 - [[Guardrails]]
-- [[RLVR 与编码 agent 的 RL 训练循环]]
-- [[Agentic Engineering]]
-- [[上下文腐烂 Context Rot]]
-- [[模型训练与 harness 设计的耦合]]
-- [[协同进化与紧耦合 co-evolution principle]]
-- [[Context as working memory budget]]
-- [[Context Management 四策略]]
 - [[Long-running agent handoff]]
-- [[Repo-local instructions]]
+- [[上下文腐烂 Context Rot]]
+- [[Agentic Engineering]]
 - [[程序记忆（Procedural Memory Skills） progressive disclosure]]
+- [[仓库即唯一事实来源]]
+- [[模型训练与 harness 设计的耦合]]
+- [[状态子系统与进度持久化]]
+- [[RLVR 与编码 agent 的 RL 训练循环]]
 - [[范围控制与显式的完成定义]]
 - [[可维护性没有惩罚项]]
-- [[确定性工程基础设施】 deterministic engineering infrastructure]]
 - [[软件工厂 Software Factory]]
-- [[状态子系统与进度持久化]]
+- [[协同进化与紧耦合 co-evolution principle]]
 - [[Capability Overhang]]
+- [[Context as working memory budget]]
+- [[Context Management 四策略]]
 - [[Harness evolution]]
+- [[Harness level feature]]
+- [[Harness Thickness]]
 - [[Orchestra Interface]]
+- [[Runtime-harness separation]]
 - [[Symphony]]
 - [[the dumb zone the smart zone]]
 - [[Tool call offloading]]
-- [[Subagent】]]
 - [[渐进式披露 progressive disclosure]]
+- [[Subagent]]
 - [[Ralph Loop]]
+- [[迷失在中间 lost in the middle]]
 - [[递归 Planner-Worker 架构]]
-- [[端到端验证]]
 - [[空间 Scalability Spatial Scalability]]
-- [[弱 harness 强 harness 对照与消融实验]]
-- [[通用工具与「给模型一台计算机]]
+- [[能力鸿沟]]
+- [[时间 Scalability Temporal Scalability]]
+- [[通用工具与「给模型一台计算机」]]
 - [[验证子系统与可运行的证据]]
-- [[自评失真 Self-evaluation Distortion]]
-- [[Agent-driven CICD]]
-- [[AI 工程基础设施】 AI engineering infrastructure]]

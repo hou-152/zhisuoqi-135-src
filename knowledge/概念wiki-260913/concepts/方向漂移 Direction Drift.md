@@ -4,9 +4,9 @@ name: 方向漂移 / Direction Drift
 type: CONCEPTUAL
 subject: Harness Engineering
 domain: context-engineering
-learningStage: when-needed
+learningStage: now
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 2
 origin: [harness]
 aliases: []
@@ -15,9 +15,9 @@ sources: 1
 
 # 方向漂移 / Direction Drift
 
-> 上下文窗口渐满导致一致性衰减：偏离方向、遗忘早期约束、在细节里越走越深。
+> 上下文渐满导致一致性衰减：偏离目标、遗忘早期约束、在细节里越走越深。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ Agent 版的「煮青蛙」——不是突然崩溃，而是在长时间运行�
 
 ## 掌握证据（做到这些才算会）
 
-- 能指出某次长任务跑偏对应上下文膨胀
-- 能说出复述、压缩、todo 等缓解手段
+- 能指出长会话中漂移出现的迹象
+- 能提出重述约束或压缩上下文的对策
 
 ## 验收问句
 
-> 你怎么发现并缓解{{name}}？
+> 长任务里你怎么发现并遏制{{name}}？
 
 ## 先懂这些（前置 1）
 

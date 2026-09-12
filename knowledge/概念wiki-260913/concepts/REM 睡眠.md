@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: mind-body
 learningStage: when-needed
 verification: accept
-centrality: 0.072
+centrality: 0.067
 depth: 0
 origin: [notion]
 aliases: ["REM", "Rapid Eye Movement Sleep", "快速眼动睡眠", "REM 期"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 快速眼动睡眠阶段，梦境最为生动，是睡眠分期中的一种。
 
-**领域** mind-body ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
+**领域** mind-body ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -57,8 +57,8 @@ sources: 1
 
 ## 反链
 
-- [[外包思考，但不外包理解]]
 - [[记忆巩固]]
+- [[外包思考，但不外包理解]]
 - [[Agent-Native Infrastructure]]
 - [[清醒梦]]
 - [[Sensors 与 Actuators]]

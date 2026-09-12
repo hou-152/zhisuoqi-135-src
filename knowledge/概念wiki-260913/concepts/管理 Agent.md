@@ -6,7 +6,7 @@ subject: Context Engineering × Harness Engineering
 domain: agent-org
 learningStage: when-needed
 verification: judge
-centrality: 0.089
+centrality: 0.085
 depth: 1
 origin: [context, harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 2
 
 > Loop Engineering 的瓶颈在管理而非工程：目标清晰、资源充足、反馈及时，既是带人也是带 loop 的条件。
 
-**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.089
+**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.085
 
 ## 费曼一下
 

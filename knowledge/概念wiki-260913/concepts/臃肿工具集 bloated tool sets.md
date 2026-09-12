@@ -7,7 +7,7 @@ subject: Context Engineering
 domain: tools-sandbox
 learningStage: now
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 0
 origin: [context]
 aliases: ["bloated tool sets"]
@@ -18,7 +18,7 @@ sources: 1
 
 > 工具覆盖功能过宽或制造「该用哪个」的模糊决策点，让 agent 无法确定应调用哪一个。
 
-**领域** tools-sandbox ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** tools-sandbox ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 

@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: model-training
 learningStage: now
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 0
 origin: [notion]
 aliases: ["Inference vs Training", "inference", "training", "推理", "训练"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 推理 vs 训练：训练是『教』模型、吃硬件极限，推理是『用』模型、要求性价比，两者对芯片诉求不同。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 原文 context
 

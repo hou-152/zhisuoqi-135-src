@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: thinking-method
 learningStage: when-needed
 verification: judge
-centrality: 0.045
-depth: 1
+centrality: 0.017
+depth: 0
 origin: [notion]
 aliases: ["Stop/FLOP/Know", "Stop Analyzing", "First Lost OPportunity", "停止分析原则"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 判断何时收手的三个信号：信息到边际、时机将失、局面已定
 
-**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 原文 context
 
@@ -34,10 +34,6 @@ sources: 1
 
 > 眼下这个决定，{{name}} 里的哪个信号已经出现？
 
-## 先懂这些（前置 1）
-
-- [[ASAP ALAP 原则]] · **soft** — 何时收手需先懂按可逆性定速度的时机原则。
-
 ## 相关
 
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -51,7 +47,3 @@ sources: 1
 ## 别名
 
 `Stop/FLOP/Know`、`Stop Analyzing`、`First Lost OPportunity`、`停止分析原则`
-
-## 反链
-
-- [[ASAP ALAP 原则]]

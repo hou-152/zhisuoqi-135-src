@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: thinking-method
 learningStage: now
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [notion]
 aliases: ["知识工作四步框架", "RTWV", "Read Think Write Verify", "SemiAnalysis 知识工作框架"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 知识工作通用四步：Read 消费信息、Think 应用知识、Write 产出结构化输出、Verify 对照标准。
 
-**领域** thinking-method ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** thinking-method ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 原文 context
 

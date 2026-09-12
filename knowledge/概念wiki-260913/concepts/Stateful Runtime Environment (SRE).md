@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: state-persistence
 learningStage: when-needed
 verification: use
-centrality: 0.072
+centrality: 0.067
 depth: 0
 origin: [notion]
 aliases: ["SRE", "有状态 Agent 运行时", "Bedrock SRE"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 把持久化与状态管理封装进运行环境，构建 agent 时无需再操心这些
 
-**领域** state-persistence ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** state-persistence ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
 
 ## 费曼一下
 

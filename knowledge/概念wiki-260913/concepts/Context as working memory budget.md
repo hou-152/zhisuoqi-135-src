@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.126
+centrality: 0.092
 depth: 0
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 把上下文窗口当有限工作记忆经营，配套 KV-cache 局部性、文件系统记忆、压缩与背压。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.092
 
 ## 费曼一下
 
@@ -36,12 +36,11 @@ Anthropic、Manus、OpenHands 和 HumanLayer 相关资源都把上下文窗口�
 
 > 按 {{name}} 的观点，上下文该被当成什么来管？
 
-## 懂了它才能懂（解锁 4）
+## 懂了它才能懂（解锁 3）
 
-- [[Context-window tax]] — 窗口税是固定内容占用有限工作记忆额度的一种记账
-- [[Context Management 四策略]] — 四策略就是按内存预算来管理上下文的具体操作
-- [[instruction budget]] — 注意力额度有限，是把上下文当有限预算经营的一面
-- [[Bounded Output]] — 限制单次输出上界，是为守住有限的上下文容量
+- [[Context Management 四策略]] — 四策略就是把窗口当内存预算来经营，没有预算观就没有这些策略
+- [[Context-window tax]] — 固定内容占用的是有限窗口容量，预算视角才让这笔税可量化
+- [[instruction budget]] — 把注意力当作有限的窗口额度，才谈得上这份预算是共用的
 
 ## 相关
 
@@ -62,17 +61,16 @@ Anthropic、Manus、OpenHands 和 HumanLayer 相关资源都把上下文窗口�
 - Harness Engineering ｜ 《Harness engineering：把 agent 能力落到工具、约束和循环里》 ｜ https://github.com/walkinglabs/awesome-harness-engineering
 ## 反链
 
-- [[Context Management 四策略]]
 - [[Long-running agent handoff]]
-- [[Repo-local instructions]]
+- [[Context Management 四策略]]
 - [[Harness evolution]]
-- [[Context-window tax]]
 - [[Runtime-harness separation]]
+- [[Reliability-critical harness primitives]]
 - [[Safe autonomy]]
 - [[Spec-driven agent workflow]]
 - [[Trace-based evals]]
-- [[Bounded Output]]
+- [[Context-window tax]]
 - [[Harness-level benchmarks]]
 - [[Infrastructure noise]]
 - [[instruction budget]]
-- [[Reliability-critical harness primitives]]
+- [[Repo-local instructions]]

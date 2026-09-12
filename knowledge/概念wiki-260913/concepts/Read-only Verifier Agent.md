@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: verification-eval
 learningStage: when-needed
 verification: use
-centrality: 0.126
+centrality: 0.117
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 执行 agent 另起一个只读验证 agent，按详细 spec 检查结果，避免执行者自我确认。
 
-**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
+**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.117
 
 ## 费曼一下
 
@@ -38,7 +38,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[Self-evaluation Failure】]] · **soft** — 只读校验者存在的理由就是执行者自评会偏乐观。
+- [[Self-evaluation Failure]] · **soft** — 只读校验者存在的理由就是执行者自评会偏乐观。
 
 ## 懂了它才能懂（解锁 3）
 
@@ -61,5 +61,5 @@ sources: 1
 - [[Verifiable Codebase]]
 - [[Rubric 与 verifier agent]]
 - [[Rubrics 与验证 agent]]
-- [[Self-evaluation Failure】]]
+- [[Self-evaluation Failure]]
 - [[Loop Engineer]]

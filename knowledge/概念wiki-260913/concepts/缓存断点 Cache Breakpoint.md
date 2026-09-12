@@ -2,10 +2,10 @@
 id: cm_68c53198
 name: 缓存断点
 nameEn: Cache Breakpoint
-type: REPRESENTATIONAL
+type: CONCEPTUAL
 subject: Context Engineering
 domain: caching-cost
-learningStage: when-needed
+learningStage: now
 verification: use
 centrality: 0.017
 depth: 0
@@ -16,9 +16,9 @@ sources: 1
 
 # 缓存断点 · Cache Breakpoint
 
-> 缓存从请求开头一直延伸到明确标记位置，该标记点即缓存生效的边界。
+> 缓存从请求开头延伸到显式标记的位置，标记之后的内容不参与缓存，用于划定可复用的前缀范围。
 
-**领域** caching-cost ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能说出缓存的起点是请求开头
-- 能指出缓存覆盖范围止于标记位置
+- 能指出一次请求中缓存覆盖到哪一段
+- 能正确放置标记使前缀被复用
 
 ## 验收问句
 
-> {{name}} 决定缓存覆盖到哪一段？
+> 能否在请求里正确放置 {{name}} 以复用前缀？
 
 ## 相关
 
@@ -70,7 +70,7 @@ sources: 1
 - [[系统提示 System Prompt]]
 - [[上下文压缩 Context Compression Summarization]]
 - [[Automatic Caching]]
-- [[tools → system → messages 缓存顺序]]
+- [[Explicit Breakpoints]]
 - [[TTL]]
 - [[工具定义 Tool Definitions Tool Schema]]
 - [[缓存连续性 Cache Continuity]]
@@ -83,4 +83,4 @@ sources: 1
 - [[稳定前缀 Stable Prefix]]
 - [[消息层 Messages Layer]]
 - [[最小可缓存 token 门槛 Minimum Cacheable Tokens]]
-- [[Explicit Breakpoints]]
+- [[tools → system → messages 缓存顺序]]

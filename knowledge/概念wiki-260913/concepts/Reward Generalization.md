@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: model-training
 learningStage: when-needed
 verification: judge
-centrality: 0.045
+centrality: 0.067
 depth: 1
 origin: [notion]
 aliases: ["奖励泛化", "Cross-condition Transfer", "reward leakage", "RL behavior transfer"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 只在 A 条件下给的奖励，行为会跨条件泄漏到所有场景；RL 设计应默认奖励会泛化。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 原文 context
 
@@ -48,7 +48,11 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[Reward Signal]] · **hard** — 奖励泛化讲的是奖励信号跨条件泄漏，不懂奖励信号这个通道就无从谈起。
+- [[Reward Signal]] · **hard** — 奖励泛化讨论奖励信号跨条件泄漏，不懂奖励信号就无从谈泛化。
+
+## 懂了它才能懂（解锁 1）
+
+- [[RLHF]] — RLHF 的奖励模型会跨场景泛化，懂奖励泛化更易理解其泄漏与奖励黑客。
 
 ## 相关
 
@@ -67,3 +71,4 @@ sources: 1
 ## 反链
 
 - [[Reward Signal]]
+- [[RLHF]]

@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: multi-agent
 learningStage: when-needed
 verification: judge
-centrality: 0.099
+centrality: 0.092
 depth: 4
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 相对于工厂式界面，强调人仍在 flow 中，像指挥家一样设目标、协调多个 Agent 并保有创造控制感。
 
-**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.099
+**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.092
 
 ## 费曼一下
 

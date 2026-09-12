@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: state-persistence
 learningStage: when-needed
 verification: use
-centrality: 0.045
+centrality: 0.042
 depth: 0
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 最小执行原语，包住一次 LLM 调用或工具执行，失败时只重试该单元
 
-**领域** state-persistence ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** state-persistence ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 

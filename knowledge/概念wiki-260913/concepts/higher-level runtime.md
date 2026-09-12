@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.126
-depth: 2
+centrality: 0.117
+depth: 1
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 在模型调用之上再叠一层运行时，接管 turns、工具执行、guardrails、handoffs、sessions，且可按场景分层选择。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.117
 
 ## 费曼一下
 
@@ -36,15 +36,15 @@ The SDK uses the Responses API by default for OpenAI models, but it **adds a hig
 
 > {{name}} 除了模型调用本身还替你管哪些事？
 
-## 先懂这些（前置 2）
+## 先懂这些（前置 1）
 
-- [[Runtime-harness separation]] · **hard** — 框架/运行时/harness 三层分解正是运行时叠加的前提
-- [[primitives]] · **soft** — handoffs、guardrails 等原语是运行时接管的构件
+- [[Runtime-harness separation]] · **hard** — 不懂运行时与 harness 分层，就不知道这层该接管什么。
 
-## 懂了它才能懂（解锁 2）
+## 懂了它才能懂（解锁 3）
 
-- [[Hermes Agent]] — 读源码要先懂它在模型调用之上叠了哪层运行时
-- [[webhook transform 与 connect()]] — 外部事件要先转成类型化 event 才能喂进运行时
+- [[SayCan]] — SayCan 在模型调用上做接驳评估，类似运行时接管 handoffs/guardrails。
+- [[Hermes Agent]] — 开源 Agent 源码体现运行时如何接管 turns/工具执行。
+- [[webhook transform 与 connect()]] — 事件接入是运行时接管工具执行与路由的一部分。
 
 ## 相关
 
@@ -59,7 +59,8 @@ The SDK uses the Responses API by default for OpenAI models, but it **adds a hig
 
 - [[Agent]]
 - [[primitives]]
-- [[Hermes Agent]]
 - [[Runtime-harness separation]]
+- [[Hermes Agent]]
 - [[very few abstractions]]
+- [[SayCan]]
 - [[webhook transform 与 connect()]]

@@ -3,10 +3,10 @@ id: cm_716dd66e
 name: 12-factor agents
 type: REPRESENTATIONAL
 subject: Context Engineering
-domain: code-engineering
+domain: harness-runtime
 learningStage: when-needed
 verification: use
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [context]
 aliases: []
@@ -15,9 +15,9 @@ sources: 1
 
 # 12-factor agents
 
-> 仿 12 Factor Apps 的 LLM 软件工程纲领，回答什么原则能让 LLM 软件好到交给生产客户，它不是框架。
+> 一组让 LLM 软件达到生产可交付水准的工程要素纲领，非框架，可单独取用。
 
-**领域** code-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能列出其中几条可单独取用的工程要素
-- 能说明它为什么自称不是框架
+- 能列出其中若干条要素并说明用途
+- 能说明它与框架的区别
 
 ## 验收问句
 
-> {{name}} 里哪几条你现在就能用在项目上？
+> {{name}} 里哪几条你最该先照做？
 
 ## 先懂这些（前置 1）
 
@@ -43,7 +43,7 @@ sources: 1
 ## 相关
 
 - [[DAG 编排器]] · 同篇出现（co-occurrence） — 同篇出现：context-06
-- [[扔掉 DAG」的承诺]] · 同篇出现（co-occurrence） — 同篇出现：context-06
+- [[「扔掉 DAG」的承诺]] · 同篇出现（co-occurrence） — 同篇出现：context-06
 - [[agent 循环]] · 同篇出现（co-occurrence） — 同篇出现：context-06
 - [[context window 即 agent 状态]] · 同篇出现（co-occurrence） — 同篇出现：context-06
 - [[80% 质量墙]] · 同篇出现（co-occurrence） — 同篇出现：context-06
@@ -53,7 +53,7 @@ sources: 1
 - [[工具即结构化输出]] · 同篇出现（co-occurrence） — 同篇出现：context-06
 - [[统一执行状态与业务状态]] · 同篇出现（co-occurrence） — 同篇出现：context-06
 - [[用工具调用联系人类]] · 同篇出现（co-occurrence） — 同篇出现：context-06
-- [[并不 agentic」的 AI Agent]] · 同篇出现（co-occurrence） — 同篇出现：context-06
+- [[「并不 agentic」的 AI Agent]] · 同篇出现（co-occurrence） — 同篇出现：context-06
 - [[软件即有向图]] · 同篇出现（co-occurrence） — 同篇出现：context-06
 
 ## 出场
@@ -63,15 +63,15 @@ sources: 1
 
 - [[Agentic Engineering]]
 - [[统一执行状态与业务状态]]
+- [[「并不 agentic」的 AI Agent]]
+- [[「扔掉 DAG」的承诺]]
 - [[80% 质量墙]]
-- [[并不 agentic」的 AI Agent]]
 - [[工具即结构化输出]]
 - [[框架反向工程]]
-- [[扔掉 DAG」的承诺]]
 - [[软件即有向图]]
-- [[所有权原则]]
 - [[小而模块化的概念]]
 - [[用工具调用联系人类]]
 - [[agent 循环]]
 - [[context window 即 agent 状态]]
 - [[DAG 编排器]]
+- [[所有权原则]]

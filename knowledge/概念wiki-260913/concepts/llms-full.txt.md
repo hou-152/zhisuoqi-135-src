@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: context-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [notion]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > llms.txt 的完整版，30-60KB，含项目描述、FAQ、使用场景、竞品对比与 README 摘录，访问量约为概要版的 3-4 倍。
 
-**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -38,7 +38,7 @@ llms.txt 的扩展版。AI 通过 llms.txt 知道这个网站做什么之后，�
 
 ## 先懂这些（前置 1）
 
-- [[llms.txt]] · **hard** — 完整版是概要版的扩展，先有面向 AI 的站点文件概念
+- [[llms.txt]] · **hard** — 它是 llms.txt 的完整版，不懂概要版就不知它多出哪些内容
 
 ## 相关
 

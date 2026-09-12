@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: economy-business
 learningStage: when-needed
 verification: judge
-centrality: 0.099
+centrality: 0.092
 depth: 1
 origin: [notion]
 aliases: ["AI Bubble", "AI bubble"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 判定标准不是涨得猛，而是投入与可见收益之间出现失衡，常被类比铁路与互联网泡沫。
 
-**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.099
+**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.092
 
 ## 原文 context
 

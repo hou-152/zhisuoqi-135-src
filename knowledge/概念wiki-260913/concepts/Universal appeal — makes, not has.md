@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: thinking-method
 learningStage: deep-dive
 verification: judge
-centrality: 0.045
-depth: 1
+centrality: 0.017
+depth: 0
 origin: [notion]
 aliases: ["普世感染力是\"发出\"", "不是\"拥有\"", "makes a universal appeal"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 普遍性不是作品"拥有"的属性，而是它在具体读者身上持续"制造"出来的效果。
 
-**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,10 +36,6 @@ sources: 1
 
 > 说某作品有普世价值时，{{name}} 提醒你换一个什么问法？
 
-## 先懂这些（前置 1）
-
-- [[Taste]] · **soft** — 判断普遍性如何在读者身上被制造出来，需要品味。
-
 ## 相关
 
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -53,7 +49,3 @@ sources: 1
 ## 别名
 
 `普世感染力是"发出"`、`不是"拥有"`、`makes a universal appeal`
-
-## 反链
-
-- [[Taste]]

@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: judge
-centrality: 0.045
-depth: 1
+centrality: 0.042
+depth: 2
 origin: [context]
 aliases: ["primacy bias"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 模型更善用出现在上下文最开头的相关信息，呈 U 型曲线左半边，且只在大模型上出现。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -39,7 +39,7 @@ U 型曲线的左半边——模型更善于使用出现在输入上下文最开
 
 ## 先懂这些（前置 1）
 
-- [[序列位置效应 serial-position effect]] · **hard** — 首因偏置正是序列位置效应U型曲线左半边在模型上的体现
+- [[序列位置效应 serial-position effect]] · **hard** — 首因偏置正是序列位置效应 U 型曲线的左半边，不懂该效应就无法理解它。
 
 ## 相关
 
@@ -68,10 +68,10 @@ U 型曲线的左半边——模型更善于使用出现在输入上下文最开
 
 ## 反链
 
-- [[多文档问答受控实验]]
 - [[序列位置效应 serial-position effect]]
-- [[长上下文评测协议]]
 - [[迷失在中间 lost in the middle]]
+- [[多文档问答受控实验]]
+- [[长上下文评测协议]]
 - [[闭卷与 oracle 基线]]
 - [[合成键值检索任务]]
 - [[性能饱和早于召回饱和]]

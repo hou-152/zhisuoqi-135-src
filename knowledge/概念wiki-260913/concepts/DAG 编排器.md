@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: loop-autonomy
 learningStage: when-needed
 verification: use
-centrality: 0.045
+centrality: 0.042
 depth: 0
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 用有向无环图描述任务依赖的编排工具（Airflow、Prefect、dagster 等），另带观测、模块化、重试与管理。
 
-**领域** loop-autonomy ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** loop-autonomy ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -38,12 +38,12 @@ sources: 1
 
 ## 懂了它才能懂（解锁 1）
 
-- [[扔掉 DAG」的承诺]] — 要理解“扔掉 DAG”必须先懂被扔掉的 DAG 编排器。
+- [[「扔掉 DAG」的承诺]] — 要理解“扔掉 DAG”必须先懂被扔掉的 DAG 编排器。
 
 ## 相关
 
 - [[12-factor agents]] · 同篇出现（co-occurrence） — 同篇出现：context-06
-- [[并不 agentic」的 AI Agent]] · 同篇出现（co-occurrence） — 同篇出现：context-06
+- [[「并不 agentic」的 AI Agent]] · 同篇出现（co-occurrence） — 同篇出现：context-06
 - [[软件即有向图]] · 同篇出现（co-occurrence） — 同篇出现：context-06
 
 ## 出场
@@ -51,7 +51,7 @@ sources: 1
 - Context Engineering ｜ 《12-Factor Agents：让 LLM 软件真能交付给生产用户的十二条原则》 ｜ https://github.com/humanlayer/12-factor-agents
 ## 反链
 
+- [[「并不 agentic」的 AI Agent]]
+- [[「扔掉 DAG」的承诺]]
 - [[12-factor agents]]
-- [[并不 agentic」的 AI Agent]]
-- [[扔掉 DAG」的承诺]]
 - [[软件即有向图]]

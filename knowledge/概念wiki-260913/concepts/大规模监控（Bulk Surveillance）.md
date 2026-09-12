@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: safety-governance
 learningStage: when-needed
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 0
 origin: [notion]
 aliases: ["Bulk Surveillance / 无差别监控 / 大规模监视"]
@@ -15,9 +15,9 @@ sources: 1
 
 # 大规模监控（Bulk Surveillance）
 
-> 不挑对象先把所有人记下来再批量解读的监控模式，与定向监控相对，技术让其成本一降再降。
+> 不挑对象、先把所有人记录下来再批量解读，技术让这种记录成本一降再降，合理性因此需被重新定义。
 
-**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 原文 context
 
@@ -30,12 +30,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能区分定向监控与大规模监控的对象选择差异
-- 能就某一场景判断 bulk 是必要恶还是滑坡开端
+- 能区分对嫌疑人的定向监控与不挑对象的批量监控
+- 能说明为什么它是必要恶还是滑坡开端需要判断
 
 ## 验收问句
 
-> {{name}} 与定向监控的关键区别是什么？
+> {{name}}与对某嫌疑人的定向监控，边界差在哪？
 
 ## 懂了它才能懂（解锁 2）
 

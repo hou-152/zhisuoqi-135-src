@@ -5,9 +5,9 @@ type: CONCEPTUAL
 subject: AI 概念库
 domain: clinical-medicine
 learningStage: when-needed
-verification: judge
-centrality: 0.126
-depth: 3
+verification: accept
+centrality: 0.092
+depth: 2
 origin: [notion]
 aliases: ["DAMO 多癌筛查", "非增强 CT + AI 多癌筛查范式", "DAMO PANDA / GRAPE / COCA"]
 sources: 1
@@ -15,9 +15,9 @@ sources: 1
 
 # 平扫 CT + AI 多癌筛查路线
 
-> 达摩院首创路线：一次平扫 CT 上多个 AI 模型并行，筛消化系统五大高发癌。
+> 一次平扫 CT 同时跑多个 AI 模型，识别消化系统多种高发癌，让已有设备成为多癌筛查入口的范式。
 
-**领域** clinical-medicine ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
+**领域** clinical-medicine ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.092
 
 ## 原文 context
 
@@ -33,22 +33,21 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能按顺序说出 DAMO PANDA、GRAPE、COCA 三个里程碑及对应癌种
-- 能与 Grail 液体活检路线对比成本、辐射与基层落地门槛
+- 能按顺序说出 PANDA、GRAPE、COCA 三个里程碑及对应癌种
+- 能对比液体活检说明该路线在成本与基层落地上的优势
 
 ## 验收问句
 
-> {{name}}相比液体活检路线的优势与代价各是什么？
+> {{name}}与 Grail 液体活检路线在成本和落地上差在哪？
 
-## 先懂这些（前置 3）
+## 先懂这些（前置 2）
 
-- [[平扫 CT]] · **hard** — 该路线完全建立在平扫CT影像上，不懂平扫CT就无基础。
-- [[机会性筛查]] · **hard** — 该路线本质是机会性筛查，不懂机会性筛查就不懂其设计逻辑。
-- [[液体活检]] · **soft** — 与液体活检对比才能理解平扫CT路线的廉价、被动优势。
+- [[平扫 CT]] · **hard** — 该路线以平扫CT为筛查入口，不懂平扫CT就不知其影像基础。
+- [[机会性筛查]] · **hard** — 路线让已有平扫CT顺带多癌筛查，本质是机会性筛查范式。
 
 ## 懂了它才能懂（解锁 1）
 
-- [[DAMO COCA]] — DAMO COCA是该路线中的一个具体模型，了解路线有助于定位。
+- [[DAMO COCA]] — DAMO COCA是该路线的具体实现，不懂路线就不懂其范式定位。
 
 ## 相关
 
@@ -69,4 +68,3 @@ sources: 1
 - [[机会性筛查]]
 - [[平扫 CT]]
 - [[DAMO COCA]]
-- [[液体活检]]

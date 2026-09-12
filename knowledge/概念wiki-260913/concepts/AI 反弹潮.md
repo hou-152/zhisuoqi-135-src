@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: media-culture-education
 learningStage: when-needed
 verification: accept
-centrality: 0.099
+centrality: 0.092
 depth: 0
 origin: [notion]
 aliases: ["AI Backlash", "ai backlash", "AI 厌恶", "AI 反感"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 公众亲身使用 AI 后形成的负面情绪，Gen Z 用得最多也最反感，靠宣传无法扭转。
 
-**领域** media-culture-education ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.099
+**领域** media-culture-education ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.092
 
 ## 原文 context
 

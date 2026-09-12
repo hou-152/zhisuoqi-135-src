@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: memory-retrieval
 learningStage: when-needed
 verification: use
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 把过去的项目决策、踩坑记录与稳定规则写成可被后续 agent 读取的记忆，作为开发流程的一部分。
 
-**领域** memory-retrieval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** memory-retrieval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 原文 context
 

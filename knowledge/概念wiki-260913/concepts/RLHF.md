@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: model-training
 learningStage: deep-dive
 verification: judge
-centrality: 0.154
-depth: 4
+centrality: 0.142
+depth: 5
 origin: [notion]
 aliases: ["基于人类反馈的强化学习", "Reinforcement Learning from Human Feedback"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 用人类偏好训练奖励模型再用 RL 优化 LLM，是 GPT-3 到 InstructGPT 的关键一跳，PPO 为默认算法。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.154
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.142
 
 ## 原文 context
 
@@ -34,16 +34,16 @@ sources: 1
 
 > {{name}} 的关键一跳体现在哪一步？
 
-## 先懂这些（前置 2）
+## 先懂这些（前置 3）
 
-- [[DPPO]] · **hard** — RLHF 默认用 PPO 做 RL 优化，不懂 PPO 就不知道偏好如何变成权重更新。
-- [[Reward Signal]] · **hard** — RLHF 先用人类偏好训练奖励模型，不懂奖励信号就不知道偏好在给什么打分。
+- [[DPPO]] · **hard** — PPO 是 RLHF 默认优化算法，不懂 PPO 就抓不住 RLHF 的优化过程。
+- [[Reward Signal]] · **hard** — RLHF 用人类偏好训练奖励模型，奖励信号是它的打分通道。
+- [[Reward Generalization]] · **soft** — RLHF 的奖励模型会跨场景泛化，懂奖励泛化更易理解其泄漏与奖励黑客。
 
-## 懂了它才能懂（解锁 3）
+## 懂了它才能懂（解锁 2）
 
-- [[Nerdy Personality]] — 懂 RLHF 的偏好优化，才懂人格预设为何是奖励塑造的产物而非提示词效果。
-- [[ScaleRL]] — ScaleRL 是 RL 训练工程方法学，懂 RLHF 才知道它要规模化的是什么。
-- [[SFT Feedback Loop]] — 反馈回路常嵌在 RLHF 的 rollout 采集里，懂 RLHF 才懂数据从哪回收。
+- [[Nerdy Personality]] — RLHF 用偏好奖励塑造行为，理解它更清楚人格如何被训练出来。
+- [[ScaleRL]] — ScaleRL 是大规模 RL 工程方法学，懂 RLHF 才能理解其训练范式来源。
 
 ## 相关
 
@@ -64,5 +64,5 @@ sources: 1
 - [[DPPO]]
 - [[Reward Signal]]
 - [[Nerdy Personality]]
+- [[Reward Generalization]]
 - [[ScaleRL]]
-- [[SFT Feedback Loop]]

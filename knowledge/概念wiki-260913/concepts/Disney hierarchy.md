@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: media-culture-education
 learningStage: when-needed
 verification: judge
-centrality: 0.072
+centrality: 0.092
 depth: 2
 origin: [notion]
 aliases: ["迪士尼层级 / 迪士尼鄙视链 / Disney elder status"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 粉丝群体内部隐形的资历阶梯，用入园次数、收藏厚度等排名，使再去一次变成社会身份维护。
 
-**领域** media-culture-education ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** media-culture-education ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.092
 
 ## 原文 context
 
@@ -37,8 +37,12 @@ sources: 1
 
 ## 先懂这些（前置 2）
 
-- [[Disney bubble]] · **soft** — 资历阶梯靠反复进入沉浸场景消费来维持，泡泡是前提
-- [[swindle of fulfillment]] · **soft** — 粉丝靠重复消费维护身份，正因幸福被包装成可购买商品
+- [[Disney bubble]] · **soft** — 资历靠入园次数，不懂沉浸场景如何悬置现实感，就难懂为何反复入园。
+- [[swindle of fulfillment]] · **soft** — 用消费维护身份，正是'幸福可购买'批判的具体表现。
+
+## 懂了它才能懂（解锁 1）
+
+- [[Universal Zulu Nation]] — 文化组织靠内部认同排名维系成员，与粉丝资历阶梯同构。
 
 ## 相关
 
@@ -58,3 +62,4 @@ sources: 1
 
 - [[Disney bubble]]
 - [[swindle of fulfillment]]
+- [[Universal Zulu Nation]]

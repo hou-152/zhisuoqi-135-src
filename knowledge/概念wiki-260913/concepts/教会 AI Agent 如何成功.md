@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: spec-intent
 learningStage: now
 verification: use
-centrality: 0.099
+centrality: 0.092
 depth: 1
 origin: [notion]
 aliases: ["Teach Agents How to Succeed｜把成功所需的规范主动喂给 Agent"]
@@ -15,9 +15,9 @@ sources: 1
 
 # 教会 AI Agent 如何成功
 
-> 主动把调用者成功所需的信息交给 agent，而不是让它自己摸索。
+> 先想清楚调用 agent 的人需要知道什么才能成功，再主动把这些信息预先交给它，而不是让它自己摸索。
 
-**领域** spec-intent ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.099
+**领域** spec-intent ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.092
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能写出面向 agent 的说明书而非人类文档
-- 能列出 agent 成功所需的关键信息清单
+- 能在交付任务前列出 agent 成功所需的全部前提信息
+- 能指出哪些信息若缺失会导致 agent 盲目试错
 
 ## 验收问句
 
-> 你会为 {{name}} 提前准备哪些它成功所需的信息？
+> 你能用 {{name}} 列出交付任务前该交代什么吗？
 
 ## 先懂这些（前置 1）
 

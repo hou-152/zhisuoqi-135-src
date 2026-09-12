@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 2
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > skill 像方法调用：同一套流程传入不同参数，产出截然不同的能力。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 费曼一下
 

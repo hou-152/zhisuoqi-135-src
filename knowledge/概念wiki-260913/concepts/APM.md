@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: harness-runtime
 learningStage: when-needed
 verification: use
-centrality: 0.045
-depth: 5
+centrality: 0.042
+depth: 4
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > Agent 包管理器，负责 agent primitives 的安装、分发、配置与运行，类比 npm/pip。
 
-**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 原文 context
 

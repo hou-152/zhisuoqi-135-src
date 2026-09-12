@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: state-persistence
 learningStage: now
 verification: use
-centrality: 0.181
+centrality: 0.192
 depth: 2
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 维持 agent loop 内工作上下文的持久记忆层，决定状态如何跨轮携带。
 
-**领域** state-persistence ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.181
+**领域** state-persistence ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.192
 
 ## 费曼一下
 
@@ -36,17 +36,18 @@ A persistent memory layer for maintaining working context within an agent loop�
 
 > {{name}} 让哪些状态活过了这一轮？
 
-## 先懂这些（前置 2）
+## 先懂这些（前置 3）
 
 - [[Session]] · **hard** — Sessions 是维持 session 内上下文的持久记忆层，需先懂单次 Session。
-- [[Session]] · **hard** — Sessions 是跨轮携带上下文的持久记忆层，建立在单次有状态运行之上。
+- [[Session]] · **hard** — 要维持 loop 内工作上下文，必须先有“一次有状态运行”的概念。
+- [[本地状态层]] · **soft** — 工作上下文要跨轮携带，需本地存储层承接。
 
 ## 懂了它才能懂（解锁 4）
 
 - [[Cross-session Work]] — 跨 session 要求外部状态能跨 session 保存与恢复，需懂 Sessions 持久层。
 - [[Long-running agent handoff]] — 长任务交接靠跨轮持久记忆层维持上下文，不懂 Sessions 无法理解交接载体。
 - [[Shared File System]] — 共享文件系统供多 session 复用状态，不懂 Sessions 层无法理解共享需求。
-- [[Long-running agent handoff]] — 交接要跨上下文窗口携带状态，前提是存在跨轮维持上下文的持久记忆层。
+- [[Cross-session Work]] — 跨 session 推进前，得先懂单次 session 内上下文如何携带。
 
 ## 相关
 
@@ -61,8 +62,9 @@ A persistent memory layer for maintaining working context within an agent loop�
 
 - [[Agent]]
 - [[Cross-session Work]]
+- [[本地状态层]]
+- [[Long-running agent handoff]]
 - [[Session]]
 - [[primitives]]
-- [[Long-running agent handoff]]
 - [[Shared File System]]
 - [[very few abstractions]]

@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: economy-business
 learningStage: when-needed
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 2
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 模式洞察：Linear 仍是 SaaS 的粘性界面，是工作发起与信息记录处，却不为 token 付费；成本由模型厂商和 coding agent 承担。
 
-**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 

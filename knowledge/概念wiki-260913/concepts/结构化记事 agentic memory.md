@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: memory-retrieval
 learningStage: now
 verification: use
-centrality: 0.099
+centrality: 0.092
 depth: 0
 origin: [context]
 aliases: []
@@ -15,9 +15,9 @@ sources: 1
 
 # 结构化记事 / agentic memory
 
-> Agent 定期把笔记写到上下文窗口之外，需要时再拉回，形态可以是 to-do 列表或 NOTES.md。
+> agent 定期把笔记写到上下文窗口之外（待办清单或 NOTES.md）并在需要时取回，以跨上下文重置续接任务。
 
-**领域** memory-retrieval ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.099
+**领域** memory-retrieval ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.092
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ agent 定期把笔记写到上下文窗口之外并在需要时拉回，形态�
 
 ## 掌握证据（做到这些才算会）
 
-- 能描述 Claude playing Pokémon 中跨数千步维持计数与目标的做法
-- 能设计一个上下文重置后靠读自己笔记续上的流程
+- 能描述 Claude playing Pokémon 中靠笔记跨数千步维持计数与地图的作用
+- 能为一个长任务设计出上下文重置后可续接的笔记结构
 
 ## 验收问句
 
-> 上下文重置后，{{name}}怎样让 agent 续上进度？
+> 用 {{name}} 如何让 agent 跨上下文重置续上？
 
 ## 懂了它才能懂（解锁 3）
 

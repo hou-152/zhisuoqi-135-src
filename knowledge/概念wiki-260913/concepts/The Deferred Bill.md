@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: thinking-method
 learningStage: when-needed
 verification: judge
-centrality: 0.045
+centrality: 0.067
 depth: 2
 origin: [notion]
 aliases: ["延期账单", "技能债", "判断力的延期账单", "deferring a bill"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 用 AI 跳过自己想清楚，等于把成本推到未来，以判断力薄弱、理解浅、适应力差的形式偿还。
 
-**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 原文 context
 
@@ -35,9 +35,10 @@ sources: 1
 
 > 哪些 AI 用法是在给 {{name}} 签单，代价是什么？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
-- [[Simulated Competence]] · **soft** — 用 AI 跳过想清楚，正因 AI 能产出看似胜任的结果而掩盖空心。
+- [[Friction-based Skill Formation]] · **hard** — 不懂技能从摩擦中形成，就不懂跳过思考为何是未来账单。
+- [[Simulated Competence]] · **soft** — 不懂 AI 让装懂与真懂难分，就不懂跳过思考的账单。
 
 ## 相关
 
@@ -56,6 +57,7 @@ sources: 1
 ## 反链
 
 - [[外包思考，但不外包理解]]
+- [[Friction-based Skill Formation]]
 - [[Simulated Competence]]
 - [[Agent-Native Infrastructure]]
 - [[Sensors 与 Actuators]]

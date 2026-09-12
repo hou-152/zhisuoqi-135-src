@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.099
+centrality: 0.092
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 由 harness 包裹的 LLM，并借工具获得读写代码等额外能力的代理。
 
-**领域** harness-runtime ｜ **类型** LANGUAGE ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.099
+**领域** harness-runtime ｜ **类型** LANGUAGE ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.092
 
 ## 费曼一下
 
@@ -38,12 +38,12 @@ coding agent 不是“一个会写代码的模型”，而是一套把模型接�
 
 ## 先懂这些（前置 1）
 
-- [[Agent vs Harness]] · **hard** — coding agent 的定义就是被 harness 包裹、借工具获得读写代码能力的 LLM。
+- [[agent 与 harness 的分工]] · **hard** — coding agent 就是被 harness 包裹的 LLM，不分清二者就说不清它是什么。
 
 ## 懂了它才能懂（解锁 2）
 
-- [[Claude Code]] — Claude Code 是 coding agent 的一个具体产品实例。
-- [[Codex]] — Codex 是编码代理产品，不理解 coding agent 就看不懂它。
+- [[Claude Code]] — 先知道 coding agent 是什么，才不至于把 Claude Code 当成聊天工具。
+- [[Codex]] — Codex 是编码代理产品，理解它先要理解 harness 包裹 LLM 这一形态。
 
 ## 相关
 
@@ -67,17 +67,17 @@ coding agent 不是“一个会写代码的模型”，而是一套把模型接�
 ## 反链
 
 - [[tokens]]
+- [[stateless]]
 - [[系统提示 System Prompt]]
 - [[LLM Large Language Model]]
-- [[stateless]]
+- [[agent 与 harness 的分工]]
 - [[multimodal Vision LLMs]]
 - [[reasoning thinking]]
 - [[cached input tokens]]
-- [[prompt completion]]
 - [[工具 Tools]]
-- [[Agent vs Harness]]
 - [[chat templated prompts]]
 - [[Claude Code]]
 - [[Codex]]
+- [[prompt completion]]
 - [[reasoning effort]]
 - [[tool loop]]

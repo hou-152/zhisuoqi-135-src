@@ -4,9 +4,9 @@ name: 空间 Scalability / Spatial Scalability
 type: CONCEPTUAL
 subject: Harness Engineering
 domain: harness-runtime
-learningStage: deep-dive
+learningStage: when-needed
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 0
 origin: [harness]
 aliases: []
@@ -15,9 +15,9 @@ sources: 1
 
 # 空间 Scalability / Spatial Scalability
 
-> 衡量能否通过投入 10 倍算力获得 10 倍有意义吞吐量的扩展性判据。
+> 判断能否通过投入 10 倍计算获得 10 倍有意义吞吐量。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能用自己的话复述该判据的量化标准
-- 能对给定系统判断是否具备空间可扩展性
+- 能对某系统判断投入 10x 算力是否换来 10x 有意义产出
+- 能区分原始算力增长与有意义吞吐量
 
 ## 验收问句
 
-> 按 {{name}} 的标准，如何判断投入十倍算力是否值得？
+> {{name}}问的是哪两个量之间的比例？
 
 ## 懂了它才能懂（解锁 2）
 
@@ -61,12 +61,12 @@ sources: 1
 
 - [[Symphony]]
 - [[递归 Planner-Worker 架构]]
+- [[时间 Scalability Temporal Scalability]]
 - [[自评失真 Self-evaluation Distortion]]
-- [[Harness 组件生命周期]]
+- [[Context Infrastructure]]
 - [[单用户假设的失效]]
 - [[反脆弱]]
 - [[方向漂移 Direction Drift]]
 - [[交互 Scalability Interaction Scalability]]
-- [[Context Infrastructure]]
 - [[Generative Kernel]]
-- [[时间 Scalability Temporal Scalability]]
+- [[Harness 组件生命周期]]

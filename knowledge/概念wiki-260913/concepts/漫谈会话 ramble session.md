@@ -5,7 +5,7 @@ nameEn: ramble session
 type: PROCEDURAL
 subject: Context Engineering
 domain: spec-intent
-learningStage: when-needed
+learningStage: now
 verification: use
 centrality: 0.017
 depth: 0
@@ -16,9 +16,9 @@ sources: 1
 
 # 漫谈会话 · ramble session
 
-> 与 LLM 协作时刻意进行的一次长时间、无结构自由讲述，是后续所有动作的容器。
+> 与 LLM 协作时刻意进行的一次长时间、无结构的自由讲述，是后续所有动作的容器。
 
-**领域** spec-intent ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** spec-intent ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能按该模式做一次长时自由讲述而不急着收敛
-- 能说出它与后续动作之间的承接关系
+- 能说明为何要先漫谈再结构化
+- 能把一次漫谈记录转成后续可用的输入
 
 ## 验收问句
 
-> {{name}} 之后通常会接哪些动作？
+> 你会怎么安排一次 {{name}}，它产出什么？
 
 ## 相关
 

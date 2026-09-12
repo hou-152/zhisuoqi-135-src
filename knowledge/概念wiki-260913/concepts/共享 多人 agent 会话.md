@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: multi-agent
 learningStage: when-needed
 verification: use
-centrality: 0.126
+centrality: 0.117
 depth: 3
 origin: [context]
 aliases: []
@@ -15,9 +15,9 @@ sources: 1
 
 # 共享 / 多人 agent 会话
 
-> 同一 agent 会话对团队可见，多人可进入同一个 chat 一起看、一起改，压缩协作循环。
+> Agent 会话对团队可见，多人可进入同一会话共同查看与修改，压缩协作循环。
 
-**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
+**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.117
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ Linear 演示里的一个关键差异化能力——agent session 对团队可�
 
 ## 掌握证据（做到这些才算会）
 
-- 能描述产品与设计同看一个 preview link 并轮流修改的流程
-- 能说明工程师直接让 agent 改而不再转手同事的收益
+- 能举出 head of product 与 head of design 共改同一 preview link 的例子
+- 能说明工程师可直接让 agent 修改而不必转手他人
 
 ## 验收问句
 
-> {{name}} 是怎么让多人进入同一会话共同改动的？
+> {{name}} 如何压缩协作循环？
 
 ## 先懂这些（前置 3）
 

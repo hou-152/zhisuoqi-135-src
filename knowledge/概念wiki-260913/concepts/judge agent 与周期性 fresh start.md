@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: loop-autonomy
 learningStage: when-needed
 verification: use
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 每个周期结束由 judge agent 判定是否继续，下一轮从头开始，以对抗漂移与隧道视野。
 
-**领域** loop-autonomy ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** loop-autonomy ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 

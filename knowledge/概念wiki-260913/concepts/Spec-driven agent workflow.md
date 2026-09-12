@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: spec-intent
 learningStage: now
 verification: use
-centrality: 0.072
+centrality: 0.067
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 用明确规格、状态所有权、暂停恢复与工具边界来组织 agent 工作的开发流程
 
-**领域** spec-intent ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** spec-intent ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
 
 ## 费曼一下
 

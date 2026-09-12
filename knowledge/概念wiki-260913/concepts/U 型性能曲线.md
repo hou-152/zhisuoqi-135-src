@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 相关信息的位置与任务准确率呈 U 形：首尾高、中间低，在多种模型与任务上反复出现。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -63,10 +63,10 @@ sources: 1
 ## 反链
 
 - [[tokens]]
-- [[多文档问答受控实验]]
 - [[序列位置效应 serial-position effect]]
-- [[长上下文评测协议]]
 - [[迷失在中间 lost in the middle]]
+- [[多文档问答受控实验]]
+- [[长上下文评测协议]]
 - [[闭卷与 oracle 基线]]
 - [[合成键值检索任务]]
 - [[首因偏置 primacy bias]]

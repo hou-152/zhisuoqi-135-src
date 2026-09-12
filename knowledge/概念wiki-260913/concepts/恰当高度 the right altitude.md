@@ -5,8 +5,8 @@ nameEn: the right altitude
 type: CONCEPTUAL
 subject: Context Engineering
 domain: context-engineering
-learningStage: now
-verification: use
+learningStage: when-needed
+verification: judge
 centrality: 0.017
 depth: 0
 origin: [context]
@@ -16,9 +16,9 @@ sources: 1
 
 # 恰当高度 · the right altitude
 
-> system prompt 的黄金区间：既不过度硬编码 if-else，也不含糊到缺乏具体信号。
+> system prompt 写作的 Goldilocks 区间：具体到能有效引导行为，又灵活到能提供强启发式。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能判断一段 system prompt 落在过具体还是过含糊哪一端
-- 能改写一段 prompt，使其具体到可引导行为又保留强启发式
+- 能指出一段 prompt 是过硬编码还是过空泛
+- 能为一个任务写出处于恰当高度的系统指令
 
 ## 验收问句
 
-> 把这段 prompt 调到{{name}}，你会删什么、补什么？
+> 这段 system prompt 处在{{name}}上吗，偏哪一端？
 
 ## 相关
 

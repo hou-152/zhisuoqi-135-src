@@ -5,9 +5,9 @@ nameEn: drift & tunnel vision
 type: CONCEPTUAL
 subject: Harness Engineering
 domain: loop-autonomy
-learningStage: when-needed
+learningStage: now
 verification: judge
-centrality: 0.154
+centrality: 0.142
 depth: 0
 origin: [harness]
 aliases: ["drift & tunnel vision"]
@@ -16,9 +16,9 @@ sources: 1
 
 # 漂移与隧道视野 · drift & tunnel vision
 
-> 长时程自治的两种典型退化：偏离目标drift与视野收窄tunnel vision，需重启与角色分离。
+> 长时程自治中的两种典型退化：偏离原始目标的漂移，与只盯局部而丢失全局的隧道视野。
 
-**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.154
+**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.142
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能描述drift与tunnel vision各自的表征
-- 能说明周期性重启与角色分离如何缓解它们
+- 能举出一次长任务中目标逐渐偏移的具体例子
+- 能解释周期性重启与角色分离分别针对哪一种退化
 
 ## 验收问句
 
-> {{name}}能识别当前是漂移还是隧道视野并给出对策吗？
+> 这个长跑任务目标跑偏了，属于{{name}}里的哪一种？
 
 ## 懂了它才能懂（解锁 5）
 

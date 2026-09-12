@@ -4,7 +4,7 @@ name: 护栏与判断力的取舍
 nameEn: guardrail tradeoff
 type: CONCEPTUAL
 subject: Context Engineering
-domain: safety-governance
+domain: spec-intent
 learningStage: when-needed
 verification: judge
 centrality: 0.017
@@ -16,9 +16,9 @@ sources: 1
 
 # 护栏与判断力的取舍 · guardrail tradeoff
 
-> 旧强规则为防最坏情况而存在；规则数量应随模型判断力提升而减少，是模型能力的函数。
+> 规则数量应是模型能力的函数：旧模型需显式护栏避免最坏情况，新模型判断力足够时可减少规则让位给判断。
 
-**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** spec-intent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能说出旧护栏存在的原因是避免删文件等最坏情况
-- 能解释为何新模型判断力变好后可减少显式规则
+- 能说明某条规则当初为防哪种最坏情况
+- 能判断该规则在新模型上是否仍有必要
 
 ## 验收问句
 
-> 按 {{name}}，规则数量应随什么变化？
+> 能否对某条规则说明 {{name}} 下该留还是该删？
 
 ## 相关
 
@@ -54,5 +54,5 @@ sources: 1
 ## 反链
 
 - [[上下文工程 context engineering]]
-- [[prompt 与 context 的通用性落差]]
 - [[过度约束与松绑 over-constraining unhobbling]]
+- [[prompt 与 context 的通用性落差]]

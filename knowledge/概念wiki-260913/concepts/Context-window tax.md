@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.072
+centrality: 0.042
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 即便缓存命中省了钱，固定内容仍占用窗口容量：85K bootstrap 占 200K 窗口四成以上，并提前触发 compaction。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -38,11 +38,7 @@ Cache hit 只降低计费，不减少上下文占用。85K bootstrap 仍占 200K
 
 ## 先懂这些（前置 1）
 
-- [[Context as working memory budget]] · **hard** — 窗口税是固定内容占用有限工作记忆额度的一种记账
-
-## 懂了它才能懂（解锁 1）
-
-- [[Instruction-file tax]] — 规则文件每请求的固定开销，是窗口税的具体情形
+- [[Context as working memory budget]] · **soft** — 固定内容占用的是有限窗口容量，预算视角才让这笔税可量化
 
 ## 相关
 
@@ -57,6 +53,5 @@ Cache hit 只降低计费，不减少上下文占用。85K bootstrap 仍占 200K
 
 - [[Harness token floor]]
 - [[Context as working memory budget]]
-- [[Instruction-file tax]]
 - [[Tool-schema tax]]
 - [[API-boundary observability]]

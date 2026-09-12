@@ -2,7 +2,7 @@
 id: cm_2fd13e0c
 name: 查询感知语境化
 nameEn: query-aware contextualization
-type: CONCEPTUAL
+type: PROCEDURAL
 subject: Context Engineering
 domain: context-engineering
 learningStage: when-needed
@@ -16,9 +16,9 @@ sources: 1
 
 # 查询感知语境化 · query-aware contextualization
 
-> 把查询同时放在待处理数据的前面和后面，让 decoder-only 模型在编码材料时就能注意到查询。
+> 把查询同时放在待处理数据的前面与后面，使 decoder-only 模型编码材料时就注意到查询。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能解释为何前置加后置查询在合成键值任务上近乎完美
-- 能指出同一手法在多文档问答上几乎无效
+- 能复述结论：合成键值任务近乎完美，多文档问答几乎无效
+- 能说明它为何只对特定任务结构与模型类型有效
 
 ## 验收问句
 
-> {{name}} 在什么任务上有效、什么任务上无效？
+> 什么任务该用 {{name}}，什么任务不该用？
 
 ## 相关
 

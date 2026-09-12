@@ -2,11 +2,11 @@
 id: cm_bf008303
 name: 判断力优先
 nameEn: let Claude use judgement
-type: PROCEDURAL
+type: CONCEPTUAL
 subject: Context Engineering
 domain: spec-intent
 learningStage: when-needed
-verification: use
+verification: judge
 centrality: 0.017
 depth: 0
 origin: [context]
@@ -16,9 +16,9 @@ sources: 1
 
 # 判断力优先 · let Claude use judgement
 
-> 用取向式指令替代结论式规定，例如给对齐对象而不给具体答案，让模型自己判断。
+> 把结论式规定换成取向式指令，只给对齐对象与判断依据，具体决策留给模型的判断力。
 
-**领域** spec-intent ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** spec-intent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能区分取向式指令与结论式规定
-- 能就一条规则改写出取向式版本
+- 能指出 system prompt 里哪些句子是结论式规定、哪些是取向式指令
+- 能把一条硬编码规则改写为『对齐周围代码风格』式的取向指令
 
 ## 验收问句
 
-> {{name}}能把这条结论式规定改写成取向式指令吗？
+> 这段 system prompt 里，哪些规定该按{{name}}改成取向式指令？
 
 ## 相关
 

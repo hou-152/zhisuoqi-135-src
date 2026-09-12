@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: loop-autonomy
 learningStage: now
 verification: use
-centrality: 0.045
+centrality: 0.042
 depth: 0
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 收集上下文、动手修改、验证结果、再重复，构成 Agent 的执行节奏。
 
-**领域** loop-autonomy ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** loop-autonomy ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 

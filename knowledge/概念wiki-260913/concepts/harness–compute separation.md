@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: safety-governance
 learningStage: now
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 4
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 把 Agent 骨架与执行计算的沙箱环境分离，使模型生成的代码触不到凭证等敏感信息。
 
-**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -55,7 +55,7 @@ Separating harness and compute helps keep credentials out of environments where 
 ## 反链
 
 - [[Sandbox]]
+- [[model-native harness]]
 - [[exfiltration]]
 - [[Agents SDK]]
 - [[AWS VPC]]
-- [[model-native harness]]

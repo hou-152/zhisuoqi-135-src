@@ -6,7 +6,7 @@ subject: AI 概念库 × Harness Engineering
 domain: context-engineering
 learningStage: now
 verification: use
-centrality: 0.062
+centrality: 0.06
 depth: 2
 origin: [notion, harness]
 aliases: ["claude.md", "项目级工作规则"]
@@ -17,7 +17,7 @@ sources: 2
 
 > 放在项目根目录的 markdown 文件，Claude Code 每次会话开始时自动读取并严格执行。
 
-**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.062
+**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.06
 
 ## 费曼一下
 
@@ -42,9 +42,9 @@ sources: 2
 
 ## 相关
 
-- [[AI 工程基础设施】 AI engineering infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
+- [[AI 工程基础设施 AI engineering infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
 - [[1.6% vs 98.4%]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
-- [[确定性工程基础设施】 deterministic engineering infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
+- [[确定性工程基础设施 deterministic engineering infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -61,6 +61,6 @@ sources: 2
 ## 反链
 
 - [[上下文工程 context engineering]]
-- [[确定性工程基础设施】 deterministic engineering infrastructure]]
-- [[AI 工程基础设施】 AI engineering infrastructure]]
 - [[1.6% vs 98.4%]]
+- [[确定性工程基础设施 deterministic engineering infrastructure]]
+- [[AI 工程基础设施 AI engineering infrastructure]]

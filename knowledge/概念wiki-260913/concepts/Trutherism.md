@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: media-culture-education
 learningStage: deep-dive
 verification: judge
-centrality: 0.072
-depth: 5
+centrality: 0.067
+depth: 0
 origin: [notion]
 aliases: ["真相论", "阴谋式怀疑", "Shakespeare Truthers"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 拿自由讨论的价值——听取证据、开放心态、对自身确定性的怀疑——反过来攻击自由公共领域。
 
-**领域** media-culture-education ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** media-culture-education ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -36,10 +36,10 @@ sources: 1
 
 > 为什么说 {{name}} 是从内部蛀空公共领域，而不是外部攻击？
 
-## 先懂这些（前置 2）
+## 懂了它才能懂（解锁 2）
 
-- [[Human-Only Social Networks]] · **soft** — 真人网络试图保卫公共领域，才懂 Trutherism 如何反转利用自由讨论
-- [[death of the social]] · **soft** — Trutherism 攻击自由公共领域，加速公共社交空间衰退
+- [[Human-Only Social Networks]] — 理解公共讨论如何被反向利用，才懂真人网络要防的不只是机器人。
+- [[Hypnopaedia]] — 睡眠教育式灌输揭示信息如何塑造认知，有助理解真理论的信息操纵。
 
 ## 相关
 
@@ -57,5 +57,5 @@ sources: 1
 
 ## 反链
 
-- [[death of the social]]
 - [[Human-Only Social Networks]]
+- [[Hypnopaedia]]

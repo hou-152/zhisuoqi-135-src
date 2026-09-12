@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.045
-depth: 2
+centrality: 0.042
+depth: 0
 origin: [context]
 aliases: []
 sources: 1
@@ -15,9 +15,9 @@ sources: 1
 
 # Agent Drift
 
-> agent 在长任务中逐渐失去连贯性的现象；Anthropic 内部研究指其几乎全是上下文管理问题。
+> AI 在长任务中逐渐失去连贯性的现象，研究发现它几乎完全是上下文管理问题而非推理问题。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -29,24 +29,24 @@ Anthropic 内部研究发现：agent drift（AI 在长任务中逐渐失去连�
 
 ## 掌握证据（做到这些才算会）
 
-- 能复述该结论并区分其与 reasoning 问题
-- 能针对长任务给出缓解 drift 的上下文做法
+- 能描述长任务中 agent drift 的典型表现
+- 能指出修漂移应先改上下文管理而非换模型
 
 ## 验收问句
 
-> {{name}} 的根因是 context 还是 reasoning，依据是什么？
+> {{name}}的根因是什么？该先改哪里？
 
-## 先懂这些（前置 1）
+## 懂了它才能懂（解锁 1）
 
-- [[Context Management 四策略]] · **soft** — 漂移几乎全源于上下文管理问题，对策即四策略
+- [[新鲜度机制]] — 新鲜度机制就是为对抗长任务漂移而设计的一组做法。
 
 ## 相关
 
 - [[Codified Context]] · 同篇出现（co-occurrence） — 同篇出现：context-25
 - [[Knowledge Graph vs Flat Files]] · 同篇出现（co-occurrence） — 同篇出现：context-25
 - [[Self-Improving Context System]] · 同篇出现（co-occurrence） — 同篇出现：context-25
-- [[Tacit Knowledge】]] · 同篇出现（co-occurrence） — 同篇出现：context-25
-- [[Context 四种失败模式】 Context Pollution Distraction Confusion Clash]] · 同篇出现（co-occurrence） — 同篇出现：context-25
+- [[Tacit Knowledge]] · 同篇出现（co-occurrence） — 同篇出现：context-25
+- [[Context 四种失败模式 Context Pollution Distraction Confusion Clash]] · 同篇出现（co-occurrence） — 同篇出现：context-25
 - [[渐进式披露 progressive disclosure]] · 同篇出现（co-occurrence） — 同篇出现：context-25
 - [[上下文工程 context engineering]] · 同篇出现（co-occurrence） — 同篇出现：context-25
 
@@ -55,10 +55,10 @@ Anthropic 内部研究发现：agent drift（AI 在长任务中逐渐失去连�
 - Context Engineering ｜ 《上下文工程：AI 时代的核心能力》 ｜ https://x.com/nyk_builderz/status/2031581912071127158/?s=12&rw_tt_thread=True
 ## 反链
 
-- [[Context Management 四策略]]
 - [[渐进式披露 progressive disclosure]]
+- [[新鲜度机制]]
 - [[Codified Context]]
-- [[Context 四种失败模式】 Context Pollution Distraction Confusion Clash]]
+- [[Context 四种失败模式 Context Pollution Distraction Confusion Clash]]
 - [[Knowledge Graph vs Flat Files]]
 - [[Self-Improving Context System]]
-- [[Tacit Knowledge】]]
+- [[Tacit Knowledge]]

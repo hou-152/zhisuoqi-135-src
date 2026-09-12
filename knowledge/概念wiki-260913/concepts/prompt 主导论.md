@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: judge
-centrality: 0.045
-depth: 1
+centrality: 0.042
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > harness 与模型都重要，但 prompt 更重要；协调良好与长期专注靠大量 prompt 实验。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -36,9 +36,9 @@ sources: 1
 
 > 按 {{name}}，让 agent 不跑偏主要靠什么？
 
-## 先懂这些（前置 1）
+## 懂了它才能懂（解锁 1）
 
-- [[agent 不是读心者 agents are not mind readers]] · **soft** — agent 只能靠输入变有用，才推出 prompt 比 harness 更关键
+- [[one-shot 的理论极限]] — 它假设靠大量 prompt 实验逼近一次做对，先接受 prompt 更重要才谈得上
 
 ## 相关
 
@@ -54,4 +54,4 @@ sources: 1
 - [[动态协调 dynamic coordination]]
 - [[单 agent 的速度天花板]]
 - [[长时程自治编码 long-running autonomous coding]]
-- [[agent 不是读心者 agents are not mind readers]]
+- [[one-shot 的理论极限]]

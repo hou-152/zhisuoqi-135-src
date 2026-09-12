@@ -4,9 +4,9 @@ name: 冰 XXI
 type: REPRESENTATIONAL
 subject: AI 概念库
 domain: geo-infrastructure
-learningStage: when-needed
+learningStage: deep-dive
 verification: accept
-centrality: 0.072
+centrality: 0.067
 depth: 1
 origin: [notion]
 aliases: ["Ice XXI"]
@@ -15,9 +15,9 @@ sources: 1
 
 # 冰 XXI
 
-> 2025 年 KRISS 用金刚石压砧加 X 射线自由电子激光发现的新冰相，晶胞需 152 个水分子才重复一次。
+> 2025 年 KRISS 团队抓到、晶胞需 152 个水分子才重复的新冰相。
 
-**领域** geo-infrastructure ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
+**领域** geo-infrastructure ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.067
 
 ## 原文 context
 
@@ -29,12 +29,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能复述该冰相的发现手段与晶胞分子数
-- 能说明它复杂到原本上万相的模拟搜索都未覆盖
+- 能说出冰 XXI 的 152 分子重复周期
+- 能说出其发现手段为金刚石压砧加 X 射线自由电子激光
 
 ## 验收问句
 
-> {{name}} 的晶胞要多少个水分子才能完成一次重复？
+> {{name}} 的晶胞要多少个水分子才重复一次？
 
 ## 先懂这些（前置 2）
 

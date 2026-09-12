@@ -7,7 +7,7 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 2
 origin: [context]
 aliases: ["context failures, not model failures"]
@@ -16,9 +16,9 @@ sources: 1
 
 # 上下文失败，而非模型失败 · context failures, not model failures
 
-> 大多数Agent失败不是模型失败而是上下文失败，故应从换更强模型转向修好上下文装配系统。
+> 多数 agent 失败已不是模型能力不够，而是上下文装配不对，修系统比换模型更有效。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -30,16 +30,16 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能把一个失败案例归因到上下文装配而非模型能力
-- 能举出换模型无效而改上下文有效的实例
+- 能把一次失败归因到上下文装配而非模型
+- 能据此提出改装配方案而不是换模型
 
 ## 验收问句
 
-> 按{{name}}，Agent失败时你应先查模型还是先查什么？
+> 一次 agent 失败，你能判断它是否属于上下文失败吗？
 
 ## 先懂这些（前置 1）
 
-- [[上下文工程 context engineering]] · **hard** — 只有先理解上下文工程，才明白失败多源于上下文装配而非模型强弱
+- [[上下文工程 context engineering]] · **soft** — 此判断的前提是上下文装配本身可被工程化，不懂上下文工程就无从归因。
 
 ## 相关
 

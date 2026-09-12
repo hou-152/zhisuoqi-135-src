@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: harness-runtime
 learningStage: when-needed
 verification: use
-centrality: 0.045
-depth: 4
+centrality: 0.042
+depth: 3
 origin: [context]
 aliases: []
 sources: 1
@@ -15,9 +15,9 @@ sources: 1
 
 # 共享 harness
 
-> 一套 harness 工具被多个 agent 产品复用，减少重复实现，并让工具改进跨产品传播。
+> 多个产品共用同一套 harness 代码与工具实现，减少重复并让改进跨产品传播。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ Copilot CLI harness 的代码探索工具被 cloud agent 等多个产品使用�
 
 ## 掌握证据（做到这些才算会）
 
-- 能指出 Copilot CLI 的代码探索工具被哪些产品共同使用
-- 能说明统一实现相比各产品各自复刻的好处
+- 能指出 Copilot CLI 的代码探索工具被 cloud agent 等产品复用
+- 能说出统一实现的收益是减少重复、工具改进自动扩散
 
 ## 验收问句
 
-> {{name}} 为什么能让工具改进跨产品传播？
+> {{name}} 的收益是什么，能举哪个例子？
 
 ## 先懂这些（前置 1）
 
@@ -59,11 +59,11 @@ Copilot CLI harness 的代码探索工具被 cloud agent 等多个产品使用�
 
 - [[Harness]]
 - [[工具—工作流适配]]
-- [[最小充分上下文]]
 - [[工具调用批处理]]
 - [[浏览循环]]
 - [[任务特定工具说明]]
 - [[收敛式失败恢复]]
-- [[先收窄、后读取]]
+- [[最小充分上下文]]
 - [[Diff 锚定]]
 - [[Trace 驱动评估]]
+- [[先收窄、后读取]]

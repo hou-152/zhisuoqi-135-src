@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: state-persistence
 learningStage: now
 verification: use
-centrality: 0.099
+centrality: 0.092
 depth: 3
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 多 session、多 agent 共用的文件夹系统，用 signals／artifacts／tasks／logs 记录状态供各 loop 复用。
 
-**领域** state-persistence ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.099
+**领域** state-persistence ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.092
 
 ## 费曼一下
 

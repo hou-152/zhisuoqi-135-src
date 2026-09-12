@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: caching-cost
 learningStage: when-needed
 verification: compute
-centrality: 0.045
-depth: 1
+centrality: 0.017
+depth: 0
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 同任务的缓存写入量随缓存冷热与漂移而变化的程度：预热后几乎不写，冷或漂移时整段重写。
 
-**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.045
+**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,10 +36,6 @@ Claude Code 同任务的 cache-write volume 随缓存冷热从 OpenCode 的 5.9 
 
 > 同一任务冷缓存与热缓存的 {{name}} 差多少倍？
 
-## 先懂这些（前置 1）
-
-- [[KV-cache 命中率]] · **hard** — 缓存冷热决定命中率高低，不懂命中率就理解不了写入量的波动。
-
 ## 相关
 
 - [[API-boundary observability]] · 同篇出现（co-occurrence） — 同篇出现：context-19
@@ -54,4 +50,3 @@ Claude Code 同任务的 cache-write volume 随缓存冷热从 OpenCode 的 5.9 
 - [[Harness token floor]]
 - [[Tool-schema tax]]
 - [[API-boundary observability]]
-- [[KV-cache 命中率]]

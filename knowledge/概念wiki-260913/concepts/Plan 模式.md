@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: spec-intent
 learningStage: when-needed
 verification: use
-centrality: 0.072
+centrality: 0.067
 depth: 0
 origin: [notion]
 aliases: ["Plan Mode", "先对答案再执行"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 让 Agent 先列出打算怎么做，方向确认后再执行，像开工前先开会过方案。
 
-**领域** spec-intent ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** spec-intent ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
 
 ## 费曼一下
 

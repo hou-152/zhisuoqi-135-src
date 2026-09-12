@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: model-training
 learningStage: now
 verification: accept
-centrality: 0.099
+centrality: 0.092
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 把图像等非文本输入也编码成模型可处理的 token，一并进入同一套处理流程。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.099
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.092
 
 ## 费曼一下
 
@@ -38,12 +38,12 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[Q、K、V]] · **soft** — 多模态 token 进入同一套注意力处理，懂 QKV 才懂图文融合的机制。
+- [[Q、K、V]] · **soft** — 图像被编码成 token 后仍走同一套注意力，懂 QKV 才能理解如何融合。
 
 ## 懂了它才能懂（解锁 2）
 
-- [[VLM]] — VLM 就是多模态大模型，不懂图像编码成 token 的流程就不知道图文如何进同一套处理。
-- [[Tiny Engram]] — Tiny Engram 把 Engram 迁到视觉模型，懂多模态编码才懂视觉版改了什么。
+- [[VLM]] — VLM 是视觉-语言模型，属于多模态/视觉 LLM 的具体类型。
+- [[Tiny Engram]] — Tiny Engram 把 Engram 迁到视觉扩散，懂多模态视觉处理更易理解其迁移。
 
 ## 相关
 
@@ -58,7 +58,7 @@ sources: 1
 
 - [[Harness]]
 - [[LLM Large Language Model]]
-- [[coding agent]]
 - [[Q、K、V]]
+- [[coding agent]]
 - [[Tiny Engram]]
 - [[VLM]]

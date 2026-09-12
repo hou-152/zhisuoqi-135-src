@@ -2,11 +2,11 @@
 id: cm_7e6ba505
 name: hooks
 nameEn: .claude/hooks/
-type: REPRESENTATIONAL
+type: PROCEDURAL
 subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
-verification: use
+verification: compute
 centrality: 0.035
 depth: 0
 origin: [harness]
@@ -16,9 +16,9 @@ sources: 2
 
 # hooks · .claude/hooks/
 
-> 在 agent 生命周期特定事件上自动执行的确定性脚本（.claude/hooks/），用于通知、审批、集成和验证。
+> 在 agent 生命周期特定事件上自动执行的确定性脚本，用于通知、审批、集成与验证。
 
-**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.035
+**领域** harness-runtime ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.035
 
 ## 费曼一下
 
@@ -30,18 +30,18 @@ sources: 2
 
 ## 掌握证据（做到这些才算会）
 
-- 能配一个 Stop hook 跑 biome 与类型检查
-- 成功时静默不改上下文，失败时只吐错误并用退出码 2 重新唤起 agent
+- 能写出停止时跑检查、成功静默失败只报错并退出码 2 的脚本
+- 能解释为何确定性代码能在 AI 犯错前挡住它
 
 ## 验收问句
 
-> 怎么用 {{name}} 在 AI 犯错之前就把它挡住？
+> 能否给 {{name}} 写一个失败时退出码 2、成功时静默的校验脚本？
 
 ## 相关
 
-- [[AI 工程基础设施】 AI engineering infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
+- [[AI 工程基础设施 AI engineering infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
 - [[1.6% vs 98.4%]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
-- [[确定性工程基础设施】 deterministic engineering infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
+- [[确定性工程基础设施 deterministic engineering infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
 - [[configuration problem]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
@@ -57,7 +57,7 @@ sources: 2
 
 ## 反链
 
-- [[确定性工程基础设施】 deterministic engineering infrastructure]]
-- [[AI 工程基础设施】 AI engineering infrastructure]]
-- [[1.6% vs 98.4%]]
 - [[configuration problem]]
+- [[1.6% vs 98.4%]]
+- [[确定性工程基础设施 deterministic engineering infrastructure]]
+- [[AI 工程基础设施 AI engineering infrastructure]]

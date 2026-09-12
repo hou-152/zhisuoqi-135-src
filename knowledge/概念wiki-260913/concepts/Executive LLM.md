@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: multi-agent
 learningStage: when-needed
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 3
 origin: [notion]
 aliases: ["Executive LLM", "制造麻烦的 agent", "施压 agent"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 多 agent 系统中按剧本主动制造麻烦、施加压力并实时调整策略的那个角色。
 
-**领域** multi-agent ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** multi-agent ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 原文 context
 

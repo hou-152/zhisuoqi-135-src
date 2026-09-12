@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: loop-autonomy
 learningStage: when-needed
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 2
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 用户在 agent 运行中途发来新消息时的介入问题，目前仍无优雅解法
 
-**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 费曼一下
 

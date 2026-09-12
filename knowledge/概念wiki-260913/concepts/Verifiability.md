@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: verification-eval
 learningStage: now
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 0
 origin: [notion]
 aliases: ["Verifiability", "可验证性", "可验证性原则"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 任务是否存在自动 reward 或成功信号，决定模型能否靠 RL 反复练习而快速进步。
 
-**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 原文 context
 

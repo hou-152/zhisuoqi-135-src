@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: caching-cost
 learningStage: when-needed
 verification: compute
-centrality: 0.045
+centrality: 0.067
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 任务输入≈baseline×请求次数+对话增长量，可用来比较不同 agent 的实际开销。
 
-**领域** caching-cost ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.045
+**领域** caching-cost ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -40,6 +40,10 @@ sources: 1
 
 - [[Token count]] · **hard** — 基线×请求次数的估算以 token 为单位计算。
 
+## 懂了它才能懂（解锁 1）
+
+- [[昂贵的反馈回路与欠测试]] — 要判断一次迭代多贵，得先会算单次请求的 token 开销
+
 ## 相关
 
 - [[API-boundary observability]] · 同篇出现（co-occurrence） — 同篇出现：context-19
@@ -51,7 +55,8 @@ sources: 1
 - Context Engineering ｜ 《Claude Code 在读提示词前为何已发送 3.3 万 Token》 ｜ https://systima.ai/blog/claude-code-vs-opencode-token-overhead
 ## 反链
 
-- [[Harness token floor]]
 - [[Token count]]
+- [[Harness token floor]]
 - [[Tool-schema tax]]
+- [[昂贵的反馈回路与欠测试]]
 - [[API-boundary observability]]

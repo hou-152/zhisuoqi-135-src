@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.045
-depth: 3
+centrality: 0.042
+depth: 4
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 小模型在每条消息上判断是否新话题并抽 2-3 词标题，用于管理上下文。
 
-**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -38,7 +38,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[会话的话题边界]] · **hard** — 判定新话题正是为落实会话的话题边界，先懂边界才懂为何要判
+- [[Session Management]] · **hard** — 判定新话题的目的就是开新会话或压缩，脱离会话管理没有意义
 
 ## 相关
 
@@ -51,7 +51,7 @@ sources: 1
 - Harness Engineering ｜ 《拆开 Claude Code：一个编码 agent 的 harness 内部长什么样》 ｜ https://xxchan.me/ai/2025/05/06/claude-code.html
 ## 反链
 
-- [[会话的话题边界]]
 - [[对话加确定性缝合]]
 - [[看对话 log]]
+- [[Session Management]]
 - [[反向代理式窥探]]

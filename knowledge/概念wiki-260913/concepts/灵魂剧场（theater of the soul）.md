@@ -4,7 +4,7 @@ name: 灵魂剧场（theater of the soul）
 type: CONCEPTUAL
 subject: AI 概念库
 domain: media-culture-education
-learningStage: deep-dive
+learningStage: when-needed
 verification: accept
 centrality: 0.017
 depth: 0
@@ -15,9 +15,9 @@ sources: 1
 
 # 灵魂剧场（theater of the soul）
 
-> 借自圣经研究的说法，指文学与戏剧为灵魂提供安放焦虑、自我定位的空间。
+> 把经典文本视为让灵魂在焦虑中获得定向与安放的空间。
 
-**领域** media-culture-education ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.017
+**领域** media-culture-education ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能说明 Kugel 用这个词指什么
-- 能举例说明《哈姆雷特》如何构成这样的剧场
+- 能说明 Kugel 用它指希伯来圣经时的含义
+- 能解释 Hamlet 如何提供这样的定向场所
 
 ## 验收问句
 
-> {{name}} 指的是什么，为什么用「剧场」作比？
+> {{name}} 想表达经典文本的什么作用？
 
 ## 相关
 

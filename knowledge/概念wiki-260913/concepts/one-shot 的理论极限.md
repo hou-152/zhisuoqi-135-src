@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: accept
-centrality: 0.017
-depth: 0
+centrality: 0.042
+depth: 1
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 理论上提示、上下文、顺序都完美就能一次做对，但没人做得到，规划的意义正是逼近它。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.017
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -36,9 +36,13 @@ sources: 1
 
 > 为什么 {{name}} 存在却仍必须做任务规划？
 
+## 先懂这些（前置 1）
+
+- [[prompt 主导论]] · **soft** — 它假设靠大量 prompt 实验逼近一次做对，先接受 prompt 更重要才谈得上
+
 ## 相关
 
-- [[少即是多」：gimmick 与真实增益的分界]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
+- [[「少即是多」：gimmick 与真实增益的分界]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
 - [[废料怪兽]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
 
@@ -48,4 +52,5 @@ sources: 1
 ## 反链
 
 - [[废料怪兽]]
-- [[少即是多」：gimmick 与真实增益的分界]]
+- [[prompt 主导论]]
+- [[「少即是多」：gimmick 与真实增益的分界]]

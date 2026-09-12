@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: economy-business
 learningStage: deep-dive
 verification: judge
-centrality: 0.099
+centrality: 0.092
 depth: 2
 origin: [notion]
 aliases: ["验证市场 / vs Prediction Markets"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 用不可篡改的历史记录裁决某件事是否真的发生，而非预测未来。
 
-**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.099
+**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.092
 
 ## 原文 context
 

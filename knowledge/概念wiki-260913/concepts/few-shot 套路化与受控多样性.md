@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: judge
-centrality: 0.017
-depth: 0
+centrality: 0.042
+depth: 2
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 上下文里堆满彼此相似的 action-observation 对时，模型会照着旧模式走下去，需引入结构化变化。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -36,6 +36,10 @@ sources: 1
 
 > {{name}} 为何会让模型在批量任务中漂移？
 
+## 先懂这些（前置 1）
+
+- [[Context Distraction]] · **soft** — 相似样例导致机械重复，正是分心机制在样本层面的表现
+
 ## 相关
 
 - [[押注 in-context learning]] · 同篇出现（co-occurrence） — 同篇出现：context-04
@@ -48,5 +52,6 @@ sources: 1
 ## 反链
 
 - [[上下文工程 context engineering]]
+- [[Context Distraction]]
 - [[押注 in-context learning]]
 - [[与底层模型正交 orthogonal to the underlying models]]

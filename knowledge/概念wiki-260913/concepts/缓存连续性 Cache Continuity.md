@@ -2,7 +2,7 @@
 id: cm_c7901d9f
 name: 缓存连续性
 nameEn: Cache Continuity
-type: PROCEDURAL
+type: CONCEPTUAL
 subject: Context Engineering
 domain: caching-cost
 learningStage: when-needed
@@ -16,9 +16,9 @@ sources: 1
 
 # 缓存连续性 · Cache Continuity
 
-> 同一条主对话不要随意切换模型、不要把分支探索混进主链路，否则缓存前缀失效、连续性被破坏。
+> 同一主对话中不随意切模型、不把分支探索混进主链路，以维持缓存前缀连续，避免反复重写缓存。
 
-**领域** caching-cost ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能说出切模型会打断缓存
-- 能说明分支探索应另开会话而非混入主链路
+- 能列出破坏缓存连续性的常见操作
+- 能说明切模型为何导致缓存失效
 
 ## 验收问句
 
-> 哪些操作会破坏 {{name}}？
+> 能否指出哪些操作会破坏 {{name}}？
 
 ## 相关
 

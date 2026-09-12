@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: when-needed
 verification: judge
-centrality: 0.045
-depth: 6
+centrality: 0.042
+depth: 5
 origin: [harness]
 aliases: []
 sources: 1
@@ -15,9 +15,9 @@ sources: 1
 
 # Agent as a New Type of Software
 
-> Agent 基础设施可像 web app，但交互、界面、输出更动态，需沙箱、安全执行与长任务支持。
+> Agent 的基础设施可像 web app，但 interaction、interface、outputs 更动态，需沙箱、安全执行与长任务支持。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ Agent 的基础设施可像 web app，但 interaction、interface、outputs 更�
 
 ## 掌握证据（做到这些才算会）
 
-- 能对比 agent 与 web app 在交互和输出上的差异
-- 能列出由此派生的基础设施要求
+- 能列出相对 web app 多出的三项要求
+- 能解释输出动态对接口设计带来的约束
 
 ## 验收问句
 
-> 作为新软件类型，{{name}} 对基础设施提了哪些要求？
+> {{name}}相比 web app 多要求什么？
 
 ## 先懂这些（前置 1）
 

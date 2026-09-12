@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: spec-intent
 learningStage: now
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 自然语言不再只是说明文字，而是会驱动 agent 行为的可执行逻辑。
 
-**领域** spec-intent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** spec-intent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 原文 context
 
@@ -48,6 +48,6 @@ Natural language as code 指自然语言不再只是说明文字，而是会驱�
 ## 反链
 
 - [[上下文工程 context engineering]]
-- [[Agentic primitives]]
 - [[Instructions files]]
+- [[Agentic primitives]]
 - [[Markdown prompt engineering]]

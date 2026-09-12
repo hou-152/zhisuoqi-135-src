@@ -6,8 +6,8 @@ type: CONCEPTUAL
 subject: Harness Engineering
 domain: loop-autonomy
 learningStage: now
-verification: judge
-centrality: 0.045
+verification: accept
+centrality: 0.042
 depth: 0
 origin: [harness]
 aliases: ["task horizon"]
@@ -16,9 +16,9 @@ sources: 1
 
 # 任务时域 · task horizon
 
-> Agent 能连续自主完成的任务时长，呈指数增长，METR 基准上已超过 10 个人类小时。
+> 一次任务可连续自主运行的时间长度，是衡量 Agent 能力与「为什么是现在」的量化指标。
 
-**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能说出 task horizon 在 METR 上的当前量级
-- 能判断某个任务是否超出当前时域
+- 能说出 METR benchmark 上已超过十个人类小时这一数字
+- 能外推未来连续运行数天乃至数周的走向
 
 ## 验收问句
 
-> {{name}} 当前量级是多少，指数增长意味着什么？
+> {{name}}的指数增长对 Agent 产品设计意味着什么？
 
 ## 懂了它才能懂（解锁 1）
 
@@ -58,5 +58,5 @@ sources: 1
 ## 反链
 
 - [[长时程自治编码 long-running autonomous coding]]
-- [[messages API 作为直连网关]]
 - [[Claude Managed Agents]]
+- [[messages API 作为直连网关]]

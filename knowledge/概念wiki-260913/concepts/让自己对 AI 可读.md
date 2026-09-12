@@ -3,10 +3,10 @@ id: cm_0684e3d0
 name: 让自己对 AI 可读
 type: CONCEPTUAL
 subject: AI 概念库
-domain: agent-org
+domain: personal-life
 learningStage: when-needed
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [notion]
 aliases: ["Making Yourself Legible to AI", "Make Yourself Legible to AI", "legibility to AI", "让自己对 AI 易读", "把自己变成数据库"]
@@ -15,9 +15,9 @@ sources: 1
 
 # 让自己对 AI 可读
 
-> 把文件、邮件、日历、消息开放给 AI，让它持续建立你的偏好与模式，越懂你越值钱。
+> 把文件、邮件、日历、消息开放给 AI，使自己成为 AI 能持续读取并建模的数据库。
 
-**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** personal-life ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 原文 context
 
@@ -28,12 +28,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能说明『对 AI 可读』与单纯『用 AI』的区别
-- 能评估开放个人数据的价值与网络安全代价
+- 能说明开放更多个人数据为何让 AI 变得更有用
+- 能指出由此带来的网络安全与持续监视风险
 
 ## 验收问句
 
-> {{name}} 的收益与代价分别是什么？
+> {{name}}的收益与代价分别是什么？
 
 ## 先懂这些（前置 1）
 

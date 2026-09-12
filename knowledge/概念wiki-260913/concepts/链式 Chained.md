@@ -4,7 +4,7 @@ name: 链式
 nameEn: Chained
 type: PROCEDURAL
 subject: Context Engineering
-domain: loop-autonomy
+domain: harness-runtime
 learningStage: when-needed
 verification: use
 centrality: 0.017
@@ -16,9 +16,9 @@ sources: 1
 
 # 链式 · Chained
 
-> skill 结尾调用下一个 skill，由多个经过验证的交接串成端到端流程。
+> 把多个 skill 首尾相接，让「经过验证的交接」自动串成端到端流程，把习惯变成固定契约。
 
-**领域** loop-autonomy ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** harness-runtime ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能举出一条实际的 skill 链，如 review→simplify→verify
-- 能说明链式把个人习惯固化成契约的价值
+- 能画出 /code-review → /simplify → /verify → /design 的链路并说出每步交接物
+- 能说明链式与 standalone 在灵活性和自动化上的取舍
 
 ## 验收问句
 
-> {{name}} 如何把「某步后必做某检查」变成固定契约？
+> 请为 {{name}} 举一个该链、一个不该链的场景。
 
 ## 相关
 

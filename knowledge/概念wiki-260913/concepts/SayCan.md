@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: harness-runtime
 learningStage: when-needed
 verification: accept
-centrality: 0.045
+centrality: 0.042
 depth: 2
 origin: [notion]
 aliases: ["Do as I can", "not as I say"]
@@ -17,7 +17,7 @@ sources: 1
 
 > Google 提出的「LLM 出主意、机器人评估能不能做」的接驳框架，常被当作主流基线。
 
-**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.045
+**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 原文 context
 
@@ -36,7 +36,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[primitives]] · **soft** — 出主意与评估的结合，可看作 agent 与工具原语的接驳
+- [[higher-level runtime]] · **soft** — SayCan 在模型调用上做接驳评估，类似运行时接管 handoffs/guardrails。
 
 ## 相关
 
@@ -54,4 +54,4 @@ sources: 1
 
 ## 反链
 
-- [[primitives]]
+- [[higher-level runtime]]

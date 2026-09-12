@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: loop-autonomy
 learningStage: now
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 0
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > LLM、system prompt 与 tools 组成循环：模型发出工具调用，结果回灌后再继续生成。
 
-**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 

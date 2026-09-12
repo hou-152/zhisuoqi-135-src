@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: multi-agent
 learningStage: when-needed
 verification: use
-centrality: 0.045
+centrality: 0.042
 depth: 4
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 规划、生成、评估三个 Agent 分工，支撑多小时自主编码会话产出完整全栈应用。
 
-**领域** multi-agent ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** multi-agent ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -38,12 +38,12 @@ The final result was a three-agent architecture—planner, generator, and evalua
 
 ## 先懂这些（前置 1）
 
-- [[Generator-Evaluator Loop】]] · **hard** — 三 Agent 架构把生成-评估循环再加一层规划者
+- [[Generator-Evaluator Loop]] · **hard** — 三 Agent 架构把生成-评估循环再加一层规划者
 
 ## 相关
 
-- [[Context Anxiety】]] · 同篇出现（co-occurrence） — 同篇出现：harness-09
-- [[Context Reset vs Compaction】]] · 同篇出现（co-occurrence） — 同篇出现：harness-09
+- [[Context Anxiety]] · 同篇出现（co-occurrence） — 同篇出现：harness-09
+- [[Context Reset vs Compaction]] · 同篇出现（co-occurrence） — 同篇出现：harness-09
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-09
 
 ## 出场
@@ -51,6 +51,6 @@ The final result was a three-agent architecture—planner, generator, and evalua
 - Harness Engineering ｜ 《Anthropic 工程实践：如何为长时间运行的 Agent 应用设计 Harness》 ｜ https://www.anthropic.com/engineering/harness-design-long-running-apps
 ## 反链
 
-- [[Context Reset vs Compaction】]]
-- [[Generator-Evaluator Loop】]]
-- [[Context Anxiety】]]
+- [[Context Reset vs Compaction]]
+- [[Generator-Evaluator Loop]]
+- [[Context Anxiety]]

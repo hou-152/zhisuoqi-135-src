@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: verification-eval
 learningStage: now
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 0
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 模型会忠实执行字面指令（真删代码、真写注释），完全依赖它对指令的遵循并不可靠。
 
-**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 费曼一下
 

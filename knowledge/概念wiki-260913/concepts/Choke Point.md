@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: geo-infrastructure
 learningStage: when-needed
 verification: judge
-centrality: 0.126
+centrality: 0.117
 depth: 0
 origin: [notion]
 aliases: ["关键水道 / 咽喉点 / 关键节点"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 全球贸易中绕不开的关键水道或节点，控制一点即可影响世界能源价格与通胀曲线。
 
-**领域** geo-infrastructure ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
+**领域** geo-infrastructure ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.117
 
 ## 原文 context
 

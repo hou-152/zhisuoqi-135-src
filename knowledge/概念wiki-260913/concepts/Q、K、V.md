@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: model-training
 learningStage: when-needed
 verification: judge
-centrality: 0.099
+centrality: 0.117
 depth: 0
 origin: [notion]
 aliases: ["Query / Key / Value", "QKV", "Query Key Value"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 注意力三角色：Q 是查询、K 是标签、V 是含义；先算 Q 与 K 相似度，再对 V 加权求和。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.099
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.117
 
 ## 原文 context
 
@@ -34,11 +34,12 @@ sources: 1
 
 > {{name}} 中相似度算完之后，对谁做加权？
 
-## 懂了它才能懂（解锁 3）
+## 懂了它才能懂（解锁 4）
 
-- [[multimodal Vision LLMs]] — 多模态 token 进入同一套注意力处理，懂 QKV 才懂图文融合的机制。
-- [[Tuned Lens]] — Tuned Lens 观察隐藏状态走向 logits，懂 QKV 才懂中间层信息如何被读取。
-- [[MoE]] — MoE 在 Transformer 中替换 FFN，懂 QKV 才懂它在计算流里的位置。
+- [[mHC]] — mHC 约束 Transformer 层间信息传递，懂注意力 QKV 才能理解它传递什么。
+- [[MoE]] — MoE 稀疏化的是 Transformer 的 FFN，懂 QKV 注意力才能定位它的替换位置。
+- [[multimodal Vision LLMs]] — 图像被编码成 token 后仍走同一套注意力，懂 QKV 才能理解如何融合。
+- [[Muon 优化器]] — Muon 更新 Transformer 中的矩阵参数，懂 QKV 矩阵更易理解它优化什么。
 
 ## 相关
 
@@ -57,5 +58,6 @@ sources: 1
 ## 反链
 
 - [[multimodal Vision LLMs]]
+- [[mHC]]
+- [[Muon 优化器]]
 - [[MoE]]
-- [[Tuned Lens]]

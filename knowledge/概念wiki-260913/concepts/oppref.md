@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: economy-business
 learningStage: when-needed
 verification: judge
-centrality: 0.099
+centrality: 0.092
 depth: 3
 origin: [notion]
 aliases: ["__oppref cookie", "forward attribution token", "前向归因 token"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 广告点击 URL 上的前向归因 token，被写入 __oppref cookie（30 天），随每次转化事件回传。
 
-**领域** economy-business ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.099
+**领域** economy-business ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.092
 
 ## 原文 context
 

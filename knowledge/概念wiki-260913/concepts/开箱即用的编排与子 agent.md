@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: multi-agent
 learningStage: when-needed
 verification: use
-centrality: 0.099
+centrality: 0.092
 depth: 4
 origin: [harness]
 aliases: []
@@ -15,9 +15,9 @@ sources: 1
 
 # 开箱即用的编排与子 agent
 
-> 编排器自动按任务复杂度切换小模型探查子 agent 与大模型通用子 agent。
+> 编排器自动按任务复杂度分派小模型探查子 agent 与大模型通用子 agent，无需手工配置。
 
-**领域** multi-agent ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.099
+**领域** multi-agent ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.092
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ Autopilot 阶段 Copilot 自动当 orchestrator：读代码库文件用小模型
 
 ## 掌握证据（做到这些才算会）
 
-- 能描述 Explore 与 General Purpose 子 agent 的分工触发条件
-- 能指出不做任何自定义也能获得多模型工作流收益
+- 能不写自定义 agent 就跑通一次多子 agent 工作流
+- 能说出小模型探查与大模型通用子 agent 各自的分工
 
 ## 验收问句
 
-> 你能说明 {{name}} 在什么条件下自动切换子 agent 吗？
+> 不做任何自定义配置，你能否用{{name}}完成一次多子 agent 任务？
 
 ## 先懂这些（前置 2）
 
@@ -47,7 +47,7 @@ Autopilot 阶段 Copilot 自动当 orchestrator：读代码库文件用小模型
 
 ## 相关
 
-- [[少即是多」：gimmick 与真实增益的分界]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
+- [[「少即是多」：gimmick 与真实增益的分界]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
 - [[废料怪兽]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
 
@@ -60,4 +60,4 @@ Autopilot 阶段 Copilot 自动当 orchestrator：读代码库文件用小模型
 - [[subagents]]
 - [[模型—角色适配]]
 - [[Python-first]]
-- [[少即是多」：gimmick 与真实增益的分界]]
+- [[「少即是多」：gimmick 与真实增益的分界]]

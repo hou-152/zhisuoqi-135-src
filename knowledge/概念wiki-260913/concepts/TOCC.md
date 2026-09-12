@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: spec-intent
 learningStage: when-needed
 verification: use
-centrality: 0.072
+centrality: 0.067
 depth: 2
 origin: [notion]
 aliases: ["Task-Oriented Coreference Chain（即插即用指代解析层）"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 前置指令重写的轻量即插即用解法，把指代解析与任务规划解耦以提高成功率。
 
-**领域** spec-intent ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** spec-intent ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
 
 ## 原文 context
 

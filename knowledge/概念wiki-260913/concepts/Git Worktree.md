@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: code-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.045
+centrality: 0.042
 depth: 2
 origin: [notion]
 aliases: ["Git worktree"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 同一仓库挂载多个工作目录，便于并行分支或并行 Agent 各自工作互不干扰。
 
-**领域** code-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** code-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 掌握证据（做到这些才算会）
 

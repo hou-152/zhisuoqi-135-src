@@ -7,7 +7,7 @@ subject: Context Engineering
 domain: agent-org
 learningStage: when-needed
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [context]
 aliases: ["day one"]
@@ -16,9 +16,9 @@ sources: 1
 
 # 第一天心态 · day one
 
-> 护城河消失时以全新眼光重看问题，不被过去的产品形态与决定绑住。
+> 护城河消失后以全新眼光重看问题，不被过去的产品形态绑住，重回 day one。
 
-**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ Karri 面对护城河消失时给自己立的姿态——“我们要重新活�
 
 ## 掌握证据（做到这些才算会）
 
-- 能说出它要求重新审视的新问题（agent 进入开发流程后）
-- 能解释为何大公司比成长型公司更难做到
+- 能复述「不能再依赖过去的决定」这一姿态
+- 能说明为何大公司比成长型公司更难做到
 
 ## 验收问句
 
-> {{name}} 要求不再依赖什么？
+> {{name}} 能在 agent 进入流程时用第一天心态重问问题吗？
 
 ## 先懂这些（前置 1）
 

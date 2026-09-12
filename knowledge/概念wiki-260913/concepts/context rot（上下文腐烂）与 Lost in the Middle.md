@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.072
+centrality: 0.092
 depth: 0
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 关键内容落在窗口中段时模型表现下降 30% 以上；长窗口也会随长度增加出现指令遵循退化。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.092
 
 ## 费曼一下
 
@@ -36,10 +36,11 @@ sources: 1
 
 > {{name}} 要求你把关键信息放在提示的什么位置？
 
-## 懂了它才能懂（解锁 2）
+## 懂了它才能懂（解锁 3）
 
-- [[Context discipline]] — 用锚文件与稳定边界，正是为对抗长上下文注意力退化
-- [[haystack 结构连贯性效应]] — 两者都在讲输入结构如何影响注意力的施加方式
+- [[Context Anxiety]] — 它属于长上下文下的行为退化家族，先懂退化现象更好定位它
+- [[Context Distraction]] — 机械重复是长上下文退化的表现，先懂退化更易理解它
+- [[haystack 结构连贯性效应]] — 它解释输入结构如何影响注意力，与长上下文退化同属一类发现
 
 ## 相关
 
@@ -53,6 +54,7 @@ sources: 1
 ## 反链
 
 - [[agent 与 harness 的分工]]
+- [[Context Distraction]]
 - [[If you're not the model, you're the harness.]]
-- [[Context discipline]]
+- [[Context Anxiety]]
 - [[haystack 结构连贯性效应]]

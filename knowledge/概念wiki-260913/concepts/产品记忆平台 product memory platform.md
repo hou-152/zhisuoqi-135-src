@@ -2,12 +2,12 @@
 id: cm_3a2cd7d5
 name: 产品记忆平台
 nameEn: product memory platform
-type: REPRESENTATIONAL
+type: CONCEPTUAL
 subject: Context Engineering
 domain: agent-org
 learningStage: when-needed
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 3
 origin: [context]
 aliases: ["product memory platform"]
@@ -16,9 +16,9 @@ sources: 1
 
 # 产品记忆平台 · product memory platform
 
-> 把产品定位为“产品上下文／产品记忆”的所在地，而非通用 agent 平台，是通往产品思考的 API。
+> Karri 对 Linear 的定位：不做通用 agent 平台，而做产品上下文与产品记忆的所在地，是通往产品思考的 API。
 
-**领域** agent-org ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ Karri 给 Linear 的定位，用来和“通用 agent 平台”划清界限。Li
 
 ## 掌握证据（做到这些才算会）
 
-- 能用一句话区分产品记忆平台与通用 agent 平台
-- 能说明为何用通用模型时每次都要显式交代上下文
+- 能对比 Linear 与 Claude/ChatGPT 在上下文供给上的差别
+- 能说明『产品记忆平台』与『通用 agent 平台』的定位差异
 
 ## 验收问句
 
-> {{name}} 与通用 agent 平台的边界在哪？
+> {{name}} 和通用 agent 平台的区别是什么？
 
 ## 先懂这些（前置 1）
 

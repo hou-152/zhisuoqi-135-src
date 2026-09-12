@@ -7,8 +7,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.099
-depth: 1
+centrality: 0.017
+depth: 0
 origin: [harness]
 aliases: ["prompt / context / harness engineering"]
 sources: 1
@@ -16,9 +16,9 @@ sources: 1
 
 # 三层工程 · prompt / context / harness engineering
 
-> 三层同心工程：prompt 打磨指令、context 管理模型看到什么与何时看到、harness 包住前两者并加工具编排、状态与验证循环。
+> prompt、context、harness三层同心工程，harness包住前两者并加上工具编排、状态持久化与验证。
 
-**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.099
+**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -30,21 +30,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能逐层说出各自负责的问题，并把具体工作归到正确的一层
-- 能指出什么工作落到 harness 层而不是 prompt 层
+- 能说清三层各自负责什么
+- 能列出harness层额外提供的能力清单
 
 ## 验收问句
 
-> {{name}}中每一层分别解决什么问题？
-
-## 先懂这些（前置 1）
-
-- [[AI 工程基础设施】 AI engineering infrastructure]] · **hard** — prompt/context/harness 的划分，是对『需要整套工程基础设施』的展开。
-
-## 懂了它才能懂（解锁 2）
-
-- [[优化对象的阶梯]] — 阶梯从提示词一路到 harness code，正是三层工程的逐级演进路径。
-- [[让不可见变得可见]] — 按三层定位加检查与断言，才是让隐藏漂移可见的具体做法。
+> {{name}}中哪一层负责状态持久化与错误恢复？
 
 ## 相关
 
@@ -63,7 +54,4 @@ sources: 1
 ## 反链
 
 - [[agent 与 harness 的分工]]
-- [[让不可见变得可见]]
-- [[AI 工程基础设施】 AI engineering infrastructure]]
 - [[If you're not the model, you're the harness.]]
-- [[优化对象的阶梯]]

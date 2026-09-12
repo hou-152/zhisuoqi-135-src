@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: model-training
 learningStage: deep-dive
 verification: judge
-centrality: 0.045
-depth: 5
+centrality: 0.042
+depth: 6
 origin: [notion]
 aliases: ["解耦优势策略优化", "Decoupled Advantage Policy Optimization"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 解耦优势策略优化：在 GRPO 上把裁剪上下界解耦为 0.28/0.2、损失改 token 级、截断加软惩罚、动态采样过滤。
 
-**领域** model-training ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** model-training ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 原文 context
 

@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: use
-centrality: 0.072
+centrality: 0.042
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 文件系统被称为最基础的 harness 原语：模型在海量文件系统用法上训练过，还解锁工作区与协作面。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -38,11 +38,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[stateless]] · **soft** — 正因为模型无状态，文件系统才成为最基础的持久化原语
-
-## 懂了它才能懂（解锁 1）
-
-- [[Skills as permanent upgrades]] — skill 作为文件落盘，才谈得上不遗忘、不退化
+- [[Action Space]] · **soft** — 文件系统用法是模型最熟练的那部分动作集合，构成动作空间底座。
 
 ## 相关
 
@@ -58,5 +54,4 @@ sources: 1
 - [[Harness]]
 - [[Harness 工程 Harness Engineering]]
 - [[Agent = Model + Harness]]
-- [[stateless]]
-- [[Skills as permanent upgrades]]
+- [[Action Space]]

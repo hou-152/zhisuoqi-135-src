@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: model-training
 learningStage: deep-dive
 verification: accept
-centrality: 0.045
+centrality: 0.067
 depth: 1
 origin: [notion]
 aliases: ["Manifold-constrained Hyper-Connection", "流形约束超连接"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 流形约束超连接，用流形几何约束 Transformer 层间连接，让信息传递更短更准，提升 token 效率。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.045
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.067
 
 ## 原文 context
 
@@ -35,9 +35,10 @@ sources: 1
 
 > 你能说清 {{name}} 在 V4 里承担什么角色吗？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
 - [[残差流]] · **hard** — mHC约束层间连接即改进残差流传递，不懂残差流就抓不住其对象。
+- [[Q、K、V]] · **soft** — mHC 约束 Transformer 层间信息传递，懂注意力 QKV 才能理解它传递什么。
 
 ## 相关
 
@@ -55,4 +56,5 @@ sources: 1
 
 ## 反链
 
+- [[Q、K、V]]
 - [[残差流]]

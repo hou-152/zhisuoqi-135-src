@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: tools-sandbox
 learningStage: when-needed
 verification: use
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 描述如何 provision agent 工具所运行沙箱的模板：runtime 类型、网络策略、包配置。
 
-**领域** tools-sandbox ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** tools-sandbox ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -52,5 +52,5 @@ sources: 1
 ## 反链
 
 - [[Sandbox]]
-- [[messages API 作为直连网关]]
 - [[Claude Managed Agents]]
+- [[messages API 作为直连网关]]

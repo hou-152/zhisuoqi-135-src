@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: when-needed
 verification: use
-centrality: 0.045
-depth: 5
+centrality: 0.042
+depth: 4
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > OpenAI 提供的标准化 Agent 开发基础设施，让开发者易于起步并为 OpenAI 模型正确构建。
 
-**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -67,11 +67,12 @@ We’re introducing new capabilities to the Agents SDK that give developers stan
 - Harness Engineering ｜ 《OpenAI Agents SDK 下一代演进：原生沙箱 + 模型原生 harness》 ｜ https://openai.com/index/the-next-evolution-of-the-agents-sdk/
 ## 反链
 
-- [[Agent loop]]
 - [[Agent]]
+- [[Agent loop]]
 - [[MCP Model Context Protocol]]
 - [[Sandbox]]
 - [[程序记忆（Procedural Memory Skills） progressive disclosure]]
+- [[model-native harness]]
 - [[持久化执行 durable execution]]
 - [[shell tool]]
 - [[subagents]]
@@ -79,10 +80,9 @@ We’re introducing new capabilities to the Agents SDK that give developers stan
 - [[exfiltration]]
 - [[harness–compute separation]]
 - [[prompt-injection]]
+- [[turnkey yet flexible]]
 - [[舱单]]
 - [[apply patch tool]]
 - [[code mode]]
-- [[model-native harness]]
 - [[native sandbox execution]]
 - [[snapshotting + rehydration]]
-- [[turnkey yet flexible]]

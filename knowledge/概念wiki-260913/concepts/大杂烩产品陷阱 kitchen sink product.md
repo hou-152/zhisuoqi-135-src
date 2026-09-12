@@ -7,7 +7,7 @@ subject: Context Engineering
 domain: agent-org
 learningStage: when-needed
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [context]
 aliases: ["kitchen sink product"]
@@ -16,9 +16,9 @@ sources: 1
 
 # 大杂烩产品陷阱 · kitchen sink product
 
-> 为打勾和采购清单而堆功能、什么都为所有人做的产品反面，应只沿工作流找“自然的下一步”。
+> 为所有人、为采购清单堆功能反而做不出好体验；应只沿工作流找自然的下一步。
 
-**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ Karri 明确要避开的反面——那种“什么都为所有人做”的产�
 
 ## 掌握证据（做到这些才算会）
 
-- 能识别一个功能是为清单打勾还是为体验而加
-- 能沿某条工作流推出下一个自然步骤而非扩张表面
+- 能举出为打勾而堆功能却不改善体验的例子
+- 能沿一条工作流指出自然的下一步是什么
 
 ## 验收问句
 
-> {{name}} 下，产品该沿什么线索扩展功能？
+> {{name}}下，你会砍掉哪个功能、理由是什么？
 
 ## 先懂这些（前置 1）
 

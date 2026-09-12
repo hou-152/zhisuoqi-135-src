@@ -6,8 +6,8 @@ subject: Context Engineering × Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.062
-depth: 5
+centrality: 0.06
+depth: 4
 origin: [context, harness]
 aliases: []
 sources: 2
@@ -17,7 +17,7 @@ sources: 2
 
 > 用户感知到的行为体现：Agent 的对外表现，而非其内部实现。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.062
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.06
 
 ## 费曼一下
 

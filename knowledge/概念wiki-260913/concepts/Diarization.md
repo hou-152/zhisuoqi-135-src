@@ -3,7 +3,7 @@ id: cm_5d506128
 name: Diarization
 type: CONCEPTUAL
 subject: AI 概念库 × Harness Engineering
-domain: context-engineering
+domain: memory-retrieval
 learningStage: when-needed
 verification: judge
 centrality: 0.035
@@ -15,9 +15,9 @@ sources: 2
 
 # Diarization
 
-> 让模型读遍某主题的全部文档，写出一页纸的判断画像，把上百份材料压成结构化结论。
+> 把某主题下的海量文档读遍后蒸馏成一页结构化判断档案的步骤，让 AI 真正服务知识工作。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.035
+**领域** memory-retrieval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.035
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ Diarization 是让 AI 真正能做知识工作的关键动作：
 
 ## 掌握证据（做到这些才算会）
 
-- 能把上百份文档压成一页结构化判断画像
-- 能说明这一步为什么让 AI 对真实知识工作有用
+- 能说明普通摘要与全量阅读后蒸馏出结构档案的区别
+- 能把一主题的几十份文档压成一页可复用的判断
 
 ## 验收问句
 
-> 如果让你对某主题做一次 {{name}}，产出应该长什么样？
+> 能否用 {{name}} 把上百份文档蒸馏成一页结构化档案？
 
 ## 相关
 

@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: clinical-medicine
 learningStage: when-needed
 verification: accept
-centrality: 0.045
+centrality: 0.042
 depth: 3
 origin: [notion]
 aliases: ["Female Genital Mutilation", "FGM", "割礼"]
@@ -15,9 +15,9 @@ sources: 1
 
 # 女性生殖器切割（FGM）
 
-> 在非洲、中东与亚洲30国约2.3亿名女性身上发生的非医学性生殖器切除。
+> 世卫组织统计中，30 个国家的逾 2.3 亿女孩和妇女被非医学切除阴蒂头、阴蒂包皮或小阴唇等。
 
-**领域** clinical-medicine ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.045
+**领域** clinical-medicine ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 原文 context
 
@@ -27,16 +27,16 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能说出FGM涉及切除的解剖结构
-- 能说明其与阴蒂神经地图及重建手术的关系
+- 能说出 FGM 涉及哪些解剖结构
+- 能说明重建手术为何需要更准确的阴蒂解剖知识
 
 ## 验收问句
 
-> {{name}}能说明FGM的范围及其与重建手术的关联吗？
+> {{name}}的规模与切除范围是什么，为什么它与解剖研究相关？
 
 ## 先懂这些（前置 1）
 
-- [[后唇神经]] · **hard** — FGM切除的正是阴蒂与外阴神经支配区，不懂后唇神经等外阴神经版图就看不懂其感觉后果。
+- [[阴蒂包皮]] · **hard** — FGM常切除阴蒂包皮等组织，不懂阴蒂包皮就不知切了什么。
 
 ## 相关
 
@@ -54,4 +54,4 @@ sources: 1
 
 ## 反链
 
-- [[后唇神经]]
+- [[阴蒂包皮]]

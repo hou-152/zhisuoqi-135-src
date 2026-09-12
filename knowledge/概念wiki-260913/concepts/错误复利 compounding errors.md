@@ -4,7 +4,7 @@ name: 错误复利
 nameEn: compounding errors
 type: CONCEPTUAL
 subject: Harness Engineering
-domain: harness-runtime
+domain: loop-autonomy
 learningStage: now
 verification: compute
 centrality: 0.017
@@ -16,9 +16,9 @@ sources: 1
 
 # 错误复利 · compounding errors
 
-> 多步流程中每步成功率相乘，10 步各 99% 端到端只剩约 90.4%，故需错误分诊与重试上限。
+> 多步流程里每步微小失败率会累乘：10 步各 99% 成功率，端到端只剩约 90.4%。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.017
+**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能算出任意步数与单步成功率下的端到端成功率
-- 能把失败按瞬时、模型可恢复、用户可修、意外四类分诊并给出对策
+- 能算出 0.99 的 10 次方约为 90.4% 并解释衰减
+- 能按瞬时、可恢复、用户可修、意外四类分诊错误
 
 ## 验收问句
 
-> 10 步各 99% 成功率，按 {{name}} 端到端约剩多少？
+> 10 步每步 99% 成功率，{{name}}下端到端还剩多少？
 
 ## 相关
 

@@ -2,12 +2,12 @@
 id: cm_b1373b74
 name: 交接模型
 nameEn: handoff model
-type: REPRESENTATIONAL
+type: CONCEPTUAL
 subject: Context Engineering
 domain: agent-org
 learningStage: when-needed
 verification: judge
-centrality: 0.126
+centrality: 0.117
 depth: 1
 origin: [context]
 aliases: ["handoff model"]
@@ -16,9 +16,9 @@ sources: 1
 
 # 交接模型 · handoff model
 
-> 旧范式：PM 先划定范围，工程师稍后接手，靠优先级与协商弥合缝隙。
+> 旧范式：PM 先划定范围，工程师稍后接手，靠优先级与协商弥合两者之间的缝隙。
 
-**领域** agent-org ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
+**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.117
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能说出该模型源于「工程时间稀缺」这一真实约束
-- 能指出其中的仪式性成本与缝隙
+- 能描述该范式中 PM 与工程师的时序关系与信息损耗
+- 能说明这套仪式源于工程时间稀缺这一真实约束
 
 ## 验收问句
 
-> 你能说出 {{name}} 的隐含假设以及它为何开始失效吗？
+> {{name}} 的缝隙为什么在 Agent 时代会失效？
 
 ## 先懂这些（前置 1）
 
@@ -73,16 +73,16 @@ sources: 1
 
 ## 反链
 
-- [[价值定义]]
 - [[上下文 context]]
+- [[价值定义]]
 - [[共享产品系统 shared product system]]
 - [[阶段压缩 compression]]
 - [[流程即工作 the process became the work]]
 - [[意图理解、路由与升级 understand intent, route, escalate]]
-- [[agent 不是读心者 agents are not mind readers]]
 - [[产品经理的组织化]]
 - [[移除开销 remove overhead]]
 - [[意图、判断与品味 intent, judgment, taste]]
+- [[agent 不是读心者 agents are not mind readers]]
 - [[把上下文转化为执行 turn context into execution]]
 - [[复杂被误认为精密 complexity looked like sophistication]]
 - [[技能化 Skills]]

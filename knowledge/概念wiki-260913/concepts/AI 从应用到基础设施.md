@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: geo-infrastructure
 learningStage: deep-dive
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 1
 origin: [notion]
 aliases: ["AI: From Application to Infrastructure", "AI 基础设施化"]
@@ -17,7 +17,7 @@ sources: 1
 
 > AI 正从商业资产变为安全资产：它不只承载服务，还参与判断、可能成为社会接口，因而被国家审查。
 
-**领域** geo-infrastructure ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** geo-infrastructure ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 原文 context
 

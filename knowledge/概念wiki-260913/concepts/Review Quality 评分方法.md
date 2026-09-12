@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: verification-eval
 learningStage: when-needed
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 用准确性、完整性、抓 bug 潜力、可行洞见四项 1-10 打分，验证省 token 是否牺牲评审质量。
 
-**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -53,7 +53,7 @@ sources: 1
 ## 反链
 
 - [[Rubric]]
+- [[持久化代码图谱 structural map graph]]
 - [[code-review-graph]]
 - [[Kappa 系数]]
 - [[Tree-sitter]]
-- [[持久化代码图谱 structural map graph]]

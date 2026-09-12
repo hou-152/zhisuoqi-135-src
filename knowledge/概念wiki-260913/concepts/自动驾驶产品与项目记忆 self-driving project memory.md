@@ -7,7 +7,7 @@ subject: Context Engineering
 domain: agent-org
 learningStage: when-needed
 verification: accept
-centrality: 0.045
+centrality: 0.042
 depth: 3
 origin: [context]
 aliases: ["self-driving / project memory"]
@@ -18,7 +18,7 @@ sources: 1
 
 > 预测：一个 project 可像 agent 一样基于涌入的反馈与规则自动决策，仍可要求一定人类输入，即所谓项目记忆。
 
-**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.045
+**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 费曼一下
 

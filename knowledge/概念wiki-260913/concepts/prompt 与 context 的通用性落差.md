@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.045
-depth: 1
+centrality: 0.017
+depth: 0
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > prompt 可以很具体，context 要跨很多请求通用，因此做不到那么具体。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -35,10 +35,6 @@ sources: 1
 ## 验收问句
 
 > {{name}} 为什么让「写通用指引」这件事变难？
-
-## 先懂这些（前置 1）
-
-- [[prompt completion]] · **hard** — 该落差讲的是 prompt 与 context 可具体程度之差，先要知道 prompt 是什么
 
 ## 相关
 
@@ -63,16 +59,15 @@ sources: 1
 - Context Engineering ｜ 《Claude 5 时代的上下文工程新规则：系统提示词砍掉 80%》 ｜ https://x.com/trq212/status/2080710971228918066/?s=12
 ## 反链
 
-- [[gotchas 优先的 CLAUDE.md]]
 - [[渐进式披露 progressive disclosure]]
 - [[接口即指令 design interfaces]]
-- [[prompt completion]]
 - [[Rubrics 与验证 agent]]
 - [[冲突指令的隐性成本]]
 - [[从禁止什么到对齐什么]]
 - [[示例会收窄探索空间]]
 - [[延迟加载工具与 ToolSearch]]
 - [[指令就近原则]]
+- [[gotchas 优先的 CLAUDE.md]]
 - [[富引用 rich references]]
 - [[上下文文件树 tree of files]]
 - [[自动记忆 auto-memory]]

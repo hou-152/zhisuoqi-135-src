@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: spec-intent
 learningStage: now
 verification: use
-centrality: 0.072
+centrality: 0.067
 depth: 2
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 放在代码库中向编码 Agent 交代项目约定与规则的自定义指令文件。
 
-**领域** spec-intent ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** spec-intent ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -52,7 +52,7 @@ custom instructions via [AGENTS.md](http://agents.md/)
 - Harness Engineering ｜ 《OpenAI Agents SDK 下一代演进：原生沙箱 + 模型原生 harness》 ｜ https://openai.com/index/the-next-evolution-of-the-agents-sdk/
 ## 反链
 
+- [[model-native harness]]
 - [[教会 AI Agent 如何成功]]
 - [[Instructions files]]
 - [[Agents SDK]]
-- [[model-native harness]]

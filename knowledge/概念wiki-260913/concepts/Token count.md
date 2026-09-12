@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: caching-cost
 learningStage: when-needed
 verification: compute
-centrality: 0.154
+centrality: 0.142
 depth: 0
 origin: [notion]
 aliases: ["token count", "headcount to token count"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 一段文本消耗的词元数量，是计费、上下文预算与成本估算的基本计量单位。
 
-**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.154
+**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.142
 
 ## 掌握证据（做到这些才算会）
 

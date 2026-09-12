@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: personal-life
 learningStage: when-needed
 verification: accept
-centrality: 0.072
+centrality: 0.067
 depth: 0
 origin: [notion]
 aliases: ["约会软件倦怠", "dating fatigue", "app fatigue", "swipe fatigue"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 交友软件倦怠：78% 使用者表示疲乏。滑动浏览并不浪漫，至多是负担，最坏是一种强迫。
 
-**领域** personal-life ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
+**领域** personal-life ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.067
 
 ## 费曼一下
 

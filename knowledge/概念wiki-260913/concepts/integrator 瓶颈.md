@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: multi-agent
 learningStage: when-needed
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 2
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 大量 worker 并行时唯一的质量与合并闸口，会因争抢 push、rebase、解冲突、merge 而成为瓶颈。
 
-**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 费曼一下
 

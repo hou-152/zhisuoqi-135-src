@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: memory-retrieval
 learningStage: now
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 0
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 不改权重时，给模型加知识的唯一通道是把内容放进上下文；记忆文件、检索、MCP 都是它的实现。
 
-**领域** memory-retrieval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** memory-retrieval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 

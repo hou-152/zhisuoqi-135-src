@@ -74,8 +74,8 @@ sources: 4
 ## 反链
 
 - [[上下文腐烂 Context Rot]]
-- [[多文档问答受控实验]]
 - [[序列位置效应 serial-position effect]]
+- [[多文档问答受控实验]]
 - [[长上下文评测协议]]
 - [[AI Agent]]
 - [[闭卷与 oracle 基线]]
@@ -83,7 +83,6 @@ sources: 4
 - [[首因偏置 primacy bias]]
 - [[性能饱和早于召回饱和]]
 - [[重排序与排序列表截断]]
-- [[Agent vs Harness]]
 - [[U 型性能曲线]]
 - [[非模型架构 Non-model Architecture]]
 - [[查询感知语境化 query-aware contextualization]]
@@ -91,3 +90,4 @@ sources: 4
 - [[检索器-阅读器配置 retriever-reader]]
 - [[近因偏置 recency bias]]
 - [[扩展上下文模型 extended-context models]]
+- [[Agent vs Harness]]

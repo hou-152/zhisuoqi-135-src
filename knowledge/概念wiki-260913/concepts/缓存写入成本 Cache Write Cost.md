@@ -6,7 +6,7 @@ type: CONCEPTUAL
 subject: Context Engineering
 domain: caching-cost
 learningStage: when-needed
-verification: accept
+verification: compute
 centrality: 0.017
 depth: 0
 origin: [context]
@@ -16,9 +16,9 @@ sources: 1
 
 # 缓存写入成本 · Cache Write Cost
 
-> 缓存写入按 Anthropic 定价高于基准输入价，5 分钟档较便宜，1 小时档更贵。
+> Anthropic 定价中 5 分钟缓存写入高于基准输入价，1 小时写入更高，写入成本决定缓存是否划算。
 
-**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.017
+**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能说出写入价高于基准输入价
-- 能比较 5 分钟与 1 小时写入的成本高低
+- 能说出两个缓存时长档位的相对价格高低
+- 能比较一次写入与多次普通输入的成本
 
 ## 验收问句
 
-> {{name}} 中 1 小时档比 5 分钟档贵在哪？
+> 能否比较 {{name}} 与重复普通输入谁更便宜？
 
 ## 相关
 

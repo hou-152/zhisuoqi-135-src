@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.099
+centrality: 0.092
 depth: 2
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 工具输出超阈值 token 时只保留头尾，把完整输出卸载到文件系统，模型按需再读取。
 
-**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.099
+**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.092
 
 ## 费曼一下
 

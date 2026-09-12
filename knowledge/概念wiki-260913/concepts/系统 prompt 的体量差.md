@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: accept
-centrality: 0.045
-depth: 2
+centrality: 0.017
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > claude code 的 system prompt 约 13k 字符，cursor 不到 6k，差在语气、简洁度、主动性、代码风格与工具纪律。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.045
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,10 +36,6 @@ prompt 的长度是一个可观测的用心程度指标。它相当于给员工�
 
 > {{name}} 主要差在哪几类规定上？
 
-## 先懂这些（前置 1）
-
-- [[系统提示 System Prompt]] · **hard** — 比较claude code与cursor的体量差，先要知道system prompt是什么
-
 ## 相关
 
 - [[看对话 log]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
@@ -51,7 +47,6 @@ prompt 的长度是一个可观测的用心程度指标。它相当于给员工�
 - Harness Engineering ｜ 《拆开 Claude Code：一个编码 agent 的 harness 内部长什么样》 ｜ https://xxchan.me/ai/2025/05/06/claude-code.html
 ## 反链
 
-- [[系统提示 System Prompt]]
 - [[对话加确定性缝合]]
 - [[看对话 log]]
 - [[反向代理式窥探]]

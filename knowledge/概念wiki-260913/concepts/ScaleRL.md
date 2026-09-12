@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: model-training
 learningStage: deep-dive
 verification: judge
-centrality: 0.072
-depth: 5
+centrality: 0.067
+depth: 6
 origin: [notion]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 一份大规模算力下的 RL 工程方法学，用 S 型性能-算力曲线替代单点对比。
 
-**领域** model-training ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** model-training ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 原文 context
 
@@ -36,8 +36,8 @@ sources: 1
 
 ## 先懂这些（前置 2）
 
-- [[RLHF]] · **soft** — ScaleRL 是 RL 训练工程方法学，懂 RLHF 才知道它要规模化的是什么。
-- [[RLVR 与编码 agent 的 RL 训练循环]] · **soft** — ScaleRL 用 S 型曲线描述大规模 RL，懂 RLVR 循环才懂算力花在哪。
+- [[RLHF]] · **soft** — ScaleRL 是大规模 RL 工程方法学，懂 RLHF 才能理解其训练范式来源。
+- [[RLVR 与编码 agent 的 RL 训练循环]] · **soft** — ScaleRL 要替代单点对比，懂典型 RLVR 长循环更易理解其算力曲线。
 
 ## 相关
 

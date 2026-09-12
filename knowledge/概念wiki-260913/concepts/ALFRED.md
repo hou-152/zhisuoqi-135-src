@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: verification-eval
 learningStage: when-needed
 verification: accept
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [notion]
 aliases: ["A benchmark for interpreting grounded instructions for everyday tasks"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 在虚拟家居环境中按自然语言指令完成日常任务的具身智能基准，指令全用清晰显式指代。
 
-**领域** verification-eval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.045
+**领域** verification-eval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 原文 context
 
@@ -36,7 +36,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[基准测试的捆绑测量性]] · **soft** — ALFRED 分数同时测了环境、解析器与指令措辞，先懂捆绑测量才不会误读。
+- [[可验证目标]] · **soft** — ALFRED 指令用清晰显式指代，正因目标须机器可判定，不懂此点读不懂其设计。
 
 ## 相关
 
@@ -54,4 +54,4 @@ sources: 1
 
 ## 反链
 
-- [[基准测试的捆绑测量性]]
+- [[可验证目标]]

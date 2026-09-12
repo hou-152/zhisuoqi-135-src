@@ -1,12 +1,12 @@
 ---
 id: cm_1031d6f6
 name: 递归 planner 与 subplanner
-type: REPRESENTATIONAL
+type: CONCEPTUAL
 subject: Harness Engineering
 domain: multi-agent
 learningStage: now
-verification: use
-centrality: 0.045
+verification: judge
+centrality: 0.042
 depth: 1
 origin: [harness]
 aliases: []
@@ -15,9 +15,9 @@ sources: 1
 
 # 递归 planner 与 subplanner
 
-> 根 planner 拥有全部指令范围但不写代码，按需 spawn 完全拥有窄范围的 subplanner。
+> 根 planner 掌握全部指令范围、不写代码，遇到可细分的窄片就递归 spawn 拥有该片的 subplanner。
 
-**领域** multi-agent ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能说明 subplanner 与 root planner 的职责边界
-- 能解释该结构为何既提速扇出又避免隧道视野
+- 能说明 root planner 与 subplanner 的范围归属关系
+- 能解释为何递归细分可避免单一 planner 的隧道视野
 
 ## 验收问句
 
-> {{name}} 里谁对一段窄范围负完全责任？
+> {{name}} 能说明 subplanner 如何避免 planner 的隧道视野吗？
 
 ## 先懂这些（前置 1）
 

@@ -6,7 +6,7 @@ subject: AI 概念库 × Harness Engineering
 domain: code-engineering
 learningStage: when-needed
 verification: judge
-centrality: 0.062
+centrality: 0.06
 depth: 1
 origin: [notion, harness]
 aliases: ["Vibe Coding", "vibe coding", "氛围编程"]
@@ -15,9 +15,9 @@ sources: 2
 
 # Vibe Coding
 
-> Karpathy 提出的抬高地板范式：用自然语言描述需求让 agent 生成代码，适合原型玩票，但不许放弃质量底线。
+> 抬高地板式编程范式：用自然语言描述需求由 agent 生成代码，适合原型与小工具，不适合严肃工程。
 
-**领域** code-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.062
+**领域** code-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.06
 
 ## 费曼一下
 
@@ -37,12 +37,12 @@ sources: 2
 
 ## 掌握证据（做到这些才算会）
 
-- 能说出它适合与不适合的项目类型
-- 能区分 vibe coding 与 Agentic Engineering 的边界
+- 能说出它适合原型玩票、不适合要守质量底线的工程
+- 能判断一个具体任务该走随性编码还是 Agentic Engineering
 
 ## 验收问句
 
-> 什么项目适合用 {{name}} 起手，什么项目不行？
+> 这个原型任务适合用 {{name}} 还是需要 Agentic Engineering？
 
 ## 先懂这些（前置 1）
 

@@ -4,9 +4,9 @@ name: 善意越轨（Benign Deviancy）
 type: CONCEPTUAL
 subject: AI 概念库
 domain: society-law
-learningStage: when-needed
+learningStage: deep-dive
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 2
 origin: [notion]
 aliases: ["Benign Deviancy / 善意违规 / 良性越轨"]
@@ -15,9 +15,9 @@ sources: 1
 
 # 善意越轨（Benign Deviancy）
 
-> 大量技术上违规却被社会默许的行为是运转润滑剂；无差别监控下应让法律标准向真实行为靠拢。
+> 技术上违规但社会默许的日常行为，是无差别监控下最先被压垮的社会润滑剂。
 
-**领域** society-law ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** society-law ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 原文 context
 
@@ -29,12 +29,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能举出一例普遍存在的善意越轨并说明其社会功能
-- 能推论无差别监控下僵化执法会导致的两种后果
+- 能举出身边的善意越轨实例（如超速20mph）
+- 能说明作者为何主张让法律标准向真实行为靠拢
 
 ## 验收问句
 
-> 按{{name}}的思路，限速与无差别监控该如何取舍？
+> {{name}}为什么会让无差别监控系统瘫痪或变恐怖？
 
 ## 先懂这些（前置 1）
 

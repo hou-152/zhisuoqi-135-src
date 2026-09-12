@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: society-law
 learningStage: deep-dive
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 2
 origin: [notion]
 aliases: ["AI Passport", "AI Nationality", "AI 国籍"]
@@ -17,7 +17,7 @@ sources: 1
 
 > AI 的可登记身份，不关乎血统，而是一张写明从哪里来、受谁约束、出事找谁的责任地址。
 
-**领域** society-law ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** society-law ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 原文 context
 

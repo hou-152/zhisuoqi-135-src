@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.045
-depth: 0
+centrality: 0.117
+depth: 3
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 顺着模型自身擅长方式设计的 harness，让 agent 跨文件、跨工具完成任务。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.117
 
 ## 费曼一下
 
@@ -36,9 +36,15 @@ a model-native harness that lets agents work across files and tools on a compute
 
 > {{name}} 与普通 harness 的区别你指得出来吗？
 
-## 懂了它才能懂（解锁 1）
+## 先懂这些（前置 2）
 
-- [[harness over-fitting]] — 后训练与特定工具耦合，反衬出顺着模型设计的必要
+- [[Harness Thickness]] · **soft** — 顺着模型设计常对应薄 harness，不懂厚度就难把握取向。
+- [[Harness level feature]] · **soft** — 顺着模型设计的前提是知道模型开箱做不到什么。
+
+## 懂了它才能懂（解锁 2）
+
+- [[harness over-fitting]] — 不懂顺着模型设计的 harness，就难理解换 harness 后名次反转。
+- [[Hermes Agent]] — 可读源码的 Agent 是 model-native harness 的实例，不懂设计方式就难读结构。
 
 ## 相关
 
@@ -72,17 +78,20 @@ a model-native harness that lets agents work across files and tools on a compute
 - [[Sandbox]]
 - [[程序记忆（Procedural Memory Skills） progressive disclosure]]
 - [[持久化执行 durable execution]]
+- [[Harness level feature]]
+- [[Harness Thickness]]
 - [[shell tool]]
 - [[subagents]]
 - [[AGENTS.md]]
 - [[exfiltration]]
 - [[harness over-fitting]]
 - [[harness–compute separation]]
+- [[Hermes Agent]]
 - [[prompt-injection]]
+- [[turnkey yet flexible]]
 - [[舱单]]
 - [[Agents SDK]]
 - [[apply patch tool]]
 - [[code mode]]
 - [[native sandbox execution]]
 - [[snapshotting + rehydration]]
-- [[turnkey yet flexible]]

@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: multi-agent
 learningStage: now
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 0
 origin: [harness]
 aliases: []
@@ -15,9 +15,9 @@ sources: 1
 
 # 单 agent 的速度天花板
 
-> 现有 agent 对聚焦任务尚可，但复杂项目上很慢，问题不是做不对而是做不快。
+> 单 agent 在聚焦任务上表现好，但面对复杂项目很慢——问题不在对错，而在快慢。
 
-**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能区分“做不对”与“做不快”两类问题
-- 能指出哪些复杂项目受单 agent 速度上限约束
+- 能复述材料对这一起点问题的原话判断
+- 能区分「做不对」与「做不快」两类瓶颈
 
 ## 验收问句
 
-> {{name}} 描述的问题核心是做不对还是做不快？
+> {{name}} 能解释单 agent 做复杂项目为何慢吗？
 
 ## 懂了它才能懂（解锁 2）
 
@@ -68,6 +68,7 @@ sources: 1
 - [[漂移与隧道视野 drift & tunnel vision]]
 - [[动态协调 dynamic coordination]]
 - [[共享文件加锁的协调机制]]
+- [[乐观并发控制 optimistic concurrency control]]
 - [[模型—角色适配]]
 - [[锁竞争瓶颈 lock contention]]
 - [[为吞吐量设计与可接受错误率]]
@@ -78,4 +79,3 @@ sources: 1
 - [[prompt 主导论]]
 - [[递归并行规划 sub-planner]]
 - [[减法式改进 removing complexity]]
-- [[乐观并发控制 optimistic concurrency control]]

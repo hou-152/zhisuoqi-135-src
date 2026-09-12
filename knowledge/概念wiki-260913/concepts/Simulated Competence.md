@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: thinking-method
 learningStage: now
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 1
 origin: [notion]
 aliases: ["模拟胜任", "装得像很懂", "simulate competence without building competence"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 产出看起来胜任、底下能力却没长出来，AI 让「装懂」与「真懂」在结果上难以区分。
 
-**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 原文 context
 
@@ -37,11 +37,11 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[Ghosts, Not Animals]] · **soft** — LLM 是统计模拟而非生物，故能模拟胜任且与真懂难分。
+- [[Ghosts, Not Animals]] · **soft** — 不懂 LLM 是统计模拟而非动物，就难理解它为何能模拟胜任。
 
 ## 懂了它才能懂（解锁 1）
 
-- [[The Deferred Bill]] — 用 AI 跳过想清楚，正因 AI 能产出看似胜任的结果而掩盖空心。
+- [[The Deferred Bill]] — 不懂 AI 让装懂与真懂难分，就不懂跳过思考的账单。
 
 ## 相关
 
@@ -59,5 +59,5 @@ sources: 1
 
 ## 反链
 
-- [[Ghosts, Not Animals]]
 - [[The Deferred Bill]]
+- [[Ghosts, Not Animals]]

@@ -1,6 +1,6 @@
 {
  "version": "v1",
- "generatedAt": "2026-09-12T16:27:28.816Z",
+ "generatedAt": "2026-09-12T16:45:56.237Z",
  "name": "知所栖 135 · AI 时代怎么做事 概念地图",
  "sources": {
   "notion-概念库": {
@@ -20,26 +20,26 @@
   }
  },
  "topics": 1156,
- "dependencies": 930,
- "relations": 4370,
+ "dependencies": 936,
+ "relations": 4379,
  "clusters": 23,
  "byType": {
-  "CONCEPTUAL": 810,
-  "PROCEDURAL": 157,
-  "REPRESENTATIONAL": 160,
-  "LANGUAGE": 23,
+  "CONCEPTUAL": 824,
+  "PROCEDURAL": 156,
+  "REPRESENTATIONAL": 151,
+  "LANGUAGE": 19,
   "META": 6
  },
  "byStage": {
   "now": 292,
-  "when-needed": 755,
-  "deep-dive": 109
+  "when-needed": 753,
+  "deep-dive": 111
  },
  "byVerification": {
   "judge": 620,
-  "use": 322,
-  "accept": 176,
-  "compute": 38
+  "use": 324,
+  "accept": 172,
+  "compute": 40
  },
  "byOrigin": {
   "notionOnly": 488,
@@ -48,10 +48,10 @@
   "multi": 57
  },
  "checksums": {
-  "topics.json": "sha256:6a880df3a4fd5420d8df1d772516ba25ab6f1cd64a43d177b278dbb2b66de9c5",
-  "dependencies.json": "sha256:3aa68c08aaa1946d31bf55a802f0aaa2c613cf3ad3765512763880527341bf5b",
-  "relations.json": "sha256:3626ea42adcbd86e654ccbe7641ca0866d91a7a836543d39015b880c7930729b",
-  "clusters.json": "sha256:36e277fb2ea9ec44ba55e1312ac9501f461e02f9c6d3d9b277eb7988b0802fb5"
+  "topics.json": "sha256:87acccf61be8b8b930aabda52caf3d64b2daa22708438545baa7711cec471e9a",
+  "dependencies.json": "sha256:d4b7b0bc8138c95825f2f44d9d3ba865832e329d4cf4ae1b9cebcfb755aa0a9a",
+  "relations.json": "sha256:c701f99d2df07fb3d50cf8e501cd86dfc913f92b88a048a2d2080dceafe0ece7",
+  "clusters.json": "sha256:3f7e326c551c1eae66a9838d3da38e3062607cbc571b361991d82af518ef716d"
  },
  "license": "源材料为用户私人收藏（Notion 概念库 / AI 内参），本图仅供本项目内部使用，不对外再分发。"
 }

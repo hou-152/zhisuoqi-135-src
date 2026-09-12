@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: model-training
 learningStage: when-needed
 verification: judge
-centrality: 0.099
-depth: 0
+centrality: 0.092
+depth: 2
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 让模型花更多时间与 token 推演问题的推理/思考模式。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.099
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.092
 
 ## 费曼一下
 
@@ -36,11 +36,14 @@ reasoning 让模型花更多时间和 token 推演问题。
 
 > {{name}} 打开之后，模型多花的是什么？
 
-## 懂了它才能懂（解锁 3）
+## 先懂这些（前置 1）
 
-- [[reasoning effort]] — 推理强度是推理/思考模式的调节旋钮，不懂推理模式就不知道在调什么。
-- [[RLVR 与编码 agent 的 RL 训练循环]] — RLVR 强化的 trace 是推理/思考过程，懂推理模式能更好理解被验证的对象。
-- [[N-gram]] — 懂 N-gram 的局部依赖局限，才懂为何需要花更多 token 做长程推理。
+- [[Logits]] · **soft** — 思考模式仍逐 token 生成，懂 logits 更易理解它如何在候选词上推演。
+
+## 懂了它才能懂（解锁 2）
+
+- [[RLVR 与编码 agent 的 RL 训练循环]] — RLVR 训练编码 agent 的推理 trace，不懂思考模式就不知道它在生成什么。
+- [[reasoning effort]] — 推理强度调节的是思考模式花多少 token，不懂思考模式就不懂它在调什么。
 
 ## 相关
 
@@ -54,8 +57,8 @@ reasoning 让模型花更多时间和 token 推演问题。
 ## 反链
 
 - [[Harness]]
-- [[RLVR 与编码 agent 的 RL 训练循环]]
 - [[LLM Large Language Model]]
+- [[Logits]]
+- [[RLVR 与编码 agent 的 RL 训练循环]]
 - [[coding agent]]
-- [[N-gram]]
 - [[reasoning effort]]

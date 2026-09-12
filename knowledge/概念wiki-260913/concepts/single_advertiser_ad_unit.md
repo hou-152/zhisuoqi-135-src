@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: economy-business
 learningStage: when-needed
 verification: accept
-centrality: 0.126
+centrality: 0.117
 depth: 4
 origin: [notion]
 aliases: ["单广告主广告单元", "single advertiser ad unit"]
@@ -17,7 +17,7 @@ sources: 1
 
 > ChatGPT SSE 响应流中与模型输出混在一起的结构化广告事件，含品牌、轮播卡片、目标链接与 token。
 
-**领域** economy-business ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.126
+**领域** economy-business ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.117
 
 ## 原文 context
 

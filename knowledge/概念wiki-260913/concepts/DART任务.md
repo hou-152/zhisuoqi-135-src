@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: geo-infrastructure
 learningStage: when-needed
 verification: accept
-centrality: 0.099
+centrality: 0.092
 depth: 2
 origin: [notion]
 aliases: ["DART", "Double Asteroid Redirection Test", "双小行星重定向测试"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 2022 年航天器撞击小行星并改变其轨道，验证偏转技术可行；但预警阈值、拦截成本与落点责任仍待厘清。
 
-**领域** geo-infrastructure ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.099
+**领域** geo-infrastructure ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.092
 
 ## 原文 context
 

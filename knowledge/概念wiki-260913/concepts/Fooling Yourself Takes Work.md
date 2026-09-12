@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: thinking-method
 learningStage: when-needed
 verification: judge
-centrality: 0.045
-depth: 6
+centrality: 0.042
+depth: 1
 origin: [notion]
 aliases: ["自欺其实非常费力", "自欺很费力", "反费曼名言"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 对费曼名言的反转：自欺需要不断维护故事与防御，很费力；直接承认真相才是低能耗动作。
 
-**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 原文 context
 
@@ -41,7 +41,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[自我默认]] · **soft** — 自欺需不断维护故事与防御，与本能抗拒威胁自尊同源。
+- [[自我默认]] · **soft** — 不懂默认防御，就不懂自欺为何要费力维护。
 
 ## 相关
 

@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: tools-sandbox
 learningStage: when-needed
 verification: use
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [notion]
 aliases: ["理由参数｜让 Agent 在每次工具调用里自报\"为什么\""]
@@ -17,7 +17,7 @@ sources: 1
 
 > 每次 MCP 或 CLI 工具调用都强制带上 rationale 参数，用以事后重建意图。
 
-**领域** tools-sandbox ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** tools-sandbox ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 

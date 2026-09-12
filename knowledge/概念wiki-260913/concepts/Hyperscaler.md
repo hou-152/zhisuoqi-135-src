@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: economy-business
 learningStage: when-needed
 verification: accept
-centrality: 0.045
+centrality: 0.042
 depth: 3
 origin: [notion]
 aliases: ["超大规模云", "超大规模云厂商"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 超大规模云厂商，需在云业务、自有主业与对模型公司的战略投资之间做平衡。
 
-**领域** economy-business ｜ **类型** LANGUAGE ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.045
+**领域** economy-business ｜ **类型** LANGUAGE ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 费曼一下
 

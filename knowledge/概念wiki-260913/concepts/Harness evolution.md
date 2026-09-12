@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: when-needed
 verification: judge
-centrality: 0.099
-depth: 2
+centrality: 0.092
+depth: 5
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > harness 本身可在任务、trace、benchmark 与隔离实验中持续改进，相关工具如 Harness Evolver 与 Harbor。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.099
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.092
 
 ## 费曼一下
 
@@ -38,12 +38,12 @@ Harness Evolver、Harbor 和 eval-oriented resources 指向一个方向：harnes
 
 ## 先懂这些（前置 2）
 
-- [[harness 的过时假设]] · **hard** — 假设必然过期，才需要组件级地持续演进 harness
-- [[Harness 组件生命周期]] · **soft** — 演进的落地手段正是逐一移除组件并验证质量
+- [[Harness 组件生命周期]] · **hard** — 组件假设会过期，才需要持续演进 harness。
+- [[harness over-fitting]] · **soft** — 模型与 harness 耦合导致换 harness 失效，才需持续演进隔离验证。
 
 ## 懂了它才能懂（解锁 1）
 
-- [[service template 与 golden path]] — 按拓扑挑 harness 的前提是 harness 本身可演进、可选型
+- [[service template 与 golden path]] — 类比 harness 按拓扑挑选，需先懂 harness 会持续演进。
 
 ## 相关
 
@@ -58,7 +58,7 @@ Harness Evolver、Harbor 和 eval-oriented resources 指向一个方向：harnes
 
 - [[Harness 工程 Harness Engineering]]
 - [[Context as working memory budget]]
-- [[harness 的过时假设]]
-- [[Harness 组件生命周期]]
+- [[harness over-fitting]]
 - [[Reliability-critical harness primitives]]
+- [[Harness 组件生命周期]]
 - [[service template 与 golden path]]

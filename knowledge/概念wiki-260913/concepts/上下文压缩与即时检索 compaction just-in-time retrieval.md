@@ -7,7 +7,7 @@ subject: Harness Engineering
 domain: context-engineering
 learningStage: now
 verification: use
-centrality: 0.045
+centrality: 0.042
 depth: 2
 origin: [harness]
 aliases: ["compaction / just-in-time retrieval"]
@@ -16,9 +16,9 @@ sources: 1
 
 # 上下文压缩与即时检索 · compaction / just-in-time retrieval
 
-> 对抗上下文腐坏的生产策略：压缩、屏蔽旧工具输出、按需检索、子agent摘要，只留高信号token。
+> 对抗 context rot 的组合策略：compaction、观察遮蔽、按需 grep/glob、子 agent 只回传摘要。
 
-**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -30,16 +30,16 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能说出compaction、observation masking、just-in-time retrieval各自保留与丢弃什么
-- 能为一次长任务写出包含四种手段的上下文预算方案
+- 能列出至少三种策略并说明各自丢什么、留什么
+- 能用 grep/head/tail 替代整文件加载
 
 ## 验收问句
 
-> 你会用哪些手段落实{{name}}以压低token占用？
+> 要在最小高信号 token 下跑完任务，这套策略怎么组合？
 
 ## 先懂这些（前置 1）
 
-- [[上下文占用率与性能衰减]] · **hard** — 压缩与按需检索就是为对抗窗口越满越易衰减，不懂衰减就不懂其动机
+- [[上下文占用率与性能衰减]] · **hard** — 压缩与检索是为缓解窗口越满性能越衰，不懂这一衰减就不知为何要压缩。
 
 ## 相关
 
@@ -57,6 +57,6 @@ sources: 1
 
 ## 反链
 
-- [[agent 与 harness 的分工]]
 - [[上下文占用率与性能衰减]]
+- [[agent 与 harness 的分工]]
 - [[If you're not the model, you're the harness.]]

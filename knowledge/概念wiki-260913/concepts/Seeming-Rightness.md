@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: thinking-method
 learningStage: when-needed
 verification: judge
-centrality: 0.072
-depth: 4
+centrality: 0.067
+depth: 1
 origin: [notion]
 aliases: ["看起来对", "显得对", "装对"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 把「显得对」当作第一要务的人设，用临时编造的论证维护「我一直都对」的形象。
 
-**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 原文 context
 
@@ -41,11 +41,11 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[Rightness is a Prison]] · **soft** — 显得对的人设是“必须对”监狱的典型表现，先懂监狱更易懂人设。
+- [[自我默认]] · **soft** — 不懂本能自认正确，就不懂显得对的人设从何而来。
 
 ## 懂了它才能懂（解锁 1）
 
-- [[自我默认]] — 本能抗拒威胁自尊，催生用临时论证维护“我一直都对”的形象。
+- [[Rightness is a Prison]] — 不懂“显得对”人设的代价，就难理解把正确焊在 ego 上为何是监狱。
 
 ## 相关
 

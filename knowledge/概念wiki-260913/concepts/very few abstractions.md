@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: when-needed
 verification: judge
-centrality: 0.045
+centrality: 0.067
 depth: 0
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > SDK 定位宣言：只暴露很小一组原语，抽象极少，学习曲线平缓。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -36,9 +36,10 @@ sources: 1
 
 > {{name}} 对 SDK 设计意味着什么取舍？
 
-## 懂了它才能懂（解锁 1）
+## 懂了它才能懂（解锁 2）
 
-- [[primitives]] — 只有极少抽象才能把构件收敛成 Agents、Handoffs、Guardrails
+- [[primitives]] — 只暴露极少抽象是 SDK 定位，不懂它就不理解原语为何不可再拆。
+- [[turnkey yet flexible]] — 抽象极少才既默认能跑又方便改造。
 
 ## 相关
 
@@ -61,14 +62,15 @@ sources: 1
 - Harness Engineering ｜ 《OpenAI Agents SDK 官方文档：抽象极少的轻量 agent 框架》 ｜ https://openai.github.io/openai-agents-python/
 ## 反链
 
-- [[Agent loop]]
 - [[Agent]]
+- [[Agent loop]]
 - [[Sessions]]
 - [[Guardrails]]
-- [[primitives]]
 - [[higher-level runtime]]
+- [[primitives]]
 - [[Function tools]]
 - [[Tracing]]
+- [[turnkey yet flexible]]
 - [[Handoffs Agents as tools]]
 - [[Human in the loop]]
 - [[MCP server tool calling]]

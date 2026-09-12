@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: model-training
 learningStage: when-needed
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 3
 origin: [notion]
 aliases: ["Grouped Query Attention", "分组查询注意力"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 多个查询 Q 共享同一对 K/V，如 32 个 Q 分 8 组共用 KV，KV 显存降为 1/4，Q 的提问独立性不变。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 原文 context
 

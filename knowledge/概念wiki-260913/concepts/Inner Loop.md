@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: loop-autonomy
 learningStage: now
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 2
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > Primary Agent 与用户、代码和工具交互以完成主要执行工作的循环，可在较少人工干预下长期运行。
 
-**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -69,8 +69,8 @@ Primary Agent 与用户、代码和工具交互，完成主要执行工作的循
 - [[软件工厂 Software Factory]]
 - [[Capability Overhang]]
 - [[Orchestra Interface]]
+- [[Model-relative Curriculum]]
 - [[Skills Hell]]
 - [[Agent as a New Type of Software]]
 - [[Forward Deployed Engineer]]
-- [[Model-relative Curriculum]]
 - [[Outer Loop]]

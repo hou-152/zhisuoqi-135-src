@@ -5,7 +5,7 @@ nameEn: Dynamic
 type: CONCEPTUAL
 subject: Context Engineering
 domain: context-engineering
-learningStage: now
+learningStage: when-needed
 verification: use
 centrality: 0.017
 depth: 0
@@ -16,9 +16,9 @@ sources: 1
 
 # 动态装配 · Dynamic
 
-> 上下文即时生成、为当下任务量身定制，而非提前固定拼装。
+> 上下文即时生成、为当下任务量身定制：这次是日历数据，下次是邮件或一次网络搜索。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能说明同一次请求与下一次请求拿到的上下文不同
-- 能举出日历、邮件、网络搜索等即时装配的例子
+- 能举例说明同一 agent 两次请求装配了不同上下文
+- 能在实现中按任务动态拼装 context
 
 ## 验收问句
 
-> {{name}} 指上下文的哪一点，为什么这次和下次不同？
+> 这次请求该往 {{name}} 里装哪些信息？
 
 ## 相关
 

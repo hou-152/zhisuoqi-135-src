@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: multi-agent
 learningStage: now
 verification: use
-centrality: 0.072
+centrality: 0.067
 depth: 2
 origin: [harness]
 aliases: []
@@ -15,9 +15,9 @@ sources: 1
 
 # 递归 Planner-Worker 架构
 
-> Planner 掌握全项目范围并按需生成子 Planner，Worker 在各自 repo 副本独立工作后写 handoff 上交。
+> 根 Planner 拥有全项目范围并按需递归生成子 Planner；Worker 在各自 repo 副本上工作，完成后 handoff 上交。
 
-**领域** multi-agent ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** multi-agent ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ Cursor 在四次失败后找到的最终架构。核心思想是「分治法」�
 
 ## 掌握证据（做到这些才算会）
 
-- 能画出 Planner／subplanner／Worker 的层级与信息流向
-- 能说明 Worker 互不感知、信息只向上流动
+- 能画出 Planner 递归分叉与 Worker 独立副本的结构
+- 能说明 Worker 互不感知、信息严格向上流动
 
 ## 验收问句
 
-> 在 {{name}} 中 Worker 完成后通过什么把结果交给 Planner？
+> {{name}} 能画出并落地递归 Planner-Worker 的分工吗？
 
 ## 先懂这些（前置 2）
 

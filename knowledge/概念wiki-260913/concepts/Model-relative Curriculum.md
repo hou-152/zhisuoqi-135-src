@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: model-training
 learningStage: when-needed
 verification: judge
-centrality: 0.045
+centrality: 0.067
 depth: 2
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 模型换代如升学，旧 skill 与 scaffold 必须跟着重写，否则不再发挥新模型甚至成为限制。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -36,9 +36,10 @@ sources: 1
 
 > 换到新模型后，{{name}} 要求你重写什么？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
 - [[协同进化与紧耦合 co-evolution principle]] · **soft** — 课程随模型换代重写是共同演化的一种表现，懂它更易理解课程设计。
+- [[SFT Feedback Loop]] · **soft** — 懂自生成数据回灌会固化旧口癖，才理解模型换代后旧课程为何必须重写。
 
 ## 相关
 
@@ -55,3 +56,4 @@ sources: 1
 - [[协同进化与紧耦合 co-evolution principle]]
 - [[Capability Overhang]]
 - [[Inner Loop]]
+- [[SFT Feedback Loop]]

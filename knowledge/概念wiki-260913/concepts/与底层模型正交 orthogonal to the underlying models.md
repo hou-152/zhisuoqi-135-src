@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: judge
-centrality: 0.045
-depth: 2
+centrality: 0.017
+depth: 0
 origin: [context]
 aliases: ["orthogonal to the underlying models"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 上下文工程带来独立于底层模型强弱的结构性收益；模型进步是潮水，产品应做被托起的船。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,10 +36,6 @@ sources: 1
 ## 验收问句
 
 > 用潮水与船的比喻说明什么叫做{{name}}？
-
-## 先懂这些（前置 1）
-
-- [[上下文工程 context engineering]] · **hard** — 正交性说的是上下文工程带来独立于模型的结构收益，先懂工程才谈得上正交
 
 ## 相关
 
@@ -68,17 +64,16 @@ sources: 1
 
 ## 反链
 
-- [[上下文工程 context engineering]]
 - [[局部最优 local optima]]
+- [[prefill 与 decode 的高度倾斜]]
 - [[文件系统即终极上下文]]
 - [[押注 in-context learning]]
-- [[action space 膨胀]]
-- [[KV-cache 命中率]]
+- [[few-shot 套路化与受控多样性]]
 - [[logits 掩码与 context-aware 状态机]]
-- [[prefill 与 decode 的高度倾斜]]
 - [[Stochastic Graduate Descent]]
 - [[保留错误证据与错误恢复]]
 - [[复述（recitation）与 lost-in-the-middle]]
 - [[可恢复的压缩 restorable compression]]
 - [[稳定的 prompt 前缀]]
-- [[few-shot 套路化与受控多样性]]
+- [[action space 膨胀]]
+- [[KV-cache 命中率]]

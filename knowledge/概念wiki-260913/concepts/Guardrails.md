@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: safety-governance
 learningStage: when-needed
 verification: use
-centrality: 0.154
+centrality: 0.142
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 在 Agent 执行的同时并行做输入输出校验与安全检查，不通过就快速失败。
 
-**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.154
+**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.142
 
 ## 费曼一下
 
@@ -69,6 +69,6 @@ enable validation of agent inputs and outputs；特性清单里进一步说明�
 - [[primitives]]
 - [[fail-closed 默认]]
 - [[prompt-injection]]
+- [[very few abstractions]]
 - [[安全路由与能力分层]]
 - [[Human in the loop]]
-- [[very few abstractions]]

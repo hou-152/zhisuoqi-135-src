@@ -50,10 +50,10 @@ Markdown prompt engineering 不是把 prompt 写得更华丽，而是用清晰�
 - Context Engineering ｜ 《构建可靠 AI 工作流：智能体原语与上下文工程》 ｜ https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/
 ## 反链
 
-- [[Agentic primitives]]
 - [[Instructions files]]
 - [[Validation gates]]
 - [[Agent CLI runtimes]]
+- [[Agentic primitives]]
 - [[Agentic workflows]]
 - [[APM]]
 - [[Chat modes]]

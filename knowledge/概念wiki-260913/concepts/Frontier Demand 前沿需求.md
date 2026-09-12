@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: economy-business
 learningStage: when-needed
 verification: judge
-centrality: 0.099
+centrality: 0.092
 depth: 2
 origin: [notion]
 aliases: ["Frontier Demand", "前沿模型需求", "绝对前沿"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 总市场需求中出乎意料地大的一部分，落在绝对前沿而非中间地带。
 
-**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.099
+**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.092
 
 ## 费曼一下
 

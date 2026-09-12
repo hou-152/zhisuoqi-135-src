@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: thinking-method
 learningStage: when-needed
 verification: judge
-centrality: 0.072
-depth: 0
+centrality: 0.042
+depth: 1
 origin: [notion]
 aliases: ["阶跃变化", "阶跃式变化", "step change"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 能力不是平滑增长而是台阶式跳跃，一旦发生，旧判断都需重写
 
-**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 原文 context
 
@@ -36,10 +36,9 @@ sources: 1
 
 > {{name}} 发生后，哪些旧判断需要重写？
 
-## 懂了它才能懂（解锁 2）
+## 先懂这些（前置 1）
 
-- [[亚稳态]] — 相变可分步停留，帮助理解能力台阶式跳跃而非平滑增长。
-- [[涌现]] — 复杂交互自发产生新性质，可类比能力涌现式的台阶跳跃。
+- [[亚稳态]] · **soft** — 不懂相变可分步停留，就难理解能力台阶式跳跃。
 
 ## 相关
 
@@ -58,4 +57,3 @@ sources: 1
 ## 反链
 
 - [[亚稳态]]
-- [[涌现]]

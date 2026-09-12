@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: code-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.072
+centrality: 0.067
 depth: 1
 origin: [context]
 aliases: []
@@ -15,9 +15,9 @@ sources: 1
 
 # 零 bug 政策与一周 SLA
 
-> Linear 的质量制度：所有 bug 汇入统一 triage，一周 SLA 内修完，coding agent 先修、工程师复核。
+> 所有 bug 进统一 triage 并在一周 SLA 内修完，coding agent 先修、工程师复核。
 
-**领域** code-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** code-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ Linear 的内部质量制度，也是它把 agent 用在刀刃上的样板。所
 
 ## 掌握证据（做到这些才算会）
 
-- 能复述两个硬约束：统一 triage 与一周 SLA
-- 能说明 agent 与工程师各自负责哪一步
+- 能复述 bug 从进 triage 到修复的 SLA 流程
+- 能说明 agent 首修与工程师复核的分工方式
 
 ## 验收问句
 
-> {{name}} 里 agent 与工程师分别负责哪一步？
+> {{name}} 对 bug 修复的时间要求是什么？
 
 ## 先懂这些（前置 1）
 
@@ -58,5 +58,5 @@ Linear 的内部质量制度，也是它把 agent 用在刀刃上的样板。所
 - [[代理原生 agent-native]]
 - [[“SaaS 已死”叙事与护城河蒸发]]
 - [[根因优先]]
-- [[Autofixing]]
 - [[上下文骨架]]
+- [[Autofixing]]

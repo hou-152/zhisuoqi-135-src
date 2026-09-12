@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: society-law
 learningStage: when-needed
 verification: accept
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [notion]
 aliases: ["Are You Dead? App", "你死了吗 App"]
@@ -15,9 +15,9 @@ sources: 1
 
 # 《你死了吗？》App
 
-> 一款服务独居死焦虑的轻量签到 App，因情绪被聚合可视化而被网信部门要求下架，戳破官方繁荣叙事。
+> 服务独居死焦虑的签到 App，因把孤独情绪聚合可视化而被监管要求下架，成为情绪即政治问题的案例。
 
-**领域** society-law ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.045
+**领域** society-law ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 原文 context
 
@@ -28,12 +28,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能说明它下架不是因为功能危险
-- 能指出被聚合、被可视化的情绪如何变成政治问题
+- 能说出它被下架不是因功能危险而是因叙事
+- 能复述苹果转述的网信监管下架理由
 
 ## 验收问句
 
-> {{name}} 被下架说明平台治理在管什么？
+> {{name}} 被下架的真正原因是什么？
 
 ## 先懂这些（前置 1）
 

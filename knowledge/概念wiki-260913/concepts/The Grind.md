@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: mind-body
 learningStage: when-needed
 verification: use
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [notion]
 aliases: ["卷", "持续奋斗", "Hustle Culture", "Grindset"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 面对长期 40–50 小时高强度工作时，如何与疲惫共处并爱上这份苦功的心态命题。
 
-**领域** mind-body ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** mind-body ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 

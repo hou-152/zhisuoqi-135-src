@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: when-needed
 verification: accept
-centrality: 0.072
-depth: 1
+centrality: 0.042
+depth: 2
 origin: [harness]
 aliases: []
 sources: 1
@@ -15,9 +15,9 @@ sources: 1
 
 # agent 作为 Claude API 的新核心原语
 
-> Managed Agents 接管 harness 与基础设施，agent 成为 Claude API 的新核心原语。
+> Managed Agents 接管 harness 与基础设施，使 agent 成为 Claude API 的新核心原语，便于多 agent 与长任务探索。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -29,20 +29,16 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能说出托管方案替开发者接管了哪一层
-- 能指出其上值得探索的方向是多 agent 与长任务
+- 能说明 agent 成为 API 原语后开发者还剩哪些工作
+- 能举出该原语适合的两类场景
 
 ## 验收问句
 
-> {{name}} 之后，开发者该在哪一层做探索？
+> {{name}}之后，开发者还要自己维护 harness 吗？
 
 ## 先懂这些（前置 1）
 
-- [[agent 与 harness 的分工]] · **hard** — 把 agent 升为原语，前提是明白 harness 与基础设施由谁承担。
-
-## 懂了它才能懂（解锁 1）
-
-- [[Claude Managed Agents]] — 托管 harness 的产品形态，建立在 agent 成为 API 原语之上。
+- [[Claude Managed Agents]] · **hard** — 托管 harness 与基础设施被接管后，agent 才成为 API 的核心原语。
 
 ## 相关
 
@@ -55,6 +51,5 @@ sources: 1
 - Harness Engineering ｜ 《Anthropic 干脆把 harness 托管了：Claude Managed Agents 的设计取舍》 ｜ https://x.com/rlancemartin/status/2041927992986009773/?s=12
 ## 反链
 
-- [[agent 与 harness 的分工]]
-- [[messages API 作为直连网关]]
 - [[Claude Managed Agents]]
+- [[messages API 作为直连网关]]

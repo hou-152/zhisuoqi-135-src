@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: verification-eval
 learningStage: when-needed
 verification: compute
-centrality: 0.045
+centrality: 0.042
 depth: 0
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 用 needle 与 haystack 的 top-5 最相似 chunk 平均余弦相似度，量化检索任务的主题接近程度。
 
-**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.045
+**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.042
 
 ## 费曼一下
 

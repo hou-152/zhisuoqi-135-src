@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: thinking-method
 learningStage: when-needed
 verification: judge
-centrality: 0.072
+centrality: 0.042
 depth: 1
 origin: [notion]
 aliases: ["事实归事实", "感知即现实"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 事实是事实，但驱动政策与情绪的是感知；数量级估算已近乎零成本，不做即是甘愿被感知统治。
 
-**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 原文 context
 
@@ -37,11 +37,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[显现图景]] · **soft** — 日常感知驱动政策，与“显现图景”作为日常认知相呼应。
-
-## 懂了它才能懂（解锁 1）
-
-- [[HiFi 与 HiEx 信息原则]] — 优先一手真相与真专家，是对“感知即现实”的纠偏。
+- [[显现图景]] · **soft** — 显现图景是接触科学前的日常认知，即感知；不懂此区分难理解事实与感知之别。
 
 ## 相关
 
@@ -62,5 +58,4 @@ sources: 1
 - [[外包思考，但不外包理解]]
 - [[Agent-Native Infrastructure]]
 - [[显现图景]]
-- [[HiFi 与 HiEx 信息原则]]
 - [[Sensors 与 Actuators]]

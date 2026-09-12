@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: memory-retrieval
 learningStage: now
 verification: use
-centrality: 0.072
+centrality: 0.067
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 带来源与时间线、可持续追加的观察记录单元，如用户摩擦、机会、转化缺口、关键词机会。
 
-**领域** memory-retrieval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** memory-retrieval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
 
 ## 费曼一下
 

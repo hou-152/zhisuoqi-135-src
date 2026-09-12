@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: when-needed
 verification: judge
-centrality: 0.045
+centrality: 0.067
 depth: 2
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 开箱即用又能改造的设计取向：默认就能跑，同时方便接入自己的技术栈。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -36,9 +36,10 @@ Developers get a harness that’s turnkey yet flexible—making it easy to adapt
 
 > 一个 harness 号称 {{name}}，你会去检查它的哪些默认与可改之处？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
-- [[primitives]] · **soft** — 默认能跑靠原语开箱可用，可改造靠原语留出接口
+- [[primitives]] · **soft** — 原语少而稳，才既开箱即用又方便改造。
+- [[very few abstractions]] · **soft** — 抽象极少才既默认能跑又方便改造。
 
 ## 相关
 
@@ -51,6 +52,7 @@ Developers get a harness that’s turnkey yet flexible—making it easy to adapt
 - Harness Engineering ｜ 《OpenAI Agents SDK 下一代演进：原生沙箱 + 模型原生 harness》 ｜ https://openai.com/index/the-next-evolution-of-the-agents-sdk/
 ## 反链
 
-- [[primitives]]
-- [[Agents SDK]]
 - [[model-native harness]]
+- [[primitives]]
+- [[very few abstractions]]
+- [[Agents SDK]]

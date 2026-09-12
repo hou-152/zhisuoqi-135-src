@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: geo-infrastructure
 learningStage: when-needed
 verification: accept
-centrality: 0.045
+centrality: 0.042
 depth: 0
 origin: [notion]
 aliases: ["Radioisotope Thermoelectric Generator", "放射性同位素热电机", "核电池", "放射性同位素热电发电机"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 钚-238 衰变产热发电的放射性同位素热电机，可几十年不断电，但输出功率每年约衰减 4 瓦。
 
-**领域** geo-infrastructure ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.045
+**领域** geo-infrastructure ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 原文 context
 

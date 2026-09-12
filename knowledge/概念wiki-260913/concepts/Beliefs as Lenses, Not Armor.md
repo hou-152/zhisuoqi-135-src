@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: thinking-method
 learningStage: when-needed
 verification: judge
-centrality: 0.072
-depth: 2
+centrality: 0.042
+depth: 3
 origin: [notion]
 aliases: ["信念是可换的镜片不是盔甲", "镜片型信念", "信念盔甲 vs 信念镜片"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 同一信念在独断者是眼罩与盔甲，松手后变成可戴可摘的镜片，用于实验性观看世界。
 
-**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 原文 context
 
@@ -41,11 +41,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[Holding Your Opinions Lightly]] · **hard** — 不懂信念是可戴可摘的镜片，就难把观点当临时假设。
-
-## 懂了它才能懂（解锁 1）
-
-- [[Rightness is a Prison]] — 解药是把信念当可换镜片，不懂此则不懂“必须对”为何是监狱。
+- [[Rightness is a Prison]] · **soft** — 不懂对正确的执着是监狱，就不懂为何要把信念当镜片而非盔甲。
 
 ## 相关
 
@@ -63,5 +59,4 @@ sources: 1
 
 ## 反链
 
-- [[Holding Your Opinions Lightly]]
 - [[Rightness is a Prison]]

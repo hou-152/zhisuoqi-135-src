@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: caching-cost
 learningStage: when-needed
 verification: use
-centrality: 0.045
+centrality: 0.042
 depth: 2
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 在 API 边界用日志代理同时抓取完整请求 JSON 与 usage 计量块，作为发送内容与计量结果的真值。
 
-**领域** caching-cost ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** caching-cost ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -38,7 +38,7 @@ Logging proxy 同时捕获完整请求 JSON 和 API usage block，分别作为�
 
 ## 先懂这些（前置 1）
 
-- [[cached input tokens]] · **hard** — 要抓usage里的cached input tokens才能核对缓存效果，否则无从观测。
+- [[cached input tokens]] · **soft** — 边界计量块里 cached input tokens 是核心字段之一
 
 ## 相关
 
@@ -62,16 +62,16 @@ Logging proxy 同时捕获完整请求 JSON 和 API usage block，分别作为�
 ## 反链
 
 - [[Harness token floor]]
-- [[cached input tokens]]
-- [[Context-window tax]]
-- [[Instruction-file tax]]
-- [[Tool-schema tax]]
 - [[Baseline-request product]]
-- [[Cache temperature]]
+- [[cached input tokens]]
+- [[Tool-schema tax]]
 - [[Configuration multiplier]]
+- [[Context-window tax]]
 - [[Framework-template repetition]]
+- [[Instruction-file tax]]
 - [[MCP schema amplification]]
 - [[Measurement snapshot]]
 - [[Subagent bootstrap multiplier]]
 - [[Tamper-evident audit trail]]
 - [[Cache prefix stability]]
+- [[Cache temperature]]

@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: model-training
 learningStage: deep-dive
 verification: compute
-centrality: 0.154
-depth: 4
+centrality: 0.117
+depth: 3
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 生成编码 agent 的 trace、用 verifier 打分、更新权重强化好 trace 抑制坏的，循环上百万次数周到数月。
 
-**领域** model-training ｜ **类型** PROCEDURAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.154
+**领域** model-training ｜ **类型** PROCEDURAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.117
 
 ## 费曼一下
 
@@ -36,16 +36,15 @@ sources: 1
 
 > 描述 {{name}} 的一轮循环里谁打分、谁更新。
 
-## 先懂这些（前置 3）
+## 先懂这些（前置 2）
 
-- [[Reward Signal]] · **hard** — RLVR 用 verifier 给 trace 打分，本质是奖励信号，不懂就不知道循环在强化什么。
-- [[reasoning thinking]] · **soft** — RLVR 强化的 trace 是推理/思考过程，懂推理模式能更好理解被验证的对象。
-- [[DPPO]] · **soft** — RLVR 通常用 PPO/GRPO 类算法更新权重，懂 PPO 才懂更新环节怎么发生。
+- [[Reward Signal]] · **hard** — RLVR 用 verifier 打分作为奖励信号，不懂奖励通道就不懂循环如何强化。
+- [[reasoning thinking]] · **hard** — RLVR 训练编码 agent 的推理 trace，不懂思考模式就不知道它在生成什么。
 
 ## 懂了它才能懂（解锁 2）
 
-- [[RL Circuits]] — RL 电路讲应用落在训练分布切片上，懂 RLVR 循环才懂切片从哪来。
-- [[ScaleRL]] — ScaleRL 用 S 型曲线描述大规模 RL，懂 RLVR 循环才懂算力花在哪。
+- [[ScaleRL]] — ScaleRL 要替代单点对比，懂典型 RLVR 长循环更易理解其算力曲线。
+- [[RL Circuits]] — RL 电路指应用落在训练分布切片，懂 RLVR 长循环更易理解电路如何形成。
 
 ## 相关
 
@@ -59,7 +58,6 @@ sources: 1
 ## 反链
 
 - [[Harness 工程 Harness Engineering]]
-- [[DPPO]]
 - [[Reward Signal]]
 - [[软件工厂 Software Factory]]
 - [[reasoning thinking]]

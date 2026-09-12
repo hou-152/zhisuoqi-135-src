@@ -7,7 +7,7 @@ subject: Context Engineering
 domain: thinking-method
 learningStage: deep-dive
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 0
 origin: [context]
 aliases: ["intent, judgment, taste"]
@@ -18,7 +18,7 @@ sources: 1
 
 > 机械环节交给 agent 之后留给人的高价值部分：人应把时间花在意图、判断与品味上，而非管理流程。
 
-**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 

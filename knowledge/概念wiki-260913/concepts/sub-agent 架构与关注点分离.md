@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: multi-agent
 learningStage: when-needed
 verification: use
-centrality: 0.045
+centrality: 0.042
 depth: 0
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 专门化子 agent 用干净窗口做聚焦任务，主 agent 靠高层计划协调并接收摘要
 
-**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 

@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: code-engineering
 learningStage: now
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 一处改动会波及到的函数、类与文件范围，用于判断改动影响面。
 
-**领域** code-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** code-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -55,8 +55,8 @@ sources: 1
 - Context Engineering ｜ 《用持久化代码图谱给 AI Review 精准上下文》 ｜ https://github.com/tirth8205/code-review-graph
 ## 反链
 
+- [[持久化代码图谱 structural map graph]]
 - [[code-review-graph]]
 - [[可维护性 霰弹式手术]]
 - [[Diff 锚定]]
 - [[Tree-sitter]]
-- [[持久化代码图谱 structural map graph]]

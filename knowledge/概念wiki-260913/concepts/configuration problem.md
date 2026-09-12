@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.045
+centrality: 0.067
 depth: 3
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 失败根因多在配置而非模型能力；模型越强任务越难，失败仍会以意外方式出现。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -36,8 +36,9 @@ sources: 1
 
 > 面对一次 Agent 失败，怎么用 {{name}} 定位原因？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
+- [[能力鸿沟]] · **soft** — 失败根因在配置而非模型能力，是能力鸿沟的一种具体表现形式。
 - [[Harness 工程 Harness Engineering]] · **soft** — 失败多源于配置，先懂 harness 工程才知道在哪配置。
 
 ## 相关
@@ -49,7 +50,7 @@ sources: 1
 - [[agentfile CLAUDE.md 与 AGENTS.md]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
 - [[back-pressure]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
 - [[harness over-fitting]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
-- [[Subagent】]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
+- [[Subagent]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
 - [[hooks .claudehooks]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
 - [[渐进式披露 progressive disclosure]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
 - [[上下文腐烂 Context Rot]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
@@ -65,12 +66,13 @@ sources: 1
 - [[Harness 工程 Harness Engineering]]
 - [[上下文腐烂 Context Rot]]
 - [[the dumb zone the smart zone]]
-- [[Subagent】]]
 - [[渐进式披露 progressive disclosure]]
+- [[Subagent]]
+- [[能力鸿沟]]
+- [[back-pressure]]
 - [[harness over-fitting]]
 - [[长上下文的幻觉]]
-- [[back-pressure]]
+- [[agentfile CLAUDE.md 与 AGENTS.md]]
 - [[context firewall]]
 - [[instruction budget]]
 - [[hooks .claudehooks]]
-- [[agentfile CLAUDE.md 与 AGENTS.md]]

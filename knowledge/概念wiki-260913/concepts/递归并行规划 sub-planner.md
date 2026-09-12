@@ -6,7 +6,7 @@ type: CONCEPTUAL
 subject: Harness Engineering
 domain: multi-agent
 learningStage: now
-verification: use
+verification: judge
 centrality: 0.017
 depth: 0
 origin: [harness]
@@ -16,9 +16,9 @@ sources: 1
 
 # 递归并行规划 · sub-planner
 
-> Planner 可为特定领域生成子 Planner，使规划本身变得并行且递归。
+> planner 可为特定区域生成子 planner，使规划本身变得并行且递归。
 
-**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ planner "can spawn sub-planners for specific areas, making planning itself paral
 
 ## 掌握证据（做到这些才算会）
 
-- 能说明规划并行与执行并行的区别
-- 能指出何时应当 spawn 子 Planner
+- 能复述「planning itself parallel and recursive」这一机制
+- 能说出它与单层规划在扇出上的差别
 
 ## 验收问句
 
-> {{name}} 让规划的哪一部分变成并行？
+> {{name}} 能解释规划为何可以并行且递归吗？
 
 ## 相关
 

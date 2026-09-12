@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: personal-life
 learningStage: when-needed
 verification: use
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [notion]
 aliases: ["爽约", "人间蒸发", "失联", "鬼消失"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 约会中单方面取消安排，或只回一句简短借口推脱、不再推进关系。
 
-**领域** personal-life ｜ **类型** LANGUAGE ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** personal-life ｜ **类型** LANGUAGE ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 

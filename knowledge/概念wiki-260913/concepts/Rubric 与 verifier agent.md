@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: verification-eval
 learningStage: when-needed
 verification: use
-centrality: 0.072
+centrality: 0.067
 depth: 2
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 借动态工作流让 Claude 起 verifier agent，用 rubric 去尝试并验证你在某领域的品味，如什么算好的 API 设计。
 
-**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
 
 ## 费曼一下
 

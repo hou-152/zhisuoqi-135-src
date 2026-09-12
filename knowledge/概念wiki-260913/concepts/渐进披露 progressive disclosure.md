@@ -2,10 +2,10 @@
 id: cm_99c2938a
 name: 渐进披露
 nameEn: progressive disclosure
-type: PROCEDURAL
+type: CONCEPTUAL
 subject: Context Engineering
 domain: context-engineering
-learningStage: now
+learningStage: when-needed
 verification: use
 centrality: 0.017
 depth: 0
@@ -16,9 +16,9 @@ sources: 1
 
 # 渐进披露 · progressive disclosure
 
-> 在正确时机加载正确上下文，把不常用能力放进可按需调用的技能里。
+> 在正确的时机加载正确的上下文，而不是一次性把所有信息常驻在 system prompt 里。
 
-**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能说出 verification 与 code review 从 system prompt 移入 skill
-- 能说明 CLAUDE.md 要求大量使用它
+- 能把常驻提示词的内容改造成按需选择调用的 skill
+- 能举出把 verification、code review 挪进 skill 的实例
 
 ## 验收问句
 
-> 你能用 {{name}} 设计一个按需加载上下文的方案吗？
+> {{name}} 对 system prompt 的设计提出了什么要求？
 
 ## 相关
 

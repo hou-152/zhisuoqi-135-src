@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: code-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.045
+centrality: 0.042
 depth: 2
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 代码审查从 PR diff 出发，围绕变更提具体问题，并把探索限定在确认或排除这些问题所需的范围内。
 
-**领域** code-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** code-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 

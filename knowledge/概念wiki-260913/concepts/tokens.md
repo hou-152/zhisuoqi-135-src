@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: now
 verification: use
-centrality: 0.181
+centrality: 0.167
 depth: 0
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 模型实际处理的最小单位是 token 而非字或词，上下文长度与计费都按 token 序列计数。
 
-**领域** context-engineering ｜ **类型** LANGUAGE ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.181
+**领域** context-engineering ｜ **类型** LANGUAGE ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.167
 
 ## 费曼一下
 

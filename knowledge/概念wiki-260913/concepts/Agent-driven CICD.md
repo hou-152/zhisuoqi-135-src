@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: code-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.072
+centrality: 0.067
 depth: 1
 origin: [harness]
 aliases: []
@@ -15,9 +15,9 @@ sources: 1
 
 # Agent-driven CI/CD
 
-> 把规则或单测驱动的 CI/CD 升级为 AI 驱动测试、日志与故障读取、并行分派修复 bug。
+> 把规则或单测驱动的 CI/CD 升级为 AI 驱动测试、日志与事故读取、Agent 驱动的缺陷分诊与修复。
 
-**领域** code-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** code-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ Creao 将传统 rule-based 或 unit testing driven 的 CI/CD 升级为 AI-driven
 
 ## 掌握证据（做到这些才算会）
 
-- 能描述改造后的流水线包含哪些 AI 环节
-- 能指出 AI 在发现、分派、修复上的并行优势
+- 能说出被替换掉的旧环节有哪些
+- 能描述 AI 并行发现、分派、修复的流程
 
 ## 验收问句
 
-> {{name}} 相比传统 CI/CD 多了哪些环节？
+> {{name}}相比传统 CI/CD 多了哪几步？
 
 ## 先懂这些（前置 1）
 

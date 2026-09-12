@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: mind-body
 learningStage: deep-dive
 verification: accept
-centrality: 0.045
+centrality: 0.042
 depth: 2
 origin: [notion]
 aliases: ["TMR", "目标记忆再激活", "定向记忆再激活", "睡眠提示再激活"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 睡眠中播放与学习内容绑定的线索音，经脑电确认入睡后能提升对应记忆的提取。
 
-**领域** mind-body ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.045
+**领域** mind-body ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -56,7 +56,7 @@ sources: 1
 
 ## 反链
 
-- [[外包思考，但不外包理解]]
 - [[记忆巩固]]
+- [[外包思考，但不外包理解]]
 - [[Agent-Native Infrastructure]]
 - [[Sensors 与 Actuators]]

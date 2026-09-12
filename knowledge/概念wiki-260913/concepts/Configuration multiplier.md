@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: caching-cost
 learningStage: when-needed
 verification: compute
-centrality: 0.045
+centrality: 0.042
 depth: 2
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 指令文件、MCP schema、插件与工作流模板叠加在 harness 基线上，使真实配置 token 膨胀约 12 倍。
 
-**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.045
+**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.042
 
 ## 费曼一下
 
