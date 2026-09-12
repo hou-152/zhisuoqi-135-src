@@ -1,4 +1,0 @@
-interface:
-  display_name: "dbs-learning-beta"
-  short_description: "处理没有标准答案的课题：先判类型，再给判据与裁决点"
-  default_prompt: "使用 $dbs-learning-beta，先判定课题类型，再输出判据、只有使用者能回答的裁决点与最小实验。"
