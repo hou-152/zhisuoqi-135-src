@@ -2,6 +2,8 @@
 
 - 来源：academy.claude.com
 - 原文：https://academy.claude.com/zh-CN/courses/introduction-to-agent-skills/troubleshooting-skills
+- 作者：Claude Academy
+- 摘要：当技能无法正常工作时，常见问题包括无法触发、加载失败、冲突或运行错误。使用技能验证器和 claude --debug 工具可以帮助快速定位和修复问题。优化描述、检查文件结构和权限，以及管理技能优先级，能提高技能的使用效果。
 - 抓取：Reader 快照（2026-09-12）
 - 字数：1868
 

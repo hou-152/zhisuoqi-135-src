@@ -2,6 +2,8 @@
 
 - 来源：platform.claude.com
 - 原文：https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview
+- 作者：Claude Platform Docs
+- 摘要：Claude uses Skills, which are sets of instructions stored as files, to perform tasks by reading only the needed files on demand. Skills can be pre-built or custom, shared differently across Claude’s platforms, and require careful management for security. Users can create, upload, and use Skills via the API, claude.ai, or Claude Code, each with its own rules and capabilities.
 - 抓取：Reader 快照（2026-09-12）
 - 字数：12223
 

@@ -121,10 +121,10 @@ async function runOne(item, conc) {
     return { ...item, ok: false, error: String(e.message || e).slice(0, 200) };
   }
 
-  // 原文存档（证据：来源 URL + 抓取方式）
+  // 原文存档（证据：来源 URL + 抓取方式 + Reader 摘要，供日报导语区引用）
   const via = item.id === '01m2ay2n' ? '直抓原文（Reader 快照仅 79 字，正文为 JS 渲染未同步）' : 'Reader 快照';
   fs.writeFileSync(path.join(OUT, '原文', item.slug + '.md'),
-    `# ${item.title}\n\n- 来源：${item.source}\n- 原文：${url}\n- 抓取：${via}（2026-09-12）\n- 字数：${text.length}\n\n---\n\n${text}\n`);
+    `# ${item.title}\n\n- 来源：${item.source}\n- 原文：${url}\n- 作者：${m.author || '未署名'}\n- 摘要：${(m.summary || '').trim()}\n- 抓取：${via}（2026-09-12）\n- 字数：${text.length}\n\n---\n\n${text}\n`);
   fs.writeFileSync(path.join(OUT, '三级笔记', item.slug + '.md'), notes + '\n');
   fs.writeFileSync(path.join(OUT, '概念辞典', item.slug + '.md'), concepts + '\n');
   fs.writeFileSync(path.join(OUT, 'AI费曼', item.slug + '.md'), feyn + '\n');
@@ -147,23 +147,70 @@ const bad = results.filter(r => !r.ok);
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const PASTEL = ['#e9efe2', '#ece7f4', '#f8e8e2', '#f3ecda', '#e3edf2', '#f0e6f0'];
 const GLYPH = { 概念文: '概', 工程复盘: '工', 实践复盘: '实', 观点文: '观', 课程: '课' };
+// 轻量 md→HTML：标题/加粗/行内码/链接/列表/引用/表格/围栏代码块。零依赖，够用就好。
+function mdToHtml(src) {
+  const inline = (s) => String(s)
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/\[(.+?)\]\((https?:[^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+  let html = '', list = null, code = null, table = [];
+  const closeList = () => { if (list) { html += `</${list}>`; list = null; } };
+  const flushTable = () => {
+    if (!table.length) return;
+    html += '<table>' + table.map((row, ri) => '<tr>' + row.map(c => `<${ri ? 'td' : 'th'}>${inline(c)}</${ri ? 'td' : 'th'}>`).join('') + '</tr>').join('') + '</table>';
+    table = [];
+  };
+  for (const raw of src.replace(/\r/g, '').split('\n')) {
+    const ln = esc(raw);
+    if (/^```/.test(ln)) {
+      if (code !== null) { html += `<pre class="src">${code.join('\n')}</pre>`; code = null; }
+      else { closeList(); flushTable(); code = []; }
+      continue;
+    }
+    if (code !== null) { code.push(ln); continue; }
+    if (/^\s*\|/.test(ln)) { closeList(); if (!/^\s*\|[\s:|-]+\|\s*$/.test(ln)) table.push(ln.trim().replace(/^\||\|$/g, '').split('|').map(c => c.trim())); continue; }
+    flushTable();
+    const h = ln.match(/^(#{1,4})\s+(.*)/);
+    if (h) { closeList(); const lv = Math.min(4, h[1].length + 1); html += `<h${lv}>${inline(h[2])}</h${lv}>`; continue; }
+    const ul = ln.match(/^\s*[-*]\s+(.*)/), ol = ln.match(/^\s*\d+[.、)]\s+(.*)/);
+    if (ul || ol) { const want = ul ? 'ul' : 'ol'; if (list !== want) { closeList(); html += `<${want}>`; list = want; } html += `<li>${inline((ul || ol)[1])}</li>`; continue; }
+    const bq = ln.match(/^&gt;\s?(.*)/) || ln.match(/^>\s?(.*)/);
+    if (bq) { closeList(); html += `<blockquote>${inline(bq[1])}</blockquote>`; continue; }
+    if (!ln.trim()) { closeList(); continue; }
+    closeList(); html += `<p>${inline(ln)}</p>`;
+  }
+  if (code !== null) html += `<pre class="src">${code.join('\n')}</pre>`;
+  flushTable(); closeList();
+  return html;
+}
 const card = (r, i) => {
   const notes = fs.readFileSync(path.join(OUT, '三级笔记', r.slug + '.md'), 'utf8');
   const concepts = fs.readFileSync(path.join(OUT, '概念辞典', r.slug + '.md'), 'utf8');
   const feyn = fs.readFileSync(path.join(OUT, 'AI费曼', r.slug + '.md'), 'utf8');
-  const block = (title, body) => `<details><summary>${title}</summary><div class="body">${body}</div></details>`;
+  const orig = fs.readFileSync(path.join(OUT, '原文', r.slug + '.md'), 'utf8');
+  const hdr = (k) => (orig.match(new RegExp('^-\\s*' + k + '：(.*)$', 'm')) || [, ''])[1].trim();
+  const origBody = orig.split(/\n---\n/).slice(1).join('\n---\n').trim();
+  const tt = (suf) => `t${i}${suf}`;
   return `<article id="${r.slug}" style="--tint:${PASTEL[i % PASTEL.length]}">
-  <div class="head">
-    <div class="thumb">${GLYPH[r.tag] || '文'}</div>
-    <div class="headtext">
-      <div class="kicker"><span class="no">${String(i + 1).padStart(2, '0')}</span><span class="chip">${esc(r.tag)}</span><span>${esc(r.source)}</span><span>·</span><span>约 ${fmtMin(r.words)} 分钟</span><span>·</span><span>${r.words.toLocaleString()} 字</span></div>
-      <h2><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.title)}</a></h2>
+  <div class="crumb">知所栖倒推版 <span>›</span> 260912 期</div>
+  <h2 class="atitle"><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.title)}</a></h2>
+  <div class="ameta"><span class="chip">${esc(r.tag)}</span><span>${esc(hdr('来源'))}</span><span>·</span><span>${esc(hdr('作者'))}</span><span>·</span><span>约 ${fmtMin(r.words)} 分钟</span><span>·</span><span>${r.words.toLocaleString()} 字</span></div>
+  <div class="cover"><span class="glyph">${GLYPH[r.tag] || '文'}</span></div>
+  <div class="editorial">
+    <div class="ed-line"><span class="ed-av">栖</span><div><b>知所栖 导语</b>　${esc(r.gist)}</div></div>
+    ${hdr('摘要') ? `<div class="ed-line"><span class="ed-av dim">摘</span><div><b>摘要</b>　${esc(hdr('摘要'))}</div></div>` : ''}
+    <div class="ed-line"><span class="ed-av dim">链</span><div><b>原文</b>　<a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.url)}</a> ↗</div></div>
+  </div>
+  <div class="tabs">
+    <input type="radio" name="${tt('')}" id="${tt('a')}" checked><input type="radio" name="${tt('')}" id="${tt('b')}"><input type="radio" name="${tt('')}" id="${tt('c')}"><input type="radio" name="${tt('')}" id="${tt('d')}">
+    <div class="bar"><label for="${tt('a')}">📒 三级笔记</label><label for="${tt('b')}">◎ 概念网络</label><label for="${tt('c')}">💬 费曼</label><label for="${tt('d')}">📖 阅读原文</label></div>
+    <div class="panels">
+      <div class="panel"><div class="body">${mdToHtml(notes)}</div></div>
+      <div class="panel"><div class="body">${mdToHtml(concepts)}</div></div>
+      <div class="panel"><div class="body">${mdToHtml(feyn)}</div></div>
+      <div class="panel"><div class="body">${mdToHtml(origBody)}</div></div>
     </div>
   </div>
-  <p class="gist">${esc(r.gist)}</p>
-  <section class="feyn"><div class="label">AI 费曼示范</div><div class="body">${feyn}</div></section>
-  ${block('三级笔记 · 骨架与血肉', notes)}
-  ${block('概念辞典 · 概念 / 费曼一下 / 架构图', concepts)}
 </article>`;
 };
 const mdCard = (r, i) => {
@@ -219,24 +266,42 @@ main{max-width:800px;margin:0 auto;padding:48px 22px 90px}
 .toc a:hover{color:var(--accent)}
 .toc .g{color:var(--dim);font-size:13px}
 article{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 28px;margin-bottom:26px;box-shadow:0 1px 2px rgba(60,50,30,.05)}
-.head{display:flex;gap:16px;align-items:flex-start}
-.thumb{width:52px;height:52px;border-radius:12px;background:var(--tint);display:flex;align-items:center;justify-content:center;font-family:"Songti SC",serif;font-size:26px;color:rgba(34,30,25,.72);flex:none;margin-top:2px}
-.kicker{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--dim);margin-bottom:7px;flex-wrap:wrap}
-.no{font-family:ui-monospace,Menlo,monospace;color:var(--accent);font-weight:700;font-size:13px}
-.chip{background:var(--tint);border-radius:999px;padding:1px 10px;color:var(--ink)}
-h2{font-family:"Songti SC","STSong","Noto Serif SC",serif;font-size:20px;line-height:1.5;margin:0;font-weight:700}
-h2 a{color:var(--ink);text-decoration:none}
-h2 a:hover{color:var(--accent)}
-.gist{margin:16px 0 0;padding:10px 14px;border-left:3px solid var(--accent);background:linear-gradient(90deg,rgba(185,92,34,.07),transparent);border-radius:0 8px 8px 0;font-size:14px}
-.feyn{margin-top:16px;background:var(--tint);border-radius:12px;padding:14px 16px}
-.feyn .label{font-size:11px;letter-spacing:3px;color:var(--accent);font-weight:700;margin-bottom:6px}
-.feyn .body{font-size:14.5px}
-details{border-top:1px dashed var(--line);margin-top:14px}
-summary{cursor:pointer;font-size:13px;color:var(--dim);padding:12px 0 4px;list-style:none;display:flex;align-items:center;gap:8px}
-summary::-webkit-details-marker{display:none}
-summary::before{content:'＋';color:var(--accent);font-weight:700}
-details[open] summary::before{content:'－'}
-summary:hover{color:var(--ink)}
+.crumb{font-size:12px;color:var(--dim);margin-bottom:10px}.crumb span{margin:0 6px;color:var(--accent)}
+.atitle{font-family:"Songti SC","STSong","Noto Serif SC",serif;font-size:24px;line-height:1.5;margin:0 0 10px;font-weight:700}
+.atitle a{color:var(--ink);text-decoration:none}.atitle a:hover{color:var(--accent)}
+.ameta{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--dim);flex-wrap:wrap;margin-bottom:16px}
+.chip{background:var(--tint);border-radius:999px;padding:2px 11px;color:var(--ink);font-weight:600}
+.cover{background:var(--tint);border-radius:14px;height:150px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.cover .glyph{font-family:"Songti SC",serif;font-size:64px;color:rgba(34,30,25,.62)}
+.editorial{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:18px;display:flex;flex-direction:column;gap:10px;background:#fbf9f4}
+.ed-line{display:flex;gap:10px;font-size:13.5px;line-height:1.7}
+.ed-av{flex:none;width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;margin-top:1px}
+.ed-av.dim{background:#d9d2c5;color:#6f665a}
+.ed-line b{color:var(--ink)}
+.ed-line a{color:var(--accent);text-decoration:none;word-break:break-all}
+.tabs{margin-top:2px}
+.tabs input{display:none}
+.tabs .bar{display:flex;gap:6px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.tabs .bar label{padding:8px 15px;border-radius:10px 10px 0 0;font-size:13.5px;color:var(--dim);cursor:pointer;font-weight:600;user-select:none}
+.tabs .bar label:hover{color:var(--ink)}
+.tabs input:nth-of-type(1):checked ~ .bar label:nth-of-type(1),
+.tabs input:nth-of-type(2):checked ~ .bar label:nth-of-type(2),
+.tabs input:nth-of-type(3):checked ~ .bar label:nth-of-type(3),
+.tabs input:nth-of-type(4):checked ~ .bar label:nth-of-type(4){background:var(--accent);color:#fff}
+.tabs .panels .panel{display:none}
+.tabs input:nth-of-type(1):checked ~ .panels .panel:nth-of-type(1),
+.tabs input:nth-of-type(2):checked ~ .panels .panel:nth-of-type(2),
+.tabs input:nth-of-type(3):checked ~ .panels .panel:nth-of-type(3),
+.tabs input:nth-of-type(4):checked ~ .panels .panel:nth-of-type(4){display:block}
+.panel{padding:16px 4px 6px}
+.body h2,.body h3,.body h4{font-family:"Songti SC","STSong",serif;margin:18px 0 8px;line-height:1.5}
+.body h2{font-size:17px}.body h3{font-size:15.5px;color:var(--accent)}.body h4{font-size:14.5px}
+.body ul,.body ol{margin:6px 0;padding-left:22px}.body li{margin:4px 0}
+.body blockquote{margin:10px 0;padding:8px 14px;border-left:3px solid var(--tint);background:#fbf9f4;border-radius:0 8px 8px 0;color:#57503f}
+.body table{border-collapse:collapse;margin:10px 0;font-size:13px;width:100%}
+.body th,.body td{border:1px solid var(--line);padding:6px 10px;text-align:left;vertical-align:top}
+.body th{background:var(--tint)}
+.body pre.src{background:#2e2a24;color:#ece5d8;padding:14px;border-radius:10px;overflow-x:auto;font-size:12px;line-height:1.6}
 .body{font-size:14.5px;padding:2px 2px 10px;overflow-x:auto}
 .body h1,.body h2,.body h3{font-size:15.5px;margin:16px 0 6px}.body pre{background:#f1ede5;padding:12px;border-radius:8px;overflow-x:auto;font-size:12.5px}
 .body code{background:#f1ede5;padding:1px 5px;border-radius:4px;font-size:13px}

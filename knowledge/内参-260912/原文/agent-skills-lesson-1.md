@@ -2,6 +2,8 @@
 
 - 来源：academy.claude.com
 - 原文：https://academy.claude.com/courses/introduction-to-agent-skills/what-are-skills
+- 作者：Claude Academy
+- 摘要：技能是教Claude自动完成特定任务的文件。它们按需加载，帮助避免重复解释工作。个人技能存储在用户目录，项目技能共享给团队。
 - 抓取：Reader 快照（2026-09-12）
 - 字数：1464
 

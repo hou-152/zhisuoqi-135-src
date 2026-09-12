@@ -2,6 +2,8 @@
 
 - 来源：academy.claude.com
 - 原文：https://academy.claude.com/courses/introduction-to-agent-skills/configuration-and-multi-file-skills
+- 作者：Claude Academy
+- 摘要：Agent skills need a clear name and description to tell Claude when and how to use them. Allowed-tools limit what Claude can do during skill use, improving security for sensitive tasks. Keeping skill files small and linking to extra resources helps Claude work efficiently without overloading the context.
 - 抓取：Reader 快照（2026-09-12）
 - 字数：1909
 
