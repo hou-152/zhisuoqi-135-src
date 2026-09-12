@@ -111,6 +111,13 @@ scripts/serve-lib.mjs        ← 服务本体（唯一一份，184 行）
 ```
 接口：`/api/health` · `/api/skills` · `/api/search` · `/api/llm`（`json:false` 开关 + `skill` 字段）· `/api/save` · `/api/data`（后两个只在桌面版开放）。
 
+> ⚠️ **这里埋着一颗雷（09-12 复查确认）**：`scripts/build-app.mjs:38` 把
+> `scripts/serve-lib.mjs` **拷贝**成 `app/lib/serve-lib.mjs`，而 `app/main.js:17` import 的是
+> **那份副本**（`from './lib/serve-lib.mjs'`）。两份现在字节一致（`cmp` 通过）。
+> **后果**：只改 `scripts/serve-lib.mjs` 而不跑 `build-app.mjs`，**桌面版跑的是旧代码**，
+> 而且 `app/main.js:3` 的注释还写着「main 进程起的就是 scripts/serve-lib.mjs」——**注释在说谎**。
+> 重构时要么让它直接引用、要么在 `serve-lib.mjs` 里加个「本文件有副本」的告警注释。
+
 ### 3.5 概念池解析重复了 8 遍 ← **重构第二件事**
 
 同一份 `research/内参概念池-AI时代怎么做事-20260912.md`，被这些脚本各解析了一遍：
@@ -136,6 +143,10 @@ scripts/serve-lib.mjs        ← 服务本体（唯一一份，184 行）
 | `scripts/shell.template.html.bak` / `.bak2` | 38,233 + 48,854 B | 本轮打补丁留下的临时备份 |
 | `scripts/concept-map.template.html` + `prototype/知所栖-135-概念图.html` | 22,695 + 64,100 B | 被 7/12 个文件引用，**但都是文档在说它**；功能已被壳完全取代 |
 | `prototype/zhisuoqi-generic.html` | 18,784 B | 决策 D6 已裁「废件」；**徽章有两条假宣称**（「3 决策」零实现、「5 实验」实际只有一道选择题） |
+| `scripts/ac-zhihu-source-test.mjs` | 5,270 B | **完全孤儿**：全库 grep 文件名 → **0 个文件提及**，也没有任何文档说过它是什么 |
+| `prototype/知枝-demo.html` · `prototype/archive/知枝-demo-v1.html` · `-v2.html` | — | 0 代码引用，早期 demo |
+
+以上**全部已被 git 跟踪**（`git ls-files` 可见）—— 死件不是「没提交」，是**提交了但没人用**。
 
 ---
 
@@ -148,11 +159,31 @@ scripts/serve-lib.mjs        ← 服务本体（唯一一份，184 行）
 | 1 | **两个 HTML 产品零共享代码** | 见 §3.3 | 「复述判定 / LLM 调用 / 状态存储」各写了两遍，改一边漏一边。这一轮已经因此踩过：`/api/llm` 的 `json:false` 开关只在壳里用上了，基础框架那条路仍是写死 JSON |
 | 2 | **概念池解析重复 8 遍** | 见 §3.5 | 池子格式一改要动 8 处 |
 | 3 | **LLM 调用样板重复 10 遍** | 见 §3.5 | `max_tokens` / `response_format` / 空回复检测 各写各的。踩过：漏了空回复检测 → 模型返回空串被 `\|\| '{}'` 伪装成「返回了空对象」，一个下午查不出真因 |
-| 4 | **`build-public.mjs` 靠字符串替换改产物行为** | 8 处 `rep()`：L78/93/127/168/175/252/261 | 锚点是**整段 JS 源码**，模板一改就断。**本轮 4 次因锚点失配而构建中止**（这是设计上就会反复发生的） |
-| 5 | **测试基建重复，且覆盖不全** | `verify-135.mjs` L3 `BASE='http://127.0.0.1:5180/'` → 只测**基础框架**，**壳完全没被它覆盖**；5 个验收脚本各自手写 ~40 行 CDP 样板（spawn Chrome / 轮询 `/json/list` / WebSocket / send / eval） | 5 份样板；且最大的那个产物（壳 185KB）只有 24 项断言 |
-| 6 | **状态层分散，且有作废键还在引用** | localStorage：`zss135.proof.v2`(7 处) · `zss135.insert.v1`(6) · **`zss135.canvas.v1`(4，已作废)** · `zss135.checkpoint.v1`(3) · `zss135.visitor.key`(2) · `zss135.llm.cfg`(2) | `canvas.v1` 是**自报式**旧键（点一下就变绿），已声明作废，但 4 个文件里还在引用（`concept-map.template.html` · `知所栖-135-概念图.html` · 两个 `.bak`） |
-| 7 | **硬编码散落** | 端口 `5180`（serve/serve-lib/AGENTS/4 个验收脚本）· 模型名 `deepseek-chat`（build-public）· Chrome 路径 `/Applications/Google Chrome.app/...`（**5 个验收脚本各写一遍**）· 分类色 `#5B8FF9/#F6BD16/#61DDAA/#9661BC`（壳的 `KIND`）· 10 条主题线名（curate 产物里） | 换机器 / 换模型 / 换配色要改多处 |
+| 4 | **`build-public.mjs` 靠字符串替换改产物行为** | **7 处** `rep()`：L78/93/127/168/175/252/261。锚点长度 **223 / 460 / 510** / 56 / 126 / 38 / 65 字 | 前三个锚点是**逐字复刻整段 JS**（含缩进、注释、换行）。模板里这三段改**任何一个空格** → 立刻抛 `锚点「send」命中 0 次` 中止。**本轮 4 次因锚点失配而构建中止**。它**有守卫**（L35–39，命中数≠1 就抛错，不会静默出错页），但代价是模板与公网版强耦合 |
+| 4b | **`build-shell.mjs` 的注入没有守卫** | L154 `const html = tpl.replace('/*__DATA__*/', json);` | 和 4 相反：占位符出现 **0 次或 2 次都静默通过**（`String.replace` 只替第一个）。产物会缺数据或数据错位，**没有任何报错** |
+| 4c | **`DATA.kinds` 注入了但壳里 0 处引用** | `build-shell.mjs:150` 注入 · `grep -c kinds scripts/shell.template.html` = **0** | 分类名与颜色因此存在于**三处**：壳里硬编码的 `KIND`(L354) · `evidence/concept-classes-*.json` 的 `classes` · 注入但没人用的 `DATA.kinds`。生效的是硬编码那份，**另外两份是死的** |
+| 5 | **测试基建重复，且覆盖不全** | `verify-135.mjs:5` `BASE='http://127.0.0.1:5180/'` + `serve-lib.mjs:48` `DEFAULT_PAGE='/知所栖-135-基础框架.html'` → 它只测**基础框架**（全文 `grep 壳` = **0 次**）。5 个脚本的样板合计 **341 / 834 行 = 41%**：`verify` L1–56 · `test-daobi` L1–66 · `check-public` L1–54 · `shot-shell` L1–106 · `test-app` L1–59 | Chrome 路径**写死 5 遍**；CDP 端口**5 个不同的硬编码值**（9223/9388/9401/9455/…）;「轮询 `/json/list`」各写一遍；`shot-shell.mjs:41` 唯一封了 `class CDP` 但**没人复用**。**没有任何脚本同时覆盖两份 HTML** |
+| 5b | **测试伸进实现内部** | `test-daobi.mjs` 引用壳的 **15 个内部全局**（`marks` 15 次 · `filter` 7 · `openPanel` 6 · `nodes` 5 · `judge` 3 …）；`test-daobi.mjs:50` 与 `shot-shell.mjs:175` **直接删壳的私有 key** `zss135.proof.v2` | 任何状态层重构都会连带打断测试。这也是为什么「先抽模块、不动行为」要放在第一步 |
+| 6 | **状态层分散，且有作废键还在引用** | 6 个 key 分属**三套互不相干的命名空间**：基础框架 `zss135.checkpoint.v1`(L210 定义) + `zss135.llm.cfg`(L211) ／ 壳 `zss135.proof.v2`(L388) + `zss135.insert.v1`(L1037) ／ **`zss135.canvas.v1`**（`concept-map.template.html:142`，**已作废**）／ 公网版 `zss135.visitor.key`(build-public L186 注入) | 两套状态**零字段重叠**：基础框架 7 字段 `{read,lab,case,feyn,feedback,conclusion,remediation}`（L313–320）vs 壳 4 态 `{pass,fail,mech,read}`（L395–414）。**壳 20 个顶层可变变量，基础框架 7 个**。`zss135.canvas.v1` 是**自报式**旧键（点一下就变绿），已声明作废但仍在 3 个活文件 + 2 个 `.bak` 里引用 |
+| 7 | **硬编码散落** | 端口 `5180`（`serve-135.mjs:14` · `verify-135.mjs:5` · `record-replays.mjs:14`）· 模型名 **`deepseek-chat` 写 4 遍**（`build-public.mjs:28` 常量 + `:154` + `:227` 两处 `\|\| 'deepseek-chat'` 默认值 + `app/main.js:52` 生成说明文件里再一遍）· Chrome 路径 5 遍 · 分类色 `KIND`(壳 L354) | **配色 token 只贯彻了一半**：`<style>` 里 `var(--` 用了 **112 次**、`:root` 定了 15 个 token（L13–19），但 **canvas 绘制代码完全不用 token** —— `PALETTE`(L331) · `KIND` 色(L354) · `ST_COLOR`(L1073) 都是字面量，其中 `ST_COLOR` 的 `#4cb782/#eb5757` 与 `:root` 的 `--ok/--bad` **数值相同却各写一遍**；而 `#5ee0c0`/`#e0a94a`（状态环色，L398 附近）**根本不在 `:root` 里** |
+| 7b | **`serve-lib.mjs` 的路径校验在 Windows 上会失效** | `serve-lib.mjs:174` —— `if (file.startsWith(STATIC_ROOT) && …)`，而 `STATIC_ROOT` 是 `join()` 出来的（Windows 用 `\`） | 本机是 macOS 所以没暴露。要跨平台得改成 `path.relative` 判断 |
 | 8 | **`shell.template.html` 是 79.5KB 单文件** | `<style>` 7–270（264 行）· `<script>` 327–1476（**1150 行、55 个顶层函数**）· DATA 在 L328 单行注入（106KB JSON） | 没有模块边界，没有类型，改一处要全文搜 |
+
+---
+
+## 4b. 独立审计的补充：查了但**没能确认**的（照实留档）
+
+上面 §3–§4 由两轮独立审计交叉核对过。以下是**查了但拿不到证据**的，不写成结论：
+
+| # | 问题 | 为什么没结论 |
+|---|---|---|
+| 1 | `mcp.html` / `mcp.txt`（263KB）**是什么时候、为什么抓下来的** | 内容确认是 MCP 官方文档（`Versioning - Model Context Protocol`），但**没有脚本生成它**，`SOURCE_OF_TRUTH.md` 的快速查找表里也没有它。来历不明 → 删之前先问所有者 |
+| 2 | `prototype/zhisuoqi-generic.html` 的 9 处「文档提及」算不算有效引用 | 只统计了「有没有文件提到这个名字」，**没有逐条读上下文**判断是「正在使用」还是「在讨论它的地位」。D6 已裁废件，但这个统计本身不足以支撑删除 |
+| 3 | 只改 `scripts/serve-lib.mjs` 不跑构建，桌面版**是否真的**会跑旧代码 | 两份 `cmp` 字节一致 + `main.js` import 副本 = 逻辑上必然。但**要真改一次、启动 app 才能实证**，本次是只读审计 |
+| 4 | `shell.template.html:1386-1388` 用 `var` 而非 `let` 是不是为规避 TDZ | 从「`window.pickAgent`(L1456) 引用这三行」+「`let ALLSKILLS`(L1324) 的同类问题」推断的。**没实测**去掉 `var` 会不会真崩 |
+| 5 | `build-public.mjs` 的 7 个锚点**是否覆盖了所有该改的行为** | 只能确认「它替换了这 7 段」，**无法证明没有遗漏**——要跑公网版逐功能对比才能发现 |
+| 6 | `build-concept-map.mjs` / `gen-concept-graph.mjs` / `vote-merge-edges.mjs` 等**输入文件是否还有效** | 只做了「有没有人引用这个脚本」的 grep，**没有验证它们依赖的 evidence/*.json 是否还在、是否过期** |
+| 7 | `SOURCE_OF_TRUTH.md` 里列的 30+ 张截图文件名与磁盘**是否一一对应** | 没逐张核对 |
 
 ---
 
