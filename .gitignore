@@ -5,7 +5,9 @@
 # 桌面版依赖与打包产物
 app/node_modules/
 app/dist/
-app/assets/   # 由 scripts/build-app.mjs 从 prototype/ 与 .agents/ 生成，只打包时用
+# app/assets/ 由 scripts/build-app.mjs 从 prototype/ 与 .agents/ 生成，只打包时用。
+# 注：gitignore 的行内注释不生效——写成 `app/assets/  # 说明` 会让整行变成无效模式（09-12 踩过）。
+app/assets/
 
 # 系统与工具产物
 .DS_Store
