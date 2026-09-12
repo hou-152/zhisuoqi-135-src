@@ -18,6 +18,7 @@ const TPL = path.join(ROOT, 'scripts', 'shell.template.html');
 const CURATION = path.join(ROOT, 'evidence', 'concept-curation-20260912.json');
 const EDGECUR  = path.join(ROOT, 'evidence', 'concept-edges-curated-20260912.json');
 const CLASSES  = path.join(ROOT, 'evidence', 'concept-classes-20260912.json');
+const ACTIVE   = path.join(ROOT, 'evidence', 'concept-active-20260912.json');
 const ARGV = Object.fromEntries(process.argv.slice(2).map(a => a.replace(/^--/, '').split('=')));
 
 // 文章 → 图例短名
@@ -102,6 +103,14 @@ if (fs.existsSync(EDGECUR)) {
   curation.edgeHuman = e.human || [];
 } else {
   console.warn('⚠ 缺 evidence/concept-edges-curated-20260912.json —— 先跑 node scripts/curate-edges.mjs');
+}
+if (fs.existsSync(ACTIVE)) {
+  const a = JSON.parse(fs.readFileSync(ACTIVE, 'utf8'));
+  // 知识体系继续使用完整原料图；策展和倒逼路线使用主动层派生结果。
+  curation.active = a;
+  curation.collections = a.collections || curation.collections;
+} else {
+  console.warn('⚠ 缺 evidence/concept-active-20260912.json —— 先跑 node scripts/build-active-layer.mjs');
 }
 // 验收方式分类：compute 能算的 / judge 能判的 / use 能用的 / accept 只能认的
 let kinds = { meta: { dist: {} }, classes: {}, assign: {} };
