@@ -127,7 +127,7 @@ rep(`    const payload = activeFile
 rep(`async function judgeCall(nd, said) {
   const r = await fetch('/api/llm', {
     method: 'POST', headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ messages: [{ role: 'system', content: JUDGE_SYS },
+    body: JSON.stringify({ messages: [{ role: 'system', content: judgeSys(kOf(nd)) },
                                       { role: 'user', content: judgeUserMsg(nd, said) }] }),
   });
   const j = await r.json();
@@ -136,7 +136,7 @@ rep(`async function judgeCall(nd, said) {
   try { return JSON.parse(txt); } catch (e) { return mechJudge(nd, said); }
 }`,
 `async function judgeCall(nd, said) {
-  const msgs = [{ role: 'system', content: JUDGE_SYS }, { role: 'user', content: judgeUserMsg(nd, said) }];
+  const msgs = [{ role: 'system', content: judgeSys(kOf(nd)) }, { role: 'user', content: judgeUserMsg(nd, said) }];
   if (await probeServer()) {
     try {
       const r = await fetch('/api/llm', { method: 'POST', headers: { 'Content-Type': 'application/json' },

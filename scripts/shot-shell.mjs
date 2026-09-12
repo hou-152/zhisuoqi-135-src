@@ -115,7 +115,7 @@ await cdp.eval(`(()=>{const s=document.createElement('style');
   document.head.appendChild(s); return 'ok';})()`);
 await sleep(400);
 
-await step('首屏 · 按主题分列', async () => { shots.push(await cdp.shot('10-壳-按主题分列.png')); });
+await step('首屏 · 按「要你怎么处理它」分列', async () => { shots.push(await cdp.shot('25-分类-怎么验.png')); });
 
 const rail = await cdp.eval(`JSON.stringify([...document.querySelectorAll('.r-item')].map(b=>b.querySelector('b').textContent+' ‖ '+b.querySelector('i').textContent))`);
 console.log('左栏：', JSON.parse(rail).join('  |  '));
@@ -160,6 +160,16 @@ await step('真对话（dbs-learning-beta）', async () => {
 
 const conv = await cdp.eval(`document.getElementById('clist') ? document.getElementById('clist').innerText.slice(-420) : '(无会话)'`);
 console.log('--- 会话结尾 ---\n' + conv + '\n---');
+
+await step('「只能认的」不设验收', async () => {
+  await cdp.eval(`closePanel(); openPanel(nodes.find(n=>n.k==='accept').id)`);
+  shots.push(await cdp.shot('26-分类-只能认的不考.png'));
+});
+
+await step('「能用的」任务词', async () => {
+  await cdp.eval(`openPanel(nodes.find(n=>n.k==='use').id)`);
+  shots.push(await cdp.shot('27-分类-能用的要给用例.png'));
+});
 
 await step('概念 · 倒逼输入框', async () => {
   await cdp.eval(`closePanel(); setAxis('tag'); filter=null; localStorage.removeItem('zss135.proof.v2'); marks={}; refreshMarks(); openPanel('C04')`);

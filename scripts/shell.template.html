@@ -49,7 +49,8 @@
     border-radius:50%;background:#17171c;border:0;color:#8a8a93;cursor:pointer;
     font-size:15px;line-height:1}
   #panel .close:hover{background:#22222a;color:#fff}
-  #panel .src{font-size:9.5px;letter-spacing:.16em;color:#63636b;margin-bottom:12px}
+  #panel .src{font-size:9.5px;letter-spacing:.16em;color:#63636b;margin-bottom:12px;
+  padding-right:34px;line-height:1.7}
   #panel h2{font-family:Georgia,"Songti SC",serif;font-size:23px;line-height:1.3;
     font-weight:400;margin-bottom:16px}
   #panel .gloss{font-size:12.5px;line-height:1.85;color:#a2a2ac;margin-bottom:24px}
@@ -198,6 +199,8 @@
 .jverdict.ok{background:#0f2019;border:1px solid #2f7a58;color:#c9f5dd}
 .jverdict.mech{background:#221c10;border:1px solid #7a5f2f;color:#e8d3a0}
 .jverdict.bad{background:#20120f;border:1px solid #7a352f;color:#f5cdc9}
+.jverdict.read{background:#191428;border:1px solid #4a3a75;color:#cfc4ec}
+.dpane.quiet{background:#141020;border-color:#2e2547}
 .jmiss{margin-top:6px;font-size:12px}
 .backto{margin-top:9px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .backto button{background:#2a1a18;border:1px solid #6d3a33;border-radius:8px;color:#f0c4bd;
@@ -232,7 +235,8 @@
       <h4>我的 · 位置不动，只变环</h4><div id="myrow"></div>
       <h4>操作</h4><div id="rhint"></div>
       <div class="axtog">
-        <button id="ax-tag" class="on" onclick="setAxis('tag')">按主题</button>
+        <button id="ax-kind" class="on" onclick="setAxis('kind')">怎么验</button>
+        <button id="ax-tag" onclick="setAxis('tag')">按主题</button>
         <button id="ax-src" onclick="setAxis('src')">按来源</button>
       </div>
       <h4 id="lhead">主题 · 点击筛选（策展）</h4><div id="lrows"></div>
@@ -270,6 +274,33 @@ const nodes = DATA.nodes, edges = DATA.edges, sources = DATA.sources, meta = DAT
 // 策展层：主题标签 + 策展集（路线）+ 机器已判的边
 const CUR = DATA.curation || { tags: [], assign: {}, collections: [], edgeAuto: [], edgeHuman: [] };
 const AUTO = new Map((CUR.edgeAuto || []).map(a => [a.key, a]));
+
+/* ── 验收方式分类 ─────────────────────────────────────────────
+   不问「这讲的是什么」（那是主题，任何模型都能吐），问
+   「**这个概念该要求学习者做到什么，才算学会了**」。
+   它决定的不只是分列，而是**系统对你做什么**：
+     compute 能算的 → 复述机制
+     judge   能判的 → 说出你自己的判据与代价
+     use     能用的 → 给一个你真用过的例子
+     accept  只能认的 → **不设验收**。世界观没有机制可复述，硬考就是假学习。
+   这正是原版的真 bug：194 个概念用了同一个验收标准，把世界观也拉来考。 */
+const KIND = {
+  compute: { name: '能算的', color: '#5B8FF9',
+    ask: '遮住上面那句，用自己的话说清它的机制。',
+    rule: '判定口径：说清核心机制、不违反事实 → pass；漏机制、说错、照抄原文 → fail。' },
+  judge:   { name: '能判的', color: '#F6BD16',
+    ask: '遮住上面那句：它给的是什么判据？换成你的处境你会怎么用？代价是什么？',
+    rule: '判定口径：必须写出**你自己的判据和你愿意付的代价**。只复述原文 → fail；'
+        + '说「看情况」但不给出判据 → fail；没提代价 → fail。' },
+  use:     { name: '能用的', color: '#61DDAA',
+    ask: '遮住上面那句：它是什么？给一个你**真拿它做过**的具体例子（做了什么、结果如何）。',
+    rule: '判定口径：说清它是什么 + 给了一个具体、可核对的用例 → pass；'
+        + '只有定义没有用例 → fail；用例含糊或明显是编的 → fail。' },
+  accept:  { name: '只能认的', color: '#9661BC', ask: null,
+    rule: '这一类不设验收。' },
+};
+const KORDER = ['compute', 'judge', 'use', 'accept'];
+const kOf = n => (KIND[n.k] ? n.k : 'compute');
 const byId = new Map(nodes.map(n => [n.id, n]));
 const neighbors = new Map(nodes.map(n => [n.id, { pre: [], post: [] }]));
 
@@ -300,6 +331,7 @@ function stats() {
     pass: v.filter(x => x.state === 'pass').length,
     fail: v.filter(x => x.state === 'fail').length,
     mech: v.filter(x => x.state === 'mech').length,
+    read: v.filter(x => x.state === 'read').length,
     done: v.length,
   };
 }
@@ -310,9 +342,17 @@ function refreshMarks() {
     `<span class="dot" style="background:#5ee0c0"></span>复述过了<span class="n">${s.pass}</span>` +
     `<span class="dot" style="background:#ff4d4d;margin-left:12px"></span>没过·倒回中<span class="n">${s.fail}</span>` +
     (s.mech ? `<span class="dot" style="background:#e0a94a;margin-left:12px"></span>只过机器检查<span class="n">${s.mech}</span>` : '') +
+    `<span class="dot" style="background:#9661BC;margin-left:12px"></span>读过（不考）<span class="n">${s.read}</span>` +
     `<div class="n" style="margin-left:0;margin-top:5px">验过 ${s.done} · 没验过 ${nodes.length - s.done} · 共 ${nodes.length}</div>`;
   if (window.refreshRail) refreshRail();
 }
+function markRead(id) {
+  if (marks[id] && marks[id].state === 'read') delete marks[id];
+  else marks[id] = { state: 'read', why: '这一类不设验收，只记读过', at: Date.now() };
+  saveMarks(); refreshMarks();
+  if (selected === id) openPanel(id);
+}
+window.markRead = markRead;
 function clearProof(id) {
   delete marks[id]; saveMarks(); refreshMarks();
   if (selected === id) openPanel(id);
@@ -322,27 +362,29 @@ window.clearProof = clearProof;
 /* ── 费曼验收：遮住原文，用自己的话说，系统挑漏，漏哪倒回哪 ────────
    判定口径写在提示词里：照抄不算过、只写几个词不算过、
    「意思差不多」不放过——因为判定器的工作是**挑漏**，不是发安慰分。 */
-const JUDGE_SYS = '你是费曼验收的判定器。学习者刚看过一个概念，现在要他遮住原文、用自己的话说一遍。'
-  + '你的任务是**挑漏**，不是鼓励，不许给安慰分。\n'
-  + '只输出 json：\n'
-  + '{"verdict":"pass" 或 "fail",'
-  + '"missing":["他漏掉的要点，每条 6-18 字，最多 3 条"],'
-  + '"wrong":["他说错的地方，没有就空数组"],'
-  + '"backTo":["先修概念 id，只能从下面给出的前置 id 里挑；漏的根在某个前置概念上就指向它，否则空数组"],'
-  + '"why":"一句话 20-40 字，直接说他哪里没说清，不要客套"}\n'
-  + '判定口径：\n'
-  + '- pass：说清了「它讲的是什么」里的核心机制，且没有事实错误。\n'
-  + '- fail：漏掉核心机制、说了错话、或只是把原句换个说法照抄（照抄不算过）。\n'
-  + '- 只写了几个词、没成句 → fail。\n'
-  + '- 拿不准就 fail。不要因为「意思差不多」放过。';
+function judgeSys(kind) {
+  const K = KIND[kind] || KIND.compute;
+  return '你是学习验收的判定器。这个概念被判为「' + K.name + '」。\n'
+    + '学习者的任务：' + K.ask + '\n'
+    + K.rule + '\n'
+    + '你的任务是**挑漏**，不是鼓励，不许给安慰分。\n'
+    + '只输出 json：\n'
+    + '{"verdict":"pass" 或 "fail",'
+    + '"missing":["他漏掉的要点，每条 6-18 字，最多 3 条"],'
+    + '"wrong":["他说错的地方，没有就空数组"],'
+    + '"backTo":["先修概念 id，只能从下面给出的前置 id 里挑；漏的根在某个前置概念上就指向它，否则空数组"],'
+    + '"why":"一句话 20-40 字，直接说他哪里没做到，不要客套"}\n'
+    + '通用口径：只写了几个词、没成句 → fail；把原句换个说法照抄 → fail；拿不准就 fail。';
+}
 
 function judgeUserMsg(nd, said) {
   const pre = (neighbors.get(nd.id).pre || []).map(x => byId.get(x)).filter(Boolean);
   return '概念名：' + nd.name + '\n'
+    + '验收类别：' + (KIND[kOf(nd)] || {}).name + '（' + (nd.kwhy || '') + '）\n'
     + '它讲的是什么（唯一判据）：' + nd.gloss + '\n'
     + '它的前置概念（backTo 只能指向这些 id）：\n'
     + (pre.length ? pre.map(x => '  ' + x.id + ' ｜ ' + x.name + ' ｜ ' + x.gloss).join('\n') : '  （没有前置）')
-    + '\n\n学习者用自己的话说：' + said;
+    + '\n\n学习者写的：' + said;
 }
 
 /* 机械兜底：没有模型可判时，只做**关键词覆盖检查**，并且如实标注它不是语义判定。
@@ -353,6 +395,15 @@ function mechJudge(nd, said) {
   const key = [...new Set(raw)].filter(t => !STOP.has(t)).slice(0, 16);
   const miss = key.filter(t => !said.includes(t));
   const cover = key.length ? (key.length - miss.length) / key.length : 0;
+  const k = kOf(nd);
+  // judge 类要的是「你自己的判据与代价」，use 类要的是「一个真用过的例子」。
+  // 关键词覆盖检查看不见这两样东西——所以这两类在没有模型时**只判 fail**，
+  // 绝不给 mech 的琥珀环，免得把「词提到了」冒充成「判据给了 / 例子举了」。
+  if (k === 'judge' || k === 'use') {
+    return { verdict: 'fail', coverage: cover, missing: miss.slice(0, 5), wrong: [], backTo: [],
+      why: '这一类要的是' + (k === 'judge' ? '你自己的判据与代价' : '一个你真用过的例子')
+         + '，机械检查看不出来。本次没经语义判定 → 按没过记。', mechanical: true };
+  }
   return {
     verdict: cover >= 0.5 ? 'mech' : 'fail',
     coverage: cover, missing: miss.slice(0, 5), wrong: [], backTo: [],
@@ -369,6 +420,10 @@ async function judge(id) {
   if (!nd || judging) return;
   if (said.length < 10) {
     if (err) err.textContent = said.length ? '太短了——至少写成一句话（10 字以上）。几个词不算复述。' : '先写点什么。遮住上面那句，用你自己的话说。';
+    return;
+  }
+  if (kOf(nd) === 'accept') {
+    if (err) err.textContent = '这一类不设验收——只记「读过」，不判过没过。';
     return;
   }
   judging = true;
@@ -394,7 +449,7 @@ window.judge = judge;
 async function judgeCall(nd, said) {
   const r = await fetch('/api/llm', {
     method: 'POST', headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ messages: [{ role: 'system', content: JUDGE_SYS },
+    body: JSON.stringify({ messages: [{ role: 'system', content: judgeSys(kOf(nd)) },
                                       { role: 'user', content: judgeUserMsg(nd, said) }] }),
   });
   const j = await r.json();
@@ -467,23 +522,32 @@ function computeLayout() {
 
 /* ── 分组轴：主题（策展，默认）/ 来源 ───────────────────────
    原来横轴写死 12 个来源分列——那是权宜。策展后默认按主题分列。 */
-let axis = 'tag';
+let axis = 'kind';   // 默认按「要你怎么处理它」分列
 const TAGI = new Map((CUR.tags || []).map((t, i) => [t.id, i]));
 function giOf(n) {
   if (axis === 'src') return n.ci;
+  if (axis === 'kind') return KORDER.indexOf(kOf(n));
   const t = (n.tags || [])[0];
-  return TAGI.has(t) ? TAGI.get(t) : (CUR.tags || []).length;   // 未分类进最后一列
+  return TAGI.has(t) ? TAGI.get(t) : (CUR.tags || []).length;
 }
 function groups() {
   if (axis === 'src') return sources.map((s, i) => ({ id: s.id, label: s.label, color: PALETTE[i % PALETTE.length] }));
+  if (axis === 'kind') return KORDER.map(k => ({ id: k, label: KIND[k].name, color: KIND[k].color }));
   const g = (CUR.tags || []).map(t => ({ id: t.id, label: t.name, color: t.color }));
   const un = nodes.filter(x => !TAGI.has((x.tags || [])[0])).length;
   if (un) g.push({ id: '__un', label: '未分类', color: '#4a4a55' });
   return g;
 }
+function groupCount(g) {
+  if (axis === 'src') return nodes.filter(x => x.src === g.id).length;
+  if (axis === 'kind') return nodes.filter(x => kOf(x) === g.id).length;
+  if (g.id === '__un') return nodes.filter(x => !TAGI.has((x.tags || [])[0])).length;
+  return nodes.filter(x => (x.tags || [])[0] === g.id).length;
+}
 function matches(x) {
   if (!filter) return true;
   if (axis === 'src') return x.src === filter;
+  if (axis === 'kind') return kOf(x) === filter;
   if (filter === '__un') return !TAGI.has((x.tags || [])[0]);
   return (x.tags || []).includes(filter);
 }
@@ -547,10 +611,7 @@ function render() {
     for (let i = 0; i < G.length; i++) {
       ctx.globalAlpha = (!filter || filter === G[i].id) ? 0.8 : 0.2;
       ctx.fillStyle = G[i].color;
-      const cnt = axis === 'src' ? nodes.filter(x => x.src === G[i].id).length
-        : G[i].id === '__un' ? nodes.filter(x => !TAGI.has((x.tags || [])[0])).length
-        : nodes.filter(x => (x.tags || [])[0] === G[i].id).length;
-      ctx.fillText(G[i].label + ' ' + cnt, gx0 + i * colW + colW / 2, gridTop - 28);
+      ctx.fillText(G[i].label + ' ' + groupCount(G[i]), gx0 + i * colW + colW / 2, gridTop - 28);
     }
     ctx.globalAlpha = 1;
   }
@@ -600,7 +661,8 @@ function render() {
     if (mk && on) {
       const st = mk.state || 'fail';
       ctx.globalAlpha = (isSel || isHov) ? 1 : 0.92;
-      ctx.strokeStyle = st === 'pass' ? '#5ee0c0' : st === 'mech' ? '#e0a94a' : '#ff4d4d';
+      ctx.strokeStyle = st === 'pass' ? '#5ee0c0' : st === 'mech' ? '#e0a94a'
+                      : st === 'read' ? '#9661BC' : '#ff4d4d';
       ctx.lineWidth = st === 'pass' ? 2 : 1.6;
       ctx.beginPath(); ctx.arc(p.sx, p.sy, r + 2.8, 0, 6.2832); ctx.stroke();
     }
@@ -678,6 +740,7 @@ function openPanel(id) {
   const pre = nb.pre.map(x => byId.get(x)).filter(Boolean);
   const post = nb.post.map(x => byId.get(x)).filter(Boolean);
   const mk = marks[id];
+  const kk = kOf(n);
   const tags = (n.tags || []).map(t => (CUR.tags.find(x => x.id === t) || {}).name).filter(Boolean);
   const chain = CHAIN && CHAIN.ids.includes(id)
     ? `<div class="chainhead">这条线 · ${CHAIN.name} · 第 ${CHAIN.ids.indexOf(id) + 1}/${CHAIN.ids.length} 步
@@ -685,8 +748,9 @@ function openPanel(id) {
 
   let verdict = '';
   if (mk) {
-    const tone = mk.state === 'pass' ? 'ok' : mk.state === 'mech' ? 'mech' : 'bad';
-    const title = mk.state === 'pass' ? '复述过了'
+    const tone = mk.state === 'pass' ? 'ok' : mk.state === 'mech' ? 'mech' : mk.state === 'read' ? 'read' : 'bad';
+    const title = mk.state === 'read' ? '读过了（这一类不设验收）'
+      : mk.state === 'pass' ? '复述过了'
       : mk.mechanical ? '没过 · 只做了机械检查（没经语义判定）'
       : mk.state === 'mech' ? '只过了机械检查（没经语义判定，不算学会）'
       : '没过 · 正在倒回';
@@ -709,7 +773,9 @@ function openPanel(id) {
 
   document.getElementById('pbody').innerHTML = `
     ${chain}
-    <div class="src">${tags.length ? tags.join(' · ') : (src ? src.label : n.src)} · ${n.type}</div>
+    <div class="src"><span style="color:${KIND[kk].color}">■</span> ${KIND[kk].name}
+      · <span class="mut">${esc(n.kwhy || '')}</span></div>
+    <div class="src" style="margin-top:6px">${tags.length ? tags.join(' · ') : (src ? src.label : n.src)} · ${n.type}</div>
     <h2>${n.name}</h2>
     <div class="gloss">${n.gloss}</div>
     <div class="metrics">
@@ -718,16 +784,24 @@ function openPanel(id) {
       <div class="m"><b>L${n.level}</b><span>层级</span></div>
     </div>
 
-    <div class="dpane">
+    ${kk === 'accept' ? `<div class="dpane quiet">
+      <h5>这一类不设验收</h5>
+      <div class="mut">它被判为「<b>只能认的</b>」——${esc(n.kwhy || '作者的世界观、立场或比喻')}。<br>
+      没有机制可复述，也没有对错。<b>硬考它就是假学习，所以我们不考。</b><br>
+      读过就够了。想反驳它，去「对话」里找 Agent 聊。</div>
+      <div class="jrow">
+        <button class="jbtn ghost" onclick="markRead('${id}')">${mk && mk.state === 'read' ? '读过了（点一下取消）' : '我读过了'}</button>
+      </div>
+    </div>` : `<div class="dpane">
       <h5>倒逼 · 你不能自己标「学过」</h5>
-      <div class="mut">遮住上面那句，用你自己的话说一遍它讲的是什么。<br>
-      判定器会挑你漏了什么、说错了什么，<b>漏在哪就把你倒回哪个先修概念</b>。</div>
-      <textarea id="said" placeholder="用自己的话说，别抄上面那句。抄了不算过。">${mk ? esc(mk.said || '') : ''}</textarea>
+      <div class="mut"><b>${KIND[kk].name}</b> · ${esc(n.kwhy || '')}<br>
+      ${KIND[kk].ask}</div>
+      <textarea id="said" placeholder="别抄上面那句。抄了不算过。">${mk ? esc(mk.said || '') : ''}</textarea>
       <div class="jrow">
         <button class="jbtn" onclick="judge('${id}')">交卷，让系统挑漏</button>
         <span id="jerr" class="jerr"></span>
       </div>
-    </div>
+    </div>`}
     ${verdict}
 
     ${pre.length ? `<h5>要理解它，先懂这些</h5><ul>${pre.map(x =>
@@ -772,17 +846,17 @@ function buildLegend() {
   document.getElementById('lrows').innerHTML = G.map(g => {
     // 按主题时数字＝**主标签**数，跟画布上那一列的点数一一对应；
     // 「相关但主标签在别处」的点数写在策展面板里，免得两个口径打架。
-    const cnt = axis === 'src' ? nodes.filter(x => x.src === g.id).length
-      : g.id === '__un' ? nodes.filter(x => !TAGI.has((x.tags || [])[0])).length
-      : nodes.filter(x => (x.tags || [])[0] === g.id).length;
+    const cnt = groupCount(g);
     return `<div class="lrow${filter && filter !== g.id ? ' off' : ''}" data-g="${g.id}">
       <span class="dot" style="background:${g.color}"></span>
       ${g.label}<span class="n">${cnt}</span></div>`;
   }).join('');
-  document.getElementById('lhead').textContent = axis === 'tag'
-    ? '主题 · 点击筛选（数字＝主标签）' : '来源 · 点击筛选';
-  document.getElementById('ax-tag').classList.toggle('on', axis === 'tag');
-  document.getElementById('ax-src').classList.toggle('on', axis === 'src');
+  document.getElementById('lhead').textContent = axis === 'kind' ? '要你怎么处理它 · 点击筛选'
+    : axis === 'tag' ? '主题 · 点击筛选（数字＝主标签）' : '来源 · 点击筛选';
+  for (const a of ['kind', 'tag', 'src']) {
+    const b = document.getElementById('ax-' + a);
+    if (b) b.classList.toggle('on', axis === a);
+  }
   document.querySelectorAll('#lrows .lrow').forEach(el => {
     el.onclick = () => {
       const g = el.dataset.g;
@@ -852,7 +926,9 @@ function refreshRail() {
   const e5 = document.getElementById('r-cur');
   if (e1) e1.textContent = nodes.length + ' 点 · ' + (CUR.tags || []).length + ' 条线 · ' + SKEL.length + ' 骨架';
   if (e2) e2.textContent = pending + ' 条要你看（我自己判了 ' + autoN + ' 条）';
-  if (e3) e3.textContent = mine ? ('验过 ' + st.pass + ' 过 / ' + st.fail + ' 没过' + (st.mech ? ' / ' + st.mech + ' 机器过' : '')) : '一个都还没验过';
+  if (e3) e3.textContent = mine
+    ? ('过 ' + st.pass + ' / 没过 ' + st.fail + ' / 读过 ' + st.read)
+    : '一个都还没验过';
   if (e5) e5.textContent = (CUR.tags || []).length + ' 条线已排好路线';
   const e4 = document.getElementById('r-chat');
   if (e4) e4.textContent = activeSkill ? ('用：' + activeSkill) : '选方法论';

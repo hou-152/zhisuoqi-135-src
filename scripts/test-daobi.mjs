@@ -38,7 +38,9 @@ await ex(`localStorage.removeItem('zss135.proof.v2')`);
 
 const fails = [];
 const check = (label, got, want) => {
-  const ok = String(got).includes(want);
+  // 踩过：String(got).includes(want) 里 want 太短会误命中——'read' 命中了 'reading'，
+  // 一个 THREW 被当成通过。这里显式挡掉抛错串。
+  const ok = !String(got).startsWith('THREW') && String(got).includes(want);
   if (!ok) fails.push(`${label}：期望含「${want}」，实得「${String(got).slice(0, 110)}」`);
   console.log(`  ${ok ? '·' : '⚠'} ${label} ｜ ${String(got).slice(0, 88)}`);
 };
@@ -52,36 +54,67 @@ check('没有「点一下就变绿」的按钮（onclick 里不再有 setMark）
   await ex(`document.getElementById('pbody').innerHTML.includes('setMark') ? '还在' : 'OK'`), 'OK');
 check('面板上写明了不能自己标', await ex(`document.getElementById('pbody').innerText.includes('你不能自己标') ? 'OK' : 'NO'`), 'OK');
 
-/* ② 写废话 → 必须没过，且给出漏点，且倒回先修概念 */
-await ex(`document.getElementById('said').value='就是一个理论吧，感觉挺有道理的，讲人的不同方面。'`);
-await ex(`judge('C04')`); await sleep(15000);
-check('② 废话被判没过', await ex(`(marks['C04']||{}).state`), 'fail');
-check('② 给出漏点', await ex(`((marks['C04']||{}).missing||[]).length>0 ? '有' : '无'`), '有');
-check('② 倒回指向它的先修概念', await ex(`JSON.stringify((marks['C04']||{}).backTo||[])`), 'C0');
+/* ② 能算的（C08）：废话必须没过 + 给漏点 + 倒回先修 */
+await ex(`openPanel('C08'); document.getElementById('said').value='就是一个说法吧，感觉挺有道理的，讲 AI 的一些限制。'`);
+await ex(`judge('C08')`); await sleep(16000);
+check('② 能算的·废话没过', await ex(`(marks['C08']||{}).state`), 'fail');
+check('② 给出漏点', await ex(`((marks['C08']||{}).missing||[]).length>0 ? '有' : '无'`), '有');
 check('② 面板渲染倒回按钮', await ex(`document.querySelectorAll('.backto button').length>0 ? 'OK' : 'NO'`), 'OK');
 
-/* ③ 照抄原文 → 明确不算过 */
-await ex(`openPanel('C04'); document.getElementById('said').value=byId.get('C04').gloss; judge('C04')`); await sleep(15000);
-check('③ 照抄原文不算过', await ex(`(marks['C04']||{}).state`), 'fail');
+/* ③ 能算的：照抄原文不算过 */
+await ex(`openPanel('C08'); document.getElementById('said').value=byId.get('C08').gloss; judge('C08')`); await sleep(16000);
+check('③ 照抄原文不算过', await ex(`(marks['C08']||{}).state`), 'fail');
 
-/* ④ 说清核心机制 → 才给过 */
-await ex(`openPanel('C04'); document.getElementById('said').value='威尔伯的四象限是两条轴交叉：一条是内在经验 vs 外在行为，一条是个体 vs 集体，两两组合出四个格子。纯粹派和自动机各砍掉了一半现实——一个只认内在、退回无屏幕生活，一个只认外在可优化的部分。用四象限是把被砍掉的那半个现实放回来，判断一个人或一件事要同时在四个格子里看。'; judge('C04')`);
-await sleep(16000);
-check('④ 说清楚了才判过', await ex(`(marks['C04']||{}).state`), 'pass');
-check('④ 面板渲染成「过了」', await ex(`document.getElementById('pbody').innerText.includes('复述过了') ? 'OK' : 'NO'`), 'OK');
+/* ④ 能算的：说清机制才给过 */
+await ex(`openPanel('C08'); document.getElementById('said').value='AI 的输出是从训练数据里学到的已知模式里重组出来的，它没有自己的视角、也没有从亲身经验里扎进未知的能力。所以凡是需要「来自经验、指向未知」的判断，它给不了，那部分只能由人来。这不是说 AI 没用，是说它擅长的是已知信息的加工。'; judge('C08')`);
+await sleep(17000);
+check('④ 能算的·说清机制才过', await ex(`(marks['C08']||{}).state`), 'pass');
 
-/* ⑤ 状态进左栏、进图例、进 localStorage */
-check('⑤ 左栏计数', await ex(`document.getElementById('r-mine').textContent`), '验过');
-check('⑤ 图例计数', await ex(`document.getElementById('myrow').innerText.replace(/\\s+/g, ' ')`), '复述过了');
-check('⑤ 落盘', await ex(`Object.keys(JSON.parse(localStorage.getItem('zss135.proof.v2')||'{}')).join(',')`), 'C04');
-check('⑤ 旧的自报键已作废（不再被读）', await ex(`(localStorage.getItem('zss135.canvas.v1'), localStorage.getItem('zss135.proof.v2').includes('"state"') ? 'OK' : 'NO')`), 'OK');
+/* ⑤ 能用的（C04）：只解释「它是什么」不够，必须给一个真用过的例子 */
+await ex(`openPanel('C04'); document.getElementById('said').value='威尔伯的四象限是把现实分成内在/外在、个体/集体四个格子，用来定位一个人或一件事被砍掉了哪半边。'; judge('C04')`);
+await sleep(17000);
+check('⑤ 能用的·只有定义没有用例 → 没过', await ex(`(marks['C04']||{}).state`), 'fail');
+await ex(`openPanel('C04'); document.getElementById('said').value='四象限是内在/外在 × 个体/集体四个格子，用来定位被砍掉的那半边现实。我上周拿它拆过自己：我写代码（外在·个体）和跑步（外在·个体）都在同一格，内在那一列几乎空白，集体那一行也没有。所以我加了每周一次跟人对着讲我在做什么（外在·集体），补的就是右上角的空缺。'; judge('C04')`);
+await sleep(18000);
+check('⑤ 能用的·给了真用过的例子 → 过', await ex(`(marks['C04']||{}).state`), 'pass');
 
-/* ⑥ 一条线的倒逼链 */
-await ex(`setView('curate'); openCollection('T2')`);
-check('⑥ 策展面板有「开始倒逼」', await ex(`document.getElementById('pbody').innerText.includes('开始倒逼') ? 'OK' : 'NO'`), 'OK');
+/* ⑥ 能判的（C05）：只复述原文不算过，必须写出自己的判据与代价 */
+await ex(`openPanel('C05'); document.getElementById('said').value=byId.get('C05').gloss; judge('C05')`);
+await sleep(17000);
+check('⑨ 能判的·只复述原文 → 没过', await ex(`(marks['C05']||{}).state`), 'fail');
+await ex(`openPanel('C05'); document.getElementById('said').value='我的判据是：先看这门手艺有没有「复利」——做得越多，作品本身会不会替我说话。会，就深耕；不会，就把精力摊到互相能借力的几项上。我愿意付的代价是：深耕的那一项在前 6 个月几乎看不到外部反馈，我得忍住不换；摊开的那几项则接受每一项都到不了前 10%。这条判据的失效边界是：如果我的现金流撑不过 6 个月，那深耕就不成立，只能先摊开换钱。'; judge('C05')`);
+await sleep(18000);
+check('⑨ 能判的·写出自己的判据与代价 → 过', await ex(`(marks['C05']||{}).state`), 'pass');
+
+/* ⑦ 只能认的（C01）：不设验收，也没有交卷按钮 */
+await ex(`openPanel('C01')`);
+check('⑩ 只能认的·不设验收', await ex(`document.getElementById('pbody').innerText.includes('这一类不设验收') ? 'OK' : 'NO'`), 'OK');
+check('⑩ 只能认的·没有交卷按钮', await ex(`document.getElementById('pbody').innerText.includes('交卷') ? '还有' : 'OK'`), 'OK');
+await ex(`markRead('C01')`); await sleep(400);
+check('⑩ 只能认的·只记读过，不判过没过', await ex(`(marks['C01']||{}).state`), 'read');
+
+/* ⑧ 落盘与计数 */
+check('⑧ 落盘', await ex(`Object.keys(JSON.parse(localStorage.getItem('zss135.proof.v2')||'{}')).sort().join(',')`), 'C01');
+check('⑧ 左栏计数', await ex(`document.getElementById('r-mine').textContent`), '过 3');
+check('⑧ 图例四态都在', await ex(`document.getElementById('myrow').innerText.replace(/\\s+/g,' ')`), '读过（不考）');
+
+/* ⑨ 分类决定系统对你做什么 */
+await ex(`closePanel(); setAxis('kind')`);
+check('⑨ 默认轴＝「要你怎么处理它」，四列', await ex(`JSON.stringify(groups().map(g=>g.label))`), '能算的');
+check('⑨ 194 条全有验收类别', await ex(`String(DATA.nodes.filter(n=>n.k).length)+'/'+DATA.nodes.length`), '194/194');
+check('⑨ 「只能认的」面板不设验收', await ex(`openPanel(nodes.find(n=>n.k==='accept').id); document.getElementById('pbody').innerText.includes('这一类不设验收')?'OK':'NO'`), 'OK');
+check('⑨ 「只能认的」没有交卷按钮', await ex(`document.querySelector('.jbtn') && document.getElementById('pbody').innerText.includes('交卷')?'还有':'OK'`), 'OK');
+await ex(`markRead(selected)`); await sleep(400);
+check('⑨ 「能判的」任务词不一样', await ex(`openPanel(nodes.find(n=>n.k==='judge').id); document.getElementById('pbody').innerText.includes('它给的是什么判据')?'OK':'NO'`), 'OK');
+check('⑨ 「能用的」任务词不一样', await ex(`openPanel(nodes.find(n=>n.k==='use').id); document.getElementById('pbody').innerText.includes('真拿它做过')?'OK':'NO'`), 'OK');
+check('⑨ 「能算的」任务词不一样', await ex(`openPanel(nodes.find(n=>n.k==='compute').id); document.getElementById('pbody').innerText.includes('说清它的机制')?'OK':'NO'`), 'OK');
+
+/* ⑩ 一条线的倒逼链 */
+await ex(`closePanel(); setView('curate'); openCollection('T2')`);
+check('⑩ 策展面板有「开始倒逼」', await ex(`document.getElementById('pbody').innerText.includes('开始倒逼') ? 'OK' : 'NO'`), 'OK');
 await ex(`startLine('T2')`); await sleep(800);
-check('⑥ 链头显示第 1 步', await ex(`document.querySelector('.chainhead')?.innerText.slice(0, 26) || '无'`), '第 1/');
-check('⑥ 只铺开这条线', await ex(`filter`), 'T2');
+check('⑩ 链头显示第 1 步', await ex(`document.querySelector('.chainhead')?.innerText.slice(0, 26) || '无'`), '第 1/');
+check('⑩ 只铺开这条线', await ex(`filter`), 'T2');
 
 const errs = events.filter(e => e.method === 'Runtime.exceptionThrown' || (e.method === 'Log.entryAdded' && e.params?.entry?.level === 'error')).filter(e => !/favicon/.test(JSON.stringify(e)));
 console.log(errs.length ? `\n❌ JS 报错 ${errs.length}:\n` + errs.map(e => JSON.stringify(e).slice(0, 160)).join('\n') : '\n✅ 0 条 JS 报错');
