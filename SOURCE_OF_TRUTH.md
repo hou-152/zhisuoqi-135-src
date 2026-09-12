@@ -6,6 +6,16 @@
 
 | 要找什么 | 去哪里 | 当前状态／备注 |
 |---|---|---|
+| **09-12 凌晨回填**（dbs-learning-beta、AB 测试、记忆方案 5 路极端推演） | `docs/交接-agent版-知所栖135.md` 开头的「09-12 凌晨回填」节 | 最新；**含对本文件下方记忆方案假设的推翻**，冲突时以该节为准 |
+| **对话总索引＋未落地清单**（全部 58 个对话的清单、产出映射、未落地结论差距分析、未裁决事项真实状态） | `docs/对话总索引-知所栖135.md` | 09-12 建；查「某个结论是从哪次对话来的」「哪条结论只在对话里没落盘」先读它 |
+| **对话原始留档**（DSH 56 + ZCode 2 个会话的可读 Markdown，只读证据） | `evidence/对话留档-知所栖135/`（含 `README.md` 与 `_index.json`） | 09-12 建；**不是结论**，结论仍以本文件与 `docs/`、`research/` 为准 |
+| **1/3/5 的来源会议**（56 分钟逐字转写，4 人，**「135」这个名字的诞生现场**） | `evidence/会议录音-选定1_3_5-20260910.md` | 09-12 由所有者提供原始 PDF 存入，含 SHA-256；**此前项目内没有这一段过程记录**（`docs/讨论会-PDF-文本提取.txt` 是另一场 9:53 的会）。结论：135 = 五个方向里的第 1/3/5 个，选它的依据是实现难度 + 流量 + 对企业讲得通，**不是学习理论**；会上未定内部次序 |
+| **外部参照截图**（所有者 09-12 05:03–05:38 提供，**此前散落在 DSH 附件库、未登记**） | `evidence/参考截图-20260912/` | 4 张：`Linear-Agent页`（**APP 视图规格的唯一依据**，见 `docs/交接-Codex执行版-知所栖135.md` §14）· `Marble官网`（概念图形式源头，1,590 skills / 3,221 links）· `candobear-学科图谱` 与 `candobear-智慧星球`（`docs/概念图视图-形态说明.md` §5「形式参考 candobear infra」的**原图**，3,598 主题 / 4,593 依赖） |
+| `dbs-learning-beta` skill（处理没有标准答案的课题） | `~/.agents/skills/dbs-learning-beta/`（**在项目外**） | 验证等级 3；`evals/` 下有快照、样本与逐候选结果 |
+| AB 测试（beta 判定层 × 135 通路） | `scripts/ab-learning-beta-test.mjs`、`evidence/ab-learning-beta-raw.json` | 预注册写在脚本头；3 问题 × 2 组，真实 LLM |
+| 学习记录存储与所有权（16 产品调研） | `research/学习记录-存储与所有权-16产品调研-20260912.md` | 47 条来源；含 19 项未核实清单 |
+| 同批子调研（Mochi／间隔重复／导出四产品） | `docs/调研-Mochi-学习记录-2026-09-12.md`、`docs/调研-间隔重复产品学习记录-2026-09-12.md`、`research/调研-学习记录导出-四产品-20260912.md` | 同批产出 |
+| **聊天室全文留档**（4 位专家 ×2 轮 + 5 路极端推演） | `research/聊天室记录-记忆方案-20260912.md` | 09-12 凌晨；末尾列了三条未裁决事项 |
 | 当前融合方案（llm_wiki × 135：三栏取舍、不做清单、48h 顺序） | `docs/135-llm_wiki-融合形态方案.md` | 当前版本，09-11 夜 |
 | **赛制要求与项目差距**（赛道、评审权重、必交材料、权威度字段实证、已否决方案） | `docs/知乎黑客松-赛制要求与项目差距.md` | 09-12；接新接口或改材料前先读 |
 | **08:30 讨论用分工说明**（1/3/5 各是什么、怎么试、深挖代价、交什么） | `docs/0912-0830讨论-135分工说明.md` | 09-12；发群版 |
@@ -23,13 +33,21 @@
 | 交接给下一个 agent | `docs/交接-agent版-知所栖135.md` | 主交接件，事实冲突时以它为准 |
 | 交接（发群／路演） | `docs/交接-人类版-知所栖135.md` | v3 |
 | 交接（整体粘给外部模型） | `docs/交接-DeepSeek粘贴版-知所栖135.md` | 自包含，不依赖本地文件 |
-| 可演示主产物 | `prototype/知所栖-135-基础框架.html` | v3.1，双击可开；61/61 自动验证通过；费曼验收层已加「限速器」 |
-| 本地服务与验证脚本 | `scripts/serve-135.mjs`、`scripts/verify-135.mjs`、`scripts/ab-feynman-test.mjs`、`scripts/ab-samples.template.json` | 见交接-agent版第 4 节命令 |
+| **交给 Codex 执行的交接件**（要做什么 / 边界 / 验收 / 任务清单 / **方法与参考来源总表** / **APP 视图规格** / **三条线合流**） | `docs/交接-Codex执行版-知所栖135.md` | 09-12 建并当日补章；**只承载任务，不承载事实**，事实冲突仍回 agent 版。含：决策状态快照 D1–D6、执行清单 E1–E11、目标形态与打包选型、**§11 方法总表**、**§12 参考来源总表**（GitHub/官方标准/学习科学文献，已核实与未核实分栏）、**§13 部署候选评估**、**§14 APP 视图规格（Linear 式，含「待判断 266」队列）**、**§15 概念框架与推进计划**、**§16 三条线合流（知乎 API × dbs-standard-answer × dbs-learning-beta）** |
+| 可演示主产物 | `prototype/知所栖-135-基础框架.html` | v3.1，双击可开；61/61 自动验证通过；费曼验收层已加「限速器」。09-12 07:43 由 Codex 修过模式状态与费曼兜底（提交 `8360359`） |
+| **壳：图 + 框架 + agent 三合一**（左栏 ＋ 底栏 `import`/`insert`/`Agent`） | `prototype/知所栖-壳.html` | **09-12 建，当日 08:2x 加策展层**。左栏五格：`知识体系` · **`策展`** · **`待你看一眼`** · `我在学` · `对话`。横轴**默认按主题分列**（10 条主题线，可切回按来源）。`Agent` 卡片改为**读 `.agents/skills/<name>/SKILL.md` 原文**当 system prompt（不是摘要）。源：`scripts/shell.template.html` ＋ `scripts/build-shell.mjs`。**必须经服务打开**：`node scripts/serve-135.mjs` → `http://127.0.0.1:5180/知所栖-壳.html`。验收脚本 `scripts/shot-shell.mjs`（无头 Chrome，带面板越界断言）；截图 `prototype/预览/4–9-壳-*.png`（旧）与 `10–18-壳-*.png`（策展层） |
+| **新手走查结论**（真实浏览器全流程、2 个 P0 演示风险、6 条卡点） | `docs/新手走查-135原型-260912.md` | 09-12；截图在 `output/playwright/`；**路演前先读，P0 都是改 `prototype/` 前需授权的项** |
+| **策展层说明（怎么做、怎么看、没做什么）** | `docs/策展层-194点10条线-20260912.md` | 09-12 建；含 10 条线的 `why` 原文、路线判据、边预判口径、成本与复现命令、**六条没做的事**（词表覆盖不均 / 数学线偏窄 / 边预判无第二来源复核 / 未铺开到 86 篇） |
+| **全量策展：194 个概念打主题标签 + 10 条策展路线** | `evidence/concept-curation-20260912.json`（生成器 `scripts/curate-concepts.mjs`） | **09-12 08:1x 建**。194/194 全部打标，0 条未分类；10 条主题线各带 `why`、入口（组内无前置且解锁最多）、路线（沿真实依赖边，最多 9 跳）、收敛点。用 DeepSeek 两次调用（词表 + 打标，约 42k tokens），**结果已缓存**在 `evidence/.curate-cache.json`，改判据不必重烧 |
+| **边策展：266 条候选边预判**（把「265 条待你判」降下来） | `evidence/concept-edges-curated-20260912.json`（生成器 `scripts/curate-edges.mjs`） | **09-12 08:1x 建**。逐条给 keep/skip/unsure + 把握 + 一句理由：**机器落地 250 条（采纳 169 / 跳过 81），只剩 16 条要人看**；unsure 5.3%，平均把握 0.618。缓存 `evidence/.curate-edges-cache.json`。**注意：`unsure` 才是留人的口径，不是把握阈值**——0.7 阈值会把 157 条模型其实判过的边误算成「没判」 |
+| **怎么调用 DBS skill（三层路径 + 实测回执）** | `docs/怎么调用DBS-skill-三层路径.md` | 09-12 建；回答所有者「怎么样去调用 DBS 的 skill」。三层：① Agent 会话里说触发语 ② 壳里 `Agent` 卡片（服务端读 SKILL.md 原文）③ `file://` 离线（会明说连不上，不假装）。**含没做的部分**：壳里无多轮编排、无工具调用、无写文件权限 |
+| 本地服务与验证脚本 | `scripts/serve-135.mjs`、`scripts/verify-135.mjs`、`scripts/ab-feynman-test.mjs`、`scripts/ab-samples.template.json`、`scripts/shot-shell.mjs` | 见交接-agent版第 4 节命令。**09-12 修三处**：① `decodeURIComponent(url.pathname)`——此前百分号编码不解码，**所有中文文件名的页面除 `/` 外全 404**；② `/api/llm` 加 `json:false` 开关——此前写死 `response_format: json_object`，对话类请求会被 DeepSeek 拒（400）；③ 新增 `GET /api/skills` 与 `POST /api/llm` 的 `skill` 字段——服务端读 `.agents/skills/<name>/SKILL.md` 原文当 system prompt（带 `^[a-z0-9-]+$` 目录穿越防护）。改完回归 **61/61 通过** |
 | LLM 接入配置（勿入库、勿展示） | `.private/llm.env` | 600，gitignored，DeepSeek；serve 自动加载；`/api/health` 看 `llm:true` |
 | AB 冒烟测试证据（**不是**实验结果） | `evidence/ab-feynman-smoke-test.json` | 09-12；只证三组跑通，样本太少无法区分 |
 | **代码仓库** | 本项目已 `git init`（09-12） | 4 个提交；`.private/` `.local/` `.mimosa/` `.DS_Store` `deploy/zhisuoqi/` 均已 gitignore；**未推 GitHub** |
 | 知乎 CLI 用法（勿跑 auth／init） | `docs/知乎CLI-项目安装与调用.md` | 凭证在 `.private/`，不入库 |
-| 知乎 API 能力盘点（额度实况、直答可用、问题推荐**不可用**） | `docs/AI内参-落地依据与形态收敛.md` 第 3.5 节 | 09-12 实测；接新接口前先读 |
+| **知乎 API 全量实测**（13 项接口矩阵、额度按天刷新、直答三模型差异、一处产品待修缺陷） | `docs/知乎API-实测-260912.md` | 09-12 02:00；原始输出在 `evidence/zhihu-api-全量实测-原始输出-260912.md`；接新接口或改路演边界前先读 |
+| 知乎 API 能力盘点（额度实况、直答可用、问题推荐**不可用**） | `docs/AI内参-落地依据与形态收敛.md` 第 3.5 节 | 09-12 实测；**其中三处结论已被上一行修订**（额度周期／`question answers` 可用／直答三模型） |
 | 早期过程材料（09-06，结论可能已过期） | `docs/从-Demo-倒推讨论.md`、`docs/反馈审查与修订方案.md`、`docs/小能熊-BoK-对标与规模边界.md`、`docs/GitHub-同类项目对标报告.md`、`docs/讨论会-PDF-文本提取.txt`、`docs/路演检验记录模板.md` | 只作背景，不作为当前结论 |
 | 证据与部署 | `evidence/`、`deploy/` | 按需 |
 | Agent 入口规则（Codex 等自动读取） | `AGENTS.md`（跨宿主入口）、`CLAUDE.md`（薄入口，指向 AGENTS.md） | 09-11 夜新增 |
@@ -43,14 +61,14 @@
 | `prototype/` | 可演示主产物（单文件 HTML） | 未经明确要求不修改 |
 | `scripts/` | 本地服务、自动验证、AB 实验脚本 | 产品代码改动不在本轮范围 |
 | `evidence/` | 原始证据与快照 | 结论性文档 |
-| `.agents/skills/zhihu/` | 项目内知乎 skill（含 SKILL.md） | 凭证 |
+| `.agents/skills/` | **项目内可执行 skill**：`zhihu/`（项目自建）＋ **14 个 dbs skill 副本**（`dbs` · `dbs-learning` · `dbs-standard-answer` · `dbs-learning-beta` · `dbs-deconstruct` · `dbs-jtbd` · `dbs-knowledge` · `dbs-decision` · `dbs-chatroom` · `dbs-theory-grounding` · `dbs-good-question` · `dbs-diagnosis` · `dbs-report` · `dbs-save`）。逐个用途与完整 38 个清单见同目录 `README.md` | **上游真身在 `~/.agents/skills/`，这里是副本，不会自动同步**；凭证 |
 | `.private/` | 凭证（600 权限） | **不入库、不展示、不提交** |
 
 ## 版本与冲突规则
 
 1. **本文件（`SOURCE_OF_TRUTH.md`）是项目级唯一权威**。`AGENTS.md` 与三份交接件都不得覆盖本文件的版本判断；它们与本文件冲突时，以本文件为准。
 2. `docs/` 与 `research/` 是文档真源；`/tmp/HANDOFF-*.md` 是旧版，重启即清空，**不得引用**。
-3. **三份交接件之间**以 `docs/交接-agent版-知所栖135.md` 为准；人类版与 DeepSeek 粘贴版面向不同读者，事实冲突时回到 agent 版与其引用的原始文件。（**作用域仅限三份交接件之间** —— 见第 1 条。）
+3. **三份交接件之间**以 `docs/交接-agent版-知所栖135.md` 为准；人类版与 DeepSeek 粘贴版面向不同读者，事实冲突时回到 agent 版与其引用的原始文件。（**作用域仅限三份交接件之间** —— 见第 1 条。）2026-09-12 新增的 `docs/交接-Codex执行版-知所栖135.md` **不在本规则内**：它是任务执行件，不承载事实。
 4. **`docs/交接-DeepSeek粘贴版-知所栖135.md` 按设计自包含**（粘贴给无文件访问的外部模型），**故意内联**了定位叙事等正文，因此会与活文件漂移。它是唯一允许正文重复的交接件；引用其内容时按「该文件所载日期」理解。
 5. **「定位叙事」正文唯一持有者 = `docs/交接-人类版-知所栖135.md` 第三节**；agent 版与 DeepSeek 版只放指针或摘要。**文件清单唯一持有者 = 本文件**；交接件一律不得再维护文件地图（`docs/交接-人类版-知所栖135.md` 第六节、`docs/交接-agent版-知所栖135.md` 第 8 节已于 2026-09-12 改为指针）。
 6. `docs/GitHub同类项目对标报告.md`（165 字节）只是指向 `docs/GitHub-同类项目对标报告.md` 的入口，以全文为准。
