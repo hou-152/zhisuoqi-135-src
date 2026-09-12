@@ -127,7 +127,17 @@ await step('内参：第六格能开、列表 10 篇、配图在', `closePanel()
     + '|' + document.querySelectorAll('#lp-body .row').length
     + '|' + document.querySelectorAll('.nei-hero svg').length
     + '|' + (document.querySelector('.nei-title') || {}).textContent`, want: 'ON|10|1|Using Agent Skills' });
-await step('内参：概念网络有卡', `neiTab('concept')`,
+// 内参的概念卡必须接回地图（所有者 2026-09-13 指出的漏项：内参那一栏曾是孤岛）
+await step('内参：概念网络已接回地图（不是孤岛）', `neiTab('concept')`,
+  { js: `(()=>{const x=document.getElementById('nei-body').innerText;
+    return (x.includes('已并进概念地图')?'有统计':'缺统计')+'|'+(document.querySelectorAll('#nei-body .tomap').length>0?'有跳转':'缺跳转')})()`,
+    want: '有统计|有跳转' });
+await step('内参：点概念名能跳到地图那张卡', null,
+  { js: `(()=>{const b=document.querySelector('#nei-body .tomap'); if(!b) return 'NO-BTN';
+    b.click(); const p=document.getElementById('panel');
+    return (p && p.classList.contains('on') ? 'OK' : 'NO') + '|' + (document.getElementById('reader').classList.contains('on') ? '阅读区没关' : '已回地图')})()`,
+    want: 'OK|已回地图' });
+await step('内参：概念网络有卡', `closePanel(); setView('neican'); neiTab('concept')`,
   { js: `document.querySelectorAll('#nei-body .concept').length > 3 ? 'OK' : 'NO'`, want: 'OK' });
 await step('内参：费曼 ×3 三格都在', `neiTab('feynman')`,
   { js: `document.querySelectorAll('#nei-body .fybox').length`, want: '3' });
