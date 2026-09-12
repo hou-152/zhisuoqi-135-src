@@ -45,7 +45,7 @@ function writeBlocked(files, reason) {
     schemaVersion: 1, runId: process.env.GITHUB_RUN_ID || null, pr: prNumber || null,
     headSha: process.env.HEAD_SHA || null, baseSha: process.env.BASE_SHA || null, evaluatorSha: baseSha,
     profiles: ['full'], environment: { runner: process.env.RUNNER_OS || 'github', os: process.platform, node: process.version },
-    scenarios: [{ id: 'TRUST-BOUNDARY-001', profile: 'full', status: 'BLOCKED', attempts: [{ attempt: 1, status: 'BLOCKED', error: reason }], artifacts: [] }],
+    scenarios: [{ id: 'TRUST-BOUNDARY-001', profile: 'full', expected: '可信 evaluator、测试契约和数据边界未经 PR 自行改写', actual: reason, status: 'BLOCKED', attempts: [{ attempt: 1, status: 'BLOCKED', error: reason }], artifacts: [] }],
     verdict: 'BLOCKED', limitations: ['可信闸门检测到执行器、测试契约、mock、地图或桌面边界变更，需人工审查后再运行。'],
     changedFiles: files,
   };

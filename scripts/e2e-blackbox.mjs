@@ -50,6 +50,9 @@ let chrome;
 let cdp;
 const errors = [];
 const network = [];
+const traceEvents = [];
+let traceDone = null;
+let tracingStarted = false;
 const safeName = (s) => String(s).replace(/[^\w\-\u4e00-\u9fff]+/g, '_').slice(0, 70);
 const pageText = () => cdp.eval('document.body ? document.body.innerText : ""');
 const pageUrl = () => cdp.eval('location.href');
@@ -100,7 +103,14 @@ async function step(scenario, label, action, predicate, timeoutMs = 12000) {
   if (action) expect(await action(), `${label}：找不到可操作的界面元素`);
   if (predicate) expect(await waitForText(predicate, timeoutMs), `${label}：未看到「${predicate}」`);
   const evidence = await saveEvidence(`${scenario.id}-${label}`);
-  scenario.steps.push({ label, status: 'PASS', durationMs: Date.now() - started, evidence });
+  scenario.steps.push({
+    label,
+    expected: predicate ? `页面包含「${predicate}」` : '用户可见操作元素存在并可操作',
+    actual: `断言通过；详见 ${evidence.text}`,
+    status: 'PASS',
+    durationMs: Date.now() - started,
+    evidence,
+  });
 }
 
 async function navigate(url = URL_) {
@@ -109,7 +119,11 @@ async function navigate(url = URL_) {
 }
 
 async function runCore() {
-  const s = { id: 'E2E-CORE-001', status: 'PASS', attempts: 1, steps: [], artifacts: [] };
+  const s = {
+    id: 'E2E-CORE-001',
+    expected: contract.scenarios.find(x => x.id === 'E2E-CORE-001')?.pass || '所有 135 用户路径断言通过',
+    status: 'PASS', attempts: 1, steps: [], artifacts: [],
+  };
   const longAnswer = '景别是取景距离决定画面信息量，远景交代环境，近景聚焦情绪和细节，单一景别连续使用会像 PPT。运镜是在时间轴上引导注意力和视线，推是强调、拉是交代、摇是展示空间、移是跟随；不动或固定机位会让画面呆。镜头提示词的结构是景别、运镜、主体动作、光线和风格，要逐镜头写分镜，写清怎么变、动作和运动，而不是只写静态的是什么。';
   try {
     await step(s, '首屏', null, '互动阅读器');
@@ -134,16 +148,22 @@ async function runCore() {
     const recovered = await pageText();
     expect(recovered.includes('✓ 已开始') && recovered.includes('✓ 已决策') && recovered.includes('✓ 已动手'), '刷新后没有看到已恢复的主流程状态');
     s.artifacts.push(await saveEvidence('E2E-CORE-001-刷新后状态'));
+    s.actual = '所有黑盒步骤通过；刷新后仍显示已开始、已决策、已动手';
   } catch (e) {
     s.status = 'FAIL';
     s.error = e.message;
+    s.actual = `断言失败：${e.message}`;
     s.artifacts.push(await saveEvidence('E2E-CORE-001-失败'));
   }
   result.scenarios.push(s);
 }
 
 async function runDependencyFailure() {
-  const s = { id: 'E2E-FAIL-002', status: 'PASS', attempts: 1, steps: [], artifacts: [] };
+  const s = {
+    id: 'E2E-FAIL-002',
+    expected: contract.scenarios.find(x => x.id === 'E2E-FAIL-002')?.pass || '失败状态可见且不冒充通过',
+    status: 'PASS', attempts: 1, steps: [], artifacts: [],
+  };
   try {
     const mock = fs.readFileSync(path.join(ROOT, 'evidence', 'mock', 'mock-fetch.js'), 'utf8');
     await cdp.send('Page.addScriptToEvaluateOnNewDocument', { source: mock });
@@ -158,25 +178,32 @@ async function runDependencyFailure() {
     const text = await pageText();
     expect(!text.includes('验收通过'), '依赖失败被错误显示为验收通过');
     s.artifacts.push(await saveEvidence('E2E-FAIL-002-依赖失败'));
+    s.actual = '页面显示有漏点，且没有显示验收通过';
   } catch (e) {
     s.status = 'FAIL';
     s.error = e.message;
+    s.actual = `断言失败：${e.message}`;
     s.artifacts.push(await saveEvidence('E2E-FAIL-002-失败'));
   }
   result.scenarios.push(s);
 }
 
 async function runBoundary() {
-  const s = { id: 'E2E-BOUNDARY-003', status: 'PASS', attempts: 1, steps: [], artifacts: [] };
+  const s = {
+    id: 'E2E-BOUNDARY-003',
+    expected: contract.scenarios.find(x => x.id === 'E2E-BOUNDARY-003')?.pass || '空输入被明确拒绝',
+    status: 'PASS', attempts: 1, steps: [], artifacts: [],
+  };
   try {
     await cdp.send('Page.navigate', { url: URL_ + '#/feynman' });
     expect(await waitForText('费曼演练室', 20000), '边界场景未进入费曼页');
     expect(await fill('#feyn-input', ''), '边界场景输入框不存在');
     expect(await clickVisible('开始检验'), '边界场景按钮不存在');
     expect(await waitForText('再多写几句', 5000), '空输入没有显示明确约束');
+    s.actual = '空输入显示再多写几句，未发起无效判定';
     s.artifacts.push(await saveEvidence('E2E-BOUNDARY-003-空输入'));
   } catch (e) {
-    s.status = 'FAIL'; s.error = e.message;
+    s.status = 'FAIL'; s.error = e.message; s.actual = `断言失败：${e.message}`;
     s.artifacts.push(await saveEvidence('E2E-BOUNDARY-003-失败'));
   }
   result.scenarios.push(s);
@@ -191,6 +218,8 @@ try {
   const target = await waitForPage(PORT, { attempts: 80, intervalMs: 250 });
   if (!target) throw new Error(`Chrome 调试端口没起来（${CHROME}）`);
   cdp = await openCDP(target.webSocketDebuggerUrl, { onEvent: event => {
+    if (event.method === 'Tracing.dataCollected') traceEvents.push(...(event.params?.value || []));
+    if (event.method === 'Tracing.tracingComplete') { traceDone?.(); traceDone = null; }
     if (event.method === 'Network.requestWillBeSent') {
       network.push({ method: event.params.request?.method, url: event.params.request?.url });
     }
@@ -202,6 +231,10 @@ try {
     }
   }});
   await cdp.send('Page.enable'); await cdp.send('Runtime.enable'); await cdp.send('Log.enable'); await cdp.send('Network.enable');
+  try {
+    await cdp.send('Tracing.start', { categories: 'devtools.timeline,devtools.network', options: 'record-until-full' });
+    tracingStarted = true;
+  } catch { /* trace 是辅助证据，不能遮蔽产品断言 */ }
   await navigate();
   if (!FAILURE_ONLY) {
     await runCore();
@@ -211,10 +244,21 @@ try {
 } catch (e) {
   result.runnerError = e.message;
 } finally {
+  if (tracingStarted && cdp) {
+    try {
+      const done = new Promise(resolve => {
+        traceDone = resolve;
+        setTimeout(resolve, 3000).unref();
+      });
+      await cdp.send('Tracing.end');
+      await done;
+    } catch { /* trace 收集失败仍保留其它证据 */ }
+  }
   result.consoleErrors = errors;
   result.network = network.map(item => ({ ...item, url: String(item.url || '').split('?')[0] }));
   fs.writeFileSync(path.join(OUT, 'network.json'), JSON.stringify(result.network, null, 2));
-  result.artifacts = [...(result.artifacts || []), 'network.json'];
+  fs.writeFileSync(path.join(OUT, 'browser-trace.json'), JSON.stringify({ traceEvents }, null, 2));
+  result.artifacts = [...(result.artifacts || []), 'network.json', 'browser-trace.json'];
   result.verdict = result.runnerError ? 'BLOCKED' : result.scenarios.some(s => s.status === 'FAIL') ? 'FAIL' : 'PASS';
   fs.writeFileSync(RESULT, JSON.stringify(result, null, 2));
   cdp?.close();

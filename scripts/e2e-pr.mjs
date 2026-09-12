@@ -74,7 +74,7 @@ function command(command, args, { cwd = ROOT, timeout = timeoutMs, label } = {})
 
 function safeLabel(s) { return String(s).replace(/[^\w\-]+/g, '_').slice(0, 80); }
 
-async function startStaticServer(directory, port) {
+async function startStaticServer(directory, port, label = `static-${port}`) {
   const child = spawn('python3', ['-m', 'http.server', String(port), '--bind', '127.0.0.1'], {
     cwd: directory, env, detached: true, stdio: ['ignore', 'pipe', 'pipe'],
   });
@@ -90,7 +90,17 @@ async function startStaticServer(directory, port) {
     try { process.kill(-child.pid, 'SIGTERM'); } catch { child.kill('SIGTERM'); }
     throw new Error(`静态服务未就绪：${directory}；${redact(err || out).slice(0, 300)}`);
   }
-  return { child, stop: () => { try { process.kill(-child.pid, 'SIGTERM'); } catch { child.kill('SIGTERM'); } } };
+  const stdoutFile = path.join(ARTIFACTS, `${safeLabel(label)}.stdout.log`);
+  const stderrFile = path.join(ARTIFACTS, `${safeLabel(label)}.stderr.log`);
+  return {
+    child,
+    logFiles: [path.basename(stdoutFile), path.basename(stderrFile)],
+    writeLogs: () => {
+      fs.writeFileSync(stdoutFile, redact(out));
+      fs.writeFileSync(stderrFile, redact(err));
+    },
+    stop: () => { try { process.kill(-child.pid, 'SIGTERM'); } catch { child.kill('SIGTERM'); } },
+  };
 }
 
 function changedFiles() {
@@ -122,6 +132,7 @@ async function selectProfiles() {
 }
 
 async function runScenario(profile, scenario, fn, { retries = RETRIES } = {}) {
+  const expected = contract.scenarios.find(x => x.id === scenario)?.pass || '命令成功退出（exit code 0）';
   const attempts = [];
   for (let attempt = 1; attempt <= retries + 1; attempt++) {
     const started = Date.now();
@@ -133,10 +144,19 @@ async function runScenario(profile, scenario, fn, { retries = RETRIES } = {}) {
     attempts.push({ attempt, status, durationMs: Date.now() - started, command: r.command, args: r.args,
       artifacts: r.artifacts || [], error: r.spawnError || (r.code ? redact((r.stderr || r.stdout || '').slice(-1200)) : undefined) });
     if (status === 'PASS') {
-      return { id: scenario, profile, status: attempt > 1 ? 'UNSTABLE' : 'PASS', attempts, artifacts: r.artifacts || [] };
+      const finalStatus = attempt > 1 ? 'UNSTABLE' : 'PASS';
+      return {
+        id: scenario, profile, expected,
+        actual: finalStatus === 'PASS' ? '机器断言通过' : '重试后通过，首次执行失败',
+        status: finalStatus, attempts, artifacts: r.artifacts || [],
+      };
     }
     if (attempt <= retries) continue;
-    return { id: scenario, profile, status, attempts, artifacts: r.artifacts || [] };
+    return {
+      id: scenario, profile, expected,
+      actual: status === 'BLOCKED' ? `执行被阻塞：${attempts.at(-1)?.error || '环境不可用'}` : `机器断言失败：${attempts.at(-1)?.error || '无额外错误信息'}`,
+      status, attempts, artifacts: r.artifacts || [],
+    };
   }
 }
 
@@ -155,7 +175,7 @@ async function runProfile(profile) {
     for (const [id, args] of commands) scenarios.push(await runScenario(profile, id, () => node(...args)));
   }
   if (profile === 'core-135') {
-    const staticServer = await startStaticServer(path.join(ROOT, 'prototype'), 5198);
+    const staticServer = await startStaticServer(path.join(ROOT, 'prototype'), 5198, 'core-static');
     try {
       const out = path.join(ARTIFACTS, 'core-blackbox'); fs.mkdirSync(out, { recursive: true });
       const coreResult = path.join(out, 'e2e-blackbox.json');
@@ -191,20 +211,28 @@ async function runProfile(profile) {
           for (const value of values.filter(Boolean)) failureEntry.artifacts.push(path.join('failure-blackbox', value));
         }
       } catch { /* wrapper row still carries stdout/stderr */ }
-    } finally { staticServer.stop(); }
+    } finally {
+      staticServer.stop();
+      staticServer.writeLogs();
+      if (scenarios[0]) scenarios[0].artifacts.push(...staticServer.logFiles);
+    }
   }
   if (profile === 'shell-public') {
     const dir = path.join(ROOT, 'deploy', 'zhisuoqi-135');
     if (!fs.existsSync(path.join(dir, 'index.html'))) {
-      scenarios.push({ id: 'PUBLIC-ARTIFACT', profile, status: 'BLOCKED', attempts: [{ attempt: 1, status: 'BLOCKED', error: 'deploy/zhisuoqi-135/index.html 不存在' }] });
+      scenarios.push({ id: 'PUBLIC-ARTIFACT', profile, expected: '公网单文件存在并可启动', actual: 'deploy/zhisuoqi-135/index.html 不存在', status: 'BLOCKED', attempts: [{ attempt: 1, status: 'BLOCKED', error: 'deploy/zhisuoqi-135/index.html 不存在' }], artifacts: [] });
     } else {
-      const server = await startStaticServer(dir, 5199);
+      const server = await startStaticServer(dir, 5199, 'public-static');
       try { scenarios.push(await runScenario(profile, 'E2E-PUBLIC-004', () => node('scripts/check-public.mjs', 'http://zhisuoqi-135.test:5199/'))); }
-      finally { server.stop(); }
+      finally {
+        server.stop();
+        server.writeLogs();
+        if (scenarios[0]) scenarios[0].artifacts.push(...server.logFiles);
+      }
     }
   }
   if (profile === 'desktop') {
-    if (process.platform !== 'darwin') scenarios.push({ id: 'E2E-DESKTOP-005', profile, status: 'NOT_APPLICABLE', attempts: [], artifacts: [] });
+    if (process.platform !== 'darwin') scenarios.push({ id: 'E2E-DESKTOP-005', profile, expected: 'macOS Electron 启动、真文件保存和越界拒绝', actual: `当前平台 ${process.platform} 不支持 Electron profile`, status: 'NOT_APPLICABLE', attempts: [], artifacts: [] });
     else scenarios.push(await runScenario(profile, 'E2E-DESKTOP-005', () => node('scripts/test-app.mjs')));
   }
   return scenarios;
@@ -214,7 +242,7 @@ const profiles = await selectProfiles();
 const all = [];
 for (const profile of profiles) {
   try { all.push(...await runProfile(profile)); }
-  catch (e) { all.push({ id: `${profile.toUpperCase()}-PROFILE`, profile, status: 'BLOCKED', attempts: [{ attempt: 1, status: 'BLOCKED', error: e.message }] }); }
+  catch (e) { all.push({ id: `${profile.toUpperCase()}-PROFILE`, profile, expected: 'profile 内全部必需场景可执行', actual: `profile 被阻塞：${e.message}`, status: 'BLOCKED', attempts: [{ attempt: 1, status: 'BLOCKED', error: e.message }] }); }
 }
 
 const statuses = all.map(x => x.status);

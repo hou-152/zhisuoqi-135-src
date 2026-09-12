@@ -25,6 +25,7 @@ const classify = (scenario) => {
   if (scenario.status === 'NOT_APPLICABLE') return ['不适用', '该 profile 不适用于当前运行平台或变更范围。'];
   return ['通过', '所有机器断言通过。'];
 };
+const cell = (value) => String(value || '—').replaceAll('|', '\\|').replaceAll('\n', ' ');
 
 const lines = [];
 lines.push('# 知所栖 135 · PR E2E 验收报告', '');
@@ -36,15 +37,16 @@ lines.push(`- 合并候选 SHA：${data.candidateSha || '未知'}`);
 lines.push(`- evaluator SHA：${data.evaluatorSha || '未知'}`);
 lines.push(`- profile：${(data.profiles || []).join('、') || '未知'}`);
 lines.push(`- 环境：${data.environment?.runner || 'local'} / ${data.environment?.os || '未知'} / ${data.environment?.node || '未知'}`, '');
-lines.push('## 场景结果', '', '| 场景 | Profile | 状态 | 解释分类 | 证据 |', '|---|---|---|---|---|');
+lines.push('## 场景结果', '', '| 场景 | Profile | 状态 | 预期 | 实际 | 解释分类 | 证据 |', '|---|---|---|---|---|---|---|');
 for (const scenario of data.scenarios || []) {
   const [kind, reason] = classify(scenario);
   const evidence = (scenario.artifacts || []).map(x => `\`${typeof x === 'string' ? x : (x.text || x.screenshot || '')}\``).filter(Boolean).join('<br>') || '—';
-  lines.push(`| ${scenario.id} | ${scenario.profile || '—'} | **${scenario.status}** | ${kind}：${reason} | ${evidence} |`);
+  lines.push(`| ${cell(scenario.id)} | ${cell(scenario.profile)} | **${cell(scenario.status)}** | ${cell(scenario.expected || '参照固定契约')} | ${cell(scenario.actual || '见 attempts 与证据')} | ${cell(kind)}：${cell(reason)} | ${evidence} |`);
 }
 lines.push('', '## 自动合并闸门', '', `required check 只读取机器结论 **${data.verdict || 'UNKNOWN'}**。只有 ` +
   '`PASS` 才能进入可信 workflow 的最新 SHA、分支保护和无新提交检查；AI 摘要、截图或主观意见不能把 FAIL、BLOCKED、UNSTABLE 改成 PASS。', '');
 lines.push('## 限制和复核入口', '');
+lines.push('- AI 解释：当前未调用模型；本报告使用零密钥确定性分类。未来模型只能读取本回执和脱敏证据，不能改写机器结论。');
 for (const item of data.limitations || []) lines.push(`- ${item}`);
 lines.push('- 本报告没有检出、安装或执行 PR 之外的修复代码。', '- 真实 LLM、知乎检索和生产凭证不在普通 PR 闸门内。', '');
 lines.push('## 证据索引', '');
