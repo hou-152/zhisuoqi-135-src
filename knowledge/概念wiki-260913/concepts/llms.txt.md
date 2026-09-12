@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: context-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.067
+centrality: 0.072
 depth: 0
 origin: [notion]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 站点根目录下面向 AI 的 Markdown 文件，类似 robots.txt，写清站点做什么、关键页面与作者，供 AI 检索时优先读取。
 
-**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
+**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,13 +36,13 @@ robots.txt 告诉爬虫"哪些能爬"，llms.txt 告诉 AI"我是什么"。一�
 
 > 你会怎么为站点写 {{name}} 来让 AI 优先理解内容？
 
-## 懂了它才能懂（解锁 2）
+## 懂了它才能懂（解锁 1）
 
 - [[llms-full.txt]] — 它是 llms.txt 的完整版，不懂概要版就不知它多出哪些内容
-- [[Markdown 路由]] — 两者都是给 AI 读的站点文本形态，懂 llms.txt 更易理解路由动机
 
 ## 相关
 
+- [[Markdown 路由]] · related-to（audit） — Markdown 路由与 llms.txt 是并列的两种「给 AI 读的站点文本」，动机（压缩 token）不依赖 llms.txt 即可懂，仅是同类相邻，最多算 soft 或踢出。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -52,8 +52,5 @@ robots.txt 告诉爬虫"哪些能爬"，llms.txt 告诉 AI"我是什么"。一�
 - Notion 概念库 ｜ Notion 概念库 ｜ https://app.notion.com/p/llms-txt-3b1679b108ff835497f4017954505ce7
 ## 反链
 
-- [[外包思考，但不外包理解]]
-- [[Agent-Native Infrastructure]]
 - [[llms-full.txt]]
 - [[Markdown 路由]]
-- [[Sensors 与 Actuators]]

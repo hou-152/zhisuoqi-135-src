@@ -4,10 +4,10 @@ name: 技能化
 nameEn: Skills
 type: REPRESENTATIONAL
 subject: Context Engineering
-domain: loop-autonomy
+domain: harness-runtime
 learningStage: when-needed
 verification: use
-centrality: 0.017
+centrality: 0.126
 depth: 0
 origin: [context]
 aliases: ["Skills"]
@@ -18,7 +18,7 @@ sources: 1
 
 > 把值得重复的工作流固化为可复用技能，让学习复利累积，可斜杠命令手动触发或在相关时自动应用。
 
-**领域** loop-autonomy ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -37,11 +37,10 @@ sources: 1
 
 > 把哪个重复工作流做成{{name}}后，下次能直接复用？
 
-## 相关
+## 懂了它才能懂（解锁 2）
 
-- [[交接模型 handoff model]] · 同篇出现（co-occurrence） — 同篇出现：context-11
-- [[复杂被误认为精密 complexity looked like sophistication]] · 同篇出现（co-occurrence） — 同篇出现：context-11
-- [[流程即工作 the process became the work]] · 同篇出现（co-occurrence） — 同篇出现：context-11
+- [[Thin Harness, Fat Skills]] — 不懂技能化，就没有 fat skills 这个构件可用，thin harness 也就无从立起
+- [[纠正成本递减 correct things less from that point on]] — 不懂技能化带来的学习复利，就说不清收益为何会从当轮起持续降低纠偏量
 
 ## 出场
 
@@ -53,6 +52,5 @@ sources: 1
 
 ## 反链
 
-- [[交接模型 handoff model]]
-- [[流程即工作 the process became the work]]
-- [[复杂被误认为精密 complexity looked like sophistication]]
+- [[Thin Harness, Fat Skills]]
+- [[纠正成本递减 correct things less from that point on]]

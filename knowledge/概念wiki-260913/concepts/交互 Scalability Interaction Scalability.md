@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: agent-org
 learningStage: deep-dive
 verification: judge
-centrality: 0.042
-depth: 1
+centrality: 0.017
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 当 Agent 产出速度远超人类注意力时，人应当通过什么界面来有效 steer 整个系统。
 
-**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,12 +36,9 @@ agent 产出速度远超人类注意力时，人应该通过什么界面来 stee
 
 > {{name}} 要解决的核心矛盾是什么？
 
-## 先懂这些（前置 1）
-
-- [[二八反转]] · **soft** — 二八反转说 80% 交互经 agent，才需要新界面 steer 系统，先懂交互 scalability 更顺。
-
 ## 相关
 
+- [[二八反转]] · related-to（audit） — 二八反转只是背景趋势与动机；且理由句本身把方向说反（写成『先懂交互 scalability』），概念可独立成立。
 - [[时间 Scalability Temporal Scalability]] · 同篇出现（co-occurrence） — 同篇出现：harness-A1
 - [[空间 Scalability Spatial Scalability]] · 同篇出现（co-occurrence） — 同篇出现：harness-A1
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-A1
@@ -52,6 +49,6 @@ agent 产出速度远超人类注意力时，人应该通过什么界面来 stee
 ## 反链
 
 - [[Harness 工程 Harness Engineering]]
+- [[时间 Scalability Temporal Scalability]]
 - [[二八反转]]
 - [[空间 Scalability Spatial Scalability]]
-- [[时间 Scalability Temporal Scalability]]

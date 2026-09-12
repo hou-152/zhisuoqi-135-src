@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: loop-autonomy
 learningStage: when-needed
 verification: judge
-centrality: 0.042
-depth: 3
+centrality: 0.072
+depth: 1
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 研究、监督和维护主系统的外循环，汇集反馈、评估与人的输入，方向与重要决定由人定。
 
-**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 

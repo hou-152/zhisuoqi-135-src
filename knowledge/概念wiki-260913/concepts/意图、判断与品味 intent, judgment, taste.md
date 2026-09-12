@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: thinking-method
 learningStage: deep-dive
 verification: judge
-centrality: 0.042
-depth: 0
+centrality: 0.072
+depth: 1
 origin: [context]
 aliases: ["intent, judgment, taste"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 机械环节交给 agent 之后留给人的高价值部分：人应把时间花在意图、判断与品味上，而非管理流程。
 
-**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -37,15 +37,13 @@ sources: 1
 
 > 阶段压缩后，{{name}} 里哪些部分该留给人？
 
-## 懂了它才能懂（解锁 1）
+## 先懂这些（前置 1）
 
-- [[概念性工作与“概念车”]] — 判断概念工作值不值得推进，靠的正是人的判断与品味而非流程。
+- [[Taste]] · **soft** — 不懂 Taste，就做不了意图、判断与品味的「说清人该把时间花在哪三样高价值事情上」
 
 ## 相关
 
-- [[交接模型 handoff model]] · 同篇出现（co-occurrence） — 同篇出现：context-11
-- [[复杂被误认为精密 complexity looked like sophistication]] · 同篇出现（co-occurrence） — 同篇出现：context-11
-- [[流程即工作 the process became the work]] · 同篇出现（co-occurrence） — 同篇出现：context-11
+- [[Scaffolding Metaphor]] · rejected（audit） — 依赖方只主张人聚焦意图、判断与品味，不涉及判断 agent 该撤走；脚手架隐喻是额外应用，非前置。
 
 ## 出场
 
@@ -57,7 +55,5 @@ sources: 1
 
 ## 反链
 
-- [[交接模型 handoff model]]
-- [[流程即工作 the process became the work]]
-- [[概念性工作与“概念车”]]
-- [[复杂被误认为精密 complexity looked like sophistication]]
+- [[Taste]]
+- [[Scaffolding Metaphor]]

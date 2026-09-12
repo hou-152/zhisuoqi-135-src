@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: loop-autonomy
 learningStage: now
 verification: judge
-centrality: 0.042
+centrality: 0.072
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 识别 loop 仍在消耗预算却没有推进任务的机制，属于生产 loop 的硬停止条件之一。
 
-**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -38,10 +38,11 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[漂移与隧道视野 drift & tunnel vision]] · **soft** — 无进展是漂移的典型表现，检测它需先理解这种退化。
+- [[范围控制与显式的完成定义]] · **soft** — 不懂【范围控制与显式的完成定义】，就做不了【No-progress detection】的“判断 loop 是否推进任务”。
 
 ## 相关
 
+- [[漂移与隧道视野 drift & tunnel vision]] · related-to（audit） — 无进展≠漂移，是相关但不同的退化；检测机制（消耗预算 vs 任务推进）可独立成立
 - [[Model as subroutine]] · 同篇出现（co-occurrence） — 同篇出现：harness-15
 - [[Continuous orchestration loop]] · 同篇出现（co-occurrence） — 同篇出现：harness-15
 - [[Loop Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-15
@@ -54,4 +55,5 @@ sources: 1
 - [[Loop Engineering]]
 - [[漂移与隧道视野 drift & tunnel vision]]
 - [[Continuous orchestration loop]]
+- [[范围控制与显式的完成定义]]
 - [[Model as subroutine]]

@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: loop-autonomy
 learningStage: when-needed
 verification: use
-centrality: 0.042
-depth: 1
+centrality: 0.072
+depth: 5
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 每个周期结束由 judge agent 判定是否继续，下一轮从头开始，以对抗漂移与隧道视野。
 
-**领域** loop-autonomy ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** loop-autonomy ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -43,15 +43,15 @@ sources: 1
 ## 相关
 
 - [[长时程自治编码 long-running autonomous coding]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
-- [[单 agent 的速度天花板]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
 - [[动态协调 dynamic coordination]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
+- [[单 agent 的速度天花板]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
 
 ## 出场
 
 - Harness Engineering ｜ 《Cursor：让 coding agent 连续自治运行数周的工程经验》 ｜ https://cursor.com/blog/scaling-agents
 ## 反链
 
-- [[漂移与隧道视野 drift & tunnel vision]]
-- [[动态协调 dynamic coordination]]
-- [[单 agent 的速度天花板]]
 - [[长时程自治编码 long-running autonomous coding]]
+- [[动态协调 dynamic coordination]]
+- [[漂移与隧道视野 drift & tunnel vision]]
+- [[单 agent 的速度天花板]]

@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: agent-org
 learningStage: when-needed
 verification: judge
-centrality: 0.067
-depth: 2
+centrality: 0.017
+depth: 0
 origin: [context]
 aliases: ["compression"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > agent 吸收程序性工作后，原本分离的规划、实现、代码评审三个阶段开始合并压缩。
 
-**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
+**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -37,20 +37,6 @@ agent 把"移除开销"推得更远的机制。随着 agent 吸收程序性工�
 
 > {{name}} 指的是哪三个阶段开始合并？
 
-## 先懂这些（前置 1）
-
-- [[交接模型 handoff model]] · **hard** — 规划/实现/评审的分离源于旧交接范式，不懂它就看不懂为何压缩融合。
-
-## 懂了它才能懂（解锁 1）
-
-- [[Implementation 能力]] — 想法一两小时落成，源于规划、实现、评审三阶段被压缩融合。
-
-## 相关
-
-- [[交接模型 handoff model]] · 同篇出现（co-occurrence） — 同篇出现：context-11
-- [[复杂被误认为精密 complexity looked like sophistication]] · 同篇出现（co-occurrence） — 同篇出现：context-11
-- [[流程即工作 the process became the work]] · 同篇出现（co-occurrence） — 同篇出现：context-11
-
 ## 出场
 
 - Context Engineering ｜ 《产品开发的下一阶段由上下文与行动能力驱动》 ｜ https://linear.app/next
@@ -58,10 +44,3 @@ agent 把"移除开销"推得更远的机制。随着 agent 吸收程序性工�
 ## 别名
 
 `compression`
-
-## 反链
-
-- [[交接模型 handoff model]]
-- [[流程即工作 the process became the work]]
-- [[Implementation 能力]]
-- [[复杂被误认为精密 complexity looked like sophistication]]

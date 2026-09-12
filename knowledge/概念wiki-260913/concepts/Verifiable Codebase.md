@@ -1,13 +1,13 @@
 ---
 id: cm_063155cf
 name: Verifiable Codebase
-type: PROCEDURAL
+type: CONCEPTUAL
 subject: Harness Engineering
 domain: verification-eval
 learningStage: when-needed
 verification: use
-centrality: 0.092
-depth: 2
+centrality: 0.072
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 让 agent 有可靠工具验证改动的代码库，如 Playwright CLI、关键 E2E 测试、只读 verifier agent。
 
-**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.092
+**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,17 +36,14 @@ verifiable 指 agent 有可靠工具验证改动。作者推荐 Playwright CLI�
 
 > 你会怎样把一个代码库改造成 {{name}}？
 
-## 先懂这些（前置 2）
-
-- [[Verifiability]] · **hard** — 可验证代码库是可验证性在工程环境中的落地形态。
-- [[Read-only Verifier Agent]] · **soft** — 只读验证 agent 是可验证代码库所依赖的工具之一。
-
 ## 懂了它才能懂（解锁 1）
 
 - [[Self-verification loop]] — 闭环靠浏览器、测试等可验证工具支撑。
 
 ## 相关
 
+- [[Verifiability]] · related-to（audit） — Verifiability 是任务级的 RL 奖励信号属性，Verifiable Codebase 是工程落地形态，二者更像并列的抽象/实例关系；不懂 RL 意义上的 verifiability，靠字面「可验证」也能立住，甚至方向很可能是反
+- [[Read-only Verifier Agent]] · related-to（audit） — B 只是 A 列举的验证工具之一；不懂只读 verifier 仍能通过测试/Playwright 理解可验证代码库。
 - [[Loop Engineer]] · 同篇出现（co-occurrence） — 同篇出现：harness-16
 - [[Agent loop]] · 同篇出现（co-occurrence） — 同篇出现：harness-16
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-16
@@ -57,7 +54,7 @@ verifiable 指 agent 有可靠工具验证改动。作者推荐 Playwright CLI�
 ## 反链
 
 - [[Agent loop]]
-- [[Read-only Verifier Agent]]
 - [[Self-verification loop]]
-- [[Verifiability]]
 - [[Loop Engineer]]
+- [[Verifiability]]
+- [[Read-only Verifier Agent]]

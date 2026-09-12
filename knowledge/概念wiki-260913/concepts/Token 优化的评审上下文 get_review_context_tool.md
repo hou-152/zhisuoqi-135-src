@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.017
-depth: 0
+centrality: 0.072
+depth: 1
 origin: [context]
 aliases: ["get_review_context_tool"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > MCP 工具 get_review_context_tool，输出 156–207 token 的结构化评审摘要。
 
-**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -37,11 +37,15 @@ sources: 1
 
 > {{name}} 返回什么，覆盖哪三类结构信息？
 
+## 先懂这些（前置 1）
+
+- [[just in time 上下文检索]] · **soft** — 不懂【just in time 上下文检索】，就做不了【Token 优化的评审上下文】的 ⟨按需拉取评审摘要而非全量注入⟩
+
 ## 相关
 
+- [[持久化代码图谱 structural map graph]] · 同篇出现（co-occurrence） — 同篇出现：context-16
 - [[code-review-graph]] · 同篇出现（co-occurrence） — 同篇出现：context-16
 - [[Tree-sitter]] · 同篇出现（co-occurrence） — 同篇出现：context-16
-- [[持久化代码图谱 structural map graph]] · 同篇出现（co-occurrence） — 同篇出现：context-16
 
 ## 出场
 
@@ -55,4 +59,5 @@ sources: 1
 
 - [[持久化代码图谱 structural map graph]]
 - [[code-review-graph]]
+- [[just in time 上下文检索]]
 - [[Tree-sitter]]

@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: code-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.067
+centrality: 0.126
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 把规则或单测驱动的 CI/CD 升级为 AI 驱动测试、日志与事故读取、Agent 驱动的缺陷分诊与修复。
 
-**领域** code-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
+**领域** code-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,16 +36,14 @@ Creao 将传统 rule-based 或 unit testing driven 的 CI/CD 升级为 AI-driven
 
 > {{name}}相比传统 CI/CD 多了哪几步？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
-- [[工具—工作流适配]] · **soft** — 引入 AI 驱动 CI 后须重写 reviewer 工作流，否则评审成本反升。
-
-## 懂了它才能懂（解锁 1）
-
-- [[Executable Codebase]] — 可执行代码库让 agent 低成本启动并测试，是 CI 自动验证的前提。
+- [[Executable Codebase]] · **soft** — 可执行代码库让 agent 低成本启动并测试，是 CI 自动验证的前提。
+- [[docsdecisions]] · **soft** — 不懂【docs/decisions/】，就做不了【Agent-driven CI/CD】的「让 Agent 按既有架构决策正确分诊修复」
 
 ## 相关
 
+- [[工具—工作流适配]] · related-to（audit） — 「工具—工作流适配」是引入 AI 驱动 CI 后的连带后果/权衡，不是理解 CI/CD 升级本身的前提。
 - [[AI-First]] · 同篇出现（co-occurrence） — 同篇出现：harness-14
 - [[信任机制重构]] · 同篇出现（co-occurrence） — 同篇出现：harness-14
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-14
@@ -56,7 +54,8 @@ Creao 将传统 rule-based 或 unit testing driven 的 CI/CD 升级为 AI-driven
 ## 反链
 
 - [[Harness 工程 Harness Engineering]]
-- [[工具—工作流适配]]
-- [[信任机制重构]]
 - [[AI-First]]
+- [[信任机制重构]]
+- [[docsdecisions]]
 - [[Executable Codebase]]
+- [[工具—工作流适配]]

@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: personal-life
 learningStage: when-needed
 verification: accept
-centrality: 0.067
+centrality: 0.072
 depth: 1
 origin: [notion]
 aliases: ["AI 媒人", "AI 红娘", "AI matchmaker", "AI 撮合"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 由 AI 了解你的偏好、筛选撮合、安排约会并事后复盘的交友方式，被预判为五年后的常态。
 
-**领域** personal-life ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.067
+**领域** personal-life ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -38,11 +38,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[Dating-app fatigue]] · **soft** — AI 撮合被预期为滑动倦怠的解法，不懂倦怠就看不出它要解决什么。
-
-## 懂了它才能懂（解锁 1）
-
-- [[Wrong criteria in their mind]] — AI 按你给出的硬标准筛选，先懂心里过严的标准才懂它为何照样失灵。
+- [[让自己对 AI 可读]] · **soft** — 不懂让自己对 AI 可读，就做不了 AI matchmaking 里让 AI 持续建模你偏好这件事
 
 ## 相关
 
@@ -61,7 +57,6 @@ sources: 1
 ## 反链
 
 - [[外包思考，但不外包理解]]
-- [[Dating-app fatigue]]
 - [[Agent-Native Infrastructure]]
-- [[Wrong criteria in their mind]]
+- [[让自己对 AI 可读]]
 - [[Sensors 与 Actuators]]

@@ -44,13 +44,13 @@ sources: 1
 - [[原始上下文容忍度 tolerance for raw context]] · 同篇出现（co-occurrence） — 同篇出现：context-01
 - [[上下文协作 context-cooperative]] · 同篇出现（co-occurrence） — 同篇出现：context-01
 - [[最小充分性与语义连续性原则]] · 同篇出现（co-occurrence） — 同篇出现：context-01
-- [[分层记忆架构]] · 同篇出现（co-occurrence） — 同篇出现：context-01
 - [[上下文隔离 context isolation]] · 同篇出现（co-occurrence） — 同篇出现：context-01
 - [[self-baking]] · 同篇出现（co-occurrence） — 同篇出现：context-01
 - [[轻量引用 lightweight references]] · 同篇出现（co-occurrence） — 同篇出现：context-01
 - [[注意力之前的注意力 attention before attention]] · 同篇出现（co-occurrence） — 同篇出现：context-01
 - [[语义操作系统 semantic operating system]] · 同篇出现（co-occurrence） — 同篇出现：context-01
 - [[数字存在 Digital Presence]] · 同篇出现（co-occurrence） — 同篇出现：context-01
+- [[分层记忆架构]] · 同篇出现（co-occurrence） — 同篇出现：context-01
 - [[上下文 context]] · 同篇出现（co-occurrence） — 同篇出现：context-01
 - [[上下文工程 context engineering]] · 同篇出现（co-occurrence） — 同篇出现：context-01
 
@@ -65,15 +65,15 @@ sources: 1
 ## 反链
 
 - [[上下文 context]]
+- [[self-baking]]
 - [[分层记忆架构]]
 - [[上下文隔离 context isolation]]
-- [[四阶段演化模型]]
-- [[注意力之前的注意力 attention before attention]]
-- [[最小充分性与语义连续性原则]]
-- [[self-baking]]
-- [[轻量引用 lightweight references]]
-- [[上下文协作 context-cooperative]]
 - [[数字存在 Digital Presence]]
-- [[意图翻译者 intention translator]]
 - [[语义操作系统 semantic operating system]]
 - [[原始上下文容忍度 tolerance for raw context]]
+- [[注意力之前的注意力 attention before attention]]
+- [[轻量引用 lightweight references]]
+- [[上下文协作 context-cooperative]]
+- [[四阶段演化模型]]
+- [[意图翻译者 intention translator]]
+- [[最小充分性与语义连续性原则]]

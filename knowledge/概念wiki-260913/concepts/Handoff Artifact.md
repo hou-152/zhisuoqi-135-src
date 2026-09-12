@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.042
-depth: 3
+centrality: 0.072
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 彻底清空上下文窗口并启动新 Agent 时，用结构化交接工件携带上一个 Agent 的状态与下一步。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,9 +36,9 @@ Context resets—clearing the context window entirely and starting a fresh agent
 
 > {{name}} 解决了上下文重置后的什么问题？
 
-## 先懂这些（前置 1）
+## 懂了它才能懂（解锁 1）
 
-- [[Context Reset vs Compaction]] · **hard** — 交接物是为重置服务的，不懂重置与压缩之别就不知它为何存在
+- [[Context Reset vs Compaction]] — 不懂【Handoff Artifact】，就做不了【Context Reset vs Compaction】里重置那一路的状态交接
 
 ## 相关
 
@@ -51,5 +51,6 @@ Context resets—clearing the context window entirely and starting a fresh agent
 - Harness Engineering ｜ 《Anthropic 工程实践：如何为长时间运行的 Agent 应用设计 Harness》 ｜ https://www.anthropic.com/engineering/harness-design-long-running-apps
 ## 反链
 
+- [[Harness]]
 - [[Context Reset vs Compaction]]
 - [[Context Anxiety]]

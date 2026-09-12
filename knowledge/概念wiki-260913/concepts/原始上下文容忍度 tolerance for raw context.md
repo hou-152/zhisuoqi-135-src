@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: model-training
 learningStage: when-needed
 verification: judge
-centrality: 0.017
-depth: 0
+centrality: 0.072
+depth: 1
 origin: [context]
 aliases: ["tolerance for raw context"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 论文提出的智能度量：智能约等于类人度，而类人度看能消化多高熵的原始输入——1.0 吃结构化信号，2.0 直接吃文本图像视频。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -37,6 +37,10 @@ sources: 1
 
 > 按{{name}}，什么样的输入可以直接进上下文而无需预处理？
 
+## 先懂这些（前置 1）
+
+- [[multimodal Vision LLMs]] · **soft** — 不懂【multimodal / Vision LLMs】，就做不了原始上下文容忍度的⟨2.0 直接吃图像视频的度量实施⟩
+
 ## 相关
 
 - [[熵减 entropy reduction]] · 同篇出现（co-occurrence） — 同篇出现：context-01
@@ -53,6 +57,7 @@ sources: 1
 
 ## 反链
 
-- [[上下文工程 context engineering]]
 - [[上下文 context]]
+- [[上下文工程 context engineering]]
+- [[multimodal Vision LLMs]]
 - [[熵减 entropy reduction]]

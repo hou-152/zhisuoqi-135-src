@@ -3,7 +3,7 @@ id: cm_43eb8977
 name: AI 公司岗位编制
 type: CONCEPTUAL
 subject: Harness Engineering
-domain: agent-org
+domain: code-engineering
 learningStage: when-needed
 verification: use
 centrality: 0.017
@@ -17,7 +17,7 @@ sources: 1
 
 > 用公司岗位类比代码库：CLAUDE.md 是入职手册、skills/ 是 SOP、hooks/ 是合规部、src/ 是业务部门。
 
-**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** code-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -41,8 +41,8 @@ sources: 1
 ## 相关
 
 - [[AI 工程基础设施 AI engineering infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
-- [[1.6% vs 98.4%]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
 - [[确定性工程基础设施 deterministic engineering infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
+- [[1.6% vs 98.4%]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
 
 ## 出场
 

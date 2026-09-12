@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: code-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.042
-depth: 2
+centrality: 0.126
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 让 agent 能低成本启动 dev server、进入特定状态并测试场景的代码库形态。
 
-**领域** code-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** code-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,9 +36,10 @@ executable 指 agent 能低成本启动 dev server、进入特定状态并测试
 
 > 你的仓库要补上什么才算 {{name}}？
 
-## 先懂这些（前置 1）
+## 懂了它才能懂（解锁 2）
 
-- [[Agent-driven CICD]] · **soft** — 可执行代码库让 agent 低成本启动并测试，是 CI 自动验证的前提。
+- [[Agent-driven CICD]] — 可执行代码库让 agent 低成本启动并测试，是 CI 自动验证的前提。
+- [[service template 与 golden path]] — 不懂【Executable Codebase】，就做不了【service template 与 golden path】的「让实例化出的新服务开箱即可启动测试」
 
 ## 相关
 
@@ -52,5 +53,6 @@ executable 指 agent 能低成本启动 dev server、进入特定状态并测试
 ## 反链
 
 - [[Agent loop]]
+- [[service template 与 golden path]]
 - [[Agent-driven CICD]]
 - [[Loop Engineer]]

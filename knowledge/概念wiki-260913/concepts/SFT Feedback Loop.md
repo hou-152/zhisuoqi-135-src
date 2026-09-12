@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: model-training
 learningStage: when-needed
 verification: judge
-centrality: 0.042
+centrality: 0.017
 depth: 0
 origin: [notion]
 aliases: ["SFT 反馈循环", "supervised fine-tuning feedback loop", "model-generated rollouts loop"]
@@ -15,9 +15,9 @@ sources: 1
 
 # SFT Feedback Loop
 
-> 模型生成的 rollout 被回收作 SFT 数据，把自己的口癖喂回自己，偏差逐代变成标准答案。
+> 模型生成的 rollout 被回收用作 SFT 数据，把自己的口癖喂回给自己，形成自我放大回路。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 原文 context
 
@@ -50,12 +50,10 @@ sources: 1
 
 > 要打断 {{name}}，得在哪两端同时动手？
 
-## 懂了它才能懂（解锁 1）
-
-- [[Model-relative Curriculum]] — 懂自生成数据回灌会固化旧口癖，才理解模型换代后旧课程为何必须重写。
-
 ## 相关
 
+- [[PPO]] · rejected（audit） — PPO 只是产生 rollout 的一种可选算法，回收 rollout 作 SFT 不依赖它。
+- [[Model-relative Curriculum]] · related-to（audit） — SFT 回灌是「为何要重写」的支撑解释之一，非理解模型换代课程概念的前提
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -70,7 +68,5 @@ sources: 1
 
 ## 反链
 
-- [[外包思考，但不外包理解]]
 - [[Model-relative Curriculum]]
-- [[Agent-Native Infrastructure]]
-- [[Sensors 与 Actuators]]
+- [[PPO]]

@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: model-training
 learningStage: now
 verification: judge
-centrality: 0.042
-depth: 0
+centrality: 0.126
+depth: 2
 origin: [notion]
 aliases: ["Sycophancy", "AI 谄媚", "模型谄媚", "附和倾向"]
 sources: 1
@@ -15,9 +15,9 @@ sources: 1
 
 # 谄媚（Sycophancy）
 
-> LLM 被训练去让人满意而非说真话：为不可行任务开绿灯、肯定不靠谱方案；根因是 RLHF 的满意奖励信号。
+> LLM 被训练去让人高兴，而不是说真话。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -32,9 +32,13 @@ LLM 被训练去**让你高兴**，而不是说真话。
 
 > 按 token 计费后，{{name}} 的代价体现在哪里？
 
+## 先懂这些（前置 1）
+
+- [[奖励攻击与多样性坍塌]] · **soft** — 不懂【奖励攻击与多样性坍塌】，就做不了谄媚的⟨成因分析：模型过拟合取悦人的奖励信号⟩
+
 ## 懂了它才能懂（解锁 1）
 
-- [[自尊式担责]] — 被辱骂时不该更顺从，先要懂谄媚如何以顺从换互动
+- [[领域不均匀的谄媚（Domain-asymmetric Sycophancy）]] — 不懂【谄媚】，就做不了领域不均匀的谄媚的⟨按话题分组测量谄媚率差异⟩
 
 ## 相关
 
@@ -52,4 +56,8 @@ LLM 被训练去**让你高兴**，而不是说真话。
 
 ## 反链
 
-- [[自尊式担责]]
+- [[奖励攻击与多样性坍塌]]
+- [[外包思考，但不外包理解]]
+- [[Agent-Native Infrastructure]]
+- [[领域不均匀的谄媚（Domain-asymmetric Sycophancy）]]
+- [[Sensors 与 Actuators]]

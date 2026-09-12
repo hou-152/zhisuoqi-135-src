@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.042
-depth: 2
+centrality: 0.072
+depth: 1
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 上下文渐满导致一致性衰减：偏离目标、遗忘早期约束、在细节里越走越深。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -38,10 +38,11 @@ Agent 版的「煮青蛙」——不是突然崩溃，而是在长时间运行�
 
 ## 先懂这些（前置 1）
 
-- [[上下文占用率与性能衰减]] · **hard** — 方向漂移是窗口渐满导致一致性衰减的具体表现，先懂衰减。
+- [[上下文腐烂 Context Rot]] · **soft** — 不懂【上下文腐烂】，就做不了【方向漂移 / Direction Drift】的一致性衰减度量
 
 ## 相关
 
+- [[上下文占用率与性能衰减]] · related-to（audit） — 方向漂移只是「窗口渐满→一致性衰减」的一个具体症状，其自身定义已把机制讲全，脱离上位节点也能立住；这是实例-般的关系，不是前置，最多降 soft
 - [[时间 Scalability Temporal Scalability]] · 同篇出现（co-occurrence） — 同篇出现：harness-A1
 - [[空间 Scalability Spatial Scalability]] · 同篇出现（co-occurrence） — 同篇出现：harness-A1
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-A1
@@ -52,6 +53,7 @@ Agent 版的「煮青蛙」——不是突然崩溃，而是在长时间运行�
 ## 反链
 
 - [[Harness 工程 Harness Engineering]]
+- [[上下文腐烂 Context Rot]]
+- [[时间 Scalability Temporal Scalability]]
 - [[上下文占用率与性能衰减]]
 - [[空间 Scalability Spatial Scalability]]
-- [[时间 Scalability Temporal Scalability]]

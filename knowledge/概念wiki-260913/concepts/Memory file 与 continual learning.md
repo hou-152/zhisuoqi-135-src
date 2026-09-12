@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: memory-retrieval
 learningStage: when-needed
 verification: use
-centrality: 0.042
+centrality: 0.017
 depth: 0
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > harness 支持 AGENTS.md 等 memory file 标准，启动时注入 context，agent 编辑后重新载入，实现跨 session 的持续学习。
 
-**领域** memory-retrieval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** memory-retrieval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,12 +36,9 @@ harness 支持 AGENTS.md 这类 memory file 标准，在 agent 启动时注入 c
 
 > {{name}} 是怎么让一次 session 的知识进入未来 session 的？
 
-## 懂了它才能懂（解锁 1）
-
-- [[Memory-driven development]] — 把过去决策写成记忆作为开发流程，依赖 memory file 的持续学习机制。
-
 ## 相关
 
+- [[Memory-driven development]] · related-to（audit） — 开发流程层面可独立理解，具体 harness 的 memory file 机制是可选实现，应降为 soft 或移除。
 - [[Agent = Model + Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
@@ -51,7 +48,6 @@ harness 支持 AGENTS.md 这类 memory file 标准，在 agent 启动时注入 c
 - Harness Engineering ｜ 《LangChain 解剖 agent harness：Agent = 模型 + harness》 ｜ https://blog.langchain.com/the-anatomy-of-an-agent-harness/
 ## 反链
 
-- [[Harness]]
 - [[Harness 工程 Harness Engineering]]
 - [[Agent = Model + Harness]]
 - [[Memory-driven development]]

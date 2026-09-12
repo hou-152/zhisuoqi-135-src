@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: caching-cost
 learningStage: when-needed
 verification: use
-centrality: 0.117
+centrality: 0.236
 depth: 0
 origin: [notion]
 aliases: ["Prompt Caching", "缓存提示词", "prompt cache"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 把稳定前缀放在 prompt 前部并尽量保持不变，以命中供应商缓存。
 
-**领域** caching-cost ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.117
+**领域** caching-cost ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.236
 
 ## 费曼一下
 
@@ -59,7 +59,10 @@ sources: 1
 
 ## 反链
 
-- [[cached input tokens]]
+- [[外包思考，但不外包理解]]
+- [[Agent-Native Infrastructure]]
 - [[模型一致性与 prompt caching]]
-- [[Automatic Caching]]
 - [[TTL]]
+- [[Automatic Caching]]
+- [[cached input tokens]]
+- [[Sensors 与 Actuators]]

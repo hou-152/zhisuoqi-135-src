@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: verification-eval
 learningStage: now
 verification: judge
-centrality: 0.067
+centrality: 0.017
 depth: 0
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 模型会忠实执行字面指令（真删代码、真写注释），完全依赖它对指令的遵循并不可靠。
 
-**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
+**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,24 +36,21 @@ sources: 1
 
 > 为什么不能把{{name}}当成可以托付的承诺？
 
-## 懂了它才能懂（解锁 2）
-
-- [[Validation gates]] — 门禁之所以必要，正因为模型对字面指令的遵循不可靠。
-- [[REI-Bench]] — 基准给出模糊指令成功率下滑，才能具体理解边界。
-
 ## 相关
 
-- [[看对话 log]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
+- [[Validation gates]] · related-to（audit） — 门禁是通用检查点机制；B 只是其在 agent 场景中的一种必要性来源，非前置。
+- [[REI-Bench]] · rejected（audit） — REI-Bench 只是佐证「可靠性边界」的一个具体基准/例子，概念本身可完全独立成立；作为例子不构成依赖边。
 - [[对话加确定性缝合]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
 - [[反向代理式窥探]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
+- [[看对话 log]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
 
 ## 出场
 
 - Harness Engineering ｜ 《拆开 Claude Code：一个编码 agent 的 harness 内部长什么样》 ｜ https://xxchan.me/ai/2025/05/06/claude-code.html
 ## 反链
 
-- [[对话加确定性缝合]]
-- [[看对话 log]]
-- [[REI-Bench]]
 - [[Validation gates]]
+- [[看对话 log]]
+- [[对话加确定性缝合]]
 - [[反向代理式窥探]]
+- [[REI-Bench]]

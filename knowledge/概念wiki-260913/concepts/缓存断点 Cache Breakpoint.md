@@ -7,7 +7,7 @@ subject: Context Engineering
 domain: caching-cost
 learningStage: now
 verification: use
-centrality: 0.017
+centrality: 0.126
 depth: 0
 origin: [context]
 aliases: ["Cache Breakpoint"]
@@ -18,7 +18,7 @@ sources: 1
 
 > 缓存从请求开头延伸到显式标记的位置，标记之后的内容不参与缓存，用于划定可复用的前缀范围。
 
-**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -37,6 +37,11 @@ sources: 1
 
 > 能否在请求里正确放置 {{name}} 以复用前缀？
 
+## 懂了它才能懂（解锁 2）
+
+- [[稳定前缀 Stable Prefix]] — 不懂缓存断点，就做不了稳定前缀的范围界定（从请求开头到断点）。
+- [[提示词缓存 Prompt Caching]] — 不懂缓存断点，就做不了提示词缓存的复用范围划定（从开头到标记）。
+
 ## 相关
 
 - [[前缀匹配 Prefix Matching]] · 同篇出现（co-occurrence） — 同篇出现：context-17
@@ -48,10 +53,10 @@ sources: 1
 - [[TTL]] · 同篇出现（co-occurrence） — 同篇出现：context-17
 - [[最小可缓存 token 门槛 Minimum Cacheable Tokens]] · 同篇出现（co-occurrence） — 同篇出现：context-17
 - [[Automatic Caching]] · 同篇出现（co-occurrence） — 同篇出现：context-17
-- [[Explicit Breakpoints]] · 同篇出现（co-occurrence） — 同篇出现：context-17
 - [[缓存连续性 Cache Continuity]] · 同篇出现（co-occurrence） — 同篇出现：context-17
 - [[缓存命中率 Cache Hit Rate]] · 同篇出现（co-occurrence） — 同篇出现：context-17
 - [[首字输出延迟 Time to First Token Latency]] · 同篇出现（co-occurrence） — 同篇出现：context-17
+- [[Explicit Breakpoints]] · 同篇出现（co-occurrence） — 同篇出现：context-17
 - [[系统提示 System Prompt]] · 同篇出现（co-occurrence） — 同篇出现：context-17
 - [[上下文压缩 Context Compression Summarization]] · 同篇出现（co-occurrence） — 同篇出现：context-17
 - [[稳定前缀 Stable Prefix]] · 同篇出现（co-occurrence） — 同篇出现：context-17
@@ -67,20 +72,20 @@ sources: 1
 
 ## 反链
 
-- [[系统提示 System Prompt]]
-- [[上下文压缩 Context Compression Summarization]]
-- [[Automatic Caching]]
-- [[Explicit Breakpoints]]
-- [[TTL]]
 - [[工具定义 Tool Definitions Tool Schema]]
+- [[提示词缓存 Prompt Caching]]
+- [[前缀匹配 Prefix Matching]]
+- [[上下文压缩 Context Compression Summarization]]
+- [[缓存命中率 Cache Hit Rate]]
+- [[系统提示 System Prompt]]
+- [[TTL]]
 - [[缓存连续性 Cache Continuity]]
 - [[缓存命中读取成本 Cache Hit Read Cost]]
-- [[缓存命中率 Cache Hit Rate]]
 - [[缓存写入成本 Cache Write Cost]]
-- [[前缀匹配 Prefix Matching]]
-- [[首字输出延迟 Time to First Token Latency]]
-- [[提示词缓存 Prompt Caching]]
 - [[稳定前缀 Stable Prefix]]
 - [[消息层 Messages Layer]]
 - [[最小可缓存 token 门槛 Minimum Cacheable Tokens]]
+- [[Automatic Caching]]
 - [[tools → system → messages 缓存顺序]]
+- [[首字输出延迟 Time to First Token Latency]]
+- [[Explicit Breakpoints]]

@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: multi-agent
 learningStage: when-needed
 verification: use
-centrality: 0.042
-depth: 5
+centrality: 0.017
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 用语言内置特性直接编排与串联 agent，而不引入需要另学的新抽象。
 
-**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,10 +36,6 @@ Use built-in language features to orchestrate and chain agents, rather than need
 
 > {{name}} 之下你用什么来串联多个 agent？
 
-## 先懂这些（前置 1）
-
-- [[开箱即用的编排与子 agent]] · **soft** — 用语言内置特性串联 agent，需先懂开箱即用的编排机制。
-
 ## 相关
 
 - [[very few abstractions]] · 同篇出现（co-occurrence） — 同篇出现：harness-08
@@ -51,7 +47,6 @@ Use built-in language features to orchestrate and chain agents, rather than need
 - Harness Engineering ｜ 《OpenAI Agents SDK 官方文档：抽象极少的轻量 agent 框架》 ｜ https://openai.github.io/openai-agents-python/
 ## 反链
 
-- [[Agent]]
-- [[开箱即用的编排与子 agent]]
 - [[primitives]]
+- [[Agent]]
 - [[very few abstractions]]

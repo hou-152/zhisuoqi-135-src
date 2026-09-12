@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: tools-sandbox
 learningStage: when-needed
 verification: use
-centrality: 0.042
-depth: 2
+centrality: 0.017
+depth: 0
 origin: [notion]
 aliases: ["智能体工具", "agentic tools", "AI agents tools", "Claude Cowork"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 能直接操作电脑完成发邮件、做 PPT、排会议等非编程任务的智能体工具，把 AI 边界从语言扩展到工作流。
 
-**领域** tools-sandbox ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** tools-sandbox ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
 ## 原文 context
 
@@ -36,10 +36,6 @@ sources: 1
 
 > {{name}} 相比聊天机器人多出了哪一类能力？
 
-## 先懂这些（前置 1）
-
-- [[通用工具与「给模型一台计算机」]] · **soft** — 先有给模型一台计算机的思路，才会把工具边界从编程扩展到邮件、PPT 等工作流。
-
 ## 相关
 
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -56,4 +52,6 @@ sources: 1
 
 ## 反链
 
-- [[通用工具与「给模型一台计算机」]]
+- [[外包思考，但不外包理解]]
+- [[Agent-Native Infrastructure]]
+- [[Sensors 与 Actuators]]

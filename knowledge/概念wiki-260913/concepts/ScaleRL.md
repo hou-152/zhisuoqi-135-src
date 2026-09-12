@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: model-training
 learningStage: deep-dive
 verification: judge
-centrality: 0.067
-depth: 6
+centrality: 0.017
+depth: 0
 origin: [notion]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 一份大规模算力下的 RL 工程方法学，用 S 型性能-算力曲线替代单点对比。
 
-**领域** model-training ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
+**领域** model-training ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 原文 context
 
@@ -34,13 +34,11 @@ sources: 1
 
 > 用 {{name}} 的曲线能分离出哪两个量？
 
-## 先懂这些（前置 2）
-
-- [[RLHF]] · **soft** — ScaleRL 是大规模 RL 工程方法学，懂 RLHF 才能理解其训练范式来源。
-- [[RLVR 与编码 agent 的 RL 训练循环]] · **soft** — ScaleRL 要替代单点对比，懂典型 RLVR 长循环更易理解其算力曲线。
-
 ## 相关
 
+- [[PPO]] · rejected（audit） — PPO 只是被 scaling 的算法之一，S 型性能-算力曲线方法不依赖具体 RL 算法。
+- [[RLVR 与编码 agent 的 RL 训练循环]] · related-to（audit） — RLVR 长循环是 ScaleRL 的一个测量实例，不懂该具体循环也能理解算力曲线主张
+- [[RLHF]] · related-to（audit） — ScaleRL 是 RL 工程方法学，懂 RLHF 有助但非前提，S 曲线方法学可独立理解
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -52,3 +50,4 @@ sources: 1
 
 - [[RLHF]]
 - [[RLVR 与编码 agent 的 RL 训练循环]]
+- [[PPO]]

@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: tools-sandbox
 learningStage: when-needed
 verification: use
-centrality: 0.042
-depth: 1
+centrality: 0.126
+depth: 3
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 内置 MCP server 的工具接入与 function tools 走同一路径，调用方式完全一致。
 
-**领域** tools-sandbox ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** tools-sandbox ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,8 +36,9 @@ Built-in MCP server tool integration that **works the same way as function tools
 
 > 你能证明 {{name}} 与 function tool 调用是同一套接法吗？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
+- [[Tool Calling]] · **hard** — 不懂【Tool Calling】就做不了【MCP server tool calling】的模型调用循环
 - [[Function tools]] · **soft** — 它与 function tools 走同一调用路径，先懂函数工具更易理解两者为何一致。
 
 ## 相关
@@ -51,7 +52,8 @@ Built-in MCP server tool integration that **works the same way as function tools
 - Harness Engineering ｜ 《OpenAI Agents SDK 官方文档：抽象极少的轻量 agent 框架》 ｜ https://openai.github.io/openai-agents-python/
 ## 反链
 
-- [[Agent]]
+- [[Tool Calling]]
 - [[primitives]]
+- [[Agent]]
 - [[Function tools]]
 - [[very few abstractions]]

@@ -3,10 +3,10 @@ id: cm_d10f0a1e
 name: Context injection
 type: CONCEPTUAL
 subject: Harness Engineering
-domain: memory-retrieval
+domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.042
+centrality: 0.072
 depth: 0
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 不改权重时，给模型加知识的唯一通道是把内容放进上下文；记忆文件、检索、MCP 都是它的实现。
 
-**领域** memory-retrieval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -53,5 +53,5 @@ sources: 1
 
 - [[Harness]]
 - [[Harness 工程 Harness Engineering]]
-- [[Agent = Model + Harness]]
 - [[知识端点]]
+- [[Agent = Model + Harness]]

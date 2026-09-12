@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.142
-depth: 4
+centrality: 0.29
+depth: 1
 origin: [context]
 aliases: ["attention budget"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 把 LLM 注意力类比为有限的工作记忆预算，每新增一个 token 都要从中支取，故上下文是有限资源。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.142
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.29
 
 ## 费曼一下
 
@@ -39,14 +39,14 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[有限的工作记忆 limited working memory]] · **hard** — 注意力预算把工作记忆有限性换算成 token 开销，是其直接推论。
+- [[有限的工作记忆 limited working memory]] · **hard** — 不懂【有限的工作记忆】，就做不了【注意力预算】的 ⟨把注意力类比为可支取预算的定义⟩
 
 ## 懂了它才能懂（解锁 4）
 
-- [[选择性注意力压缩]] — 分层压缩是为在有限注意力预算内分配资源，不懂预算就不知为何要分层。
-- [[注意力之前的注意力 attention before attention]] — 先说清注意力是有限预算，才谈得上在它之前做筛选与重排。
-- [[最小高信号 token 集合 smallest possible set of high-signal tokens]] — 追求最小高信号集合的前提是注意力为有限预算，需做取舍。
-- [[最小充分上下文]] — 只取最小附近代码是为节省有限注意力预算，不懂预算就不懂为何要最小。
+- [[Context Bloat]] — 不懂【注意力预算】，就做不了【Context Bloat】的 ⟨膨胀为何导致注意力退化的诊断⟩
+- [[最小高信号 token 集合 smallest possible set of high-signal tokens]] — 不懂【注意力预算】，就做不了【最小高信号 token 集合】的 ⟨为何要最小而非最多的取舍⟩
+- [[最小充分上下文]] — 不懂【注意力预算】，就做不了【最小充分上下文】的 ⟨只保留最小附近代码的取舍⟩
+- [[延迟加载工具 deferred loading]] — 不懂【注意力预算】，就做不了【延迟加载工具】的 ⟨被需要前不消耗上下文的披露设计⟩
 
 ## 相关
 
@@ -56,11 +56,11 @@ sources: 1
 - [[工具即契约 tools as the contract]] · 同篇出现（co-occurrence） — 同篇出现：context-05
 - [[臃肿工具集 bloated tool sets]] · 同篇出现（co-occurrence） — 同篇出现：context-05
 - [[典型示例策展 diverse, canonical examples]] · 同篇出现（co-occurrence） — 同篇出现：context-05
-- [[just in time 上下文检索]] · 同篇出现（co-occurrence） — 同篇出现：context-05
 - [[混合检索策略 hybrid strategy]] · 同篇出现（co-occurrence） — 同篇出现：context-05
 - [[结构化记事 agentic memory]] · 同篇出现（co-occurrence） — 同篇出现：context-05
 - [[sub-agent 架构与关注点分离]] · 同篇出现（co-occurrence） — 同篇出现：context-05
 - [[reasoning effort]] · 对照（概念边界） — 推理强度调节计算投入，注意力预算描述模型处理当前上下文信息的有限能力。
+- [[just in time 上下文检索]] · 同篇出现（co-occurrence） — 同篇出现：context-05
 - [[上下文压缩 Context Compression Summarization]] · 同篇出现（co-occurrence） — 同篇出现：context-05
 - [[Tool-schema tax]] · 常一起用（运行时组成） — 大量工具说明会占用窗口并与任务信息争夺模型处理能力。
 - [[渐进式披露 progressive disclosure]] · 同篇出现（co-occurrence） — 同篇出现：context-05
@@ -77,22 +77,22 @@ sources: 1
 
 ## 反链
 
-- [[上下文腐烂 Context Rot]]
 - [[有限的工作记忆 limited working memory]]
+- [[上下文压缩 Context Compression Summarization]]
+- [[上下文腐烂 Context Rot]]
 - [[结构化记事 agentic memory]]
 - [[渐进式披露 progressive disclosure]]
-- [[工具即契约 tools as the contract]]
-- [[选择性注意力压缩]]
-- [[just in time 上下文检索]]
+- [[sub-agent 架构与关注点分离]]
 - [[Tool-schema tax]]
-- [[上下文压缩 Context Compression Summarization]]
-- [[性能梯度而非硬悬崖 performance gradient rather than a hard cliff]]
+- [[典型示例策展 diverse, canonical examples]]
+- [[工具即契约 tools as the contract]]
+- [[混合检索策略 hybrid strategy]]
+- [[延迟加载工具 deferred loading]]
 - [[臃肿工具集 bloated tool sets]]
-- [[注意力之前的注意力 attention before attention]]
 - [[最小充分上下文]]
 - [[最小高信号 token 集合 smallest possible set of high-signal tokens]]
+- [[Context Bloat]]
+- [[just in time 上下文检索]]
 - [[reasoning effort]]
-- [[sub-agent 架构与关注点分离]]
-- [[典型示例策展 diverse, canonical examples]]
-- [[混合检索策略 hybrid strategy]]
 - [[恰当高度 the right altitude]]
+- [[性能梯度而非硬悬崖 performance gradient rather than a hard cliff]]

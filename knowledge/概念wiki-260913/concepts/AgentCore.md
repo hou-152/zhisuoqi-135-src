@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: harness-runtime
 learningStage: when-needed
 verification: accept
-centrality: 0.042
-depth: 4
+centrality: 0.017
+depth: 0
 origin: [notion]
 aliases: ["AWS Agent 原语库", "AgentCore primitives"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > AWS 提供的一套 agent 原语，含记忆组件、安全执行环境与权限能力，供自建 agentic workflow 使用。
 
-**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
+**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,10 +36,6 @@ AWS 的 **Agent 原语库**——记忆、安全执行、权限等单独的零�
 
 > {{name}}提供哪些原语？分别解决什么问题？
 
-## 先懂这些（前置 1）
-
-- [[Agent]] · **soft** — 它是 agent 原语集合，先懂 agent 是什么才能用好原语。
-
 ## 相关
 
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -56,4 +52,6 @@ AWS 的 **Agent 原语库**——记忆、安全执行、权限等单独的零�
 
 ## 反链
 
-- [[Agent]]
+- [[外包思考，但不外包理解]]
+- [[Agent-Native Infrastructure]]
+- [[Sensors 与 Actuators]]

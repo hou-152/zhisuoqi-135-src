@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: code-engineering
 learningStage: when-needed
 verification: judge
-centrality: 0.042
+centrality: 0.072
 depth: 2
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > loop 只是管道，真正可复利的资产是它调用的、可复用且测试过的 skill。
 
-**领域** code-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** code-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -38,10 +38,12 @@ loop 像自动化流水线，skill 像流水线上的专用工具。流水线本
 
 ## 先懂这些（前置 1）
 
-- [[宏动作]] · **soft** — skill 是被宏动作调用的可复用资产，懂宏动作才理解其复利价值。
+- [[Legible Codebase]] · **soft** — 不懂 Legible Codebase，就做不了 Skill as asset 的「让 agent 在代码库中发现、复用并测试 skill」
 
 ## 相关
 
+- [[宏动作]] · related-to（audit） — 「skill 是可复用资产」本身自足，宏动作只是说明它被谁调用；不懂宏动作顶多少了调用场景，不影响该论断成立
+- [[Watch 模式与自动更新 hooks]] · rejected（audit） — 完全不相干；watch/hooks 不帮助理解 skill 作为可复利资产，只是另一 CLI 功能，不构成依赖。
 - [[Model as subroutine]] · 同篇出现（co-occurrence） — 同篇出现：harness-15
 - [[Continuous orchestration loop]] · 同篇出现（co-occurrence） — 同篇出现：harness-15
 - [[Loop Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-15
@@ -52,6 +54,8 @@ loop 像自动化流水线，skill 像流水线上的专用工具。流水线本
 ## 反链
 
 - [[Loop Engineering]]
-- [[宏动作]]
 - [[Continuous orchestration loop]]
+- [[Legible Codebase]]
+- [[宏动作]]
 - [[Model as subroutine]]
+- [[Watch 模式与自动更新 hooks]]

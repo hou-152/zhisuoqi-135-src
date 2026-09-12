@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: verification-eval
 learningStage: when-needed
 verification: use
-centrality: 0.042
-depth: 2
+centrality: 0.072
+depth: 3
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 自建包装 skill，先调用原 skill，再调用自己的验证 skill，为改不了的 skill 补上验证。
 
-**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -51,7 +51,7 @@ sources: 1
 - Context Engineering ｜ 《用 Skills 在 Claude Code 里搭建验证闭环》 ｜ https://claude.com/blog/building-verification-loops-in-claude-code-with-skills
 ## 反链
 
+- [[skill-creator 访谈式创建]]
 - [[验证闭环 verification loop]]
 - [[Self-verification]]
-- [[skill-creator 访谈式创建]]
 - [[把重复步骤编码成 Skill]]

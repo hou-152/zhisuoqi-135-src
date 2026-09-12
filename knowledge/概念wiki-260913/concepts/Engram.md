@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: memory-retrieval
 learningStage: deep-dive
 verification: judge
-centrality: 0.042
-depth: 1
+centrality: 0.017
+depth: 0
 origin: [notion]
 aliases: ["条件记忆模块", "知识查表模块", "conditional memory module"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 给 Transformer 加的原生知识查表模块：能查到的就不去算，先查一下再推理。
 
-**领域** memory-retrieval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** memory-retrieval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,10 +36,6 @@ sources: 1
 
 > {{name}} 主张哪类知识不该算而该查？
 
-## 先懂这些（前置 1）
-
-- [[记忆 Memory]] · **hard** — Engram 是给模型加的知识查表记忆模块，先懂记忆才懂它。
-
 ## 相关
 
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -56,4 +52,6 @@ sources: 1
 
 ## 反链
 
-- [[记忆 Memory]]
+- [[外包思考，但不外包理解]]
+- [[Agent-Native Infrastructure]]
+- [[Sensors 与 Actuators]]

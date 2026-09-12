@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: judge
-centrality: 0.067
+centrality: 0.236
 depth: 2
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > skill 像方法调用：同一套流程传入不同参数，产出截然不同的能力。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.236
 
 ## 费曼一下
 
@@ -39,11 +39,17 @@ sources: 1
 ## 先懂这些（前置 2）
 
 - [[Skill]] · **hard** — 得先知道 skill 是什么，才能理解它像方法调用、传参产出不同能力。
-- [[Skill]] · **soft** — 方法调用式的参数化，正是靠 frontmatter 声明来承接。
+- [[Skill]] · **hard** — 方法调用式的参数化，正是靠 frontmatter 声明来承接。
+
+## 懂了它才能懂（解锁 2）
+
+- [[skill-creator 访谈式创建]] — 不懂 skill 是「流程+参数」的可调用形态，就定不出访谈该问出哪些可变参数
+- [[Skills Hell]] — 不懂 skill 是可调用的同构单元，就界定不了什么算「数量膨胀」「互相冲突」
 
 ## 相关
 
 - [[Skill Files]] · 同篇出现（co-occurrence） — 同篇出现：harness-24
+- [[tokens]] · rejected（audit） — 方法调用类比讲的是流程参数化，与 token 粒度无关；不懂 token 也能理解该注入思路。
 - [[Thin Harness, Fat Skills]] · 同篇出现（co-occurrence） — 同篇出现：harness-24
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-24
 
@@ -53,5 +59,8 @@ sources: 1
 ## 反链
 
 - [[Skill]]
-- [[Skill Files]]
+- [[skill-creator 访谈式创建]]
+- [[Skills Hell]]
+- [[tokens]]
 - [[Thin Harness, Fat Skills]]
+- [[Skill Files]]

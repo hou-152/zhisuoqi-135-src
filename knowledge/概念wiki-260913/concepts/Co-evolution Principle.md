@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: model-training
 learningStage: when-needed
 verification: judge
-centrality: 0.017
-depth: 0
+centrality: 0.126
+depth: 1
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 模型与特定 harness 在训练环中共同演化，工具实现一改就可能因紧耦合而掉性能。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,6 +36,18 @@ Models are now post-trained with specific harnesses in the loop. Claude Code's m
 
 > 改工具实现前，{{name}} 提醒你要先验证什么？
 
+## 先懂这些（前置 1）
+
+- [[模型训练与 harness 设计的耦合]] · **hard** — 不懂【模型训练与 harness 设计的耦合】，就做不了 Co-evolution Principle 的⟨工具实现一改就掉性能的机制说明⟩
+
+## 懂了它才能懂（解锁 1）
+
+- [[Harness 内 RL RL inside the harness]] — 不懂【Co-evolution Principle】，就做不了 Harness 内 RL 的⟨用确切工具集在环内训练以避免紧耦合掉性能的设计⟩
+
 ## 出场
 
 - Harness Engineering ｜ 《The Anatomy of an Agent Harness》 ｜ https://x.com/akshay_pachaar/status/2041146899319971922
+## 反链
+
+- [[模型训练与 harness 设计的耦合]]
+- [[Harness 内 RL RL inside the harness]]

@@ -7,7 +7,7 @@ subject: Harness Engineering
 domain: loop-autonomy
 learningStage: now
 verification: compute
-centrality: 0.017
+centrality: 0.072
 depth: 0
 origin: [harness]
 aliases: ["compounding errors"]
@@ -18,7 +18,7 @@ sources: 1
 
 > 多步流程里每步微小失败率会累乘：10 步各 99% 成功率，端到端只剩约 90.4%。
 
-**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.017
+**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -37,6 +37,10 @@ sources: 1
 
 > 10 步每步 99% 成功率，{{name}}下端到端还剩多少？
 
+## 懂了它才能懂（解锁 1）
+
+- [[收敛式失败恢复]] — 不懂【错误复利】，就做不了【收敛式失败恢复】的“失败时收敛修正避免错误累乘”。
+
 ## 相关
 
 - [[agent 与 harness 的分工]] · 同篇出现（co-occurrence） — 同篇出现：harness-28
@@ -53,5 +57,6 @@ sources: 1
 
 ## 反链
 
-- [[agent 与 harness 的分工]]
 - [[If you're not the model, you're the harness.]]
+- [[agent 与 harness 的分工]]
+- [[收敛式失败恢复]]

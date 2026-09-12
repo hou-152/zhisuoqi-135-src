@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: loop-autonomy
 learningStage: now
 verification: use
-centrality: 0.067
-depth: 2
+centrality: 0.017
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 内置的待办读写工具，prompt 要求高频使用，做完一项立刻标记完成，管理多子任务。
 
-**领域** loop-autonomy ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
+**领域** loop-autonomy ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,24 +36,17 @@ tools 里内置了 TodoRead/Write，prompt 中要求 VERY frequently 地使用�
 
 > {{name}} 该怎么用，做完一项后要做什么？
 
-## 先懂这些（前置 2）
-
-- [[范围控制与显式的完成定义]] · **hard** — 待办读写是显式完成定义与防多做的落地工具。
-- [[Agent loop]] · **hard** — 待办工具嵌在 agent 循环里高频调用，不懂循环就不懂它为何高频。
-
 ## 相关
 
-- [[看对话 log]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
 - [[对话加确定性缝合]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
 - [[反向代理式窥探]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
+- [[看对话 log]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
 
 ## 出场
 
 - Harness Engineering ｜ 《拆开 Claude Code：一个编码 agent 的 harness 内部长什么样》 ｜ https://xxchan.me/ai/2025/05/06/claude-code.html
 ## 反链
 
-- [[Agent loop]]
-- [[范围控制与显式的完成定义]]
-- [[对话加确定性缝合]]
 - [[看对话 log]]
+- [[对话加确定性缝合]]
 - [[反向代理式窥探]]

@@ -6,8 +6,8 @@ subject: AI 概念库 × Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.035
-depth: 0
+centrality: 0.089
+depth: 1
 origin: [notion, harness]
 aliases: ["薄 harness 厚 skills", "fat skills thin harness", "薄壳厚技能", "three-layer agent architecture", "三层 agent 架构"]
 sources: 2
@@ -15,9 +15,9 @@ sources: 2
 
 # Thin Harness, Fat Skills
 
-> 把智能上推到 skills、把执行下推到确定性工具、保持 harness 薄的设计原则。
+> 设计原则：harness 保持薄，把厚度与智能放进 skills（thin harness, fat skills）。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.035
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.089
 
 ## 费曼一下
 
@@ -36,19 +36,23 @@ Garry Tan 给 AI agent 架构提出的**方向性原则**，一句话写得下�
 
 > 按 {{name}} 原则，你现在该把哪部分逻辑移出 harness？
 
+## 先懂这些（前置 1）
+
+- [[技能化 Skills]] · **hard** — 不懂技能化，就没有 fat skills 这个构件可用，thin harness 也就无从立起
+
 ## 相关
 
+- [[Context Bloat]] · 同篇出现（co-occurrence） — 同篇出现：harness-24
 - [[Skill-as-method-call]] · 同篇出现（co-occurrence） — 同篇出现：harness-24
 - [[Learning Loop]] · 同篇出现（co-occurrence） — 同篇出现：harness-24
-- [[Context Bloat]] · 同篇出现（co-occurrence） — 同篇出现：harness-24
 - [[Resolver]] · 同篇出现（co-occurrence） — 同篇出现：harness-24
 - [[Latent vs Deterministic]] · 同篇出现（co-occurrence） — 同篇出现：harness-24
 - [[Diarization]] · 同篇出现（co-occurrence） — 同篇出现：harness-24
 - [[Skill Files]] · 同篇出现（co-occurrence） — 同篇出现：harness-24
-- [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-24
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
+- [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-24
 
 ## 出场
 
@@ -61,10 +65,11 @@ Garry Tan 给 AI agent 架构提出的**方向性原则**，一句话写得下�
 
 ## 反链
 
-- [[Latent vs Deterministic]]
-- [[Skill Files]]
 - [[Skill-as-method-call]]
+- [[技能化 Skills]]
+- [[Latent vs Deterministic]]
+- [[Resolver]]
 - [[Context Bloat]]
 - [[Learning Loop]]
+- [[Skill Files]]
 - [[Diarization]]
-- [[Resolver]]

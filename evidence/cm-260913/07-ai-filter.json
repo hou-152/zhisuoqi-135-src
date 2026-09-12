@@ -1,0 +1,6457 @@
+{
+ "generatedAt": "2026-09-12T17:41:48.762Z",
+ "model": "deepseek-flash",
+ "tokens": 132699,
+ "total": 1156,
+ "keep": 856,
+ "drop": 300,
+ "fallback": 0,
+ "failed": [],
+ "byDomain": {
+  "经济与商业逻辑": 24,
+  "认知与思维方法": 54,
+  "Harness 与运行时": 1,
+  "媒体教育与文化": 45,
+  "社会法律与制度": 28,
+  "身心与神经科学": 32,
+  "地缘与基础设施": 27,
+  "AI 产品与组织": 10,
+  "代码库与工程实践": 9,
+  "安全权限与合规": 6,
+  "个人生活与关系": 26,
+  "临床医学与诊断": 31,
+  "多 Agent 编排": 1,
+  "规格与意图对齐": 2,
+  "循环与自主执行": 1,
+  "记忆与检索": 2,
+  "验证与评估门禁": 1
+ },
+ "droppedList": [
+  {
+   "id": "cm_3780cf3b",
+   "name": "安全边际",
+   "domain": "经济与商业逻辑",
+   "why": "通用决策缓冲"
+  },
+  {
+   "id": "cm_3f20d0a1",
+   "name": "暗淡蓝点",
+   "domain": "认知与思维方法",
+   "why": "天文人文照片"
+  },
+  {
+   "id": "cm_5cf2beef",
+   "name": "舱单",
+   "domain": "Harness 与运行时",
+   "why": "航空舱单文件"
+  },
+  {
+   "id": "cm_b70989ce",
+   "name": "金唱片",
+   "domain": "媒体教育与文化",
+   "why": "旅行者号唱片非AI"
+  },
+  {
+   "id": "cm_e4c680d7",
+   "name": "《你死了吗？》App",
+   "domain": "社会法律与制度",
+   "why": "情绪与监管社交话题"
+  },
+  {
+   "id": "cm_bbdc7d60",
+   "name": "5-HTTLPR 基因",
+   "domain": "身心与神经科学",
+   "why": "血清素基因生理"
+  },
+  {
+   "id": "cm_4094c900",
+   "name": "50,000-year-old hardware",
+   "domain": "身心与神经科学",
+   "why": "演化心理学人脑"
+  },
+  {
+   "id": "cm_d82f176a",
+   "name": "阿尔忒弥斯协定",
+   "domain": "地缘与基础设施",
+   "why": "月球地缘规则"
+  },
+  {
+   "id": "cm_d8bafdb8",
+   "name": "霸道总裁",
+   "domain": "媒体教育与文化",
+   "why": "网文男主原型"
+  },
+  {
+   "id": "cm_5bb71819",
+   "name": "办公室崇拜",
+   "domain": "社会法律与制度",
+   "why": "社会就业激励"
+  },
+  {
+   "id": "cm_36c9cbcb",
+   "name": "半途低谷",
+   "domain": "认知与思维方法",
+   "why": "通用项目心理低谷"
+  },
+  {
+   "id": "cm_f338e4f4",
+   "name": "被动 vs. 互动屏幕使用",
+   "domain": "媒体教育与文化",
+   "why": "屏幕使用学习研究"
+  },
+  {
+   "id": "cm_71ac82fb",
+   "name": "必要劳动",
+   "domain": "经济与商业逻辑",
+   "why": "劳动议价纯社会议题"
+  },
+  {
+   "id": "cm_a97e5068",
+   "name": "边际成本",
+   "domain": "经济与商业逻辑",
+   "why": "纯经济学概念"
+  },
+  {
+   "id": "cm_4bf8bd9a",
+   "name": "标准平均旅客重量",
+   "domain": "地缘与基础设施",
+   "why": "民航旅客重量标准"
+  },
+  {
+   "id": "cm_f634d141",
+   "name": "别人的游戏",
+   "domain": "经济与商业逻辑",
+   "why": "抽象时间框架议题"
+  },
+  {
+   "id": "cm_3730e481",
+   "name": "冰 XXI",
+   "domain": "地缘与基础设施",
+   "why": "冰相晶体科学"
+  },
+  {
+   "id": "cm_41b4251c",
+   "name": "冰 XXII",
+   "domain": "地缘与基础设施",
+   "why": "冰相晶体科学"
+  },
+  {
+   "id": "cm_9f7d611d",
+   "name": "冰相",
+   "domain": "地缘与基础设施",
+   "why": "水的固相科学"
+  },
+  {
+   "id": "cm_295c7999",
+   "name": "波动是门票",
+   "domain": "经济与商业逻辑",
+   "why": "投资心理与波动"
+  },
+  {
+   "id": "cm_096c43ea",
+   "name": "财富即自由",
+   "domain": "经济与商业逻辑",
+   "why": "财富与自由观念"
+  },
+  {
+   "id": "cm_28444afc",
+   "name": "采样伦理",
+   "domain": "媒体教育与文化",
+   "why": "音乐采样实践"
+  },
+  {
+   "id": "cm_236d95d8",
+   "name": "差别易感性假说",
+   "domain": "身心与神经科学",
+   "why": "纯精神医学遗传"
+  },
+  {
+   "id": "cm_209a4c5a",
+   "name": "产品评审",
+   "domain": "AI 产品与组织",
+   "why": "通用产品评审流程"
+  },
+  {
+   "id": "cm_ba301154",
+   "name": "常识心理学",
+   "domain": "认知与思维方法",
+   "why": "纯常识心理学"
+  },
+  {
+   "id": "cm_3c4f652f",
+   "name": "超离子冰",
+   "domain": "地缘与基础设施",
+   "why": "物理冰相"
+  },
+  {
+   "id": "cm_01f99beb",
+   "name": "超人（Übermensch）",
+   "domain": "认知与思维方法",
+   "why": "尼采哲学"
+  },
+  {
+   "id": "cm_2b2a1434",
+   "name": "程序设计",
+   "domain": "代码库与工程实践",
+   "why": "通用编程方法"
+  },
+  {
+   "id": "cm_de2d19eb",
+   "name": "吹哨人困境",
+   "domain": "安全权限与合规",
+   "why": "揭发造假制度议题"
+  },
+  {
+   "id": "cm_97a6fc8a",
+   "name": "垂直切片 / Tracer Bullet",
+   "domain": "代码库与工程实践",
+   "why": "通用开发切片方法"
+  },
+  {
+   "id": "cm_089e30e5",
+   "name": "刺激与反应之间的空间",
+   "domain": "认知与思维方法",
+   "why": "斯多葛式自控"
+  },
+  {
+   "id": "cm_99a6ab30",
+   "name": "从众默认",
+   "domain": "认知与思维方法",
+   "why": "从众社会心理"
+  },
+  {
+   "id": "cm_0deb24c1",
+   "name": "搭子文化",
+   "domain": "个人生活与关系",
+   "why": "社交关系，与AI无关"
+  },
+  {
+   "id": "cm_08fbb6a9",
+   "name": "达尔文式角斗场",
+   "domain": "媒体教育与文化",
+   "why": "网文平台筛选机制"
+  },
+  {
+   "id": "cm_fa5b169c",
+   "name": "大脑废物清除假说",
+   "domain": "临床医学与诊断",
+   "why": "医学假说"
+  },
+  {
+   "id": "cm_ddeff773",
+   "name": "大杂烩产品陷阱",
+   "domain": "AI 产品与组织",
+   "why": "通用产品设计原则"
+  },
+  {
+   "id": "cm_487dae28",
+   "name": "带球跑",
+   "domain": "媒体教育与文化",
+   "why": "网文母题，文化娱乐"
+  },
+  {
+   "id": "cm_ea0024ad",
+   "name": "党的隐性契约",
+   "domain": "社会法律与制度",
+   "why": "政治契约"
+  },
+  {
+   "id": "cm_9d0bfa2e",
+   "name": "道德恐慌",
+   "domain": "媒体教育与文化",
+   "why": "泛社会心理学概念"
+  },
+  {
+   "id": "cm_9cf3f3e1",
+   "name": "地出",
+   "domain": "媒体教育与文化",
+   "why": "航天与环保史"
+  },
+  {
+   "id": "cm_88ed00a1",
+   "name": "地落",
+   "domain": "媒体教育与文化",
+   "why": "航天史"
+  },
+  {
+   "id": "cm_28b8fd59",
+   "name": "低电量模式",
+   "domain": "身心与神经科学",
+   "why": "神经科学疲劳机制"
+  },
+  {
+   "id": "cm_33304e11",
+   "name": "迪士尼大人",
+   "domain": "媒体教育与文化",
+   "why": "文化消费现象"
+  },
+  {
+   "id": "cm_f90cdedb",
+   "name": "迪士尼负债",
+   "domain": "个人生活与关系",
+   "why": "个人负债消费"
+  },
+  {
+   "id": "cm_d2bb79aa",
+   "name": "第三方引用杠杆",
+   "domain": "经济与商业逻辑",
+   "why": "纯品牌营销指标"
+  },
+  {
+   "id": "cm_e2487abe",
+   "name": "第一天心态",
+   "domain": "AI 产品与组织",
+   "why": "非AI商业心态"
+  },
+  {
+   "id": "cm_1d101b34",
+   "name": "电脑应该适应人",
+   "domain": "AI 产品与组织",
+   "why": "通用产品设计"
+  },
+  {
+   "id": "cm_051a484a",
+   "name": "淀粉样蛋白级联假说",
+   "domain": "临床医学与诊断",
+   "why": "纯医学假说"
+  },
+  {
+   "id": "cm_84476c81",
+   "name": "定位",
+   "domain": "认知与思维方法",
+   "why": "通用决策策略"
+  },
+  {
+   "id": "cm_0706c466",
+   "name": "短睡眠时长",
+   "domain": "身心与神经科学",
+   "why": "睡眠健康统计"
+  },
+  {
+   "id": "cm_fa6a41e8",
+   "name": "多语言结构化解析",
+   "domain": "代码库与工程实践",
+   "why": "通用解析器实现"
+  },
+  {
+   "id": "cm_5813faaa",
+   "name": "多重草稿模型",
+   "domain": "认知与思维方法",
+   "why": "意识神经科学理论"
+  },
+  {
+   "id": "cm_8e305b43",
+   "name": "惰性默认",
+   "domain": "认知与思维方法",
+   "why": "通用行为心理，非AI"
+  },
+  {
+   "id": "cm_8f7d11bd",
+   "name": "二阶思维",
+   "domain": "认知与思维方法",
+   "why": "通用思维模型"
+  },
+  {
+   "id": "cm_84c2e733",
+   "name": "法律的模糊性",
+   "domain": "社会法律与制度",
+   "why": "法律模糊性"
+  },
+  {
+   "id": "cm_beeae2b5",
+   "name": "反向幸存者偏差",
+   "domain": "临床医学与诊断",
+   "why": "统计取样偏差"
+  },
+  {
+   "id": "cm_a9f94570",
+   "name": "非洲中心主义",
+   "domain": "媒体教育与文化",
+   "why": "文化哲学"
+  },
+  {
+   "id": "cm_7093952a",
+   "name": "付出按旧规则，兑现按新规则",
+   "domain": "经济与商业逻辑",
+   "why": "合同经济类比"
+  },
+  {
+   "id": "cm_e8170c0c",
+   "name": "付费陪伴",
+   "domain": "个人生活与关系",
+   "why": "付费陪伴社会现象"
+  },
+  {
+   "id": "cm_c8a9b1ed",
+   "name": "复利",
+   "domain": "经济与商业逻辑",
+   "why": "通用复利概念"
+  },
+  {
+   "id": "cm_67a542a8",
+   "name": "复杂被误认为精密",
+   "domain": "代码库与工程实践",
+   "why": "通用系统复杂度"
+  },
+  {
+   "id": "cm_ddd91db0",
+   "name": "概念性工作与“概念车”",
+   "domain": "认知与思维方法",
+   "why": "通用概念性工作"
+  },
+  {
+   "id": "cm_ed3987b7",
+   "name": "感官模型快于密集文本",
+   "domain": "认知与思维方法",
+   "why": "人类感官认知"
+  },
+  {
+   "id": "cm_7186537c",
+   "name": "干预窗口",
+   "domain": "临床医学与诊断",
+   "why": "纯结直肠癌临床"
+  },
+  {
+   "id": "cm_a8b0df04",
+   "name": "工具理性",
+   "domain": "认知与思维方法",
+   "why": "休谟式实践理性哲学"
+  },
+  {
+   "id": "cm_c478fbd6",
+   "name": "工业强度实在论",
+   "domain": "认知与思维方法",
+   "why": "丹尼特自我本体论"
+  },
+  {
+   "id": "cm_252416ad",
+   "name": "共识捕获",
+   "domain": "认知与思维方法",
+   "why": "科学社会学共识议题"
+  },
+  {
+   "id": "cm_8241ebf8",
+   "name": "国际月球科研站",
+   "domain": "地缘与基础设施",
+   "why": "月球科研站非AI"
+  },
+  {
+   "id": "cm_8c96003a",
+   "name": "过程原则",
+   "domain": "认知与思维方法",
+   "why": "通用过程原则非AI"
+  },
+  {
+   "id": "cm_43ca4447",
+   "name": "海峡过路费",
+   "domain": "地缘与基础设施",
+   "why": "海峡收费非AI"
+  },
+  {
+   "id": "cm_aca19212",
+   "name": "合理胜过理性",
+   "domain": "经济与商业逻辑",
+   "why": "策略坚持非AI"
+  },
+  {
+   "id": "cm_6ede31c8",
+   "name": "合理性的三个考量（Three Considerations of Reasonableness）",
+   "domain": "社会法律与制度",
+   "why": "法律搜查合理性"
+  },
+  {
+   "id": "cm_e86302ba",
+   "name": "赫布定律",
+   "domain": "身心与神经科学",
+   "why": "神经科学非AI"
+  },
+  {
+   "id": "cm_29091570",
+   "name": "后唇神经",
+   "domain": "临床医学与诊断",
+   "why": "阴部神经解剖"
+  },
+  {
+   "id": "cm_27a2ee5b",
+   "name": "后悔流",
+   "domain": "媒体教育与文化",
+   "why": "短剧套路非AI"
+  },
+  {
+   "id": "cm_782d245a",
+   "name": "环境即无形之手",
+   "domain": "个人生活与关系",
+   "why": "环境设计非AI"
+  },
+  {
+   "id": "cm_974fd080",
+   "name": "回避行为",
+   "domain": "临床医学与诊断",
+   "why": "焦虑回避心理"
+  },
+  {
+   "id": "cm_6adbdd6c",
+   "name": "获取财富 vs 保持财富",
+   "domain": "经济与商业逻辑",
+   "why": "纯财富管理"
+  },
+  {
+   "id": "cm_f0830b3f",
+   "name": "霍尔木兹海峡",
+   "domain": "地缘与基础设施",
+   "why": "地缘政治"
+  },
+  {
+   "id": "cm_99cfcef1",
+   "name": "机会性筛查",
+   "domain": "临床医学与诊断",
+   "why": "医学影像筛查"
+  },
+  {
+   "id": "cm_bd2a5dc1",
+   "name": "基底神经节",
+   "domain": "身心与神经科学",
+   "why": "纯神经科学"
+  },
+  {
+   "id": "cm_18883001",
+   "name": "基因 × 环境交互",
+   "domain": "身心与神经科学",
+   "why": "遗传学生物"
+  },
+  {
+   "id": "cm_04bf9d61",
+   "name": "基因投资组合假说",
+   "domain": "身心与神经科学",
+   "why": "演化生物学"
+  },
+  {
+   "id": "cm_51eb85b3",
+   "name": "激励结构",
+   "domain": "经济与商业逻辑",
+   "why": "社会激励，非AI"
+  },
+  {
+   "id": "cm_3910ceb7",
+   "name": "极权制度下的产业革命",
+   "domain": "社会法律与制度",
+   "why": "政治经济制度"
+  },
+  {
+   "id": "cm_6831eed1",
+   "name": "记忆巩固",
+   "domain": "身心与神经科学",
+   "why": "睡眠神经科学"
+  },
+  {
+   "id": "cm_9ed1cd2a",
+   "name": "架构决策记录",
+   "domain": "代码库与工程实践",
+   "why": "通用软件架构文档"
+  },
+  {
+   "id": "cm_5d3f24a6",
+   "name": "监管捕获",
+   "domain": "社会法律与制度",
+   "why": "通用监管政治议题"
+  },
+  {
+   "id": "cm_ba01f641",
+   "name": "减法式改进",
+   "domain": "多 Agent 编排",
+   "why": "通用工程复杂度管理"
+  },
+  {
+   "id": "cm_625a30eb",
+   "name": "剪辑经济",
+   "domain": "媒体教育与文化",
+   "why": "内容剪辑商业，与AI无关"
+  },
+  {
+   "id": "cm_74f49d01",
+   "name": "剪辑军团",
+   "domain": "媒体教育与文化",
+   "why": "内容分发团队，非AI"
+  },
+  {
+   "id": "cm_f5bad096",
+   "name": "简化性暴力",
+   "domain": "社会法律与制度",
+   "why": "泛化的协作简化代价"
+  },
+  {
+   "id": "cm_d9b02348",
+   "name": "见证",
+   "domain": "临床医学与诊断",
+   "why": "医学照护概念"
+  },
+  {
+   "id": "cm_38688a7e",
+   "name": "鉴别诊断",
+   "domain": "临床医学与诊断",
+   "why": "临床诊断方法"
+  },
+  {
+   "id": "cm_b1373b74",
+   "name": "交接模型",
+   "domain": "AI 产品与组织",
+   "why": "PM与工程师传统交接"
+  },
+  {
+   "id": "cm_bb5e6e76",
+   "name": "交易型实用主义",
+   "domain": "个人生活与关系",
+   "why": "人际关系功利化，非AI"
+  },
+  {
+   "id": "cm_f893902e",
+   "name": "焦虑",
+   "domain": "身心与神经科学",
+   "why": "心理情绪概念"
+  },
+  {
+   "id": "cm_757ec523",
+   "name": "教育的高压筛选",
+   "domain": "媒体教育与文化",
+   "why": "教育筛选制度问题"
+  },
+  {
+   "id": "cm_5786c7c0",
+   "name": "教育技术",
+   "domain": "媒体教育与文化",
+   "why": "教育技术，非AI"
+  },
+  {
+   "id": "cm_275eb252",
+   "name": "节俭创新",
+   "domain": "地缘与基础设施",
+   "why": "通用节俭创新非AI"
+  },
+  {
+   "id": "cm_f2982671",
+   "name": "结构性矛盾",
+   "domain": "经济与商业逻辑",
+   "why": "劳动经济结构问题"
+  },
+  {
+   "id": "cm_f4bf02a4",
+   "name": "结构压力的性别化误读",
+   "domain": "社会法律与制度",
+   "why": "性别与社会结构议题"
+  },
+  {
+   "id": "cm_261d8d95",
+   "name": "结果高于面子",
+   "domain": "认知与思维方法",
+   "why": "泛决策心理非AI"
+  },
+  {
+   "id": "cm_e44ff396",
+   "name": "金刚石压砧",
+   "domain": "地缘与基础设施",
+   "why": "物理实验装置"
+  },
+  {
+   "id": "cm_1fc0153b",
+   "name": "进展期腺瘤",
+   "domain": "临床医学与诊断",
+   "why": "医学腺瘤病理"
+  },
+  {
+   "id": "cm_5b14b9f4",
+   "name": "经济耐力比赛",
+   "domain": "经济与商业逻辑",
+   "why": "战争经济耐力"
+  },
+  {
+   "id": "cm_537d8ce7",
+   "name": "举证责任",
+   "domain": "认知与思维方法",
+   "why": "辩论举证责任"
+  },
+  {
+   "id": "cm_0f535894",
+   "name": "决策日志",
+   "domain": "认知与思维方法",
+   "why": "个人决策日志"
+  },
+  {
+   "id": "cm_6b500ad5",
+   "name": "看不见的财富",
+   "domain": "经济与商业逻辑",
+   "why": "财富与消费区别"
+  },
+  {
+   "id": "cm_7a8eecc9",
+   "name": "看守看守者（Watchmen Watching the Watchmen）",
+   "domain": "安全权限与合规",
+   "why": "非AI社会监督"
+  },
+  {
+   "id": "cm_bd207ea4",
+   "name": "科学图景",
+   "domain": "认知与思维方法",
+   "why": "科学认知图景"
+  },
+  {
+   "id": "cm_53473a0a",
+   "name": "可塑性与韧性的权衡",
+   "domain": "个人生活与关系",
+   "why": "心理可塑性韧性"
+  },
+  {
+   "id": "cm_499aa6e8",
+   "name": "可疑疾病",
+   "domain": "临床医学与诊断",
+   "why": "纯医学疾病"
+  },
+  {
+   "id": "cm_4169ee21",
+   "name": "兰花型儿童",
+   "domain": "个人生活与关系",
+   "why": "儿童心理环境敏感"
+  },
+  {
+   "id": "cm_8376a02c",
+   "name": "蓝色弹珠",
+   "domain": "媒体教育与文化",
+   "why": "环保意识照片"
+  },
+  {
+   "id": "cm_9290ad11",
+   "name": "理想终态",
+   "domain": "个人生活与关系",
+   "why": "个人生活规划"
+  },
+  {
+   "id": "cm_4da45761",
+   "name": "理性",
+   "domain": "认知与思维方法",
+   "why": "一般理性哲学"
+  },
+  {
+   "id": "cm_27fb5ba4",
+   "name": "理性无知",
+   "domain": "认知与思维方法",
+   "why": "信息经济学策略"
+  },
+  {
+   "id": "cm_39875655",
+   "name": "量产游戏",
+   "domain": "媒体教育与文化",
+   "why": "内容分发与量产"
+  },
+  {
+   "id": "cm_691bd675",
+   "name": "临床病理讨论会",
+   "domain": "临床医学与诊断",
+   "why": "医学病例讨论"
+  },
+  {
+   "id": "cm_1ff626e6",
+   "name": "临床推理",
+   "domain": "临床医学与诊断",
+   "why": "临床诊断思维"
+  },
+  {
+   "id": "cm_f004bda7",
+   "name": "灵魂剧场（theater of the soul）",
+   "domain": "媒体教育与文化",
+   "why": "文化哲学概念"
+  },
+  {
+   "id": "cm_ff1b377d",
+   "name": "零信任 vs. 城堡-护城河",
+   "domain": "安全权限与合规",
+   "why": "通用网络安全模型"
+  },
+  {
+   "id": "cm_6726b3bc",
+   "name": "领域专家",
+   "domain": "AI 产品与组织",
+   "why": "通用产品角色"
+  },
+  {
+   "id": "cm_f9bddc5c",
+   "name": "流程即工作",
+   "domain": "AI 产品与组织",
+   "why": "通用组织流程"
+  },
+  {
+   "id": "cm_b6ac5a99",
+   "name": "流动制度化",
+   "domain": "社会法律与制度",
+   "why": "社会制度概念"
+  },
+  {
+   "id": "cm_daeec1f7",
+   "name": "旅行者号",
+   "domain": "地缘与基础设施",
+   "why": "航天探测器"
+  },
+  {
+   "id": "cm_73d87ed3",
+   "name": "律师脑",
+   "domain": "社会法律与制度",
+   "why": "法律思维类比"
+  },
+  {
+   "id": "cm_bb38906c",
+   "name": "骆驼鼻子探入帐篷（Camel's Nose in the Tent）",
+   "domain": "安全权限与合规",
+   "why": "隐私谚语"
+  },
+  {
+   "id": "cm_9810b581",
+   "name": "盲盒晚餐",
+   "domain": "经济与商业逻辑",
+   "why": "社交商品化服务"
+  },
+  {
+   "id": "cm_1d87ca80",
+   "name": "明线规则",
+   "domain": "认知与思维方法",
+   "why": "个人行为心理学"
+  },
+  {
+   "id": "cm_13b720ca",
+   "name": "默认思维倾向",
+   "domain": "认知与思维方法",
+   "why": "纯心理/认知偏误"
+  },
+  {
+   "id": "cm_346a9752",
+   "name": "难选择，易人生",
+   "domain": "个人生活与关系",
+   "why": "个人生活选择"
+  },
+  {
+   "id": "cm_b624167b",
+   "name": "脑海名望",
+   "domain": "身心与神经科学",
+   "why": "神经科学意识理论"
+  },
+  {
+   "id": "cm_ebf2a449",
+   "name": "年化营收",
+   "domain": "经济与商业逻辑",
+   "why": "传统商业财务指标"
+  },
+  {
+   "id": "cm_d584c348",
+   "name": "女性生殖器切割（FGM）",
+   "domain": "临床医学与诊断",
+   "why": "医学社会议题"
+  },
+  {
+   "id": "cm_72fc734a",
+   "name": "女性碎片时间作为新基础设施",
+   "domain": "媒体教育与文化",
+   "why": "文化娱乐/微剧"
+  },
+  {
+   "id": "cm_ca4ebf8a",
+   "name": "偶遇表面积",
+   "domain": "个人生活与关系",
+   "why": "个人生活/运气"
+  },
+  {
+   "id": "cm_efbdb1b8",
+   "name": "平扫 CT",
+   "domain": "临床医学与诊断",
+   "why": "临床医学影像"
+  },
+  {
+   "id": "cm_4727c147",
+   "name": "屏幕时间",
+   "domain": "媒体教育与文化",
+   "why": "行为指标非AI"
+  },
+  {
+   "id": "cm_0739a242",
+   "name": "蒲公英型儿童",
+   "domain": "个人生活与关系",
+   "why": "儿童养育非AI"
+  },
+  {
+   "id": "cm_65adcd06",
+   "name": "普职分流",
+   "domain": "社会法律与制度",
+   "why": "教育政策非AI"
+  },
+  {
+   "id": "cm_7b628294",
+   "name": "前额叶皮质",
+   "domain": "身心与神经科学",
+   "why": "神经科学非AI"
+  },
+  {
+   "id": "cm_303cf633",
+   "name": "前庭球",
+   "domain": "身心与神经科学",
+   "why": "人体解剖非AI"
+  },
+  {
+   "id": "cm_99797cde",
+   "name": "前置声明",
+   "domain": "规格与意图对齐",
+   "why": "人际沟通非AI"
+  },
+  {
+   "id": "cm_e066daf8",
+   "name": "清醒梦",
+   "domain": "身心与神经科学",
+   "why": "睡眠意识非AI"
+  },
+  {
+   "id": "cm_48d4ffa1",
+   "name": "情绪默认",
+   "domain": "认知与思维方法",
+   "why": "情绪心理非AI"
+  },
+  {
+   "id": "cm_bcc32951",
+   "name": "全球贸易路线重布线",
+   "domain": "地缘与基础设施",
+   "why": "全球贸易非AI"
+  },
+  {
+   "id": "cm_1f32b2de",
+   "name": "权利从登记表开始",
+   "domain": "社会法律与制度",
+   "why": "制度演化非AI"
+  },
+  {
+   "id": "cm_413e4ce9",
+   "name": "群体认同偏差",
+   "domain": "认知与思维方法",
+   "why": "政治心理非AI"
+  },
+  {
+   "id": "cm_aa0b7acc",
+   "name": "人事即政治",
+   "domain": "社会法律与制度",
+   "why": "纯政治制度"
+  },
+  {
+   "id": "cm_af430262",
+   "name": "认知失调",
+   "domain": "认知与思维方法",
+   "why": "纯心理学"
+  },
+  {
+   "id": "cm_e88a8c28",
+   "name": "日常语言哲学",
+   "domain": "认知与思维方法",
+   "why": "纯哲学"
+  },
+  {
+   "id": "cm_06a3b263",
+   "name": "日球层",
+   "domain": "地缘与基础设施",
+   "why": "天文物理"
+  },
+  {
+   "id": "cm_ee4f0a12",
+   "name": "软技能",
+   "domain": "AI 产品与组织",
+   "why": "通用软技能"
+  },
+  {
+   "id": "cm_19eca2c6",
+   "name": "赛博避难所与修罗场",
+   "domain": "社会法律与制度",
+   "why": "网络求助社会现象"
+  },
+  {
+   "id": "cm_4e205de4",
+   "name": "三个煤矿金丝雀",
+   "domain": "临床医学与诊断",
+   "why": "纯健康医学"
+  },
+  {
+   "id": "cm_a3b38de2",
+   "name": "三种应对：接受 / 清除 / 装作不知道（Acceptance / Purging / Pretend Ignorance）",
+   "domain": "社会法律与制度",
+   "why": "社会隐私反应"
+  },
+  {
+   "id": "cm_0aff6b04",
+   "name": "善意越轨（Benign Deviancy）",
+   "domain": "社会法律与制度",
+   "why": "刑事与监控社会制度"
+  },
+  {
+   "id": "cm_fe956125",
+   "name": "上手状态",
+   "domain": "认知与思维方法",
+   "why": "身体生理状态"
+  },
+  {
+   "id": "cm_8b0679fe",
+   "name": "设计树",
+   "domain": "规格与意图对齐",
+   "why": "纯设计方法"
+  },
+  {
+   "id": "cm_5e47a589",
+   "name": "社会身份脆性",
+   "domain": "经济与商业逻辑",
+   "why": "社会身份心理"
+  },
+  {
+   "id": "cm_ceeb5da9",
+   "name": "社会稳定机制",
+   "domain": "社会法律与制度",
+   "why": "高考社会制度"
+  },
+  {
+   "id": "cm_3b100df8",
+   "name": "社会许可",
+   "domain": "社会法律与制度",
+   "why": "泛行业社会认可"
+  },
+  {
+   "id": "cm_f5b568dd",
+   "name": "身体年龄",
+   "domain": "身心与神经科学",
+   "why": "医学年龄"
+  },
+  {
+   "id": "cm_94d6a10a",
+   "name": "神话管理",
+   "domain": "媒体教育与文化",
+   "why": "文化神话管理"
+  },
+  {
+   "id": "cm_7df2f8ef",
+   "name": "十年重塑",
+   "domain": "个人生活与关系",
+   "why": "个人价值观生活"
+  },
+  {
+   "id": "cm_0063ab7f",
+   "name": "时间偏好",
+   "domain": "认知与思维方法",
+   "why": "心理时间偏好"
+  },
+  {
+   "id": "cm_627cd5e5",
+   "name": "手机成瘾",
+   "domain": "媒体教育与文化",
+   "why": "手机成瘾非AI"
+  },
+  {
+   "id": "cm_d017eff4",
+   "name": "束理论",
+   "domain": "认知与思维方法",
+   "why": "休谟哲学非AI"
+  },
+  {
+   "id": "cm_0f50bab1",
+   "name": "睡眠的社会人口学差异",
+   "domain": "临床医学与诊断",
+   "why": "睡眠研究非AI"
+  },
+  {
+   "id": "cm_64ee07c2",
+   "name": "睡眠健康",
+   "domain": "临床医学与诊断",
+   "why": "睡眠健康非AI"
+  },
+  {
+   "id": "cm_4402a284",
+   "name": "睡眠健康四维测量框架",
+   "domain": "临床医学与诊断",
+   "why": "睡眠测量非AI"
+  },
+  {
+   "id": "cm_a4d23083",
+   "name": "睡眠困难",
+   "domain": "临床医学与诊断",
+   "why": "睡眠困难非AI"
+  },
+  {
+   "id": "cm_0c62dc4a",
+   "name": "思维的默认模式",
+   "domain": "认知与思维方法",
+   "why": "教育思维非AI"
+  },
+  {
+   "id": "cm_f0175fa0",
+   "name": "四项心智力量",
+   "domain": "认知与思维方法",
+   "why": "个人品格非AI"
+  },
+  {
+   "id": "cm_49edbe3a",
+   "name": "塑性冰 VII",
+   "domain": "地缘与基础设施",
+   "why": "物理冰相非AI"
+  },
+  {
+   "id": "cm_818b803f",
+   "name": "算法即制片人",
+   "domain": "媒体教育与文化",
+   "why": "影视内容产业算法，非AI"
+  },
+  {
+   "id": "cm_7b7476df",
+   "name": "踏脚石效应",
+   "domain": "认知与思维方法",
+   "why": "说服从谈判技巧"
+  },
+  {
+   "id": "cm_fc86a697",
+   "name": "忒修斯之船",
+   "domain": "认知与思维方法",
+   "why": "纯哲学同一性思想实验"
+  },
+  {
+   "id": "cm_f34397d6",
+   "name": "痛苦的螺旋",
+   "domain": "临床医学与诊断",
+   "why": "慢性病心理历程"
+  },
+  {
+   "id": "cm_a81005ac",
+   "name": "痛苦素养",
+   "domain": "临床医学与诊断",
+   "why": "疾病痛苦素养"
+  },
+  {
+   "id": "cm_8901a989",
+   "name": "外层空间条约",
+   "domain": "社会法律与制度",
+   "why": "外空条约，非AI"
+  },
+  {
+   "id": "cm_72a2dbfe",
+   "name": "危险先例",
+   "domain": "地缘与基础设施",
+   "why": "地缘政治先例，非AI"
+  },
+  {
+   "id": "cm_d7a8d5c8",
+   "name": "微剧",
+   "domain": "媒体教育与文化",
+   "why": "微剧娱乐，非AI"
+  },
+  {
+   "id": "cm_e81072ea",
+   "name": "微选择复利",
+   "domain": "个人生活与关系",
+   "why": "个人成长复利，非AI"
+  },
+  {
+   "id": "cm_4c82c388",
+   "name": "维萨里教条",
+   "domain": "临床医学与诊断",
+   "why": "解剖学医学，非AI"
+  },
+  {
+   "id": "cm_e59738dc",
+   "name": "尾部效应",
+   "domain": "经济与商业逻辑",
+   "why": "统计投资效应，非AI"
+  },
+  {
+   "id": "cm_3e605896",
+   "name": "文化秃鹫转向",
+   "domain": "媒体教育与文化",
+   "why": "嘻哈文化批判，非AI"
+  },
+  {
+   "id": "cm_88ab03e1",
+   "name": "文明的 feature（不是 bug）",
+   "domain": "社会法律与制度",
+   "why": "文明社会议题，非AI"
+  },
+  {
+   "id": "cm_83e37af7",
+   "name": "无我",
+   "domain": "认知与思维方法",
+   "why": "哲学无我，非AI"
+  },
+  {
+   "id": "cm_80327519",
+   "name": "五人平均法则",
+   "domain": "个人生活与关系",
+   "why": "人际关系法则，非AI"
+  },
+  {
+   "id": "cm_5c9de1e9",
+   "name": "嘻哈教父",
+   "domain": "媒体教育与文化",
+   "why": "嘻哈文化称号，非AI"
+  },
+  {
+   "id": "cm_f13aecb2",
+   "name": "嘻哈五要素",
+   "domain": "媒体教育与文化",
+   "why": "嘻哈文化要素，非AI"
+  },
+  {
+   "id": "cm_0c599244",
+   "name": "习惯",
+   "domain": "个人生活与关系",
+   "why": "习惯心理学，非AI"
+  },
+  {
+   "id": "cm_b2c5ba9c",
+   "name": "显现图景",
+   "domain": "认知与思维方法",
+   "why": "哲学显现图景"
+  },
+  {
+   "id": "cm_99610fcf",
+   "name": "现成在手",
+   "domain": "认知与思维方法",
+   "why": "哲学现成在手"
+  },
+  {
+   "id": "cm_248f7baa",
+   "name": "限界上下文",
+   "domain": "代码库与工程实践",
+   "why": "DDD软件架构"
+  },
+  {
+   "id": "cm_f35c6c14",
+   "name": "消除主义",
+   "domain": "认知与思维方法",
+   "why": "哲学消除主义"
+  },
+  {
+   "id": "cm_dc8d374d",
+   "name": "心身二元论",
+   "domain": "身心与神经科学",
+   "why": "哲学心身二元"
+  },
+  {
+   "id": "cm_e36dcc0a",
+   "name": "星空与道德律",
+   "domain": "社会法律与制度",
+   "why": "哲学伦理非AI"
+  },
+  {
+   "id": "cm_02c678cf",
+   "name": "醒后清爽感",
+   "domain": "身心与神经科学",
+   "why": "睡眠健康自评"
+  },
+  {
+   "id": "cm_7fb94677",
+   "name": "杏仁核",
+   "domain": "身心与神经科学",
+   "why": "神经科学杏仁核"
+  },
+  {
+   "id": "cm_85579b76",
+   "name": "叙事重心",
+   "domain": "认知与思维方法",
+   "why": "哲学自我理论"
+  },
+  {
+   "id": "cm_396a66b0",
+   "name": "学术造假的级联",
+   "domain": "社会法律与制度",
+   "why": "学术造假非AI"
+  },
+  {
+   "id": "cm_1c93a142",
+   "name": "学习脚手架",
+   "domain": "媒体教育与文化",
+   "why": "学习脚手架非AI"
+  },
+  {
+   "id": "cm_6380b8ce",
+   "name": "亚稳态",
+   "domain": "认知与思维方法",
+   "why": "物理相变概念"
+  },
+  {
+   "id": "cm_1228826a",
+   "name": "延迟的正义",
+   "domain": "社会法律与制度",
+   "why": "高考制度公平"
+  },
+  {
+   "id": "cm_fb4dc697",
+   "name": "液体活检",
+   "domain": "临床医学与诊断",
+   "why": "纯医学肿瘤筛查"
+  },
+  {
+   "id": "cm_e050783e",
+   "name": "一刀切政策",
+   "domain": "媒体教育与文化",
+   "why": "公共政策非AI"
+  },
+  {
+   "id": "cm_771afdb4",
+   "name": "医疗轻视",
+   "domain": "临床医学与诊断",
+   "why": "临床医患体验"
+  },
+  {
+   "id": "cm_2f419b3a",
+   "name": "依恋风格",
+   "domain": "个人生活与关系",
+   "why": "心理学依恋"
+  },
+  {
+   "id": "cm_0dcbdd44",
+   "name": "移除开销",
+   "domain": "AI 产品与组织",
+   "why": "研发流程非AI"
+  },
+  {
+   "id": "cm_4fdfcee1",
+   "name": "意志力",
+   "domain": "身心与神经科学",
+   "why": "心理学自控"
+  },
+  {
+   "id": "cm_e168e15c",
+   "name": "阴蒂包皮",
+   "domain": "临床医学与诊断",
+   "why": "解剖学概念"
+  },
+  {
+   "id": "cm_9e6c803b",
+   "name": "阴蒂背神经",
+   "domain": "临床医学与诊断",
+   "why": "解剖学神经"
+  },
+  {
+   "id": "cm_d2f5d254",
+   "name": "阴蒂脚",
+   "domain": "临床医学与诊断",
+   "why": "解剖学结构"
+  },
+  {
+   "id": "cm_12e715eb",
+   "name": "引力助推",
+   "domain": "地缘与基础设施",
+   "why": "航天物理"
+  },
+  {
+   "id": "cm_5e79cf3e",
+   "name": "隐性控制",
+   "domain": "地缘与基础设施",
+   "why": "博弈杠杆非AI"
+  },
+  {
+   "id": "cm_fafd8f39",
+   "name": "营销谬误",
+   "domain": "媒体教育与文化",
+   "why": "营销诊断"
+  },
+  {
+   "id": "cm_63c4a968",
+   "name": "语义相关性",
+   "domain": "媒体教育与文化",
+   "why": "纯SEO内容相关性"
+  },
+  {
+   "id": "cm_82e83f63",
+   "name": "载重平衡",
+   "domain": "地缘与基础设施",
+   "why": "飞机载重配平，非AI"
+  },
+  {
+   "id": "cm_c3eb4ff0",
+   "name": "照料劳动",
+   "domain": "社会法律与制度",
+   "why": "照料劳动与社会性别"
+  },
+  {
+   "id": "cm_bc4032a1",
+   "name": "执行功能",
+   "domain": "身心与神经科学",
+   "why": "纯神经科学执行功能"
+  },
+  {
+   "id": "cm_84fc06ac",
+   "name": "智识上正确、政治上奢侈、道德上可疑",
+   "domain": "认知与思维方法",
+   "why": "批评质检非AI"
+  },
+  {
+   "id": "cm_84e15406",
+   "name": "中国透镜下的美国",
+   "domain": "媒体教育与文化",
+   "why": "文化二手想象"
+  },
+  {
+   "id": "cm_367e2623",
+   "name": "中年",
+   "domain": "个人生活与关系",
+   "why": "讲中年概念"
+  },
+  {
+   "id": "cm_02d35fca",
+   "name": "中年危机",
+   "domain": "个人生活与关系",
+   "why": "讲中年危机标签"
+  },
+  {
+   "id": "cm_9fb4dd2e",
+   "name": "中子散射",
+   "domain": "地缘与基础设施",
+   "why": "纯物理中子散射"
+  },
+  {
+   "id": "cm_8536d67a",
+   "name": "重心",
+   "domain": "地缘与基础设施",
+   "why": "飞机重心力学"
+  },
+  {
+   "id": "cm_d1371114",
+   "name": "自我默认",
+   "domain": "认知与思维方法",
+   "why": "纯心理自尊防御"
+  },
+  {
+   "id": "cm_26a8128b",
+   "name": "自尊式担责",
+   "domain": "安全权限与合规",
+   "why": "个人沟通与担责"
+  },
+  {
+   "id": "cm_5ecc4655",
+   "name": "最后一分钟修正",
+   "domain": "地缘与基础设施",
+   "why": "航空舱单操作"
+  },
+  {
+   "id": "cm_a44eefc0",
+   "name": "A view is a view",
+   "domain": "媒体教育与文化",
+   "why": "广告曝光计量"
+  },
+  {
+   "id": "cm_531af891",
+   "name": "Acre-foot",
+   "domain": "地缘与基础设施",
+   "why": "水文水量单位"
+  },
+  {
+   "id": "cm_3a9cdbbe",
+   "name": "Aggregation Theory",
+   "domain": "经济与商业逻辑",
+   "why": "传统聚合商业理论"
+  },
+  {
+   "id": "cm_ae650906",
+   "name": "ASAP / ALAP 原则",
+   "domain": "认知与思维方法",
+   "why": "通用决策原则"
+  },
+  {
+   "id": "cm_e63fe314",
+   "name": "Beliefs as Lenses, Not Armor",
+   "domain": "认知与思维方法",
+   "why": "纯心理认知"
+  },
+  {
+   "id": "cm_91fd7291",
+   "name": "Big Bang 升级计划（旅行者号）",
+   "domain": "地缘与基础设施",
+   "why": "航天电源方案"
+  },
+  {
+   "id": "cm_01908681",
+   "name": "Blast radius",
+   "domain": "代码库与工程实践",
+   "why": "纯软件工程"
+  },
+  {
+   "id": "cm_5f36140f",
+   "name": "Boyfriend roulette",
+   "domain": "个人生活与关系",
+   "why": "个人恋爱随机"
+  },
+  {
+   "id": "cm_58737f49",
+   "name": "Choke Point",
+   "domain": "地缘与基础设施",
+   "why": "全球贸易地缘"
+  },
+  {
+   "id": "cm_c8f344c1",
+   "name": "Cloaking",
+   "domain": "媒体教育与文化",
+   "why": "SEO作弊手段"
+  },
+  {
+   "id": "cm_69531898",
+   "name": "DAG 编排器",
+   "domain": "循环与自主执行",
+   "why": "通用数据编排"
+  },
+  {
+   "id": "cm_32fd426a",
+   "name": "DART任务",
+   "domain": "地缘与基础设施",
+   "why": "航天任务"
+  },
+  {
+   "id": "cm_70a27f0c",
+   "name": "Dating-app fatigue",
+   "domain": "个人生活与关系",
+   "why": "交友软件心理"
+  },
+  {
+   "id": "cm_65afe80b",
+   "name": "death of the social",
+   "domain": "媒体教育与文化",
+   "why": "公共空间社会"
+  },
+  {
+   "id": "cm_9bdd02f8",
+   "name": "Decentralized Cryptographic Truth",
+   "domain": "社会法律与制度",
+   "why": "区块链共识"
+  },
+  {
+   "id": "cm_5a913047",
+   "name": "Deconditioning",
+   "domain": "身心与神经科学",
+   "why": "身体去适应"
+  },
+  {
+   "id": "cm_f4f2cf01",
+   "name": "Dharana",
+   "domain": "身心与神经科学",
+   "why": "瑜伽专注"
+  },
+  {
+   "id": "cm_32fe6bc6",
+   "name": "Diff 锚定",
+   "domain": "代码库与工程实践",
+   "why": "代码审查方法"
+  },
+  {
+   "id": "cm_3ca23b5f",
+   "name": "Disney bubble",
+   "domain": "媒体教育与文化",
+   "why": "沉浸体验"
+  },
+  {
+   "id": "cm_a7361f76",
+   "name": "Disney hierarchy",
+   "domain": "媒体教育与文化",
+   "why": "粉丝文化"
+  },
+  {
+   "id": "cm_3c308af4",
+   "name": "DRD4 基因",
+   "domain": "身心与神经科学",
+   "why": "基因心理"
+  },
+  {
+   "id": "cm_532995ad",
+   "name": "EHR",
+   "domain": "临床医学与诊断",
+   "why": "电子病历"
+  },
+  {
+   "id": "cm_8ce77cc3",
+   "name": "Enough",
+   "domain": "个人生活与关系",
+   "why": "个人财富幸福观"
+  },
+  {
+   "id": "cm_1335753c",
+   "name": "Exhaustion Debt",
+   "domain": "身心与神经科学",
+   "why": "个人疲劳健康"
+  },
+  {
+   "id": "cm_d343a50e",
+   "name": "Fernet token",
+   "domain": "安全权限与合规",
+   "why": "纯加密token格式"
+  },
+  {
+   "id": "cm_9639a844",
+   "name": "First Folio",
+   "domain": "媒体教育与文化",
+   "why": "莎士比亚版本史"
+  },
+  {
+   "id": "cm_b894e32d",
+   "name": "Fooling Yourself Takes Work",
+   "domain": "认知与思维方法",
+   "why": "自欺心理学"
+  },
+  {
+   "id": "cm_9ba323e5",
+   "name": "Ghosting",
+   "domain": "个人生活与关系",
+   "why": "约会关系话题"
+  },
+  {
+   "id": "cm_6f8755a0",
+   "name": "HiP-CT",
+   "domain": "临床医学与诊断",
+   "why": "纯医学成像"
+  },
+  {
+   "id": "cm_d133fd5c",
+   "name": "Hoard",
+   "domain": "记忆与检索",
+   "why": "存疑，疑为收藏保存"
+  },
+  {
+   "id": "cm_db2e3848",
+   "name": "Holding Your Opinions Lightly",
+   "domain": "认知与思维方法",
+   "why": "个人心态练习"
+  },
+  {
+   "id": "cm_3931df09",
+   "name": "HTML 标准化",
+   "domain": "代码库与工程实践",
+   "why": "网页标记标准，非AI"
+  },
+  {
+   "id": "cm_889aa244",
+   "name": "Hypnopaedia",
+   "domain": "媒体教育与文化",
+   "why": "文学虚构概念"
+  },
+  {
+   "id": "cm_4cb4ac3f",
+   "name": "Just-in-Time vs Buffer Stock",
+   "domain": "经济与商业逻辑",
+   "why": "纯库存管理概念"
+  },
+  {
+   "id": "cm_107688d0",
+   "name": "Learn From Sleep vs. Learn During Sleep",
+   "domain": "身心与神经科学",
+   "why": "人类睡眠与学习"
+  },
+  {
+   "id": "cm_723196a5",
+   "name": "Ledger of Record",
+   "domain": "验证与评估门禁",
+   "why": "区块链底账记录"
+  },
+  {
+   "id": "cm_a10e6134",
+   "name": "medicating with Disney",
+   "domain": "个人生活与关系",
+   "why": "个人生活心理慰藉"
+  },
+  {
+   "id": "cm_e0d9a1fa",
+   "name": "Network State",
+   "domain": "社会法律与制度",
+   "why": "社群政治制度，与AI无关"
+  },
+  {
+   "id": "cm_0f648e5f",
+   "name": "NHIS",
+   "domain": "临床医学与诊断",
+   "why": "医学健康调查"
+  },
+  {
+   "id": "cm_1c53f4f5",
+   "name": "Ostwald 阶梯规则",
+   "domain": "认知与思维方法",
+   "why": "物理化学相变规则"
+  },
+  {
+   "id": "cm_3bde05a0",
+   "name": "Pananthropos",
+   "domain": "媒体教育与文化",
+   "why": "文化人物概念"
+  },
+  {
+   "id": "cm_5bfb7116",
+   "name": "Pitch",
+   "domain": "媒体教育与文化",
+   "why": "视频包装，无AI"
+  },
+  {
+   "id": "cm_3f3923a4",
+   "name": "Psycho-phone",
+   "domain": "身心与神经科学",
+   "why": "伪科学留声机"
+  },
+  {
+   "id": "cm_f1f3bdb7",
+   "name": "Qualia",
+   "domain": "身心与神经科学",
+   "why": "意识哲学概念"
+  },
+  {
+   "id": "cm_16c8cb75",
+   "name": "Quining",
+   "domain": "认知与思维方法",
+   "why": "哲学造词"
+  },
+  {
+   "id": "cm_82681fa9",
+   "name": "REM 睡眠",
+   "domain": "身心与神经科学",
+   "why": "睡眠生理阶段"
+  },
+  {
+   "id": "cm_4e5b2bb6",
+   "name": "Reverse Digital Divide",
+   "domain": "经济与商业逻辑",
+   "why": "数字鸿沟与线下价值，非AI"
+  },
+  {
+   "id": "cm_8bed81b7",
+   "name": "Rightness is a Prison",
+   "domain": "认知与思维方法",
+   "why": "个人心态与信念，非AI"
+  },
+  {
+   "id": "cm_97772dd0",
+   "name": "RTG",
+   "domain": "地缘与基础设施",
+   "why": "放射性同位素电源，非AI"
+  },
+  {
+   "id": "cm_add33a8c",
+   "name": "Seeming-Rightness",
+   "domain": "认知与思维方法",
+   "why": "个人人设心理，非AI"
+  },
+  {
+   "id": "cm_0ab56c37",
+   "name": "Signals",
+   "domain": "记忆与检索",
+   "why": "产品增长分析，非 AI"
+  },
+  {
+   "id": "cm_496bb2f4",
+   "name": "Situationship",
+   "domain": "个人生活与关系",
+   "why": "个人关系，非 AI"
+  },
+  {
+   "id": "cm_6573bc31",
+   "name": "Social Smart Contract",
+   "domain": "社会法律与制度",
+   "why": "区块链治理非AI"
+  },
+  {
+   "id": "cm_44a8d028",
+   "name": "Software for one",
+   "domain": "经济与商业逻辑",
+   "why": "软件产品策略非AI"
+  },
+  {
+   "id": "cm_cdd76263",
+   "name": "Stop / FLOP / Know 原则",
+   "domain": "认知与思维方法",
+   "why": "通用决策原则非AI"
+  },
+  {
+   "id": "cm_6aa26566",
+   "name": "Superforecasting",
+   "domain": "认知与思维方法",
+   "why": "预测心理学非AI"
+  },
+  {
+   "id": "cm_0b799e50",
+   "name": "swindle of fulfillment",
+   "domain": "媒体教育与文化",
+   "why": "文化批判非AI"
+  },
+  {
+   "id": "cm_bcc0ef1d",
+   "name": "Targeted Memory Reactivation",
+   "domain": "身心与神经科学",
+   "why": "纯神经科学睡眠记忆"
+  },
+  {
+   "id": "cm_20072d88",
+   "name": "The Grind",
+   "domain": "身心与神经科学",
+   "why": "工作心态非AI"
+  },
+  {
+   "id": "cm_bc7539b0",
+   "name": "The Judo of Agreeing",
+   "domain": "个人生活与关系",
+   "why": "沟通技巧非AI"
+  },
+  {
+   "id": "cm_c2b4e716",
+   "name": "Tiger Team",
+   "domain": "AI 产品与组织",
+   "why": "通用临时小队非AI"
+  },
+  {
+   "id": "cm_66508083",
+   "name": "Trutherism",
+   "domain": "媒体教育与文化",
+   "why": "政治文化批评，非AI"
+  },
+  {
+   "id": "cm_0a681b7d",
+   "name": "Universal appeal — makes, not has",
+   "domain": "认知与思维方法",
+   "why": "美学文艺论，非AI"
+  },
+  {
+   "id": "cm_b8e6edd0",
+   "name": "Universal Zulu Nation",
+   "domain": "媒体教育与文化",
+   "why": "嘻哈文化组织，非AI"
+  },
+  {
+   "id": "cm_9e88d8b5",
+   "name": "Verification Markets",
+   "domain": "经济与商业逻辑",
+   "why": "区块链裁决机制，非AI"
+  },
+  {
+   "id": "cm_d76f2307",
+   "name": "Wake-centric Values",
+   "domain": "身心与神经科学",
+   "why": "睡眠价值取向，非AI"
+  },
+  {
+   "id": "cm_df830f48",
+   "name": "Wrong criteria in their mind",
+   "domain": "个人生活与关系",
+   "why": "纯个人择偶心理标准"
+  }
+ ],
+ "verdicts": {
+  "cm_49d1aa2a": {
+   "ai": "keep",
+   "why": "Agent规格与工件上下文"
+  },
+  "cm_7d8d74f0": {
+   "ai": "keep",
+   "why": "Agent并发工作区隔离"
+  },
+  "cm_ca26306b": {
+   "ai": "keep",
+   "why": "Agent针对验证器优化"
+  },
+  "cm_31ec728d": {
+   "ai": "keep",
+   "why": "上下文管理策略"
+  },
+  "cm_5b033c9f": {
+   "ai": "keep",
+   "why": "Loop工程与管理Agent"
+  },
+  "cm_b7424773": {
+   "ai": "keep",
+   "why": "harness上下文管理"
+  },
+  "cm_69fd0c3c": {
+   "ai": "keep",
+   "why": "LLM基准测量"
+  },
+  "cm_622b0b3b": {
+   "ai": "keep",
+   "why": "上下文按需检索"
+  },
+  "cm_b55ff5c3": {
+   "ai": "keep",
+   "why": "Agent记忆分层"
+  },
+  "cm_ba882963": {
+   "ai": "keep",
+   "why": "记忆的提示工程"
+  },
+  "cm_c8c4d5c6": {
+   "ai": "keep",
+   "why": "脚手架与harness取舍"
+  },
+  "cm_b70989ce": {
+   "ai": "drop",
+   "why": "旅行者号唱片非AI"
+  },
+  "cm_e11bd63b": {
+   "ai": "keep",
+   "why": "loop可验证目标"
+  },
+  "cm_94fa45bf": {
+   "ai": "keep",
+   "why": "跨轮次记忆与策略"
+  },
+  "cm_c2dd0286": {
+   "ai": "keep",
+   "why": "MCP工具接入"
+  },
+  "cm_a8179581": {
+   "ai": "keep",
+   "why": "上下文文件树组织"
+  },
+  "cm_3cd29e1b": {
+   "ai": "keep",
+   "why": "上下文占用与性能"
+  },
+  "cm_652d3291": {
+   "ai": "keep",
+   "why": "模型输出token效率"
+  },
+  "cm_08f36fe6": {
+   "ai": "keep",
+   "why": "提示词工程"
+  },
+  "cm_8897d219": {
+   "ai": "keep",
+   "why": "harness评测公平性"
+  },
+  "cm_f3b13df1": {
+   "ai": "keep",
+   "why": "人与AI协作外包理解"
+  },
+  "cm_079fba1c": {
+   "ai": "keep",
+   "why": "loop项目知识管理"
+  },
+  "cm_7cd7335d": {
+   "ai": "keep",
+   "why": "Agent自验证闭环"
+  },
+  "cm_01d6a01e": {
+   "ai": "keep",
+   "why": "模型长上下文窗口"
+  },
+  "cm_1db64a00": {
+   "ai": "keep",
+   "why": "执行可靠性护栏机制"
+  },
+  "cm_0a4ca4ce": {
+   "ai": "keep",
+   "why": "LLM 外部架构"
+  },
+  "cm_30201f36": {
+   "ai": "keep",
+   "why": "上下文工程"
+  },
+  "cm_e56f1e8b": {
+   "ai": "keep",
+   "why": "Agent 系统工程"
+  },
+  "cm_2c89a6a8": {
+   "ai": "keep",
+   "why": "模型长上下文缺陷"
+  },
+  "cm_916d7db2": {
+   "ai": "keep",
+   "why": "Agent 检索模式"
+  },
+  "cm_20bf8a66": {
+   "ai": "keep",
+   "why": "自动循环设计"
+  },
+  "cm_fbccd97c": {
+   "ai": "keep",
+   "why": "智能体程序记忆"
+  },
+  "cm_53822d1c": {
+   "ai": "keep",
+   "why": "模型长文性能退化"
+  },
+  "cm_9249f51b": {
+   "ai": "keep",
+   "why": "AI 数据与内容生态"
+  },
+  "cm_a72ef18d": {
+   "ai": "keep",
+   "why": "Agent 工具调用"
+  },
+  "cm_d9aa9fe0": {
+   "ai": "keep",
+   "why": "模型上下文"
+  },
+  "cm_c8798fb1": {
+   "ai": "keep",
+   "why": "上下文压缩"
+  },
+  "cm_4b8163f5": {
+   "ai": "keep",
+   "why": "上下文凝聚机制"
+  },
+  "cm_1973b1d3": {
+   "ai": "keep",
+   "why": "Agent 循环"
+  },
+  "cm_c3ecbf70": {
+   "ai": "keep",
+   "why": "工具接入协议"
+  },
+  "cm_01671cb1": {
+   "ai": "keep",
+   "why": "harness 循环模式"
+  },
+  "cm_67483624": {
+   "ai": "keep",
+   "why": "模型与harness划界"
+  },
+  "cm_3780cf3b": {
+   "ai": "drop",
+   "why": "通用决策缓冲"
+  },
+  "cm_3f20d0a1": {
+   "ai": "drop",
+   "why": "天文人文照片"
+  },
+  "cm_42f28056": {
+   "ai": "keep",
+   "why": "保留模型推理"
+  },
+  "cm_dee9d8f3": {
+   "ai": "keep",
+   "why": "Agent 循环本质"
+  },
+  "cm_629e8fdc": {
+   "ai": "keep",
+   "why": "ReAct 编排循环"
+  },
+  "cm_5cf2beef": {
+   "ai": "drop",
+   "why": "航空舱单文件"
+  },
+  "cm_10cbe746": {
+   "ai": "keep",
+   "why": "LLM 调用持久化"
+  },
+  "cm_03d2000c": {
+   "ai": "keep",
+   "why": "非模型系统层"
+  },
+  "cm_9cc03c6d": {
+   "ai": "keep",
+   "why": "子Agent分工编排"
+  },
+  "cm_7098bed1": {
+   "ai": "keep",
+   "why": "AI记忆机制"
+  },
+  "cm_247d8cf9": {
+   "ai": "keep",
+   "why": "loop自动循环"
+  },
+  "cm_0608c405": {
+   "ai": "keep",
+   "why": "Agent定义"
+  },
+  "cm_253ad423": {
+   "ai": "keep",
+   "why": "Agent=模型+harness"
+  },
+  "cm_012fc42e": {
+   "ai": "keep",
+   "why": "为agent建基础设施"
+  },
+  "cm_f45e5118": {
+   "ai": "keep",
+   "why": "agent工程纪律"
+  },
+  "cm_0c98a6cf": {
+   "ai": "keep",
+   "why": "AI Agent行为"
+  },
+  "cm_b9d1dd66": {
+   "ai": "keep",
+   "why": "Claude Code配置文件"
+  },
+  "cm_6a2b80d9": {
+   "ai": "keep",
+   "why": "上下文压缩"
+  },
+  "cm_5d506128": {
+   "ai": "keep",
+   "why": "AI知识工作蒸馏"
+  },
+  "cm_5d1ba3e1": {
+   "ai": "keep",
+   "why": "harness与loop配合"
+  },
+  "cm_7e6ba505": {
+   "ai": "keep",
+   "why": "agent生命周期钩子"
+  },
+  "cm_de3faada": {
+   "ai": "keep",
+   "why": "agent设计潜空间问题"
+  },
+  "cm_75dd4394": {
+   "ai": "keep",
+   "why": "LLM与harness类比"
+  },
+  "cm_d5428fa4": {
+   "ai": "keep",
+   "why": "prompt到loop跃迁"
+  },
+  "cm_186ee145": {
+   "ai": "keep",
+   "why": "上下文路由"
+  },
+  "cm_b3f7d7cc": {
+   "ai": "keep",
+   "why": "Responses API与harness"
+  },
+  "cm_103560db": {
+   "ai": "keep",
+   "why": "模型评测指标"
+  },
+  "cm_9ed037b8": {
+   "ai": "keep",
+   "why": "隔离执行环境"
+  },
+  "cm_4a78d263": {
+   "ai": "keep",
+   "why": "子代理封装"
+  },
+  "cm_75e723cc": {
+   "ai": "keep",
+   "why": "harness设计原则"
+  },
+  "cm_60061253": {
+   "ai": "keep",
+   "why": "模型奖励偏差指纹"
+  },
+  "cm_9102c409": {
+   "ai": "keep",
+   "why": "AI编程范式"
+  },
+  "cm_80fd0c67": {
+   "ai": "keep",
+   "why": "AI商业叙事"
+  },
+  "cm_5c7e3009": {
+   "ai": "keep",
+   "why": "Claude本地状态存储层"
+  },
+  "cm_71ac82fb": {
+   "ai": "drop",
+   "why": "劳动议价纯社会议题"
+  },
+  "cm_2211c604": {
+   "ai": "keep",
+   "why": "agent回喂闭环结构"
+  },
+  "cm_75642cd0": {
+   "ai": "keep",
+   "why": "模型评测基线设定"
+  },
+  "cm_a97e5068": {
+   "ai": "drop",
+   "why": "纯经济学概念"
+  },
+  "cm_2944fd6c": {
+   "ai": "keep",
+   "why": "agent编排心跳循环"
+  },
+  "cm_16dcca78": {
+   "ai": "keep",
+   "why": "AI反弹潮核心意象"
+  },
+  "cm_4bf8bd9a": {
+   "ai": "drop",
+   "why": "民航旅客重量标准"
+  },
+  "cm_f634d141": {
+   "ai": "drop",
+   "why": "抽象时间框架议题"
+  },
+  "cm_3730e481": {
+   "ai": "drop",
+   "why": "冰相晶体科学"
+  },
+  "cm_41b4251c": {
+   "ai": "drop",
+   "why": "冰相晶体科学"
+  },
+  "cm_9f7d611d": {
+   "ai": "drop",
+   "why": "水的固相科学"
+  },
+  "cm_295c7999": {
+   "ai": "drop",
+   "why": "投资心理与波动"
+  },
+  "cm_29b24ddb": {
+   "ai": "keep",
+   "why": "用AI时的隐形劳动"
+  },
+  "cm_b722f6a4": {
+   "ai": "keep",
+   "why": "疑为模型理解能力"
+  },
+  "cm_f7e1a40f": {
+   "ai": "keep",
+   "why": "模型落地部署层"
+  },
+  "cm_096c43ea": {
+   "ai": "drop",
+   "why": "财富与自由观念"
+  },
+  "cm_28444afc": {
+   "ai": "drop",
+   "why": "音乐采样实践"
+  },
+  "cm_e7db9123": {
+   "ai": "keep",
+   "why": "transformer残差流"
+  },
+  "cm_caf38b64": {
+   "ai": "keep",
+   "why": "agent仓库事实源"
+  },
+  "cm_63c544a7": {
+   "ai": "keep",
+   "why": "AI产业转折临界信号"
+  },
+  "cm_2335d9d6": {
+   "ai": "keep",
+   "why": "harness操作系统类比"
+  },
+  "cm_d566cc19": {
+   "ai": "keep",
+   "why": "模型更新回归退化"
+  },
+  "cm_73952fe1": {
+   "ai": "keep",
+   "why": "给agent读的lint错误"
+  },
+  "cm_2fd13e0c": {
+   "ai": "keep",
+   "why": "decoder语境化技巧"
+  },
+  "cm_236d95d8": {
+   "ai": "drop",
+   "why": "纯精神医学遗传"
+  },
+  "cm_36605218": {
+   "ai": "keep",
+   "why": "AI输出与harness风险"
+  },
+  "cm_3a2cd7d5": {
+   "ai": "keep",
+   "why": "AI产品记忆与上下文"
+  },
+  "cm_46db5383": {
+   "ai": "keep",
+   "why": "AI冲击产品职能"
+  },
+  "cm_209a4c5a": {
+   "ai": "drop",
+   "why": "通用产品评审流程"
+  },
+  "cm_3184d5ac": {
+   "ai": "keep",
+   "why": "LLM谄媚训练偏向"
+  },
+  "cm_ba301154": {
+   "ai": "drop",
+   "why": "纯常识心理学"
+  },
+  "cm_3c4f652f": {
+   "ai": "drop",
+   "why": "物理冰相"
+  },
+  "cm_01f99beb": {
+   "ai": "drop",
+   "why": "尼采哲学"
+  },
+  "cm_933a0031": {
+   "ai": "keep",
+   "why": "AI时代职业链松动"
+  },
+  "cm_2b2a1434": {
+   "ai": "drop",
+   "why": "通用编程方法"
+  },
+  "cm_d59c122f": {
+   "ai": "keep",
+   "why": "代码图谱供agent查询"
+  },
+  "cm_7adc989d": {
+   "ai": "keep",
+   "why": "LLM指令冲突成本"
+  },
+  "cm_0fa5b8ce": {
+   "ai": "keep",
+   "why": "含AI视频出海案例"
+  },
+  "cm_b73dd02f": {
+   "ai": "keep",
+   "why": "Agent触发模式分类"
+  },
+  "cm_de2d19eb": {
+   "ai": "drop",
+   "why": "揭发造假制度议题"
+  },
+  "cm_97a6fc8a": {
+   "ai": "drop",
+   "why": "通用开发切片方法"
+  },
+  "cm_23c93d39": {
+   "ai": "keep",
+   "why": "AI产业泡沫类比"
+  },
+  "cm_089e30e5": {
+   "ai": "drop",
+   "why": "斯多葛式自控"
+  },
+  "cm_6d5da93d": {
+   "ai": "keep",
+   "why": "系统提示对齐指令"
+  },
+  "cm_876e1d7e": {
+   "ai": "keep",
+   "why": "AI评估与置信度"
+  },
+  "cm_794add76": {
+   "ai": "keep",
+   "why": "人审查agent产出"
+  },
+  "cm_80b8a64a": {
+   "ai": "keep",
+   "why": "反推harness设计"
+  },
+  "cm_99a6ab30": {
+   "ai": "drop",
+   "why": "从众社会心理"
+  },
+  "cm_44d86f15": {
+   "ai": "keep",
+   "why": "多步agent错误累乘"
+  },
+  "cm_5813faaa": {
+   "ai": "drop",
+   "why": "意识神经科学理论"
+  },
+  "cm_8e305b43": {
+   "ai": "drop",
+   "why": "通用行为心理，非AI"
+  },
+  "cm_57950e87": {
+   "ai": "keep",
+   "why": "人机交互与Agent"
+  },
+  "cm_8f7d11bd": {
+   "ai": "drop",
+   "why": "通用思维模型"
+  },
+  "cm_84c2e733": {
+   "ai": "drop",
+   "why": "法律模糊性"
+  },
+  "cm_5e360f2f": {
+   "ai": "keep",
+   "why": "多Agent容错设计"
+  },
+  "cm_2d0b9637": {
+   "ai": "keep",
+   "why": "提示工程反思步骤"
+  },
+  "cm_95233874": {
+   "ai": "keep",
+   "why": "AI网关抓真实prompt"
+  },
+  "cm_beeae2b5": {
+   "ai": "drop",
+   "why": "统计取样偏差"
+  },
+  "cm_83155f74": {
+   "ai": "keep",
+   "why": "模型安全元规则"
+  },
+  "cm_224f14d4": {
+   "ai": "keep",
+   "why": "Agent范围控制"
+  },
+  "cm_f6006789": {
+   "ai": "keep",
+   "why": "上下文漂移工程"
+  },
+  "cm_38d4b92a": {
+   "ai": "keep",
+   "why": "模型评测拒答率"
+  },
+  "cm_a6d3f8f2": {
+   "ai": "keep",
+   "why": "LLM非确定性"
+  },
+  "cm_27f09dcf": {
+   "ai": "keep",
+   "why": "Agent可视化原型"
+  },
+  "cm_a9f94570": {
+   "ai": "drop",
+   "why": "文化哲学"
+  },
+  "cm_5b5b3631": {
+   "ai": "keep",
+   "why": "AI分层记忆架构"
+  },
+  "cm_81c1415e": {
+   "ai": "keep",
+   "why": "无效模型调用请求"
+  },
+  "cm_7093952a": {
+   "ai": "drop",
+   "why": "合同经济类比"
+  },
+  "cm_e8170c0c": {
+   "ai": "drop",
+   "why": "付费陪伴社会现象"
+  },
+  "cm_c8a9b1ed": {
+   "ai": "drop",
+   "why": "通用复利概念"
+  },
+  "cm_1d86964c": {
+   "ai": "keep",
+   "why": "长循环注意力与复述"
+  },
+  "cm_67a542a8": {
+   "ai": "drop",
+   "why": "通用系统复杂度"
+  },
+  "cm_ddd91db0": {
+   "ai": "drop",
+   "why": "通用概念性工作"
+  },
+  "cm_ed3987b7": {
+   "ai": "drop",
+   "why": "人类感官认知"
+  },
+  "cm_e4c680d7": {
+   "ai": "drop",
+   "why": "情绪与监管社交话题"
+  },
+  "cm_d37ac913": {
+   "ai": "keep",
+   "why": "AI Agent产品本质"
+  },
+  "cm_143bc730": {
+   "ai": "keep",
+   "why": "harness组件型agent"
+  },
+  "cm_92c032dc": {
+   "ai": "keep",
+   "why": "AI产品工程误区"
+  },
+  "cm_f4ccedd3": {
+   "ai": "keep",
+   "why": "LLM决策路径编排"
+  },
+  "cm_b442cd6e": {
+   "ai": "keep",
+   "why": "harness理解与用法"
+  },
+  "cm_86d3d4a6": {
+   "ai": "keep",
+   "why": "AI编码极限工作流"
+  },
+  "cm_9f288e75": {
+   "ai": "keep",
+   "why": "Claude Code源码结构"
+  },
+  "cm_716dd66e": {
+   "ai": "keep",
+   "why": "LLM生产工程要素"
+  },
+  "cm_d26c5950": {
+   "ai": "keep",
+   "why": "模型约束与系统优化"
+  },
+  "cm_d3be9743": {
+   "ai": "keep",
+   "why": "拓宽模型决策方案"
+  },
+  "cm_bbdc7d60": {
+   "ai": "drop",
+   "why": "血清素基因生理"
+  },
+  "cm_4094c900": {
+   "ai": "drop",
+   "why": "演化心理学人脑"
+  },
+  "cm_90e93725": {
+   "ai": "keep",
+   "why": "AI功能交付质量墙"
+  },
+  "cm_d82f176a": {
+   "ai": "drop",
+   "why": "月球地缘规则"
+  },
+  "cm_d261b319": {
+   "ai": "keep",
+   "why": "AI安全路由分层"
+  },
+  "cm_eadc084c": {
+   "ai": "keep",
+   "why": "模型调用反馈回路"
+  },
+  "cm_d049e24c": {
+   "ai": "keep",
+   "why": "上下文转执行"
+  },
+  "cm_e5fee124": {
+   "ai": "keep",
+   "why": "skill复用与验证闭环"
+  },
+  "cm_d8bafdb8": {
+   "ai": "drop",
+   "why": "网文男主原型"
+  },
+  "cm_8e16a624": {
+   "ai": "keep",
+   "why": "AI输出引用版权约束"
+  },
+  "cm_5bb71819": {
+   "ai": "drop",
+   "why": "社会就业激励"
+  },
+  "cm_36c9cbcb": {
+   "ai": "drop",
+   "why": "通用项目心理低谷"
+  },
+  "cm_a4c5a8aa": {
+   "ai": "keep",
+   "why": "agent错误证据恢复"
+  },
+  "cm_f338e4f4": {
+   "ai": "drop",
+   "why": "屏幕使用学习研究"
+  },
+  "cm_0deb24c1": {
+   "ai": "drop",
+   "why": "社交关系，与AI无关"
+  },
+  "cm_08fbb6a9": {
+   "ai": "drop",
+   "why": "网文平台筛选机制"
+  },
+  "cm_4fed89a8": {
+   "ai": "keep",
+   "why": "AI安全红线"
+  },
+  "cm_71ce4e8a": {
+   "ai": "keep",
+   "why": "LLM长上下文评测基准"
+  },
+  "cm_fa5b169c": {
+   "ai": "drop",
+   "why": "医学假说"
+  },
+  "cm_00aa581a": {
+   "ai": "keep",
+   "why": "大小模型分工"
+  },
+  "cm_ddeff773": {
+   "ai": "drop",
+   "why": "通用产品设计原则"
+  },
+  "cm_edc164c5": {
+   "ai": "keep",
+   "why": "AI产品agent原生形态"
+  },
+  "cm_f65b924e": {
+   "ai": "keep",
+   "why": "上下文工程引用策略"
+  },
+  "cm_487dae28": {
+   "ai": "drop",
+   "why": "网文母题，文化娱乐"
+  },
+  "cm_91279ade": {
+   "ai": "keep",
+   "why": "AI skill读取文档"
+  },
+  "cm_201c8b41": {
+   "ai": "keep",
+   "why": "单agent能力限制"
+  },
+  "cm_7901a192": {
+   "ai": "keep",
+   "why": "多agent并发架构"
+  },
+  "cm_ea0024ad": {
+   "ai": "drop",
+   "why": "政治契约"
+  },
+  "cm_9d0bfa2e": {
+   "ai": "drop",
+   "why": "泛社会心理学概念"
+  },
+  "cm_9cf3f3e1": {
+   "ai": "drop",
+   "why": "航天与环保史"
+  },
+  "cm_88ed00a1": {
+   "ai": "drop",
+   "why": "航天史"
+  },
+  "cm_28b8fd59": {
+   "ai": "drop",
+   "why": "神经科学疲劳机制"
+  },
+  "cm_33304e11": {
+   "ai": "drop",
+   "why": "文化消费现象"
+  },
+  "cm_f90cdedb": {
+   "ai": "drop",
+   "why": "个人负债消费"
+  },
+  "cm_1031d6f6": {
+   "ai": "keep",
+   "why": "递归planner编排"
+  },
+  "cm_307d9aaf": {
+   "ai": "keep",
+   "why": "Planner-Worker架构"
+  },
+  "cm_b8ef30e6": {
+   "ai": "keep",
+   "why": "递归并行规划"
+  },
+  "cm_aed663a2": {
+   "ai": "keep",
+   "why": "harness与基座智能"
+  },
+  "cm_d7b26e2a": {
+   "ai": "keep",
+   "why": "递归自我改进RSI"
+  },
+  "cm_d4fab5a8": {
+   "ai": "keep",
+   "why": "长上下文抗干扰评测"
+  },
+  "cm_ee2878f3": {
+   "ai": "keep",
+   "why": "上下文干扰对模型影响"
+  },
+  "cm_00851466": {
+   "ai": "keep",
+   "why": "长上下文评测术语约定"
+  },
+  "cm_7186537c": {
+   "ai": "drop",
+   "why": "纯结直肠癌临床"
+  },
+  "cm_d7cd90db": {
+   "ai": "keep",
+   "why": "格式即上下文工程"
+  },
+  "cm_02c17fdd": {
+   "ai": "keep",
+   "why": "skills门禁与AI协作"
+  },
+  "cm_76d98cb5": {
+   "ai": "keep",
+   "why": "概念命名，拿不准保留"
+  },
+  "cm_8ff76ff3": {
+   "ai": "keep",
+   "why": "agent改代码前查根因"
+  },
+  "cm_f0c99ed4": {
+   "ai": "keep",
+   "why": "agent工具与工作流适配"
+  },
+  "cm_59a6d9c5": {
+   "ai": "keep",
+   "why": "工具调用批处理策略"
+  },
+  "cm_8089ce21": {
+   "ai": "keep",
+   "why": "工具schema定义"
+  },
+  "cm_067b5d04": {
+   "ai": "keep",
+   "why": "工具调用即结构化输出"
+  },
+  "cm_1531fbe3": {
+   "ai": "keep",
+   "why": "工具作为agent契约"
+  },
+  "cm_c3159c94": {
+   "ai": "keep",
+   "why": "工具接口表达力设计"
+  },
+  "cm_a8b0df04": {
+   "ai": "drop",
+   "why": "休谟式实践理性哲学"
+  },
+  "cm_b6cabad1": {
+   "ai": "keep",
+   "why": "agent工具收窄"
+  },
+  "cm_c478fbd6": {
+   "ai": "drop",
+   "why": "丹尼特自我本体论"
+  },
+  "cm_8a295891": {
+   "ai": "keep",
+   "why": "harness原语设计"
+  },
+  "cm_85b611d5": {
+   "ai": "keep",
+   "why": "AI工程行为验证缺口"
+  },
+  "cm_252416ad": {
+   "ai": "drop",
+   "why": "科学社会学共识议题"
+  },
+  "cm_2081e44e": {
+   "ai": "keep",
+   "why": "多人共享agent会话"
+  },
+  "cm_519accd8": {
+   "ai": "keep",
+   "why": "共享harness复用"
+  },
+  "cm_69b3d608": {
+   "ai": "keep",
+   "why": "人机共享产品系统"
+  },
+  "cm_492ee3e8": {
+   "ai": "keep",
+   "why": "人与LLM共享理解"
+  },
+  "cm_a966ce15": {
+   "ai": "keep",
+   "why": "多agent文件锁协调"
+  },
+  "cm_8ad267da": {
+   "ai": "keep",
+   "why": "规划模式边界提问"
+  },
+  "cm_8241ebf8": {
+   "ai": "drop",
+   "why": "月球科研站非AI"
+  },
+  "cm_8c96003a": {
+   "ai": "drop",
+   "why": "通用过程原则非AI"
+  },
+  "cm_19d82c87": {
+   "ai": "keep",
+   "why": "提示过度约束模型"
+  },
+  "cm_43ca4447": {
+   "ai": "drop",
+   "why": "海峡收费非AI"
+  },
+  "cm_09d0ea1a": {
+   "ai": "keep",
+   "why": "合成检索评测模型"
+  },
+  "cm_aca19212": {
+   "ai": "drop",
+   "why": "策略坚持非AI"
+  },
+  "cm_6ede31c8": {
+   "ai": "drop",
+   "why": "法律搜查合理性"
+  },
+  "cm_e86302ba": {
+   "ai": "drop",
+   "why": "神经科学非AI"
+  },
+  "cm_66ea7313": {
+   "ai": "keep",
+   "why": "委派整块编程工作"
+  },
+  "cm_29091570": {
+   "ai": "drop",
+   "why": "阴部神经解剖"
+  },
+  "cm_27a2ee5b": {
+   "ai": "drop",
+   "why": "短剧套路非AI"
+  },
+  "cm_c1626a4e": {
+   "ai": "keep",
+   "why": "AI产品护城河策略"
+  },
+  "cm_c83244fc": {
+   "ai": "keep",
+   "why": "旧模型护栏过期"
+  },
+  "cm_75392c01": {
+   "ai": "keep",
+   "why": "护栏随模型能力调整"
+  },
+  "cm_43c32a20": {
+   "ai": "keep",
+   "why": "注意力KV滑动窗口"
+  },
+  "cm_782d245a": {
+   "ai": "drop",
+   "why": "环境设计非AI"
+  },
+  "cm_68c53198": {
+   "ai": "keep",
+   "why": "LLM缓存断点"
+  },
+  "cm_c7901d9f": {
+   "ai": "keep",
+   "why": "维持LLM缓存连续"
+  },
+  "cm_a87b8600": {
+   "ai": "keep",
+   "why": "缓存读取成本"
+  },
+  "cm_c684222f": {
+   "ai": "keep",
+   "why": "缓存命中率监控"
+  },
+  "cm_cb785e57": {
+   "ai": "keep",
+   "why": "缓存写入成本"
+  },
+  "cm_31908564": {
+   "ai": "keep",
+   "why": "模型logprob灰盒"
+  },
+  "cm_974fd080": {
+   "ai": "drop",
+   "why": "焦虑回避心理"
+  },
+  "cm_5bbcf2e0": {
+   "ai": "keep",
+   "why": "模型回声个人想法"
+  },
+  "cm_66ce6909": {
+   "ai": "keep",
+   "why": "强化学习价值函数，AI训练原理"
+  },
+  "cm_9ed1cd2a": {
+   "ai": "drop",
+   "why": "通用软件架构文档"
+  },
+  "cm_f6aae481": {
+   "ai": "keep",
+   "why": "用确定性工具约束Agent行为"
+  },
+  "cm_5d3f24a6": {
+   "ai": "drop",
+   "why": "通用监管政治议题"
+  },
+  "cm_8d8d6cae": {
+   "ai": "keep",
+   "why": "精简指令提升模型输出质量"
+  },
+  "cm_ba01f641": {
+   "ai": "drop",
+   "why": "通用工程复杂度管理"
+  },
+  "cm_625a30eb": {
+   "ai": "drop",
+   "why": "内容剪辑商业，与AI无关"
+  },
+  "cm_74f49d01": {
+   "ai": "drop",
+   "why": "内容分发团队，非AI"
+  },
+  "cm_2733c0ea": {
+   "ai": "keep",
+   "why": "RAG检索与引用机制"
+  },
+  "cm_5caaad9a": {
+   "ai": "keep",
+   "why": "检索器-阅读器问答架构"
+  },
+  "cm_b965af7f": {
+   "ai": "keep",
+   "why": "上下文塞满导致的模型负担"
+  },
+  "cm_f5bad096": {
+   "ai": "drop",
+   "why": "泛化的协作简化代价"
+  },
+  "cm_d9b02348": {
+   "ai": "drop",
+   "why": "医学照护概念"
+  },
+  "cm_99c2938a": {
+   "ai": "keep",
+   "why": "按需加载上下文的上下文工程"
+  },
+  "cm_38688a7e": {
+   "ai": "drop",
+   "why": "临床诊断方法"
+  },
+  "cm_698b655e": {
+   "ai": "keep",
+   "why": "奖励攻击与自改进回路"
+  },
+  "cm_5c74d915": {
+   "ai": "keep",
+   "why": "人如何steer Agent系统"
+  },
+  "cm_b1373b74": {
+   "ai": "drop",
+   "why": "PM与工程师传统交接"
+  },
+  "cm_bb5e6e76": {
+   "ai": "drop",
+   "why": "人际关系功利化，非AI"
+  },
+  "cm_f893902e": {
+   "ai": "drop",
+   "why": "心理情绪概念"
+  },
+  "cm_eea3f2a9": {
+   "ai": "keep",
+   "why": "单一Agent角色过载病态"
+  },
+  "cm_31a86272": {
+   "ai": "keep",
+   "why": "LLM与冯诺依曼架构harness类比"
+  },
+  "cm_572c8e76": {
+   "ai": "keep",
+   "why": "教Agent成功，人机协作"
+  },
+  "cm_757ec523": {
+   "ai": "drop",
+   "why": "教育筛选制度问题"
+  },
+  "cm_5786c7c0": {
+   "ai": "drop",
+   "why": "教育技术，非AI"
+  },
+  "cm_fdbc5cbc": {
+   "ai": "keep",
+   "why": "agent 工作流阶段合并"
+  },
+  "cm_d8b3f368": {
+   "ai": "keep",
+   "why": "接口设计即上下文工程"
+  },
+  "cm_275eb252": {
+   "ai": "drop",
+   "why": "通用节俭创新非AI"
+  },
+  "cm_b75933cd": {
+   "ai": "keep",
+   "why": "agent 输出断言与验证"
+  },
+  "cm_4b3d0d0a": {
+   "ai": "keep",
+   "why": "agentic memory 上下文外存"
+  },
+  "cm_8aeec1ff": {
+   "ai": "keep",
+   "why": "agent 系统结构用量权衡"
+  },
+  "cm_f2982671": {
+   "ai": "drop",
+   "why": "劳动经济结构问题"
+  },
+  "cm_f4bf02a4": {
+   "ai": "drop",
+   "why": "性别与社会结构议题"
+  },
+  "cm_261d8d95": {
+   "ai": "drop",
+   "why": "泛决策心理非AI"
+  },
+  "cm_f6804f52": {
+   "ai": "keep",
+   "why": "约束agent解空间换可靠"
+  },
+  "cm_86490863": {
+   "ai": "keep",
+   "why": "AI实践反模式演化"
+  },
+  "cm_e44ff396": {
+   "ai": "drop",
+   "why": "物理实验装置"
+  },
+  "cm_0f3d389d": {
+   "ai": "keep",
+   "why": "模型位置偏置效应"
+  },
+  "cm_71e0e9c9": {
+   "ai": "keep",
+   "why": "进化搜索属AI优化"
+  },
+  "cm_1fc0153b": {
+   "ai": "drop",
+   "why": "医学腺瘤病理"
+  },
+  "cm_5b14b9f4": {
+   "ai": "drop",
+   "why": "战争经济耐力"
+  },
+  "cm_1fe2a6e6": {
+   "ai": "keep",
+   "why": "模型静默失败模式"
+  },
+  "cm_f0aa9b79": {
+   "ai": "keep",
+   "why": "harness改进纠偏收益"
+  },
+  "cm_67e2a43e": {
+   "ai": "keep",
+   "why": "迭代实践的局部最优"
+  },
+  "cm_537d8ce7": {
+   "ai": "drop",
+   "why": "辩论举证责任"
+  },
+  "cm_61efc972": {
+   "ai": "keep",
+   "why": "LLM锯齿能力边界"
+  },
+  "cm_5797325c": {
+   "ai": "keep",
+   "why": "人决策与用AI节奏"
+  },
+  "cm_0f535894": {
+   "ai": "drop",
+   "why": "个人决策日志"
+  },
+  "cm_51595412": {
+   "ai": "keep",
+   "why": "agent卡住补工具护栏"
+  },
+  "cm_0ac7b3a2": {
+   "ai": "keep",
+   "why": "开权重模型部署"
+  },
+  "cm_998e7068": {
+   "ai": "keep",
+   "why": "会话上下文管理"
+  },
+  "cm_bfc70d0d": {
+   "ai": "keep",
+   "why": "模型安全累积判定"
+  },
+  "cm_4ee31e8e": {
+   "ai": "keep",
+   "why": "Agent会话生命周期"
+  },
+  "cm_ed4c8f9f": {
+   "ai": "keep",
+   "why": "模型行为可被重写"
+  },
+  "cm_9de70b84": {
+   "ai": "keep",
+   "why": "Agent混合检索策略"
+  },
+  "cm_fa9f0763": {
+   "ai": "keep",
+   "why": "指代清晰度，疑似提示用语"
+  },
+  "cm_b7fd37c0": {
+   "ai": "keep",
+   "why": "注意力架构设计"
+  },
+  "cm_6adbdd6c": {
+   "ai": "drop",
+   "why": "纯财富管理"
+  },
+  "cm_f0830b3f": {
+   "ai": "drop",
+   "why": "地缘政治"
+  },
+  "cm_b5172a28": {
+   "ai": "keep",
+   "why": "AI算力分配经济"
+  },
+  "cm_99cfcef1": {
+   "ai": "drop",
+   "why": "医学影像筛查"
+  },
+  "cm_a6fd3a89": {
+   "ai": "keep",
+   "why": "上下文机制设计"
+  },
+  "cm_1c61d688": {
+   "ai": "keep",
+   "why": "Agent基础设施挑战"
+  },
+  "cm_eeb4d9c2": {
+   "ai": "keep",
+   "why": "Agent基础设施工程"
+  },
+  "cm_bd2a5dc1": {
+   "ai": "drop",
+   "why": "纯神经科学"
+  },
+  "cm_18883001": {
+   "ai": "drop",
+   "why": "遗传学生物"
+  },
+  "cm_04bf9d61": {
+   "ai": "drop",
+   "why": "演化生物学"
+  },
+  "cm_51eb85b3": {
+   "ai": "drop",
+   "why": "社会激励，非AI"
+  },
+  "cm_3910ceb7": {
+   "ai": "drop",
+   "why": "政治经济制度"
+  },
+  "cm_38d561bd": {
+   "ai": "keep",
+   "why": "上下文记忆压缩"
+  },
+  "cm_6831eed1": {
+   "ai": "drop",
+   "why": "睡眠神经科学"
+  },
+  "cm_ebd8076f": {
+   "ai": "keep",
+   "why": "AI记忆有效性"
+  },
+  "cm_92cb645b": {
+   "ai": "keep",
+   "why": "Agent技能复用"
+  },
+  "cm_99444a52": {
+   "ai": "keep",
+   "why": "harness提示工程"
+  },
+  "cm_abf595d3": {
+   "ai": "keep",
+   "why": "人机协作价值判断"
+  },
+  "cm_0d71e42c": {
+   "ai": "keep",
+   "why": "AI agent编排与分派"
+  },
+  "cm_d926baac": {
+   "ai": "keep",
+   "why": "AI开源闭源路线之争"
+  },
+  "cm_6b500ad5": {
+   "ai": "drop",
+   "why": "财富与消费区别"
+  },
+  "cm_8da6f44c": {
+   "ai": "keep",
+   "why": "调试AI应用读对话日志"
+  },
+  "cm_7a8eecc9": {
+   "ai": "drop",
+   "why": "非AI社会监督"
+  },
+  "cm_bd207ea4": {
+   "ai": "drop",
+   "why": "科学认知图景"
+  },
+  "cm_790b8f7b": {
+   "ai": "keep",
+   "why": "AI harness权限设计"
+  },
+  "cm_a952aba7": {
+   "ai": "keep",
+   "why": "AI skill可编辑边界"
+  },
+  "cm_9f1af4c9": {
+   "ai": "keep",
+   "why": "agent可观测性属harness"
+  },
+  "cm_7a183315": {
+   "ai": "keep",
+   "why": "AI上下文可恢复压缩"
+  },
+  "cm_53473a0a": {
+   "ai": "drop",
+   "why": "心理可塑性韧性"
+  },
+  "cm_7554a017": {
+   "ai": "keep",
+   "why": "AI维护代码库问题"
+  },
+  "cm_62691348": {
+   "ai": "keep",
+   "why": "SWE-bench无维护惩罚"
+  },
+  "cm_430f0874": {
+   "ai": "keep",
+   "why": "AI评测缺质量预言机"
+  },
+  "cm_499aa6e8": {
+   "ai": "drop",
+   "why": "纯医学疾病"
+  },
+  "cm_fa3c0516": {
+   "ai": "keep",
+   "why": "harness可执行搜索空间"
+  },
+  "cm_f8410eb3": {
+   "ai": "keep",
+   "why": "AI自动化业务循环"
+  },
+  "cm_f62b6821": {
+   "ai": "keep",
+   "why": "AI算力扩展性"
+  },
+  "cm_b8729c07": {
+   "ai": "keep",
+   "why": "AI跨会话记忆文件"
+  },
+  "cm_43b4ce43": {
+   "ai": "keep",
+   "why": "AI框架prompt反工程"
+  },
+  "cm_adb56344": {
+   "ai": "keep",
+   "why": "扩展上下文窗口模型"
+  },
+  "cm_4169ee21": {
+   "ai": "drop",
+   "why": "儿童心理环境敏感"
+  },
+  "cm_8376a02c": {
+   "ai": "drop",
+   "why": "环保意识照片"
+  },
+  "cm_b851c4b8": {
+   "ai": "keep",
+   "why": "agent乐观并发控制"
+  },
+  "cm_14ddbc41": {
+   "ai": "keep",
+   "why": "AI记忆冷热分离"
+  },
+  "cm_fe956125": {
+   "ai": "drop",
+   "why": "身体生理状态"
+  },
+  "cm_03a5ad13": {
+   "ai": "keep",
+   "why": "上下文工程"
+  },
+  "cm_343d14e9": {
+   "ai": "keep",
+   "why": "上下文定义"
+  },
+  "cm_9b459d5c": {
+   "ai": "keep",
+   "why": "上下文工程"
+  },
+  "cm_a25937b3": {
+   "ai": "keep",
+   "why": "上下文骨架"
+  },
+  "cm_3a76f8e5": {
+   "ai": "keep",
+   "why": "AI安全提示注入"
+  },
+  "cm_81d0190c": {
+   "ai": "keep",
+   "why": "模型处理token"
+  },
+  "cm_fd9f7a87": {
+   "ai": "keep",
+   "why": "人机协作上下文"
+  },
+  "cm_4a83a8b3": {
+   "ai": "keep",
+   "why": "agent上下文失败"
+  },
+  "cm_b3514645": {
+   "ai": "keep",
+   "why": "prompt上下文"
+  },
+  "cm_d25c3997": {
+   "ai": "keep",
+   "why": "上下文档"
+  },
+  "cm_0e10a538": {
+   "ai": "keep",
+   "why": "人机协作"
+  },
+  "cm_b747de39": {
+   "ai": "keep",
+   "why": "上下文压缩"
+  },
+  "cm_8b0679fe": {
+   "ai": "drop",
+   "why": "纯设计方法"
+  },
+  "cm_5e47a589": {
+   "ai": "drop",
+   "why": "社会身份心理"
+  },
+  "cm_ceeb5da9": {
+   "ai": "drop",
+   "why": "高考社会制度"
+  },
+  "cm_3b100df8": {
+   "ai": "drop",
+   "why": "泛行业社会认可"
+  },
+  "cm_f5b568dd": {
+   "ai": "drop",
+   "why": "医学年龄"
+  },
+  "cm_94d6a10a": {
+   "ai": "drop",
+   "why": "文化神话管理"
+  },
+  "cm_a62137fd": {
+   "ai": "keep",
+   "why": "agent审批权限"
+  },
+  "cm_afd87770": {
+   "ai": "keep",
+   "why": "AI芯片"
+  },
+  "cm_7df2f8ef": {
+   "ai": "drop",
+   "why": "个人价值观生活"
+  },
+  "cm_2be548ed": {
+   "ai": "keep",
+   "why": "agent时间扩展"
+  },
+  "cm_0063ab7f": {
+   "ai": "drop",
+   "why": "心理时间偏好"
+  },
+  "cm_3f42a3b3": {
+   "ai": "keep",
+   "why": "模型世界模型"
+  },
+  "cm_e9a0f6f2": {
+   "ai": "keep",
+   "why": "AI平台跃迁与创业"
+  },
+  "cm_03aaef77": {
+   "ai": "keep",
+   "why": "AI基础设施栈"
+  },
+  "cm_4727c147": {
+   "ai": "drop",
+   "why": "行为指标非AI"
+  },
+  "cm_0739a242": {
+   "ai": "drop",
+   "why": "儿童养育非AI"
+  },
+  "cm_3f39fb13": {
+   "ai": "keep",
+   "why": "Harness/agent触发设计"
+  },
+  "cm_65adcd06": {
+   "ai": "drop",
+   "why": "教育政策非AI"
+  },
+  "cm_ae80194d": {
+   "ai": "keep",
+   "why": "模型失败姿态"
+  },
+  "cm_9d5fc50e": {
+   "ai": "keep",
+   "why": "system prompt写作"
+  },
+  "cm_7b628294": {
+   "ai": "drop",
+   "why": "神经科学非AI"
+  },
+  "cm_303cf633": {
+   "ai": "drop",
+   "why": "人体解剖非AI"
+  },
+  "cm_fb6ae85a": {
+   "ai": "keep",
+   "why": "AI前沿实验室"
+  },
+  "cm_11d409eb": {
+   "ai": "keep",
+   "why": "AI编码工作流前置"
+  },
+  "cm_99797cde": {
+   "ai": "drop",
+   "why": "人际沟通非AI"
+  },
+  "cm_036f0092": {
+   "ai": "keep",
+   "why": "LLM缓存前缀命中"
+  },
+  "cm_29cc1536": {
+   "ai": "keep",
+   "why": "agent技能嵌入触发"
+  },
+  "cm_814ac817": {
+   "ai": "keep",
+   "why": "语言理解/上下文机制"
+  },
+  "cm_d8aa34b6": {
+   "ai": "keep",
+   "why": "上下文隔离手法"
+  },
+  "cm_e066daf8": {
+   "ai": "drop",
+   "why": "睡眠意识非AI"
+  },
+  "cm_48d4ffa1": {
+   "ai": "drop",
+   "why": "情绪心理非AI"
+  },
+  "cm_bcc32951": {
+   "ai": "drop",
+   "why": "全球贸易非AI"
+  },
+  "cm_b226afb7": {
+   "ai": "keep",
+   "why": "AI编码工具写文件"
+  },
+  "cm_1f32b2de": {
+   "ai": "drop",
+   "why": "制度演化非AI"
+  },
+  "cm_c1dd6faa": {
+   "ai": "keep",
+   "why": "agent权限架构分离"
+  },
+  "cm_122b687d": {
+   "ai": "keep",
+   "why": "agent确定性基础设施"
+  },
+  "cm_413e4ce9": {
+   "ai": "drop",
+   "why": "政治心理非AI"
+  },
+  "cm_c53dcd72": {
+   "ai": "keep",
+   "why": "AI医疗安全网"
+  },
+  "cm_e549dff0": {
+   "ai": "keep",
+   "why": "MCP工具权限"
+  },
+  "cm_d2bb79aa": {
+   "ai": "drop",
+   "why": "纯品牌营销指标"
+  },
+  "cm_e2487abe": {
+   "ai": "drop",
+   "why": "非AI商业心态"
+  },
+  "cm_4fe5238f": {
+   "ai": "keep",
+   "why": "few-shot策展"
+  },
+  "cm_1d101b34": {
+   "ai": "drop",
+   "why": "通用产品设计"
+  },
+  "cm_051a484a": {
+   "ai": "drop",
+   "why": "纯医学假说"
+  },
+  "cm_b3551678": {
+   "ai": "keep",
+   "why": "Harness调试"
+  },
+  "cm_84476c81": {
+   "ai": "drop",
+   "why": "通用决策策略"
+  },
+  "cm_4fa039db": {
+   "ai": "keep",
+   "why": "Harness动态系统"
+  },
+  "cm_4ecbd69b": {
+   "ai": "keep",
+   "why": "多agent协调"
+  },
+  "cm_a37ffd56": {
+   "ai": "keep",
+   "why": "上下文动态装配"
+  },
+  "cm_2c214b3c": {
+   "ai": "keep",
+   "why": "AI工具接入方式"
+  },
+  "cm_2f356845": {
+   "ai": "keep",
+   "why": "AI分类定义"
+  },
+  "cm_ffd117a0": {
+   "ai": "keep",
+   "why": "AI端到端验证"
+  },
+  "cm_6670bb25": {
+   "ai": "keep",
+   "why": "模型短上下文评测"
+  },
+  "cm_0706c466": {
+   "ai": "drop",
+   "why": "睡眠健康统计"
+  },
+  "cm_29215fd7": {
+   "ai": "keep",
+   "why": "AI应用架构"
+  },
+  "cm_50015d52": {
+   "ai": "keep",
+   "why": "对话上下文定向"
+  },
+  "cm_12a39025": {
+   "ai": "keep",
+   "why": "对话式广告AI"
+  },
+  "cm_1d5a247c": {
+   "ai": "keep",
+   "why": "agent记忆"
+  },
+  "cm_3639ae12": {
+   "ai": "keep",
+   "why": "Transformer原理"
+  },
+  "cm_6b94283f": {
+   "ai": "keep",
+   "why": "RAG受控实验"
+  },
+  "cm_fa6a41e8": {
+   "ai": "drop",
+   "why": "通用解析器实现"
+  },
+  "cm_30843ecf": {
+   "ai": "keep",
+   "why": "多智能体架构"
+  },
+  "cm_5c014074": {
+   "ai": "keep",
+   "why": "检索门控属上下文工程"
+  },
+  "cm_1d87ca80": {
+   "ai": "drop",
+   "why": "个人行为心理学"
+  },
+  "cm_1378dde9": {
+   "ai": "keep",
+   "why": "提示词/规格打磨"
+  },
+  "cm_2abb5209": {
+   "ai": "keep",
+   "why": "模型选择与角色编排"
+  },
+  "cm_3db52bcb": {
+   "ai": "keep",
+   "why": "模型与harness训练耦合"
+  },
+  "cm_ff08655e": {
+   "ai": "keep",
+   "why": "模型一致性与缓存"
+  },
+  "cm_0ee58644": {
+   "ai": "keep",
+   "why": "模型蒸馏属AI"
+  },
+  "cm_cffbc825": {
+   "ai": "keep",
+   "why": "模型拒答安全边界"
+  },
+  "cm_13b720ca": {
+   "ai": "drop",
+   "why": "纯心理/认知偏误"
+  },
+  "cm_a4926419": {
+   "ai": "keep",
+   "why": "向模型委派任务原则"
+  },
+  "cm_da460738": {
+   "ai": "keep",
+   "why": "应用难度即AI护城河"
+  },
+  "cm_346a9752": {
+   "ai": "drop",
+   "why": "个人生活选择"
+  },
+  "cm_b624167b": {
+   "ai": "drop",
+   "why": "神经科学意识理论"
+  },
+  "cm_ae8fef15": {
+   "ai": "keep",
+   "why": "agent能力鸿沟"
+  },
+  "cm_df73085f": {
+   "ai": "keep",
+   "why": "能力外置到记忆技能"
+  },
+  "cm_ebf2a449": {
+   "ai": "drop",
+   "why": "传统商业财务指标"
+  },
+  "cm_d584c348": {
+   "ai": "drop",
+   "why": "医学社会议题"
+  },
+  "cm_72fc734a": {
+   "ai": "drop",
+   "why": "文化娱乐/微剧"
+  },
+  "cm_ca4ebf8a": {
+   "ai": "drop",
+   "why": "个人生活/运气"
+  },
+  "cm_64e86aa5": {
+   "ai": "keep",
+   "why": "规则可执行化供AI"
+  },
+  "cm_bf008303": {
+   "ai": "keep",
+   "why": "让Claude用判断力"
+  },
+  "cm_10f48272": {
+   "ai": "keep",
+   "why": "长时程自治退化"
+  },
+  "cm_588433b7": {
+   "ai": "keep",
+   "why": "人工把关AI产出"
+  },
+  "cm_efbdb1b8": {
+   "ai": "drop",
+   "why": "临床医学影像"
+  },
+  "cm_1ad67d26": {
+   "ai": "keep",
+   "why": "CT加AI多癌筛查"
+  },
+  "cm_cc5fefd6": {
+   "ai": "keep",
+   "why": "harness验证与失败暴露"
+  },
+  "cm_0684e3d0": {
+   "ai": "keep",
+   "why": "给AI开放个人数据上下文"
+  },
+  "cm_98e749f2": {
+   "ai": "keep",
+   "why": "AI产品构建的手艺与判断"
+  },
+  "cm_346dbb8c": {
+   "ai": "keep",
+   "why": "医疗人机协作"
+  },
+  "cm_8d443f8b": {
+   "ai": "keep",
+   "why": "人在AI栈上的监督位置"
+  },
+  "cm_aa0b7acc": {
+   "ai": "drop",
+   "why": "纯政治制度"
+  },
+  "cm_af430262": {
+   "ai": "drop",
+   "why": "纯心理学"
+  },
+  "cm_3d84afe1": {
+   "ai": "keep",
+   "why": "Agent任务时域能力"
+  },
+  "cm_cc92779a": {
+   "ai": "keep",
+   "why": "工具说明与harness配置"
+  },
+  "cm_e88a8c28": {
+   "ai": "drop",
+   "why": "纯哲学"
+  },
+  "cm_06a3b263": {
+   "ai": "drop",
+   "why": "天文物理"
+  },
+  "cm_ee4f0a12": {
+   "ai": "drop",
+   "why": "通用软技能"
+  },
+  "cm_600a5349": {
+   "ai": "keep",
+   "why": "软件工厂与agent开发环"
+  },
+  "cm_26914899": {
+   "ai": "keep",
+   "why": "agent演化史起点"
+  },
+  "cm_803a4462": {
+   "ai": "keep",
+   "why": "软件世界观与AI操控"
+  },
+  "cm_ecf56dd0": {
+   "ai": "keep",
+   "why": "强weak harness消融"
+  },
+  "cm_0ac0017c": {
+   "ai": "keep",
+   "why": "verifier与自我改进瓶颈"
+  },
+  "cm_19eca2c6": {
+   "ai": "drop",
+   "why": "网络求助社会现象"
+  },
+  "cm_7675253d": {
+   "ai": "keep",
+   "why": "prompt/context/harness三层"
+  },
+  "cm_4e205de4": {
+   "ai": "drop",
+   "why": "纯健康医学"
+  },
+  "cm_a3b38de2": {
+   "ai": "drop",
+   "why": "社会隐私反应"
+  },
+  "cm_5faf59f3": {
+   "ai": "keep",
+   "why": "agent沙箱化自主"
+  },
+  "cm_0aff6b04": {
+   "ai": "drop",
+   "why": "刑事与监控社会制度"
+  },
+  "cm_2458ffe3": {
+   "ai": "keep",
+   "why": "上下文工程熵减"
+  },
+  "cm_3a51a33e": {
+   "ai": "keep",
+   "why": "老代码harness与GC agent"
+  },
+  "cm_75224b2e": {
+   "ai": "keep",
+   "why": "AI相对人类优势"
+  },
+  "cm_e36dcc0a": {
+   "ai": "drop",
+   "why": "哲学伦理非AI"
+  },
+  "cm_d57cf98f": {
+   "ai": "keep",
+   "why": "agent行为抽取"
+  },
+  "cm_b47f23f7": {
+   "ai": "keep",
+   "why": "AI评估规模化"
+  },
+  "cm_02c678cf": {
+   "ai": "drop",
+   "why": "睡眠健康自评"
+  },
+  "cm_7fb94677": {
+   "ai": "drop",
+   "why": "神经科学杏仁核"
+  },
+  "cm_9fceeefa": {
+   "ai": "keep",
+   "why": "检索器与阅读器性能"
+  },
+  "cm_9bbbd67c": {
+   "ai": "keep",
+   "why": "长上下文退化"
+  },
+  "cm_d757d9ee": {
+   "ai": "keep",
+   "why": "AI代理角色命名"
+  },
+  "cm_9b54eda3": {
+   "ai": "keep",
+   "why": "agent度量指标"
+  },
+  "cm_65eea963": {
+   "ai": "keep",
+   "why": "解释模型上下文表现"
+  },
+  "cm_85579b76": {
+   "ai": "drop",
+   "why": "哲学自我理论"
+  },
+  "cm_4d990391": {
+   "ai": "keep",
+   "why": "上下文注意力压缩"
+  },
+  "cm_396a66b0": {
+   "ai": "drop",
+   "why": "学术造假非AI"
+  },
+  "cm_1c93a142": {
+   "ai": "drop",
+   "why": "学习脚手架非AI"
+  },
+  "cm_a4f9a7e3": {
+   "ai": "keep",
+   "why": "循环工程harness"
+  },
+  "cm_73e12992": {
+   "ai": "keep",
+   "why": "上下文压缩分工"
+  },
+  "cm_eb3087aa": {
+   "ai": "keep",
+   "why": "in-context learning押注"
+  },
+  "cm_6380b8ce": {
+   "ai": "drop",
+   "why": "物理相变概念"
+  },
+  "cm_1228826a": {
+   "ai": "drop",
+   "why": "高考制度公平"
+  },
+  "cm_e4b6932b": {
+   "ai": "keep",
+   "why": "工具延迟加载"
+  },
+  "cm_6bd125f5": {
+   "ai": "keep",
+   "why": "工具延迟加载"
+  },
+  "cm_fbdb3635": {
+   "ai": "keep",
+   "why": "模型验证缺口"
+  },
+  "cm_dcb78706": {
+   "ai": "keep",
+   "why": "验证循环harness"
+  },
+  "cm_34c3e3e7": {
+   "ai": "keep",
+   "why": "验证子系统证据"
+  },
+  "cm_818b803f": {
+   "ai": "drop",
+   "why": "影视内容产业算法，非AI"
+  },
+  "cm_d7854221": {
+   "ai": "keep",
+   "why": "agent上下文工程"
+  },
+  "cm_beb0a7aa": {
+   "ai": "keep",
+   "why": "AI用法核心模式"
+  },
+  "cm_7f906cf0": {
+   "ai": "keep",
+   "why": "agent角色与问责"
+  },
+  "cm_964615a4": {
+   "ai": "keep",
+   "why": "掌控提示词上下文"
+  },
+  "cm_7a03b65b": {
+   "ai": "keep",
+   "why": "多agent并发瓶颈"
+  },
+  "cm_f6bd0ed2": {
+   "ai": "keep",
+   "why": "agent并发控制"
+  },
+  "cm_99eaee44": {
+   "ai": "keep",
+   "why": "harness拓扑抽象层"
+  },
+  "cm_7b7476df": {
+   "ai": "drop",
+   "why": "说服从谈判技巧"
+  },
+  "cm_0696197e": {
+   "ai": "keep",
+   "why": "模型层探针可解释性"
+  },
+  "cm_fc86a697": {
+   "ai": "drop",
+   "why": "纯哲学同一性思想实验"
+  },
+  "cm_a500a4cb": {
+   "ai": "keep",
+   "why": "AI提示词缓存"
+  },
+  "cm_f5944e33": {
+   "ai": "keep",
+   "why": "提示词缓存命中"
+  },
+  "cm_963c2230": {
+   "ai": "keep",
+   "why": "提示词即行为程序"
+  },
+  "cm_9cc2a39e": {
+   "ai": "keep",
+   "why": "agent持久记忆机制"
+  },
+  "cm_7f5a8483": {
+   "ai": "keep",
+   "why": "稀疏模型建模原语"
+  },
+  "cm_04880489": {
+   "ai": "keep",
+   "why": "AI输入通道切换"
+  },
+  "cm_f5f80946": {
+   "ai": "keep",
+   "why": "模型理解与评测"
+  },
+  "cm_a9c7e512": {
+   "ai": "keep",
+   "why": "给agent计算机用bash"
+  },
+  "cm_2ac17989": {
+   "ai": "keep",
+   "why": "AI编程统一语言"
+  },
+  "cm_00f1e097": {
+   "ai": "keep",
+   "why": "agent执行状态管理"
+  },
+  "cm_f34397d6": {
+   "ai": "drop",
+   "why": "慢性病心理历程"
+  },
+  "cm_a81005ac": {
+   "ai": "drop",
+   "why": "疾病痛苦素养"
+  },
+  "cm_03ce5cbe": {
+   "ai": "keep",
+   "why": "AI推理与训练芯片"
+  },
+  "cm_d8f80acf": {
+   "ai": "keep",
+   "why": "推理模型长思维链"
+  },
+  "cm_fb4dc697": {
+   "ai": "drop",
+   "why": "纯医学肿瘤筛查"
+  },
+  "cm_e050783e": {
+   "ai": "drop",
+   "why": "公共政策非AI"
+  },
+  "cm_771afdb4": {
+   "ai": "drop",
+   "why": "临床医患体验"
+  },
+  "cm_2f419b3a": {
+   "ai": "drop",
+   "why": "心理学依恋"
+  },
+  "cm_0dcbdd44": {
+   "ai": "drop",
+   "why": "研发流程非AI"
+  },
+  "cm_4fa6863f": {
+   "ai": "keep",
+   "why": "上下文记忆隐私设计"
+  },
+  "cm_85804ebb": {
+   "ai": "keep",
+   "why": "人机输入交互设计"
+  },
+  "cm_f2ba2f91": {
+   "ai": "keep",
+   "why": "agent时代人的分工"
+  },
+  "cm_02b6da8f": {
+   "ai": "keep",
+   "why": "AI延伸意图与责任"
+  },
+  "cm_b728a002": {
+   "ai": "keep",
+   "why": "设计者意图转译"
+  },
+  "cm_fa98c676": {
+   "ai": "keep",
+   "why": "harness意图规约"
+  },
+  "cm_3336ded4": {
+   "ai": "keep",
+   "why": "agent意图路由升级"
+  },
+  "cm_5d035695": {
+   "ai": "keep",
+   "why": "智能体预测理论"
+  },
+  "cm_22909587": {
+   "ai": "keep",
+   "why": "丹尼特意向系统论"
+  },
+  "cm_4fdfcee1": {
+   "ai": "drop",
+   "why": "心理学自控"
+  },
+  "cm_e168e15c": {
+   "ai": "drop",
+   "why": "解剖学概念"
+  },
+  "cm_9e6c803b": {
+   "ai": "drop",
+   "why": "解剖学神经"
+  },
+  "cm_d2f5d254": {
+   "ai": "drop",
+   "why": "解剖学结构"
+  },
+  "cm_12e715eb": {
+   "ai": "drop",
+   "why": "航天物理"
+  },
+  "cm_d2597b53": {
+   "ai": "keep",
+   "why": "Claude Code隐式上下文"
+  },
+  "cm_4805cdf5": {
+   "ai": "keep",
+   "why": "指代消解NLP"
+  },
+  "cm_5e79cf3e": {
+   "ai": "drop",
+   "why": "博弈杠杆非AI"
+  },
+  "cm_fafd8f39": {
+   "ai": "drop",
+   "why": "营销诊断"
+  },
+  "cm_264fbc7c": {
+   "ai": "keep",
+   "why": "agent工具集设计"
+  },
+  "cm_63d8b13a": {
+   "ai": "keep",
+   "why": "涌现与模型能力"
+  },
+  "cm_71ea022e": {
+   "ai": "keep",
+   "why": "agent工具调用编排人类"
+  },
+  "cm_198a8008": {
+   "ai": "keep",
+   "why": "harness优化对象演进"
+  },
+  "cm_2fb2521d": {
+   "ai": "keep",
+   "why": "RL训练优势函数"
+  },
+  "cm_457d789e": {
+   "ai": "keep",
+   "why": "harness改动与回归验证"
+  },
+  "cm_f50a09c9": {
+   "ai": "keep",
+   "why": "上下文工程前提"
+  },
+  "cm_5c858fdc": {
+   "ai": "keep",
+   "why": "上下文工程与模型正交"
+  },
+  "cm_e807b74f": {
+   "ai": "keep",
+   "why": "context.md语言影响代码"
+  },
+  "cm_26e8e066": {
+   "ai": "keep",
+   "why": "agent终身上下文系统"
+  },
+  "cm_6f5b5fa0": {
+   "ai": "keep",
+   "why": "向量嵌入语义检索"
+  },
+  "cm_63c4a968": {
+   "ai": "drop",
+   "why": "纯SEO内容相关性"
+  },
+  "cm_e838bb08": {
+   "ai": "keep",
+   "why": "上下文预算与溢出治理"
+  },
+  "cm_41176d23": {
+   "ai": "keep",
+   "why": "agent原生工具与MCP"
+  },
+  "cm_91d3545d": {
+   "ai": "keep",
+   "why": "模型智能度量指标"
+  },
+  "cm_07e54adc": {
+   "ai": "keep",
+   "why": "AI产品原型提示先行"
+  },
+  "cm_ce68156a": {
+   "ai": "keep",
+   "why": "内容不足，按不确定保留"
+  },
+  "cm_c62013d8": {
+   "ai": "keep",
+   "why": "prompt约束优于指令"
+  },
+  "cm_82e83f63": {
+   "ai": "drop",
+   "why": "飞机载重配平，非AI"
+  },
+  "cm_d7cb257d": {
+   "ai": "keep",
+   "why": "噪声上下文考模型理解"
+  },
+  "cm_868cd978": {
+   "ai": "keep",
+   "why": "AI责任可追责坐标"
+  },
+  "cm_8f0cba43": {
+   "ai": "keep",
+   "why": "AI问责链条失灵"
+  },
+  "cm_7d0aaf27": {
+   "ai": "keep",
+   "why": "代码索引增量更新"
+  },
+  "cm_70f49de3": {
+   "ai": "keep",
+   "why": "AI token成本与经济"
+  },
+  "cm_f563e9fc": {
+   "ai": "keep",
+   "why": "长上下文能力幻觉"
+  },
+  "cm_2efbcc89": {
+   "ai": "keep",
+   "why": "长上下文评测协议"
+  },
+  "cm_b2154cb8": {
+   "ai": "keep",
+   "why": "长时程自治编码"
+  },
+  "cm_8901a989": {
+   "ai": "drop",
+   "why": "外空条约，非AI"
+  },
+  "cm_72a2dbfe": {
+   "ai": "drop",
+   "why": "地缘政治先例，非AI"
+  },
+  "cm_d7a8d5c8": {
+   "ai": "drop",
+   "why": "微剧娱乐，非AI"
+  },
+  "cm_e81072ea": {
+   "ai": "drop",
+   "why": "个人成长复利，非AI"
+  },
+  "cm_4c82c388": {
+   "ai": "drop",
+   "why": "解剖学医学，非AI"
+  },
+  "cm_e59738dc": {
+   "ai": "drop",
+   "why": "统计投资效应，非AI"
+  },
+  "cm_f24b82cc": {
+   "ai": "keep",
+   "why": "为AI设计工作环境"
+  },
+  "cm_cdbb0432": {
+   "ai": "keep",
+   "why": "AI工程吞吐与容错"
+  },
+  "cm_e936aae0": {
+   "ai": "keep",
+   "why": "模型增强与harness"
+  },
+  "cm_3e605896": {
+   "ai": "drop",
+   "why": "嘻哈文化批判，非AI"
+  },
+  "cm_03726492": {
+   "ai": "keep",
+   "why": "Agent文件持久记忆"
+  },
+  "cm_0626f36e": {
+   "ai": "keep",
+   "why": "文件系统作Agent上下文"
+  },
+  "cm_88ab03e1": {
+   "ai": "drop",
+   "why": "文明社会议题，非AI"
+  },
+  "cm_b87e2d6f": {
+   "ai": "keep",
+   "why": "LLM稳定prompt前缀"
+  },
+  "cm_668cf70f": {
+   "ai": "keep",
+   "why": "KV-cache稳定前缀"
+  },
+  "cm_715376b5": {
+   "ai": "keep",
+   "why": "多Agent层级与风险"
+  },
+  "cm_f232fade": {
+   "ai": "keep",
+   "why": "AI智能体治理责任"
+  },
+  "cm_c5a896fe": {
+   "ai": "keep",
+   "why": "AI编码不手写规则"
+  },
+  "cm_83e37af7": {
+   "ai": "drop",
+   "why": "哲学无我，非AI"
+  },
+  "cm_80327519": {
+   "ai": "drop",
+   "why": "人际关系法则，非AI"
+  },
+  "cm_f23a5dfb": {
+   "ai": "keep",
+   "why": "稀疏反馈与世界模型"
+  },
+  "cm_5c9de1e9": {
+   "ai": "drop",
+   "why": "嘻哈文化称号，非AI"
+  },
+  "cm_f13aecb2": {
+   "ai": "drop",
+   "why": "嘻哈文化要素，非AI"
+  },
+  "cm_0c599244": {
+   "ai": "drop",
+   "why": "习惯心理学，非AI"
+  },
+  "cm_48fd3852": {
+   "ai": "keep",
+   "why": "习惯变系统契约"
+  },
+  "cm_96f9ee78": {
+   "ai": "keep",
+   "why": "agent与上下文工程"
+  },
+  "cm_37aa3700": {
+   "ai": "keep",
+   "why": "Agent经济商业"
+  },
+  "cm_fc9668d6": {
+   "ai": "keep",
+   "why": "agent模板持久化工程"
+  },
+  "cm_c63aeadd": {
+   "ai": "keep",
+   "why": "agent循环机制"
+  },
+  "cm_4cd0f50d": {
+   "ai": "keep",
+   "why": "agent与harness分工"
+  },
+  "cm_07373436": {
+   "ai": "keep",
+   "why": "agent为API原语"
+  },
+  "cm_75e26472": {
+   "ai": "keep",
+   "why": "agent作为新软件形态"
+  },
+  "cm_d0fbb9bb": {
+   "ai": "keep",
+   "why": "agent运行环境工程"
+  },
+  "cm_066bbed0": {
+   "ai": "keep",
+   "why": "agent漂移上下文问题"
+  },
+  "cm_094c89da": {
+   "ai": "keep",
+   "why": "Agent Skills能力文件"
+  },
+  "cm_44a5e9cc": {
+   "ai": "keep",
+   "why": "agent与harness定义"
+  },
+  "cm_8d5752d9": {
+   "ai": "keep",
+   "why": "agent驱动CI/CD"
+  },
+  "cm_5a9d980b": {
+   "ai": "keep",
+   "why": "A2A多agent交互"
+  },
+  "cm_14bf0b8b": {
+   "ai": "keep",
+   "why": "AWS agent原语"
+  },
+  "cm_e0ddbb7e": {
+   "ai": "keep",
+   "why": "agent指令文件工程"
+  },
+  "cm_8e23b5e7": {
+   "ai": "keep",
+   "why": "agentic编程任务"
+  },
+  "cm_5be4de59": {
+   "ai": "keep",
+   "why": "agentic可复用零件"
+  },
+  "cm_9b8f7efc": {
+   "ai": "keep",
+   "why": "agentic工具操作电脑"
+  },
+  "cm_2037dc40": {
+   "ai": "keep",
+   "why": "端到端AI工作流"
+  },
+  "cm_5a9e35b6": {
+   "ai": "keep",
+   "why": "OpenAI Agents SDK"
+  },
+  "cm_a84f8f6d": {
+   "ai": "keep",
+   "why": "向agent交代指令文件"
+  },
+  "cm_3a9cdbbe": {
+   "ai": "drop",
+   "why": "传统聚合商业理论"
+  },
+  "cm_7738ecbf": {
+   "ai": "keep",
+   "why": "AI基础设施与安全"
+  },
+  "cm_52318cc3": {
+   "ai": "keep",
+   "why": "AI公众情绪反弹"
+  },
+  "cm_bfabbb33": {
+   "ai": "keep",
+   "why": "AI工程基础设施"
+  },
+  "cm_d6183379": {
+   "ai": "keep",
+   "why": "讲agent基础设施压力"
+  },
+  "cm_c3eb4ff0": {
+   "ai": "drop",
+   "why": "照料劳动与社会性别"
+  },
+  "cm_eb2997be": {
+   "ai": "keep",
+   "why": "讲AI数据中心用水规模"
+  },
+  "cm_bfcecaf0": {
+   "ai": "keep",
+   "why": "讲上下文整理增益"
+  },
+  "cm_5c9cf5c5": {
+   "ai": "keep",
+   "why": "讲上下文正确供给"
+  },
+  "cm_c22bacf6": {
+   "ai": "keep",
+   "why": "AI产业资本逻辑"
+  },
+  "cm_d5c7bde8": {
+   "ai": "keep",
+   "why": "讲AI记忆知识入口"
+  },
+  "cm_787006fe": {
+   "ai": "keep",
+   "why": "讲上下文双供给"
+  },
+  "cm_bc4032a1": {
+   "ai": "drop",
+   "why": "纯神经科学执行功能"
+  },
+  "cm_2f011406": {
+   "ai": "keep",
+   "why": "衡量AI听懂难度"
+  },
+  "cm_a105fa65": {
+   "ai": "keep",
+   "why": "讲模型指令遵循"
+  },
+  "cm_1b119e04": {
+   "ai": "keep",
+   "why": "讲agent指令子系统"
+  },
+  "cm_84fc06ac": {
+   "ai": "drop",
+   "why": "批评质检非AI"
+  },
+  "cm_84e15406": {
+   "ai": "drop",
+   "why": "文化二手想象"
+  },
+  "cm_367e2623": {
+   "ai": "drop",
+   "why": "讲中年概念"
+  },
+  "cm_02d35fca": {
+   "ai": "drop",
+   "why": "讲中年危机标签"
+  },
+  "cm_9fb4dd2e": {
+   "ai": "drop",
+   "why": "纯物理中子散射"
+  },
+  "cm_1bd7da1b": {
+   "ai": "keep",
+   "why": "讲上下文重排序截断"
+  },
+  "cm_8536d67a": {
+   "ai": "drop",
+   "why": "飞机重心力学"
+  },
+  "cm_32134c6f": {
+   "ai": "keep",
+   "why": "强化学习重要性采样"
+  },
+  "cm_b36e15d0": {
+   "ai": "keep",
+   "why": "讲AI内容注水质量"
+  },
+  "cm_30bee42a": {
+   "ai": "keep",
+   "why": "讲LLM注意力机制"
+  },
+  "cm_05146d91": {
+   "ai": "keep",
+   "why": "讲注意力预算"
+  },
+  "cm_f27655ca": {
+   "ai": "keep",
+   "why": "讲上下文选择与重排"
+  },
+  "cm_be951649": {
+   "ai": "keep",
+   "why": "讲agent状态持久化"
+  },
+  "cm_e5f2ba8e": {
+   "ai": "keep",
+   "why": "AI编码前的追问对齐"
+  },
+  "cm_c21ec7b2": {
+   "ai": "keep",
+   "why": "模型写代码准确优先"
+  },
+  "cm_2be15a80": {
+   "ai": "keep",
+   "why": "AI-First下的工程师"
+  },
+  "cm_197a049b": {
+   "ai": "keep",
+   "why": "子agent编排与上下文"
+  },
+  "cm_d9636b24": {
+   "ai": "keep",
+   "why": "子agent调用机制"
+  },
+  "cm_8594943f": {
+   "ai": "keep",
+   "why": "模型受字面类比误导"
+  },
+  "cm_96db0031": {
+   "ai": "keep",
+   "why": "项目记忆与自动决策"
+  },
+  "cm_cf8c068b": {
+   "ai": "keep",
+   "why": "自回归模型上下文"
+  },
+  "cm_cf32c22f": {
+   "ai": "keep",
+   "why": "agent自评失真"
+  },
+  "cm_4bc8eb62": {
+   "ai": "keep",
+   "why": "agent handoff自收敛"
+  },
+  "cm_d1371114": {
+   "ai": "drop",
+   "why": "纯心理自尊防御"
+  },
+  "cm_eec62acc": {
+   "ai": "keep",
+   "why": "早期多agent协调"
+  },
+  "cm_2a9d80ad": {
+   "ai": "keep",
+   "why": "Transformer自注意力"
+  },
+  "cm_26a8128b": {
+   "ai": "drop",
+   "why": "个人沟通与担责"
+  },
+  "cm_974aa29f": {
+   "ai": "keep",
+   "why": "AI产品组织级技能"
+  },
+  "cm_5ecc4655": {
+   "ai": "drop",
+   "why": "航空舱单操作"
+  },
+  "cm_e4f63171": {
+   "ai": "keep",
+   "why": "多agent最慢worker"
+  },
+  "cm_f174c068": {
+   "ai": "keep",
+   "why": "reviewer最小上下文"
+  },
+  "cm_36c8ca5c": {
+   "ai": "keep",
+   "why": "上下文最小充分原则"
+  },
+  "cm_7be9a292": {
+   "ai": "keep",
+   "why": "高信号token集合"
+  },
+  "cm_9bbb52e5": {
+   "ai": "keep",
+   "why": "Anthropic缓存门槛"
+  },
+  "cm_a44eefc0": {
+   "ai": "drop",
+   "why": "广告曝光计量"
+  },
+  "cm_531af891": {
+   "ai": "drop",
+   "why": "水文水量单位"
+  },
+  "cm_86f56dae": {
+   "ai": "keep",
+   "why": "agent动作空间"
+  },
+  "cm_d2724a8b": {
+   "ai": "keep",
+   "why": "动作空间膨胀问题"
+  },
+  "cm_10db34e6": {
+   "ai": "keep",
+   "why": "AI编码代理的代码图谱工具"
+  },
+  "cm_b797f401": {
+   "ai": "keep",
+   "why": "AI编码代理索引排除配置"
+  },
+  "cm_d688ae4f": {
+   "ai": "keep",
+   "why": "OpenAI编码代理产品"
+  },
+  "cm_55cb0243": {
+   "ai": "keep",
+   "why": "代码库上下文工程"
+  },
+  "cm_e09e7cfa": {
+   "ai": "keep",
+   "why": "编码代理定义"
+  },
+  "cm_33922d87": {
+   "ai": "keep",
+   "why": "harness配置token膨胀"
+  },
+  "cm_463b3b95": {
+   "ai": "keep",
+   "why": "配置决定代理成败"
+  },
+  "cm_f4ee6204": {
+   "ai": "keep",
+   "why": "上下文失败模式"
+  },
+  "cm_d4790a0d": {
+   "ai": "keep",
+   "why": "模型上下文焦虑现象"
+  },
+  "cm_f5d40204": {
+   "ai": "keep",
+   "why": "上下文即工作记忆"
+  },
+  "cm_da4daeff": {
+   "ai": "keep",
+   "why": "上下文膨胀致注意力退化"
+  },
+  "cm_33d0987a": {
+   "ai": "keep",
+   "why": "上下文纪律"
+  },
+  "cm_acc5b32d": {
+   "ai": "keep",
+   "why": "上下文分心失效"
+  },
+  "cm_98b9a0aa": {
+   "ai": "keep",
+   "why": "隔离子上下文防火墙"
+  },
+  "cm_398fc084": {
+   "ai": "keep",
+   "why": "harness与上下文基础设施"
+  },
+  "cm_d10f0a1e": {
+   "ai": "keep",
+   "why": "上下文注入机制"
+  },
+  "cm_ed6d76b6": {
+   "ai": "keep",
+   "why": "上下文管理策略"
+  },
+  "cm_4f9d35ac": {
+   "ai": "keep",
+   "why": "重置与压缩策略"
+  },
+  "cm_beedff1a": {
+   "ai": "keep",
+   "why": "上下文腐烂现象"
+  },
+  "cm_7be88c4d": {
+   "ai": "keep",
+   "why": "上下文即代理状态"
+  },
+  "cm_b28a9fc2": {
+   "ai": "keep",
+   "why": "上下文窗口成本"
+  },
+  "cm_841b55e5": {
+   "ai": "keep",
+   "why": "多代理编排循环"
+  },
+  "cm_ca69391c": {
+   "ai": "keep",
+   "why": "人机协作角色转变"
+  },
+  "cm_a46abbb1": {
+   "ai": "keep",
+   "why": "跨session代理状态"
+  },
+  "cm_bdf121d1": {
+   "ai": "keep",
+   "why": "LLM注意力机制优化"
+  },
+  "cm_9290ad11": {
+   "ai": "drop",
+   "why": "个人生活规划"
+  },
+  "cm_4da45761": {
+   "ai": "drop",
+   "why": "一般理性哲学"
+  },
+  "cm_27fb5ba4": {
+   "ai": "drop",
+   "why": "信息经济学策略"
+  },
+  "cm_ae0e52be": {
+   "ai": "keep",
+   "why": "agent执行器架构"
+  },
+  "cm_5b94bd81": {
+   "ai": "keep",
+   "why": "agent上下文差异"
+  },
+  "cm_efd9e49f": {
+   "ai": "keep",
+   "why": "agent技能链编排"
+  },
+  "cm_2ad4f942": {
+   "ai": "keep",
+   "why": "上下文剪枝策略"
+  },
+  "cm_39875655": {
+   "ai": "drop",
+   "why": "内容分发与量产"
+  },
+  "cm_691bd675": {
+   "ai": "drop",
+   "why": "医学病例讨论"
+  },
+  "cm_1ff626e6": {
+   "ai": "drop",
+   "why": "临床诊断思维"
+  },
+  "cm_f004bda7": {
+   "ai": "drop",
+   "why": "文化哲学概念"
+  },
+  "cm_e65cdf93": {
+   "ai": "keep",
+   "why": "agent自动化权衡"
+  },
+  "cm_26923d16": {
+   "ai": "keep",
+   "why": "coding agent流程"
+  },
+  "cm_ff1b377d": {
+   "ai": "drop",
+   "why": "通用网络安全模型"
+  },
+  "cm_2d04acf5": {
+   "ai": "keep",
+   "why": "LLM谄媚偏差"
+  },
+  "cm_ae577191": {
+   "ai": "keep",
+   "why": "AI协作语言缺口"
+  },
+  "cm_6726b3bc": {
+   "ai": "drop",
+   "why": "通用产品角色"
+  },
+  "cm_dd90b8e3": {
+   "ai": "keep",
+   "why": "review agent行为"
+  },
+  "cm_f9bddc5c": {
+   "ai": "drop",
+   "why": "通用组织流程"
+  },
+  "cm_b6ac5a99": {
+   "ai": "drop",
+   "why": "社会制度概念"
+  },
+  "cm_daeec1f7": {
+   "ai": "drop",
+   "why": "航天探测器"
+  },
+  "cm_73d87ed3": {
+   "ai": "drop",
+   "why": "法律思维类比"
+  },
+  "cm_bb38906c": {
+   "ai": "drop",
+   "why": "隐私谚语"
+  },
+  "cm_2efed2e0": {
+   "ai": "keep",
+   "why": "LLM协作漫谈"
+  },
+  "cm_9810b581": {
+   "ai": "drop",
+   "why": "社交商品化服务"
+  },
+  "cm_43eb8977": {
+   "ai": "keep",
+   "why": "AI harness/上下文工程"
+  },
+  "cm_4a63cc27": {
+   "ai": "keep",
+   "why": "AI身份与治理"
+  },
+  "cm_d2b53bb8": {
+   "ai": "keep",
+   "why": "面向AI的内容可见性"
+  },
+  "cm_e0891b4f": {
+   "ai": "keep",
+   "why": "AI爬虫分类"
+  },
+  "cm_2458edfa": {
+   "ai": "keep",
+   "why": "AI产业经济"
+  },
+  "cm_a41e7117": {
+   "ai": "keep",
+   "why": "harness选型标准"
+  },
+  "cm_1f0a5c75": {
+   "ai": "keep",
+   "why": "AI主权与监管"
+  },
+  "cm_b9224922": {
+   "ai": "keep",
+   "why": "人机协作隐喻"
+  },
+  "cm_13cad3a9": {
+   "ai": "keep",
+   "why": "AI撮合应用"
+  },
+  "cm_968e8f3d": {
+   "ai": "keep",
+   "why": "AI优先组织"
+  },
+  "cm_4cae7681": {
+   "ai": "keep",
+   "why": "具身智能基准"
+  },
+  "cm_8b09eec8": {
+   "ai": "keep",
+   "why": "LLM观测与计量"
+  },
+  "cm_b5f16cbc": {
+   "ai": "keep",
+   "why": "agent包管理"
+  },
+  "cm_1725c0a2": {
+   "ai": "keep",
+   "why": "Cursor自训LLM"
+  },
+  "cm_43840984": {
+   "ai": "keep",
+   "why": "agent编辑工具"
+  },
+  "cm_66b2aa92": {
+   "ai": "keep",
+   "why": "AI能力基准"
+  },
+  "cm_307c714e": {
+   "ai": "keep",
+   "why": "AI时代工程分工"
+  },
+  "cm_ae93d5b5": {
+   "ai": "keep",
+   "why": "agent共享知识层"
+  },
+  "cm_ae650906": {
+   "ai": "drop",
+   "why": "通用决策原则"
+  },
+  "cm_4318a3dc": {
+   "ai": "keep",
+   "why": "agent自动修复"
+  },
+  "cm_a378789a": {
+   "ai": "keep",
+   "why": "多轮对话缓存"
+  },
+  "cm_01dc8b9f": {
+   "ai": "keep",
+   "why": "agent内建循环"
+  },
+  "cm_4eda0819": {
+   "ai": "keep",
+   "why": "Bedrock数据保护"
+  },
+  "cm_50087bfe": {
+   "ai": "keep",
+   "why": "agent自验证压力"
+  },
+  "cm_c5c2a8cb": {
+   "ai": "keep",
+   "why": "agent开销计量"
+  },
+  "cm_5daa0620": {
+   "ai": "keep",
+   "why": "讲模型受示例约束"
+  },
+  "cm_3aee29d5": {
+   "ai": "keep",
+   "why": "讲示例收窄模型探索"
+  },
+  "cm_7026ed33": {
+   "ai": "keep",
+   "why": "讲模型模仿示例行为"
+  },
+  "cm_db9042f2": {
+   "ai": "keep",
+   "why": "讲agent编排解耦"
+  },
+  "cm_c3a45aa3": {
+   "ai": "keep",
+   "why": "讲agent事件驱动工作流"
+  },
+  "cm_d2a08592": {
+   "ai": "keep",
+   "why": "讲agent工具失败恢复"
+  },
+  "cm_627cd5e5": {
+   "ai": "drop",
+   "why": "手机成瘾非AI"
+  },
+  "cm_bcebf5df": {
+   "ai": "keep",
+   "why": "讲模型路由指令"
+  },
+  "cm_a75270b6": {
+   "ai": "keep",
+   "why": "讲大模型上下文偏置"
+  },
+  "cm_3fef769a": {
+   "ai": "keep",
+   "why": "讲LLM首token延迟"
+  },
+  "cm_59d3ad3b": {
+   "ai": "keep",
+   "why": "讲人机输入摩擦"
+  },
+  "cm_703ec1e4": {
+   "ai": "keep",
+   "why": "讲LLM基准长度混淆"
+  },
+  "cm_d017eff4": {
+   "ai": "drop",
+   "why": "休谟哲学非AI"
+  },
+  "cm_18997927": {
+   "ai": "keep",
+   "why": "AI基础设施数据中心"
+  },
+  "cm_cc071be2": {
+   "ai": "keep",
+   "why": "AI数字存在"
+  },
+  "cm_0f50bab1": {
+   "ai": "drop",
+   "why": "睡眠研究非AI"
+  },
+  "cm_64ee07c2": {
+   "ai": "drop",
+   "why": "睡眠健康非AI"
+  },
+  "cm_4402a284": {
+   "ai": "drop",
+   "why": "睡眠测量非AI"
+  },
+  "cm_a4d23083": {
+   "ai": "drop",
+   "why": "睡眠困难非AI"
+  },
+  "cm_0c62dc4a": {
+   "ai": "drop",
+   "why": "教育思维非AI"
+  },
+  "cm_e1ce170d": {
+   "ai": "keep",
+   "why": "讲AI模型商业模式"
+  },
+  "cm_99702518": {
+   "ai": "keep",
+   "why": "讲机器智能演化"
+  },
+  "cm_f0175fa0": {
+   "ai": "drop",
+   "why": "个人品格非AI"
+  },
+  "cm_49edbe3a": {
+   "ai": "drop",
+   "why": "物理冰相非AI"
+  },
+  "cm_9e54f48a": {
+   "ai": "keep",
+   "why": "讲算法推荐影响"
+  },
+  "cm_b8dff81c": {
+   "ai": "keep",
+   "why": "AI agent运行时"
+  },
+  "cm_e63fe314": {
+   "ai": "drop",
+   "why": "纯心理认知"
+  },
+  "cm_91fd7291": {
+   "ai": "drop",
+   "why": "航天电源方案"
+  },
+  "cm_0569ae91": {
+   "ai": "keep",
+   "why": "意图信息量缺口"
+  },
+  "cm_37be6149": {
+   "ai": "keep",
+   "why": "模型能力取代脚手架"
+  },
+  "cm_01908681": {
+   "ai": "drop",
+   "why": "纯软件工程"
+  },
+  "cm_61f02158": {
+   "ai": "keep",
+   "why": "限制输出护上下文"
+  },
+  "cm_5f36140f": {
+   "ai": "drop",
+   "why": "个人恋爱随机"
+  },
+  "cm_ad8666e5": {
+   "ai": "keep",
+   "why": "agent架构解耦"
+  },
+  "cm_82e4b4e7": {
+   "ai": "keep",
+   "why": "token成本上限"
+  },
+  "cm_b9c659d4": {
+   "ai": "keep",
+   "why": "LLM缓存前缀"
+  },
+  "cm_085b498a": {
+   "ai": "keep",
+   "why": "LLM缓存写入"
+  },
+  "cm_63e5d090": {
+   "ai": "keep",
+   "why": "LLM缓存输入token"
+  },
+  "cm_64ae7813": {
+   "ai": "keep",
+   "why": "模型能力涌现"
+  },
+  "cm_4f1a541c": {
+   "ai": "keep",
+   "why": "模型能力跃迁"
+  },
+  "cm_6b38efa5": {
+   "ai": "keep",
+   "why": "AI任务模式"
+  },
+  "cm_6a5b3651": {
+   "ai": "keep",
+   "why": "LLM提示格式"
+  },
+  "cm_9c9c0044": {
+   "ai": "keep",
+   "why": "AI视频临界点"
+  },
+  "cm_58737f49": {
+   "ai": "drop",
+   "why": "全球贸易地缘"
+  },
+  "cm_07d6de4f": {
+   "ai": "keep",
+   "why": "RL训练目标"
+  },
+  "cm_018c5168": {
+   "ai": "keep",
+   "why": "AI编程agent"
+  },
+  "cm_ba8d0829": {
+   "ai": "keep",
+   "why": "托管agent harness"
+  },
+  "cm_c8f344c1": {
+   "ai": "drop",
+   "why": "SEO作弊手段"
+  },
+  "cm_f3d3cb69": {
+   "ai": "keep",
+   "why": "模型与harness共演化"
+  },
+  "cm_40c8f5ff": {
+   "ai": "keep",
+   "why": "agent代码执行模式"
+  },
+  "cm_8ce77cc3": {
+   "ai": "drop",
+   "why": "个人财富幸福观"
+  },
+  "cm_c6e454d9": {
+   "ai": "keep",
+   "why": "agent沙箱模板"
+  },
+  "cm_98e85c1e": {
+   "ai": "keep",
+   "why": "agent可测代码库"
+  },
+  "cm_50f21101": {
+   "ai": "keep",
+   "why": "多agent角色"
+  },
+  "cm_a9276da2": {
+   "ai": "keep",
+   "why": "提示注入数据外泄"
+  },
+  "cm_1335753c": {
+   "ai": "drop",
+   "why": "个人疲劳健康"
+  },
+  "cm_95f5ef7c": {
+   "ai": "keep",
+   "why": "上下文分层边界"
+  },
+  "cm_6b20739f": {
+   "ai": "keep",
+   "why": "估算成本与AI感知"
+  },
+  "cm_558fd935": {
+   "ai": "keep",
+   "why": "AI权限默认策略"
+  },
+  "cm_0db0f875": {
+   "ai": "keep",
+   "why": "agent验证闭环"
+  },
+  "cm_d343a50e": {
+   "ai": "drop",
+   "why": "纯加密token格式"
+  },
+  "cm_8fabdf4b": {
+   "ai": "keep",
+   "why": "few-shot上下文工程"
+  },
+  "cm_6072455f": {
+   "ai": "keep",
+   "why": "harness原语"
+  },
+  "cm_9639a844": {
+   "ai": "drop",
+   "why": "莎士比亚版本史"
+  },
+  "cm_b894e32d": {
+   "ai": "drop",
+   "why": "自欺心理学"
+  },
+  "cm_511c902a": {
+   "ai": "keep",
+   "why": "AI驻场工程师岗位"
+  },
+  "cm_ca227b76": {
+   "ai": "keep",
+   "why": "模板重复上下文成本"
+  },
+  "cm_19ecf6b3": {
+   "ai": "keep",
+   "why": "工程直觉学习法"
+  },
+  "cm_91df6151": {
+   "ai": "keep",
+   "why": "AI前沿需求"
+  },
+  "cm_319174c9": {
+   "ai": "keep",
+   "why": "函数转工具"
+  },
+  "cm_1bb0da58": {
+   "ai": "keep",
+   "why": "agent执行循环"
+  },
+  "cm_0f46e34c": {
+   "ai": "keep",
+   "why": "AI作为通用技术"
+  },
+  "cm_b3d14b63": {
+   "ai": "keep",
+   "why": "生成内核与harness"
+  },
+  "cm_deefef79": {
+   "ai": "keep",
+   "why": "生成评估循环"
+  },
+  "cm_7a8f6388": {
+   "ai": "keep",
+   "why": "生成式引擎优化"
+  },
+  "cm_b8aa3676": {
+   "ai": "keep",
+   "why": "AI产品系统prompt"
+  },
+  "cm_ddfa6bcb": {
+   "ai": "keep",
+   "why": "上下文工程"
+  },
+  "cm_13a8a97f": {
+   "ai": "keep",
+   "why": "人机沟通与agent"
+  },
+  "cm_4b0f8086": {
+   "ai": "keep",
+   "why": "AI产业系统竞争"
+  },
+  "cm_980c195f": {
+   "ai": "keep",
+   "why": "系统提示上下文"
+  },
+  "cm_743bdcd9": {
+   "ai": "keep",
+   "why": "agent工具使用"
+  },
+  "cm_899730c5": {
+   "ai": "keep",
+   "why": "多agent编排"
+  },
+  "cm_f1e9d39c": {
+   "ai": "keep",
+   "why": "AI任务指令指代"
+  },
+  "cm_b2c5ba9c": {
+   "ai": "drop",
+   "why": "哲学显现图景"
+  },
+  "cm_99610fcf": {
+   "ai": "drop",
+   "why": "哲学现成在手"
+  },
+  "cm_248f7baa": {
+   "ai": "drop",
+   "why": "DDD软件架构"
+  },
+  "cm_4221a1fc": {
+   "ai": "keep",
+   "why": "AI模型交叉复审"
+  },
+  "cm_f35c6c14": {
+   "ai": "drop",
+   "why": "哲学消除主义"
+  },
+  "cm_f67b66b8": {
+   "ai": "keep",
+   "why": "上下文消息层"
+  },
+  "cm_72b614cb": {
+   "ai": "keep",
+   "why": "agent构建概念"
+  },
+  "cm_7ab1296f": {
+   "ai": "keep",
+   "why": "人机交互追问"
+  },
+  "cm_cf92487f": {
+   "ai": "keep",
+   "why": "agent代码组合"
+  },
+  "cm_f9eca213": {
+   "ai": "keep",
+   "why": "模型与harness耦合"
+  },
+  "cm_d0269dfa": {
+   "ai": "keep",
+   "why": "LLM探针能力"
+  },
+  "cm_dc8d374d": {
+   "ai": "drop",
+   "why": "哲学心身二元"
+  },
+  "cm_dc8d4037": {
+   "ai": "keep",
+   "why": "AI芯片管制"
+  },
+  "cm_4a910d74": {
+   "ai": "keep",
+   "why": "防agent漂移"
+  },
+  "cm_89a74f67": {
+   "ai": "keep",
+   "why": "组织信任AI"
+  },
+  "cm_d28ed61f": {
+   "ai": "keep",
+   "why": "RL信任域PPO"
+  },
+  "cm_4efca7d4": {
+   "ai": "keep",
+   "why": "AI信息瓶颈"
+  },
+  "cm_84f14edc": {
+   "ai": "keep",
+   "why": "赛博脑与意识，AI 相关且拿不准"
+  },
+  "cm_9ba323e5": {
+   "ai": "drop",
+   "why": "约会关系话题"
+  },
+  "cm_7f6b7ae0": {
+   "ai": "keep",
+   "why": "LLM 本质与正确姿态"
+  },
+  "cm_5788cb30": {
+   "ai": "keep",
+   "why": "并行 Agent 工作目录"
+  },
+  "cm_98bb96e7": {
+   "ai": "keep",
+   "why": "循环状态持久化"
+  },
+  "cm_ebeee733": {
+   "ai": "keep",
+   "why": "上下文工程 CLAUDE.md 写法"
+  },
+  "cm_8b69f567": {
+   "ai": "keep",
+   "why": "上下文 token 分配原则"
+  },
+  "cm_999f2a7c": {
+   "ai": "keep",
+   "why": "注意力 KV 机制"
+  },
+  "cm_3a7b088a": {
+   "ai": "keep",
+   "why": "可打分评测标准，拿不准"
+  },
+  "cm_c3027f5b": {
+   "ai": "keep",
+   "why": "RL 训练算法"
+  },
+  "cm_285b2834": {
+   "ai": "keep",
+   "why": "Agent 安全校验"
+  },
+  "cm_345d4b18": {
+   "ai": "keep",
+   "why": "多 Agent 交接"
+  },
+  "cm_6d45fdf6": {
+   "ai": "keep",
+   "why": "上下文交接工件"
+  },
+  "cm_5c93f4e7": {
+   "ai": "keep",
+   "why": "Agent 编排机制"
+  },
+  "cm_14ba4d5c": {
+   "ai": "keep",
+   "why": "harness 假设过时"
+  },
+  "cm_3e211f91": {
+   "ai": "keep",
+   "why": "harness 厚薄架构"
+  },
+  "cm_94448257": {
+   "ai": "keep",
+   "why": "harness 简化原则"
+  },
+  "cm_f2871b54": {
+   "ai": "keep",
+   "why": "harness 内 RL"
+  },
+  "cm_94dea071": {
+   "ai": "keep",
+   "why": "harness 与框架分野"
+  },
+  "cm_24c4322f": {
+   "ai": "keep",
+   "why": "harness 组件生命周期"
+  },
+  "cm_c88b81b3": {
+   "ai": "keep",
+   "why": "harness 演进"
+  },
+  "cm_7fdc01a5": {
+   "ai": "keep",
+   "why": "harness 提供的能力"
+  },
+  "cm_561b8021": {
+   "ai": "keep",
+   "why": "harness 过拟合"
+  },
+  "cm_b8127840": {
+   "ai": "keep",
+   "why": "harness 厚薄权衡"
+  },
+  "cm_e00f590e": {
+   "ai": "keep",
+   "why": "harness 固定 token 开销"
+  },
+  "cm_aadd5ef8": {
+   "ai": "keep",
+   "why": "RL训练目标改进"
+  },
+  "cm_433754e0": {
+   "ai": "keep",
+   "why": "MCP工具接入图谱"
+  },
+  "cm_ca2c1a03": {
+   "ai": "keep",
+   "why": "MCP schema token开销"
+  },
+  "cm_9c15cd8d": {
+   "ai": "keep",
+   "why": "MCP工具调用"
+  },
+  "cm_a5ed35be": {
+   "ai": "keep",
+   "why": "AI武器CBRN红线判定"
+  },
+  "cm_1e2c70a5": {
+   "ai": "keep",
+   "why": "模型API测量方法"
+  },
+  "cm_a10e6134": {
+   "ai": "drop",
+   "why": "个人生活心理慰藉"
+  },
+  "cm_a9b26989": {
+   "ai": "keep",
+   "why": "agent记忆持续学习"
+  },
+  "cm_45bcde21": {
+   "ai": "keep",
+   "why": "记忆驱动agent开发"
+  },
+  "cm_c45d61bf": {
+   "ai": "keep",
+   "why": "messages API与harness"
+  },
+  "cm_b9e6e94d": {
+   "ai": "keep",
+   "why": "Transformer连接结构"
+  },
+  "cm_d22095a4": {
+   "ai": "keep",
+   "why": "人机目标对齐"
+  },
+  "cm_0e8f0431": {
+   "ai": "keep",
+   "why": "agent loop中调用模型"
+  },
+  "cm_b74eee38": {
+   "ai": "keep",
+   "why": "模型原生harness"
+  },
+  "cm_4a3ac824": {
+   "ai": "keep",
+   "why": "模型换代课程重写"
+  },
+  "cm_63e885ca": {
+   "ai": "keep",
+   "why": "MoE稀疏激活"
+  },
+  "cm_ed8dcd39": {
+   "ai": "keep",
+   "why": "多模态视觉LLM"
+  },
+  "cm_a9c55d8b": {
+   "ai": "keep",
+   "why": "Muon训练优化器"
+  },
+  "cm_a25b0163": {
+   "ai": "keep",
+   "why": "变异测试与判官模型评测"
+  },
+  "cm_0767b398": {
+   "ai": "keep",
+   "why": "N-gram语言模型"
+  },
+  "cm_35dc59c9": {
+   "ai": "keep",
+   "why": "agent沙箱执行"
+  },
+  "cm_fc4706e8": {
+   "ai": "keep",
+   "why": "自然语言驱动agent"
+  },
+  "cm_fada3d6a": {
+   "ai": "keep",
+   "why": "检索任务相似度评测"
+  },
+  "cm_60fc8578": {
+   "ai": "keep",
+   "why": "问答相似度与embedding"
+  },
+  "cm_836f9734": {
+   "ai": "keep",
+   "why": "ChatGPT人格与RL奖励"
+  },
+  "cm_5465cd64": {
+   "ai": "keep",
+   "why": "Agent骨架评测基准"
+  },
+  "cm_a5b42ae5": {
+   "ai": "keep",
+   "why": "Agent沙箱隔离工程"
+  },
+  "cm_8c8c6e16": {
+   "ai": "keep",
+   "why": "输入结构影响注意力"
+  },
+  "cm_f61cc152": {
+   "ai": "keep",
+   "why": "注意力KV压缩机制"
+  },
+  "cm_3cee2463": {
+   "ai": "keep",
+   "why": "Agent无浏览器操作系统"
+  },
+  "cm_94565417": {
+   "ai": "keep",
+   "why": "开源Agent代码库"
+  },
+  "cm_6aeb848e": {
+   "ai": "keep",
+   "why": "信息质量原则，拿不准留"
+  },
+  "cm_561dcec8": {
+   "ai": "keep",
+   "why": "Agent运行时控制层"
+  },
+  "cm_6f8755a0": {
+   "ai": "drop",
+   "why": "纯医学成像"
+  },
+  "cm_d133fd5c": {
+   "ai": "drop",
+   "why": "存疑，疑为收藏保存"
+  },
+  "cm_db2e3848": {
+   "ai": "drop",
+   "why": "个人心态练习"
+  },
+  "cm_65ce9cd3": {
+   "ai": "keep",
+   "why": "Agent用户记忆模型"
+  },
+  "cm_3931df09": {
+   "ai": "drop",
+   "why": "网页标记标准，非AI"
+  },
+  "cm_5103a6a6": {
+   "ai": "keep",
+   "why": "Agent人机协同控制"
+  },
+  "cm_16f314f0": {
+   "ai": "keep",
+   "why": "抵御AI污染社交"
+  },
+  "cm_fcf9bcbe": {
+   "ai": "keep",
+   "why": "云厂与模型投资"
+  },
+  "cm_889aa244": {
+   "ai": "drop",
+   "why": "文学虚构概念"
+  },
+  "cm_f53425d9": {
+   "ai": "keep",
+   "why": "AI时代工程落地能力"
+  },
+  "cm_cb97c505": {
+   "ai": "keep",
+   "why": "coding基准基础设施噪声"
+  },
+  "cm_705ac76d": {
+   "ai": "keep",
+   "why": "Agent主执行循环"
+  },
+  "cm_b46838eb": {
+   "ai": "keep",
+   "why": "Agent指令注意力预算"
+  },
+  "cm_3ca84975": {
+   "ai": "keep",
+   "why": "模型指令遵循边界"
+  },
+  "cm_dafd9d2f": {
+   "ai": "keep",
+   "why": "指令文件token开销"
+  },
+  "cm_5e26a484": {
+   "ai": "keep",
+   "why": "Agent规则文件"
+  },
+  "cm_03a44650": {
+   "ai": "keep",
+   "why": "多agent并行合并瓶颈"
+  },
+  "cm_8e93fc18": {
+   "ai": "keep",
+   "why": "以产出智能为目标的工厂"
+  },
+  "cm_10cff6a4": {
+   "ai": "keep",
+   "why": "judge agent 循环编排"
+  },
+  "cm_7e14e299": {
+   "ai": "keep",
+   "why": "agent 上下文按引用加载"
+  },
+  "cm_4cb4ac3f": {
+   "ai": "drop",
+   "why": "纯库存管理概念"
+  },
+  "cm_89d0cc05": {
+   "ai": "keep",
+   "why": "AI 评分与人类一致性"
+  },
+  "cm_19961532": {
+   "ai": "keep",
+   "why": "agent 上下文与记忆结构"
+  },
+  "cm_838289d1": {
+   "ai": "keep",
+   "why": "LLM 推理成本与延迟"
+  },
+  "cm_107688d0": {
+   "ai": "drop",
+   "why": "人类睡眠与学习"
+  },
+  "cm_592eb60e": {
+   "ai": "keep",
+   "why": "agent 技能自改写循环"
+  },
+  "cm_723196a5": {
+   "ai": "drop",
+   "why": "区块链底账记录"
+  },
+  "cm_ddb0ab8c": {
+   "ai": "keep",
+   "why": "面向 agent 的代码库"
+  },
+  "cm_ca4c9960": {
+   "ai": "keep",
+   "why": "编码 agent 软件工厂"
+  },
+  "cm_4cddc093": {
+   "ai": "keep",
+   "why": "大语言模型本身"
+  },
+  "cm_3bf9ffd4": {
+   "ai": "keep",
+   "why": "LLM 商业模式定价"
+  },
+  "cm_60d08d73": {
+   "ai": "keep",
+   "why": "agent 编译知识库"
+  },
+  "cm_69e03c25": {
+   "ai": "keep",
+   "why": "面向 AI 的站点文件"
+  },
+  "cm_0986f0e5": {
+   "ai": "keep",
+   "why": "面向 AI 的 llms.txt"
+  },
+  "cm_c7d6c722": {
+   "ai": "keep",
+   "why": "模型输出原始得分"
+  },
+  "cm_70a22373": {
+   "ai": "keep",
+   "why": "logits 掩码约束工具调用"
+  },
+  "cm_b8e70a87": {
+   "ai": "keep",
+   "why": "长任务 agent 交接"
+  },
+  "cm_75ee7205": {
+   "ai": "keep",
+   "why": "agent loop 契约"
+  },
+  "cm_5f282c0d": {
+   "ai": "keep",
+   "why": "设计 agent 循环的岗位"
+  },
+  "cm_de4b075f": {
+   "ai": "keep",
+   "why": "AI 并购监管事件"
+  },
+  "cm_f2b65d01": {
+   "ai": "keep",
+   "why": "为 AI 压缩页面 token"
+  },
+  "cm_ade7239f": {
+   "ai": "keep",
+   "why": "结构化 prompt 工程"
+  },
+  "cm_3b8ca49c": {
+   "ai": "keep",
+   "why": "自定义Agent配置"
+  },
+  "cm_bf8b94c6": {
+   "ai": "keep",
+   "why": "AI算力内存层"
+  },
+  "cm_69531898": {
+   "ai": "drop",
+   "why": "通用数据编排"
+  },
+  "cm_7a2322bb": {
+   "ai": "keep",
+   "why": "医学AI筛查"
+  },
+  "cm_34451fc9": {
+   "ai": "keep",
+   "why": "LLM训练算法"
+  },
+  "cm_32fd426a": {
+   "ai": "drop",
+   "why": "航天任务"
+  },
+  "cm_70a27f0c": {
+   "ai": "drop",
+   "why": "交友软件心理"
+  },
+  "cm_65afe80b": {
+   "ai": "drop",
+   "why": "公共空间社会"
+  },
+  "cm_9bdd02f8": {
+   "ai": "drop",
+   "why": "区块链共识"
+  },
+  "cm_da1f0987": {
+   "ai": "keep",
+   "why": "Agent循环决策"
+  },
+  "cm_5a913047": {
+   "ai": "drop",
+   "why": "身体去适应"
+  },
+  "cm_4c4e24be": {
+   "ai": "keep",
+   "why": "AI模型市场冲击"
+  },
+  "cm_b58e822c": {
+   "ai": "keep",
+   "why": "DeepSeek模型"
+  },
+  "cm_aad08abd": {
+   "ai": "keep",
+   "why": "上下文触发技能"
+  },
+  "cm_f4f2cf01": {
+   "ai": "drop",
+   "why": "瑜伽专注"
+  },
+  "cm_32fe6bc6": {
+   "ai": "drop",
+   "why": "代码审查方法"
+  },
+  "cm_3ca23b5f": {
+   "ai": "drop",
+   "why": "沉浸体验"
+  },
+  "cm_a7361f76": {
+   "ai": "drop",
+   "why": "粉丝文化"
+  },
+  "cm_e907a229": {
+   "ai": "keep",
+   "why": "给AI架构决策上下文"
+  },
+  "cm_c63842fd": {
+   "ai": "keep",
+   "why": "RL策略优化"
+  },
+  "cm_786f3b46": {
+   "ai": "keep",
+   "why": "GRPO偏置分析"
+  },
+  "cm_3c308af4": {
+   "ai": "drop",
+   "why": "基因心理"
+  },
+  "cm_532995ad": {
+   "ai": "drop",
+   "why": "电子病历"
+  },
+  "cm_859f857b": {
+   "ai": "keep",
+   "why": "AI需求引出"
+  },
+  "cm_180723ac": {
+   "ai": "keep",
+   "why": "Transformer知识查表"
+  },
+  "cm_e0d9a1fa": {
+   "ai": "drop",
+   "why": "社群政治制度，与AI无关"
+  },
+  "cm_34ec5743": {
+   "ai": "keep",
+   "why": "小模型上下文管理"
+  },
+  "cm_0f648e5f": {
+   "ai": "drop",
+   "why": "医学健康调查"
+  },
+  "cm_dd0feb2c": {
+   "ai": "keep",
+   "why": "loop硬停止机制"
+  },
+  "cm_21a4ec33": {
+   "ai": "keep",
+   "why": "OpenAI商家端SDK"
+  },
+  "cm_fe668e3c": {
+   "ai": "keep",
+   "why": "Agent部署权限"
+  },
+  "cm_1536f249": {
+   "ai": "keep",
+   "why": "提示与上下文极限"
+  },
+  "cm_769e3775": {
+   "ai": "keep",
+   "why": "OpenAI广告基础设施"
+  },
+  "cm_c0e408a0": {
+   "ai": "keep",
+   "why": "Agent记忆方案"
+  },
+  "cm_7c5152aa": {
+   "ai": "keep",
+   "why": "OpenAI广告归因"
+  },
+  "cm_6541b55e": {
+   "ai": "keep",
+   "why": "AI数据使用默认值"
+  },
+  "cm_9b645487": {
+   "ai": "keep",
+   "why": "人指挥多Agent界面"
+  },
+  "cm_5ae9faf9": {
+   "ai": "keep",
+   "why": "Agent运行循环"
+  },
+  "cm_1c53f4f5": {
+   "ai": "drop",
+   "why": "物理化学相变规则"
+  },
+  "cm_81936d81": {
+   "ai": "keep",
+   "why": "研究监督外循环"
+  },
+  "cm_3bde05a0": {
+   "ai": "drop",
+   "why": "文化人物概念"
+  },
+  "cm_9e82be87": {
+   "ai": "keep",
+   "why": "模型采样评测指标"
+  },
+  "cm_01347b98": {
+   "ai": "keep",
+   "why": "个人上下文接入"
+  },
+  "cm_5bfb7116": {
+   "ai": "drop",
+   "why": "视频包装，无AI"
+  },
+  "cm_46c26da4": {
+   "ai": "keep",
+   "why": "Agent先规划后执行"
+  },
+  "cm_6b2df7f0": {
+   "ai": "keep",
+   "why": "三Agent架构"
+  },
+  "cm_7cbbd7dc": {
+   "ai": "keep",
+   "why": "三角色Agent分工"
+  },
+  "cm_511bf6de": {
+   "ai": "keep",
+   "why": "planner-worker分离"
+  },
+  "cm_99d52c0a": {
+   "ai": "keep",
+   "why": "AI时代判断力领导力"
+  },
+  "cm_27e4e0df": {
+   "ai": "keep",
+   "why": "RLHF策略优化算法"
+  },
+  "cm_4e5b2bb6": {
+   "ai": "drop",
+   "why": "数字鸿沟与线下价值，非AI"
+  },
+  "cm_2ae6e6ed": {
+   "ai": "keep",
+   "why": "AI评审质量与验证评分"
+  },
+  "cm_df44ac27": {
+   "ai": "keep",
+   "why": "RL奖励泛化"
+  },
+  "cm_6fe071ac": {
+   "ai": "keep",
+   "why": "RL奖励信号"
+  },
+  "cm_8bed81b7": {
+   "ai": "drop",
+   "why": "个人心态与信念，非AI"
+  },
+  "cm_421d2a5f": {
+   "ai": "keep",
+   "why": "AI工程严谨与反馈回路"
+  },
+  "cm_f6856800": {
+   "ai": "keep",
+   "why": "LLM训练分布切片"
+  },
+  "cm_e3bf5147": {
+   "ai": "keep",
+   "why": "RLHF训练方法"
+  },
+  "cm_759cbeb8": {
+   "ai": "keep",
+   "why": "RLOO强化学习算法"
+  },
+  "cm_231cf0b4": {
+   "ai": "keep",
+   "why": "编码agent的RL训练循环"
+  },
+  "cm_97772dd0": {
+   "ai": "drop",
+   "why": "放射性同位素电源，非AI"
+  },
+  "cm_56230a91": {
+   "ai": "keep",
+   "why": "AI评分标准rubric"
+  },
+  "cm_ca597dd5": {
+   "ai": "keep",
+   "why": "rubric与verifier agent"
+  },
+  "cm_14dace51": {
+   "ai": "keep",
+   "why": "rubric驱动验证agent"
+  },
+  "cm_a47a4e89": {
+   "ai": "keep",
+   "why": "LangChain运行时与harness分层"
+  },
+  "cm_6db6f598": {
+   "ai": "keep",
+   "why": "Agent安全自主与权限"
+  },
+  "cm_96526063": {
+   "ai": "keep",
+   "why": "沙箱隔离运行agent"
+  },
+  "cm_9e10ff83": {
+   "ai": "keep",
+   "why": "LLM驱动机器人框架"
+  },
+  "cm_5cb52469": {
+   "ai": "keep",
+   "why": "Agent支撑脚手架隐喻"
+  },
+  "cm_937edec6": {
+   "ai": "keep",
+   "why": "大规模RL工程方法学"
+  },
+  "cm_afd69b11": {
+   "ai": "keep",
+   "why": "理解模型能力设计工具"
+  },
+  "cm_add33a8c": {
+   "ai": "drop",
+   "why": "个人人设心理，非AI"
+  },
+  "cm_5973b47c": {
+   "ai": "keep",
+   "why": "Agent自消化上下文记忆"
+  },
+  "cm_a5b4380f": {
+   "ai": "keep",
+   "why": "Agent自我评估失败"
+  },
+  "cm_9381d3bf": {
+   "ai": "keep",
+   "why": "自改进上下文工程系统"
+  },
+  "cm_36e39546": {
+   "ai": "keep",
+   "why": "Agent快照恢复"
+  },
+  "cm_6573bc31": {
+   "ai": "drop",
+   "why": "区块链治理非AI"
+  },
+  "cm_dadcb3e5": {
+   "ai": "keep",
+   "why": "LLM编程范式"
+  },
+  "cm_8e7dfd61": {
+   "ai": "keep",
+   "why": "Agent覆盖软件生命周期"
+  },
+  "cm_44a8d028": {
+   "ai": "drop",
+   "why": "软件产品策略非AI"
+  },
+  "cm_67aa1645": {
+   "ai": "keep",
+   "why": "Agent工作流规格"
+  },
+  "cm_f6219aa0": {
+   "ai": "keep",
+   "why": "先写规格再让agent实现"
+  },
+  "cm_95c0c22c": {
+   "ai": "keep",
+   "why": "生成者评估者agent约定"
+  },
+  "cm_3df7e56f": {
+   "ai": "keep",
+   "why": "AI产业融资闭环"
+  },
+  "cm_f5056d61": {
+   "ai": "keep",
+   "why": "Agent记忆出处纪律"
+  },
+  "cm_894f275b": {
+   "ai": "keep",
+   "why": "Agent状态运行环境"
+  },
+  "cm_78a628e1": {
+   "ai": "keep",
+   "why": "模型无状态调用"
+  },
+  "cm_9654c780": {
+   "ai": "keep",
+   "why": "Agent中途介入问题"
+  },
+  "cm_bd370d1b": {
+   "ai": "keep",
+   "why": "LLM调用最小单元"
+  },
+  "cm_d8ea2176": {
+   "ai": "keep",
+   "why": "AI能力台阶式跳跃"
+  },
+  "cm_2c7c13db": {
+   "ai": "keep",
+   "why": "SDK自动生成stepID"
+  },
+  "cm_76707ff6": {
+   "ai": "keep",
+   "why": "上下文工程戏称"
+  },
+  "cm_cdd76263": {
+   "ai": "drop",
+   "why": "通用决策原则非AI"
+  },
+  "cm_63a18f9e": {
+   "ai": "keep",
+   "why": "子agent关注点分离"
+  },
+  "cm_950e6265": {
+   "ai": "keep",
+   "why": "子agent token放大"
+  },
+  "cm_b2c9fd9e": {
+   "ai": "keep",
+   "why": "子agent隔离并行"
+  },
+  "cm_6aa26566": {
+   "ai": "drop",
+   "why": "预测心理学非AI"
+  },
+  "cm_4c6ea3d7": {
+   "ai": "keep",
+   "why": "AI代码基准评测"
+  },
+  "cm_0b799e50": {
+   "ai": "drop",
+   "why": "文化批判非AI"
+  },
+  "cm_1c882ecb": {
+   "ai": "keep",
+   "why": "Agent状态迁移守护进程"
+  },
+  "cm_94db716e": {
+   "ai": "keep",
+   "why": "AI Agent 自检"
+  },
+  "cm_a85cb1f1": {
+   "ai": "keep",
+   "why": "AI Agent 自检回路"
+  },
+  "cm_61e4efaf": {
+   "ai": "keep",
+   "why": "Agent 原语"
+  },
+  "cm_0145bdc5": {
+   "ai": "keep",
+   "why": "Agent 编排原语"
+  },
+  "cm_32dc32a9": {
+   "ai": "keep",
+   "why": "类比 harness 工程"
+  },
+  "cm_fcbdc4c2": {
+   "ai": "keep",
+   "why": "Agent 会话运行"
+  },
+  "cm_50e4c470": {
+   "ai": "keep",
+   "why": "Agent 会话管理"
+  },
+  "cm_c1139916": {
+   "ai": "keep",
+   "why": "Agent 历史检索"
+  },
+  "cm_781791f5": {
+   "ai": "keep",
+   "why": "Agent 记忆层"
+  },
+  "cm_6945fcf2": {
+   "ai": "keep",
+   "why": "模型 SFT 回路"
+  },
+  "cm_448f21b3": {
+   "ai": "keep",
+   "why": "多 Agent 共享状态"
+  },
+  "cm_926aa05d": {
+   "ai": "keep",
+   "why": "模型 shell 工具"
+  },
+  "cm_0ab56c37": {
+   "ai": "drop",
+   "why": "产品增长分析，非 AI"
+  },
+  "cm_0b420d69": {
+   "ai": "keep",
+   "why": "AI 能力错觉"
+  },
+  "cm_72385793": {
+   "ai": "keep",
+   "why": "ChatGPT 广告事件"
+  },
+  "cm_496bb2f4": {
+   "ai": "drop",
+   "why": "个人关系，非 AI"
+  },
+  "cm_34b33e00": {
+   "ai": "keep",
+   "why": "Claude Skill 机制"
+  },
+  "cm_41982abd": {
+   "ai": "keep",
+   "why": "AI 载体 onboarding"
+  },
+  "cm_be8b8c24": {
+   "ai": "keep",
+   "why": "Agent 可复用资产"
+  },
+  "cm_4bceb333": {
+   "ai": "keep",
+   "why": "教模型做事的 Skill"
+  },
+  "cm_a0ca0f95": {
+   "ai": "keep",
+   "why": "Skill 像方法调用"
+  },
+  "cm_30fb0c9b": {
+   "ai": "keep",
+   "why": "AI 生成 skill"
+  },
+  "cm_c14c7ca3": {
+   "ai": "keep",
+   "why": "SKILL.md 结构"
+  },
+  "cm_633b4cd7": {
+   "ai": "keep",
+   "why": "Agent 永久升级"
+  },
+  "cm_668afc3e": {
+   "ai": "keep",
+   "why": "Agent 可靠性风险"
+  },
+  "cm_bdec85a7": {
+   "ai": "keep",
+   "why": "LLM tool call与上下文工程"
+  },
+  "cm_1d3875f8": {
+   "ai": "keep",
+   "why": "拿不准，属agent接入基础设施"
+  },
+  "cm_f7b95548": {
+   "ai": "keep",
+   "why": "或涉agent承认错误行为"
+  },
+  "cm_da125473": {
+   "ai": "keep",
+   "why": "agent skill加验证，编排工程"
+  },
+  "cm_df830f48": {
+   "ai": "drop",
+   "why": "纯个人择偶心理标准"
+  },
+  "cm_cfab9407": {
+   "ai": "keep",
+   "why": "agent权限模式，属harness"
+  },
+  "cm_4fa31dae": {
+   "ai": "keep",
+   "why": "PR自动验证门禁"
+  },
+  "cm_daaeed70": {
+   "ai": "keep",
+   "why": "AI偏好写入安全"
+  },
+  "cm_49b4fe8b": {
+   "ai": "keep",
+   "why": "LLM推理负载特征"
+  },
+  "cm_a3f25593": {
+   "ai": "keep",
+   "why": "AI Agent SDK构件"
+  },
+  "cm_a09398f3": {
+   "ai": "keep",
+   "why": "Agent技能按需加载"
+  },
+  "cm_83367caa": {
+   "ai": "keep",
+   "why": "模型输入输出"
+  },
+  "cm_136dab9c": {
+   "ai": "keep",
+   "why": "上下文工程落差"
+  },
+  "cm_ee5a5c29": {
+   "ai": "keep",
+   "why": "Prompt工程主导"
+  },
+  "cm_1c3de8a9": {
+   "ai": "keep",
+   "why": "Agent提示注入安全"
+  },
+  "cm_3f3923a4": {
+   "ai": "drop",
+   "why": "伪科学留声机"
+  },
+  "cm_222e47e9": {
+   "ai": "keep",
+   "why": "Python编排Agent"
+  },
+  "cm_1e5e4cee": {
+   "ai": "keep",
+   "why": "注意力机制QKV"
+  },
+  "cm_f1f3bdb7": {
+   "ai": "drop",
+   "why": "意识哲学概念"
+  },
+  "cm_16c8cb75": {
+   "ai": "drop",
+   "why": "哲学造词"
+  },
+  "cm_0e153b8f": {
+   "ai": "keep",
+   "why": "工具调用意图追溯"
+  },
+  "cm_668a45c5": {
+   "ai": "keep",
+   "why": "Agent主循环"
+  },
+  "cm_ff09ab2a": {
+   "ai": "keep",
+   "why": "只读验证Agent"
+  },
+  "cm_dcc44537": {
+   "ai": "keep",
+   "why": "知识工作验证框架"
+  },
+  "cm_b068ccc7": {
+   "ai": "keep",
+   "why": "模型推理模式"
+  },
+  "cm_3c530f4a": {
+   "ai": "keep",
+   "why": "Agent推理强度"
+  },
+  "cm_cd19781c": {
+   "ai": "keep",
+   "why": "机器人指令评测"
+  },
+  "cm_9191c944": {
+   "ai": "keep",
+   "why": "强化学习策略梯度"
+  },
+  "cm_b77b7537": {
+   "ai": "keep",
+   "why": "Harness可靠性原语"
+  },
+  "cm_82681fa9": {
+   "ai": "drop",
+   "why": "睡眠生理阶段"
+  },
+  "cm_39225cd5": {
+   "ai": "keep",
+   "why": "Agent仓库级规则"
+  },
+  "cm_8a0db137": {
+   "ai": "keep",
+   "why": "Agent系统提示"
+  },
+  "cm_1792f259": {
+   "ai": "keep",
+   "why": "AI上下文与默会知识"
+  },
+  "cm_5205e3fc": {
+   "ai": "keep",
+   "why": "AI审计与可验证日志"
+  },
+  "cm_bcc0ef1d": {
+   "ai": "drop",
+   "why": "纯神经科学睡眠记忆"
+  },
+  "cm_270fdbaa": {
+   "ai": "keep",
+   "why": "AI时代方案取舍品味"
+  },
+  "cm_4e58443d": {
+   "ai": "keep",
+   "why": "用AI外包思考的代价"
+  },
+  "cm_60c1be3b": {
+   "ai": "keep",
+   "why": "上下文分区与子agent"
+  },
+  "cm_20072d88": {
+   "ai": "drop",
+   "why": "工作心态非AI"
+  },
+  "cm_bc7539b0": {
+   "ai": "drop",
+   "why": "沟通技巧非AI"
+  },
+  "cm_a6beb11f": {
+   "ai": "keep",
+   "why": "agent思考行动观察循环"
+  },
+  "cm_99528c32": {
+   "ai": "keep",
+   "why": "名称疑似AI概念"
+  },
+  "cm_c2b4e716": {
+   "ai": "drop",
+   "why": "通用临时小队非AI"
+  },
+  "cm_858e3280": {
+   "ai": "keep",
+   "why": "Qwen与扩散模型Engram"
+  },
+  "cm_7c40465d": {
+   "ai": "keep",
+   "why": "LLM指令重写方法"
+  },
+  "cm_9754bbb2": {
+   "ai": "keep",
+   "why": "agent待办工具"
+  },
+  "cm_6c38ddcf": {
+   "ai": "keep",
+   "why": "AI公司单位经济"
+  },
+  "cm_b3ad200a": {
+   "ai": "keep",
+   "why": "AI token商业激励"
+  },
+  "cm_01e0efb3": {
+   "ai": "keep",
+   "why": "MCP评审上下文工具"
+  },
+  "cm_691a420e": {
+   "ai": "keep",
+   "why": "LLM词元计量"
+  },
+  "cm_09566489": {
+   "ai": "keep",
+   "why": "单位算力智能效率"
+  },
+  "cm_3391436a": {
+   "ai": "keep",
+   "why": "模型处理基本单位"
+  },
+  "cm_3e69d260": {
+   "ai": "keep",
+   "why": "工具输出卸载上下文"
+  },
+  "cm_51de352d": {
+   "ai": "keep",
+   "why": "模型工具调用能力"
+  },
+  "cm_45b7faf3": {
+   "ai": "keep",
+   "why": "LLM工具调用循环"
+  },
+  "cm_e17efd1f": {
+   "ai": "keep",
+   "why": "工具schema的token开销"
+  },
+  "cm_93c0b683": {
+   "ai": "keep",
+   "why": "提示缓存顺序，上下文工程"
+  },
+  "cm_f6f6390f": {
+   "ai": "keep",
+   "why": "agent轨迹驱动评测"
+  },
+  "cm_b433c375": {
+   "ai": "keep",
+   "why": "轨迹与验证器评测"
+  },
+  "cm_b2c86d88": {
+   "ai": "keep",
+   "why": "agent可观测与调试"
+  },
+  "cm_aec0eb30": {
+   "ai": "keep",
+   "why": "AWS自研AI芯片"
+  },
+  "cm_847c4f22": {
+   "ai": "keep",
+   "why": "代码解析，AI编码工具底层"
+  },
+  "cm_66508083": {
+   "ai": "drop",
+   "why": "政治文化批评，非AI"
+  },
+  "cm_2e332668": {
+   "ai": "keep",
+   "why": "提示缓存时长"
+  },
+  "cm_5512c772": {
+   "ai": "keep",
+   "why": "LLM可解释性方法"
+  },
+  "cm_44a5c3f4": {
+   "ai": "keep",
+   "why": "AI产品/SDK设计取向"
+  },
+  "cm_d854798b": {
+   "ai": "keep",
+   "why": "长上下文信息位置效应"
+  },
+  "cm_0a681b7d": {
+   "ai": "drop",
+   "why": "美学文艺论，非AI"
+  },
+  "cm_b8e6edd0": {
+   "ai": "drop",
+   "why": "嘻哈文化组织，非AI"
+  },
+  "cm_91b202fd": {
+   "ai": "keep",
+   "why": "工作流验证检查点"
+  },
+  "cm_7e9b87ba": {
+   "ai": "keep",
+   "why": "GenAI角色扮演测软技能"
+  },
+  "cm_a56d4934": {
+   "ai": "keep",
+   "why": "可验证奖励与RL训练"
+  },
+  "cm_063155cf": {
+   "ai": "keep",
+   "why": "agent可验证代码库"
+  },
+  "cm_9e88d8b5": {
+   "ai": "drop",
+   "why": "区块链裁决机制，非AI"
+  },
+  "cm_3211d04e": {
+   "ai": "keep",
+   "why": "SDK原语极少抽象"
+  },
+  "cm_9701c104": {
+   "ai": "keep",
+   "why": "具身智能基准"
+  },
+  "cm_19f7de6c": {
+   "ai": "keep",
+   "why": "视觉语言多模态模型"
+  },
+  "cm_8d161688": {
+   "ai": "keep",
+   "why": "LLM即CPU，harness即OS"
+  },
+  "cm_d76f2307": {
+   "ai": "drop",
+   "why": "睡眠价值取向，非AI"
+  },
+  "cm_6881bd11": {
+   "ai": "keep",
+   "why": "图谱自动同步的agent工具"
+  },
+  "cm_33d3954f": {
+   "ai": "keep",
+   "why": "多跳信任网络，可关联agent"
+  }
+ }
+}

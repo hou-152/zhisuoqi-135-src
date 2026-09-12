@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: spec-intent
 learningStage: when-needed
 verification: use
-centrality: 0.067
-depth: 0
+centrality: 0.126
+depth: 1
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 通过主动提问把用户未说清的需求、偏好与约束引出来，即信息引出能力。
 
-**领域** spec-intent ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
+**领域** spec-intent ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,10 +36,13 @@ When building the AskUserQuestion tool, our goal was to improve Claude's ability
 
 > 需求模糊时，{{name}} 该问出哪些关键问题？
 
-## 懂了它才能懂（解锁 2）
+## 先懂这些（前置 1）
+
+- [[bits]] · **soft** — bits 指描述意图的信息量不足，需要靠信息引出把缺失部分补上。
+
+## 懂了它才能懂（解锁 1）
 
 - [[意图规约与可引导性]] — 该瓶颈的核心就是引出、规约与理解意图，不懂信息引出便无从谈起。
-- [[bits]] — bits 指描述意图的信息量不足，需要靠信息引出把缺失部分补上。
 
 ## 相关
 
@@ -56,12 +59,12 @@ When building the AskUserQuestion tool, our goal was to improve Claude's ability
 - Context Engineering ｜ 《构建 Claude Code 的经验教训：如何让 Agent「看见」世界》 ｜ https://x.com/trq212/status/2027463795355095314
 ## 反链
 
+- [[Tool Calling]]
+- [[Subagent]]
 - [[上下文腐烂 Context Rot]]
 - [[渐进式披露 progressive disclosure]]
-- [[Subagent]]
+- [[意图规约与可引导性]]
 - [[Action Space]]
 - [[Agent Skills]]
-- [[意图规约与可引导性]]
 - [[bits]]
 - [[See Like an Agent]]
-- [[Tool Calling]]

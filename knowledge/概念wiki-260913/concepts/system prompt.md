@@ -15,7 +15,7 @@ sources: 1
 
 # system prompt
 
-> Agent 启动时由 harness 注入、用户不可见的开场提示，用来设定角色、规则与可用工具。
+> Agent 以用户不可见的系统提示开场。
 
 **领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 

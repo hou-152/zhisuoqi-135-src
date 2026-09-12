@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: loop-autonomy
 learningStage: when-needed
 verification: judge
-centrality: 0.067
-depth: 2
+centrality: 0.072
+depth: 3
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 用户在 agent 运行中途发来新消息时的介入问题，目前仍无优雅解法
 
-**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
+**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,10 +36,9 @@ sources: 1
 
 > {{name}} 现在用什么方案，代价是什么？
 
-## 先懂这些（前置 2）
+## 先懂这些（前置 1）
 
-- [[Agent loop]] · **hard** — steering 是 agent 运行中途的介入，不懂循环过程就无从谈介入。
-- [[漂移与隧道视野 drift & tunnel vision]] · **soft** — 中途介入正是为纠正漂移与视野收窄这两种退化。
+- [[agent 循环]] · **hard** — 不懂【agent 循环】，就做不了【steering】的“在 agent 运行中途介入”。
 
 ## 相关
 
@@ -53,7 +52,6 @@ sources: 1
 ## 反链
 
 - [[Harness]]
-- [[Agent loop]]
-- [[漂移与隧道视野 drift & tunnel vision]]
 - [[持久化执行 durable execution]]
+- [[agent 循环]]
 - [[harness 与 framework 的分野]]

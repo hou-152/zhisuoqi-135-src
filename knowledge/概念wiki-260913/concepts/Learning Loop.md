@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: loop-autonomy
 learningStage: now
 verification: use
-centrality: 0.042
-depth: 2
+centrality: 0.072
+depth: 3
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 把运行中获得的规则写回 skill 文件，下次运行自动生效，技能由此自我改写。
 
-**领域** loop-autonomy ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** loop-autonomy ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -38,12 +38,13 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[Loop Engineering]] · **soft** — Learning Loop 把规则写回 skill，是循环工程迭代环节的机制。
+- [[循环工程 loop engineering]] · **soft** — 不懂【循环工程】，就做不了【Learning Loop】的“把规则写回 skill 文件并下次生效”。
 
 ## 相关
 
 - [[Skill Files]] · 同篇出现（co-occurrence） — 同篇出现：harness-24
 - [[Thin Harness, Fat Skills]] · 同篇出现（co-occurrence） — 同篇出现：harness-24
+- [[Loop Engineering]] · related-to（audit） — 写回 skill 是迭代反馈的一种具体机制，可独立理解，属组成/例子关系，不构成前置
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-24
 
 ## 出场
@@ -51,6 +52,7 @@ sources: 1
 - Harness Engineering ｜ 《Thin Harness, Fat Skills：harness 才是真正的产品》 ｜ https://x.com/garrytan/status/2042925773300908103/
 ## 反链
 
+- [[循环工程 loop engineering]]
 - [[Loop Engineering]]
-- [[Skill Files]]
 - [[Thin Harness, Fat Skills]]
+- [[Skill Files]]

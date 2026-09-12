@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: harness-runtime
 learningStage: when-needed
 verification: use
-centrality: 0.042
-depth: 4
+centrality: 0.072
+depth: 1
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > Agent 包管理器，负责 agent primitives 的安装、分发、配置与运行，类比 npm/pip。
 
-**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 原文 context
 
@@ -34,12 +34,12 @@ APM 负责安装、分发、配置和运行 agent primitives，就像 npm/pip �
 
 ## 先懂这些（前置 1）
 
-- [[Agent]] · **soft** — 包管理器分发的是 agent primitives，先懂 agent 是什么。
+- [[primitives]] · **soft** — 不懂【primitives】，就做不了【APM】对 agent 原语的安装、分发与配置。
 
 ## 相关
 
-- [[Agentic primitives]] · 同篇出现（co-occurrence） — 同篇出现：context-23
 - [[Markdown prompt engineering]] · 同篇出现（co-occurrence） — 同篇出现：context-23
+- [[Agentic primitives]] · 同篇出现（co-occurrence） — 同篇出现：context-23
 - [[上下文工程 context engineering]] · 同篇出现（co-occurrence） — 同篇出现：context-23
 
 ## 出场
@@ -48,6 +48,6 @@ APM 负责安装、分发、配置和运行 agent primitives，就像 npm/pip �
 ## 反链
 
 - [[上下文工程 context engineering]]
-- [[Agent]]
+- [[primitives]]
 - [[Agentic primitives]]
 - [[Markdown prompt engineering]]

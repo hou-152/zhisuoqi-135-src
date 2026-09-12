@@ -7,7 +7,7 @@ subject: AI 概念库 × Context Engineering × Harness Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.052
+centrality: 0.107
 depth: 0
 origin: [notion, context, harness]
 aliases: ["compression", "Compaction"]
@@ -16,9 +16,9 @@ sources: 3
 
 # 压缩 · Compaction
 
-> 在接近上下文限制时总结对话历史，以便任务继续推进的机制。
+> 对对话或观察做压缩凝聚的机制：压得太狠会凝成『自信但错误』的理论，压不动则停在分散的可能性里。
 
-**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.052
+**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.107
 
 ## 费曼一下
 
@@ -37,16 +37,20 @@ sources: 3
 
 > 接近窗口上限时，{{name}} 该保留什么、丢掉什么？
 
+## 懂了它才能懂（解锁 1）
+
+- [[上下文压缩 Context Compression Summarization]] — 不懂【压缩】，就做不了【上下文压缩】的摘要浓缩机制设计
+
 ## 相关
 
 - [[记忆 Memory]] · 常一起用 — 可恢复压缩依靠外部记忆保留原始内容的回取路径。
 - [[AI Agent]] · 同篇出现（co-occurrence） — 同篇出现：context-13
 - [[非模型架构 Non-model Architecture]] · 同篇出现（co-occurrence） — 同篇出现：context-13
 - [[上下文工程 context engineering]] · 常一起用 — 压缩与即时检索是 Context Engineering 用来保持最小高信号信息集的生产策略。
-- [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：context-13
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
+- [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：context-13
 
 ## 出场
 
@@ -61,5 +65,6 @@ sources: 3
 ## 反链
 
 - [[记忆 Memory]]
-- [[AI Agent]]
+- [[上下文压缩 Context Compression Summarization]]
 - [[非模型架构 Non-model Architecture]]
+- [[AI Agent]]

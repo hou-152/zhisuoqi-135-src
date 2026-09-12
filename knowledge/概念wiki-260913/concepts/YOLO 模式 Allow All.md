@@ -7,8 +7,8 @@ subject: Harness Engineering
 domain: safety-governance
 learningStage: when-needed
 verification: use
-centrality: 0.017
-depth: 0
+centrality: 0.072
+depth: 2
 origin: [harness]
 aliases: ["Allow All"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 也叫 Allow All，让 agent 无需逐次请求许可即可执行任何命令，多数工具用 /allow-all 开启。
 
-**领域** safety-governance ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** safety-governance ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -37,6 +37,10 @@ sources: 1
 
 > {{name}} 开启后 agent 的权限边界变成什么？
 
+## 先懂这些（前置 1）
+
+- [[Human in the loop]] · **hard** — 不懂 Human in the loop，就定义不了 YOLO 模式到底关掉的是哪一层许可
+
 ## 相关
 
 - [[「少即是多」：gimmick 与真实增益的分界]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
@@ -53,5 +57,6 @@ sources: 1
 
 ## 反链
 
+- [[Human in the loop]]
 - [[废料怪兽]]
 - [[「少即是多」：gimmick 与真实增益的分界]]

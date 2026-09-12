@@ -7,8 +7,8 @@ subject: AI 概念库 × Context Engineering
 domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.177
-depth: 2
+centrality: 0.434
+depth: 0
 origin: [notion, context]
 aliases: ["Context", "context"]
 sources: 3
@@ -16,9 +16,9 @@ sources: 3
 
 # 上下文 · context
 
-> 任何可刻画实体所处情境的信息；各相关实体表征的并集即上下文，也指模型读到的全部前文。
+> 模型读到的全部『前文』；处理新词时要连着前面所有词的关系一起理解。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.177
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.434
 
 ## 费曼一下
 
@@ -39,16 +39,15 @@ sources: 3
 
 > 按 {{name}}，这个场景里哪些信息算上下文？
 
-## 先懂这些（前置 1）
+## 懂了它才能懂（解锁 7）
 
-- [[系统提示 System Prompt]] · **hard** — System Prompt 是模型生成响应前可见 Context 的组成之一。
-
-## 懂了它才能懂（解锁 4）
-
-- [[短上下文]] — 短上下文是上下文的一种裁剪形态，先懂上下文。
-- [[有限的工作记忆 limited working memory]] — 工作记忆指的是上下文能装载的信息量，不理解上下文就无从谈其有限性。
-- [[自回归下输出也是上下文]] — 该命题说的是输出进入模型自身输入，前提是先理解什么是上下文。
-- [[agent 不是读心者 agents are not mind readers]] — 正因 agent 读不到心，只能靠上下文变有用，不懂上下文就无此论断。
+- [[上下文工程 context engineering]] — 不懂【上下文】，就做不了【上下文工程】的界定要构建与管理的对象
+- [[上下文压缩 Context Compression Summarization]] — 不懂【上下文】，就做不了【上下文压缩】的定义要压缩什么
+- [[格式即上下文 where the format matters]] — 不懂【上下文】，就做不了【格式即上下文】的呈现方式作为上下文的定义
+- [[上下文隔离 context isolation]] — 不懂【上下文】由系统提示、记忆、检索、工具定义等组成，就做不了【上下文隔离】中「为子任务划出独立上下文边界」这件事
+- [[上下文失败，而非模型失败 context failures, not model failures]] — 不懂【上下文】是调用前装配出来的整体，就做不了【上下文失败，而非模型失败】中「把失败归因到装配而非模型」的判断
+- [[系统而非字符串 A System, Not a String]] — 不懂【上下文】是主 LLM 调用前那个系统的输出，就做不了【系统而非字符串】中「区分静态模板与运行时装配」这件事
+- [[桥接推理]] — 不懂【上下文】提供的上文信息，就做不了【桥接推理】中「恢复代词与借代所指对象」这件事
 
 ## 相关
 
@@ -57,7 +56,6 @@ sources: 3
 - [[原始上下文容忍度 tolerance for raw context]] · 同篇出现（co-occurrence） — 同篇出现：context-01
 - [[上下文协作 context-cooperative]] · 同篇出现（co-occurrence） — 同篇出现：context-01
 - [[最小充分性与语义连续性原则]] · 同篇出现（co-occurrence） — 同篇出现：context-01
-- [[分层记忆架构]] · 同篇出现（co-occurrence） — 同篇出现：context-01
 - [[上下文隔离 context isolation]] · 同篇出现（co-occurrence） — 同篇出现：context-01
 - [[self-baking]] · 同篇出现（co-occurrence） — 同篇出现：context-01
 - [[轻量引用 lightweight references]] · 同篇出现（co-occurrence） — 同篇出现：context-01
@@ -65,21 +63,18 @@ sources: 3
 - [[语义操作系统 semantic operating system]] · 同篇出现（co-occurrence） — 同篇出现：context-01
 - [[数字存在 Digital Presence]] · 同篇出现（co-occurrence） — 同篇出现：context-01
 - [[Tacit Knowledge]] · 对照（概念边界） — 隐性知识在未被外化、选择并提供给模型之前，还不是模型当前可见的 Context。
-- [[限界上下文 bounded context]] · 对照（概念边界） — 限界上下文规定领域语言的适用边界，LLM 上下文则是当前推理可获得的信息集合。
+- [[分层记忆架构]] · 同篇出现（co-occurrence） — 同篇出现：context-01
 - [[系统提示 System Prompt]] · 组成（运行时组成） — System Prompt 是模型生成响应前可见 Context 的组成之一。
 - [[系统提示 System Prompt]] · 常一起用 — System Prompt 和可用工具定义都是来源列出的 Context 构成。
-- [[交接模型 handoff model]] · 同篇出现（co-occurrence） — 同篇出现：context-11
-- [[复杂被误认为精密 complexity looked like sophistication]] · 同篇出现（co-occurrence） — 同篇出现：context-11
-- [[流程即工作 the process became the work]] · 同篇出现（co-occurrence） — 同篇出现：context-11
 - [[熵减 entropy reduction]] · 同篇出现（co-occurrence） — 同篇出现：context-01
 - [[长上下文窗口]] · 对照（概念边界） — Context 是内容；窗口是承载与处理边界。
 - [[上下文工程 context engineering]] · 同篇出现（co-occurrence） — 同篇出现：context-01
-- [[Harness]] · 常一起用（系统职责轴） — Agent Harness 负责运行并在每轮装配 Context；前者是运行系统，后者是模型当前可见信息。
-- [[Harness]] · 常一起用 — 具体 Agent 的运行由 harness 驱动，并由上下文与工具增强。
-- [[Harness]] · 常一起用 — Harness 负责 workflow、Context、权限、评估与持久状态。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
+- [[Harness]] · 常一起用（系统职责轴） — Agent Harness 负责运行并在每轮装配 Context；前者是运行系统，后者是模型当前可见信息。
+- [[Harness]] · 常一起用 — 具体 Agent 的运行由 harness 驱动，并由上下文与工具增强。
+- [[Harness]] · 常一起用 — Harness 负责 workflow、Context、权限、评估与持久状态。
 
 ## 出场
 
@@ -93,27 +88,25 @@ sources: 3
 
 ## 反链
 
+- [[上下文工程 context engineering]]
 - [[长上下文窗口]]
-- [[交接模型 handoff model]]
-- [[系统提示 System Prompt]]
-- [[有限的工作记忆 limited working memory]]
-- [[分层记忆架构]]
-- [[流程即工作 the process became the work]]
-- [[自回归下输出也是上下文]]
-- [[短上下文]]
-- [[上下文隔离 context isolation]]
-- [[四阶段演化模型]]
-- [[注意力之前的注意力 attention before attention]]
-- [[最小充分性与语义连续性原则]]
-- [[agent 不是读心者 agents are not mind readers]]
+- [[上下文压缩 Context Compression Summarization]]
 - [[self-baking]]
+- [[分层记忆架构]]
+- [[系统提示 System Prompt]]
+- [[格式即上下文 where the format matters]]
+- [[桥接推理]]
+- [[上下文隔离 context isolation]]
+- [[上下文失败，而非模型失败 context failures, not model failures]]
+- [[数字存在 Digital Presence]]
+- [[系统而非字符串 A System, Not a String]]
+- [[语义操作系统 semantic operating system]]
+- [[原始上下文容忍度 tolerance for raw context]]
+- [[注意力之前的注意力 attention before attention]]
 - [[Tacit Knowledge]]
-- [[复杂被误认为精密 complexity looked like sophistication]]
 - [[轻量引用 lightweight references]]
 - [[熵减 entropy reduction]]
 - [[上下文协作 context-cooperative]]
-- [[数字存在 Digital Presence]]
-- [[限界上下文 bounded context]]
+- [[四阶段演化模型]]
 - [[意图翻译者 intention translator]]
-- [[语义操作系统 semantic operating system]]
-- [[原始上下文容忍度 tolerance for raw context]]
+- [[最小充分性与语义连续性原则]]

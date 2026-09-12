@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: multi-agent
 learningStage: when-needed
 verification: judge
-centrality: 0.067
-depth: 2
+centrality: 0.126
+depth: 1
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 大量 worker 并行时唯一的质量与合并闸口，会因争抢 push、rebase、解冲突、merge 而成为瓶颈。
 
-**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
+**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -38,11 +38,11 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[多智能体架构]] · **hard** — 瓶颈来自大量并行 worker 争抢同一合并闸口，需先懂该架构。
+- [[子 agent 编排 Fork Teammate Worktree]] · **soft** — 不懂【子 agent 编排】，就做不了【integrator 瓶颈】的 ⟨识别大量并行 worker 汇聚到唯一合并闸口⟩
 
 ## 懂了它才能懂（解锁 1）
 
-- [[为吞吐量设计与可接受错误率]] — 正因唯一整合闸口会串行化，才需要接受恒定错误率换吞吐。
+- [[为吞吐量设计与可接受错误率]] — 不懂【integrator 瓶颈】，就做不了【为吞吐量设计与可接受错误率】的 ⟨为何放弃逐次 100% 正确、改留绿色分支收尾⟩
 
 ## 相关
 
@@ -55,7 +55,8 @@ sources: 1
 - Harness Engineering ｜ 《Cursor 谈「会自动驾驶的代码库」：多 agent 研究 harness 开放预览》 ｜ https://cursor.com/blog/self-driving-codebases
 ## 反链
 
-- [[多智能体架构]]
-- [[为吞吐量设计与可接受错误率]]
+- [[Harness]]
+- [[子 agent 编排 Fork Teammate Worktree]]
 - [[自协调与共享协调文件]]
+- [[为吞吐量设计与可接受错误率]]
 - [[锁竞争与乐观并发控制]]

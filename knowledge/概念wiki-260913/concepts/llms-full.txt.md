@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: context-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.042
+centrality: 0.072
 depth: 1
 origin: [notion]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > llms.txt 的完整版，30-60KB，含项目描述、FAQ、使用场景、竞品对比与 README 摘录，访问量约为概要版的 3-4 倍。
 
-**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -38,7 +38,7 @@ llms.txt 的扩展版。AI 通过 llms.txt 知道这个网站做什么之后，�
 
 ## 先懂这些（前置 1）
 
-- [[llms.txt]] · **hard** — 它是 llms.txt 的完整版，不懂概要版就不知它多出哪些内容
+- [[llms.txt]] · **soft** — 它是 llms.txt 的完整版，不懂概要版就不知它多出哪些内容
 
 ## 相关
 
@@ -51,4 +51,7 @@ llms.txt 的扩展版。AI 通过 llms.txt 知道这个网站做什么之后，�
 - Notion 概念库 ｜ Notion 概念库 ｜ https://app.notion.com/p/llms-full-txt-b42679b108ff8285b67d811339f50426
 ## 反链
 
+- [[外包思考，但不外包理解]]
+- [[Agent-Native Infrastructure]]
 - [[llms.txt]]
+- [[Sensors 与 Actuators]]

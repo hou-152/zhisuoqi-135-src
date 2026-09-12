@@ -6,8 +6,8 @@ subject: AI 概念库 × Harness Engineering
 domain: code-engineering
 learningStage: when-needed
 verification: judge
-centrality: 0.06
-depth: 1
+centrality: 0.035
+depth: 0
 origin: [notion, harness]
 aliases: ["Vibe Coding", "vibe coding", "氛围编程"]
 sources: 2
@@ -17,7 +17,7 @@ sources: 2
 
 > 抬高地板式编程范式：用自然语言描述需求由 agent 生成代码，适合原型与小工具，不适合严肃工程。
 
-**领域** code-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.06
+**领域** code-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.035
 
 ## 费曼一下
 
@@ -44,18 +44,15 @@ sources: 2
 
 > 这个原型任务适合用 {{name}} 还是需要 Agentic Engineering？
 
-## 先懂这些（前置 1）
-
-- [[Agentic Engineering]] · **soft** — Vibe Coding 是抬高地板子集，不懂工程纪律就守不住质量底线。
-
 ## 相关
 
 - [[Agentic Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-26
+- [[Agentic Engineering]] · related-to（audit） — Vibe Coding 有独立且更早的出处与含义，不懂 Agentic Engineering 的工程纪律也能理解它；「抬高地板子集」是作者加的定位，非定义依赖
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-26
-- [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-26
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
+- [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-26
 
 ## 出场
 

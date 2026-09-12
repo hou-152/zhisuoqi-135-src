@@ -5,9 +5,9 @@ type: REPRESENTATIONAL
 subject: AI 概念库
 domain: memory-retrieval
 learningStage: when-needed
-verification: use
-centrality: 0.042
-depth: 2
+verification: accept
+centrality: 0.072
+depth: 1
 origin: [notion]
 aliases: ["会话搜索", "情景回溯", "hermes session_search"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > Hermes 的长尾回溯系统，负责从历史会话里把需要的那一段过去翻出来。
 
-**领域** memory-retrieval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** memory-retrieval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -38,10 +38,11 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[跨会话记忆文件系统]] · **hard** — session_search 从历史会话翻出长尾信息，依赖跨会话记忆文件系统。
+- [[记忆 Memory]] · **hard** — 不懂【记忆】的跨会话沉淀，就做不了【session_search】的长尾历史会话翻找
 
 ## 相关
 
+- [[跨会话记忆文件系统]] · related-to（audit） — session_search 查的是原始会话历史，而「跨会话记忆文件系统」是经过提炼的、带版本令牌/frontmatter 的另一层策展式存储；两者是并列的记忆组件，前者不靠后者也能立住。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -56,4 +57,5 @@ sources: 1
 
 ## 反链
 
+- [[记忆 Memory]]
 - [[跨会话记忆文件系统]]

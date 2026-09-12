@@ -5,9 +5,9 @@ type: CONCEPTUAL
 subject: Harness Engineering
 domain: agent-org
 learningStage: when-needed
-verification: use
-centrality: 0.042
-depth: 1
+verification: accept
+centrality: 0.126
+depth: 2
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 驻场工程师，进入客户组织落地集成、长期 Agent、自动化与应用，以可持续的严格 ROI 为成功标准。
 
-**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,12 +36,14 @@ FDE 进入客户组织，落地 integrations、long-running agents、automations
 
 > {{name}} 的成功标准和交付物是什么？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
-- [[Custom Agent]] · **soft** — 驻场工程师落地长期 Agent，往往要配置自定义 Agent，先懂 Custom Agent 更清楚工作对象。
+- [[Creator → Curator 角色转换]] · **soft** — 不懂【Creator → Curator 角色转换】，就做不了 FDE 在客户组织里编排 Agent 组合与护栏的落地
+- [[Software Factory]] · **soft** — 不懂【Software Factory】，就做不了 FDE 在客户组织落地长期 Agent 与自动化的方案
 
 ## 相关
 
+- [[Custom Agent]] · rejected（audit） — Custom Agent 只是 FDE 常配置的可选工具/组件（材料也仅给出名称），FDE 的定义自足，构不成依赖。
 - [[Capability Overhang]] · 同篇出现（co-occurrence） — 同篇出现：harness-10
 - [[Inner Loop]] · 同篇出现（co-occurrence） — 同篇出现：harness-10
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-10
@@ -52,6 +54,8 @@ FDE 进入客户组织，落地 integrations、long-running agents、automations
 ## 反链
 
 - [[Harness 工程 Harness Engineering]]
+- [[Creator → Curator 角色转换]]
+- [[Software Factory]]
 - [[Capability Overhang]]
 - [[Inner Loop]]
 - [[Custom Agent]]

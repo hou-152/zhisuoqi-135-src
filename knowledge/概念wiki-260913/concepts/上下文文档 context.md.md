@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.017
-depth: 0
+centrality: 0.072
+depth: 1
 origin: [context]
 aliases: ["context.md"]
 sources: 1
@@ -16,9 +16,9 @@ sources: 1
 
 # 上下文文档 · context.md
 
-> 项目里存放既有共享语言的具名文件，工具会查找它并读取其中的约定。
+> 项目里的具名文件，Grill with Docs 会查找它并读取其中已有的共享语言。
 
-**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -37,11 +37,14 @@ Grill with Docs 会查找 context.md，从里面读取项目已有的 shared lan
 
 > 这份文档放在哪、里面该写什么？
 
+## 先懂这些（前置 1）
+
+- [[领域语言缺口 missing language layer]] · **soft** — 不懂【领域语言缺口】里哪些词是外人反复要问的，就做不了【上下文文档】中「收录哪些共享语言条目」这件事
+
 ## 相关
 
 - [[追问式对齐 Grill Me]] · 同篇出现（co-occurrence） — 同篇出现：context-08
 - [[共享理解 shared understanding]] · 同篇出现（co-occurrence） — 同篇出现：context-08
-- [[设计树 design tree]] · 同篇出现（co-occurrence） — 同篇出现：context-08
 
 ## 出场
 
@@ -54,5 +57,5 @@ Grill with Docs 会查找 context.md，从里面读取项目已有的 shared lan
 ## 反链
 
 - [[共享理解 shared understanding]]
-- [[设计树 design tree]]
 - [[追问式对齐 Grill Me]]
+- [[领域语言缺口 missing language layer]]

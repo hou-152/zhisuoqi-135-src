@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: caching-cost
 learningStage: now
 verification: compute
-centrality: 0.042
+centrality: 0.072
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 模板本身 token 不多，但会被每个后续请求重复携带，真实成本是模板体积乘以请求次数。
 
-**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.042
+**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -38,7 +38,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[Token count]] · **hard** — 模板成本以 token 计且随请求重复，需先懂 token 计量。
+- [[Token count]] · **soft** — 模板成本以 token 计且随请求重复，需先懂 token 计量。
 
 ## 相关
 

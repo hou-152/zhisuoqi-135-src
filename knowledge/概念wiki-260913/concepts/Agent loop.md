@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: loop-autonomy
 learningStage: now
 verification: use
-centrality: 0.227
+centrality: 0.216
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 3
 
 > SDK 内置的循环：发起工具调用、把结果送回模型、持续迭代直到任务完成。
 
-**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.227
+**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.216
 
 ## 费曼一下
 
@@ -38,37 +38,34 @@ A built-in agent loop that handles tool invocation, sends results back to the LL
 
 ## 先懂这些（前置 1）
 
-- [[tool loop]] · **hard** — agent loop 每轮的核心就是工具调用与结果回灌，即 tool loop。
+- [[Orchestration Loop TAO Cycle ReAct Loop]] · **soft** — 不懂【Orchestration Loop / TAO Cycle / ReAct Loop】，就做不了【Agent loop】的 ⟨调工具—回喂—再调用的迭代机制⟩
 
-## 懂了它才能懂（解锁 6）
+## 懂了它才能懂（解锁 2）
 
-- [[Harness]] — Agent Harness 负责组织模型、工具与观察之间的运行循环。
 - [[Ralph Loop]] — Ralph Loop 靠 hook 拦截 agent loop 的退出企图，没有 agent loop 就没有可拦截的循环。
 - [[Agentic Coding]] — 自主读改写测依赖循环反复驱动，正是 agent loop。
-- [[steering]] — steering 是 agent 运行中途的介入，不懂循环过程就无从谈介入。
-- [[TodoWrite 与 TodoRead]] — 待办工具嵌在 agent 循环里高频调用，不懂循环就不懂它为何高频。
-- [[Inner Loop]] — Inner Loop 就是主 agent 的执行循环，即 agent loop 的另一种叫法。
 
 ## 相关
 
-- [[Shared File System]] · 同篇出现（co-occurrence） — 同篇出现：harness-16
-- [[Signals]] · 同篇出现（co-occurrence） — 同篇出现：harness-16
+- [[Executable Codebase]] · 同篇出现（co-occurrence） — 同篇出现：harness-16
 - [[Loop Contract]] · 同篇出现（co-occurrence） — 同篇出现：harness-16
 - [[Legible Codebase]] · 同篇出现（co-occurrence） — 同篇出现：harness-16
-- [[Executable Codebase]] · 同篇出现（co-occurrence） — 同篇出现：harness-16
+- [[tool loop]] · related-to（audit） — tool loop 与 agent loop 基本是同一机制，agent loop 定义已自含工具调用与结果回灌，作为独立前置过强，宜降 soft 或合并。
+- [[Shared File System]] · 同篇出现（co-occurrence） — 同篇出现：harness-16
 - [[Verifiable Codebase]] · 同篇出现（co-occurrence） — 同篇出现：harness-16
 - [[Artifact Schema]] · 同篇出现（co-occurrence） — 同篇出现：harness-16
 - [[Cross-session Work]] · 同篇出现（co-occurrence） — 同篇出现：harness-16
 - [[Read-only Verifier Agent]] · 同篇出现（co-occurrence） — 同篇出现：harness-16
-- [[Skill]] · 常一起用（工作流） — Agent Loop 调用经过测试的 Skill，形成可复用、可复利的工作流。
 - [[Loop Engineer]] · 同篇出现（co-occurrence） — 同篇出现：harness-16
+- [[Skill]] · 常一起用（工作流） — Agent Loop 调用经过测试的 Skill，形成可复用、可复利的工作流。
+- [[Inner Loop]] · rejected（audit） — 两者更像同义/同指（内循环=主 agent 执行循环），应合并而非依赖边。
 - [[very few abstractions]] · 同篇出现（co-occurrence） — 同篇出现：harness-08
 - [[primitives]] · 同篇出现（co-occurrence） — 同篇出现：harness-08
-- [[Agent]] · 同篇出现（co-occurrence） — 同篇出现：harness-08
 - [[Agents SDK]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
-- [[model-native harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
+- [[Agent]] · 同篇出现（co-occurrence） — 同篇出现：harness-08
 - [[持久化执行 durable execution]] · 常一起用（工作流） — Durable Execution 把 Agent Loop 的每次模型与工具调用变成可独立重试步骤。
 - [[持久化执行 durable execution]] · 常一起用 — 持久化执行把 Agent Loop 的每次模型和工具调用变成可独立重试的步骤。
+- [[model-native harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
 - [[验证闭环 verification loop]] · 常一起用（工作流） — 行动循环产生结果，验证循环用外部证据决定修正或退出。
 - [[Harness]] · 组成（运行时组成） — Agent Harness 负责组织模型、工具与观察之间的运行循环。
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
@@ -80,28 +77,25 @@ A built-in agent loop that handles tool invocation, sends results back to the LL
 - Harness Engineering ｜ 《Loop Engineer：把 Agent 工作流变成可复用知识模板》 ｜ https://www.youtube.com/watch?v=W6x-hb44C0c
 ## 反链
 
-- [[Harness]]
 - [[Skill]]
-- [[Agent]]
-- [[Cross-session Work]]
-- [[验证闭环 verification loop]]
-- [[Artifact Schema]]
-- [[model-native harness]]
-- [[Read-only Verifier Agent]]
 - [[持久化执行 durable execution]]
+- [[验证闭环 verification loop]]
+- [[Cross-session Work]]
 - [[primitives]]
-- [[Shared File System]]
-- [[Verifiable Codebase]]
-- [[Ralph Loop]]
+- [[Agent]]
 - [[Agentic Coding]]
-- [[Inner Loop]]
-- [[Signals]]
-- [[steering]]
-- [[TodoWrite 与 TodoRead]]
-- [[very few abstractions]]
-- [[Agents SDK]]
+- [[Artifact Schema]]
 - [[Executable Codebase]]
+- [[Legible Codebase]]
 - [[Loop Contract]]
 - [[Loop Engineer]]
+- [[model-native harness]]
+- [[Orchestration Loop TAO Cycle ReAct Loop]]
+- [[Shared File System]]
 - [[tool loop]]
-- [[Legible Codebase]]
+- [[Ralph Loop]]
+- [[Agents SDK]]
+- [[Inner Loop]]
+- [[Read-only Verifier Agent]]
+- [[Verifiable Codebase]]
+- [[very few abstractions]]

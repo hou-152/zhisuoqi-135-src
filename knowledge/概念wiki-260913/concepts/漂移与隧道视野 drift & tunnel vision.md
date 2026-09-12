@@ -7,8 +7,8 @@ subject: Harness Engineering
 domain: loop-autonomy
 learningStage: now
 verification: judge
-centrality: 0.142
-depth: 0
+centrality: 0.126
+depth: 4
 origin: [harness]
 aliases: ["drift & tunnel vision"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 长时程自治中的两种典型退化：偏离原始目标的漂移，与只盯局部而丢失全局的隧道视野。
 
-**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.142
+**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -37,19 +37,21 @@ sources: 1
 
 > 这个长跑任务目标跑偏了，属于{{name}}里的哪一种？
 
-## 懂了它才能懂（解锁 5）
+## 先懂这些（前置 1）
 
-- [[长时程自治编码 long-running autonomous coding]] — 长时程运行必然面对漂移与隧道视野两种退化。
+- [[长时程自治编码 long-running autonomous coding]] · **hard** — 不懂【漂移与隧道视野】，就做不了【长时程自治编码】的 ⟨长周期退化防治⟩
+
+## 懂了它才能懂（解锁 1）
+
 - [[judge agent 与周期性 fresh start]] — 该机制专为对抗漂移与隧道视野，不懂退化就不懂它为何存在。
-- [[No-progress detection]] — 无进展是漂移的典型表现，检测它需先理解这种退化。
-- [[范围控制与显式的完成定义]] — 范围失控是漂移的表现，先懂退化才懂为何要显式定义完成。
-- [[steering]] — 中途介入正是为纠正漂移与视野收窄这两种退化。
 
 ## 相关
 
+- [[No-progress detection]] · related-to（audit） — 无进展≠漂移，是相关但不同的退化；检测机制（消耗预算 vs 任务推进）可独立成立
+- [[范围控制与显式的完成定义]] · related-to（audit） — 范围失控与漂移相关但不同，显式完成定义可独立理解；退化认知只是动机而非前置
 - [[长时程自治编码 long-running autonomous coding]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
-- [[单 agent 的速度天花板]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
 - [[动态协调 dynamic coordination]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
+- [[单 agent 的速度天花板]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
 
 ## 出场
 
@@ -61,10 +63,9 @@ sources: 1
 
 ## 反链
 
+- [[长时程自治编码 long-running autonomous coding]]
 - [[动态协调 dynamic coordination]]
 - [[范围控制与显式的完成定义]]
-- [[单 agent 的速度天花板]]
-- [[长时程自治编码 long-running autonomous coding]]
-- [[steering]]
 - [[judge agent 与周期性 fresh start]]
 - [[No-progress detection]]
+- [[单 agent 的速度天花板]]

@@ -7,7 +7,7 @@ subject: Context Engineering × Harness Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.087
+centrality: 0.142
 depth: 0
 origin: [context, harness]
 aliases: ["progressive disclosure"]
@@ -18,7 +18,7 @@ sources: 5
 
 > Agent 通过探索逐层发现相关上下文、工作记忆只保留必要部分的检索与认知模式。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.087
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.142
 
 ## 费曼一下
 
@@ -37,6 +37,10 @@ just in time 检索带来的认知模式——agent 通过探索增量发现相�
 
 > 怎么用 {{name}} 让 Agent 不一次性把窗口塞满？
 
+## 懂了它才能懂（解锁 1）
+
+- [[上下文文件树 tree of files]] — 不懂【渐进式披露】，就做不了【上下文文件树】的按需分层加载设计
+
 ## 相关
 
 - [[Agent Skills]] · 常一起用 — Skill 文件及其递归引用是渐进式披露的实现载体。
@@ -45,18 +49,18 @@ just in time 检索带来的认知模式——agent 通过探索增量发现相�
 - [[Elicitation]] · 同篇出现（co-occurrence） — 同篇出现：context-15
 - [[Agent Drift]] · 同篇出现（co-occurrence） — 同篇出现：context-25
 - [[Context 四种失败模式 Context Pollution Distraction Confusion Clash]] · 同篇出现（co-occurrence） — 同篇出现：context-25
-- [[Skill]] · 常一起用（工作流） — Skill 通过按需加载文件与能力实现 Progressive Disclosure。
 - [[记忆 Memory]] · 常一起用（工作流） — Memory 可用路由文档与主题文件按 Progressive Disclosure 分层加载。
 - [[记忆 Memory]] · 常一起用 — Memory 用路由文档和主题文件分层，让详细知识按需披露。
 - [[即时检索 Just-in-time Retrieval]] · 对照（概念边界） — JIT 强调取数时机；渐进披露强调逐层发现。
+- [[Skill]] · 常一起用（工作流） — Skill 通过按需加载文件与能力实现 Progressive Disclosure。
 - [[程序记忆（Procedural Memory Skills） progressive disclosure]] · 常一起用 — Skill 通过需要时才加载指令、知识或工具来实现渐进式披露。
-- [[configuration problem]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
 - [[prompt 与 context 的通用性落差]] · 同篇出现（co-occurrence） — 同篇出现：context-22
 - [[过度约束与松绑 over-constraining unhobbling]] · 同篇出现（co-occurrence） — 同篇出现：context-22
+- [[configuration problem]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
 - [[注意力预算 attention budget]] · 同篇出现（co-occurrence） — 同篇出现：context-05
 - [[上下文腐烂 Context Rot]] · 同篇出现（co-occurrence） — 同篇出现：context-05
-- [[上下文工程 context engineering]] · 同篇出现（co-occurrence） — 同篇出现：context-05
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
+- [[上下文工程 context engineering]] · 同篇出现（co-occurrence） — 同篇出现：context-05
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
 
 ## 出场
@@ -73,18 +77,19 @@ just in time 检索带来的认知模式——agent 通过探索增量发现相�
 
 ## 反链
 
-- [[记忆 Memory]]
 - [[Skill]]
 - [[注意力预算 attention budget]]
+- [[记忆 Memory]]
 - [[上下文腐烂 Context Rot]]
-- [[程序记忆（Procedural Memory Skills） progressive disclosure]]
-- [[即时检索 Just-in-time Retrieval]]
+- [[上下文文件树 tree of files]]
 - [[Action Space]]
 - [[Agent Skills]]
-- [[configuration problem]]
 - [[Elicitation]]
+- [[即时检索 Just-in-time Retrieval]]
+- [[过度约束与松绑 over-constraining unhobbling]]
 - [[Agent Drift]]
+- [[prompt 与 context 的通用性落差]]
+- [[程序记忆（Procedural Memory Skills） progressive disclosure]]
+- [[configuration problem]]
 - [[Context 四种失败模式 Context Pollution Distraction Confusion Clash]]
 - [[See Like an Agent]]
-- [[过度约束与松绑 over-constraining unhobbling]]
-- [[prompt 与 context 的通用性落差]]

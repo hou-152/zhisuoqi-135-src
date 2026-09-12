@@ -6,7 +6,7 @@ subject: Context Engineering × Harness Engineering
 domain: verification-eval
 learningStage: deep-dive
 verification: judge
-centrality: 0.11
+centrality: 0.089
 depth: 1
 origin: [context, harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 2
 
 > 通用 harness 让模型对比更公平、缺陷更可见，但也让评测偏离真实部署形态。
 
-**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.11
+**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.089
 
 ## 费曼一下
 
@@ -40,15 +40,12 @@ ARC 采用通用 harness 的理由是让模型缺陷更可见、让模型比较�
 
 - [[基准测试的捆绑测量性]] · **hard** — 不知道基准捆绑了 harness 与提示词等选择，就看不出公平与真实部署的张力。
 
-## 懂了它才能懂（解锁 2）
-
-- [[Harness-level benchmarks]] — 评测 agent 骨架的基准，天然把 harness 设计摆上台面，触及公平性张力。
-- [[RHAE]] — 人类基线分随官方 harness 设置浮动，解读它需先懂公平性张力。
-
 ## 相关
 
-- [[基准测试的捆绑测量性]] · 同篇出现（co-occurrence） — 同篇出现：context-A2
+- [[Harness-level benchmarks]] · related-to（audit） — 公平性张力是相关议题，不是 harness-level benchmarks 的定义前置。
+- [[RHAE]] · related-to（audit） — 公平性张力有助于解读人类基线浮动，但 RHAE 指标本身可独立理解。
 - [[保留推理 retained reasoning]] · 同篇出现（co-occurrence） — 同篇出现：context-A2
+- [[基准测试的捆绑测量性]] · 同篇出现（co-occurrence） — 同篇出现：context-A2
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：context-A2
 
 ## 出场
@@ -57,8 +54,7 @@ ARC 采用通用 harness 的理由是让模型缺陷更可见、让模型比较�
 - Harness Engineering ｜ 《只改两个 API 设置，OpenAI 把 ARC-AGI-3 成绩提到三倍》 ｜ https://openai.com/index/how-two-settings-tripled-our-arc-agi-3-scores
 ## 反链
 
-- [[Harness]]
 - [[基准测试的捆绑测量性]]
-- [[RHAE]]
 - [[Harness-level benchmarks]]
 - [[保留推理 retained reasoning]]
+- [[RHAE]]

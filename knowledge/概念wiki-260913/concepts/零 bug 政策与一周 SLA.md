@@ -5,8 +5,8 @@ type: PROCEDURAL
 subject: Context Engineering
 domain: code-engineering
 learningStage: when-needed
-verification: use
-centrality: 0.067
+verification: judge
+centrality: 0.072
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 所有 bug 进统一 triage 并在一周 SLA 内修完，coding agent 先修、工程师复核。
 
-**领域** code-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
+**领域** code-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -38,14 +38,12 @@ Linear 的内部质量制度，也是它把 agent 用在刀刃上的样板。所
 
 ## 先懂这些（前置 1）
 
-- [[Autofixing]] · **soft** — SLA 下低风险修复可自动提交 PR，减少人工排队。
-
-## 懂了它才能懂（解锁 1）
-
-- [[根因优先]] — 一周 SLA 要求先定位根因再修，否则反复出错占满 triage。
+- [[根因优先]] · **soft** — 不懂【根因优先】就做不了【零 bug 政策与一周 SLA】的 ⟨一周内清 bug 的修复 triage⟩
 
 ## 相关
 
+- [[根因优先]] · related-to（audit） — 「先定位根因再改」是通用调试原则，可独立理解；一周 SLA 只是强化其必要性的运营背景，反过来说 SLA 政策更依赖根因优先才成立，方向偏可疑
+- [[Autofixing]] · related-to（audit） — Autofixing 只是达成 SLA 的手段之一，不懂它照样能理解零 bug 政策与一周 SLA，应降 soft 或踢出。
 - [[代理原生 agent-native]] · 同篇出现（co-occurrence） — 同篇出现：context-10
 - [[上下文骨架]] · 同篇出现（co-occurrence） — 同篇出现：context-10
 - [[“SaaS 已死”叙事与护城河蒸发]] · 同篇出现（co-occurrence） — 同篇出现：context-10
@@ -55,8 +53,8 @@ Linear 的内部质量制度，也是它把 agent 用在刀刃上的样板。所
 - Context Engineering ｜ 《SaaS 没死，Linear 正把上下文变成 Agent 的骨架》 ｜ https://app.podwise.ai/dashboard/episodes/7673574
 ## 反链
 
-- [[代理原生 agent-native]]
-- [[“SaaS 已死”叙事与护城河蒸发]]
 - [[根因优先]]
+- [[“SaaS 已死”叙事与护城河蒸发]]
+- [[代理原生 agent-native]]
 - [[上下文骨架]]
 - [[Autofixing]]

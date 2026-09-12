@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: spec-intent
 learningStage: now
 verification: use
-centrality: 0.092
+centrality: 0.072
 depth: 1
 origin: [notion]
 aliases: ["Teach Agents How to Succeed｜把成功所需的规范主动喂给 Agent"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 先想清楚调用 agent 的人需要知道什么才能成功，再主动把这些信息预先交给它，而不是让它自己摸索。
 
-**领域** spec-intent ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.092
+**领域** spec-intent ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -38,15 +38,11 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[Instructions files]] · **hard** — 把成功所需信息交给 agent，主要载体就是每次任务都生效的指令文件。
-
-## 懂了它才能懂（解锁 2）
-
-- [[目标清楚 + 结果好验收]] — 要把成功所需信息交给 agent，前提正是目标清楚且结果可验收
-- [[AGENTS.md]] — AGENTS.md 是把项目约定主动交给 agent 的载体，先懂为何要交
+- [[共享理解 shared understanding]] · **soft** — 不懂【共享理解】，就做不了【教会 AI Agent 如何成功】里「先想清楚调用者需要知道什么」这一步
 
 ## 相关
 
+- [[Instructions files]] · related-to（audit） — 「预先交出成功所需信息」的载体很多（提示、文档、技能、工具描述等），指令文件只是主要载体之一，不懂它也完全能立住该原则。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -61,6 +57,5 @@ sources: 1
 
 ## 反链
 
+- [[共享理解 shared understanding]]
 - [[Instructions files]]
-- [[AGENTS.md]]
-- [[目标清楚 + 结果好验收]]

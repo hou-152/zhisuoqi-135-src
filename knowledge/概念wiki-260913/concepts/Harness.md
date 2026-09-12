@@ -7,7 +7,7 @@ domain: harness-runtime
 learningStage: now
 verification: judge
 centrality: 1
-depth: 2
+depth: 0
 origin: [notion, context, harness]
 aliases: ["项目级感知", "整个项目一起看", "model 外壳", "runtime", "agent harness"]
 sources: 23
@@ -36,98 +36,82 @@ sources: 23
 
 > {{name}} 指什么？它和模型权重各负责哪部分？
 
-## 先懂这些（前置 9）
+## 懂了它才能懂（解锁 11）
 
-- [[Agent loop]] · **hard** — Agent Harness 负责组织模型、工具与观察之间的运行循环。
-- [[持久化执行 durable execution]] · **hard** — Durable Execution 是 Agent Harness 提供可靠重试与恢复的组成部分。
-- [[Guardrails]] · **hard** — Guardrails 是 Agent Harness 约束输入、输出与行动路径的组成部分。
-- [[记忆 Memory]] · **hard** — Memory 是 Agent Harness 管理跨步骤与跨会话信息的组成部分。
-- [[MCP Model Context Protocol]] · **hard** — MCP 是 Agent Harness 接入外部工具与服务的组成部分。
-- [[Sandbox]] · **hard** — Sandbox 是 Agent Harness 隔离执行环境的组成部分。
-- [[Skill]] · **hard** — Skill 是 Agent Harness 按需提供方法与能力的组成部分。
-- [[系统提示 System Prompt]] · **hard** — System Prompt 是 Agent Harness 配置模型行为的组成部分。
-- [[验证闭环 verification loop]] · **hard** — Verification Loop 是 Agent Harness 检查结果并回灌反馈的组成部分。
-
-## 懂了它才能懂（解锁 15）
-
-- [[Agent]] — 来源提出 Agent = Model + Harness；本站在运行组成轴接纳该关系，同时保留 Agent 与 Agent Harness 不同义的行为视角。
-- [[If you're not the model, you're the harness.]] — 该划界公式的定义直接依赖 Harness 这一侧的概念。
 - [[Agent = Model + Harness]] — 等式右项的 Harness 不懂，等式无法成立。
-- [[编排循环与「dumb loop」]] — 循环是 Harness 的心跳，先懂 Harness 才懂循环的位置。
-- [[LLM-as-CPU Harness-as-OS]] — 类比的一端就是 Harness，不懂它类比无从谈起。
-- [[操作系统类比]] — 该类比的主语就是 harness。
 - [[功能清单作为 harness 原语]] — 要成为 harness 原语，得先懂 harness 需要什么。
 - [[共享 harness]] — 共享的对象就是 harness，不懂它无从谈复用。
 - [[从期望行为反推 harness 设计]] — 反推的产物是 harness 功能，前提是懂 harness。
-- [[舱单]] — 舱单是描述工作区与挂载的清单，属 harness 的组成部分。
-- [[Bedrock Managed Agents]] — 它本质是 AWS 官方托管的 harness，不懂 harness 职责就看不懂它打包了什么。
-- [[可观测性]] — 可观测性被归为 harness 自身的组成部分。
-- [[部署系统层]] — 该层基本等同于模型之外的 harness 层。
 - [[动态系统]] — 说 harness 是动态系统，需先懂 harness 是什么。
-- [[harness 的过时假设]] — 假设是编码在 harness 里的，不懂 harness 装了什么就无从谈其过时。
+- [[coding agent]] — 不懂【Harness】，就做不了 coding agent 的“harness 包裹 LLM”定义
+- [[Claude Managed Agents]] — 不懂【Harness】，就做不了 Claude Managed Agents 的“预置 agent harness”定义
+- [[agent 与 harness 的分工]] — 不懂【Harness】，就做不了区分 agent 与 harness 的分工
+- [[Harness level feature]] — 不懂【Harness】，就做不了判断哪些能力属于 Harness level feature
+- [[Filesystem 作为最基础的 harness 原语]] — 不懂【Harness】，就做不了把文件系统认定为 harness 原语
+- [[可观测性]] — 可观测性被归为 harness 自身的组成部分。
 
 ## 相关
 
 - [[编排循环 Orchestration Loop TAO ReAct]] · 常一起用 — Harness 明列编排循环、状态持久化、错误处理与护栏等运行部件。
-- [[LLM-as-CPU Harness-as-OS]] · 同篇出现（co-occurrence） — 同篇出现：context-13
 - [[笨循环 Dumb Loop]] · 同篇出现（co-occurrence） — 同篇出现：context-13
 - [[记忆即提示 Memory as Prompt]] · 同篇出现（co-occurrence） — 同篇出现：context-13
 - [[执行可靠性机制 State Error Guardrails Verification]] · 同篇出现（co-occurrence） — 同篇出现：context-13
 - [[脚手架与 Harness 厚度 Scaffolding Harness Thickness]] · 同篇出现（co-occurrence） — 同篇出现：context-13
-- [[tokens]] · 同篇出现（co-occurrence） — 同篇出现：context-14
 - [[prompt completion]] · 同篇出现（co-occurrence） — 同篇出现：context-14
-- [[multimodal Vision LLMs]] · 同篇出现（co-occurrence） — 同篇出现：context-14
 - [[chat templated prompts]] · 同篇出现（co-occurrence） — 同篇出现：context-14
-- [[stateless]] · 同篇出现（co-occurrence） — 同篇出现：context-14
 - [[cached input tokens]] · 同篇出现（co-occurrence） — 同篇出现：context-14
-- [[reasoning thinking]] · 同篇出现（co-occurrence） — 同篇出现：context-14
-- [[tool loop]] · 同篇出现（co-occurrence） — 同篇出现：context-14
 - [[滚动截断 rolling truncation]] · 同篇出现（co-occurrence） — 同篇出现：context-A2
 - [[跨轮次记忆与连贯策略]] · 同篇出现（co-occurrence） — 同篇出现：context-A2
-- [[RHAE]] · 同篇出现（co-occurrence） — 同篇出现：context-A2
 - [[Responses API 与生产设置对齐]] · 同篇出现（co-occurrence） — 同篇出现：context-A2
-- [[通用 harness 的公平性张力]] · 同篇出现（co-occurrence） — 同篇出现：context-A2
-- [[上下文占用率与性能衰减]] · 同篇出现（co-occurrence） — 同篇出现：context-A2
-- [[输出 token 效率]] · 同篇出现（co-occurrence） — 同篇出现：context-A2
-- [[架构约束的确定性执行]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
 - [[「垃圾回收」型 agent]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
 - [[熵与腐化 entropy and decay]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
-- [[卡住即信号 struggle as signal]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
 - [[功能与行为验证的缺口]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
 - [[service template 与 golden path]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
 - [[解空间收窄 constraining the solution space]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
 - [[AI 友好度（AI-friendliness）作为选型标准]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
 - [[拓扑作为新抽象层]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
 - [[rigor 的搬迁 relocating rigor]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
-- [[Harness level feature]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
 - [[从期望行为反推 harness 设计]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
 - [[Filesystem 作为最基础的 harness 原语]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
-- [[ReAct loop]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
-- [[通用工具与「给模型一台计算机」]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
 - [[Self-verification loop]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
 - [[Context injection]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
-- [[Memory file 与 continual learning]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
-- [[Tool call offloading]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
 - [[Progressive disclosure（渐进式披露）与 Skills]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
-- [[模型训练与 harness 设计的耦合]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
-- [[step]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[step ID 自动索引]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
-- [[think → act → observe 循环]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
-- [[事件驱动编排与执行解耦]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[普遍可触发 universally triggered]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
-- [[webhook transform 与 connect()]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
-- [[小函数组合]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[子 agent 与 step.invoke()]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[两级上下文剪枝 pruning]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
-- [[压缩（compaction）与运行内外的分工]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[预算警告与溢出恢复]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[steering]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
-- [[基础设施问题，不是 AI 问题]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
-- [[instruction budget]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
-- [[the dumb zone the smart zone]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
 - [[context firewall]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
 - [[长上下文的幻觉]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
 - [[agentfile CLAUDE.md 与 AGENTS.md]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
+- [[back-pressure]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
+- [[显式且可检查的并行]] · 同篇出现（co-occurrence） — 同篇出现：harness-05
+- [[优化对象的阶梯]] · 同篇出现（co-occurrence） — 同篇出现：harness-05
+- [[上下文 playbook 与增量条目]] · 同篇出现（co-occurrence） — 同篇出现：harness-05
+- [[上下文坍塌与简洁偏置]] · 同篇出现（co-occurrence） — 同篇出现：harness-05
+- [[机制与内容分离]] · 同篇出现（co-occurrence） — 同篇出现：harness-05
+- [[可执行搜索空间]] · 同篇出现（co-occurrence） — 同篇出现：harness-05
+- [[有界改动与回归闸]] · 同篇出现（co-occurrence） — 同篇出现：harness-05
+- [[可编辑面与循环外的权限控制]] · 同篇出现（co-occurrence） — 同篇出现：harness-05
+- [[进化式搜索与适应度]] · 同篇出现（co-occurrence） — 同篇出现：harness-05
+- [[递归结构不能替代基座智能]] · 同篇出现（co-occurrence） — 同篇出现：harness-05
+- [[最慢 worker 瓶颈与刚性]] · 同篇出现（co-occurrence） — 同篇出现：harness-06
+- [[handoff 交接]] · 同篇出现（co-occurrence） — 同篇出现：harness-06
+- [[自收敛与免全局同步]] · 同篇出现（co-occurrence） — 同篇出现：harness-06
+- [[integrator 瓶颈]] · 同篇出现（co-occurrence） — 同篇出现：harness-06
+- [[为吞吐量设计与可接受错误率]] · 同篇出现（co-occurrence） — 同篇出现：harness-06
+- [[意图规约与可引导性]] · 同篇出现（co-occurrence） — 同篇出现：harness-06
+- [[Planner-Generator-Evaluator 三 Agent 架构]] · 同篇出现（co-occurrence） — 同篇出现：harness-09
+- [[Handoff Artifact]] · 同篇出现（co-occurrence） — 同篇出现：harness-09
+- [[Harness 简化原则 Harness Simplification]] · 同篇出现（co-occurrence） — 同篇出现：harness-09
+- [[native sandbox execution]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
+- [[AGENTS.md]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
+- [[apply patch tool]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
+- [[harness 的过时假设]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
+- [[任务时域 task horizon]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
+- [[长周期任务的基础设施压力]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
+- [[Environment]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
 
 ## 出场
 
@@ -146,43 +130,43 @@ sources: 23
 
 ## 反链
 
-- [[文件系统即持久记忆]]
-- [[记忆 Memory]]
 - [[Skill]]
-- [[Loop Engineering]]
-- [[Agent]]
-- [[Agent loop]]
-- [[Cross-session Work]]
-- [[验证闭环 verification loop]]
 - [[上下文 context]]
-- [[MCP Model Context Protocol]]
-- [[tokens]]
-- [[上下文占用率与性能衰减]]
-- [[Agent = Model + Harness]]
 - [[Sandbox]]
+- [[持久化执行 durable execution]]
+- [[记忆 Memory]]
+- [[Agentic Engineering]]
+- [[Subagent]]
+- [[多时间尺度记忆与「记忆只是 hint」]]
+- [[奖励攻击与多样性坍塌]]
+- [[品味与「不接受够用就行」]]
+- [[Agent vs Harness]]
+- [[coding agent]]
 - [[Guardrails]]
 - [[Session]]
-- [[stateless]]
+- [[Skill-as-method-call]]
+- [[上下文压缩 Context Compression Summarization]]
+- [[Agent loop]]
+- [[MCP Model Context Protocol]]
+- [[跨轮次记忆与连贯策略]]
+- [[验证闭环 verification loop]]
+- [[Loop Engineering]]
 - [[上下文腐烂 Context Rot]]
-- [[Agentic Engineering]]
-- [[程序记忆（Procedural Memory Skills） progressive disclosure]]
-- [[模型训练与 harness 设计的耦合]]
 - [[权限与推理的架构分离]]
-- [[系统提示 System Prompt]]
-- [[Artifact Schema]]
-- [[Bedrock Managed Agents]]
+- [[文件系统即持久记忆]]
+- [[子 agent 编排 Fork Teammate Worktree]]
+- [[Claude Managed Agents]]
+- [[Context Reset vs Compaction]]
+- [[Creator → Curator 角色转换]]
+- [[Cross-session Work]]
+- [[Grading Criteria]]
+- [[handoff 交接]]
 - [[Harness token floor]]
-- [[LLM Large Language Model]]
-- [[model-native harness]]
-- [[Read-only Verifier Agent]]
-- [[持久化执行 durable execution]]
-- [[通用 harness 的公平性张力]]
-- [[Latent vs Deterministic]]
-- [[废料怪兽]]
-- [[编排循环与「dumb loop」]]
-- [[操作系统类比]]
-- [[工具收窄 tool scoping]]
-- [[开箱即用的编排与子 agent]]
-- [[示例强于规则]]
-- [[协同进化与紧耦合 co-evolution principle]]
-- [[agent 与 harness 的分工]]
+- [[Self-verification loop]]
+- [[service template 与 golden path]]
+- [[stateless]]
+- [[If you're not the model, you're the harness.]]
+- [[笨循环 Dumb Loop]]
+- [[非模型架构 Non-model Architecture]]
+- [[提示词工程 Prompt Engineering]]
+- [[Agent]]

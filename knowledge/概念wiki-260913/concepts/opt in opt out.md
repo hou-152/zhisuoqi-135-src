@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: society-law
 learningStage: when-needed
 verification: judge
-centrality: 0.042
+centrality: 0.017
 depth: 0
 origin: [notion]
 aliases: ["opt in", "opt out", "家长选择权", "默认选项"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 制度默认值的设计：默认全员使用不可退出，还是须家长主动选择，决定家长有无发言权。
 
-**领域** society-law ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** society-law ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 原文 context
 
@@ -35,10 +35,6 @@ sources: 1
 
 > {{name}} 的差别怎样影响家长对限屏政策的选择权？
 
-## 懂了它才能懂（解锁 1）
-
-- [[Network State]] — 用退出权恢复同意，本质是把治理设计成可opt out的加入选择。
-
 ## 相关
 
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -55,4 +51,6 @@ sources: 1
 
 ## 反链
 
-- [[Network State]]
+- [[外包思考，但不外包理解]]
+- [[Agent-Native Infrastructure]]
+- [[Sensors 与 Actuators]]

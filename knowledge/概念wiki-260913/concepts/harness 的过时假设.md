@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.067
-depth: 3
+centrality: 0.126
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > harness 编码的是“Claude 做不到什么”的假设，模型变强后这些假设会陈旧，反过来成为性能瓶颈。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,10 +36,10 @@ sources: 1
 
 > {{name}} 为什么会随模型变强而变成瓶颈？
 
-## 先懂这些（前置 2）
+## 懂了它才能懂（解锁 2）
 
-- [[Harness 工程 Harness Engineering]] · **hard** — 过时假设正是 harness 工程要外科式修正的对象，不懂工程就不知假设从哪来、如何改。
-- [[Harness]] · **soft** — 假设是编码在 harness 里的，不懂 harness 装了什么就无从谈其过时。
+- [[Harness 组件生命周期]] — 不懂【harness 的过时假设】，就做不了【Harness 组件生命周期】里逐个移除旧组件、验证质量是否下降的决策。
+- [[Harness 简化原则 Harness Simplification]] — 不懂【harness 的过时假设】，就做不了【Harness 简化原则】里“只在必要时增加复杂度”的取舍。
 
 ## 相关
 
@@ -53,6 +53,7 @@ sources: 1
 ## 反链
 
 - [[Harness]]
-- [[Harness 工程 Harness Engineering]]
 - [[Claude Managed Agents]]
+- [[Harness 简化原则 Harness Simplification]]
+- [[Harness 组件生命周期]]
 - [[messages API 作为直连网关]]

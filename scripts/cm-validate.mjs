@@ -55,7 +55,7 @@ for (const d of deps.dependencies) {
   check(ids.has(d.prerequisiteId), `dependency prerequisiteId 悬空：${d.prerequisiteId}`);
   check(d.topicId !== d.prerequisiteId, `dependency 自环：${d.topicId}`);
   check(d.strength === 'hard' || d.strength === 'soft', `dependency strength 非法：${d.strength}`);
-  check(['curated', 'source-network', 'llm'].includes(d.origin), `dependency origin 非法：${d.origin}`);
+  check(['curated', 'source-network', 'llm', 'llm-strict'].includes(d.origin), `dependency origin 非法：${d.origin}`);
   check(typeof d.reason === 'string' && d.reason.length > 0, `dependency ${d.topicId}->${d.prerequisiteId} 缺 reason`);
 }
 for (const r of rels.relations) {

@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.042
-depth: 4
+centrality: 0.072
+depth: 1
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 放在仓库根目录的排除清单，让图谱索引跳过生成代码与第三方依赖等无关路径。
 
-**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -42,9 +42,9 @@ sources: 1
 
 ## 相关
 
+- [[持久化代码图谱 structural map graph]] · 同篇出现（co-occurrence） — 同篇出现：context-16
 - [[code-review-graph]] · 同篇出现（co-occurrence） — 同篇出现：context-16
 - [[Tree-sitter]] · 同篇出现（co-occurrence） — 同篇出现：context-16
-- [[持久化代码图谱 structural map graph]] · 同篇出现（co-occurrence） — 同篇出现：context-16
 
 ## 出场
 

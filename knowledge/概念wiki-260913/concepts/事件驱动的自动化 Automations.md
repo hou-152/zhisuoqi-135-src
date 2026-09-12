@@ -2,13 +2,13 @@
 id: cm_c3a45aa3
 name: 事件驱动的自动化
 nameEn: Automations
-type: PROCEDURAL
+type: CONCEPTUAL
 subject: Context Engineering
 domain: harness-runtime
 learningStage: when-needed
-verification: use
-centrality: 0.017
-depth: 0
+verification: judge
+centrality: 0.126
+depth: 1
 origin: [context]
 aliases: ["Automations"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 事件驱动的自动化：issue 进入系统那一刻即触发 agent 工作流，即时精炼或行动。
 
-**领域** harness-runtime ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -37,11 +37,10 @@ sources: 1
 
 > {{name}} 用什么时机触发 agent 工作流？
 
-## 相关
+## 先懂这些（前置 2）
 
-- [[交接模型 handoff model]] · 同篇出现（co-occurrence） — 同篇出现：context-11
-- [[复杂被误认为精密 complexity looked like sophistication]] · 同篇出现（co-occurrence） — 同篇出现：context-11
-- [[流程即工作 the process became the work]] · 同篇出现（co-occurrence） — 同篇出现：context-11
+- [[事件驱动编排与执行解耦]] · **soft** — 不懂事件驱动编排与执行解耦，就做不了事件驱动自动化里「issue 一进系统就触发工作流」
+- [[普遍可触发 universally triggered]] · **soft** — 不懂普遍可触发，就做不了事件驱动自动化里「不管被 webhook 还是 cron 激活」的触发接线
 
 ## 出场
 
@@ -53,6 +52,5 @@ sources: 1
 
 ## 反链
 
-- [[交接模型 handoff model]]
-- [[流程即工作 the process became the work]]
-- [[复杂被误认为精密 complexity looked like sophistication]]
+- [[事件驱动编排与执行解耦]]
+- [[普遍可触发 universally triggered]]

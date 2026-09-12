@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: economy-business
 learningStage: when-needed
 verification: accept
-centrality: 0.042
-depth: 3
+centrality: 0.072
+depth: 0
 origin: [notion]
 aliases: ["超大规模云", "超大规模云厂商"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 超大规模云厂商，需在云业务、自有主业与对模型公司的战略投资之间做平衡。
 
-**领域** economy-business ｜ **类型** LANGUAGE ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
+**领域** economy-business ｜ **类型** LANGUAGE ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,9 +36,9 @@ sources: 1
 
 > {{name}} 的决策为什么要同时照顾云、主业和战略投资？
 
-## 先懂这些（前置 1）
+## 懂了它才能懂（解锁 1）
 
-- [[次贷式 AI 危机（Subprime AI Crisis）]] · **hard** — 低价补贴与风险层层打包，正是超大规模云厂商完成的动作
+- [[次贷式 AI 危机（Subprime AI Crisis）]] — 低价补贴与风险层层打包，正是超大规模云厂商完成的动作
 
 ## 相关
 
@@ -56,4 +56,7 @@ sources: 1
 
 ## 反链
 
+- [[外包思考，但不外包理解]]
+- [[Agent-Native Infrastructure]]
 - [[次贷式 AI 危机（Subprime AI Crisis）]]
+- [[Sensors 与 Actuators]]

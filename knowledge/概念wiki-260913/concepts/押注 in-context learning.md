@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: model-training
 learningStage: when-needed
 verification: judge
-centrality: 0.042
+centrality: 0.072
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 因微调迁移任务成本高、自研模型被通用大模型一夜超越，选择把宝押在模型的上下文内学习能力上。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -38,11 +38,10 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[LLM Large Language Model]] · **hard** — 押注ICL是押LLM的上下文学习能力，不懂LLM就无法理解该策略。
+- [[LLM Large Language Model]] · **soft** — 押注ICL是押LLM的上下文学习能力，不懂LLM就无法理解该策略。
 
 ## 相关
 
-- [[Stochastic Graduate Descent]] · 同篇出现（co-occurrence） — 同篇出现：context-04
 - [[局部最优 local optima]] · 同篇出现（co-occurrence） — 同篇出现：context-04
 - [[KV-cache 命中率]] · 同篇出现（co-occurrence） — 同篇出现：context-04
 - [[prefill 与 decode 的高度倾斜]] · 同篇出现（co-occurrence） — 同篇出现：context-04
@@ -52,8 +51,9 @@ sources: 1
 - [[文件系统即终极上下文]] · 同篇出现（co-occurrence） — 同篇出现：context-04
 - [[复述（recitation）与 lost-in-the-middle]] · 同篇出现（co-occurrence） — 同篇出现：context-04
 - [[保留错误证据与错误恢复]] · 同篇出现（co-occurrence） — 同篇出现：context-04
-- [[few-shot 套路化与受控多样性]] · 同篇出现（co-occurrence） — 同篇出现：context-04
+- [[Stochastic Graduate Descent]] · 同篇出现（co-occurrence） — 同篇出现：context-04
 - [[可恢复的压缩 restorable compression]] · 同篇出现（co-occurrence） — 同篇出现：context-04
+- [[few-shot 套路化与受控多样性]] · 同篇出现（co-occurrence） — 同篇出现：context-04
 - [[与底层模型正交 orthogonal to the underlying models]] · 同篇出现（co-occurrence） — 同篇出现：context-04
 - [[上下文工程 context engineering]] · 同篇出现（co-occurrence） — 同篇出现：context-04
 
@@ -62,17 +62,17 @@ sources: 1
 - Context Engineering ｜ 《Manus 的上下文工程实战：几轮重写换来的一组局部最优》 ｜ https://manus.im/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus
 ## 反链
 
-- [[LLM Large Language Model]]
-- [[局部最优 local optima]]
 - [[prefill 与 decode 的高度倾斜]]
-- [[文件系统即终极上下文]]
-- [[few-shot 套路化与受控多样性]]
-- [[logits 掩码与 context-aware 状态机]]
-- [[Stochastic Graduate Descent]]
-- [[保留错误证据与错误恢复]]
-- [[复述（recitation）与 lost-in-the-middle]]
+- [[局部最优 local optima]]
 - [[可恢复的压缩 restorable compression]]
+- [[KV-cache 命中率]]
+- [[LLM Large Language Model]]
+- [[复述（recitation）与 lost-in-the-middle]]
 - [[稳定的 prompt 前缀]]
+- [[logits 掩码与 context-aware 状态机]]
+- [[保留错误证据与错误恢复]]
+- [[文件系统即终极上下文]]
 - [[与底层模型正交 orthogonal to the underlying models]]
 - [[action space 膨胀]]
-- [[KV-cache 命中率]]
+- [[few-shot 套路化与受控多样性]]
+- [[Stochastic Graduate Descent]]

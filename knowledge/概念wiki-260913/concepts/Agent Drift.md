@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.042
+centrality: 0.072
 depth: 0
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > AI 在长任务中逐渐失去连贯性的现象，研究发现它几乎完全是上下文管理问题而非推理问题。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -38,13 +38,14 @@ Anthropic 内部研究发现：agent drift（AI 在长任务中逐渐失去连�
 
 ## 懂了它才能懂（解锁 1）
 
-- [[新鲜度机制]] — 新鲜度机制就是为对抗长任务漂移而设计的一组做法。
+- [[新鲜度机制]] — 不懂【Agent Drift】，就做不了【新鲜度机制】的 ⟨防漂移抓手的取舍⟩
 
 ## 相关
 
 - [[Codified Context]] · 同篇出现（co-occurrence） — 同篇出现：context-25
 - [[Knowledge Graph vs Flat Files]] · 同篇出现（co-occurrence） — 同篇出现：context-25
 - [[Self-Improving Context System]] · 同篇出现（co-occurrence） — 同篇出现：context-25
+- [[新鲜度机制]] · related-to（audit） — 新鲜度机制是一组通用做法（重写 scratchpad、近上限自动总结、自省提醒），每条不依赖 Agent Drift 也能懂；drift 只提供动机，降 soft 或移出依赖图
 - [[Tacit Knowledge]] · 同篇出现（co-occurrence） — 同篇出现：context-25
 - [[Context 四种失败模式 Context Pollution Distraction Confusion Clash]] · 同篇出现（co-occurrence） — 同篇出现：context-25
 - [[渐进式披露 progressive disclosure]] · 同篇出现（co-occurrence） — 同篇出现：context-25
@@ -57,8 +58,8 @@ Anthropic 内部研究发现：agent drift（AI 在长任务中逐渐失去连�
 
 - [[渐进式披露 progressive disclosure]]
 - [[新鲜度机制]]
+- [[Self-Improving Context System]]
+- [[Tacit Knowledge]]
 - [[Codified Context]]
 - [[Context 四种失败模式 Context Pollution Distraction Confusion Clash]]
 - [[Knowledge Graph vs Flat Files]]
-- [[Self-Improving Context System]]
-- [[Tacit Knowledge]]

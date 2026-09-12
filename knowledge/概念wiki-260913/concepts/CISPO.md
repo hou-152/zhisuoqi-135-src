@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: model-training
 learningStage: deep-dive
 verification: judge
-centrality: 0.042
-depth: 3
+centrality: 0.072
+depth: 1
 origin: [notion]
 aliases: ["裁剪重要性采样策略优化", "Clipped Importance Sampling Policy Optimization"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 一种 RL 目标：不裁梯度只裁权重，把 IS 比例硬截断加 stop-gradient，保住转折 token 的梯度。
 
-**领域** model-training ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** model-training ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 原文 context
 
@@ -54,4 +54,7 @@ sources: 1
 
 ## 反链
 
+- [[外包思考，但不外包理解]]
+- [[Agent-Native Infrastructure]]
 - [[重要性采样]]
+- [[Sensors 与 Actuators]]

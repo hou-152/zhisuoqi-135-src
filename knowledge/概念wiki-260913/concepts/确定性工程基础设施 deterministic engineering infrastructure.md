@@ -16,7 +16,7 @@ sources: 1
 
 # 确定性工程基础设施 · deterministic engineering infrastructure
 
-> 让 Agent 稳定运行的工程底座，由权限网关、上下文管理、工具路由、错误恢复四类构成。
+> 确定性工程基础设施具体指四类：权限网关、上下文管理、工具路由、错误恢复。
 
 **领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
@@ -41,11 +41,11 @@ sources: 1
 
 ## 相关
 
-- [[docsdecisions]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
 - [[AI 公司岗位编制]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
+- [[为 AI 设计工作环境]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
+- [[docsdecisions]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
 - [[层级架构强约束 + 给 Agent 读的 lint 错误]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
 - [[0 人工代码、0 人工 review 极限形态]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
-- [[为 AI 设计工作环境]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
 - [[CLAUDE.md]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
 - [[hooks .claudehooks]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
 - [[AI 工程基础设施 AI engineering infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
@@ -65,14 +65,14 @@ sources: 1
 
 ## 反链
 
+- [[0 人工代码、0 人工 review 极限形态]]
+- [[docsdecisions]]
 - [[Agent = Model + Harness]]
+- [[层级架构强约束 + 给 Agent 读的 lint 错误]]
 - [[程序记忆（Procedural Memory Skills） progressive disclosure]]
 - [[CLAUDE.md]]
-- [[0 人工代码、0 人工 review 极限形态]]
-- [[1.6% vs 98.4%]]
-- [[层级架构强约束 + 给 Agent 读的 lint 错误]]
-- [[docsdecisions]]
 - [[hooks .claudehooks]]
+- [[1.6% vs 98.4%]]
 - [[为 AI 设计工作环境]]
 - [[AI 工程基础设施 AI engineering infrastructure]]
 - [[AI 公司岗位编制]]

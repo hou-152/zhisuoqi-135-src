@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: thinking-method
 learningStage: when-needed
 verification: judge
-centrality: 0.042
-depth: 3
+centrality: 0.017
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 把 Agent 的支撑结构比作施工脚手架：临时、可拆除，楼盖好就该撤走。
 
-**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,12 +36,9 @@ The scaffolding metaphor isn't decorative. It's precise. Construction scaffoldin
 
 > {{name}} 说什么是临时的、什么时候该拆？
 
-## 先懂这些（前置 1）
-
-- [[感官模型快于密集文本]] · **soft** — 脚手架是感官化比喻，先懂人靠感官模型理解概念才懂它为何有效。
-
 ## 相关
 
+- [[意图、判断与品味 intent, judgment, taste]] · rejected（audit） — 依赖方只主张人聚焦意图、判断与品味，不涉及判断 agent 该撤走；脚手架隐喻是额外应用，非前置。
 - [[Agent vs Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-27
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-27
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-27
@@ -51,5 +48,5 @@ The scaffolding metaphor isn't decorative. It's precise. Construction scaffoldin
 - Harness Engineering ｜ 《The Anatomy of an Agent Harness》 ｜ https://x.com/akshay_pachaar/status/2041146899319971922
 ## 反链
 
-- [[感官模型快于密集文本]]
 - [[Agent vs Harness]]
+- [[意图、判断与品味 intent, judgment, taste]]

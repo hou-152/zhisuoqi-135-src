@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: verification-eval
 learningStage: when-needed
 verification: judge
-centrality: 0.067
+centrality: 0.017
 depth: 0
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 最广泛使用的长上下文基准：把已知事实埋进大量无关文本让模型找回，实质只考察词面匹配。
 
-**领域** verification-eval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
+**领域** verification-eval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,23 +36,20 @@ sources: 1
 
 > 为什么{{name}}拿高分不等于长上下文真的可用？
 
-## 懂了它才能懂（解锁 2）
-
-- [[长上下文评测协议]] — 协议要求最坏最好差异极小，正是针对 NIAH 只考词面匹配的局限。
-- [[噪声上下文]] — 懂 NIAH 只考词面匹配，才看清带同名干扰项的语境测试补的是什么。
-
 ## 相关
 
-- [[输入长度与任务难度的混淆]] · 同篇出现（co-occurrence） — 同篇出现：context-03
 - [[needle-question 语义相似度谱系]] · 同篇出现（co-occurrence） — 同篇出现：context-03
 - [[干扰项与无关内容之分]] · 同篇出现（co-occurrence） — 同篇出现：context-03
 - [[干扰项的非均匀影响]] · 同篇出现（co-occurrence） — 同篇出现：context-03
 - [[弃答与幻觉：两种失败姿态]] · 同篇出现（co-occurrence） — 同篇出现：context-03
 - [[needle-haystack 相似度]] · 同篇出现（co-occurrence） — 同篇出现：context-03
-- [[haystack 结构连贯性效应]] · 同篇出现（co-occurrence） — 同篇出现：context-03
 - [[检索与推理的双任务负担]] · 同篇出现（co-occurrence） — 同篇出现：context-03
 - [[自回归下输出也是上下文]] · 同篇出现（co-occurrence） — 同篇出现：context-03
 - [[非尝试率与拒答模式]] · 同篇出现（co-occurrence） — 同篇出现：context-03
+- [[haystack 结构连贯性效应]] · 同篇出现（co-occurrence） — 同篇出现：context-03
+- [[噪声上下文]] · related-to（audit） — 噪声上下文用苹果同名的例子已把定义讲全，NIAH 只是并列的另一类基准；'看清补了什么'属帮助理解而非前提。
+- [[输入长度与任务难度的混淆]] · 同篇出现（co-occurrence） — 同篇出现：context-03
+- [[长上下文评测协议]] · related-to（audit） — NIAH 只是该协议要针对的动机/反面案例，协议口径（位置不敏感、最坏最好差异小）本身自足，不懂 NIAH 也能懂协议；应降 soft 或踢出依赖图。
 - [[上下文均匀处理假设]] · 同篇出现（co-occurrence） — 同篇出现：context-03
 - [[上下文腐烂 Context Rot]] · 同篇出现（co-occurrence） — 同篇出现：context-03
 - [[上下文工程 context engineering]] · 同篇出现（co-occurrence） — 同篇出现：context-03
@@ -63,16 +60,16 @@ sources: 1
 ## 反链
 
 - [[上下文腐烂 Context Rot]]
-- [[输入长度与任务难度的混淆]]
-- [[长上下文评测协议]]
-- [[自回归下输出也是上下文]]
-- [[非尝试率与拒答模式]]
-- [[上下文均匀处理假设]]
-- [[噪声上下文]]
-- [[haystack 结构连贯性效应]]
-- [[needle-haystack 相似度]]
-- [[needle-question 语义相似度谱系]]
 - [[干扰项的非均匀影响]]
 - [[干扰项与无关内容之分]]
 - [[检索与推理的双任务负担]]
+- [[上下文均匀处理假设]]
+- [[输入长度与任务难度的混淆]]
+- [[长上下文评测协议]]
+- [[自回归下输出也是上下文]]
+- [[needle-haystack 相似度]]
+- [[needle-question 语义相似度谱系]]
+- [[非尝试率与拒答模式]]
 - [[弃答与幻觉：两种失败姿态]]
+- [[噪声上下文]]
+- [[haystack 结构连贯性效应]]

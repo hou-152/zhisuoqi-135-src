@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: verification-eval
 learningStage: when-needed
 verification: use
-centrality: 0.042
-depth: 0
+centrality: 0.126
+depth: 2
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 用变异测试检验测试有效性，惩罚不会在打补丁前代码上失败的测试，并加判官模型查质量。
 
-**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,12 +36,14 @@ mutation testing 的直觉是——先故意在代码里埋几个小错（变异
 
 > 你写的测试能过 {{name}} 这一关吗？
 
-## 懂了它才能懂（解锁 1）
+## 先懂这些（前置 2）
 
-- [[SWE-bench 与二元打分]] — FAIL_TO_PASS 正是「补丁前必失败」的变异测试思想。
+- [[Grading Criteria]] · **soft** — 不懂 Grading Criteria，就做不了 Mutation Testing 中判官模型查质量的评分
+- [[Kappa 系数]] · **soft** — 不懂 Kappa 系数，就做不了 Mutation Testing 中判官模型与人类评分一致性的验证
 
 ## 相关
 
+- [[SWE-bench 与二元打分]] · rejected（audit） — 两者只是思想类比（补丁前失败 vs 变异测试），SWE-bench 的二元打分可独立定义。
 - [[Lights-off 软件工厂]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
 - [[软件工厂 Software Factory]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
@@ -51,6 +53,9 @@ mutation testing 的直觉是——先故意在代码里埋几个小错（变异
 - Harness Engineering ｜ 《为什么「软件工厂」会失败：光有 harness 工程还不够》 ｜ https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/wsff.md
 ## 反链
 
-- [[软件工厂 Software Factory]]
+- [[Harness 工程 Harness Engineering]]
+- [[Grading Criteria]]
 - [[SWE-bench 与二元打分]]
+- [[Kappa 系数]]
 - [[Lights-off 软件工厂]]
+- [[软件工厂 Software Factory]]

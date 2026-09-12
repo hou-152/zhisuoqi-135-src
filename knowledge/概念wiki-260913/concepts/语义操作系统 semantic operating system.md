@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: memory-retrieval
 learningStage: deep-dive
 verification: accept
-centrality: 0.017
-depth: 0
+centrality: 0.072
+depth: 1
 origin: [context]
 aliases: ["semantic operating system"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 一种能随时间生长、具备类人添加/修改/遗忘能力、可自我解释推理链的终身上下文系统主张。
 
-**领域** memory-retrieval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.017
+**领域** memory-retrieval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -37,6 +37,10 @@ sources: 1
 
 > {{name}}要跨过的存储、退化、不稳定、评测四道坎各是什么？
 
+## 先懂这些（前置 1）
+
+- [[分层记忆架构]] · **soft** — 不懂【分层记忆架构】，就做不了【语义操作系统】的终身分层与添加/修改/遗忘分工
+
 ## 相关
 
 - [[熵减 entropy reduction]] · 同篇出现（co-occurrence） — 同篇出现：context-01
@@ -53,6 +57,7 @@ sources: 1
 
 ## 反链
 
-- [[上下文工程 context engineering]]
 - [[上下文 context]]
+- [[上下文工程 context engineering]]
+- [[分层记忆架构]]
 - [[熵减 entropy reduction]]

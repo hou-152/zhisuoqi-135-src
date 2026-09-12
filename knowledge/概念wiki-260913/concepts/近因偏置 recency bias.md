@@ -7,7 +7,7 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.017
+centrality: 0.072
 depth: 0
 origin: [context]
 aliases: ["recency bias"]
@@ -18,7 +18,7 @@ sources: 1
 
 > 模型更善于使用出现在输入上下文最末尾的相关信息，这是位置效应 U 型曲线的右半边。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -37,10 +37,14 @@ U 型曲线的右半边——模型更善于使用出现在输入上下文最末
 
 > {{name}} 提示关键信息该放在上下文哪里？
 
+## 懂了它才能懂（解锁 1）
+
+- [[滑动窗口]] — 不懂【近因偏置】说明末尾信息最好用，就做不了【滑动窗口】中「给最近若干词留 VIP 通道」的设计
+
 ## 相关
 
-- [[U 型性能曲线]] · 同篇出现（co-occurrence） — 同篇出现：context-02
 - [[首因偏置 primacy bias]] · 同篇出现（co-occurrence） — 同篇出现：context-02
+- [[U 型性能曲线]] · 同篇出现（co-occurrence） — 同篇出现：context-02
 - [[迷失在中间 lost in the middle]] · 同篇出现（co-occurrence） — 同篇出现：context-02
 
 ## 出场
@@ -54,5 +58,6 @@ U 型曲线的右半边——模型更善于使用出现在输入上下文最末
 ## 反链
 
 - [[迷失在中间 lost in the middle]]
+- [[滑动窗口]]
 - [[首因偏置 primacy bias]]
 - [[U 型性能曲线]]

@@ -15,7 +15,7 @@ sources: 1
 
 # mind meld
 
-> 人与模型在目标与语境上的对齐程度，对齐越高协作越顺。
+> 人与模型之间关于目标和语境的对齐程度。
 
 **领域** spec-intent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
@@ -47,6 +47,6 @@ sources: 1
 - Context Engineering ｜ 《用十分钟语音漫谈，让 LLM 帮你整理真正想说的话》 ｜ https://x.com/karpathy/status/2079610838143623371/
 ## 反链
 
-- [[bits]]
 - [[漫谈会话 ramble session]]
+- [[bits]]
 - [[输入摩擦 too lazy to type]]

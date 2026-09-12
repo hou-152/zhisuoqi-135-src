@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: model-training
 learningStage: now
 verification: judge
-centrality: 0.042
+centrality: 0.017
 depth: 0
 origin: [notion]
 aliases: ["Inference vs Training", "inference", "training", "推理", "训练"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 推理 vs 训练：训练是『教』模型、吃硬件极限，推理是『用』模型、要求性价比，两者对芯片诉求不同。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 原文 context
 
@@ -35,12 +35,9 @@ sources: 1
 
 > {{name}}的差别，如何解释 V4 的迁移选择？
 
-## 懂了它才能懂（解锁 1）
-
-- [[推理模型]] — 推理模型发生在推理阶段，懂训练/推理之分更清楚其定位。
-
 ## 相关
 
+- [[推理模型]] · related-to（audit） — 训练/推理之分只帮助给推理模型定位，不懂也能理解推理模型本身。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion

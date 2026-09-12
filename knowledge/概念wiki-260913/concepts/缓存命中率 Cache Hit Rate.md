@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: caching-cost
 learningStage: now
 verification: use
-centrality: 0.017
-depth: 0
+centrality: 0.181
+depth: 2
 origin: [context]
 aliases: ["Cache Hit Rate"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 把缓存命中率当作运行状态指标，监控 cache_read_input_tokens、cache_creation_input_tokens、首字延迟及版本上线后的变化。
 
-**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.181
 
 ## 费曼一下
 
@@ -37,6 +37,15 @@ sources: 1
 
 > 能否为线上服务搭一套 {{name}} 的监控口径？
 
+## 先懂这些（前置 2）
+
+- [[KV-cache 命中率]] · **soft** — 不懂KV-cache命中率，就做不了缓存命中率的指标口径（命中率本质是前缀相同比率）。
+- [[API-boundary observability]] · **soft** — 不懂API-boundary observability，就做不了缓存命中率的准确采集（拿到usage计量块）。
+
+## 懂了它才能懂（解锁 1）
+
+- [[提示词缓存 Prompt Caching]] — 不懂缓存命中率，就做不了提示词缓存的效果评估（命中多少、是否值得）。
+
 ## 相关
 
 - [[稳定前缀 Stable Prefix]] · 同篇出现（co-occurrence） — 同篇出现：context-17
@@ -53,6 +62,8 @@ sources: 1
 
 ## 反链
 
-- [[缓存断点 Cache Breakpoint]]
 - [[提示词缓存 Prompt Caching]]
+- [[缓存断点 Cache Breakpoint]]
+- [[KV-cache 命中率]]
 - [[稳定前缀 Stable Prefix]]
+- [[API-boundary observability]]

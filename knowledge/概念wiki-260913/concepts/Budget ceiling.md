@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: caching-cost
 learningStage: now
 verification: use
-centrality: 0.042
+centrality: 0.072
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 为 token 或金额消耗设定的上限，防止无限 loop 把成本推到失控。
 
-**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -38,7 +38,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[Token count]] · **hard** — 预算上限按 token 或金额设定，token 是计量基础。
+- [[Token count]] · **soft** — 预算上限按 token 或金额设定，token 是计量基础。
 
 ## 相关
 
@@ -51,7 +51,7 @@ sources: 1
 - Harness Engineering ｜ 《一次关于 Loop 的工程争论》 ｜ https://x.com/mvanhorn/status/2063865685558903149/?rw_tt_thread=True
 ## 反链
 
-- [[Loop Engineering]]
 - [[Token count]]
+- [[Loop Engineering]]
 - [[Continuous orchestration loop]]
 - [[Model as subroutine]]

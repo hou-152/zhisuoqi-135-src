@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: model-training
 learningStage: deep-dive
 verification: accept
-centrality: 0.067
-depth: 1
+centrality: 0.017
+depth: 0
 origin: [notion]
 aliases: ["Muon optimizer", "Muon"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 一种基于矩阵几何改造的训练优化器，替代 AdamW，让同等算力下 loss 降得更快更稳。
 
-**领域** model-training ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.067
+**领域** model-training ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.017
 
 ## 原文 context
 
@@ -35,13 +35,9 @@ sources: 1
 
 > {{name}} 相比 AdamW 省的是训练还是推理算力？
 
-## 先懂这些（前置 2）
-
-- [[Q、K、V]] · **soft** — Muon 更新 Transformer 中的矩阵参数，懂 QKV 矩阵更易理解它优化什么。
-- [[模型训练与 harness 设计的耦合]] · **soft** — 模型与harness同环迭代的post-training对优化器稳定性与速度要求更高，先懂该回路才懂Muon的诉求。
-
 ## 相关
 
+- [[Q、K、V]] · rejected（audit） — QKV 只是 Transformer 中一类矩阵参数；Muon 优化任意矩阵参数，不懂注意力也能理解它。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -56,5 +52,4 @@ sources: 1
 
 ## 反链
 
-- [[模型训练与 harness 设计的耦合]]
 - [[Q、K、V]]

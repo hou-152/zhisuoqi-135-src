@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: verification-eval
 learningStage: when-needed
 verification: judge
-centrality: 0.042
+centrality: 0.126
 depth: 0
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 测量结论绑定特定版本、模型、机器与样本量；具体数字会过期，但 API 边界测量方法可迁移。
 
-**领域** verification-eval ｜ **类型** META ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** verification-eval ｜ **类型** META ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,12 +36,14 @@ sources: 1
 
 > 你能说清 {{name}} 中哪些内容会过期、哪些可以迁移吗？
 
-## 懂了它才能懂（解锁 1）
+## 懂了它才能懂（解锁 2）
 
-- [[Trace-based evals]] — 轨迹评估结论必须绑定版本与样本快照才可复现。
+- [[pass@k]] — 不懂 Measurement snapshot，就做不了 pass@k 的跨模型/跨样本量可比报告
+- [[Infrastructure noise]] — 不懂 Measurement snapshot，就做不了 Infrastructure noise 的归因与扣除
 
 ## 相关
 
+- [[Trace-based evals]] · related-to（audit） — B 是评测可复现性的通用要求，不是理解 trace-based evals 方法本身的前提。
 - [[API-boundary observability]] · 同篇出现（co-occurrence） — 同篇出现：context-19
 - [[Tool-schema tax]] · 同篇出现（co-occurrence） — 同篇出现：context-19
 - [[Harness token floor]] · 同篇出现（co-occurrence） — 同篇出现：context-19
@@ -52,6 +54,8 @@ sources: 1
 ## 反链
 
 - [[Harness token floor]]
+- [[Infrastructure noise]]
+- [[pass@k]]
 - [[Tool-schema tax]]
 - [[Trace-based evals]]
 - [[API-boundary observability]]

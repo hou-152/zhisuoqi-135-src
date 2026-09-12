@@ -7,8 +7,8 @@ subject: Harness Engineering
 domain: state-persistence
 learningStage: now
 verification: judge
-centrality: 0.11
-depth: 1
+centrality: 0.253
+depth: 0
 origin: [harness]
 aliases: ["durable execution"]
 sources: 2
@@ -18,7 +18,7 @@ sources: 2
 
 > 把每次 LLM 或工具调用变成一个可独立重试的 step，进程崩溃后从已持久化的检查点继续。
 
-**领域** state-persistence ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.11
+**领域** state-persistence ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.253
 
 ## 费曼一下
 
@@ -37,37 +37,35 @@ sources: 2
 
 > 进程在第五轮挂掉，{{name}} 为什么还能让这次 run 继续？
 
-## 先懂这些（前置 1）
+## 懂了它才能懂（解锁 4）
 
-- [[文件系统即持久记忆]] · **soft** — 检查点须持久化到磁盘，进程崩溃后才能恢复。
-
-## 懂了它才能懂（解锁 2）
-
-- [[Harness]] — Durable Execution 是 Agent Harness 提供可靠重试与恢复的组成部分。
-- [[Long-running agent handoff]] — 长任务要能续跑，依赖可独立重试的持久化 step。
+- [[snapshotting + rehydration]] — 不懂【持久化执行】，就做不了【snapshotting + rehydration】的「在新容器里从上次检查点恢复状态并继续跑完未完成 step」
+- [[统一执行状态与业务状态]] — 不懂【持久化执行】，就做不了【统一执行状态与业务状态】的「崩溃后通过启动/暂停/恢复 API 让执行从检查点继续」
+- [[Git-backed state]] — 不懂【持久化执行】，就做不了【Git-backed state】的「把循环状态落 git 后按检查点语义支持系统重启崩溃恢复」
+- [[Stateful Runtime Environment (SRE)]] — 不懂【持久化执行】，就做不了【Stateful Runtime Environment (SRE)】的「把可重试 step 与检查点恢复封装进运行环境」
 
 ## 相关
 
-- [[step]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[step ID 自动索引]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
-- [[think → act → observe 循环]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
-- [[事件驱动编排与执行解耦]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[普遍可触发 universally triggered]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
-- [[webhook transform 与 connect()]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
-- [[小函数组合]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[子 agent 与 step.invoke()]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[两级上下文剪枝 pruning]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
-- [[压缩（compaction）与运行内外的分工]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[预算警告与溢出恢复]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[steering]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
+- [[step]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
+- [[think → act → observe 循环]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
+- [[事件驱动编排与执行解耦]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
+- [[webhook transform 与 connect()]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
+- [[小函数组合]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
+- [[压缩（compaction）与运行内外的分工]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[基础设施问题，不是 AI 问题]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[Sandbox]] · 常一起用（工作流） — Sandbox 与 Durable Execution 配合，让环境失效后仍能从检查点恢复。
 - [[Sandbox]] · 常一起用 — 状态外置和检查点让运行在沙箱失效后仍可恢复。
 - [[harness 与 framework 的分野]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[Agents SDK]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
-- [[model-native harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
 - [[Agent loop]] · 常一起用（工作流） — Durable Execution 把 Agent Loop 的每次模型与工具调用变成可独立重试步骤。
 - [[Agent loop]] · 常一起用 — 持久化执行把 Agent Loop 的每次模型和工具调用变成可独立重试的步骤。
+- [[model-native harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
 - [[Harness]] · 组成（运行时组成） — Durable Execution 是 Agent Harness 提供可靠重试与恢复的组成部分。
 - [[Harness]] · 常一起用 — 解耦的编排层为 harness 带来可观测性、持久化执行和重试。
 
@@ -82,24 +80,25 @@ sources: 2
 
 ## 反链
 
-- [[Harness]]
-- [[文件系统即持久记忆]]
-- [[Agent loop]]
 - [[Sandbox]]
-- [[Long-running agent handoff]]
-- [[model-native harness]]
-- [[harness 与 framework 的分野]]
-- [[steering]]
-- [[基础设施问题，不是 AI 问题]]
+- [[Agent loop]]
+- [[Stateful Runtime Environment (SRE)]]
 - [[事件驱动编排与执行解耦]]
-- [[小函数组合]]
+- [[统一执行状态与业务状态]]
 - [[压缩（compaction）与运行内外的分工]]
+- [[Git-backed state]]
+- [[model-native harness]]
+- [[snapshotting + rehydration]]
+- [[think → act → observe 循环]]
+- [[基础设施问题，不是 AI 问题]]
+- [[两级上下文剪枝 pruning]]
+- [[普遍可触发 universally triggered]]
+- [[小函数组合]]
 - [[预算警告与溢出恢复]]
 - [[子 agent 与 step.invoke()]]
 - [[Agents SDK]]
+- [[harness 与 framework 的分野]]
+- [[steering]]
 - [[step]]
 - [[step ID 自动索引]]
-- [[think → act → observe 循环]]
 - [[webhook transform 与 connect()]]
-- [[两级上下文剪枝 pruning]]
-- [[普遍可触发 universally triggered]]

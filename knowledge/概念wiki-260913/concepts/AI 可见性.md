@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: media-culture-education
 learningStage: when-needed
 verification: use
-centrality: 0.042
+centrality: 0.072
 depth: 1
 origin: [notion]
 aliases: ["AI Visibility"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 让 AI 更好地知晓你的内容与产品：做好内容，并用结构化、机器可读的描述告诉 AI 爬虫这边有什么。
 
-**领域** media-culture-education ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** media-culture-education ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -38,10 +38,11 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[AI 爬虫五大分类]] · **hard** — 要让 AI 知晓你的内容，必须先弄清各类爬虫用途不同，否则无从做针对性描述。
+- [[AI 爬虫五大分类]] · **soft** — 不懂 AI 爬虫五大分类，就做不了 AI 可见性的配置——会把 robots.txt 当总开关，一把把爬虫全关掉。
 
 ## 相关
 
+- [[AI 爬虫五大分类]] · related-to（audit） — AI 爬虫五大分类是操作细节，理解 AI 可见性的目标不必须懂分类。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion

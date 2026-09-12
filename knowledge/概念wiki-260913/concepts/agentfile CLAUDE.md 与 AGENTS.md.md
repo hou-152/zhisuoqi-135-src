@@ -7,8 +7,8 @@ subject: Harness Engineering
 domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.042
-depth: 0
+centrality: 0.072
+depth: 1
 origin: [harness]
 aliases: ["CLAUDE.md 与 AGENTS.md"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 仓库顶层被 harness 确定性注入系统提示的 markdown 文件；研究显示手写收益小、LLM 生成反损性能。
 
-**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -37,9 +37,9 @@ sources: 1
 
 > {{name}}该写什么、不该写什么？代价多大？
 
-## 懂了它才能懂（解锁 1）
+## 先懂这些（前置 1）
 
-- [[Instruction-file tax]] — 该税指的正是 AGENTS.md/CLAUDE.md 的 token 开销，不懂 agentfile 就无从谈税。
+- [[系统提示 System Prompt]] · **hard** — 不懂【系统提示】，就做不了【agentfile】的 ⟨被harness注入系统提示的顶层文件这一定义⟩
 
 ## 相关
 
@@ -59,5 +59,5 @@ sources: 1
 
 - [[Harness]]
 - [[Harness 工程 Harness Engineering]]
+- [[系统提示 System Prompt]]
 - [[configuration problem]]
-- [[Instruction-file tax]]

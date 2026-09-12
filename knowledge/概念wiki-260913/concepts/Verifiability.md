@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: verification-eval
 learningStage: now
 verification: judge
-centrality: 0.067
-depth: 0
+centrality: 0.126
+depth: 1
 origin: [notion]
 aliases: ["Verifiability", "可验证性", "可验证性原则"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 任务是否存在自动 reward 或成功信号，决定模型能否靠 RL 反复练习而快速进步。
 
-**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
+**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 原文 context
 
@@ -43,13 +43,17 @@ sources: 1
 
 > 给定一个任务，你能判断它的 {{name}} 高低并说明依据吗？
 
-## 懂了它才能懂（解锁 2）
+## 先懂这些（前置 1）
 
-- [[Verifiable Codebase]] — 可验证代码库是可验证性在工程环境中的落地形态。
+- [[可验证目标]] · **soft** — 不懂【可验证目标】，就做不了【Verifiability】的 ⟨判断某任务是否存在自动 reward 或成功信号⟩
+
+## 懂了它才能懂（解锁 1）
+
 - [[Self-verification]] — 任务有无自动成功信号，决定自检能否闭环。
 
 ## 相关
 
+- [[Verifiable Codebase]] · related-to（audit） — Verifiability 是任务级的 RL 奖励信号属性，Verifiable Codebase 是工程落地形态，二者更像并列的抽象/实例关系；不懂 RL 意义上的 verifiability，靠字面「可验证」也能立住，甚至方向很可能是反
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -65,7 +69,5 @@ sources: 1
 ## 反链
 
 - [[Self-verification]]
-- [[外包思考，但不外包理解]]
+- [[可验证目标]]
 - [[Verifiable Codebase]]
-- [[Agent-Native Infrastructure]]
-- [[Sensors 与 Actuators]]

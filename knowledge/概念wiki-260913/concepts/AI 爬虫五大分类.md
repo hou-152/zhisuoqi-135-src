@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: media-culture-education
 learningStage: when-needed
 verification: judge
-centrality: 0.067
+centrality: 0.072
 depth: 0
 origin: [notion]
 aliases: ["AI Crawler Taxonomy"]
@@ -17,7 +17,7 @@ sources: 1
 
 > AI 爬虫并非一类，各自用途不同，因此 robots.txt 不能当简单开关用。
 
-**领域** media-culture-education ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
+**领域** media-culture-education ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,13 +36,13 @@ sources: 1
 
 > 为什么不能用 robots.txt 一刀切对待 {{name}}？
 
-## 懂了它才能懂（解锁 2）
+## 懂了它才能懂（解锁 1）
 
-- [[AI 可见性]] — 要让 AI 知晓你的内容，必须先弄清各类爬虫用途不同，否则无从做针对性描述。
-- [[Cloaking]] — 用 User-Agent 嗅探区别对待爬虫与真人，前提是知道爬虫分几类、各自什么标识。
+- [[AI 可见性]] — 不懂 AI 爬虫五大分类，就做不了 AI 可见性的配置——会把 robots.txt 当总开关，一把把爬虫全关掉。
 
 ## 相关
 
+- [[AI 可见性]] · related-to（audit） — AI 爬虫五大分类是操作细节，理解 AI 可见性的目标不必须懂分类。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -58,4 +58,3 @@ sources: 1
 ## 反链
 
 - [[AI 可见性]]
-- [[Cloaking]]

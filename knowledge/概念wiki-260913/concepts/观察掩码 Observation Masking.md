@@ -57,6 +57,6 @@ sources: 2
 ## 反链
 
 - [[上下文腐烂 Context Rot]]
+- [[非模型架构 Non-model Architecture]]
 - [[即时检索 Just-in-time Retrieval]]
 - [[AI Agent]]
-- [[非模型架构 Non-model Architecture]]

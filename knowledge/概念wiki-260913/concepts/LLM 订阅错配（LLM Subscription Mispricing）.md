@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: economy-business
 learningStage: when-needed
 verification: judge
-centrality: 0.042
-depth: 2
+centrality: 0.126
+depth: 1
 origin: [notion]
 aliases: ["LLM Subscription Mispricing", "AI 订阅模式失灵", "月费订阅不适合 LLM"]
 sources: 1
@@ -15,9 +15,9 @@ sources: 1
 
 # LLM 订阅错配（LLM Subscription Mispricing）
 
-> 月费订阅要求单位用户成本稳定，而 LLM 用户成本可相差百倍，二者从根上不兼容。
+> 月费这种商业模式从根上跟 LLM 不兼容。
 
-**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -34,10 +34,16 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[AI 泡沫]] · **soft** — 订阅错配是 AI 投入与可见收益失衡的一个具体证据
+- [[机会成本]] · **soft** — 不懂【机会成本】，就做不了给无限量月费定一个不亏的定价口径
+
+## 懂了它才能懂（解锁 1）
+
+- [[粘性界面与 token 成本转移]] — 不懂【LLM 订阅错配】，就做不了判断 token 成本为何被推给模型厂商与 coding agent
 
 ## 相关
 
+- [[AI 泡沫]] · rejected（audit） — 订阅错配是 AI 泡沫的具体证据，不构成理解它的前置依赖。
+- [[OpenAI 广告基础设施域名]] · rejected（audit） — 域名事实本身不依赖订阅错配；错配只是解释 OpenAI 为何做广告，不是理解 bzrcdn/bzr 的前提。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -52,4 +58,7 @@ sources: 1
 
 ## 反链
 
+- [[机会成本]]
+- [[粘性界面与 token 成本转移]]
 - [[AI 泡沫]]
+- [[OpenAI 广告基础设施域名]]

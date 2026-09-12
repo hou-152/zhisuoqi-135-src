@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.067
-depth: 0
+centrality: 0.126
+depth: 2
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 一个 agent 可执行的全部动作与工具的集合，构造它是搭建 harness 最难的部分之一。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,10 +36,13 @@ One of the hardest parts of building an agent harness is constructing its action
 
 > {{name}}里包含哪些动作？缺了哪个任务就做不成？
 
-## 懂了它才能懂（解锁 2）
+## 先懂这些（前置 1）
+
+- [[Filesystem 作为最基础的 harness 原语]] · **soft** — 文件系统用法是模型最熟练的那部分动作集合，构成动作空间底座。
+
+## 懂了它才能懂（解锁 1）
 
 - [[用工具调用联系人类]] — 把人当可调用资源，前提是动作空间里能容纳人类这个工具。
-- [[Filesystem 作为最基础的 harness 原语]] — 文件系统用法是模型最熟练的那部分动作集合，构成动作空间底座。
 
 ## 相关
 
@@ -56,12 +59,12 @@ One of the hardest parts of building an agent harness is constructing its action
 - Context Engineering ｜ 《构建 Claude Code 的经验教训：如何让 Agent「看见」世界》 ｜ https://x.com/trq212/status/2027463795355095314
 ## 反链
 
+- [[Tool Calling]]
+- [[Subagent]]
 - [[上下文腐烂 Context Rot]]
 - [[渐进式披露 progressive disclosure]]
-- [[Subagent]]
 - [[Agent Skills]]
 - [[Elicitation]]
-- [[用工具调用联系人类]]
 - [[Filesystem 作为最基础的 harness 原语]]
+- [[用工具调用联系人类]]
 - [[See Like an Agent]]
-- [[Tool Calling]]

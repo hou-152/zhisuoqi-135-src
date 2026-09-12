@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: caching-cost
 learningStage: when-needed
 verification: use
-centrality: 0.042
+centrality: 0.126
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 提示缓存的有效时长，默认 5 分钟、可扩展至 1 小时，决定多轮或中断后能否复用前缀。
 
-**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -40,6 +40,10 @@ TTL 决定缓存能等你多久。连续追问通常 5 分钟够用；中间要�
 
 - [[提示词缓存（Prompt Caching）]] · **hard** — TTL 是提示缓存的有效期参数，脱离缓存无法理解。
 
+## 懂了它才能懂（解锁 1）
+
+- [[模型一致性与 prompt caching]] — 不懂 TTL，就判断不了中断超时后能否继续沿用原模型与档位
+
 ## 相关
 
 - [[稳定前缀 Stable Prefix]] · 同篇出现（co-occurrence） — 同篇出现：context-17
@@ -51,7 +55,8 @@ TTL 决定缓存能等你多久。连续追问通常 5 分钟够用；中间要�
 - Context Engineering ｜ 《提示词缓存不是小优化，而是 agent 成本结构的关键变量》 ｜ https://x.com/shachepi/status/2053463461729046817/?rw_tt_thread=True&s=12
 ## 反链
 
+- [[提示词缓存 Prompt Caching]]
 - [[提示词缓存（Prompt Caching）]]
 - [[缓存断点 Cache Breakpoint]]
-- [[提示词缓存 Prompt Caching]]
+- [[模型一致性与 prompt caching]]
 - [[稳定前缀 Stable Prefix]]

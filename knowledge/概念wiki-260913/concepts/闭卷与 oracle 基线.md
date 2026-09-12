@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: verification-eval
 learningStage: when-needed
 verification: judge
-centrality: 0.042
-depth: 2
+centrality: 0.017
+depth: 0
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 用不给任何文档与只给含答案文档两条参照线，为成绩定位的评测设定。
 
-**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,14 +36,11 @@ sources: 1
 
 > {{name}} 中 oracle 高而闭卷低说明缺什么能力？
 
-## 先懂这些（前置 1）
-
-- [[多文档问答受控实验]] · **soft** — oracle 那条基线就是“只给含答案那篇”的极端受控长上下文设置。
-
 ## 相关
 
-- [[U 型性能曲线]] · 同篇出现（co-occurrence） — 同篇出现：context-02
+- [[多文档问答受控实验]] · related-to（audit） — 闭卷/ oracle 是通用评测定位概念，oracle（给正确文档作上界）不特指多文档实验；该实验只是其中一个使用场景。
 - [[首因偏置 primacy bias]] · 同篇出现（co-occurrence） — 同篇出现：context-02
+- [[U 型性能曲线]] · 同篇出现（co-occurrence） — 同篇出现：context-02
 - [[迷失在中间 lost in the middle]] · 同篇出现（co-occurrence） — 同篇出现：context-02
 
 ## 出场

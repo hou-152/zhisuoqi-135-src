@@ -6,8 +6,8 @@ subject: Context Engineering × Harness Engineering
 domain: loop-autonomy
 learningStage: when-needed
 verification: judge
-centrality: 0.06
-depth: 2
+centrality: 0.035
+depth: 0
 origin: [context, harness]
 aliases: []
 sources: 2
@@ -17,7 +17,7 @@ sources: 2
 
 > 从提示词、上下文、harness 到 loop 的四次跃迁：语言表达、信息组织、规则约束、系统自运行。
 
-**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.06
+**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.035
 
 ## 费曼一下
 
@@ -36,22 +36,19 @@ sources: 2
 
 > 你的项目处在 {{name}} 的哪一级，下一级要补什么？
 
-## 先懂这些（前置 1）
-
-- [[Loop Engineering]] · **soft** — 跃迁的终点就是 Loop Engineering，先懂循环工程才懂这次跃迁。
-
 ## 相关
 
-- [[工作树隔离]] · 同篇出现（co-occurrence） — 同篇出现：context-07
-- [[项目知识体系]] · 同篇出现（co-occurrence） — 同篇出现：context-07
 - [[连接器]] · 同篇出现（co-occurrence） — 同篇出现：context-07
-- [[子 Agent 分工]] · 同篇出现（co-occurrence） — 同篇出现：context-07
 - [[可验证目标]] · 同篇出现（co-occurrence） — 同篇出现：context-07
+- [[Harness 与 Loop 的配合]] · 同篇出现（co-occurrence） — 同篇出现：context-07
+- [[工作树隔离]] · 同篇出现（co-occurrence） — 同篇出现：context-07
 - [[管理 Agent]] · 同篇出现（co-occurrence） — 同篇出现：context-07
 - [[古德哈特定律]] · 同篇出现（co-occurrence） — 同篇出现：context-07
-- [[Harness 与 Loop 的配合]] · 同篇出现（co-occurrence） — 同篇出现：context-07
+- [[项目知识体系]] · 同篇出现（co-occurrence） — 同篇出现：context-07
+- [[子 Agent 分工]] · 同篇出现（co-occurrence） — 同篇出现：context-07
 - [[自动循环的心跳]] · 同篇出现（co-occurrence） — 同篇出现：context-07
 - [[Loop Engineering]] · 同篇出现（co-occurrence） — 同篇出现：context-07
+- [[Loop Engineering]] · related-to（audit） — 跃迁的终点是 Loop Engineering，属目标/结果而非前置；甚至可能方向相反（理解跃迁才理解循环工程）
 
 ## 出场
 
@@ -60,12 +57,12 @@ sources: 2
 ## 反链
 
 - [[Loop Engineering]]
-- [[子 Agent 分工]]
 - [[可验证目标]]
+- [[子 Agent 分工]]
 - [[自动循环的心跳]]
-- [[管理 Agent]]
-- [[项目知识体系]]
-- [[工作树隔离]]
 - [[古德哈特定律]]
+- [[管理 Agent]]
 - [[连接器]]
+- [[项目知识体系]]
 - [[Harness 与 Loop 的配合]]
+- [[工作树隔离]]

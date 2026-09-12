@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: spec-intent
 learningStage: now
 verification: use
-centrality: 0.042
-depth: 2
+centrality: 0.072
+depth: 0
 origin: [notion]
 aliases: ["Spec-First Workflow", "Spec-First", "规格先行", "spec-first development", "spec-driven"]
 sources: 1
@@ -15,9 +15,9 @@ sources: 1
 
 # Spec-First Workflow
 
-> 先与 agent 把规格/文档写细到能当蓝图，再让 agent 实现，review 对象主要是 spec
+> 先与 agent 把规格/文档写到极细再让 agent 实现，spec 决定 agent 输出上限。
 
-**领域** spec-intent ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** spec-intent ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 原文 context
 
@@ -39,12 +39,13 @@ Karpathy 的 MenuGen 反例：agent 用邮箱去匹配 Stripe 和 Google 账户�
 
 > 给我一个需求，你能写出 {{name}} 要求的 spec 吗？
 
-## 先懂这些（前置 1）
+## 懂了它才能懂（解锁 1）
 
-- [[Spec-driven agent workflow]] · **hard** — Spec-First 是规格驱动工作流的具体形态，先写细规格再让 agent 实现。
+- [[Spec-driven agent workflow]] — 不懂【Spec-First Workflow】，就做不了【Spec-driven agent workflow】里「先把规格写细再放行实现」这一步
 
 ## 相关
 
+- [[Spec-driven agent workflow]] · related-to（audit） — 二者近乎同义，Spec-First 可独立理解；作为‘具体形态’的 is-a 关系不构成硬前置
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion

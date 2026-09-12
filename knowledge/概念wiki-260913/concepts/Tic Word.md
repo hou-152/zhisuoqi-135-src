@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: model-training
 learningStage: deep-dive
 verification: judge
-centrality: 0.06
-depth: 1
+centrality: 0.089
+depth: 2
 origin: [notion]
 aliases: ["抽动词", "verbal tic", "lexical tic", "language tic", "语言癖", "Style Tic", "风格性口癖", "语言怪癖"]
 sources: 2
@@ -17,7 +17,7 @@ sources: 2
 
 > 模型在不该出现的语境下仍反复使用的词，是奖励信号系统性偏差的可量化指纹。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.06
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.089
 
 ## 原文 context
 
@@ -45,10 +45,11 @@ sources: 2
 
 ## 先懂这些（前置 1）
 
-- [[奖励攻击与多样性坍塌]] · **soft** — Tic Word是奖励偏差留下的口癖，懂奖励攻击更易理解其成因。
+- [[奖励攻击与多样性坍塌]] · **soft** — 不懂【奖励攻击与多样性坍塌】，就做不了 Tic Word 的⟨作为奖励信号系统性偏差指纹的因果解释⟩
 
 ## 相关
 
+- [[奖励攻击与多样性坍塌]] · related-to（audit） — Tic Word 作为「语境不当的重复词」本身可独立理解，奖励攻击只是成因解释，非定义/机制依赖
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -64,7 +65,4 @@ sources: 2
 
 ## 反链
 
-- [[外包思考，但不外包理解]]
 - [[奖励攻击与多样性坍塌]]
-- [[Agent-Native Infrastructure]]
-- [[Sensors 与 Actuators]]

@@ -5,9 +5,9 @@ type: CONCEPTUAL
 subject: Harness Engineering
 domain: agent-org
 learningStage: deep-dive
-verification: judge
-centrality: 0.042
-depth: 1
+verification: accept
+centrality: 0.017
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 交付物从成品软件变为生成内核，需要被 harness 的系统复杂度本身随之下降。
 
-**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,12 +36,9 @@ sources: 1
 
 > {{name}} 为何让 harness 工程不再那么重要？
 
-## 先懂这些（前置 1）
-
-- [[Creator → Curator 角色转换]] · **soft** — 交付生成内核而非成品软件，正需要工程师从创造者转为策展人。
-
 ## 相关
 
+- [[Creator → Curator 角色转换]] · related-to（audit） — 角色转换是交付生成内核之后的连带结果，不是理解这一交付形态的必要前提。
 - [[时间 Scalability Temporal Scalability]] · 同篇出现（co-occurrence） — 同篇出现：harness-A1
 - [[空间 Scalability Spatial Scalability]] · 同篇出现（co-occurrence） — 同篇出现：harness-A1
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-A1
@@ -52,6 +49,6 @@ sources: 1
 ## 反链
 
 - [[Harness 工程 Harness Engineering]]
-- [[空间 Scalability Spatial Scalability]]
-- [[时间 Scalability Temporal Scalability]]
 - [[Creator → Curator 角色转换]]
+- [[时间 Scalability Temporal Scalability]]
+- [[空间 Scalability Spatial Scalability]]

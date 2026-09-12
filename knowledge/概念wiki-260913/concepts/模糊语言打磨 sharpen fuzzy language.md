@@ -41,7 +41,6 @@ sources: 1
 
 - [[追问式对齐 Grill Me]] · 同篇出现（co-occurrence） — 同篇出现：context-08
 - [[共享理解 shared understanding]] · 同篇出现（co-occurrence） — 同篇出现：context-08
-- [[设计树 design tree]] · 同篇出现（co-occurrence） — 同篇出现：context-08
 
 ## 出场
 
@@ -54,5 +53,4 @@ sources: 1
 ## 反链
 
 - [[共享理解 shared understanding]]
-- [[设计树 design tree]]
 - [[追问式对齐 Grill Me]]

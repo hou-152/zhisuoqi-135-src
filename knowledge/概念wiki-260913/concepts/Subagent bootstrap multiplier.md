@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: caching-cost
 learningStage: deep-dive
 verification: compute
-centrality: 0.042
+centrality: 0.072
 depth: 2
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 每个子 agent 有独立 bootstrap、父 agent 又摄入其 transcript，导致 token 成倍放大
 
-**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.042
+**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.072
 
 ## 费曼一下
 

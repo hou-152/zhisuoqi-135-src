@@ -1,63 +1,63 @@
 {
- "generatedAt": "2026-09-12T16:50:07.762Z",
+ "generatedAt": "2026-09-12T17:51:34.810Z",
  "model": "deepseek-flash",
- "tokens": 48590,
+ "tokens": 79142,
  "structural": {
-  "total": 1156,
+  "total": 856,
   "bracketNames": 0,
-  "emptyDesc": [
-   "OAIQ"
-  ],
+  "emptyDesc": [],
   "descLen": {
-   "min": 4,
-   "p25": 38,
-   "mid": 43,
-   "p75": 50,
+   "min": 13,
+   "p25": 39,
+   "mid": 45,
+   "p75": 53,
    "max": 103,
-   "avg": 45
+   "avg": 47
   },
-  "withFeynman": 809,
-  "withContext": 1136,
-  "withEvidence": 1154,
-  "withAp": 1154,
-  "isolated": 189,
+  "withFeynman": 701,
+  "withContext": 839,
+  "withEvidence": 854,
+  "withAp": 854,
+  "isolated": 264,
   "edgeByOrigin": {
-   "curated": 16,
-   "llm": 920
+   "llm": 168,
+   "llm-strict": 323
   },
   "edgeByStrength": {
-   "hard": 405,
-   "soft": 531
+   "hard": 185,
+   "soft": 306
   },
-  "hardRatio": "0.43",
+  "hardRatio": "0.38",
   "edgeWithEmptyReason": 0,
   "shortReason": 0,
   "relationKinds": {
    "part-of": 16,
-   "contrast": 9,
-   "used-with": 61,
-   "co-article": 3370,
-   "prerequisite": 923
+   "contrast": 8,
+   "used-with": 60,
+   "co-article": 2437,
+   "related-to": 215,
+   "rejected": 66,
+   "prerequisite": 491
   },
   "domainSizes": [
    {
     "label": "Harness 与运行时",
-    "n": 114,
+    "n": 115,
     "ai": true
    },
    {
     "label": "循环与自主执行",
-    "n": 46,
+    "n": 45,
     "ai": true
    },
    {
     "label": "上下文工程",
-    "n": 150,
+    "n": 156,
     "ai": true
    },
    {
     "label": "记忆与检索",
-    "n": 40,
+    "n": 37,
     "ai": true
    },
    {
@@ -72,32 +72,32 @@
    },
    {
     "label": "工具调用与沙箱",
-    "n": 35,
+    "n": 36,
     "ai": true
    },
    {
     "label": "多 Agent 编排",
-    "n": 44,
-    "ai": true
-   },
-   {
-    "label": "验证与评估门禁",
-    "n": 74,
-    "ai": true
-   },
-   {
-    "label": "规格与意图对齐",
     "n": 43,
     "ai": true
    },
    {
+    "label": "验证与评估门禁",
+    "n": 72,
+    "ai": true
+   },
+   {
+    "label": "规格与意图对齐",
+    "n": 36,
+    "ai": true
+   },
+   {
     "label": "代码库与工程实践",
-    "n": 39,
+    "n": 32,
     "ai": true
    },
    {
     "label": "安全权限与合规",
-    "n": 35,
+    "n": 29,
     "ai": true
    },
    {
@@ -107,79 +107,69 @@
    },
    {
     "label": "AI 产品与组织",
-    "n": 49,
+    "n": 39,
     "ai": true
    },
    {
     "label": "认知与思维方法",
-    "n": 86,
+    "n": 31,
     "ai": true
    },
    {
-    "label": "身心与神经科学",
-    "n": 32,
+    "label": "AI 医疗",
+    "n": 5,
     "ai": false
    },
    {
-    "label": "临床医学与诊断",
-    "n": 36,
-    "ai": false
-   },
-   {
-    "label": "个人生活与关系",
-    "n": 28,
+    "label": "AI 与个人生活",
+    "n": 2,
     "ai": false
    },
    {
     "label": "经济与商业逻辑",
-    "n": 54,
+    "n": 29,
     "ai": false
    },
    {
-    "label": "社会法律与制度",
-    "n": 33,
+    "label": "AI 监管与问责",
+    "n": 5,
     "ai": false
    },
    {
-    "label": "媒体教育与文化",
-    "n": 57,
+    "label": "AI 内容生态",
+    "n": 12,
     "ai": false
    },
    {
-    "label": "地缘与基础设施",
-    "n": 36,
+    "label": "AI 算力与基建",
+    "n": 9,
     "ai": false
-   },
-   {
-    "label": "unclassified",
-    "n": 2,
-    "ai": true
    }
   ],
-  "nonAiShare": "23.9%",
+  "nonAiShare": "7.2%",
   "byType": {
-   "CONCEPTUAL": 824,
-   "PROCEDURAL": 156,
-   "REPRESENTATIONAL": 151,
-   "LANGUAGE": 19,
-   "META": 6
+   "CONCEPTUAL": 600,
+   "REPRESENTATIONAL": 107,
+   "LANGUAGE": 14,
+   "PROCEDURAL": 131,
+   "META": 4
   },
   "byStage": {
-   "now": 292,
-   "when-needed": 753,
-   "deep-dive": 111
+   "now": 275,
+   "when-needed": 512,
+   "deep-dive": 69
   },
   "byVerification": {
-   "judge": 620,
-   "use": 324,
-   "accept": 172,
-   "compute": 40
+   "judge": 467,
+   "use": 264,
+   "compute": 26,
+   "accept": 99
   },
   "byOrigin": {
-   "notionOnly": 488,
-   "contextOnly": 286,
-   "harnessOnly": 325,
-   "multi": 57
+   "notionOnly": 213,
+   "contextOnly": 268,
+   "harnessOnly": 319,
+   "multi": 56
   },
   "contained": [
    [
@@ -187,23 +177,51 @@
     "Harness"
    ],
    [
-    "Loop Engineering",
-    "Loop Engineer"
+    "Skills Hell",
+    "Skill"
    ],
    [
     "Agent loop",
     "Agent"
    ],
    [
+    "Loop Engineering",
+    "Loop Engineer"
+   ],
+   [
+    "Self-verification loop",
+    "Self-verification"
+   ],
+   [
+    "子 Agent 分工",
+    "Agent"
+   ],
+   [
+    "Agent Skills",
+    "Skill"
+   ],
+   [
+    "Agent Skills",
+    "Agent"
+   ],
+   [
+    "Sandbox agents",
+    "Sandbox"
+   ],
+   [
     "Sessions",
     "Session"
    ],
    [
-    "Dr. GRPO",
-    "GRPO"
+    "Tiny Engram",
+    "Engram"
    ],
    [
-    "子 Agent 分工",
+    "管理 Agent",
+    "Agent"
+   ],
+   [
+    "AI Agent",
     "Agent"
    ],
    [
@@ -211,558 +229,278 @@
     "AI Agent"
    ],
    [
-    "睡眠健康四维测量框架",
-    "睡眠健康"
-   ],
-   [
-    "管理 Agent",
-    "Agent"
-   ],
-   [
-    "Agent Skills",
-    "Skill"
-   ],
-   [
-    "Agent Skills",
-    "Agent"
-   ],
-   [
-    "Hermes Agent",
-    "Agent"
-   ],
-   [
-    "Self-verification loop",
-    "Self-verification"
-   ],
-   [
-    "Skill Files",
-    "Skill"
-   ],
-   [
-    "Skills Hell",
-    "Skill"
-   ],
-   [
-    "Tiny Engram",
-    "Engram"
-   ],
-   [
-    "AI Agent",
-    "Agent"
-   ],
-   [
-    "冰 XXII",
-    "冰 XXI"
+    "上下文压缩与即时检索",
+    "上下文压缩"
    ],
    [
     "上下文压缩与即时检索",
     "即时检索"
    ],
    [
-    "上下文压缩与即时检索",
-    "上下文压缩"
-   ],
-   [
-    "锁竞争与乐观并发控制",
-    "乐观并发控制"
-   ],
-   [
-    "Agent 经济",
-    "Agent"
-   ],
-   [
     "Agent Drift",
     "Agent"
    ],
    [
-    "AgentCore",
+    "Agents SDK",
     "Agent"
    ],
    [
-    "Agentic primitives",
-    "primitives"
+    "Dr. GRPO",
+    "GRPO"
+   ],
+   [
+    "Harness 简化原则",
+    "Harness"
+   ],
+   [
+    "Harness 内 RL",
+    "Harness"
+   ],
+   [
+    "Harness 组件生命周期",
+    "Harness"
+   ],
+   [
+    "Skill Files",
+    "Skill"
+   ],
+   [
+    "step ID 自动索引",
+    "step"
+   ],
+   [
+    "脚手架与 Harness 厚度",
+    "Harness"
    ]
   ],
-  "wikiPages": 1156,
-  "wikiOrphans": 21
+  "wikiPages": 856,
+  "wikiOrphans": 14
  },
  "sample": {
   "concepts": {
-   "n": 40,
+   "n": 60,
    "faithful": {
-    "supported": 35,
-    "overstated": 4,
-    "nosource": 1
+    "supported": 53,
+    "overstated": 5,
+    "nosource": 2
    },
-   "domainOk": 39,
-   "typeOk": 37,
-   "verifyOk": 38
+   "domainOk": 60,
+   "typeOk": 55,
+   "verifyOk": 58
   },
   "edges": {
-   "n": 30,
+   "n": 40,
    "holds": {
-    "yes": 17,
-    "weak": 8,
-    "no": 4,
-    "reversed": 1
+    "yes": 35,
+    "weak": 5
    },
    "byOrigin": {
-    "curated": {
-     "yes": 2,
-     "weak": 2,
-     "no": 4,
+    "llm-strict": {
+     "yes": 16,
+     "weak": 4,
+     "no": 0,
      "reversed": 0
     },
     "llm": {
-     "yes": 15,
-     "weak": 6,
+     "yes": 19,
+     "weak": 1,
      "no": 0,
-     "reversed": 1
+     "reversed": 0
     }
    }
   },
   "conceptIssues": [
    {
-    "id": "cm_3391436a",
-    "name": "tokens",
-    "domain": "上下文工程",
-    "i": 3,
-    "faithful": "overstated",
-    "domain_ok": true,
-    "type_ok": true,
-    "verify_ok": false,
-    "issue": "原文只说模型处理 token 而非词，定义额外加上「上下文长度与计费都按 token 计数」属自行添加；且这是概念性知识，用 use 验收不成立，宜 accept 或 compute。"
-   },
-   {
-    "id": "cm_231cf0b4",
-    "name": "RLVR 与编码 agent 的 RL 训练循环",
-    "domain": "模型能力与训练",
-    "i": 5,
+    "id": "cm_103560db",
+    "name": "RHAE",
+    "domain": "验证与评估门禁",
+    "i": 8,
     "faithful": "supported",
     "domain_ok": true,
-    "type_ok": true,
+    "type_ok": false,
     "verify_ok": false,
-    "issue": "上百万次、数周到数月的 RL 训练循环学习者既算不出也跑不了，compute 不成立，只能 judge（讲清流程）或 accept。"
-   },
-   {
-    "id": "cm_0a4ca4ce",
-    "name": "Harness",
-    "domain": "Harness 与运行时",
-    "i": 9,
-    "faithful": "overstated",
-    "domain_ok": true,
-    "type_ok": true,
-    "verify_ok": true,
-    "issue": "原文只是转述 Claude Code 的行为表现，并没有给出「包裹在 LLM 之外的完整软件架构」这一定义，定义是推断补出来的。"
+    "issue": "RHAE 是可算的数值评分指标，类型应为 CONCEPTUAL（非 REPRESENTATIONAL），验收应为 compute（能算）而非只能 accept"
    },
    {
     "id": "cm_30201f36",
     "name": "上下文工程",
     "domain": "上下文工程",
-    "i": 0,
+    "i": 1,
     "faithful": "overstated",
     "domain_ok": true,
     "type_ok": true,
     "verify_ok": true,
-    "issue": "原文刻意不绑定具体技术与时代（1990 年代计算机到 2025 年 agent 都适用），定义却窄化为“模型上下文窗口”的构建与管理"
+    "issue": "定义把上下文工程窄化为“模型上下文窗口”，原文特意不绑定具体技术或时代，且形式化定义是 (C,T)→f_context 而非窗口管理。"
    },
    {
     "id": "cm_691a420e",
     "name": "Token count",
     "domain": "缓存与成本控制",
-    "i": 2,
+    "i": 3,
+    "faithful": "nosource",
+    "domain_ok": true,
+    "type_ok": false,
+    "verify_ok": true,
+    "issue": "无原文可核；Token count 是计量/概念，不是 LANGUAGE 类型。"
+   },
+   {
+    "id": "cm_4a78d263",
+    "name": "Subagent",
+    "domain": "多 Agent 编排",
+    "i": 4,
     "faithful": "nosource",
     "domain_ok": true,
     "type_ok": true,
     "verify_ok": true,
-    "issue": "无原文材料可核；领域归入“缓存”在定义里也找不到依据，只有计费/预算/成本"
+    "issue": "原文只有一句问 subagents 怎么在共享 Todo List 上协作，完全没有「全新而小的上下文窗口/只回流浓缩结果」这类定义，定义无出处可核"
    },
    {
-    "id": "cm_2081e44e",
-    "name": "共享 / 多人 agent 会话",
-    "domain": "多 Agent 编排",
-    "i": 8,
-    "faithful": "supported",
-    "domain_ok": false,
-    "type_ok": true,
-    "verify_ok": true,
-    "issue": "领域判错：原文讲的是 Linear 里团队可见、多人共改同一 agent 会话的协作能力，属产品/组织协作，不是多 Agent 编排"
-   },
-   {
-    "id": "cm_a3f25593",
-    "name": "primitives",
-    "domain": "Harness 与运行时",
-    "i": 9,
+    "id": "cm_894f275b",
+    "name": "Stateful Runtime Environment (SRE)",
+    "domain": "状态与持久化",
+    "i": 5,
     "faithful": "supported",
     "domain_ok": true,
     "type_ok": false,
     "verify_ok": true,
-    "issue": "类型判错：primitives 指 Agents、Agents as tools/Handoffs、Guardrails 这组架构构件，是概念而非语言/术语"
+    "issue": "SRE 是状态运行时这一系统/架构主张，属概念性（CONCEPTUAL），不是表征类（REPRESENTATIONAL）"
    },
    {
-    "id": "cm_926aa05d",
-    "name": "shell tool",
-    "domain": "工具调用与沙箱",
+    "id": "cm_838289d1",
+    "name": "KV-cache 命中率",
+    "domain": "缓存与成本控制",
     "i": 0,
-    "faithful": "supported",
-    "domain_ok": true,
-    "type_ok": false,
-    "verify_ok": true,
-    "issue": "类型判为 REPRESENTATIONAL 不妥，shell tool 是工具/执行能力，不是表征。"
-   },
-   {
-    "id": "cm_e56f1e8b",
-    "name": "Harness 工程",
-    "domain": "Harness 与运行时",
-    "i": 4,
     "faithful": "overstated",
     "domain_ok": true,
     "type_ok": true,
     "verify_ok": true,
-    "issue": "定义超出原文，原文只说“让 Agent 能够自主行动的完整系统”，未提注入人类先验和外科式修正。"
+    "issue": "原文说直接影响延迟与成本，定义写成直接决定；十倍差价是 Claude Sonnet 特例。"
    },
    {
-    "id": "cm_511bf6de",
-    "name": "Planner–Worker 角色分离",
+    "id": "cm_32dc32a9",
+    "name": "service template 与 golden path",
+    "domain": "代码库与工程实践",
+    "i": 3,
+    "faithful": "supported",
+    "domain_ok": true,
+    "type_ok": false,
+    "verify_ok": false,
+    "issue": "service template/golden path 是工程实践/流程，不是表征；类型应为 PROCEDURAL，验收应 use 而非 accept。"
+   },
+   {
+    "id": "cm_698b655e",
+    "name": "奖励攻击与多样性坍塌",
+    "domain": "模型能力与训练",
+    "i": 5,
+    "faithful": "overstated",
+    "domain_ok": true,
+    "type_ok": true,
+    "verify_ok": true,
+    "issue": "原文说倾向压榨并需要机制防止种群坍缩，定义说导致坍缩，语气更强。"
+   },
+   {
+    "id": "cm_30843ecf",
+    "name": "多智能体架构",
     "domain": "多 Agent 编排",
-    "i": 6,
+    "i": 9,
+    "faithful": "overstated",
+    "domain_ok": true,
+    "type_ok": true,
+    "verify_ok": true,
+    "issue": "原文只说场景、角色、量表可替换，定义写成逐层可替换，范围更大。"
+   },
+   {
+    "id": "cm_e09e7cfa",
+    "name": "coding agent",
+    "domain": "Harness 与运行时",
+    "i": 2,
     "faithful": "supported",
     "domain_ok": true,
     "type_ok": false,
     "verify_ok": true,
-    "issue": "Planner–Worker 是角色分离的架构模式，属概念性知识，判成 REPRESENTATIONAL（表征类）不对"
+    "issue": "coding agent 是技术概念/实体，不是语言项，类型应为 CONCEPTUAL，判成 LANGUAGE 明显不对。"
+   },
+   {
+    "id": "cm_12a39025",
+    "name": "对话式广告归因闭环",
+    "domain": "经济与商业逻辑",
+    "i": 0,
+    "faithful": "overstated",
+    "domain_ok": true,
+    "type_ok": true,
+    "verify_ok": true,
+    "issue": "原文只说 backend 注入 single_advertiser_ad_unit 对象、OAIQ 在浏览器上报、Fernet 加密点击 token；定义里的「SSE 注入」和「webview 跳转」原文没提，是凭空补的具体机制。"
    }
   ],
   "edgeIssues": [
    {
-    "topicId": "cm_30201f36",
-    "prerequisiteId": "cm_622b0b3b",
-    "from": "上下文工程",
-    "to": "即时检索",
+    "topicId": "cm_19d82c87",
+    "prerequisiteId": "cm_75392c01",
+    "from": "过度约束与松绑",
+    "to": "护栏与判断力的取舍",
     "strength": "hard",
-    "origin": "curated",
-    "reason": "Just-in-Time Retrieval 是 Context Engineering 的生产策略之一。",
-    "i": 2,
-    "holds": "weak",
-    "issue": "即时检索只是上下文工程的一种生产策略，不是理解上下文工程的硬前置；至多作为例子让概念更好懂。"
-   },
-   {
-    "topicId": "cm_9c9c0044",
-    "prerequisiteId": "cm_d7a8d5c8",
-    "from": "ChatGPT moment for videos",
-    "to": "微剧",
-    "strength": "hard",
-    "origin": "llm",
-    "reason": "横店微剧剧组骤降是该时点的表征，不懂微剧产业就看不出替代潮冲击了什么。",
-    "i": 3,
-    "holds": "weak",
-    "issue": "微剧只是该时点的一个表征或案例，不懂微剧仍能理解 AI 视频替代潮这一概念；至多帮助理解具体例子。"
-   },
-   {
-    "topicId": "cm_2944fd6c",
-    "prerequisiteId": "cm_0a4ca4ce",
-    "from": "编排循环与「dumb loop」",
-    "to": "Harness",
-    "strength": "hard",
-    "origin": "llm",
-    "reason": "循环是 Harness 的心跳，先懂 Harness 才懂循环的位置。",
-    "i": 6,
-    "holds": "weak",
-    "issue": "编排循环本身可作为通用控制流理解，Harness 只帮助定位其在系统中的角色，并非硬前置。"
-   },
-   {
-    "topicId": "cm_2efbcc89",
-    "prerequisiteId": "cm_703ec1e4",
-    "from": "长上下文评测协议",
-    "to": "输入长度与任务难度的混淆",
-    "strength": "hard",
-    "origin": "llm",
-    "reason": "不先懂长输入基准把长度与难度混在一起，就不知协议要证明位置不敏感。",
-    "i": 8,
-    "holds": "weak",
-    "issue": "该协议可独立理解为位置不敏感验收口径；长度与难度的混淆只是解释其动机，并非硬前置。"
-   },
-   {
-    "topicId": "cm_95233874",
-    "prerequisiteId": "cm_8da6f44c",
-    "from": "反向代理式窥探",
-    "to": "看对话 log",
-    "strength": "hard",
-    "origin": "llm",
-    "reason": "它只是看对话 log 的一种具体手段。",
+    "origin": "llm-strict",
+    "reason": "不懂【护栏与判断力的取舍】，就做不了【过度约束与松绑】的按模型能力松绑规则",
     "i": 0,
     "holds": "weak",
-    "issue": "只是「看对话 log」的一种具体手段（子类关系），定义里已自包含\"看到真实 prompt\"的目的，不通前置也能立住，属 soft。"
+    "issue": "硬依赖偏强：不懂取舍仍可理解过度约束现象，取舍只是松绑决策的依据，更像理由/应用关系。"
    },
    {
-    "topicId": "cm_e56f1e8b",
-    "prerequisiteId": "cm_30201f36",
-    "from": "Harness 工程",
-    "to": "上下文工程",
-    "strength": "hard",
-    "origin": "curated",
-    "reason": "本站工程范围轴采用 Harness Engineering 通常包住 Context Engineering。",
-    "i": 1,
-    "holds": "no",
-    "issue": "理由只是范围包含（Harness 工程包住上下文工程），包含关系不等于概念依赖，不懂上下文工程也能懂 Harness 工程。"
+    "topicId": "cm_c63aeadd",
+    "prerequisiteId": "cm_45b7faf3",
+    "from": "agent 循环",
+    "to": "tool loop",
+    "strength": "soft",
+    "origin": "llm-strict",
+    "reason": "不懂【tool loop】，就做不了【agent 循环】的“执行 tool call 并把结果回灌上下文”。",
+    "i": 7,
+    "holds": "weak",
+    "issue": "两者高度重叠，近乎同义，作为独立前置边区分度低；soft 成立但更像同一机制的不同表述。"
    },
    {
-    "topicId": "cm_0a4ca4ce",
-    "prerequisiteId": "cm_1973b1d3",
-    "from": "Harness",
-    "to": "Agent loop",
+    "topicId": "cm_ffd117a0",
+    "prerequisiteId": "cm_0db0f875",
+    "from": "端到端验证",
+    "to": "Feedback loop",
+    "strength": "soft",
+    "origin": "llm-strict",
+    "reason": "不懂【Feedback loop】，就做不了【端到端验证】的「跑通完整流程并读结果」",
+    "i": 5,
+    "holds": "weak",
+    "issue": "反馈循环与端到端验证更像并列/紧邻概念，前者只是后者会用到的一种运行机制，「跑通并读结果」不必先懂 feedback loop 才成立，够不上 hard 甚至偏 soft 都勉强。"
+   },
+   {
+    "topicId": "cm_3cd29e1b",
+    "prerequisiteId": "cm_01d6a01e",
+    "from": "上下文占用率与性能衰减",
+    "to": "长上下文窗口",
     "strength": "hard",
-    "origin": "curated",
-    "reason": "Agent Harness 负责组织模型、工具与观察之间的运行循环。",
+    "origin": "llm",
+    "reason": "占用率是相对窗口容量而言，先有窗口才有占用率与其衰减。",
+    "i": 0,
+    "holds": "weak",
+    "issue": "真正前置是“上下文窗口容量”，长上下文窗口只是特例；hard 不成立，最多弱相关。"
+   },
+   {
+    "topicId": "cm_9e82be87",
+    "prerequisiteId": "cm_1e2c70a5",
+    "from": "pass@k",
+    "to": "Measurement snapshot",
+    "strength": "soft",
+    "origin": "llm-strict",
+    "reason": "不懂 Measurement snapshot，就做不了 pass@k 的跨模型/跨样本量可比报告",
     "i": 3,
     "holds": "weak",
-    "issue": "agent loop 是 harness 内部的一个组成机制，懂它更好懂 harness，但不懂它 harness 作为\"包裹模型的软件架构\"仍能立住，不构成 hard。"
-   },
-   {
-    "topicId": "cm_fcf9bcbe",
-    "prerequisiteId": "cm_23c93d39",
-    "from": "Hyperscaler",
-    "to": "次贷式 AI 危机（Subprime AI Crisis）",
-    "strength": "hard",
-    "origin": "llm",
-    "reason": "低价补贴与风险层层打包，正是超大规模云厂商完成的动作",
-    "i": 4,
-    "holds": "reversed",
-    "issue": "方向反了：是超大规模云厂商的低价补贴与风险打包造成了次贷式 AI 危机，理解 Hyperscaler 不需要先懂该危机。"
-   },
-   {
-    "topicId": "cm_0608c405",
-    "prerequisiteId": "cm_0a4ca4ce",
-    "from": "Agent",
-    "to": "Harness",
-    "strength": "hard",
-    "origin": "curated",
-    "reason": "来源提出 Agent = Model + Harness；本站在运行组成轴接纳该关系，同时保留 Agent 与 Agent Harness 不同义的行为视角。",
-    "i": 8,
-    "holds": "no",
-    "issue": "本站 Agent 的最小定义（LLM+指令+工具）不依赖 harness，不懂 harness 也能懂 Agent；此边至多是若干视角之一，不成立 hard。"
-   },
-   {
-    "topicId": "cm_0a4ca4ce",
-    "prerequisiteId": "cm_10cbe746",
-    "from": "Harness",
-    "to": "持久化执行",
-    "strength": "hard",
-    "origin": "curated",
-    "reason": "Durable Execution 是 Agent Harness 提供可靠重试与恢复的组成部分。",
-    "i": 3,
-    "holds": "no",
-    "issue": "持久化执行只是部分 Harness 的可选能力，不是理解 Harness 定义的必要构成。"
-   },
-   {
-    "topicId": "cm_d017eff4",
-    "prerequisiteId": "cm_c478fbd6",
-    "from": "束理论",
-    "to": "工业强度实在论",
-    "strength": "hard",
-    "origin": "llm",
-    "reason": "束理论正是否定自我为独立实体，不懂所否定的实体观就无法理解。",
-    "i": 4,
-    "holds": "weak",
-    "issue": "工业强度实在论只是束理论所否定的对立观点，懂它有助于对照，但不懂丹尼特这一术语也能理解休谟束理论。"
-   },
-   {
-    "topicId": "cm_0a4ca4ce",
-    "prerequisiteId": "cm_285b2834",
-    "from": "Harness",
-    "to": "Guardrails",
-    "strength": "hard",
-    "origin": "curated",
-    "reason": "Guardrails 是 Agent Harness 约束输入、输出与行动路径的组成部分。",
-    "i": 8,
-    "holds": "no",
-    "issue": "Guardrails 只是 Harness 的可选组件，并非 Harness 定义或必要构成。"
-   },
-   {
-    "topicId": "cm_5c7e3009",
-    "prerequisiteId": "cm_03726492",
-    "from": "本地状态层",
-    "to": "文件系统即持久记忆",
-    "strength": "hard",
-    "origin": "llm",
-    "reason": "本地状态目录把 todo 存 json、消息存 sqlite 文件，本质是文件系统持久记忆。",
-    "i": 9,
-    "holds": "weak",
-    "issue": "本地状态层可独立理解为 ~/.claude 下的本地存储；文件系统即持久记忆只是解释其设计意图的泛化原则，非硬前提。"
+    "issue": "pass@k 的定义本身不依赖测量快照；快照只影响结果可比性，不是理解 pass@k 的前置。"
    }
   ]
  },
  "conceptResults": [
   {
-   "id": "cm_ed8dcd39",
-   "name": "multimodal / Vision LLMs",
-   "domain": "模型能力与训练",
-   "i": 0,
-   "faithful": "supported",
-   "domain_ok": true,
-   "type_ok": true,
-   "verify_ok": true,
-   "issue": ""
-  },
-  {
-   "id": "cm_e00f590e",
-   "name": "Harness token floor",
-   "domain": "缓存与成本控制",
-   "i": 1,
-   "faithful": "supported",
-   "domain_ok": true,
-   "type_ok": true,
-   "verify_ok": true,
-   "issue": ""
-  },
-  {
-   "id": "cm_05146d91",
-   "name": "注意力预算",
-   "domain": "上下文工程",
-   "i": 2,
-   "faithful": "supported",
-   "domain_ok": true,
-   "type_ok": true,
-   "verify_ok": true,
-   "issue": ""
-  },
-  {
-   "id": "cm_3391436a",
-   "name": "tokens",
-   "domain": "上下文工程",
-   "i": 3,
-   "faithful": "overstated",
-   "domain_ok": true,
-   "type_ok": true,
-   "verify_ok": false,
-   "issue": "原文只说模型处理 token 而非词，定义额外加上「上下文长度与计费都按 token 计数」属自行添加；且这是概念性知识，用 use 验收不成立，宜 accept 或 compute。"
-  },
-  {
-   "id": "cm_5c7e3009",
-   "name": "本地状态层",
-   "domain": "状态与持久化",
-   "i": 4,
-   "faithful": "supported",
-   "domain_ok": true,
-   "type_ok": true,
-   "verify_ok": true,
-   "issue": ""
-  },
-  {
-   "id": "cm_231cf0b4",
-   "name": "RLVR 与编码 agent 的 RL 训练循环",
-   "domain": "模型能力与训练",
-   "i": 5,
-   "faithful": "supported",
-   "domain_ok": true,
-   "type_ok": true,
-   "verify_ok": false,
-   "issue": "上百万次、数周到数月的 RL 训练循环学习者既算不出也跑不了，compute 不成立，只能 judge（讲清流程）或 accept。"
-  },
-  {
-   "id": "cm_0608c405",
-   "name": "Agent",
-   "domain": "Harness 与运行时",
-   "i": 6,
-   "faithful": "supported",
-   "domain_ok": true,
-   "type_ok": true,
-   "verify_ok": true,
-   "issue": ""
-  },
-  {
-   "id": "cm_03726492",
-   "name": "文件系统即持久记忆",
-   "domain": "状态与持久化",
-   "i": 7,
-   "faithful": "supported",
-   "domain_ok": true,
-   "type_ok": true,
-   "verify_ok": true,
-   "issue": ""
-  },
-  {
-   "id": "cm_652d3291",
-   "name": "输出 token 效率",
-   "domain": "缓存与成本控制",
-   "i": 8,
-   "faithful": "supported",
-   "domain_ok": true,
-   "type_ok": true,
-   "verify_ok": true,
-   "issue": ""
-  },
-  {
-   "id": "cm_0a4ca4ce",
-   "name": "Harness",
-   "domain": "Harness 与运行时",
-   "i": 9,
-   "faithful": "overstated",
-   "domain_ok": true,
-   "type_ok": true,
-   "verify_ok": true,
-   "issue": "原文只是转述 Claude Code 的行为表现，并没有给出「包裹在 LLM 之外的完整软件架构」这一定义，定义是推断补出来的。"
-  },
-  {
-   "id": "cm_30201f36",
-   "name": "上下文工程",
-   "domain": "上下文工程",
-   "i": 0,
-   "faithful": "overstated",
-   "domain_ok": true,
-   "type_ok": true,
-   "verify_ok": true,
-   "issue": "原文刻意不绑定具体技术与时代（1990 年代计算机到 2025 年 agent 都适用），定义却窄化为“模型上下文窗口”的构建与管理"
-  },
-  {
-   "id": "cm_ba301154",
-   "name": "常识心理学",
-   "domain": "认知与思维方法",
-   "i": 1,
-   "faithful": "supported",
-   "domain_ok": true,
-   "type_ok": true,
-   "verify_ok": true,
-   "issue": ""
-  },
-  {
-   "id": "cm_691a420e",
-   "name": "Token count",
-   "domain": "缓存与成本控制",
-   "i": 2,
-   "faithful": "nosource",
-   "domain_ok": true,
-   "type_ok": true,
-   "verify_ok": true,
-   "issue": "无原文材料可核；领域归入“缓存”在定义里也找不到依据，只有计费/预算/成本"
-  },
-  {
-   "id": "cm_13b720ca",
-   "name": "默认思维倾向",
-   "domain": "认知与思维方法",
-   "i": 3,
-   "faithful": "supported",
-   "domain_ok": true,
-   "type_ok": true,
-   "verify_ok": true,
-   "issue": ""
-  },
-  {
-   "id": "cm_30843ecf",
-   "name": "多智能体架构",
-   "domain": "多 Agent 编排",
-   "i": 4,
-   "faithful": "supported",
-   "domain_ok": true,
-   "type_ok": true,
-   "verify_ok": true,
-   "issue": ""
-  },
-  {
-   "id": "cm_96db0031",
-   "name": "自动驾驶产品与项目记忆",
+   "id": "cm_3a2cd7d5",
+   "name": "产品记忆平台",
    "domain": "AI 产品与组织",
-   "i": 5,
+   "i": 0,
    "faithful": "supported",
    "domain_ok": true,
    "type_ok": true,
@@ -770,10 +508,10 @@
    "issue": ""
   },
   {
-   "id": "cm_2efbcc89",
-   "name": "长上下文评测协议",
-   "domain": "验证与评估门禁",
-   "i": 6,
+   "id": "cm_c63aeadd",
+   "name": "agent 循环",
+   "domain": "循环与自主执行",
+   "i": 1,
    "faithful": "supported",
    "domain_ok": true,
    "type_ok": true,
@@ -781,10 +519,10 @@
    "issue": ""
   },
   {
-   "id": "cm_78a628e1",
-   "name": "stateless",
-   "domain": "Harness 与运行时",
-   "i": 7,
+   "id": "cm_036f0092",
+   "name": "前缀匹配",
+   "domain": "缓存与成本控制",
+   "i": 2,
    "faithful": "supported",
    "domain_ok": true,
    "type_ok": true,
@@ -792,185 +530,20 @@
    "issue": ""
   },
   {
-   "id": "cm_2081e44e",
-   "name": "共享 / 多人 agent 会话",
-   "domain": "多 Agent 编排",
-   "i": 8,
-   "faithful": "supported",
-   "domain_ok": false,
-   "type_ok": true,
-   "verify_ok": true,
-   "issue": "领域判错：原文讲的是 Linear 里团队可见、多人共改同一 agent 会话的协作能力，属产品/组织协作，不是多 Agent 编排"
-  },
-  {
-   "id": "cm_a3f25593",
-   "name": "primitives",
-   "domain": "Harness 与运行时",
-   "i": 9,
-   "faithful": "supported",
-   "domain_ok": true,
-   "type_ok": false,
-   "verify_ok": true,
-   "issue": "类型判错：primitives 指 Agents、Agents as tools/Handoffs、Guardrails 这组架构构件，是概念而非语言/术语"
-  },
-  {
-   "id": "cm_926aa05d",
-   "name": "shell tool",
+   "id": "cm_8089ce21",
+   "name": "工具定义",
    "domain": "工具调用与沙箱",
-   "i": 0,
-   "faithful": "supported",
-   "domain_ok": true,
-   "type_ok": false,
-   "verify_ok": true,
-   "issue": "类型判为 REPRESENTATIONAL 不妥，shell tool 是工具/执行能力，不是表征。"
-  },
-  {
-   "id": "cm_a46abbb1",
-   "name": "Cross-session Work",
-   "domain": "状态与持久化",
-   "i": 1,
-   "faithful": "supported",
-   "domain_ok": true,
-   "type_ok": true,
-   "verify_ok": true,
-   "issue": ""
-  },
-  {
-   "id": "cm_1973b1d3",
-   "name": "Agent loop",
-   "domain": "循环与自主执行",
-   "i": 2,
-   "faithful": "supported",
-   "domain_ok": true,
-   "type_ok": true,
-   "verify_ok": true,
-   "issue": ""
-  },
-  {
-   "id": "cm_103560db",
-   "name": "RHAE",
-   "domain": "验证与评估门禁",
    "i": 3,
    "faithful": "supported",
    "domain_ok": true,
    "type_ok": true,
    "verify_ok": true,
-   "issue": ""
+   "issue": "定义前半“名称、参数与用途的 schema”原文未提，属常识性补充，勉强可接受"
   },
   {
-   "id": "cm_e56f1e8b",
-   "name": "Harness 工程",
-   "domain": "Harness 与运行时",
-   "i": 4,
-   "faithful": "overstated",
-   "domain_ok": true,
-   "type_ok": true,
-   "verify_ok": true,
-   "issue": "定义超出原文，原文只说“让 Agent 能够自主行动的完整系统”，未提注入人类先验和外科式修正。"
-  },
-  {
-   "id": "cm_20bf8a66",
-   "name": "Loop Engineering",
+   "id": "cm_b2154cb8",
+   "name": "长时程自治编码",
    "domain": "循环与自主执行",
-   "i": 5,
-   "faithful": "supported",
-   "domain_ok": true,
-   "type_ok": true,
-   "verify_ok": true,
-   "issue": ""
-  },
-  {
-   "id": "cm_fb4dc697",
-   "name": "液体活检",
-   "domain": "临床医学与诊断",
-   "i": 6,
-   "faithful": "supported",
-   "domain_ok": true,
-   "type_ok": true,
-   "verify_ok": true,
-   "issue": ""
-  },
-  {
-   "id": "cm_9191c944",
-   "name": "REINFORCE",
-   "domain": "模型能力与训练",
-   "i": 7,
-   "faithful": "supported",
-   "domain_ok": true,
-   "type_ok": true,
-   "verify_ok": true,
-   "issue": ""
-  },
-  {
-   "id": "cm_c63842fd",
-   "name": "DPPO",
-   "domain": "模型能力与训练",
-   "i": 8,
-   "faithful": "supported",
-   "domain_ok": true,
-   "type_ok": true,
-   "verify_ok": true,
-   "issue": ""
-  },
-  {
-   "id": "cm_34b33e00",
-   "name": "Skill",
-   "domain": "上下文工程",
-   "i": 9,
-   "faithful": "supported",
-   "domain_ok": true,
-   "type_ok": true,
-   "verify_ok": true,
-   "issue": ""
-  },
-  {
-   "id": "cm_8c8c6e16",
-   "name": "haystack 结构连贯性效应",
-   "domain": "上下文工程",
-   "i": 0,
-   "faithful": "supported",
-   "domain_ok": true,
-   "type_ok": true,
-   "verify_ok": true,
-   "issue": ""
-  },
-  {
-   "id": "cm_c5c2a8cb",
-   "name": "Baseline-request product",
-   "domain": "缓存与成本控制",
-   "i": 1,
-   "faithful": "supported",
-   "domain_ok": true,
-   "type_ok": true,
-   "verify_ok": true,
-   "issue": ""
-  },
-  {
-   "id": "cm_edc164c5",
-   "name": "代理原生",
-   "domain": "AI 产品与组织",
-   "i": 2,
-   "faithful": "supported",
-   "domain_ok": true,
-   "type_ok": true,
-   "verify_ok": true,
-   "issue": ""
-  },
-  {
-   "id": "cm_b8729c07",
-   "name": "跨会话记忆文件系统",
-   "domain": "记忆与检索",
-   "i": 3,
-   "faithful": "supported",
-   "domain_ok": true,
-   "type_ok": true,
-   "verify_ok": true,
-   "issue": ""
-  },
-  {
-   "id": "cm_eec62acc",
-   "name": "自协调与共享协调文件",
-   "domain": "多 Agent 编排",
    "i": 4,
    "faithful": "supported",
    "domain_ok": true,
@@ -990,20 +563,20 @@
    "issue": ""
   },
   {
-   "id": "cm_511bf6de",
-   "name": "Planner–Worker 角色分离",
-   "domain": "多 Agent 编排",
+   "id": "cm_10cbe746",
+   "name": "持久化执行",
+   "domain": "状态与持久化",
    "i": 6,
    "faithful": "supported",
    "domain_ok": true,
-   "type_ok": false,
+   "type_ok": true,
    "verify_ok": true,
-   "issue": "Planner–Worker 是角色分离的架构模式，属概念性知识，判成 REPRESENTATIONAL（表征类）不对"
+   "issue": "验收方式偏弱：持久化执行最自然的验收是“跑一个崩溃-恢复”用例（compute），judge 偏松"
   },
   {
-   "id": "cm_781791f5",
-   "name": "Sessions",
-   "domain": "状态与持久化",
+   "id": "cm_9ed037b8",
+   "name": "Sandbox",
+   "domain": "工具调用与沙箱",
    "i": 7,
    "faithful": "supported",
    "domain_ok": true,
@@ -1012,9 +585,119 @@
    "issue": ""
   },
   {
-   "id": "cm_32134c6f",
-   "name": "重要性采样",
+   "id": "cm_103560db",
+   "name": "RHAE",
+   "domain": "验证与评估门禁",
+   "i": 8,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": false,
+   "verify_ok": false,
+   "issue": "RHAE 是可算的数值评分指标，类型应为 CONCEPTUAL（非 REPRESENTATIONAL），验收应为 compute（能算）而非只能 accept"
+  },
+  {
+   "id": "cm_652d3291",
+   "name": "输出 token 效率",
+   "domain": "缓存与成本控制",
+   "i": 9,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": "定义把一次具体实验的量化结果（3 倍分数、少 6 倍 token）当成概念定义，缺少“输出 token 效率”本身的通用界定"
+  },
+  {
+   "id": "cm_0a4ca4ce",
+   "name": "Harness",
+   "domain": "Harness 与运行时",
+   "i": 0,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_30201f36",
+   "name": "上下文工程",
+   "domain": "上下文工程",
+   "i": 1,
+   "faithful": "overstated",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": "定义把上下文工程窄化为“模型上下文窗口”，原文特意不绑定具体技术或时代，且形式化定义是 (C,T)→f_context 而非窗口管理。"
+  },
+  {
+   "id": "cm_03aaef77",
+   "name": "平行 AI 基础设施",
+   "domain": "AI 算力与基建",
+   "i": 2,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_691a420e",
+   "name": "Token count",
+   "domain": "缓存与成本控制",
+   "i": 3,
+   "faithful": "nosource",
+   "domain_ok": true,
+   "type_ok": false,
+   "verify_ok": true,
+   "issue": "无原文可核；Token count 是计量/概念，不是 LANGUAGE 类型。"
+  },
+  {
+   "id": "cm_6fe071ac",
+   "name": "Reward Signal",
    "domain": "模型能力与训练",
+   "i": 4,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_34b33e00",
+   "name": "Skill",
+   "domain": "上下文工程",
+   "i": 5,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_2081e44e",
+   "name": "共享 / 多人 agent 会话",
+   "domain": "AI 产品与组织",
+   "i": 6,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_e00f590e",
+   "name": "Harness token floor",
+   "domain": "缓存与成本控制",
+   "i": 7,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_05146d91",
+   "name": "注意力预算",
+   "domain": "上下文工程",
    "i": 8,
    "faithful": "supported",
    "domain_ok": true,
@@ -1023,9 +706,449 @@
    "issue": ""
   },
   {
-   "id": "cm_6fe071ac",
-   "name": "Reward Signal",
+   "id": "cm_a500a4cb",
+   "name": "提示词缓存",
+   "domain": "缓存与成本控制",
+   "i": 9,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_a3f25593",
+   "name": "primitives",
+   "domain": "Harness 与运行时",
+   "i": 0,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_a6beb11f",
+   "name": "think → act → observe 循环",
+   "domain": "循环与自主执行",
+   "i": 1,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_1d5a247c",
+   "name": "多时间尺度记忆与「记忆只是 hint」",
+   "domain": "记忆与检索",
+   "i": 2,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_be951649",
+   "name": "状态子系统与进度持久化",
+   "domain": "状态与持久化",
+   "i": 3,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_4a78d263",
+   "name": "Subagent",
+   "domain": "多 Agent 编排",
+   "i": 4,
+   "faithful": "nosource",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": "原文只有一句问 subagents 怎么在共享 Todo List 上协作，完全没有「全新而小的上下文窗口/只回流浓缩结果」这类定义，定义无出处可核"
+  },
+  {
+   "id": "cm_894f275b",
+   "name": "Stateful Runtime Environment (SRE)",
+   "domain": "状态与持久化",
+   "i": 5,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": false,
+   "verify_ok": true,
+   "issue": "SRE 是状态运行时这一系统/架构主张，属概念性（CONCEPTUAL），不是表征类（REPRESENTATIONAL）"
+  },
+  {
+   "id": "cm_b5172a28",
+   "name": "机会成本",
+   "domain": "经济与商业逻辑",
+   "i": 6,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_b9224922",
+   "name": "AI 作为新同事",
+   "domain": "AI 产品与组织",
+   "i": 7,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_f5944e33",
+   "name": "提示词缓存（Prompt Caching）",
+   "domain": "缓存与成本控制",
+   "i": 8,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_26e8e066",
+   "name": "语义操作系统",
+   "domain": "记忆与检索",
+   "i": 9,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_838289d1",
+   "name": "KV-cache 命中率",
+   "domain": "缓存与成本控制",
+   "i": 0,
+   "faithful": "overstated",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": "原文说直接影响延迟与成本，定义写成直接决定；十倍差价是 Claude Sonnet 特例。"
+  },
+  {
+   "id": "cm_f50a09c9",
+   "name": "有限的工作记忆",
+   "domain": "上下文工程",
+   "i": 1,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_a4f9a7e3",
+   "name": "循环工程",
+   "domain": "循环与自主执行",
+   "i": 2,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_32dc32a9",
+   "name": "service template 与 golden path",
+   "domain": "代码库与工程实践",
+   "i": 3,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": false,
+   "verify_ok": false,
+   "issue": "service template/golden path 是工程实践/流程，不是表征；类型应为 PROCEDURAL，验收应 use 而非 accept。"
+  },
+  {
+   "id": "cm_44d86f15",
+   "name": "错误复利",
+   "domain": "循环与自主执行",
+   "i": 4,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_698b655e",
+   "name": "奖励攻击与多样性坍塌",
    "domain": "模型能力与训练",
+   "i": 5,
+   "faithful": "overstated",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": "原文说倾向压榨并需要机制防止种群坍缩，定义说导致坍缩，语气更强。"
+  },
+  {
+   "id": "cm_285b2834",
+   "name": "Guardrails",
+   "domain": "安全权限与合规",
+   "i": 6,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_2fb2521d",
+   "name": "优势函数",
+   "domain": "模型能力与训练",
+   "i": 7,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_8e93fc18",
+   "name": "Intelligence Factory 智能工厂",
+   "domain": "AI 产品与组织",
+   "i": 8,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_30843ecf",
+   "name": "多智能体架构",
+   "domain": "多 Agent 编排",
+   "i": 9,
+   "faithful": "overstated",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": "原文只说场景、角色、量表可替换，定义写成逐层可替换，范围更大。"
+  },
+  {
+   "id": "cm_96db0031",
+   "name": "自动驾驶产品与项目记忆",
+   "domain": "AI 产品与组织",
+   "i": 0,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_a87b8600",
+   "name": "缓存命中读取成本",
+   "domain": "缓存与成本控制",
+   "i": 1,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_e09e7cfa",
+   "name": "coding agent",
+   "domain": "Harness 与运行时",
+   "i": 2,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": false,
+   "verify_ok": true,
+   "issue": "coding agent 是技术概念/实体，不是语言项，类型应为 CONCEPTUAL，判成 LANGUAGE 明显不对。"
+  },
+  {
+   "id": "cm_51de352d",
+   "name": "Tool Calling",
+   "domain": "工具调用与沙箱",
+   "i": 3,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_86d3d4a6",
+   "name": "0 人工代码、0 人工 review 极限形态",
+   "domain": "AI 产品与组织",
+   "i": 4,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_ffd117a0",
+   "name": "端到端验证",
+   "domain": "验证与评估门禁",
+   "i": 5,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_588433b7",
+   "name": "品味与「不接受够用就行」",
+   "domain": "AI 产品与组织",
+   "i": 6,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_5103a6a6",
+   "name": "Human in the loop",
+   "domain": "安全权限与合规",
+   "i": 7,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_d9aa9fe0",
+   "name": "上下文",
+   "domain": "上下文工程",
+   "i": 8,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_c8798fb1",
+   "name": "上下文压缩",
+   "domain": "上下文工程",
+   "i": 9,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_12a39025",
+   "name": "对话式广告归因闭环",
+   "domain": "经济与商业逻辑",
+   "i": 0,
+   "faithful": "overstated",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": "原文只说 backend 注入 single_advertiser_ad_unit 对象、OAIQ 在浏览器上报、Fernet 加密点击 token；定义里的「SSE 注入」和「webview 跳转」原文没提，是凭空补的具体机制。"
+  },
+  {
+   "id": "cm_32134c6f",
+   "name": "重要性采样",
+   "domain": "模型能力与训练",
+   "i": 1,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_f3b13df1",
+   "name": "外包思考，但不外包理解",
+   "domain": "认知与思维方法",
+   "i": 2,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_56230a91",
+   "name": "Rubric",
+   "domain": "验证与评估门禁",
+   "i": 3,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_9bbb52e5",
+   "name": "最小可缓存 token 门槛",
+   "domain": "缓存与成本控制",
+   "i": 4,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_cb785e57",
+   "name": "缓存写入成本",
+   "domain": "缓存与成本控制",
+   "i": 5,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_91b202fd",
+   "name": "Validation gates",
+   "domain": "验证与评估门禁",
+   "i": 6,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_30fb0c9b",
+   "name": "skill-creator 访谈式创建",
+   "domain": "上下文工程",
+   "i": 7,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_89a74f67",
+   "name": "信任机制重构",
+   "domain": "AI 产品与组织",
+   "i": 8,
+   "faithful": "supported",
+   "domain_ok": true,
+   "type_ok": true,
+   "verify_ok": true,
+   "issue": ""
+  },
+  {
+   "id": "cm_7e6ba505",
+   "name": "hooks",
+   "domain": "Harness 与运行时",
    "i": 9,
    "faithful": "supported",
    "domain_ok": true,
@@ -1036,184 +1159,64 @@
  ],
  "edgeResults": [
   {
-   "topicId": "cm_e00f590e",
-   "prerequisiteId": "cm_e17efd1f",
-   "from": "Harness token floor",
-   "to": "Tool-schema tax",
+   "topicId": "cm_b2154cb8",
+   "prerequisiteId": "cm_8e23b5e7",
+   "from": "长时程自治编码",
+   "to": "Agentic Coding",
    "strength": "hard",
-   "origin": "curated",
-   "reason": "工具 Schema 的固定载荷是 Harness Token 底座中可单独测量的一部分。",
+   "origin": "llm-strict",
+   "reason": "不懂【Agentic Coding】，就做不了【长时程自治编码】的 ⟨把编码自治推到以周为单位这件事⟩",
    "i": 0,
    "holds": "yes",
    "issue": ""
   },
   {
-   "topicId": "cm_0608c405",
-   "prerequisiteId": "cm_4cddc093",
-   "from": "Agent",
-   "to": "LLM",
+   "topicId": "cm_c63aeadd",
+   "prerequisiteId": "cm_da1f0987",
+   "from": "agent 循环",
+   "to": "Decision-maker in the body",
    "strength": "hard",
-   "origin": "curated",
-   "reason": "模型提供推理与生成，Agent 还需要外部运行系统。",
+   "origin": "llm-strict",
+   "reason": "不懂【Decision-maker in the body】，就做不了【agent 循环】的“让 LLM 按当前状态决定下一步”。",
    "i": 1,
+   "holds": "yes",
+   "issue": ""
+  },
+  {
+   "topicId": "cm_c83244fc",
+   "prerequisiteId": "cm_75392c01",
+   "from": "护栏型指令的过期",
+   "to": "护栏与判断力的取舍",
+   "strength": "hard",
+   "origin": "llm-strict",
+   "reason": "不懂【护栏与判断力的取舍】，就做不了【护栏型指令的过期】的判断何时撤除旧护栏",
+   "i": 2,
    "holds": "yes",
    "issue": ""
   },
   {
    "topicId": "cm_30201f36",
-   "prerequisiteId": "cm_622b0b3b",
+   "prerequisiteId": "cm_d9aa9fe0",
    "from": "上下文工程",
-   "to": "即时检索",
+   "to": "上下文",
    "strength": "hard",
-   "origin": "curated",
-   "reason": "Just-in-Time Retrieval 是 Context Engineering 的生产策略之一。",
-   "i": 2,
-   "holds": "weak",
-   "issue": "即时检索只是上下文工程的一种生产策略，不是理解上下文工程的硬前置；至多作为例子让概念更好懂。"
-  },
-  {
-   "topicId": "cm_9c9c0044",
-   "prerequisiteId": "cm_d7a8d5c8",
-   "from": "ChatGPT moment for videos",
-   "to": "微剧",
-   "strength": "hard",
-   "origin": "llm",
-   "reason": "横店微剧剧组骤降是该时点的表征，不懂微剧产业就看不出替代潮冲击了什么。",
+   "origin": "llm-strict",
+   "reason": "不懂【上下文】，就做不了【上下文工程】的界定要构建与管理的对象",
    "i": 3,
-   "holds": "weak",
-   "issue": "微剧只是该时点的一个表征或案例，不懂微剧仍能理解 AI 视频替代潮这一概念；至多帮助理解具体例子。"
+   "holds": "yes",
+   "issue": ""
   },
   {
-   "topicId": "cm_09d0ea1a",
-   "prerequisiteId": "cm_01d6a01e",
-   "from": "合成键值检索任务",
-   "to": "长上下文窗口",
+   "topicId": "cm_12a39025",
+   "prerequisiteId": "cm_50015d52",
+   "from": "对话式广告归因闭环",
+   "to": "对话上下文定向",
    "strength": "hard",
    "origin": "llm",
-   "reason": "该任务用于测长上下文中的精确 token 检索，脱离长窗口便无意义。",
+   "reason": "闭环第一步就是按对话主题定向，没有它整条链路无法启动",
    "i": 4,
    "holds": "yes",
    "issue": ""
-  },
-  {
-   "topicId": "cm_67483624",
-   "prerequisiteId": "cm_0a4ca4ce",
-   "from": "\"If you're not the model, you're the harness.\"",
-   "to": "Harness",
-   "strength": "hard",
-   "origin": "llm",
-   "reason": "该划界公式的定义直接依赖 Harness 这一侧的概念。",
-   "i": 5,
-   "holds": "yes",
-   "issue": ""
-  },
-  {
-   "topicId": "cm_2944fd6c",
-   "prerequisiteId": "cm_0a4ca4ce",
-   "from": "编排循环与「dumb loop」",
-   "to": "Harness",
-   "strength": "hard",
-   "origin": "llm",
-   "reason": "循环是 Harness 的心跳，先懂 Harness 才懂循环的位置。",
-   "i": 6,
-   "holds": "weak",
-   "issue": "编排循环本身可作为通用控制流理解，Harness 只帮助定位其在系统中的角色，并非硬前置。"
-  },
-  {
-   "topicId": "cm_88ed00a1",
-   "prerequisiteId": "cm_9cf3f3e1",
-   "from": "地落",
-   "to": "地出",
-   "strength": "hard",
-   "origin": "llm",
-   "reason": "地落被视为地出的下半场，不懂地出那张照片的象征含义就无法理解地落的意义。",
-   "i": 7,
-   "holds": "yes",
-   "issue": ""
-  },
-  {
-   "topicId": "cm_2efbcc89",
-   "prerequisiteId": "cm_703ec1e4",
-   "from": "长上下文评测协议",
-   "to": "输入长度与任务难度的混淆",
-   "strength": "hard",
-   "origin": "llm",
-   "reason": "不先懂长输入基准把长度与难度混在一起，就不知协议要证明位置不敏感。",
-   "i": 8,
-   "holds": "weak",
-   "issue": "该协议可独立理解为位置不敏感验收口径；长度与难度的混淆只是解释其动机，并非硬前置。"
-  },
-  {
-   "topicId": "cm_253ad423",
-   "prerequisiteId": "cm_0a4ca4ce",
-   "from": "Agent = Model + Harness",
-   "to": "Harness",
-   "strength": "hard",
-   "origin": "llm",
-   "reason": "等式右项的 Harness 不懂，等式无法成立。",
-   "i": 9,
-   "holds": "yes",
-   "issue": ""
-  },
-  {
-   "topicId": "cm_95233874",
-   "prerequisiteId": "cm_8da6f44c",
-   "from": "反向代理式窥探",
-   "to": "看对话 log",
-   "strength": "hard",
-   "origin": "llm",
-   "reason": "它只是看对话 log 的一种具体手段。",
-   "i": 0,
-   "holds": "weak",
-   "issue": "只是「看对话 log」的一种具体手段（子类关系），定义里已自包含\"看到真实 prompt\"的目的，不通前置也能立住，属 soft。"
-  },
-  {
-   "topicId": "cm_e56f1e8b",
-   "prerequisiteId": "cm_30201f36",
-   "from": "Harness 工程",
-   "to": "上下文工程",
-   "strength": "hard",
-   "origin": "curated",
-   "reason": "本站工程范围轴采用 Harness Engineering 通常包住 Context Engineering。",
-   "i": 1,
-   "holds": "no",
-   "issue": "理由只是范围包含（Harness 工程包住上下文工程），包含关系不等于概念依赖，不懂上下文工程也能懂 Harness 工程。"
-  },
-  {
-   "topicId": "cm_8a295891",
-   "prerequisiteId": "cm_0a4ca4ce",
-   "from": "功能清单作为 harness 原语",
-   "to": "Harness",
-   "strength": "hard",
-   "origin": "llm",
-   "reason": "要成为 harness 原语，得先懂 harness 需要什么。",
-   "i": 2,
-   "holds": "yes",
-   "issue": ""
-  },
-  {
-   "topicId": "cm_0a4ca4ce",
-   "prerequisiteId": "cm_1973b1d3",
-   "from": "Harness",
-   "to": "Agent loop",
-   "strength": "hard",
-   "origin": "curated",
-   "reason": "Agent Harness 负责组织模型、工具与观察之间的运行循环。",
-   "i": 3,
-   "holds": "weak",
-   "issue": "agent loop 是 harness 内部的一个组成机制，懂它更好懂 harness，但不懂它 harness 作为\"包裹模型的软件架构\"仍能立住，不构成 hard。"
-  },
-  {
-   "topicId": "cm_fcf9bcbe",
-   "prerequisiteId": "cm_23c93d39",
-   "from": "Hyperscaler",
-   "to": "次贷式 AI 危机（Subprime AI Crisis）",
-   "strength": "hard",
-   "origin": "llm",
-   "reason": "低价补贴与风险层层打包，正是超大规模云厂商完成的动作",
-   "i": 4,
-   "holds": "reversed",
-   "issue": "方向反了：是超大规模云厂商的低价补贴与风险打包造成了次贷式 AI 危机，理解 Hyperscaler 不需要先懂该危机。"
   },
   {
    "topicId": "cm_63e5d090",
@@ -1229,49 +1232,85 @@
   },
   {
    "topicId": "cm_253ad423",
-   "prerequisiteId": "cm_0608c405",
+   "prerequisiteId": "cm_0a4ca4ce",
    "from": "Agent = Model + Harness",
-   "to": "Agent",
+   "to": "Harness",
    "strength": "hard",
    "origin": "llm",
-   "reason": "不懂 Agent 是什么，就理解不了这个等式在说什么。",
+   "reason": "等式右项的 Harness 不懂，等式无法成立。",
    "i": 6,
    "holds": "yes",
    "issue": ""
   },
   {
-   "topicId": "cm_519accd8",
+   "topicId": "cm_8a295891",
    "prerequisiteId": "cm_0a4ca4ce",
-   "from": "共享 harness",
+   "from": "功能清单作为 harness 原语",
    "to": "Harness",
    "strength": "hard",
    "origin": "llm",
-   "reason": "共享的对象就是 harness，不懂它无从谈复用。",
+   "reason": "要成为 harness 原语，得先懂 harness 需要什么。",
    "i": 7,
    "holds": "yes",
    "issue": ""
   },
   {
-   "topicId": "cm_0608c405",
-   "prerequisiteId": "cm_0a4ca4ce",
-   "from": "Agent",
-   "to": "Harness",
+   "topicId": "cm_c1139916",
+   "prerequisiteId": "cm_b55ff5c3",
+   "from": "session_search",
+   "to": "记忆",
    "strength": "hard",
-   "origin": "curated",
-   "reason": "来源提出 Agent = Model + Harness；本站在运行组成轴接纳该关系，同时保留 Agent 与 Agent Harness 不同义的行为视角。",
+   "origin": "llm-strict",
+   "reason": "不懂【记忆】的跨会话沉淀，就做不了【session_search】的长尾历史会话翻找",
    "i": 8,
-   "holds": "no",
-   "issue": "本站 Agent 的最小定义（LLM+指令+工具）不依赖 harness，不懂 harness 也能懂 Agent；此边至多是若干视角之一，不成立 hard。"
+   "holds": "yes",
+   "issue": ""
   },
   {
-   "topicId": "cm_a8b0df04",
-   "prerequisiteId": "cm_4da45761",
-   "from": "工具理性",
-   "to": "理性",
+   "topicId": "cm_759cbeb8",
+   "prerequisiteId": "cm_2fb2521d",
+   "from": "RLOO",
+   "to": "优势函数",
+   "strength": "hard",
+   "origin": "llm-strict",
+   "reason": "不懂优势函数是奖励减基线，就做不了 RLOO 用自身奖励减其余 K-1 条均值算优势的步骤",
+   "i": 9,
+   "holds": "yes",
+   "issue": ""
+  },
+  {
+   "topicId": "cm_19d82c87",
+   "prerequisiteId": "cm_75392c01",
+   "from": "过度约束与松绑",
+   "to": "护栏与判断力的取舍",
+   "strength": "hard",
+   "origin": "llm-strict",
+   "reason": "不懂【护栏与判断力的取舍】，就做不了【过度约束与松绑】的按模型能力松绑规则",
+   "i": 0,
+   "holds": "weak",
+   "issue": "硬依赖偏强：不懂取舍仍可理解过度约束现象，取舍只是松绑决策的依据，更像理由/应用关系。"
+  },
+  {
+   "topicId": "cm_c8798fb1",
+   "prerequisiteId": "cm_d9aa9fe0",
+   "from": "上下文压缩",
+   "to": "上下文",
+   "strength": "hard",
+   "origin": "llm-strict",
+   "reason": "不懂【上下文】，就做不了【上下文压缩】的定义要压缩什么",
+   "i": 1,
+   "holds": "yes",
+   "issue": ""
+  },
+  {
+   "topicId": "cm_22909587",
+   "prerequisiteId": "cm_5d035695",
+   "from": "意向性系统理论",
+   "to": "意向性立场",
    "strength": "hard",
    "origin": "llm",
-   "reason": "工具理性是对理性作用范围的特定论断，不懂理性一般含义就无从理解。",
-   "i": 9,
+   "reason": "不懂意向立场，就无法理解为何行为模式让意向立场奏效即真正信徒。",
+   "i": 2,
    "holds": "yes",
    "issue": ""
   },
@@ -1283,67 +1322,7 @@
    "strength": "hard",
    "origin": "llm",
    "reason": "harness 固定开销以 token 数计量，先懂 token 才能量化。",
-   "i": 0,
-   "holds": "yes",
-   "issue": ""
-  },
-  {
-   "topicId": "cm_0c98a6cf",
-   "prerequisiteId": "cm_0608c405",
-   "from": "AI Agent",
-   "to": "Agent",
-   "strength": "hard",
-   "origin": "llm",
-   "reason": "AI Agent 被定义为 Agent 的对外表现。",
-   "i": 1,
-   "holds": "yes",
-   "issue": ""
-  },
-  {
-   "topicId": "cm_80b8a64a",
-   "prerequisiteId": "cm_0a4ca4ce",
-   "from": "从期望行为反推 harness 设计",
-   "to": "Harness",
-   "strength": "hard",
-   "origin": "llm",
-   "reason": "反推的产物是 harness 功能，前提是懂 harness。",
-   "i": 2,
-   "holds": "yes",
-   "issue": ""
-  },
-  {
-   "topicId": "cm_0a4ca4ce",
-   "prerequisiteId": "cm_10cbe746",
-   "from": "Harness",
-   "to": "持久化执行",
-   "strength": "hard",
-   "origin": "curated",
-   "reason": "Durable Execution 是 Agent Harness 提供可靠重试与恢复的组成部分。",
    "i": 3,
-   "holds": "no",
-   "issue": "持久化执行只是部分 Harness 的可选能力，不是理解 Harness 定义的必要构成。"
-  },
-  {
-   "topicId": "cm_d017eff4",
-   "prerequisiteId": "cm_c478fbd6",
-   "from": "束理论",
-   "to": "工业强度实在论",
-   "strength": "hard",
-   "origin": "llm",
-   "reason": "束理论正是否定自我为独立实体，不懂所否定的实体观就无法理解。",
-   "i": 4,
-   "holds": "weak",
-   "issue": "工业强度实在论只是束理论所否定的对立观点，懂它有助于对照，但不懂丹尼特这一术语也能理解休谟束理论。"
-  },
-  {
-   "topicId": "cm_33922d87",
-   "prerequisiteId": "cm_e00f590e",
-   "from": "Configuration multiplier",
-   "to": "Harness token floor",
-   "strength": "hard",
-   "origin": "llm",
-   "reason": "配置膨胀是在 harness 基线之上做倍数放大。",
-   "i": 5,
    "holds": "yes",
    "issue": ""
   },
@@ -1355,45 +1334,309 @@
    "strength": "hard",
    "origin": "llm",
    "reason": "要先懂 loop 才能谈 harness 与 loop 的分工。",
+   "i": 4,
+   "holds": "yes",
+   "issue": ""
+  },
+  {
+   "topicId": "cm_80b8a64a",
+   "prerequisiteId": "cm_0a4ca4ce",
+   "from": "从期望行为反推 harness 设计",
+   "to": "Harness",
+   "strength": "hard",
+   "origin": "llm",
+   "reason": "反推的产物是 harness 功能，前提是懂 harness。",
+   "i": 5,
+   "holds": "yes",
+   "issue": ""
+  },
+  {
+   "topicId": "cm_41176d23",
+   "prerequisiteId": "cm_c3ecbf70",
+   "from": "原生工具与 MCP 外挂",
+   "to": "MCP",
+   "strength": "hard",
+   "origin": "llm-strict",
+   "reason": "不懂【MCP】，就做不了【原生工具与 MCP 外挂】的取舍讨论——这个议题本身就是「要不要外挂 MCP todo manager」",
    "i": 6,
    "holds": "yes",
    "issue": ""
   },
   {
-   "topicId": "cm_30fb0c9b",
-   "prerequisiteId": "cm_34b33e00",
-   "from": "skill-creator 访谈式创建",
-   "to": "Skill",
+   "topicId": "cm_c63aeadd",
+   "prerequisiteId": "cm_45b7faf3",
+   "from": "agent 循环",
+   "to": "tool loop",
+   "strength": "soft",
+   "origin": "llm-strict",
+   "reason": "不懂【tool loop】，就做不了【agent 循环】的“执行 tool call 并把结果回灌上下文”。",
+   "i": 7,
+   "holds": "weak",
+   "issue": "两者高度重叠，近乎同义，作为独立前置边区分度低；soft 成立但更像同一机制的不同表述。"
+  },
+  {
+   "topicId": "cm_e09e7cfa",
+   "prerequisiteId": "cm_0a4ca4ce",
+   "from": "coding agent",
+   "to": "Harness",
+   "strength": "hard",
+   "origin": "llm-strict",
+   "reason": "不懂【Harness】，就做不了 coding agent 的“harness 包裹 LLM”定义",
+   "i": 8,
+   "holds": "yes",
+   "issue": ""
+  },
+  {
+   "topicId": "cm_1d86964c",
+   "prerequisiteId": "cm_53822d1c",
+   "from": "复述（recitation）与 lost-in-the-middle",
+   "to": "迷失在中间",
+   "strength": "hard",
+   "origin": "llm-strict",
+   "reason": "不懂【迷失在中间】，就做不了【复述（recitation）与 lost-in-the-middle】的把目标复述到上下文末尾的策略",
+   "i": 9,
+   "holds": "yes",
+   "issue": ""
+  },
+  {
+   "topicId": "cm_b9e6e94d",
+   "prerequisiteId": "cm_e7db9123",
+   "from": "mHC",
+   "to": "残差流",
    "strength": "hard",
    "origin": "llm",
-   "reason": "不知道 skill 的形态与用途，就无法让 Claude 访谈并生成它。",
+   "reason": "mHC约束层间连接即改进残差流传递，不懂残差流就抓不住其对象。",
+   "i": 0,
+   "holds": "yes",
+   "issue": ""
+  },
+  {
+   "topicId": "cm_33922d87",
+   "prerequisiteId": "cm_e00f590e",
+   "from": "Configuration multiplier",
+   "to": "Harness token floor",
+   "strength": "hard",
+   "origin": "llm",
+   "reason": "配置膨胀是在 harness 基线之上做倍数放大。",
+   "i": 1,
+   "holds": "yes",
+   "issue": ""
+  },
+  {
+   "topicId": "cm_519accd8",
+   "prerequisiteId": "cm_0a4ca4ce",
+   "from": "共享 harness",
+   "to": "Harness",
+   "strength": "hard",
+   "origin": "llm",
+   "reason": "共享的对象就是 harness，不懂它无从谈复用。",
+   "i": 2,
+   "holds": "yes",
+   "issue": ""
+  },
+  {
+   "topicId": "cm_aad08abd",
+   "prerequisiteId": "cm_094c89da",
+   "from": "description 作为触发条件",
+   "to": "Agent Skills",
+   "strength": "hard",
+   "origin": "llm",
+   "reason": "description 是 skill frontmatter 的字段，不懂 Skill 结构就无从谈触发",
+   "i": 3,
+   "holds": "yes",
+   "issue": ""
+  },
+  {
+   "topicId": "cm_12a39025",
+   "prerequisiteId": "cm_21a4ec33",
+   "from": "对话式广告归因闭环",
+   "to": "OAIQ",
+   "strength": "hard",
+   "origin": "llm-strict",
+   "reason": "不懂 OAIQ，就做不了对话式广告归因闭环里的上报环节（读 oppref、写 cookie、把下单回报到 bzr.openai.com）",
+   "i": 4,
+   "holds": "yes",
+   "issue": ""
+  },
+  {
+   "topicId": "cm_ffd117a0",
+   "prerequisiteId": "cm_0db0f875",
+   "from": "端到端验证",
+   "to": "Feedback loop",
+   "strength": "soft",
+   "origin": "llm-strict",
+   "reason": "不懂【Feedback loop】，就做不了【端到端验证】的「跑通完整流程并读结果」",
+   "i": 5,
+   "holds": "weak",
+   "issue": "反馈循环与端到端验证更像并列/紧邻概念，前者只是后者会用到的一种运行机制，「跑通并读结果」不必先懂 feedback loop 才成立，够不上 hard 甚至偏 soft 都勉强。"
+  },
+  {
+   "topicId": "cm_4cd0f50d",
+   "prerequisiteId": "cm_0a4ca4ce",
+   "from": "agent 与 harness 的分工",
+   "to": "Harness",
+   "strength": "hard",
+   "origin": "llm-strict",
+   "reason": "不懂【Harness】，就做不了区分 agent 与 harness 的分工",
+   "i": 6,
+   "holds": "yes",
+   "issue": ""
+  },
+  {
+   "topicId": "cm_d7cd90db",
+   "prerequisiteId": "cm_d9aa9fe0",
+   "from": "格式即上下文",
+   "to": "上下文",
+   "strength": "hard",
+   "origin": "llm-strict",
+   "reason": "不懂【上下文】，就做不了【格式即上下文】的呈现方式作为上下文的定义",
    "i": 7,
    "holds": "yes",
    "issue": ""
   },
   {
-   "topicId": "cm_0a4ca4ce",
-   "prerequisiteId": "cm_285b2834",
-   "from": "Harness",
-   "to": "Guardrails",
-   "strength": "hard",
-   "origin": "curated",
-   "reason": "Guardrails 是 Agent Harness 约束输入、输出与行动路径的组成部分。",
+   "topicId": "cm_b2154cb8",
+   "prerequisiteId": "cm_3d84afe1",
+   "from": "长时程自治编码",
+   "to": "任务时域",
+   "strength": "soft",
+   "origin": "llm",
+   "reason": "长时程自治编码就是把任务时域推到以周为单位。",
    "i": 8,
-   "holds": "no",
-   "issue": "Guardrails 只是 Harness 的可选组件，并非 Harness 定义或必要构成。"
+   "holds": "yes",
+   "issue": ""
   },
   {
-   "topicId": "cm_5c7e3009",
-   "prerequisiteId": "cm_03726492",
-   "from": "本地状态层",
-   "to": "文件系统即持久记忆",
+   "topicId": "cm_950e6265",
+   "prerequisiteId": "cm_e00f590e",
+   "from": "Subagent bootstrap multiplier",
+   "to": "Harness token floor",
    "strength": "hard",
    "origin": "llm",
-   "reason": "本地状态目录把 todo 存 json、消息存 sqlite 文件，本质是文件系统持久记忆。",
+   "reason": "子 agent 独立 bootstrap 即重复支付 harness 固定开销。",
    "i": 9,
+   "holds": "yes",
+   "issue": ""
+  },
+  {
+   "topicId": "cm_3cd29e1b",
+   "prerequisiteId": "cm_01d6a01e",
+   "from": "上下文占用率与性能衰减",
+   "to": "长上下文窗口",
+   "strength": "hard",
+   "origin": "llm",
+   "reason": "占用率是相对窗口容量而言，先有窗口才有占用率与其衰减。",
+   "i": 0,
    "holds": "weak",
-   "issue": "本地状态层可独立理解为 ~/.claude 下的本地存储；文件系统即持久记忆只是解释其设计意图的泛化原则，非硬前提。"
+   "issue": "真正前置是“上下文窗口容量”，长上下文窗口只是特例；hard 不成立，最多弱相关。"
+  },
+  {
+   "topicId": "cm_b797f401",
+   "prerequisiteId": "cm_10db34e6",
+   "from": "code-review-graphignore 排除配置",
+   "to": "code-review-graph",
+   "strength": "hard",
+   "origin": "llm",
+   "reason": "它是图谱索引的排除清单，没有图谱这个工具就无所谓排除",
+   "i": 1,
+   "holds": "yes",
+   "issue": ""
+  },
+  {
+   "topicId": "cm_eec62acc",
+   "prerequisiteId": "cm_4ecbd69b",
+   "from": "自协调与共享协调文件",
+   "to": "动态协调",
+   "strength": "hard",
+   "origin": "llm-strict",
+   "reason": "不懂动态协调，就做不了『看别人当下在做什么再决定自己做什么』的共享文件协议",
+   "i": 2,
+   "holds": "yes",
+   "issue": ""
+  },
+  {
+   "topicId": "cm_9e82be87",
+   "prerequisiteId": "cm_1e2c70a5",
+   "from": "pass@k",
+   "to": "Measurement snapshot",
+   "strength": "soft",
+   "origin": "llm-strict",
+   "reason": "不懂 Measurement snapshot，就做不了 pass@k 的跨模型/跨样本量可比报告",
+   "i": 3,
+   "holds": "weak",
+   "issue": "pass@k 的定义本身不依赖测量快照；快照只影响结果可比性，不是理解 pass@k 的前置。"
+  },
+  {
+   "topicId": "cm_7fdc01a5",
+   "prerequisiteId": "cm_0a4ca4ce",
+   "from": "Harness level feature",
+   "to": "Harness",
+   "strength": "hard",
+   "origin": "llm-strict",
+   "reason": "不懂【Harness】，就做不了判断哪些能力属于 Harness level feature",
+   "i": 4,
+   "holds": "yes",
+   "issue": ""
+  },
+  {
+   "topicId": "cm_ba8d0829",
+   "prerequisiteId": "cm_0a4ca4ce",
+   "from": "Claude Managed Agents",
+   "to": "Harness",
+   "strength": "hard",
+   "origin": "llm-strict",
+   "reason": "不懂【Harness】，就做不了 Claude Managed Agents 的“预置 agent harness”定义",
+   "i": 5,
+   "holds": "yes",
+   "issue": ""
+  },
+  {
+   "topicId": "cm_b58e822c",
+   "prerequisiteId": "cm_0ac7b3a2",
+   "from": "DeepSeek V4",
+   "to": "开权重模型",
+   "strength": "soft",
+   "origin": "llm",
+   "reason": "V4是开源权重路线之争的抓手，不懂开权重就抓不住其意义。",
+   "i": 6,
+   "holds": "yes",
+   "issue": ""
+  },
+  {
+   "topicId": "cm_759cbeb8",
+   "prerequisiteId": "cm_9191c944",
+   "from": "RLOO",
+   "to": "REINFORCE",
+   "strength": "hard",
+   "origin": "llm",
+   "reason": "RLOO 放弃裁剪回到纯 REINFORCE，不懂 REINFORCE 就理解不了它的优势定义。",
+   "i": 7,
+   "holds": "yes",
+   "issue": ""
+  },
+  {
+   "topicId": "cm_6a5b3651",
+   "prerequisiteId": "cm_83367caa",
+   "from": "chat templated prompts",
+   "to": "prompt / completion",
+   "strength": "hard",
+   "origin": "llm",
+   "reason": "对话式提示只是补全式提示的包装，不懂 prompt/completion 就无从理解它",
+   "i": 8,
+   "holds": "yes",
+   "issue": ""
+  },
+  {
+   "topicId": "cm_01671cb1",
+   "prerequisiteId": "cm_1973b1d3",
+   "from": "Ralph Loop",
+   "to": "Agent loop",
+   "strength": "hard",
+   "origin": "llm",
+   "reason": "Ralph Loop 靠 hook 拦截 agent loop 的退出企图，没有 agent loop 就没有可拦截的循环。",
+   "i": 9,
+   "holds": "yes",
+   "issue": ""
   }
  ]
 }

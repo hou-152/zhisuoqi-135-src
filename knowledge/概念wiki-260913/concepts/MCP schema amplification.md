@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: caching-cost
 learningStage: when-needed
 verification: judge
-centrality: 0.042
-depth: 1
+centrality: 0.072
+depth: 2
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 每个小型 MCP server 每请求约增 1000-1400 token，生产级 API 的 schema 更大，并与请求次数相乘。
 
-**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -38,7 +38,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[Tool-schema tax]] · **hard** — MCP schema 膨胀是工具 schema 税在具体场景下的放大。
+- [[Tool-schema tax]] · **soft** — MCP schema 膨胀是工具 schema 税在具体场景下的放大。
 
 ## 相关
 

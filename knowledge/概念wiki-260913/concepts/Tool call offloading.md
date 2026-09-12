@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.092
-depth: 2
+centrality: 0.072
+depth: 1
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 工具输出超阈值 token 时只保留头尾，把完整输出卸载到文件系统，模型按需再读取。
 
-**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.092
+**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,17 +36,14 @@ sources: 1
 
 > 大段工具输出撑爆上下文时，{{name}} 具体怎么处理、模型怎么找回细节？
 
-## 先懂这些（前置 2）
+## 先懂这些（前置 1）
 
-- [[tokens]] · **hard** — 卸载由超出 token 阈值触发，不懂 token 计数就无法理解该机制。
-- [[the dumb zone the smart zone]] · **soft** — 卸载的动机是让主线程不至于掉进笨蛋区。
-
-## 懂了它才能懂（解锁 1）
-
-- [[WebFetch 两阶段总结]] — 都是把大输出压缩后再进上下文的同类做法。
+- [[tokens]] · **soft** — 卸载由超出 token 阈值触发，不懂 token 计数就无法理解该机制。
 
 ## 相关
 
+- [[WebFetch 两阶段总结]] · rejected（audit） — 两者只是同类'压缩后再进上下文'的手法，互为类比/兄弟技术，谁都不是谁的前置。
+- [[the dumb zone the smart zone]] · related-to（audit） — 卸载机制（阈值+文件系统+按需读回）本身可独立理解，dumb zone 只是其动机/好处，不是机制前提。
 - [[Agent = Model + Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
@@ -56,9 +53,7 @@ sources: 1
 - Harness Engineering ｜ 《LangChain 解剖 agent harness：Agent = 模型 + harness》 ｜ https://blog.langchain.com/the-anatomy-of-an-agent-harness/
 ## 反链
 
-- [[Harness]]
-- [[Harness 工程 Harness Engineering]]
+- [[the dumb zone the smart zone]]
 - [[tokens]]
 - [[Agent = Model + Harness]]
-- [[the dumb zone the smart zone]]
 - [[WebFetch 两阶段总结]]

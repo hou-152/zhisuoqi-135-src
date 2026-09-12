@@ -7,8 +7,8 @@ subject: Harness Engineering
 domain: multi-agent
 learningStage: when-needed
 verification: judge
-centrality: 0.067
-depth: 2
+centrality: 0.072
+depth: 4
 origin: [harness]
 aliases: ["lock contention"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 锁本身工作正常也会成为瓶颈，二十个 agent 吞吐退化为两三个。
 
-**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
+**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -41,15 +41,12 @@ sources: 1
 
 - [[共享文件加锁的协调机制]] · **hard** — 瓶颈来自锁机制本身，不懂加锁就理解不了为何吞吐退化
 
-## 懂了它才能懂（解锁 1）
-
-- [[锁竞争与乐观并发控制]] — 乐观并发是应对持锁过久、忘释放等锁竞争问题的方案
-
 ## 相关
 
 - [[长时程自治编码 long-running autonomous coding]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
-- [[单 agent 的速度天花板]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
 - [[动态协调 dynamic coordination]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
+- [[单 agent 的速度天花板]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
+- [[锁竞争与乐观并发控制]] · related-to（audit） — 该节点讲的是持锁过久/忘释放等锁误用与乐观并发方案，不是「锁正常工作仍成瓶颈」这一现象，两者仅相邻相关，降到 soft 或移出图
 
 ## 出场
 
@@ -61,8 +58,8 @@ sources: 1
 
 ## 反链
 
+- [[长时程自治编码 long-running autonomous coding]]
 - [[动态协调 dynamic coordination]]
 - [[共享文件加锁的协调机制]]
 - [[单 agent 的速度天花板]]
-- [[长时程自治编码 long-running autonomous coding]]
 - [[锁竞争与乐观并发控制]]

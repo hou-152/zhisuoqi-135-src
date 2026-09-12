@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: judge
-centrality: 0.067
-depth: 3
+centrality: 0.126
+depth: 2
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 管理会话的实践取舍：开几个会话、何时 compact、何时 rewind 或改用 subagent。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -38,13 +38,14 @@ Do you only use one session or two sessions that you keep open in a terminal? Do
 
 > {{name}} 里何时该 compact、何时该开新会话？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
-- [[Context Reset vs Compaction]] · **hard** — 会话管理要在 compact 与 rewind 间选，前提是分清两者
+- [[Context Reset vs Compaction]] · **soft** — 会话管理要在 compact 与 rewind 间选，前提是分清两者
+- [[会话的话题边界]] · **soft** — 不懂【会话的话题边界】，就做不了【Session Management】里「开几个会话、何时开新会话」的判断
 
-## 懂了它才能懂（解锁 1）
+## 相关
 
-- [[new topic 判定]] — 判定新话题的目的就是开新会话或压缩，脱离会话管理没有意义
+- [[new topic 判定]] · related-to（audit） — 理由只是动机层：新话题判定可独立理解为『分类+抽标题』的机制，不懂会话管理也立得住；而且目的上更像会话管理在用它，建议降 soft 或反向考察
 
 ## 出场
 
@@ -52,4 +53,5 @@ Do you only use one session or two sessions that you keep open in a terminal? Do
 ## 反链
 
 - [[Context Reset vs Compaction]]
+- [[会话的话题边界]]
 - [[new topic 判定]]

@@ -5,8 +5,8 @@ type: CONCEPTUAL
 subject: AI 概念库
 domain: model-training
 learningStage: deep-dive
-verification: compute
-centrality: 0.117
+verification: judge
+centrality: 0.181
 depth: 1
 origin: [notion]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 按奖励对同策略采样答案加权强化的策略梯度基础形式，相当于带权 SFT，方差大需靠基线降。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.117
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.181
 
 ## 原文 context
 
@@ -38,14 +38,14 @@ sources: 1
 
 - [[Reward Signal]] · **hard** — REINFORCE 按奖励对采样答案加权，没有奖励信号就无从加权。
 
-## 懂了它才能懂（解锁 3）
+## 懂了它才能懂（解锁 2）
 
-- [[DPPO]] — PPO 是带裁剪与重要性加权的策略梯度，基础是 REINFORCE 的加权采样。
 - [[RLOO]] — RLOO 放弃裁剪回到纯 REINFORCE，不懂 REINFORCE 就理解不了它的优势定义。
-- [[MaxRL]] — MaxRL 仍是策略梯度，只对成功样本平均梯度，基础是 REINFORCE 的加权形式。
+- [[DPPO]] — PPO 是带裁剪与重要性加权的策略梯度，基础是 REINFORCE 的加权采样。
 
 ## 相关
 
+- [[MaxRL]] · related-to（audit） — MaxRL 可仅靠策略梯度/目标定义独立理解，REINFORCE 只是具体基础算法，不是 hard 前置。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -55,10 +55,7 @@ sources: 1
 - Notion 概念库 ｜ Notion 概念库 ｜ https://app.notion.com/p/REINFORCE-88e679b108ff83519333013d977820b9
 ## 反链
 
-- [[DPPO]]
 - [[Reward Signal]]
-- [[外包思考，但不外包理解]]
-- [[MaxRL]]
+- [[DPPO]]
 - [[RLOO]]
-- [[Agent-Native Infrastructure]]
-- [[Sensors 与 Actuators]]
+- [[MaxRL]]

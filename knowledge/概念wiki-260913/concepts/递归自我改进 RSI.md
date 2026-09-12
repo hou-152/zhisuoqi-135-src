@@ -7,7 +7,7 @@ subject: Harness Engineering
 domain: model-training
 learningStage: deep-dive
 verification: judge
-centrality: 0.017
+centrality: 0.126
 depth: 0
 origin: [harness]
 aliases: ["RSI"]
@@ -18,7 +18,7 @@ sources: 1
 
 > AI 用当下智能去改进产生自身智能的机器；现代形态还包括改进训练流水线与部署系统。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -37,10 +37,13 @@ sources: 1
 
 > {{name}} 能复述 RSI 的反馈回路定义吗？
 
+## 懂了它才能懂（解锁 2）
+
+- [[奖励攻击与多样性坍塌]] — 不懂【递归自我改进】，就做不了奖励攻击与多样性坍塌的⟨自改进回路为何会过拟合给定信号⟩
+- [[递归结构不能替代基座智能]] — 不懂【递归自我改进】，就做不了递归结构不能替代基座智能的⟨递归改进效果评估⟩
+
 ## 相关
 
-- [[操作系统类比]] · 同篇出现（co-occurrence） — 同篇出现：harness-05
-- [[文件系统即持久记忆]] · 同篇出现（co-occurrence） — 同篇出现：harness-05
 - [[显式且可检查的并行]] · 同篇出现（co-occurrence） — 同篇出现：harness-05
 - [[优化对象的阶梯]] · 同篇出现（co-occurrence） — 同篇出现：harness-05
 - [[上下文 playbook 与增量条目]] · 同篇出现（co-occurrence） — 同篇出现：harness-05
@@ -54,6 +57,8 @@ sources: 1
 - [[弱而模糊的评估器]] · 同篇出现（co-occurrence） — 同篇出现：harness-05
 - [[奖励攻击与多样性坍塌]] · 同篇出现（co-occurrence） — 同篇出现：harness-05
 - [[人类上移到更高抽象层]] · 同篇出现（co-occurrence） — 同篇出现：harness-05
+- [[操作系统类比]] · 同篇出现（co-occurrence） — 同篇出现：harness-05
+- [[文件系统即持久记忆]] · 同篇出现（co-occurrence） — 同篇出现：harness-05
 - [[部署系统层]] · 同篇出现（co-occurrence） — 同篇出现：harness-05
 - [[Loop Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-05
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-05
@@ -68,20 +73,20 @@ sources: 1
 
 ## 反链
 
-- [[文件系统即持久记忆]]
-- [[Loop Engineering]]
-- [[操作系统类比]]
-- [[部署系统层]]
 - [[奖励攻击与多样性坍塌]]
+- [[Loop Engineering]]
+- [[文件系统即持久记忆]]
+- [[显式且可检查的并行]]
+- [[递归结构不能替代基座智能]]
 - [[进化式搜索与适应度]]
 - [[可编辑面与循环外的权限控制]]
-- [[可执行搜索空间]]
-- [[人类上移到更高抽象层]]
 - [[弱而模糊的评估器]]
 - [[上下文 playbook 与增量条目]]
 - [[上下文坍塌与简洁偏置]]
-- [[显式且可检查的并行]]
-- [[有界改动与回归闸]]
-- [[递归结构不能替代基座智能]]
-- [[机制与内容分离]]
 - [[优化对象的阶梯]]
+- [[有界改动与回归闸]]
+- [[部署系统层]]
+- [[操作系统类比]]
+- [[机制与内容分离]]
+- [[可执行搜索空间]]
+- [[人类上移到更高抽象层]]

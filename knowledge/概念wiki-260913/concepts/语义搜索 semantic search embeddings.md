@@ -39,9 +39,9 @@ sources: 1
 
 ## 相关
 
+- [[持久化代码图谱 structural map graph]] · 同篇出现（co-occurrence） — 同篇出现：context-16
 - [[code-review-graph]] · 同篇出现（co-occurrence） — 同篇出现：context-16
 - [[Tree-sitter]] · 同篇出现（co-occurrence） — 同篇出现：context-16
-- [[持久化代码图谱 structural map graph]] · 同篇出现（co-occurrence） — 同篇出现：context-16
 
 ## 出场
 

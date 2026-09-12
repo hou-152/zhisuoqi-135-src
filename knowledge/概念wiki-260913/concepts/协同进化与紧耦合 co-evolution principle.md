@@ -7,7 +7,7 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.092
+centrality: 0.072
 depth: 1
 origin: [harness]
 aliases: ["co-evolution principle"]
@@ -18,7 +18,7 @@ sources: 1
 
 > 模型是带着特定 harness 一起做后训练的，harness 与模型紧耦合，换掉工具实现可能反而降低性能。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.092
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -37,17 +37,14 @@ sources: 1
 
 > 为什么在 {{name}} 下，替换工具实现不必然带来性能提升？
 
-## 先懂这些（前置 2）
+## 先懂这些（前置 1）
 
-- [[模型训练与 harness 设计的耦合]] · **hard** — 共同演化原则以模型-harness耦合为前提，不懂耦合就无从谈起。
-- [[模型训练与 harness 设计的耦合]] · **hard** — 共同演化说的正是模型与harness在同一训练环里互相塑造，不懂这个耦合回路就无从谈共演化。
-
-## 懂了它才能懂（解锁 1）
-
-- [[Model-relative Curriculum]] — 课程随模型换代重写是共同演化的一种表现，懂它更易理解课程设计。
+- [[Agent vs Harness]] · **soft** — 不懂 Agent vs Harness，就做不了协同进化里「harness 与模型一起后训练」的表述
 
 ## 相关
 
+- [[模型训练与 harness 设计的耦合]] · related-to（audit） — 两条几乎同义重叠，协同进化描述本身已自足，回环机制只是补充解释，宜降 soft。
+- [[Model-relative Curriculum]] · related-to（audit） — 课程随模型换代重写只是共同演化的一个实例，理由本身说「更易理解」，属可选辅助而非前提。
 - [[Agent vs Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-27
 - [[agent 与 harness 的分工]] · 同篇出现（co-occurrence） — 同篇出现：harness-28
 - [[If you're not the model, you're the harness.]] · 同篇出现（co-occurrence） — 同篇出现：harness-28
@@ -64,8 +61,8 @@ sources: 1
 
 ## 反链
 
-- [[模型训练与 harness 设计的耦合]]
-- [[agent 与 harness 的分工]]
-- [[Model-relative Curriculum]]
-- [[If you're not the model, you're the harness.]]
 - [[Agent vs Harness]]
+- [[If you're not the model, you're the harness.]]
+- [[agent 与 harness 的分工]]
+- [[模型训练与 harness 设计的耦合]]
+- [[Model-relative Curriculum]]

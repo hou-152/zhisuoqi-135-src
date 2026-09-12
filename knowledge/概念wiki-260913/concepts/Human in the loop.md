@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: safety-governance
 learningStage: now
 verification: use
-centrality: 0.042
-depth: 2
+centrality: 0.236
+depth: 1
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 在 Agent 运行过程中引入人类参与的机制，与 Guardrails、Tracing 并列构成控制面能力。
 
-**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.236
 
 ## 费曼一下
 
@@ -38,10 +38,17 @@ Built-in mechanisms for involving humans across agent runs，与 Guardrails、Tr
 
 ## 先懂这些（前置 1）
 
-- [[Guardrails]] · **soft** — 它与 Guardrails 并列构成控制面，先懂护栏才懂其定位
+- [[意图的延伸]] · **soft** — 不懂 Human in the loop，就说明不了意图被外包后责任该锚回哪个环节
+
+## 懂了它才能懂（解锁 3）
+
+- [[YOLO 模式 Allow All]] — 不懂 Human in the loop，就定义不了 YOLO 模式到底关掉的是哪一层许可
+- [[审批疲劳]] — 不懂 Human in the loop 的逐条许可请求，就说不清审批疲劳是怎么被人训练出来的
+- [[Onboarding Agent]] — 不懂 Human in the loop，就做不了 Onboarding Agent 里『记录行为、审计理由』那一环
 
 ## 相关
 
+- [[Guardrails]] · rejected（audit） — 理由明说是「并列构成控制面」，并列关系不是依赖；Human in the loop 的机制（运行中引入人类）无需先懂 Guardrails。
 - [[very few abstractions]] · 同篇出现（co-occurrence） — 同篇出现：harness-08
 - [[primitives]] · 同篇出现（co-occurrence） — 同篇出现：harness-08
 - [[Agent]] · 同篇出现（co-occurrence） — 同篇出现：harness-08
@@ -51,7 +58,11 @@ Built-in mechanisms for involving humans across agent runs，与 Guardrails、Tr
 - Harness Engineering ｜ 《OpenAI Agents SDK 官方文档：抽象极少的轻量 agent 框架》 ｜ https://openai.github.io/openai-agents-python/
 ## 反链
 
-- [[Agent]]
 - [[Guardrails]]
 - [[primitives]]
+- [[Agent]]
+- [[Onboarding Agent]]
+- [[审批疲劳]]
+- [[意图的延伸]]
+- [[YOLO 模式 Allow All]]
 - [[very few abstractions]]

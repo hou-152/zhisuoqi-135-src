@@ -7,8 +7,8 @@ subject: Harness Engineering
 domain: code-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.092
-depth: 2
+centrality: 0.017
+depth: 0
 origin: [harness]
 aliases: ["Software Factory"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 把软件开发看作从需求、建造、评审、上线到反馈的完整反馈环，术语可追溯到1968年NATO会议。
 
-**领域** code-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.092
+**领域** code-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -37,30 +37,19 @@ sources: 1
 
 > 用{{name}}画出AI之前那条完整反馈环。
 
-## 先懂这些（前置 2）
-
-- [[管理 Agent]] · **hard** — 长期运行的 agent 覆盖生命周期，瓶颈在目标、资源与反馈的管理。
-- [[Tiger Team]] · **soft** — Software Factory 保留的人工检查点常由临时小队承担，理解 Tiger Team 才能想象其人力协作形态
-
-## 懂了它才能懂（解锁 1）
-
-- [[skill 作为 onboarding 载体]] — 只有理解 Agent 长期运转、流程被自动化的 Software Factory，才明白为何用 skill 替代文档做 onboarding
-
 ## 相关
 
 - [[前置对齐 front-loading alignment]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
-- [[RLVR 与编码 agent 的 RL 训练循环]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
-- [[SWE-bench 与二元打分]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
 - [[可维护性 霰弹式手术]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
-- [[可维护性没有惩罚项]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
 - [[可维护性缺一个可靠的打分预言机]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
+- [[系统架构评审]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
+- [[可维护性没有惩罚项]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
 - [[Mutation Testing 与前沿质量评测]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
 - [[Harness 内 RL RL inside the harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
-- [[产品评审 Product Review]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
-- [[系统架构评审]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
-- [[程序设计 Program Design]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
-- [[垂直切片 Tracer Bullet]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
 - [[2026 版约束理论]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
+- [[skill 作为 onboarding 载体]] · related-to（audit） — 「软件工厂」只是给 skill 式 onboarding 找一个动机背景，不懂 Software Factory 概念照样能理解用 skill 替代文档做入职；属动机/语境，不是立得住的依赖
+- [[SWE-bench 与二元打分]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
+- [[RLVR 与编码 agent 的 RL 训练循环]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
 - [[Capability Overhang]] · 同篇出现（co-occurrence） — 同篇出现：harness-10
 - [[Inner Loop]] · 同篇出现（co-occurrence） — 同篇出现：harness-10
 - [[Lights-off 软件工厂]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
@@ -76,22 +65,17 @@ sources: 1
 
 ## 反链
 
-- [[RLVR 与编码 agent 的 RL 训练循环]]
-- [[可维护性没有惩罚项]]
-- [[Capability Overhang]]
-- [[Tiger Team]]
-- [[管理 Agent]]
-- [[Inner Loop]]
-- [[skill 作为 onboarding 载体]]
 - [[SWE-bench 与二元打分]]
-- [[2026 版约束理论]]
-- [[垂直切片 Tracer Bullet]]
-- [[可维护性 霰弹式手术]]
-- [[可维护性缺一个可靠的打分预言机]]
-- [[Harness 内 RL RL inside the harness]]
-- [[Lights-off 软件工厂]]
+- [[可维护性没有惩罚项]]
 - [[Mutation Testing 与前沿质量评测]]
-- [[产品评审 Product Review]]
-- [[程序设计 Program Design]]
+- [[2026 版约束理论]]
+- [[可维护性缺一个可靠的打分预言机]]
 - [[前置对齐 front-loading alignment]]
 - [[系统架构评审]]
+- [[Capability Overhang]]
+- [[Harness 内 RL RL inside the harness]]
+- [[Inner Loop]]
+- [[Lights-off 软件工厂]]
+- [[RLVR 与编码 agent 的 RL 训练循环]]
+- [[skill 作为 onboarding 载体]]
+- [[可维护性 霰弹式手术]]

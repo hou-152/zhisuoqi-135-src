@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: agent-org
 learningStage: when-needed
 verification: judge
-centrality: 0.042
+centrality: 0.236
 depth: 0
 origin: [notion]
 aliases: ["AI Agent as a New Coworker", "新来的同事", "AI 同事比喻"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 用同事而非工具来比喻 AI：被授权、被记录、被审计、可能犯错、需要边界。
 
-**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.236
 
 ## 原文 context
 
@@ -36,9 +36,12 @@ sources: 1
 
 > {{name}} 的比喻比'工具'多要求了什么？
 
-## 懂了它才能懂（解锁 1）
+## 懂了它才能懂（解锁 4）
 
 - [[虚拟同事 Virtual Co-workers]] — 虚拟同事只是对 AI 同事角色的命名，先懂 AI 作为新同事的比喻才明白这个叫法。
+- [[AI-First]] — 不懂 AI 作为新同事，就做不了 AI-First 中给 AI 授权、审计与划边界的组织对齐机制。
+- [[Intelligence Factory 智能工厂]] — 不懂 AI 作为新同事，就做不了智能工厂里对 AI 生产单元的授权、审计与边界管理。
+- [[品味与「不接受够用就行」]] — 不懂 AI 作为新同事，就做不了对 AI 产出「可能犯错、需要边界」的苛刻质量把关。
 
 ## 相关
 
@@ -56,4 +59,7 @@ sources: 1
 
 ## 反链
 
+- [[品味与「不接受够用就行」]]
+- [[AI-First]]
+- [[Intelligence Factory 智能工厂]]
 - [[虚拟同事 Virtual Co-workers]]

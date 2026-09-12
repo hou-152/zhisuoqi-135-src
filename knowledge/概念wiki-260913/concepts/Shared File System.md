@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: state-persistence
 learningStage: now
 verification: use
-centrality: 0.092
-depth: 3
+centrality: 0.126
+depth: 1
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 多 session、多 agent 共用的文件夹系统，用 signals／artifacts／tasks／logs 记录状态供各 loop 复用。
 
-**领域** state-persistence ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.092
+**领域** state-persistence ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -38,15 +38,13 @@ sources: 1
 
 ## 先懂这些（前置 2）
 
-- [[文件系统即持久记忆]] · **hard** — 多 session 共用文件夹系统记录状态，需先懂文件系统作为持久记忆。
-- [[Sessions]] · **hard** — 共享文件系统供多 session 复用状态，不懂 Sessions 层无法理解共享需求。
-
-## 懂了它才能懂（解锁 1）
-
-- [[Artifact Schema]] — artifacts 作为共享知识层存放在共享文件系统中，不懂共享文件系统无法理解其位置。
+- [[Session]] · **hard** — 不懂【Session】就做不了【Shared File System】的『多 session 共用同一文件夹』这件事
+- [[文件系统即持久记忆]] · **soft** — 多 session 共用文件夹系统记录状态，需先懂文件系统作为持久记忆。
 
 ## 相关
 
+- [[Artifact Schema]] · related-to（audit） — 共享文件系统只是 artifacts 的存放位置，Artifact Schema 的组织/文档概念（README、schema、timeline）不依赖它
+- [[Sessions]] · related-to（audit） — 此处的 Sessions 被定义为 loop 内上下文层，与‘多 session 共享外存’的跨 session 需求错位，且共享文件夹本身可独立理解
 - [[Loop Engineer]] · 同篇出现（co-occurrence） — 同篇出现：harness-16
 - [[Agent loop]] · 同篇出现（co-occurrence） — 同篇出现：harness-16
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-16
@@ -56,8 +54,9 @@ sources: 1
 - Harness Engineering ｜ 《Loop Engineer：把 Agent 工作流变成可复用知识模板》 ｜ https://www.youtube.com/watch?v=W6x-hb44C0c
 ## 反链
 
-- [[文件系统即持久记忆]]
+- [[Session]]
 - [[Agent loop]]
-- [[Sessions]]
+- [[文件系统即持久记忆]]
 - [[Artifact Schema]]
 - [[Loop Engineer]]
+- [[Sessions]]

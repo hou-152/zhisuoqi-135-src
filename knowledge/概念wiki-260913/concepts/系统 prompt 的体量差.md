@@ -15,7 +15,7 @@ sources: 1
 
 # 系统 prompt 的体量差
 
-> claude code 的 system prompt 约 13k 字符，cursor 不到 6k，差在语气、简洁度、主动性、代码风格与工具纪律。
+> claude code 的 system prompt 约 13k 字符，cursor 不到 6k。
 
 **领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.017
 
@@ -38,15 +38,15 @@ prompt 的长度是一个可观测的用心程度指标。它相当于给员工�
 
 ## 相关
 
-- [[看对话 log]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
 - [[对话加确定性缝合]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
 - [[反向代理式窥探]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
+- [[看对话 log]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
 
 ## 出场
 
 - Harness Engineering ｜ 《拆开 Claude Code：一个编码 agent 的 harness 内部长什么样》 ｜ https://xxchan.me/ai/2025/05/06/claude-code.html
 ## 反链
 
-- [[对话加确定性缝合]]
 - [[看对话 log]]
+- [[对话加确定性缝合]]
 - [[反向代理式窥探]]

@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: tools-sandbox
 learningStage: when-needed
 verification: use
-centrality: 0.042
-depth: 1
+centrality: 0.126
+depth: 2
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 在真实隔离工作区里跑任务，用 manifest 定义文件、选定沙箱客户端，会话可恢复。
 
-**领域** tools-sandbox ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** tools-sandbox ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,9 +36,10 @@ Run specialists inside real isolated workspaces with manifest-defined files, san
 
 > {{name}} 依赖哪些文件和状态才能恢复执行？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
 - [[Sandbox]] · **hard** — Sandbox agents 在隔离工作区跑任务，不懂沙箱就理解不了其工作区与可恢复会话的前提。
+- [[Environment]] · **soft** — 不懂【Environment】就做不了【Sandbox agents】的工作区 runtime 与依赖配置
 
 ## 相关
 
@@ -51,7 +52,8 @@ Run specialists inside real isolated workspaces with manifest-defined files, san
 - Harness Engineering ｜ 《OpenAI Agents SDK 官方文档：抽象极少的轻量 agent 框架》 ｜ https://openai.github.io/openai-agents-python/
 ## 反链
 
-- [[Agent]]
 - [[Sandbox]]
 - [[primitives]]
+- [[Agent]]
+- [[Environment]]
 - [[very few abstractions]]

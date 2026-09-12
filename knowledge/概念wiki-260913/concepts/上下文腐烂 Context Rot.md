@@ -7,7 +7,7 @@ subject: Context Engineering × Harness Engineering
 domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.139
+centrality: 0.194
 depth: 0
 origin: [context, harness]
 aliases: ["Context Rot"]
@@ -18,7 +18,7 @@ sources: 8
 
 > 模型性能随输入长度增长而变得不可靠的现象，且不是平滑衰减，而是在不同位置参差塌陷。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.139
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.194
 
 ## 费曼一下
 
@@ -37,15 +37,17 @@ sources: 8
 
 > {{name}} 和『上下文越长越差』这种笼统说法差在哪？
 
+## 懂了它才能懂（解锁 1）
+
+- [[方向漂移 Direction Drift]] — 不懂【上下文腐烂】，就做不了【方向漂移 / Direction Drift】的一致性衰减度量
+
 ## 相关
 
-- [[输入长度与任务难度的混淆]] · 同篇出现（co-occurrence） — 同篇出现：context-03
 - [[needle-question 语义相似度谱系]] · 同篇出现（co-occurrence） — 同篇出现：context-03
 - [[干扰项与无关内容之分]] · 同篇出现（co-occurrence） — 同篇出现：context-03
 - [[干扰项的非均匀影响]] · 同篇出现（co-occurrence） — 同篇出现：context-03
 - [[弃答与幻觉：两种失败姿态]] · 同篇出现（co-occurrence） — 同篇出现：context-03
 - [[needle-haystack 相似度]] · 同篇出现（co-occurrence） — 同篇出现：context-03
-- [[haystack 结构连贯性效应]] · 同篇出现（co-occurrence） — 同篇出现：context-03
 - [[检索与推理的双任务负担]] · 同篇出现（co-occurrence） — 同篇出现：context-03
 - [[自回归下输出也是上下文]] · 同篇出现（co-occurrence） — 同篇出现：context-03
 - [[非尝试率与拒答模式]] · 同篇出现（co-occurrence） — 同篇出现：context-03
@@ -55,27 +57,29 @@ sources: 8
 - [[工具即契约 tools as the contract]] · 同篇出现（co-occurrence） — 同篇出现：context-05
 - [[臃肿工具集 bloated tool sets]] · 同篇出现（co-occurrence） — 同篇出现：context-05
 - [[典型示例策展 diverse, canonical examples]] · 同篇出现（co-occurrence） — 同篇出现：context-05
-- [[just in time 上下文检索]] · 同篇出现（co-occurrence） — 同篇出现：context-05
 - [[混合检索策略 hybrid strategy]] · 同篇出现（co-occurrence） — 同篇出现：context-05
 - [[结构化记事 agentic memory]] · 同篇出现（co-occurrence） — 同篇出现：context-05
 - [[sub-agent 架构与关注点分离]] · 同篇出现（co-occurrence） — 同篇出现：context-05
+- [[haystack 结构连贯性效应]] · 同篇出现（co-occurrence） — 同篇出现：context-03
 - [[观察掩码 Observation Masking]] · 常一起用（工作流） — 掩码旧工具输出用于降低低信号历史对当前推理的干扰。
+- [[输入长度与任务难度的混淆]] · 同篇出现（co-occurrence） — 同篇出现：context-03
+- [[just in time 上下文检索]] · 同篇出现（co-occurrence） — 同篇出现：context-05
 - [[Action Space]] · 同篇出现（co-occurrence） — 同篇出现：context-15
 - [[See Like an Agent]] · 同篇出现（co-occurrence） — 同篇出现：context-15
 - [[Elicitation]] · 同篇出现（co-occurrence） — 同篇出现：context-15
 - [[上下文均匀处理假设]] · 同篇出现（co-occurrence） — 同篇出现：context-03
-- [[大海捞针（NIAH）与词面匹配]] · 同篇出现（co-occurrence） — 同篇出现：context-03
 - [[上下文压缩 Context Compression Summarization]] · 同篇出现（co-occurrence） — 同篇出现：context-05
+- [[大海捞针（NIAH）与词面匹配]] · 同篇出现（co-occurrence） — 同篇出现：context-03
 - [[configuration problem]] · 同篇出现（co-occurrence） — 同篇出现：harness-04
 - [[Agent vs Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-27
 - [[注意力预算 attention budget]] · 常一起用（概念边界） — 注意力预算是解释框架，不是 Context Rot 的唯一已证实原因。
 - [[渐进式披露 progressive disclosure]] · 同篇出现（co-occurrence） — 同篇出现：context-05
 - [[AI Agent]] · 同篇出现（co-occurrence） — 同篇出现：context-13
-- [[非模型架构 Non-model Architecture]] · 同篇出现（co-occurrence） — 同篇出现：context-13
 - [[迷失在中间 lost in the middle]] · 对照（概念边界） — 前者是更广的长度相关退化，后者是位置效应。
+- [[非模型架构 Non-model Architecture]] · 同篇出现（co-occurrence） — 同篇出现：context-13
 - [[Agent = Model + Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
-- [[上下文工程 context engineering]] · 同篇出现（co-occurrence） — 同篇出现：context-03
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
+- [[上下文工程 context engineering]] · 同篇出现（co-occurrence） — 同篇出现：context-03
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：context-13
 
 ## 出场
@@ -95,38 +99,39 @@ sources: 8
 
 ## 反链
 
-- [[Agent = Model + Harness]]
 - [[注意力预算 attention budget]]
-- [[结构化记事 agentic memory]]
-- [[渐进式披露 progressive disclosure]]
-- [[迷失在中间 lost in the middle]]
-- [[大海捞针（NIAH）与词面匹配]]
-- [[工具即契约 tools as the contract]]
-- [[输入长度与任务难度的混淆]]
-- [[自回归下输出也是上下文]]
-- [[Action Space]]
-- [[configuration problem]]
-- [[Elicitation]]
-- [[just in time 上下文检索]]
-- [[AI Agent]]
+- [[Agent vs Harness]]
 - [[上下文压缩 Context Compression Summarization]]
-- [[非尝试率与拒答模式]]
-- [[上下文均匀处理假设]]
-- [[性能梯度而非硬悬崖 performance gradient rather than a hard cliff]]
-- [[臃肿工具集 bloated tool sets]]
-- [[最小高信号 token 集合 smallest possible set of high-signal tokens]]
-- [[haystack 结构连贯性效应]]
-- [[needle-haystack 相似度]]
-- [[needle-question 语义相似度谱系]]
-- [[See Like an Agent]]
-- [[sub-agent 架构与关注点分离]]
+- [[结构化记事 agentic memory]]
 - [[非模型架构 Non-model Architecture]]
-- [[观察掩码 Observation Masking]]
+- [[渐进式披露 progressive disclosure]]
+- [[Action Space]]
+- [[Elicitation]]
+- [[sub-agent 架构与关注点分离]]
+- [[迷失在中间 lost in the middle]]
+- [[Agent = Model + Harness]]
+- [[AI Agent]]
 - [[典型示例策展 diverse, canonical examples]]
+- [[方向漂移 Direction Drift]]
 - [[干扰项的非均匀影响]]
 - [[干扰项与无关内容之分]]
+- [[工具即契约 tools as the contract]]
 - [[混合检索策略 hybrid strategy]]
 - [[检索与推理的双任务负担]]
+- [[上下文均匀处理假设]]
+- [[输入长度与任务难度的混淆]]
+- [[臃肿工具集 bloated tool sets]]
+- [[自回归下输出也是上下文]]
+- [[最小高信号 token 集合 smallest possible set of high-signal tokens]]
+- [[just in time 上下文检索]]
+- [[needle-haystack 相似度]]
+- [[needle-question 语义相似度谱系]]
+- [[观察掩码 Observation Masking]]
+- [[大海捞针（NIAH）与词面匹配]]
+- [[非尝试率与拒答模式]]
 - [[弃答与幻觉：两种失败姿态]]
 - [[恰当高度 the right altitude]]
-- [[Agent vs Harness]]
+- [[性能梯度而非硬悬崖 performance gradient rather than a hard cliff]]
+- [[configuration problem]]
+- [[haystack 结构连贯性效应]]
+- [[See Like an Agent]]

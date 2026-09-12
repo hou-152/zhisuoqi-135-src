@@ -6,8 +6,11 @@
 //   source-network 从两份飞书原文里逐条带证据抽出的 55 条来源关系
 //   llm            模型按领域提议的前置依赖（带 reason，跑完做环检测）
 //
-// kind → 方向：part-of 是「from 是 to 的一部分」→ to 依赖 from（反向）；
-//              prerequisite 是「from 需要 to」→ 正向；contrast / used-with 不进 DAG，只进关系层。
+// kind → 是否进 DAG：只有 prerequisite 才是「不懂它就没法懂」的前置。
+//   part-of（from 是 to 的组成部分）**不进 DAG** —— 组成关系不等于概念依赖：
+//   不懂「工具」也能懂「Harness」，只是懂得少一点。这条 2026-09-13 由审核报告抓出来
+//   （curated 边里 4 条 part-of 被判 no，模型给的理由都是「可选组件不是必要构成」）。
+//   contrast / used-with 同理，只进关系层。
 //
 // 用法：node scripts/cm-edges.mjs
 // 产出：evidence/cm-260913/04-edges.json
@@ -112,9 +115,8 @@ const relations = []; // 只进关系层
 const unresolved = [];
 function push(fromId, toId, { kind, strength, reason, origin, axis = '', evidence = '' }) {
   relations.push({ from: fromId, to: toId, kind, strength, axis, note: reason, origin, evidence });
-  if (kind === 'contrast' || kind === 'used-with') return;
-  // part-of：from 是 to 的组成部分 → to 依赖 from
-  const [t, p] = kind === 'part-of' ? [toId, fromId] : [fromId, toId];
+  if (kind !== 'prerequisite') return; // 只有 prerequisite 进 DAG
+  const [t, p] = [fromId, toId];
   if (t === p) return;
   edges.push({ topicId: t, prerequisiteId: p, strength, kind, reason, origin, axis, evidence });
 }

@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: geo-infrastructure
 learningStage: when-needed
 verification: accept
-centrality: 0.042
+centrality: 0.181
 depth: 1
 origin: [notion]
 aliases: ["Parallel AI Infrastructure", "平行 AI 栈", "国产 AI 基础设施"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 从芯片到框架到数据中心，整条 AI 技术栈做出不依赖美国体系的另一份，V4 是早期拼图。
 
-**领域** geo-infrastructure ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
+**领域** geo-infrastructure ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.181
 
 ## 原文 context
 
@@ -35,9 +35,11 @@ sources: 1
 
 > 这个项目是在建{{name}}，还是只在美国栈上做应用？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 3）
 
-- [[芯片管制]] · **hard** — 芯片管制迫使中国建不依赖美国的完整 AI 栈，不懂管制就不懂其动因。
+- [[芯片管制]] · **soft** — 芯片管制迫使中国建不依赖美国的完整 AI 栈，不懂管制就不懂其动因。
+- [[数据中心]] · **soft** — 不懂【数据中心】，就做不了【平行 AI 基础设施】的“从芯片到框架到数据中心的整条栈”中的数据层。
+- [[AI 从应用到基础设施]] · **soft** — 不懂【AI 从应用到基础设施】，就做不了【平行 AI 基础设施】的“为何要建不依赖美国体系的另一份”的论证。
 
 ## 相关
 
@@ -55,4 +57,6 @@ sources: 1
 
 ## 反链
 
+- [[数据中心]]
+- [[AI 从应用到基础设施]]
 - [[芯片管制]]

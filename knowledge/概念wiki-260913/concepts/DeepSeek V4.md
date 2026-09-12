@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: model-training
 learningStage: when-needed
 verification: accept
-centrality: 0.067
-depth: 5
+centrality: 0.072
+depth: 1
 origin: [notion]
 aliases: ["DeepSeek V4 / Open-source AI Model"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > DeepSeek 发布的第四代开源模型，代码能力全球领先；同时成为「开源路线能否走远」之争的具体抓手。
 
-**领域** model-training ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.067
+**领域** model-training ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
 
 ## 原文 context
 
@@ -34,13 +34,13 @@ sources: 1
 
 > {{name}} 为什么被当作开源与闭源路线之争的抓手？
 
-## 先懂这些（前置 2）
+## 先懂这些（前置 1）
 
-- [[混合注意力]] · **hard** — V4的注意力主干是CSA/HCA交替，不懂混合注意力就看不懂其架构。
-- [[开权重模型]] · **hard** — V4是开源权重路线之争的抓手，不懂开权重就抓不住其意义。
+- [[开权重模型]] · **soft** — V4是开源权重路线之争的抓手，不懂开权重就抓不住其意义。
 
 ## 相关
 
+- [[混合注意力]] · related-to（audit） — 混合注意力只是 V4 的架构细节；V4 作为模型/开源路线抓手可独立理解，不构成硬前置。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -55,8 +55,5 @@ sources: 1
 
 ## 反链
 
-- [[外包思考，但不外包理解]]
 - [[混合注意力]]
-- [[Agent-Native Infrastructure]]
 - [[开权重模型]]
-- [[Sensors 与 Actuators]]

@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: caching-cost
 learningStage: when-needed
 verification: use
-centrality: 0.042
+centrality: 0.072
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 多数普通多轮对话可直接启用的默认缓存方案。
 
-**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -51,7 +51,7 @@ sources: 1
 - Context Engineering ｜ 《提示词缓存不是小优化，而是 agent 成本结构的关键变量》 ｜ https://x.com/shachepi/status/2053463461729046817/?rw_tt_thread=True&s=12
 ## 反链
 
+- [[提示词缓存 Prompt Caching]]
 - [[提示词缓存（Prompt Caching）]]
 - [[缓存断点 Cache Breakpoint]]
-- [[提示词缓存 Prompt Caching]]
 - [[稳定前缀 Stable Prefix]]

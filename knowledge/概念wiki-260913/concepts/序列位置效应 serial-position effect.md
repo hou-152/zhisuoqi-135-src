@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: judge
-centrality: 0.092
-depth: 1
+centrality: 0.017
+depth: 0
 origin: [context]
 aliases: ["serial-position effect"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 认知心理学经典发现：自由回忆时列表首尾最易记住，被借来解释模型上下文中的 U 型表现。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.092
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -37,19 +37,10 @@ sources: 1
 
 > {{name}}出现在自注意力模型上，为什么算意外？
 
-## 先懂这些（前置 1）
-
-- [[长上下文窗口]] · **soft** — 该效应被借来解释长窗口内首尾好记、中间遗忘的现象，需先有长窗口概念。
-
-## 懂了它才能懂（解锁 2）
-
-- [[首因偏置 primacy bias]] — 首因偏置正是序列位置效应 U 型曲线的左半边，不懂该效应就无法理解它。
-- [[指令就近原则]] — 就近原则依据的是模型更听末尾的近因效应，属序列位置效应的一部分。
-
 ## 相关
 
-- [[U 型性能曲线]] · 同篇出现（co-occurrence） — 同篇出现：context-02
 - [[首因偏置 primacy bias]] · 同篇出现（co-occurrence） — 同篇出现：context-02
+- [[U 型性能曲线]] · 同篇出现（co-occurrence） — 同篇出现：context-02
 - [[迷失在中间 lost in the middle]] · 同篇出现（co-occurrence） — 同篇出现：context-02
 
 ## 出场
@@ -62,8 +53,6 @@ sources: 1
 
 ## 反链
 
-- [[长上下文窗口]]
 - [[迷失在中间 lost in the middle]]
 - [[首因偏置 primacy bias]]
-- [[指令就近原则]]
 - [[U 型性能曲线]]

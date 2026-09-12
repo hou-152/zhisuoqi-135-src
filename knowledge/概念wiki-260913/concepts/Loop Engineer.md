@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: loop-autonomy
 learningStage: when-needed
 verification: judge
-centrality: 0.042
-depth: 2
+centrality: 0.126
+depth: 3
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 不再直接 prompt coding agent，而是设计能自动 prompt agent 的循环，关注触发器、状态、日志、验证与多 agent 协作。
 
-**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,17 +36,17 @@ sources: 1
 
 > 你能说清 {{name}} 与直接给 coding agent 写 prompt 的区别吗？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
 - [[Loop Engineering]] · **hard** — Loop Engineer 这一角色由循环工程的方法来定义。
+- [[循环工程 loop engineering]] · **hard** — 不懂【Loop Engineering】，就做不了【Loop Engineer】的 ⟨角色定位与工作内容界定⟩
 
 ## 相关
 
-- [[Shared File System]] · 同篇出现（co-occurrence） — 同篇出现：harness-16
-- [[Signals]] · 同篇出现（co-occurrence） — 同篇出现：harness-16
+- [[Executable Codebase]] · 同篇出现（co-occurrence） — 同篇出现：harness-16
 - [[Loop Contract]] · 同篇出现（co-occurrence） — 同篇出现：harness-16
 - [[Legible Codebase]] · 同篇出现（co-occurrence） — 同篇出现：harness-16
-- [[Executable Codebase]] · 同篇出现（co-occurrence） — 同篇出现：harness-16
+- [[Shared File System]] · 同篇出现（co-occurrence） — 同篇出现：harness-16
 - [[Verifiable Codebase]] · 同篇出现（co-occurrence） — 同篇出现：harness-16
 - [[Artifact Schema]] · 同篇出现（co-occurrence） — 同篇出现：harness-16
 - [[Cross-session Work]] · 同篇出现（co-occurrence） — 同篇出现：harness-16
@@ -59,14 +59,14 @@ sources: 1
 - Harness Engineering ｜ 《Loop Engineer：把 Agent 工作流变成可复用知识模板》 ｜ https://www.youtube.com/watch?v=W6x-hb44C0c
 ## 反链
 
-- [[Loop Engineering]]
+- [[循环工程 loop engineering]]
 - [[Agent loop]]
+- [[Loop Engineering]]
 - [[Cross-session Work]]
 - [[Artifact Schema]]
-- [[Read-only Verifier Agent]]
-- [[Shared File System]]
-- [[Verifiable Codebase]]
-- [[Signals]]
 - [[Executable Codebase]]
-- [[Loop Contract]]
 - [[Legible Codebase]]
+- [[Loop Contract]]
+- [[Shared File System]]
+- [[Read-only Verifier Agent]]
+- [[Verifiable Codebase]]

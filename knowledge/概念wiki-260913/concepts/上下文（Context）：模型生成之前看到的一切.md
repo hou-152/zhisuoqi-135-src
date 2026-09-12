@@ -41,10 +41,10 @@ sources: 1
 - [[上下文失败，而非模型失败 context failures, not model failures]] · 同篇出现（co-occurrence） — 同篇出现：context-24
 - [[系统而非字符串 A System, Not a String]] · 同篇出现（co-occurrence） — 同篇出现：context-24
 - [[动态装配 Dynamic]] · 同篇出现（co-occurrence） — 同篇出现：context-24
-- [[正确的信息与工具，在正确的时间]] · 同篇出现（co-occurrence） — 同篇出现：context-24
 - [[知识与能力的双供给 information and tools]] · 同篇出现（co-occurrence） — 同篇出现：context-24
 - [[格式即上下文 where the format matters]] · 同篇出现（co-occurrence） — 同篇出现：context-24
 - [[廉价 demo 与「魔法级」agent]] · 同篇出现（co-occurrence） — 同篇出现：context-24
+- [[正确的信息与工具，在正确的时间]] · 同篇出现（co-occurrence） — 同篇出现：context-24
 - [[有限的工作记忆 limited working memory]] · 同篇出现（co-occurrence） — 同篇出现：context-24
 - [[上下文工程 context engineering]] · 同篇出现（co-occurrence） — 同篇出现：context-24
 
@@ -54,10 +54,10 @@ sources: 1
 ## 反链
 
 - [[有限的工作记忆 limited working memory]]
-- [[上下文失败，而非模型失败 context failures, not model failures]]
-- [[正确的信息与工具，在正确的时间]]
-- [[动态装配 Dynamic]]
 - [[格式即上下文 where the format matters]]
-- [[廉价 demo 与「魔法级」agent]]
+- [[上下文失败，而非模型失败 context failures, not model failures]]
 - [[系统而非字符串 A System, Not a String]]
+- [[动态装配 Dynamic]]
+- [[廉价 demo 与「魔法级」agent]]
+- [[正确的信息与工具，在正确的时间]]
 - [[知识与能力的双供给 information and tools]]

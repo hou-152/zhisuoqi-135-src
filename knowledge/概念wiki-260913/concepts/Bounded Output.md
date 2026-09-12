@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: context-engineering
 learningStage: when-needed
 verification: judge
-centrality: 0.042
-depth: 4
+centrality: 0.072
+depth: 1
 origin: [notion]
 aliases: ["有界输出", "输出截断", "output truncation"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 把单次工具或模型输出限制在有界范围内，避免超长结果挤占上下文（材料仅给名称）。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 掌握证据（做到这些才算会）
 
@@ -30,7 +30,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[自回归下输出也是上下文]] · **hard** — 正因输出也进上下文，才需限制其长度以防挤占，不懂自回归就无此约束。
+- [[自回归下输出也是上下文]] · **hard** — 不懂【自回归下输出也是上下文】，就做不了【Bounded Output】的 ⟨限长必要性论证⟩
 
 ## 相关
 

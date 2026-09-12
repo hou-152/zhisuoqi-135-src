@@ -51,7 +51,9 @@ const nodes = topics.map((t) => {
 });
 
 /* ── 边：hard→实线（7+），soft→虚线（<7） ────────────────── */
-const VOTES = (e) => (e.origin === 'llm' ? (e.strength === 'hard' ? 7 : 3) : 9);
+// 实线/虚线只看**审核后的强度**，不看来源：hard=实线，soft=虚线。
+// （踩过：llm-strict 因为 origin 不等于 'llm' 被当成 curated，531 条 soft 全画成实线）
+const VOTES = (e) => (e.strength === 'hard' ? 9 : 3);
 const edges = dependencies.map((e) => [e.topicId, e.prerequisiteId, VOTES(e)]);
 
 /* ── 策展：领域即主题线，路线沿真实依赖边走 ─────────────── */
@@ -105,13 +107,14 @@ const collections = clusters.map((c, i) => {
 }).sort((a, b) => (tagOrder.get(a.tagId) - tagOrder.get(b.tagId)));
 
 // 机器已判 / 留给人看
-const edgeAuto = dependencies.filter((e) => e.origin !== 'llm')
-  .map((e) => ({ key: `${e.topicId}_${e.prerequisiteId}`, verdict: 'keep', conf: e.origin === 'curated' ? 0.95 : 0.9, why: e.reason }));
+// 「机器已判」＝全量审核判成 yes 的边（模型逐条确认过「不懂前置就立不住」）
+const edgeAuto = dependencies.filter((e) => e.audit === 'yes')
+  .map((e) => ({ key: `${e.topicId}_${e.prerequisiteId}`, verdict: 'keep', conf: 0.9, why: e.reason }));
 // 留给人看的＝模型自己跨源连出来的硬边：一端只在 Notion、另一端只在 Context/Harness。
 // 同源内部的关系模型有原文可依；跨源的推断才是真需要人过一眼的。
 const originOf = new Map(topics.map((t) => [t.id, new Set(t.origin)]));
 const disjoint = (a, b) => [...a].every((x) => !b.has(x));
-const edgeHuman = dependencies.filter((e) => e.origin === 'llm' && e.strength === 'hard'
+const edgeHuman = dependencies.filter((e) => (e.origin === 'llm' || e.origin === 'llm-strict') && e.strength === 'hard'
   && disjoint(originOf.get(e.topicId) || new Set(), originOf.get(e.prerequisiteId) || new Set()))
   .slice(0, 60).map((e) => `${e.topicId}_${e.prerequisiteId}`);
 

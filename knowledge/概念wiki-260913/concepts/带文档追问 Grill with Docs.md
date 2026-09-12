@@ -2,13 +2,13 @@
 id: cm_91279ade
 name: 带文档追问
 nameEn: Grill with Docs
-type: PROCEDURAL
+type: REPRESENTATIONAL
 subject: Context Engineering
 domain: spec-intent
 learningStage: when-needed
 verification: use
-centrality: 0.017
-depth: 0
+centrality: 0.072
+depth: 2
 origin: [context]
 aliases: ["Grill with Docs"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 保留 Grill Me 追问开头的 skill，新增读取、挑战并更新领域文档的能力。
 
-**领域** spec-intent ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** spec-intent ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -37,11 +37,14 @@ sources: 1
 
 > 能否用 {{name}} 对领域文档追问并回写更新？
 
+## 先懂这些（前置 1）
+
+- [[追问式对齐 Grill Me]] · **hard** — 不懂【追问式对齐】，就做不了【带文档追问】里「保留 Grill Me 追问开头、再叠加文档读写」这件事
+
 ## 相关
 
 - [[追问式对齐 Grill Me]] · 同篇出现（co-occurrence） — 同篇出现：context-08
 - [[共享理解 shared understanding]] · 同篇出现（co-occurrence） — 同篇出现：context-08
-- [[设计树 design tree]] · 同篇出现（co-occurrence） — 同篇出现：context-08
 
 ## 出场
 
@@ -54,5 +57,4 @@ sources: 1
 ## 反链
 
 - [[共享理解 shared understanding]]
-- [[设计树 design tree]]
 - [[追问式对齐 Grill Me]]

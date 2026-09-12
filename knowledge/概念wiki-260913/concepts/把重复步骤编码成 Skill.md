@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: verification-eval
 learningStage: now
 verification: use
-centrality: 0.042
-depth: 1
+centrality: 0.072
+depth: 2
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 把重复步骤编码进验证闭环，最常见方式是写成一个 skill，作为可复用底座。
 
-**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -38,15 +38,13 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[验证闭环 verification loop]] · **hard** — skill 是把验证闭环中重复步骤固化的可复用底座，不懂闭环就没有要编码的对象。
+- [[验证闭环 verification loop]] · **soft** — 不懂【验证闭环】，就做不了【把重复步骤编码成 Skill】的「把重复步骤挂到产出后必做检查上」
 
 ## 相关
 
 - [[SKILL.md：frontmatter＋body 契约]] · 同篇出现（co-occurrence） — 同篇出现：context-12
 - [[description 作为触发条件]] · 同篇出现（co-occurrence） — 同篇出现：context-12
 - [[独立调用 Standalone]] · 同篇出现（co-occurrence） — 同篇出现：context-12
-- [[嵌入 Embedded]] · 同篇出现（co-occurrence） — 同篇出现：context-12
-- [[链式 Chained]] · 同篇出现（co-occurrence） — 同篇出现：context-12
 - [[PR 级门禁 On every PR]] · 同篇出现（co-occurrence） — 同篇出现：context-12
 - [[可编辑性边界]] · 同篇出现（co-occurrence） — 同篇出现：context-12
 - [[Wrapper skill]] · 同篇出现（co-occurrence） — 同篇出现：context-12
@@ -54,6 +52,8 @@ sources: 1
 - [[个人基础设施 → 团队基础设施]] · 同篇出现（co-occurrence） — 同篇出现：context-12
 - [[循环工程 loop engineering]] · 同篇出现（co-occurrence） — 同篇出现：context-12
 - [[灵活性与自动化的权衡]] · 同篇出现（co-occurrence） — 同篇出现：context-12
+- [[嵌入 Embedded]] · 同篇出现（co-occurrence） — 同篇出现：context-12
+- [[链式 Chained]] · 同篇出现（co-occurrence） — 同篇出现：context-12
 - [[skill-creator 访谈式创建]] · 同篇出现（co-occurrence） — 同篇出现：context-12
 - [[验证闭环 verification loop]] · 同篇出现（co-occurrence） — 同篇出现：context-12
 
@@ -62,17 +62,17 @@ sources: 1
 - Context Engineering ｜ 《用 Skills 在 Claude Code 里搭建验证闭环》 ｜ https://claude.com/blog/building-verification-loops-in-claude-code-with-skills
 ## 反链
 
-- [[验证闭环 verification loop]]
+- [[循环工程 loop engineering]]
 - [[skill-creator 访谈式创建]]
-- [[个人基础设施 → 团队基础设施]]
+- [[验证闭环 verification loop]]
 - [[description 作为触发条件]]
+- [[PR 级门禁 On every PR]]
 - [[Wrapper skill]]
 - [[独立调用 Standalone]]
+- [[个人基础设施 → 团队基础设施]]
 - [[可编辑性边界]]
 - [[链式 Chained]]
 - [[灵活性与自动化的权衡]]
 - [[嵌入 Embedded]]
 - [[习惯变契约 habit → contract]]
-- [[循环工程 loop engineering]]
-- [[PR 级门禁 On every PR]]
 - [[SKILL.md：frontmatter＋body 契约]]

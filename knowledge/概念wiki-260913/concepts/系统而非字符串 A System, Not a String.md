@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.017
-depth: 0
+centrality: 0.072
+depth: 1
 origin: [context]
 aliases: ["A System, Not a String"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 上下文不是静态提示词模板，而是主 LLM 调用之前运行的那个系统的输出。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -37,6 +37,10 @@ sources: 1
 
 > 按 {{name}}，上下文究竟是谁的输出？
 
+## 先懂这些（前置 1）
+
+- [[上下文 context]] · **hard** — 不懂【上下文】是主 LLM 调用前那个系统的输出，就做不了【系统而非字符串】中「区分静态模板与运行时装配」这件事
+
 ## 相关
 
 - [[上下文（Context）：模型生成之前看到的一切]] · 同篇出现（co-occurrence） — 同篇出现：context-24
@@ -53,6 +57,7 @@ sources: 1
 
 ## 反链
 
+- [[上下文 context]]
 - [[上下文工程 context engineering]]
 - [[有限的工作记忆 limited working memory]]
 - [[上下文（Context）：模型生成之前看到的一切]]

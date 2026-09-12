@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: judge
-centrality: 0.042
-depth: 2
+centrality: 0.017
+depth: 0
 origin: [context]
 aliases: ["primacy bias"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 模型更善用出现在上下文最开头的相关信息，呈 U 型曲线左半边，且只在大模型上出现。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -37,23 +37,19 @@ U 型曲线的左半边——模型更善于使用出现在输入上下文最开
 
 > 关键信息放开头还是中间，{{name}} 怎么预测？
 
-## 先懂这些（前置 1）
-
-- [[序列位置效应 serial-position effect]] · **hard** — 首因偏置正是序列位置效应 U 型曲线的左半边，不懂该效应就无法理解它。
-
 ## 相关
 
 - [[近因偏置 recency bias]] · 同篇出现（co-occurrence） — 同篇出现：context-02
-- [[多文档问答受控实验]] · 同篇出现（co-occurrence） — 同篇出现：context-02
 - [[干扰文档 distractor documents]] · 同篇出现（co-occurrence） — 同篇出现：context-02
-- [[闭卷与 oracle 基线]] · 同篇出现（co-occurrence） — 同篇出现：context-02
-- [[合成键值检索任务]] · 同篇出现（co-occurrence） — 同篇出现：context-02
 - [[扩展上下文模型 extended-context models]] · 同篇出现（co-occurrence） — 同篇出现：context-02
 - [[查询感知语境化 query-aware contextualization]] · 同篇出现（co-occurrence） — 同篇出现：context-02
 - [[检索器-阅读器配置 retriever-reader]] · 同篇出现（co-occurrence） — 同篇出现：context-02
 - [[性能饱和早于召回饱和]] · 同篇出现（co-occurrence） — 同篇出现：context-02
 - [[重排序与排序列表截断]] · 同篇出现（co-occurrence） — 同篇出现：context-02
 - [[序列位置效应 serial-position effect]] · 同篇出现（co-occurrence） — 同篇出现：context-02
+- [[闭卷与 oracle 基线]] · 同篇出现（co-occurrence） — 同篇出现：context-02
+- [[合成键值检索任务]] · 同篇出现（co-occurrence） — 同篇出现：context-02
+- [[多文档问答受控实验]] · 同篇出现（co-occurrence） — 同篇出现：context-02
 - [[长上下文评测协议]] · 同篇出现（co-occurrence） — 同篇出现：context-02
 - [[U 型性能曲线]] · 同篇出现（co-occurrence） — 同篇出现：context-02
 - [[迷失在中间 lost in the middle]] · 同篇出现（co-occurrence） — 同篇出现：context-02
@@ -68,17 +64,17 @@ U 型曲线的左半边——模型更善于使用出现在输入上下文最开
 
 ## 反链
 
-- [[序列位置效应 serial-position effect]]
+- [[检索器-阅读器配置 retriever-reader]]
 - [[迷失在中间 lost in the middle]]
 - [[多文档问答受控实验]]
-- [[长上下文评测协议]]
-- [[闭卷与 oracle 基线]]
-- [[合成键值检索任务]]
-- [[性能饱和早于召回饱和]]
-- [[重排序与排序列表截断]]
-- [[U 型性能曲线]]
-- [[查询感知语境化 query-aware contextualization]]
 - [[干扰文档 distractor documents]]
-- [[检索器-阅读器配置 retriever-reader]]
 - [[近因偏置 recency bias]]
+- [[性能饱和早于召回饱和]]
+- [[长上下文评测协议]]
+- [[重排序与排序列表截断]]
+- [[闭卷与 oracle 基线]]
+- [[查询感知语境化 query-aware contextualization]]
+- [[合成键值检索任务]]
 - [[扩展上下文模型 extended-context models]]
+- [[序列位置效应 serial-position effect]]
+- [[U 型性能曲线]]

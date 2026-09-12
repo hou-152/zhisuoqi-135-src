@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: code-engineering
 learningStage: when-needed
 verification: judge
-centrality: 0.042
+centrality: 0.072
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 当写代码变成 steering 生成，团队可能优先选有好 harness 可用的技术栈；但有人认为对人也好的才对 AI 好。
 
-**领域** code-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** code-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -38,7 +38,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[工具—工作流适配]] · **soft** — 选型看 harness 可用性，本质是工具与工作流的适配。
+- [[工具—工作流适配]] · **soft** — 不懂【工具—工作流适配】就做不了【AI 友好度（AI-friendliness）作为选型标准】的 ⟨技术栈对 agent 友好度评估⟩
 
 ## 相关
 
@@ -52,5 +52,6 @@ sources: 1
 ## 反链
 
 - [[Harness]]
+- [[上下文工程 context engineering]]
 - [[工具—工作流适配]]
 - [[无手打代码 no manually typed code at all]]

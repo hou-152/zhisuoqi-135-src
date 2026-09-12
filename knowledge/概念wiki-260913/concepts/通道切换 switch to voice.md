@@ -53,6 +53,6 @@ sources: 1
 
 ## 反链
 
-- [[bits]]
 - [[漫谈会话 ramble session]]
+- [[bits]]
 - [[输入摩擦 too lazy to type]]

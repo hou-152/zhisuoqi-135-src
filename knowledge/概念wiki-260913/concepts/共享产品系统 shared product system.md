@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: agent-org
 learningStage: when-needed
 verification: judge
-centrality: 0.117
-depth: 2
+centrality: 0.126
+depth: 0
 origin: [context]
 aliases: ["shared product system"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 承载反馈、意图、决策、计划与代码的载体，让人与 agent 能共同在其中工作。
 
-**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.117
+**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -37,21 +37,10 @@ sources: 1
 
 > {{name}} 承载哪些内容，其定位是什么？
 
-## 先懂这些（前置 1）
+## 懂了它才能懂（解锁 2）
 
-- [[代理原生 agent-native]] · **soft** — 人与 agent 共同工作的系统，前提是产品已为 agent 改造并提供上下文。
-
-## 懂了它才能懂（解锁 3）
-
-- [[产品记忆平台 product memory platform]] — 产品记忆必须落在人与 agent 共同使用、承载上下文的系统里。
-- [[个人基础设施 → 团队基础设施]] — PR 级门禁让检查惠及每个人，本质是共享系统承载上下文与决策。
-- [[自动驾驶产品与项目记忆 self-driving project memory]] — 项目像 agent 一样自动决策，依赖系统承载反馈、决策与记忆。
-
-## 相关
-
-- [[交接模型 handoff model]] · 同篇出现（co-occurrence） — 同篇出现：context-11
-- [[复杂被误认为精密 complexity looked like sophistication]] · 同篇出现（co-occurrence） — 同篇出现：context-11
-- [[流程即工作 the process became the work]] · 同篇出现（co-occurrence） — 同篇出现：context-11
+- [[共享 多人 agent 会话]] — 不懂【共享产品系统】，就做不了【共享 / 多人 agent 会话】——反馈、意图、决策、计划没有共同载体，多人进同一会话无从改起
+- [[产品记忆平台 product memory platform]] — 不懂【共享产品系统】，就做不了【产品记忆平台】——反馈、意图、决策与计划无处沉淀，产品记忆就是空的
 
 ## 出场
 
@@ -63,10 +52,5 @@ sources: 1
 
 ## 反链
 
-- [[代理原生 agent-native]]
-- [[交接模型 handoff model]]
-- [[流程即工作 the process became the work]]
 - [[产品记忆平台 product memory platform]]
-- [[个人基础设施 → 团队基础设施]]
-- [[自动驾驶产品与项目记忆 self-driving project memory]]
-- [[复杂被误认为精密 complexity looked like sophistication]]
+- [[共享 多人 agent 会话]]

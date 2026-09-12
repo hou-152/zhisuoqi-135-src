@@ -6,9 +6,9 @@ type: CONCEPTUAL
 subject: Harness Engineering
 domain: loop-autonomy
 learningStage: now
-verification: use
-centrality: 0.067
-depth: 1
+verification: accept
+centrality: 0.181
+depth: 3
 origin: [harness]
 aliases: ["long-running autonomous coding"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 把 coding agent 的使用场景推到以周为单位的连续自治运行，目标是自主跑数周、完成人类团队通常要数月完成的项目。
 
-**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
+**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.181
 
 ## 费曼一下
 
@@ -39,25 +39,28 @@ sources: 1
 
 ## 先懂这些（前置 2）
 
-- [[任务时域 task horizon]] · **hard** — 长时程自治编码就是把任务时域推到以周为单位。
-- [[漂移与隧道视野 drift & tunnel vision]] · **hard** — 长时程运行必然面对漂移与隧道视野两种退化。
+- [[Agentic Coding]] · **hard** — 不懂【Agentic Coding】，就做不了【长时程自治编码】的 ⟨把编码自治推到以周为单位这件事⟩
+- [[任务时域 task horizon]] · **soft** — 长时程自治编码就是把任务时域推到以周为单位。
+
+## 懂了它才能懂（解锁 1）
+
+- [[漂移与隧道视野 drift & tunnel vision]] — 不懂【漂移与隧道视野】，就做不了【长时程自治编码】的 ⟨长周期退化防治⟩
 
 ## 相关
 
 - [[共享文件加锁的协调机制]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
-- [[锁竞争瓶颈 lock contention]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
 - [[乐观并发控制 optimistic concurrency control]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
-- [[无层级导致的风险规避 risk-averse agents]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
-- [[Planner–Worker 角色分离]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
 - [[递归并行规划 sub-planner]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
 - [[judge agent 与周期性 fresh start]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
-- [[漂移与隧道视野 drift & tunnel vision]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
-- [[模型—角色适配]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
-- [[减法式改进 removing complexity]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
+- [[锁竞争瓶颈 lock contention]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
+- [[无层级导致的风险规避 risk-averse agents]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
 - [[结构适量原则]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
 - [[prompt 主导论]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
-- [[单 agent 的速度天花板]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
+- [[漂移与隧道视野 drift & tunnel vision]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
+- [[模型—角色适配]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
+- [[Planner–Worker 角色分离]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
 - [[动态协调 dynamic coordination]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
+- [[单 agent 的速度天花板]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
 
 ## 出场
 
@@ -70,17 +73,17 @@ sources: 1
 ## 反链
 
 - [[Planner–Worker 角色分离]]
-- [[漂移与隧道视野 drift & tunnel vision]]
 - [[动态协调 dynamic coordination]]
 - [[共享文件加锁的协调机制]]
-- [[乐观并发控制 optimistic concurrency control]]
-- [[单 agent 的速度天花板]]
+- [[漂移与隧道视野 drift & tunnel vision]]
+- [[Agentic Coding]]
+- [[递归并行规划 sub-planner]]
 - [[模型—角色适配]]
-- [[锁竞争瓶颈 lock contention]]
-- [[结构适量原则]]
 - [[任务时域 task horizon]]
+- [[锁竞争瓶颈 lock contention]]
 - [[无层级导致的风险规避 risk-averse agents]]
 - [[judge agent 与周期性 fresh start]]
 - [[prompt 主导论]]
-- [[递归并行规划 sub-planner]]
-- [[减法式改进 removing complexity]]
+- [[单 agent 的速度天花板]]
+- [[结构适量原则]]
+- [[乐观并发控制 optimistic concurrency control]]

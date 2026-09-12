@@ -7,8 +7,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.017
-depth: 0
+centrality: 0.126
+depth: 1
 origin: [harness]
 aliases: ["prompt / context / harness engineering"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > prompt、context、harness三层同心工程，harness包住前两者并加上工具编排、状态持久化与验证。
 
-**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -37,6 +37,14 @@ sources: 1
 
 > {{name}}中哪一层负责状态持久化与错误恢复？
 
+## 先懂这些（前置 1）
+
+- [[Agent vs Harness]] · **soft** — 不懂 Agent 与 Harness 的区分，就做不了三层工程里「harness 包住 prompt 和 context」的层次划分
+
+## 懂了它才能懂（解锁 1）
+
+- [[优化对象的阶梯]] — 不懂三层工程，就做不了优化对象阶梯里「prompt→context→harness code」逐级的排序
+
 ## 相关
 
 - [[agent 与 harness 的分工]] · 同篇出现（co-occurrence） — 同篇出现：harness-28
@@ -53,5 +61,7 @@ sources: 1
 
 ## 反链
 
-- [[agent 与 harness 的分工]]
+- [[Agent vs Harness]]
 - [[If you're not the model, you're the harness.]]
+- [[agent 与 harness 的分工]]
+- [[优化对象的阶梯]]

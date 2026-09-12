@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: model-training
 learningStage: deep-dive
 verification: judge
-centrality: 0.142
-depth: 5
+centrality: 0.072
+depth: 1
 origin: [notion]
 aliases: ["基于人类反馈的强化学习", "Reinforcement Learning from Human Feedback"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 用人类偏好训练奖励模型再用 RL 优化 LLM，是 GPT-3 到 InstructGPT 的关键一跳，PPO 为默认算法。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.142
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 原文 context
 
@@ -34,19 +34,16 @@ sources: 1
 
 > {{name}} 的关键一跳体现在哪一步？
 
-## 先懂这些（前置 3）
+## 先懂这些（前置 1）
 
-- [[DPPO]] · **hard** — PPO 是 RLHF 默认优化算法，不懂 PPO 就抓不住 RLHF 的优化过程。
 - [[Reward Signal]] · **hard** — RLHF 用人类偏好训练奖励模型，奖励信号是它的打分通道。
-- [[Reward Generalization]] · **soft** — RLHF 的奖励模型会跨场景泛化，懂奖励泛化更易理解其泄漏与奖励黑客。
-
-## 懂了它才能懂（解锁 2）
-
-- [[Nerdy Personality]] — RLHF 用偏好奖励塑造行为，理解它更清楚人格如何被训练出来。
-- [[ScaleRL]] — ScaleRL 是大规模 RL 工程方法学，懂 RLHF 才能理解其训练范式来源。
 
 ## 相关
 
+- [[Nerdy Personality]] · related-to（audit） — 与[3]冗余，RLHF 是更上层流程，其塑形机制已被 Reward Signal 覆盖，非立得住的前提
+- [[Reward Generalization]] · related-to（audit） — 奖励泛化是 RLHF 的风险或后果，不是理解 RLHF 训练机制的前置；不懂它仍能懂 RLHF。
+- [[DPPO]] · rejected（audit） — DPPO 依赖的是 PPO/策略梯度，不是 RLHF；理由讲的是 RLHF 依赖 PPO，方向不对。
+- [[ScaleRL]] · related-to（audit） — ScaleRL 是 RL 工程方法学，懂 RLHF 有助但非前提，S 曲线方法学可独立理解
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -61,8 +58,8 @@ sources: 1
 
 ## 反链
 
-- [[DPPO]]
 - [[Reward Signal]]
+- [[DPPO]]
 - [[Nerdy Personality]]
 - [[Reward Generalization]]
 - [[ScaleRL]]

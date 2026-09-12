@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.067
+centrality: 0.126
 depth: 1
 origin: [harness]
 aliases: []
@@ -15,9 +15,9 @@ sources: 1
 
 # 时间 Scalability / Temporal Scalability
 
-> agent 在数小时连续运行中保持方向与质量的能力，是长时任务的骨架问题。
+> agent 在数小时连续运行中保持方向与质量的能力。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -38,7 +38,7 @@ agent 在精心设计的环境里开始工作后，怎么在几个小时的连�
 
 ## 先懂这些（前置 1）
 
-- [[context window 即 agent 状态]] · **hard** — 长时运行保持方向，前提是把上下文当作可累积的持久状态来管理。
+- [[context window 即 agent 状态]] · **soft** — 长时运行保持方向，前提是把上下文当作可累积的持久状态来管理。
 
 ## 懂了它才能懂（解锁 1）
 
@@ -46,14 +46,14 @@ agent 在精心设计的环境里开始工作后，怎么在几个小时的连�
 
 ## 相关
 
-- [[交互 Scalability Interaction Scalability]] · 同篇出现（co-occurrence） — 同篇出现：harness-A1
-- [[方向漂移 Direction Drift]] · 同篇出现（co-occurrence） — 同篇出现：harness-A1
-- [[自评失真 Self-evaluation Distortion]] · 同篇出现（co-occurrence） — 同篇出现：harness-A1
 - [[递归 Planner-Worker 架构]] · 同篇出现（co-occurrence） — 同篇出现：harness-A1
 - [[Symphony]] · 同篇出现（co-occurrence） — 同篇出现：harness-A1
+- [[交互 Scalability Interaction Scalability]] · 同篇出现（co-occurrence） — 同篇出现：harness-A1
+- [[方向漂移 Direction Drift]] · 同篇出现（co-occurrence） — 同篇出现：harness-A1
 - [[Harness 组件生命周期]] · 同篇出现（co-occurrence） — 同篇出现：harness-A1
-- [[Context Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：harness-A1
 - [[Generative Kernel]] · 同篇出现（co-occurrence） — 同篇出现：harness-A1
+- [[自评失真 Self-evaluation Distortion]] · 同篇出现（co-occurrence） — 同篇出现：harness-A1
+- [[Context Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：harness-A1
 - [[空间 Scalability Spatial Scalability]] · 同篇出现（co-occurrence） — 同篇出现：harness-A1
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-A1
 
@@ -62,14 +62,14 @@ agent 在精心设计的环境里开始工作后，怎么在几个小时的连�
 - Harness Engineering ｜ 《Harness Engineering 三个 Scaling 维度的统一框架》 ｜ https://yage.ai/share/harness-engineering-scalability-20260330.html
 ## 反链
 
-- [[Symphony]]
 - [[递归 Planner-Worker 架构]]
-- [[空间 Scalability Spatial Scalability]]
 - [[自评失真 Self-evaluation Distortion]]
-- [[Context Infrastructure]]
-- [[方向漂移 Direction Drift]]
-- [[交互 Scalability Interaction Scalability]]
-- [[长周期任务的基础设施压力]]
 - [[context window 即 agent 状态]]
-- [[Generative Kernel]]
+- [[方向漂移 Direction Drift]]
+- [[长周期任务的基础设施压力]]
 - [[Harness 组件生命周期]]
+- [[交互 Scalability Interaction Scalability]]
+- [[空间 Scalability Spatial Scalability]]
+- [[Context Infrastructure]]
+- [[Generative Kernel]]
+- [[Symphony]]

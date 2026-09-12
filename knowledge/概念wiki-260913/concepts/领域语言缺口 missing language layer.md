@@ -7,7 +7,7 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: judge
-centrality: 0.017
+centrality: 0.072
 depth: 0
 origin: [context]
 aliases: ["missing language layer"]
@@ -18,7 +18,7 @@ sources: 1
 
 > AI 能谈代码，却要人反复解释代码库与业务里那些非显而易见的词。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -37,11 +37,14 @@ sources: 1
 
 > {{name}} 的症状是什么，补词汇为何能缓解？
 
+## 懂了它才能懂（解锁 1）
+
+- [[上下文文档 context.md]] — 不懂【领域语言缺口】里哪些词是外人反复要问的，就做不了【上下文文档】中「收录哪些共享语言条目」这件事
+
 ## 相关
 
 - [[追问式对齐 Grill Me]] · 同篇出现（co-occurrence） — 同篇出现：context-08
 - [[共享理解 shared understanding]] · 同篇出现（co-occurrence） — 同篇出现：context-08
-- [[设计树 design tree]] · 同篇出现（co-occurrence） — 同篇出现：context-08
 
 ## 出场
 
@@ -54,5 +57,5 @@ sources: 1
 ## 反链
 
 - [[共享理解 shared understanding]]
-- [[设计树 design tree]]
 - [[追问式对齐 Grill Me]]
+- [[上下文文档 context.md]]

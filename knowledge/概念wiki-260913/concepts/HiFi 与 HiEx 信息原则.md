@@ -36,6 +36,7 @@ sources: 1
 
 ## 相关
 
+- [[Read–Think–Write–Verify Framework]] · rejected（audit） — 四步框架不依赖具体信息质量原则；HiFi/HiEx 是 Read 阶段的可选标准/组件。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -47,3 +48,7 @@ sources: 1
 ## 别名
 
 `HiFi`、`HiEx`、`High-Fidelity Information`、`High-Expertise Information`、`高保真度信息`、`高专业度信息`
+
+## 反链
+
+- [[Read–Think–Write–Verify Framework]]

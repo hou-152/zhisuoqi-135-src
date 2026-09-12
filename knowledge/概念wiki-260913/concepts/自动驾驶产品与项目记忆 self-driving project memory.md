@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: agent-org
 learningStage: when-needed
 verification: accept
-centrality: 0.042
-depth: 3
+centrality: 0.072
+depth: 1
 origin: [context]
 aliases: ["self-driving / project memory"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 预测：一个 project 可像 agent 一样基于涌入的反馈与规则自动决策，仍可要求一定人类输入，即所谓项目记忆。
 
-**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
+**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -39,7 +39,7 @@ Karri 对五年后“会变的部分”的预测。Linear 在建“项目记忆�
 
 ## 先懂这些（前置 1）
 
-- [[共享产品系统 shared product system]] · **soft** — 项目像 agent 一样自动决策，依赖系统承载反馈、决策与记忆。
+- [[组织级技能与指引 skills Linear way skill]] · **soft** — 不懂【组织级技能与指引】，就做不了项目记忆里规则与护栏的组织级配置
 
 ## 相关
 
@@ -57,7 +57,7 @@ Karri 对五年后“会变的部分”的预测。Linear 在建“项目记忆�
 
 ## 反链
 
-- [[代理原生 agent-native]]
-- [[共享产品系统 shared product system]]
+- [[组织级技能与指引 skills Linear way skill]]
 - [[“SaaS 已死”叙事与护城河蒸发]]
+- [[代理原生 agent-native]]
 - [[上下文骨架]]

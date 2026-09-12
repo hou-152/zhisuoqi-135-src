@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: verification-eval
 learningStage: now
 verification: judge
-centrality: 0.117
-depth: 1
+centrality: 0.181
+depth: 2
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 让 Agent 具备端到端检查自己工作的能力，loop 的可信度取决于这份自检能力。
 
-**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.117
+**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.181
 
 ## 费曼一下
 
@@ -36,9 +36,8 @@ Boris 的五条建议里最关键的是让 Claude 有端到端自验证能力。
 
 > {{name}} 覆盖到哪一步才算够用？
 
-## 先懂这些（前置 2）
+## 先懂这些（前置 1）
 
-- [[Self-evaluation Failure]] · **soft** — 自检要解决的问题正是 Agent 自评偏乐观。
 - [[Verifiability]] · **soft** — 任务有无自动成功信号，决定自检能否闭环。
 
 ## 懂了它才能懂（解锁 2）
@@ -48,6 +47,7 @@ Boris 的五条建议里最关键的是让 Claude 有端到端自验证能力。
 
 ## 相关
 
+- [[Self-evaluation Failure]] · related-to（audit） — B 是自检要解决的动机/问题，不懂它仍能理解 self-verification 是让 agent 检查自己工作。
 - [[Model as subroutine]] · 同篇出现（co-occurrence） — 同篇出现：harness-15
 - [[Continuous orchestration loop]] · 同篇出现（co-occurrence） — 同篇出现：harness-15
 - [[Loop Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-15
@@ -58,9 +58,9 @@ Boris 的五条建议里最关键的是让 Claude 有端到端自验证能力。
 ## 反链
 
 - [[Loop Engineering]]
-- [[Self-evaluation Failure]]
 - [[Self-verification loop]]
-- [[Verifiability]]
 - [[Continuous orchestration loop]]
-- [[Wrapper skill]]
+- [[Verifiability]]
 - [[Model as subroutine]]
+- [[Self-evaluation Failure]]
+- [[Wrapper skill]]

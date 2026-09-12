@@ -1,12 +1,12 @@
 ---
 id: cm_c5c2a8cb
 name: Baseline-request product
-type: REPRESENTATIONAL
+type: CONCEPTUAL
 subject: Context Engineering
 domain: caching-cost
 learningStage: when-needed
 verification: compute
-centrality: 0.067
+centrality: 0.072
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 任务输入≈baseline×请求次数+对话增长量，可用来比较不同 agent 的实际开销。
 
-**领域** caching-cost ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.067
+**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -38,11 +38,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[Token count]] · **hard** — 基线×请求次数的估算以 token 为单位计算。
-
-## 懂了它才能懂（解锁 1）
-
-- [[昂贵的反馈回路与欠测试]] — 要判断一次迭代多贵，得先会算单次请求的 token 开销
+- [[Token count]] · **soft** — 基线×请求次数的估算以 token 为单位计算。
 
 ## 相关
 
@@ -58,5 +54,4 @@ sources: 1
 - [[Token count]]
 - [[Harness token floor]]
 - [[Tool-schema tax]]
-- [[昂贵的反馈回路与欠测试]]
 - [[API-boundary observability]]

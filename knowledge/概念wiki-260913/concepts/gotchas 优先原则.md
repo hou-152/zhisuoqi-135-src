@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.042
+centrality: 0.072
 depth: 0
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > token 分配原则：简要说明 repo 用途，大部分 token 留给代码库内部的反直觉约定，避免陈述显而易见的事。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -38,10 +38,11 @@ CLAUDE.md 一节给出的 token 分配原则：保持轻量，简要说明 repo 
 
 ## 懂了它才能懂（解锁 1）
 
-- [[gotchas 优先的 CLAUDE.md]] — 它是该 token 分配原则在 CLAUDE.md 上的具体落地写法
+- [[gotchas 优先的 CLAUDE.md]] — 不懂【gotchas 优先原则】，就做不了【gotchas 优先的 CLAUDE.md】的 ⟨把 token 主要分配给反直觉 gotchas 而不是显而易见的事⟩
 
 ## 相关
 
+- [[gotchas 优先的 CLAUDE.md]] · related-to（audit） — 两个节点描述几乎逐字重合，是同一 token 分配原则与其 CLAUDE.md 实例化，属同层重复而非前置；说「CLAUDE.md 立不住」不成立，建议合并或降为 soft
 - [[护栏型指令的过期]] · 同篇出现（co-occurrence） — 同篇出现：context-21
 - [[判断力优先 let Claude use judgement]] · 同篇出现（co-occurrence） — 同篇出现：context-21
 - [[上下文工程 context engineering]] · 同篇出现（co-occurrence） — 同篇出现：context-21
@@ -51,7 +52,6 @@ CLAUDE.md 一节给出的 token 分配原则：保持轻量，简要说明 repo 
 - Context Engineering ｜ 《Claude 5 世代的上下文工程，规则变了》 ｜ https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models
 ## 反链
 
-- [[上下文工程 context engineering]]
-- [[gotchas 优先的 CLAUDE.md]]
 - [[护栏型指令的过期]]
 - [[判断力优先 let Claude use judgement]]
+- [[gotchas 优先的 CLAUDE.md]]

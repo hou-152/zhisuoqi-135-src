@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: state-persistence
 learningStage: when-needed
 verification: use
-centrality: 0.117
-depth: 4
+centrality: 0.126
+depth: 2
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 把 artifacts 当作共享知识层，每种都配 README、schema、添加流程与 timeline。
 
-**领域** state-persistence ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.117
+**领域** state-persistence ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,18 +36,18 @@ artifact schema 是统一表格格式。大家都按同一列写，后面的 age
 
 > {{name}} 为什么能让不同 loop 的文件可读可合并？
 
-## 先懂这些（前置 3）
+## 先懂这些（前置 1）
 
-- [[Shared File System]] · **hard** — artifacts 作为共享知识层存放在共享文件系统中，不懂共享文件系统无法理解其位置。
-- [[Cross-session Work]] · **soft** — artifact 要跨 session 复用，懂跨 session 工作更懂为何需要 schema。
-- [[文件系统即持久记忆]] · **soft** — artifacts 作为共享知识层需落盘持久化。
+- [[Git-backed state]] · **soft** — 不懂【Git-backed state】，就做不了【Artifact Schema】的「把 artifacts 作为共享知识层做版本化持久化并维护 timeline」
 
 ## 懂了它才能懂（解锁 1）
 
-- [[持久化代码图谱 structural map graph]] — 图谱是被查询的共享知识成果，需要 artifact 的 schema 与更新约定。
+- [[持久化代码图谱 structural map graph]] — 不懂【Artifact Schema】，就做不了【持久化代码图谱】的「把图谱作为共享知识层定义 README、schema 与增量添加流程」
 
 ## 相关
 
+- [[Shared File System]] · related-to（audit） — 共享文件系统只是 artifacts 的存放位置，Artifact Schema 的组织/文档概念（README、schema、timeline）不依赖它
+- [[Cross-session Work]] · related-to（audit） — artifact schema 可在单会话或人类协作中独立成立；跨 session 复用只是动机/场景之一，非前置。
 - [[Loop Engineer]] · 同篇出现（co-occurrence） — 同篇出现：harness-16
 - [[Agent loop]] · 同篇出现（co-occurrence） — 同篇出现：harness-16
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-16
@@ -57,9 +57,9 @@ artifact schema 是统一表格格式。大家都按同一列写，后面的 age
 - Harness Engineering ｜ 《Loop Engineer：把 Agent 工作流变成可复用知识模板》 ｜ https://www.youtube.com/watch?v=W6x-hb44C0c
 ## 反链
 
-- [[文件系统即持久记忆]]
 - [[Agent loop]]
 - [[Cross-session Work]]
-- [[持久化代码图谱 structural map graph]]
-- [[Shared File System]]
+- [[Git-backed state]]
 - [[Loop Engineer]]
+- [[Shared File System]]
+- [[持久化代码图谱 structural map graph]]

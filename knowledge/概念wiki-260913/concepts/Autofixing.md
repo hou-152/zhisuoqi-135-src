@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: code-engineering
 learningStage: when-needed
 verification: judge
-centrality: 0.042
+centrality: 0.017
 depth: 0
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 按改动文件夹的风险判断是否自动提交修复 PR，低风险仅需简单 review。
 
-**领域** code-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** code-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,12 +36,9 @@ Peter 提到 Creao 有 autofixing 系统，能根据改动文件夹风险判断�
 
 > {{name}} 凭什么决定自动提交还是转人工 review？
 
-## 懂了它才能懂（解锁 1）
-
-- [[零 bug 政策与一周 SLA]] — SLA 下低风险修复可自动提交 PR，减少人工排队。
-
 ## 相关
 
+- [[零 bug 政策与一周 SLA]] · related-to（audit） — Autofixing 只是达成 SLA 的手段之一，不懂它照样能理解零 bug 政策与一周 SLA，应降 soft 或踢出。
 - [[AI-First]] · 同篇出现（co-occurrence） — 同篇出现：harness-14
 - [[信任机制重构]] · 同篇出现（co-occurrence） — 同篇出现：harness-14
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-14
@@ -52,6 +49,6 @@ Peter 提到 Creao 有 autofixing 系统，能根据改动文件夹风险判断�
 ## 反链
 
 - [[Harness 工程 Harness Engineering]]
-- [[零 bug 政策与一周 SLA]]
-- [[信任机制重构]]
 - [[AI-First]]
+- [[信任机制重构]]
+- [[零 bug 政策与一周 SLA]]

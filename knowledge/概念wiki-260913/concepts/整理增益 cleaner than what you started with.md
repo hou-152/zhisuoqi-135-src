@@ -7,7 +7,7 @@ subject: Context Engineering
 domain: thinking-method
 learningStage: when-needed
 verification: judge
-centrality: 0.017
+centrality: 0.072
 depth: 0
 origin: [context]
 aliases: ["cleaner than what you started with"]
@@ -18,7 +18,7 @@ sources: 1
 
 > 漫谈整理后的版本常常比起点更清晰，这份「更干净」正是整理带来的净增益所在。
 
-**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -37,6 +37,10 @@ sources: 1
 
 > {{name}}体现在整理前后哪一点差别上？
 
+## 懂了它才能懂（解锁 1）
+
+- [[Read–Think–Write–Verify Framework]] — 不懂整理增益，就做不了 Read–Think–Write–Verify Framework 的「判断 Write 产出结构化输出到底值在哪」
+
 ## 相关
 
 - [[漫谈会话 ramble session]] · 同篇出现（co-occurrence） — 同篇出现：context-09
@@ -53,6 +57,7 @@ sources: 1
 
 ## 反链
 
-- [[bits]]
 - [[漫谈会话 ramble session]]
+- [[bits]]
 - [[输入摩擦 too lazy to type]]
+- [[Read–Think–Write–Verify Framework]]

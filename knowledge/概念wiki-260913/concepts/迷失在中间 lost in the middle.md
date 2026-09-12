@@ -7,7 +7,7 @@ subject: Context Engineering × Harness Engineering
 domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.07
+centrality: 0.124
 depth: 0
 origin: [context, harness]
 aliases: ["lost in the middle", "Lost in the Middle"]
@@ -18,7 +18,7 @@ sources: 4
 
 > 当模型必须访问并使用位于长输入上下文中间的信息时，性能显著劣化的现象。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.07
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.124
 
 ## 费曼一下
 
@@ -37,22 +37,26 @@ sources: 4
 
 > 关键信息落在窗口中间时，{{name}} 会怎么表现？
 
+## 懂了它才能懂（解锁 1）
+
+- [[复述（recitation）与 lost-in-the-middle]] — 不懂【迷失在中间】，就做不了【复述（recitation）与 lost-in-the-middle】的把目标复述到上下文末尾的策略
+
 ## 相关
 
 - [[近因偏置 recency bias]] · 同篇出现（co-occurrence） — 同篇出现：context-02
-- [[多文档问答受控实验]] · 同篇出现（co-occurrence） — 同篇出现：context-02
 - [[干扰文档 distractor documents]] · 同篇出现（co-occurrence） — 同篇出现：context-02
-- [[闭卷与 oracle 基线]] · 同篇出现（co-occurrence） — 同篇出现：context-02
-- [[合成键值检索任务]] · 同篇出现（co-occurrence） — 同篇出现：context-02
 - [[扩展上下文模型 extended-context models]] · 同篇出现（co-occurrence） — 同篇出现：context-02
 - [[查询感知语境化 query-aware contextualization]] · 同篇出现（co-occurrence） — 同篇出现：context-02
 - [[检索器-阅读器配置 retriever-reader]] · 同篇出现（co-occurrence） — 同篇出现：context-02
 - [[性能饱和早于召回饱和]] · 同篇出现（co-occurrence） — 同篇出现：context-02
 - [[重排序与排序列表截断]] · 同篇出现（co-occurrence） — 同篇出现：context-02
 - [[序列位置效应 serial-position effect]] · 同篇出现（co-occurrence） — 同篇出现：context-02
+- [[闭卷与 oracle 基线]] · 同篇出现（co-occurrence） — 同篇出现：context-02
+- [[合成键值检索任务]] · 同篇出现（co-occurrence） — 同篇出现：context-02
+- [[多文档问答受控实验]] · 同篇出现（co-occurrence） — 同篇出现：context-02
 - [[长上下文评测协议]] · 同篇出现（co-occurrence） — 同篇出现：context-02
-- [[U 型性能曲线]] · 同篇出现（co-occurrence） — 同篇出现：context-02
 - [[首因偏置 primacy bias]] · 同篇出现（co-occurrence） — 同篇出现：context-02
+- [[U 型性能曲线]] · 同篇出现（co-occurrence） — 同篇出现：context-02
 - [[Agent vs Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-27
 - [[AI Agent]] · 同篇出现（co-occurrence） — 同篇出现：context-13
 - [[非模型架构 Non-model Architecture]] · 同篇出现（co-occurrence） — 同篇出现：context-13
@@ -73,21 +77,22 @@ sources: 4
 
 ## 反链
 
-- [[上下文腐烂 Context Rot]]
-- [[序列位置效应 serial-position effect]]
-- [[多文档问答受控实验]]
-- [[长上下文评测协议]]
-- [[AI Agent]]
-- [[闭卷与 oracle 基线]]
-- [[合成键值检索任务]]
-- [[首因偏置 primacy bias]]
-- [[性能饱和早于召回饱和]]
-- [[重排序与排序列表截断]]
-- [[U 型性能曲线]]
-- [[非模型架构 Non-model Architecture]]
-- [[查询感知语境化 query-aware contextualization]]
-- [[干扰文档 distractor documents]]
-- [[检索器-阅读器配置 retriever-reader]]
-- [[近因偏置 recency bias]]
-- [[扩展上下文模型 extended-context models]]
 - [[Agent vs Harness]]
+- [[上下文腐烂 Context Rot]]
+- [[非模型架构 Non-model Architecture]]
+- [[检索器-阅读器配置 retriever-reader]]
+- [[AI Agent]]
+- [[多文档问答受控实验]]
+- [[复述（recitation）与 lost-in-the-middle]]
+- [[干扰文档 distractor documents]]
+- [[近因偏置 recency bias]]
+- [[性能饱和早于召回饱和]]
+- [[长上下文评测协议]]
+- [[重排序与排序列表截断]]
+- [[闭卷与 oracle 基线]]
+- [[查询感知语境化 query-aware contextualization]]
+- [[合成键值检索任务]]
+- [[扩展上下文模型 extended-context models]]
+- [[首因偏置 primacy bias]]
+- [[序列位置效应 serial-position effect]]
+- [[U 型性能曲线]]

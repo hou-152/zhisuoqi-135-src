@@ -5,9 +5,9 @@ type: PROCEDURAL
 subject: Harness Engineering
 domain: context-engineering
 learningStage: when-needed
-verification: use
-centrality: 0.042
-depth: 4
+verification: accept
+centrality: 0.017
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -15,9 +15,9 @@ sources: 1
 
 # new topic 判定
 
-> 小模型在每条消息上判断是否新话题并抽 2-3 词标题，用于管理上下文。
+> 小模型在发送消息时判断 isNewTopic 并抽 2-3 词标题，作者推测用途是管理上下文。
 
-**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,22 +36,19 @@ sources: 1
 
 > {{name}} 的结果会被拿去做什么？
 
-## 先懂这些（前置 1）
-
-- [[Session Management]] · **hard** — 判定新话题的目的就是开新会话或压缩，脱离会话管理没有意义
-
 ## 相关
 
-- [[看对话 log]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
+- [[Session Management]] · related-to（audit） — 理由只是动机层：新话题判定可独立理解为『分类+抽标题』的机制，不懂会话管理也立得住；而且目的上更像会话管理在用它，建议降 soft 或反向考察
 - [[对话加确定性缝合]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
 - [[反向代理式窥探]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
+- [[看对话 log]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
 
 ## 出场
 
 - Harness Engineering ｜ 《拆开 Claude Code：一个编码 agent 的 harness 内部长什么样》 ｜ https://xxchan.me/ai/2025/05/06/claude-code.html
 ## 反链
 
-- [[对话加确定性缝合]]
 - [[看对话 log]]
 - [[Session Management]]
+- [[对话加确定性缝合]]
 - [[反向代理式窥探]]

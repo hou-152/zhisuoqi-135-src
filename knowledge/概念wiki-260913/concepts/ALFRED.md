@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: verification-eval
 learningStage: when-needed
 verification: accept
-centrality: 0.042
-depth: 1
+centrality: 0.017
+depth: 0
 origin: [notion]
 aliases: ["A benchmark for interpreting grounded instructions for everyday tasks"]
 sources: 1
@@ -15,9 +15,9 @@ sources: 1
 
 # ALFRED
 
-> 在虚拟家居环境中按自然语言指令完成日常任务的具身智能基准，指令全用清晰显式指代。
+> 在虚拟家居环境中按自然语言指令完成日常任务的具身智能基准，指令几乎全用清晰显式指代。
 
-**领域** verification-eval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
+**领域** verification-eval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.017
 
 ## 原文 context
 
@@ -33,10 +33,6 @@ sources: 1
 ## 验收问句
 
 > {{name}} 为什么屏蔽了具身任务中『听懂人话』的难点？
-
-## 先懂这些（前置 1）
-
-- [[可验证目标]] · **soft** — ALFRED 指令用清晰显式指代，正因目标须机器可判定，不懂此点读不懂其设计。
 
 ## 相关
 
@@ -54,4 +50,6 @@ sources: 1
 
 ## 反链
 
-- [[可验证目标]]
+- [[外包思考，但不外包理解]]
+- [[Agent-Native Infrastructure]]
+- [[Sensors 与 Actuators]]

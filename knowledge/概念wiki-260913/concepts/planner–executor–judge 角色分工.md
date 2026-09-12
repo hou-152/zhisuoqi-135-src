@@ -1,13 +1,13 @@
 ---
 id: cm_7cbbd7dc
 name: planner–executor–judge 角色分工
-type: REPRESENTATIONAL
+type: CONCEPTUAL
 subject: Harness Engineering
 domain: multi-agent
 learningStage: when-needed
 verification: use
-centrality: 0.042
-depth: 1
+centrality: 0.126
+depth: 2
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > planner 排路径与交付物，executor 作唯一 lead 保证达成并派活，judge 独立判定是否完成。
 
-**领域** multi-agent ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -38,10 +38,15 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[Planner–Worker 角色分离]] · **hard** — executor 兼 lead 与 worker 的角色划分源自 planner/worker 分离
+- [[所有权与问责]] · **soft** — 不懂【所有权与问责】，就做不了【planner–executor–judge 角色分工】的 ⟨判据：为何必须把路径、达成、判定拆给不同 owner⟩
+
+## 懂了它才能懂（解锁 1）
+
+- [[模型—角色适配]] — 不懂【planner–executor–judge 角色分工】，就做不了【模型—角色适配】的 ⟨按 planner/executor/judge 的职责差异分别选模型⟩
 
 ## 相关
 
+- [[Planner–Worker 角色分离]] · related-to（audit） — planner–executor–judge 是对 planner/worker 的平行演化加一个 judge，可独立理解，非派生性的理解前提，降 soft
 - [[自协调与共享协调文件]] · 同篇出现（co-occurrence） — 同篇出现：harness-06
 - [[锁竞争与乐观并发控制]] · 同篇出现（co-occurrence） — 同篇出现：harness-06
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-06
@@ -52,5 +57,7 @@ sources: 1
 ## 反链
 
 - [[Planner–Worker 角色分离]]
+- [[所有权与问责]]
 - [[自协调与共享协调文件]]
+- [[模型—角色适配]]
 - [[锁竞争与乐观并发控制]]

@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: judge
-centrality: 0.092
-depth: 2
+centrality: 0.181
+depth: 1
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 压缩是就地总结让同一 Agent 带着缩短历史继续；重置是清空重来，靠交接物把状态交给下一个 Agent。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.092
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.181
 
 ## 费曼一下
 
@@ -36,24 +36,25 @@ This differs from compaction, where earlier parts of the conversation are summar
 
 > {{name}} 两种做法各自的代价是什么？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
-- [[Context Management 四策略]] · **soft** — 压缩与重来是四策略里压缩、外置思路的具体抉择
+- [[压缩（compaction）与运行内外的分工]] · **soft** — 不懂【压缩（compaction）与运行内外的分工】，就做不了【Context Reset vs Compaction】里对「压缩」一端的定义与对比
+- [[Handoff Artifact]] · **soft** — 不懂【Handoff Artifact】，就做不了【Context Reset vs Compaction】里重置那一路的状态交接
 
-## 懂了它才能懂（解锁 2）
+## 懂了它才能懂（解锁 1）
 
-- [[Handoff Artifact]] — 交接物是为重置服务的，不懂重置与压缩之别就不知它为何存在
 - [[Session Management]] — 会话管理要在 compact 与 rewind 间选，前提是分清两者
 
 ## 相关
 
+- [[Planner-Generator-Evaluator 三 Agent 架构]] · 同篇出现（co-occurrence） — 同篇出现：harness-09
+- [[Handoff Artifact]] · 同篇出现（co-occurrence） — 同篇出现：harness-09
+- [[Harness 简化原则 Harness Simplification]] · 同篇出现（co-occurrence） — 同篇出现：harness-09
 - [[Generator-Evaluator Loop]] · 同篇出现（co-occurrence） — 同篇出现：harness-09
 - [[Self-evaluation Failure]] · 同篇出现（co-occurrence） — 同篇出现：harness-09
 - [[Grading Criteria]] · 同篇出现（co-occurrence） — 同篇出现：harness-09
 - [[Sprint Contract]] · 同篇出现（co-occurrence） — 同篇出现：harness-09
-- [[Planner-Generator-Evaluator 三 Agent 架构]] · 同篇出现（co-occurrence） — 同篇出现：harness-09
-- [[Handoff Artifact]] · 同篇出现（co-occurrence） — 同篇出现：harness-09
-- [[Harness 简化原则 Harness Simplification]] · 同篇出现（co-occurrence） — 同篇出现：harness-09
+- [[Context Management 四策略]] · related-to（audit） — reset/compaction 可独立定义，四策略只是事后归类，非理解前提
 - [[Context Anxiety]] · 同篇出现（co-occurrence） — 同篇出现：harness-09
 - [[废料怪兽]] · 同篇出现（co-occurrence） — 同篇出现：harness-09
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-09
@@ -63,14 +64,15 @@ This differs from compaction, where earlier parts of the conversation are summar
 - Harness Engineering ｜ 《Anthropic 工程实践：如何为长时间运行的 Agent 应用设计 Harness》 ｜ https://www.anthropic.com/engineering/harness-design-long-running-apps
 ## 反链
 
-- [[废料怪兽]]
-- [[Context Management 四策略]]
+- [[Grading Criteria]]
+- [[压缩（compaction）与运行内外的分工]]
 - [[Generator-Evaluator Loop]]
-- [[Self-evaluation Failure]]
+- [[Planner-Generator-Evaluator 三 Agent 架构]]
 - [[Session Management]]
 - [[Sprint Contract]]
+- [[废料怪兽]]
 - [[Context Anxiety]]
-- [[Grading Criteria]]
+- [[Context Management 四策略]]
 - [[Handoff Artifact]]
-- [[Planner-Generator-Evaluator 三 Agent 架构]]
 - [[Harness 简化原则 Harness Simplification]]
+- [[Self-evaluation Failure]]

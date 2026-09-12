@@ -7,8 +7,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.017
-depth: 0
+centrality: 0.072
+depth: 1
 origin: [harness]
 aliases: ["Harness Simplification"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 找最简单的解法，只在必要时增加复杂度——harness 里每个组件都编码了“模型自己做不到”的假设。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -37,6 +37,10 @@ find the simplest solution possible, and only increase complexity when needed. �
 
 > 按 {{name}}，你新增一个组件前要先回答什么问题？
 
+## 先懂这些（前置 1）
+
+- [[harness 的过时假设]] · **hard** — 不懂【harness 的过时假设】，就做不了【Harness 简化原则】里“只在必要时增加复杂度”的取舍。
+
 ## 相关
 
 - [[Context Anxiety]] · 同篇出现（co-occurrence） — 同篇出现：harness-09
@@ -53,5 +57,7 @@ find the simplest solution possible, and only increase complexity when needed. �
 
 ## 反链
 
+- [[Harness]]
 - [[Context Reset vs Compaction]]
+- [[harness 的过时假设]]
 - [[Context Anxiety]]

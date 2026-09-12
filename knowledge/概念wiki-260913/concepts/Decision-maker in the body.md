@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: loop-autonomy
 learningStage: now
 verification: judge
-centrality: 0.042
-depth: 1
+centrality: 0.072
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > loop 区别于 cron 的关键：中间有一个决策者，模型按当前状态决定下一步，而不是执行固定脚本。
 
-**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,14 +36,15 @@ cron 像闹钟，到点就按固定步骤做事；agent loop 像带判断力的�
 
 > {{name}} 如何区分 loop 和 cron？
 
-## 先懂这些（前置 1）
+## 懂了它才能懂（解锁 1）
 
-- [[自动循环的心跳]] · **soft** — 理解它“区别于 cron”需先知道定时心跳式的固定脚本。
+- [[agent 循环]] — 不懂【Decision-maker in the body】，就做不了【agent 循环】的“让 LLM 按当前状态决定下一步”。
 
 ## 相关
 
 - [[Model as subroutine]] · 同篇出现（co-occurrence） — 同篇出现：harness-15
 - [[Continuous orchestration loop]] · 同篇出现（co-occurrence） — 同篇出现：harness-15
+- [[自动循环的心跳]] · related-to（audit） — 与 cron 的对比可凭『固定脚本 vs 决策者』直接理解，心跳节点并未解释 cron 的固定脚本性质，不构成前置
 - [[Loop Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-15
 
 ## 出场
@@ -52,6 +53,7 @@ cron 像闹钟，到点就按固定步骤做事；agent loop 像带判断力的�
 ## 反链
 
 - [[Loop Engineering]]
+- [[agent 循环]]
 - [[自动循环的心跳]]
 - [[Continuous orchestration loop]]
 - [[Model as subroutine]]

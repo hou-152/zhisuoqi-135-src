@@ -6,7 +6,7 @@ type: CONCEPTUAL
 subject: Context Engineering
 domain: context-engineering
 learningStage: when-needed
-verification: judge
+verification: accept
 centrality: 0.017
 depth: 0
 origin: [context]
@@ -18,7 +18,7 @@ sources: 1
 
 > 上下文工程带来独立于底层模型强弱的结构性收益；模型进步是潮水，产品应做被托起的船。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -39,7 +39,6 @@ sources: 1
 
 ## 相关
 
-- [[Stochastic Graduate Descent]] · 同篇出现（co-occurrence） — 同篇出现：context-04
 - [[局部最优 local optima]] · 同篇出现（co-occurrence） — 同篇出现：context-04
 - [[KV-cache 命中率]] · 同篇出现（co-occurrence） — 同篇出现：context-04
 - [[prefill 与 decode 的高度倾斜]] · 同篇出现（co-occurrence） — 同篇出现：context-04
@@ -49,8 +48,9 @@ sources: 1
 - [[文件系统即终极上下文]] · 同篇出现（co-occurrence） — 同篇出现：context-04
 - [[复述（recitation）与 lost-in-the-middle]] · 同篇出现（co-occurrence） — 同篇出现：context-04
 - [[保留错误证据与错误恢复]] · 同篇出现（co-occurrence） — 同篇出现：context-04
-- [[few-shot 套路化与受控多样性]] · 同篇出现（co-occurrence） — 同篇出现：context-04
+- [[Stochastic Graduate Descent]] · 同篇出现（co-occurrence） — 同篇出现：context-04
 - [[可恢复的压缩 restorable compression]] · 同篇出现（co-occurrence） — 同篇出现：context-04
+- [[few-shot 套路化与受控多样性]] · 同篇出现（co-occurrence） — 同篇出现：context-04
 - [[押注 in-context learning]] · 同篇出现（co-occurrence） — 同篇出现：context-04
 - [[上下文工程 context engineering]] · 同篇出现（co-occurrence） — 同篇出现：context-04
 
@@ -64,16 +64,16 @@ sources: 1
 
 ## 反链
 
-- [[局部最优 local optima]]
 - [[prefill 与 decode 的高度倾斜]]
-- [[文件系统即终极上下文]]
-- [[押注 in-context learning]]
-- [[few-shot 套路化与受控多样性]]
-- [[logits 掩码与 context-aware 状态机]]
-- [[Stochastic Graduate Descent]]
-- [[保留错误证据与错误恢复]]
-- [[复述（recitation）与 lost-in-the-middle]]
+- [[局部最优 local optima]]
 - [[可恢复的压缩 restorable compression]]
-- [[稳定的 prompt 前缀]]
-- [[action space 膨胀]]
 - [[KV-cache 命中率]]
+- [[复述（recitation）与 lost-in-the-middle]]
+- [[稳定的 prompt 前缀]]
+- [[押注 in-context learning]]
+- [[logits 掩码与 context-aware 状态机]]
+- [[保留错误证据与错误恢复]]
+- [[文件系统即终极上下文]]
+- [[action space 膨胀]]
+- [[few-shot 套路化与受控多样性]]
+- [[Stochastic Graduate Descent]]

@@ -40,10 +40,10 @@ Diarization 是让 AI 真正能做知识工作的关键动作：
 
 - [[Skill Files]] · 同篇出现（co-occurrence） — 同篇出现：harness-24
 - [[Thin Harness, Fat Skills]] · 同篇出现（co-occurrence） — 同篇出现：harness-24
-- [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-24
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
+- [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-24
 
 ## 出场
 
@@ -56,5 +56,5 @@ Diarization 是让 AI 真正能做知识工作的关键动作：
 
 ## 反链
 
-- [[Skill Files]]
 - [[Thin Harness, Fat Skills]]
+- [[Skill Files]]

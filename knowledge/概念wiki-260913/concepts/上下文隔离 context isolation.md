@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.042
-depth: 2
+centrality: 0.072
+depth: 1
 origin: [context]
 aliases: ["context isolation"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 用独立上下文窗口、专属系统提示与受限工具权限切分并委派任务，避免污染主对话。
 
-**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -39,7 +39,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[上下文工程 context engineering]] · **soft** — 隔离是上下文工程切分任务、防污染的一种手段，不懂上下文工程就不知为何要隔离。
+- [[上下文 context]] · **hard** — 不懂【上下文】由系统提示、记忆、检索、工具定义等组成，就做不了【上下文隔离】中「为子任务划出独立上下文边界」这件事
 
 ## 相关
 
@@ -57,6 +57,6 @@ sources: 1
 
 ## 反链
 
-- [[上下文工程 context engineering]]
 - [[上下文 context]]
+- [[上下文工程 context engineering]]
 - [[熵减 entropy reduction]]

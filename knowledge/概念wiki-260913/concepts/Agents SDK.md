@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: when-needed
 verification: use
-centrality: 0.042
-depth: 4
+centrality: 0.072
+depth: 1
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > OpenAI 提供的标准化 Agent 开发基础设施，让开发者易于起步并为 OpenAI 模型正确构建。
 
-**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -38,22 +38,21 @@ We’re introducing new capabilities to the Agents SDK that give developers stan
 
 ## 先懂这些（前置 1）
 
-- [[Agent]] · **hard** — SDK 为构建 agent 提供基础设施，先懂 agent 的定义。
+- [[primitives]] · **hard** — 不懂【primitives】，就做不了【Agents SDK】里 Agents、Handoffs、Guardrails 这三个原语的 API 暴露。
 
 ## 相关
 
 - [[native sandbox execution]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
 - [[AGENTS.md]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
-- [[shell tool]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
 - [[apply patch tool]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
 - [[snapshotting + rehydration]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
 - [[exfiltration]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
 - [[subagents]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
+- [[prompt-injection]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
 - [[code mode]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
 - [[turnkey yet flexible]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
-- [[prompt-injection]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
+- [[shell tool]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
 - [[harness–compute separation]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
-- [[舱单]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
 - [[MCP Model Context Protocol]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
 - [[Sandbox]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
 - [[程序记忆（Procedural Memory Skills） progressive disclosure]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
@@ -67,22 +66,21 @@ We’re introducing new capabilities to the Agents SDK that give developers stan
 - Harness Engineering ｜ 《OpenAI Agents SDK 下一代演进：原生沙箱 + 模型原生 harness》 ｜ https://openai.com/index/the-next-evolution-of-the-agents-sdk/
 ## 反链
 
-- [[Agent]]
+- [[Sandbox]]
+- [[持久化执行 durable execution]]
 - [[Agent loop]]
 - [[MCP Model Context Protocol]]
-- [[Sandbox]]
-- [[程序记忆（Procedural Memory Skills） progressive disclosure]]
-- [[model-native harness]]
-- [[持久化执行 durable execution]]
-- [[shell tool]]
-- [[subagents]]
+- [[primitives]]
 - [[AGENTS.md]]
 - [[exfiltration]]
 - [[harness–compute separation]]
+- [[model-native harness]]
 - [[prompt-injection]]
-- [[turnkey yet flexible]]
-- [[舱单]]
+- [[snapshotting + rehydration]]
+- [[subagents]]
+- [[native sandbox execution]]
+- [[shell tool]]
+- [[程序记忆（Procedural Memory Skills） progressive disclosure]]
 - [[apply patch tool]]
 - [[code mode]]
-- [[native sandbox execution]]
-- [[snapshotting + rehydration]]
+- [[turnkey yet flexible]]

@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: code-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.017
+centrality: 0.072
 depth: 0
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > CLI 的 watch 命令与自动更新 hooks，让图谱在每次文件编辑和 git commit 后自动同步代码库。
 
-**领域** code-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** code-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,17 +36,25 @@ CLI 中的 watch 命令对应"Auto-update on file changes"，特性表里同时�
 
 > {{name}} 覆盖了哪些让图谱同步的触发点？
 
+## 懂了它才能懂（解锁 1）
+
+- [[Legible Codebase]] — 不懂 Watch 模式与自动更新 hooks，就做不了 Legible Codebase 的「在每次编辑和 commit 后自动维持文档索引与链接检查的时效性」
+
 ## 相关
 
+- [[Skill as asset]] · rejected（audit） — 完全不相干；watch/hooks 不帮助理解 skill 作为可复利资产，只是另一 CLI 功能，不构成依赖。
+- [[持久化代码图谱 structural map graph]] · 同篇出现（co-occurrence） — 同篇出现：context-16
 - [[code-review-graph]] · 同篇出现（co-occurrence） — 同篇出现：context-16
 - [[Tree-sitter]] · 同篇出现（co-occurrence） — 同篇出现：context-16
-- [[持久化代码图谱 structural map graph]] · 同篇出现（co-occurrence） — 同篇出现：context-16
+- [[Tree-sitter]] · rejected（audit） — Tree-sitter 只是可选解析实现，watch 模式的核心是文件变更触发同步，不懂它也能理解。
 
 ## 出场
 
 - Context Engineering ｜ 《用持久化代码图谱给 AI Review 精准上下文》 ｜ https://github.com/tirth8205/code-review-graph
 ## 反链
 
+- [[Legible Codebase]]
 - [[持久化代码图谱 structural map graph]]
 - [[code-review-graph]]
+- [[Skill as asset]]
 - [[Tree-sitter]]

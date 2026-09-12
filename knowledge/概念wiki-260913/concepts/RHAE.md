@@ -5,9 +5,9 @@ type: REPRESENTATIONAL
 subject: Context Engineering × Harness Engineering
 domain: verification-eval
 learningStage: when-needed
-verification: compute
-centrality: 0.06
-depth: 2
+verification: accept
+centrality: 0.035
+depth: 0
 origin: [context, harness]
 aliases: []
 sources: 2
@@ -17,7 +17,7 @@ sources: 2
 
 > ARC-AGI-3 的评分指标，把模型表现与人类测试基线相比，得出相对人类动作效率。
 
-**领域** verification-eval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.06
+**领域** verification-eval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.035
 
 ## 费曼一下
 
@@ -36,14 +36,11 @@ ARC-AGI-3 的评分指标，把模型表现与人类基线相比。基于官方�
 
 > 能否用 {{name}} 算出模型相对人类基线的百分比？
 
-## 先懂这些（前置 1）
-
-- [[通用 harness 的公平性张力]] · **soft** — 人类基线分随官方 harness 设置浮动，解读它需先懂公平性张力。
-
 ## 相关
 
-- [[基准测试的捆绑测量性]] · 同篇出现（co-occurrence） — 同篇出现：context-A2
+- [[通用 harness 的公平性张力]] · related-to（audit） — 公平性张力有助于解读人类基线浮动，但 RHAE 指标本身可独立理解。
 - [[保留推理 retained reasoning]] · 同篇出现（co-occurrence） — 同篇出现：context-A2
+- [[基准测试的捆绑测量性]] · 同篇出现（co-occurrence） — 同篇出现：context-A2
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：context-A2
 
 ## 出场
@@ -52,7 +49,6 @@ ARC-AGI-3 的评分指标，把模型表现与人类基线相比。基于官方�
 - Harness Engineering ｜ 《只改两个 API 设置，OpenAI 把 ARC-AGI-3 成绩提到三倍》 ｜ https://openai.com/index/how-two-settings-tripled-our-arc-agi-3-scores
 ## 反链
 
-- [[Harness]]
-- [[通用 harness 的公平性张力]]
 - [[基准测试的捆绑测量性]]
+- [[通用 harness 的公平性张力]]
 - [[保留推理 retained reasoning]]

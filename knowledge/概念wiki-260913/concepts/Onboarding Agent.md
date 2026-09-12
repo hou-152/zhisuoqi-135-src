@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: safety-governance
 learningStage: now
 verification: judge
-centrality: 0.042
-depth: 1
+centrality: 0.126
+depth: 2
 origin: [notion]
 aliases: ["部署 Agent 像 onboarding 新员工", "AI Agent 入职", "AI 员工化", "AI Agent governance as onboarding"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 把 Agent 部署当作 onboarding 新人：给权限、定边界、记录行为、审计理由，而不是装个插件。
 
-**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 原文 context
 
@@ -36,12 +36,14 @@ sources: 1
 
 > 你会怎么像 onboarding 新人一样给 {{name}} 定治理动作？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
-- [[权限与推理的架构分离]] · **soft** — 给 Agent 授权、定边界，沿用权限与推理分离的框架
+- [[安全路由与能力分层]] · **soft** — 不懂能力分层，就做不了 Onboarding Agent 里『给权限、定边界』这一步
+- [[Human in the loop]] · **soft** — 不懂 Human in the loop，就做不了 Onboarding Agent 里『记录行为、审计理由』那一环
 
 ## 相关
 
+- [[权限与推理的架构分离]] · related-to（audit） — onboarding 是更广的组织流程，权限分离只是可选框架，不是理解它的前置。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -56,4 +58,6 @@ sources: 1
 
 ## 反链
 
+- [[Human in the loop]]
 - [[权限与推理的架构分离]]
+- [[安全路由与能力分层]]

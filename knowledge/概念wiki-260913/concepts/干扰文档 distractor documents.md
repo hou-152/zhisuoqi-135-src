@@ -6,8 +6,8 @@ type: CONCEPTUAL
 subject: Context Engineering
 domain: verification-eval
 learningStage: when-needed
-verification: use
-centrality: 0.017
+verification: judge
+centrality: 0.072
 depth: 0
 origin: [context]
 aliases: ["distractor documents"]
@@ -18,7 +18,7 @@ sources: 1
 
 > 评测中插入的 k−1 篇不含答案但与查询高度相关的维基片段，按相关性递减排列，用来测长上下文的抗干扰。
 
-**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -37,10 +37,14 @@ k−1 篇不含答案但与查询高度相关的维基百科片段，由 Contrie
 
 > 你能否说明 {{name}} 在你的评测集里是怎么生成的？
 
+## 懂了它才能懂（解锁 1）
+
+- [[多文档问答受控实验]] — 不懂【干扰文档】，就做不了【多文档问答受控实验】的「构造 k−1 篇不含答案但相关的干扰项」
+
 ## 相关
 
-- [[U 型性能曲线]] · 同篇出现（co-occurrence） — 同篇出现：context-02
 - [[首因偏置 primacy bias]] · 同篇出现（co-occurrence） — 同篇出现：context-02
+- [[U 型性能曲线]] · 同篇出现（co-occurrence） — 同篇出现：context-02
 - [[迷失在中间 lost in the middle]] · 同篇出现（co-occurrence） — 同篇出现：context-02
 
 ## 出场
@@ -54,5 +58,6 @@ k−1 篇不含答案但与查询高度相关的维基百科片段，由 Contrie
 ## 反链
 
 - [[迷失在中间 lost in the middle]]
+- [[多文档问答受控实验]]
 - [[首因偏置 primacy bias]]
 - [[U 型性能曲线]]

@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: safety-governance
 learningStage: deep-dive
 verification: judge
-centrality: 0.042
-depth: 1
+centrality: 0.017
+depth: 0
 origin: [notion]
 aliases: ["信任网络 / 信任之网"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 信任靠图结构中多跳传递与多源交叉，每条边附「为何信」元数据，不依赖中心认证局。
 
-**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 原文 context
 
@@ -36,10 +36,6 @@ sources: 1
 
 > {{name}} 如何在没有中心认证局时算出可信概率？
 
-## 先懂这些（前置 1）
-
-- [[零信任 vs. 城堡-护城河]] · **soft** — 不依赖中心认证局，与零信任同属去中心信任思路
-
 ## 相关
 
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -56,4 +52,6 @@ sources: 1
 
 ## 反链
 
-- [[零信任 vs. 城堡-护城河]]
+- [[外包思考，但不外包理解]]
+- [[Agent-Native Infrastructure]]
+- [[Sensors 与 Actuators]]

@@ -7,7 +7,7 @@ subject: Harness Engineering
 domain: loop-autonomy
 learningStage: now
 verification: accept
-centrality: 0.042
+centrality: 0.072
 depth: 0
 origin: [harness]
 aliases: ["task horizon"]
@@ -18,7 +18,7 @@ sources: 1
 
 > 一次任务可连续自主运行的时间长度，是衡量 Agent 能力与「为什么是现在」的量化指标。
 
-**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
+**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -57,6 +57,7 @@ sources: 1
 
 ## 反链
 
+- [[Harness]]
 - [[长时程自治编码 long-running autonomous coding]]
 - [[Claude Managed Agents]]
 - [[messages API 作为直连网关]]

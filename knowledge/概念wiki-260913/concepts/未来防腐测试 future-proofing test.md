@@ -53,5 +53,5 @@ sources: 1
 
 ## 反链
 
-- [[agent 与 harness 的分工]]
 - [[If you're not the model, you're the harness.]]
+- [[agent 与 harness 的分工]]

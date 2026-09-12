@@ -7,7 +7,7 @@ subject: Context Engineering
 domain: code-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.017
+centrality: 0.126
 depth: 0
 origin: [context]
 aliases: ["ubiquitous language"]
@@ -18,7 +18,7 @@ sources: 1
 
 > 统一语言：借用 DDD，让代码库、开发者与领域专家在 AI coding workflow 中共用同一套词汇。
 
-**领域** code-engineering ｜ **类型** LANGUAGE ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** code-engineering ｜ **类型** LANGUAGE ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -37,12 +37,15 @@ sources: 1
 
 > 在 AI coding 流程里，{{name}}是如何减少歧义的？
 
+## 懂了它才能懂（解锁 2）
+
+- [[语言驱动的代码一致性 language-code alignment]] — 不懂【统一语言】就做不了【语言驱动的代码一致性】的 ⟨变量、文件名与 UI 文案命名对齐⟩
+- [[系统架构评审]] — 不懂【统一语言】就做不了【系统架构评审】的 ⟨接口契约与领域词汇对齐⟩
+
 ## 相关
 
-- [[限界上下文 bounded context]] · 常一起用（概念边界） — 统一语言只有在声明的领域边界内才能保持稳定含义。
 - [[追问式对齐 Grill Me]] · 同篇出现（co-occurrence） — 同篇出现：context-08
 - [[共享理解 shared understanding]] · 同篇出现（co-occurrence） — 同篇出现：context-08
-- [[设计树 design tree]] · 同篇出现（co-occurrence） — 同篇出现：context-08
 - [[上下文工程 context engineering]] · 常一起用（工作流） — 把领域语言沉淀为可读取资产，可减少跨会话重复解释并改善上下文对齐。
 
 ## 出场
@@ -55,7 +58,8 @@ sources: 1
 
 ## 反链
 
+- [[上下文工程 context engineering]]
 - [[共享理解 shared understanding]]
-- [[设计树 design tree]]
-- [[限界上下文 bounded context]]
 - [[追问式对齐 Grill Me]]
+- [[系统架构评审]]
+- [[语言驱动的代码一致性 language-code alignment]]

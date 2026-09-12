@@ -6,8 +6,8 @@ subject: Context Engineering × Harness Engineering
 domain: loop-autonomy
 learningStage: when-needed
 verification: judge
-centrality: 0.06
-depth: 4
+centrality: 0.089
+depth: 1
 origin: [context, harness]
 aliases: []
 sources: 2
@@ -17,7 +17,7 @@ sources: 2
 
 > Harness 提供约束护栏、Loop 提供驱动力，二者配合让任务可持续自动推进。
 
-**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.06
+**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.089
 
 ## 费曼一下
 

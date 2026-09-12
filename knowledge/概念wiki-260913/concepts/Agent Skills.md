@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.067
+centrality: 0.126
 depth: 0
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > Claude 可读的技能文件，文件能递归引用其他文件，常用于教它调用 API 或查询数据库。
 
-**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
+**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -55,7 +55,7 @@ Claude could read skill files and those files could then reference other files t
 
 - [[渐进式披露 progressive disclosure]]
 - [[Action Space]]
-- [[Elicitation]]
 - [[description 作为触发条件]]
+- [[Elicitation]]
 - [[Progressive disclosure（渐进式披露）与 Skills]]
 - [[See Like an Agent]]

@@ -47,6 +47,6 @@ sources: 1
 - Context Engineering ｜ 《用 Skills 在 Claude Code 里搭建验证闭环》 ｜ https://claude.com/blog/building-verification-loops-in-claude-code-with-skills
 ## 反链
 
-- [[验证闭环 verification loop]]
 - [[skill-creator 访谈式创建]]
+- [[验证闭环 verification loop]]
 - [[把重复步骤编码成 Skill]]

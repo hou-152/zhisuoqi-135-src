@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: model-training
 learningStage: deep-dive
 verification: compute
-centrality: 0.067
-depth: 5
+centrality: 0.126
+depth: 2
 origin: [notion]
 aliases: ["REINFORCE Leave-One-Out"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 每 prompt 采 K 条回复，优势=自身奖励减其余 K-1 条均值，不除标准差并放弃裁剪回到纯 REINFORCE。
 
-**领域** model-training ｜ **类型** PROCEDURAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.067
+**领域** model-training ｜ **类型** PROCEDURAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.126
 
 ## 原文 context
 
@@ -37,10 +37,11 @@ sources: 1
 ## 先懂这些（前置 2）
 
 - [[REINFORCE]] · **hard** — RLOO 放弃裁剪回到纯 REINFORCE，不懂 REINFORCE 就理解不了它的优势定义。
-- [[DPPO]] · **soft** — RLOO 放弃 PPO 的裁剪，先懂 PPO 才能理解它做了哪些简化。
+- [[优势函数]] · **hard** — 不懂优势函数是奖励减基线，就做不了 RLOO 用自身奖励减其余 K-1 条均值算优势的步骤
 
 ## 相关
 
+- [[DPPO]] · rejected（audit） — RLOO 的对照或简化对象是 PPO/REINFORCE，不是 DPPO；DPPO 只是另一类信任域方法，不构成前置。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -57,3 +58,4 @@ sources: 1
 
 - [[DPPO]]
 - [[REINFORCE]]
+- [[优势函数]]

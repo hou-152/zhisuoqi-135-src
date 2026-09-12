@@ -4,10 +4,10 @@ name: 提示词工程
 nameEn: Prompt Engineering
 type: PROCEDURAL
 subject: Context Engineering × Harness Engineering
-domain: spec-intent
+domain: context-engineering
 learningStage: now
 verification: use
-centrality: 0.035
+centrality: 0.144
 depth: 0
 origin: [context, harness]
 aliases: ["Prompt Engineering"]
@@ -16,9 +16,9 @@ sources: 2
 
 # 提示词工程 · Prompt Engineering
 
-> 精心设计模型接收到的指令，使其产出的行为符合预期。
+> 精心设计模型接收到的指令。
 
-**领域** spec-intent ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.035
+**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.144
 
 ## 费曼一下
 
@@ -36,6 +36,11 @@ sources: 2
 ## 验收问句
 
 > {{name}} 做得好与不好，差别体现在指令的哪一点上？
+
+## 懂了它才能懂（解锁 2）
+
+- [[典型示例策展 diverse, canonical examples]] — 不懂【提示词工程】，就做不了【典型示例策展】的 few-shot 示例编排
+- [[反思性提示]] — 不懂【提示词工程】，就做不了【反思性提示】的反思步骤插入
 
 ## 相关
 
@@ -55,5 +60,8 @@ sources: 2
 
 ## 反链
 
-- [[AI Agent]]
+- [[上下文工程 context engineering]]
 - [[非模型架构 Non-model Architecture]]
+- [[AI Agent]]
+- [[典型示例策展 diverse, canonical examples]]
+- [[反思性提示]]

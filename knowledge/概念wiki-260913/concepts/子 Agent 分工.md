@@ -6,8 +6,8 @@ subject: Context Engineering × Harness Engineering
 domain: multi-agent
 learningStage: now
 verification: use
-centrality: 0.16
-depth: 2
+centrality: 0.144
+depth: 1
 origin: [context, harness]
 aliases: []
 sources: 2
@@ -17,7 +17,7 @@ sources: 2
 
 > 把执行、审查、修复分给不同子 Agent 或模型，避免写代码的 Agent 给自己打分。
 
-**领域** multi-agent ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.16
+**领域** multi-agent ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.144
 
 ## 费曼一下
 
@@ -39,16 +39,13 @@ sources: 2
 ## 先懂这些（前置 2）
 
 - [[多智能体架构]] · **hard** — 分工是把任务拆给多个 Agent，没有多 Agent 架构就无从分工
-- [[所有权与问责]] · **hard** — 分离角色的动机就是让每个 Agent 有明确归属与责任
-
-## 懂了它才能懂（解锁 3）
-
-- [[Generator-Evaluator Loop]] — 生成与评估分离本质上是执行者与审查者的分工
-- [[模型—角色适配]] — 没有角色分工，就无所谓按角色挑选最合适的模型
-- [[意图理解、路由与升级 understand intent, route, escalate]] — 把工作路由给正确执行者，就是按分工选择合适子 Agent。
+- [[Generator-Evaluator Loop]] · **soft** — 不懂生成-评估分离，就理解不了『不让写代码的 Agent 给自己打分』为何要拆执行与审查
 
 ## 相关
 
+- [[所有权与问责]] · related-to（audit） — 所有权与问责只是角色分离的动机/理由，不是理解分工概念的前提，属相关性，降 soft 或删
+- [[Generator-Evaluator Loop]] · related-to（audit） — 生成-评估循环是「子 Agent 分工」的一个特例，懂特例不必先懂泛化概念，方向应弱化（甚至可视为分工的实例而非依赖）
+- [[模型—角色适配]] · related-to（audit） — 前置应是泛化的角色分工；子 Agent 分工只是实例，按角色选模型可独立理解。
 - [[Prompt 到 Loop 的跃迁]] · 同篇出现（co-occurrence） — 同篇出现：context-07
 - [[自动循环的心跳]] · 同篇出现（co-occurrence） — 同篇出现：context-07
 - [[Loop Engineering]] · 同篇出现（co-occurrence） — 同篇出现：context-07
@@ -59,11 +56,10 @@ sources: 2
 - Harness Engineering ｜ 《从 Prompt 转向 Loop Engineering 的工作流拐点》 ｜ https://mp.weixin.qq.com/s?\_\_biz=MzIyMzA5NjEyMA%3D%3D&mid=2647683561&idx=1&sn=cb696e11357022c64360c79bf9471f22&poc_token=HNz8L2qjHT7l7D-hSGkoiWTVrXB7ZPRuFeZy6Ptl
 ## 反链
 
-- [[多智能体架构]]
 - [[Loop Engineering]]
+- [[多智能体架构]]
 - [[自动循环的心跳]]
-- [[模型—角色适配]]
-- [[意图理解、路由与升级 understand intent, route, escalate]]
-- [[Generator-Evaluator Loop]]
-- [[Prompt 到 Loop 的跃迁]]
 - [[所有权与问责]]
+- [[Generator-Evaluator Loop]]
+- [[模型—角色适配]]
+- [[Prompt 到 Loop 的跃迁]]

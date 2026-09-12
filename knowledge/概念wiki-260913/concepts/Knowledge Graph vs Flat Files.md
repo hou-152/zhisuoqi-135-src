@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: memory-retrieval
 learningStage: when-needed
 verification: judge
-centrality: 0.042
-depth: 1
+centrality: 0.017
+depth: 0
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 扁平上下文线性累加价值，知识图谱靠新节点连接已有节点让关系涌现，整体大于部分之和。
 
-**领域** memory-retrieval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** memory-retrieval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,10 +36,6 @@ Flat context 线性扩展——每个新事实增加一个单位的价值。Know
 
 > {{name}} 的对比说明结构对知识积累意味着什么？
 
-## 先懂这些（前置 1）
-
-- [[记忆 Memory]] · **hard** — 该对比讨论上下文/记忆的组织方式，先懂记忆才谈图与扁平之别。
-
 ## 相关
 
 - [[Agent Drift]] · 同篇出现（co-occurrence） — 同篇出现：context-25
@@ -51,6 +47,6 @@ Flat context 线性扩展——每个新事实增加一个单位的价值。Know
 - Context Engineering ｜ 《上下文工程：AI 时代的核心能力》 ｜ https://x.com/nyk_builderz/status/2031581912071127158/?s=12&rw_tt_thread=True
 ## 反链
 
-- [[记忆 Memory]]
+- [[上下文工程 context engineering]]
 - [[Agent Drift]]
 - [[Context 四种失败模式 Context Pollution Distraction Confusion Clash]]

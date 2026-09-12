@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.042
-depth: 5
+centrality: 0.072
+depth: 1
 origin: [context]
 aliases: ["attention before attention"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 窗口变长不等于能随便塞：选上下文要看语义相关性、逻辑依赖、新近性、重叠与用户偏好，并做过滤重排。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -39,7 +39,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[注意力预算 attention budget]] · **hard** — 先说清注意力是有限预算，才谈得上在它之前做筛选与重排。
+- [[有限的工作记忆 limited working memory]] · **hard** — 不懂【有限的工作记忆】，就做不了【注意力之前的注意力】的 ⟨过滤重排的取舍标准⟩
 
 ## 相关
 
@@ -57,7 +57,7 @@ sources: 1
 
 ## 反链
 
-- [[上下文工程 context engineering]]
 - [[上下文 context]]
-- [[注意力预算 attention budget]]
+- [[上下文工程 context engineering]]
+- [[有限的工作记忆 limited working memory]]
 - [[熵减 entropy reduction]]

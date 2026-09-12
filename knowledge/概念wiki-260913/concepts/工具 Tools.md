@@ -7,8 +7,8 @@ subject: Context Engineering × Harness Engineering
 domain: tools-sandbox
 learningStage: now
 verification: use
-centrality: 0.052
-depth: 0
+centrality: 0.107
+depth: 1
 origin: [context, harness]
 aliases: ["Tools"]
 sources: 3
@@ -16,9 +16,9 @@ sources: 3
 
 # 工具 · Tools
 
-> Agent 的『双手』，指它得以对外部世界施加动作的调用能力，是 agent 的定义性特征。
+> Agent 的『双手』：它得以对外部世界施加动作的调用能力。
 
-**领域** tools-sandbox ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.052
+**领域** tools-sandbox ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.107
 
 ## 费曼一下
 
@@ -36,6 +36,10 @@ sources: 3
 ## 验收问句
 
 > 这个 Agent 需要哪些 {{name}}，缺了哪个就跑不动？
+
+## 先懂这些（前置 1）
+
+- [[工具定义 Tool Definitions Tool Schema]] · **soft** — 不懂【工具定义】，就做不了【工具】的任何一次调用——模型没有名称与参数 schema 就无从生成合法调用
 
 ## 相关
 
@@ -57,7 +61,8 @@ sources: 3
 
 ## 反链
 
-- [[LLM Large Language Model]]
+- [[工具定义 Tool Definitions Tool Schema]]
 - [[coding agent]]
-- [[AI Agent]]
 - [[非模型架构 Non-model Architecture]]
+- [[LLM Large Language Model]]
+- [[AI Agent]]

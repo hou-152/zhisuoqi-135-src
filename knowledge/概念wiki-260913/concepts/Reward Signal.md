@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: model-training
 learningStage: when-needed
 verification: judge
-centrality: 0.192
+centrality: 0.399
 depth: 0
 origin: [notion]
 aliases: ["奖励信号", "reward", "RL reward"]
@@ -17,7 +17,7 @@ sources: 1
 
 > RL 中给模型行为打分的通道，偏好里夹带的噪声会被一并学走，写下奖励≠想要的行为。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.192
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.399
 
 ## 原文 context
 
@@ -47,12 +47,12 @@ sources: 1
 ## 懂了它才能懂（解锁 7）
 
 - [[RLHF]] — RLHF 用人类偏好训练奖励模型，奖励信号是它的打分通道。
-- [[DPPO]] — PPO 靠奖励信号优化策略，不懂奖励通道就不知道它优化什么。
 - [[REINFORCE]] — REINFORCE 按奖励对采样答案加权，没有奖励信号就无从加权。
 - [[RLVR 与编码 agent 的 RL 训练循环]] — RLVR 用 verifier 打分作为奖励信号，不懂奖励通道就不懂循环如何强化。
 - [[Reward Generalization]] — 奖励泛化讨论奖励信号跨条件泄漏，不懂奖励信号就无从谈泛化。
-- [[Nerdy Personality]] — 人格真实走向由 RL 奖励口味决定，懂奖励信号更易理解它非 prompt 决定。
 - [[MaxRL]] — MaxRL 改变奖励聚合方式，懂奖励信号更易理解它为何只重成功样本。
+- [[DPPO]] — PPO 靠奖励信号优化策略，不懂奖励通道就不知道它优化什么。
+- [[Nerdy Personality]] — 人格真实走向由 RL 奖励口味决定，懂奖励信号更易理解它非 prompt 决定。
 
 ## 相关
 
@@ -70,13 +70,13 @@ sources: 1
 
 ## 反链
 
-- [[DPPO]]
-- [[RLHF]]
-- [[REINFORCE]]
-- [[RLVR 与编码 agent 的 RL 训练循环]]
 - [[外包思考，但不外包理解]]
+- [[DPPO]]
+- [[REINFORCE]]
+- [[Agent-Native Infrastructure]]
 - [[MaxRL]]
 - [[Nerdy Personality]]
 - [[Reward Generalization]]
-- [[Agent-Native Infrastructure]]
+- [[RLHF]]
+- [[RLVR 与编码 agent 的 RL 训练循环]]
 - [[Sensors 与 Actuators]]

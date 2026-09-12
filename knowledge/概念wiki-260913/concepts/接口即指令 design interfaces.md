@@ -2,12 +2,12 @@
 id: cm_d8b3f368
 name: 接口即指令
 nameEn: design interfaces
-type: PROCEDURAL
+type: CONCEPTUAL
 subject: Context Engineering
 domain: tools-sandbox
 learningStage: now
 verification: use
-centrality: 0.067
+centrality: 0.072
 depth: 2
 origin: [context]
 aliases: ["design interfaces"]
@@ -18,7 +18,7 @@ sources: 1
 
 > 通过重新设计工具、脚本、文件的参数与枚举取值，让接口本身就在提示 agent 的正确用法。
 
-**领域** tools-sandbox ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
+**领域** tools-sandbox ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -39,11 +39,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[工具接口的表达力设计]] · **hard** — 用接口本身传达用法，是接口表达力设计的核心手法，不懂表达力就无从谈起。
-
-## 懂了它才能懂（解锁 1）
-
-- [[任务特定工具说明]] — 先理解接口自身能传达用法，才能判断何时仍需按产品边界另写说明。
+- [[工具接口的表达力设计]] · **soft** — 不懂【工具接口的表达力设计】，就做不了【接口即指令】的落地——枚举取值等提示手法都属表达力设计范畴
 
 ## 相关
 
@@ -63,6 +59,5 @@ sources: 1
 
 - [[上下文工程 context engineering]]
 - [[工具接口的表达力设计]]
-- [[任务特定工具说明]]
 - [[过度约束与松绑 over-constraining unhobbling]]
 - [[prompt 与 context 的通用性落差]]

@@ -7,7 +7,7 @@ subject: Context Engineering
 domain: tools-sandbox
 learningStage: now
 verification: judge
-centrality: 0.042
+centrality: 0.072
 depth: 0
 origin: [context]
 aliases: ["bloated tool sets"]
@@ -18,7 +18,7 @@ sources: 1
 
 > 工具覆盖功能过宽或制造「该用哪个」的模糊决策点，让 agent 无法确定应调用哪一个。
 
-**领域** tools-sandbox ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** tools-sandbox ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -39,7 +39,7 @@ sources: 1
 
 ## 懂了它才能懂（解锁 1）
 
-- [[工具收窄 tool scoping]] — 收窄正是针对工具过多导致表现变差的问题，不懂臃肿就不知为何要缩减。
+- [[工具收窄 tool scoping]] — 不懂【臃肿工具集】，就做不了【工具收窄】的取舍——判断不出哪些工具制造了模糊决策点
 
 ## 相关
 

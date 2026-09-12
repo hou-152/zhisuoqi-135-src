@@ -5,9 +5,9 @@ type: CONCEPTUAL
 subject: AI 概念库
 domain: thinking-method
 learningStage: when-needed
-verification: judge
-centrality: 0.067
-depth: 1
+verification: accept
+centrality: 0.072
+depth: 0
 origin: [notion]
 aliases: ["摩擦中淬炼出技能", "摩擦塑造技能", "skills built through friction", "struggle as the forge"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 调试直觉、系统直觉、品味与怀疑能力只能从犯错、溯源、碰壁的摩擦中长出来，没有捷径。
 
-**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
+**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
 
 ## 原文 context
 
@@ -36,16 +36,13 @@ debugging 直觉、系统直觉、taste、怀疑能力、问题分解能力—�
 
 > 为什么 {{name}} 的过程不可跳过？
 
-## 先懂这些（前置 1）
-
-- [[稀疏反馈推断规则]] · **soft** — 从碰壁摩擦中长能力，需要从稀疏反馈反推可复用规则。
-
 ## 懂了它才能懂（解锁 1）
 
 - [[The Deferred Bill]] — 不懂技能从摩擦中形成，就不懂跳过思考为何是未来账单。
 
 ## 相关
 
+- [[稀疏反馈推断规则]] · related-to（audit） — 从摩擦中长能力不必然需要稀疏反馈推断这一特定机制，只是相关增益。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion

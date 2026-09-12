@@ -7,8 +7,8 @@ subject: Harness Engineering
 domain: multi-agent
 learningStage: now
 verification: judge
-centrality: 0.017
-depth: 0
+centrality: 0.072
+depth: 2
 origin: [harness]
 aliases: ["sub-planner"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > planner 可为特定区域生成子 planner，使规划本身变得并行且递归。
 
-**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -37,11 +37,15 @@ planner "can spawn sub-planners for specific areas, making planning itself paral
 
 > {{name}} 能解释规划为何可以并行且递归吗？
 
+## 先懂这些（前置 1）
+
+- [[递归 planner 与 subplanner]] · **hard** — 不懂【递归 planner 与 subplanner】，就做不了【递归并行规划】的 ⟨把规划本身拆成可递归展开的子规划层⟩
+
 ## 相关
 
 - [[长时程自治编码 long-running autonomous coding]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
-- [[单 agent 的速度天花板]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
 - [[动态协调 dynamic coordination]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
+- [[单 agent 的速度天花板]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
 
 ## 出场
 
@@ -53,6 +57,7 @@ planner "can spawn sub-planners for specific areas, making planning itself paral
 
 ## 反链
 
+- [[长时程自治编码 long-running autonomous coding]]
+- [[递归 planner 与 subplanner]]
 - [[动态协调 dynamic coordination]]
 - [[单 agent 的速度天花板]]
-- [[长时程自治编码 long-running autonomous coding]]

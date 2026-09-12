@@ -3,10 +3,10 @@ id: cm_b2c86d88
 name: Tracing
 type: CONCEPTUAL
 subject: Harness Engineering
-domain: verification-eval
+domain: harness-runtime
 learningStage: when-needed
 verification: use
-centrality: 0.067
+centrality: 0.181
 depth: 0
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 框架内置的可观测能力：可视化与调试 agent 流程，并用于评估、监控与模型微调。
 
-**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.181
 
 ## 费曼一下
 
@@ -36,13 +36,15 @@ built-in tracing that lets you visualize and debug your agentic flows, as well a
 
 > agent 行为诡异时，你如何靠 {{name}} 定位并顺带产出评估数据？
 
-## 懂了它才能懂（解锁 2）
+## 懂了它才能懂（解锁 3）
 
 - [[Trace-based evals]] — 轨迹评估建立在 trace 能被采集与回放之上。
 - [[Trace 驱动评估]] — 据工具路径与错误判聚焦，前提是 trace 可观测。
+- [[Runtime-harness separation]] — 不懂【Tracing】，就做不了判断「runtime 与 harness 是否真分离、工作循环是否可靠」这件事
 
 ## 相关
 
+- [[stateless]] · rejected（audit） — Tracing 可追踪有状态调用；stateless 只影响单次调用分 span/重放的便利性，不是理解 Tracing 的前提。
 - [[very few abstractions]] · 同篇出现（co-occurrence） — 同篇出现：harness-08
 - [[primitives]] · 同篇出现（co-occurrence） — 同篇出现：harness-08
 - [[Agent]] · 同篇出现（co-occurrence） — 同篇出现：harness-08
@@ -52,8 +54,10 @@ built-in tracing that lets you visualize and debug your agentic flows, as well a
 - Harness Engineering ｜ 《OpenAI Agents SDK 官方文档：抽象极少的轻量 agent 框架》 ｜ https://openai.github.io/openai-agents-python/
 ## 反链
 
-- [[Agent]]
+- [[Runtime-harness separation]]
 - [[primitives]]
+- [[stateless]]
+- [[Agent]]
+- [[Trace 驱动评估]]
 - [[Trace-based evals]]
 - [[very few abstractions]]
-- [[Trace 驱动评估]]

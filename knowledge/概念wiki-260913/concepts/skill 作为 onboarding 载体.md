@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: agent-org
 learningStage: when-needed
 verification: use
-centrality: 0.067
-depth: 3
+centrality: 0.072
+depth: 1
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 把新功能的使用方法写成 skill，让 Agent 带着人上手，替代传统文档式 onboarding。
 
-**领域** agent-org ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
+**领域** agent-org ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,15 +36,15 @@ sources: 1
 
 > 要让人快速上手新功能，{{name}} 怎么替代文档？
 
-## 先懂这些（前置 2）
+## 先懂这些（前置 1）
 
-- [[软件工厂 Software Factory]] · **soft** — 只有理解 Agent 长期运转、流程被自动化的 Software Factory，才明白为何用 skill 替代文档做 onboarding
-- [[Tiger Team]] · **soft** — 临时组建的小队成员彼此陌生、急需快速上手，不懂这种团队形态就难体会 skill 式 onboarding 的价值
+- [[组织级技能与指引 skills Linear way skill]] · **soft** — 不懂【组织级技能与指引】，就做不了把新功能使用方法写成 onboarding skill 这件事
 
 ## 相关
 
 - [[Claude Managed Agents]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
 - [[messages API 作为直连网关]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
+- [[软件工厂 Software Factory]] · related-to（audit） — 「软件工厂」只是给 skill 式 onboarding 找一个动机背景，不懂 Software Factory 概念照样能理解用 skill 替代文档做入职；属动机/语境，不是立得住的依赖
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
 
 ## 出场
@@ -52,7 +52,7 @@ sources: 1
 - Harness Engineering ｜ 《Anthropic 干脆把 harness 托管了：Claude Managed Agents 的设计取舍》 ｜ https://x.com/rlancemartin/status/2041927992986009773/?s=12
 ## 反链
 
-- [[软件工厂 Software Factory]]
-- [[Tiger Team]]
 - [[Claude Managed Agents]]
+- [[组织级技能与指引 skills Linear way skill]]
 - [[messages API 作为直连网关]]
+- [[软件工厂 Software Factory]]

@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.117
-depth: 3
+centrality: 0.236
+depth: 0
 origin: [context]
 aliases: ["limited working memory"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 模型能装载的上下文信息量有限，因此「往里面放什么」必须做取舍，这是上下文工程的物理前提。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.117
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.236
 
 ## 费曼一下
 
@@ -37,25 +37,22 @@ sources: 1
 
 > 为什么{{name}}是上下文工程之所以是「工程」的前提？
 
-## 先懂这些（前置 1）
+## 懂了它才能懂（解锁 4）
 
-- [[上下文 context]] · **hard** — 工作记忆指的是上下文能装载的信息量，不理解上下文就无从谈其有限性。
-
-## 懂了它才能懂（解锁 3）
-
-- [[文件系统即终极上下文]] — 正因模型工作记忆有限，才需把记忆外部化到文件系统，不懂此限制就不懂其价值。
-- [[注意力预算 attention budget]] — 注意力预算把工作记忆有限性换算成 token 开销，是其直接推论。
-- [[最小充分性与语义连续性原则]] — 只收集必需信息源于工作记忆有限，不懂该限制就无法理解这两条原则。
+- [[注意力预算 attention budget]] — 不懂【有限的工作记忆】，就做不了【注意力预算】的 ⟨把注意力类比为可支取预算的定义⟩
+- [[注意力之前的注意力 attention before attention]] — 不懂【有限的工作记忆】，就做不了【注意力之前的注意力】的 ⟨过滤重排的取舍标准⟩
+- [[Context Anxiety]] — 不懂【有限的工作记忆】，就做不了【Context Anxiety】的 ⟨接近上限提前收尾的判断⟩
+- [[选择性注意力压缩]] — 不懂【有限的工作记忆】，就做不了【选择性注意力压缩】的 ⟨远压缩、近保全文的分层划分⟩
 
 ## 相关
 
 - [[上下文失败，而非模型失败 context failures, not model failures]] · 同篇出现（co-occurrence） — 同篇出现：context-24
 - [[系统而非字符串 A System, Not a String]] · 同篇出现（co-occurrence） — 同篇出现：context-24
 - [[动态装配 Dynamic]] · 同篇出现（co-occurrence） — 同篇出现：context-24
-- [[正确的信息与工具，在正确的时间]] · 同篇出现（co-occurrence） — 同篇出现：context-24
 - [[知识与能力的双供给 information and tools]] · 同篇出现（co-occurrence） — 同篇出现：context-24
 - [[格式即上下文 where the format matters]] · 同篇出现（co-occurrence） — 同篇出现：context-24
 - [[廉价 demo 与「魔法级」agent]] · 同篇出现（co-occurrence） — 同篇出现：context-24
+- [[正确的信息与工具，在正确的时间]] · 同篇出现（co-occurrence） — 同篇出现：context-24
 - [[上下文（Context）：模型生成之前看到的一切]] · 同篇出现（co-occurrence） — 同篇出现：context-24
 - [[上下文工程 context engineering]] · 同篇出现（co-occurrence） — 同篇出现：context-24
 
@@ -69,15 +66,15 @@ sources: 1
 
 ## 反链
 
-- [[上下文 context]]
 - [[注意力预算 attention budget]]
-- [[上下文失败，而非模型失败 context failures, not model failures]]
-- [[文件系统即终极上下文]]
-- [[正确的信息与工具，在正确的时间]]
-- [[最小充分性与语义连续性原则]]
-- [[动态装配 Dynamic]]
 - [[格式即上下文 where the format matters]]
+- [[上下文失败，而非模型失败 context failures, not model failures]]
+- [[系统而非字符串 A System, Not a String]]
+- [[选择性注意力压缩]]
+- [[注意力之前的注意力 attention before attention]]
+- [[Context Anxiety]]
+- [[动态装配 Dynamic]]
 - [[廉价 demo 与「魔法级」agent]]
 - [[上下文（Context）：模型生成之前看到的一切]]
-- [[系统而非字符串 A System, Not a String]]
+- [[正确的信息与工具，在正确的时间]]
 - [[知识与能力的双供给 information and tools]]

@@ -7,8 +7,8 @@ subject: Context Engineering × Harness Engineering
 domain: tools-sandbox
 learningStage: when-needed
 verification: use
-centrality: 0.177
-depth: 0
+centrality: 0.216
+depth: 1
 origin: [context, harness]
 aliases: ["Model Context Protocol"]
 sources: 3
@@ -18,7 +18,7 @@ sources: 3
 
 > 一种开放的工具接入标准，让 Agent 以统一协议接上外部工具与数据源。
 
-**领域** tools-sandbox ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.177
+**领域** tools-sandbox ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.216
 
 ## 费曼一下
 
@@ -37,21 +37,22 @@ MCP 在文中代表一种工具接入方式。它让不同工具可以被标准�
 
 > 接一个新工具时，为什么用 {{name}} 而不是自己写适配？
 
-## 懂了它才能懂（解锁 5）
+## 先懂这些（前置 1）
 
-- [[Harness]] — MCP 是 Agent Harness 接入外部工具与服务的组成部分。
-- [[连接器]] — 连接器就是通过 MCP 等协议接上的外部接口，不懂 MCP 便无法理解连接器如何被发现和调用。
-- [[原生工具与 MCP 外挂]] — 该取舍就是要不要外挂 MCP 工具，不懂 MCP 就无法判断外挂是否更复杂。
-- [[Headless 架构]] — 把每项能力暴露成 API/MCP 工具是 Headless 的核心，不懂 MCP 就无法理解这种暴露方式。
-- [[MCP 工具层]] — 八个图谱工具都跑在 MCP 之上，不懂 MCP 就不知这些工具如何被 agent 调用。
+- [[工具定义 Tool Definitions Tool Schema]] · **soft** — 不懂【工具定义】，就做不了【MCP】的工具接入设计——MCP 服务端的 tools/list 必须给出 name/description/inputSchema
+
+## 懂了它才能懂（解锁 2）
+
+- [[MCP 工具层]] — 不懂【MCP】，就做不了【MCP 工具层】的八个工具接入与调用
+- [[原生工具与 MCP 外挂]] — 不懂【MCP】，就做不了【原生工具与 MCP 外挂】的取舍讨论——这个议题本身就是「要不要外挂 MCP todo manager」
 
 ## 相关
 
 - [[工具收窄 tool scoping]] · 常一起用（工作流） — Tool Scoping 可关闭当前不用的 MCP 工具面，减少误选与 Context 占用。
 - [[系统提示 System Prompt]] · 常一起用（运行时组成） — MCP 接入暴露的工具列表与描述会进入 System Prompt，影响模型可见能力。
+- [[Agents SDK]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
 - [[AI Agent]] · 同篇出现（co-occurrence） — 同篇出现：context-13
 - [[非模型架构 Non-model Architecture]] · 同篇出现（co-occurrence） — 同篇出现：context-13
-- [[Agents SDK]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
 - [[model-native harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
 - [[Harness]] · 组成（运行时组成） — MCP 是 Agent Harness 接入外部工具与服务的组成部分。
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：context-13
@@ -68,14 +69,12 @@ MCP 在文中代表一种工具接入方式。它让不同工具可以被标准�
 
 ## 反链
 
-- [[Harness]]
+- [[工具定义 Tool Definitions Tool Schema]]
+- [[非模型架构 Non-model Architecture]]
 - [[系统提示 System Prompt]]
 - [[model-native harness]]
-- [[工具收窄 tool scoping]]
-- [[连接器]]
 - [[AI Agent]]
+- [[工具收窄 tool scoping]]
 - [[原生工具与 MCP 外挂]]
 - [[Agents SDK]]
-- [[Headless 架构]]
 - [[MCP 工具层]]
-- [[非模型架构 Non-model Architecture]]

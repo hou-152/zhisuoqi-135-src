@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.035
-depth: 0
+centrality: 0.144
+depth: 1
 origin: [context]
 aliases: ["tree of files"]
 sources: 2
@@ -18,7 +18,7 @@ sources: 2
 
 > 不要把所有实践塞进 CLAUDE.md，而是组织成一棵能在正确时机按需加载的文件树。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.035
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.144
 
 ## 费曼一下
 
@@ -36,6 +36,14 @@ sources: 2
 ## 验收问句
 
 > {{name}} 应该怎么组织，才能让每类信息在需要时才进上下文？
+
+## 先懂这些（前置 1）
+
+- [[渐进式披露 progressive disclosure]] · **soft** — 不懂【渐进式披露】，就做不了【上下文文件树】的按需分层加载设计
+
+## 懂了它才能懂（解锁 1）
+
+- [[Resolver]] — 不懂【上下文文件树】，就做不了【Resolver】的路由目标与加载层级编排
 
 ## 相关
 
@@ -56,6 +64,8 @@ sources: 2
 
 ## 反链
 
+- [[渐进式披露 progressive disclosure]]
+- [[Resolver]]
 - [[过度约束与松绑 over-constraining unhobbling]]
 - [[护栏型指令的过期]]
 - [[判断力优先 let Claude use judgement]]

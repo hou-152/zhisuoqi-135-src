@@ -7,8 +7,8 @@ subject: Harness Engineering
 domain: state-persistence
 learningStage: when-needed
 verification: use
-centrality: 0.117
-depth: 5
+centrality: 0.017
+depth: 0
 origin: [harness]
 aliases: ["optimistic concurrency control"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > agent 可自由读状态，但状态自上次读取后被改动则写入失败，比加锁更简单稳健。
 
-**领域** state-persistence ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.117
+**领域** state-persistence ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -37,18 +37,11 @@ sources: 1
 
 > {{name}}在什么条件下写入失败，代价是什么？
 
-## 先懂这些（前置 4）
-
-- [[统一执行状态与业务状态]] · **hard** — 判断状态自读取后是否被改动，前提是状态可统一版本化。
-- [[本地状态层]] · **soft** — 需要本地存储层承载可比较、可回读的状态版本。
-- [[Git-backed state]] · **soft** — git 的快照与比较机制正是乐观并发控制的现成基础。
-- [[Cross-session Work]] · **soft** — 只有存在多 session 并发写入，写冲突检测才有实际必要。
-
 ## 相关
 
 - [[长时程自治编码 long-running autonomous coding]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
-- [[单 agent 的速度天花板]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
 - [[动态协调 dynamic coordination]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
+- [[单 agent 的速度天花板]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
 
 ## 出场
 
@@ -60,10 +53,6 @@ sources: 1
 
 ## 反链
 
-- [[Cross-session Work]]
-- [[本地状态层]]
-- [[Git-backed state]]
-- [[动态协调 dynamic coordination]]
-- [[统一执行状态与业务状态]]
-- [[单 agent 的速度天花板]]
 - [[长时程自治编码 long-running autonomous coding]]
+- [[动态协调 dynamic coordination]]
+- [[单 agent 的速度天花板]]

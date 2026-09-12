@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: context-engineering
 learningStage: when-needed
 verification: judge
-centrality: 0.067
+centrality: 0.017
 depth: 0
 origin: [notion]
 aliases: ["Software 3.0", "软件 3.0", "software three"]
@@ -15,9 +15,9 @@ sources: 1
 
 # Software 3.0
 
-> 第三种编程范式：用 prompt、context、tools、examples 编程，context window 是新程序，LLM 是新解释器。
+> 用 prompt、context、tools 编程的第三种范式；context window 是操纵 LLM 解释器的杠杆。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 原文 context
 
@@ -45,13 +45,10 @@ sources: 1
 
 > 按 {{name}} 的说法，你写的程序到底存在哪里？
 
-## 懂了它才能懂（解锁 2）
-
-- [[Skill]] — 把 skill 看作 Software 3.0 的编程单元，更能理解它的定位。
-- [[Stochastic Graduate Descent]] — 它是对 Software 3.0 式上下文工程手法的自嘲式命名。
-
 ## 相关
 
+- [[Stochastic Graduate Descent]] · rejected（audit） — SGD 的梗源自 Stochastic Gradient Descent 的缩写与自嘲，和 Software 3.0 只是主题相邻，不通后者照样懂这个戏称。
+- [[Skill]] · related-to（audit） — Software 3.0 是给 Skill 附加的一种解读视角/类比，不用这个框架 skill 文件夹照样能懂，属可选背景。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -67,7 +64,4 @@ sources: 1
 ## 反链
 
 - [[Skill]]
-- [[外包思考，但不外包理解]]
-- [[Agent-Native Infrastructure]]
 - [[Stochastic Graduate Descent]]
-- [[Sensors 与 Actuators]]

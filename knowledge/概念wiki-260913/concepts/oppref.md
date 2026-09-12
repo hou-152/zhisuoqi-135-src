@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: economy-business
 learningStage: when-needed
 verification: judge
-centrality: 0.092
-depth: 3
+centrality: 0.017
+depth: 0
 origin: [notion]
 aliases: ["__oppref cookie", "forward attribution token", "前向归因 token"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 广告点击 URL 上的前向归因 token，被写入 __oppref cookie（30 天），随每次转化事件回传。
 
-**领域** economy-business ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.092
+**领域** economy-business ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 原文 context
 
@@ -34,17 +34,10 @@ sources: 1
 
 > {{name}} 是怎么把广告点击和商家转化绑到一起的？
 
-## 先懂这些（前置 1）
-
-- [[Verification Markets]] · **soft** — 归因 token 的意义在于核验转化是否真的发生，属可验证性思路。
-
-## 懂了它才能懂（解锁 2）
-
-- [[single_advertiser_ad_unit]] — 广告单元里携带的归因 token 就是 oppref，先懂归因 token 才懂该字段用途。
-- [[OpenAI 广告基础设施域名]] — bzr.openai.com 收事件上报，回传内容正是 oppref 归因数据。
-
 ## 相关
 
+- [[single_advertiser_ad_unit]] · related-to（audit） — oppref 只解释了广告单元里 token 这一个字段的用途，整节点（结构化广告事件）不懂它也能立住。
+- [[OpenAI 广告基础设施域名]] · related-to（audit） — 「bzr 收事件上报」这条定义懂不懂 oppref 都成立，回传内容的具体格式不是理解域名的前提。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -59,6 +52,5 @@ sources: 1
 
 ## 反链
 
-- [[single_advertiser_ad_unit]]
 - [[OpenAI 广告基础设施域名]]
-- [[Verification Markets]]
+- [[single_advertiser_ad_unit]]

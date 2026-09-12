@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: safety-governance
 learningStage: when-needed
 verification: judge
-centrality: 0.042
-depth: 1
+centrality: 0.017
+depth: 0
 origin: [context]
 aliases: []
 sources: 1
@@ -15,9 +15,9 @@ sources: 1
 
 # preferences 写入过滤
 
-> 八类偏好即使被明说也不写进 /preferences.md，避免未来模型继承不诚实、不安全的指令。
+> 若干类偏好即使被明说也不写进 /preferences.md，避免未来模型继承更不诚实、更不安全的指令。
 
-**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,12 +36,10 @@ sources: 1
 
 > 用户直接要求「永远别反对我」时，{{name}} 该怎么处理？
 
-## 先懂这些（前置 1）
-
-- [[遗漏式隐私]] · **soft** — 偏好过滤是遗漏式隐私在记忆与偏好层的具体应用
-
 ## 相关
 
+- [[遗漏式隐私]] · related-to（audit） — 典型「一般原则→具体应用」的实例关系，方向没错但非必需：偏好过滤有自身独立理由（防未来模型继承不安全指令），不懂遗漏式隐私也能立住。
+- [[遗漏式隐私]] · rejected（audit） — 偏好过滤的判据是未来模型诚实/安全，不是同事可见性；遗漏式隐私属于另一套判据，两者只是类比。
 - [[判定程序化写法]] · 同篇出现（co-occurrence） — 同篇出现：context-20
 - [[反自我合理化条款]] · 同篇出现（co-occurrence） — 同篇出现：context-20
 - [[fail-closed 默认]] · 同篇出现（co-occurrence） — 同篇出现：context-20
@@ -52,6 +50,6 @@ sources: 1
 ## 反链
 
 - [[判定程序化写法]]
-- [[fail-closed 默认]]
 - [[反自我合理化条款]]
+- [[fail-closed 默认]]
 - [[遗漏式隐私]]

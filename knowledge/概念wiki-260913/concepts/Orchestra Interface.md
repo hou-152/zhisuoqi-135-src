@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: multi-agent
 learningStage: when-needed
 verification: judge
-centrality: 0.092
-depth: 4
+centrality: 0.017
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 相对于工厂式界面，强调人仍在 flow 中，像指挥家一样设目标、协调多个 Agent 并保有创造控制感。
 
-**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.092
+**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,12 +36,6 @@ Agent 是乐手，人不必演奏每个音符，但要决定曲目、速度、�
 
 > {{name}} 里人扮演什么角色，与工厂式有何不同？
 
-## 先懂这些（前置 3）
-
-- [[多智能体架构]] · **hard** — 像指挥家协调多个 Agent，前提是存在多 Agent 协作体系。
-- [[动态协调 dynamic coordination]] · **soft** — 指挥式界面要求人按当下态势协调各 Agent，依赖动态协调。
-- [[共享 多人 agent 会话]] · **soft** — 人留在 flow 中与 Agent 共处，需先懂共享会话这一协作形态。
-
 ## 相关
 
 - [[Capability Overhang]] · 同篇出现（co-occurrence） — 同篇出现：harness-10
@@ -54,8 +48,5 @@ Agent 是乐手，人不必演奏每个音符，但要决定曲目、速度、�
 ## 反链
 
 - [[Harness 工程 Harness Engineering]]
-- [[多智能体架构]]
-- [[动态协调 dynamic coordination]]
-- [[共享 多人 agent 会话]]
 - [[Capability Overhang]]
 - [[Inner Loop]]

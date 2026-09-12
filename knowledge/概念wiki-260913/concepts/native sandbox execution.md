@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: tools-sandbox
 learningStage: now
 verification: use
-centrality: 0.042
+centrality: 0.072
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > Agents SDK 原生支持在受控环境里跑 agent，自带任务所需文件、工具与依赖。
 
-**领域** tools-sandbox ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** tools-sandbox ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -51,6 +51,7 @@ The updated Agents SDK supports sandbox execution natively, so agents can run in
 - Harness Engineering ｜ 《OpenAI Agents SDK 下一代演进：原生沙箱 + 模型原生 harness》 ｜ https://openai.com/index/the-next-evolution-of-the-agents-sdk/
 ## 反链
 
+- [[Harness]]
 - [[Sandbox]]
 - [[model-native harness]]
 - [[Agents SDK]]

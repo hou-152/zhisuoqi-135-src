@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: agent-org
 learningStage: when-needed
 verification: judge
-centrality: 0.042
-depth: 1
+centrality: 0.072
+depth: 2
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 连代码评审都去掉、不再有人读代码的软件工厂形态，实践后因反复撞上无解问题而放弃。
 
-**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -38,23 +38,21 @@ Dan Shapiro 命名、StrongDM 用 factory.strongdm.ai 实践的极端形态—�
 
 ## 先懂这些（前置 1）
 
-- [[0 人工代码、0 人工 review 极限形态]] · **soft** — Lights-off 是去掉代码评审的实践形态，要懂它先要懂 0 人工代码与 review 的极限概念。
+- [[Software Factory]] · **hard** — 不懂【Software Factory】，就做不了【Lights-off 软件工厂】的定义——它是去掉代码评审后的软件工厂形态
 
 ## 相关
 
 - [[前置对齐 front-loading alignment]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
-- [[RLVR 与编码 agent 的 RL 训练循环]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
-- [[SWE-bench 与二元打分]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
 - [[可维护性 霰弹式手术]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
-- [[可维护性没有惩罚项]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
 - [[可维护性缺一个可靠的打分预言机]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
+- [[系统架构评审]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
+- [[可维护性没有惩罚项]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
 - [[Mutation Testing 与前沿质量评测]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
 - [[Harness 内 RL RL inside the harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
-- [[产品评审 Product Review]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
-- [[系统架构评审]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
-- [[程序设计 Program Design]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
-- [[垂直切片 Tracer Bullet]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
 - [[2026 版约束理论]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
+- [[SWE-bench 与二元打分]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
+- [[0 人工代码、0 人工 review 极限形态]] · related-to（audit） — 二者近乎同一概念的具体形态与抽象形态（极限形态的实践版），属冗余同义边而非认知前置。
+- [[RLVR 与编码 agent 的 RL 训练循环]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
 - [[软件工厂 Software Factory]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-23
 
@@ -63,18 +61,16 @@ Dan Shapiro 命名、StrongDM 用 factory.strongdm.ai 实践的极端形态—�
 - Harness Engineering ｜ 《为什么「软件工厂」会失败：光有 harness 工程还不够》 ｜ https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/wsff.md
 ## 反链
 
-- [[RLVR 与编码 agent 的 RL 训练循环]]
-- [[可维护性没有惩罚项]]
-- [[软件工厂 Software Factory]]
+- [[Software Factory]]
 - [[SWE-bench 与二元打分]]
 - [[0 人工代码、0 人工 review 极限形态]]
-- [[2026 版约束理论]]
-- [[垂直切片 Tracer Bullet]]
-- [[可维护性 霰弹式手术]]
-- [[可维护性缺一个可靠的打分预言机]]
-- [[Harness 内 RL RL inside the harness]]
+- [[可维护性没有惩罚项]]
 - [[Mutation Testing 与前沿质量评测]]
-- [[产品评审 Product Review]]
-- [[程序设计 Program Design]]
+- [[2026 版约束理论]]
+- [[可维护性缺一个可靠的打分预言机]]
 - [[前置对齐 front-loading alignment]]
 - [[系统架构评审]]
+- [[Harness 内 RL RL inside the harness]]
+- [[RLVR 与编码 agent 的 RL 训练循环]]
+- [[可维护性 霰弹式手术]]
+- [[软件工厂 Software Factory]]

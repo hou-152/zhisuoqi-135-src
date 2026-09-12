@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: thinking-method
 learningStage: when-needed
 verification: judge
-centrality: 0.067
-depth: 4
+centrality: 0.126
+depth: 0
 origin: [context]
 aliases: ["local optima"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 承认所分享的模式只是自家迭代过程抵达的局部最优，而非普适真理。
 
-**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
+**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -37,13 +37,10 @@ sources: 1
 
 > 你怎么判断一份经验分享是{{name}}还是普适结论？
 
-## 先懂这些（前置 1）
+## 懂了它才能懂（解锁 2）
 
-- [[定位]] · **soft** — 你能找到的解由所处路径决定，不懂处境决定路径就难懂解为何受限。
-
-## 懂了它才能懂（解锁 1）
-
-- [[回声 echo of your own tangle of thoughts]] — 模型只是回放你那份受自身摸索限制的想法，不懂局部最优就不懂回声。
+- [[今天的魔法咒语，明天的反模式]] — 不懂局部最优，就做不了理解今天的 AI 最佳实践为何只是局部迭代产物、明天可能变成反模式这件事。
+- [[2026 版约束理论]] — 不懂局部最优，就做不了在约束内优化系统并接受不赌灯灭式跃迁这件事。
 
 ## 相关
 
@@ -62,7 +59,7 @@ sources: 1
 ## 反链
 
 - [[上下文工程 context engineering]]
-- [[定位]]
-- [[回声 echo of your own tangle of thoughts]]
+- [[2026 版约束理论]]
+- [[今天的魔法咒语，明天的反模式]]
 - [[押注 in-context learning]]
 - [[与底层模型正交 orthogonal to the underlying models]]

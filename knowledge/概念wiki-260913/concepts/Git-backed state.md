@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: state-persistence
 learningStage: when-needed
 verification: use
-centrality: 0.142
-depth: 4
+centrality: 0.126
+depth: 1
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 把循环状态落在 git 中获得显式持久性，从而支持系统重启后的崩溃恢复。
 
-**领域** state-persistence ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.142
+**领域** state-persistence ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,19 +36,20 @@ loop 要长期运行，就不能只靠当前窗口里的记忆。把状态存进
 
 > {{name}} 如何支撑崩溃恢复？
 
-## 先懂这些（前置 3）
+## 先懂这些（前置 1）
 
-- [[文件系统即持久记忆]] · **hard** — 把循环状态落在 git 中，git 本身基于文件系统，不懂文件持久记忆无法理解。
-- [[Cross-session Work]] · **hard** — git 提供显式持久性以支持系统重启后的崩溃恢复，不懂跨 session 需求就不知为何要 git。
-- [[文件系统即持久记忆]] · **soft** — git 仓库自身也落在文件系统上。
+- [[持久化执行 durable execution]] · **soft** — 不懂【持久化执行】，就做不了【Git-backed state】的「把循环状态落 git 后按检查点语义支持系统重启崩溃恢复」
 
-## 懂了它才能懂（解锁 2）
+## 懂了它才能懂（解锁 1）
 
-- [[agent 模板的声明式持久化]] — 把模型、prompt、工具等存成 YAML 放进 git，需先懂 git 持久状态。
-- [[乐观并发控制 optimistic concurrency control]] — git 的快照与比较机制正是乐观并发控制的现成基础。
+- [[Artifact Schema]] — 不懂【Git-backed state】，就做不了【Artifact Schema】的「把 artifacts 作为共享知识层做版本化持久化并维护 timeline」
 
 ## 相关
 
+- [[文件系统即持久记忆]] · related-to（audit） — git 是文件系统之上的抽象，理解 git 持久状态不必然要先掌握‘文件系统即持久记忆’这一原则，最多降为 soft/weak
+- [[Cross-session Work]] · related-to（audit） — 跨 session 需求只是 git 持久化的动机，非理解其定义所必需；可以懂 git 持久化而完全不知跨 session
+- [[agent 模板的声明式持久化]] · related-to（audit） — 此处 git 用途是存模板配置，与 Git-backed state（循环状态崩溃恢复）并非同一概念，真正前置应是通用的 git 持久化
+- [[agent 模板的声明式持久化]] · rejected（audit） — 两者只是都用 git；模板持久化存的是配置，不依赖循环状态持久化 Git-backed state。
 - [[Model as subroutine]] · 同篇出现（co-occurrence） — 同篇出现：harness-15
 - [[Continuous orchestration loop]] · 同篇出现（co-occurrence） — 同篇出现：harness-15
 - [[Loop Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-15
@@ -58,10 +59,11 @@ loop 要长期运行，就不能只靠当前窗口里的记忆。把状态存进
 - Harness Engineering ｜ 《一次关于 Loop 的工程争论》 ｜ https://x.com/mvanhorn/status/2063865685558903149/?rw_tt_thread=True
 ## 反链
 
-- [[文件系统即持久记忆]]
+- [[持久化执行 durable execution]]
 - [[Loop Engineering]]
+- [[文件系统即持久记忆]]
 - [[Cross-session Work]]
-- [[乐观并发控制 optimistic concurrency control]]
-- [[agent 模板的声明式持久化]]
+- [[Artifact Schema]]
 - [[Continuous orchestration loop]]
 - [[Model as subroutine]]
+- [[agent 模板的声明式持久化]]

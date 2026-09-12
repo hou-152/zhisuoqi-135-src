@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: agent-org
 learningStage: when-needed
 verification: judge
-centrality: 0.067
-depth: 0
+centrality: 0.181
+depth: 1
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 工程师从「创造者」变为「策展人」：少写基础代码，多编排 Agent 组合、定义目标与护栏、验证输出。
 
-**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
+**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.181
 
 ## 费曼一下
 
@@ -36,13 +36,19 @@ Agentic Engineering 范式下工程师身份的根本变化。以前你是亲手
 
 > 在 {{name}} 下，工程师的时间该怎么重新分配？
 
-## 懂了它才能懂（解锁 2）
+## 先懂这些（前置 2）
 
-- [[Generative Kernel]] — 交付生成内核而非成品软件，正需要工程师从创造者转为策展人。
-- [[Architecture Operator 分工]] — 策展人角色下再分架构与运营，先懂 Creator→Curator 才懂分工从何而来。
+- [[Architecture Operator 分工]] · **soft** — 不懂【Architecture / Operator 分工】，就说不清策展人到底在定义护栏还是编排运行
+- [[Polished Output vs Real Judgment]] · **soft** — 不懂【Polished Output vs Real Judgment】，就做不了策展人对 Agent 输出的验证
+
+## 懂了它才能懂（解锁 1）
+
+- [[Forward Deployed Engineer]] — 不懂【Creator → Curator 角色转换】，就做不了 FDE 在客户组织里编排 Agent 组合与护栏的落地
 
 ## 相关
 
+- [[Generative Kernel]] · related-to（audit） — 角色转换是交付生成内核之后的连带结果，不是理解这一交付形态的必要前提。
+- [[Architecture Operator 分工]] · related-to（audit） — Architecture/Operator 是团队组织维度的划分，并未由策展人角色在定义上推出；不懂该转换也能理解两类角色。
 - [[Agentic Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-26
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-26
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-26
@@ -54,4 +60,6 @@ Agentic Engineering 范式下工程师身份的根本变化。以前你是亲手
 
 - [[Agentic Engineering]]
 - [[Architecture Operator 分工]]
+- [[Forward Deployed Engineer]]
+- [[Polished Output vs Real Judgment]]
 - [[Generative Kernel]]

@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: verification-eval
 learningStage: when-needed
 verification: accept
-centrality: 0.042
-depth: 0
+centrality: 0.072
+depth: 1
 origin: [notion]
 aliases: ["ARC-AGI-3 benchmark", "ARC-AGI"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > Chollet 团队新一代基准，测新颖性、模糊性、规划、适应性的最低共同集合。
 
-**领域** verification-eval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
+**领域** verification-eval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,9 +36,9 @@ sources: 1
 
 > {{name}} 想覆盖的是哪几项核心智能要求？
 
-## 懂了它才能懂（解锁 1）
+## 先懂这些（前置 1）
 
-- [[通关 ≠ 理解]] — 正因为通关掩盖机制缺失，ARC-AGI-3 才要测新颖性与适应性而非通过率。
+- [[通关 ≠ 理解]] · **soft** — 正因为通关掩盖机制缺失，ARC-AGI-3 才要测新颖性与适应性而非通过率。
 
 ## 相关
 
@@ -56,4 +56,7 @@ sources: 1
 
 ## 反链
 
+- [[外包思考，但不外包理解]]
+- [[Agent-Native Infrastructure]]
 - [[通关 ≠ 理解]]
+- [[Sensors 与 Actuators]]

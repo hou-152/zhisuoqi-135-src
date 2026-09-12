@@ -7,7 +7,7 @@ subject: Context Engineering
 domain: spec-intent
 learningStage: when-needed
 verification: judge
-centrality: 0.017
+centrality: 0.072
 depth: 0
 origin: [context]
 aliases: ["too lazy to type"]
@@ -18,7 +18,7 @@ sources: 1
 
 > 真正的瓶颈常不是没想法，而是把脑中信息敲成文字的成本太高而被省略。
 
-**领域** spec-intent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** spec-intent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -37,11 +37,14 @@ sources: 1
 
 > {{name}} 指的是哪个环节的成本？
 
+## 懂了它才能懂（解锁 1）
+
+- [[漫谈会话 ramble session]] — 不懂【输入摩擦】，就做不了【漫谈会话】里「为什么用长时间口述而不是打字」的设计论证
+
 ## 相关
 
 - [[通道切换 switch to voice]] · 同篇出现（co-occurrence） — 同篇出现：context-09
 - [[意识流输入 full stream of consciousness]] · 同篇出现（co-occurrence） — 同篇出现：context-09
-- [[前置声明]] · 同篇出现（co-occurrence） — 同篇出现：context-09
 - [[小访谈变体 small interview of a few turns]] · 同篇出现（co-occurrence） — 同篇出现：context-09
 - [[不连贯输入的重构能力]] · 同篇出现（co-occurrence） — 同篇出现：context-09
 - [[回声 echo of your own tangle of thoughts]] · 同篇出现（co-occurrence） — 同篇出现：context-09
@@ -61,14 +64,13 @@ sources: 1
 
 ## 反链
 
-- [[不连贯输入的重构能力]]
-- [[回声 echo of your own tangle of thoughts]]
-- [[前置声明]]
+- [[漫谈会话 ramble session]]
 - [[bits]]
 - [[纠正成本递减 correct things less from that point on]]
-- [[漫谈会话 ramble session]]
-- [[通道切换 switch to voice]]
 - [[小访谈变体 small interview of a few turns]]
-- [[意识流输入 full stream of consciousness]]
 - [[整理增益 cleaner than what you started with]]
+- [[不连贯输入的重构能力]]
+- [[回声 echo of your own tangle of thoughts]]
+- [[通道切换 switch to voice]]
+- [[意识流输入 full stream of consciousness]]
 - [[mind meld]]

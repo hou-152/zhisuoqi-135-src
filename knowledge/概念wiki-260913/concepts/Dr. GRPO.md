@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: model-training
 learningStage: deep-dive
 verification: judge
-centrality: 0.167
-depth: 5
+centrality: 0.072
+depth: 1
 origin: [notion]
 aliases: ["GRPO Done Right", "做对的 GRPO"]
 sources: 1
@@ -15,9 +15,9 @@ sources: 1
 
 # Dr. GRPO
 
-> 指出 GRPO 样本级归一化带来偏向简短正确与冗长错误的偏置，改用固定常量归一化并去掉标准差归一化。
+> 指出 GRPO 的样本级损失归一化会引入偏向「简短正确」与「冗长错误」回复的偏置。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.167
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 原文 context
 
@@ -34,20 +34,14 @@ sources: 1
 
 > {{name}} 改掉了 GRPO 的哪两处归一化？
 
-## 先懂这些（前置 4）
+## 先懂这些（前置 1）
 
 - [[优势函数]] · **hard** — GRPO用组内均值算相对优势，不懂优势函数就抓不住其核心。
-- [[价值函数]] · **hard** — GRPO的卖点是移除critic，不懂价值函数就不知它省了什么。
-- [[DPPO]] · **hard** — GRPO是PPO的变体，去掉critic改用组内相对优势，不懂PPO就不知道它到底改掉了什么。
-- [[价值函数]] · **hard** — GRPO的卖点正是移除价值函数以省内存，不懂价值函数做什么就看不出这一步省在哪里。
-
-## 懂了它才能懂（解锁 2）
-
-- [[DAPO]] — DAPO在GRPO上解耦裁剪与改损失，不懂GRPO就看不懂它改了什么。
-- [[MaxRL]] — MaxRL沿用组采样与相对思路，只把目标换成至少一次成功，不懂GRPO就接不上它的基线设定。
 
 ## 相关
 
+- [[价值函数]] · related-to（audit） — 价值函数只是 GRPO「移除 critic」这一背景卖点的对照物；Dr. GRPO 的实质贡献是优势归一化偏置，不懂价值函数照样能懂它，顶多算相邻背景。
+- [[DAPO]] · related-to（audit） — DAPO 的硬前置是 GRPO，不是 Dr. GRPO；二者是 GRPO 的平行改进分支，理由里给的也是 GRPO。懂 Dr. GRPO 有帮助但非必需，应降 soft 或改边指向 GRPO。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -62,11 +56,6 @@ sources: 1
 
 ## 反链
 
-- [[DPPO]]
-- [[外包思考，但不外包理解]]
-- [[价值函数]]
-- [[MaxRL]]
-- [[Agent-Native Infrastructure]]
 - [[优势函数]]
 - [[DAPO]]
-- [[Sensors 与 Actuators]]
+- [[价值函数]]

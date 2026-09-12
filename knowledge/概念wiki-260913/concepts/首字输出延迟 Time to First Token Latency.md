@@ -16,7 +16,7 @@ sources: 1
 
 # 首字输出延迟 · Time to First Token Latency
 
-> 从请求发出到输出第一个 token 的延迟，是提示词缓存收益的第二个维度。
+> 从请求发出到输出第一个 token 的延迟，是提示词缓存收益的一个维度。
 
 **领域** caching-cost ｜ **类型** LANGUAGE ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
@@ -53,6 +53,6 @@ sources: 1
 
 ## 反链
 
-- [[缓存断点 Cache Breakpoint]]
 - [[提示词缓存 Prompt Caching]]
+- [[缓存断点 Cache Breakpoint]]
 - [[稳定前缀 Stable Prefix]]

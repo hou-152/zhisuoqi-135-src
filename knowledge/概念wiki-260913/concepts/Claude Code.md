@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: harness-runtime
 learningStage: when-needed
 verification: use
-centrality: 0.042
+centrality: 0.072
 depth: 2
 origin: [notion]
 aliases: ["Claude Code", "Anthropic 编程 agent"]
@@ -17,7 +17,7 @@ sources: 1
 
 > Anthropic 2025 年 11 月发布的自主编程 agent 产品，能在分钟到小时内完成原需数天的编程任务。
 
-**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 原文 context
 
@@ -56,7 +56,7 @@ sources: 1
 
 ## 反链
 
-- [[外包思考，但不外包理解]]
 - [[coding agent]]
+- [[外包思考，但不外包理解]]
 - [[Agent-Native Infrastructure]]
 - [[Sensors 与 Actuators]]

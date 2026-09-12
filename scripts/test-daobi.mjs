@@ -45,7 +45,8 @@ const NODE = {
   compute: await cidOf('错误复利'),
   use: await cidOf('上下文压缩'),
   judge: await cidOf('Harness'),
-  accept: await cidOf('不可见的劳动'),
+  // accept 类不需要预备答案，直接取第一个「只能认的」——审核重分类后名字会变，写死名字会假失败
+  accept: await ex(`(nodes.find(n => n.k === 'accept') || {}).id || ''`),
 };
 const TOTAL = await ex('String(nodes.length)');
 const TAG = await ex(`((CUR.collections || []).find(c => c.route.length > 1) || (CUR.collections || [])[0] || {}).tagId`);

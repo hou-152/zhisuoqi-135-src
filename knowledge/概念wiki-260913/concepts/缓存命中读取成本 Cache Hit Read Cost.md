@@ -7,7 +7,7 @@ subject: Context Engineering
 domain: caching-cost
 learningStage: when-needed
 verification: compute
-centrality: 0.017
+centrality: 0.072
 depth: 0
 origin: [context]
 aliases: ["Cache Hit Read Cost"]
@@ -16,9 +16,9 @@ sources: 1
 
 # 缓存命中读取成本 · Cache Hit Read Cost
 
-> 缓存命中的读取价格远低于普通输入处理成本，是压低 token 花费的主要来源。
+> 缓存命中的读取价格远低于普通输入处理成本。
 
-**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.017
+**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -37,6 +37,10 @@ sources: 1
 
 > 能否算出 {{name}} 相对普通输入省多少钱？
 
+## 懂了它才能懂（解锁 1）
+
+- [[提示词缓存 Prompt Caching]] — 不懂缓存命中读取成本，就做不了提示词缓存的收益对比（读缓存省多少）。
+
 ## 相关
 
 - [[稳定前缀 Stable Prefix]] · 同篇出现（co-occurrence） — 同篇出现：context-17
@@ -53,6 +57,6 @@ sources: 1
 
 ## 反链
 
-- [[缓存断点 Cache Breakpoint]]
 - [[提示词缓存 Prompt Caching]]
+- [[缓存断点 Cache Breakpoint]]
 - [[稳定前缀 Stable Prefix]]

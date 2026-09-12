@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.092
+centrality: 0.236
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 由 harness 包裹的 LLM，并借工具获得读写代码等额外能力的代理。
 
-**领域** harness-runtime ｜ **类型** LANGUAGE ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.092
+**领域** harness-runtime ｜ **类型** LANGUAGE ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.236
 
 ## 费曼一下
 
@@ -36,9 +36,10 @@ coding agent 不是“一个会写代码的模型”，而是一套把模型接�
 
 > {{name}} 由哪两部分构成，工具起什么作用？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
-- [[agent 与 harness 的分工]] · **hard** — coding agent 就是被 harness 包裹的 LLM，不分清二者就说不清它是什么。
+- [[Harness]] · **hard** — 不懂【Harness】，就做不了 coding agent 的“harness 包裹 LLM”定义
+- [[Agent]] · **soft** — 不懂【Agent】，就做不了 coding agent 作为“借工具读写代码的代理”定义
 
 ## 懂了它才能懂（解锁 2）
 
@@ -47,18 +48,19 @@ coding agent 不是“一个会写代码的模型”，而是一套把模型接�
 
 ## 相关
 
-- [[tokens]] · 同篇出现（co-occurrence） — 同篇出现：context-14
 - [[prompt completion]] · 同篇出现（co-occurrence） — 同篇出现：context-14
-- [[multimodal Vision LLMs]] · 同篇出现（co-occurrence） — 同篇出现：context-14
 - [[chat templated prompts]] · 同篇出现（co-occurrence） — 同篇出现：context-14
-- [[stateless]] · 同篇出现（co-occurrence） — 同篇出现：context-14
 - [[cached input tokens]] · 同篇出现（co-occurrence） — 同篇出现：context-14
-- [[reasoning thinking]] · 同篇出现（co-occurrence） — 同篇出现：context-14
-- [[tool loop]] · 同篇出现（co-occurrence） — 同篇出现：context-14
 - [[reasoning effort]] · 同篇出现（co-occurrence） — 同篇出现：context-14
+- [[tool loop]] · 同篇出现（co-occurrence） — 同篇出现：context-14
 - [[工具 Tools]] · 同篇出现（co-occurrence） — 同篇出现：context-14
+- [[reasoning thinking]] · 同篇出现（co-occurrence） — 同篇出现：context-14
+- [[multimodal Vision LLMs]] · 同篇出现（co-occurrence） — 同篇出现：context-14
+- [[stateless]] · 同篇出现（co-occurrence） — 同篇出现：context-14
+- [[tokens]] · 同篇出现（co-occurrence） — 同篇出现：context-14
 - [[系统提示 System Prompt]] · 同篇出现（co-occurrence） — 同篇出现：context-14
 - [[LLM Large Language Model]] · 同篇出现（co-occurrence） — 同篇出现：context-14
+- [[agent 与 harness 的分工]] · related-to（audit） — coding agent 的定义只用到 harness 本身（包裹 LLM + 工具），agent/harness 的涌现哲学分工不是理解的必要条件，应降为 soft。
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：context-14
 
 ## 出场
@@ -66,18 +68,20 @@ coding agent 不是“一个会写代码的模型”，而是一套把模型接�
 - Context Engineering ｜ 《Coding Agent 如何工作：工具循环与上下文工程》 ｜ https://simonwillison.net/guides/agentic-engineering-patterns/how-coding-agents-work/#atom-everything
 ## 反链
 
-- [[tokens]]
+- [[Harness]]
 - [[stateless]]
+- [[Agent]]
 - [[系统提示 System Prompt]]
-- [[LLM Large Language Model]]
 - [[agent 与 harness 的分工]]
-- [[multimodal Vision LLMs]]
+- [[LLM Large Language Model]]
 - [[reasoning thinking]]
-- [[cached input tokens]]
+- [[tokens]]
+- [[tool loop]]
 - [[工具 Tools]]
+- [[cached input tokens]]
 - [[chat templated prompts]]
 - [[Claude Code]]
 - [[Codex]]
+- [[multimodal Vision LLMs]]
 - [[prompt completion]]
 - [[reasoning effort]]
-- [[tool loop]]

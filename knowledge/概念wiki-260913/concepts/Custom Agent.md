@@ -3,10 +3,10 @@ id: cm_3b8ca49c
 name: Custom Agent
 type: REPRESENTATIONAL
 subject: AI 概念库
-domain: agent-org
+domain: multi-agent
 learningStage: when-needed
 verification: use
-centrality: 0.042
+centrality: 0.017
 depth: 0
 origin: [notion]
 aliases: ["自定义 Agent", "自定义助手"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 自定义 Agent：按具体任务与角色专门配置的 Agent，而非通用默认 Agent（材料仅给出名称）。
 
-**领域** agent-org ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
+**领域** multi-agent ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
 ## 掌握证据（做到这些才算会）
 
@@ -28,12 +28,9 @@ sources: 1
 
 > 什么场景该用 {{name}} 而不是默认 Agent？
 
-## 懂了它才能懂（解锁 1）
-
-- [[Forward Deployed Engineer]] — 驻场工程师落地长期 Agent，往往要配置自定义 Agent，先懂 Custom Agent 更清楚工作对象。
-
 ## 相关
 
+- [[Forward Deployed Engineer]] · rejected（audit） — Custom Agent 只是 FDE 常配置的可选工具/组件（材料也仅给出名称），FDE 的定义自足，构不成依赖。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion

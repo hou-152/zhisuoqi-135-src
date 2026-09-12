@@ -1,12 +1,12 @@
 ---
 id: cm_38d561bd
 name: 记忆冲刷（Memory Flush）
-type: PROCEDURAL
+type: CONCEPTUAL
 subject: AI 概念库
 domain: memory-retrieval
 learningStage: when-needed
-verification: use
-centrality: 0.067
+verification: accept
+centrality: 0.072
 depth: 1
 origin: [notion]
 aliases: ["Memory Flush", "记忆抢救", "压缩前抢救"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 会话压缩前先发指令让模型保存值得记住的东西，优先用户偏好、修正建议与重复模式。
 
-**领域** memory-retrieval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
+**领域** memory-retrieval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,10 +36,9 @@ sources: 1
 
 > {{name}}发生前会先做什么、优先保存什么？
 
-## 先懂这些（前置 2）
+## 先懂这些（前置 1）
 
-- [[结构化记事 agentic memory]] · **hard** — 冲刷即把笔记写到上下文之外，正属结构化记事的机制。
-- [[记忆 Memory]] · **hard** — 冲刷是记忆写入的时机策略，先懂记忆才懂何时保存。
+- [[分层记忆架构]] · **soft** — 不懂【分层记忆架构】的迁移函数，就做不了【记忆冲刷】时判断哪些内容该落长期层
 
 ## 相关
 
@@ -57,5 +56,7 @@ sources: 1
 
 ## 反链
 
-- [[记忆 Memory]]
-- [[结构化记事 agentic memory]]
+- [[外包思考，但不外包理解]]
+- [[Agent-Native Infrastructure]]
+- [[分层记忆架构]]
+- [[Sensors 与 Actuators]]

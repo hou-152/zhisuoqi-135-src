@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: tools-sandbox
 learningStage: when-needed
 verification: judge
-centrality: 0.042
-depth: 2
+centrality: 0.017
+depth: 0
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 通过观察输出与反复实验理解模型自身能力，再据此设计给它用的工具。
 
-**领域** tools-sandbox ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** tools-sandbox ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,10 +36,6 @@ You want to give it tools that are shaped to its own abilities. But how do you k
 
 > 你凭什么判断 {{name}} 看到的工具是合身的？
 
-## 先懂这些（前置 1）
-
-- [[工具接口的表达力设计]] · **soft** — 先观察模型能力再设计给它的工具，是接口表达力设计的前置功课。
-
 ## 相关
 
 - [[Tool Calling]] · 同篇出现（co-occurrence） — 同篇出现：context-15
@@ -55,11 +51,10 @@ You want to give it tools that are shaped to its own abilities. But how do you k
 - Context Engineering ｜ 《构建 Claude Code 的经验教训：如何让 Agent「看见」世界》 ｜ https://x.com/trq212/status/2027463795355095314
 ## 反链
 
-- [[上下文腐烂 Context Rot]]
-- [[工具接口的表达力设计]]
-- [[渐进式披露 progressive disclosure]]
+- [[Tool Calling]]
 - [[Subagent]]
+- [[上下文腐烂 Context Rot]]
+- [[渐进式披露 progressive disclosure]]
 - [[Action Space]]
 - [[Agent Skills]]
 - [[Elicitation]]
-- [[Tool Calling]]

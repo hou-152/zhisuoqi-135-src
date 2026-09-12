@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: spec-intent
 learningStage: now
 verification: use
-centrality: 0.017
-depth: 0
+centrality: 0.126
+depth: 1
 origin: [context]
 aliases: ["ramble session"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 与 LLM 协作时刻意进行的一次长时间、无结构的自由讲述，是后续所有动作的容器。
 
-**领域** spec-intent ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** spec-intent ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -37,11 +37,18 @@ sources: 1
 
 > 你会怎么安排一次 {{name}}，它产出什么？
 
+## 先懂这些（前置 1）
+
+- [[输入摩擦 too lazy to type]] · **soft** — 不懂【输入摩擦】，就做不了【漫谈会话】里「为什么用长时间口述而不是打字」的设计论证
+
+## 懂了它才能懂（解锁 1）
+
+- [[小访谈变体 small interview of a few turns]] — 不懂【漫谈会话】，就做不了【小访谈变体】里「把一次性倾倒式漫谈改造成几轮小问答」的改造
+
 ## 相关
 
 - [[通道切换 switch to voice]] · 同篇出现（co-occurrence） — 同篇出现：context-09
 - [[意识流输入 full stream of consciousness]] · 同篇出现（co-occurrence） — 同篇出现：context-09
-- [[前置声明]] · 同篇出现（co-occurrence） — 同篇出现：context-09
 - [[小访谈变体 small interview of a few turns]] · 同篇出现（co-occurrence） — 同篇出现：context-09
 - [[不连贯输入的重构能力]] · 同篇出现（co-occurrence） — 同篇出现：context-09
 - [[回声 echo of your own tangle of thoughts]] · 同篇出现（co-occurrence） — 同篇出现：context-09
@@ -61,14 +68,13 @@ sources: 1
 
 ## 反链
 
-- [[不连贯输入的重构能力]]
-- [[回声 echo of your own tangle of thoughts]]
-- [[前置声明]]
 - [[bits]]
 - [[纠正成本递减 correct things less from that point on]]
 - [[输入摩擦 too lazy to type]]
-- [[通道切换 switch to voice]]
 - [[小访谈变体 small interview of a few turns]]
-- [[意识流输入 full stream of consciousness]]
 - [[整理增益 cleaner than what you started with]]
+- [[不连贯输入的重构能力]]
+- [[回声 echo of your own tangle of thoughts]]
+- [[通道切换 switch to voice]]
+- [[意识流输入 full stream of consciousness]]
 - [[mind meld]]

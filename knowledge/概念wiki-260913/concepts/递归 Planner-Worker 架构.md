@@ -1,12 +1,12 @@
 ---
 id: cm_307d9aaf
 name: 递归 Planner-Worker 架构
-type: REPRESENTATIONAL
+type: CONCEPTUAL
 subject: Harness Engineering
 domain: multi-agent
 learningStage: now
 verification: use
-centrality: 0.067
+centrality: 0.126
 depth: 2
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 根 Planner 拥有全项目范围并按需递归生成子 Planner；Worker 在各自 repo 副本上工作，完成后 handoff 上交。
 
-**领域** multi-agent ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
+**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -55,5 +55,5 @@ Cursor 在四次失败后找到的最终架构。核心思想是「分治法」�
 - [[Harness 工程 Harness Engineering]]
 - [[Planner–Worker 角色分离]]
 - [[handoff 交接]]
-- [[空间 Scalability Spatial Scalability]]
 - [[时间 Scalability Temporal Scalability]]
+- [[空间 Scalability Spatial Scalability]]

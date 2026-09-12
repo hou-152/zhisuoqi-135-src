@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: now
 verification: use
-centrality: 0.017
-depth: 0
+centrality: 0.072
+depth: 1
 origin: [context]
 aliases: ["where the format matters"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 信息的呈现方式本身构成上下文：简洁摘要优于原始数据倾倒，清晰工具 schema 优于含糊指令。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -37,6 +37,10 @@ sources: 1
 
 > 你能用 {{name}} 说明这段输出为什么该改写成摘要？
 
+## 先懂这些（前置 1）
+
+- [[上下文 context]] · **hard** — 不懂【上下文】，就做不了【格式即上下文】的呈现方式作为上下文的定义
+
 ## 相关
 
 - [[上下文（Context）：模型生成之前看到的一切]] · 同篇出现（co-occurrence） — 同篇出现：context-24
@@ -53,5 +57,7 @@ sources: 1
 
 ## 反链
 
+- [[上下文 context]]
+- [[上下文工程 context engineering]]
 - [[有限的工作记忆 limited working memory]]
 - [[上下文（Context）：模型生成之前看到的一切]]

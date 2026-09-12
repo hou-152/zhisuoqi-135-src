@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.042
-depth: 4
+centrality: 0.072
+depth: 3
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 把裸 LLM 比作无内存 CPU，上下文窗口是 RAM，外部数据库是磁盘，工具集成是设备驱动，harness 是操作系统。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -38,10 +38,11 @@ Beren Millidge 2023 年文章《Scaffolded LLMs as Natural Language Computers》
 
 ## 先懂这些（前置 1）
 
-- [[操作系统类比]] · **soft** — 冯·诺依曼类比是操作系统类比的延伸与细化。
+- [[LLM-as-CPU Harness-as-OS]] · **soft** — 不懂 CPU 与 OS 的职责划分，就做不出上下文窗口=RAM、工具=设备驱动的映射
 
 ## 相关
 
+- [[操作系统类比]] · related-to（audit） — 两类比高度重叠，冯·诺依曼类比已自足定义 harness=OS，不以前者为前提，宜降 soft 或视为反向包含。
 - [[agent 与 harness 的分工]] · 同篇出现（co-occurrence） — 同篇出现：harness-28
 - [[If you're not the model, you're the harness.]] · 同篇出现（co-occurrence） — 同篇出现：harness-28
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-28
@@ -51,6 +52,7 @@ Beren Millidge 2023 年文章《Scaffolded LLMs as Natural Language Computers》
 - Harness Engineering ｜ 《一个被 harness 套住的 LLM agent：这个词到底指什么》 ｜ https://x.com/akshay_pachaar/status/2045510648474530263/?s=12
 ## 反链
 
-- [[操作系统类比]]
-- [[agent 与 harness 的分工]]
 - [[If you're not the model, you're the harness.]]
+- [[LLM-as-CPU Harness-as-OS]]
+- [[agent 与 harness 的分工]]
+- [[操作系统类比]]

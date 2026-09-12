@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: thinking-method
 learningStage: when-needed
 verification: judge
-centrality: 0.067
-depth: 4
+centrality: 0.017
+depth: 0
 origin: [notion]
 aliases: ["不辩护", "不带辩护承认错误", "不甩锅承认"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 承认错误后不甩锅、不列条件、不找借口，否则承认失效，只是给「被错」打麻药。
 
-**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
+**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 原文 context
 
@@ -38,14 +38,6 @@ Cate Hall 给的反例：
 
 > 怎样判断一次承认错误是否做到了 {{name}}？
 
-## 先懂这些（前置 1）
-
-- [[四项心智力量]] · **hard** — 没有自我问责，承认错误后的不甩锅就立不住。
-
-## 懂了它才能懂（解锁 1）
-
-- [[Holding Your Opinions Lightly]] — 不懂不防御地认错，就做不到把观点当临时假设。
-
 ## 相关
 
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -62,5 +54,6 @@ Cate Hall 给的反例：
 
 ## 反链
 
-- [[四项心智力量]]
-- [[Holding Your Opinions Lightly]]
+- [[外包思考，但不外包理解]]
+- [[Agent-Native Infrastructure]]
+- [[Sensors 与 Actuators]]

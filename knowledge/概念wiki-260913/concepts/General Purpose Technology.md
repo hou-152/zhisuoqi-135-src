@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: economy-business
 learningStage: deep-dive
 verification: judge
-centrality: 0.042
+centrality: 0.072
 depth: 0
 origin: [notion]
 aliases: ["通用目的技术", "GPT"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 能广泛渗透并重塑整个经济的技术，如蒸汽机、电力、互联网，需要配套的组织变革。
 
-**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 掌握证据（做到这些才算会）
 
@@ -30,10 +30,11 @@ sources: 1
 
 ## 懂了它才能懂（解锁 1）
 
-- [[平台跃迁四浪 Platform Shifts]] — 四浪的共同点是通用技术渗透并重塑整个经济
+- [[平台跃迁四浪 Platform Shifts]] — 不懂【General Purpose Technology】，就做不了判断互联网、云、移动、AI 哪一次算真正的平台跃迁
 
 ## 相关
 
+- [[平台跃迁四浪 Platform Shifts]] · related-to（audit） — 四浪（互联网/云/移动/AI）作为平台跃迁可独立理解，GPT 是事后归纳的理论框架而非前置定义，属可选的分析透镜。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion

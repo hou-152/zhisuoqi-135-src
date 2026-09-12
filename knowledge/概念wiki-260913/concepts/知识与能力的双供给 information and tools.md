@@ -53,5 +53,6 @@ sources: 1
 
 ## 反链
 
+- [[上下文工程 context engineering]]
 - [[有限的工作记忆 limited working memory]]
 - [[上下文（Context）：模型生成之前看到的一切]]

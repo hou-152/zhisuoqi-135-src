@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: verification-eval
 learningStage: when-needed
 verification: judge
-centrality: 0.042
+centrality: 0.126
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 运行时配置与环境差异等基础设施噪声可能显著影响 coding benchmark 分数，解读成绩时需扣除。
 
-**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
+**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -38,10 +38,15 @@ Anthropic 的 infrastructure noise 资源提醒，运行时配置、环境差异
 
 ## 先懂这些（前置 1）
 
-- [[基准测试的捆绑测量性]] · **soft** — 基础设施噪声是捆绑测量里最隐形的一项，懂了捆绑才知要扣除它。
+- [[Measurement snapshot]] · **soft** — 不懂 Measurement snapshot，就做不了 Infrastructure noise 的归因与扣除
+
+## 懂了它才能懂（解锁 1）
+
+- [[SWE-bench 与二元打分]] — 不懂 Infrastructure noise，就做不了 SWE-bench 成绩扣除环境差异后的公平解读
 
 ## 相关
 
+- [[基准测试的捆绑测量性]] · related-to（audit） — 捆绑测量是理解为何要扣除噪声的框架，不是理解基础设施噪声本身的必要条件。
 - [[Reliability-critical harness primitives]] · 同篇出现（co-occurrence） — 同篇出现：harness-19
 - [[Context as working memory budget]] · 同篇出现（co-occurrence） — 同篇出现：harness-19
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-19
@@ -52,6 +57,8 @@ Anthropic 的 infrastructure noise 资源提醒，运行时配置、环境差异
 ## 反链
 
 - [[Harness 工程 Harness Engineering]]
+- [[SWE-bench 与二元打分]]
 - [[Context as working memory budget]]
+- [[Measurement snapshot]]
 - [[基准测试的捆绑测量性]]
 - [[Reliability-critical harness primitives]]
