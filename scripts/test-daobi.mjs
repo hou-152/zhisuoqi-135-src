@@ -12,36 +12,22 @@
 // 前置：node scripts/serve-135.mjs 在跑（LLM 判定要真模型）
 // 用法：node scripts/test-daobi.mjs [url]
 
-import { spawn } from 'node:child_process';
+import { CHROME, openCDP, sleep, spawnProcess, waitForPage } from './lib/cdp.mjs';
 
-const CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 const PORT = 9401, PROF = '/tmp/daobi-' + Date.now();
 const URL_ = process.argv[2] || 'http://127.0.0.1:5180/知所栖-壳.html';
 
-const chrome = spawn(CHROME, ['--headless=new', `--remote-debugging-port=${PORT}`, `--user-data-dir=${PROF}`,
+const chrome = spawnProcess(CHROME, ['--headless=new', `--remote-debugging-port=${PORT}`, `--user-data-dir=${PROF}`,
   '--window-size=1440,900', '--hide-scrollbars', '--disable-gpu', '--no-first-run', 'about:blank'], { stdio: 'ignore' });
-const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-let page;
-for (let i = 0; i < 40; i++) {
-  try { const j = await (await fetch(`http://127.0.0.1:${PORT}/json/list`)).json(); page = j.find(t => t.type === 'page'); if (page) break; } catch {}
-  await sleep(250);
-}
+const page = await waitForPage(PORT);
 if (!page) { console.error('Chrome 没起来'); process.exit(2); }
 
-const ws = new WebSocket(page.webSocketDebuggerUrl);
-await new Promise(r => { ws.onopen = r; });
-let id = 0; const waiting = new Map(); const events = [];
-ws.onmessage = e => {
-  const m = JSON.parse(e.data);
-  if (m.id && waiting.has(m.id)) { waiting.get(m.id)(m); waiting.delete(m.id); }
-  else if (m.method) events.push(m);
-};
-const send = (me, p = {}) => { const i = ++id; ws.send(JSON.stringify({ id: i, method: me, params: p })); return new Promise(r => waiting.set(i, r)); };
+const cdp = await openCDP(page.webSocketDebuggerUrl);
+const send = (me, p = {}) => cdp.send(me, p);
+const events = cdp.events;
 const ex = async x => {
-  const r = await send('Runtime.evaluate', { expression: x, returnByValue: true, awaitPromise: true });
-  if (r.result?.exceptionDetails) return 'THREW: ' + (r.result.exceptionDetails.exception?.description || '').split('\n')[0];
-  return r.result?.result?.value;
+  return cdp.eval(x, { onException: details => 'THREW: ' + (details.exception?.description || '').split('\n')[0] });
 };
 
 await send('Page.enable'); await send('Runtime.enable'); await send('Log.enable');
@@ -179,6 +165,6 @@ const errs = events
 console.log(errs.length ? `\n❌ JS 报错 ${errs.length}:\n` + errs.map(e => JSON.stringify(e).slice(0, 160)).join('\n') : '\n✅ 0 条 JS 报错');
 console.log(fails.length ? `❌ 断言失败 ${fails.length}:\n` + fails.join('\n') : '✅ 断言全过');
 
-ws.close(); chrome.kill();
+cdp.close(); chrome.kill();
 try { (await import('node:fs')).rmSync(PROF, { recursive: true, force: true, maxRetries: 5 }); } catch {}
 process.exit(fails.length || errs.length ? 1 : 0);

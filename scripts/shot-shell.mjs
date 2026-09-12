@@ -3,75 +3,30 @@
 // 用法：node scripts/shot-shell.mjs [url] [outdir]
 // 前置：node scripts/serve-135.mjs 在跑。
 
-import { spawn } from 'node:child_process';
-import { mkdirSync, writeFileSync, rmSync } from 'node:fs';
+import { mkdirSync, rmSync } from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
+import { CHROME, openCDP, spawnProcess, waitForPage, sleep } from './lib/cdp.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const URL_ = process.argv[2] || 'http://127.0.0.1:5180/知所栖-壳.html';
 const OUT = process.argv[3] || path.join(ROOT, 'prototype', '预览');
-const CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 const PORT = 9333;
 const PROFILE = path.join(os.tmpdir(), 'shot-shell-profile-' + process.pid);
 
 mkdirSync(OUT, { recursive: true });
 rmSync(PROFILE, { recursive: true, force: true });
 
-const chrome = spawn(CHROME, [
+const chrome = spawnProcess(CHROME, [
   '--headless=new', `--remote-debugging-port=${PORT}`, `--user-data-dir=${PROFILE}`,
   '--window-size=1440,900', '--hide-scrollbars', '--no-first-run', '--no-default-browser-check',
   '--disable-gpu', 'about:blank',
 ], { stdio: 'ignore' });
 
-const sleep = ms => new Promise(r => setTimeout(r, ms));
-
-async function cdpTargets() {
-  for (let i = 0; i < 40; i++) {
-    try {
-      const r = await fetch(`http://127.0.0.1:${PORT}/json/list`);
-      const j = await r.json();
-      const page = j.find(t => t.type === 'page');
-      if (page) return page;
-    } catch (e) { /* 还没起来 */ }
-    await sleep(250);
-  }
-  throw new Error('Chrome 调试端口没起来');
-}
-
-class CDP {
-  constructor(ws) { this.ws = ws; this.id = 0; this.waiting = new Map(); this.events = []; }
-  static async open(url) {
-    const ws = new WebSocket(url);
-    await new Promise((res, rej) => { ws.onopen = res; ws.onerror = rej; });
-    const c = new CDP(ws);
-    ws.onmessage = ev => {
-      const m = JSON.parse(ev.data);
-      if (m.id && c.waiting.has(m.id)) { c.waiting.get(m.id)(m); c.waiting.delete(m.id); }
-      else if (m.method) c.events.push(m);
-    };
-    return c;
-  }
-  send(method, params = {}) {
-    const id = ++this.id;
-    this.ws.send(JSON.stringify({ id, method, params }));
-    return new Promise(res => this.waiting.set(id, res));
-  }
-  async eval(expr) {
-    const r = await this.send('Runtime.evaluate', { expression: expr, awaitPromise: true, returnByValue: true });
-    if (r.result?.exceptionDetails) throw new Error(r.result.exceptionDetails.text + ' :: ' + expr.slice(0, 80));
-    return r.result?.result?.value;
-  }
-  async shot(name) {
-    const r = await this.send('Page.captureScreenshot', { format: 'png' });
-    const f = path.join(OUT, name);
-    writeFileSync(f, Buffer.from(r.result.data, 'base64'));
-    return f;
-  }
-}
-
-const target = await cdpTargets();
-const cdp = await CDP.open(target.webSocketDebuggerUrl);
+const target = await waitForPage(PORT);
+if (!target) throw new Error('Chrome 调试端口没起来');
+const cdp = await openCDP(target.webSocketDebuggerUrl);
+const shot = name => cdp.screenshot(path.join(OUT, name));
 await cdp.send('Page.enable');
 await cdp.send('Runtime.enable');
 await cdp.send('Log.enable');
@@ -115,46 +70,46 @@ await cdp.eval(`(()=>{const s=document.createElement('style');
   document.head.appendChild(s); return 'ok';})()`);
 await sleep(400);
 
-await step('首屏 · 按「要你怎么处理它」分列', async () => { shots.push(await cdp.shot('25-分类-怎么验.png')); });
+await step('首屏 · 按「要你怎么处理它」分列', async () => { shots.push(await shot('25-分类-怎么验.png')); });
 
 const rail = await cdp.eval(`JSON.stringify([...document.querySelectorAll('.r-item')].map(b=>b.querySelector('b').textContent+' ‖ '+b.querySelector('i').textContent))`);
 console.log('左栏：', JSON.parse(rail).join('  |  '));
 
 await step('左栏 策展', async () => {
   await cdp.eval(`setView('curate')`);
-  shots.push(await cdp.shot('11-壳-策展.png'));
+  shots.push(await shot('11-壳-策展.png'));
 });
 
 await step('某一條线 · 路线', async () => {
   await cdp.eval(`openCollection('T2')`);
-  shots.push(await cdp.shot('12-壳-一条线.png'));
+  shots.push(await shot('12-壳-一条线.png'));
 });
 
 await step('只看这条线', async () => {
   await cdp.eval(`focusTag('T2')`);
-  shots.push(await cdp.shot('13-壳-只看一条线.png'));
+  shots.push(await shot('13-壳-只看一条线.png'));
 });
 
 await step('待你看一眼（已策展）', async () => {
   await cdp.eval(`filter=null; setAxis('tag'); setView('todo')`);
-  shots.push(await cdp.shot('14-壳-待你看一眼.png'));
+  shots.push(await shot('14-壳-待你看一眼.png'));
 });
 
 await step('按来源分列（旧轴仍在）', async () => {
   await cdp.eval(`closePanel(); setAxis('src')`);
-  shots.push(await cdp.shot('15-壳-按来源.png'));
+  shots.push(await shot('15-壳-按来源.png'));
 });
 
 await step('Agent · 真 skill 列表', async () => {
   await cdp.eval(`setAxis('tag'); setView('chat')`);
-  shots.push(await cdp.shot('16-壳-agent真skill.png'));
+  shots.push(await shot('16-壳-agent真skill.png'));
 });
 
 await step('真对话（dbs-learning-beta）', async () => {
   await cdp.eval(`pickAgent('dbs-learning-beta','dbs-learning-beta')`);
   await cdp.eval(`document.getElementById('b-q').value='我要不要辞掉工作去做独立开发？'; send()`);
   await sleep(9000);
-  shots.push(await cdp.shot('17-壳-真skill对话.png'));
+  shots.push(await shot('17-壳-真skill对话.png'));
   return null;
 });
 
@@ -163,46 +118,46 @@ console.log('--- 会话结尾 ---\n' + conv + '\n---');
 
 await step('「只能认的」不设验收', async () => {
   await cdp.eval(`closePanel(); openPanel(nodes.find(n=>n.k==='accept').id)`);
-  shots.push(await cdp.shot('26-分类-只能认的不考.png'));
+  shots.push(await shot('26-分类-只能认的不考.png'));
 });
 
 await step('「能用的」任务词', async () => {
   await cdp.eval(`openPanel(nodes.find(n=>n.k==='use').id)`);
-  shots.push(await cdp.shot('27-分类-能用的要给用例.png'));
+  shots.push(await shot('27-分类-能用的要给用例.png'));
 });
 
 await step('概念 · 倒逼输入框', async () => {
   await cdp.eval(`closePanel(); setAxis('tag'); filter=null; localStorage.removeItem('zss135.proof.v2'); marks={}; refreshMarks(); openPanel('C04')`);
-  shots.push(await cdp.shot('21-倒逼-输入框.png'));
+  shots.push(await shot('21-倒逼-输入框.png'));
 });
 
 await step('没过 · 漏点 · 倒回先修', async () => {
   await cdp.eval(`document.getElementById('said').value='就是一个理论吧，感觉挺有道理的，讲人的不同方面。'; judge('C04')`);
   await sleep(15000);
-  shots.push(await cdp.shot('22-倒逼-没过倒回.png'));
+  shots.push(await shot('22-倒逼-没过倒回.png'));
 });
 
 await step('说清楚了才给过', async () => {
   await cdp.eval(`openPanel('C04'); document.getElementById('said').value='威尔伯的四象限是两条轴交叉：一条是内在经验 vs 外在行为，一条是个体 vs 集体，两两组合出四个格子。纯粹派和自动机各砍掉了一半现实——一个只认内在、退回无屏幕生活，一个只认外在可优化的部分。用四象限是把被砍掉的那半个现实放回来，判断一个人或一件事要同时在四个格子里看。'; judge('C04')`);
   await sleep(16000);
-  shots.push(await cdp.shot('23-倒逼-过了.png'));
+  shots.push(await shot('23-倒逼-过了.png'));
 });
 
 await step('一条线的倒逼链', async () => {
   await cdp.eval(`startLine('T2')`);
-  shots.push(await cdp.shot('24-倒逼-一条线的链.png'));
+  shots.push(await shot('24-倒逼-一条线的链.png'));
 });
 
 await step('星球', async () => {
   await cdp.eval(`closePanel(); setMode('sphere')`);
-  shots.push(await cdp.shot('18-壳-星球.png'));
+  shots.push(await shot('18-壳-星球.png'));
 });
 
 console.log('\n截图：');
 for (const s of shots) console.log('  ' + path.relative(ROOT, s));
 console.log(errs.length ? `\n❌ JS 报错 ${errs.length} 条：\n` + errs.join('\n') : '\n✅ 0 条 JS 报错');
 
-cdp.ws.close();
+cdp.close();
 chrome.kill();
 try { rmSync(PROFILE, { recursive: true, force: true, maxRetries: 5 }); } catch (e) {}
 process.exit(errs.length ? 1 : 0);

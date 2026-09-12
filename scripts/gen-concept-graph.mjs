@@ -29,6 +29,8 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { chatCompletion } from './lib/llm.mjs';
+import { parseConceptPool } from './lib/pool.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const POOL = path.join(ROOT, 'research', '内参概念池-AI时代怎么做事-20260912.md');
@@ -51,17 +53,8 @@ if (!BASE || !KEY || !MODEL) { console.error('缺少 LLM_API_BASE / LLM_API_KEY 
 
 // ── 解析概念池 ────────────────────────────────────────────────
 const md = fs.readFileSync(POOL, 'utf8');
-const concepts = [];
-let art = null;
-for (const L of md.split('\n')) {
-  if (L.startsWith('## 第二部分')) break;   // 之后是统计表，不是概念
-  const h = L.match(/^### (S\d+)\s+(.+?)\s*｜/);
-  if (h) { art = { id: h[1], title: h[2] }; continue; }
-  if (!art || !L.startsWith('| ') || L.startsWith('| 概念原文') || L.startsWith('|---')) continue;
-  const c = L.split('|').map(s => s.trim());
-  if (c.length < 5 || !c[1]) continue;
-  concepts.push({ art: art.id, artTitle: art.title, name: c[1], type: c[2], gloss: c[4] });
-}
+const concepts = parseConceptPool(md).map(({ src: art, artTitle, name, type, gloss }) =>
+  ({ art, artTitle, name, type, gloss }));
 // 每篇取前 PER_ARTICLE 个，不挑选
 const picked = [];
 const seen = new Map();
@@ -103,20 +96,11 @@ ${list}
 const prompt = buildPrompt(picked);
 console.log(`prompt ${prompt.length} 字符，调用 ${MODEL} …`);
 const t0 = Date.now();
-const res = await fetch(`${BASE.replace(/\/$/, '')}/chat/completions`, {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${KEY}` },
-  body: JSON.stringify({
-    model: MODEL,
-    messages: [{ role: 'user', content: prompt }],
-    temperature: 0,
-    response_format: { type: 'json_object' },
-  }),
-});
-const raw = await res.text();
-if (!res.ok) { console.error(`HTTP ${res.status}:`, raw.slice(0, 400)); process.exit(3); }
-const data = JSON.parse(raw);
-const content = data.choices?.[0]?.message?.content || '';
+const reply = await chatCompletion({ base: BASE, key: KEY, model: MODEL,
+  messages: [{ role: 'user', content: prompt }], json: true });
+if (!reply.ok) { console.error(`HTTP ${reply.status}:`, reply.raw.slice(0, 400)); process.exit(3); }
+const data = reply.data;
+const content = reply.content;
 const usage = data.usage || {};
 console.log(`返回 ${content.length} 字符，${usage.total_tokens ?? '?'} tokens，${((Date.now() - t0) / 1000).toFixed(1)}s`);
 

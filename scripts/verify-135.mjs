@@ -1,51 +1,36 @@
 // 知所栖-135 基础框架 v3 自动验证：无头 Chrome + CDP（Node 24 内置 WebSocket，零依赖）
 // 前置：node scripts/serve-135.mjs（5180 端口，同时验证 /api/health、静态服务、真实检索代理）
-const CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 const PORT = 9223;
 const BASE = 'http://127.0.0.1:5180/';
-const { spawn } = await import('node:child_process');
+import { CHROME, openCDP, sleep, spawnProcess, waitForPage } from './lib/cdp.mjs';
 
-const sleep = (ms) => new Promise(r => setTimeout(r, ms));
-
-const chrome = spawn(CHROME, [
+const chrome = spawnProcess(CHROME, [
   `--remote-debugging-port=${PORT}`,
   '--headless=new', '--disable-gpu', '--no-first-run', '--no-default-browser-check',
   '--user-data-dir=/tmp/zss135-profile', '--window-size=1280,1400', BASE,
 ], { stdio: 'ignore' });
 process.on('exit', () => { try { chrome.kill(); } catch {} });
 
-let targets = null;
-for (let i = 0; i < 40; i++) {
-  await sleep(250);
-  try {
-    const res = await fetch(`http://127.0.0.1:${PORT}/json`);
-    targets = await res.json();
-    if (targets.some(t => t.type === 'page' && t.webSocketDebuggerUrl)) break;
-  } catch {}
-}
-if (!targets) { console.error('FATAL: Chrome devtools 端口未就绪'); process.exit(2); }
-const page = targets.find(t => t.type === 'page' && t.webSocketDebuggerUrl);
-const ws = new WebSocket(page.webSocketDebuggerUrl);
-await new Promise((res, rej) => { ws.onopen = res; ws.onerror = rej; });
-
-let mid = 0;
-const pending = new Map();
 const jsErrors = [];
-ws.onmessage = (e) => {
-  const msg = JSON.parse(typeof e.data === 'string' ? e.data : e.data.toString());
-  if (msg.id && pending.has(msg.id)) { pending.get(msg.id)(msg); pending.delete(msg.id); }
-  if (msg.method === 'Runtime.exceptionThrown')
-    jsErrors.push(msg.params.exceptionDetails?.exception?.description || msg.params.exceptionDetails?.text || 'unknown');
-  if (msg.method === 'Runtime.consoleAPICalled' && msg.params.type === 'error')
-    jsErrors.push('console.error: ' + JSON.stringify(msg.params.args?.map(a => a.value ?? a.description)));
-};
-function send(method, params = {}) {
-  return new Promise((res) => { const id = ++mid; pending.set(id, res); ws.send(JSON.stringify({ id, method, params })); });
-}
+const page = await waitForPage(PORT, {
+  endpoint: '/json',
+  waitBeforePoll: true,
+  predicate: t => t.type === 'page' && t.webSocketDebuggerUrl,
+});
+if (!page) { console.error('FATAL: Chrome devtools 端口未就绪'); process.exit(2); }
+const cdp = await openCDP(page.webSocketDebuggerUrl, {
+  onEvent: msg => {
+    if (msg.method === 'Runtime.exceptionThrown')
+      jsErrors.push(msg.params.exceptionDetails?.exception?.description || msg.params.exceptionDetails?.text || 'unknown');
+    if (msg.method === 'Runtime.consoleAPICalled' && msg.params.type === 'error')
+      jsErrors.push('console.error: ' + JSON.stringify(msg.params.args?.map(a => a.value ?? a.description)));
+  },
+});
+const send = (method, params = {}) => cdp.send(method, params);
 async function ev(expr) {
-  const r = await send('Runtime.evaluate', { expression: expr, returnByValue: true, awaitPromise: true });
-  if (r.result?.exceptionDetails) throw new Error('页面异常: ' + JSON.stringify(r.result.exceptionDetails.exception?.description || r.result.exceptionDetails.text));
-  return r.result?.result?.value;
+  return cdp.eval(expr, { onException: details => {
+    throw new Error('页面异常: ' + JSON.stringify(details.exception?.description || details.text));
+  } });
 }
 const clickByText = (sel, text) => ev(`(() => { const el = [...document.querySelectorAll('${sel}')].find(b => b.textContent.trim().includes('${text}')); if (!el) return 'MISS:${text}'; el.click(); return 'OK'; })()`);
 
@@ -204,5 +189,5 @@ check('全程无JS异常', jsErrors.length === 0, jsErrors.join(' || ').slice(0,
 
 const failed = checks.filter(c => !c.ok).length;
 console.log(`\n结果: ${checks.length - failed}/${checks.length} 通过`);
-ws.close(); chrome.kill();
+cdp.close(); chrome.kill();
 process.exit(failed ? 1 : 0);
