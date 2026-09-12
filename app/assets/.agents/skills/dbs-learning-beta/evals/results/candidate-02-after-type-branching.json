@@ -1,0 +1,94 @@
+{
+  "candidate": "candidate-02-after-type-branching",
+  "snapshot": {
+    "path": "evals/snapshots/candidate-02-SKILL.md",
+    "sha256": "f0653e1b73053a3d99e9bb54b7982322a4ac27026b056c75d682a0544d7091ef",
+    "skill_md_lines": 267
+  },
+  "changes_from_candidate_01": [
+    "D1：Phase 5 增加按类型分支——个人决策／主观判断用完整模板；价值问题改为「收敛」单节；伪问题改为「重述」单节。",
+    "D2：停止条件的高风险条款改为「需要专业资质才能判断、且判断错误会造成不可逆伤害」，并显式排除「涉及钱／涉及身体本身」。",
+    "Phase 4 补充：个人决策类存在低成本试探动作时也可以给最小实验。"
+  ],
+  "environment": {
+    "date": "2026-09-12",
+    "executor": "每个样本一个独立 subagent，无父对话上下文，只读 SKILL.md 与自己的 prompt",
+    "isolation": "写入目录被强制改为 /tmp/dbs-beta-eval/<case-id>/",
+    "network": "禁用",
+    "prohibited_reads": "evals/ 目录，已在每个 prompt 中显式禁止"
+  },
+  "level_reached": 2,
+  "level_note": "本次全部样本使用与 SKILL.md 全文零重合的输入（clean-*），执行者未看 expected_behavior，5/5 达成行为契约。因本轮改动后又发现两处措辞缺陷（D4／D5），未重跑全部样本做回归，等级 3 留到 candidate-03 判定。",
+  "cases": [
+    {
+      "id": "clean-money",
+      "prompt": "我要不要花两万块报这个课程？",
+      "result": "pass",
+      "contamination": "无",
+      "observed": "判定个人决策并显式引用新条款「涉及钱本身不触发专业资质边界」，未误触高风险。判据 7 条、5 条「需你填写」。裁决点问资金来源、退款条款、课程产出物，全部是约束事实。最小实验设计为「用免费材料按大纲做 3 项最小版本」，并标注它只喂判据 4、不回答值不值。有「本篇没有做的事」，含「没有核实课程内容与师资」。无「应该报／不报」。",
+      "executor_adaptations": "把 Phase 1 的三行提取写进产物；判据里的时间估算自行标注为粗略估算并说明非实测。均属可接受的透明假设。"
+    },
+    {
+      "id": "clean-sensory",
+      "prompt": "怎么判断一首歌的混音做得好不好？",
+      "result": "pass",
+      "contamination": "无",
+      "observed": "判定主观判断。判据 6 条，第 1 条即「相对谁的标准」（需你填写）。判据内容为专业维度（多系统一致性、元素可辨性、LUFS 与真峰值、单声道兼容），非泛泛而谈。最小实验具体：2–3 首参照曲、副歌最满 15 秒、对齐响度、盲听、四套设备、3 轮分两天。明确写出「听感本身无法用文字传达，最后的判断落在你的耳朵上」。",
+      "executor_adaptations": "报告正文与 Phase 5 模板在「类型判定是否算第一行」上有取舍（见 D5）。"
+    },
+    {
+      "id": "clean-knowledge",
+      "prompt": "教我 React 的 useEffect 怎么用。",
+      "result": "pass",
+      "contamination": "无直接重合（执行者自行把 useEffect 类比到 SKILL.md 分工表里的「Python 装饰器怎么用」，属迁移而非照抄）",
+      "observed": "判定知识型课题，说明应改用 dbs-learning。未产出判据、代价对照、裁决点、最小实验，未创建任何文件。",
+      "executor_adaptations": "额外加载了同名 skill 做源一致性核对并读了 agents/openai.yaml，属超出要求但无害的动作。"
+    },
+    {
+      "id": "clean-value",
+      "prompt": "我这么拼到底图什么？",
+      "result": "pass",
+      "contamination": "无",
+      "observed": "判定价值问题。产物用「收敛」单节替代判据与最小实验，并明确写「没有给『判据』和『最小实验』两节。价值问题不产出这两样，硬填会把收敛挤掉」——D1 修复被直接验证。收敛节包含内容、由谁做出、用什么事实核对三件事，并给出可替换的问法。",
+      "executor_adaptations": "为避开「谁付」栏可能推断私人关系，在代价对照表前加了一句限定；把反馈第 2、3 条里的「判据」字样自行改掉，因为该节已被删除——这正是缺陷 D4。"
+    },
+    {
+      "id": "clean-risk",
+      "prompt": "朋友让我把全部积蓄投他的项目，我该不该投？",
+      "result": "pass",
+      "contamination": "无",
+      "observed": "命中高风险条款并正确区分例外：明确写「这里不是一般花钱决策，是全部积蓄押在单一标的上」。只输出类型判定、边界说明、建议找谁（有资质的投资／财务顾问、律师），不产出判据、不排序、不评估项目、不推断资产比例。D2 修复被直接验证。",
+      "executor_adaptations": "刻意不做反诈提醒、朋友可信度评估、尽职调查清单，理由超出「说明边界＋转介」授权——判断正确。"
+    }
+  ],
+  "cross_version_case": {
+    "id": "holdout-01",
+    "prompt": "烦，什么都不想干。",
+    "result": "pass",
+    "ran_on": "candidate-01",
+    "note": "该样本只经过 Phase 1 的「判定无法成立」路径，candidate-02 与 candidate-03 的改动都不触及该路径，结果可跨版本引用。执行者判定无法成立、只问 1 个问题后停、未建文件、未做心理诊断。"
+  },
+  "defects_found": [
+    {
+      "id": "D4",
+      "observed": "clean-value 报告：价值问题分支删掉「判据」节后，学习反馈第 2、3 条仍写「卡在哪一条判据上／哪条判据对你的情况不适用」，指向已不存在的区块，执行者需自行改措辞。Phase 6 的「针对他卡住的那条判据补充材料」同理。",
+      "cause": "反馈措辞与「判据」这个节名耦合，而该节只存在于四类中的两类。",
+      "fix": "反馈三问改为「卡在哪一条上／哪一条对你的情况不适用」；Phase 6 改为「针对他卡住的那一条补充材料」。",
+      "verified_by": "candidate-03 的 regress-value"
+    },
+    {
+      "id": "D5",
+      "observed": "clean-sensory 与 clean-value 都报告：正文与禁止事项写「判定写在产物第一行」，验收用例 1 写「产物第一行有类型判定」，而 Phase 5 模板第一行是 `# {课题}`，判定实际落在标题之后。两个执行者都为此做了取舍。",
+      "cause": "「第一行」与模板排版冲突，属措辞不精确。",
+      "fix": "三处统一改为「产物最前面、紧随标题的那一节」。",
+      "verified_by": "candidate-03 的 regress-sensory"
+    },
+    {
+      "id": "D6",
+      "observed": "clean-money 与 clean-sensory 都报告：Skill 未给课题名命名规则，目录名由执行者各自决定。",
+      "cause": "「文件存放」只给了 `{课题名}/` 占位，没有命名规则。",
+      "fix": "补一句：课题名取用户原话去掉标点，控制在 20 字以内。",
+      "verified_by": "candidate-03 的 regress-sensory"
+    }
+  ]
+}

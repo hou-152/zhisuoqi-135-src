@@ -478,6 +478,46 @@ function mechJudge(nd, said) {
   };
 }
 
+/* ══ 桌面版能力 ══════════════════════════════════════════════
+   桌面版（app/main.js）跑的是**同一个服务**，但多了一个数据目录。
+   /api/health 会回 {app:true, dataDir:"…"}；网页版永远是 false。
+   多出来的只有一件事：**能写真文件**——
+     · 自己的那棵树落成 学习记录.json（不是浏览器 localStorage，清一次就没了）
+     · skill 产物落成 产物/<课题>.md（dbs-learning-beta 的 SKILL.md 写死的那条路径，
+       网页版只能回一句「当前会话没有文件写入能力，先直接贴出」） */
+let APP = { on: false, dir: null };
+async function detectApp() {
+  try {
+    const r = await fetch('/api/health');
+    const j = await r.json();
+    APP = { on: !!j.app, dir: j.dataDir || null };
+  } catch (e) { APP = { on: false, dir: null }; }
+  const tag = document.getElementById('pubtag');
+  if (tag && APP.on) { tag.textContent = '桌面版'; tag.title = '数据存在 ' + APP.dir; tag.style.display = ''; }
+  return APP;
+}
+const NO_FS = '网页版没有写文件权限。桌面版（cd app && npm start）才能把它写成真文件。';
+async function saveRecord() {
+  if (!APP.on) return alert(NO_FS);
+  const r = await fetch('/api/data', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ marks, insertMarks, axis, proven: Object.keys(marks).length }) });
+  const j = await r.json();
+  alert(j.ok ? '已存到\n' + j.path : '没存上：' + (j.error || '未知'));
+}
+async function saveArtifact(name, text) {
+  if (!APP.on) return alert(NO_FS);
+  const rel = '产物/' + String(name).replace(/[\\/:*?"<>|]/g, '_').slice(0, 70) + '.md';
+  const r = await fetch('/api/save', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ rel, text }) });
+  const j = await r.json();
+  alert(j.ok ? '已存到\n' + j.path : '没存上：' + (j.error || '未知'));
+}
+function saveArtifactFrom(i) {
+  const m = msgs[i]; if (!m || !m.content) return;
+  saveArtifact((activeSkill || '产物') + '-' + String(i).padStart(2, '0'), m.content);
+}
+window.saveRecord = saveRecord; window.saveArtifact = saveArtifact; window.saveArtifactFrom = saveArtifactFrom;
+
 let judging = false;
 async function judge(id) {
   const box = document.getElementById('said');
@@ -970,7 +1010,8 @@ function setMode(m) {
   computeLayout();
 }
 
-function boot() {
+async function boot() {
+  detectApp();
   resize();
   buildLegend();
   refreshMarks();
@@ -1084,6 +1125,9 @@ function renderList() {
         `openEdgeDetail('${k}')`, false);
     }).join('') || '<div class="lp-empty">这 16 条都看过了。</div>';
   } else if (currentView === 'mine') {
+    // 走 chips 而不是直接写 #lp-filter 的 innerHTML —— 函数结尾那句
+    // `filt.innerHTML = chips` 会把直接写进去的内容冲掉（09-12 踩过）。
+    if (APP.on) chips = '<button onclick="saveRecord()">把学习记录存成本地文件</button>';
     const ids = Object.keys(marks).filter(id => byId.has(id)
       && hit(byId.get(id).name + (marks[id].said || '')));
     cnt = ids.length;
@@ -1357,8 +1401,11 @@ function renderConv() {
   const hint = activeSkill ? '' :
     `<div class="mut">点底栏的 <b>Agent</b> 选一个，再在下面的输入框里问我。<br>
      <b>选哪个不由系统替你决定。</b></div>`;
-  const rows = msgs.map(m => `<div class="cmsg ${m.role}${m.pending ? ' pend' : ''}">${
-    esc(m.content).replace(/\n/g, '<br>')}</div>`).join('');
+  const rows = msgs.map((m, i) => `<div class="cmsg ${m.role}${m.pending ? ' pend' : ''}">${
+    esc(m.content).replace(/\n/g, '<br>')}${
+    (APP.on && m.role === 'assistant' && !m.pending && i > 0)
+      ? `<div class="jrow" style="margin-top:9px"><button class="jbtn ghost" onclick="saveArtifactFrom(${i})">存到本地</button></div>`
+      : ''}</div>`).join('');
   body.innerHTML = head + hint
     + `<div class="clist" id="clist">${rows || (activeSkill ? '<div class="mut">说吧，你想学什么。</div>' : '')}</div>`;
   const cl = document.getElementById('clist');

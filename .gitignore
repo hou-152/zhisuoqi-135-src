@@ -2,6 +2,10 @@
 .private/
 .local/
 
+# 桌面版依赖与打包产物
+app/node_modules/
+app/dist/
+
 # 系统与工具产物
 .DS_Store
 .mimosa/

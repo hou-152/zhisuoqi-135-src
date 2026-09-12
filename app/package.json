@@ -1,0 +1,17 @@
+{
+  "name": "zhisuoqi-135",
+  "productName": "知所栖 135",
+  "version": "0.1.0",
+  "description": "知所栖 135 · 桌面版：194 个概念 / 10 条策展线 / 倒逼判定，全部跑在本地",
+  "main": "main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-packager . \"知所栖 135\" --platform=darwin --arch=arm64 --out=dist --overwrite --app-bundle-id=com.hou152.zhisuoqi135 --app-version=0.1.0 --icon=icon.icns"
+  },
+  "devDependencies": {
+    "electron": "^44.3.0",
+    "@electron/packager": "^18.4.0"
+  },
+  "type": "module"
+}
