@@ -9,7 +9,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
-const DIR = path.join(ROOT, (process.argv.find((a) => a.startsWith('--dir=')) || '').split('=')[1] || 'knowledge/概念地图-260913');
+const DIR = path.resolve(ROOT, (process.argv.find((a) => a.startsWith('--dir=')) || '').split('=')[1] || 'knowledge/概念地图-260913');
 const WIKI = path.join(ROOT, 'knowledge', '概念wiki-260913');
 const load = (f) => JSON.parse(fs.readFileSync(path.join(DIR, f), 'utf8'));
 
@@ -31,14 +31,37 @@ check(manifest.topics === topics.topics.length, `manifest.topics ${manifest.topi
 check(manifest.dependencies === deps.dependencies.length, `manifest.dependencies ${manifest.dependencies} != ${deps.dependencies.length}`);
 check(manifest.clusters === clusters.clusters.length, `manifest.clusters ${manifest.clusters} != ${clusters.clusters.length}`);
 
-/* ── 分布合计必须等于概念数 ──────────────────────────────────
-   2026-09-13 加：byOrigin 曾硬编码三个来源桶，第 08 步并入 neican 后
-   80 条既不算 *Only 也不算 multi —— manifest 自称 936、byOrigin 合计 856，静默漏计。
-   任何一张分布表漏掉一类，这里就红。 */
+/* ── 分布表必须和**真实数据**逐桶对上 ────────────────────────
+   2026-09-13 加，两段各挡一类：
+   ① 合计检查 —— 挡「少一个桶」。byOrigin 曾硬编码三个来源桶，
+      第 08 步并入 neican 后 80 条既不算 *Only 也不算 multi，
+      manifest 自称 936、byOrigin 合计 856，静默漏计。
+   ② 逐桶检查 —— 挡「把一个桶的内容挪进另一个桶」。合计检查对这类**无效**
+      （比如把 80 条 neican 算进 harnessOnly，合计仍是 936）。
+      对抗性测试 2026-09-13 实测：只有①时，这类投毒能整个溜过去。 */
 for (const key of ['byType', 'byStage', 'byVerification', 'byOrigin']) {
   const sum = Object.values(manifest[key] || {}).reduce((a, b) => a + b, 0);
   check(sum === topics.topics.length,
     `manifest.${key} 合计 ${sum} != topics ${topics.topics.length}（有类型/来源没被计入）`);
+}
+
+const pickOf = { byType: (t) => t.type, byStage: (t) => t.learningStage, byVerification: (t) => t.verification };
+const realDist = {};
+for (const [key, pick] of Object.entries(pickOf)) {
+  realDist[key] = {};
+  for (const t of topics.topics) realDist[key][pick(t)] = (realDist[key][pick(t)] || 0) + 1;
+}
+realDist.byOrigin = {};
+{
+  const groups = [...new Set(topics.topics.flatMap((t) => t.origin))].sort();
+  for (const g of groups) realDist.byOrigin[`${g}Only`] = topics.topics.filter((t) => t.origin.length === 1 && t.origin[0] === g).length;
+  realDist.byOrigin.multi = topics.topics.filter((t) => t.origin.length > 1).length;
+}
+for (const [key, real] of Object.entries(realDist)) {
+  const claimed = manifest[key] || {};
+  for (const k of new Set([...Object.keys(real), ...Object.keys(claimed)])) {
+    check(real[k] === claimed[k], `manifest.${key}.${k} 声称 ${claimed[k]} != 实际 ${real[k] ?? 0}`);
+  }
 }
 
 /* ── topics ─────────────────────────────────────────────── */
@@ -56,6 +79,8 @@ for (const t of topics.topics) {
   check(typeof t.name === 'string' && t.name.length > 0, `topic ${t.id} 缺 name`);
   check(typeof t.description === 'string' && t.description.length > 0, `topic ${t.id}（${t.name}）缺 description`);
   check(typeof t.centrality === 'number' && t.centrality >= 0 && t.centrality <= 1, `topic ${t.id} centrality 越界`);
+  // depth 2026-09-13 加：schema 里写了 minimum 0，但校验器一直没查，负数能溜过去（对抗性测试实测）
+  check(Number.isInteger(t.depth) && t.depth >= 0, `topic ${t.id} depth 非法：${t.depth}`);
   check(Array.isArray(t.sources) && t.sources.length > 0, `topic ${t.id} 无来源`);
 }
 
@@ -73,12 +98,19 @@ for (const r of rels.relations) {
   check(ids.has(r.to), `relation to 悬空：${r.to}`);
 }
 // DAG：Kahn 拓扑
+// 2026-09-13 修：这里原本不检查端点存在性，遇到悬空引用会**抛 TypeError 崩掉**，
+// 而不是干净地报「悬空」—— 校验器在它最该报的那种损坏上给的是堆栈。
+// 悬空已在上面的循环里逐条报过，这里跳过即可，不能崩。
 const indeg = new Map([...ids].map((i) => [i, 0]));
 const out = new Map([...ids].map((i) => [i, []]));
-for (const d of deps.dependencies) { indeg.set(d.topicId, indeg.get(d.topicId) + 1); out.get(d.prerequisiteId).push(d.topicId); }
+for (const d of deps.dependencies) {
+  if (!ids.has(d.topicId) || !ids.has(d.prerequisiteId)) continue;
+  indeg.set(d.topicId, indeg.get(d.topicId) + 1);
+  out.get(d.prerequisiteId).push(d.topicId);
+}
 const q = [...indeg].filter(([, v]) => v === 0).map(([k]) => k);
 let seen = 0;
-while (q.length) { const x = q.pop(); seen++; for (const y of out.get(x)) { indeg.set(y, indeg.get(y) - 1); if (indeg.get(y) === 0) q.push(y); } }
+while (q.length) { const x = q.pop(); seen++; for (const y of (out.get(x) || [])) { indeg.set(y, indeg.get(y) - 1); if (indeg.get(y) === 0) q.push(y); } }
 check(seen === ids.size, `依赖图有环：拓扑排序只走了 ${seen}/${ids.size}`);
 
 /* ── clusters ───────────────────────────────────────────── */
