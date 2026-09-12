@@ -1,0 +1,38 @@
+schema_version: 1
+record_kind: canonical_concept
+id: agent-tool-contract
+slug: agent-tool-contract
+name_zh: Agent 工具契约
+name_en: Agent Tool Contract
+aliases: []
+category_id: external-access
+learning_stage: when-needed
+definition_status: evolving
+remember: Agent 与信息／行动空间之间的接口约定：模型用清晰、结构化的输出表达操作意图，确定性代码负责执行，并以紧凑、健壮、可解释的结果回传。
+feynman: 工具不只是能力，更是一份说明书，规定了 agent 能碰什么、怎么碰、碰完拿回什么。说明书写歪了，能力再强也用不对地方；而且工具吐回来的每个字都要占注意力预算，所以「说得少而准」本身就是工具的设计目标。
+scenario:
+  type: hypothetical
+  text: 假设客服 Agent 要发起退款：模型只提交“退款”意图、订单号和金额，执行器先过权限门再调用接口，最后只回传状态、流水号与失败原因。
+image_mnemonic: 模型把结构化意图放进契约插槽，确定性执行器在另一侧完成动作，再把精简结果沿回执槽送回；权限闸门独立立在执行器之前。
+source_context: 本卡只采用以下来源范围：《Anthropic：有效的上下文工程，是为 agent 找到最小充分信息集》：原文把工具明确界定为 Agent 与信息／行动空间之间的契约，并列出自包含、健壮、清晰和 token 效率要求；《12-Factor Agents：让 LLM 软件真能交付给生产用户的十二条原则》：原文从执行侧补充工具契约：模型只产生结构化意图，确定性代码承担实际执行与正确性责任；《拆开 Claude Code：一个编码 agent 的 harness 内部长什么样》：这段补充说明结构化模型结果必须由确定性程序承接，支持工具契约中的意图表达与执行责任边界。未被来源直接支持的产品结论、普遍因果或关系身份不写入本卡。
+boundaries:
+  - 它不是工具能力本身，而是模型如何选择、调用并接收工具结果的责任边界。
+  - 工具契约清晰不等于权限安全；授权、沙箱和护栏仍需独立控制。
+  - 它只覆盖结构化意图经工具接口交给确定性程序执行与回传的契约，不把所有 AI 应用中的确定性代码拼接都收进来。
+how_to:
+  - 列出模型可以表达的操作意图，并为每种意图限定必填参数和可选参数。
+  - 把鉴权、参数校验、真实执行和重试放进确定性代码，不让模型口头模拟成功。
+  - 用缺参数、越权参数和超长返回各跑一次，检查错误是否可解释、回执是否足够紧凑。
+transfer_question: 如果把同一个 Agent 从工单系统迁到财务系统，哪些接口约定必须重写，哪些执行责任仍应留在确定性代码中？
+source_ids:
+  - SRC-anthropic-effective-context
+  - SRC-v2-e9eb05e2bf38
+  - SRC-v2-2aef6d7392e2
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/agent-tool-contract/visual.png
+  alt: 模型把结构化意图放进契约插槽，确定性执行器在另一侧完成动作，再把精简结果沿回执槽送回；权限闸门独立立在执行器之前。
+  prompt_record: src/assets/concepts/agent-tool-contract/PROMPT.md
+  receipt: src/assets/concepts/agent-tool-contract/receipt.yaml
+  visual_qa: passed

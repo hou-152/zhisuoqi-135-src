@@ -1,0 +1,38 @@
+schema_version: 1
+record_kind: canonical_concept
+id: minimal-sufficient-context
+slug: minimal-sufficient-context
+name_zh: 最小充分上下文
+name_en: Minimal Sufficient Context
+aliases:
+  - 最小高信号 token 集合
+category_id: context-delivery
+learning_stage: now
+definition_status: industry-common
+remember: 最小充分上下文是足以支持当前任务、又尽量不带入无关噪声的高信号信息集合；最小不等于越短越好。
+feynman: 像给一次维修准备工具盘：扳手、螺丝刀和正确零件都在，少任何一样都会卡住；无关的大箱工具则留在旁边。目标不是让工具盘看起来最空，而是让它小而够用。
+scenario:
+  type: hypothetical
+  text: 修一个登录故障时，Agent 收到报错、相关配置、认证流程和目标测试，而不是整个公司文档库；若缺少关键环境差异，就必须补入，不能为了短而删掉。
+image_mnemonic: 一个小而完整的高信号工具盘只装当前任务必需的几件工具，旁边的大杂物箱被排除，却没有遗漏关键工具。
+source_context: Anthropic 将有效 Context Engineering 的指导原则表述为寻找能最大化期望结果概率的最小高信号 token 集合，并明确 minimal 不一定意味着 short；《Context Engineering 2.0》也把充分性而非体量视为 Context 的价值所在。
+boundaries:
+  - “最小”不等于字符最少、摘要最短或固定 token 配额；任何缺失后会破坏任务的关键信息都不该被删。
+  - 它是一条选择准则，不等于 Context Selection、Dynamic Context Assembly、JIT Retrieval 或 Progressive Disclosure 等具体机制。
+  - 充分性随任务阶段、模型、工具和可接受风险变化，不存在对所有任务通用的唯一内容清单。
+  - 高信号不只指与查询语义相似；约束、反例、依赖、权限和验收标准也可能是必要信号。
+how_to:
+  - 先写出完成当前决策必需的证据、约束、工具说明和输出要求，再删除无法说明用途的材料。
+  - 用缺失测试检查充分性：拿掉某项后是否会让任务不可解、容易误判或无法验证。
+  - 为稍后可能需要的资料保留可回取引用，不必把全部原文常驻当前窗口。
+transfer_question: 一份只有三行却漏掉关键约束的输入，和一份十页但每页都支撑当前判断的输入，哪一个更接近“最小充分”？
+source_ids:
+  - SRC-anthropic-effective-context
+visual:
+  type: metaphor
+  skill: anthropic-art
+  source_image: src/assets/concepts/minimal-sufficient-context/visual.png
+  alt: 冷白纸底上，一个小而完整的手绘工具盘装着完成当前任务必需的几件工具，旁边杂物箱被留在盘外。
+  prompt_record: src/assets/concepts/minimal-sufficient-context/PROMPT.md
+  receipt: src/assets/concepts/minimal-sufficient-context/receipt.yaml
+  visual_qa: passed

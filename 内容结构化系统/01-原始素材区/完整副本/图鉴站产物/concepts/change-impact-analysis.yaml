@@ -1,0 +1,38 @@
+schema_version: 1
+record_kind: canonical_concept
+id: change-impact-analysis
+slug: change-impact-analysis
+name_zh: 变更影响分析
+name_en: Change Impact Analysis
+aliases:
+  - Blast Radius Analysis
+  - 影响半径分析
+category_id: result-trust
+learning_stage: when-needed
+definition_status: evolving
+remember: 沿代码依赖和测试关系计算一次变更可能影响到的函数、类、文件与验证范围的方法。
+feynman: 你改了一行代码，这行代码会像水波一样影响到哪些函数、哪些文件、哪些测试——"影响半径"就是把这圈涟漪精确画出来，让 AI 知道除了你改的地方，还该关心哪些地方。
+scenario:
+  type: hypothetical
+  text: 假设开发者修改鉴权函数，文件本身测试通过，但调用它的批处理任务和权限回归测试没有被运行，发布后才暴露连锁影响。
+image_mnemonic: 一张只表达「变更影响分析」的纸面机制图：中心呈现「沿代码依赖和测试关系计算一次变更可能影响到的函数、类、文件与验证范围的方法」，边缘用明确界线排除「影响分析给出应检查的范围，不等于证明这些位置已经发生缺陷」；不画候选关系。
+source_context: 本卡只采用以下来源范围：《用持久化代码图谱给 AI Review 精准上下文》：逐字定义 Blast Radius 为一次改动影响到的函数、类、文件和测试范围，可支撑变更影响分析候选。未被来源直接支持的产品结论、普遍因果或关系身份不写入本卡。
+boundaries:
+  - 影响分析给出应检查的范围，不等于证明这些位置已经发生缺陷。
+  - 静态图谱可能漏掉反射、动态加载、运行时配置或外部服务产生的依赖。
+  - 当前证据缺口：当前证据来自单一代码图谱实现，尚缺动态依赖与跨服务影响的覆盖说明。
+how_to:
+  - 从变更的符号和文件出发，沿调用、导入、继承与测试关系向外展开。
+  - 把直接依赖、间接依赖和动态未知分别列出，并为每层选择验证方式。
+  - 运行受影响测试后核对实际轨迹，补充静态图谱未覆盖的运行时依赖。
+transfer_question: 面对大量反射和配置驱动的系统，静态影响图之外还要收集什么运行证据，才能决定回归范围？
+source_ids:
+  - SRC-v2-344d46b0f790
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/change-impact-analysis/visual.png
+  alt: 一张只表达「变更影响分析」的纸面机制图：中心呈现「沿代码依赖和测试关系计算一次变更可能影响到的函数、类、文件与验证范围的方法」，边缘用明确界线排除「影响分析给出应检查的范围，不等于证明这些位置已经发生缺陷」；不画候选关系。
+  prompt_record: src/assets/concepts/change-impact-analysis/PROMPT.md
+  receipt: src/assets/concepts/change-impact-analysis/receipt.yaml
+  visual_qa: passed

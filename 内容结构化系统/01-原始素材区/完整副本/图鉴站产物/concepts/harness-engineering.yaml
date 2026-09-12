@@ -1,0 +1,37 @@
+schema_version: 1
+record_kind: canonical_concept
+id: harness-engineering
+slug: harness-engineering
+name_zh: Harness 工程
+name_en: Harness Engineering
+aliases: []
+category_id: continuous-action
+learning_stage: now
+definition_status: evolving
+remember: Harness Engineering 是设计、测试和改进模型外运行系统的实践，让 Agent 在真实任务中更持续、可控、可恢复且可验证。
+feynman: 先把模型当成暂时不能换的核心。Harness 工程师改的是它周围的运行壳：怎样转循环、给哪些工具、保存什么状态、如何恢复错误、在哪里检查权限、用什么证据判断完成。模型前后可能完全相同，但整套系统的行为会因为运行壳的设计而变化。
+scenario:
+  type: hypothetical
+  text: 一个代码 Agent 经常在工具报错后空转。团队不换模型，而是让错误以结构化观察回到循环、增加无进展停止条件，并在结束前运行测试；这属于 Harness Engineering。
+image_mnemonic: 左右两边使用同一个模型核心，只有外层运行壳从凌乱连接变成清楚、受控的结构；箭头表示被改造的是运行系统，不是模型本身。
+source_context: Akshay 用三层工程说明 Prompt Engineering 打磨指令、Context Engineering 管理模型看到什么与何时看到，而 Harness Engineering 在工程范围上通常覆盖前两者并加入工具编排、状态、错误恢复、验证、安全与生命周期。本站另用系统职责轴说明 Context 管信息、Harness 管运行。
+boundaries:
+  - 工程范围轴上，本站采用 Prompt Engineering → Context Engineering → Harness Engineering 的范围递增表达，Harness Engineering 通常包住前两者。
+  - 系统职责轴上，Context Engineering 主要管理模型获得的信息，Harness Engineering 主要管理系统怎样持续、受控地运行；两者在运行时 Context 装配处交叉。
+  - HumanLayer 来源曾提出 Harness Engineering 是 Context Engineering 的子集，与本站工程范围轴方向相反；该来源观点仍保留为 HOLD，不能被本站口径改写成行业共识。
+  - Harness Engineering 是工程实践，Agent Harness 是被设计和改进的运行对象；二者不是 Alias。
+how_to:
+  - 先固定模型、任务与评测条件，再逐项改变循环、工具、状态、权限、错误恢复或验证，避免多变量一起变化后无法归因。
+  - 为每次运行保留输入、工具调用、状态迁移、错误、验证结果和停止原因，让“改得更好”可以被复查。
+  - 用工程范围轴讨论“包含哪些工作”，用系统职责轴讨论“Context 与 Harness 分别管什么”，不要在同一句无轴关系里混用。
+transfer_question: 当同一个模型总在工具失败后卡住时，先换模型还是先改错误回灌与停止条件，哪个更符合 Harness Engineering？
+source_ids:
+  - SRC-akshay-agent-harness
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/harness-engineering/visual.png
+  alt: 左右两侧是完全相同的模型核心，外层分别是旧运行壳和经工程改造的新运行壳，中间箭头只连接外壳，表示 Harness Engineering 改进的是模型外运行系统而不是模型权重。
+  prompt_record: src/assets/concepts/harness-engineering/PROMPT.md
+  receipt: src/assets/concepts/harness-engineering/receipt.yaml
+  visual_qa: passed

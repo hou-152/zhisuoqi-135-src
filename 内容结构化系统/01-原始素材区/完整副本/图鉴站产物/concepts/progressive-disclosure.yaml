@@ -1,0 +1,38 @@
+schema_version: 1
+record_kind: canonical_concept
+id: progressive-disclosure
+slug: progressive-disclosure
+name_zh: 渐进式披露
+name_en: Progressive Disclosure
+aliases:
+  - 渐进披露
+category_id: context-delivery
+learning_stage: when-needed
+definition_status: industry-common
+remember: 渐进式披露先给地图与索引，只按当前需要展开一层；仍缺细节时再深入，让工作记忆不必一次背下整本百科。
+feynman: 进入陌生大楼时，你先看楼层导览，再走到目标楼层，只有找到具体房间时才看门牌说明。它设计的是信息怎样分层、怎样被逐步发现；JIT Retrieval 关心的是资料何时被工具取回，两者常一起用，但不是同一件事。
+scenario:
+  type: hypothetical
+  text: 项目的 AGENTS.md 只列出当前任务该读的真源与目录；Agent 先打开相关文档索引，遇到实现问题再进入对应架构章节，需要精确细节时才读取具体文件，而不是一开始加载全部资料。
+image_mnemonic: 从“地图索引”沿“按需选择”打开“展开一层”，只有出现“仍需细节”时才进入“再深入”的下一层，表达分层发现而非一次性灌入。
+source_context: Anthropic 的 Effective Context Engineering 描述 Agent 利用文件路径、命名、大小和时间戳等元数据自主导航，通过探索增量发现相关 context。本站把 Progressive Disclosure 定义为信息的分层组织与逐步发现策略。
+boundaries:
+  - Progressive Disclosure 管“先看到哪一层、需要时怎样继续展开”；Just-in-Time Retrieval 管“何时通过工具把数据取回上下文”。
+  - 它不是隐藏重要规则；安全边界、当前目标和必须遵守的约束应在正确入口直接可见。
+  - 层级越多不一定越好；索引错误、命名含糊或入口太深都会让 Agent 在探索中浪费上下文。
+  - 渐进式披露不等于上下文压缩；前者保留可导航的层级，后者把已有内容蒸馏成更短表示。
+how_to:
+  - 在入口文件只放稳定地图、当前必读项和下一层链接，把详细规则交给明确命名的专题文档。
+  - 让目录、文件名与摘要成为可利用的导航信号，并保证每层都说明何时需要继续深入。
+  - 用真实任务检查 Agent 能否在最少展开次数内找到关键细节；发现迷路时先修索引和命名。
+transfer_question: 一个系统运行时才取文件，但每次都把整棵目录和全部正文塞进上下文，它做到了 JIT，却做到了渐进式披露吗？
+source_ids:
+  - SRC-anthropic-effective-context
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/progressive-disclosure/visual.png
+  alt: “地图索引”经“按需选择”打开“展开一层”；只有标示“仍需细节”时才沿箭头进入“再深入”，表示信息按需要逐层发现。
+  prompt_record: src/assets/concepts/progressive-disclosure/PROMPT.md
+  receipt: src/assets/concepts/progressive-disclosure/receipt.yaml
+  visual_qa: passed

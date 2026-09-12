@@ -1,0 +1,37 @@
+schema_version: 1
+record_kind: canonical_concept
+id: filesystem-workspace
+slug: filesystem-workspace
+name_zh: 文件系统工作区
+name_en: Filesystem Workspace
+aliases:
+  - 文件系统原语
+category_id: information-storage
+learning_stage: now
+definition_status: evolving
+remember: 为 Agent 提供可读写的数据、代码与中间产物空间，使工作能够外置、跨会话延续，并为人和多个 Agent 提供共同协作面。
+feynman: 文件系统工作区像团队共用的工作台：草稿、代码和中间产物能留在桌上，下一班人可以接着做。但桌子本身不会决定该记什么，也不会自动把危险工具关进笼子。
+scenario:
+  type: hypothetical
+  text: 假设 Agent 把分析数据、脚本和进度回执写入项目目录；会话结束后，另一个 Agent 通过这些文件恢复工作，而不是依赖聊天历史。
+image_mnemonic: 一张只表达「文件系统工作区」的纸面机制图：中心呈现「为 Agent 提供可读写的数据、代码与中间产物空间，使工作能够外置、跨会话延续，并为人和多个 Agent 提供共同协作面」，边缘用明确界线排除「文件系统是稳定载体，不等于 Memory 或 State Management；后两者描述保存与恢复哪些信息的职责」；不画候选关系。
+source_context: 本卡只采用以下来源范围：《LangChain 解剖 agent harness：Agent = 模型 + harness》：原文将文件系统明确列为基础 harness 原语，并给出工作区、卸载、持久状态与协作面的稳定职责。未被来源直接支持的产品结论、普遍因果或关系身份不写入本卡。
+boundaries:
+  - 文件系统是稳定载体，不等于 Memory 或 State Management；后两者描述保存与恢复哪些信息的职责。
+  - 工作区可持久不等于安全隔离；Sandbox 还要限定执行环境和影响范围。
+  - 当前证据缺口：需补充无本地文件系统的远程 Agent 实现，以校准载体边界。
+how_to:
+  - 规划输入、生成物、临时文件和回执的目录边界与命名规则。
+  - 对写入采用可审查格式和原子更新，记录来源、状态与恢复入口。
+  - 在新会话中只读取工作区尝试续做，并独立检查权限和沙箱边界。
+transfer_question: 当多个 Agent 共用一个工作区时，怎样区分可共享事实、会话私有状态和需要隔离的执行产物？
+source_ids:
+  - SRC-langchain-agent-harness
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/filesystem-workspace/visual.png
+  alt: 一张只表达「文件系统工作区」的纸面机制图：中心呈现「为 Agent 提供可读写的数据、代码与中间产物空间，使工作能够外置、跨会话延续，并为人和多个 Agent 提供共同协作面」，边缘用明确界线排除「文件系统是稳定载体，不等于 Memory 或 State Management；后两者描述保存与恢复哪些信息的职责」；不画候选关系。
+  prompt_record: src/assets/concepts/filesystem-workspace/PROMPT.md
+  receipt: src/assets/concepts/filesystem-workspace/receipt.yaml
+  visual_qa: passed

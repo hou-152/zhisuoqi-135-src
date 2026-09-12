@@ -1,0 +1,39 @@
+schema_version: 1
+record_kind: canonical_concept
+id: verification-loop
+slug: verification-loop
+name_zh: 验证循环
+name_en: Verification Loop
+aliases:
+  - 验证闭环
+category_id: result-trust
+learning_stage: when-needed
+definition_status: industry-common
+remember: 验证循环把行动结果交给独立检查；未通过就依据证据修正下一步，通过才退出当前循环，但退出不等于用户验收或真实效果已经成立。
+feynman: 它像做题后把答案交给一位拿着标准的检查者，而不是自己说“应该对了”。检查者给出可复核的结果：没过，就指出差距并改变下一次行动；过了，才停止这一轮。循环负责的是把判断接回行动，不是负责收集所有日志，也不是替人决定最终是否满意。
+scenario:
+  type: hypothetical
+  text: 一个代码 Agent 改完页面后，独立运行测试并用浏览器检查关键交互。测试失败时，它依据报错继续修正；全部既定检查通过时，它退出修复循环，同时仍把视觉偏好与上线决定留给人审阅。
+image_mnemonic: 一个结果包进入独立检查闸门；未过分支返回修正并产生新结果，通过分支则明确退出，形成带判据和出口的验证回路。
+source_context: Delba de Oliveira 展示了把测试、截图或其他检查通路封装进 Skills 的做法；来源策展同时用 guides 与 sensors 区分行动前引导和行动后反馈。本站把 Verification Loop 定义为消费检查结果并控制“修正或退出”的运行内闭环。
+boundaries:
+  - Observability 负责采集运行事件、轨迹、状态和时延；Verification Loop 负责消费检查结果并改变当前运行的下一步。
+  - Trace-based Evals 用共同任务、基线和 verifier 比较多次运行；Verification Loop 通常作用于一次任务里的重试与退出。
+  - 检查器的证据强度不同：确定性测试、视觉检查和 LLM-as-judge 不能被当成等价证明。
+  - 机器检查通过只覆盖既定判据，不自动证明语义质量、用户满意、发布授权或真实业务效果。
+how_to:
+  - 在行动前写清检查对象、判据、失败反馈格式和退出条件，避免由同一输出临时改标准。
+  - 尽量让检查独立于生成者，并优先采用可重复运行的确定性证据；主观任务再补视觉检查或人工复核。
+  - 把未通过结果连回一个明确可改变的下一步；若反馈不能改变行动，它只是记录，不是验证循环。
+  - 为失败重试设置预算与人工升级路径，避免无限循环或为通过而偷偷降低标准。
+transfer_question: 如果 Agent 每轮都打印“检查完成”，却没有固定判据、失败分支或退出条件，这还是验证循环吗？
+source_ids:
+  - SRC-delba-verification-skills
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/verification-loop/visual.png
+  alt: 结果包进入“独立检查”闸门；“未过修正”分支返回形成新结果，“通过退出”分支离开循环，表示检查结果会控制下一步，但不代表用户验收。
+  prompt_record: src/assets/concepts/verification-loop/PROMPT.md
+  receipt: src/assets/concepts/verification-loop/receipt.yaml
+  visual_qa: passed

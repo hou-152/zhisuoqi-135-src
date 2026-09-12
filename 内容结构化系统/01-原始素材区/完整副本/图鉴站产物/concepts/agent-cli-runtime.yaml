@@ -1,0 +1,37 @@
+schema_version: 1
+record_kind: canonical_concept
+id: agent-cli-runtime
+slug: agent-cli-runtime
+name_zh: Agent CLI 运行时
+name_en: Agent CLI Runtime
+aliases:
+  - Agent CLI Runtimes
+category_id: continuous-action
+learning_stage: when-needed
+definition_status: evolving
+remember: 在命令行环境中承载 Agent 工作流，使同一套自然语言流程能够从 IDE 延伸到终端、脚本和 CI/CD 自动化。
+feynman: CLI 运行时像给同一套 Agent 流程装上一扇终端入口：它让流程能被脚本和 CI 调用，却不替流程决定目标、权限或验证规则。
+scenario:
+  type: hypothetical
+  text: 假设团队把 IDE 中可用的代码审查流程接到命令行，让夜间脚本对指定提交运行并输出机器可读回执。
+image_mnemonic: 一张只表达「Agent CLI 运行时」的纸面机制图：中心呈现「在命令行环境中承载 Agent 工作流，使同一套自然语言流程能够从 IDE 延伸到终端、脚本和 CI/CD 自动化」，边缘用明确界线排除「它是工作流的命令行运行载体，不是工作流定义本身」；不画候选关系。
+source_context: 本卡只采用以下来源范围：《构建可靠 AI 工作流：智能体原语与上下文工程》：这段直接说明 Agent CLI runtime 把自然语言工作流从 IDE 扩展到终端、脚本与 CI/CD 的运行边界。未被来源直接支持的产品结论、普遍因果或关系身份不写入本卡。
+boundaries:
+  - 它是工作流的命令行运行载体，不是工作流定义本身。
+  - 它只覆盖 CLI 执行边界，不等同于包含权限、状态、评测等完整职责的 Agent Harness。
+  - 当前证据缺口：需要不同 Agent CLI 的对照，确认共同的运行合同与能力边界。
+how_to:
+  - 把流程需要的输入、输出、退出码和环境依赖写成稳定命令接口。
+  - 在本地终端跑通后，再用无交互环境验证路径、权限和失败信号。
+  - 将同一命令接入脚本或 CI，并保留日志与可重复执行参数。
+transfer_question: 一个流程在 IDE 中依赖隐式打开文件，迁到 CLI 时需要显式补上哪些运行上下文？
+source_ids:
+  - SRC-v2-7322db202bed
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/agent-cli-runtime/visual.png
+  alt: 一张只表达「Agent CLI 运行时」的纸面机制图：中心呈现「在命令行环境中承载 Agent 工作流，使同一套自然语言流程能够从 IDE 延伸到终端、脚本和 CI/CD 自动化」，边缘用明确界线排除「它是工作流的命令行运行载体，不是工作流定义本身」；不画候选关系。
+  prompt_record: src/assets/concepts/agent-cli-runtime/PROMPT.md
+  receipt: src/assets/concepts/agent-cli-runtime/receipt.yaml
+  visual_qa: passed

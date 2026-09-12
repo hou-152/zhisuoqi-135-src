@@ -1,0 +1,40 @@
+schema_version: 1
+record_kind: canonical_concept
+id: context-selection
+slug: context-selection
+name_zh: 上下文选择
+name_en: Context Selection
+aliases:
+  - Attention Before Attention
+  - 注意力之前的注意力
+category_id: context-delivery
+learning_stage: now
+definition_status: industry-common
+remember: Hua 等人把上下文选择称为“注意力之前的注意力”：模型开始处理输入前，系统先判断哪些候选信息值得进入当前任务 Context。
+feynman: 模型只能在已经进入窗口的材料上分配注意力。上下文选择发生得更早：先从草稿、记忆、工具定义和检索结果中挑出与任务有关的部分，再交给模型；它解决“取什么”，还不负责“怎样组装”。
+scenario:
+  type: hypothetical
+  text: Agent 准备修复支付错误时，先列出长期记忆、代码检索结果和工具定义等候选来源，再只纳入相关模块、最近失败记录与必要工具；旧项目笔记和无关工具留在窗口之外。
+image_mnemonic: 记忆、检索和工具三路材料先汇入筛选门，只有与当前任务相关的卡片通过并落到任务盘。
+source_context: Hua 等人的综述把 Context Selection 概括为“Attention Before Attention”：模型自身的注意力只能作用于已经进入窗口的 token，因此系统还需要在此之前从草稿、记忆、工具定义与 RAG 结果中作选择。文中提到的约 50% 窗口填充度属于经验观察，不是受控实验得出的通用阈值，本站不据此设定固定上限。
+boundaries:
+  - Context Selection 回答选什么；Dynamic Context Assembly 回答选中内容怎样排序、格式化和组合，二者不是 Alias。
+  - 它也不等于 JIT Retrieval；后者强调何时取回，Selection 仍需判断取回结果是否值得进入当前 Context。
+  - 语义相似度只是候选信号之一；论文同时讨论逻辑依赖、新近性与频率、信息重叠及用户反馈，不能把 embedding 排名直接当成纳入结论。
+  - 这篇综述给出的是方法族与设计考量，并未证明某一种筛选规则对所有任务最优。选择通过也不保证材料正确或完整。
+how_to:
+  - 先列候选来源与纳入标准，再说明每项材料支持哪个当前决策、依赖或验证步骤。
+  - 将重复、过期、冲突和低可信材料分开处理，不只按关键词或 embedding 分数机械截取。
+  - 保留重要候选的排除理由；任务失败后，才能检查问题是否出在选择门漏掉了关键证据。
+transfer_question: 检索系统返回了十条语义相似结果，为什么它们还不能自动等同于应该送入模型的 Context？
+source_ids:
+  - SRC-context-engineering-2
+  - SRC-anthropic-effective-context
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/context-selection/visual.png
+  alt: 蓝色物质感信息图中，“记忆”“检索”“工具”三路材料汇入“筛选门”，被选中的内容再流向“任务盘”。
+  prompt_record: src/assets/concepts/context-selection/PROMPT.md
+  receipt: src/assets/concepts/context-selection/receipt.yaml
+  visual_qa: passed

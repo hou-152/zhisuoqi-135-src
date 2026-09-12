@@ -1,0 +1,9232 @@
+{
+ "generatedAt": "2026-09-12T16:11:03.434Z",
+ "backlinks": {
+  "Agent loop": [
+   "Harness",
+   "Skill",
+   "Agent",
+   "Cross-session Work",
+   "验证闭环 verification loop",
+   "primitives",
+   "Read-only Verifier Agent",
+   "持久化执行 durable execution",
+   "Artifact Schema",
+   "Shared File System",
+   "Verifiable Codebase",
+   "Ralph Loop",
+   "Agentic Coding",
+   "Inner Loop",
+   "Signals",
+   "steering",
+   "TodoWrite 与 TodoRead",
+   "Agents SDK",
+   "Executable Codebase",
+   "Loop Contract",
+   "Loop Engineer",
+   "model-native harness",
+   "tool loop",
+   "very few abstractions",
+   "Legible Codebase"
+  ],
+  "持久化执行 durable execution": [
+   "Harness",
+   "Agent loop",
+   "Sandbox",
+   "Git-backed state",
+   "事件驱动编排与执行解耦",
+   "统一执行状态与业务状态",
+   "压缩（compaction）与运行内外的分工",
+   "steering",
+   "基础设施问题，不是 AI 问题",
+   "普遍可触发 universally triggered",
+   "小函数组合",
+   "预算警告与溢出恢复",
+   "子 agent 与 step.invoke()",
+   "Agents SDK",
+   "harness 与 framework 的分野",
+   "model-native harness",
+   "step",
+   "step ID 自动索引",
+   "think → act → observe 循环",
+   "webhook transform 与 connect()",
+   "两级上下文剪枝 pruning"
+  ],
+  "Guardrails": [
+   "Harness",
+   "Harness 工程 Harness Engineering",
+   "Agent",
+   "Sandbox",
+   "primitives",
+   "fail-closed 默认",
+   "prompt-injection",
+   "安全路由与能力分层",
+   "Human in the loop",
+   "very few abstractions"
+  ],
+  "记忆 Memory": [
+   "Harness",
+   "长上下文窗口",
+   "程序记忆（Procedural Memory Skills） progressive disclosure",
+   "渐进式披露 progressive disclosure",
+   "记忆冲刷（Memory Flush）",
+   "Signals",
+   "AI Agent",
+   "压缩 Compaction",
+   "记忆须改变回答实质",
+   "Engram",
+   "Hoard",
+   "Honcho",
+   "Knowledge Graph vs Flat Files",
+   "stated 出处纪律",
+   "非模型架构 Non-model Architecture"
+  ],
+  "MCP Model Context Protocol": [
+   "Harness",
+   "系统提示 System Prompt",
+   "工具收窄 tool scoping",
+   "连接器",
+   "AI Agent",
+   "原生工具与 MCP 外挂",
+   "Agents SDK",
+   "Headless 架构",
+   "MCP 工具层",
+   "model-native harness",
+   "非模型架构 Non-model Architecture"
+  ],
+  "Sandbox": [
+   "Harness",
+   "验证闭环 verification loop",
+   "Agent = Model + Harness",
+   "Guardrails",
+   "持久化执行 durable execution",
+   "harness–compute separation",
+   "沙箱化自主",
+   "Agents SDK",
+   "Environment",
+   "model-native harness",
+   "native sandbox execution",
+   "Sandbox agents"
+  ],
+  "Skill": [
+   "Harness",
+   "Agent loop",
+   "验证闭环 verification loop",
+   "tokens",
+   "skill-creator 访谈式创建",
+   "渐进式披露 progressive disclosure",
+   "Skill Files",
+   "Skill-as-method-call",
+   "Skills Hell",
+   "Software 3.0"
+  ],
+  "系统提示 System Prompt": [
+   "Harness",
+   "MCP Model Context Protocol",
+   "tokens",
+   "Harness token floor",
+   "上下文 context",
+   "LLM Large Language Model",
+   "coding agent",
+   "系统 prompt 的体量差",
+   "缓存断点 Cache Breakpoint",
+   "提示词缓存 Prompt Caching",
+   "稳定前缀 Stable Prefix"
+  ],
+  "验证闭环 verification loop": [
+   "Harness",
+   "Skill",
+   "Agent loop",
+   "Sandbox",
+   "skill-creator 访谈式创建",
+   "端到端验证",
+   "嵌入 Embedded",
+   "验证循环：guides 与 sensors",
+   "Trace-based evals",
+   "把重复步骤编码成 Skill",
+   "个人基础设施 → 团队基础设施",
+   "功能与行为验证的缺口",
+   "灵活性与自动化的权衡",
+   "Agent vs Harness",
+   "back-pressure",
+   "description 作为触发条件",
+   "SKILL.md：frontmatter＋body 契约",
+   "Wrapper skill",
+   "独立调用 Standalone",
+   "可编辑性边界",
+   "链式 Chained",
+   "习惯变契约 habit → contract",
+   "循环工程 loop engineering",
+   "PR 级门禁 On every PR"
+  ],
+  "Agent": [
+   "Harness",
+   "Agent loop",
+   "Sessions",
+   "Agent = Model + Harness",
+   "Guardrails",
+   "primitives",
+   "higher-level runtime",
+   "LLM Large Language Model",
+   "Function tools",
+   "messages API 作为直连网关",
+   "Tracing",
+   "AI Agent",
+   "AgentCore",
+   "Agents SDK",
+   "APM",
+   "Claude Managed Agents",
+   "Handoffs Agents as tools",
+   "Human in the loop",
+   "MCP server tool calling",
+   "Python-first",
+   "Sandbox agents",
+   "very few abstractions"
+  ],
+  "If you're not the model, you're the harness.": [
+   "Harness",
+   "agent 与 harness 的分工",
+   "权限与推理的架构分离",
+   "协同进化与紧耦合 co-evolution principle",
+   "编排循环与「dumb loop」",
+   "工具收窄 tool scoping",
+   "三层工程 prompt context harness engineering",
+   "多时间尺度记忆与「记忆只是 hint",
+   "验证循环：guides 与 sensors",
+   "context rot（上下文腐烂）与 Lost in the Middle",
+   "脚手架化 LLM 与冯·诺依曼架构类比",
+   "能力外置化决策",
+   "上下文压缩与即时检索 compaction just-in-time retrieval",
+   "未来防腐测试 future-proofing test",
+   "Agent vs Harness",
+   "错误复利 compounding errors",
+   "子 agent 编排 Fork Teammate Worktree",
+   "harness 厚薄 thin vs thick"
+  ],
+  "Agent = Model + Harness": [
+   "Harness",
+   "Agent",
+   "Sandbox",
+   "上下文腐烂 Context Rot",
+   "模型训练与 harness 设计的耦合",
+   "确定性工程基础设施】 deterministic engineering infrastructure",
+   "Tool call offloading",
+   "Ralph Loop",
+   "通用工具与「给模型一台计算机",
+   "AI 工程基础设施】 AI engineering infrastructure",
+   "Filesystem 作为最基础的 harness 原语",
+   "Harness level feature",
+   "Progressive disclosure（渐进式披露）与 Skills",
+   "ReAct loop",
+   "Self-verification loop",
+   "上下文压缩 Context Compression Summarization",
+   "1.6% vs 98.4%",
+   "从期望行为反推 harness 设计",
+   "垃圾回收」型 agent",
+   "Agent as a New Type of Software",
+   "Agent CLI runtimes",
+   "Context injection",
+   "Memory file 与 continual learning"
+  ],
+  "编排循环与「dumb loop」": [
+   "Harness",
+   "agent 与 harness 的分工",
+   "If you're not the model, you're the harness.",
+   "Harness 与 Loop 的配合",
+   "会话生命周期"
+  ],
+  "LLM-as-CPU Harness-as-OS": [
+   "Harness",
+   "AI Agent",
+   "非模型架构 Non-model Architecture"
+  ],
+  "操作系统类比": [
+   "Harness",
+   "部署系统层",
+   "脚手架化 LLM 与冯·诺依曼架构类比",
+   "递归自我改进 RSI"
+  ],
+  "功能清单作为 harness 原语": [
+   "Harness",
+   "Harness 工程 Harness Engineering",
+   "能力鸿沟",
+   "指令子系统与渐进式展开"
+  ],
+  "共享 harness": [
+   "Harness",
+   "工具—工作流适配",
+   "最小充分上下文",
+   "工具调用批处理",
+   "浏览循环",
+   "任务特定工具说明",
+   "收敛式失败恢复",
+   "先收窄、后读取",
+   "Diff 锚定",
+   "Trace 驱动评估"
+  ],
+  "从期望行为反推 harness 设计": [
+   "Harness",
+   "Harness 工程 Harness Engineering",
+   "Agent = Model + Harness"
+  ],
+  "舱单": [
+   "Harness",
+   "Agents SDK",
+   "model-native harness"
+  ],
+  "可观测性": [
+   "Harness",
+   "能力鸿沟",
+   "指令子系统与渐进式展开"
+  ],
+  "部署系统层": [
+   "Harness",
+   "文件系统即持久记忆",
+   "Loop Engineering",
+   "操作系统类比",
+   "奖励攻击与多样性坍塌",
+   "进化式搜索与适应度",
+   "可编辑面与循环外的权限控制",
+   "可执行搜索空间",
+   "人类上移到更高抽象层",
+   "弱而模糊的评估器",
+   "上下文 playbook 与增量条目",
+   "上下文坍塌与简洁偏置",
+   "显式且可检查的并行",
+   "优化对象的阶梯",
+   "有界改动与回归闸",
+   "递归结构不能替代基座智能",
+   "递归自我改进 RSI",
+   "机制与内容分离"
+  ],
+  "动态系统": [
+   "Harness",
+   "信任机制重构",
+   "AI-First"
+  ],
+  "编排循环 Orchestration Loop TAO ReAct": [
+   "Harness",
+   "AI Agent",
+   "非模型架构 Non-model Architecture"
+  ],
+  "笨循环 Dumb Loop": [
+   "Harness",
+   "AI Agent",
+   "非模型架构 Non-model Architecture"
+  ],
+  "记忆即提示 Memory as Prompt": [
+   "Harness",
+   "AI Agent",
+   "非模型架构 Non-model Architecture"
+  ],
+  "执行可靠性机制 State Error Guardrails Verification": [
+   "Harness",
+   "AI Agent",
+   "非模型架构 Non-model Architecture"
+  ],
+  "脚手架与 Harness 厚度 Scaffolding Harness Thickness": [
+   "Harness",
+   "AI Agent",
+   "非模型架构 Non-model Architecture"
+  ],
+  "tokens": [
+   "Harness",
+   "Skill",
+   "系统提示 System Prompt",
+   "LLM Large Language Model",
+   "coding agent",
+   "the dumb zone the smart zone",
+   "Tool call offloading",
+   "WebFetch 两阶段总结",
+   "U 型性能曲线"
+  ],
+  "prompt completion": [
+   "Harness",
+   "LLM Large Language Model",
+   "coding agent",
+   "chat templated prompts",
+   "prompt 与 context 的通用性落差"
+  ],
+  "multimodal Vision LLMs": [
+   "Harness",
+   "LLM Large Language Model",
+   "coding agent",
+   "Q、K、V",
+   "Tiny Engram",
+   "VLM"
+  ],
+  "chat templated prompts": [
+   "Harness",
+   "LLM Large Language Model",
+   "coding agent",
+   "prompt completion"
+  ],
+  "stateless": [
+   "Harness",
+   "LLM Large Language Model",
+   "coding agent",
+   "Filesystem 作为最基础的 harness 原语",
+   "Harness level feature",
+   "messages API 作为直连网关",
+   "Von Neumann Architecture Analogy"
+  ],
+  "cached input tokens": [
+   "Harness",
+   "提示词缓存（Prompt Caching）",
+   "LLM Large Language Model",
+   "coding agent",
+   "API-boundary observability"
+  ],
+  "reasoning thinking": [
+   "Harness",
+   "RLVR 与编码 agent 的 RL 训练循环",
+   "LLM Large Language Model",
+   "coding agent",
+   "N-gram",
+   "reasoning effort"
+  ],
+  "tool loop": [
+   "Harness",
+   "Agent loop",
+   "LLM Large Language Model",
+   "coding agent"
+  ],
+  "滚动截断 rolling truncation": [
+   "Harness",
+   "基准测试的捆绑测量性",
+   "保留推理 retained reasoning"
+  ],
+  "跨轮次记忆与连贯策略": [
+   "Harness",
+   "基准测试的捆绑测量性",
+   "多时间尺度记忆与「记忆只是 hint",
+   "保留推理 retained reasoning"
+  ],
+  "RHAE": [
+   "Harness",
+   "基准测试的捆绑测量性",
+   "通用 harness 的公平性张力",
+   "保留推理 retained reasoning"
+  ],
+  "Responses API 与生产设置对齐": [
+   "Harness",
+   "Harness 工程 Harness Engineering",
+   "基准测试的捆绑测量性",
+   "保留推理 retained reasoning"
+  ],
+  "通用 harness 的公平性张力": [
+   "Harness",
+   "基准测试的捆绑测量性",
+   "RHAE",
+   "Harness-level benchmarks",
+   "保留推理 retained reasoning"
+  ],
+  "上下文占用率与性能衰减": [
+   "Harness",
+   "长上下文窗口",
+   "基准测试的捆绑测量性",
+   "会话的话题边界",
+   "方向漂移 Direction Drift",
+   "上下文压缩与即时检索 compaction just-in-time retrieval",
+   "Context Distraction】",
+   "保留推理 retained reasoning"
+  ],
+  "输出 token 效率": [
+   "Harness",
+   "基准测试的捆绑测量性",
+   "Token Efficiency",
+   "保留推理 retained reasoning"
+  ],
+  "架构约束的确定性执行": [
+   "Harness",
+   "层级架构强约束 + 给 Agent 读的 lint 错误",
+   "无手打代码 no manually typed code at all"
+  ],
+  "垃圾回收」型 agent": [
+   "Harness",
+   "Agent = Model + Harness",
+   "无手打代码 no manually typed code at all"
+  ],
+  "熵与腐化 entropy and decay": [
+   "Harness",
+   "无手打代码 no manually typed code at all"
+  ],
+  "卡住即信号 struggle as signal": [
+   "Harness",
+   "收敛式失败恢复",
+   "无手打代码 no manually typed code at all"
+  ],
+  "功能与行为验证的缺口": [
+   "Harness",
+   "验证闭环 verification loop",
+   "无手打代码 no manually typed code at all"
+  ],
+  "service template 与 golden path": [
+   "Harness",
+   "Harness evolution",
+   "无手打代码 no manually typed code at all"
+  ],
+  "解空间收窄 constraining the solution space": [
+   "Harness",
+   "无手打代码 no manually typed code at all"
+  ],
+  "AI 友好度（AI-friendliness）作为选型标准": [
+   "Harness",
+   "工具—工作流适配",
+   "无手打代码 no manually typed code at all"
+  ],
+  "拓扑作为新抽象层": [
+   "Harness",
+   "无手打代码 no manually typed code at all"
+  ],
+  "rigor 的搬迁 relocating rigor": [
+   "Harness",
+   "无手打代码 no manually typed code at all"
+  ],
+  "Harness level feature": [
+   "Harness",
+   "Harness 工程 Harness Engineering",
+   "Agent = Model + Harness",
+   "stateless",
+   "harness 的过时假设"
+  ],
+  "Filesystem 作为最基础的 harness 原语": [
+   "Harness",
+   "Harness 工程 Harness Engineering",
+   "Agent = Model + Harness",
+   "stateless",
+   "Skills as permanent upgrades"
+  ],
+  "ReAct loop": [
+   "Harness",
+   "Harness 工程 Harness Engineering",
+   "Agent = Model + Harness",
+   "Orchestration Loop TAO Cycle ReAct Loop",
+   "think → act → observe 循环"
+  ],
+  "通用工具与「给模型一台计算机": [
+   "Harness",
+   "Harness 工程 Harness Engineering",
+   "Agent = Model + Harness",
+   "shell tool",
+   "Agentic Tools"
+  ],
+  "Self-verification loop": [
+   "Harness",
+   "Harness 工程 Harness Engineering",
+   "Agent = Model + Harness",
+   "Self-verification",
+   "Verifiable Codebase"
+  ],
+  "Context injection": [
+   "Harness",
+   "Harness 工程 Harness Engineering",
+   "Agent = Model + Harness",
+   "知识端点"
+  ],
+  "Memory file 与 continual learning": [
+   "Harness",
+   "Harness 工程 Harness Engineering",
+   "Agent = Model + Harness",
+   "Memory-driven development"
+  ],
+  "Tool call offloading": [
+   "Harness",
+   "Harness 工程 Harness Engineering",
+   "tokens",
+   "Agent = Model + Harness",
+   "the dumb zone the smart zone",
+   "WebFetch 两阶段总结"
+  ],
+  "Progressive disclosure（渐进式披露）与 Skills": [
+   "Harness",
+   "Harness 工程 Harness Engineering",
+   "Agent = Model + Harness",
+   "Agentic primitives",
+   "description 作为触发条件"
+  ],
+  "模型训练与 harness 设计的耦合": [
+   "Harness",
+   "Harness 工程 Harness Engineering",
+   "Agent = Model + Harness",
+   "协同进化与紧耦合 co-evolution principle",
+   "Harness 内 RL RL inside the harness",
+   "Muon 优化器"
+  ],
+  "step": [
+   "Harness",
+   "持久化执行 durable execution",
+   "harness 与 framework 的分野",
+   "step ID 自动索引"
+  ],
+  "step ID 自动索引": [
+   "Harness",
+   "持久化执行 durable execution",
+   "harness 与 framework 的分野",
+   "step"
+  ],
+  "think → act → observe 循环": [
+   "Harness",
+   "持久化执行 durable execution",
+   "ReAct loop",
+   "harness 与 framework 的分野"
+  ],
+  "事件驱动编排与执行解耦": [
+   "Harness",
+   "持久化执行 durable execution",
+   "确定性工程基础设施】 deterministic engineering infrastructure",
+   "普遍可触发 universally triggered",
+   "小函数组合",
+   "harness 与 framework 的分野"
+  ],
+  "普遍可触发 universally triggered": [
+   "Harness",
+   "持久化执行 durable execution",
+   "事件驱动编排与执行解耦",
+   "harness 与 framework 的分野"
+  ],
+  "webhook transform 与 connect()": [
+   "Harness",
+   "higher-level runtime",
+   "持久化执行 durable execution",
+   "harness 与 framework 的分野"
+  ],
+  "小函数组合": [
+   "Harness",
+   "持久化执行 durable execution",
+   "事件驱动编排与执行解耦",
+   "harness 与 framework 的分野"
+  ],
+  "子 agent 与 step.invoke()": [
+   "Harness",
+   "持久化执行 durable execution",
+   "Subagent】",
+   "harness 与 framework 的分野"
+  ],
+  "两级上下文剪枝 pruning": [
+   "Harness",
+   "持久化执行 durable execution",
+   "harness 与 framework 的分野"
+  ],
+  "压缩（compaction）与运行内外的分工": [
+   "Harness",
+   "持久化执行 durable execution",
+   "新鲜度机制",
+   "预算警告与溢出恢复",
+   "harness 与 framework 的分野"
+  ],
+  "预算警告与溢出恢复": [
+   "Harness",
+   "持久化执行 durable execution",
+   "压缩（compaction）与运行内外的分工",
+   "harness 与 framework 的分野"
+  ],
+  "steering": [
+   "Harness",
+   "Agent loop",
+   "漂移与隧道视野 drift & tunnel vision",
+   "持久化执行 durable execution",
+   "harness 与 framework 的分野"
+  ],
+  "基础设施问题，不是 AI 问题": [
+   "Harness",
+   "Harness 工程 Harness Engineering",
+   "持久化执行 durable execution",
+   "harness 与 framework 的分野"
+  ],
+  "instruction budget": [
+   "Harness",
+   "Harness 工程 Harness Engineering",
+   "Context as working memory budget",
+   "configuration problem"
+  ],
+  "the dumb zone the smart zone": [
+   "Harness",
+   "Harness 工程 Harness Engineering",
+   "tokens",
+   "Tool call offloading",
+   "Skills Hell",
+   "configuration problem"
+  ],
+  "context firewall": [
+   "Harness",
+   "Harness 工程 Harness Engineering",
+   "configuration problem",
+   "sub-agent 架构与关注点分离"
+  ],
+  "长上下文的幻觉": [
+   "Harness",
+   "Harness 工程 Harness Engineering",
+   "上下文均匀处理假设",
+   "configuration problem"
+  ],
+  "agentfile CLAUDE.md 与 AGENTS.md": [
+   "Harness",
+   "Harness 工程 Harness Engineering",
+   "configuration problem"
+  ],
+  "即时检索 Just-in-time Retrieval": [
+   "上下文工程 context engineering",
+   "长上下文窗口",
+   "程序记忆（Procedural Memory Skills） progressive disclosure",
+   "即时检索 Just-in-time Retrieval",
+   "渐进式披露 progressive disclosure",
+   "AI Agent",
+   "非模型架构 Non-model Architecture",
+   "观察掩码 Observation Masking",
+   "可恢复的压缩 restorable compression"
+  ],
+  "Harness 工程 Harness Engineering": [
+   "上下文工程 context engineering",
+   "Loop Engineering",
+   "验证闭环 verification loop",
+   "Agent = Model + Harness",
+   "Sandbox",
+   "价值定义",
+   "Guardrails",
+   "RLVR 与编码 agent 的 RL 训练循环",
+   "Agentic Engineering",
+   "上下文腐烂 Context Rot",
+   "模型训练与 harness 设计的耦合",
+   "协同进化与紧耦合 co-evolution principle",
+   "Context as working memory budget",
+   "Context Management 四策略",
+   "Long-running agent handoff",
+   "Repo-local instructions",
+   "程序记忆（Procedural Memory Skills） progressive disclosure",
+   "范围控制与显式的完成定义",
+   "可维护性没有惩罚项",
+   "确定性工程基础设施】 deterministic engineering infrastructure",
+   "软件工厂 Software Factory",
+   "状态子系统与进度持久化",
+   "Capability Overhang",
+   "Harness evolution",
+   "Orchestra Interface",
+   "Symphony",
+   "the dumb zone the smart zone",
+   "Tool call offloading",
+   "Subagent】",
+   "渐进式披露 progressive disclosure",
+   "Ralph Loop",
+   "递归 Planner-Worker 架构",
+   "端到端验证",
+   "空间 Scalability Spatial Scalability",
+   "弱 harness 强 harness 对照与消融实验",
+   "通用工具与「给模型一台计算机",
+   "验证子系统与可运行的证据",
+   "自评失真 Self-evaluation Distortion",
+   "Agent-driven CICD",
+   "AI 工程基础设施】 AI engineering infrastructure",
+   "Creator → Curator 角色转换",
+   "Filesystem 作为最基础的 harness 原语",
+   "Harness 组件生命周期",
+   "Harness level feature",
+   "harness over-fitting",
+   "Inner Loop",
+   "Orchestration Loop TAO Cycle ReAct Loop",
+   "Progressive disclosure（渐进式披露）与 Skills",
+   "ReAct loop",
+   "Runtime-harness separation",
+   "Safe autonomy",
+   "Self-verification loop",
+   "Skills Hell",
+   "Spec-driven agent workflow",
+   "SWE-bench 与二元打分",
+   "Trace-based evals",
+   "迷失在中间 lost in the middle",
+   "If you're not the model, you're the harness.",
+   "AI Agent",
+   "Responses API 与生产设置对齐",
+   "Vibe Coding",
+   "上下文压缩 Context Compression Summarization",
+   "1.6% vs 98.4%",
+   "2026 版约束理论",
+   "仓库即唯一事实来源",
+   "产品经理的组织化",
+   "垂直切片 Tracer Bullet",
+   "从期望行为反推 harness 设计",
+   "动态系统",
+   "方向漂移 Direction Drift",
+   "功能清单作为 harness 原语",
+   "会话生命周期",
+   "基础设施挑战而非 harness 设计问题",
+   "基础设施问题，不是 AI 问题",
+   "交互 Scalability Interaction Scalability",
+   "可观测性",
+   "可维护性 霰弹式手术",
+   "可维护性缺一个可靠的打分预言机",
+   "可执行搜索空间",
+   "框架反向工程",
+   "能力鸿沟",
+   "信任机制重构",
+   "验证缺口",
+   "原则侧",
+   "长上下文的幻觉",
+   "指令子系统与渐进式展开",
+   "资深悖论",
+   "Agent 经济",
+   "Agent as a New Type of Software",
+   "Agent vs Harness",
+   "AI-First",
+   "Architecture Operator 分工",
+   "Autofixing",
+   "back-pressure",
+   "Bitter Lesson】",
+   "configuration problem",
+   "context firewall",
+   "Context Infrastructure",
+   "Context injection",
+   "Forward Deployed Engineer",
+   "Gather-Act-Verify Cycle",
+   "Generative Kernel",
+   "Harness 内 RL RL inside the harness",
+   "Harness-level benchmarks",
+   "Implementation 能力",
+   "Infrastructure noise",
+   "instruction budget",
+   "Lights-off 软件工厂",
+   "Memory file 与 continual learning",
+   "Model-relative Curriculum",
+   "Mutation Testing 与前沿质量评测",
+   "Outer Loop",
+   "Reliability-critical harness primitives",
+   "Scaffolding Metaphor",
+   "Von Neumann Architecture Analogy",
+   "非模型架构 Non-model Architecture",
+   "hooks .claudehooks",
+   "产品评审 Product Review",
+   "程序设计 Program Design",
+   "从救火到审查的角色转移",
+   "前置对齐 front-loading alignment",
+   "时间 Scalability Temporal Scalability",
+   "系统架构评审",
+   "agentfile CLAUDE.md 与 AGENTS.md",
+   "Harness Thickness"
+  ],
+  "CLAUDE.md": [
+   "上下文工程 context engineering",
+   "确定性工程基础设施】 deterministic engineering infrastructure",
+   "AI 工程基础设施】 AI engineering infrastructure",
+   "1.6% vs 98.4%"
+  ],
+  "熵减 entropy reduction": [
+   "上下文工程 context engineering",
+   "上下文 context",
+   "分层记忆架构",
+   "注意力之前的注意力 attention before attention",
+   "四阶段演化模型",
+   "最小充分性与语义连续性原则",
+   "self-baking",
+   "轻量引用 lightweight references",
+   "上下文隔离 context isolation",
+   "上下文协作 context-cooperative",
+   "数字存在 Digital Presence",
+   "意图翻译者 intention translator",
+   "语义操作系统 semantic operating system",
+   "原始上下文容忍度 tolerance for raw context"
+  ],
+  "上下文失败，而非模型失败 context failures, not model failures": [
+   "上下文工程 context engineering",
+   "有限的工作记忆 limited working memory",
+   "上下文（Context）：模型生成之前看到的一切"
+  ],
+  "与底层模型正交 orthogonal to the underlying models": [
+   "上下文工程 context engineering",
+   "局部最优 local optima",
+   "文件系统即终极上下文",
+   "押注 in-context learning",
+   "action space 膨胀",
+   "KV-cache 命中率",
+   "logits 掩码与 context-aware 状态机",
+   "prefill 与 decode 的高度倾斜",
+   "Stochastic Graduate Descent",
+   "保留错误证据与错误恢复",
+   "复述（recitation）与 lost-in-the-middle",
+   "可恢复的压缩 restorable compression",
+   "稳定的 prompt 前缀",
+   "few-shot 套路化与受控多样性"
+  ],
+  "系统而非字符串 A System, Not a String": [
+   "上下文工程 context engineering",
+   "有限的工作记忆 limited working memory",
+   "上下文（Context）：模型生成之前看到的一切"
+  ],
+  "Context 四种失败模式】 Context Pollution Distraction Confusion Clash": [
+   "上下文工程 context engineering",
+   "渐进式披露 progressive disclosure",
+   "Agent Drift",
+   "Codified Context",
+   "Knowledge Graph vs Flat Files",
+   "Self-Improving Context System",
+   "Tacit Knowledge】"
+  ],
+  "四阶段演化模型": [
+   "上下文工程 context engineering",
+   "常识心理学",
+   "上下文 context",
+   "熵减 entropy reduction"
+  ],
+  "意图翻译者 intention translator": [
+   "上下文工程 context engineering",
+   "上下文 context",
+   "熵减 entropy reduction"
+  ],
+  "原始上下文容忍度 tolerance for raw context": [
+   "上下文工程 context engineering",
+   "上下文 context",
+   "熵减 entropy reduction"
+  ],
+  "上下文协作 context-cooperative": [
+   "上下文工程 context engineering",
+   "上下文 context",
+   "熵减 entropy reduction"
+  ],
+  "最小充分性与语义连续性原则": [
+   "上下文工程 context engineering",
+   "上下文 context",
+   "最小充分上下文",
+   "熵减 entropy reduction"
+  ],
+  "分层记忆架构": [
+   "上下文工程 context engineering",
+   "上下文 context",
+   "跨会话记忆文件系统",
+   "多时间尺度记忆与「记忆只是 hint",
+   "冷热分离（记忆）",
+   "熵减 entropy reduction"
+  ],
+  "上下文隔离 context isolation": [
+   "上下文工程 context engineering",
+   "上下文 context",
+   "熵减 entropy reduction"
+  ],
+  "self-baking": [
+   "上下文工程 context engineering",
+   "上下文 context",
+   "结构化记事 agentic memory",
+   "熵减 entropy reduction"
+  ],
+  "轻量引用 lightweight references": [
+   "上下文工程 context engineering",
+   "上下文 context",
+   "熵减 entropy reduction"
+  ],
+  "注意力之前的注意力 attention before attention": [
+   "上下文工程 context engineering",
+   "注意力预算 attention budget",
+   "上下文 context",
+   "熵减 entropy reduction",
+   "隐式 code context"
+  ],
+  "语义操作系统 semantic operating system": [
+   "上下文工程 context engineering",
+   "上下文 context",
+   "熵减 entropy reduction"
+  ],
+  "数字存在 Digital Presence": [
+   "上下文工程 context engineering",
+   "上下文 context",
+   "熵减 entropy reduction"
+  ],
+  "Stochastic Graduate Descent": [
+   "上下文工程 context engineering",
+   "Software 3.0",
+   "押注 in-context learning",
+   "与底层模型正交 orthogonal to the underlying models"
+  ],
+  "局部最优 local optima": [
+   "上下文工程 context engineering",
+   "定位",
+   "回声 echo of your own tangle of thoughts",
+   "押注 in-context learning",
+   "与底层模型正交 orthogonal to the underlying models"
+  ],
+  "KV-cache 命中率": [
+   "上下文工程 context engineering",
+   "押注 in-context learning",
+   "与底层模型正交 orthogonal to the underlying models",
+   "Cache temperature"
+  ],
+  "prefill 与 decode 的高度倾斜": [
+   "上下文工程 context engineering",
+   "messages API 作为直连网关",
+   "押注 in-context learning",
+   "与底层模型正交 orthogonal to the underlying models"
+  ],
+  "稳定的 prompt 前缀": [
+   "上下文工程 context engineering",
+   "押注 in-context learning",
+   "与底层模型正交 orthogonal to the underlying models"
+  ],
+  "action space 膨胀": [
+   "上下文工程 context engineering",
+   "Action Space】",
+   "押注 in-context learning",
+   "与底层模型正交 orthogonal to the underlying models"
+  ],
+  "logits 掩码与 context-aware 状态机": [
+   "上下文工程 context engineering",
+   "工具收窄 tool scoping",
+   "押注 in-context learning",
+   "与底层模型正交 orthogonal to the underlying models"
+  ],
+  "文件系统即终极上下文": [
+   "上下文工程 context engineering",
+   "有限的工作记忆 limited working memory",
+   "押注 in-context learning",
+   "与底层模型正交 orthogonal to the underlying models"
+  ],
+  "复述（recitation）与 lost-in-the-middle": [
+   "上下文工程 context engineering",
+   "押注 in-context learning",
+   "与底层模型正交 orthogonal to the underlying models"
+  ],
+  "保留错误证据与错误恢复": [
+   "上下文工程 context engineering",
+   "押注 in-context learning",
+   "与底层模型正交 orthogonal to the underlying models"
+  ],
+  "few-shot 套路化与受控多样性": [
+   "上下文工程 context engineering",
+   "押注 in-context learning",
+   "与底层模型正交 orthogonal to the underlying models"
+  ],
+  "性能梯度而非硬悬崖 performance gradient rather than a hard cliff": [
+   "上下文工程 context engineering",
+   "注意力预算 attention budget",
+   "上下文腐烂 Context Rot",
+   "上下文均匀处理假设"
+  ],
+  "最小高信号 token 集合 smallest possible set of high-signal tokens": [
+   "上下文工程 context engineering",
+   "注意力预算 attention budget",
+   "上下文腐烂 Context Rot"
+  ],
+  "恰当高度 the right altitude": [
+   "上下文工程 context engineering",
+   "注意力预算 attention budget",
+   "上下文腐烂 Context Rot"
+  ],
+  "工具即契约 tools as the contract": [
+   "上下文工程 context engineering",
+   "注意力预算 attention budget",
+   "上下文腐烂 Context Rot",
+   "工具接口的表达力设计",
+   "Rationale 参数"
+  ],
+  "臃肿工具集 bloated tool sets": [
+   "上下文工程 context engineering",
+   "注意力预算 attention budget",
+   "上下文腐烂 Context Rot",
+   "工具收窄 tool scoping"
+  ],
+  "典型示例策展 diverse, canonical examples": [
+   "上下文工程 context engineering",
+   "注意力预算 attention budget",
+   "上下文腐烂 Context Rot"
+  ],
+  "just in time 上下文检索": [
+   "上下文工程 context engineering",
+   "注意力预算 attention budget",
+   "上下文腐烂 Context Rot",
+   "Context Management 四策略",
+   "code-review-graph"
+  ],
+  "混合检索策略 hybrid strategy": [
+   "上下文工程 context engineering",
+   "注意力预算 attention budget",
+   "上下文腐烂 Context Rot"
+  ],
+  "结构化记事 agentic memory": [
+   "上下文工程 context engineering",
+   "注意力预算 attention budget",
+   "上下文腐烂 Context Rot",
+   "记忆冲刷（Memory Flush）",
+   "Signals",
+   "self-baking"
+  ],
+  "sub-agent 架构与关注点分离": [
+   "上下文工程 context engineering",
+   "注意力预算 attention budget",
+   "上下文腐烂 Context Rot",
+   "context firewall"
+  ],
+  "示例的探索空间约束": [
+   "上下文工程 context engineering",
+   "示例强于规则",
+   "示例会收窄探索空间",
+   "护栏型指令的过期",
+   "判断力优先 let Claude use judgement"
+  ],
+  "工具接口的表达力设计": [
+   "上下文工程 context engineering",
+   "工具即契约 tools as the contract",
+   "接口即指令 design interfaces",
+   "See Like an Agent】",
+   "护栏型指令的过期",
+   "判断力优先 let Claude use judgement"
+  ],
+  "延迟加载工具 deferred loading": [
+   "上下文工程 context engineering",
+   "注意力预算 attention budget",
+   "护栏型指令的过期",
+   "判断力优先 let Claude use judgement"
+  ],
+  "Rubric 与 verifier agent": [
+   "上下文工程 context engineering",
+   "Read-only Verifier Agent",
+   "Rubric",
+   "护栏型指令的过期",
+   "判断力优先 let Claude use judgement"
+  ],
+  "gotchas 优先原则": [
+   "上下文工程 context engineering",
+   "gotchas 优先的 CLAUDE.md",
+   "护栏型指令的过期",
+   "判断力优先 let Claude use judgement"
+  ],
+  "代码即高保真引用": [
+   "上下文工程 context engineering",
+   "护栏型指令的过期",
+   "判断力优先 let Claude use judgement"
+  ],
+  "冲突指令的隐性成本": [
+   "上下文工程 context engineering",
+   "从禁止什么到对齐什么",
+   "prompt 与 context 的通用性落差",
+   "过度约束与松绑 over-constraining unhobbling"
+  ],
+  "护栏与判断力的取舍 guardrail tradeoff": [
+   "上下文工程 context engineering",
+   "prompt 与 context 的通用性落差",
+   "过度约束与松绑 over-constraining unhobbling"
+  ],
+  "从禁止什么到对齐什么": [
+   "上下文工程 context engineering",
+   "冲突指令的隐性成本",
+   "prompt 与 context 的通用性落差",
+   "过度约束与松绑 over-constraining unhobbling"
+  ],
+  "示例会收窄探索空间": [
+   "上下文工程 context engineering",
+   "示例的探索空间约束",
+   "prompt 与 context 的通用性落差",
+   "过度约束与松绑 over-constraining unhobbling"
+  ],
+  "接口即指令 design interfaces": [
+   "上下文工程 context engineering",
+   "工具接口的表达力设计",
+   "任务特定工具说明",
+   "prompt 与 context 的通用性落差",
+   "过度约束与松绑 over-constraining unhobbling"
+  ],
+  "延迟加载工具与 ToolSearch": [
+   "上下文工程 context engineering",
+   "工具收窄 tool scoping",
+   "prompt 与 context 的通用性落差",
+   "过度约束与松绑 over-constraining unhobbling"
+  ],
+  "指令就近原则": [
+   "上下文工程 context engineering",
+   "序列位置效应 serial-position effect",
+   "prompt 与 context 的通用性落差",
+   "过度约束与松绑 over-constraining unhobbling"
+  ],
+  "Rubrics 与验证 agent": [
+   "上下文工程 context engineering",
+   "Read-only Verifier Agent",
+   "Rubric",
+   "prompt 与 context 的通用性落差",
+   "过度约束与松绑 over-constraining unhobbling"
+  ],
+  "gotchas 优先的 CLAUDE.md": [
+   "上下文工程 context engineering",
+   "Repo-local instructions",
+   "Context Bloat",
+   "gotchas 优先原则",
+   "prompt 与 context 的通用性落差",
+   "过度约束与松绑 over-constraining unhobbling"
+  ],
+  "Validation gates": [
+   "上下文工程 context engineering",
+   "Agentic primitives",
+   "instruction following 的可靠性边界",
+   "Sprint Contract】",
+   "Markdown prompt engineering"
+  ],
+  "Instructions files": [
+   "上下文工程 context engineering",
+   "教会 AI Agent 如何成功",
+   "Agentic primitives",
+   "AGENTS.md",
+   "Natural language as code",
+   "Markdown prompt engineering"
+  ],
+  "Chat modes": [
+   "上下文工程 context engineering",
+   "Agentic primitives",
+   "Markdown prompt engineering"
+  ],
+  "Memory-driven development": [
+   "上下文工程 context engineering",
+   "Agentic primitives",
+   "Memory file 与 continual learning",
+   "Markdown prompt engineering"
+  ],
+  "Agentic workflows": [
+   "上下文工程 context engineering",
+   "Agentic primitives",
+   "Agentic Coding",
+   "Markdown prompt engineering"
+  ],
+  "Natural language as code": [
+   "上下文工程 context engineering",
+   "Agentic primitives",
+   "Instructions files",
+   "Markdown prompt engineering"
+  ],
+  "Agent CLI runtimes": [
+   "上下文工程 context engineering",
+   "Agent = Model + Harness",
+   "Agentic primitives",
+   "Markdown prompt engineering"
+  ],
+  "APM": [
+   "上下文工程 context engineering",
+   "Agent",
+   "Agentic primitives",
+   "Markdown prompt engineering"
+  ],
+  "动态装配 Dynamic": [
+   "上下文工程 context engineering",
+   "有限的工作记忆 limited working memory",
+   "上下文（Context）：模型生成之前看到的一切"
+  ],
+  "正确的信息与工具，在正确的时间": [
+   "上下文工程 context engineering",
+   "有限的工作记忆 limited working memory",
+   "OAIQ",
+   "上下文（Context）：模型生成之前看到的一切"
+  ],
+  "上下文工程 context engineering": [
+   "Harness 工程 Harness Engineering",
+   "长上下文窗口",
+   "注意力预算 attention budget",
+   "上下文腐烂 Context Rot",
+   "上下文 context",
+   "分层记忆架构",
+   "工具接口的表达力设计",
+   "结构化记事 agentic memory",
+   "Agentic primitives",
+   "gotchas 优先的 CLAUDE.md",
+   "Instructions files",
+   "即时检索 Just-in-time Retrieval",
+   "渐进式披露 progressive disclosure",
+   "大海捞针（NIAH）与词面匹配",
+   "工具即契约 tools as the contract",
+   "接口即指令 design interfaces",
+   "局部最优 local optima",
+   "上下文均匀处理假设",
+   "示例的探索空间约束",
+   "有限的工作记忆 limited working memory",
+   "注意力之前的注意力 attention before attention",
+   "just in time 上下文检索",
+   "Rubric 与 verifier agent",
+   "Rubrics 与验证 agent",
+   "Validation gates",
+   "AI Agent",
+   "CLAUDE.md",
+   "上下文压缩 Context Compression Summarization",
+   "压缩 Compaction",
+   "冲突指令的隐性成本",
+   "从禁止什么到对齐什么",
+   "动态系统",
+   "功能与行为验证的缺口",
+   "架构约束的确定性执行",
+   "卡住即信号 struggle as signal",
+   "垃圾回收」型 agent",
+   "熵减 entropy reduction",
+   "上下文失败，而非模型失败 context failures, not model failures",
+   "示例会收窄探索空间",
+   "四阶段演化模型",
+   "文件系统即终极上下文",
+   "系统而非字符串 A System, Not a String",
+   "性能梯度而非硬悬崖 performance gradient rather than a hard cliff",
+   "押注 in-context learning",
+   "延迟加载工具 deferred loading",
+   "延迟加载工具与 ToolSearch",
+   "臃肿工具集 bloated tool sets",
+   "与底层模型正交 orthogonal to the underlying models",
+   "正确的信息与工具，在正确的时间",
+   "指令就近原则",
+   "最小充分性与语义连续性原则",
+   "最小高信号 token 集合 smallest possible set of high-signal tokens",
+   "action space 膨胀",
+   "Agent CLI runtimes",
+   "Agent Drift",
+   "Agentic workflows",
+   "AI 友好度（AI-friendliness）作为选型标准",
+   "APM",
+   "Chat modes",
+   "Codified Context",
+   "configuration problem",
+   "Context 四种失败模式】 Context Pollution Distraction Confusion Clash",
+   "Context Distraction】",
+   "gotchas 优先原则",
+   "Knowledge Graph vs Flat Files",
+   "KV-cache 命中率",
+   "logits 掩码与 context-aware 状态机",
+   "Memory-driven development",
+   "Natural language as code",
+   "Personal Context】",
+   "prefill 与 decode 的高度倾斜",
+   "prompt 与 context 的通用性落差",
+   "self-baking",
+   "Self-Improving Context System",
+   "service template 与 golden path",
+   "Stochastic Graduate Descent",
+   "sub-agent 架构与关注点分离",
+   "Tacit Knowledge】",
+   "非模型架构 Non-model Architecture",
+   "富引用 rich references",
+   "上下文文件树 tree of files",
+   "提示词工程 Prompt Engineering",
+   "自动记忆 auto-memory",
+   "保留错误证据与错误恢复",
+   "代码即高保真引用",
+   "典型示例策展 diverse, canonical examples",
+   "动态装配 Dynamic",
+   "复述（recitation）与 lost-in-the-middle",
+   "格式即上下文 where the format matters",
+   "过度约束与松绑 over-constraining unhobbling",
+   "护栏型指令的过期",
+   "护栏与判断力的取舍 guardrail tradeoff",
+   "混合检索策略 hybrid strategy",
+   "渐进披露 progressive disclosure",
+   "解空间收窄 constraining the solution space",
+   "可恢复的压缩 restorable compression",
+   "廉价 demo 与「魔法级」agent",
+   "判断力优先 let Claude use judgement",
+   "恰当高度 the right altitude",
+   "轻量引用 lightweight references",
+   "熵与腐化 entropy and decay",
+   "上下文（Context）：模型生成之前看到的一切",
+   "上下文隔离 context isolation",
+   "上下文协作 context-cooperative",
+   "数字存在 Digital Presence",
+   "拓扑作为新抽象层",
+   "统一语言】 ubiquitous language",
+   "稳定的 prompt 前缀",
+   "无手打代码 no manually typed code at all",
+   "意图翻译者 intention translator",
+   "语义操作系统 semantic operating system",
+   "原始上下文容忍度 tolerance for raw context",
+   "知识与能力的双供给 information and tools",
+   "few-shot 套路化与受控多样性",
+   "Markdown prompt engineering",
+   "rigor 的搬迁 relocating rigor"
+  ],
+  "可执行搜索空间": [
+   "Harness 工程 Harness Engineering",
+   "部署系统层",
+   "递归自我改进 RSI"
+  ],
+  "基础设施挑战而非 harness 设计问题": [
+   "Harness 工程 Harness Engineering",
+   "messages API 作为直连网关",
+   "Claude Managed Agents"
+  ],
+  "框架反向工程": [
+   "Harness 工程 Harness Engineering",
+   "12-factor agents",
+   "并不 agentic」的 AI Agent",
+   "软件即有向图"
+  ],
+  "configuration problem": [
+   "Harness 工程 Harness Engineering",
+   "上下文腐烂 Context Rot",
+   "the dumb zone the smart zone",
+   "Subagent】",
+   "渐进式披露 progressive disclosure",
+   "harness over-fitting",
+   "长上下文的幻觉",
+   "back-pressure",
+   "context firewall",
+   "instruction budget",
+   "hooks .claudehooks",
+   "agentfile CLAUDE.md 与 AGENTS.md"
+  ],
+  "交互 Scalability Interaction Scalability": [
+   "Harness 工程 Harness Engineering",
+   "二八反转",
+   "空间 Scalability Spatial Scalability",
+   "时间 Scalability Temporal Scalability"
+  ],
+  "方向漂移 Direction Drift": [
+   "Harness 工程 Harness Engineering",
+   "上下文占用率与性能衰减",
+   "空间 Scalability Spatial Scalability",
+   "时间 Scalability Temporal Scalability"
+  ],
+  "自评失真 Self-evaluation Distortion": [
+   "Harness 工程 Harness Engineering",
+   "空间 Scalability Spatial Scalability",
+   "橡皮鸭复审",
+   "验证缺口",
+   "时间 Scalability Temporal Scalability"
+  ],
+  "递归 Planner-Worker 架构": [
+   "Harness 工程 Harness Engineering",
+   "Planner–Worker 角色分离",
+   "handoff 交接",
+   "空间 Scalability Spatial Scalability",
+   "时间 Scalability Temporal Scalability"
+  ],
+  "Symphony": [
+   "Harness 工程 Harness Engineering",
+   "多智能体架构",
+   "共享文件加锁的协调机制",
+   "Subagent】",
+   "空间 Scalability Spatial Scalability",
+   "时间 Scalability Temporal Scalability"
+  ],
+  "Harness 组件生命周期": [
+   "Harness 工程 Harness Engineering",
+   "harness 的过时假设",
+   "Harness evolution",
+   "空间 Scalability Spatial Scalability",
+   "时间 Scalability Temporal Scalability"
+  ],
+  "Context Infrastructure": [
+   "Harness 工程 Harness Engineering",
+   "Context Management 四策略",
+   "空间 Scalability Spatial Scalability",
+   "时间 Scalability Temporal Scalability"
+  ],
+  "Generative Kernel": [
+   "Harness 工程 Harness Engineering",
+   "空间 Scalability Spatial Scalability",
+   "Creator → Curator 角色转换",
+   "时间 Scalability Temporal Scalability"
+  ],
+  "back-pressure": [
+   "Harness 工程 Harness Engineering",
+   "验证闭环 verification loop",
+   "configuration problem"
+  ],
+  "Outer Loop": [
+   "Harness 工程 Harness Engineering",
+   "Capability Overhang",
+   "Inner Loop"
+  ],
+  "Forward Deployed Engineer": [
+   "Harness 工程 Harness Engineering",
+   "Capability Overhang",
+   "Inner Loop",
+   "Custom Agent"
+  ],
+  "Orchestra Interface": [
+   "Harness 工程 Harness Engineering",
+   "多智能体架构",
+   "动态协调 dynamic coordination",
+   "共享 多人 agent 会话",
+   "Capability Overhang",
+   "Inner Loop"
+  ],
+  "Agent as a New Type of Software": [
+   "Harness 工程 Harness Engineering",
+   "Agent = Model + Harness",
+   "Capability Overhang",
+   "Inner Loop"
+  ],
+  "Skills Hell": [
+   "Harness 工程 Harness Engineering",
+   "Skill",
+   "Capability Overhang",
+   "the dumb zone the smart zone",
+   "Inner Loop"
+  ],
+  "Model-relative Curriculum": [
+   "Harness 工程 Harness Engineering",
+   "协同进化与紧耦合 co-evolution principle",
+   "Capability Overhang",
+   "Inner Loop"
+  ],
+  "Agent-driven CICD": [
+   "Harness 工程 Harness Engineering",
+   "工具—工作流适配",
+   "信任机制重构",
+   "AI-First",
+   "Executable Codebase"
+  ],
+  "Autofixing": [
+   "Harness 工程 Harness Engineering",
+   "零 bug 政策与一周 SLA",
+   "信任机制重构",
+   "AI-First"
+  ],
+  "Architecture Operator 分工": [
+   "Harness 工程 Harness Engineering",
+   "Creator → Curator 角色转换",
+   "信任机制重构",
+   "AI-First"
+  ],
+  "产品经理的组织化": [
+   "Harness 工程 Harness Engineering",
+   "交接模型 handoff model",
+   "信任机制重构",
+   "AI-First"
+  ],
+  "Implementation 能力": [
+   "Harness 工程 Harness Engineering",
+   "阶段压缩 compression",
+   "信任机制重构",
+   "AI-First"
+  ],
+  "Agent 经济": [
+   "Harness 工程 Harness Engineering",
+   "第三方引用杠杆",
+   "信任机制重构",
+   "AI-First"
+  ],
+  "价值定义": [
+   "Harness 工程 Harness Engineering",
+   "交接模型 handoff model",
+   "领域专家】 domain expert",
+   "软技能",
+   "信任机制重构",
+   "虚荣指标 vanity metrics",
+   "AI-First",
+   "Polished Output vs Real Judgment"
+  ],
+  "资深悖论": [
+   "Harness 工程 Harness Engineering",
+   "信任机制重构",
+   "AI-First"
+  ],
+  "状态子系统与进度持久化": [
+   "Harness 工程 Harness Engineering",
+   "文件系统即持久记忆",
+   "本地状态层",
+   "能力鸿沟",
+   "指令子系统与渐进式展开"
+  ],
+  "验证子系统与可运行的证据": [
+   "Harness 工程 Harness Engineering",
+   "可验证目标",
+   "能力鸿沟",
+   "有界改动与回归闸",
+   "指令子系统与渐进式展开"
+  ],
+  "范围控制与显式的完成定义": [
+   "Harness 工程 Harness Engineering",
+   "漂移与隧道视野 drift & tunnel vision",
+   "TodoWrite 与 TodoRead",
+   "能力鸿沟",
+   "指令子系统与渐进式展开",
+   "agent 循环"
+  ],
+  "会话生命周期": [
+   "Harness 工程 Harness Engineering",
+   "编排循环与「dumb loop」",
+   "能力鸿沟",
+   "指令子系统与渐进式展开"
+  ],
+  "仓库即唯一事实来源": [
+   "Harness 工程 Harness Engineering",
+   "能力鸿沟",
+   "指令子系统与渐进式展开",
+   "docsdecisions"
+  ],
+  "验证缺口": [
+   "Harness 工程 Harness Engineering",
+   "自评失真 Self-evaluation Distortion",
+   "能力鸿沟",
+   "指令子系统与渐进式展开"
+  ],
+  "端到端验证": [
+   "Harness 工程 Harness Engineering",
+   "验证闭环 verification loop",
+   "昂贵的反馈回路与欠测试",
+   "能力鸿沟",
+   "指令子系统与渐进式展开"
+  ],
+  "弱 harness 强 harness 对照与消融实验": [
+   "Harness 工程 Harness Engineering",
+   "让不可见变得可见",
+   "能力鸿沟",
+   "未来防腐测试 future-proofing test",
+   "指令子系统与渐进式展开"
+  ],
+  "从救火到审查的角色转移": [
+   "Harness 工程 Harness Engineering",
+   "能力鸿沟",
+   "指令子系统与渐进式展开"
+  ],
+  "Repo-local instructions": [
+   "Harness 工程 Harness Engineering",
+   "Context as working memory budget",
+   "Agentic primitives",
+   "gotchas 优先的 CLAUDE.md",
+   "agent 不是读心者 agents are not mind readers",
+   "Codified Context",
+   "Reliability-critical harness primitives"
+  ],
+  "Safe autonomy": [
+   "Harness 工程 Harness Engineering",
+   "权限与推理的架构分离",
+   "Context as working memory budget",
+   "审批疲劳",
+   "Reliability-critical harness primitives"
+  ],
+  "Spec-driven agent workflow": [
+   "Harness 工程 Harness Engineering",
+   "Context as working memory budget",
+   "Plan 模式",
+   "Reliability-critical harness primitives",
+   "Spec-First Workflow"
+  ],
+  "Infrastructure noise": [
+   "Harness 工程 Harness Engineering",
+   "Context as working memory budget",
+   "基准测试的捆绑测量性",
+   "Reliability-critical harness primitives"
+  ],
+  "Harness-level benchmarks": [
+   "Harness 工程 Harness Engineering",
+   "Context as working memory budget",
+   "通用 harness 的公平性张力",
+   "Reliability-critical harness primitives"
+  ],
+  "Runtime-harness separation": [
+   "Harness 工程 Harness Engineering",
+   "Context as working memory budget",
+   "higher-level runtime",
+   "harness 与 framework 的分野",
+   "Reliability-critical harness primitives"
+  ],
+  "Long-running agent handoff": [
+   "Harness 工程 Harness Engineering",
+   "Cross-session Work",
+   "Sessions",
+   "Context as working memory budget",
+   "Reliability-critical harness primitives"
+  ],
+  "Harness evolution": [
+   "Harness 工程 Harness Engineering",
+   "Context as working memory budget",
+   "harness 的过时假设",
+   "Harness 组件生命周期",
+   "Reliability-critical harness primitives",
+   "service template 与 golden path"
+  ],
+  "前置对齐 front-loading alignment": [
+   "Harness 工程 Harness Engineering",
+   "软件工厂 Software Factory",
+   "Lights-off 软件工厂"
+  ],
+  "RLVR 与编码 agent 的 RL 训练循环": [
+   "Harness 工程 Harness Engineering",
+   "DPPO",
+   "Reward Signal",
+   "软件工厂 Software Factory",
+   "reasoning thinking",
+   "ScaleRL",
+   "Lights-off 软件工厂",
+   "RL Circuits"
+  ],
+  "SWE-bench 与二元打分": [
+   "Harness 工程 Harness Engineering",
+   "软件工厂 Software Factory",
+   "Lights-off 软件工厂",
+   "Mutation Testing 与前沿质量评测",
+   "pass@k"
+  ],
+  "Harness": [
+   "记忆 Memory",
+   "文件系统即持久记忆",
+   "Skill",
+   "Loop Engineering",
+   "Agent loop",
+   "Agent",
+   "agent 与 harness 的分工",
+   "Cross-session Work",
+   "验证闭环 verification loop",
+   "MCP Model Context Protocol",
+   "Session",
+   "tokens",
+   "上下文占用率与性能衰减",
+   "Agent = Model + Harness",
+   "Sandbox",
+   "Guardrails",
+   "Harness token floor",
+   "Agentic Engineering",
+   "上下文腐烂 Context Rot",
+   "上下文 context",
+   "模型训练与 harness 设计的耦合",
+   "权限与推理的架构分离",
+   "系统提示 System Prompt",
+   "协同进化与紧耦合 co-evolution principle",
+   "Context Management 四策略",
+   "LLM Large Language Model",
+   "Read-only Verifier Agent",
+   "stateless",
+   "程序记忆（Procedural Memory Skills） progressive disclosure",
+   "持久化执行 durable execution",
+   "基准测试的捆绑测量性",
+   "通用 harness 的公平性张力",
+   "Latent vs Deterministic",
+   "废料怪兽",
+   "编排循环与「dumb loop」",
+   "工具收窄 tool scoping",
+   "会话的话题边界",
+   "开箱即用的编排与子 agent",
+   "确定性工程基础设施】 deterministic engineering infrastructure",
+   "三层工程 prompt context harness engineering",
+   "示例强于规则",
+   "事件驱动编排与执行解耦",
+   "agent 模板的声明式持久化",
+   "Artifact Schema",
+   "coding agent",
+   "handoff 交接",
+   "harness 的过时假设",
+   "multimodal Vision LLMs",
+   "reasoning thinking",
+   "Shared File System",
+   "shell tool",
+   "subagents",
+   "the dumb zone the smart zone",
+   "Tool call offloading",
+   "Verifiable Codebase",
+   "即时检索 Just-in-time Retrieval",
+   "Subagent】",
+   "渐进式披露 progressive disclosure",
+   "Ralph Loop",
+   "操作系统类比",
+   "多时间尺度记忆与「记忆只是 hint",
+   "感官模型快于密集文本",
+   "奖励攻击与多样性坍塌",
+   "角色过载与病态行为",
+   "连续执行器",
+   "让不可见变得可见",
+   "通用工具与「给模型一台计算机",
+   "为吞吐量设计与可接受错误率",
+   "压缩（compaction）与运行内外的分工",
+   "验证循环：guides 与 sensors",
+   "自协调与共享协调文件",
+   "agent 作为 Claude API 的新核心原语",
+   "AGENTS.md",
+   "AI 工程基础设施】 AI engineering infrastructure",
+   "cached input tokens",
+   "Context Bloat",
+   "Context Reset vs Compaction】",
+   "context rot（上下文腐烂）与 Lost in the Middle",
+   "Creator → Curator 角色转换",
+   "exfiltration",
+   "Filesystem 作为最基础的 harness 原语",
+   "Generator-Evaluator Loop】",
+   "Harness level feature",
+   "harness over-fitting",
+   "harness–compute separation",
+   "integrator 瓶颈",
+   "messages API 作为直连网关",
+   "Orchestration Loop TAO Cycle ReAct Loop",
+   "Progressive disclosure（渐进式披露）与 Skills",
+   "prompt completion",
+   "prompt-injection",
+   "ReAct loop",
+   "Self-evaluation Failure】",
+   "Self-verification loop",
+   "Signals",
+   "Skill Files",
+   "Skill-as-method-call",
+   "Sprint Contract】",
+   "steering",
+   "迷失在中间 lost in the middle",
+   "If you're not the model, you're the harness.",
+   "舱单",
+   "跨轮次记忆与连贯策略",
+   "输出 token 效率",
+   "AI Agent",
+   "LLM-as-CPU Harness-as-OS",
+   "Responses API 与生产设置对齐",
+   "RHAE",
+   "Vibe Coding",
+   "工具 Tools",
+   "上下文压缩 Context Compression Summarization",
+   "压缩 Compaction",
+   "1.6% vs 98.4%",
+   "昂贵的反馈回路与欠测试",
+   "不可见的劳动",
+   "部署系统层",
+   "测试是绿的，产品却在退化",
+   "差一点就通过的输出",
+   "触发模式谱系",
+   "从单元测试到评估：置信度而非正确性证明",
+   "从期望行为反推 harness 设计",
+   "单用户假设的失效",
+   "递归 planner 与 subplanner",
+   "动态系统",
+   "反脆弱",
+   "功能清单作为 harness 原语",
+   "功能与行为验证的缺口",
+   "共享 harness",
+   "规划模式与边界问题清单",
+   "会自己重写的地基",
+   "基础设施挑战而非 harness 设计问题",
+   "基础设施问题，不是 AI 问题",
+   "加法本能陷阱与过度约束",
+   "架构约束的确定性执行",
+   "减法带来质量跃迁",
+   "脚手架化 LLM 与冯·诺依曼架构类比",
+   "今天的魔法咒语，明天的反模式",
+   "进化式搜索与适应度",
+   "静默的分级失败",
+   "卡住即信号 struggle as signal",
+   "可编辑面与循环外的权限控制",
+   "可观测性",
+   "可执行搜索空间",
+   "垃圾回收」型 agent",
+   "模型即产品」的幻觉",
+   "模型一致性与 prompt caching",
+   "难度即护城河",
+   "能力外置化决策",
+   "品味与「不接受够用就行",
+   "普遍可触发 universally triggered",
+   "人类上移到更高抽象层",
+   "任务时域 task horizon",
+   "弱而模糊的评估器",
+   "沙箱化自主",
+   "上下文 playbook 与增量条目",
+   "上下文坍塌与简洁偏置",
+   "上下文压缩与即时检索 compaction just-in-time retrieval",
+   "审批疲劳",
+   "所有权与问责",
+   "锁竞争与乐观并发控制",
+   "提示词即行为程序",
+   "未来防腐测试 future-proofing test",
+   "显式且可检查的并行",
+   "橡皮鸭复审",
+   "小函数组合",
+   "新鲜度机制",
+   "意图规约与可引导性",
+   "优化对象的阶梯",
+   "有界改动与回归闸",
+   "预算警告与溢出恢复",
+   "原则侧",
+   "约束优于指令",
+   "长上下文的幻觉",
+   "长周期任务的基础设施压力",
+   "子 agent 与 step.invoke()",
+   "自收敛与免全局同步",
+   "最慢 worker 瓶颈与刚性",
+   "Agent vs Harness",
+   "Agents SDK",
+   "AI 友好度（AI-friendliness）作为选型标准",
+   "apply patch tool",
+   "back-pressure",
+   "Bitter Lesson】",
+   "brain hands session 解耦",
+   "chat templated prompts",
+   "Claude Managed Agents",
+   "code mode",
+   "configuration problem",
+   "Context Anxiety】",
+   "context firewall",
+   "Context injection",
+   "Environment",
+   "Executable Codebase",
+   "Gather-Act-Verify Cycle",
+   "Grading Criteria】",
+   "Handoff Artifact】",
+   "harness 与 framework 的分野",
+   "instruction budget",
+   "Learning Loop",
+   "Loop Contract",
+   "Loop Engineer",
+   "Memory file 与 continual learning",
+   "model-native harness",
+   "native sandbox execution",
+   "Planner-Generator-Evaluator 三 Agent 架构",
+   "planner–executor–judge 角色分工",
+   "reasoning effort",
+   "Scaffolding Metaphor",
+   "service template 与 golden path",
+   "snapshotting + rehydration",
+   "step",
+   "step ID 自动索引",
+   "think → act → observe 循环",
+   "tool loop",
+   "turnkey yet flexible",
+   "Von Neumann Architecture Analogy",
+   "webhook transform 与 connect()",
+   "保留推理 retained reasoning",
+   "笨循环 Dumb Loop",
+   "编排循环 Orchestration Loop TAO ReAct",
+   "非模型架构 Non-model Architecture",
+   "观察掩码 Observation Masking",
+   "滚动截断 rolling truncation",
+   "记忆即提示 Memory as Prompt",
+   "脚手架与 Harness 厚度 Scaffolding Harness Thickness",
+   "提示词工程 Prompt Engineering",
+   "执行可靠性机制 State Error Guardrails Verification",
+   "Diarization",
+   "hooks .claudehooks",
+   "Resolver",
+   "Thin Harness, Fat Skills",
+   "错误复利 compounding errors",
+   "递归结构不能替代基座智能",
+   "递归自我改进 RSI",
+   "调试散文：一个词就是 bug",
+   "非确定性 nondeterminism",
+   "非视觉任务的可视化原型",
+   "机制与内容分离",
+   "结构断言与不变量断言",
+   "解空间收窄 constraining the solution space",
+   "两级上下文剪枝 pruning",
+   "熵与腐化 entropy and decay",
+   "少即是多」：gimmick 与真实增益的分界",
+   "拓扑作为新抽象层",
+   "无手打代码 no manually typed code at all",
+   "原型先行",
+   "子 agent 编排 Fork Teammate Worktree",
+   "agentfile CLAUDE.md 与 AGENTS.md",
+   "Autopilot：内建循环",
+   "harness 厚薄 thin vs thick",
+   "Harness 简化原则】 Harness Simplification",
+   "Harness Thickness",
+   "Legible Codebase",
+   "one-shot 的理论极限",
+   "rigor 的搬迁 relocating rigor",
+   "skill 作为 onboarding 载体",
+   "YOLO 模式 Allow All"
+  ],
+  "程序记忆（Procedural Memory Skills） progressive disclosure": [
+   "记忆 Memory",
+   "确定性工程基础设施】 deterministic engineering infrastructure",
+   "Capability Overhang",
+   "即时检索 Just-in-time Retrieval",
+   "渐进式披露 progressive disclosure",
+   "AI 工程基础设施】 AI engineering infrastructure",
+   "Inner Loop",
+   "1.6% vs 98.4%",
+   "Agents SDK",
+   "model-native harness",
+   "渐进披露 progressive disclosure"
+  ],
+  "记忆冲刷（Memory Flush）": [
+   "记忆 Memory",
+   "结构化记事 agentic memory"
+  ],
+  "记忆须改变回答实质": [
+   "记忆 Memory",
+   "判定程序化写法",
+   "fail-closed 默认",
+   "反自我合理化条款"
+  ],
+  "Engram": [
+   "记忆 Memory"
+  ],
+  "Honcho": [
+   "记忆 Memory"
+  ],
+  "Knowledge Graph vs Flat Files": [
+   "记忆 Memory",
+   "Agent Drift",
+   "Context 四种失败模式】 Context Pollution Distraction Confusion Clash"
+  ],
+  "Signals": [
+   "记忆 Memory",
+   "Agent loop",
+   "结构化记事 agentic memory",
+   "Loop Engineer"
+  ],
+  "stated 出处纪律": [
+   "记忆 Memory",
+   "判定程序化写法",
+   "fail-closed 默认",
+   "反自我合理化条款"
+  ],
+  "Hoard": [
+   "记忆 Memory"
+  ],
+  "压缩 Compaction": [
+   "记忆 Memory",
+   "AI Agent",
+   "非模型架构 Non-model Architecture"
+  ],
+  "长上下文窗口": [
+   "记忆 Memory",
+   "上下文占用率与性能衰减",
+   "Harness token floor",
+   "上下文 context",
+   "工具收窄 tool scoping",
+   "会话的话题边界",
+   "即时检索 Just-in-time Retrieval",
+   "上下文压缩 Context Compression Summarization",
+   "合成键值检索任务",
+   "滑动窗口",
+   "Context Anxiety】",
+   "Context Distraction】",
+   "Markdown 路由",
+   "Personal Context】"
+  ],
+  "渐进式披露 progressive disclosure": [
+   "记忆 Memory",
+   "Skill",
+   "注意力预算 attention budget",
+   "上下文腐烂 Context Rot",
+   "程序记忆（Procedural Memory Skills） progressive disclosure",
+   "Action Space】",
+   "即时检索 Just-in-time Retrieval",
+   "Agent Skills】",
+   "Elicitation】",
+   "Agent Drift",
+   "configuration problem",
+   "Context 四种失败模式】 Context Pollution Distraction Confusion Clash",
+   "prompt 与 context 的通用性落差",
+   "See Like an Agent】",
+   "过度约束与松绑 over-constraining unhobbling"
+  ],
+  "AI Agent": [
+   "记忆 Memory",
+   "Agent",
+   "MCP Model Context Protocol",
+   "上下文腐烂 Context Rot",
+   "即时检索 Just-in-time Retrieval",
+   "迷失在中间 lost in the middle",
+   "LLM-as-CPU Harness-as-OS",
+   "工具 Tools",
+   "压缩 Compaction",
+   "笨循环 Dumb Loop",
+   "编排循环 Orchestration Loop TAO ReAct",
+   "非模型架构 Non-model Architecture",
+   "观察掩码 Observation Masking",
+   "记忆即提示 Memory as Prompt",
+   "脚手架与 Harness 厚度 Scaffolding Harness Thickness",
+   "提示词工程 Prompt Engineering",
+   "执行可靠性机制 State Error Guardrails Verification"
+  ],
+  "非模型架构 Non-model Architecture": [
+   "记忆 Memory",
+   "MCP Model Context Protocol",
+   "上下文腐烂 Context Rot",
+   "即时检索 Just-in-time Retrieval",
+   "迷失在中间 lost in the middle",
+   "AI Agent",
+   "LLM-as-CPU Harness-as-OS",
+   "工具 Tools",
+   "压缩 Compaction",
+   "笨循环 Dumb Loop",
+   "编排循环 Orchestration Loop TAO ReAct",
+   "观察掩码 Observation Masking",
+   "记忆即提示 Memory as Prompt",
+   "脚手架与 Harness 厚度 Scaffolding Harness Thickness",
+   "提示词工程 Prompt Engineering",
+   "执行可靠性机制 State Error Guardrails Verification"
+  ],
+  "单 agent 的速度天花板": [
+   "多智能体架构",
+   "Planner–Worker 角色分离",
+   "漂移与隧道视野 drift & tunnel vision",
+   "动态协调 dynamic coordination",
+   "共享文件加锁的协调机制",
+   "模型—角色适配",
+   "锁竞争瓶颈 lock contention",
+   "为吞吐量设计与可接受错误率",
+   "长时程自治编码 long-running autonomous coding",
+   "结构适量原则",
+   "无层级导致的风险规避 risk-averse agents",
+   "judge agent 与周期性 fresh start",
+   "prompt 主导论",
+   "递归并行规划 sub-planner",
+   "减法式改进 removing complexity",
+   "乐观并发控制 optimistic concurrency control"
+  ],
+  "子 Agent 分工": [
+   "多智能体架构",
+   "Loop Engineering",
+   "自动循环的心跳",
+   "模型—角色适配",
+   "意图理解、路由与升级 understand intent, route, escalate",
+   "Generator-Evaluator Loop】",
+   "Prompt 到 Loop 的跃迁",
+   "所有权与问责"
+  ],
+  "Handoffs Agents as tools": [
+   "多智能体架构",
+   "Agent",
+   "primitives",
+   "very few abstractions"
+  ],
+  "动态协调 dynamic coordination": [
+   "多智能体架构",
+   "Planner–Worker 角色分离",
+   "漂移与隧道视野 drift & tunnel vision",
+   "共享 多人 agent 会话",
+   "共享文件加锁的协调机制",
+   "Orchestra Interface",
+   "单 agent 的速度天花板",
+   "模型—角色适配",
+   "锁竞争瓶颈 lock contention",
+   "长时程自治编码 long-running autonomous coding",
+   "Executive LLM",
+   "结构适量原则",
+   "无层级导致的风险规避 risk-averse agents",
+   "judge agent 与周期性 fresh start",
+   "prompt 主导论",
+   "递归并行规划 sub-planner",
+   "减法式改进 removing complexity",
+   "乐观并发控制 optimistic concurrency control"
+  ],
+  "Executive LLM": [
+   "多智能体架构",
+   "动态协调 dynamic coordination"
+  ],
+  "integrator 瓶颈": [
+   "多智能体架构",
+   "为吞吐量设计与可接受错误率",
+   "自协调与共享协调文件",
+   "锁竞争与乐观并发控制"
+  ],
+  "共享 多人 agent 会话": [
+   "多智能体架构",
+   "代理原生 agent-native",
+   "动态协调 dynamic coordination",
+   "共享文件加锁的协调机制",
+   "“SaaS 已死”叙事与护城河蒸发",
+   "Orchestra Interface",
+   "上下文骨架"
+  ],
+  "意图理解、路由与升级 understand intent, route, escalate": [
+   "多智能体架构",
+   "子 Agent 分工",
+   "交接模型 handoff model",
+   "流程即工作 the process became the work",
+   "复杂被误认为精密 complexity looked like sophistication"
+  ],
+  "外包思考，但不外包理解": [
+   "多智能体架构",
+   "Skill",
+   "默认思维倾向",
+   "常识心理学",
+   "吹哨人困境",
+   "鉴别诊断",
+   "DPPO",
+   "长上下文窗口",
+   "党的隐性契约",
+   "环境即无形之手",
+   "可疑疾病",
+   "三种应对：接受 清除 装作不知道（Acceptance Purging Pretend Ignorance）",
+   "指代表达",
+   "Dr. GRPO",
+   "苍白之马（Pale Horse）",
+   "承诺链条",
+   "搭子文化",
+   "法律的模糊性",
+   "剪辑经济",
+   "简化性暴力",
+   "临床推理",
+   "旅行者号",
+   "五人平均法则",
+   "隐式指代",
+   "death of the social",
+   "RLHF",
+   "Token 补贴缺口（Token Subsidy Gap）",
+   "Token count",
+   "安全边际",
+   "Agentic Engineering",
+   "上下文 context",
+   "冰相",
+   "次贷式 AI 危机（Subprime AI Crisis）",
+   "第二意见",
+   "二阶思维",
+   "付出按旧规则，兑现按新规则",
+   "干预窗口",
+   "宏动作",
+   "混合指代",
+   "机会性筛查",
+   "交易型实用主义",
+   "锯齿状智能（Jagged Intelligence）",
+   "理想终态",
+   "临床病理讨论会",
+   "平扫 CT + AI 多癌筛查路线",
+   "数据中心",
+   "提示词缓存（Prompt Caching）",
+   "微选择复利",
+   "嘻哈五要素",
+   "习惯",
+   "执行功能",
+   "Boyfriend roulette",
+   "Choke Point",
+   "Disney bubble",
+   "Human-Only Social Networks",
+   "Reward Signal",
+   "Rubric",
+   "single_advertiser_ad_unit",
+   "swindle of fulfillment",
+   "程序记忆（Procedural Memory Skills） progressive disclosure",
+   "金唱片",
+   "Latent vs Deterministic",
+   "废料怪兽",
+   "办公室崇拜",
+   "边际成本",
+   "扁平化",
+   "别人的游戏",
+   "残差流",
+   "刺激与反应之间的空间",
+   "道德恐慌",
+   "地出",
+   "低电量模式",
+   "多头注意力",
+   "惰性默认",
+   "二八反转",
+   "付费陪伴",
+   "工业强度实在论",
+   "海峡过路费",
+   "基底神经节",
+   "基因 × 环境交互",
+   "记忆巩固",
+   "价值函数",
+   "教会 AI Agent 如何成功",
+   "盲盒晚餐",
+   "明线规则",
+   "偶遇表面积",
+   "平扫 CT",
+   "屏幕时间",
+   "睡眠健康",
+   "死亡地带",
+   "算法即决定性力量",
+   "推理模型",
+   "微剧",
+   "显式指代",
+   "阴蒂背神经",
+   "语义相关性",
+   "载重平衡",
+   "责任链条散了",
+   "重要性采样",
+   "AI 反弹潮",
+   "AI 泡沫",
+   "DART任务",
+   "Frontier Demand 前沿需求",
+   "Holding Your Opinions Lightly",
+   "Hypnopaedia",
+   "OpenAI 广告基础设施域名",
+   "oppref",
+   "Q、K、V",
+   "Reverse Digital Divide",
+   "The Judo of Agreeing",
+   "Token Efficiency",
+   "Verification Markets",
+   "3+ 法则",
+   "50,000-year-old hardware",
+   "阿尔忒弥斯协定",
+   "霸道总裁",
+   "被动 vs. 互动屏幕使用",
+   "冰 XXI",
+   "财富即自由",
+   "超离子冰",
+   "出海",
+   "从众默认",
+   "达尔文式角斗场",
+   "大规模监控（Bulk Surveillance）",
+   "大脑废物清除假说",
+   "电脑应该适应人",
+   "淀粉样蛋白级联假说",
+   "定位",
+   "多重草稿模型",
+   "非洲中心主义",
+   "复利",
+   "工具理性",
+   "国际月球科研站",
+   "合理胜过理性",
+   "合理性的三个考量（Three Considerations of Reasonableness）",
+   "赫布定律",
+   "后唇神经",
+   "回避行为",
+   "混合注意力",
+   "记忆冲刷（Memory Flush）",
+   "监管捕获",
+   "剪辑军团",
+   "见证",
+   "焦虑",
+   "进展期腺瘤",
+   "开源 vs 闭源",
+   "兰花型儿童",
+   "冷热分离（记忆）",
+   "理性",
+   "零信任 vs. 城堡-护城河",
+   "模型蒸馏",
+   "难选择，易人生",
+   "前沿实验室",
+   "人机协作",
+   "人事即政治",
+   "认知失调",
+   "神话管理",
+   "世界模型",
+   "手机成瘾",
+   "睡眠的社会人口学差异",
+   "睡眠健康四维测量框架",
+   "睡眠困难",
+   "探针",
+   "提示词记忆（MEMORY.md + USER.md）",
+   "痛苦素养",
+   "稀疏反馈推断规则",
+   "消除主义",
+   "芯片管制",
+   "信任域",
+   "杏仁核",
+   "叙事重心",
+   "学习脚手架",
+   "亚稳态",
+   "延迟的正义",
+   "医疗轻视",
+   "依恋风格",
+   "意向性系统理论",
+   "意志力",
+   "责任地址",
+   "照料劳动",
+   "蒸发冷却",
+   "注意力机制",
+   "自我默认",
+   "自注意力",
+   "Agentic Coding",
+   "Aggregation Theory",
+   "AI 从应用到基础设施",
+   "AI 爬虫五大分类",
+   "AI matchmaking",
+   "Beliefs as Lenses, Not Armor",
+   "capability spike 公式",
+   "CSA",
+   "DAMO COCA",
+   "Dating-app fatigue",
+   "DeepSeek V4",
+   "Disney hierarchy",
+   "Executive LLM",
+   "Exhaustion Debt",
+   "Facts are facts, but perception is reality",
+   "Friction-based Skill Formation",
+   "Ghost in the Shell",
+   "Hermes Agent",
+   "Intelligence Factory 智能工厂",
+   "Just-in-Time vs Buffer Stock",
+   "Nerdy Personality",
+   "Plan 模式",
+   "Qualia",
+   "REI-Bench",
+   "REINFORCE",
+   "REM 睡眠",
+   "Rightness is a Prison",
+   "RLOO",
+   "ScaleRL",
+   "Seeming-Rightness",
+   "Simulated Competence",
+   "Software 3.0",
+   "Stargate 依赖闭环（Stargate Dependency Loop）",
+   "Stateful Runtime Environment (SRE)",
+   "Step Change",
+   "Superforecasting",
+   "Taste",
+   "Tiger Team",
+   "TOCC",
+   "Trutherism",
+   "Vantage",
+   "Verifiability",
+   "Wake-centric Values",
+   "暗淡蓝点",
+   "舱单",
+   "CLAUDE.md",
+   "Tic Word",
+   "Vibe Coding",
+   "压缩 Compaction",
+   "《你死了吗？》App",
+   "5-HTTLPR 基因",
+   "半途低谷",
+   "必要劳动",
+   "闭环",
+   "标准平均旅客重量",
+   "冰 XXII",
+   "波动是门票",
+   "采样伦理",
+   "差别易感性假说",
+   "谄媚（Sycophancy）",
+   "超人（Übermensch）",
+   "带球跑",
+   "地落",
+   "迪士尼负债",
+   "第三方引用杠杆",
+   "短上下文",
+   "短睡眠时长",
+   "对话上下文定向",
+   "对话式广告归因闭环",
+   "反向幸存者偏差",
+   "给事物命名",
+   "根因优先",
+   "共识捕获",
+   "过程原则",
+   "后悔流",
+   "滑动窗口",
+   "灰盒场景",
+   "获取财富 vs 保持财富",
+   "霍尔木兹海峡",
+   "机会成本",
+   "基因投资组合假说",
+   "激励结构",
+   "极权制度下的产业革命",
+   "教育的高压筛选",
+   "教育技术",
+   "节俭创新",
+   "结构性矛盾",
+   "结构压力的性别化误读",
+   "结果高于面子",
+   "金刚石压砧",
+   "经济耐力比赛",
+   "举证责任",
+   "决策日志",
+   "开权重模型",
+   "看不见的财富",
+   "看守看守者（Watchmen Watching the Watchmen）",
+   "科学图景",
+   "可塑性与韧性的权衡",
+   "可自动化循环",
+   "蓝色弹珠",
+   "理性无知",
+   "量产游戏",
+   "流动制度化",
+   "律师脑",
+   "骆驼鼻子探入帐篷（Camel's Nose in the Tent）",
+   "目标清楚 + 结果好验收",
+   "脑海名望",
+   "年化营收",
+   "女性生殖器切割（FGM）",
+   "女性碎片时间作为新基础设施",
+   "品味与「不接受够用就行",
+   "平台跃迁四浪 Platform Shifts",
+   "平行 AI 基础设施",
+   "蒲公英型儿童",
+   "普职分流",
+   "前额叶皮质",
+   "桥接推理",
+   "清醒梦",
+   "情绪默认",
+   "全球贸易路线重布线",
+   "权利从登记表开始",
+   "群体认同偏差",
+   "让自己对 AI 可读",
+   "日常语言哲学",
+   "日球层",
+   "软技能",
+   "软件脑",
+   "赛博避难所与修罗场",
+   "三个煤矿金丝雀",
+   "善意越轨（Benign Deviancy）",
+   "上手状态",
+   "上下文缺口",
+   "社会身份脆性",
+   "社会稳定机制",
+   "社会许可",
+   "身体年龄",
+   "昇腾",
+   "十年重塑",
+   "时间偏好",
+   "束理论",
+   "思维的默认模式",
+   "四项心智力量",
+   "塑性冰 VII",
+   "算法即制片人",
+   "踏脚石效应",
+   "忒修斯之船",
+   "条件记忆",
+   "通关 ≠ 理解",
+   "痛苦的螺旋",
+   "推理 vs 训练",
+   "外层空间条约",
+   "危险先例",
+   "维萨里教条",
+   "尾部效应",
+   "文化秃鹫转向",
+   "文明的 feature（不是 bug）",
+   "无国籍智能体",
+   "无我",
+   "嘻哈教父",
+   "系统竞争",
+   "显现图景",
+   "现成在手",
+   "泄露能力的 U 型曲线",
+   "心身二元论",
+   "信息瓶颈原则",
+   "信息稀缺优势",
+   "星空与道德律",
+   "行为提取",
+   "形成性评估",
+   "醒后清爽感",
+   "虚拟同事 Virtual Co-workers",
+   "选择性注意力压缩",
+   "学术造假的级联",
+   "液体活检",
+   "一刀切政策",
+   "意图的延伸",
+   "意向性立场",
+   "阴蒂包皮",
+   "阴蒂脚",
+   "引力助推",
+   "隐性控制",
+   "营销谬误",
+   "涌现",
+   "优势函数",
+   "噪声上下文",
+   "政府资本 vs 产业资本",
+   "知识端点",
+   "智识上正确、政治上奢侈、道德上可疑",
+   "中国透镜下的美国",
+   "中年",
+   "中年危机",
+   "中子散射",
+   "重心",
+   "注水内容",
+   "准比快重要",
+   "字面类比",
+   "最后一分钟修正",
+   "A view is a view",
+   "Acre-foot",
+   "Agent-to-Agent 交互（A2A）",
+   "AgentCore",
+   "Agentic Tools",
+   "AI 护照",
+   "AI 可见性",
+   "AI 主权审查机制",
+   "AI 作为新同事",
+   "ALFRED",
+   "ARC-AGI-3",
+   "ASAP ALAP 原则",
+   "AWS VPC",
+   "Big Bang 升级计划（旅行者号）",
+   "Bounded Output",
+   "ChatGPT moment for videos",
+   "CISPO",
+   "Claude Code",
+   "Cloaking",
+   "Codex",
+   "Custom Agent",
+   "CXL 内存池化",
+   "DAPO",
+   "Decentralized Cryptographic Truth",
+   "Deconditioning",
+   "DeepSeek Moment",
+   "Dharana",
+   "DRD4 基因",
+   "EHR",
+   "Engram",
+   "Enough",
+   "First Folio",
+   "Fooling Yourself Takes Work",
+   "General Purpose Technology",
+   "GEO",
+   "Ghosting",
+   "Ghosts, Not Animals",
+   "Git Worktree",
+   "GQA",
+   "Headless 架构",
+   "HiFi 与 HiEx 信息原则",
+   "HiP-CT",
+   "Hoard",
+   "Honcho",
+   "Hyperscaler",
+   "Kappa 系数",
+   "Learn From Sleep vs. Learn During Sleep",
+   "Ledger of Record",
+   "LLM 订阅错配（LLM Subscription Mispricing）",
+   "LLM 知识库",
+   "llms-full.txt",
+   "llms.txt",
+   "Logits",
+   "Manus 收购叫停事件",
+   "Markdown 路由",
+   "MaxRL",
+   "medicating with Disney",
+   "mHC",
+   "MoE",
+   "Muon 优化器",
+   "N-gram",
+   "Network State",
+   "NHIS",
+   "OAIQ",
+   "Onboarding Agent",
+   "OpenClaw",
+   "opt in opt out",
+   "Ostwald 阶梯规则",
+   "Pananthropos",
+   "pass@k",
+   "Polished Output vs Real Judgment",
+   "Psycho-phone",
+   "Quining",
+   "Rationale 参数",
+   "Read–Think–Write–Verify Framework",
+   "Reward Generalization",
+   "RL Circuits",
+   "RTG",
+   "SayCan",
+   "session_search",
+   "SFT Feedback Loop",
+   "Situationship",
+   "Skills as permanent upgrades",
+   "Social Smart Contract",
+   "Software for one",
+   "Spec-First Workflow",
+   "Stop FLOP Know 原则",
+   "Targeted Memory Reactivation",
+   "The Deferred Bill",
+   "The Grind",
+   "Thinking Engine",
+   "Tiny Engram",
+   "Trainium",
+   "Tuned Lens",
+   "Universal appeal — makes, not has",
+   "Universal Zulu Nation",
+   "VirtualHome",
+   "VLM",
+   "Web of Trust",
+   "Without Defensiveness",
+   "Wrong criteria in their mind",
+   "Diarization",
+   "Resolver",
+   "Thin Harness, Fat Skills",
+   "迪士尼大人",
+   "反思性提示",
+   "检索池 vs 引用",
+   "灵魂剧场（theater of the soul）",
+   "领域不均匀的谄媚（Domain-asymmetric Sycophancy）",
+   "门控机制",
+   "前庭球",
+   "Bedrock Managed Agents",
+   "Fernet token",
+   "HCA",
+   "HTML 标准化"
+  ],
+  "Agent-Native Infrastructure": [
+   "多智能体架构",
+   "Skill",
+   "默认思维倾向",
+   "常识心理学",
+   "吹哨人困境",
+   "鉴别诊断",
+   "DPPO",
+   "长上下文窗口",
+   "党的隐性契约",
+   "环境即无形之手",
+   "可疑疾病",
+   "三种应对：接受 清除 装作不知道（Acceptance Purging Pretend Ignorance）",
+   "指代表达",
+   "Dr. GRPO",
+   "苍白之马（Pale Horse）",
+   "承诺链条",
+   "搭子文化",
+   "法律的模糊性",
+   "剪辑经济",
+   "简化性暴力",
+   "临床推理",
+   "旅行者号",
+   "五人平均法则",
+   "隐式指代",
+   "death of the social",
+   "RLHF",
+   "Token 补贴缺口（Token Subsidy Gap）",
+   "Token count",
+   "安全边际",
+   "Agentic Engineering",
+   "上下文 context",
+   "冰相",
+   "次贷式 AI 危机（Subprime AI Crisis）",
+   "第二意见",
+   "二阶思维",
+   "付出按旧规则，兑现按新规则",
+   "干预窗口",
+   "宏动作",
+   "混合指代",
+   "机会性筛查",
+   "交易型实用主义",
+   "锯齿状智能（Jagged Intelligence）",
+   "理想终态",
+   "临床病理讨论会",
+   "平扫 CT + AI 多癌筛查路线",
+   "数据中心",
+   "提示词缓存（Prompt Caching）",
+   "微选择复利",
+   "嘻哈五要素",
+   "习惯",
+   "执行功能",
+   "Boyfriend roulette",
+   "Choke Point",
+   "Disney bubble",
+   "Human-Only Social Networks",
+   "Reward Signal",
+   "Rubric",
+   "single_advertiser_ad_unit",
+   "swindle of fulfillment",
+   "程序记忆（Procedural Memory Skills） progressive disclosure",
+   "金唱片",
+   "Latent vs Deterministic",
+   "废料怪兽",
+   "办公室崇拜",
+   "边际成本",
+   "扁平化",
+   "别人的游戏",
+   "残差流",
+   "刺激与反应之间的空间",
+   "道德恐慌",
+   "地出",
+   "低电量模式",
+   "多头注意力",
+   "惰性默认",
+   "二八反转",
+   "付费陪伴",
+   "工业强度实在论",
+   "海峡过路费",
+   "基底神经节",
+   "基因 × 环境交互",
+   "记忆巩固",
+   "价值函数",
+   "教会 AI Agent 如何成功",
+   "盲盒晚餐",
+   "明线规则",
+   "偶遇表面积",
+   "平扫 CT",
+   "屏幕时间",
+   "睡眠健康",
+   "死亡地带",
+   "算法即决定性力量",
+   "推理模型",
+   "微剧",
+   "显式指代",
+   "阴蒂背神经",
+   "语义相关性",
+   "载重平衡",
+   "责任链条散了",
+   "重要性采样",
+   "AI 反弹潮",
+   "AI 泡沫",
+   "DART任务",
+   "Frontier Demand 前沿需求",
+   "Holding Your Opinions Lightly",
+   "Hypnopaedia",
+   "OpenAI 广告基础设施域名",
+   "oppref",
+   "Q、K、V",
+   "Reverse Digital Divide",
+   "The Judo of Agreeing",
+   "Token Efficiency",
+   "Verification Markets",
+   "3+ 法则",
+   "50,000-year-old hardware",
+   "阿尔忒弥斯协定",
+   "霸道总裁",
+   "被动 vs. 互动屏幕使用",
+   "冰 XXI",
+   "财富即自由",
+   "超离子冰",
+   "出海",
+   "从众默认",
+   "达尔文式角斗场",
+   "大规模监控（Bulk Surveillance）",
+   "大脑废物清除假说",
+   "电脑应该适应人",
+   "淀粉样蛋白级联假说",
+   "定位",
+   "多重草稿模型",
+   "非洲中心主义",
+   "复利",
+   "工具理性",
+   "国际月球科研站",
+   "合理胜过理性",
+   "合理性的三个考量（Three Considerations of Reasonableness）",
+   "赫布定律",
+   "后唇神经",
+   "回避行为",
+   "混合注意力",
+   "记忆冲刷（Memory Flush）",
+   "监管捕获",
+   "剪辑军团",
+   "见证",
+   "焦虑",
+   "进展期腺瘤",
+   "开源 vs 闭源",
+   "兰花型儿童",
+   "冷热分离（记忆）",
+   "理性",
+   "零信任 vs. 城堡-护城河",
+   "模型蒸馏",
+   "难选择，易人生",
+   "前沿实验室",
+   "人机协作",
+   "人事即政治",
+   "认知失调",
+   "神话管理",
+   "世界模型",
+   "手机成瘾",
+   "睡眠的社会人口学差异",
+   "睡眠健康四维测量框架",
+   "睡眠困难",
+   "探针",
+   "提示词记忆（MEMORY.md + USER.md）",
+   "痛苦素养",
+   "稀疏反馈推断规则",
+   "消除主义",
+   "芯片管制",
+   "信任域",
+   "杏仁核",
+   "叙事重心",
+   "学习脚手架",
+   "亚稳态",
+   "延迟的正义",
+   "医疗轻视",
+   "依恋风格",
+   "意向性系统理论",
+   "意志力",
+   "责任地址",
+   "照料劳动",
+   "蒸发冷却",
+   "注意力机制",
+   "自我默认",
+   "自注意力",
+   "Agentic Coding",
+   "Aggregation Theory",
+   "AI 从应用到基础设施",
+   "AI 爬虫五大分类",
+   "AI matchmaking",
+   "Beliefs as Lenses, Not Armor",
+   "capability spike 公式",
+   "CSA",
+   "DAMO COCA",
+   "Dating-app fatigue",
+   "DeepSeek V4",
+   "Disney hierarchy",
+   "Executive LLM",
+   "Exhaustion Debt",
+   "Facts are facts, but perception is reality",
+   "Friction-based Skill Formation",
+   "Ghost in the Shell",
+   "Hermes Agent",
+   "Intelligence Factory 智能工厂",
+   "Just-in-Time vs Buffer Stock",
+   "Nerdy Personality",
+   "Plan 模式",
+   "Qualia",
+   "REI-Bench",
+   "REINFORCE",
+   "REM 睡眠",
+   "Rightness is a Prison",
+   "RLOO",
+   "ScaleRL",
+   "Seeming-Rightness",
+   "Simulated Competence",
+   "Software 3.0",
+   "Stargate 依赖闭环（Stargate Dependency Loop）",
+   "Stateful Runtime Environment (SRE)",
+   "Step Change",
+   "Superforecasting",
+   "Taste",
+   "Tiger Team",
+   "TOCC",
+   "Trutherism",
+   "Vantage",
+   "Verifiability",
+   "Wake-centric Values",
+   "暗淡蓝点",
+   "舱单",
+   "CLAUDE.md",
+   "Tic Word",
+   "Vibe Coding",
+   "压缩 Compaction",
+   "《你死了吗？》App",
+   "5-HTTLPR 基因",
+   "半途低谷",
+   "必要劳动",
+   "闭环",
+   "标准平均旅客重量",
+   "冰 XXII",
+   "波动是门票",
+   "采样伦理",
+   "差别易感性假说",
+   "谄媚（Sycophancy）",
+   "超人（Übermensch）",
+   "带球跑",
+   "地落",
+   "迪士尼负债",
+   "第三方引用杠杆",
+   "短上下文",
+   "短睡眠时长",
+   "对话上下文定向",
+   "对话式广告归因闭环",
+   "反向幸存者偏差",
+   "给事物命名",
+   "根因优先",
+   "共识捕获",
+   "过程原则",
+   "后悔流",
+   "滑动窗口",
+   "灰盒场景",
+   "获取财富 vs 保持财富",
+   "霍尔木兹海峡",
+   "机会成本",
+   "基因投资组合假说",
+   "激励结构",
+   "极权制度下的产业革命",
+   "教育的高压筛选",
+   "教育技术",
+   "节俭创新",
+   "结构性矛盾",
+   "结构压力的性别化误读",
+   "结果高于面子",
+   "金刚石压砧",
+   "经济耐力比赛",
+   "举证责任",
+   "决策日志",
+   "开权重模型",
+   "看不见的财富",
+   "看守看守者（Watchmen Watching the Watchmen）",
+   "科学图景",
+   "可塑性与韧性的权衡",
+   "可自动化循环",
+   "蓝色弹珠",
+   "理性无知",
+   "量产游戏",
+   "流动制度化",
+   "律师脑",
+   "骆驼鼻子探入帐篷（Camel's Nose in the Tent）",
+   "目标清楚 + 结果好验收",
+   "脑海名望",
+   "年化营收",
+   "女性生殖器切割（FGM）",
+   "女性碎片时间作为新基础设施",
+   "平台跃迁四浪 Platform Shifts",
+   "平行 AI 基础设施",
+   "蒲公英型儿童",
+   "普职分流",
+   "前额叶皮质",
+   "桥接推理",
+   "清醒梦",
+   "情绪默认",
+   "全球贸易路线重布线",
+   "权利从登记表开始",
+   "群体认同偏差",
+   "让自己对 AI 可读",
+   "日常语言哲学",
+   "日球层",
+   "软技能",
+   "软件脑",
+   "赛博避难所与修罗场",
+   "三个煤矿金丝雀",
+   "善意越轨（Benign Deviancy）",
+   "上手状态",
+   "上下文缺口",
+   "社会身份脆性",
+   "社会稳定机制",
+   "社会许可",
+   "身体年龄",
+   "昇腾",
+   "十年重塑",
+   "时间偏好",
+   "束理论",
+   "思维的默认模式",
+   "四项心智力量",
+   "塑性冰 VII",
+   "算法即制片人",
+   "踏脚石效应",
+   "忒修斯之船",
+   "条件记忆",
+   "通关 ≠ 理解",
+   "痛苦的螺旋",
+   "推理 vs 训练",
+   "外层空间条约",
+   "危险先例",
+   "维萨里教条",
+   "尾部效应",
+   "文化秃鹫转向",
+   "文明的 feature（不是 bug）",
+   "无国籍智能体",
+   "无我",
+   "嘻哈教父",
+   "系统竞争",
+   "显现图景",
+   "现成在手",
+   "泄露能力的 U 型曲线",
+   "心身二元论",
+   "信息瓶颈原则",
+   "信息稀缺优势",
+   "星空与道德律",
+   "行为提取",
+   "形成性评估",
+   "醒后清爽感",
+   "虚拟同事 Virtual Co-workers",
+   "选择性注意力压缩",
+   "学术造假的级联",
+   "液体活检",
+   "一刀切政策",
+   "意图的延伸",
+   "意向性立场",
+   "阴蒂包皮",
+   "阴蒂脚",
+   "引力助推",
+   "隐性控制",
+   "营销谬误",
+   "涌现",
+   "优势函数",
+   "噪声上下文",
+   "政府资本 vs 产业资本",
+   "知识端点",
+   "智识上正确、政治上奢侈、道德上可疑",
+   "中国透镜下的美国",
+   "中年",
+   "中年危机",
+   "中子散射",
+   "重心",
+   "注水内容",
+   "准比快重要",
+   "字面类比",
+   "最后一分钟修正",
+   "A view is a view",
+   "Acre-foot",
+   "Agent-to-Agent 交互（A2A）",
+   "AgentCore",
+   "Agentic Tools",
+   "AI 护照",
+   "AI 可见性",
+   "AI 主权审查机制",
+   "AI 作为新同事",
+   "ALFRED",
+   "ARC-AGI-3",
+   "ASAP ALAP 原则",
+   "AWS VPC",
+   "Big Bang 升级计划（旅行者号）",
+   "Bounded Output",
+   "ChatGPT moment for videos",
+   "CISPO",
+   "Claude Code",
+   "Cloaking",
+   "Codex",
+   "Custom Agent",
+   "CXL 内存池化",
+   "DAPO",
+   "Decentralized Cryptographic Truth",
+   "Deconditioning",
+   "DeepSeek Moment",
+   "Dharana",
+   "DRD4 基因",
+   "EHR",
+   "Engram",
+   "Enough",
+   "First Folio",
+   "Fooling Yourself Takes Work",
+   "General Purpose Technology",
+   "GEO",
+   "Ghosting",
+   "Ghosts, Not Animals",
+   "Git Worktree",
+   "GQA",
+   "Headless 架构",
+   "HiFi 与 HiEx 信息原则",
+   "HiP-CT",
+   "Hoard",
+   "Honcho",
+   "Hyperscaler",
+   "Kappa 系数",
+   "Learn From Sleep vs. Learn During Sleep",
+   "Ledger of Record",
+   "LLM 订阅错配（LLM Subscription Mispricing）",
+   "LLM 知识库",
+   "llms-full.txt",
+   "llms.txt",
+   "Logits",
+   "Manus 收购叫停事件",
+   "Markdown 路由",
+   "MaxRL",
+   "medicating with Disney",
+   "mHC",
+   "MoE",
+   "Muon 优化器",
+   "N-gram",
+   "Network State",
+   "NHIS",
+   "OAIQ",
+   "Onboarding Agent",
+   "OpenClaw",
+   "opt in opt out",
+   "Ostwald 阶梯规则",
+   "Pananthropos",
+   "pass@k",
+   "Polished Output vs Real Judgment",
+   "Psycho-phone",
+   "Quining",
+   "Rationale 参数",
+   "Read–Think–Write–Verify Framework",
+   "Reward Generalization",
+   "RL Circuits",
+   "RTG",
+   "SayCan",
+   "session_search",
+   "SFT Feedback Loop",
+   "Situationship",
+   "Skills as permanent upgrades",
+   "Social Smart Contract",
+   "Software for one",
+   "Spec-First Workflow",
+   "Stop FLOP Know 原则",
+   "Targeted Memory Reactivation",
+   "The Deferred Bill",
+   "The Grind",
+   "Thinking Engine",
+   "Tiny Engram",
+   "Trainium",
+   "Tuned Lens",
+   "Universal appeal — makes, not has",
+   "Universal Zulu Nation",
+   "VirtualHome",
+   "VLM",
+   "Web of Trust",
+   "Without Defensiveness",
+   "Wrong criteria in their mind",
+   "Diarization",
+   "Resolver",
+   "Thin Harness, Fat Skills",
+   "迪士尼大人",
+   "反思性提示",
+   "检索池 vs 引用",
+   "灵魂剧场（theater of the soul）",
+   "领域不均匀的谄媚（Domain-asymmetric Sycophancy）",
+   "门控机制",
+   "前庭球",
+   "Bedrock Managed Agents",
+   "Fernet token",
+   "HCA",
+   "HTML 标准化"
+  ],
+  "Sensors 与 Actuators": [
+   "多智能体架构",
+   "Skill",
+   "默认思维倾向",
+   "常识心理学",
+   "吹哨人困境",
+   "鉴别诊断",
+   "DPPO",
+   "长上下文窗口",
+   "党的隐性契约",
+   "环境即无形之手",
+   "可疑疾病",
+   "三种应对：接受 清除 装作不知道（Acceptance Purging Pretend Ignorance）",
+   "指代表达",
+   "Dr. GRPO",
+   "苍白之马（Pale Horse）",
+   "承诺链条",
+   "搭子文化",
+   "法律的模糊性",
+   "剪辑经济",
+   "简化性暴力",
+   "临床推理",
+   "旅行者号",
+   "五人平均法则",
+   "隐式指代",
+   "death of the social",
+   "RLHF",
+   "Token 补贴缺口（Token Subsidy Gap）",
+   "Token count",
+   "安全边际",
+   "Agentic Engineering",
+   "上下文 context",
+   "冰相",
+   "次贷式 AI 危机（Subprime AI Crisis）",
+   "第二意见",
+   "二阶思维",
+   "付出按旧规则，兑现按新规则",
+   "干预窗口",
+   "宏动作",
+   "混合指代",
+   "机会性筛查",
+   "交易型实用主义",
+   "锯齿状智能（Jagged Intelligence）",
+   "理想终态",
+   "临床病理讨论会",
+   "平扫 CT + AI 多癌筛查路线",
+   "数据中心",
+   "提示词缓存（Prompt Caching）",
+   "微选择复利",
+   "嘻哈五要素",
+   "习惯",
+   "执行功能",
+   "Boyfriend roulette",
+   "Choke Point",
+   "Disney bubble",
+   "Human-Only Social Networks",
+   "Reward Signal",
+   "Rubric",
+   "single_advertiser_ad_unit",
+   "swindle of fulfillment",
+   "程序记忆（Procedural Memory Skills） progressive disclosure",
+   "金唱片",
+   "Latent vs Deterministic",
+   "废料怪兽",
+   "办公室崇拜",
+   "边际成本",
+   "扁平化",
+   "别人的游戏",
+   "残差流",
+   "刺激与反应之间的空间",
+   "道德恐慌",
+   "地出",
+   "低电量模式",
+   "多头注意力",
+   "惰性默认",
+   "二八反转",
+   "付费陪伴",
+   "工业强度实在论",
+   "海峡过路费",
+   "基底神经节",
+   "基因 × 环境交互",
+   "记忆巩固",
+   "价值函数",
+   "教会 AI Agent 如何成功",
+   "盲盒晚餐",
+   "明线规则",
+   "偶遇表面积",
+   "平扫 CT",
+   "屏幕时间",
+   "睡眠健康",
+   "死亡地带",
+   "算法即决定性力量",
+   "推理模型",
+   "微剧",
+   "显式指代",
+   "阴蒂背神经",
+   "语义相关性",
+   "载重平衡",
+   "责任链条散了",
+   "重要性采样",
+   "AI 反弹潮",
+   "AI 泡沫",
+   "DART任务",
+   "Frontier Demand 前沿需求",
+   "Holding Your Opinions Lightly",
+   "Hypnopaedia",
+   "OpenAI 广告基础设施域名",
+   "oppref",
+   "Q、K、V",
+   "Reverse Digital Divide",
+   "The Judo of Agreeing",
+   "Token Efficiency",
+   "Verification Markets",
+   "3+ 法则",
+   "50,000-year-old hardware",
+   "阿尔忒弥斯协定",
+   "霸道总裁",
+   "被动 vs. 互动屏幕使用",
+   "冰 XXI",
+   "财富即自由",
+   "超离子冰",
+   "出海",
+   "从众默认",
+   "达尔文式角斗场",
+   "大规模监控（Bulk Surveillance）",
+   "大脑废物清除假说",
+   "电脑应该适应人",
+   "淀粉样蛋白级联假说",
+   "定位",
+   "多重草稿模型",
+   "非洲中心主义",
+   "复利",
+   "工具理性",
+   "国际月球科研站",
+   "合理胜过理性",
+   "合理性的三个考量（Three Considerations of Reasonableness）",
+   "赫布定律",
+   "后唇神经",
+   "回避行为",
+   "混合注意力",
+   "记忆冲刷（Memory Flush）",
+   "监管捕获",
+   "剪辑军团",
+   "见证",
+   "焦虑",
+   "进展期腺瘤",
+   "开源 vs 闭源",
+   "兰花型儿童",
+   "冷热分离（记忆）",
+   "理性",
+   "零信任 vs. 城堡-护城河",
+   "模型蒸馏",
+   "难选择，易人生",
+   "前沿实验室",
+   "人机协作",
+   "人事即政治",
+   "认知失调",
+   "神话管理",
+   "世界模型",
+   "手机成瘾",
+   "睡眠的社会人口学差异",
+   "睡眠健康四维测量框架",
+   "睡眠困难",
+   "探针",
+   "提示词记忆（MEMORY.md + USER.md）",
+   "痛苦素养",
+   "稀疏反馈推断规则",
+   "消除主义",
+   "芯片管制",
+   "信任域",
+   "杏仁核",
+   "叙事重心",
+   "学习脚手架",
+   "亚稳态",
+   "延迟的正义",
+   "医疗轻视",
+   "依恋风格",
+   "意向性系统理论",
+   "意志力",
+   "责任地址",
+   "照料劳动",
+   "蒸发冷却",
+   "注意力机制",
+   "自我默认",
+   "自注意力",
+   "Agentic Coding",
+   "Aggregation Theory",
+   "AI 从应用到基础设施",
+   "AI 爬虫五大分类",
+   "AI matchmaking",
+   "Beliefs as Lenses, Not Armor",
+   "capability spike 公式",
+   "CSA",
+   "DAMO COCA",
+   "Dating-app fatigue",
+   "DeepSeek V4",
+   "Disney hierarchy",
+   "Executive LLM",
+   "Exhaustion Debt",
+   "Facts are facts, but perception is reality",
+   "Friction-based Skill Formation",
+   "Ghost in the Shell",
+   "Hermes Agent",
+   "Intelligence Factory 智能工厂",
+   "Just-in-Time vs Buffer Stock",
+   "Nerdy Personality",
+   "Plan 模式",
+   "Qualia",
+   "REI-Bench",
+   "REINFORCE",
+   "REM 睡眠",
+   "Rightness is a Prison",
+   "RLOO",
+   "ScaleRL",
+   "Seeming-Rightness",
+   "Simulated Competence",
+   "Software 3.0",
+   "Stargate 依赖闭环（Stargate Dependency Loop）",
+   "Stateful Runtime Environment (SRE)",
+   "Step Change",
+   "Superforecasting",
+   "Taste",
+   "Tiger Team",
+   "TOCC",
+   "Trutherism",
+   "Vantage",
+   "Verifiability",
+   "Wake-centric Values",
+   "暗淡蓝点",
+   "舱单",
+   "CLAUDE.md",
+   "Tic Word",
+   "Vibe Coding",
+   "压缩 Compaction",
+   "《你死了吗？》App",
+   "5-HTTLPR 基因",
+   "半途低谷",
+   "必要劳动",
+   "闭环",
+   "标准平均旅客重量",
+   "冰 XXII",
+   "波动是门票",
+   "采样伦理",
+   "差别易感性假说",
+   "谄媚（Sycophancy）",
+   "超人（Übermensch）",
+   "带球跑",
+   "地落",
+   "迪士尼负债",
+   "第三方引用杠杆",
+   "短上下文",
+   "短睡眠时长",
+   "对话上下文定向",
+   "对话式广告归因闭环",
+   "反向幸存者偏差",
+   "给事物命名",
+   "根因优先",
+   "共识捕获",
+   "过程原则",
+   "后悔流",
+   "滑动窗口",
+   "灰盒场景",
+   "获取财富 vs 保持财富",
+   "霍尔木兹海峡",
+   "机会成本",
+   "基因投资组合假说",
+   "激励结构",
+   "极权制度下的产业革命",
+   "教育的高压筛选",
+   "教育技术",
+   "节俭创新",
+   "结构性矛盾",
+   "结构压力的性别化误读",
+   "结果高于面子",
+   "金刚石压砧",
+   "经济耐力比赛",
+   "举证责任",
+   "决策日志",
+   "开权重模型",
+   "看不见的财富",
+   "看守看守者（Watchmen Watching the Watchmen）",
+   "科学图景",
+   "可塑性与韧性的权衡",
+   "可自动化循环",
+   "蓝色弹珠",
+   "理性无知",
+   "量产游戏",
+   "流动制度化",
+   "律师脑",
+   "骆驼鼻子探入帐篷（Camel's Nose in the Tent）",
+   "目标清楚 + 结果好验收",
+   "脑海名望",
+   "年化营收",
+   "女性生殖器切割（FGM）",
+   "女性碎片时间作为新基础设施",
+   "平台跃迁四浪 Platform Shifts",
+   "平行 AI 基础设施",
+   "蒲公英型儿童",
+   "普职分流",
+   "前额叶皮质",
+   "桥接推理",
+   "清醒梦",
+   "情绪默认",
+   "全球贸易路线重布线",
+   "权利从登记表开始",
+   "群体认同偏差",
+   "让自己对 AI 可读",
+   "日常语言哲学",
+   "日球层",
+   "软技能",
+   "软件脑",
+   "赛博避难所与修罗场",
+   "三个煤矿金丝雀",
+   "善意越轨（Benign Deviancy）",
+   "上手状态",
+   "上下文缺口",
+   "社会身份脆性",
+   "社会稳定机制",
+   "社会许可",
+   "身体年龄",
+   "昇腾",
+   "十年重塑",
+   "时间偏好",
+   "束理论",
+   "思维的默认模式",
+   "四项心智力量",
+   "塑性冰 VII",
+   "算法即制片人",
+   "踏脚石效应",
+   "忒修斯之船",
+   "条件记忆",
+   "通关 ≠ 理解",
+   "痛苦的螺旋",
+   "推理 vs 训练",
+   "外层空间条约",
+   "危险先例",
+   "维萨里教条",
+   "尾部效应",
+   "文化秃鹫转向",
+   "文明的 feature（不是 bug）",
+   "无国籍智能体",
+   "无我",
+   "嘻哈教父",
+   "系统竞争",
+   "显现图景",
+   "现成在手",
+   "泄露能力的 U 型曲线",
+   "心身二元论",
+   "信息瓶颈原则",
+   "信息稀缺优势",
+   "星空与道德律",
+   "行为提取",
+   "形成性评估",
+   "醒后清爽感",
+   "虚拟同事 Virtual Co-workers",
+   "选择性注意力压缩",
+   "学术造假的级联",
+   "液体活检",
+   "一刀切政策",
+   "意图的延伸",
+   "意向性立场",
+   "阴蒂包皮",
+   "阴蒂脚",
+   "引力助推",
+   "隐性控制",
+   "营销谬误",
+   "涌现",
+   "优势函数",
+   "噪声上下文",
+   "政府资本 vs 产业资本",
+   "知识端点",
+   "智识上正确、政治上奢侈、道德上可疑",
+   "中国透镜下的美国",
+   "中年",
+   "中年危机",
+   "中子散射",
+   "重心",
+   "注水内容",
+   "准比快重要",
+   "字面类比",
+   "最后一分钟修正",
+   "A view is a view",
+   "Acre-foot",
+   "Agent-to-Agent 交互（A2A）",
+   "AgentCore",
+   "Agentic Tools",
+   "AI 护照",
+   "AI 可见性",
+   "AI 主权审查机制",
+   "AI 作为新同事",
+   "ALFRED",
+   "ARC-AGI-3",
+   "ASAP ALAP 原则",
+   "AWS VPC",
+   "Big Bang 升级计划（旅行者号）",
+   "Bounded Output",
+   "ChatGPT moment for videos",
+   "CISPO",
+   "Claude Code",
+   "Cloaking",
+   "Codex",
+   "Custom Agent",
+   "CXL 内存池化",
+   "DAPO",
+   "Decentralized Cryptographic Truth",
+   "Deconditioning",
+   "DeepSeek Moment",
+   "Dharana",
+   "DRD4 基因",
+   "EHR",
+   "Engram",
+   "Enough",
+   "First Folio",
+   "Fooling Yourself Takes Work",
+   "General Purpose Technology",
+   "GEO",
+   "Ghosting",
+   "Ghosts, Not Animals",
+   "Git Worktree",
+   "GQA",
+   "Headless 架构",
+   "HiFi 与 HiEx 信息原则",
+   "HiP-CT",
+   "Hoard",
+   "Honcho",
+   "Hyperscaler",
+   "Kappa 系数",
+   "Learn From Sleep vs. Learn During Sleep",
+   "Ledger of Record",
+   "LLM 订阅错配（LLM Subscription Mispricing）",
+   "LLM 知识库",
+   "llms-full.txt",
+   "llms.txt",
+   "Logits",
+   "Manus 收购叫停事件",
+   "Markdown 路由",
+   "MaxRL",
+   "medicating with Disney",
+   "mHC",
+   "MoE",
+   "Muon 优化器",
+   "N-gram",
+   "Network State",
+   "NHIS",
+   "OAIQ",
+   "Onboarding Agent",
+   "OpenClaw",
+   "opt in opt out",
+   "Ostwald 阶梯规则",
+   "Pananthropos",
+   "pass@k",
+   "Polished Output vs Real Judgment",
+   "Psycho-phone",
+   "Quining",
+   "Rationale 参数",
+   "Read–Think–Write–Verify Framework",
+   "Reward Generalization",
+   "RL Circuits",
+   "RTG",
+   "SayCan",
+   "session_search",
+   "SFT Feedback Loop",
+   "Situationship",
+   "Skills as permanent upgrades",
+   "Social Smart Contract",
+   "Software for one",
+   "Spec-First Workflow",
+   "Stop FLOP Know 原则",
+   "Targeted Memory Reactivation",
+   "The Deferred Bill",
+   "The Grind",
+   "Thinking Engine",
+   "Tiny Engram",
+   "Trainium",
+   "Tuned Lens",
+   "Universal appeal — makes, not has",
+   "Universal Zulu Nation",
+   "VirtualHome",
+   "VLM",
+   "Web of Trust",
+   "Without Defensiveness",
+   "Wrong criteria in their mind",
+   "Diarization",
+   "Resolver",
+   "Thin Harness, Fat Skills",
+   "迪士尼大人",
+   "反思性提示",
+   "检索池 vs 引用",
+   "灵魂剧场（theater of the soul）",
+   "领域不均匀的谄媚（Domain-asymmetric Sycophancy）",
+   "门控机制",
+   "前庭球",
+   "Bedrock Managed Agents",
+   "Fernet token",
+   "HCA",
+   "HTML 标准化"
+  ],
+  "本地状态层": [
+   "文件系统即持久记忆",
+   "状态子系统与进度持久化",
+   "对话加确定性缝合",
+   "看对话 log",
+   "反向代理式窥探"
+  ],
+  "Git-backed state": [
+   "文件系统即持久记忆",
+   "Loop Engineering",
+   "Cross-session Work",
+   "持久化执行 durable execution",
+   "agent 模板的声明式持久化",
+   "Continuous orchestration loop",
+   "Model as subroutine"
+  ],
+  "Shared File System": [
+   "文件系统即持久记忆",
+   "Agent loop",
+   "Sessions",
+   "Artifact Schema",
+   "Loop Engineer"
+  ],
+  "agent 模板的声明式持久化": [
+   "文件系统即持久记忆",
+   "Git-backed state",
+   "messages API 作为直连网关",
+   "Claude Managed Agents"
+  ],
+  "Artifact Schema": [
+   "文件系统即持久记忆",
+   "Agent loop",
+   "Cross-session Work",
+   "Shared File System",
+   "Loop Engineer"
+  ],
+  "递归自我改进 RSI": [
+   "文件系统即持久记忆",
+   "Loop Engineering",
+   "操作系统类比",
+   "奖励攻击与多样性坍塌",
+   "部署系统层",
+   "进化式搜索与适应度",
+   "可编辑面与循环外的权限控制",
+   "可执行搜索空间",
+   "人类上移到更高抽象层",
+   "弱而模糊的评估器",
+   "上下文 playbook 与增量条目",
+   "上下文坍塌与简洁偏置",
+   "显式且可检查的并行",
+   "优化对象的阶梯",
+   "有界改动与回归闸",
+   "递归结构不能替代基座智能",
+   "机制与内容分离"
+  ],
+  "Software 3.0": [
+   "Skill",
+   "外包思考，但不外包理解",
+   "Agent-Native Infrastructure",
+   "Stochastic Graduate Descent",
+   "Sensors 与 Actuators"
+  ],
+  "Skill-as-method-call": [
+   "Skill",
+   "Skill Files",
+   "Thin Harness, Fat Skills"
+  ],
+  "skill-creator 访谈式创建": [
+   "Skill",
+   "验证闭环 verification loop",
+   "嵌入 Embedded",
+   "Skill Files",
+   "把重复步骤编码成 Skill",
+   "个人基础设施 → 团队基础设施",
+   "灵活性与自动化的权衡",
+   "description 作为触发条件",
+   "SKILL.md：frontmatter＋body 契约",
+   "Wrapper skill",
+   "独立调用 Standalone",
+   "可编辑性边界",
+   "链式 Chained",
+   "习惯变契约 habit → contract",
+   "循环工程 loop engineering",
+   "PR 级门禁 On every PR"
+  ],
+  "Skill Files": [
+   "Skill",
+   "Latent vs Deterministic",
+   "skill-creator 访谈式创建",
+   "Context Bloat",
+   "Skill-as-method-call",
+   "Learning Loop",
+   "Diarization",
+   "Resolver",
+   "Thin Harness, Fat Skills"
+  ],
+  "自动循环的心跳": [
+   "Loop Engineering",
+   "子 Agent 分工",
+   "管理 Agent",
+   "可验证目标",
+   "项目知识体系",
+   "工作树隔离",
+   "古德哈特定律",
+   "连接器",
+   "Harness 与 Loop 的配合",
+   "Prompt 到 Loop 的跃迁",
+   "触发模式谱系",
+   "Decision-maker in the body"
+  ],
+  "闭环": [
+   "Loop Engineering"
+  ],
+  "Loop Engineer": [
+   "Loop Engineering",
+   "Agent loop",
+   "Cross-session Work",
+   "Read-only Verifier Agent",
+   "Artifact Schema",
+   "Shared File System",
+   "Verifiable Codebase",
+   "Signals",
+   "Executable Codebase",
+   "Loop Contract",
+   "Legible Codebase"
+  ],
+  "Loop Contract": [
+   "Loop Engineering",
+   "Agent loop",
+   "Loop Engineer"
+  ],
+  "Learning Loop": [
+   "Loop Engineering",
+   "Skill Files",
+   "Thin Harness, Fat Skills"
+  ],
+  "Prompt 到 Loop 的跃迁": [
+   "Loop Engineering",
+   "子 Agent 分工",
+   "自动循环的心跳",
+   "管理 Agent",
+   "可验证目标",
+   "项目知识体系",
+   "工作树隔离",
+   "古德哈特定律",
+   "连接器",
+   "Harness 与 Loop 的配合"
+  ],
+  "工作树隔离": [
+   "Loop Engineering",
+   "自动循环的心跳",
+   "subagents",
+   "Prompt 到 Loop 的跃迁"
+  ],
+  "项目知识体系": [
+   "Loop Engineering",
+   "自动循环的心跳",
+   "Prompt 到 Loop 的跃迁",
+   "LLM 知识库",
+   "Tacit Knowledge】"
+  ],
+  "连接器": [
+   "Loop Engineering",
+   "MCP Model Context Protocol",
+   "自动循环的心跳",
+   "Prompt 到 Loop 的跃迁"
+  ],
+  "可验证目标": [
+   "Loop Engineering",
+   "自动循环的心跳",
+   "验证子系统与可运行的证据",
+   "Prompt 到 Loop 的跃迁",
+   "从单元测试到评估：置信度而非正确性证明"
+  ],
+  "管理 Agent": [
+   "Loop Engineering",
+   "自动循环的心跳",
+   "软件工厂 Software Factory",
+   "Prompt 到 Loop 的跃迁",
+   "人类上移到更高抽象层"
+  ],
+  "古德哈特定律": [
+   "Loop Engineering",
+   "自动循环的心跳",
+   "可维护性没有惩罚项",
+   "Prompt 到 Loop 的跃迁"
+  ],
+  "Harness 与 Loop 的配合": [
+   "Loop Engineering",
+   "自动循环的心跳",
+   "编排循环与「dumb loop」",
+   "Prompt 到 Loop 的跃迁"
+  ],
+  "Context discipline": [
+   "Loop Engineering",
+   "context rot（上下文腐烂）与 Lost in the Middle",
+   "Continuous orchestration loop",
+   "Model as subroutine"
+  ],
+  "Decision-maker in the body": [
+   "Loop Engineering",
+   "自动循环的心跳",
+   "Continuous orchestration loop",
+   "Model as subroutine"
+  ],
+  "Self-verification": [
+   "Loop Engineering",
+   "Self-evaluation Failure】",
+   "Self-verification loop",
+   "Verifiability",
+   "Continuous orchestration loop",
+   "Wrapper skill",
+   "Model as subroutine"
+  ],
+  "Feedback loop": [
+   "Loop Engineering",
+   "形成性评估",
+   "Continuous orchestration loop",
+   "Model as subroutine"
+  ],
+  "No-progress detection": [
+   "Loop Engineering",
+   "漂移与隧道视野 drift & tunnel vision",
+   "Continuous orchestration loop",
+   "Model as subroutine"
+  ],
+  "Budget ceiling": [
+   "Loop Engineering",
+   "Token count",
+   "Continuous orchestration loop",
+   "Model as subroutine"
+  ],
+  "Skill as asset": [
+   "Loop Engineering",
+   "宏动作",
+   "Continuous orchestration loop",
+   "Model as subroutine"
+  ],
+  "Ralph Loop": [
+   "Loop Engineering",
+   "Agent loop",
+   "Agent = Model + Harness",
+   "Agent vs Harness",
+   "Continuous orchestration loop",
+   "Model as subroutine"
+  ],
+  "Capability Overhang": [
+   "Loop Engineering",
+   "锯齿状智能（Jagged Intelligence）",
+   "程序记忆（Procedural Memory Skills） progressive disclosure",
+   "软件工厂 Software Factory",
+   "Orchestra Interface",
+   "模型蒸馏",
+   "capability spike 公式",
+   "Inner Loop",
+   "Skills Hell",
+   "Agent as a New Type of Software",
+   "Forward Deployed Engineer",
+   "Model-relative Curriculum",
+   "Outer Loop"
+  ],
+  "Inner Loop": [
+   "Loop Engineering",
+   "Agent loop",
+   "程序记忆（Procedural Memory Skills） progressive disclosure",
+   "软件工厂 Software Factory",
+   "Capability Overhang",
+   "Orchestra Interface",
+   "Skills Hell",
+   "Agent as a New Type of Software",
+   "Forward Deployed Engineer",
+   "Model-relative Curriculum",
+   "Outer Loop"
+  ],
+  "Model as subroutine": [
+   "Loop Engineering",
+   "Git-backed state",
+   "Self-verification",
+   "Ralph Loop",
+   "Budget ceiling",
+   "Context discipline",
+   "Continuous orchestration loop",
+   "Decision-maker in the body",
+   "Feedback loop",
+   "No-progress detection",
+   "Skill as asset"
+  ],
+  "Continuous orchestration loop": [
+   "Loop Engineering",
+   "Git-backed state",
+   "Self-verification",
+   "Ralph Loop",
+   "Orchestration Loop TAO Cycle ReAct Loop",
+   "Budget ceiling",
+   "Context discipline",
+   "Decision-maker in the body",
+   "Feedback loop",
+   "No-progress detection",
+   "Skill as asset",
+   "Model as subroutine"
+  ],
+  "Agentic Coding": [
+   "Agent loop",
+   "Agentic workflows"
+  ],
+  "TodoWrite 与 TodoRead": [
+   "Agent loop",
+   "范围控制与显式的完成定义",
+   "对话加确定性缝合",
+   "看对话 log",
+   "反向代理式窥探"
+  ],
+  "Legible Codebase": [
+   "Agent loop",
+   "Loop Engineer"
+  ],
+  "Executable Codebase": [
+   "Agent loop",
+   "Agent-driven CICD",
+   "Loop Engineer"
+  ],
+  "Verifiable Codebase": [
+   "Agent loop",
+   "Read-only Verifier Agent",
+   "Self-verification loop",
+   "Verifiability",
+   "Loop Engineer"
+  ],
+  "Cross-session Work": [
+   "Agent loop",
+   "Session",
+   "Sessions",
+   "Git-backed state",
+   "Long-running agent handoff",
+   "Artifact Schema",
+   "Loop Engineer"
+  ],
+  "Read-only Verifier Agent": [
+   "Agent loop",
+   "Verifiable Codebase",
+   "Rubric 与 verifier agent",
+   "Rubrics 与验证 agent",
+   "Self-evaluation Failure】",
+   "Loop Engineer"
+  ],
+  "very few abstractions": [
+   "Agent loop",
+   "Agent",
+   "Sessions",
+   "Guardrails",
+   "primitives",
+   "higher-level runtime",
+   "Function tools",
+   "Tracing",
+   "Handoffs Agents as tools",
+   "Human in the loop",
+   "MCP server tool calling",
+   "Python-first",
+   "Sandbox agents"
+  ],
+  "primitives": [
+   "Agent loop",
+   "Agent",
+   "Sessions",
+   "Guardrails",
+   "higher-level runtime",
+   "Function tools",
+   "Tracing",
+   "Handoffs Agents as tools",
+   "Human in the loop",
+   "MCP server tool calling",
+   "Python-first",
+   "Reliability-critical harness primitives",
+   "Sandbox agents",
+   "SayCan",
+   "turnkey yet flexible",
+   "very few abstractions"
+  ],
+  "Agents SDK": [
+   "Agent loop",
+   "Agent",
+   "MCP Model Context Protocol",
+   "Sandbox",
+   "程序记忆（Procedural Memory Skills） progressive disclosure",
+   "持久化执行 durable execution",
+   "shell tool",
+   "subagents",
+   "AGENTS.md",
+   "exfiltration",
+   "harness–compute separation",
+   "prompt-injection",
+   "舱单",
+   "apply patch tool",
+   "code mode",
+   "model-native harness",
+   "native sandbox execution",
+   "snapshotting + rehydration",
+   "turnkey yet flexible"
+  ],
+  "model-native harness": [
+   "Agent loop",
+   "MCP Model Context Protocol",
+   "Sandbox",
+   "程序记忆（Procedural Memory Skills） progressive disclosure",
+   "持久化执行 durable execution",
+   "shell tool",
+   "subagents",
+   "AGENTS.md",
+   "exfiltration",
+   "harness over-fitting",
+   "harness–compute separation",
+   "prompt-injection",
+   "舱单",
+   "Agents SDK",
+   "apply patch tool",
+   "code mode",
+   "native sandbox execution",
+   "snapshotting + rehydration",
+   "turnkey yet flexible"
+  ],
+  "50,000-year-old hardware": [
+   "默认思维倾向",
+   "感官模型快于密集文本"
+  ],
+  "情绪默认": [
+   "默认思维倾向"
+  ],
+  "从众默认": [
+   "默认思维倾向",
+   "共识捕获"
+  ],
+  "惰性默认": [
+   "默认思维倾向",
+   "难选择，易人生",
+   "现成在手"
+  ],
+  "刺激与反应之间的空间": [
+   "默认思维倾向",
+   "二阶思维",
+   "半途低谷"
+  ],
+  "四项心智力量": [
+   "默认思维倾向"
+  ],
+  "思维的默认模式": [
+   "默认思维倾向"
+  ],
+  "定位": [
+   "默认思维倾向",
+   "局部最优 local optima"
+  ],
+  "LLM Large Language Model": [
+   "Agent",
+   "tokens",
+   "系统提示 System Prompt",
+   "stateless",
+   "推理模型",
+   "coding agent",
+   "multimodal Vision LLMs",
+   "reasoning thinking",
+   "模型蒸馏",
+   "cached input tokens",
+   "prompt completion",
+   "工具 Tools",
+   "押注 in-context learning",
+   "chat templated prompts",
+   "reasoning effort",
+   "tool loop"
+  ],
+  "AgentCore": [
+   "Agent"
+  ],
+  "Python-first": [
+   "Agent",
+   "primitives",
+   "开箱即用的编排与子 agent",
+   "very few abstractions"
+  ],
+  "Function tools": [
+   "Agent",
+   "primitives",
+   "工具即结构化输出",
+   "MCP server tool calling",
+   "very few abstractions"
+  ],
+  "MCP server tool calling": [
+   "Agent",
+   "primitives",
+   "Function tools",
+   "very few abstractions"
+  ],
+  "Sessions": [
+   "Agent",
+   "Cross-session Work",
+   "Session",
+   "primitives",
+   "Long-running agent handoff",
+   "Shared File System",
+   "very few abstractions"
+  ],
+  "Sandbox agents": [
+   "Agent",
+   "Sandbox",
+   "primitives",
+   "very few abstractions"
+  ],
+  "Human in the loop": [
+   "Agent",
+   "Guardrails",
+   "primitives",
+   "very few abstractions"
+  ],
+  "Tracing": [
+   "Agent",
+   "primitives",
+   "Trace-based evals",
+   "Trace 驱动评估",
+   "very few abstractions"
+  ],
+  "higher-level runtime": [
+   "Agent",
+   "primitives",
+   "Hermes Agent",
+   "Runtime-harness separation",
+   "very few abstractions",
+   "webhook transform 与 connect()"
+  ],
+  "Claude Managed Agents": [
+   "Agent",
+   "Session",
+   "agent 模板的声明式持久化",
+   "harness 的过时假设",
+   "agent 作为 Claude API 的新核心原语",
+   "messages API 作为直连网关",
+   "触发模式谱系",
+   "基础设施挑战而非 harness 设计问题",
+   "任务时域 task horizon",
+   "长周期任务的基础设施压力",
+   "brain hands session 解耦",
+   "Environment",
+   "skill 作为 onboarding 载体"
+  ],
+  "messages API 作为直连网关": [
+   "Agent",
+   "Session",
+   "stateless",
+   "agent 模板的声明式持久化",
+   "harness 的过时假设",
+   "agent 作为 Claude API 的新核心原语",
+   "触发模式谱系",
+   "基础设施挑战而非 harness 设计问题",
+   "任务时域 task horizon",
+   "长周期任务的基础设施压力",
+   "brain hands session 解耦",
+   "Claude Managed Agents",
+   "Environment",
+   "prefill 与 decode 的高度倾斜",
+   "skill 作为 onboarding 载体"
+  ],
+  "工业强度实在论": [
+   "常识心理学",
+   "认知失调",
+   "束理论"
+  ],
+  "日常语言哲学": [
+   "常识心理学"
+  ],
+  "给事物命名": [
+   "常识心理学"
+  ],
+  "桥接推理": [
+   "常识心理学"
+  ],
+  "软件脑": [
+   "常识心理学"
+  ],
+  "踏脚石效应": [
+   "常识心理学"
+  ],
+  "监管捕获": [
+   "吹哨人困境",
+   "社会许可"
+  ],
+  "三种应对：接受 清除 装作不知道（Acceptance Purging Pretend Ignorance）": [
+   "吹哨人困境",
+   "党的隐性契约",
+   "承诺链条",
+   "法律的模糊性",
+   "简化性暴力",
+   "道德恐慌"
+  ],
+  "法律的模糊性": [
+   "吹哨人困境",
+   "三种应对：接受 清除 装作不知道（Acceptance Purging Pretend Ignorance）",
+   "责任链条散了",
+   "合理性的三个考量（Three Considerations of Reasonableness）",
+   "律师脑"
+  ],
+  "道德恐慌": [
+   "吹哨人困境",
+   "三种应对：接受 清除 装作不知道（Acceptance Purging Pretend Ignorance）",
+   "简化性暴力",
+   "外包思考，但不外包理解",
+   "Agent-Native Infrastructure",
+   "Sensors 与 Actuators"
+  ],
+  "简化性暴力": [
+   "吹哨人困境",
+   "三种应对：接受 清除 装作不知道（Acceptance Purging Pretend Ignorance）",
+   "道德恐慌",
+   "文明的 feature（不是 bug）",
+   "学术造假的级联"
+  ],
+  "党的隐性契约": [
+   "吹哨人困境",
+   "三种应对：接受 清除 装作不知道（Acceptance Purging Pretend Ignorance）",
+   "承诺链条",
+   "外包思考，但不外包理解",
+   "人事即政治",
+   "Agent-Native Infrastructure",
+   "《你死了吗？》App",
+   "极权制度下的产业革命",
+   "Sensors 与 Actuators"
+  ],
+  "承诺链条": [
+   "吹哨人困境",
+   "党的隐性契约",
+   "三种应对：接受 清除 装作不知道（Acceptance Purging Pretend Ignorance）",
+   "外包思考，但不外包理解",
+   "延迟的正义",
+   "Agent-Native Infrastructure",
+   "社会身份脆性",
+   "Sensors 与 Actuators"
+  ],
+  "临床推理": [
+   "鉴别诊断",
+   "第二意见",
+   "临床病理讨论会"
+  ],
+  "临床病理讨论会": [
+   "鉴别诊断",
+   "临床推理"
+  ],
+  "医疗轻视": [
+   "鉴别诊断",
+   "可疑疾病"
+  ],
+  "第二意见": [
+   "鉴别诊断",
+   "临床推理",
+   "人机协作",
+   "EHR"
+  ],
+  "可疑疾病": [
+   "鉴别诊断",
+   "见证",
+   "医疗轻视",
+   "差别易感性假说",
+   "反向幸存者偏差",
+   "三个煤矿金丝雀"
+  ],
+  "Action Space】": [
+   "agent 与 harness 的分工",
+   "上下文腐烂 Context Rot",
+   "Subagent】",
+   "渐进式披露 progressive disclosure",
+   "Agent Skills】",
+   "Elicitation】",
+   "用工具调用联系人类",
+   "action space 膨胀",
+   "See Like an Agent】",
+   "Tool Calling】"
+  ],
+  "协同进化与紧耦合 co-evolution principle": [
+   "agent 与 harness 的分工",
+   "模型训练与 harness 设计的耦合",
+   "If you're not the model, you're the harness.",
+   "Agent vs Harness",
+   "Model-relative Curriculum"
+  ],
+  "brain hands session 解耦": [
+   "agent 与 harness 的分工",
+   "messages API 作为直连网关",
+   "Claude Managed Agents"
+  ],
+  "agent 作为 Claude API 的新核心原语": [
+   "agent 与 harness 的分工",
+   "messages API 作为直连网关",
+   "Claude Managed Agents"
+  ],
+  "context window 即 agent 状态": [
+   "agent 与 harness 的分工",
+   "12-factor agents",
+   "并不 agentic」的 AI Agent",
+   "软件即有向图"
+  ],
+  "确定性工程基础设施】 deterministic engineering infrastructure": [
+   "agent 与 harness 的分工",
+   "Agent = Model + Harness",
+   "程序记忆（Procedural Memory Skills） progressive disclosure",
+   "事件驱动编排与执行解耦",
+   "AI 工程基础设施】 AI engineering infrastructure",
+   "CLAUDE.md",
+   "0 人工代码、0 人工 review 极限形态",
+   "1.6% vs 98.4%",
+   "层级架构强约束 + 给 Agent 读的 lint 错误",
+   "为 AI 设计工作环境",
+   "长周期任务的基础设施压力",
+   "docsdecisions",
+   "hooks .claudehooks",
+   "AI 公司岗位编制】"
+  ],
+  "所有权原则": [
+   "agent 与 harness 的分工",
+   "12-factor agents",
+   "并不 agentic」的 AI Agent",
+   "软件即有向图"
+  ],
+  "脚手架化 LLM 与冯·诺依曼架构类比": [
+   "agent 与 harness 的分工",
+   "操作系统类比",
+   "If you're not the model, you're the harness."
+  ],
+  "三层工程 prompt context harness engineering": [
+   "agent 与 harness 的分工",
+   "让不可见变得可见",
+   "AI 工程基础设施】 AI engineering infrastructure",
+   "If you're not the model, you're the harness.",
+   "优化对象的阶梯"
+  ],
+  "context rot（上下文腐烂）与 Lost in the Middle": [
+   "agent 与 harness 的分工",
+   "If you're not the model, you're the harness.",
+   "Context discipline",
+   "haystack 结构连贯性效应"
+  ],
+  "上下文压缩与即时检索 compaction just-in-time retrieval": [
+   "agent 与 harness 的分工",
+   "上下文占用率与性能衰减",
+   "If you're not the model, you're the harness."
+  ],
+  "多时间尺度记忆与「记忆只是 hint": [
+   "agent 与 harness 的分工",
+   "分层记忆架构",
+   "If you're not the model, you're the harness.",
+   "跨轮次记忆与连贯策略"
+  ],
+  "错误复利 compounding errors": [
+   "agent 与 harness 的分工",
+   "If you're not the model, you're the harness."
+  ],
+  "权限与推理的架构分离": [
+   "agent 与 harness 的分工",
+   "Safe autonomy",
+   "If you're not the model, you're the harness.",
+   "第三方连接器 opt-in",
+   "可编辑面与循环外的权限控制",
+   "Onboarding Agent"
+  ],
+  "验证循环：guides 与 sensors": [
+   "agent 与 harness 的分工",
+   "验证闭环 verification loop",
+   "If you're not the model, you're the harness.",
+   "行为提取"
+  ],
+  "子 agent 编排 Fork Teammate Worktree": [
+   "agent 与 harness 的分工",
+   "If you're not the model, you're the harness."
+  ],
+  "harness 厚薄 thin vs thick": [
+   "agent 与 harness 的分工",
+   "If you're not the model, you're the harness."
+  ],
+  "未来防腐测试 future-proofing test": [
+   "agent 与 harness 的分工",
+   "弱 harness 强 harness 对照与消融实验",
+   "If you're not the model, you're the harness."
+  ],
+  "能力外置化决策": [
+   "agent 与 harness 的分工",
+   "Agent Skills】",
+   "If you're not the model, you're the harness."
+  ],
+  "工具收窄 tool scoping": [
+   "agent 与 harness 的分工",
+   "长上下文窗口",
+   "MCP Model Context Protocol",
+   "Harness token floor",
+   "Tool-schema tax",
+   "If you're not the model, you're the harness.",
+   "延迟加载工具与 ToolSearch",
+   "臃肿工具集 bloated tool sets",
+   "logits 掩码与 context-aware 状态机"
+  ],
+  "Session": [
+   "Cross-session Work",
+   "Sessions",
+   "messages API 作为直连网关",
+   "Stateful Runtime Environment (SRE)",
+   "Claude Managed Agents",
+   "snapshotting + rehydration"
+  ],
+  "信任域": [
+   "DPPO",
+   "重要性采样"
+  ],
+  "REINFORCE": [
+   "DPPO",
+   "外包思考，但不外包理解",
+   "RLOO",
+   "Agent-Native Infrastructure",
+   "Sensors 与 Actuators"
+  ],
+  "价值函数": [
+   "DPPO",
+   "Dr. GRPO"
+  ],
+  "RLHF": [
+   "DPPO",
+   "Reward Signal",
+   "Nerdy Personality",
+   "ScaleRL",
+   "SFT Feedback Loop"
+  ],
+  "Dr. GRPO": [
+   "DPPO",
+   "外包思考，但不外包理解",
+   "价值函数",
+   "Agent-Native Infrastructure",
+   "优势函数",
+   "DAPO",
+   "MaxRL",
+   "Sensors 与 Actuators"
+  ],
+  "RLOO": [
+   "DPPO",
+   "REINFORCE"
+  ],
+  "把重复步骤编码成 Skill": [
+   "验证闭环 verification loop",
+   "skill-creator 访谈式创建",
+   "嵌入 Embedded",
+   "个人基础设施 → 团队基础设施",
+   "灵活性与自动化的权衡",
+   "description 作为触发条件",
+   "SKILL.md：frontmatter＋body 契约",
+   "Wrapper skill",
+   "独立调用 Standalone",
+   "可编辑性边界",
+   "链式 Chained",
+   "习惯变契约 habit → contract",
+   "循环工程 loop engineering",
+   "PR 级门禁 On every PR"
+  ],
+  "SKILL.md：frontmatter＋body 契约": [
+   "验证闭环 verification loop",
+   "skill-creator 访谈式创建",
+   "把重复步骤编码成 Skill",
+   "指令子系统与渐进式展开"
+  ],
+  "description 作为触发条件": [
+   "验证闭环 verification loop",
+   "skill-creator 访谈式创建",
+   "Progressive disclosure（渐进式披露）与 Skills",
+   "把重复步骤编码成 Skill"
+  ],
+  "独立调用 Standalone": [
+   "验证闭环 verification loop",
+   "skill-creator 访谈式创建",
+   "把重复步骤编码成 Skill"
+  ],
+  "嵌入 Embedded": [
+   "验证闭环 verification loop",
+   "skill-creator 访谈式创建",
+   "Agent Skills】",
+   "把重复步骤编码成 Skill",
+   "灵活性与自动化的权衡"
+  ],
+  "链式 Chained": [
+   "验证闭环 verification loop",
+   "skill-creator 访谈式创建",
+   "把重复步骤编码成 Skill"
+  ],
+  "PR 级门禁 On every PR": [
+   "验证闭环 verification loop",
+   "skill-creator 访谈式创建",
+   "把重复步骤编码成 Skill"
+  ],
+  "可编辑性边界": [
+   "验证闭环 verification loop",
+   "skill-creator 访谈式创建",
+   "把重复步骤编码成 Skill"
+  ],
+  "Wrapper skill": [
+   "验证闭环 verification loop",
+   "Self-verification",
+   "skill-creator 访谈式创建",
+   "把重复步骤编码成 Skill"
+  ],
+  "习惯变契约 habit → contract": [
+   "验证闭环 verification loop",
+   "skill-creator 访谈式创建",
+   "把重复步骤编码成 Skill"
+  ],
+  "个人基础设施 → 团队基础设施": [
+   "验证闭环 verification loop",
+   "共享产品系统 shared product system",
+   "skill-creator 访谈式创建",
+   "把重复步骤编码成 Skill"
+  ],
+  "循环工程 loop engineering": [
+   "验证闭环 verification loop",
+   "skill-creator 访谈式创建",
+   "把重复步骤编码成 Skill"
+  ],
+  "灵活性与自动化的权衡": [
+   "验证闭环 verification loop",
+   "skill-creator 访谈式创建",
+   "嵌入 Embedded",
+   "把重复步骤编码成 Skill"
+  ],
+  "Trace-based evals": [
+   "验证闭环 verification loop",
+   "Context as working memory budget",
+   "harness over-fitting",
+   "Tracing",
+   "Measurement snapshot",
+   "Reliability-critical harness primitives"
+  ],
+  "Agent vs Harness": [
+   "验证闭环 verification loop",
+   "上下文腐烂 Context Rot",
+   "协同进化与紧耦合 co-evolution principle",
+   "Context Management 四策略",
+   "coding agent",
+   "Ralph Loop",
+   "Orchestration Loop TAO Cycle ReAct Loop",
+   "迷失在中间 lost in the middle",
+   "If you're not the model, you're the harness.",
+   "原则侧",
+   "Gather-Act-Verify Cycle",
+   "Scaffolding Metaphor",
+   "Von Neumann Architecture Analogy",
+   "Harness Thickness"
+  ],
+  "合成键值检索任务": [
+   "长上下文窗口",
+   "迷失在中间 lost in the middle",
+   "首因偏置 primacy bias",
+   "U 型性能曲线"
+  ],
+  "滑动窗口": [
+   "长上下文窗口"
+  ],
+  "会话的话题边界": [
+   "长上下文窗口",
+   "上下文占用率与性能衰减",
+   "废料怪兽",
+   "new topic 判定",
+   "少即是多」：gimmick 与真实增益的分界"
+  ],
+  "Context Anxiety】": [
+   "长上下文窗口",
+   "废料怪兽",
+   "Context Reset vs Compaction】",
+   "Generator-Evaluator Loop】",
+   "Self-evaluation Failure】",
+   "Sprint Contract】",
+   "Grading Criteria】",
+   "Handoff Artifact】",
+   "Planner-Generator-Evaluator 三 Agent 架构",
+   "Harness 简化原则】 Harness Simplification"
+  ],
+  "Markdown 路由": [
+   "长上下文窗口"
+  ],
+  "Context Distraction】": [
+   "长上下文窗口",
+   "上下文占用率与性能衰减",
+   "Personal Context】"
+  ],
+  "Personal Context】": [
+   "长上下文窗口",
+   "Context Distraction】",
+   "Self-Improving Context System"
+  ],
+  "上下文压缩 Context Compression Summarization": [
+   "长上下文窗口",
+   "Agent = Model + Harness",
+   "注意力预算 attention budget",
+   "上下文腐烂 Context Rot",
+   "基准测试的捆绑测量性",
+   "保留推理 retained reasoning",
+   "缓存断点 Cache Breakpoint",
+   "提示词缓存 Prompt Caching",
+   "稳定前缀 Stable Prefix"
+  ],
+  "Harness token floor": [
+   "长上下文窗口",
+   "Token count",
+   "系统提示 System Prompt",
+   "工具收窄 tool scoping",
+   "Context-window tax",
+   "Instruction-file tax",
+   "Tool-schema tax",
+   "API-boundary observability",
+   "Baseline-request product",
+   "Cache temperature",
+   "Configuration multiplier",
+   "Framework-template repetition",
+   "MCP schema amplification",
+   "Measurement snapshot",
+   "Subagent bootstrap multiplier",
+   "Tamper-evident audit trail",
+   "tools → system → messages 缓存顺序",
+   "Cache prefix stability"
+  ],
+  "上下文 context": [
+   "长上下文窗口",
+   "交接模型 handoff model",
+   "系统提示 System Prompt",
+   "分层记忆架构",
+   "流程即工作 the process became the work",
+   "注意力之前的注意力 attention before attention",
+   "短上下文",
+   "熵减 entropy reduction",
+   "四阶段演化模型",
+   "自回归下输出也是上下文",
+   "最小充分性与语义连续性原则",
+   "self-baking",
+   "Tacit Knowledge】",
+   "复杂被误认为精密 complexity looked like sophistication",
+   "轻量引用 lightweight references",
+   "上下文隔离 context isolation",
+   "上下文协作 context-cooperative",
+   "数字存在 Digital Presence",
+   "限界上下文】 bounded context",
+   "意图翻译者 intention translator",
+   "语义操作系统 semantic operating system",
+   "原始上下文容忍度 tolerance for raw context"
+  ],
+  "原生工具与 MCP 外挂": [
+   "MCP Model Context Protocol",
+   "对话加确定性缝合",
+   "看对话 log",
+   "反向代理式窥探"
+  ],
+  "Headless 架构": [
+   "MCP Model Context Protocol"
+  ],
+  "MCP 工具层": [
+   "MCP Model Context Protocol",
+   "code-review-graph",
+   "Tree-sitter",
+   "持久化代码图谱 structural map graph"
+  ],
+  "《你死了吗？》App": [
+   "党的隐性契约"
+  ],
+  "人事即政治": [
+   "党的隐性契约",
+   "Manus 收购叫停事件"
+  ],
+  "极权制度下的产业革命": [
+   "党的隐性契约",
+   "外包思考，但不外包理解",
+   "Agent-Native Infrastructure",
+   "Sensors 与 Actuators"
+  ],
+  "吹哨人困境": [
+   "党的隐性契约",
+   "三种应对：接受 清除 装作不知道（Acceptance Purging Pretend Ignorance）",
+   "承诺链条",
+   "法律的模糊性",
+   "简化性暴力",
+   "道德恐慌",
+   "监管捕获"
+  ],
+  "习惯": [
+   "环境即无形之手",
+   "微选择复利",
+   "外包思考，但不外包理解",
+   "明线规则",
+   "依恋风格",
+   "Agent-Native Infrastructure",
+   "Sensors 与 Actuators"
+  ],
+  "五人平均法则": [
+   "环境即无形之手",
+   "搭子文化",
+   "理想终态",
+   "微选择复利",
+   "偶遇表面积"
+  ],
+  "明线规则": [
+   "环境即无形之手",
+   "习惯",
+   "The Judo of Agreeing"
+  ],
+  "兰花型儿童": [
+   "环境即无形之手",
+   "蒲公英型儿童"
+  ],
+  "medicating with Disney": [
+   "环境即无形之手"
+  ],
+  "The Judo of Agreeing": [
+   "环境即无形之手",
+   "交易型实用主义",
+   "明线规则"
+  ],
+  "鉴别诊断": [
+   "可疑疾病",
+   "临床推理",
+   "第二意见",
+   "临床病理讨论会",
+   "医疗轻视"
+  ],
+  "三个煤矿金丝雀": [
+   "可疑疾病",
+   "外包思考，但不外包理解",
+   "Agent-Native Infrastructure",
+   "Sensors 与 Actuators"
+  ],
+  "差别易感性假说": [
+   "可疑疾病"
+  ],
+  "反向幸存者偏差": [
+   "可疑疾病"
+  ],
+  "见证": [
+   "可疑疾病",
+   "痛苦素养"
+  ],
+  "隐式指代": [
+   "指代表达",
+   "混合指代",
+   "TOCC"
+  ],
+  "显式指代": [
+   "指代表达",
+   "混合指代"
+  ],
+  "TOCC": [
+   "指代表达",
+   "隐式指代"
+  ],
+  "混合指代": [
+   "指代表达",
+   "隐式指代",
+   "显式指代"
+  ],
+  "优势函数": [
+   "Dr. GRPO"
+  ],
+  "DPPO": [
+   "Dr. GRPO",
+   "RLHF",
+   "RLVR 与编码 agent 的 RL 训练循环",
+   "外包思考，但不外包理解",
+   "价值函数",
+   "信任域",
+   "REINFORCE",
+   "RLOO",
+   "Agent-Native Infrastructure",
+   "Sensors 与 Actuators"
+  ],
+  "DAPO": [
+   "Dr. GRPO"
+  ],
+  "MaxRL": [
+   "Dr. GRPO"
+  ],
+  "handoff 交接": [
+   "Planner–Worker 角色分离",
+   "递归 Planner-Worker 架构",
+   "自协调与共享协调文件",
+   "锁竞争与乐观并发控制",
+   "自收敛与免全局同步"
+  ],
+  "planner–executor–judge 角色分工": [
+   "Planner–Worker 角色分离",
+   "自协调与共享协调文件",
+   "锁竞争与乐观并发控制"
+  ],
+  "最慢 worker 瓶颈与刚性": [
+   "Planner–Worker 角色分离",
+   "自协调与共享协调文件",
+   "锁竞争与乐观并发控制"
+  ],
+  "递归 planner 与 subplanner": [
+   "Planner–Worker 角色分离",
+   "自协调与共享协调文件",
+   "锁竞争与乐观并发控制"
+  ],
+  "连续执行器": [
+   "Planner–Worker 角色分离",
+   "角色过载与病态行为",
+   "自协调与共享协调文件",
+   "锁竞争与乐观并发控制"
+  ],
+  "长时程自治编码 long-running autonomous coding": [
+   "Planner–Worker 角色分离",
+   "漂移与隧道视野 drift & tunnel vision",
+   "动态协调 dynamic coordination",
+   "共享文件加锁的协调机制",
+   "单 agent 的速度天花板",
+   "模型—角色适配",
+   "锁竞争瓶颈 lock contention",
+   "结构适量原则",
+   "任务时域 task horizon",
+   "无层级导致的风险规避 risk-averse agents",
+   "judge agent 与周期性 fresh start",
+   "prompt 主导论",
+   "递归并行规划 sub-planner",
+   "减法式改进 removing complexity",
+   "乐观并发控制 optimistic concurrency control"
+  ],
+  "Stateful Runtime Environment (SRE)": [
+   "Session",
+   "统一执行状态与业务状态"
+  ],
+  "snapshotting + rehydration": [
+   "Session",
+   "Agents SDK",
+   "model-native harness"
+  ],
+  "U 型性能曲线": [
+   "tokens",
+   "多文档问答受控实验",
+   "序列位置效应 serial-position effect",
+   "长上下文评测协议",
+   "迷失在中间 lost in the middle",
+   "闭卷与 oracle 基线",
+   "合成键值检索任务",
+   "首因偏置 primacy bias",
+   "性能饱和早于召回饱和",
+   "重排序与排序列表截断",
+   "查询感知语境化 query-aware contextualization",
+   "干扰文档 distractor documents",
+   "检索器-阅读器配置 retriever-reader",
+   "近因偏置 recency bias",
+   "扩展上下文模型 extended-context models"
+  ],
+  "WebFetch 两阶段总结": [
+   "tokens",
+   "Tool call offloading",
+   "对话加确定性缝合",
+   "看对话 log",
+   "反向代理式窥探"
+  ],
+  "coding agent": [
+   "tokens",
+   "系统提示 System Prompt",
+   "LLM Large Language Model",
+   "stateless",
+   "multimodal Vision LLMs",
+   "reasoning thinking",
+   "cached input tokens",
+   "prompt completion",
+   "工具 Tools",
+   "Agent vs Harness",
+   "chat templated prompts",
+   "Claude Code",
+   "Codex",
+   "reasoning effort",
+   "tool loop"
+  ],
+  "基准测试的捆绑测量性": [
+   "上下文占用率与性能衰减",
+   "通用 harness 的公平性张力",
+   "跨轮次记忆与连贯策略",
+   "输出 token 效率",
+   "Responses API 与生产设置对齐",
+   "RHAE",
+   "上下文压缩 Context Compression Summarization",
+   "ALFRED",
+   "Infrastructure noise",
+   "保留推理 retained reasoning",
+   "滚动截断 rolling truncation"
+  ],
+  "保留推理 retained reasoning": [
+   "上下文占用率与性能衰减",
+   "基准测试的捆绑测量性",
+   "通用 harness 的公平性张力",
+   "跨轮次记忆与连贯策略",
+   "输出 token 效率",
+   "Responses API 与生产设置对齐",
+   "RHAE",
+   "上下文压缩 Context Compression Summarization",
+   "滚动截断 rolling truncation"
+  ],
+  "多智能体架构": [
+   "子 Agent 分工",
+   "动态协调 dynamic coordination",
+   "共享 多人 agent 会话",
+   "Orchestra Interface",
+   "Symphony",
+   "单 agent 的速度天花板",
+   "意图理解、路由与升级 understand intent, route, escalate",
+   "Executive LLM",
+   "integrator 瓶颈",
+   "Handoffs Agents as tools"
+  ],
+  "所有权与问责": [
+   "子 Agent 分工",
+   "自协调与共享协调文件",
+   "锁竞争与乐观并发控制"
+  ],
+  "Generator-Evaluator Loop】": [
+   "子 Agent 分工",
+   "Context Reset vs Compaction】",
+   "Context Anxiety】",
+   "Planner-Generator-Evaluator 三 Agent 架构"
+  ],
+  "模型—角色适配": [
+   "子 Agent 分工",
+   "动态协调 dynamic coordination",
+   "开箱即用的编排与子 agent",
+   "单 agent 的速度天花板",
+   "长时程自治编码 long-running autonomous coding"
+  ],
+  "Loop Engineering": [
+   "子 Agent 分工",
+   "Git-backed state",
+   "Self-verification",
+   "自动循环的心跳",
+   "Capability Overhang",
+   "管理 Agent",
+   "可验证目标",
+   "项目知识体系",
+   "Ralph Loop",
+   "Inner Loop",
+   "工作树隔离",
+   "古德哈特定律",
+   "连接器",
+   "Harness 与 Loop 的配合",
+   "Prompt 到 Loop 的跃迁",
+   "闭环",
+   "部署系统层",
+   "Budget ceiling",
+   "Context discipline",
+   "Continuous orchestration loop",
+   "Decision-maker in the body",
+   "Feedback loop",
+   "Learning Loop",
+   "Loop Contract",
+   "Loop Engineer",
+   "No-progress detection",
+   "Skill as asset",
+   "递归自我改进 RSI",
+   "Model as subroutine"
+  ],
+  "AI 工程基础设施】 AI engineering infrastructure": [
+   "Agent = Model + Harness",
+   "程序记忆（Procedural Memory Skills） progressive disclosure",
+   "确定性工程基础设施】 deterministic engineering infrastructure",
+   "三层工程 prompt context harness engineering",
+   "CLAUDE.md",
+   "0 人工代码、0 人工 review 极限形态",
+   "1.6% vs 98.4%",
+   "层级架构强约束 + 给 Agent 读的 lint 错误",
+   "为 AI 设计工作环境",
+   "docsdecisions",
+   "hooks .claudehooks",
+   "AI 公司岗位编制】"
+  ],
+  "1.6% vs 98.4%": [
+   "Agent = Model + Harness",
+   "程序记忆（Procedural Memory Skills） progressive disclosure",
+   "Latent vs Deterministic",
+   "确定性工程基础设施】 deterministic engineering infrastructure",
+   "AI 工程基础设施】 AI engineering infrastructure",
+   "CLAUDE.md",
+   "0 人工代码、0 人工 review 极限形态",
+   "层级架构强约束 + 给 Agent 读的 lint 错误",
+   "为 AI 设计工作环境",
+   "docsdecisions",
+   "hooks .claudehooks",
+   "AI 公司岗位编制】"
+  ],
+  "上下文腐烂 Context Rot": [
+   "Agent = Model + Harness",
+   "注意力预算 attention budget",
+   "结构化记事 agentic memory",
+   "Action Space】",
+   "渐进式披露 progressive disclosure",
+   "大海捞针（NIAH）与词面匹配",
+   "工具即契约 tools as the contract",
+   "上下文均匀处理假设",
+   "输入长度与任务难度的混淆",
+   "Elicitation】",
+   "just in time 上下文检索",
+   "迷失在中间 lost in the middle",
+   "AI Agent",
+   "上下文压缩 Context Compression Summarization",
+   "性能梯度而非硬悬崖 performance gradient rather than a hard cliff",
+   "臃肿工具集 bloated tool sets",
+   "自回归下输出也是上下文",
+   "最小高信号 token 集合 smallest possible set of high-signal tokens",
+   "Agent vs Harness",
+   "configuration problem",
+   "haystack 结构连贯性效应",
+   "needle-haystack 相似度",
+   "needle-question 语义相似度谱系",
+   "See Like an Agent】",
+   "sub-agent 架构与关注点分离",
+   "非模型架构 Non-model Architecture",
+   "观察掩码 Observation Masking",
+   "典型示例策展 diverse, canonical examples",
+   "非尝试率与拒答模式",
+   "干扰项的非均匀影响",
+   "干扰项与无关内容之分",
+   "混合检索策略 hybrid strategy",
+   "检索与推理的双任务负担",
+   "弃答与幻觉：两种失败姿态",
+   "恰当高度 the right altitude"
+  ],
+  "沙箱化自主": [
+   "Sandbox",
+   "废料怪兽",
+   "少即是多」：gimmick 与真实增益的分界"
+  ],
+  "native sandbox execution": [
+   "Sandbox",
+   "Agents SDK",
+   "model-native harness"
+  ],
+  "Environment": [
+   "Sandbox",
+   "messages API 作为直连网关",
+   "Claude Managed Agents"
+  ],
+  "harness–compute separation": [
+   "Sandbox",
+   "exfiltration",
+   "Agents SDK",
+   "AWS VPC",
+   "model-native harness"
+  ],
+  "次贷式 AI 危机（Subprime AI Crisis）": [
+   "苍白之马（Pale Horse）",
+   "付出按旧规则，兑现按新规则",
+   "AI 泡沫",
+   "Hyperscaler"
+  ],
+  "安全边际": [
+   "苍白之马（Pale Horse）",
+   "外包思考，但不外包理解",
+   "合理胜过理性",
+   "Just-in-Time vs Buffer Stock",
+   "Agent-Native Infrastructure",
+   "获取财富 vs 保持财富",
+   "Sensors 与 Actuators"
+  ],
+  "别人的游戏": [
+   "苍白之马（Pale Horse）",
+   "付出按旧规则，兑现按新规则",
+   "合理胜过理性"
+  ],
+  "付出按旧规则，兑现按新规则": [
+   "苍白之马（Pale Horse）",
+   "次贷式 AI 危机（Subprime AI Crisis）",
+   "办公室崇拜",
+   "别人的游戏"
+  ],
+  "“SaaS 已死”叙事与护城河蒸发": [
+   "苍白之马（Pale Horse）",
+   "代理原生 agent-native",
+   "共享 多人 agent 会话",
+   "人的手感与产品手艺",
+   "Frontier Demand 前沿需求",
+   "护城河清单与插件化路线",
+   "决策慢、执行快",
+   "零 bug 政策与一周 SLA",
+   "Token 卖家的激励错配",
+   "产品记忆平台 product memory platform",
+   "大杂烩产品陷阱 kitchen sink product",
+   "第一天心态 day one",
+   "概念性工作与“概念车”",
+   "虚荣指标 vanity metrics",
+   "粘性界面与 token 成本转移",
+   "自动驾驶产品与项目记忆 self-driving project memory",
+   "上下文骨架",
+   "缩短循环 shortening the loop",
+   "组织级技能与指引 skills Linear way skill"
+  ],
+  "延迟的正义": [
+   "承诺链条",
+   "社会稳定机制"
+  ],
+  "社会身份脆性": [
+   "承诺链条"
+  ],
+  "交易型实用主义": [
+   "搭子文化",
+   "Boyfriend roulette",
+   "付费陪伴",
+   "The Judo of Agreeing"
+  ],
+  "付费陪伴": [
+   "搭子文化",
+   "交易型实用主义",
+   "盲盒晚餐"
+  ],
+  "盲盒晚餐": [
+   "搭子文化",
+   "Boyfriend roulette",
+   "付费陪伴"
+  ],
+  "Boyfriend roulette": [
+   "搭子文化",
+   "交易型实用主义",
+   "盲盒晚餐",
+   "偶遇表面积"
+  ],
+  "律师脑": [
+   "法律的模糊性"
+  ],
+  "责任链条散了": [
+   "法律的模糊性",
+   "赛博避难所与修罗场",
+   "AI 护照"
+  ],
+  "合理性的三个考量（Three Considerations of Reasonableness）": [
+   "法律的模糊性",
+   "善意越轨（Benign Deviancy）"
+  ],
+  "虚荣指标 vanity metrics": [
+   "价值定义",
+   "代理原生 agent-native",
+   "“SaaS 已死”叙事与护城河蒸发",
+   "上下文骨架"
+  ],
+  "软技能": [
+   "价值定义"
+  ],
+  "Polished Output vs Real Judgment": [
+   "价值定义"
+  ],
+  "交接模型 handoff model": [
+   "价值定义",
+   "上下文 context",
+   "共享产品系统 shared product system",
+   "阶段压缩 compression",
+   "流程即工作 the process became the work",
+   "意图理解、路由与升级 understand intent, route, escalate",
+   "agent 不是读心者 agents are not mind readers",
+   "产品经理的组织化",
+   "移除开销 remove overhead",
+   "意图、判断与品味 intent, judgment, taste",
+   "把上下文转化为执行 turn context into execution",
+   "复杂被误认为精密 complexity looked like sophistication",
+   "技能化 Skills",
+   "事件驱动的自动化 Automations",
+   "缩短想法与实现之间的距离 collapsing the distance between idea and implementation"
+  ],
+  "领域专家】 domain expert": [
+   "价值定义",
+   "共享理解】 shared understanding",
+   "设计树】 design tree",
+   "追问式对齐】 Grill Me"
+  ],
+  "AI-First": [
+   "价值定义",
+   "Agent-driven CICD",
+   "产品经理的组织化",
+   "动态系统",
+   "信任机制重构",
+   "资深悖论",
+   "Agent 经济",
+   "Architecture Operator 分工",
+   "Autofixing",
+   "Implementation 能力"
+  ],
+  "信任机制重构": [
+   "价值定义",
+   "Agent-driven CICD",
+   "产品经理的组织化",
+   "动态系统",
+   "让自己对 AI 可读",
+   "资深悖论",
+   "Agent 经济",
+   "AI-First",
+   "Architecture Operator 分工",
+   "Autofixing",
+   "Implementation 能力"
+  ],
+  "算法即决定性力量": [
+   "剪辑经济",
+   "量产游戏",
+   "算法即制片人"
+  ],
+  "剪辑军团": [
+   "剪辑经济",
+   "神话管理"
+  ],
+  "A view is a view": [
+   "剪辑经济"
+  ],
+  "达尔文式角斗场": [
+   "剪辑经济",
+   "霸道总裁"
+  ],
+  "Pitch】 video packaging": [
+   "剪辑经济",
+   "语义相关性",
+   "共享理解】 shared understanding",
+   "设计树】 design tree",
+   "追问式对齐】 Grill Me"
+  ],
+  "文明的 feature（不是 bug）": [
+   "简化性暴力",
+   "外包思考，但不外包理解",
+   "Agent-Native Infrastructure",
+   "Sensors 与 Actuators"
+  ],
+  "学术造假的级联": [
+   "简化性暴力"
+  ],
+  "RTG": [
+   "旅行者号"
+  ],
+  "引力助推": [
+   "旅行者号"
+  ],
+  "日球层": [
+   "旅行者号"
+  ],
+  "Big Bang 升级计划（旅行者号）": [
+   "旅行者号"
+  ],
+  "DART任务": [
+   "旅行者号",
+   "阿尔忒弥斯协定",
+   "国际月球科研站"
+  ],
+  "judge agent 与周期性 fresh start": [
+   "漂移与隧道视野 drift & tunnel vision",
+   "动态协调 dynamic coordination",
+   "单 agent 的速度天花板",
+   "长时程自治编码 long-running autonomous coding"
+  ],
+  "环境即无形之手": [
+   "五人平均法则",
+   "习惯",
+   "明线规则",
+   "The Judo of Agreeing",
+   "兰花型儿童",
+   "medicating with Disney"
+  ],
+  "微选择复利": [
+   "五人平均法则",
+   "理想终态",
+   "习惯",
+   "偶遇表面积"
+  ],
+  "偶遇表面积": [
+   "五人平均法则",
+   "微选择复利",
+   "Boyfriend roulette"
+  ],
+  "搭子文化": [
+   "五人平均法则",
+   "交易型实用主义",
+   "Boyfriend roulette",
+   "外包思考，但不外包理解",
+   "付费陪伴",
+   "盲盒晚餐",
+   "Agent-Native Infrastructure",
+   "Sensors 与 Actuators"
+  ],
+  "理想终态": [
+   "五人平均法则",
+   "微选择复利",
+   "十年重塑",
+   "Enough"
+  ],
+  "指代表达": [
+   "隐式指代",
+   "混合指代",
+   "显式指代",
+   "TOCC"
+  ],
+  "有限的工作记忆 limited working memory": [
+   "注意力预算 attention budget",
+   "上下文失败，而非模型失败 context failures, not model failures",
+   "文件系统即终极上下文",
+   "系统而非字符串 A System, Not a String",
+   "正确的信息与工具，在正确的时间",
+   "动态装配 Dynamic",
+   "格式即上下文 where the format matters",
+   "廉价 demo 与「魔法级」agent",
+   "上下文（Context）：模型生成之前看到的一切",
+   "知识与能力的双供给 information and tools"
+  ],
+  "选择性注意力压缩": [
+   "注意力预算 attention budget"
+  ],
+  "reasoning effort": [
+   "注意力预算 attention budget",
+   "LLM Large Language Model",
+   "coding agent",
+   "reasoning thinking"
+  ],
+  "Tool-schema tax": [
+   "注意力预算 attention budget",
+   "Harness token floor",
+   "工具收窄 tool scoping",
+   "Context-window tax",
+   "Instruction-file tax",
+   "API-boundary observability",
+   "Baseline-request product",
+   "Cache temperature",
+   "Configuration multiplier",
+   "Framework-template repetition",
+   "MCP schema amplification",
+   "Measurement snapshot",
+   "Subagent bootstrap multiplier",
+   "Tamper-evident audit trail",
+   "Cache prefix stability"
+  ],
+  "swindle of fulfillment": [
+   "death of the social",
+   "Disney bubble",
+   "Hypnopaedia",
+   "Disney hierarchy"
+  ],
+  "Disney bubble": [
+   "death of the social",
+   "swindle of fulfillment",
+   "Hypnopaedia",
+   "Disney hierarchy"
+  ],
+  "Human-Only Social Networks": [
+   "death of the social",
+   "Ghost in the Shell",
+   "Trutherism",
+   "GEO"
+  ],
+  "Universal Zulu Nation": [
+   "death of the social"
+  ],
+  "Trutherism": [
+   "death of the social",
+   "Human-Only Social Networks"
+  ],
+  "文件系统即持久记忆": [
+   "Git-backed state",
+   "状态子系统与进度持久化",
+   "agent 模板的声明式持久化",
+   "Artifact Schema",
+   "Shared File System",
+   "本地状态层",
+   "部署系统层",
+   "递归自我改进 RSI"
+  ],
+  "fail-closed 默认": [
+   "Guardrails",
+   "跨会话记忆文件系统",
+   "默认帮助的高门槛拒绝",
+   "判定程序化写法",
+   "上下文即不可信输入",
+   "安全路由与能力分层",
+   "第三方连接器 opt-in",
+   "反自我合理化条款",
+   "会话级累积判断",
+   "记忆须改变回答实质",
+   "首次匹配即停路由",
+   "遗漏式隐私",
+   "自尊式担责",
+   "meaningful uplift 判据",
+   "preferences 写入过滤",
+   "stated 出处纪律",
+   "版权合规硬上限"
+  ],
+  "安全路由与能力分层": [
+   "Guardrails",
+   "判定程序化写法",
+   "fail-closed 默认",
+   "反自我合理化条款"
+  ],
+  "prompt-injection": [
+   "Guardrails",
+   "上下文即不可信输入",
+   "exfiltration",
+   "Agents SDK",
+   "model-native harness"
+  ],
+  "Token count": [
+   "Harness token floor",
+   "Token Efficiency",
+   "Baseline-request product",
+   "Budget ceiling",
+   "Framework-template repetition"
+  ],
+  "Configuration multiplier": [
+   "Harness token floor",
+   "Tool-schema tax",
+   "API-boundary observability"
+  ],
+  "Subagent bootstrap multiplier": [
+   "Harness token floor",
+   "Tool-schema tax",
+   "API-boundary observability"
+  ],
+  "tools → system → messages 缓存顺序": [
+   "Harness token floor",
+   "缓存断点 Cache Breakpoint",
+   "提示词缓存 Prompt Caching",
+   "稳定前缀 Stable Prefix"
+  ],
+  "Baseline-request product": [
+   "Harness token floor",
+   "Token count",
+   "Tool-schema tax",
+   "API-boundary observability"
+  ],
+  "Instruction-file tax": [
+   "Harness token floor",
+   "Context Bloat",
+   "Context-window tax",
+   "Tool-schema tax",
+   "API-boundary observability"
+  ],
+  "MCP schema amplification": [
+   "Harness token floor",
+   "Tool-schema tax",
+   "API-boundary observability"
+  ],
+  "Framework-template repetition": [
+   "Harness token floor",
+   "Token count",
+   "Tool-schema tax",
+   "API-boundary observability"
+  ],
+  "Cache prefix stability": [
+   "Harness token floor",
+   "Tool-schema tax",
+   "API-boundary observability"
+  ],
+  "Cache temperature": [
+   "Harness token floor",
+   "Tool-schema tax",
+   "API-boundary observability",
+   "KV-cache 命中率"
+  ],
+  "Context-window tax": [
+   "Harness token floor",
+   "Context as working memory budget",
+   "Instruction-file tax",
+   "Tool-schema tax",
+   "API-boundary observability"
+  ],
+  "Tamper-evident audit trail": [
+   "Harness token floor",
+   "Tool-schema tax",
+   "API-boundary observability",
+   "Ledger of Record"
+  ],
+  "Measurement snapshot": [
+   "Harness token floor",
+   "Tool-schema tax",
+   "Trace-based evals",
+   "API-boundary observability"
+  ],
+  "API-boundary observability": [
+   "Harness token floor",
+   "cached input tokens",
+   "Context-window tax",
+   "Instruction-file tax",
+   "Tool-schema tax",
+   "Baseline-request product",
+   "Cache temperature",
+   "Configuration multiplier",
+   "Framework-template repetition",
+   "MCP schema amplification",
+   "Measurement snapshot",
+   "Subagent bootstrap multiplier",
+   "Tamper-evident audit trail",
+   "Cache prefix stability"
+  ],
+  "turnkey yet flexible": [
+   "primitives",
+   "Agents SDK",
+   "model-native harness"
+  ],
+  "Reliability-critical harness primitives": [
+   "primitives",
+   "Context as working memory budget",
+   "Long-running agent handoff",
+   "Repo-local instructions",
+   "Harness evolution",
+   "Runtime-harness separation",
+   "Safe autonomy",
+   "Spec-driven agent workflow",
+   "Trace-based evals",
+   "Harness-level benchmarks",
+   "Infrastructure noise"
+  ],
+  "SayCan": [
+   "primitives"
+  ],
+  "Reward Signal": [
+   "RLHF",
+   "RLVR 与编码 agent 的 RL 训练循环",
+   "外包思考，但不外包理解",
+   "Nerdy Personality",
+   "Agent-Native Infrastructure",
+   "Reward Generalization",
+   "Sensors 与 Actuators"
+  ],
+  "Nerdy Personality": [
+   "RLHF",
+   "Reward Signal"
+  ],
+  "ScaleRL": [
+   "RLHF",
+   "RLVR 与编码 agent 的 RL 训练循环"
+  ],
+  "SFT Feedback Loop": [
+   "RLHF",
+   "外包思考，但不外包理解",
+   "Agent-Native Infrastructure",
+   "Sensors 与 Actuators"
+  ],
+  "RL Circuits": [
+   "RLVR 与编码 agent 的 RL 训练循环"
+  ],
+  "Lights-off 软件工厂": [
+   "RLVR 与编码 agent 的 RL 训练循环",
+   "可维护性没有惩罚项",
+   "软件工厂 Software Factory",
+   "SWE-bench 与二元打分",
+   "0 人工代码、0 人工 review 极限形态",
+   "2026 版约束理论",
+   "垂直切片 Tracer Bullet",
+   "可维护性 霰弹式手术",
+   "可维护性缺一个可靠的打分预言机",
+   "Harness 内 RL RL inside the harness",
+   "Mutation Testing 与前沿质量评测",
+   "产品评审 Product Review",
+   "程序设计 Program Design",
+   "前置对齐 front-loading alignment",
+   "系统架构评审"
+  ],
+  "软件工厂 Software Factory": [
+   "RLVR 与编码 agent 的 RL 训练循环",
+   "可维护性没有惩罚项",
+   "Capability Overhang",
+   "管理 Agent",
+   "Inner Loop",
+   "SWE-bench 与二元打分",
+   "Tiger Team",
+   "Vantage",
+   "2026 版约束理论",
+   "垂直切片 Tracer Bullet",
+   "可维护性 霰弹式手术",
+   "可维护性缺一个可靠的打分预言机",
+   "Harness 内 RL RL inside the harness",
+   "Lights-off 软件工厂",
+   "Mutation Testing 与前沿质量评测",
+   "产品评审 Product Review",
+   "程序设计 Program Design",
+   "前置对齐 front-loading alignment",
+   "系统架构评审"
+  ],
+  "Stargate 依赖闭环（Stargate Dependency Loop）": [
+   "Token 补贴缺口（Token Subsidy Gap）",
+   "Token 卖家的激励错配"
+  ],
+  "Token 卖家的激励错配": [
+   "Token 补贴缺口（Token Subsidy Gap）",
+   "代理原生 agent-native",
+   "“SaaS 已死”叙事与护城河蒸发",
+   "Stargate 依赖闭环（Stargate Dependency Loop）",
+   "上下文骨架"
+  ],
+  "Reverse Digital Divide": [
+   "Token 补贴缺口（Token Subsidy Gap）",
+   "Verification Markets",
+   "Software for one"
+  ],
+  "single_advertiser_ad_unit": [
+   "Token 补贴缺口（Token Subsidy Gap）",
+   "OpenAI 广告基础设施域名",
+   "oppref",
+   "Verification Markets"
+  ],
+  "OpenAI 广告基础设施域名": [
+   "Token 补贴缺口（Token Subsidy Gap）",
+   "single_advertiser_ad_unit",
+   "oppref"
+  ],
+  "Token Efficiency": [
+   "Token count",
+   "大小模型分工",
+   "输出 token 效率"
+  ],
+  "合理胜过理性": [
+   "安全边际",
+   "别人的游戏"
+  ],
+  "苍白之马（Pale Horse）": [
+   "安全边际",
+   "次贷式 AI 危机（Subprime AI Crisis）",
+   "付出按旧规则，兑现按新规则",
+   "“SaaS 已死”叙事与护城河蒸发",
+   "别人的游戏"
+  ],
+  "Just-in-Time vs Buffer Stock": [
+   "安全边际",
+   "机会成本"
+  ],
+  "获取财富 vs 保持财富": [
+   "安全边际"
+  ],
+  "宏动作": [
+   "Agentic Engineering",
+   "垂直切片 Tracer Bullet",
+   "Git Worktree",
+   "Skill as asset"
+  ],
+  "Vibe Coding": [
+   "Agentic Engineering"
+  ],
+  "12-factor agents": [
+   "Agentic Engineering",
+   "统一执行状态与业务状态",
+   "80% 质量墙",
+   "并不 agentic」的 AI Agent",
+   "工具即结构化输出",
+   "框架反向工程",
+   "扔掉 DAG」的承诺",
+   "软件即有向图",
+   "所有权原则",
+   "小而模块化的概念",
+   "用工具调用联系人类",
+   "agent 循环",
+   "context window 即 agent 状态",
+   "DAG 编排器"
+  ],
+  "准比快重要": [
+   "Agentic Engineering"
+  ],
+  "Bitter Lesson】": [
+   "Agentic Engineering",
+   "推理模型"
+  ],
+  "Creator → Curator 角色转换": [
+   "Agentic Engineering",
+   "Architecture Operator 分工",
+   "Generative Kernel"
+  ],
+  "输入长度与任务难度的混淆": [
+   "上下文腐烂 Context Rot",
+   "大海捞针（NIAH）与词面匹配",
+   "多文档问答受控实验",
+   "上下文均匀处理假设",
+   "长上下文评测协议"
+  ],
+  "needle-question 语义相似度谱系": [
+   "上下文腐烂 Context Rot",
+   "大海捞针（NIAH）与词面匹配",
+   "上下文均匀处理假设",
+   "needle-haystack 相似度"
+  ],
+  "干扰项与无关内容之分": [
+   "上下文腐烂 Context Rot",
+   "大海捞针（NIAH）与词面匹配",
+   "上下文均匀处理假设"
+  ],
+  "干扰项的非均匀影响": [
+   "上下文腐烂 Context Rot",
+   "大海捞针（NIAH）与词面匹配",
+   "上下文均匀处理假设"
+  ],
+  "弃答与幻觉：两种失败姿态": [
+   "上下文腐烂 Context Rot",
+   "大海捞针（NIAH）与词面匹配",
+   "上下文均匀处理假设"
+  ],
+  "needle-haystack 相似度": [
+   "上下文腐烂 Context Rot",
+   "大海捞针（NIAH）与词面匹配",
+   "上下文均匀处理假设",
+   "needle-question 语义相似度谱系"
+  ],
+  "haystack 结构连贯性效应": [
+   "上下文腐烂 Context Rot",
+   "大海捞针（NIAH）与词面匹配",
+   "上下文均匀处理假设",
+   "context rot（上下文腐烂）与 Lost in the Middle"
+  ],
+  "检索与推理的双任务负担": [
+   "上下文腐烂 Context Rot",
+   "大海捞针（NIAH）与词面匹配",
+   "上下文均匀处理假设"
+  ],
+  "自回归下输出也是上下文": [
+   "上下文腐烂 Context Rot",
+   "上下文 context",
+   "大海捞针（NIAH）与词面匹配",
+   "上下文均匀处理假设"
+  ],
+  "非尝试率与拒答模式": [
+   "上下文腐烂 Context Rot",
+   "大海捞针（NIAH）与词面匹配",
+   "上下文均匀处理假设"
+  ],
+  "观察掩码 Observation Masking": [
+   "上下文腐烂 Context Rot",
+   "即时检索 Just-in-time Retrieval",
+   "AI Agent",
+   "非模型架构 Non-model Architecture"
+  ],
+  "See Like an Agent】": [
+   "上下文腐烂 Context Rot",
+   "工具接口的表达力设计",
+   "Action Space】",
+   "Subagent】",
+   "渐进式披露 progressive disclosure",
+   "Agent Skills】",
+   "Elicitation】",
+   "Tool Calling】"
+  ],
+  "Elicitation】": [
+   "上下文腐烂 Context Rot",
+   "Action Space】",
+   "Subagent】",
+   "渐进式披露 progressive disclosure",
+   "Agent Skills】",
+   "意图规约与可引导性",
+   "bits",
+   "See Like an Agent】",
+   "Tool Calling】"
+  ],
+  "上下文均匀处理假设": [
+   "上下文腐烂 Context Rot",
+   "大海捞针（NIAH）与词面匹配",
+   "输入长度与任务难度的混淆",
+   "性能梯度而非硬悬崖 performance gradient rather than a hard cliff",
+   "长上下文的幻觉",
+   "自回归下输出也是上下文",
+   "haystack 结构连贯性效应",
+   "needle-haystack 相似度",
+   "needle-question 语义相似度谱系",
+   "非尝试率与拒答模式",
+   "干扰项的非均匀影响",
+   "干扰项与无关内容之分",
+   "检索与推理的双任务负担",
+   "弃答与幻觉：两种失败姿态"
+  ],
+  "大海捞针（NIAH）与词面匹配": [
+   "上下文腐烂 Context Rot",
+   "上下文均匀处理假设",
+   "输入长度与任务难度的混淆",
+   "长上下文评测协议",
+   "噪声上下文",
+   "自回归下输出也是上下文",
+   "haystack 结构连贯性效应",
+   "needle-haystack 相似度",
+   "needle-question 语义相似度谱系",
+   "非尝试率与拒答模式",
+   "干扰项的非均匀影响",
+   "干扰项与无关内容之分",
+   "检索与推理的双任务负担",
+   "弃答与幻觉：两种失败姿态"
+  ],
+  "注意力预算 attention budget": [
+   "上下文腐烂 Context Rot",
+   "结构化记事 agentic memory",
+   "渐进式披露 progressive disclosure",
+   "工具即契约 tools as the contract",
+   "有限的工作记忆 limited working memory",
+   "注意力之前的注意力 attention before attention",
+   "just in time 上下文检索",
+   "Tool-schema tax",
+   "上下文压缩 Context Compression Summarization",
+   "性能梯度而非硬悬崖 performance gradient rather than a hard cliff",
+   "选择性注意力压缩",
+   "延迟加载工具 deferred loading",
+   "臃肿工具集 bloated tool sets",
+   "最小高信号 token 集合 smallest possible set of high-signal tokens",
+   "reasoning effort",
+   "sub-agent 架构与关注点分离",
+   "典型示例策展 diverse, canonical examples",
+   "混合检索策略 hybrid strategy",
+   "恰当高度 the right altitude"
+  ],
+  "迷失在中间 lost in the middle": [
+   "上下文腐烂 Context Rot",
+   "多文档问答受控实验",
+   "序列位置效应 serial-position effect",
+   "长上下文评测协议",
+   "AI Agent",
+   "闭卷与 oracle 基线",
+   "合成键值检索任务",
+   "首因偏置 primacy bias",
+   "性能饱和早于召回饱和",
+   "重排序与排序列表截断",
+   "Agent vs Harness",
+   "U 型性能曲线",
+   "非模型架构 Non-model Architecture",
+   "查询感知语境化 query-aware contextualization",
+   "干扰文档 distractor documents",
+   "检索器-阅读器配置 retriever-reader",
+   "近因偏置 recency bias",
+   "扩展上下文模型 extended-context models"
+  ],
+  "短上下文": [
+   "上下文 context"
+  ],
+  "Tacit Knowledge】": [
+   "上下文 context",
+   "项目知识体系",
+   "Agent Drift",
+   "Context 四种失败模式】 Context Pollution Distraction Confusion Clash"
+  ],
+  "限界上下文】 bounded context": [
+   "上下文 context",
+   "共享理解】 shared understanding",
+   "设计树】 design tree",
+   "统一语言】 ubiquitous language",
+   "追问式对齐】 Grill Me"
+  ],
+  "复杂被误认为精密 complexity looked like sophistication": [
+   "上下文 context",
+   "共享产品系统 shared product system",
+   "交接模型 handoff model",
+   "阶段压缩 compression",
+   "流程即工作 the process became the work",
+   "意图理解、路由与升级 understand intent, route, escalate",
+   "agent 不是读心者 agents are not mind readers",
+   "移除开销 remove overhead",
+   "意图、判断与品味 intent, judgment, taste",
+   "把上下文转化为执行 turn context into execution",
+   "技能化 Skills",
+   "事件驱动的自动化 Automations",
+   "缩短想法与实现之间的距离 collapsing the distance between idea and implementation"
+  ],
+  "流程即工作 the process became the work": [
+   "上下文 context",
+   "共享产品系统 shared product system",
+   "交接模型 handoff model",
+   "阶段压缩 compression",
+   "意图理解、路由与升级 understand intent, route, escalate",
+   "agent 不是读心者 agents are not mind readers",
+   "移除开销 remove overhead",
+   "意图、判断与品味 intent, judgment, taste",
+   "把上下文转化为执行 turn context into execution",
+   "复杂被误认为精密 complexity looked like sophistication",
+   "技能化 Skills",
+   "事件驱动的自动化 Automations",
+   "缩短想法与实现之间的距离 collapsing the distance between idea and implementation"
+  ],
+  "冰 XXI": [
+   "冰相",
+   "金刚石压砧"
+  ],
+  "冰 XXII": [
+   "冰相"
+  ],
+  "超离子冰": [
+   "冰相",
+   "中子散射"
+  ],
+  "塑性冰 VII": [
+   "冰相"
+  ],
+  "AI 泡沫": [
+   "次贷式 AI 危机（Subprime AI Crisis）",
+   "年化营收",
+   "LLM 订阅错配（LLM Subscription Mispricing）"
+  ],
+  "Hyperscaler": [
+   "次贷式 AI 危机（Subprime AI Crisis）"
+  ],
+  "二八反转": [
+   "代理原生 agent-native",
+   "第一天心态 day one",
+   "交互 Scalability Interaction Scalability"
+  ],
+  "并不 agentic」的 AI Agent": [
+   "代理原生 agent-native",
+   "统一执行状态与业务状态",
+   "12-factor agents",
+   "80% 质量墙",
+   "工具即结构化输出",
+   "框架反向工程",
+   "扔掉 DAG」的承诺",
+   "软件即有向图",
+   "所有权原则",
+   "小而模块化的概念",
+   "用工具调用联系人类",
+   "agent 循环",
+   "context window 即 agent 状态",
+   "DAG 编排器"
+  ],
+  "共享产品系统 shared product system": [
+   "代理原生 agent-native",
+   "交接模型 handoff model",
+   "流程即工作 the process became the work",
+   "产品记忆平台 product memory platform",
+   "个人基础设施 → 团队基础设施",
+   "自动驾驶产品与项目记忆 self-driving project memory",
+   "复杂被误认为精密 complexity looked like sophistication"
+  ],
+  "小而模块化的概念": [
+   "代理原生 agent-native",
+   "12-factor agents",
+   "并不 agentic」的 AI Agent",
+   "软件即有向图"
+  ],
+  "粘性界面与 token 成本转移": [
+   "代理原生 agent-native",
+   "“SaaS 已死”叙事与护城河蒸发",
+   "Aggregation Theory",
+   "上下文骨架"
+  ],
+  "零 bug 政策与一周 SLA": [
+   "代理原生 agent-native",
+   "“SaaS 已死”叙事与护城河蒸发",
+   "根因优先",
+   "Autofixing",
+   "上下文骨架"
+  ],
+  "决策慢、执行快": [
+   "代理原生 agent-native",
+   "二阶思维",
+   "“SaaS 已死”叙事与护城河蒸发",
+   "3+ 法则",
+   "上下文骨架"
+  ],
+  "概念性工作与“概念车”": [
+   "代理原生 agent-native",
+   "“SaaS 已死”叙事与护城河蒸发",
+   "意图、判断与品味 intent, judgment, taste",
+   "上下文骨架"
+  ],
+  "缩短循环 shortening the loop": [
+   "代理原生 agent-native",
+   "“SaaS 已死”叙事与护城河蒸发",
+   "上下文骨架"
+  ],
+  "产品记忆平台 product memory platform": [
+   "代理原生 agent-native",
+   "共享产品系统 shared product system",
+   "“SaaS 已死”叙事与护城河蒸发",
+   "上下文骨架"
+  ],
+  "大杂烩产品陷阱 kitchen sink product": [
+   "代理原生 agent-native",
+   "人的手感与产品手艺",
+   "“SaaS 已死”叙事与护城河蒸发",
+   "上下文骨架"
+  ],
+  "第一天心态 day one": [
+   "代理原生 agent-native",
+   "“SaaS 已死”叙事与护城河蒸发",
+   "二八反转",
+   "上下文骨架"
+  ],
+  "组织级技能与指引 skills Linear way skill": [
+   "代理原生 agent-native",
+   "“SaaS 已死”叙事与护城河蒸发",
+   "上下文骨架"
+  ],
+  "自动驾驶产品与项目记忆 self-driving project memory": [
+   "代理原生 agent-native",
+   "共享产品系统 shared product system",
+   "“SaaS 已死”叙事与护城河蒸发",
+   "上下文骨架"
+  ],
+  "人的手感与产品手艺": [
+   "代理原生 agent-native",
+   "“SaaS 已死”叙事与护城河蒸发",
+   "电脑应该适应人",
+   "80% 质量墙",
+   "不可见的劳动",
+   "大杂烩产品陷阱 kitchen sink product",
+   "上下文骨架"
+  ],
+  "上下文骨架": [
+   "代理原生 agent-native",
+   "共享 多人 agent 会话",
+   "人的手感与产品手艺",
+   "“SaaS 已死”叙事与护城河蒸发",
+   "决策慢、执行快",
+   "零 bug 政策与一周 SLA",
+   "Token 卖家的激励错配",
+   "产品记忆平台 product memory platform",
+   "大杂烩产品陷阱 kitchen sink product",
+   "第一天心态 day one",
+   "概念性工作与“概念车”",
+   "虚荣指标 vanity metrics",
+   "粘性界面与 token 成本转移",
+   "自动驾驶产品与项目记忆 self-driving project memory",
+   "缩短循环 shortening the loop",
+   "组织级技能与指引 skills Linear way skill"
+  ],
+  "EHR": [
+   "第二意见",
+   "外包思考，但不外包理解",
+   "Agent-Native Infrastructure",
+   "Sensors 与 Actuators"
+  ],
+  "人机协作": [
+   "第二意见",
+   "信息稀缺优势"
+  ],
+  "共享文件加锁的协调机制": [
+   "动态协调 dynamic coordination",
+   "共享 多人 agent 会话",
+   "Symphony",
+   "单 agent 的速度天花板",
+   "锁竞争瓶颈 lock contention",
+   "长时程自治编码 long-running autonomous coding",
+   "自协调与共享协调文件"
+  ],
+  "锁竞争瓶颈 lock contention": [
+   "动态协调 dynamic coordination",
+   "共享文件加锁的协调机制",
+   "单 agent 的速度天花板",
+   "长时程自治编码 long-running autonomous coding",
+   "锁竞争与乐观并发控制"
+  ],
+  "乐观并发控制 optimistic concurrency control": [
+   "动态协调 dynamic coordination",
+   "单 agent 的速度天花板",
+   "长时程自治编码 long-running autonomous coding"
+  ],
+  "无层级导致的风险规避 risk-averse agents": [
+   "动态协调 dynamic coordination",
+   "单 agent 的速度天花板",
+   "长时程自治编码 long-running autonomous coding",
+   "自协调与共享协调文件"
+  ],
+  "Planner–Worker 角色分离": [
+   "动态协调 dynamic coordination",
+   "handoff 交接",
+   "单 agent 的速度天花板",
+   "递归 Planner-Worker 架构",
+   "连续执行器",
+   "长时程自治编码 long-running autonomous coding",
+   "递归 planner 与 subplanner",
+   "最慢 worker 瓶颈与刚性",
+   "planner–executor–judge 角色分工"
+  ],
+  "递归并行规划 sub-planner": [
+   "动态协调 dynamic coordination",
+   "单 agent 的速度天花板",
+   "长时程自治编码 long-running autonomous coding"
+  ],
+  "漂移与隧道视野 drift & tunnel vision": [
+   "动态协调 dynamic coordination",
+   "范围控制与显式的完成定义",
+   "单 agent 的速度天花板",
+   "长时程自治编码 long-running autonomous coding",
+   "steering",
+   "judge agent 与周期性 fresh start",
+   "No-progress detection"
+  ],
+  "减法式改进 removing complexity": [
+   "动态协调 dynamic coordination",
+   "单 agent 的速度天花板",
+   "长时程自治编码 long-running autonomous coding"
+  ],
+  "结构适量原则": [
+   "动态协调 dynamic coordination",
+   "单 agent 的速度天花板",
+   "角色过载与病态行为",
+   "长时程自治编码 long-running autonomous coding"
+  ],
+  "prompt 主导论": [
+   "动态协调 dynamic coordination",
+   "单 agent 的速度天花板",
+   "长时程自治编码 long-running autonomous coding",
+   "agent 不是读心者 agents are not mind readers"
+  ],
+  "举证责任": [
+   "二阶思维"
+  ],
+  "智识上正确、政治上奢侈、道德上可疑": [
+   "二阶思维"
+  ],
+  "办公室崇拜": [
+   "付出按旧规则，兑现按新规则",
+   "必要劳动",
+   "激励结构"
+  ],
+  "进展期腺瘤": [
+   "干预窗口"
+  ],
+  "机会性筛查": [
+   "干预窗口",
+   "平扫 CT + AI 多癌筛查路线",
+   "平扫 CT"
+  ],
+  "代理原生 agent-native": [
+   "共享 多人 agent 会话",
+   "共享产品系统 shared product system",
+   "人的手感与产品手艺",
+   "“SaaS 已死”叙事与护城河蒸发",
+   "二八反转",
+   "决策慢、执行快",
+   "零 bug 政策与一周 SLA",
+   "Token 卖家的激励错配",
+   "并不 agentic」的 AI Agent",
+   "产品记忆平台 product memory platform",
+   "大杂烩产品陷阱 kitchen sink product",
+   "第一天心态 day one",
+   "概念性工作与“概念车”",
+   "小而模块化的概念",
+   "虚荣指标 vanity metrics",
+   "粘性界面与 token 成本转移",
+   "自动驾驶产品与项目记忆 self-driving project memory",
+   "上下文骨架",
+   "缩短循环 shortening the loop",
+   "组织级技能与指引 skills Linear way skill"
+  ],
+  "自协调与共享协调文件": [
+   "共享文件加锁的协调机制",
+   "handoff 交接",
+   "角色过载与病态行为",
+   "连续执行器",
+   "为吞吐量设计与可接受错误率",
+   "integrator 瓶颈",
+   "单用户假设的失效",
+   "递归 planner 与 subplanner",
+   "反脆弱",
+   "所有权与问责",
+   "锁竞争与乐观并发控制",
+   "无层级导致的风险规避 risk-averse agents",
+   "新鲜度机制",
+   "意图规约与可引导性",
+   "约束优于指令",
+   "自收敛与免全局同步",
+   "最慢 worker 瓶颈与刚性",
+   "planner–executor–judge 角色分工"
+  ],
+  "Agentic Engineering": [
+   "宏动作",
+   "Creator → Curator 角色转换",
+   "Vibe Coding",
+   "12-factor agents",
+   "准比快重要",
+   "Bitter Lesson】"
+  ],
+  "Git Worktree": [
+   "宏动作"
+  ],
+  "垂直切片 Tracer Bullet": [
+   "宏动作",
+   "软件工厂 Software Factory",
+   "Lights-off 软件工厂"
+  ],
+  "平扫 CT": [
+   "机会性筛查",
+   "平扫 CT + AI 多癌筛查路线",
+   "DAMO COCA"
+  ],
+  "干预窗口": [
+   "机会性筛查",
+   "进展期腺瘤"
+  ],
+  "平扫 CT + AI 多癌筛查路线": [
+   "机会性筛查",
+   "平扫 CT",
+   "DAMO COCA",
+   "液体活检"
+  ],
+  "阶段压缩 compression": [
+   "交接模型 handoff model",
+   "流程即工作 the process became the work",
+   "Implementation 能力",
+   "复杂被误认为精密 complexity looked like sophistication"
+  ],
+  "移除开销 remove overhead": [
+   "交接模型 handoff model",
+   "流程即工作 the process became the work",
+   "复杂被误认为精密 complexity looked like sophistication"
+  ],
+  "意图、判断与品味 intent, judgment, taste": [
+   "交接模型 handoff model",
+   "流程即工作 the process became the work",
+   "概念性工作与“概念车”",
+   "复杂被误认为精密 complexity looked like sophistication"
+  ],
+  "agent 不是读心者 agents are not mind readers": [
+   "交接模型 handoff model",
+   "Repo-local instructions",
+   "流程即工作 the process became the work",
+   "prompt 主导论",
+   "复杂被误认为精密 complexity looked like sophistication"
+  ],
+  "把上下文转化为执行 turn context into execution": [
+   "交接模型 handoff model",
+   "流程即工作 the process became the work",
+   "复杂被误认为精密 complexity looked like sophistication"
+  ],
+  "技能化 Skills": [
+   "交接模型 handoff model",
+   "流程即工作 the process became the work",
+   "复杂被误认为精密 complexity looked like sophistication"
+  ],
+  "事件驱动的自动化 Automations": [
+   "交接模型 handoff model",
+   "流程即工作 the process became the work",
+   "复杂被误认为精密 complexity looked like sophistication"
+  ],
+  "缩短想法与实现之间的距离 collapsing the distance between idea and implementation": [
+   "交接模型 handoff model",
+   "流程即工作 the process became the work",
+   "复杂被误认为精密 complexity looked like sophistication"
+  ],
+  "探针": [
+   "锯齿状智能（Jagged Intelligence）",
+   "残差流"
+  ],
+  "世界模型": [
+   "锯齿状智能（Jagged Intelligence）",
+   "字面类比"
+  ],
+  "capability spike 公式": [
+   "锯齿状智能（Jagged Intelligence）",
+   "Capability Overhang"
+  ],
+  "session_search": [
+   "跨会话记忆文件系统"
+  ],
+  "OpenClaw": [
+   "跨会话记忆文件系统"
+  ],
+  "提示词记忆（MEMORY.md + USER.md）": [
+   "跨会话记忆文件系统",
+   "冷热分离（记忆）"
+  ],
+  "判定程序化写法": [
+   "跨会话记忆文件系统",
+   "默认帮助的高门槛拒绝",
+   "示例强于规则",
+   "上下文即不可信输入",
+   "fail-closed 默认",
+   "安全路由与能力分层",
+   "第三方连接器 opt-in",
+   "反自我合理化条款",
+   "会话级累积判断",
+   "记忆须改变回答实质",
+   "首次匹配即停路由",
+   "遗漏式隐私",
+   "自尊式担责",
+   "meaningful uplift 判据",
+   "preferences 写入过滤",
+   "stated 出处纪律",
+   "版权合规硬上限"
+  ],
+  "反自我合理化条款": [
+   "跨会话记忆文件系统",
+   "默认帮助的高门槛拒绝",
+   "判定程序化写法",
+   "上下文即不可信输入",
+   "fail-closed 默认",
+   "安全路由与能力分层",
+   "第三方连接器 opt-in",
+   "会话级累积判断",
+   "记忆须改变回答实质",
+   "首次匹配即停路由",
+   "遗漏式隐私",
+   "自尊式担责",
+   "meaningful uplift 判据",
+   "preferences 写入过滤",
+   "stated 出处纪律",
+   "版权合规硬上限"
+  ],
+  "十年重塑": [
+   "理想终态",
+   "外包思考，但不外包理解",
+   "Agent-Native Infrastructure",
+   "Sensors 与 Actuators"
+  ],
+  "Enough": [
+   "理想终态"
+  ],
+  "Harness 内 RL RL inside the harness": [
+   "模型训练与 harness 设计的耦合",
+   "软件工厂 Software Factory",
+   "Lights-off 软件工厂"
+  ],
+  "Muon 优化器": [
+   "模型训练与 harness 设计的耦合"
+  ],
+  "meaningful uplift 判据": [
+   "默认帮助的高门槛拒绝",
+   "判定程序化写法",
+   "fail-closed 默认",
+   "反自我合理化条款"
+  ],
+  "会话级累积判断": [
+   "默认帮助的高门槛拒绝",
+   "判定程序化写法",
+   "fail-closed 默认",
+   "反自我合理化条款"
+  ],
+  "液体活检": [
+   "平扫 CT + AI 多癌筛查路线"
+  ],
+  "DAMO COCA": [
+   "平扫 CT + AI 多癌筛查路线",
+   "平扫 CT"
+  ],
+  "可编辑面与循环外的权限控制": [
+   "权限与推理的架构分离",
+   "部署系统层",
+   "递归自我改进 RSI"
+  ],
+  "第三方连接器 opt-in": [
+   "权限与推理的架构分离",
+   "判定程序化写法",
+   "fail-closed 默认",
+   "反自我合理化条款"
+  ],
+  "Onboarding Agent": [
+   "权限与推理的架构分离"
+  ],
+  "agent 与 harness 的分工": [
+   "权限与推理的架构分离",
+   "协同进化与紧耦合 co-evolution principle",
+   "编排循环与「dumb loop」",
+   "工具收窄 tool scoping",
+   "确定性工程基础设施】 deterministic engineering infrastructure",
+   "三层工程 prompt context harness engineering",
+   "Action Space】",
+   "多时间尺度记忆与「记忆只是 hint",
+   "验证循环：guides 与 sensors",
+   "agent 作为 Claude API 的新核心原语",
+   "context rot（上下文腐烂）与 Lost in the Middle",
+   "If you're not the model, you're the harness.",
+   "脚手架化 LLM 与冯·诺依曼架构类比",
+   "能力外置化决策",
+   "上下文压缩与即时检索 compaction just-in-time retrieval",
+   "所有权原则",
+   "未来防腐测试 future-proofing test",
+   "brain hands session 解耦",
+   "context window 即 agent 状态",
+   "错误复利 compounding errors",
+   "子 agent 编排 Fork Teammate Worktree",
+   "harness 厚薄 thin vs thick"
+  ],
+  "80% 质量墙": [
+   "人的手感与产品手艺",
+   "12-factor agents",
+   "并不 agentic」的 AI Agent",
+   "软件即有向图"
+  ],
+  "不可见的劳动": [
+   "人的手感与产品手艺",
+   "模型即产品」的幻觉",
+   "非确定性 nondeterminism"
+  ],
+  "电脑应该适应人": [
+   "人的手感与产品手艺",
+   "Agent-Native Infrastructure"
+  ],
+  "蒸发冷却": [
+   "数据中心",
+   "外包思考，但不外包理解",
+   "Agent-Native Infrastructure",
+   "Acre-foot",
+   "Sensors 与 Actuators"
+  ],
+  "AI 从应用到基础设施": [
+   "数据中心",
+   "AI 主权审查机制"
+  ],
+  "CXL 内存池化": [
+   "数据中心"
+  ],
+  "Trainium": [
+   "数据中心"
+  ],
+  "TTL": [
+   "提示词缓存（Prompt Caching）",
+   "缓存断点 Cache Breakpoint",
+   "提示词缓存 Prompt Caching",
+   "稳定前缀 Stable Prefix"
+  ],
+  "Automatic Caching": [
+   "提示词缓存（Prompt Caching）",
+   "缓存断点 Cache Breakpoint",
+   "提示词缓存 Prompt Caching",
+   "稳定前缀 Stable Prefix"
+  ],
+  "模型一致性与 prompt caching": [
+   "提示词缓存（Prompt Caching）",
+   "废料怪兽",
+   "少即是多」：gimmick 与真实增益的分界"
+  ],
+  "嘻哈教父": [
+   "嘻哈五要素"
+  ],
+  "采样伦理": [
+   "嘻哈五要素"
+  ],
+  "文化秃鹫转向": [
+   "嘻哈五要素"
+  ],
+  "非洲中心主义": [
+   "嘻哈五要素",
+   "超人（Übermensch）"
+  ],
+  "依恋风格": [
+   "习惯",
+   "Situationship"
+  ],
+  "系统 prompt 的体量差": [
+   "系统提示 System Prompt",
+   "对话加确定性缝合",
+   "看对话 log",
+   "反向代理式窥探"
+  ],
+  "稳定前缀 Stable Prefix": [
+   "系统提示 System Prompt",
+   "上下文压缩 Context Compression Summarization",
+   "Automatic Caching",
+   "tools → system → messages 缓存顺序",
+   "TTL",
+   "工具定义 Tool Definitions Tool Schema",
+   "缓存断点 Cache Breakpoint",
+   "缓存连续性 Cache Continuity",
+   "缓存命中读取成本 Cache Hit Read Cost",
+   "缓存命中率 Cache Hit Rate",
+   "缓存写入成本 Cache Write Cost",
+   "前缀匹配 Prefix Matching",
+   "首字输出延迟 Time to First Token Latency",
+   "提示词缓存 Prompt Caching",
+   "消息层 Messages Layer",
+   "最小可缓存 token 门槛 Minimum Cacheable Tokens",
+   "Explicit Breakpoints"
+  ],
+  "缓存断点 Cache Breakpoint": [
+   "系统提示 System Prompt",
+   "上下文压缩 Context Compression Summarization",
+   "Automatic Caching",
+   "tools → system → messages 缓存顺序",
+   "TTL",
+   "工具定义 Tool Definitions Tool Schema",
+   "缓存连续性 Cache Continuity",
+   "缓存命中读取成本 Cache Hit Read Cost",
+   "缓存命中率 Cache Hit Rate",
+   "缓存写入成本 Cache Write Cost",
+   "前缀匹配 Prefix Matching",
+   "首字输出延迟 Time to First Token Latency",
+   "提示词缓存 Prompt Caching",
+   "稳定前缀 Stable Prefix",
+   "消息层 Messages Layer",
+   "最小可缓存 token 门槛 Minimum Cacheable Tokens",
+   "Explicit Breakpoints"
+  ],
+  "提示词缓存 Prompt Caching": [
+   "系统提示 System Prompt",
+   "上下文压缩 Context Compression Summarization",
+   "Automatic Caching",
+   "tools → system → messages 缓存顺序",
+   "TTL",
+   "工具定义 Tool Definitions Tool Schema",
+   "缓存断点 Cache Breakpoint",
+   "缓存连续性 Cache Continuity",
+   "缓存命中读取成本 Cache Hit Read Cost",
+   "缓存命中率 Cache Hit Rate",
+   "缓存写入成本 Cache Write Cost",
+   "前缀匹配 Prefix Matching",
+   "首字输出延迟 Time to First Token Latency",
+   "稳定前缀 Stable Prefix",
+   "消息层 Messages Layer",
+   "最小可缓存 token 门槛 Minimum Cacheable Tokens",
+   "Explicit Breakpoints"
+  ],
+  "前额叶皮质": [
+   "执行功能"
+  ],
+  "意志力": [
+   "执行功能",
+   "外包思考，但不外包理解",
+   "低电量模式",
+   "Agent-Native Infrastructure",
+   "Sensors 与 Actuators"
+  ],
+  "低电量模式": [
+   "执行功能",
+   "基底神经节",
+   "意志力"
+  ],
+  "Dharana": [
+   "执行功能"
+  ],
+  "霍尔木兹海峡": [
+   "Choke Point"
+  ],
+  "海峡过路费": [
+   "Choke Point",
+   "危险先例",
+   "隐性控制"
+  ],
+  "全球贸易路线重布线": [
+   "Choke Point"
+  ],
+  "经济耐力比赛": [
+   "Choke Point"
+  ],
+  "Context Management 四策略": [
+   "Context as working memory budget",
+   "just in time 上下文检索",
+   "Agent Drift",
+   "Agent vs Harness",
+   "Context Infrastructure"
+  ],
+  "Bounded Output": [
+   "Context as working memory budget"
+  ],
+  "Context as working memory budget": [
+   "Context Management 四策略",
+   "Long-running agent handoff",
+   "Repo-local instructions",
+   "Harness evolution",
+   "Context-window tax",
+   "Runtime-harness separation",
+   "Safe autonomy",
+   "Spec-driven agent workflow",
+   "Trace-based evals",
+   "Bounded Output",
+   "Harness-level benchmarks",
+   "Infrastructure noise",
+   "instruction budget",
+   "Reliability-critical harness primitives"
+  ],
+  "Agent Drift": [
+   "Context Management 四策略",
+   "渐进式披露 progressive disclosure",
+   "Codified Context",
+   "Context 四种失败模式】 Context Pollution Distraction Confusion Clash",
+   "Knowledge Graph vs Flat Files",
+   "Self-Improving Context System",
+   "Tacit Knowledge】"
+  ],
+  "Disney hierarchy": [
+   "Disney bubble",
+   "swindle of fulfillment"
+  ],
+  "death of the social": [
+   "Disney bubble",
+   "Human-Only Social Networks",
+   "swindle of fulfillment",
+   "外包思考，但不外包理解",
+   "Trutherism",
+   "Agent-Native Infrastructure",
+   "Universal Zulu Nation",
+   "Sensors 与 Actuators"
+  ],
+  "Hypnopaedia": [
+   "Disney bubble",
+   "swindle of fulfillment",
+   "Ghost in the Shell"
+  ],
+  "Hermes Agent": [
+   "higher-level runtime",
+   "harness over-fitting"
+  ],
+  "GEO": [
+   "Human-Only Social Networks"
+  ],
+  "Ghost in the Shell": [
+   "Human-Only Social Networks",
+   "Hypnopaedia"
+  ],
+  "模型蒸馏": [
+   "LLM Large Language Model",
+   "Capability Overhang"
+  ],
+  "推理模型": [
+   "LLM Large Language Model",
+   "外包思考，但不外包理解",
+   "Agent-Native Infrastructure",
+   "推理 vs 训练",
+   "Bitter Lesson】",
+   "Sensors 与 Actuators"
+  ],
+  "押注 in-context learning": [
+   "LLM Large Language Model",
+   "局部最优 local optima",
+   "文件系统即终极上下文",
+   "与底层模型正交 orthogonal to the underlying models",
+   "action space 膨胀",
+   "KV-cache 命中率",
+   "logits 掩码与 context-aware 状态机",
+   "prefill 与 decode 的高度倾斜",
+   "Stochastic Graduate Descent",
+   "保留错误证据与错误恢复",
+   "复述（recitation）与 lost-in-the-middle",
+   "可恢复的压缩 restorable compression",
+   "稳定的 prompt 前缀",
+   "few-shot 套路化与受控多样性"
+  ],
+  "工具 Tools": [
+   "LLM Large Language Model",
+   "coding agent",
+   "AI Agent",
+   "非模型架构 Non-model Architecture"
+  ],
+  "Self-evaluation Failure】": [
+   "Read-only Verifier Agent",
+   "Self-verification",
+   "Context Reset vs Compaction】",
+   "Context Anxiety】"
+  ],
+  "Agentic primitives": [
+   "Repo-local instructions",
+   "Instructions files",
+   "Progressive disclosure（渐进式披露）与 Skills",
+   "Validation gates",
+   "Agent CLI runtimes",
+   "Agentic workflows",
+   "APM",
+   "Chat modes",
+   "Memory-driven development",
+   "Natural language as code",
+   "Markdown prompt engineering"
+  ],
+  "Codified Context": [
+   "Repo-local instructions",
+   "Agent Drift",
+   "Context 四种失败模式】 Context Pollution Distraction Confusion Clash"
+  ],
+  "Reward Generalization": [
+   "Reward Signal"
+  ],
+  "Review Quality 评分方法": [
+   "Rubric",
+   "code-review-graph",
+   "Kappa 系数",
+   "Tree-sitter",
+   "持久化代码图谱 structural map graph"
+  ],
+  "Sprint Contract】": [
+   "Rubric",
+   "Context Reset vs Compaction】",
+   "Validation gates",
+   "Context Anxiety】"
+  ],
+  "Verifiability": [
+   "Self-verification",
+   "外包思考，但不外包理解",
+   "Verifiable Codebase",
+   "Agent-Native Infrastructure",
+   "Sensors 与 Actuators"
+  ],
+  "oppref": [
+   "single_advertiser_ad_unit",
+   "OpenAI 广告基础设施域名",
+   "Verification Markets"
+  ],
+  "Token 补贴缺口（Token Subsidy Gap）": [
+   "single_advertiser_ad_unit",
+   "OpenAI 广告基础设施域名",
+   "Reverse Digital Divide",
+   "Stargate 依赖闭环（Stargate Dependency Loop）",
+   "Token 卖家的激励错配"
+  ],
+  "Verification Markets": [
+   "single_advertiser_ad_unit",
+   "外包思考，但不外包理解",
+   "oppref",
+   "Reverse Digital Divide",
+   "Agent-Native Infrastructure",
+   "Sensors 与 Actuators"
+  ],
+  "Von Neumann Architecture Analogy": [
+   "stateless",
+   "Agent vs Harness"
+  ],
+  "渐进披露 progressive disclosure": [
+   "程序记忆（Procedural Memory Skills） progressive disclosure",
+   "护栏型指令的过期",
+   "判断力优先 let Claude use judgement"
+  ],
+  "统一执行状态与业务状态": [
+   "持久化执行 durable execution",
+   "Stateful Runtime Environment (SRE)",
+   "12-factor agents",
+   "并不 agentic」的 AI Agent",
+   "软件即有向图"
+  ],
+  "harness 与 framework 的分野": [
+   "持久化执行 durable execution",
+   "事件驱动编排与执行解耦",
+   "压缩（compaction）与运行内外的分工",
+   "Runtime-harness separation",
+   "steering",
+   "基础设施问题，不是 AI 问题",
+   "普遍可触发 universally triggered",
+   "小函数组合",
+   "预算警告与溢出恢复",
+   "子 agent 与 step.invoke()",
+   "step",
+   "step ID 自动索引",
+   "think → act → observe 循环",
+   "webhook transform 与 connect()",
+   "两级上下文剪枝 pruning"
+  ],
+  "ALFRED": [
+   "基准测试的捆绑测量性"
+  ],
+  "地出": [
+   "金唱片",
+   "地落",
+   "蓝色弹珠"
+  ],
+  "扁平化": [
+   "金唱片",
+   "AI 反弹潮",
+   "神话管理"
+  ],
+  "中国透镜下的美国": [
+   "金唱片"
+  ],
+  "品味与「不接受够用就行": [
+   "外包思考，但不外包理解",
+   "废料怪兽",
+   "少即是多」：gimmick 与真实增益的分界"
+  ],
+  "Read–Think–Write–Verify Framework": [
+   "外包思考，但不外包理解"
+  ],
+  "Thinking Engine": [
+   "外包思考，但不外包理解"
+  ],
+  "金唱片": [
+   "外包思考，但不外包理解",
+   "扁平化",
+   "地出",
+   "Agent-Native Infrastructure",
+   "中国透镜下的美国",
+   "Sensors 与 Actuators"
+  ],
+  "暗淡蓝点": [
+   "外包思考，但不外包理解",
+   "Agent-Native Infrastructure",
+   "科学图景",
+   "Sensors 与 Actuators"
+  ],
+  "Tic Word": [
+   "外包思考，但不外包理解",
+   "奖励攻击与多样性坍塌",
+   "Agent-Native Infrastructure",
+   "Sensors 与 Actuators"
+  ],
+  "中年危机": [
+   "外包思考，但不外包理解",
+   "Agent-Native Infrastructure",
+   "中年",
+   "Sensors 与 Actuators"
+  ],
+  "Vantage": [
+   "外包思考，但不外包理解",
+   "软件工厂 Software Factory",
+   "Tiger Team",
+   "Agent-Native Infrastructure",
+   "Sensors 与 Actuators"
+  ],
+  "Claude Code": [
+   "外包思考，但不外包理解",
+   "coding agent",
+   "Agent-Native Infrastructure",
+   "Sensors 与 Actuators"
+  ],
+  "Facts are facts, but perception is reality": [
+   "外包思考，但不外包理解",
+   "Agent-Native Infrastructure",
+   "显现图景",
+   "HiFi 与 HiEx 信息原则",
+   "Sensors 与 Actuators"
+  ],
+  "AI matchmaking": [
+   "外包思考，但不外包理解",
+   "Dating-app fatigue",
+   "Agent-Native Infrastructure",
+   "Wrong criteria in their mind",
+   "Sensors 与 Actuators"
+  ],
+  "门控机制": [
+   "外包思考，但不外包理解",
+   "Agent-Native Infrastructure",
+   "Sensors 与 Actuators"
+  ],
+  "星空与道德律": [
+   "外包思考，但不外包理解",
+   "Agent-Native Infrastructure",
+   "外层空间条约",
+   "Sensors 与 Actuators"
+  ],
+  "半途低谷": [
+   "外包思考，但不外包理解",
+   "刺激与反应之间的空间",
+   "Agent-Native Infrastructure",
+   "Sensors 与 Actuators"
+  ],
+  "Exhaustion Debt": [
+   "外包思考，但不外包理解",
+   "Agent-Native Infrastructure",
+   "短睡眠时长",
+   "醒后清爽感",
+   "Sensors 与 Actuators"
+  ],
+  "结构压力的性别化误读": [
+   "外包思考，但不外包理解",
+   "照料劳动",
+   "Agent-Native Infrastructure",
+   "Sensors 与 Actuators"
+  ],
+  "Taste": [
+   "外包思考，但不外包理解",
+   "Friction-based Skill Formation",
+   "Agent-Native Infrastructure",
+   "Universal appeal — makes, not has",
+   "Sensors 与 Actuators"
+  ],
+  "REM 睡眠": [
+   "外包思考，但不外包理解",
+   "记忆巩固",
+   "Agent-Native Infrastructure",
+   "清醒梦",
+   "Sensors 与 Actuators"
+  ],
+  "Skills as permanent upgrades": [
+   "外包思考，但不外包理解",
+   "Filesystem 作为最基础的 harness 原语",
+   "Agent-Native Infrastructure",
+   "Sensors 与 Actuators"
+  ],
+  "Dating-app fatigue": [
+   "外包思考，但不外包理解",
+   "AI matchmaking",
+   "Agent-Native Infrastructure",
+   "Ghosting",
+   "Sensors 与 Actuators"
+  ],
+  "Ghosting": [
+   "外包思考，但不外包理解",
+   "Dating-app fatigue",
+   "Agent-Native Infrastructure",
+   "Sensors 与 Actuators"
+  ],
+  "The Deferred Bill": [
+   "外包思考，但不外包理解",
+   "Simulated Competence",
+   "Agent-Native Infrastructure",
+   "Sensors 与 Actuators"
+  ],
+  "芯片管制": [
+   "外包思考，但不外包理解",
+   "Agent-Native Infrastructure",
+   "平行 AI 基础设施",
+   "昇腾",
+   "Sensors 与 Actuators"
+  ],
+  "Kappa 系数": [
+   "外包思考，但不外包理解",
+   "Review Quality 评分方法",
+   "Agent-Native Infrastructure",
+   "Sensors 与 Actuators"
+  ],
+  "The Grind": [
+   "外包思考，但不外包理解",
+   "Wake-centric Values",
+   "Agent-Native Infrastructure",
+   "Sensors 与 Actuators"
+  ],
+  "llms.txt": [
+   "外包思考，但不外包理解",
+   "Agent-Native Infrastructure",
+   "llms-full.txt",
+   "Sensors 与 Actuators"
+  ],
+  "Tiny Engram": [
+   "外包思考，但不外包理解",
+   "multimodal Vision LLMs",
+   "Agent-Native Infrastructure",
+   "Sensors 与 Actuators"
+  ],
+  "看守看守者（Watchmen Watching the Watchmen）": [
+   "外包思考，但不外包理解",
+   "大规模监控（Bulk Surveillance）",
+   "Agent-Native Infrastructure",
+   "Sensors 与 Actuators"
+  ],
+  "必要劳动": [
+   "外包思考，但不外包理解",
+   "办公室崇拜",
+   "Agent-Native Infrastructure",
+   "Sensors 与 Actuators"
+  ],
+  "Targeted Memory Reactivation": [
+   "外包思考，但不外包理解",
+   "记忆巩固",
+   "Agent-Native Infrastructure",
+   "Sensors 与 Actuators"
+  ],
+  "DeepSeek V4": [
+   "外包思考，但不外包理解",
+   "混合注意力",
+   "Agent-Native Infrastructure",
+   "开权重模型",
+   "Sensors 与 Actuators"
+  ],
+  "被动 vs. 互动屏幕使用": [
+   "外包思考，但不外包理解",
+   "屏幕时间",
+   "学习脚手架",
+   "Agent-Native Infrastructure",
+   "Sensors 与 Actuators"
+  ],
+  "迪士尼负债": [
+   "外包思考，但不外包理解",
+   "财富即自由",
+   "Agent-Native Infrastructure",
+   "Sensors 与 Actuators"
+  ],
+  "激励结构": [
+   "外包思考，但不外包理解",
+   "办公室崇拜",
+   "Agent-Native Infrastructure",
+   "Sensors 与 Actuators"
+  ],
+  "上手状态": [
+   "外包思考，但不外包理解",
+   "基底神经节",
+   "Agent-Native Infrastructure",
+   "Sensors 与 Actuators"
+  ],
+  "条件记忆": [
+   "外包思考，但不外包理解",
+   "注意力机制",
+   "Agent-Native Infrastructure",
+   "Sensors 与 Actuators"
+  ],
+  "屏幕时间": [
+   "外包思考，但不外包理解",
+   "被动 vs. 互动屏幕使用",
+   "手机成瘾",
+   "Agent-Native Infrastructure",
+   "教育技术",
+   "Sensors 与 Actuators"
+  ],
+  "Choke Point": [
+   "外包思考，但不外包理解",
+   "海峡过路费",
+   "Agent-Native Infrastructure",
+   "霍尔木兹海峡",
+   "经济耐力比赛",
+   "全球贸易路线重布线",
+   "Sensors 与 Actuators"
+  ],
+  "系统竞争": [
+   "外包思考，但不外包理解",
+   "前沿实验室",
+   "Agent-Native Infrastructure",
+   "Sensors 与 Actuators"
+  ],
+  "边际成本": [
+   "外包思考，但不外包理解",
+   "Frontier Demand 前沿需求",
+   "Aggregation Theory",
+   "Intelligence Factory 智能工厂",
+   "Agent-Native Infrastructure",
+   "Sensors 与 Actuators"
+  ],
+  "触发模式谱系": [
+   "自动循环的心跳",
+   "messages API 作为直连网关",
+   "Claude Managed Agents"
+  ],
+  "会自己重写的地基": [
+   "Latent vs Deterministic",
+   "模型即产品」的幻觉",
+   "非确定性 nondeterminism"
+  ],
+  "对话加确定性缝合": [
+   "Latent vs Deterministic",
+   "本地状态层",
+   "大小模型分工",
+   "护城河清单与插件化路线",
+   "看对话 log",
+   "instruction following 的可靠性边界",
+   "TodoWrite 与 TodoRead",
+   "WebFetch 两阶段总结",
+   "反向代理式窥探",
+   "氛围组请求",
+   "全文覆盖式编辑",
+   "系统 prompt 的体量差",
+   "隐式 code context",
+   "原生工具与 MCP 外挂",
+   "apply 模型",
+   "new topic 判定"
+  ],
+  "Thin Harness, Fat Skills": [
+   "Latent vs Deterministic",
+   "Context Bloat",
+   "Skill Files",
+   "Skill-as-method-call",
+   "Learning Loop",
+   "Diarization",
+   "Resolver"
+  ],
+  "AI 反弹潮": [
+   "废料怪兽",
+   "扁平化",
+   "营销谬误"
+  ],
+  "语义相关性": [
+   "废料怪兽",
+   "Pitch】 video packaging",
+   "注水内容"
+  ],
+  "YOLO 模式 Allow All": [
+   "废料怪兽",
+   "少即是多」：gimmick 与真实增益的分界"
+  ],
+  "审批疲劳": [
+   "废料怪兽",
+   "Safe autonomy",
+   "少即是多」：gimmick 与真实增益的分界"
+  ],
+  "原型先行": [
+   "废料怪兽",
+   "少即是多」：gimmick 与真实增益的分界"
+  ],
+  "感官模型快于密集文本": [
+   "废料怪兽",
+   "50,000-year-old hardware",
+   "Scaffolding Metaphor",
+   "少即是多」：gimmick 与真实增益的分界"
+  ],
+  "非视觉任务的可视化原型": [
+   "废料怪兽",
+   "少即是多」：gimmick 与真实增益的分界"
+  ],
+  "规划模式与边界问题清单": [
+   "废料怪兽",
+   "Plan 模式",
+   "少即是多」：gimmick 与真实增益的分界"
+  ],
+  "one-shot 的理论极限": [
+   "废料怪兽",
+   "少即是多」：gimmick 与真实增益的分界"
+  ],
+  "Autopilot：内建循环": [
+   "废料怪兽",
+   "少即是多」：gimmick 与真实增益的分界"
+  ],
+  "开箱即用的编排与子 agent": [
+   "废料怪兽",
+   "subagents",
+   "模型—角色适配",
+   "Python-first",
+   "少即是多」：gimmick 与真实增益的分界"
+  ],
+  "橡皮鸭复审": [
+   "废料怪兽",
+   "自评失真 Self-evaluation Distortion",
+   "少即是多」：gimmick 与真实增益的分界"
+  ],
+  "今天的魔法咒语，明天的反模式": [
+   "废料怪兽",
+   "2026 版约束理论",
+   "少即是多」：gimmick 与真实增益的分界"
+  ],
+  "Context Reset vs Compaction】": [
+   "废料怪兽",
+   "Generator-Evaluator Loop】",
+   "Self-evaluation Failure】",
+   "Sprint Contract】",
+   "Context Anxiety】",
+   "Grading Criteria】",
+   "Handoff Artifact】",
+   "Planner-Generator-Evaluator 三 Agent 架构",
+   "Session Management】",
+   "Harness 简化原则】 Harness Simplification"
+  ],
+  "少即是多」：gimmick 与真实增益的分界": [
+   "废料怪兽",
+   "会话的话题边界",
+   "开箱即用的编排与子 agent",
+   "感官模型快于密集文本",
+   "规划模式与边界问题清单",
+   "今天的魔法咒语，明天的反模式",
+   "模型一致性与 prompt caching",
+   "品味与「不接受够用就行",
+   "沙箱化自主",
+   "审批疲劳",
+   "橡皮鸭复审",
+   "非视觉任务的可视化原型",
+   "原型先行",
+   "Autopilot：内建循环",
+   "one-shot 的理论极限",
+   "YOLO 模式 Allow All"
+  ],
+  "护城河清单与插件化路线": [
+   "“SaaS 已死”叙事与护城河蒸发",
+   "对话加确定性缝合",
+   "看对话 log",
+   "反向代理式窥探",
+   "难度即护城河"
+  ],
+  "Frontier Demand 前沿需求": [
+   "“SaaS 已死”叙事与护城河蒸发",
+   "边际成本",
+   "出海"
+  ],
+  "Aggregation Theory": [
+   "边际成本",
+   "粘性界面与 token 成本转移"
+  ],
+  "Intelligence Factory 智能工厂": [
+   "边际成本",
+   "可自动化循环"
+  ],
+  "神话管理": [
+   "扁平化",
+   "剪辑军团"
+  ],
+  "mHC": [
+   "残差流"
+  ],
+  "信息瓶颈原则": [
+   "残差流"
+  ],
+  "默认思维倾向": [
+   "刺激与反应之间的空间",
+   "惰性默认",
+   "50,000-year-old hardware",
+   "从众默认",
+   "定位",
+   "情绪默认",
+   "思维的默认模式",
+   "四项心智力量"
+  ],
+  "二阶思维": [
+   "刺激与反应之间的空间",
+   "决策慢、执行快",
+   "举证责任",
+   "智识上正确、政治上奢侈、道德上可疑"
+  ],
+  "地落": [
+   "地出"
+  ],
+  "蓝色弹珠": [
+   "地出"
+  ],
+  "执行功能": [
+   "低电量模式",
+   "意志力",
+   "前额叶皮质",
+   "Dharana"
+  ],
+  "基底神经节": [
+   "低电量模式",
+   "赫布定律",
+   "上手状态"
+  ],
+  "自注意力": [
+   "多头注意力",
+   "注意力机制"
+  ],
+  "GQA": [
+   "多头注意力"
+  ],
+  "CSA": [
+   "多头注意力",
+   "混合注意力"
+  ],
+  "难选择，易人生": [
+   "惰性默认",
+   "时间偏好"
+  ],
+  "现成在手": [
+   "惰性默认"
+  ],
+  "agent 循环": [
+   "范围控制与显式的完成定义",
+   "12-factor agents",
+   "并不 agentic」的 AI Agent",
+   "软件即有向图"
+  ],
+  "能力鸿沟": [
+   "范围控制与显式的完成定义",
+   "状态子系统与进度持久化",
+   "端到端验证",
+   "弱 harness 强 harness 对照与消融实验",
+   "验证子系统与可运行的证据",
+   "仓库即唯一事实来源",
+   "功能清单作为 harness 原语",
+   "会话生命周期",
+   "可观测性",
+   "模型即产品」的幻觉",
+   "验证缺口",
+   "指令子系统与渐进式展开",
+   "从救火到审查的角色转移"
+  ],
+  "指令子系统与渐进式展开": [
+   "范围控制与显式的完成定义",
+   "状态子系统与进度持久化",
+   "端到端验证",
+   "弱 harness 强 harness 对照与消融实验",
+   "验证子系统与可运行的证据",
+   "仓库即唯一事实来源",
+   "功能清单作为 harness 原语",
+   "会话生命周期",
+   "可观测性",
+   "能力鸿沟",
+   "验证缺口",
+   "SKILL.md：frontmatter＋body 契约",
+   "从救火到审查的角色转移"
+  ],
+  "冷热分离（记忆）": [
+   "分层记忆架构",
+   "提示词记忆（MEMORY.md + USER.md）"
+  ],
+  "跨会话记忆文件系统": [
+   "分层记忆架构",
+   "判定程序化写法",
+   "提示词记忆（MEMORY.md + USER.md）",
+   "fail-closed 默认",
+   "反自我合理化条款",
+   "OpenClaw",
+   "session_search"
+  ],
+  "护栏型指令的过期": [
+   "工具接口的表达力设计",
+   "示例的探索空间约束",
+   "Rubric 与 verifier agent",
+   "延迟加载工具 deferred loading",
+   "gotchas 优先原则",
+   "富引用 rich references",
+   "上下文文件树 tree of files",
+   "自动记忆 auto-memory",
+   "代码即高保真引用",
+   "渐进披露 progressive disclosure",
+   "判断力优先 let Claude use judgement"
+  ],
+  "判断力优先 let Claude use judgement": [
+   "工具接口的表达力设计",
+   "示例的探索空间约束",
+   "Rubric 与 verifier agent",
+   "延迟加载工具 deferred loading",
+   "gotchas 优先原则",
+   "富引用 rich references",
+   "上下文文件树 tree of files",
+   "自动记忆 auto-memory",
+   "代码即高保真引用",
+   "护栏型指令的过期",
+   "渐进披露 progressive disclosure"
+  ],
+  "常识心理学": [
+   "工业强度实在论",
+   "给事物命名",
+   "桥接推理",
+   "日常语言哲学",
+   "软件脑",
+   "四阶段演化模型",
+   "踏脚石效应"
+  ],
+  "束理论": [
+   "工业强度实在论"
+  ],
+  "认知失调": [
+   "工业强度实在论",
+   "结果高于面子"
+  ],
+  "危险先例": [
+   "海峡过路费"
+  ],
+  "隐性控制": [
+   "海峡过路费"
+  ],
+  "new topic 判定": [
+   "会话的话题边界",
+   "对话加确定性缝合",
+   "看对话 log",
+   "反向代理式窥探"
+  ],
+  "废料怪兽": [
+   "会话的话题边界",
+   "开箱即用的编排与子 agent",
+   "语义相关性",
+   "AI 反弹潮",
+   "感官模型快于密集文本",
+   "Context Reset vs Compaction】",
+   "规划模式与边界问题清单",
+   "今天的魔法咒语，明天的反模式",
+   "模型一致性与 prompt caching",
+   "品味与「不接受够用就行",
+   "沙箱化自主",
+   "审批疲劳",
+   "橡皮鸭复审",
+   "Context Anxiety】",
+   "非视觉任务的可视化原型",
+   "少即是多」：gimmick 与真实增益的分界",
+   "原型先行",
+   "Autopilot：内建循环",
+   "one-shot 的理论极限",
+   "YOLO 模式 Allow All"
+  ],
+  "赫布定律": [
+   "基底神经节",
+   "可塑性与韧性的权衡"
+  ],
+  "5-HTTLPR 基因": [
+   "基因 × 环境交互"
+  ],
+  "DRD4 基因": [
+   "基因 × 环境交互"
+  ],
+  "基因投资组合假说": [
+   "基因 × 环境交互"
+  ],
+  "Learn From Sleep vs. Learn During Sleep": [
+   "记忆巩固"
+  ],
+  "目标清楚 + 结果好验收": [
+   "教会 AI Agent 如何成功"
+  ],
+  "AGENTS.md": [
+   "教会 AI Agent 如何成功",
+   "Instructions files",
+   "Agents SDK",
+   "model-native harness"
+  ],
+  "subagents": [
+   "开箱即用的编排与子 agent",
+   "工作树隔离",
+   "显式且可检查的并行",
+   "Agents SDK",
+   "model-native harness"
+  ],
+  "测试是绿的，产品却在退化": [
+   "可维护性没有惩罚项",
+   "模型即产品」的幻觉",
+   "非确定性 nondeterminism"
+  ],
+  "可维护性缺一个可靠的打分预言机": [
+   "可维护性没有惩罚项",
+   "软件工厂 Software Factory",
+   "Lights-off 软件工厂"
+  ],
+  "示例强于规则": [
+   "判定程序化写法",
+   "示例的探索空间约束",
+   "模型即产品」的幻觉",
+   "非确定性 nondeterminism"
+  ],
+  "首次匹配即停路由": [
+   "判定程序化写法",
+   "fail-closed 默认",
+   "反自我合理化条款"
+  ],
+  "上下文即不可信输入": [
+   "判定程序化写法",
+   "零信任 vs. 城堡-护城河",
+   "fail-closed 默认",
+   "prompt-injection",
+   "反自我合理化条款"
+  ],
+  "遗漏式隐私": [
+   "判定程序化写法",
+   "fail-closed 默认",
+   "反自我合理化条款",
+   "preferences 写入过滤"
+  ],
+  "preferences 写入过滤": [
+   "判定程序化写法",
+   "fail-closed 默认",
+   "反自我合理化条款",
+   "遗漏式隐私"
+  ],
+  "版权合规硬上限": [
+   "判定程序化写法",
+   "fail-closed 默认",
+   "反自我合理化条款"
+  ],
+  "默认帮助的高门槛拒绝": [
+   "判定程序化写法",
+   "fail-closed 默认",
+   "反自我合理化条款",
+   "会话级累积判断",
+   "meaningful uplift 判据"
+  ],
+  "自尊式担责": [
+   "判定程序化写法",
+   "fail-closed 默认",
+   "谄媚（Sycophancy）",
+   "反自我合理化条款"
+  ],
+  "手机成瘾": [
+   "屏幕时间",
+   "一刀切政策"
+  ],
+  "教育技术": [
+   "屏幕时间"
+  ],
+  "长周期任务的基础设施压力": [
+   "确定性工程基础设施】 deterministic engineering infrastructure",
+   "messages API 作为直连网关",
+   "Claude Managed Agents"
+  ],
+  "docsdecisions": [
+   "确定性工程基础设施】 deterministic engineering infrastructure",
+   "AI 工程基础设施】 AI engineering infrastructure",
+   "1.6% vs 98.4%",
+   "仓库即唯一事实来源"
+  ],
+  "AI 公司岗位编制】": [
+   "确定性工程基础设施】 deterministic engineering infrastructure",
+   "AI 工程基础设施】 AI engineering infrastructure",
+   "1.6% vs 98.4%"
+  ],
+  "层级架构强约束 + 给 Agent 读的 lint 错误": [
+   "确定性工程基础设施】 deterministic engineering infrastructure",
+   "AI 工程基础设施】 AI engineering infrastructure",
+   "1.6% vs 98.4%",
+   "架构约束的确定性执行"
+  ],
+  "0 人工代码、0 人工 review 极限形态": [
+   "确定性工程基础设施】 deterministic engineering infrastructure",
+   "AI 工程基础设施】 AI engineering infrastructure",
+   "1.6% vs 98.4%",
+   "Lights-off 软件工厂"
+  ],
+  "为 AI 设计工作环境": [
+   "确定性工程基础设施】 deterministic engineering infrastructure",
+   "AI 工程基础设施】 AI engineering infrastructure",
+   "1.6% vs 98.4%"
+  ],
+  "hooks .claudehooks": [
+   "确定性工程基础设施】 deterministic engineering infrastructure",
+   "AI 工程基础设施】 AI engineering infrastructure",
+   "1.6% vs 98.4%",
+   "configuration problem"
+  ],
+  "Tiger Team": [
+   "软件工厂 Software Factory",
+   "Vantage"
+  ],
+  "可维护性 霰弹式手术": [
+   "软件工厂 Software Factory",
+   "Blast radius",
+   "Lights-off 软件工厂"
+  ],
+  "可维护性没有惩罚项": [
+   "软件工厂 Software Factory",
+   "古德哈特定律",
+   "测试是绿的，产品却在退化",
+   "可维护性缺一个可靠的打分预言机",
+   "Lights-off 软件工厂"
+  ],
+  "Mutation Testing 与前沿质量评测": [
+   "软件工厂 Software Factory",
+   "SWE-bench 与二元打分",
+   "Lights-off 软件工厂"
+  ],
+  "产品评审 Product Review": [
+   "软件工厂 Software Factory",
+   "Lights-off 软件工厂"
+  ],
+  "系统架构评审": [
+   "软件工厂 Software Factory",
+   "Lights-off 软件工厂"
+  ],
+  "程序设计 Program Design": [
+   "软件工厂 Software Factory",
+   "Lights-off 软件工厂"
+  ],
+  "2026 版约束理论": [
+   "软件工厂 Software Factory",
+   "今天的魔法咒语，明天的反模式",
+   "Lights-off 软件工厂"
+  ],
+  "优化对象的阶梯": [
+   "三层工程 prompt context harness engineering",
+   "部署系统层",
+   "递归自我改进 RSI"
+  ],
+  "让不可见变得可见": [
+   "三层工程 prompt context harness engineering",
+   "弱 harness 强 harness 对照与消融实验",
+   "模型即产品」的幻觉",
+   "非确定性 nondeterminism"
+  ],
+  "模型即产品」的幻觉": [
+   "示例强于规则",
+   "让不可见变得可见",
+   "昂贵的反馈回路与欠测试",
+   "不可见的劳动",
+   "测试是绿的，产品却在退化",
+   "差一点就通过的输出",
+   "从单元测试到评估：置信度而非正确性证明",
+   "会自己重写的地基",
+   "加法本能陷阱与过度约束",
+   "减法带来质量跃迁",
+   "静默的分级失败",
+   "难度即护城河",
+   "能力鸿沟",
+   "提示词即行为程序",
+   "调试散文：一个词就是 bug",
+   "非确定性 nondeterminism",
+   "结构断言与不变量断言"
+  ],
+  "非确定性 nondeterminism": [
+   "示例强于规则",
+   "让不可见变得可见",
+   "昂贵的反馈回路与欠测试",
+   "不可见的劳动",
+   "测试是绿的，产品却在退化",
+   "差一点就通过的输出",
+   "从单元测试到评估：置信度而非正确性证明",
+   "会自己重写的地基",
+   "加法本能陷阱与过度约束",
+   "减法带来质量跃迁",
+   "静默的分级失败",
+   "模型即产品」的幻觉",
+   "难度即护城河",
+   "提示词即行为程序",
+   "调试散文：一个词就是 bug",
+   "结构断言与不变量断言"
+  ],
+  "睡眠困难": [
+   "睡眠健康",
+   "睡眠健康四维测量框架"
+  ],
+  "睡眠健康四维测量框架": [
+   "睡眠健康",
+   "睡眠困难"
+  ],
+  "睡眠的社会人口学差异": [
+   "睡眠健康",
+   "NHIS"
+  ],
+  "开源 vs 闭源": [
+   "死亡地带",
+   "政府资本 vs 产业资本"
+  ],
+  "前沿实验室": [
+   "死亡地带",
+   "系统竞争"
+  ],
+  "DeepSeek Moment": [
+   "死亡地带"
+  ],
+  "算法即制片人": [
+   "算法即决定性力量"
+  ],
+  "量产游戏": [
+   "算法即决定性力量"
+  ],
+  "剪辑经济": [
+   "算法即决定性力量",
+   "达尔文式角斗场",
+   "剪辑军团",
+   "Pitch】 video packaging",
+   "A view is a view"
+  ],
+  "推理 vs 训练": [
+   "推理模型"
+  ],
+  "后悔流": [
+   "微剧"
+  ],
+  "女性碎片时间作为新基础设施": [
+   "微剧"
+  ],
+  "ChatGPT moment for videos": [
+   "微剧"
+  ],
+  "HiP-CT": [
+   "阴蒂背神经"
+  ],
+  "阴蒂包皮": [
+   "阴蒂背神经"
+  ],
+  "后唇神经": [
+   "阴蒂背神经",
+   "女性生殖器切割（FGM）"
+  ],
+  "注水内容": [
+   "语义相关性"
+  ],
+  "重心": [
+   "载重平衡"
+  ],
+  "标准平均旅客重量": [
+   "载重平衡"
+  ],
+  "最后一分钟修正": [
+   "载重平衡"
+  ],
+  "AI 护照": [
+   "责任链条散了"
+  ],
+  "赛博避难所与修罗场": [
+   "责任链条散了"
+  ],
+  "Logits": [
+   "重要性采样"
+  ],
+  "CISPO": [
+   "重要性采样"
+  ],
+  "用工具调用联系人类": [
+   "Action Space】",
+   "12-factor agents",
+   "并不 agentic」的 AI Agent",
+   "软件即有向图"
+  ],
+  "Tool Calling】": [
+   "Action Space】",
+   "Elicitation】",
+   "工具调用批处理",
+   "See Like an Agent】"
+  ],
+  "Agent Skills】": [
+   "Action Space】",
+   "渐进式披露 progressive disclosure",
+   "嵌入 Embedded",
+   "Elicitation】",
+   "能力外置化决策",
+   "See Like an Agent】"
+  ],
+  "Subagent】": [
+   "Action Space】",
+   "Symphony",
+   "Elicitation】",
+   "子 agent 与 step.invoke()",
+   "configuration problem",
+   "See Like an Agent】"
+  ],
+  "Markdown prompt engineering": [
+   "Agentic primitives",
+   "Instructions files",
+   "Validation gates",
+   "Agent CLI runtimes",
+   "Agentic workflows",
+   "APM",
+   "Chat modes",
+   "Memory-driven development",
+   "Natural language as code"
+  ],
+  "营销谬误": [
+   "AI 反弹潮"
+  ],
+  "年化营收": [
+   "AI 泡沫"
+  ],
+  "LLM 订阅错配（LLM Subscription Mispricing）": [
+   "AI 泡沫"
+  ],
+  "锯齿状智能（Jagged Intelligence）": [
+   "Capability Overhang",
+   "世界模型",
+   "探针",
+   "capability spike 公式"
+  ],
+  "Codex": [
+   "coding agent"
+  ],
+  "旅行者号": [
+   "DART任务",
+   "日球层",
+   "引力助推",
+   "Big Bang 升级计划（旅行者号）",
+   "RTG"
+  ],
+  "阿尔忒弥斯协定": [
+   "DART任务",
+   "国际月球科研站"
+  ],
+  "国际月球科研站": [
+   "DART任务",
+   "阿尔忒弥斯协定"
+  ],
+  "出海": [
+   "Frontier Demand 前沿需求",
+   "节俭创新"
+  ],
+  "Context Bloat": [
+   "gotchas 优先的 CLAUDE.md",
+   "Instruction-file tax",
+   "Skill Files",
+   "Thin Harness, Fat Skills"
+  ],
+  "prompt 与 context 的通用性落差": [
+   "gotchas 优先的 CLAUDE.md",
+   "渐进式披露 progressive disclosure",
+   "接口即指令 design interfaces",
+   "prompt completion",
+   "Rubrics 与验证 agent",
+   "冲突指令的隐性成本",
+   "从禁止什么到对齐什么",
+   "示例会收窄探索空间",
+   "延迟加载工具与 ToolSearch",
+   "指令就近原则",
+   "富引用 rich references",
+   "上下文文件树 tree of files",
+   "自动记忆 auto-memory",
+   "过度约束与松绑 over-constraining unhobbling",
+   "护栏与判断力的取舍 guardrail tradeoff"
+  ],
+  "过度约束与松绑 over-constraining unhobbling": [
+   "gotchas 优先的 CLAUDE.md",
+   "渐进式披露 progressive disclosure",
+   "接口即指令 design interfaces",
+   "Rubrics 与验证 agent",
+   "冲突指令的隐性成本",
+   "从禁止什么到对齐什么",
+   "示例会收窄探索空间",
+   "延迟加载工具与 ToolSearch",
+   "指令就近原则",
+   "prompt 与 context 的通用性落差",
+   "富引用 rich references",
+   "上下文文件树 tree of files",
+   "自动记忆 auto-memory",
+   "护栏与判断力的取舍 guardrail tradeoff"
+  ],
+  "自收敛与免全局同步": [
+   "handoff 交接",
+   "自协调与共享协调文件",
+   "锁竞争与乐观并发控制"
+  ],
+  "锁竞争与乐观并发控制": [
+   "handoff 交接",
+   "角色过载与病态行为",
+   "连续执行器",
+   "锁竞争瓶颈 lock contention",
+   "为吞吐量设计与可接受错误率",
+   "自协调与共享协调文件",
+   "integrator 瓶颈",
+   "单用户假设的失效",
+   "递归 planner 与 subplanner",
+   "反脆弱",
+   "所有权与问责",
+   "新鲜度机制",
+   "意图规约与可引导性",
+   "约束优于指令",
+   "自收敛与免全局同步",
+   "最慢 worker 瓶颈与刚性",
+   "planner–executor–judge 角色分工"
+  ],
+  "harness 的过时假设": [
+   "Harness evolution",
+   "Harness 组件生命周期",
+   "Harness level feature",
+   "messages API 作为直连网关",
+   "Claude Managed Agents"
+  ],
+  "Without Defensiveness": [
+   "Holding Your Opinions Lightly"
+  ],
+  "Beliefs as Lenses, Not Armor": [
+   "Holding Your Opinions Lightly",
+   "Rightness is a Prison"
+  ],
+  "Superforecasting": [
+   "Holding Your Opinions Lightly",
+   "稀疏反馈推断规则"
+  ],
+  "教会 AI Agent 如何成功": [
+   "Instructions files",
+   "AGENTS.md",
+   "目标清楚 + 结果好验收"
+  ],
+  "Q、K、V": [
+   "multimodal Vision LLMs",
+   "MoE",
+   "Tuned Lens"
+  ],
+  "VLM": [
+   "multimodal Vision LLMs"
+  ],
+  "Tuned Lens": [
+   "Q、K、V"
+  ],
+  "MoE": [
+   "Q、K、V"
+  ],
+  "N-gram": [
+   "reasoning thinking"
+  ],
+  "Software for one": [
+   "Reverse Digital Divide"
+  ],
+  "code mode": [
+   "shell tool",
+   "Agents SDK",
+   "model-native harness"
+  ],
+  "apply patch tool": [
+   "shell tool",
+   "Agents SDK",
+   "model-native harness"
+  ],
+  "显式且可检查的并行": [
+   "subagents",
+   "部署系统层",
+   "递归自我改进 RSI"
+  ],
+  "时间 Scalability Temporal Scalability": [
+   "Symphony",
+   "递归 Planner-Worker 架构",
+   "空间 Scalability Spatial Scalability",
+   "自评失真 Self-evaluation Distortion",
+   "Harness 组件生命周期",
+   "方向漂移 Direction Drift",
+   "交互 Scalability Interaction Scalability",
+   "Context Infrastructure",
+   "Generative Kernel"
+  ],
+  "空间 Scalability Spatial Scalability": [
+   "Symphony",
+   "递归 Planner-Worker 架构",
+   "自评失真 Self-evaluation Distortion",
+   "Harness 组件生命周期",
+   "单用户假设的失效",
+   "反脆弱",
+   "方向漂移 Direction Drift",
+   "交互 Scalability Interaction Scalability",
+   "Context Infrastructure",
+   "Generative Kernel",
+   "时间 Scalability Temporal Scalability"
+  ],
+  "大小模型分工": [
+   "Token Efficiency",
+   "对话加确定性缝合",
+   "看对话 log",
+   "反向代理式窥探",
+   "氛围组请求"
+  ],
+  "人类上移到更高抽象层": [
+   "管理 Agent",
+   "部署系统层",
+   "递归自我改进 RSI"
+  ],
+  "可恢复的压缩 restorable compression": [
+   "即时检索 Just-in-time Retrieval",
+   "押注 in-context learning",
+   "与底层模型正交 orthogonal to the underlying models"
+  ],
+  "从单元测试到评估：置信度而非正确性证明": [
+   "可验证目标",
+   "模型即产品」的幻觉",
+   "非确定性 nondeterminism"
+  ],
+  "LLM 知识库": [
+   "项目知识体系"
+  ],
+  "原则侧": [
+   "3+ 法则",
+   "Agent vs Harness"
+  ],
+  "带球跑": [
+   "霸道总裁"
+  ],
+  "学习脚手架": [
+   "被动 vs. 互动屏幕使用",
+   "独立视频】 standalone video"
+  ],
+  "看对话 log": [
+   "本地状态层",
+   "大小模型分工",
+   "对话加确定性缝合",
+   "护城河清单与插件化路线",
+   "instruction following 的可靠性边界",
+   "TodoWrite 与 TodoRead",
+   "WebFetch 两阶段总结",
+   "反向代理式窥探",
+   "氛围组请求",
+   "全文覆盖式编辑",
+   "系统 prompt 的体量差",
+   "隐式 code context",
+   "原生工具与 MCP 外挂",
+   "apply 模型",
+   "new topic 判定"
+  ],
+  "反向代理式窥探": [
+   "本地状态层",
+   "大小模型分工",
+   "对话加确定性缝合",
+   "护城河清单与插件化路线",
+   "看对话 log",
+   "instruction following 的可靠性边界",
+   "TodoWrite 与 TodoRead",
+   "WebFetch 两阶段总结",
+   "氛围组请求",
+   "全文覆盖式编辑",
+   "系统 prompt 的体量差",
+   "隐式 code context",
+   "原生工具与 MCP 外挂",
+   "apply 模型",
+   "new topic 判定"
+  ],
+  "冰相": [
+   "冰 XXI",
+   "超离子冰",
+   "冰 XXII",
+   "塑性冰 VII"
+  ],
+  "金刚石压砧": [
+   "冰 XXI"
+  ],
+  "看不见的财富": [
+   "财富即自由"
+  ],
+  "中子散射": [
+   "超离子冰"
+  ],
+  "节俭创新": [
+   "出海"
+  ],
+  "共识捕获": [
+   "从众默认"
+  ],
+  "霸道总裁": [
+   "达尔文式角斗场",
+   "带球跑"
+  ],
+  "骆驼鼻子探入帐篷（Camel's Nose in the Tent）": [
+   "大规模监控（Bulk Surveillance）"
+  ],
+  "长上下文评测协议": [
+   "大海捞针（NIAH）与词面匹配",
+   "输入长度与任务难度的混淆",
+   "迷失在中间 lost in the middle",
+   "首因偏置 primacy bias",
+   "U 型性能曲线"
+  ],
+  "噪声上下文": [
+   "大海捞针（NIAH）与词面匹配"
+  ],
+  "淀粉样蛋白级联假说": [
+   "大脑废物清除假说"
+  ],
+  "氛围组请求": [
+   "大小模型分工",
+   "对话加确定性缝合",
+   "看对话 log",
+   "反向代理式窥探"
+  ],
+  "为吞吐量设计与可接受错误率": [
+   "单 agent 的速度天花板",
+   "自协调与共享协调文件",
+   "integrator 瓶颈",
+   "锁竞争与乐观并发控制"
+  ],
+  "大脑废物清除假说": [
+   "淀粉样蛋白级联假说"
+  ],
+  "昂贵的反馈回路与欠测试": [
+   "端到端验证",
+   "模型即产品」的幻觉",
+   "非确定性 nondeterminism"
+  ],
+  "Latent vs Deterministic": [
+   "对话加确定性缝合",
+   "Skill Files",
+   "1.6% vs 98.4%",
+   "会自己重写的地基",
+   "Thin Harness, Fat Skills"
+  ],
+  "全文覆盖式编辑": [
+   "对话加确定性缝合",
+   "看对话 log",
+   "反向代理式窥探",
+   "apply 模型"
+  ],
+  "apply 模型": [
+   "对话加确定性缝合",
+   "看对话 log",
+   "反向代理式窥探",
+   "全文覆盖式编辑"
+  ],
+  "instruction following 的可靠性边界": [
+   "对话加确定性缝合",
+   "看对话 log",
+   "REI-Bench",
+   "Validation gates",
+   "反向代理式窥探"
+  ],
+  "隐式 code context": [
+   "对话加确定性缝合",
+   "看对话 log",
+   "注意力之前的注意力 attention before attention",
+   "反向代理式窥探"
+  ],
+  "闭卷与 oracle 基线": [
+   "多文档问答受控实验",
+   "迷失在中间 lost in the middle",
+   "首因偏置 primacy bias",
+   "U 型性能曲线"
+  ],
+  "首因偏置 primacy bias": [
+   "多文档问答受控实验",
+   "序列位置效应 serial-position effect",
+   "长上下文评测协议",
+   "迷失在中间 lost in the middle",
+   "闭卷与 oracle 基线",
+   "合成键值检索任务",
+   "性能饱和早于召回饱和",
+   "重排序与排序列表截断",
+   "U 型性能曲线",
+   "查询感知语境化 query-aware contextualization",
+   "干扰文档 distractor documents",
+   "检索器-阅读器配置 retriever-reader",
+   "近因偏置 recency bias",
+   "扩展上下文模型 extended-context models"
+  ],
+  "Qualia": [
+   "多重草稿模型",
+   "心身二元论"
+  ],
+  "脑海名望": [
+   "多重草稿模型"
+  ],
+  "嘻哈五要素": [
+   "非洲中心主义",
+   "采样伦理",
+   "文化秃鹫转向",
+   "嘻哈教父"
+  ],
+  "超人（Übermensch）": [
+   "非洲中心主义"
+  ],
+  "尾部效应": [
+   "复利"
+  ],
+  "波动是门票": [
+   "复利"
+  ],
+  "Scaffolding Metaphor": [
+   "感官模型快于密集文本",
+   "Agent vs Harness"
+  ],
+  "Diff 锚定": [
+   "工具—工作流适配",
+   "Blast radius",
+   "共享 harness",
+   "浏览循环"
+  ],
+  "最小充分上下文": [
+   "工具—工作流适配",
+   "共享 harness",
+   "浏览循环",
+   "先收窄、后读取",
+   "最小充分性与语义连续性原则"
+  ],
+  "先收窄、后读取": [
+   "工具—工作流适配",
+   "最小充分上下文",
+   "共享 harness",
+   "浏览循环"
+  ],
+  "工具调用批处理": [
+   "工具—工作流适配",
+   "共享 harness",
+   "浏览循环",
+   "Tool Calling】"
+  ],
+  "收敛式失败恢复": [
+   "工具—工作流适配",
+   "共享 harness",
+   "卡住即信号 struggle as signal",
+   "浏览循环"
+  ],
+  "Trace 驱动评估": [
+   "工具—工作流适配",
+   "Tracing",
+   "共享 harness",
+   "浏览循环"
+  ],
+  "任务特定工具说明": [
+   "工具—工作流适配",
+   "接口即指令 design interfaces",
+   "共享 harness",
+   "浏览循环"
+  ],
+  "浏览循环": [
+   "工具—工作流适配",
+   "最小充分上下文",
+   "工具调用批处理",
+   "共享 harness",
+   "任务特定工具说明",
+   "收敛式失败恢复",
+   "先收窄、后读取",
+   "Diff 锚定",
+   "Gather-Act-Verify Cycle",
+   "Trace 驱动评估"
+  ],
+  "Rationale 参数": [
+   "工具即契约 tools as the contract"
+  ],
+  "理性": [
+   "工具理性",
+   "理性无知"
+  ],
+  "群体认同偏差": [
+   "工具理性"
+  ],
+  "善意越轨（Benign Deviancy）": [
+   "合理性的三个考量（Three Considerations of Reasonableness）"
+  ],
+  "可塑性与韧性的权衡": [
+   "赫布定律"
+  ],
+  "阴蒂背神经": [
+   "后唇神经",
+   "阴蒂包皮",
+   "HiP-CT"
+  ],
+  "女性生殖器切割（FGM）": [
+   "后唇神经"
+  ],
+  "难度即护城河": [
+   "护城河清单与插件化路线",
+   "模型即产品」的幻觉",
+   "非确定性 nondeterminism"
+  ],
+  "焦虑": [
+   "回避行为",
+   "杏仁核"
+  ],
+  "杏仁核": [
+   "回避行为",
+   "焦虑"
+  ],
+  "社会许可": [
+   "监管捕获"
+  ],
+  "痛苦素养": [
+   "见证",
+   "痛苦的螺旋"
+  ],
+  "进化式搜索与适应度": [
+   "奖励攻击与多样性坍塌",
+   "部署系统层",
+   "递归自我改进 RSI"
+  ],
+  "回避行为": [
+   "焦虑",
+   "杏仁核"
+  ],
+  "回声 echo of your own tangle of thoughts": [
+   "局部最优 local optima",
+   "bits",
+   "漫谈会话 ramble session",
+   "输入摩擦 too lazy to type"
+  ],
+  "3+ 法则": [
+   "决策慢、执行快",
+   "原则侧"
+  ],
+  "政府资本 vs 产业资本": [
+   "开源 vs 闭源"
+  ],
+  "死亡地带": [
+   "开源 vs 闭源",
+   "前沿实验室",
+   "DeepSeek Moment"
+  ],
+  "单用户假设的失效": [
+   "空间 Scalability Spatial Scalability",
+   "自协调与共享协调文件",
+   "锁竞争与乐观并发控制"
+  ],
+  "反脆弱": [
+   "空间 Scalability Spatial Scalability",
+   "自协调与共享协调文件",
+   "锁竞争与乐观并发控制"
+  ],
+  "蒲公英型儿童": [
+   "兰花型儿童"
+  ],
+  "工具理性": [
+   "理性",
+   "群体认同偏差"
+  ],
+  "理性无知": [
+   "理性"
+  ],
+  "角色过载与病态行为": [
+   "连续执行器",
+   "自协调与共享协调文件",
+   "结构适量原则",
+   "锁竞争与乐观并发控制"
+  ],
+  "根因优先": [
+   "零 bug 政策与一周 SLA"
+  ],
+  "Web of Trust": [
+   "零信任 vs. 城堡-护城河"
+  ],
+  "时间偏好": [
+   "难选择，易人生"
+  ],
+  "信息稀缺优势": [
+   "人机协作"
+  ],
+  "Manus 收购叫停事件": [
+   "人事即政治"
+  ],
+  "结果高于面子": [
+   "认知失调"
+  ],
+  "零信任 vs. 城堡-护城河": [
+   "上下文即不可信输入",
+   "Web of Trust"
+  ],
+  "字面类比": [
+   "世界模型"
+  ],
+  "一刀切政策": [
+   "手机成瘾"
+  ],
+  "多文档问答受控实验": [
+   "输入长度与任务难度的混淆",
+   "迷失在中间 lost in the middle",
+   "闭卷与 oracle 基线",
+   "首因偏置 primacy bias",
+   "U 型性能曲线"
+  ],
+  "睡眠健康": [
+   "睡眠的社会人口学差异",
+   "睡眠健康四维测量框架",
+   "睡眠困难"
+  ],
+  "NHIS": [
+   "睡眠的社会人口学差异"
+  ],
+  "残差流": [
+   "探针",
+   "信息瓶颈原则",
+   "mHC"
+  ],
+  "shell tool": [
+   "通用工具与「给模型一台计算机",
+   "Agents SDK",
+   "apply patch tool",
+   "code mode",
+   "model-native harness"
+  ],
+  "Agentic Tools": [
+   "通用工具与「给模型一台计算机"
+  ],
+  "软件即有向图": [
+   "统一执行状态与业务状态",
+   "12-factor agents",
+   "80% 质量墙",
+   "并不 agentic」的 AI Agent",
+   "工具即结构化输出",
+   "框架反向工程",
+   "扔掉 DAG」的承诺",
+   "所有权原则",
+   "小而模块化的概念",
+   "用工具调用联系人类",
+   "agent 循环",
+   "context window 即 agent 状态",
+   "DAG 编排器",
+   "Tree-sitter"
+  ],
+  "痛苦的螺旋": [
+   "痛苦素养"
+  ],
+  "Friction-based Skill Formation": [
+   "稀疏反馈推断规则",
+   "Taste"
+  ],
+  "Quining": [
+   "消除主义"
+  ],
+  "无我": [
+   "消除主义"
+  ],
+  "平行 AI 基础设施": [
+   "芯片管制"
+  ],
+  "昇腾": [
+   "芯片管制"
+  ],
+  "重要性采样": [
+   "信任域",
+   "CISPO",
+   "Logits"
+  ],
+  "意向性系统理论": [
+   "叙事重心",
+   "意向性立场"
+  ],
+  "忒修斯之船": [
+   "叙事重心"
+  ],
+  "独立视频】 standalone video": [
+   "学习脚手架",
+   "共享理解】 shared understanding",
+   "设计树】 design tree",
+   "追问式对齐】 Grill Me"
+  ],
+  "新鲜度机制": [
+   "压缩（compaction）与运行内外的分工",
+   "自协调与共享协调文件",
+   "锁竞争与乐观并发控制"
+  ],
+  "Ostwald 阶梯规则": [
+   "亚稳态"
+  ],
+  "Step Change": [
+   "亚稳态",
+   "涌现"
+  ],
+  "社会稳定机制": [
+   "延迟的正义"
+  ],
+  "行为提取": [
+   "验证循环：guides 与 sensors"
+  ],
+  "有界改动与回归闸": [
+   "验证子系统与可运行的证据",
+   "部署系统层",
+   "递归自我改进 RSI"
+  ],
+  "Situationship": [
+   "依恋风格"
+  ],
+  "意向性立场": [
+   "意向性系统理论"
+  ],
+  "叙事重心": [
+   "意向性系统理论",
+   "忒修斯之船"
+  ],
+  "知识与能力的双供给 information and tools": [
+   "有限的工作记忆 limited working memory",
+   "上下文（Context）：模型生成之前看到的一切"
+  ],
+  "格式即上下文 where the format matters": [
+   "有限的工作记忆 limited working memory",
+   "上下文（Context）：模型生成之前看到的一切"
+  ],
+  "廉价 demo 与「魔法级」agent": [
+   "有限的工作记忆 limited working memory",
+   "上下文（Context）：模型生成之前看到的一切"
+  ],
+  "上下文（Context）：模型生成之前看到的一切": [
+   "有限的工作记忆 limited working memory",
+   "上下文失败，而非模型失败 context failures, not model failures",
+   "系统而非字符串 A System, Not a String",
+   "正确的信息与工具，在正确的时间",
+   "动态装配 Dynamic",
+   "格式即上下文 where the format matters",
+   "廉价 demo 与「魔法级」agent",
+   "知识与能力的双供给 information and tools"
+  ],
+  "无国籍智能体": [
+   "责任地址"
+  ],
+  "意图的延伸": [
+   "责任地址"
+  ],
+  "任务时域 task horizon": [
+   "长时程自治编码 long-running autonomous coding",
+   "messages API 作为直连网关",
+   "Claude Managed Agents"
+  ],
+  "结构性矛盾": [
+   "照料劳动"
+  ],
+  "数据中心": [
+   "蒸发冷却",
+   "AI 从应用到基础设施",
+   "CXL 内存池化",
+   "Trainium"
+  ],
+  "Acre-foot": [
+   "蒸发冷却"
+  ],
+  "Seeming-Rightness": [
+   "自我默认",
+   "Rightness is a Prison"
+  ],
+  "Fooling Yourself Takes Work": [
+   "自我默认"
+  ],
+  "意图规约与可引导性": [
+   "自协调与共享协调文件",
+   "Elicitation】",
+   "锁竞争与乐观并发控制"
+  ],
+  "约束优于指令": [
+   "自协调与共享协调文件",
+   "锁竞争与乐观并发控制",
+   "提示词即行为程序"
+  ],
+  "注意力机制": [
+   "自注意力",
+   "条件记忆"
+  ],
+  "多头注意力": [
+   "自注意力",
+   "CSA",
+   "GQA"
+  ],
+  "工具—工作流适配": [
+   "最小充分上下文",
+   "Agent-driven CICD",
+   "工具调用批处理",
+   "共享 harness",
+   "浏览循环",
+   "任务特定工具说明",
+   "收敛式失败恢复",
+   "先收窄、后读取",
+   "AI 友好度（AI-friendliness）作为选型标准",
+   "Diff 锚定",
+   "Trace 驱动评估"
+  ],
+  "AI 主权审查机制": [
+   "AI 从应用到基础设施"
+  ],
+  "AI 可见性": [
+   "AI 爬虫五大分类"
+  ],
+  "Cloaking": [
+   "AI 爬虫五大分类"
+  ],
+  "Wrong criteria in their mind": [
+   "AI matchmaking"
+  ],
+  "Holding Your Opinions Lightly": [
+   "Beliefs as Lenses, Not Armor",
+   "Superforecasting",
+   "Without Defensiveness"
+  ],
+  "Rightness is a Prison": [
+   "Beliefs as Lenses, Not Armor",
+   "Seeming-Rightness"
+  ],
+  "code-review-graph": [
+   "Blast radius",
+   "just in time 上下文检索",
+   "Review Quality 评分方法",
+   "code-review-graphignore 排除配置",
+   "MCP 工具层",
+   "Tree-sitter",
+   "持久化代码图谱 structural map graph",
+   "多语言结构化解析 12 languages node type mappings",
+   "语义搜索 semantic search embeddings",
+   "增量更新 incremental update",
+   "Token 优化的评审上下文 get_review_context_tool",
+   "Watch 模式与自动更新 hooks"
+  ],
+  "Tree-sitter": [
+   "Blast radius",
+   "code-review-graph",
+   "Review Quality 评分方法",
+   "软件即有向图",
+   "code-review-graphignore 排除配置",
+   "MCP 工具层",
+   "持久化代码图谱 structural map graph",
+   "多语言结构化解析 12 languages node type mappings",
+   "语义搜索 semantic search embeddings",
+   "增量更新 incremental update",
+   "Token 优化的评审上下文 get_review_context_tool",
+   "Watch 模式与自动更新 hooks"
+  ],
+  "持久化代码图谱 structural map graph": [
+   "Blast radius",
+   "code-review-graph",
+   "Review Quality 评分方法",
+   "code-review-graphignore 排除配置",
+   "MCP 工具层",
+   "Tree-sitter",
+   "多语言结构化解析 12 languages node type mappings",
+   "语义搜索 semantic search embeddings",
+   "增量更新 incremental update",
+   "Token 优化的评审上下文 get_review_context_tool",
+   "Watch 模式与自动更新 hooks"
+  ],
+  "提示词缓存（Prompt Caching）": [
+   "cached input tokens",
+   "模型一致性与 prompt caching",
+   "Automatic Caching",
+   "TTL"
+  ],
+  "code-review-graphignore 排除配置": [
+   "code-review-graph",
+   "Tree-sitter",
+   "持久化代码图谱 structural map graph"
+  ],
+  "增量更新 incremental update": [
+   "code-review-graph",
+   "Tree-sitter",
+   "持久化代码图谱 structural map graph"
+  ],
+  "Blast radius": [
+   "code-review-graph",
+   "可维护性 霰弹式手术",
+   "Diff 锚定",
+   "Tree-sitter",
+   "持久化代码图谱 structural map graph"
+  ],
+  "Token 优化的评审上下文 get_review_context_tool": [
+   "code-review-graph",
+   "Tree-sitter",
+   "持久化代码图谱 structural map graph"
+  ],
+  "语义搜索 semantic search embeddings": [
+   "code-review-graph",
+   "Tree-sitter",
+   "持久化代码图谱 structural map graph"
+  ],
+  "Watch 模式与自动更新 hooks": [
+   "code-review-graph",
+   "Tree-sitter",
+   "持久化代码图谱 structural map graph"
+  ],
+  "多语言结构化解析 12 languages node type mappings": [
+   "code-review-graph",
+   "Tree-sitter",
+   "持久化代码图谱 structural map graph"
+  ],
+  "Handoff Artifact】": [
+   "Context Reset vs Compaction】",
+   "Context Anxiety】"
+  ],
+  "Session Management】": [
+   "Context Reset vs Compaction】"
+  ],
+  "Grading Criteria】": [
+   "Context Reset vs Compaction】",
+   "弱而模糊的评估器",
+   "Context Anxiety】"
+  ],
+  "Planner-Generator-Evaluator 三 Agent 架构": [
+   "Context Reset vs Compaction】",
+   "Generator-Evaluator Loop】",
+   "Context Anxiety】"
+  ],
+  "Harness 简化原则】 Harness Simplification": [
+   "Context Reset vs Compaction】",
+   "Context Anxiety】"
+  ],
+  "混合注意力": [
+   "CSA",
+   "DeepSeek V4"
+  ],
+  "开权重模型": [
+   "DeepSeek V4"
+  ],
+  "bits": [
+   "Elicitation】",
+   "不连贯输入的重构能力",
+   "回声 echo of your own tangle of thoughts",
+   "前置声明",
+   "纠正成本递减 correct things less from that point on",
+   "漫谈会话 ramble session",
+   "输入摩擦 too lazy to type",
+   "通道切换 switch to voice",
+   "小访谈变体 small interview of a few turns",
+   "意识流输入 full stream of consciousness",
+   "整理增益 cleaner than what you started with",
+   "mind meld"
+  ],
+  "短睡眠时长": [
+   "Exhaustion Debt"
+  ],
+  "醒后清爽感": [
+   "Exhaustion Debt"
+  ],
+  "显现图景": [
+   "Facts are facts, but perception is reality"
+  ],
+  "HiFi 与 HiEx 信息原则": [
+   "Facts are facts, but perception is reality"
+  ],
+  "稀疏反馈推断规则": [
+   "Friction-based Skill Formation",
+   "Superforecasting"
+  ],
+  "工具即结构化输出": [
+   "Function tools",
+   "12-factor agents",
+   "并不 agentic」的 AI Agent",
+   "软件即有向图"
+  ],
+  "exfiltration": [
+   "harness–compute separation",
+   "prompt-injection",
+   "Agents SDK",
+   "model-native harness"
+  ],
+  "AWS VPC": [
+   "harness–compute separation"
+  ],
+  "harness over-fitting": [
+   "Hermes Agent",
+   "Trace-based evals",
+   "configuration problem",
+   "model-native harness"
+  ],
+  "REI-Bench": [
+   "instruction following 的可靠性边界",
+   "VirtualHome"
+  ],
+  "可自动化循环": [
+   "Intelligence Factory 智能工厂"
+  ],
+  "机会成本": [
+   "Just-in-Time vs Buffer Stock"
+  ],
+  "skill 作为 onboarding 载体": [
+   "messages API 作为直连网关",
+   "Claude Managed Agents"
+  ],
+  "追问式对齐】 Grill Me": [
+   "Pitch】 video packaging",
+   "独立视频】 standalone video",
+   "领域专家】 domain expert",
+   "带文档追问】 Grill with Docs",
+   "共享理解】 shared understanding",
+   "架构决策记录】 ADR",
+   "领域语言缺口】 missing language layer",
+   "模糊语言打磨】 sharpen fuzzy language",
+   "上下文文档】 context.md",
+   "设计树】 design tree",
+   "统一语言】 ubiquitous language",
+   "限界上下文】 bounded context",
+   "语言驱动的代码一致性】 language-code alignment"
+  ],
+  "共享理解】 shared understanding": [
+   "Pitch】 video packaging",
+   "独立视频】 standalone video",
+   "领域专家】 domain expert",
+   "带文档追问】 Grill with Docs",
+   "架构决策记录】 ADR",
+   "领域语言缺口】 missing language layer",
+   "模糊语言打磨】 sharpen fuzzy language",
+   "上下文文档】 context.md",
+   "设计树】 design tree",
+   "统一语言】 ubiquitous language",
+   "限界上下文】 bounded context",
+   "语言驱动的代码一致性】 language-code alignment",
+   "追问式对齐】 Grill Me"
+  ],
+  "设计树】 design tree": [
+   "Pitch】 video packaging",
+   "独立视频】 standalone video",
+   "领域专家】 domain expert",
+   "带文档追问】 Grill with Docs",
+   "共享理解】 shared understanding",
+   "架构决策记录】 ADR",
+   "领域语言缺口】 missing language layer",
+   "模糊语言打磨】 sharpen fuzzy language",
+   "上下文文档】 context.md",
+   "统一语言】 ubiquitous language",
+   "限界上下文】 bounded context",
+   "语言驱动的代码一致性】 language-code alignment",
+   "追问式对齐】 Grill Me"
+  ],
+  "心身二元论": [
+   "Qualia"
+  ],
+  "多重草稿模型": [
+   "Qualia",
+   "脑海名望"
+  ],
+  "Orchestration Loop TAO Cycle ReAct Loop": [
+   "ReAct loop",
+   "Agent vs Harness",
+   "Continuous orchestration loop"
+  ],
+  "VirtualHome": [
+   "REI-Bench"
+  ],
+  "清醒梦": [
+   "REM 睡眠"
+  ],
+  "记忆巩固": [
+   "REM 睡眠",
+   "Learn From Sleep vs. Learn During Sleep",
+   "Targeted Memory Reactivation"
+  ],
+  "Rubric": [
+   "Review Quality 评分方法",
+   "Rubric 与 verifier agent",
+   "Rubrics 与验证 agent",
+   "Sprint Contract】"
+  ],
+  "自我默认": [
+   "Seeming-Rightness",
+   "Fooling Yourself Takes Work"
+  ],
+  "Ghosts, Not Animals": [
+   "Simulated Competence"
+  ],
+  "Resolver": [
+   "Skill Files",
+   "Thin Harness, Fat Skills"
+  ],
+  "Diarization": [
+   "Skill Files",
+   "Thin Harness, Fat Skills"
+  ],
+  "Plan 模式": [
+   "Spec-driven agent workflow",
+   "规划模式与边界问题清单"
+  ],
+  "Spec-First Workflow": [
+   "Spec-driven agent workflow"
+  ],
+  "亚稳态": [
+   "Step Change",
+   "Ostwald 阶梯规则"
+  ],
+  "涌现": [
+   "Step Change"
+  ],
+  "pass@k": [
+   "SWE-bench 与二元打分"
+  ],
+  "Universal appeal — makes, not has": [
+   "Taste"
+  ],
+  "Psycho-phone": [
+   "Wake-centric Values"
+  ],
+  "近因偏置 recency bias": [
+   "迷失在中间 lost in the middle",
+   "首因偏置 primacy bias",
+   "U 型性能曲线"
+  ],
+  "干扰文档 distractor documents": [
+   "迷失在中间 lost in the middle",
+   "首因偏置 primacy bias",
+   "U 型性能曲线"
+  ],
+  "扩展上下文模型 extended-context models": [
+   "迷失在中间 lost in the middle",
+   "首因偏置 primacy bias",
+   "U 型性能曲线"
+  ],
+  "查询感知语境化 query-aware contextualization": [
+   "迷失在中间 lost in the middle",
+   "首因偏置 primacy bias",
+   "U 型性能曲线"
+  ],
+  "检索器-阅读器配置 retriever-reader": [
+   "迷失在中间 lost in the middle",
+   "首因偏置 primacy bias",
+   "U 型性能曲线"
+  ],
+  "性能饱和早于召回饱和": [
+   "迷失在中间 lost in the middle",
+   "首因偏置 primacy bias",
+   "重排序与排序列表截断",
+   "U 型性能曲线"
+  ],
+  "重排序与排序列表截断": [
+   "迷失在中间 lost in the middle",
+   "首因偏置 primacy bias",
+   "性能饱和早于召回饱和",
+   "U 型性能曲线"
+  ],
+  "序列位置效应 serial-position effect": [
+   "迷失在中间 lost in the middle",
+   "首因偏置 primacy bias",
+   "指令就近原则",
+   "U 型性能曲线"
+  ],
+  "科学图景": [
+   "暗淡蓝点"
+  ],
+  "提示词工程 Prompt Engineering": [
+   "AI Agent",
+   "非模型架构 Non-model Architecture"
+  ],
+  "奖励攻击与多样性坍塌": [
+   "Tic Word",
+   "部署系统层",
+   "进化式搜索与适应度",
+   "递归自我改进 RSI"
+  ],
+  "DAG 编排器": [
+   "12-factor agents",
+   "并不 agentic」的 AI Agent",
+   "扔掉 DAG」的承诺",
+   "软件即有向图"
+  ],
+  "扔掉 DAG」的承诺": [
+   "12-factor agents",
+   "并不 agentic」的 AI Agent",
+   "软件即有向图",
+   "DAG 编排器"
+  ],
+  "基因 × 环境交互": [
+   "5-HTTLPR 基因",
+   "基因投资组合假说",
+   "DRD4 基因"
+  ],
+  "载重平衡": [
+   "标准平均旅客重量",
+   "重心",
+   "最后一分钟修正"
+  ],
+  "复利": [
+   "波动是门票",
+   "尾部效应"
+  ],
+  "前置声明": [
+   "不连贯输入的重构能力",
+   "bits",
+   "漫谈会话 ramble session",
+   "输入摩擦 too lazy to type"
+  ],
+  "漫谈会话 ramble session": [
+   "不连贯输入的重构能力",
+   "回声 echo of your own tangle of thoughts",
+   "前置声明",
+   "bits",
+   "纠正成本递减 correct things less from that point on",
+   "输入摩擦 too lazy to type",
+   "通道切换 switch to voice",
+   "小访谈变体 small interview of a few turns",
+   "意识流输入 full stream of consciousness",
+   "整理增益 cleaner than what you started with",
+   "mind meld"
+  ],
+  "输入摩擦 too lazy to type": [
+   "不连贯输入的重构能力",
+   "回声 echo of your own tangle of thoughts",
+   "前置声明",
+   "bits",
+   "纠正成本递减 correct things less from that point on",
+   "漫谈会话 ramble session",
+   "通道切换 switch to voice",
+   "小访谈变体 small interview of a few turns",
+   "意识流输入 full stream of consciousness",
+   "整理增益 cleaner than what you started with",
+   "mind meld"
+  ],
+  "上下文 playbook 与增量条目": [
+   "部署系统层",
+   "上下文坍塌与简洁偏置",
+   "递归自我改进 RSI"
+  ],
+  "上下文坍塌与简洁偏置": [
+   "部署系统层",
+   "上下文 playbook 与增量条目",
+   "递归自我改进 RSI"
+  ],
+  "机制与内容分离": [
+   "部署系统层",
+   "递归自我改进 RSI"
+  ],
+  "递归结构不能替代基座智能": [
+   "部署系统层",
+   "递归自我改进 RSI"
+  ],
+  "弱而模糊的评估器": [
+   "部署系统层",
+   "Grading Criteria】",
+   "递归自我改进 RSI"
+  ],
+  "静默的分级失败": [
+   "差一点就通过的输出",
+   "模型即产品」的幻觉",
+   "非确定性 nondeterminism"
+  ],
+  "财富即自由": [
+   "迪士尼负债",
+   "看不见的财富"
+  ],
+  "对话式广告归因闭环": [
+   "对话上下文定向"
+  ],
+  "对话上下文定向": [
+   "对话式广告归因闭环"
+  ],
+  "无手打代码 no manually typed code at all": [
+   "功能与行为验证的缺口",
+   "架构约束的确定性执行",
+   "卡住即信号 struggle as signal",
+   "垃圾回收」型 agent",
+   "AI 友好度（AI-friendliness）作为选型标准",
+   "service template 与 golden path",
+   "解空间收窄 constraining the solution space",
+   "熵与腐化 entropy and decay",
+   "拓扑作为新抽象层",
+   "rigor 的搬迁 relocating rigor"
+  ],
+  "决策日志": [
+   "过程原则"
+  ],
+  "微剧": [
+   "后悔流",
+   "女性碎片时间作为新基础设施",
+   "ChatGPT moment for videos"
+  ],
+  "泄露能力的 U 型曲线": [
+   "灰盒场景"
+  ],
+  "减法带来质量跃迁": [
+   "加法本能陷阱与过度约束",
+   "模型即产品」的幻觉",
+   "非确定性 nondeterminism"
+  ],
+  "加法本能陷阱与过度约束": [
+   "减法带来质量跃迁",
+   "模型即产品」的幻觉",
+   "非确定性 nondeterminism"
+  ],
+  "普职分流": [
+   "教育的高压筛选"
+  ],
+  "照料劳动": [
+   "结构性矛盾",
+   "结构压力的性别化误读"
+  ],
+  "差一点就通过的输出": [
+   "静默的分级失败",
+   "模型即产品」的幻觉",
+   "非确定性 nondeterminism"
+  ],
+  "过程原则": [
+   "决策日志"
+  ],
+  "大规模监控（Bulk Surveillance）": [
+   "看守看守者（Watchmen Watching the Watchmen）",
+   "骆驼鼻子探入帐篷（Camel's Nose in the Tent）"
+  ],
+  "Gather-Act-Verify Cycle": [
+   "浏览循环",
+   "Agent vs Harness"
+  ],
+  "权利从登记表开始": [
+   "流动制度化"
+  ],
+  "结构断言与不变量断言": [
+   "模型即产品」的幻觉",
+   "非确定性 nondeterminism"
+  ],
+  "调试散文：一个词就是 bug": [
+   "模型即产品」的幻觉",
+   "非确定性 nondeterminism"
+  ],
+  "提示词即行为程序": [
+   "模型即产品」的幻觉",
+   "约束优于指令",
+   "非确定性 nondeterminism"
+  ],
+  "General Purpose Technology": [
+   "平台跃迁四浪 Platform Shifts"
+  ],
+  "教育的高压筛选": [
+   "普职分流"
+  ],
+  "不连贯输入的重构能力": [
+   "前置声明",
+   "bits",
+   "漫谈会话 ramble session",
+   "输入摩擦 too lazy to type"
+  ],
+  "流动制度化": [
+   "权利从登记表开始"
+  ],
+  "Agent-to-Agent 交互（A2A）": [
+   "上下文缺口"
+  ],
+  "Deconditioning": [
+   "身体年龄"
+  ],
+  "ARC-AGI-3": [
+   "通关 ≠ 理解"
+  ],
+  "阴蒂脚": [
+   "维萨里教条"
+  ],
+  "责任地址": [
+   "无国籍智能体",
+   "意图的延伸"
+  ],
+  "消除主义": [
+   "无我",
+   "Quining"
+  ],
+  "灰盒场景": [
+   "泄露能力的 U 型曲线"
+  ],
+  "让自己对 AI 可读": [
+   "信任机制重构"
+  ],
+  "外层空间条约": [
+   "星空与道德律"
+  ],
+  "AI 作为新同事": [
+   "虚拟同事 Virtual Co-workers"
+  ],
+  "维萨里教条": [
+   "阴蒂脚"
+  ],
+  "OAIQ": [
+   "正确的信息与工具，在正确的时间"
+  ],
+  "中年": [
+   "中年危机"
+  ],
+  "谄媚（Sycophancy）": [
+   "自尊式担责"
+  ],
+  "第三方引用杠杆": [
+   "Agent 经济"
+  ],
+  "Self-Improving Context System": [
+   "Agent Drift",
+   "Context 四种失败模式】 Context Pollution Distraction Confusion Clash",
+   "Personal Context】"
+  ],
+  "Harness Thickness": [
+   "Agent vs Harness"
+  ],
+  "上下文缺口": [
+   "Agent-to-Agent 交互（A2A）"
+  ],
+  "AI 爬虫五大分类": [
+   "AI 可见性",
+   "Cloaking"
+  ],
+  "虚拟同事 Virtual Co-workers": [
+   "AI 作为新同事"
+  ],
+  "通关 ≠ 理解": [
+   "ARC-AGI-3"
+  ],
+  "Stop FLOP Know 原则": [
+   "ASAP ALAP 原则"
+  ],
+  "通道切换 switch to voice": [
+   "bits",
+   "漫谈会话 ramble session",
+   "输入摩擦 too lazy to type"
+  ],
+  "意识流输入 full stream of consciousness": [
+   "bits",
+   "漫谈会话 ramble session",
+   "输入摩擦 too lazy to type"
+  ],
+  "小访谈变体 small interview of a few turns": [
+   "bits",
+   "漫谈会话 ramble session",
+   "输入摩擦 too lazy to type"
+  ],
+  "整理增益 cleaner than what you started with": [
+   "bits",
+   "漫谈会话 ramble session",
+   "输入摩擦 too lazy to type"
+  ],
+  "mind meld": [
+   "bits",
+   "漫谈会话 ramble session",
+   "输入摩擦 too lazy to type"
+  ],
+  "纠正成本递减 correct things less from that point on": [
+   "bits",
+   "漫谈会话 ramble session",
+   "输入摩擦 too lazy to type"
+  ],
+  "知识端点": [
+   "Context injection"
+  ],
+  "Social Smart Contract": [
+   "Decentralized Cryptographic Truth"
+  ],
+  "身体年龄": [
+   "Deconditioning"
+  ],
+  "形成性评估": [
+   "Feedback loop"
+  ],
+  "Pananthropos": [
+   "First Folio"
+  ],
+  "Custom Agent": [
+   "Forward Deployed Engineer"
+  ],
+  "平台跃迁四浪 Platform Shifts": [
+   "General Purpose Technology"
+  ],
+  "Simulated Competence": [
+   "Ghosts, Not Animals",
+   "The Deferred Bill"
+  ],
+  "llms-full.txt": [
+   "llms.txt"
+  ],
+  "opt in opt out": [
+   "Network State"
+  ],
+  "Network State": [
+   "opt in opt out"
+  ],
+  "First Folio": [
+   "Pananthropos"
+  ],
+  "上下文文件树 tree of files": [
+   "prompt 与 context 的通用性落差",
+   "过度约束与松绑 over-constraining unhobbling",
+   "护栏型指令的过期",
+   "判断力优先 let Claude use judgement"
+  ],
+  "自动记忆 auto-memory": [
+   "prompt 与 context 的通用性落差",
+   "过度约束与松绑 over-constraining unhobbling",
+   "护栏型指令的过期",
+   "判断力优先 let Claude use judgement"
+  ],
+  "富引用 rich references": [
+   "prompt 与 context 的通用性落差",
+   "过度约束与松绑 over-constraining unhobbling",
+   "护栏型指令的过期",
+   "判断力优先 let Claude use judgement"
+  ],
+  "Wake-centric Values": [
+   "Psycho-phone",
+   "The Grind"
+  ],
+  "Decentralized Cryptographic Truth": [
+   "Social Smart Contract"
+  ],
+  "ASAP ALAP 原则": [
+   "Stop FLOP Know 原则"
+  ],
+  "Ledger of Record": [
+   "Tamper-evident audit trail"
+  ],
+  "领域语言缺口】 missing language layer": [
+   "共享理解】 shared understanding",
+   "设计树】 design tree",
+   "追问式对齐】 Grill Me"
+  ],
+  "上下文文档】 context.md": [
+   "共享理解】 shared understanding",
+   "设计树】 design tree",
+   "追问式对齐】 Grill Me"
+  ],
+  "带文档追问】 Grill with Docs": [
+   "共享理解】 shared understanding",
+   "设计树】 design tree",
+   "追问式对齐】 Grill Me"
+  ],
+  "模糊语言打磨】 sharpen fuzzy language": [
+   "共享理解】 shared understanding",
+   "设计树】 design tree",
+   "追问式对齐】 Grill Me"
+  ],
+  "架构决策记录】 ADR": [
+   "共享理解】 shared understanding",
+   "设计树】 design tree",
+   "追问式对齐】 Grill Me"
+  ],
+  "语言驱动的代码一致性】 language-code alignment": [
+   "共享理解】 shared understanding",
+   "设计树】 design tree",
+   "追问式对齐】 Grill Me"
+  ],
+  "统一语言】 ubiquitous language": [
+   "共享理解】 shared understanding",
+   "设计树】 design tree",
+   "限界上下文】 bounded context",
+   "追问式对齐】 Grill Me"
+  ],
+  "前缀匹配 Prefix Matching": [
+   "缓存断点 Cache Breakpoint",
+   "提示词缓存 Prompt Caching",
+   "稳定前缀 Stable Prefix"
+  ],
+  "工具定义 Tool Definitions Tool Schema": [
+   "缓存断点 Cache Breakpoint",
+   "提示词缓存 Prompt Caching",
+   "稳定前缀 Stable Prefix"
+  ],
+  "消息层 Messages Layer": [
+   "缓存断点 Cache Breakpoint",
+   "提示词缓存 Prompt Caching",
+   "稳定前缀 Stable Prefix"
+  ],
+  "缓存写入成本 Cache Write Cost": [
+   "缓存断点 Cache Breakpoint",
+   "提示词缓存 Prompt Caching",
+   "稳定前缀 Stable Prefix"
+  ],
+  "缓存命中读取成本 Cache Hit Read Cost": [
+   "缓存断点 Cache Breakpoint",
+   "提示词缓存 Prompt Caching",
+   "稳定前缀 Stable Prefix"
+  ],
+  "最小可缓存 token 门槛 Minimum Cacheable Tokens": [
+   "缓存断点 Cache Breakpoint",
+   "提示词缓存 Prompt Caching",
+   "稳定前缀 Stable Prefix"
+  ],
+  "Explicit Breakpoints": [
+   "缓存断点 Cache Breakpoint",
+   "提示词缓存 Prompt Caching",
+   "稳定前缀 Stable Prefix"
+  ],
+  "缓存连续性 Cache Continuity": [
+   "缓存断点 Cache Breakpoint",
+   "提示词缓存 Prompt Caching",
+   "稳定前缀 Stable Prefix"
+  ],
+  "缓存命中率 Cache Hit Rate": [
+   "缓存断点 Cache Breakpoint",
+   "提示词缓存 Prompt Caching",
+   "稳定前缀 Stable Prefix"
+  ],
+  "首字输出延迟 Time to First Token Latency": [
+   "缓存断点 Cache Breakpoint",
+   "提示词缓存 Prompt Caching",
+   "稳定前缀 Stable Prefix"
+  ]
+ }
+}

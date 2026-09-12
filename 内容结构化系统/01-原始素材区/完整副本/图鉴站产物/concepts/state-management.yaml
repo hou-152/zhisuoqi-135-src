@@ -1,0 +1,36 @@
+schema_version: 1
+record_kind: canonical_concept
+id: state-management
+slug: state-management
+name_zh: 状态管理
+name_en: State Management
+aliases: []
+category_id: information-storage
+learning_stage: when-needed
+definition_status: industry-common
+remember: 状态管理负责记录任务当前阶段、变量、进度与恢复点，让系统知道做到哪里，并能追踪、暂停、恢复或回溯。
+feynman: 把任务想成一列沿轨道运行的小车。状态管理不只是保存一份文件，而是持续记录小车停在哪一段、车上有哪些变量、哪些步骤已经完成，以及从哪个保存点可以继续。没有这些记录，中断后系统只知道“做过事”，却不知道该从哪里接上。
+scenario:
+  type: hypothetical
+  text: 一个迁移任务完成了前三批文件并保存当前批次、验证结果和下一步；进程重启后，系统从记录的恢复点继续第四批，而不是重新处理全部文件。
+image_mnemonic: 一条任务轨道穿过变量面板和保存／恢复点，中断后的执行从正确位置继续向前。
+source_context: Akshay 的 Harness 拆解把状态描述为流经节点的结构化数据，并列出 checkpoint、会话、提交和进度文件等恢复与追踪策略。本站把这些视为状态管理的不同实现，不把 checkpoint 与 State Management 当作同义词。
+boundaries:
+  - State 是任务当前可描述的执行事实；State Management 是记录、更新、持久化和恢复这些事实的实践。
+  - Checkpoint 只是保存某个恢复点的机制之一；有 checkpoint 不代表变量完整、恢复正确或外部副作用安全。
+  - State Management 常偏向当前执行位置与恢复点，Memory 常偏向过去保存的知识与经历；但两者可共用文件、数据库，也会在待办、进度和依赖上重叠。
+how_to:
+  - 明确哪些变量决定下一步，并在每次状态转换时原子地记录当前阶段、完成证据和待处理项。
+  - 为暂停、恢复和回溯分别定义入口；恢复后先核对外部世界，再继续执行。
+  - 避免把会话历史、业务状态和执行状态混成一个不可审计的大对象。
+transfer_question: 如果进程重启后知道用户说过什么，却不知道前三步是否已经执行，缺的是 Memory，还是可恢复的执行 State？
+source_ids:
+  - SRC-akshay-agent-harness
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/state-management/visual.png
+  alt: 一条任务轨道经过当前变量与保存点，中断后从保存点恢复并继续执行，表示状态管理记录执行位置、变量和恢复点。
+  prompt_record: src/assets/concepts/state-management/PROMPT.md
+  receipt: src/assets/concepts/state-management/receipt.yaml
+  visual_qa: passed

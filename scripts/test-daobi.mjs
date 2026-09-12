@@ -37,6 +37,20 @@ await ex(`localStorage.removeItem('zss135.proof.v2')`);
 await ex(`marks = {}; refreshMarks(); renderList()`);
 
 const fails = [];
+
+/* 概念源已换成「概念地图 v2」（Notion 概念库 × Context × Harness）。
+   这里不写死 id，按名字在页面里现查，换了地图也不用改测试。 */
+const cidOf = async (name) => await ex(`(nodes.find(n => n.name === ${JSON.stringify(name)}) || {}).id || ''`);
+const NODE = {
+  compute: await cidOf('错误复利'),
+  use: await cidOf('上下文压缩'),
+  judge: await cidOf('Harness'),
+  accept: await cidOf('不可见的劳动'),
+};
+const TOTAL = await ex('String(nodes.length)');
+const TAG = await ex(`((CUR.collections || []).find(c => c.route.length > 1) || (CUR.collections || [])[0] || {}).tagId`);
+console.log('  目标概念：' + JSON.stringify(NODE) + ` ｜ 共 ${TOTAL} 个 ｜ 倒逼线 ${TAG}`);
+for (const [k, v] of Object.entries(NODE)) if (!v) { console.error(`找不到目标概念：${k}`); process.exit(2); }
 // 期望串太短会误命中：'read' 能命中 'reading'，一个 THREW 被当成通过。显式挡掉。
 // 通过侧断言要重试：deepseek-flash 是推理模型，temperature=0 也不保证逐字复现，
 // 边界答案会翻。翻的时候先看判定器给的 why —— 多数情况下它挑得对，是答案不够硬。
@@ -71,7 +85,7 @@ async function waitJudge(cid, prevAt, label, maxMs = 90000) {
   console.log(`  ⚠ ${label}：等判定超时（${maxMs}ms）`);
   return false;
 }
-// saidExpr 是**浏览器端**表达式：字符串自己 JSON.stringify，取原文可直接写 byId.get('C08').gloss
+// saidExpr 是**浏览器端**表达式：字符串自己 JSON.stringify；取某概念的原文可写 byId.get('<id>').gloss
 async function submit(cid, saidExpr, label) {
   const prevAt = await ex(`(marks['${cid}']||{}).at || 0`);
   await ex(`openPanel('${cid}'); document.getElementById('said').value=(${saidExpr}); judge('${cid}')`);
@@ -82,62 +96,60 @@ const S = JSON.stringify;   // 字符串字面量的简写
 console.log('倒逼 + 分类验收 ' + URL_);
 
 /* ① 自报通道必须已经不在了 */
-await ex(`openPanel('C08')`);
+await ex(`openPanel('${NODE.compute}')`);
 check('打开概念就有复述输入框', await ex(`document.getElementById('said') ? 'OK' : 'NO'`), 'OK');
 check('没有「点一下就变绿」的按钮', await ex(`document.getElementById('pbody').innerHTML.includes('setMark') ? '还在' : 'OK'`), 'OK');
 check('面板写明不能自己标', await ex(`document.getElementById('pbody').innerText.includes('你不能自己标') ? 'OK' : 'NO'`), 'OK');
 
-/* ②③④ 能算的（C08）：废话 / 照抄 / 说清机制 */
-await submit('C08', S('就是一个说法吧，感觉挺有道理的，讲 AI 的一些限制。'), '②');
-check('② 能算的·废话没过', await ex(`marks['C08'].state`), 'fail');
-check('② 给出漏点', await ex(`(marks['C08'].missing||[]).length > 0 ? '有' : '无'`), '有');
-check('② 面板渲染倒回按钮', await ex(`document.querySelectorAll('.backto button').length > 0 ? 'OK' : 'NO'`), 'OK');
+/* ②③④ 能算的（错误复利）：废话 / 照抄 / 说清机制 */
+await submit(NODE.compute, S('就是一个说法吧，感觉挺有道理的，讲 AI 的一些限制。'), '②');
+check('② 能算的·废话没过', await ex(`marks['${NODE.compute}'].state`), 'fail');
+check('② 给出漏点', await ex(`(marks['${NODE.compute}'].missing||[]).length > 0 ? '有' : '无'`), '有');
+// 倒回按钮只在判定器真的指回某个前置概念时才渲染；这个概念没有前置时不该硬造。
+{
+  const preN = await ex(`(neighbors.get('${NODE.compute}').pre || []).length`);
+  const has = await ex(`document.querySelectorAll('.backto button').length > 0 ? 'OK' : 'NO'`);
+  const verdict = await ex(`document.querySelector('.jverdict') ? 'OK' : 'NO'`);
+  check('② 面板渲染判定结果块', verdict, 'OK');
+  check(`② 判定面板自洽（前置 ${preN} 个；有前置才要求倒回按钮）`, Number(preN) > 0 ? has : 'OK', 'OK');
+}
 
-await submit('C08', `byId.get('C08').gloss`, '③');
-check('③ 能算的·照抄原文不算过', await ex(`marks['C08'].state`), 'fail');
+await submit(NODE.compute, `byId.get('${NODE.compute}').gloss`, '③');
+check('③ 能算的·照抄原文不算过', await ex(`marks['${NODE.compute}'].state`), 'fail');
 
-await submit('C08', S('AI 的输出是从训练数据里学到的已知模式里重组出来的，它没有自己的视角、也没有从亲身经验里扎进未知的能力。所以凡是需要「来自经验、指向未知」的判断，它给不了，那部分只能由人来。这不是说 AI 没用，是说它擅长的是已知信息的加工。'), '④');
-check('④ 能算的·说清机制才过', await ex(`marks['C08'].state`), 'pass');
+await submit(NODE.compute, S('多步流程的端到端成功率是每一步成功率的连乘，不是相加。单步 99%，十步下来是 0.99 的十次方，只剩大约 90.4%；单步降到 95%，十步就只剩 59.9%。所以步数一多，每一步那点小概率失败会被乘在一起放大，整体可靠性掉得比直觉快得多，而且这个衰减是复利的、不是线性的。要压住它得给失败分诊：哪些是瞬时抖动可以直接重试、哪些是模型自己能恢复的、哪些必须让用户来修、哪些是没见过的意外，同时给重试设上限，免得在注定失败的路上一直烧钱。'), '④');
+check('④ 能算的·说清机制才过', await ex(`marks['${NODE.compute}'].state`), 'pass');
 
-/* ⑤ 能用的（C04）：只解释「它是什么」不够，必须给一个真用过的例子
-   下面这条答案是**对着真判定器验过才写进来的**。前两版都被挑出真错：
-     第一版：把「外在·集体」说成右上角（四象限里上面是个体、下面是集体，应是右下角）
-     第二版：行列混用（把一格说成「一整行」），且说要补内在却填了外在
-   第三版仍然没过，理由更准：C04 的定义就是「定位纯粹派与自动机各砍掉哪半个现实」，
-   我只拿它算自己的时间账，根本没落到那两个人身上。
-   现在的版本在真壳里验过才写进来，判定器回 missing:[] wrong:[]。
-   判定器是对的，是我的答案错。这不是测试在放水，是它在挑刺。
-   ⚠️ 已知：deepseek-flash 是推理模型，temperature=0 也不保证逐字复现——
-   边界答案会翻。所以这两条断言用的是**判定器明确认过**的答案；若偶发翻转，
-   先看判定器给的 why，多数情况下它挑得对。 */
-await submit('C04', S('威尔伯的四象限是把现实分成内在/外在、个体/集体四个格子，用来定位一个人或一件事被砍掉了哪半边。'), '⑤a');
-check('⑤ 能用的·只有定义没有用例 → 没过', await ex(`marks['C04'].state`), 'fail');
+/* ⑤ 能用的（上下文压缩）：只解释「它是什么」不够，必须给一个真用过的例子 */
+await submit(NODE.use, S('上下文压缩就是在上下文快满的时候把内容缩减一下。'), '⑤a');
+check('⑤ 能用的·只有定义没有用例 → 没过', await ex(`marks['${NODE.use}'].state`), 'fail');
 
-await submit('C04', S("四象限是「内在经验 vs 外在行为」× 「个体 vs 集体」两条轴交叉出的四个格子，用来定位一个人砍掉了哪半个现实、补哪一格。我先拿它定位两个人：拒绝用任何 AI、退回纸笔的朋友（纯粹派），他把整个「外在」那一行都砍了，只剩内在；把每个决定都丢给模型的朋友（自动机），他把整个「内在」那一列都砍了，只剩外在。然后我拿它算自己上周的时间账：写代码 30 小时（外在·个体）、开会 8 小时（外在·集体）、冥想 5 小时（内在·个体），而内在·集体那一格是 0——我没有任何跟人共享意义感的来源。所以我把周三晚上固定成和两个朋友聊各自在做的事，四周后再记一次账，那一格才不再是 0。"), '⑤b');
-await checkPass('⑤ 能用的·给了真用过的例子 → 过', 'C04',
-  () => submit('C04', S("四象限是「内在经验 vs 外在行为」× 「个体 vs 集体」两条轴交叉出的四个格子，用来定位一个人砍掉了哪半个现实、补哪一格。我先拿它定位两个人：拒绝用任何 AI、退回纸笔的朋友（纯粹派），他把整个「外在」那一行都砍了，只剩内在；把每个决定都丢给模型的朋友（自动机），他把整个「内在」那一列都砍了，只剩外在。然后我拿它算自己上周的时间账：写代码 30 小时（外在·个体）、开会 8 小时（外在·集体）、冥想 5 小时（内在·个体），而内在·集体那一格是 0——我没有任何跟人共享意义感的来源。所以我把周三晚上固定成和两个朋友聊各自在做的事，四周后再记一次账，那一格才不再是 0。"), '⑤b-retry'));
+const USE_ANSWER = '上下文压缩是在窗口快满时用摘要或丢弃内容把上下文缩短，但不能以破坏稳定前缀为代价——前缀一变，缓存全废。我在做一个每天自动跑的素材整理 Agent 时用过：它顺序读 40 篇文章，读到第 25 篇就爆窗口。第一次我让它每读 5 篇就把前面的总结成一段，结果提示词缓存命中率从 80% 掉到 12%，因为这个 Agent 的系统指令和项目说明是固定前缀，我把摘要插在了最前面，等于每轮都改写了前缀。后来改成把摘要追加到对话尾部、系统指令那段一个字不动，命中率回到 75%，同一批材料跑完的输出 token 也从 12 万降到 4.3 万。';
+await submit(NODE.use, S(USE_ANSWER), '⑤b');
+await checkPass('⑤ 能用的·给了真用过的例子 → 过', NODE.use, () => submit(NODE.use, S(USE_ANSWER), '⑤b-retry'));
 
-/* ⑥ 能判的（C05）：只复述原文不算过，必须写出自己的判据与代价 */
-await submit('C05', `byId.get('C05').gloss`, '⑥a');
-check('⑥ 能判的·只复述原文 → 没过', await ex(`marks['C05'].state`), 'fail');
+/* ⑥ 能判的（Harness）：只复述原文不算过，必须写出自己的判据与代价 */
+await submit(NODE.judge, `byId.get('${NODE.judge}').gloss`, '⑥a');
+check('⑥ 能判的·只复述原文 → 没过', await ex(`marks['${NODE.judge}'].state`), 'fail');
 
-await submit('C05', S("我的判据是：这几项之间有没有互相借力，而不是各自能赚多少。判断借力真假我用一个可核对的办法——看过去三个月的记录里，做 A 的那一周 B 的产出有没有跟着变多。有，它们是一棵树，值得一起点；连着三个月都没有，那就是两份工作，我只留一份。钱、心智、身体这三条线，我要求任何一条不能连续两个月是 0，因为一条停在 0 会让别的线在别处输。代价是短期内没有一项能单独拿出来吹，每一项都停在够用而不是最强，前六个月收入明显低于死磕一项。失效边界是现金流：连续两个月收不抵支，我就不再谈互联，先挑一项能最快换钱的单点打透。这门手艺我选的是写作——它同时喂养判断（心智）和接活的议价（钱），跑步是给身体那条线保底。"), '⑥b');
-await checkPass('⑥ 能判的·写出自己的判据与代价 → 过', 'C05',
-  () => submit('C05', S("我的判据是：这几项之间有没有互相借力，而不是各自能赚多少。判断借力真假我用一个可核对的办法——看过去三个月的记录里，做 A 的那一周 B 的产出有没有跟着变多。有，它们是一棵树，值得一起点；连着三个月都没有，那就是两份工作，我只留一份。钱、心智、身体这三条线，我要求任何一条不能连续两个月是 0，因为一条停在 0 会让别的线在别处输。代价是短期内没有一项能单独拿出来吹，每一项都停在够用而不是最强，前六个月收入明显低于死磕一项。失效边界是现金流：连续两个月收不抵支，我就不再谈互联，先挑一项能最快换钱的单点打透。这门手艺我选的是写作——它同时喂养判断（心智）和接活的议价（钱），跑步是给身体那条线保底。"), '⑥b-retry'));
+const JUDGE_ANSWER = '我判断一段代码算不算 Harness，用一条线：把它整个删掉之后模型自己的本事有没有变化。模型权重没动，但工具调用、文件读写、循环控制、权限确认、状态保存这些东西没了之后模型就干不成活，那这些就是 Harness。换成我的处境：我在做一个每天自动整理素材的 Agent，一开始把「这次失败要不要重试」也交给模型自己判，结果它在一篇反爬失败的文章上重试了 11 次，烧掉一整天的额度。后来我把重试上限和失败分诊挪进 Harness 的确定性代码里，模型的活只剩判断内容值不值得留。代价是 Harness 变厚了，每加一条规则，我都要在模型升级之后回去看它是不是过时——上次升级后有一条「先摘要再入库」的规则就变成了纯浪费。所以我的口径是：Harness 越薄越好，但薄不等于没有；判断哪一步该沉到确定性代码里、哪一步该留给模型，才是这门工程真正的手艺。';
+await submit(NODE.judge, S(JUDGE_ANSWER), '⑥b');
+await checkPass('⑥ 能判的·写出自己的判据与代价 → 过', NODE.judge, () => submit(NODE.judge, S(JUDGE_ANSWER), '⑥b-retry'));
 
-/* ⑦ 只能认的（C01）：不设验收，也没有交卷按钮 */
-await ex(`openPanel('C01')`);
+/* ⑦ 只能认的（不可见的劳动）：不设验收，也没有交卷按钮 */
+await ex(`openPanel('${NODE.accept}')`);
 check('⑦ 只能认的·不设验收', await ex(`document.getElementById('pbody').innerText.includes('这一类不设验收') ? 'OK' : 'NO'`), 'OK');
 check('⑦ 只能认的·没有交卷按钮', await ex(`document.getElementById('pbody').innerText.includes('交卷') ? '还有' : 'OK'`), 'OK');
-await ex(`markRead('C01')`); await sleep(400);
-check('⑦ 只能认的·只记读过，不判过没过', await ex(`marks['C01'].state`), 'read');
+await ex(`markRead('${NODE.accept}')`); await sleep(400);
+check('⑦ 只能认的·只记读过，不判过没过', await ex(`marks['${NODE.accept}'].state`), 'read');
 
 /* ⑧ 三栏外壳 + 落盘 */
 check('⑧ 三栏都在（导航|列表|主区）', await ex(`['rail','list','main'].filter(i => document.getElementById(i)).length`), '3');
-check('⑧ 列表栏 194 行', await ex(`document.querySelectorAll('#lp-body .row').length`), '194');
-check('⑧ 落盘到 proof.v2', await ex(`Object.keys(JSON.parse(localStorage.getItem('zss135.proof.v2')||'{}')).sort().join(',')`), 'C01');
+check(`⑧ 列表栏 ${TOTAL} 行`, await ex(`document.querySelectorAll('#lp-body .row').length`), TOTAL);
+check('⑧ 落盘到 proof.v2', await ex(`Object.keys(JSON.parse(localStorage.getItem('zss135.proof.v2')||'{}')).sort().join(',')`), NODE.accept);
 check('⑧ 左栏·我在学＝验过的条数', await ex(`document.getElementById('r-mine').textContent`), await ex(`String(Object.keys(marks).length)`));
-check('⑧ 左栏·待你看一眼不是 10', await ex(`document.getElementById('r-todo').textContent`), '16');
+check('⑧ 左栏·待你看一眼＝没人看过的边数', await ex(`document.getElementById('r-todo').textContent`),
+  await ex(`String((CUR.edgeHuman||[]).filter(k => !insertMarks[k]).length)`));
 // 底部固定渲染 过/没过/读过 三态（mech 出现时才加第四个）
 check('⑧ 底部状态点是三态', await ex(`document.querySelectorAll('#myrow .dot').length`), '3');
 check('⑧ 底部计数与实际一致', await ex(`(()=>{const t=document.getElementById('myrow').innerText.replace(/\\s+/g,' ').trim();
@@ -147,17 +159,17 @@ check('⑧ 底部计数与实际一致', await ex(`(()=>{const t=document.getEle
 /* ⑨ 分类决定系统对你做什么 */
 await ex(`closePanel(); setAxis('kind')`);
 check('⑨ 默认轴＝「要你怎么处理它」四列', await ex(`JSON.stringify(groups().map(g => g.label))`), '能算的');
-check('⑨ 194 条全有验收类别', await ex(`DATA.nodes.filter(n => n.k).length + '/' + DATA.nodes.length`), '194/194');
+check(`⑨ ${TOTAL} 条全有验收类别`, await ex(`DATA.nodes.filter(n => n.k).length + '/' + DATA.nodes.length`), `${TOTAL}/${TOTAL}`);
 check('⑨ 能算的·任务词', await ex(`openPanel(nodes.find(n => n.k === 'compute').id); document.getElementById('pbody').innerText.includes('说清它的机制') ? 'OK' : 'NO'`), 'OK');
 check('⑨ 能判的·任务词', await ex(`openPanel(nodes.find(n => n.k === 'judge').id); document.getElementById('pbody').innerText.includes('它给的是什么判据') ? 'OK' : 'NO'`), 'OK');
 check('⑨ 能用的·任务词', await ex(`openPanel(nodes.find(n => n.k === 'use').id); document.getElementById('pbody').innerText.includes('真拿它做过') ? 'OK' : 'NO'`), 'OK');
 
 /* ⑩ 一条线的倒逼链 */
-await ex(`closePanel(); setView('curate'); openCollection('T2')`);
+await ex(`closePanel(); setView('curate'); openCollection('${TAG}')`);
 check('⑩ 策展面板有「开始倒逼」', await ex(`document.getElementById('pbody').innerText.includes('开始倒逼') ? 'OK' : 'NO'`), 'OK');
-await ex(`startLine('T2')`); await sleep(800);
+await ex(`startLine('${TAG}')`); await sleep(800);
 check('⑩ 链头显示第 1 步', await ex(`document.querySelector('.chainhead')?.innerText.slice(0, 26) || '无'`), '第 1/');
-check('⑩ 只铺开这条线', await ex(`filter`), 'T2');
+check('⑩ 只铺开这条线', await ex(`filter`), TAG);
 
 const errs = events
   .filter(e => e.method === 'Runtime.exceptionThrown' || (e.method === 'Log.entryAdded' && e.params?.entry?.level === 'error'))

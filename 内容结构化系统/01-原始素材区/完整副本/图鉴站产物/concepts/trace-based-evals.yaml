@@ -1,0 +1,39 @@
+schema_version: 1
+record_kind: canonical_concept
+id: trace-based-evals
+slug: trace-based-evals
+name_zh: 基于轨迹的评测
+name_en: Trace-based Evals
+aliases:
+  - 轨迹评测
+category_id: result-trust
+learning_stage: deep-dive
+definition_status: evolving
+remember: 基于轨迹的评测让多次 Agent 运行面对同一任务、基线与 verifier，再比较它们怎样行动及结果如何；只有轨迹而没有统一判据，不算评测。
+feynman: 只看三个人都抵达终点，你不知道谁绕路、谁碰巧、谁违反规则。轨迹评测会先固定赛道和裁判尺度，再把多次完整路线放在一起比较。它判断的是不同运行在同一条件下的表现差异，不是简单把日志存起来，也不会自动把结论接回当前任务重试。
+scenario:
+  type: hypothetical
+  text: 团队想知道新版 Skill 是否更可靠，于是让旧版与新版分别完成同一批有边界的任务，保留每次工具轨迹，用相同的确定性 verifier 与人工抽查比较成功率、无效步骤和失败类型，而不是凭一次成功下结论。
+image_mnemonic: 三条不同的运行轨迹进入同一个“基线与判据”闸门，再汇成“跨次比较”面板，强调可比性来自共同条件与统一 verifier。
+source_context: Awesome Harness Engineering 汇集的 eval 资源强调把 Agent traces 转成 JSONL，配合 bounded tasks、deterministic verifiers、no-skill baselines 和 trajectory review；同时需控制运行环境噪声。本站因此将其放在深入研究层。
+boundaries:
+  - Observability 负责产生可回放轨迹；Trace-based Evals 负责用固定任务、基线与 verifier 对多次轨迹作比较判断。
+  - Verification Loop 把检查结果接回单次运行并控制修正或退出；评测结果是否用于改 Harness，是后续控制决策。
+  - Agent 可能有多条合理成功路径，评测不能把“不同于示范轨迹”直接判为失败。
+  - 分数会受工具版本、网络、沙箱、依赖和其他基础设施噪声影响；未经控制不能全归因于模型或 Harness 改动。
+how_to:
+  - 先固定有边界的任务集、成功条件、对照基线、运行配置与 verifier，再开始采样轨迹。
+  - 对每个版本运行多次，保留结构化轨迹与最终结果，并把确定性检查和人工轨迹复核分开记录。
+  - 比较任务结果、无效步骤、工具误用、恢复能力与稳定性，同时标注环境噪声和不确定性。
+  - 只有可重复差异才进入 Harness 改动判断；单次漂亮路径或单个总分不作为充分证据。
+transfer_question: 两个 Skill 各成功运行一次，但任务不同、环境不同、没有共同 verifier，能据此说哪个更好吗？
+source_ids:
+  - SRC-harness-engineering-practice
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/trace-based-evals/visual.png
+  alt: “轨迹 A”“轨迹 B”“轨迹 C”三条运行路径进入同一个“基线与判据”闸门，再输出到“跨次比较”面板，表示评测依赖共同条件和统一 verifier。
+  prompt_record: src/assets/concepts/trace-based-evals/PROMPT.md
+  receipt: src/assets/concepts/trace-based-evals/receipt.yaml
+  visual_qa: passed

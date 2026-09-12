@@ -1,0 +1,37 @@
+schema_version: 1
+record_kind: canonical_concept
+id: agent-elicitation
+slug: agent-elicitation
+name_zh: Agent 信息引出
+name_en: Agent Elicitation
+aliases:
+  - Agent 提问能力
+category_id: human-control
+learning_stage: when-needed
+definition_status: evolving
+remember: Agent 在缺少目标、约束或偏好时，主动向用户提出结构化问题以取得继续判断所需信息的交互能力。
+feynman: 像医生问诊：不是问题越多越专业，而是只追问会改变诊断和处置的缺口。好提问让用户用最小力气补上关键一块，然后回到原任务继续。
+scenario:
+  type: hypothetical
+  text: 假设旅行 Agent 收到“订一间合适的酒店”，它发现城市和日期已知，但预算会直接改变候选，于是只追问预算范围后继续筛选。
+image_mnemonic: 一张只表达「Agent 信息引出」的纸面机制图：中心呈现「Agent 在缺少目标、约束或偏好时，主动向用户提出结构化问题以取得继续判断所需信息的交互能力」，边缘用明确界线排除「信息引出不是无条件多问；只有缺失信息会改变答案、风险或下一步时才值得打断用户」；不画候选关系。
+source_context: 本卡只采用以下来源范围：《构建 Claude Code 的经验教训：如何让 Agent「看见」世界》：原文逐字把 elicitation 定义为 Agent 提问能力，并说明其目标是降低回答摩擦、提高人机通信带宽。未被来源直接支持的产品结论、普遍因果或关系身份不写入本卡。
+boundaries:
+  - 信息引出不是无条件多问；只有缺失信息会改变答案、风险或下一步时才值得打断用户。
+  - 提问接口应降低回答摩擦，并把答案可靠地送回原任务，而不是另开无关对话。
+  - 当前证据缺口：当前证据未给出何时提问、何时采用默认值以及如何衡量提问摩擦的通用阈值。
+how_to:
+  - 在行动前列出会改变答案、风险或权限的未知量。
+  - 优先询问影响最大的一个缺口，并提供容易选择的回答格式和默认含义。
+  - 把答案写回原任务状态，确认新信息已解除阻塞，再继续执行。
+transfer_question: 当用户不愿回答偏好问题时，Agent 应采用可逆默认值继续，还是停止等待；你会用哪些风险条件判断？
+source_ids:
+  - SRC-v2-38c466ef2f30
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/agent-elicitation/visual.png
+  alt: 一张只表达「Agent 信息引出」的纸面机制图：中心呈现「Agent 在缺少目标、约束或偏好时，主动向用户提出结构化问题以取得继续判断所需信息的交互能力」，边缘用明确界线排除「信息引出不是无条件多问；只有缺失信息会改变答案、风险或下一步时才值得打断用户」；不画候选关系。
+  prompt_record: src/assets/concepts/agent-elicitation/PROMPT.md
+  receipt: src/assets/concepts/agent-elicitation/receipt.yaml
+  visual_qa: passed

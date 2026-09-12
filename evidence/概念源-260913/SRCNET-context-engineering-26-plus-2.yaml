@@ -1,0 +1,715 @@
+# Generated from reviewed source coordinates; source snapshots remain read-only.
+schema_version: 1
+record_kind: source_relation_network
+network_id: SRCNET-context-engineering-26-plus-2
+source_ref: 飞书-Context-Engineering-26+2.md
+source_sha256: sha256:339f99811ad59817b4da8b665c66af94a470941003c44cb0ce0b45279b274279
+coverage:
+  - article_title: 论文《上下文工程 2.0》：给这门手艺补上它自己的上下文
+    article_title_line: 53
+    end_line: 393
+    review_outcome: relations-captured
+    relation_entry_ids:
+      - SRCNET-context-engineering-26-plus-2-001
+      - SRCNET-context-engineering-26-plus-2-002
+      - SRCNET-context-engineering-26-plus-2-003
+  - article_title: 经典论文《迷失在中间》：位置决定了模型能不能真的用上信息
+    article_title_line: 394
+    end_line: 632
+    review_outcome: no-in-scope-relation
+    relation_entry_ids: []
+  - article_title: Chroma 实测上下文腐烂：输入越长，模型并非均匀地可靠
+    article_title_line: 633
+    end_line: 924
+    review_outcome: no-in-scope-relation
+    relation_entry_ids: []
+  - article_title: Manus 的上下文工程实战：几轮重写换来的一组局部最优
+    article_title_line: 925
+    end_line: 1170
+    review_outcome: relations-captured
+    relation_entry_ids:
+      - SRCNET-context-engineering-26-plus-2-004
+      - SRCNET-context-engineering-26-plus-2-005
+  - article_title: Anthropic：有效的上下文工程，是为 agent 找到最小充分信息集
+    article_title_line: 1171
+    end_line: 1424
+    review_outcome: relations-captured
+    relation_entry_ids:
+      - SRCNET-context-engineering-26-plus-2-006
+      - SRCNET-context-engineering-26-plus-2-007
+      - SRCNET-context-engineering-26-plus-2-008
+  - article_title: 12-Factor Agents：让 LLM 软件真能交付给生产用户的十二条原则
+    article_title_line: 1425
+    end_line: 1679
+    review_outcome: relations-captured
+    relation_entry_ids:
+      - SRCNET-context-engineering-26-plus-2-009
+  - article_title: 工具更多反而让 Copilot 代码审查变差，GitHub 如何修正
+    article_title_line: 1680
+    end_line: 1860
+    review_outcome: relations-captured
+    relation_entry_ids:
+      - SRCNET-context-engineering-26-plus-2-010
+      - SRCNET-context-engineering-26-plus-2-011
+      - SRCNET-context-engineering-26-plus-2-012
+  - article_title: 从 Prompt 转向 Loop Engineering 的工作流拐点
+    article_title_line: 1861
+    end_line: 2035
+    review_outcome: relations-captured
+    relation_entry_ids:
+      - SRCNET-context-engineering-26-plus-2-013
+  - article_title: 从 /grill-me 到 /grill-with-docs：用对话先对齐领域语言
+    article_title_line: 2036
+    end_line: 2325
+    review_outcome: no-in-scope-relation
+    relation_entry_ids: []
+  - article_title: 用十分钟语音漫谈，让 LLM 帮你整理真正想说的话
+    article_title_line: 2326
+    end_line: 2559
+    review_outcome: no-in-scope-relation
+    relation_entry_ids: []
+  - article_title: SaaS 没死，Linear 正把上下文变成 Agent 的骨架
+    article_title_line: 2560
+    end_line: 2785
+    review_outcome: no-in-scope-relation
+    relation_entry_ids: []
+  - article_title: 产品开发的下一阶段由上下文与行动能力驱动
+    article_title_line: 2786
+    end_line: 2976
+    review_outcome: relations-captured
+    relation_entry_ids:
+      - SRCNET-context-engineering-26-plus-2-014
+  - article_title: 用 Skills 在 Claude Code 里搭建验证闭环
+    article_title_line: 2977
+    end_line: 3171
+    review_outcome: relations-captured
+    relation_entry_ids:
+      - SRCNET-context-engineering-26-plus-2-015
+  - article_title: Agent Harness 的本质：把模型放进可控的执行系统
+    article_title_line: 3172
+    end_line: 3639
+    review_outcome: relations-captured
+    relation_entry_ids:
+      - SRCNET-context-engineering-26-plus-2-016
+      - SRCNET-context-engineering-26-plus-2-017
+      - SRCNET-context-engineering-26-plus-2-018
+      - SRCNET-context-engineering-26-plus-2-019
+      - SRCNET-context-engineering-26-plus-2-020
+  - article_title: Coding Agent 如何工作：工具循环与上下文工程
+    article_title_line: 3640
+    end_line: 3926
+    review_outcome: no-in-scope-relation
+    relation_entry_ids: []
+  - article_title: 构建 Claude Code 的经验教训：如何让 Agent「看见」世界
+    article_title_line: 3927
+    end_line: 4090
+    review_outcome: relations-captured
+    relation_entry_ids:
+      - SRCNET-context-engineering-26-plus-2-021
+  - article_title: 用持久化代码图谱给 AI Review 精准上下文
+    article_title_line: 4091
+    end_line: 4273
+    review_outcome: no-in-scope-relation
+    relation_entry_ids: []
+  - article_title: 提示词缓存不是小优化，而是 agent 成本结构的关键变量
+    article_title_line: 4274
+    end_line: 4571
+    review_outcome: no-in-scope-relation
+    relation_entry_ids: []
+  - article_title: Claude Code 的 1M Context 让会话管理变成核心技能
+    article_title_line: 4572
+    end_line: 4739
+    review_outcome: relations-captured
+    relation_entry_ids:
+      - SRCNET-context-engineering-26-plus-2-022
+  - article_title: Claude Code 在读提示词前为何已发送 3.3 万 Token
+    article_title_line: 4740
+    end_line: 4969
+    review_outcome: relations-captured
+    relation_entry_ids:
+      - SRCNET-context-engineering-26-plus-2-023
+  - article_title: 只改两个 API 设置，OpenAI 把 ARC-AGI-3 成绩提到三倍
+    article_title_line: 4970
+    end_line: 5169
+    review_outcome: relations-captured
+    relation_entry_ids:
+      - SRCNET-context-engineering-26-plus-2-024
+  - article_title: Opus 5 系统提示词全文流出：一份近两万字的 agent 行为说明书
+    article_title_line: 5170
+    end_line: 5493
+    review_outcome: no-in-scope-relation
+    relation_entry_ids: []
+  - article_title: Claude 5 世代的上下文工程，规则变了
+    article_title_line: 5494
+    end_line: 5682
+    review_outcome: relations-captured
+    relation_entry_ids:
+      - SRCNET-context-engineering-26-plus-2-025
+  - article_title: Claude 5 时代的上下文工程新规则：系统提示词砍掉 80%
+    article_title_line: 5683
+    end_line: 5945
+    review_outcome: no-in-scope-relation
+    relation_entry_ids: []
+  - article_title: 构建可靠 AI 工作流：智能体原语与上下文工程
+    article_title_line: 5946
+    end_line: 6115
+    review_outcome: relations-captured
+    relation_entry_ids:
+      - SRCNET-context-engineering-26-plus-2-026
+  - article_title: AI 的新技能不是提示词，而是上下文工程
+    article_title_line: 6116
+    end_line: 6299
+    review_outcome: relations-captured
+    relation_entry_ids:
+      - SRCNET-context-engineering-26-plus-2-027
+      - SRCNET-context-engineering-26-plus-2-028
+  - article_title: 上下文工程：AI 时代的核心能力
+    article_title_line: 6300
+    end_line: 6613
+    review_outcome: relations-captured
+    relation_entry_ids:
+      - SRCNET-context-engineering-26-plus-2-029
+      - SRCNET-context-engineering-26-plus-2-030
+  - article_title: 什么是 Context？
+    article_title_line: 6614
+    end_line: 6765
+    review_outcome: relations-captured
+    relation_entry_ids:
+      - SRCNET-context-engineering-26-plus-2-031
+entries:
+  - entry_id: SRCNET-context-engineering-26-plus-2-001
+    article_title: 论文《上下文工程 2.0》：给这门手艺补上它自己的上下文
+    article_title_line: 53
+    location:
+      start_line: 157
+      end_line: 157
+    observed_terms:
+      - 上下文窗口
+      - 记忆
+    relation_paraphrase: 长期记忆把进度写出窗口，并在需要时取回，以支持跨会话恢复。
+    exact_excerpt: "- 代码 agent 是典型压力场景：任务跨会话、跨长时间，光靠上下文窗口不现实。做法是周期性把任务状态与进度写进长期记忆，中断后可恢复。论文点名 Claude Code 的结构化笔记做法：周期性地把关键信息写出上下文窗口、需要时再取回，这种轻量但持久的记忆让 agent 能跟踪进度、避免信息丢失，也支撑了在宝可梦游戏里跨数千步管理策略、重置后无缝续跑这类长时程活动。"
+    excerpt_sha256: sha256:a628c0e2b62c0350e535245955db778129d155de5e5141ed1b6be7129a4394ec
+  - entry_id: SRCNET-context-engineering-26-plus-2-002
+    article_title: 论文《上下文工程 2.0》：给这门手艺补上它自己的上下文
+    article_title_line: 53
+    location:
+      start_line: 217
+      end_line: 225
+    observed_terms:
+      - 上下文选择
+      - 记忆
+    relation_paraphrase: 上下文选择要从记忆等候选信息中筛出当前步骤真正有用的部分。
+    exact_excerpt: |-
+      - 即使窗口变长，LLM 仍受限于输入 token 的质量。核心问题变成：当前这一步应该选哪一部分可用上下文？
+      - 上下文可能来自草稿区、记忆、工具定义或 RAG 检索，但并非同等有用。无关或嘈杂的记忆片段会干扰推理、抬高推理成本。经验观察是：AI 编程表现常在上下文窗口填充度超过约 **50%** 后开始下降——上下文过多和过少都会损害效果。
+      - 缺乏稳健过滤，agent 会被自己的记忆淹没，形成现代版的"上下文过载"。因此有效的上下文选择是一种 **attention before attention**（注意力之前的注意力）——决定什么值得被注意。
+      - 记忆选择要考虑的因素：
+      - **语义相关性**：把查询和候选条目都编码成稠密向量做最近邻检索（如 FAISS），不依赖精确关键词也能找到语义相关项，是 RAG 与 Letta 一类系统的常规做法。
+      - **逻辑依赖**：当前任务直接依赖此前步骤的产出（规划决策、工具输出、推理链）。MEM1 显式记录推理轨迹，把新步骤存进记忆槽并链接到它依赖的早期步骤，逐渐形成依赖图；新查询到来时沿图遍历，只取处于相关依赖链上的上下文，让记忆反映任务的逻辑流而不只是表面相关。
+      - **新近性与频率**：越新、越常被访问的条目越可能再次被取用；系统给新条目更高优先级、让旧条目自然衰减，反复访问的条目累积更高重要性。
+      - **信息重叠**：多条信息表达同一含义时，过滤掉更旧或更粗的；现代系统用主动记忆管理，主动决定何时合并、更新、删除冗余条目。
+      - **用户偏好与反馈**：自演化记忆一类系统跟踪用户如何与信息互动，据此调整记忆条目的权重。
+    excerpt_sha256: sha256:3ff022736d8a34164a36f7ad5c394accc341b1b0b63098101a10e189afe7453e
+  - entry_id: SRCNET-context-engineering-26-plus-2-003
+    article_title: 论文《上下文工程 2.0》：给这门手艺补上它自己的上下文
+    article_title_line: 53
+    location:
+      start_line: 254
+      end_line: 255
+    observed_terms:
+      - 压缩上下文
+      - 推理状态
+    relation_paraphrase: 周期压缩把长历史变成可继续搜索和推理的紧凑状态。
+    exact_excerpt: |-
+      - **CLI**：Google 的 Gemini CLI 是代表。核心机制是 GEMINI.md 文件——一份记录项目背景、角色定义、所需工具与依赖、编码规范的 Markdown 规格；这些文件可存在于用户主目录、项目根目录或子目录，通过文件系统层级实现信息的继承与隔离。收集上分两类：启动时自动加载系统提示、项目环境、祖先与后代 GEMINI.md 等静态信息，交互中增量累积对话历史这类动态上下文。管理上文件系统本身就是轻量数据库，并用 AI 生成的摘要替换长交互历史来压缩上下文；摘要遵循预定义格式（总体目标、关键知识、文件系统状态、近期动作、当前计划），保证一致性。社区还提议引入人工精修，做协作式的上下文管理。
+      - **Deep Research**：以 Tongyi DeepResearch 为例，四步循环——按查询搜网、从相关页面抽取关键信息、生成新的子问题引导下一轮、把多来源证据整合成答案；循环持续到不确定性降低、证据链完整。它面对的独特挑战是交互历史极长，直接堆叠所有观察、思考、动作会迅速撑爆窗口。解法是周期性调用专门的摘要模型，把累积历史压成紧凑的推理状态，既保留关键证据，也标出缺失信息与下一步方向；后续搜索与推理基于这些"上下文快照"而非完整原始历史，从而建立起"收集累积 → 周期压缩抽象 → 基于摘要推理复用"的清晰上下文生命周期。
+    excerpt_sha256: sha256:26d5b35d29ca9c2e353ff7ed4ee0fe939a0495cef75576dac184edb5b14a71e0
+  - entry_id: SRCNET-context-engineering-26-plus-2-004
+    article_title: Manus 的上下文工程实战：几轮重写换来的一组局部最优
+    article_title_line: 925
+    location:
+      start_line: 996
+      end_line: 998
+    observed_terms:
+      - 压缩
+      - 记忆
+    relation_paraphrase: 可恢复压缩依靠外部记忆保留原始内容的回取路径。
+    exact_excerpt: |-
+      - 许多 agent 系统用上下文截断或压缩来应对，但过于激进的压缩必然带来信息损失。问题是根本性的：agent 按本性必须基于全部先前状态来预测下一个 action，而你无法可靠地预判哪条 observation 会在十步之后变得关键。从逻辑上说，任何不可逆压缩都带着风险。
+      - 所以 Manus 把文件系统当作终极上下文：大小无限、天然持久，且可由 agent 自己直接操作。模型学会按需读写文件，把文件系统用作结构化的外部化记忆，而不只是存储。
+      - 与之匹配，Manus 的压缩策略始终被设计成可恢复的：网页内容可以从上下文里丢掉，只要 URL 还在；文档正文可以省略，只要沙箱里的路径还在。这让上下文长度缩短而信息不永久丢失。
+    excerpt_sha256: sha256:3dedd539b62208cb4b02c9347998cbd3ec924cebd102ad9f457f9c315853fa2b
+  - entry_id: SRCNET-context-engineering-26-plus-2-005
+    article_title: Manus 的上下文工程实战：几轮重写换来的一组局部最优
+    article_title_line: 925
+    location:
+      start_line: 1018
+      end_line: 1021
+    observed_terms:
+      - 循环
+      - 错误恢复
+    relation_paraphrase: 多步循环把失败证据保留下来，供错误恢复改变后续动作。
+    exact_excerpt: |-
+      - agent 会犯错。这不是 bug，是现实：语言模型会幻觉、环境会返回错误、外部工具会行为异常、意外的边界情况层出不穷。在多步任务里，失败不是例外，而是循环的一部分。
+      - 常见冲动是把这些错误藏起来：清理轨迹、重试动作，或者重置模型状态、把结果交给神奇的 temperature。这感觉更安全、更可控，但有代价——抹掉失败就是抹掉证据；没有证据，模型就无法适应。
+      - Manus 的经验是，改善 agent 行为最有效的方式之一简单得近乎狡黠：把走错的弯路留在上下文里。当模型看到一个失败的 action 以及随之而来的 observation 或 stack trace，它会隐式更新自己的内部信念，把先验从类似 action 上挪开，降低重复同一错误的概率。
+      - 由此作者给出一个判据：错误恢复（error recovery）是真正 agentic 行为最清晰的指标之一。但它在多数学术工作和公开 benchmark 中仍被严重低估——那些评测往往只关注理想条件下的任务成功率。
+    excerpt_sha256: sha256:f6c0fa01a54b1b6eec2ae62f585dd035cdd05bf3e7bcc0d51fa25449fe1ac6d4
+  - entry_id: SRCNET-context-engineering-26-plus-2-006
+    article_title: Anthropic：有效的上下文工程，是为 agent 找到最小充分信息集
+    article_title_line: 1171
+    location:
+      start_line: 1194
+      end_line: 1197
+    observed_terms:
+      - 最小可能的高信号 token 集合
+      - 注意力预算
+    relation_paraphrase: 有限注意力预算要求上下文只保留最小的高信号信息集。
+    exact_excerpt: |-
+      - 好的 context engineering，就是为 agent 找到**最小可能的高信号 token 集合**（the smallest possible set of high-signal tokens），让期望结果出现的概率最大化。这是全文唯一的指导原则，其余全部技术都是它在不同组件上的投影。
+      - prompt engineering 是「写好一段指令」的离散任务；context engineering 是在每一轮推理时反复发生的**策展**（curation）——从不断膨胀的可能信息宇宙里，决定什么进入有限的上下文窗口。
+      - context 必须被当成**有限资源**看待，且边际收益递减。LLM 和人一样有一份「注意力预算」（attention budget），每多一个 token 就从中支取一点。
+      - 长时程任务绕开窗口限制的三种技术：compaction（压缩）、structured note-taking（结构化记事）、sub-agent 架构；三者是按任务特征取舍，不是优劣排序。
+    excerpt_sha256: sha256:dd7feea75b5a65db97cd312f75fa68eac1b628d2c650c2a693fd17f3c94260d5
+  - entry_id: SRCNET-context-engineering-26-plus-2-007
+    article_title: Anthropic：有效的上下文工程，是为 agent 找到最小充分信息集
+    article_title_line: 1171
+    location:
+      start_line: 1263
+      end_line: 1269
+    observed_terms:
+      - compaction
+      - 上下文窗口
+    relation_paraphrase: Compaction 在窗口接近上限时蒸馏历史并重建可继续工作的窗口。
+    exact_excerpt: |-
+      - 问题定义：长时程任务要求 agent 在 token 总量超出上下文窗口的动作序列中，维持连贯性、context 和目标导向行为——比如跨越几十分钟到数小时连续工作的大型代码库迁移、综合性研究项目。
+      - 「等更大的上下文窗口」看似是显而易见的对策，但可预见的未来里，各种尺寸的窗口都会面临 context 污染与信息相关性问题——至少在追求最强 agent 表现的场景下如此。
+      - **compaction（压缩）**
+      - 做法：把接近窗口上限的对话做摘要，用这份摘要重新初始化一个新的上下文窗口。它通常是提升长期连贯性的第一根杠杆，本质是高保真地蒸馏一个窗口的内容，让 agent 以最小的性能损失继续跑。
+      - Claude Code 的实现：把消息历史交给模型总结压缩最关键的细节，保留架构决策、未解决的 bug、实现细节，丢弃冗余的工具输出和消息；agent 随后带着压缩后的 context 加上最近访问的五个文件继续工作，用户不必操心窗口上限就获得连续性。
+      - 手艺在于「留什么、弃什么」的选择：过度激进的压缩会丢掉微妙但关键的 context，而它的重要性往往事后才显现。
+      - 调优路径很具体：先最大化召回率，确保压缩 prompt 能抓全 trace 里每条相关信息，再迭代提升精确率，剔除多余内容。
+    excerpt_sha256: sha256:7e4bd52b5b343b5a389c9a768d69490cd4847dec110f87a0de841f38bb578adc
+  - entry_id: SRCNET-context-engineering-26-plus-2-008
+    article_title: Anthropic：有效的上下文工程，是为 agent 找到最小充分信息集
+    article_title_line: 1171
+    location:
+      start_line: 1265
+      end_line: 1269
+    observed_terms:
+      - compaction
+      - 相关信息
+      - 多余内容
+    relation_paraphrase: Compaction 通过保留相关信息并剔除多余内容来压缩上下文。
+    exact_excerpt: |-
+      - **compaction（压缩）**
+      - 做法：把接近窗口上限的对话做摘要，用这份摘要重新初始化一个新的上下文窗口。它通常是提升长期连贯性的第一根杠杆，本质是高保真地蒸馏一个窗口的内容，让 agent 以最小的性能损失继续跑。
+      - Claude Code 的实现：把消息历史交给模型总结压缩最关键的细节，保留架构决策、未解决的 bug、实现细节，丢弃冗余的工具输出和消息；agent 随后带着压缩后的 context 加上最近访问的五个文件继续工作，用户不必操心窗口上限就获得连续性。
+      - 手艺在于「留什么、弃什么」的选择：过度激进的压缩会丢掉微妙但关键的 context，而它的重要性往往事后才显现。
+      - 调优路径很具体：先最大化召回率，确保压缩 prompt 能抓全 trace 里每条相关信息，再迭代提升精确率，剔除多余内容。
+    excerpt_sha256: sha256:283dd3b924fae474f13f0c3fbe63f161f42d205ec8a27d4649b9de42ed9a4529
+  - entry_id: SRCNET-context-engineering-26-plus-2-009
+    article_title: 12-Factor Agents：让 LLM 软件真能交付给生产用户的十二条原则
+    article_title_line: 1425
+    location:
+      start_line: 1473
+      end_line: 1504
+    observed_terms:
+      - agent 循环
+      - 状态
+    relation_paraphrase: Agent 循环把每一步决策与结果累积为下一步所依赖的状态。
+    exact_excerpt: |-
+      ## agent 循环的真实形态
+
+      - 把 agent 拆到最里层，就是一个三步循环（原文写作三步，实际代码含终止判断）。
+      - LLM 决定工作流的下一步，输出结构化 json，也就是 tool calling。
+      - 确定性代码执行这次 tool call。
+      - 结果被 append 回 context window，然后重复，直到下一步被判定为 "done"。
+      - 原文给出的最小实现骨架，是理解后续所有原则的锚点。
+
+      **代码块：javascript**
+
+      initial_event = {"message": "..."}
+
+      context = [initial_event]
+
+      while True:
+
+      next_step = await llm.determine_next_step(context)
+
+      context.append(next_step)
+
+      if (next_step.intent === "done"):
+
+      return next_step.final_answer
+
+      result = await execute_step(next_step)
+
+      context.append(result)
+
+
+
+      - 初始 context 只是一个起始事件：可能是用户消息，可能是 cron 触发，可能是 webhook。
+      - 关键观察：这个循环里，**context 就是 agent 的全部状态**——每一步的决策与结果都堆在同一个数组里。谁掌握 context，谁就掌握 agent 的行为。
+    excerpt_sha256: sha256:85fe4cbc9f05de163fed2c0be816e94d89abe8d26c743c04248a147f1f7120aa
+  - entry_id: SRCNET-context-engineering-26-plus-2-010
+    article_title: 工具更多反而让 Copilot 代码审查变差，GitHub 如何修正
+    article_title_line: 1680
+    location:
+      start_line: 1726
+      end_line: 1730
+    observed_terms:
+      - 工具结果
+      - working context
+    relation_paraphrase: 工具结果会进入工作上下文并持续影响后续推理。
+    exact_excerpt: |-
+      ## 工具输出不是一次性打印，而是持续占用的工作上下文
+
+      - 广泛读取的代价不只是多一次工具调用。每个工具结果都会进入 agent 的 working context，并在后续推理中继续存在。
+      - 无关文件内容会同时增加 token 成本和注意力负担，让 review 更难围绕 diff 的证据保持聚焦。
+      - 因此，工具返回内容的大小和时机都属于 agent 设计问题。view 读取一个大文件并不是“先看看再说”的无成本动作，而是在为之后每一步推理增加上下文负载。
+    excerpt_sha256: sha256:7ce2418b330f87feacc8ff37f4e2309444f5e75a6d345dd786a060e9041c8e31
+  - entry_id: SRCNET-context-engineering-26-plus-2-011
+    article_title: 工具更多反而让 Copilot 代码审查变差，GitHub 如何修正
+    article_title_line: 1680
+    location:
+      start_line: 1750
+      end_line: 1755
+    observed_terms:
+      - 失败恢复
+      - tool instruction
+    relation_paraphrase: 工具说明必须规定失败、空结果和不确定性出现后的恢复动作。
+    exact_excerpt: |-
+      ## 失败恢复规则阻止小错误演变成大探索
+
+      - 工具失败本身不是最危险的，危险的是失败后的错误恢复姿势。一次 grep 输入错误，如果引发多轮搜索和猜测，就会把局部问题扩大成 browsing loop。
+      - 新说明要求：grep 没找到相关上下文时，用一个更简单、正确转义的搜索重试；路径错误时转向 glob，不要猜邻近路径并随意读取存在的文件。
+      - 这种规则把失败限制在原问题附近。agent 修正查询，而不是把“不知道路径”解释成“需要探索更多仓库”。
+      - 失败恢复也是 tool instruction 的组成部分。说明不仅要告诉模型什么时候调用工具，还要规定错误、空结果和不确定性出现时如何收敛。
+    excerpt_sha256: sha256:eb23c144fcbc69290736be7410f0412e488beb9e322e6eb5aa5e24426b8f79da
+  - entry_id: SRCNET-context-engineering-26-plus-2-012
+    article_title: 工具更多反而让 Copilot 代码审查变差，GitHub 如何修正
+    article_title_line: 1680
+    location:
+      start_line: 1757
+      end_line: 1763
+    observed_terms:
+      - benchmark trace
+      - 先收窄再读取
+    relation_paraphrase: Benchmark trace 让团队能依据运行轨迹调整搜索与读取的收窄策略。
+    exact_excerpt: |-
+      ## benchmark trace 让行为可以被工程化调试
+
+      - 共享 harness 提供工具，内部 code review benchmark 提供反馈回路。团队可以在同一组 review example 上运行、比较 trace、修改 instructions，再次运行。
+      - 评估问题因此从模糊的“prompt 是否更好”变成可观察行为：agent 是否先收窄再读取？是否批量执行独立搜索？调用 view 时是否已有理由？tool error 是减少了还是被转移？trace 是否仍围绕 diff 证据？
+      - 最有价值的信号不是工具调用总数减少。调整后的 agent 调用次数大致相近，但更多调用被花在 relevant evidence 上，而不是反复扩大搜索。
+      - 这把产品结果连接到可解释的工程行为。团队不必只看最终 score 猜原因，而能看到成本和质量变化由哪一种调查路径产生。
+      - 在生产中，调优后相对 control 的平均 review cost 下降约 20%，且没有出现阻止发布的质量信号。收益来自工具、定制说明和 benchmark feedback loop 的组合。
+    excerpt_sha256: sha256:469c461162c1c88c158ac48431b4eda25e2686d6063cbc2e0b28fa2f6fa9bf8b
+  - entry_id: SRCNET-context-engineering-26-plus-2-013
+    article_title: 从 Prompt 转向 Loop Engineering 的工作流拐点
+    article_title_line: 1861
+    location:
+      start_line: 1931
+      end_line: 1936
+    observed_terms:
+      - Harness Engineering
+      - 护栏
+    relation_paraphrase: Harness Engineering 用边界和护栏阻止循环为指标破坏真实目标。
+    exact_excerpt: |-
+      ## 目标指标的陷阱：古德哈特定律和 Harness 的必要性
+
+      - 作者提醒，定义目标不仅要清楚，还要避免古德哈特定律：当衡量指标变成目标本身，它就不再是好的衡量指标。
+      - 在 Agent 场景下，这个问题被放大。Agent 会针对验证器优化，而不是针对真实目标优化。例如 loop 条件是测试全过，Agent 可能不修 bug，而是删除失败测试。
+      - 因此，一个好的目标定义不能只有完成标准，还必须有不能怎么做的边界。完成条件告诉 Agent 往哪里跑，边界条件告诉 Agent 哪些路径不能走。
+      - 这也是 Harness Engineering 在 Loop Engineering 中的作用：Harness 是约束和护栏，Loop 是驱动力。只有二者结合，系统才既能持续前进，又不会为了通过指标而破坏真实目标。
+    excerpt_sha256: sha256:dcd6c301b50ecc64935cb77902202433259beb2a088878b50774da1dfd957ce3
+  - entry_id: SRCNET-context-engineering-26-plus-2-014
+    article_title: 产品开发的下一阶段由上下文与行动能力驱动
+    article_title_line: 2786
+    location:
+      start_line: 2863
+      end_line: 2863
+    observed_terms:
+      - harness
+      - 上下文
+    relation_paraphrase: 具体 Agent 的运行由 harness 驱动，并由上下文与工具增强。
+    exact_excerpt: "- **Linear Coding Agent**：Linear 自己写代码并自动修复 bug，由前沿模型与 harness 驱动，并用 Linear 原生的上下文与工具增强。"
+    excerpt_sha256: sha256:99370bcb294238f66f2019a2e61092baa20a4b9a7fe9cc1508493fe249190ffb
+  - entry_id: SRCNET-context-engineering-26-plus-2-015
+    article_title: 用 Skills 在 Claude Code 里搭建验证闭环
+    article_title_line: 2977
+    location:
+      start_line: 3000
+      end_line: 3001
+    observed_terms:
+      - skill
+      - 验证闭环
+    relation_paraphrase: Skill 可以承载并按指定位置触发验证闭环。
+    exact_excerpt: |-
+      - 每次做完一件事总要跟着做的那个检查——改完前端要跑的端到端验证、提交前的安全扫描、发 PR 前的无障碍审计——不该一直靠人记着做。最经济的做法是把它写成一个 skill，让 Claude 自己执行这个「验证闭环」（verification loop）。
+      - 写成 skill 只是第一步。真正的设计决策是「让检查匹配它运行的位置」：按你需要它触发的频率，从 standalone（独立调用）→ embedded（嵌入）→ chained（链式）→ on every PR（每个 PR 上）四种接入方式里选一种，这是一条由松到紧、由手动到自动的升级阶梯。
+    excerpt_sha256: sha256:5eb7c4310fd17c635d94a429e8c4f80a14dbc65a952b89c53da7b4ae51a823cf
+  - entry_id: SRCNET-context-engineering-26-plus-2-016
+    article_title: Agent Harness 的本质：把模型放进可控的执行系统
+    article_title_line: 3172
+    location:
+      start_line: 3195
+      end_line: 3195
+    observed_terms:
+      - Agent Harness
+      - 循环
+      - 工具
+      - 记忆
+      - 状态
+      - 错误
+      - 护栏
+      - 验证结果
+      - 上下文
+    relation_paraphrase: Agent Harness 组织循环，并落实工具、记忆、状态、错误处理、护栏和结果验证。
+    exact_excerpt: Agent 的本质不是模型突然获得了独立行动能力，而是大语言模型被放进了一套可控的执行系统里。这个系统就是 Agent Harness：它负责组织循环、暴露工具、管理记忆和上下文、保存状态、处理错误、设置护栏并验证结果。
+    excerpt_sha256: sha256:2224dcbac5633fe7aaee5749eb7535cfb8eee5da1fa51bcbc29252bb9fc960d2
+  - entry_id: SRCNET-context-engineering-26-plus-2-017
+    article_title: Agent Harness 的本质：把模型放进可控的执行系统
+    article_title_line: 3172
+    location:
+      start_line: 3217
+      end_line: 3217
+    observed_terms:
+      - Harness
+      - 编排循环
+      - 错误处理
+    relation_paraphrase: Harness 明列编排循环、状态持久化、错误处理与护栏等运行部件。
+    exact_excerpt: "- Harness 包裹在大语言模型之外，包含编排循环、工具、记忆、上下文管理、状态持久化、错误处理和护栏。"
+    excerpt_sha256: sha256:210e7b65d329ea49b96d915774b5b798d0a7baf2d0936ec06a84933f92c62838
+  - entry_id: SRCNET-context-engineering-26-plus-2-018
+    article_title: Agent Harness 的本质：把模型放进可控的执行系统
+    article_title_line: 3172
+    location:
+      start_line: 3255
+      end_line: 3256
+    observed_terms:
+      - 编排循环
+      - 状态
+      - 工具调用
+      - 错误反馈
+    relation_paraphrase: 编排循环在每一轮维护状态、工具调用、错误反馈和退出条件。
+    exact_excerpt: |-
+      - 编排循环实现 Thought-Action-Observation，也就是思考、行动、观察的连续过程。
+      - 技术上它可能只是一个 while 循环，但复杂性来自循环内部要维护的状态、工具调用、错误反馈和退出条件。
+    excerpt_sha256: sha256:d6f185c88021350ab46ebc00082c9dd9e0f4aee559345e820e15b1f07af4e264
+  - entry_id: SRCNET-context-engineering-26-plus-2-019
+    article_title: Agent Harness 的本质：把模型放进可控的执行系统
+    article_title_line: 3172
+    location:
+      start_line: 3330
+      end_line: 3332
+    observed_terms:
+      - 循环
+      - 压缩
+    relation_paraphrase: 循环更新上下文后可触发压缩，再返回下一轮。
+    exact_excerpt: |-
+      - 第五步：执行结果被打包为模型可读的观察消息，错误也会被转换成模型可以处理的反馈。
+      - 第六步：上下文被更新，必要时触发压缩。
+      - 第七步：循环返回第一步，直到满足退出条件。
+    excerpt_sha256: sha256:f3260b5e7e3108550399e7620674fef4929faa2bcee2b52e9d2b0d4e494a9b5c
+  - entry_id: SRCNET-context-engineering-26-plus-2-020
+    article_title: Agent Harness 的本质：把模型放进可控的执行系统
+    article_title_line: 3172
+    location:
+      start_line: 3584
+      end_line: 3590
+    observed_terms:
+      - 即时检索
+      - Just-in-time Retrieval
+      - 上下文窗口
+    relation_paraphrase: 即时检索把上下文窗口当缓存，只在需要时加载具体内容。
+    exact_excerpt: |-
+      ### 即时检索（Just-in-time Retrieval）
+
+      - **context**：
+
+      “只保留轻量级标识符”
+
+      - **费曼一下**：即时检索把上下文窗口当作缓存，而不是仓库。Harness 只放必要线索，等模型真正需要时再加载具体内容。
+    excerpt_sha256: sha256:20b7e2a7a3f8f7c7d58596f7eacf0d7526aa796bdf946be12446a81a968a1d85
+  - entry_id: SRCNET-context-engineering-26-plus-2-021
+    article_title: 构建 Claude Code 的经验教训：如何让 Agent「看见」世界
+    article_title_line: 3927
+    location:
+      start_line: 3996
+      end_line: 3999
+    observed_terms:
+      - Agent Skills
+      - Progressive Disclosure
+      - skill
+    relation_paraphrase: Skill 文件及其递归引用是渐进式披露的实现载体。
+    exact_excerpt: |-
+      - 引入 **Agent Skills** 后，正式提出 **Progressive Disclosure**（渐进式披露）：
+      - agent 通过探索逐步发现相关上下文
+      - 技能文件可以引用其他文件，模型可以递归读取
+      - 常见用法：在 skill 中添加搜索能力（如 API 使用说明、数据库查询方法）
+    excerpt_sha256: sha256:6177bc2c34af8470d245b3f4b9a4c43c36fd34f388cbb2e87dbc29e1379182a1
+  - entry_id: SRCNET-context-engineering-26-plus-2-022
+    article_title: Claude Code 的 1M Context 让会话管理变成核心技能
+    article_title_line: 4572
+    location:
+      start_line: 4686
+      end_line: 4687
+    observed_terms:
+      - context rot
+      - compact
+    relation_paraphrase: Context rot 加重时，主动 compact 是相应的上下文治理动作。
+    exact_excerpt: |-
+      - 更麻烦的是：context rot 最严重的时候，往往正是模型需要做 compact 的时候。
+      - 所以 1M context 的真正好处，是给你更多时间**主动 compact**，并明确告诉它接下来要保留什么。
+    excerpt_sha256: sha256:0547ec31a4a6f27242b526d2cb6eb14030f51f0acf61cec938b6420b926085c5
+  - entry_id: SRCNET-context-engineering-26-plus-2-023
+    article_title: Claude Code 在读提示词前为何已发送 3.3 万 Token
+    article_title_line: 4740
+    location:
+      start_line: 4769
+      end_line: 4771
+    observed_terms:
+      - logging proxy
+      - harness
+    relation_paraphrase: 在 harness 与模型之间记录请求和用量，才能重建系统行为。
+    exact_excerpt: |-
+      - 对生产 Agent 而言，“系统到底发送了什么”不应靠 folklore 回答。尤其在 EU AI Act Article 12 要求记录和理解系统行为的背景下，请求重建能力本身就是治理基础。
+      - 研究团队把 logging proxy 插在 harness 与模型 endpoint 之间，逐请求记录两类 ground truth：完整 JSON payload，以及 API 返回的 input、cache write、cache read、output usage。
+      - Payload capture 回答“发送了什么”，usage block 回答“计费了什么”。只有两者结合，才能把模型成本拆回 system prompt、tool schema、scaffolding、用户输入和会话增长。
+    excerpt_sha256: sha256:40939b3c928f053db3327c8cf13c658fd5e41a7dd17a5b6509791042f1adcb97
+  - entry_id: SRCNET-context-engineering-26-plus-2-024
+    article_title: 只改两个 API 设置，OpenAI 把 ARC-AGI-3 成绩提到三倍
+    article_title_line: 4970
+    location:
+      start_line: 5047
+      end_line: 5051
+    observed_terms:
+      - compaction
+      - 上下文窗口
+    relation_paraphrase: Compaction 用摘要替代滚动截断，以处理窗口上限并保留早期经验。
+    exact_excerpt: |-
+      - 第二步改进是用 compaction 替换滚动截断。官方 harness 处理上下文上限的方式是：当对话上下文超过 175,000 字符时，丢弃最旧的消息。
+      - 滚动截断有两个弊端：
+      - 模型丢失了更早的观察与动作。
+      - 模型在任务的大部分时间里都运行在一个更满的上下文窗口下，而这会轻微损害表现。
+      - 启用 compaction 之后，GPT-5.6 Sol 能在更长的运行中更好地保住它对每个游戏学到的东西，用更少的输出 token 拿到更高的分数。
+    excerpt_sha256: sha256:08b4f83ae1eb147aef4e7babe1a871ebf0af3e2f35bf197fdf5692a862432694
+  - entry_id: SRCNET-context-engineering-26-plus-2-025
+    article_title: Claude 5 世代的上下文工程，规则变了
+    article_title_line: 5494
+    location:
+      start_line: 5537
+      end_line: 5539
+    observed_terms:
+      - 渐进披露
+      - skills
+      - 工具
+    relation_paraphrase: 渐进披露既用于 Skill，也用于工具定义的延迟加载。
+    exact_excerpt: |-
+      - **全部前置 → 渐进披露**：因为 Claude Code 聚焦编码，早期 system prompt 里塞进了 code review 与 verification 的详细信息——它们不总被需要，但需要时至关重要。
+      - 现在 Claude Code 已经很擅长渐进披露，也就是在正确的时机加载正确的上下文；团队把 verification 与 code review 挪进了各自的 skill，由 Claude 自行选择调用。
+      - 渐进披露不只用于 skills，也用于工具：部分工具是 deferred loading，agent 必须先用 ToolSearch 搜到完整定义才能调用。这样可以拥有更多工具（例如 Task 系列），而它们在被需要之前不占用上下文。
+    excerpt_sha256: sha256:7977425304200b99c78f34b8ef86a8f978ab826399c3eff1ff696c1b388a403e
+  - entry_id: SRCNET-context-engineering-26-plus-2-026
+    article_title: 构建可靠 AI 工作流：智能体原语与上下文工程
+    article_title_line: 5946
+    location:
+      start_line: 5969
+      end_line: 5969
+    observed_terms:
+      - context engineering
+      - 验证结果
+    relation_paraphrase: Context Engineering 在可靠工作流中持续控制信息并规定如何验证结果。
+    exact_excerpt: 文章提出一套把临时 prompt 实验转化为可靠 AI 工程实践的三层框架：Markdown prompt engineering 负责让意图结构化，agentic primitives 负责把规则、角色、流程和记忆产品化，context engineering 负责持续控制模型看到什么、忽略什么、如何验证结果。作者的核心判断是：自然语言工作流正在变成一种可执行、可复用、可打包、可进入 CI/CD 的软件形态。
+    excerpt_sha256: sha256:2ad69c3316e0533262f7b7db2d6c8b109c0738033af3f81fd9f049d61b1e546f
+  - entry_id: SRCNET-context-engineering-26-plus-2-027
+    article_title: AI 的新技能不是提示词，而是上下文工程
+    article_title_line: 6116
+    location:
+      start_line: 6161
+      end_line: 6168
+    observed_terms:
+      - 上下文
+      - System Prompt
+      - Available Tools
+    relation_paraphrase: System Prompt 和可用工具定义都是来源列出的 Context 构成。
+    exact_excerpt: |-
+      原文把「上下文」拆成七类构成：
+
+      - **Instructions / System Prompt**：定义模型在一次对话中行为方式的初始指令集，可以也应该包含示例与规则。
+      - **User Prompt**：来自用户的即时任务或问题。
+      - **State / History（短期记忆）**：当前对话，包括把事情推到此刻的用户与模型的历次回应。
+      - **Long-Term Memory（长期记忆）**：跨越许多次先前对话积累起来的持久知识库——学到的用户偏好、过往项目的摘要、被要求记住以备将来使用的事实。
+      - **Retrieved Information（RAG）**：外部的、最新的知识，来自文档、数据库或 API 的相关信息，用于回答具体问题。
+      - **Available Tools**：它可以调用的全部函数或内置工具的定义（例如 check_inventory、send_email）。
+    excerpt_sha256: sha256:aae50e53f63470a00470bdd558ec66d0354cf2f2a794a919a09f043bf4c72288
+  - entry_id: SRCNET-context-engineering-26-plus-2-028
+    article_title: AI 的新技能不是提示词，而是上下文工程
+    article_title_line: 6116
+    location:
+      start_line: 6187
+      end_line: 6193
+    observed_terms:
+      - 上下文工程
+      - 动态系统
+      - 即时生成
+    relation_paraphrase: Context Engineering 通过动态系统按任务即时生成并格式化模型所需信息与工具。
+    exact_excerpt: |-
+      - 作者给出的定义：**上下文工程是设计并构建动态系统的学科，这些系统在正确的时间、以正确的格式，提供正确的信息与工具，从而给 LLM 完成一项任务所需的一切。**
+      - 四条特征（原文以并列条目给出，是全文最可操作的部分）：
+      - **A System, Not a String（是系统，不是字符串）**：上下文不是一个静态的提示词模板，它是**在主 LLM 调用之前运行的那个系统的输出**。
+      - **Dynamic（动态）**：即时生成，为当下任务量身定制。这次请求可能是日历数据，下次是邮件或一次网络搜索。
+      - **About the right information, tools at the right time（正确的信息与工具，在正确的时间）**：核心工作是确保模型不缺关键细节（「Garbage In, Garbage Out」）。这意味着**同时提供知识（信息）与能力（工具）**，且只在需要且有用时提供。
+      - **Where the format matters（格式很重要）**：你如何呈现信息是有影响的。**一份简洁的摘要优于一堆原始数据的倾倒；一个清晰的工具 schema 优于一句含糊的指令。**
+      - 这四条合起来把「上下文」从文本对象改写成了系统对象：它有生产者、有触发时机、有格式契约。
+    excerpt_sha256: sha256:7b77038081620cc61cdbf5be1c90fa525d7c372500e8a373178120a55d2dabd5
+  - entry_id: SRCNET-context-engineering-26-plus-2-029
+    article_title: 上下文工程：AI 时代的核心能力
+    article_title_line: 6300
+    location:
+      start_line: 6346
+      end_line: 6351
+    observed_terms:
+      - Selection
+      - 窗口
+    relation_paraphrase: Context Selection 决定什么信息进入窗口。
+    exact_excerpt: |-
+      - **设计什么信息到达模型、什么时候、以什么结构的学科**
+      - 不是 prompt engineering（怎么问），不是 fine-tuning（改模型），而是**你的知识与模型注意力之间的架构**
+      - 三个层次：
+      - **Layer 1: Selection** — 什么进入窗口
+      - **Layer 2: Architecture** — 如何结构化
+      - **Layer 3: Lifecycle** — 什么时候刷新
+    excerpt_sha256: sha256:9f701bf5fa90f19436ba91b2168f8da0bab3e05a63e770a8a1d789dea5646b11
+  - entry_id: SRCNET-context-engineering-26-plus-2-030
+    article_title: 上下文工程：AI 时代的核心能力
+    article_title_line: 6300
+    location:
+      start_line: 6572
+      end_line: 6574
+    observed_terms:
+      - Memory
+      - 渐进式披露
+    relation_paraphrase: Memory 用路由文档和主题文件分层，让详细知识按需披露。
+    exact_excerpt: |-
+      Memory 层级与渐进式披露（progressive disclosure）——不是所有东西都需要同时在窗口里，引导模型去找它需要的东西。[MEMORY.md](http://memory.md/) 作为路由文档控制在 200 行以内，详细主题文件从中链接。
+
+      - **费曼一下**：别把所有知识一次性塞给模型。用一个简短的「路由文档」告诉 agent 去哪里找什么，让它按需加载详细内容。就像好的 API 文档——首页简洁，细节按需展开。
+    excerpt_sha256: sha256:560b30e703e2117be71c54ec939829d38a9729bf1e63e6e7e9cccbfabf1fe865
+  - entry_id: SRCNET-context-engineering-26-plus-2-031
+    article_title: 什么是 Context？
+    article_title_line: 6614
+    location:
+      start_line: 6761
+      end_line: 6763
+    observed_terms:
+      - Context Engineering
+      - Context Window
+    relation_paraphrase: Context Engineering 管理 Context Window 里放什么、怎样放和何时放。
+    exact_excerpt: |-
+      - **Context Window** 是运行时容器——LLM 的工作记忆，有限且昂贵
+      - **Context Distraction** 是对"多即是好"的警示——揭示 Context Window 存在质量陷阱，超过阈值反而有害
+      - **Context Engineering** 是管理 Context Window 的方法论——决定往容器里放什么、怎么放、何时放
+    excerpt_sha256: sha256:4ad23111b6653583b156bfaa4ecd82fb854f50c4d22e132cc61f81e7dc3ac751

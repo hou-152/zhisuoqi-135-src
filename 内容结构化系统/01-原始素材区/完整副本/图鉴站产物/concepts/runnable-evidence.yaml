@@ -1,0 +1,38 @@
+schema_version: 1
+record_kind: canonical_concept
+id: runnable-evidence
+slug: runnable-evidence
+name_zh: 可运行证据
+name_en: Runnable Evidence
+aliases:
+  - 可执行证据
+category_id: result-trust
+learning_stage: now
+definition_status: evolving
+remember: 能由独立执行者重新运行并得到明确结果的验证材料，例如测试、静态检查、冒烟运行或端到端流程回执。
+feynman: 把「完成」的判定权从当事人的嘴里，交给一台不会说谎的机器。你不问「你觉得做好了吗」，你只看测试是绿是红。证据可运行，是因为它可以被任何人在任何时候重新跑一遍。
+scenario:
+  type: hypothetical
+  text: 假设 Agent 声称接口已修复；审阅者在干净环境运行同一测试和冒烟命令，得到明确退出码与结果文件后才接受技术完成。
+image_mnemonic: 一个只表达「可运行证据」的单一纸片隐喻：主体对应「能由独立执行者重新运行并得到明确结果的验证材料，例如测试、静态检查、冒烟运行或端到端流程回执」，留出一处明确界线排除「它不同于 Agent 对结果的文字总结或自信声明」；不画候选关系。
+source_context: 本卡只采用以下来源范围：《Harness 工程学习仓库：从原始文献到能跑的 skill》：这段把完成声明绑定到可由他人重跑的测试、检查与端到端流程，而不是模型自我评价。未被来源直接支持的产品结论、普遍因果或关系身份不写入本卡。
+boundaries:
+  - 它不同于 Agent 对结果的文字总结或自信声明。
+  - 机器通过只证明对应检查覆盖的条件，不能自动证明全部用户价值或发布可接受性。
+  - 可复跑还要求保留命令、环境与必要输入，否则证据可能无法复现。
+  - 当前证据缺口：需要补充环境锁定与复现失败时的证据降级规则。
+how_to:
+  - 把每项完成声明转换成别人可执行的命令、输入、预期结果和失败信号。
+  - 在干净或独立环境重跑，保存版本、退出码和必要产物而非只截一张绿图。
+  - 检查证据覆盖范围，把机器未验证的用户价值和发布判断继续标为未知。
+transfer_question: 当验证依赖昂贵外部服务无法随时重跑时，怎样提供仍可独立检查、又不冒充实时结果的证据？
+source_ids:
+  - SRC-harness-learning-repo
+visual:
+  type: metaphor
+  skill: anthropic-art
+  source_image: src/assets/concepts/runnable-evidence/visual.png
+  alt: 一个只表达「可运行证据」的单一纸片隐喻：主体对应「能由独立执行者重新运行并得到明确结果的验证材料，例如测试、静态检查、冒烟运行或端到端流程回执」，留出一处明确界线排除「它不同于 Agent 对结果的文字总结或自信声明」；不画候选关系。
+  prompt_record: src/assets/concepts/runnable-evidence/PROMPT.md
+  receipt: src/assets/concepts/runnable-evidence/receipt.yaml
+  visual_qa: passed

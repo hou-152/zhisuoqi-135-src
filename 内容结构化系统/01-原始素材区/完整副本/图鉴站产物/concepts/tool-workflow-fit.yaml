@@ -1,0 +1,36 @@
+schema_version: 1
+record_kind: canonical_concept
+id: tool-workflow-fit
+slug: tool-workflow-fit
+name_zh: 工具—工作流适配
+name_en: Tool–Workflow Fit
+aliases: []
+category_id: external-access
+learning_stage: now
+definition_status: evolving
+remember: Agent 的工具能力、说明和调用节奏必须与当前任务的锚点、证据标准和停止条件相匹配；工具更强或更通用不会自动改善任务结果。
+feynman: 好工具不会自动带来好结果。锤子很锋利，也要知道当前是在钉钉子还是拆墙；任务姿势不匹配，能力越强可能浪费越多。
+scenario:
+  type: hypothetical
+  text: 假设研究 Agent 拿到一个功能丰富的网页工具，却没有来源记录、证据筛选和停止条件；它访问很多页面，最终仍交不出可复核结论。
+image_mnemonic: 一张只表达「工具—工作流适配」的纸面机制图：中心呈现「Agent 的工具能力、说明和调用节奏必须与当前任务的锚点、证据标准和停止条件相匹配；工具更强或更通用不会自动改善任务结果」，边缘用明确界线排除「它不反对共享工具基础设施，而是要求不同产品保留任务特定的工作流层」；不画候选关系。
+source_context: 本卡只采用以下来源范围：《工具更多反而让 Copilot 代码审查变差，GitHub 如何修正》：原文把共享工具能力与任务特定工作流分开，说明工具替换只有在行为流程适配后才产生收益。未被来源直接支持的产品结论、普遍因果或关系身份不写入本卡。
+boundaries:
+  - 它不反对共享工具基础设施，而是要求不同产品保留任务特定的工作流层。
+  - 一项工具在某任务中不适配，不代表工具本身实现错误或在其他任务中无效。
+  - 「工具—工作流适配」只表示候选定义覆盖的机制；它不单独证明某个产品已经正确实现该机制或因此获得结果保证。
+how_to:
+  - 先写任务锚点、合格证据、允许动作和完成条件，再列工具必须支持的环节。
+  - 用一条真实任务走完整流程，记录工具说明、返回格式和调用节奏造成的摩擦。
+  - 只调整与失败直接相关的接口或工作流层，并用同一任务重新验证。
+transfer_question: 同一个搜索工具在热点追踪中好用、在法律研究中失效，差异最可能来自能力本身还是工作流适配？你会看什么证据？
+source_ids:
+  - SRC-v2-c8dc1df61461
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/tool-workflow-fit/visual.png
+  alt: 一张只表达「工具—工作流适配」的纸面机制图：中心呈现「Agent 的工具能力、说明和调用节奏必须与当前任务的锚点、证据标准和停止条件相匹配；工具更强或更通用不会自动改善任务结果」，边缘用明确界线排除「它不反对共享工具基础设施，而是要求不同产品保留任务特定的工作流层」；不画候选关系。
+  prompt_record: src/assets/concepts/tool-workflow-fit/PROMPT.md
+  receipt: src/assets/concepts/tool-workflow-fit/receipt.yaml
+  visual_qa: passed

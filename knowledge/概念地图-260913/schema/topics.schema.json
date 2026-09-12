@@ -1,0 +1,130 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Concept Map Topics",
+ "type": "object",
+ "required": [
+  "version",
+  "count",
+  "topics"
+ ],
+ "properties": {
+  "version": {
+   "type": "string"
+  },
+  "generatedAt": {
+   "type": "string"
+  },
+  "count": {
+   "type": "integer"
+  },
+  "topics": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "type",
+     "subject",
+     "domain",
+     "name",
+     "description"
+    ],
+    "properties": {
+     "id": {
+      "type": "string",
+      "pattern": "^cm_[0-9a-f]{8}$"
+     },
+     "type": {
+      "enum": [
+       "CONCEPTUAL",
+       "PROCEDURAL",
+       "REPRESENTATIONAL",
+       "LANGUAGE",
+       "META"
+      ]
+     },
+     "subject": {
+      "type": "string"
+     },
+     "domain": {
+      "type": "string"
+     },
+     "name": {
+      "type": "string"
+     },
+     "nameEn": {
+      "type": "string"
+     },
+     "aliases": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "description": {
+      "type": "string"
+     },
+     "feynman": {
+      "type": "string"
+     },
+     "sourceContext": {
+      "type": "string"
+     },
+     "evidence": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "assessmentPrompt": {
+      "type": "string"
+     },
+     "centrality": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+     },
+     "depth": {
+      "type": "integer",
+      "minimum": 0
+     },
+     "learningStage": {
+      "enum": [
+       "now",
+       "when-needed",
+       "deep-dive"
+      ]
+     },
+     "verification": {
+      "enum": [
+       "compute",
+       "judge",
+       "use",
+       "accept"
+      ]
+     },
+     "mentionCount": {
+      "type": "integer",
+      "minimum": 0
+     },
+     "origin": {
+      "type": "array",
+      "items": {
+       "enum": [
+        "notion",
+        "context",
+        "harness"
+       ]
+      }
+     },
+     "sources": {
+      "type": "array",
+      "items": {
+       "type": "object"
+      }
+     }
+    }
+   }
+  }
+ }
+}

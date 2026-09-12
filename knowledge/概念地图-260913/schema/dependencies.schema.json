@@ -1,0 +1,62 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Concept Map Dependencies",
+ "type": "object",
+ "required": [
+  "version",
+  "count",
+  "dependencies"
+ ],
+ "properties": {
+  "version": {
+   "type": "string"
+  },
+  "count": {
+   "type": "integer"
+  },
+  "dependencies": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "topicId",
+     "prerequisiteId",
+     "strength",
+     "reason"
+    ],
+    "properties": {
+     "topicId": {
+      "type": "string",
+      "pattern": "^cm_[0-9a-f]{8}$"
+     },
+     "prerequisiteId": {
+      "type": "string",
+      "pattern": "^cm_[0-9a-f]{8}$"
+     },
+     "strength": {
+      "enum": [
+       "hard",
+       "soft"
+      ]
+     },
+     "reason": {
+      "type": "string"
+     },
+     "kind": {
+      "type": "string"
+     },
+     "axis": {
+      "type": "string"
+     },
+     "origin": {
+      "enum": [
+       "curated",
+       "source-network",
+       "llm"
+      ]
+     }
+    }
+   }
+  }
+ }
+}

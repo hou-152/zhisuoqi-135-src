@@ -1,0 +1,36 @@
+schema_version: 1
+record_kind: canonical_concept
+id: tacit-knowledge
+slug: tacit-knowledge
+name_zh: 隐性知识
+name_en: Tacit Knowledge
+aliases: []
+category_id: information-storage
+learning_stage: now
+definition_status: evolving
+remember: 尚未被外化的推理过程、权衡与默会前提；决策结果可能已记录，但这些决定为何成立仍只存在于人的经验中。
+feynman: 菜谱写了“煎到合适”，老师傅看颜色就知道，学徒却无从下手。隐性知识藏在判断依据和权衡里；只记录最后选了什么，无法教会下一个人为什么这样选。
+scenario:
+  type: hypothetical
+  text: 假设架构决定只留下“采用方案 A”，评审者当时关于故障成本、团队能力和放弃方案 B 的判断没有记录，后来无人能安全修改。
+image_mnemonic: 一个只表达「隐性知识」的单一纸片隐喻：主体对应「尚未被外化的推理过程、权衡与默会前提；决策结果可能已记录，但这些决定为何成立仍只存在于人的经验中」，留出一处明确界线排除「隐性知识不是所有未写文档的信息，重点是难以从结果本身恢复的判断依据与经验」；不画候选关系。
+source_context: 本卡只采用以下来源范围：《上下文工程：AI 时代的核心能力》：这段以未被记录的推理、权衡和默会前提界定隐性知识，并指出它进入 Agent Context 所需的外化过程。未被来源直接支持的产品结论、普遍因果或关系身份不写入本卡。
+boundaries:
+  - 隐性知识不是所有未写文档的信息，重点是难以从结果本身恢复的判断依据与经验。
+  - 录制会议只产生可挖掘材料，不证明知识已被完整、准确地外化为 Agent 可用 Context。
+  - 当前证据缺口：需要更强证据比较会议提取、访谈与决策记录对隐性知识外化的保真度。
+how_to:
+  - 在决策或复盘中追问“看到了什么信号、排除了什么、为何愿意承担这个代价”。
+  - 把可观察线索、权衡和例外写成案例或决策记录，不只保存结论。
+  - 让未参与者用记录处理一个相似新问题，找出仍需口头补充的判断。
+transfer_question: 会议录像完整保存后，哪些步骤仍必须做，才能把其中的经验变成 Agent 可用而非仅可搜索的材料？
+source_ids:
+  - SRC-v2-698946ec367c
+visual:
+  type: metaphor
+  skill: anthropic-art
+  source_image: src/assets/concepts/tacit-knowledge/visual.png
+  alt: 一个只表达「隐性知识」的单一纸片隐喻：主体对应「尚未被外化的推理过程、权衡与默会前提；决策结果可能已记录，但这些决定为何成立仍只存在于人的经验中」，留出一处明确界线排除「隐性知识不是所有未写文档的信息，重点是难以从结果本身恢复的判断依据与经验」；不画候选关系。
+  prompt_record: src/assets/concepts/tacit-knowledge/PROMPT.md
+  receipt: src/assets/concepts/tacit-knowledge/receipt.yaml
+  visual_qa: passed

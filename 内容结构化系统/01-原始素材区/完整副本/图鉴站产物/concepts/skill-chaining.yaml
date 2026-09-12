@@ -1,0 +1,37 @@
+schema_version: 1
+record_kind: canonical_concept
+id: skill-chaining
+slug: skill-chaining
+name_zh: Skill 链式调用
+name_en: Skill Chaining
+aliases:
+  - 链式 Skill
+category_id: continuous-action
+learning_stage: when-needed
+definition_status: evolving
+remember: 让一个 Skill 完成后显式调用下一个 Skill，把多个独立步骤串成可自动推进的端到端工作流。
+feynman: 像接力赛：上一棒不仅要跑完，还要按约定把接力棒交给下一棒。把几个 Skill 排在列表里不叫链，明确输入输出、失败处理和交接才叫链。
+scenario:
+  type: hypothetical
+  text: 假设文章整理 Skill 完成后自动把结构化稿件交给排版 Skill，再交给检查 Skill；第二步失败时链条保留中间稿等待重试。
+image_mnemonic: 一张只表达「Skill 链式调用」的纸面机制图：中心呈现「让一个 Skill 完成后显式调用下一个 Skill，把多个独立步骤串成可自动推进的端到端工作流」，边缘用明确界线排除「链式调用把灵活性换成自动化；步骤需要独立使用时不应强制串联」；不画候选关系。
+source_context: 本卡只采用以下来源范围：《用 Skills 在 Claude Code 里搭建验证闭环》：逐字定义一个 Skill 在结尾调用下一个 Skill 的链式机制，并说明其端到端验证用途。未被来源直接支持的产品结论、普遍因果或关系身份不写入本卡。
+boundaries:
+  - 链式调用把灵活性换成自动化；步骤需要独立使用时不应强制串联。
+  - 调用链本身不保证每一步正确，仍需验证、失败处理与升级路径。
+  - 当前证据缺口：当前证据未给出跨 Skill 的参数传递、状态格式与失败语义合同。
+how_to:
+  - 为每个 Skill 写清输入、输出、成功条件和可以独立停止的位置。
+  - 定义前一步产物如何映射到下一步，以及失败、重试和人工升级如何处理。
+  - 用一步失败和重复执行做演练，确认不会丢产物或产生重复副作用。
+transfer_question: 当链中某个 Skill 也常被单独使用时，怎样设计连接层才能自动推进又不牺牲独立调用？
+source_ids:
+  - SRC-delba-verification-skills
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/skill-chaining/visual.png
+  alt: 一张只表达「Skill 链式调用」的纸面机制图：中心呈现「让一个 Skill 完成后显式调用下一个 Skill，把多个独立步骤串成可自动推进的端到端工作流」，边缘用明确界线排除「链式调用把灵活性换成自动化；步骤需要独立使用时不应强制串联」；不画候选关系。
+  prompt_record: src/assets/concepts/skill-chaining/PROMPT.md
+  receipt: src/assets/concepts/skill-chaining/receipt.yaml
+  visual_qa: passed

@@ -1,0 +1,39 @@
+schema_version: 1
+record_kind: canonical_concept
+id: context-compaction
+slug: context-compaction
+name_zh: 上下文压缩
+name_en: Context Compaction
+aliases:
+  - Compaction
+  - 上下文摘要压缩
+category_id: context-delivery
+learning_stage: when-needed
+definition_status: industry-common
+remember: 上下文压缩是在长任务接近窗口限制时，把旧轨迹蒸馏成高信号摘要，并用摘要与可恢复引用开启新的上下文窗口。
+feynman: 长任务像写满了一块白板。压缩不是把白板缩小拍照，而是把架构决定、未决问题和当前进度誊到新白板上，再附上能回查原材料的索引。这样能继续工作，但摘要必然有损，漏掉的细节可能过一会儿才显出价值。
+scenario:
+  type: hypothetical
+  text: 一个代码 Agent 的对话接近窗口上限，系统把已确认的架构决定、未解决错误和当前进度整理成摘要，保留相关文件路径，再用这份摘要开启新窗口；冗长工具输出不再整段携带。
+image_mnemonic: 一条很长的任务轨迹进入压缩筛选器，输出一份高信号摘要和可回查引用，再进入新窗口；筛选器旁明确留下“有损风险”。
+source_context: Anthropic 从构建 Agent 的实践者与平台方视角，把 compaction 作为长时程任务的第一根杠杆：接近窗口上限时摘要旧对话并重新初始化窗口。来源同时强调压缩取舍与过度压缩风险；这不是无损保证，也不是适合所有任务的唯一方案。
+boundaries:
+  - 压缩不等于删除最旧消息；它要提炼当前仍重要的状态、决定与未决事项。
+  - 压缩不等于结构化记事或完整外部记忆；摘要负责连续性，可恢复引用负责回查，两者应显式区分。
+  - 压缩是有损转换；摘要遗漏、错误归纳和过早丢弃都可能让后续任务偏航。
+  - 压缩通过释放空间缓解窗口压力，但不能自动消除 Context Rot、错误状态或错误目标。
+how_to:
+  - 先以召回率为优先，确保架构决定、当前目标、未决问题、重要约束与下一步没有被漏掉。
+  - 给摘要附上文件路径、记录 ID 或其他可恢复引用，让后续 Agent 能按需回到原证据。
+  - 用压缩前后的关键问题做回归检查，再逐步删除冗余工具输出以提高精确率。
+transfer_question: 如果一份压缩摘要很短，却漏掉了尚未解决的安全约束，它仍算高质量压缩吗？为什么？
+source_ids:
+  - SRC-anthropic-effective-context
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/context-compaction/visual.png
+  alt: 长任务轨迹进入压缩筛选器，变成带可恢复引用的高信号摘要，再送入新窗口；一条分支标出有损风险，表示压缩可能遗漏后来才显重要的细节。
+  prompt_record: src/assets/concepts/context-compaction/PROMPT.md
+  receipt: src/assets/concepts/context-compaction/receipt.yaml
+  visual_qa: passed

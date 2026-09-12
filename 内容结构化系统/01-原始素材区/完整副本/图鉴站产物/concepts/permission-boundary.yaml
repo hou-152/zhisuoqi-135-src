@@ -1,0 +1,38 @@
+schema_version: 1
+record_kind: canonical_concept
+id: permission-boundary
+slug: permission-boundary
+name_zh: 权限边界
+name_en: Permission Boundary
+aliases:
+  - 权限与推理分离
+category_id: human-control
+learning_stage: when-needed
+definition_status: relatively-stable
+remember: 权限边界把模型提出的动作与系统实际允许执行的动作分开，由模型外的确定性权限层决定允许、要求人工确认或拒绝。
+feynman: 模型像司机，可以提出“我要通过这个路口”；权限边界像实体闸门，按规则决定直接放行、停下来问人，还是拒绝。安全不能只靠司机答应遵守规则，因为真正限制动作的是路口的闸门，而不是司机脑中的一句话。
+scenario:
+  type: hypothetical
+  text: Agent 提议运行只读检查时，权限层可以直接允许；提议删除文件时暂停并要求用户确认；触碰明确禁止的路径时则直接拒绝。
+image_mnemonic: 一个动作提议进入权限检查闸门后，分成允许、人工确认和拒绝三条路径；每条箭头只表示一种授权结果。
+source_context: Akshay 的 Agent Harness 拆解强调模型决定“尝试什么”，工具系统决定“允许什么”；来源用项目加载信任、调用前权限检查与高风险人工确认说明权限执行应与模型推理解耦。稳定定义不继承来源中的产品数量或版本数字。
+boundaries:
+  - Permission Boundary 决定动作是否获准；Sandbox 限制获准动作在哪里执行、影响能扩散到哪里，二者不能互相替代。
+  - 不依赖模型自己“愿意听话”来保证安全；关键规则应在模型外确定性执行。
+  - 用户批准一次具体动作，不等于永久放开同类工具、所有参数或未来会话。
+  - 允许、人工确认与拒绝应绑定实际动作参数和当前运行状态，不能只看模型对动作的自然语言描述。
+how_to:
+  - 按工具、参数、路径、网络目标与副作用划分授权规则，并对高风险动作设置明确的人类确认点。
+  - 在执行前检查权限，在结果中保留允许、确认或拒绝的原因和实际参数。
+  - 用正反例测试边界：该放行的动作能通过，该拦截的动作不能靠改写提示绕过。
+transfer_question: 如果删除动作被允许进入一个隔离沙箱，它已经通过了哪一层，又仍需要哪一层来限制影响范围？
+source_ids:
+  - SRC-akshay-agent-harness
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/permission-boundary/visual.png
+  alt: 动作提议进入权限检查闸门后，被分别路由到允许、人工确认和拒绝三种结果，表示模型提出动作，外部权限层决定是否执行。
+  prompt_record: src/assets/concepts/permission-boundary/PROMPT.md
+  receipt: src/assets/concepts/permission-boundary/receipt.yaml
+  visual_qa: passed

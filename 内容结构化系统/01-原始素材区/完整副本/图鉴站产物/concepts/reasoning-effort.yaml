@@ -1,0 +1,36 @@
+schema_version: 1
+record_kind: canonical_concept
+id: reasoning-effort
+slug: reasoning-effort
+name_zh: 推理强度
+name_en: Reasoning Effort
+aliases: []
+category_id: human-control
+learning_stage: when-needed
+definition_status: evolving
+remember: 控制模型在生成最终结果前投入多少推理计算的运行参数，用于在任务质量、响应时间与成本之间取舍。
+feynman: 这是 agent 在速度、成本和质量之间的旋钮；难题值得多花 token，简单任务不一定需要。
+scenario:
+  type: hypothetical
+  text: 假设分类任务用高推理强度只增加等待，而复杂排障在低档位频繁漏掉条件；同一默认值同时浪费成本并损失质量。
+image_mnemonic: 一张只表达「推理强度」的纸面机制图：中心呈现「控制模型在生成最终结果前投入多少推理计算的运行参数，用于在任务质量、响应时间与成本之间取舍」，边缘用明确界线排除「更高推理强度通常意味着更多计算预算，但不保证每个任务都更正确」；不画候选关系。
+source_context: 本卡只采用以下来源范围：《Coding Agent 如何工作：工具循环与上下文工程》：逐字把 reasoning effort 定义为可调参数，并说明其在速度、成本与质量之间的取舍作用。未被来源直接支持的产品结论、普遍因果或关系身份不写入本卡。
+boundaries:
+  - 更高推理强度通常意味着更多计算预算，但不保证每个任务都更正确。
+  - 它不是上下文长度，也不同于注意力预算；前者控制额外推理投入，后者关注输入信息之间的有限处理能力。
+  - 当前证据缺口：当前证据未量化不同任务上推理强度对成本、延迟与正确率的关系。
+how_to:
+  - 按任务难度、错误代价和时延要求建立几档代表样本。
+  - 固定输入与评分，分别测试不同推理强度的质量、耗时和费用。
+  - 为任务类型设默认档和升级条件，并监控分布变化后的失效情况。
+transfer_question: 当高推理强度只让答案更长却不更准时，你会调整任务拆分、评分还是路由规则，为什么？
+source_ids:
+  - SRC-simon-coding-agents
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/reasoning-effort/visual.png
+  alt: 一张只表达「推理强度」的纸面机制图：中心呈现「控制模型在生成最终结果前投入多少推理计算的运行参数，用于在任务质量、响应时间与成本之间取舍」，边缘用明确界线排除「更高推理强度通常意味着更多计算预算，但不保证每个任务都更正确」；不画候选关系。
+  prompt_record: src/assets/concepts/reasoning-effort/PROMPT.md
+  receipt: src/assets/concepts/reasoning-effort/receipt.yaml
+  visual_qa: passed

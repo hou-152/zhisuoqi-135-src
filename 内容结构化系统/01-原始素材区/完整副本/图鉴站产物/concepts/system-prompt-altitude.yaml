@@ -1,0 +1,37 @@
+schema_version: 1
+record_kind: canonical_concept
+id: system-prompt-altitude
+slug: system-prompt-altitude
+name_zh: 系统提示抽象高度
+name_en: System Prompt Altitude
+aliases:
+  - 恰当高度
+category_id: human-control
+learning_stage: when-needed
+definition_status: evolving
+remember: 系统提示在具体行为规则与高层启发式之间选择的抽象层级；有效高度应足以稳定引导行为，又给模型保留处理新情况的判断空间。
+feynman: 交代事情的颗粒度。说「客人进门第 3 秒说你好，第 7 秒递菜单」是把人当机器；说「让客人感到宾至如归」又等于没说。好的交代是「先问清楚客人的需求再推荐，拿不准就叫店长」——有判断依据，但不替对方做每一步决定。
+scenario:
+  type: hypothetical
+  text: 假设客服系统一版提示逐秒规定每句话，遇到新投诉就卡住；另一版只写“友善解决”，又无法稳定处理退款与升级。
+image_mnemonic: 一张只表达「系统提示抽象高度」的纸面机制图：中心呈现「系统提示在具体行为规则与高层启发式之间选择的抽象层级；有效高度应足以稳定引导行为，又给模型保留处理新情况的判断空间」，边缘用明确界线排除「它不是越具体或越简短越好，而是在任务、模型和失败模式之间校准颗粒度」；不画候选关系。
+source_context: 本卡只采用以下来源范围：《Anthropic：有效的上下文工程，是为 agent 找到最小充分信息集》：原文把系统提示的抽象高度定义为过度硬编码与过度含糊之间的可判断区间。未被来源直接支持的产品结论、普遍因果或关系身份不写入本卡。
+boundaries:
+  - 它不是越具体或越简短越好，而是在任务、模型和失败模式之间校准颗粒度。
+  - 它只讨论系统提示的指导层级，不覆盖工具权限、运行时状态和外部护栏。
+  - 「系统提示抽象高度」只表示候选定义覆盖的机制；它不单独证明某个产品已经正确实现该机制或因此获得结果保证。
+how_to:
+  - 收集高频任务、真实失败样本和必须统一的行为边界。
+  - 把规则写成可判断的原则、关键例外和升级条件，删除不必要的微步骤。
+  - 用未见过的边缘案例测试，观察模型是能据原则判断，还是出现自由发挥或机械执行。
+transfer_question: 当任务变化很快但合规边界稳定时，哪些内容应上升为系统原则，哪些应留在就近工具说明中？
+source_ids:
+  - SRC-anthropic-effective-context
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/system-prompt-altitude/visual.png
+  alt: 一张只表达「系统提示抽象高度」的纸面机制图：中心呈现「系统提示在具体行为规则与高层启发式之间选择的抽象层级；有效高度应足以稳定引导行为，又给模型保留处理新情况的判断空间」，边缘用明确界线排除「它不是越具体或越简短越好，而是在任务、模型和失败模式之间校准颗粒度」；不画候选关系。
+  prompt_record: src/assets/concepts/system-prompt-altitude/PROMPT.md
+  receipt: src/assets/concepts/system-prompt-altitude/receipt.yaml
+  visual_qa: passed

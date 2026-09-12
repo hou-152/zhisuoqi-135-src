@@ -70,10 +70,47 @@ await cdp.eval(`(()=>{const s=document.createElement('style');
   document.head.appendChild(s); return 'ok';})()`);
 await sleep(400);
 
+// 概念源 2026-09-13 换成「概念地图 v2」：id 现查，倒逼线取第一条有路线的。
+const T0 = await cdp.eval(`((CUR.collections||[]).find(c=>c.route.length>1)||(CUR.collections||[])[0]||{}).tagId`);
+const USE0 = await cdp.eval(`(nodes.find(n=>n.k==='use')||{}).id`);
+const JUDGE0 = await cdp.eval(`(nodes.find(n=>n.k==='judge')||nodes[0]).id`);
+console.log(`  抽检：倒逼线 ${T0} ｜ 能用的 ${USE0} ｜ 能判的 ${JUDGE0}`);
+
 await step('首屏 · 按「要你怎么处理它」分列', async () => { shots.push(await shot('25-分类-怎么验.png')); });
 
 const rail = await cdp.eval(`JSON.stringify([...document.querySelectorAll('.r-item')].map(b=>b.querySelector('b').textContent+' ‖ '+b.querySelector('i').textContent))`);
 console.log('左栏：', JSON.parse(rail).join('  |  '));
+
+// 内参（第六格）：格式来自所有者给的 AI 内参与飞书两份主题精选；收藏/公开笔记按口径没做。
+await step('内参 · 三级笔记（从导航进）', async () => {
+  await cdp.eval(`setView('neican')`);
+  shots.push(await shot('33-内参-三级笔记.png'));
+});
+
+await step('内参 · 三级笔记正文', async () => {
+  await cdp.eval(`document.getElementById('reader').scrollTop=620`);
+  shots.push(await shot('34-内参-三级笔记正文.png'));
+});
+
+await step('内参 · 概念网络', async () => {
+  await cdp.eval(`neiTab('concept'); document.getElementById('reader').scrollTop=900`);
+  shots.push(await shot('35-内参-概念网络.png'));
+});
+
+await step('内参 · 费曼 ×3', async () => {
+  await cdp.eval(`neiTab('feynman'); document.getElementById('reader').scrollTop=560`);
+  shots.push(await shot('36-内参-费曼x3.png'));
+});
+
+await step('内参 · 换一篇 · 阅读原文', async () => {
+  await cdp.eval(`openNeican(NEI.articles[3].slug); neiTab('source'); document.getElementById('reader').scrollTop=330`);
+  shots.push(await shot('37-内参-阅读原文.png'));
+});
+
+await step('回到知识体系（阅读区应让位）', async () => {
+  await cdp.eval(`setView('graph')`);
+  shots.push(await shot('38-内参-退出后回到图谱.png'));
+});
 
 await step('左栏 策展', async () => {
   await cdp.eval(`setView('curate')`);
@@ -81,12 +118,12 @@ await step('左栏 策展', async () => {
 });
 
 await step('某一條线 · 路线', async () => {
-  await cdp.eval(`openCollection('T2')`);
+  await cdp.eval(`openCollection('${T0}')`);
   shots.push(await shot('12-壳-一条线.png'));
 });
 
 await step('只看这条线', async () => {
-  await cdp.eval(`focusTag('T2')`);
+  await cdp.eval(`focusTag('${T0}')`);
   shots.push(await shot('13-壳-只看一条线.png'));
 });
 
@@ -127,24 +164,24 @@ await step('「能用的」任务词', async () => {
 });
 
 await step('概念 · 倒逼输入框', async () => {
-  await cdp.eval(`closePanel(); setAxis('tag'); filter=null; localStorage.removeItem('zss135.proof.v2'); marks={}; refreshMarks(); openPanel('C04')`);
+  await cdp.eval(`closePanel(); setAxis('tag'); filter=null; localStorage.removeItem('zss135.proof.v2'); marks={}; refreshMarks(); openPanel('${JUDGE0}')`);
   shots.push(await shot('21-倒逼-输入框.png'));
 });
 
 await step('没过 · 漏点 · 倒回先修', async () => {
-  await cdp.eval(`document.getElementById('said').value='就是一个理论吧，感觉挺有道理的，讲人的不同方面。'; judge('C04')`);
+  await cdp.eval(`document.getElementById('said').value='就是一个说法吧，感觉挺有道理的，讲 AI 的一些限制。'; judge('${JUDGE0}')`);
   await sleep(15000);
   shots.push(await shot('22-倒逼-没过倒回.png'));
 });
 
 await step('说清楚了才给过', async () => {
-  await cdp.eval(`openPanel('C04'); document.getElementById('said').value='威尔伯的四象限是两条轴交叉：一条是内在经验 vs 外在行为，一条是个体 vs 集体，两两组合出四个格子。纯粹派和自动机各砍掉了一半现实——一个只认内在、退回无屏幕生活，一个只认外在可优化的部分。用四象限是把被砍掉的那半个现实放回来，判断一个人或一件事要同时在四个格子里看。'; judge('C04')`);
+  await cdp.eval(`openPanel('${JUDGE0}'); document.getElementById('said').value='我判断一段代码算不算 Harness，用一条线：把它整个删掉之后模型自己的本事有没有变化。模型权重没动，但工具调用、文件读写、循环控制、权限确认、状态保存这些东西没了之后模型就干不成活，那这些就是 Harness。换成我的处境：我在做一个每天自动整理素材的 Agent，一开始把「这次失败要不要重试」也交给模型自己判，结果它在一篇反爬失败的文章上重试了 11 次，烧掉一整天的额度。后来我把重试上限和失败分诊挪进 Harness 的确定性代码里，模型的活只剩判断内容值不值得留。代价是 Harness 变厚了，每加一条规则，我都要在模型升级之后回去看它是不是过时。所以我的口径是：Harness 越薄越好，但薄不等于没有；判断哪一步该沉到确定性代码里、哪一步该留给模型，才是这门工程真正的手艺。'; judge('${JUDGE0}')`);
   await sleep(16000);
   shots.push(await shot('23-倒逼-过了.png'));
 });
 
 await step('一条线的倒逼链', async () => {
-  await cdp.eval(`startLine('T2')`);
+  await cdp.eval(`startLine('${T0}')`);
   shots.push(await shot('24-倒逼-一条线的链.png'));
 });
 

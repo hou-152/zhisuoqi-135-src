@@ -1,0 +1,36 @@
+schema_version: 1
+record_kind: canonical_concept
+id: large-language-model
+slug: large-language-model
+name_zh: 大语言模型
+name_en: Large Language Model
+aliases:
+  - LLM
+category_id: current-view
+learning_stage: now
+definition_status: relatively-stable
+remember: 大语言模型负责根据当前输入生成后续内容；它本身不等于一个会持续行动的 Agent。
+feynman: 把它想成一台读过大量文字的续写机。你递给它一段输入，它会根据训练中学到的规律，预测接下来更可能出现什么。它能写得像在理解，也能产出代码或工具调用请求，但真正保存状态、执行工具和循环工作的是模型外的软件系统。
+scenario:
+  type: hypothetical
+  text: 你让模型补全一段函数，它能生成代码；如果还要读取仓库、运行测试并根据结果继续修改，就需要模型外的 Agent 系统来执行这些动作。
+image_mnemonic: 一台印刷续写机从左侧读入纸带，再从右侧连续吐出新的文字纸带；它只生成下一段，不自己离开机器去做事。
+source_context: Simon Willison 用“根据已有文本预测后续内容”的最小机制解释 coding agent 的模型底座；这个解释用于划清模型层与外部执行系统的边界，不是完整的模型百科定义。
+boundaries:
+  - “续写机”是帮助理解生成机制的比喻，不表示模型只会逐字机械复制，也不概括训练、推理与多模态能力的全部细节。
+  - 模型生成工具调用请求，不等于模型亲自执行了工具；执行、权限与结果回灌由外部软件负责。
+  - Claude、Codex 等产品的整体表现同时受模型、提示、工具、状态、权限和循环设计影响，不能全部归因为裸模型能力。
+how_to:
+  - 判断一次能力来自哪里时，先问“这是模型生成的内容，还是外部系统执行并反馈的动作？”
+  - 比较模型表现时，同时记录输入、模型版本和外部 Harness 条件，避免把系统差异误判成模型差异。
+transfer_question: 如果同一个模型换了一套工具和循环后突然能完成长任务，变化主要发生在模型本身，还是模型外的系统？
+source_ids:
+  - SRC-simon-coding-agents
+visual:
+  type: metaphor
+  skill: anthropic-art
+  source_image: src/assets/concepts/large-language-model/visual.png
+  alt: 冷白纸底上，一台手绘印刷续写机读取已有纸带并连续吐出新纸带，表示大语言模型根据当前输入生成后续内容。
+  prompt_record: src/assets/concepts/large-language-model/PROMPT.md
+  receipt: src/assets/concepts/large-language-model/receipt.yaml
+  visual_qa: passed

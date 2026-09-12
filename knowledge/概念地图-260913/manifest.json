@@ -1,0 +1,57 @@
+{
+ "version": "v1",
+ "generatedAt": "2026-09-12T16:27:28.816Z",
+ "name": "知所栖 135 · AI 时代怎么做事 概念地图",
+ "sources": {
+  "notion-概念库": {
+   "raw": 509,
+   "nodes": 502,
+   "note": "用户 Notion 概念库（原始 509 条，只读；跨源合并后落到节点的 502 个）"
+  },
+  "context-engineering": {
+   "raw": 358,
+   "nodes": 333,
+   "note": "飞书-Context-Engineering-26+2.md（28 篇）"
+  },
+  "harness-engineering": {
+   "raw": 432,
+   "nodes": 380,
+   "note": "飞书-Harness-Engineering-28+2.md（30 篇）"
+  }
+ },
+ "topics": 1156,
+ "dependencies": 930,
+ "relations": 4370,
+ "clusters": 23,
+ "byType": {
+  "CONCEPTUAL": 810,
+  "PROCEDURAL": 157,
+  "REPRESENTATIONAL": 160,
+  "LANGUAGE": 23,
+  "META": 6
+ },
+ "byStage": {
+  "now": 292,
+  "when-needed": 755,
+  "deep-dive": 109
+ },
+ "byVerification": {
+  "judge": 620,
+  "use": 322,
+  "accept": 176,
+  "compute": 38
+ },
+ "byOrigin": {
+  "notionOnly": 488,
+  "contextOnly": 286,
+  "harnessOnly": 325,
+  "multi": 57
+ },
+ "checksums": {
+  "topics.json": "sha256:6a880df3a4fd5420d8df1d772516ba25ab6f1cd64a43d177b278dbb2b66de9c5",
+  "dependencies.json": "sha256:3aa68c08aaa1946d31bf55a802f0aaa2c613cf3ad3765512763880527341bf5b",
+  "relations.json": "sha256:3626ea42adcbd86e654ccbe7641ca0866d91a7a836543d39015b880c7930729b",
+  "clusters.json": "sha256:36e277fb2ea9ec44ba55e1312ac9501f461e02f9c6d3d9b277eb7988b0802fb5"
+ },
+ "license": "源材料为用户私人收藏（Notion 概念库 / AI 内参），本图仅供本项目内部使用，不对外再分发。"
+}

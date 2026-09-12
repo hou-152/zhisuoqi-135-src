@@ -1,0 +1,37 @@
+schema_version: 1
+record_kind: canonical_concept
+id: memory
+slug: memory
+name_zh: 记忆
+name_en: Memory
+aliases:
+  - Agent Memory
+category_id: information-storage
+learning_stage: now
+definition_status: evolving
+remember: Memory 是为跨步骤、跨窗口或跨会话保持连续性而保存、并可在需要时取回的信息；保存过不等于当前看得见，也不等于仍然正确。
+feynman: Memory 像工作室外的档案柜。你可以把过去的事实、经验和笔记存进去，但模型这一次真正能用到什么，取决于系统有没有把相关档案取回当前工作台。取回的内容仍要核对，因为旧记录可能已经过时。
+scenario:
+  type: hypothetical
+  text: 一个研究 Agent 上周把来源线索写进项目记忆；今天继续任务时，它先取回相关笔记，再打开原链接核对现状，而不是把旧笔记直接当成最新事实。
+image_mnemonic: 一只手从档案柜抽出一张资料卡，放到当前工作盘上；档案一直存在，但只有被取回的那张进入眼前工作。
+source_context: Anthropic 以结构化记事说明 agentic memory：Agent 把笔记写到上下文窗口之外的持久存储，之后再按需拉回窗口。来源中的待办、进度和依赖也可能承担执行状态职责，因此本站不把 Memory 与 State Management 写成互斥类别。
+boundaries:
+  - Memory 被存储在外部，不代表它已进入当前 Context；只有取回并装配后，模型本轮才可见。
+  - 记忆是历史线索，不自动等于当前事实；行动前仍应核对真实状态与来源时效。
+  - Memory 常偏向保存知识与经历，State Management 常偏向追踪当前执行位置与恢复点；但待办、进度、依赖、文件和数据库都可能同时承载两类内容，不能只按介质或字段名硬分。
+how_to:
+  - 先区分“已经保存”“已经取回”“已经进入当前 Context”和“已经核实”四个状态。
+  - 给记忆保留来源、时间和适用范围；取回后优先验证会变化的事实。
+  - 当问题是任务不知道做到哪里时，同时检查 State Management，不要把所有连续性问题都归为 Memory。
+transfer_question: 一个 Agent 说“我记得上次的配置”，但今天执行仍失败，你应先核对记忆是否被取回、是否过时，还是任务状态是否丢失？
+source_ids:
+  - SRC-anthropic-effective-context
+visual:
+  type: metaphor
+  skill: anthropic-art
+  source_image: src/assets/concepts/memory/visual.png
+  alt: 冷白纸底上，一只手从档案柜抽出一张资料卡并放到当前工作盘上，表示 Memory 需要被取回后才进入眼前工作。
+  prompt_record: src/assets/concepts/memory/PROMPT.md
+  receipt: src/assets/concepts/memory/receipt.yaml
+  visual_qa: passed

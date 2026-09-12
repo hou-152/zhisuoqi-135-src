@@ -1,0 +1,95 @@
+# Context × Harness 图鉴
+
+> 一份面向 AI 使用者与初学构建者的中文插画术语图鉴，解释 Context Engineering、Harness Engineering 及其关系。
+
+本站内容来自公开来源的人工策展、概念冲突审阅与发布白名单；摘要不是原作者全文，也不把单一来源冒充行业共识。
+许可口径：来源材料版权归各自权利人；本站未声明整套内容或数据采用统一开放许可证。复用前请分别核对概念页来源与原站条款。
+
+数据快照时间戳：2026-08-30T14:01:00.935Z
+概念计数：76
+
+## 概念清单
+
+- [大语言模型](https://hou-152.github.io/context-harness-atlas-site/concept/large-language-model/)：大语言模型负责根据当前输入生成后续内容；它本身不等于一个会持续行动的 Agent。
+- [上下文](https://hou-152.github.io/context-harness-atlas-site/concept/context/)：上下文是模型在当前一次推理中实际能看到并用来生成结果的信息、状态与工具描述。
+- [上下文窗口](https://hou-152.github.io/context-harness-atlas-site/concept/context-window/)：上下文窗口是一次推理能承载和处理 Context 的有限边界；它不是 Context，也不是长期记忆。
+- [注意力预算](https://hou-152.github.io/context-harness-atlas-site/concept/attention-budget/)：注意力预算是一种工程解释：模型处理 Context 的有效注意能力有限，加入更多信息会争夺而不只增加可用证据。
+- [记忆](https://hou-152.github.io/context-harness-atlas-site/concept/memory/)：Memory 是为跨步骤、跨窗口或跨会话保持连续性而保存、并可在需要时取回的信息；保存过不等于当前看得见，也不等于仍然正确。
+- [状态管理](https://hou-152.github.io/context-harness-atlas-site/concept/state-management/)：状态管理负责记录任务当前阶段、变量、进度与恢复点，让系统知道做到哪里，并能追踪、暂停、恢复或回溯。
+- [AI Agent](https://hou-152.github.io/context-harness-atlas-site/concept/agent/)：AI Agent 是围绕目标持续选择下一步、借助工具行动并根据结果继续推进的系统，不是裸模型的别名。
+- [Agent Harness](https://hou-152.github.io/context-harness-atlas-site/concept/agent-harness/)：Agent Harness 是包裹模型、组织循环并落实工具、状态、权限和错误处理的模型外运行系统；它让模型能够持续且受控地行动。
+- [Harness 工程](https://hou-152.github.io/context-harness-atlas-site/concept/harness-engineering/)：Harness Engineering 是设计、测试和改进模型外运行系统的实践，让 Agent 在真实任务中更持续、可控、可恢复且可验证。
+- [Agent 循环](https://hou-152.github.io/context-harness-atlas-site/concept/agent-loop/)：Agent Loop 是模型选择下一步、Harness 执行工具、观察结果回到模型，再重复或退出的运行循环。
+- [持久化执行](https://hou-152.github.io/context-harness-atlas-site/concept/durable-execution/)：持久化执行让长任务在进程或计算环境中断后，能依据外置状态重放并继续，同时避免已经发生的外部副作用被无意重复。
+- [错误处理](https://hou-152.github.io/context-harness-atlas-site/concept/error-handling/)：错误处理不是一律重试，而是先判断错误类型，再选择重试、把反馈交给模型、暂停等人、上报或终止。
+- [Agent 生命周期](https://hou-152.github.io/context-harness-atlas-site/concept/agent-lifecycle/)：Agent 生命周期把一次运行组织成有边界的开工、运行、暂停／恢复与收尾，让每次状态转换都可检查、可交接。
+- [Agent 交接](https://hou-152.github.io/context-harness-atlas-site/concept/agent-handoff/)：Agent Handoff 是把任务控制权连同可恢复的进度、证据、失败和下一步从 Agent A 移交给 Agent B，并由 B 确认接管。
+- [工具](https://hou-152.github.io/context-harness-atlas-site/concept/tool/)：Tool 是让 Agent 读取、计算或改变外部世界的结构化能力接口；模型提出调用，外层系统负责校验、执行并把结果送回来。
+- [模型上下文协议](https://hou-152.github.io/context-harness-atlas-site/concept/model-context-protocol/)：MCP 是让 AI 应用以标准方式连接外部能力的协议；这些能力不只包括工具，也包括资源和提示。
+- [工具收窄](https://hou-152.github.io/context-harness-atlas-site/concept/tool-scoping/)：Tool Scoping 是按当前步骤只向模型暴露最小必要工具集的策略，用更少选择降低误选、权限面和 Context 噪声。
+- [提示](https://hou-152.github.io/context-harness-atlas-site/concept/prompt/)：Prompt 是一次递交给模型的输入；日常语境常指用户提示，技术语境也可能指模型实际接收的完整输入。
+- [系统提示](https://hou-152.github.io/context-harness-atlas-site/concept/system-prompt/)：System Prompt 是应用在系统层放入模型输入的高优先级约束，用来设定角色、边界和工具规则，但不是能绝对支配模型的意志。
+- [提示词工程](https://hou-152.github.io/context-harness-atlas-site/concept/prompt-engineering/)：提示词工程是设计、组织和测试模型指令，让当前任务更容易被正确理解和完成的实践。
+- [Agent Skill](https://hou-152.github.io/context-harness-atlas-site/concept/skill/)：Agent Skill 是把可复用做法、说明与必要资源组织起来，让 Agent 在合适任务中按同一方法工作的载体。
+- [权限边界](https://hou-152.github.io/context-harness-atlas-site/concept/permission-boundary/)：权限边界把模型提出的动作与系统实际允许执行的动作分开，由模型外的确定性权限层决定允许、要求人工确认或拒绝。
+- [沙箱](https://hou-152.github.io/context-harness-atlas-site/concept/sandbox/)：Sandbox 是受隔离与资源限制的执行环境，让 Agent 能在一个被圈定的工作区内行动，并把出错时的影响范围控制在边界内。
+- [护栏](https://hou-152.github.io/context-harness-atlas-site/concept/guardrails/)：Guardrails 是在 Agent 运行中检查输入、输出或工具调用，并在规则触发时阻断相应路径的控制机制。
+- [上下文工程](https://hou-152.github.io/context-harness-atlas-site/concept/context-engineering/)：上下文工程是设计动态系统，在正确时机以合适格式选择、装配并更新模型所需的信息与工具描述。
+- [最小充分上下文](https://hou-152.github.io/context-harness-atlas-site/concept/minimal-sufficient-context/)：最小充分上下文是足以支持当前任务、又尽量不带入无关噪声的高信号信息集合；最小不等于越短越好。
+- [上下文选择](https://hou-152.github.io/context-harness-atlas-site/concept/context-selection/)：Hua 等人把上下文选择称为“注意力之前的注意力”：模型开始处理输入前，系统先判断哪些候选信息值得进入当前任务 Context。
+- [动态上下文装配](https://hou-152.github.io/context-harness-atlas-site/concept/dynamic-context-assembly/)：动态上下文装配是在每次模型调用前，按当前任务与时机把所需信息、工具和历史组合成这一次的模型输入。
+- [即时检索](https://hou-152.github.io/context-harness-atlas-site/concept/just-in-time-retrieval/)：即时检索让 Agent 平时只保留轻量引用，在任务需要时再查询外部信息，把相关部分送进当前 Context。
+- [渐进式披露](https://hou-152.github.io/context-harness-atlas-site/concept/progressive-disclosure/)：渐进式披露先给地图与索引，只按当前需要展开一层；仍缺细节时再深入，让工作记忆不必一次背下整本百科。
+- [上下文压缩](https://hou-152.github.io/context-harness-atlas-site/concept/context-compaction/)：上下文压缩是在长任务接近窗口限制时，把旧轨迹蒸馏成高信号摘要，并用摘要与可恢复引用开启新的上下文窗口。
+- [上下文腐烂](https://hou-152.github.io/context-harness-atlas-site/concept/context-rot/)：Chroma 用“上下文腐烂”概括一组受控观察：在任务难度不变时，仅增加输入长度，也会使受测模型的表现更不可靠，而且退化并不均匀。
+- [迷失在中间](https://hou-152.github.io/context-harness-atlas-site/concept/lost-in-the-middle/)：Liu 等人在多文档问答与合成键值检索中观察到一种位置效应：不少受测模型更善用输入首尾的信息，相关信息移到中部时表现会下降。
+- [可观测性](https://hou-152.github.io/context-harness-atlas-site/concept/observability/)：可观测性把运行事件变成可查询的轨迹、状态与时延证据，让人看见系统发生了什么；看得见不等于做得对。
+- [基于轨迹的评测](https://hou-152.github.io/context-harness-atlas-site/concept/trace-based-evals/)：基于轨迹的评测让多次 Agent 运行面对同一任务、基线与 verifier，再比较它们怎样行动及结果如何；只有轨迹而没有统一判据，不算评测。
+- [验证循环](https://hou-152.github.io/context-harness-atlas-site/concept/verification-loop/)：验证循环把行动结果交给独立检查；未通过就依据证据修正下一步，通过才退出当前循环，但退出不等于用户验收或真实效果已经成立。
+- [Agent 工具契约](https://hou-152.github.io/context-harness-atlas-site/concept/agent-tool-contract/)：Agent 与信息／行动空间之间的接口约定：模型用清晰、结构化的输出表达操作意图，确定性代码负责执行，并以紧凑、健壮、可解释的结果回传。
+- [工具—工作流适配](https://hou-152.github.io/context-harness-atlas-site/concept/tool-workflow-fit/)：Agent 的工具能力、说明和调用节奏必须与当前任务的锚点、证据标准和停止条件相匹配；工具更强或更通用不会自动改善任务结果。
+- [Agent 行动空间](https://hou-152.github.io/context-harness-atlas-site/concept/agent-action-space/)：Agent 在当前运行环境中可选择的动作集合，以及这些动作向模型呈现的名称、参数、反馈和组合方式。
+- [Agent 信息引出](https://hou-152.github.io/context-harness-atlas-site/concept/agent-elicitation/)：Agent 在缺少目标、约束或偏好时，主动向用户提出结构化问题以取得继续判断所需信息的交互能力。
+- [Agent 会话管理](https://hou-152.github.io/context-harness-atlas-site/concept/agent-session-management/)：围绕任务边界和上下文质量，决定何时继续、回退、压缩、清空或分派当前 Agent 会话的治理实践。
+- [Harness Token 底座](https://hou-152.github.io/context-harness-atlas-site/concept/harness-token-floor/)：在具体用户任务进入前，Harness 每次模型请求已经携带的系统提示、工具定义与运行脚手架所形成的基础 Token 负担及固定窗口占用。
+- [LLM 无状态性](https://hou-152.github.io/context-harness-atlas-site/concept/llm-statelessness/)：模型单次调用不会自行保留上一轮会话状态；连续对话与任务进度必须由外部系统保存并在后续调用中重新提供。
+- [提示词缓存](https://hou-152.github.io/context-harness-atlas-site/concept/prompt-caching/)：复用多次模型请求中未变化输入前缀的已处理计算，以降低重复输入的成本和首字延迟的机制。
+- [子 Agent 编排](https://hou-152.github.io/context-harness-atlas-site/concept/subagent-orchestration/)：把边界明确的探索或执行任务分派给子 Agent，再将其压缩结果、证据或状态带回主流程的组织机制。
+- [Agent 终止条件](https://hou-152.github.io/context-harness-atlas-site/concept/agent-stop-conditions/)：为持续运行的 Agent 或循环预先定义必须停止、转交或重新规划的条件，例如达到迭代上限、连续无进展或耗尽 token 与费用预算。
+- [Harness 与计算分离](https://hou-152.github.io/context-harness-atlas-site/concept/harness-compute-separation/)：将负责 Agent 控制、状态与凭据的 Harness 层，同运行模型生成代码的计算环境分开，使两层可以分别隔离、恢复和扩展。
+- [提示注入](https://hou-152.github.io/context-harness-atlas-site/concept/prompt-injection/)：攻击者把指令嵌入 Agent 会读取的数据或内容中，诱使模型偏离原任务、越过控制边界或触发不应执行的动作。
+- [可运行证据](https://hou-152.github.io/context-harness-atlas-site/concept/runnable-evidence/)：能由独立执行者重新运行并得到明确结果的验证材料，例如测试、静态检查、冒烟运行或端到端流程回执。
+- [可验证目标](https://hou-152.github.io/context-harness-atlas-site/concept/verifiable-goal/)：用可重复执行或明确判定的条件描述任务成功，使 Agent 循环能够据此决定继续、修正、停止或报告失败。
+- [多步可靠性衰减](https://hou-152.github.io/context-harness-atlas-site/concept/multi-step-reliability-decay/)：多步 Agent 流程的端到端成功率受每一步条件成功率共同约束，单步的小概率失败会随步骤增加累积成显著的整体可靠性损失。
+- [限界上下文](https://hou-152.github.io/context-harness-atlas-site/concept/bounded-context/)：一个领域模型和统一语言保持同一含义的明确适用范围；跨出该范围后，相同术语、实体或规则可以采用另一套定义。
+- [浏览循环](https://hou-152.github.io/context-harness-atlas-site/concept/browsing-loop/)：Agent 从一次广泛搜索或读取中不断发现新线索并继续扩张探索范围，却没有围绕具体问题收窄证据或形成停止判断的循环性反模式。
+- [人类升级工具调用](https://hou-152.github.io/context-harness-atlas-site/concept/human-escalation-tool-call/)：把请求人类授权、判断或承担责任设计成 Agent 可调用并等待结果的显式工具，使人工介入成为可恢复工作流的一部分。
+- [可恢复压缩](https://hou-152.github.io/context-harness-atlas-site/concept/restorable-compression/)：从当前窗口省略大块内容时保留稳定的回取引用，使上下文得以缩短，同时让被移除的信息仍可在需要时恢复。
+- [检索—推理双任务负担](https://hou-152.github.io/context-harness-atlas-site/concept/retrieval-reasoning-dual-task-load/)：当模型在一次调用中既要从长输入定位相关证据、又要基于证据推理时，检索步骤会额外消耗可靠性，使其表现低于已提供聚焦证据的同等推理任务。
+- [系统提示抽象高度](https://hou-152.github.io/context-harness-atlas-site/concept/system-prompt-altitude/)：系统提示在具体行为规则与高层启发式之间选择的抽象层级；有效高度应足以稳定引导行为，又给模型保留处理新情况的判断空间。
+- [统一语言](https://hou-152.github.io/context-harness-atlas-site/concept/ubiquitous-language/)：在一个领域范围内，由领域专家、开发者、代码、文档与 AI 共同使用并持续校准的词汇体系，使同一个词稳定指向同一个业务对象或规则。
+- [变更影响分析](https://hou-152.github.io/context-harness-atlas-site/concept/change-impact-analysis/)：沿代码依赖和测试关系计算一次变更可能影响到的函数、类、文件与验证范围的方法。
+- [聊天模板](https://hou-152.github.io/context-harness-atlas-site/concept/chat-template/)：把不同角色的消息与历史记录按模型约定格式序列化为一次补全输入的接口模板。
+- [事件驱动的 Agent 自动化](https://hou-152.github.io/context-harness-atlas-site/concept/event-driven-agent-automation/)：由新事件进入系统自动触发 Agent 工作流，使其立即处理新增上下文并执行预设动作的运行机制。
+- [模型词元](https://hou-152.github.io/context-harness-atlas-site/concept/llm-token/)：大语言模型实际接收和生成的离散编码单位；输入长度、输出长度、上下文容量与常见计费都以它而非自然语言词数衡量。
+- [观察掩码](https://hou-152.github.io/context-harness-atlas-site/concept/observation-masking/)：在保留工具调用发生记录的同时，隐藏或移出旧工具输出细节，以减少其对当前推理的干扰和上下文占用。
+- [持久化代码图谱](https://hou-152.github.io/context-harness-atlas-site/concept/persistent-code-graph/)：跨任务保存并持续更新代码实体及其调用、导入、继承与测试关系的结构化图谱，可供 Agent 按需查询代码库结构。
+- [推理强度](https://hou-152.github.io/context-harness-atlas-site/concept/reasoning-effort/)：控制模型在生成最终结果前投入多少推理计算的运行参数，用于在任务质量、响应时间与成本之间取舍。
+- [Skill 链式调用](https://hou-152.github.io/context-harness-atlas-site/concept/skill-chaining/)：让一个 Skill 完成后显式调用下一个 Skill，把多个独立步骤串成可自动推进的端到端工作流。
+- [Skill 触发条件](https://hou-152.github.io/context-harness-atlas-site/concept/skill-trigger-condition/)：写在 Skill 元数据中的适用场景声明，用来帮助运行环境判断何时自动加载或调用该 Skill。
+- [工具 Schema 税](https://hou-152.github.io/context-harness-atlas-site/concept/tool-schema-tax/)：为让模型知道工具名称、参数与调用格式，而在每次请求中携带工具 Schema 所产生的固定 Token 与上下文占用。
+- [Agent CLI 运行时](https://hou-152.github.io/context-harness-atlas-site/concept/agent-cli-runtime/)：在命令行环境中承载 Agent 工作流，使同一套自然语言流程能够从 IDE 延伸到终端、脚本和 CI/CD 自动化。
+- [指令就近原则](https://hou-152.github.io/context-harness-atlas-site/concept/instruction-locality/)：将对象的使用说明保存在它直接作用的接口或描述旁，而不是在系统提示等上层位置重复同一指令。
+- [隐性知识](https://hou-152.github.io/context-harness-atlas-site/concept/tacit-knowledge/)：尚未被外化的推理过程、权衡与默会前提；决策结果可能已记录，但这些决定为何成立仍只存在于人的经验中。
+- [代码执行](https://hou-152.github.io/context-harness-atlas-site/concept/code-execution/)：让 Agent 通过 shell 或运行时编写并执行代码，把未被预先枚举的计算与操作组合成一种通用外部能力。
+- [文件系统工作区](https://hou-152.github.io/context-harness-atlas-site/concept/filesystem-workspace/)：为 Agent 提供可读写的数据、代码与中间产物空间，使工作能够外置、跨会话延续，并为人和多个 Agent 提供共同协作面。
+- [Harness 过拟合](https://hou-152.github.io/context-harness-atlas-site/concept/harness-overfitting/)：模型因在特定 Harness 的工具与交互协议中后训练而过度依赖其实现细节，换用等价但不同的运行接口时表现反而下降。
+- [仓库事实真源](https://hou-152.github.io/context-harness-atlas-site/concept/repository-source-of-truth/)：将 Agent 执行所需的项目规则、任务范围、状态与验收入口保存在版本化仓库中，使不同会话和执行者从同一可读取基线开始工作。
+- [风险分级自动修复](https://hou-152.github.io/context-harness-atlas-site/concept/risk-tiered-autofixing/)：系统在检测到问题后自动生成修复，并依据改动范围与风险等级决定轻量复核、深度人工审查或停止自动推进的修复机制。
+
+## 机器入口
+
+- Graph v1：https://hou-152.github.io/context-harness-atlas-site/graph.json
+- `nodes`：概念身份、分类、学习时机与双轴定位；Graph v1 不含正文或来源。
+- `edges`：`from`、`to`、关系 `kind`、观察 `axis` 与可选 `note`。
+- 建议用法：用 `edges` 做关系遍历，用 `nodes` 取名称、分类、学习时机与双轴元数据；需要完整解释时进入对应概念页。

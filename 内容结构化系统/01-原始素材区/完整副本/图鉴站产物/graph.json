@@ -1,0 +1,2103 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-30T14:01:00.935Z",
+  "nodes": [
+    {
+      "id": "large-language-model",
+      "slug": "large-language-model",
+      "name_zh": "大语言模型",
+      "name_en": "Large Language Model",
+      "category_id": "current-view",
+      "learning_stage": "now",
+      "axis": {
+        "scope": "prompt",
+        "responsibility": 8
+      }
+    },
+    {
+      "id": "context",
+      "slug": "context",
+      "name_zh": "上下文",
+      "name_en": "Context",
+      "category_id": "current-view",
+      "learning_stage": "now",
+      "axis": {
+        "scope": "context",
+        "responsibility": 3
+      }
+    },
+    {
+      "id": "context-window",
+      "slug": "context-window",
+      "name_zh": "上下文窗口",
+      "name_en": "Context Window",
+      "category_id": "current-view",
+      "learning_stage": "now",
+      "axis": {
+        "scope": "context",
+        "responsibility": 11
+      }
+    },
+    {
+      "id": "attention-budget",
+      "slug": "attention-budget",
+      "name_zh": "注意力预算",
+      "name_en": "Attention Budget",
+      "category_id": "current-view",
+      "learning_stage": "now",
+      "axis": {
+        "scope": "context",
+        "responsibility": 19
+      }
+    },
+    {
+      "id": "memory",
+      "slug": "memory",
+      "name_zh": "记忆",
+      "name_en": "Memory",
+      "category_id": "information-storage",
+      "learning_stage": "now",
+      "axis": {
+        "scope": "context",
+        "responsibility": 39
+      }
+    },
+    {
+      "id": "state-management",
+      "slug": "state-management",
+      "name_zh": "状态管理",
+      "name_en": "State Management",
+      "category_id": "information-storage",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 40
+      }
+    },
+    {
+      "id": "agent",
+      "slug": "agent",
+      "name_zh": "AI Agent",
+      "name_en": "AI Agent",
+      "category_id": "continuous-action",
+      "learning_stage": "now",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 28
+      }
+    },
+    {
+      "id": "agent-harness",
+      "slug": "agent-harness",
+      "name_zh": "Agent Harness",
+      "name_en": "Agent Harness",
+      "category_id": "continuous-action",
+      "learning_stage": "now",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 80
+      }
+    },
+    {
+      "id": "harness-engineering",
+      "slug": "harness-engineering",
+      "name_zh": "Harness 工程",
+      "name_en": "Harness Engineering",
+      "category_id": "continuous-action",
+      "learning_stage": "now",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 93
+      }
+    },
+    {
+      "id": "agent-loop",
+      "slug": "agent-loop",
+      "name_zh": "Agent 循环",
+      "name_en": "Agent Loop",
+      "category_id": "continuous-action",
+      "learning_stage": "now",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 57
+      }
+    },
+    {
+      "id": "durable-execution",
+      "slug": "durable-execution",
+      "name_zh": "持久化执行",
+      "name_en": "Durable Execution",
+      "category_id": "continuous-action",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 87
+      }
+    },
+    {
+      "id": "error-handling",
+      "slug": "error-handling",
+      "name_zh": "错误处理",
+      "name_en": "Error Handling",
+      "category_id": "continuous-action",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 72
+      }
+    },
+    {
+      "id": "agent-lifecycle",
+      "slug": "agent-lifecycle",
+      "name_zh": "Agent 生命周期",
+      "name_en": "Agent Lifecycle",
+      "category_id": "continuous-action",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 76
+      }
+    },
+    {
+      "id": "agent-handoff",
+      "slug": "agent-handoff",
+      "name_zh": "Agent 交接",
+      "name_en": "Agent Handoff",
+      "category_id": "continuous-action",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 67
+      }
+    },
+    {
+      "id": "tool",
+      "slug": "tool",
+      "name_zh": "工具",
+      "name_en": "Tool",
+      "category_id": "external-access",
+      "learning_stage": "now",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 22
+      }
+    },
+    {
+      "id": "model-context-protocol",
+      "slug": "model-context-protocol",
+      "name_zh": "模型上下文协议",
+      "name_en": "Model Context Protocol",
+      "category_id": "external-access",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 16
+      }
+    },
+    {
+      "id": "tool-scoping",
+      "slug": "tool-scoping",
+      "name_zh": "工具收窄",
+      "name_en": "Tool Scoping",
+      "category_id": "external-access",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 34
+      }
+    },
+    {
+      "id": "prompt",
+      "slug": "prompt",
+      "name_zh": "提示",
+      "name_en": "Prompt",
+      "category_id": "human-control",
+      "learning_stage": "now",
+      "axis": {
+        "scope": "prompt",
+        "responsibility": 22
+      }
+    },
+    {
+      "id": "system-prompt",
+      "slug": "system-prompt",
+      "name_zh": "系统提示",
+      "name_en": "System Prompt",
+      "category_id": "human-control",
+      "learning_stage": "now",
+      "axis": {
+        "scope": "prompt",
+        "responsibility": 34
+      }
+    },
+    {
+      "id": "prompt-engineering",
+      "slug": "prompt-engineering",
+      "name_zh": "提示词工程",
+      "name_en": "Prompt Engineering",
+      "category_id": "human-control",
+      "learning_stage": "now",
+      "axis": {
+        "scope": "prompt",
+        "responsibility": 47
+      }
+    },
+    {
+      "id": "skill",
+      "slug": "skill",
+      "name_zh": "Agent Skill",
+      "name_en": "Agent Skill",
+      "category_id": "human-control",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 10
+      }
+    },
+    {
+      "id": "permission-boundary",
+      "slug": "permission-boundary",
+      "name_zh": "权限边界",
+      "name_en": "Permission Boundary",
+      "category_id": "human-control",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 46
+      }
+    },
+    {
+      "id": "sandbox",
+      "slug": "sandbox",
+      "name_zh": "沙箱",
+      "name_en": "Sandbox",
+      "category_id": "human-control",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 52
+      }
+    },
+    {
+      "id": "guardrails",
+      "slug": "guardrails",
+      "name_zh": "护栏",
+      "name_en": "Guardrails",
+      "category_id": "human-control",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 62
+      }
+    },
+    {
+      "id": "context-engineering",
+      "slug": "context-engineering",
+      "name_zh": "上下文工程",
+      "name_en": "Context Engineering",
+      "category_id": "context-delivery",
+      "learning_stage": "now",
+      "axis": {
+        "scope": "context",
+        "responsibility": 75
+      }
+    },
+    {
+      "id": "minimal-sufficient-context",
+      "slug": "minimal-sufficient-context",
+      "name_zh": "最小充分上下文",
+      "name_en": "Minimal Sufficient Context",
+      "category_id": "context-delivery",
+      "learning_stage": "now",
+      "axis": {
+        "scope": "context",
+        "responsibility": 43
+      }
+    },
+    {
+      "id": "context-selection",
+      "slug": "context-selection",
+      "name_zh": "上下文选择",
+      "name_en": "Context Selection",
+      "category_id": "context-delivery",
+      "learning_stage": "now",
+      "axis": {
+        "scope": "context",
+        "responsibility": 51
+      }
+    },
+    {
+      "id": "dynamic-context-assembly",
+      "slug": "dynamic-context-assembly",
+      "name_zh": "动态上下文装配",
+      "name_en": "Dynamic Context Assembly",
+      "category_id": "context-delivery",
+      "learning_stage": "now",
+      "axis": {
+        "scope": "context",
+        "responsibility": 93
+      }
+    },
+    {
+      "id": "just-in-time-retrieval",
+      "slug": "just-in-time-retrieval",
+      "name_zh": "即时检索",
+      "name_en": "Just-in-Time Retrieval",
+      "category_id": "context-delivery",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "context",
+        "responsibility": 59
+      }
+    },
+    {
+      "id": "progressive-disclosure",
+      "slug": "progressive-disclosure",
+      "name_zh": "渐进式披露",
+      "name_en": "Progressive Disclosure",
+      "category_id": "context-delivery",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "context",
+        "responsibility": 67
+      }
+    },
+    {
+      "id": "context-compaction",
+      "slug": "context-compaction",
+      "name_zh": "上下文压缩",
+      "name_en": "Context Compaction",
+      "category_id": "context-delivery",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "context",
+        "responsibility": 84
+      }
+    },
+    {
+      "id": "context-rot",
+      "slug": "context-rot",
+      "name_zh": "上下文腐烂",
+      "name_en": "Context Rot",
+      "category_id": "context-delivery",
+      "learning_stage": "now",
+      "axis": {
+        "scope": "context",
+        "responsibility": 27
+      }
+    },
+    {
+      "id": "lost-in-the-middle",
+      "slug": "lost-in-the-middle",
+      "name_zh": "迷失在中间",
+      "name_en": "Lost in the Middle",
+      "category_id": "context-delivery",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "context",
+        "responsibility": 35
+      }
+    },
+    {
+      "id": "observability",
+      "slug": "observability",
+      "name_zh": "可观测性",
+      "name_en": "Observability",
+      "category_id": "result-trust",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 90
+      }
+    },
+    {
+      "id": "trace-based-evals",
+      "slug": "trace-based-evals",
+      "name_zh": "基于轨迹的评测",
+      "name_en": "Trace-based Evals",
+      "category_id": "result-trust",
+      "learning_stage": "deep-dive",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 96
+      }
+    },
+    {
+      "id": "verification-loop",
+      "slug": "verification-loop",
+      "name_zh": "验证循环",
+      "name_en": "Verification Loop",
+      "category_id": "result-trust",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 80
+      }
+    },
+    {
+      "id": "agent-tool-contract",
+      "slug": "agent-tool-contract",
+      "name_zh": "Agent 工具契约",
+      "name_en": "Agent Tool Contract",
+      "category_id": "external-access",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 72
+      }
+    },
+    {
+      "id": "tool-workflow-fit",
+      "slug": "tool-workflow-fit",
+      "name_zh": "工具—工作流适配",
+      "name_en": "Tool–Workflow Fit",
+      "category_id": "external-access",
+      "learning_stage": "now",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 68
+      }
+    },
+    {
+      "id": "agent-action-space",
+      "slug": "agent-action-space",
+      "name_zh": "Agent 行动空间",
+      "name_en": "Agent Action Space",
+      "category_id": "external-access",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 64
+      }
+    },
+    {
+      "id": "agent-elicitation",
+      "slug": "agent-elicitation",
+      "name_zh": "Agent 信息引出",
+      "name_en": "Agent Elicitation",
+      "category_id": "human-control",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 58
+      }
+    },
+    {
+      "id": "agent-session-management",
+      "slug": "agent-session-management",
+      "name_zh": "Agent 会话管理",
+      "name_en": "Agent Session Management",
+      "category_id": "context-delivery",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "context",
+        "responsibility": 66
+      }
+    },
+    {
+      "id": "harness-token-floor",
+      "slug": "harness-token-floor",
+      "name_zh": "Harness Token 底座",
+      "name_en": "Harness Token Floor",
+      "category_id": "current-view",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 54
+      }
+    },
+    {
+      "id": "llm-statelessness",
+      "slug": "llm-statelessness",
+      "name_zh": "LLM 无状态性",
+      "name_en": "LLM Statelessness",
+      "category_id": "current-view",
+      "learning_stage": "now",
+      "axis": {
+        "scope": "prompt",
+        "responsibility": 8
+      }
+    },
+    {
+      "id": "prompt-caching",
+      "slug": "prompt-caching",
+      "name_zh": "提示词缓存",
+      "name_en": "Prompt Caching",
+      "category_id": "continuous-action",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "context",
+        "responsibility": 56
+      }
+    },
+    {
+      "id": "subagent-orchestration",
+      "slug": "subagent-orchestration",
+      "name_zh": "子 Agent 编排",
+      "name_en": "Subagent Orchestration",
+      "category_id": "continuous-action",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 86
+      }
+    },
+    {
+      "id": "agent-stop-conditions",
+      "slug": "agent-stop-conditions",
+      "name_zh": "Agent 终止条件",
+      "name_en": "Agent Stop Conditions",
+      "category_id": "human-control",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 91
+      }
+    },
+    {
+      "id": "harness-compute-separation",
+      "slug": "harness-compute-separation",
+      "name_zh": "Harness 与计算分离",
+      "name_en": "Harness-Compute Separation",
+      "category_id": "human-control",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 96
+      }
+    },
+    {
+      "id": "prompt-injection",
+      "slug": "prompt-injection",
+      "name_zh": "提示注入",
+      "name_en": "Prompt Injection",
+      "category_id": "result-trust",
+      "learning_stage": "now",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 88
+      }
+    },
+    {
+      "id": "runnable-evidence",
+      "slug": "runnable-evidence",
+      "name_zh": "可运行证据",
+      "name_en": "Runnable Evidence",
+      "category_id": "result-trust",
+      "learning_stage": "now",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 82
+      }
+    },
+    {
+      "id": "verifiable-goal",
+      "slug": "verifiable-goal",
+      "name_zh": "可验证目标",
+      "name_en": "Verifiable Goal",
+      "category_id": "result-trust",
+      "learning_stage": "now",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 74
+      }
+    },
+    {
+      "id": "multi-step-reliability-decay",
+      "slug": "multi-step-reliability-decay",
+      "name_zh": "多步可靠性衰减",
+      "name_en": "Multi-Step Reliability Decay",
+      "category_id": "result-trust",
+      "learning_stage": "now",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 70
+      }
+    },
+    {
+      "id": "bounded-context",
+      "slug": "bounded-context",
+      "name_zh": "限界上下文",
+      "name_en": "Bounded Context",
+      "category_id": "context-delivery",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "context",
+        "responsibility": 14
+      }
+    },
+    {
+      "id": "browsing-loop",
+      "slug": "browsing-loop",
+      "name_zh": "浏览循环",
+      "name_en": "Browsing Loop",
+      "category_id": "continuous-action",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "context",
+        "responsibility": 52
+      }
+    },
+    {
+      "id": "human-escalation-tool-call",
+      "slug": "human-escalation-tool-call",
+      "name_zh": "人类升级工具调用",
+      "name_en": "Human Escalation Tool Call",
+      "category_id": "human-control",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 88
+      }
+    },
+    {
+      "id": "restorable-compression",
+      "slug": "restorable-compression",
+      "name_zh": "可恢复压缩",
+      "name_en": "Restorable Compression",
+      "category_id": "information-storage",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "context",
+        "responsibility": 72
+      }
+    },
+    {
+      "id": "retrieval-reasoning-dual-task-load",
+      "slug": "retrieval-reasoning-dual-task-load",
+      "name_zh": "检索—推理双任务负担",
+      "name_en": "Retrieval–Reasoning Dual-Task Load",
+      "category_id": "current-view",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "context",
+        "responsibility": 24
+      }
+    },
+    {
+      "id": "system-prompt-altitude",
+      "slug": "system-prompt-altitude",
+      "name_zh": "系统提示抽象高度",
+      "name_en": "System Prompt Altitude",
+      "category_id": "human-control",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "prompt",
+        "responsibility": 38
+      }
+    },
+    {
+      "id": "ubiquitous-language",
+      "slug": "ubiquitous-language",
+      "name_zh": "统一语言",
+      "name_en": "Ubiquitous Language",
+      "category_id": "context-delivery",
+      "learning_stage": "now",
+      "axis": {
+        "scope": "context",
+        "responsibility": 18
+      }
+    },
+    {
+      "id": "change-impact-analysis",
+      "slug": "change-impact-analysis",
+      "name_zh": "变更影响分析",
+      "name_en": "Change Impact Analysis",
+      "category_id": "result-trust",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 76
+      }
+    },
+    {
+      "id": "chat-template",
+      "slug": "chat-template",
+      "name_zh": "聊天模板",
+      "name_en": "Chat Template",
+      "category_id": "context-delivery",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "prompt",
+        "responsibility": 28
+      }
+    },
+    {
+      "id": "event-driven-agent-automation",
+      "slug": "event-driven-agent-automation",
+      "name_zh": "事件驱动的 Agent 自动化",
+      "name_en": "Event-Driven Agent Automation",
+      "category_id": "continuous-action",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 92
+      }
+    },
+    {
+      "id": "llm-token",
+      "slug": "llm-token",
+      "name_zh": "模型词元",
+      "name_en": "LLM Token",
+      "category_id": "current-view",
+      "learning_stage": "now",
+      "axis": {
+        "scope": "prompt",
+        "responsibility": 6
+      }
+    },
+    {
+      "id": "observation-masking",
+      "slug": "observation-masking",
+      "name_zh": "观察掩码",
+      "name_en": "Observation Masking",
+      "category_id": "context-delivery",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "context",
+        "responsibility": 78
+      }
+    },
+    {
+      "id": "persistent-code-graph",
+      "slug": "persistent-code-graph",
+      "name_zh": "持久化代码图谱",
+      "name_en": "Persistent Code Graph",
+      "category_id": "information-storage",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "context",
+        "responsibility": 58
+      }
+    },
+    {
+      "id": "reasoning-effort",
+      "slug": "reasoning-effort",
+      "name_zh": "推理强度",
+      "name_en": "Reasoning Effort",
+      "category_id": "human-control",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 55
+      }
+    },
+    {
+      "id": "skill-chaining",
+      "slug": "skill-chaining",
+      "name_zh": "Skill 链式调用",
+      "name_en": "Skill Chaining",
+      "category_id": "continuous-action",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 82
+      }
+    },
+    {
+      "id": "skill-trigger-condition",
+      "slug": "skill-trigger-condition",
+      "name_zh": "Skill 触发条件",
+      "name_en": "Skill Trigger Condition",
+      "category_id": "context-delivery",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "context",
+        "responsibility": 62
+      }
+    },
+    {
+      "id": "tool-schema-tax",
+      "slug": "tool-schema-tax",
+      "name_zh": "工具 Schema 税",
+      "name_en": "Tool Schema Tax",
+      "category_id": "external-access",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 48
+      }
+    },
+    {
+      "id": "agent-cli-runtime",
+      "slug": "agent-cli-runtime",
+      "name_zh": "Agent CLI 运行时",
+      "name_en": "Agent CLI Runtime",
+      "category_id": "continuous-action",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 84
+      }
+    },
+    {
+      "id": "instruction-locality",
+      "slug": "instruction-locality",
+      "name_zh": "指令就近原则",
+      "name_en": "Instruction Locality",
+      "category_id": "human-control",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "prompt",
+        "responsibility": 44
+      }
+    },
+    {
+      "id": "tacit-knowledge",
+      "slug": "tacit-knowledge",
+      "name_zh": "隐性知识",
+      "name_en": "Tacit Knowledge",
+      "category_id": "information-storage",
+      "learning_stage": "now",
+      "axis": {
+        "scope": "context",
+        "responsibility": 8
+      }
+    },
+    {
+      "id": "code-execution",
+      "slug": "code-execution",
+      "name_zh": "代码执行",
+      "name_en": "Code Execution",
+      "category_id": "external-access",
+      "learning_stage": "now",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 94
+      }
+    },
+    {
+      "id": "filesystem-workspace",
+      "slug": "filesystem-workspace",
+      "name_zh": "文件系统工作区",
+      "name_en": "Filesystem Workspace",
+      "category_id": "information-storage",
+      "learning_stage": "now",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 68
+      }
+    },
+    {
+      "id": "harness-overfitting",
+      "slug": "harness-overfitting",
+      "name_zh": "Harness 过拟合",
+      "name_en": "Harness Overfitting",
+      "category_id": "result-trust",
+      "learning_stage": "deep-dive",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 86
+      }
+    },
+    {
+      "id": "repository-source-of-truth",
+      "slug": "repository-source-of-truth",
+      "name_zh": "仓库事实真源",
+      "name_en": "Repository as Source of Truth",
+      "category_id": "information-storage",
+      "learning_stage": "now",
+      "axis": {
+        "scope": "context",
+        "responsibility": 46
+      }
+    },
+    {
+      "id": "risk-tiered-autofixing",
+      "slug": "risk-tiered-autofixing",
+      "name_zh": "风险分级自动修复",
+      "name_en": "Risk-Tiered Autofixing",
+      "category_id": "result-trust",
+      "learning_stage": "when-needed",
+      "axis": {
+        "scope": "harness",
+        "responsibility": 96
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "large-language-model",
+      "to": "agent",
+      "kind": "part-of",
+      "axis": "runtime-composition",
+      "note": "模型提供推理与生成，Agent 还需要外部运行系统。"
+    },
+    {
+      "from": "prompt",
+      "to": "system-prompt",
+      "kind": "contrast",
+      "axis": "concept-boundary",
+      "note": "Prompt 有广义与狭义用法；System Prompt 是系统层消息。"
+    },
+    {
+      "from": "prompt-engineering",
+      "to": "context-engineering",
+      "kind": "contrast",
+      "axis": "engineering-scope",
+      "note": "一个主要设计指令，一个持续装配整轮信息。"
+    },
+    {
+      "from": "context",
+      "to": "context-window",
+      "kind": "contrast",
+      "axis": "concept-boundary",
+      "note": "Context 是内容；窗口是承载与处理边界。"
+    },
+    {
+      "from": "context-engineering",
+      "to": "harness-engineering",
+      "kind": "part-of",
+      "axis": "engineering-scope",
+      "note": "本站工程范围轴采用 Harness Engineering 通常包住 Context Engineering。"
+    },
+    {
+      "from": "harness-engineering",
+      "to": "context-engineering",
+      "kind": "used-with",
+      "axis": "system-responsibility",
+      "note": "Harness 管运行，并在运行时装配 Context。"
+    },
+    {
+      "from": "attention-budget",
+      "to": "context-rot",
+      "kind": "used-with",
+      "axis": "concept-boundary",
+      "note": "注意力预算是解释框架，不是 Context Rot 的唯一已证实原因。"
+    },
+    {
+      "from": "context-rot",
+      "to": "lost-in-the-middle",
+      "kind": "contrast",
+      "axis": "concept-boundary",
+      "note": "前者是更广的长度相关退化，后者是位置效应。"
+    },
+    {
+      "from": "minimal-sufficient-context",
+      "to": "context-selection",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "前者给出选择质量准则，后者执行取舍。"
+    },
+    {
+      "from": "context-selection",
+      "to": "dynamic-context-assembly",
+      "kind": "prerequisite",
+      "axis": "workflow",
+      "note": "先决定取什么，再决定怎样按时机和格式装配。"
+    },
+    {
+      "from": "just-in-time-retrieval",
+      "to": "progressive-disclosure",
+      "kind": "contrast",
+      "axis": "concept-boundary",
+      "note": "JIT 强调取数时机；渐进披露强调逐层发现。"
+    },
+    {
+      "from": "memory",
+      "to": "state-management",
+      "kind": "contrast",
+      "axis": "concept-boundary",
+      "note": "常可按知识历史与执行位置区分，但内容与介质可能重叠。"
+    },
+    {
+      "from": "state-management",
+      "to": "durable-execution",
+      "kind": "prerequisite",
+      "axis": "workflow",
+      "note": "可持久化状态是耐久执行的必要条件之一。"
+    },
+    {
+      "from": "agent-loop",
+      "to": "verification-loop",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "行动循环产生结果，验证循环用外部证据决定修正或退出。"
+    },
+    {
+      "from": "permission-boundary",
+      "to": "sandbox",
+      "kind": "used-with",
+      "axis": "runtime-composition",
+      "note": "一个判断能否做，一个限制动作影响范围。"
+    },
+    {
+      "from": "sandbox",
+      "to": "guardrails",
+      "kind": "contrast",
+      "axis": "concept-boundary",
+      "note": "Sandbox 遏制后果，Guardrails 检查并尝试阻断路径。"
+    },
+    {
+      "from": "tool",
+      "to": "model-context-protocol",
+      "kind": "contrast",
+      "axis": "concept-boundary",
+      "note": "Tool 是能力接口；MCP 是标准化接入协议。"
+    },
+    {
+      "from": "tool",
+      "to": "skill",
+      "kind": "contrast",
+      "axis": "concept-boundary",
+      "note": "Tool 提供能力，Skill 组织完成工作的可复用方法。"
+    },
+    {
+      "from": "tool-scoping",
+      "to": "tool",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "工具收窄决定当前步骤暴露哪些 Tool。"
+    },
+    {
+      "from": "agent-lifecycle",
+      "to": "agent-handoff",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "Handoff 是生命周期中改变责任主体的交接协议。"
+    },
+    {
+      "from": "observability",
+      "to": "trace-based-evals",
+      "kind": "prerequisite",
+      "axis": "workflow",
+      "note": "可观测事件提供轨迹证据，Evals 再做跨运行判断。"
+    },
+    {
+      "from": "trace-based-evals",
+      "to": "verification-loop",
+      "kind": "contrast",
+      "axis": "concept-boundary",
+      "note": "一个跨运行评估系统，一个在当前运行中检查并纠偏。"
+    },
+    {
+      "from": "agent-handoff",
+      "to": "agent-harness",
+      "kind": "part-of",
+      "axis": "runtime-composition",
+      "note": "Agent Handoff 是 Agent Harness 编排控制权与上下文交接的组成部分。"
+    },
+    {
+      "from": "agent-harness",
+      "to": "context",
+      "kind": "used-with",
+      "axis": "system-responsibility",
+      "note": "Agent Harness 负责运行并在每轮装配 Context；前者是运行系统，后者是模型当前可见信息。"
+    },
+    {
+      "from": "agent-lifecycle",
+      "to": "state-management",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "Agent Lifecycle 通过进度文件记录开工、执行、验证与收尾位置。"
+    },
+    {
+      "from": "agent-loop",
+      "to": "agent-harness",
+      "kind": "part-of",
+      "axis": "runtime-composition",
+      "note": "Agent Harness 负责组织模型、工具与观察之间的运行循环。"
+    },
+    {
+      "from": "context-compaction",
+      "to": "agent-harness",
+      "kind": "part-of",
+      "axis": "runtime-composition",
+      "note": "Context Compaction 是 Agent Harness 管理长会话的中间件。"
+    },
+    {
+      "from": "context-compaction",
+      "to": "context-engineering",
+      "kind": "part-of",
+      "axis": "engineering-scope",
+      "note": "Context Compaction 是 Context Engineering 管理窗口内容的实践之一。"
+    },
+    {
+      "from": "context-compaction",
+      "to": "context-rot",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "Context Compaction 是 Context Rot 加重时可采用的治理动作。"
+    },
+    {
+      "from": "error-handling",
+      "to": "agent-harness",
+      "kind": "part-of",
+      "axis": "runtime-composition",
+      "note": "Error Handling 是 Agent Harness 控制失败路径的组成部分。"
+    },
+    {
+      "from": "error-handling",
+      "to": "tool",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "Error Handling 规定 Tool 失败、空结果与不确定性后的收敛动作。"
+    },
+    {
+      "from": "model-context-protocol",
+      "to": "system-prompt",
+      "kind": "used-with",
+      "axis": "runtime-composition",
+      "note": "MCP 接入暴露的工具列表与描述会进入 System Prompt，影响模型可见能力。"
+    },
+    {
+      "from": "agent-harness",
+      "to": "agent",
+      "kind": "part-of",
+      "axis": "runtime-composition",
+      "note": "来源提出 Agent = Model + Harness；本站在运行组成轴接纳该关系，同时保留 Agent 与 Agent Harness 不同义的行为视角。"
+    },
+    {
+      "from": "durable-execution",
+      "to": "agent-harness",
+      "kind": "part-of",
+      "axis": "runtime-composition",
+      "note": "Durable Execution 是 Agent Harness 提供可靠重试与恢复的组成部分。"
+    },
+    {
+      "from": "guardrails",
+      "to": "agent-harness",
+      "kind": "part-of",
+      "axis": "runtime-composition",
+      "note": "Guardrails 是 Agent Harness 约束输入、输出与行动路径的组成部分。"
+    },
+    {
+      "from": "memory",
+      "to": "agent-harness",
+      "kind": "part-of",
+      "axis": "runtime-composition",
+      "note": "Memory 是 Agent Harness 管理跨步骤与跨会话信息的组成部分。"
+    },
+    {
+      "from": "model-context-protocol",
+      "to": "agent-harness",
+      "kind": "part-of",
+      "axis": "runtime-composition",
+      "note": "MCP 是 Agent Harness 接入外部工具与服务的组成部分。"
+    },
+    {
+      "from": "observability",
+      "to": "agent-harness",
+      "kind": "part-of",
+      "axis": "runtime-composition",
+      "note": "Observability 是 Agent Harness 留下可查询运行证据的组成部分。"
+    },
+    {
+      "from": "permission-boundary",
+      "to": "agent-harness",
+      "kind": "part-of",
+      "axis": "runtime-composition",
+      "note": "Permission Boundary 是 Agent Harness 控制可执行动作范围的组成部分。"
+    },
+    {
+      "from": "sandbox",
+      "to": "agent-harness",
+      "kind": "part-of",
+      "axis": "runtime-composition",
+      "note": "Sandbox 是 Agent Harness 隔离执行环境的组成部分。"
+    },
+    {
+      "from": "skill",
+      "to": "agent-harness",
+      "kind": "part-of",
+      "axis": "runtime-composition",
+      "note": "Skill 是 Agent Harness 按需提供方法与能力的组成部分。"
+    },
+    {
+      "from": "state-management",
+      "to": "agent-harness",
+      "kind": "part-of",
+      "axis": "runtime-composition",
+      "note": "State Management 是 Agent Harness 保存进度与恢复点的组成部分。"
+    },
+    {
+      "from": "system-prompt",
+      "to": "agent-harness",
+      "kind": "part-of",
+      "axis": "runtime-composition",
+      "note": "System Prompt 是 Agent Harness 配置模型行为的组成部分。"
+    },
+    {
+      "from": "tool",
+      "to": "agent-harness",
+      "kind": "part-of",
+      "axis": "runtime-composition",
+      "note": "Tool 是 Agent Harness 暴露能力并执行动作的组成部分。"
+    },
+    {
+      "from": "verification-loop",
+      "to": "agent-harness",
+      "kind": "part-of",
+      "axis": "runtime-composition",
+      "note": "Verification Loop 是 Agent Harness 检查结果并回灌反馈的组成部分。"
+    },
+    {
+      "from": "context-compaction",
+      "to": "agent-loop",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "Agent Loop 更新 Context 时可触发 Context Compaction，再继续下一轮。"
+    },
+    {
+      "from": "durable-execution",
+      "to": "agent-loop",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "Durable Execution 把 Agent Loop 的每次模型与工具调用变成可独立重试步骤。"
+    },
+    {
+      "from": "error-handling",
+      "to": "agent-loop",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "Error Handling 把失败转成 Agent Loop 下一轮可利用的反馈。"
+    },
+    {
+      "from": "skill",
+      "to": "agent-loop",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "Agent Loop 调用经过测试的 Skill，形成可复用、可复利的工作流。"
+    },
+    {
+      "from": "state-management",
+      "to": "agent-loop",
+      "kind": "used-with",
+      "axis": "runtime-composition",
+      "note": "State Management 保存 Agent Loop 每一步决策、结果与恢复位置。"
+    },
+    {
+      "from": "tool",
+      "to": "agent-loop",
+      "kind": "used-with",
+      "axis": "runtime-composition",
+      "note": "Agent Loop 通过 Tool 调用行动，并把观察结果送回下一轮。"
+    },
+    {
+      "from": "state-management",
+      "to": "agent-handoff",
+      "kind": "prerequisite",
+      "axis": "workflow",
+      "note": "State Management 为 Agent Handoff 提供可读、可追加的进度与下一步。"
+    },
+    {
+      "from": "context-compaction",
+      "to": "context-window",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "Context Compaction 在 Context Window 接近上限时蒸馏历史并维持连续性。"
+    },
+    {
+      "from": "context-compaction",
+      "to": "memory",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "Context Compaction 与外部 Memory 配合，缩短窗口而保留可恢复原文。"
+    },
+    {
+      "from": "context-compaction",
+      "to": "minimal-sufficient-context",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "Context Compaction 通过保留相关信息并剔除冗余，逼近 Minimal Sufficient Context。"
+    },
+    {
+      "from": "context-engineering",
+      "to": "context-window",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "Context Engineering 决定 Context Window 里放什么、怎样放与何时放。"
+    },
+    {
+      "from": "context-selection",
+      "to": "context-window",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "Context Selection 决定什么信息进入 Context Window。"
+    },
+    {
+      "from": "context-selection",
+      "to": "memory",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "Context Selection 从 Memory 等候选信息中选择当前步骤真正需要的内容。"
+    },
+    {
+      "from": "just-in-time-retrieval",
+      "to": "context-window",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "Just-in-Time Retrieval 把 Context Window 当缓存，只在需要时加载详情。"
+    },
+    {
+      "from": "memory",
+      "to": "progressive-disclosure",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "Memory 可用路由文档与主题文件按 Progressive Disclosure 分层加载。"
+    },
+    {
+      "from": "progressive-disclosure",
+      "to": "tool",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "Progressive Disclosure 可延迟加载 Tool 定义，直到当前步骤真正需要。"
+    },
+    {
+      "from": "sandbox",
+      "to": "durable-execution",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "Sandbox 与 Durable Execution 配合，让环境失效后仍能从检查点恢复。"
+    },
+    {
+      "from": "skill",
+      "to": "progressive-disclosure",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "Skill 通过按需加载文件与能力实现 Progressive Disclosure。"
+    },
+    {
+      "from": "skill",
+      "to": "verification-loop",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "Skill 可封装并触发可重复执行的 Verification Loop。"
+    },
+    {
+      "from": "tool-scoping",
+      "to": "context-window",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "Tool Scoping 减少进入 Context Window 的无关工具描述。"
+    },
+    {
+      "from": "tool-scoping",
+      "to": "model-context-protocol",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "Tool Scoping 可关闭当前不用的 MCP 工具面，减少误选与 Context 占用。"
+    },
+    {
+      "from": "dynamic-context-assembly",
+      "to": "context-engineering",
+      "kind": "part-of",
+      "axis": "engineering-scope",
+      "note": "Dynamic Context Assembly 是 Context Engineering 按任务即时生成输入的实践。"
+    },
+    {
+      "from": "guardrails",
+      "to": "harness-engineering",
+      "kind": "part-of",
+      "axis": "engineering-scope",
+      "note": "Guardrails 是 Harness Engineering 约束循环行动路径的实践之一。"
+    },
+    {
+      "from": "just-in-time-retrieval",
+      "to": "context-engineering",
+      "kind": "part-of",
+      "axis": "engineering-scope",
+      "note": "Just-in-Time Retrieval 是 Context Engineering 的生产策略之一。"
+    },
+    {
+      "from": "memory",
+      "to": "context-window",
+      "kind": "used-with",
+      "axis": "runtime-composition",
+      "note": "Memory 把进度写出 Context Window，并在后续需要时重新取回。"
+    },
+    {
+      "from": "permission-boundary",
+      "to": "tool",
+      "kind": "used-with",
+      "axis": "runtime-composition",
+      "note": "Permission Boundary 在 Tool 执行前检查动作是否被允许。"
+    },
+    {
+      "from": "sandbox",
+      "to": "tool",
+      "kind": "used-with",
+      "axis": "runtime-composition",
+      "note": "Tool 在 Sandbox 中执行，以隔离副作用并捕获结果。"
+    },
+    {
+      "from": "sandbox",
+      "to": "verification-loop",
+      "kind": "used-with",
+      "axis": "runtime-composition",
+      "note": "Sandbox 为 Verification Loop 提供安全执行、日志、截图与测试环境。"
+    },
+    {
+      "from": "system-prompt",
+      "to": "context",
+      "kind": "part-of",
+      "axis": "runtime-composition",
+      "note": "System Prompt 是模型生成响应前可见 Context 的组成之一。"
+    },
+    {
+      "from": "tool",
+      "to": "context",
+      "kind": "used-with",
+      "axis": "runtime-composition",
+      "note": "Tool 定义与结果都会成为模型当前 Context 的一部分。"
+    },
+    {
+      "from": "agent-tool-contract",
+      "to": "tool",
+      "kind": "part-of",
+      "axis": "system-responsibility",
+      "note": "契约是 Agent 工具接口的一部分，规定模型意图与确定性执行如何衔接。"
+    },
+    {
+      "from": "agent-tool-contract",
+      "to": "permission-boundary",
+      "kind": "used-with",
+      "axis": "system-responsibility",
+      "note": "工具契约说明如何表达调用，权限边界决定该调用是否被允许执行。"
+    },
+    {
+      "from": "tool-workflow-fit",
+      "to": "tool-scoping",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "工具收窄决定暴露哪些能力，工作流适配决定这些能力在任务中以什么节奏和证据标准被使用。"
+    },
+    {
+      "from": "tool-workflow-fit",
+      "to": "agent-harness",
+      "kind": "part-of",
+      "axis": "system-responsibility",
+      "note": "工具说明与任务工作流的适配属于 Harness 对模型行为的运行约束。"
+    },
+    {
+      "from": "agent-action-space",
+      "to": "tool-scoping",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "工具收窄是在具体步骤中把行动空间限制到模型当前需要且能处理的范围。"
+    },
+    {
+      "from": "agent-action-space",
+      "to": "permission-boundary",
+      "kind": "used-with",
+      "axis": "runtime-composition",
+      "note": "可表达的动作还要经过权限边界，才能成为实际允许执行的动作。"
+    },
+    {
+      "from": "agent-action-space",
+      "to": "tool",
+      "kind": "used-with",
+      "axis": "runtime-composition",
+      "note": "工具及其参数结构构成 Agent 行动空间的主要可调用原语。"
+    },
+    {
+      "from": "agent-elicitation",
+      "to": "context-engineering",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "信息引出用于补齐会改变任务判断的缺失上下文。"
+    },
+    {
+      "from": "agent-elicitation",
+      "to": "agent-loop",
+      "kind": "used-with",
+      "axis": "runtime-composition",
+      "note": "提问工具可阻塞当前循环，等待用户回答后再恢复下一轮决策。"
+    },
+    {
+      "from": "agent-elicitation",
+      "to": "guardrails",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "在高风险或边界不清时，主动提问可作为继续行动前的控制路径。"
+    },
+    {
+      "from": "agent-session-management",
+      "to": "context-window",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "会话管理决定上下文窗口内哪些历史继续保留、被压缩或被丢弃。"
+    },
+    {
+      "from": "agent-session-management",
+      "to": "context-rot",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "会话越长越容易积累噪音，Context Rot 是需要主动治理会话的主要原因之一。"
+    },
+    {
+      "from": "agent-session-management",
+      "to": "context-compaction",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "压缩是长会话减重的一个选择，但需要按下一阶段目标决定保留内容。"
+    },
+    {
+      "from": "harness-token-floor",
+      "to": "agent-harness",
+      "kind": "used-with",
+      "axis": "runtime-composition",
+      "note": "Token 底座由 Agent Harness 随每次模型请求附带的静态运行信息产生，但它是负担指标而非 Harness 组件。"
+    },
+    {
+      "from": "harness-token-floor",
+      "to": "system-prompt",
+      "kind": "used-with",
+      "axis": "runtime-composition",
+      "note": "系统提示是 Harness Token 底座的固定组成之一。"
+    },
+    {
+      "from": "harness-token-floor",
+      "to": "tool-scoping",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "收窄暴露工具与 Schema 可降低每次请求的固定工具说明负担。"
+    },
+    {
+      "from": "harness-token-floor",
+      "to": "context-window",
+      "kind": "used-with",
+      "axis": "runtime-composition",
+      "note": "固定系统输入会占用 Context Window 容量，即使缓存命中也不消失。"
+    },
+    {
+      "from": "harness-token-floor",
+      "to": "context-compaction",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "固定占用越大，留给会话增长的空间越少，越可能提前触发压缩。"
+    },
+    {
+      "from": "llm-statelessness",
+      "to": "memory",
+      "kind": "contrast",
+      "axis": "concept-boundary",
+      "note": "模型调用本身无状态，Memory 是外部保存并可按需取回的信息层。"
+    },
+    {
+      "from": "llm-statelessness",
+      "to": "state-management",
+      "kind": "used-with",
+      "axis": "runtime-composition",
+      "note": "长任务的连续执行依赖外部状态管理记录并恢复当前进度。"
+    },
+    {
+      "from": "llm-statelessness",
+      "to": "context",
+      "kind": "used-with",
+      "axis": "runtime-composition",
+      "note": "外部历史只有重新装配进当前 Context 后才对本次模型调用可见。"
+    },
+    {
+      "from": "prompt-caching",
+      "to": "context-compaction",
+      "kind": "contrast",
+      "axis": "concept-boundary",
+      "note": "Prompt Caching 复用稳定前缀的计算，Context Compaction 缩短历史表示；短而频繁变化的摘要仍可能破坏缓存。"
+    },
+    {
+      "from": "prompt-caching",
+      "to": "observability",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "缓存收益需要通过读写 Token、命中率和首字延迟等运行指标持续观测。"
+    },
+    {
+      "from": "prompt-caching",
+      "to": "system-prompt",
+      "kind": "used-with",
+      "axis": "runtime-composition",
+      "note": "稳定的系统提示通常构成高复用缓存前缀的一部分。"
+    },
+    {
+      "from": "subagent-orchestration",
+      "to": "agent-harness",
+      "kind": "part-of",
+      "axis": "runtime-composition",
+      "note": "子 Agent 的创建、调度和结果回传由外层执行系统组织。"
+    },
+    {
+      "from": "subagent-orchestration",
+      "to": "agent-handoff",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "把任务移交给专家 Agent 以及把结果带回主流程都需要交接合同。"
+    },
+    {
+      "from": "subagent-orchestration",
+      "to": "context-compaction",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "来源强调子 Agent 深度探索后返回压缩摘要，以降低主上下文负担。"
+    },
+    {
+      "from": "agent-stop-conditions",
+      "to": "agent-loop",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "持续循环需要显式终止、转交或重规划边界，不能只依赖模型主观判断。"
+    },
+    {
+      "from": "agent-stop-conditions",
+      "to": "guardrails",
+      "kind": "part-of",
+      "axis": "system-responsibility",
+      "note": "终止条件是限制失控执行、成本和无进展运行的一类运行护栏。"
+    },
+    {
+      "from": "harness-compute-separation",
+      "to": "agent-harness",
+      "kind": "used-with",
+      "axis": "runtime-composition",
+      "note": "该模式把 Harness 保留在控制侧，避免与模型生成代码的执行环境混成同一信任域。"
+    },
+    {
+      "from": "harness-compute-separation",
+      "to": "sandbox",
+      "kind": "used-with",
+      "axis": "runtime-composition",
+      "note": "沙箱承担被隔离的计算侧，是该分层模式的执行端。"
+    },
+    {
+      "from": "prompt-injection",
+      "to": "guardrails",
+      "kind": "used-with",
+      "axis": "system-responsibility",
+      "note": "护栏需要识别或限制不受信指令引发的危险行为。"
+    },
+    {
+      "from": "prompt-injection",
+      "to": "permission-boundary",
+      "kind": "used-with",
+      "axis": "system-responsibility",
+      "note": "权限边界限制一次注入成功后能够调用的能力和影响范围。"
+    },
+    {
+      "from": "runnable-evidence",
+      "to": "verification-loop",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "验证循环消费可运行证据来决定继续、停止或返工；证据本身不是循环的运行组件。"
+    },
+    {
+      "from": "runnable-evidence",
+      "to": "trace-based-evals",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "轨迹解释过程，可运行检查复验结果，两类证据共同支持诊断。"
+    },
+    {
+      "from": "verifiable-goal",
+      "to": "verification-loop",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "验证循环需要明确、可复现的成功条件来判断结果并驱动下一轮。"
+    },
+    {
+      "from": "verifiable-goal",
+      "to": "agent-stop-conditions",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "成功条件与失败、预算和无进展终止边界共同决定循环何时结束。"
+    },
+    {
+      "from": "multi-step-reliability-decay",
+      "to": "error-handling",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "多步可靠性衰减揭示需要按错误类型设计重试、恢复与中断策略。"
+    },
+    {
+      "from": "multi-step-reliability-decay",
+      "to": "verification-loop",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "在流程中尽早验证可阻止局部失败继续传播到后续步骤。"
+    },
+    {
+      "from": "bounded-context",
+      "to": "context",
+      "kind": "contrast",
+      "axis": "concept-boundary",
+      "note": "限界上下文规定领域语言的适用边界，LLM 上下文则是当前推理可获得的信息集合。"
+    },
+    {
+      "from": "browsing-loop",
+      "to": "trace-based-evals",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "浏览循环通常需要从搜索、读取和错误恢复的轨迹中识别，而非只看最终分数。"
+    },
+    {
+      "from": "browsing-loop",
+      "to": "context-selection",
+      "kind": "contrast",
+      "axis": "workflow",
+      "note": "上下文选择应收窄与当前问题相关的证据，浏览循环则让每次新内容继续扩大候选范围。"
+    },
+    {
+      "from": "human-escalation-tool-call",
+      "to": "permission-boundary",
+      "kind": "used-with",
+      "axis": "system-responsibility",
+      "note": "当权限边界要求人工裁决时，Agent 可发起显式人类调用并等待决定；该调用本身不授予越权能力。"
+    },
+    {
+      "from": "human-escalation-tool-call",
+      "to": "durable-execution",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "等待人类回复的工作流需要持久保存状态并在结果到达后恢复。"
+    },
+    {
+      "from": "restorable-compression",
+      "to": "context-compaction",
+      "kind": "contrast",
+      "axis": "concept-boundary",
+      "note": "上下文压缩常用摘要承接历史，可恢复压缩则强调被省略原内容仍有回取路径。"
+    },
+    {
+      "from": "restorable-compression",
+      "to": "just-in-time-retrieval",
+      "kind": "used-with",
+      "axis": "runtime-composition",
+      "note": "保留下来的引用需要在运行时按需取回原内容。"
+    },
+    {
+      "from": "retrieval-reasoning-dual-task-load",
+      "to": "context-selection",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "先做上下文选择可把资料定位与基于证据的推理拆开。"
+    },
+    {
+      "from": "retrieval-reasoning-dual-task-load",
+      "to": "minimal-sufficient-context",
+      "kind": "used-with",
+      "axis": "runtime-composition",
+      "note": "提供聚焦的最小充分证据可以减少同一调用中的检索负担。"
+    },
+    {
+      "from": "system-prompt-altitude",
+      "to": "system-prompt",
+      "kind": "part-of",
+      "axis": "concept-boundary",
+      "note": "抽象高度是设计系统提示时需要校准的一个属性。"
+    },
+    {
+      "from": "system-prompt-altitude",
+      "to": "guardrails",
+      "kind": "contrast",
+      "axis": "system-responsibility",
+      "note": "系统提示提供行为启发式，护栏负责不可越过的运行边界，不能靠提高提示具体度替代。"
+    },
+    {
+      "from": "ubiquitous-language",
+      "to": "bounded-context",
+      "kind": "used-with",
+      "axis": "concept-boundary",
+      "note": "统一语言只有在声明的领域边界内才能保持稳定含义。"
+    },
+    {
+      "from": "ubiquitous-language",
+      "to": "context-engineering",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "把领域语言沉淀为可读取资产，可减少跨会话重复解释并改善上下文对齐。"
+    },
+    {
+      "from": "change-impact-analysis",
+      "to": "context-selection",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "影响范围用于选择评审任务真正需要读取的代码与测试上下文。"
+    },
+    {
+      "from": "change-impact-analysis",
+      "to": "verification-loop",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "受影响范围可决定验证循环应运行哪些测试与检查。"
+    },
+    {
+      "from": "change-impact-analysis",
+      "to": "trace-based-evals",
+      "kind": "contrast",
+      "axis": "concept-boundary",
+      "note": "变更影响分析沿代码结构预测受影响范围，基于轨迹的评测依据实际运行轨迹评价 Agent 行为。"
+    },
+    {
+      "from": "chat-template",
+      "to": "prompt",
+      "kind": "used-with",
+      "axis": "runtime-composition",
+      "note": "聊天模板把角色化消息序列化为模型实际接收的 Prompt 格式。"
+    },
+    {
+      "from": "chat-template",
+      "to": "system-prompt",
+      "kind": "used-with",
+      "axis": "runtime-composition",
+      "note": "系统提示通常作为特定角色消息被聊天模板纳入最终输入。"
+    },
+    {
+      "from": "event-driven-agent-automation",
+      "to": "agent-loop",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "事件负责触发运行，Agent 循环负责在触发后持续观察、行动与更新状态。"
+    },
+    {
+      "from": "event-driven-agent-automation",
+      "to": "dynamic-context-assembly",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "新事件进入时通常需要围绕该事件装配当次运行所需上下文。"
+    },
+    {
+      "from": "llm-token",
+      "to": "context-window",
+      "kind": "used-with",
+      "axis": "runtime-composition",
+      "note": "上下文窗口容量通常按可容纳的 Token 数表示。"
+    },
+    {
+      "from": "llm-token",
+      "to": "attention-budget",
+      "kind": "contrast",
+      "axis": "concept-boundary",
+      "note": "Token 计数描述输入规模，注意力预算描述有限处理能力在内容之间的分配。"
+    },
+    {
+      "from": "observation-masking",
+      "to": "context-compaction",
+      "kind": "contrast",
+      "axis": "concept-boundary",
+      "note": "观察掩码隐藏旧工具输出细节，Context Compaction 通常把较长历史总结成更短表示。"
+    },
+    {
+      "from": "observation-masking",
+      "to": "just-in-time-retrieval",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "被移出窗口的旧观察可保留轻量线索，并在再次需要时按需取回。"
+    },
+    {
+      "from": "observation-masking",
+      "to": "context-rot",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "掩码旧工具输出用于降低低信号历史对当前推理的干扰。"
+    },
+    {
+      "from": "persistent-code-graph",
+      "to": "just-in-time-retrieval",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "Agent 可先查询图谱，再按需读取真正相关的文件与结构信息。"
+    },
+    {
+      "from": "persistent-code-graph",
+      "to": "memory",
+      "kind": "contrast",
+      "axis": "concept-boundary",
+      "note": "持久化代码图谱保存可查询的代码结构关系，Memory 是更广义的跨步骤或跨会话信息层。"
+    },
+    {
+      "from": "persistent-code-graph",
+      "to": "model-context-protocol",
+      "kind": "used-with",
+      "axis": "runtime-composition",
+      "note": "来源通过 MCP 工具把图谱查询能力暴露给 Claude。"
+    },
+    {
+      "from": "reasoning-effort",
+      "to": "large-language-model",
+      "kind": "used-with",
+      "axis": "runtime-composition",
+      "note": "推理强度控制一次模型运行中分配给推理过程的额外计算预算。"
+    },
+    {
+      "from": "reasoning-effort",
+      "to": "attention-budget",
+      "kind": "contrast",
+      "axis": "concept-boundary",
+      "note": "推理强度调节计算投入，注意力预算描述模型处理当前上下文信息的有限能力。"
+    },
+    {
+      "from": "skill-chaining",
+      "to": "skill",
+      "kind": "used-with",
+      "axis": "runtime-composition",
+      "note": "链式调用以多个可独立运行的 Skill 为组成单元。"
+    },
+    {
+      "from": "skill-chaining",
+      "to": "verification-loop",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "来源用 Skill 链把产出、清理与验证步骤固化成端到端验证流。"
+    },
+    {
+      "from": "skill-chaining",
+      "to": "error-handling",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "自动调用链需要在中间步骤失败时决定停止、修复或升级。"
+    },
+    {
+      "from": "skill-trigger-condition",
+      "to": "skill",
+      "kind": "part-of",
+      "axis": "runtime-composition",
+      "note": "触发条件是 Skill 元数据的一部分，用于决定该 Skill 的自动加载时机。"
+    },
+    {
+      "from": "skill-trigger-condition",
+      "to": "context-selection",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "触发条件把任务场景与是否选择该 Skill 进入上下文连接起来。"
+    },
+    {
+      "from": "tool-schema-tax",
+      "to": "harness-token-floor",
+      "kind": "part-of",
+      "axis": "runtime-composition",
+      "note": "工具 Schema 的固定载荷是 Harness Token 底座中可单独测量的一部分。"
+    },
+    {
+      "from": "tool-schema-tax",
+      "to": "tool-scoping",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "只暴露当前步骤必要工具可同时降低选择噪声与工具 Schema 静态载荷。"
+    },
+    {
+      "from": "tool-schema-tax",
+      "to": "attention-budget",
+      "kind": "used-with",
+      "axis": "runtime-composition",
+      "note": "大量工具说明会占用窗口并与任务信息争夺模型处理能力。"
+    },
+    {
+      "from": "agent-cli-runtime",
+      "to": "agent-harness",
+      "kind": "used-with",
+      "axis": "runtime-composition",
+      "note": "CLI runtime 可作为 Harness 暴露 Agent 工作流执行能力的一种入口，但不承担 Harness 的全部职责。"
+    },
+    {
+      "from": "agent-cli-runtime",
+      "to": "durable-execution",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "进入脚本与 CI/CD 后，长任务仍需持久化执行机制处理恢复和重试。"
+    },
+    {
+      "from": "instruction-locality",
+      "to": "tool",
+      "kind": "used-with",
+      "axis": "runtime-composition",
+      "note": "来源用工具说明举例，要求把工具用法放在对应 tool description 中。"
+    },
+    {
+      "from": "instruction-locality",
+      "to": "system-prompt",
+      "kind": "contrast",
+      "axis": "concept-boundary",
+      "note": "工具专属说明应靠近工具，而不是在系统提示中重复；系统提示仍承担更通用的产品级语境。"
+    },
+    {
+      "from": "tacit-knowledge",
+      "to": "context-engineering",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "Context Engineering 需要识别并外化任务所需的隐性推理与权衡，才能让其进入后续选择和装配流程。"
+    },
+    {
+      "from": "tacit-knowledge",
+      "to": "context",
+      "kind": "contrast",
+      "axis": "concept-boundary",
+      "note": "隐性知识在未被外化、选择并提供给模型之前，还不是模型当前可见的 Context。"
+    },
+    {
+      "from": "code-execution",
+      "to": "tool",
+      "kind": "part-of",
+      "axis": "runtime-composition",
+      "note": "代码执行是 Harness 向 Agent 暴露的一类通用工具能力。"
+    },
+    {
+      "from": "code-execution",
+      "to": "sandbox",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "执行模型生成的代码通常需要隔离环境来限制影响范围。"
+    },
+    {
+      "from": "filesystem-workspace",
+      "to": "agent-harness",
+      "kind": "part-of",
+      "axis": "runtime-composition",
+      "note": "文件系统工作区是 Harness 可提供的基础运行载体。"
+    },
+    {
+      "from": "filesystem-workspace",
+      "to": "sandbox",
+      "kind": "contrast",
+      "axis": "concept-boundary",
+      "note": "文件系统工作区提供持久协作面，Sandbox 主要限制执行位置与影响范围。"
+    },
+    {
+      "from": "harness-overfitting",
+      "to": "harness-engineering",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "Harness Engineering 需要用真实任务比较原生与替代接口，而不是假设官方配置恒优。"
+    },
+    {
+      "from": "harness-overfitting",
+      "to": "trace-based-evals",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "固定模型、任务与评测条件的跨 Harness 轨迹比较可检验泛化下降。"
+    },
+    {
+      "from": "repository-source-of-truth",
+      "to": "state-management",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "版本化仓库为进度、任务范围和交接状态提供可持续读取的载体。"
+    },
+    {
+      "from": "repository-source-of-truth",
+      "to": "context",
+      "kind": "used-with",
+      "axis": "runtime-composition",
+      "note": "仓库是真源入口，具体任务仍需从中选择并装配当前所需 Context。"
+    },
+    {
+      "from": "risk-tiered-autofixing",
+      "to": "error-handling",
+      "kind": "part-of",
+      "axis": "engineering-scope",
+      "note": "风险分级自动修复是系统发现错误后生成并路由修复的一类处理机制。"
+    },
+    {
+      "from": "risk-tiered-autofixing",
+      "to": "verification-loop",
+      "kind": "used-with",
+      "axis": "workflow",
+      "note": "自动生成的修复仍需通过测试、审查或其他可复验检查后才能继续推进。"
+    },
+    {
+      "from": "risk-tiered-autofixing",
+      "to": "permission-boundary",
+      "kind": "used-with",
+      "axis": "system-responsibility",
+      "note": "风险等级需要限制 Agent 能修改的范围以及修复候选可自动推进到的状态。"
+    }
+  ]
+}

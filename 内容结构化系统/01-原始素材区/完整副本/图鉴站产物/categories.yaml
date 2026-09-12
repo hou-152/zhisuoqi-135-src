@@ -1,0 +1,28 @@
+- id: current-view
+  label: 眼前真正有什么
+  question: 模型此刻到底看见了什么，又能处理多少？
+  order: 1
+- id: information-storage
+  label: 信息平时放在哪里
+  question: 哪些信息会被保留，任务进度又记在哪里？
+  order: 2
+- id: continuous-action
+  label: AI 如何持续行动
+  question: 为什么 AI 能连续做事，而不只回答一次？
+  order: 3
+- id: external-access
+  label: AI 如何接触外部世界
+  question: AI 靠什么读取、计算或改变外部世界？
+  order: 4
+- id: human-control
+  label: 人如何控制 AI
+  question: 人怎样说明目标、复用方法并限制行动？
+  order: 5
+- id: context-delivery
+  label: 信息如何进入工作台
+  question: 什么信息应在什么时候、以什么形式进入？
+  order: 6
+- id: result-trust
+  label: 做完后凭什么相信
+  question: Agent 说做完之后，凭什么相信它真的完成？
+  order: 7

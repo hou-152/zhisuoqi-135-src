@@ -1,0 +1,38 @@
+schema_version: 1
+record_kind: canonical_concept
+id: sandbox
+slug: sandbox
+name_zh: 沙箱
+name_en: Sandbox
+aliases:
+  - 隔离执行环境
+category_id: human-control
+learning_stage: when-needed
+definition_status: industry-common
+remember: Sandbox 是受隔离与资源限制的执行环境，让 Agent 能在一个被圈定的工作区内行动，并把出错时的影响范围控制在边界内。
+feynman: 把它想成一间可以推倒重建的实验室。Agent 可以在里面写文件、跑代码、装依赖，出错产生的碎片尽量留在房间里，不直接砸到外部系统。沙箱回答的是“在哪里做、最坏影响到哪”，而不是“这个动作该不该被授权”。
+scenario:
+  type: hypothetical
+  text: 一个代码 Agent 在独立工作区里安装依赖并运行未经验证的脚本；即使脚本破坏了工作区文件，宿主机的其他目录和凭证仍不应自动暴露给它。
+image_mnemonic: 执行动作与碎片都被厚实的蓝色隔离工作区包住，冲击痕迹停在内壁；右侧外部系统保持完整，表示爆炸半径受限。
+source_context: LangChain 的 Agent Harness 文章把 Sandbox 作为默认运行基础设施：它为代码、文件与依赖提供隔离环境，可叠加命令 allow-list 和网络隔离，并支持按需创建与销毁。本站采用“执行位置与影响范围”边界，不把隔离冒充授权或绝对安全。
+boundaries:
+  - Sandbox 限制执行环境与爆炸半径，不负责判断动作是否获准；权限边界仍应在执行前独立生效。
+  - 沙箱不是绝对安全证明；挂载目录、网络、凭证、内核、资源配额和逃逸风险都取决于实际配置。
+  - “在容器里运行”不自动等于有效隔离；需要核对真实文件系统、网络、进程、用户身份与秘密暴露面。
+  - 可抛弃环境有助于恢复和扩展，但持久状态与副作用仍需单独设计。
+how_to:
+  - 默认只挂载任务需要的文件与依赖，收窄网络、命令、CPU、内存、时间和凭证访问。
+  - 运行前验证隔离策略，运行后检查输出和外部副作用；不要只相信配置名称里写着 sandbox。
+  - 把可恢复产物和状态放到明确的外部存储，并让工作区可以安全销毁与重建。
+transfer_question: 一个动作已经获得用户授权，但可能执行未知代码时，为什么仍需要 Sandbox，而不能把授权当作隔离？
+source_ids:
+  - SRC-langchain-agent-harness
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/sandbox/visual.png
+  alt: 执行动作在厚实的隔离工作区内操作文件，碎片与冲击痕迹停在工作区内壁，右侧外部系统保持完整，表示沙箱限制执行位置和影响范围。
+  prompt_record: src/assets/concepts/sandbox/PROMPT.md
+  receipt: src/assets/concepts/sandbox/receipt.yaml
+  visual_qa: passed

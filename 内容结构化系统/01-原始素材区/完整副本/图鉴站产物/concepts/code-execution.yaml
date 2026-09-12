@@ -1,0 +1,37 @@
+schema_version: 1
+record_kind: canonical_concept
+id: code-execution
+slug: code-execution
+name_zh: 代码执行
+name_en: Code Execution
+aliases:
+  - Code Exec
+category_id: external-access
+learning_stage: now
+definition_status: evolving
+remember: 让 Agent 通过 shell 或运行时编写并执行代码，把未被预先枚举的计算与操作组合成一种通用外部能力。
+feynman: 给 Agent 一间能写程序并按下运行键的工作间，它就能临时组合许多没预先做成按钮的操作。真正动手的是外部运行时，所以门锁、时限和验收都不能省。
+scenario:
+  type: hypothetical
+  text: 假设数据 Agent 没有专用“合并 CSV”工具，它编写短脚本在沙箱内处理文件并生成校验报告，而不是由模型口头计算数千行结果。
+image_mnemonic: 一张只表达「代码执行」的纸面机制图：中心呈现「让 Agent 通过 shell 或运行时编写并执行代码，把未被预先枚举的计算与操作组合成一种通用外部能力」，边缘用明确界线排除「代码执行是 Tool 的一类高通用能力，不等于模型本身在执行代码」；不画候选关系。
+source_context: 本卡只采用以下来源范围：《LangChain 解剖 agent harness：Agent = 模型 + harness》：原文把 bash 与代码执行描述为可按需生成手段的通用工具，区别于逐个预配置专用工具。未被来源直接支持的产品结论、普遍因果或关系身份不写入本卡。
+boundaries:
+  - 代码执行是 Tool 的一类高通用能力，不等于模型本身在执行代码。
+  - 通用性不会自动带来安全性；权限、Sandbox、超时和结果验证仍需独立设计。
+  - 当前证据缺口：需要补充不同执行形态的边界，例如 shell、解释器与远程计算环境。
+how_to:
+  - 明确允许的运行时、目录、网络、凭据、资源上限和超时。
+  - 让 Agent 先写代码和预期副作用，再在隔离环境执行并捕获退出码与产物。
+  - 对结果运行确定性检查，失败时保留代码、输入和日志供复现。
+transfer_question: 当专用工具可以完成同一任务时，什么条件下仍值得开放通用代码执行，额外风险如何补偿？
+source_ids:
+  - SRC-langchain-agent-harness
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/code-execution/visual.png
+  alt: 一张只表达「代码执行」的纸面机制图：中心呈现「让 Agent 通过 shell 或运行时编写并执行代码，把未被预先枚举的计算与操作组合成一种通用外部能力」，边缘用明确界线排除「代码执行是 Tool 的一类高通用能力，不等于模型本身在执行代码」；不画候选关系。
+  prompt_record: src/assets/concepts/code-execution/PROMPT.md
+  receipt: src/assets/concepts/code-execution/receipt.yaml
+  visual_qa: passed

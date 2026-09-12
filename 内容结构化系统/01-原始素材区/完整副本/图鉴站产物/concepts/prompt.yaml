@@ -1,0 +1,36 @@
+schema_version: 1
+record_kind: canonical_concept
+id: prompt
+slug: prompt
+name_zh: 提示
+name_en: Prompt
+aliases:
+  - 提示词
+category_id: human-control
+learning_stage: now
+definition_status: industry-common
+remember: Prompt 是一次递交给模型的输入；日常语境常指用户提示，技术语境也可能指模型实际接收的完整输入。
+feynman: 把 Prompt 想成你递进模型入口的一张输入纸。狭义时，这张纸是你本轮写给模型的话；广义时，它是系统把系统消息、工具说明、历史和用户消息编排后，真正交给模型的整份输入。听到“改 Prompt”时，要先确认说的是哪一层。
+scenario:
+  type: hypothetical
+  text: 你在聊天框输入“把这段文字改短”，这是用户提示；应用实际调用模型时，还可能把系统规则、工具定义和对话历史一起拼进完整输入。
+image_mnemonic: 一只手把一张明确的输入纸递进模型入口；强调这是一次交付的输入对象，而不是设计这张纸的方法。
+source_context: Simon Willison 把 prompt 与 completion 作为模型交互的基本单位，并指出聊天、工具调用和系统提示会被外部软件编排成更复杂的模型输入。不同产品与文献对 Prompt 的范围并不完全一致。
+boundaries:
+  - 本站同时标明狭义“用户提示”和广义“完整模型输入”两种常见口径，不把其中一种静默冒充唯一行业定义。
+  - Prompt 是输入对象；Prompt Engineering 是设计、组织和测试输入的实践。
+  - System Prompt 是完整输入中的系统层约束，不与用户当前输入等同。
+how_to:
+  - 讨论 Prompt 时先说清是在改用户消息、系统消息，还是模型最终接收的完整输入。
+  - 排错时保存实际发送给模型的输入结构；只看聊天框内容可能遗漏系统层、工具定义与历史。
+transfer_question: 当你只改了聊天框里的一句话，却发现模型仍受另一套规则约束时，应该检查 Prompt 的哪种口径？
+source_ids:
+  - SRC-simon-coding-agents
+visual:
+  type: metaphor
+  skill: anthropic-art
+  source_image: src/assets/concepts/prompt/visual.png
+  alt: 冷白纸底上，一只手把一张单独的输入纸递进简洁入口，表示 Prompt 是一次交给模型的输入对象。
+  prompt_record: src/assets/concepts/prompt/PROMPT.md
+  receipt: src/assets/concepts/prompt/receipt.yaml
+  visual_qa: passed

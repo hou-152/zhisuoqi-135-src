@@ -1,0 +1,36 @@
+schema_version: 1
+record_kind: canonical_concept
+id: context
+slug: context
+name_zh: 上下文
+name_en: Context
+aliases: []
+category_id: current-view
+learning_stage: now
+definition_status: evolving
+remember: 上下文是模型在当前一次推理中实际能看到并用来生成结果的信息、状态与工具描述。
+feynman: 把模型想成坐在桌前做事的人。桌上摊开的指令、对话、取回资料、工具说明和输出要求，才是它此刻能用的上下文；资料即使存进了柜子，没有被取出放到桌上，也不会自动影响这一轮回答。
+scenario:
+  type: hypothetical
+  text: 你让 Agent 安排会议时，当前请求、日历摘要、联系人信息、可用工具说明和输出格式一起进入模型；它们共同构成这一轮的 Context。
+image_mnemonic: 一束灯照亮桌面上当前可用的几份材料，灯外仍有资料存在，却没有进入这一轮可用视野。
+source_context: Philipp Schmid 将 LLM 运行时的 Context 解释为模型生成响应前看到的一切，并列出系统提示、用户提示、历史、长期记忆取回结果、RAG 信息、工具定义与输出格式。本站主卡采用这一运行时口径；HCI 中更广义的情境定义仍作为另一观察框架保留。
+boundaries:
+  - Context 是当前可见的信息集合，不等于承载它的 Context Window；窗口更大也不保证所需信息已经进入或能被可靠使用。
+  - Memory 中已保存但未被取回的内容，不属于当前 Context；会话历史若已随本轮输入送入，则属于当前 Context。
+  - Tool 的名称、说明和参数 schema 可以进入 Context，但真实 Tool Execution 发生在模型外。
+  - 本卡采用 LLM 运行时语境，不声称覆盖普适计算与 HCI 对 Context 的全部广义定义。
+how_to:
+  - 排查回答错误时，先列出模型在出错那一轮实际看到了什么，不要用“系统里存着什么”替代这份清单。
+  - 分开检查缺失信息、无关噪声、冲突信息和过期信息，再决定取回、删除或更新哪些材料。
+transfer_question: 一份正确资料已经存在知识库里，却没有被检索进本轮输入；它算当前 Context 吗？
+source_ids:
+  - SRC-philipp-context-engineering
+visual:
+  type: metaphor
+  skill: anthropic-art
+  source_image: src/assets/concepts/context/visual.png
+  alt: 冷白纸底上，一束手绘灯光只照亮桌面上当前可用的几份材料，灯外资料仍存在但没有进入当前可见范围。
+  prompt_record: src/assets/concepts/context/PROMPT.md
+  receipt: src/assets/concepts/context/receipt.yaml
+  visual_qa: passed

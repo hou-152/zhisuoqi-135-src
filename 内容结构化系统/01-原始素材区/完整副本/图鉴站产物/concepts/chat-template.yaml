@@ -1,0 +1,36 @@
+schema_version: 1
+record_kind: canonical_concept
+id: chat-template
+slug: chat-template
+name_zh: 聊天模板
+name_en: Chat Template
+aliases: []
+category_id: context-delivery
+learning_stage: when-needed
+definition_status: evolving
+remember: 把不同角色的消息与历史记录按模型约定格式序列化为一次补全输入的接口模板。
+feynman: 聊天模板像把多人对话排成模型认识的剧本格式：谁说了什么、顺序怎样，都要重新装进本次输入。剧本看起来连续，不代表演员脑中保留了上一场。
+scenario:
+  type: hypothetical
+  text: 假设同一段用户与助手历史在两个模型上直接复用，一边正常续答，另一边把角色标记当正文；换成各自约定的序列化格式后才恢复。
+image_mnemonic: 一张只表达「聊天模板」的纸面机制图：中心呈现「把不同角色的消息与历史记录按模型约定格式序列化为一次补全输入的接口模板」，边缘用明确界线排除「聊天模板制造连续对话的输入格式，不会让无状态模型本身获得持久状态」；不画候选关系。
+source_context: 本卡只采用以下来源范围：《Coding Agent 如何工作：工具循环与上下文工程》：逐字定义聊天模板如何把角色化历史拼成补全提示，并由 Harness 重建连续对话。未被来源直接支持的产品结论、普遍因果或关系身份不写入本卡。
+boundaries:
+  - 聊天模板制造连续对话的输入格式，不会让无状态模型本身获得持久状态。
+  - 模板格式属于运行接口；它不同于当前对话内容，也不同于定义长期行为规则的系统提示。
+  - 当前证据缺口：当前证据未比较不同模型族的模板差异与模板错配的失败表现。
+how_to:
+  - 核对目标模型要求的角色标记、起止符和生成提示位置。
+  - 用最短的系统、用户、助手三轮样本渲染模板，检查最终输入字节与角色顺序。
+  - 加入长历史和工具消息做回归，确认模板只负责格式，不承担持久存储。
+transfer_question: 迁移模型时保留同一聊天历史，为什么仍可能需要重写模板；你会怎样验证角色没有串位？
+source_ids:
+  - SRC-simon-coding-agents
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/chat-template/visual.png
+  alt: 一张只表达「聊天模板」的纸面机制图：中心呈现「把不同角色的消息与历史记录按模型约定格式序列化为一次补全输入的接口模板」，边缘用明确界线排除「聊天模板制造连续对话的输入格式，不会让无状态模型本身获得持久状态」；不画候选关系。
+  prompt_record: src/assets/concepts/chat-template/PROMPT.md
+  receipt: src/assets/concepts/chat-template/receipt.yaml
+  visual_qa: passed

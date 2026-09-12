@@ -1,0 +1,37 @@
+schema_version: 1
+record_kind: canonical_concept
+id: agent
+slug: agent
+name_zh: AI Agent
+name_en: AI Agent
+aliases:
+  - 智能体
+  - Agent
+category_id: continuous-action
+learning_stage: now
+definition_status: evolving
+remember: AI Agent 是围绕目标持续选择下一步、借助工具行动并根据结果继续推进的系统，不是裸模型的别名。
+feynman: 模型像负责想和说的部分，Agent 则像一个朝目标前进的行动者。它每走一步都会看当前结果，再决定下一步要回答、调用工具、修正方向还是停止。你看到的这种连续行为，通常由模型与外部 Harness 共同产生。
+scenario:
+  type: hypothetical
+  text: 你让 Agent 修复测试失败。它先读取报错，定位文件，修改代码，运行测试，再依据新结果决定继续修还是结束；这些连续动作不是一次模型回复就能独立完成的。
+image_mnemonic: 一个行动者朝明确目标跨出下一步，脚下留下少量连续脚印；重点是围绕目标行动，而不是机器人外形。
+source_context: Simon Willison 给出最小组成视角：LLM、system prompt、工具与工具结果回灌循环可以构成基础 Agent。本站同时保留行为视角：用户感知到的是围绕目标持续行动的系统，而不是单独的模型对象。
+boundaries:
+  - Agent 不等于 LLM；模型负责推理与生成，工具执行、状态维护、权限和循环来自外部系统。
+  - “能调用一次工具”是重要分界，但生产级 Agent 通常还需要错误处理、验证、停止条件与状态管理。
+  - Agent 与 Agent Harness 不是同义词；前者描述呈现出来的行动系统，后者强调产生和约束这种行为的运行机器。
+how_to:
+  - 识别一个系统是否真的具有 Agent 行为时，检查它能否围绕目标根据结果选择下一步，而不只看是否使用了 Agent 名称。
+  - 排错时把问题拆成模型判断、工具能力、状态、权限、循环和验证，避免笼统归因于“Agent 不聪明”。
+transfer_question: 一个聊天机器人只回答一次，而另一个系统会查资料、执行操作并根据结果继续，二者最关键的系统差别是什么？
+source_ids:
+  - SRC-simon-coding-agents
+visual:
+  type: metaphor
+  skill: anthropic-art
+  source_image: src/assets/concepts/agent/visual.png
+  alt: 冷白纸底上，一个手绘行动者朝远处目标跨步前进，身后只有几枚连续脚印，表示 Agent 围绕目标选择下一步并行动。
+  prompt_record: src/assets/concepts/agent/PROMPT.md
+  receipt: src/assets/concepts/agent/receipt.yaml
+  visual_qa: passed

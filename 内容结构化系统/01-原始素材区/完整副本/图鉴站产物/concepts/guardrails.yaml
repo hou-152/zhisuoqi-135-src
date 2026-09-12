@@ -1,0 +1,38 @@
+schema_version: 1
+record_kind: canonical_concept
+id: guardrails
+slug: guardrails
+name_zh: 护栏
+name_en: Guardrails
+aliases:
+  - Agent Guardrails
+category_id: human-control
+learning_stage: when-needed
+definition_status: evolving
+remember: Guardrails 是在 Agent 运行中检查输入、输出或工具调用，并在规则触发时阻断相应路径的控制机制。
+feynman: 护栏像三条并行检查线：任务进入前可以查输入，每次要调用工具时可以查动作和参数，最终交付前可以查输出。检查通过就继续；触发 tripwire 就立即停止相应运行或调用。它降低风险，但不是绝不会漏检的安全保证。
+scenario:
+  type: hypothetical
+  text: 一个客服 Agent 收到包含敏感信息的请求，输入护栏先标记风险；如果运行中又准备调用退款工具，工具护栏会检查金额和授权；最终回复还要经过输出护栏再交付。
+image_mnemonic: 输入、工具调用和输出三条独立路径各经过检查门，合规路径流向放行，触发规则的路径汇入停止闸门。
+source_context: OpenAI Agents SDK 将 Guardrails 作为核心原语，并区分输入、输出与工具护栏；输入或输出检查可以触发 tripwire，工具护栏可在函数工具调用前后检查。具体执行时机、并行方式和异常行为以所用 SDK 版本与配置为准。
+boundaries:
+  - Guardrails 不等于 Permission Boundary；权限边界回答“这个主体是否被授权”，护栏还可检查内容、参数、结果和运行条件。
+  - Guardrails 不等于 Sandbox；前者尝试检测和阻断不合规路径，后者限制即使动作发生后最坏影响能扩散到哪里。
+  - 护栏会误报或漏报，不能替代最小权限、沙箱、验证和人工确认。
+  - 输入、输出与工具护栏不是同一个检查点；讨论或排错时要说明检查对象、执行时机和触发后的动作。
+how_to:
+  - 先明确每条护栏检查什么对象、依据什么规则、在何时运行，以及触发后是阻断单次调用还是停止整个 Agent。
+  - 对通过、误报、漏报和超时分别测试，并在日志中记录触发原因与恢复路径。
+  - 高风险动作同时使用权限控制、沙箱和人工确认，不把一条模型式分类护栏当成完整安全架构。
+transfer_question: 如果危险工具在没有授权时仍能执行，只增加输出敏感词检查能解决根因吗？
+source_ids:
+  - SRC-openai-agents-sdk
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/guardrails/visual.png
+  alt: 输入检查、工具检查和输出检查三条路径分别经过检查门；通过的蓝色路径汇向放行，触发规则的红色支路汇向停止，表示 Guardrails 在不同对象上检查并阻断。
+  prompt_record: src/assets/concepts/guardrails/PROMPT.md
+  receipt: src/assets/concepts/guardrails/receipt.yaml
+  visual_qa: passed

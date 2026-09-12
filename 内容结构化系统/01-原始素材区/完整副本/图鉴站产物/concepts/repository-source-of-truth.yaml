@@ -1,0 +1,38 @@
+schema_version: 1
+record_kind: canonical_concept
+id: repository-source-of-truth
+slug: repository-source-of-truth
+name_zh: 仓库事实真源
+name_en: Repository as Source of Truth
+aliases:
+  - 仓库即唯一事实来源
+category_id: information-storage
+learning_stage: now
+definition_status: evolving
+remember: 将 Agent 执行所需的项目规则、任务范围、状态与验收入口保存在版本化仓库中，使不同会话和执行者从同一可读取基线开始工作。
+feynman: 团队里的默契、走廊上的口头共识、某个人脑子里的历史包袱，对 agent 全是虚空。它的世界边界就是它能读到的文件——所以想让它知道的事，都得写进仓库。
+scenario:
+  type: hypothetical
+  text: 假设新人 Agent 从仓库读到任务范围、权威文档和验证命令，发现聊天里的旧要求与最新决定冲突，于是按明确覆盖关系执行。
+image_mnemonic: 一个只表达「仓库事实真源」的单一纸片隐喻：主体对应「将 Agent 执行所需的项目规则、任务范围、状态与验收入口保存在版本化仓库中，使不同会话和执行者从同一可读取基线开始工作」，留出一处明确界线排除「它不表示所有组织知识都必须进入仓库，只要求运行所依赖的事实不能仅存在于口头、个人脑中或不可定位的聊天记录」；不画候选关系。
+source_context: 本卡只采用以下来源范围：《Harness 工程学习仓库：从原始文献到能跑的 skill》：这段将仓库内可读取文件设为 Agent 指令、状态和范围的共同事实入口，排除口头与个人记忆作为运行依赖。未被来源直接支持的产品结论、普遍因果或关系身份不写入本卡。
+boundaries:
+  - 它不表示所有组织知识都必须进入仓库，只要求运行所依赖的事实不能仅存在于口头、个人脑中或不可定位的聊天记录。
+  - 仓库中的文件也可能过期或冲突，仍需明确权威顺序和维护责任。
+  - 单纯存在文件不证明 Agent 已读取、采用或正确执行其中内容。
+  - 当前证据缺口：需要补充仓库外动态真源如何登记、同步与失效处理。
+how_to:
+  - 把运行必需的规则、范围、状态和验收入口放入版本化、可定位的文件。
+  - 声明权威顺序、维护者和过期处理，避免多份文档无声冲突。
+  - 从空白会话仅依赖仓库执行一次任务，记录仍需口头补充的事实并决定是否纳入。
+transfer_question: 哪些团队知识必须进入仓库才能支撑 Agent，哪些因隐私或时效性应留在其他受控系统并只登记入口？
+source_ids:
+  - SRC-harness-learning-repo
+visual:
+  type: metaphor
+  skill: anthropic-art
+  source_image: src/assets/concepts/repository-source-of-truth/visual.png
+  alt: 一个只表达「仓库事实真源」的单一纸片隐喻：主体对应「将 Agent 执行所需的项目规则、任务范围、状态与验收入口保存在版本化仓库中，使不同会话和执行者从同一可读取基线开始工作」，留出一处明确界线排除「它不表示所有组织知识都必须进入仓库，只要求运行所依赖的事实不能仅存在于口头、个人脑中或不可定位的聊天记录」；不画候选关系。
+  prompt_record: src/assets/concepts/repository-source-of-truth/PROMPT.md
+  receipt: src/assets/concepts/repository-source-of-truth/receipt.yaml
+  visual_qa: passed

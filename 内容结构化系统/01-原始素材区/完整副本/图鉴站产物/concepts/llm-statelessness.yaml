@@ -1,0 +1,36 @@
+schema_version: 1
+record_kind: canonical_concept
+id: llm-statelessness
+slug: llm-statelessness
+name_zh: LLM 无状态性
+name_en: LLM Statelessness
+aliases: []
+category_id: current-view
+learning_stage: now
+definition_status: evolving
+remember: 模型单次调用不会自行保留上一轮会话状态；连续对话与任务进度必须由外部系统保存并在后续调用中重新提供。
+feynman: 每次调用都像把一张新白纸递给模型；上次写过什么，只有外部系统重新夹进这叠纸，它才看得见。白纸是新的，不代表模型忘了训练时学到的常识。
+scenario:
+  type: hypothetical
+  text: 假设第一轮让模型记住订单号，第二轮请求只写“查一下状态”；如果应用没有重送订单号或历史，模型无法知道“它”指什么。
+image_mnemonic: 两次相邻调用像两张互不相连的空白工作台；只有被外部系统重新搬入第二张工作台的信息，模型才会再次看见。
+source_context: 本卡只采用以下来源范围：《Coding Agent 如何工作：工具循环与上下文工程》：逐字说明模型每次调用从空白开始，连续性由 Harness 重发消息、工具结果和上下文维持。未被来源直接支持的产品结论、普遍因果或关系身份不写入本卡。
+boundaries:
+  - 无状态性描述调用接口的连续性边界，不表示模型没有训练所得知识。
+  - 外部系统保存了历史也不等于模型本轮已看见；相关内容仍需重新进入当前上下文。
+  - 当前证据缺口：需要在正文中区分无状态模型调用、服务端会话封装与持久化响应链等不同实现层。
+how_to:
+  - 在客户端显式保存任务状态、消息和必要工具结果，不依赖模型自行记住。
+  - 组装下一次请求时，只重新提供完成当前步骤所需的信息。
+  - 用去掉历史的对照请求验证哪些连续性来自外部状态，哪些只是模型知识。
+transfer_question: 如果应用数据库保存了完整对话，但本轮只发送最后一句，为什么仍不能说模型拥有了会话状态？
+source_ids:
+  - SRC-simon-coding-agents
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/llm-statelessness/visual.png
+  alt: 两次相邻调用像两张互不相连的空白工作台；只有被外部系统重新搬入第二张工作台的信息，模型才会再次看见。
+  prompt_record: src/assets/concepts/llm-statelessness/PROMPT.md
+  receipt: src/assets/concepts/llm-statelessness/receipt.yaml
+  visual_qa: passed

@@ -1,0 +1,37 @@
+schema_version: 1
+record_kind: canonical_concept
+id: tool-schema-tax
+slug: tool-schema-tax
+name_zh: 工具 Schema 税
+name_en: Tool Schema Tax
+aliases:
+  - Tool-Schema Tax
+category_id: external-access
+learning_stage: when-needed
+definition_status: evolving
+remember: 为让模型知道工具名称、参数与调用格式，而在每次请求中携带工具 Schema 所产生的固定 Token 与上下文占用。
+feynman: 每次请模型做事前，都先附上一本“所有工具说明书”。工具越多，模型在读用户问题前要先背的说明书越厚。
+scenario:
+  type: hypothetical
+  text: 假设简单问答请求每轮都附带五十个工具的名称、参数和说明；模型尚未读用户问题，固定工具载荷已占去大段窗口。
+image_mnemonic: 一张只表达「工具 Schema 税」的纸面机制图：中心呈现「为让模型知道工具名称、参数与调用格式，而在每次请求中携带工具 Schema 所产生的固定 Token 与上下文占用」，边缘用明确界线排除「它衡量的是工具说明载荷，不是工具实际执行产生的结果 Token 或外部调用费用」；不画候选关系。
+source_context: 本卡只采用以下来源范围：《Claude Code 在读提示词前为何已发送 3.3 万 Token》：逐字把随每次请求携带的工具 Schema 大小识别为静态 Token 负担，并指出工具越多负担越高。未被来源直接支持的产品结论、普遍因果或关系身份不写入本卡。
+boundaries:
+  - 它衡量的是工具说明载荷，不是工具实际执行产生的结果 Token 或外部调用费用。
+  - 工具少不自动更好；应在必要能力、选择噪声、权限面与静态载荷之间取舍。
+  - 当前证据缺口：需要不同模型分词器和工具协议下的可比测量。
+how_to:
+  - 在请求 Payload 中单独统计每个工具 Schema 的 Token 和实际调用频率。
+  - 按任务场景只暴露必要工具，并缩短冗余说明而不牺牲参数边界。
+  - 比较精简前后的选择错误、任务成功率、费用和权限面，避免只追求更少 Token。
+transfer_question: 一个很少调用但一旦缺失就会阻塞任务的工具，应该常驻 Schema 还是按需加载；依据是什么？
+source_ids:
+  - SRC-v2-398431a5f118
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/tool-schema-tax/visual.png
+  alt: 一张只表达「工具 Schema 税」的纸面机制图：中心呈现「为让模型知道工具名称、参数与调用格式，而在每次请求中携带工具 Schema 所产生的固定 Token 与上下文占用」，边缘用明确界线排除「它衡量的是工具说明载荷，不是工具实际执行产生的结果 Token 或外部调用费用」；不画候选关系。
+  prompt_record: src/assets/concepts/tool-schema-tax/PROMPT.md
+  receipt: src/assets/concepts/tool-schema-tax/receipt.yaml
+  visual_qa: passed

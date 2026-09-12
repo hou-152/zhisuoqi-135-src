@@ -1,0 +1,37 @@
+schema_version: 1
+record_kind: canonical_concept
+id: agent-session-management
+slug: agent-session-management
+name_zh: Agent 会话管理
+name_en: Agent Session Management
+aliases:
+  - Session Management
+category_id: context-delivery
+learning_stage: when-needed
+definition_status: evolving
+remember: 围绕任务边界和上下文质量，决定何时继续、回退、压缩、清空或分派当前 Agent 会话的治理实践。
+feynman: Session Management 不是“开几个聊天窗口”的小技巧，而是 Claude Code 的上下文治理能力。每一个 session 都是一段带着历史、工具输出、文件读取和错误路径的工作记忆。你要决定什么时候继续沿用它，什么时候回退它，什么时候压缩它，什么时候清空它，什么时候把子任务外包给 subagent。1M context 只是把窗口变大；session management 才决定窗口里放什么、丢什么、什么时候换一个干净窗口。
+scenario:
+  type: hypothetical
+  text: 假设一次修复会话已经读入错误分支、长日志和多次失败尝试；新需求与原问题只有一个文件相关，团队必须决定继续、压缩还是另开会话。
+image_mnemonic: 一张只表达「Agent 会话管理」的纸面机制图：中心呈现「围绕任务边界和上下文质量，决定何时继续、回退、压缩、清空或分派当前 Agent 会话的治理实践」，边缘用明确界线排除「会话管理不只是开关聊天窗口，而是管理历史、工具输出、错误路径与后续任务是否仍应共享同一上下文」；不画候选关系。
+source_context: 本卡只采用以下来源范围：《Claude Code 的 1M Context 让会话管理变成核心技能》：逐字定义会话管理为在继续、回退、压缩、清空与子 Agent 之间管理上下文的能力。未被来源直接支持的产品结论、普遍因果或关系身份不写入本卡。
+boundaries:
+  - 会话管理不只是开关聊天窗口，而是管理历史、工具输出、错误路径与后续任务是否仍应共享同一上下文。
+  - 更大的上下文窗口只推迟容量上限，不会自动消除噪音、错误路径和上下文腐烂。
+  - 当前证据缺口：当前证据聚焦 Claude Code 命令，需要跨 Agent 产品核对可迁移的会话操作与状态语义。
+how_to:
+  - 检查当前目标、已加载历史、错误路径和未落盘状态是否仍服务于下一步。
+  - 按情况选择继续、回退、压缩、清空或分派，并记录选择理由与保留信息。
+  - 在切换后验证新会话能恢复必要状态，同时不再携带已判定无关的噪声。
+transfer_question: 当一个会话掌握关键背景却积累了错误假设时，怎样决定回退、压缩还是重开，而不是只看剩余窗口大小？
+source_ids:
+  - SRC-thariq-session-management
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/agent-session-management/visual.png
+  alt: 一张只表达「Agent 会话管理」的纸面机制图：中心呈现「围绕任务边界和上下文质量，决定何时继续、回退、压缩、清空或分派当前 Agent 会话的治理实践」，边缘用明确界线排除「会话管理不只是开关聊天窗口，而是管理历史、工具输出、错误路径与后续任务是否仍应共享同一上下文」；不画候选关系。
+  prompt_record: src/assets/concepts/agent-session-management/PROMPT.md
+  receipt: src/assets/concepts/agent-session-management/receipt.yaml
+  visual_qa: passed

@@ -1,0 +1,637 @@
+# Generated from reviewed source coordinates; source snapshots remain read-only.
+schema_version: 1
+record_kind: source_relation_network
+network_id: SRCNET-harness-engineering-28-plus-2
+source_ref: 飞书-Harness-Engineering-28+2.md
+source_sha256: sha256:ed545831b5b8da46b1c98f5b50f7dd48ec61dc730b956ad8942a1e62ab1af793
+coverage:
+  - article_title: Martin Fowler 为「harness 工程」站台：Thoughtworks 的一线笔记
+    article_title_line: 51
+    end_line: 261
+    review_outcome: no-in-scope-relation
+    relation_entry_ids: []
+  - article_title: LangChain 解剖 agent harness：Agent = 模型 + harness
+    article_title_line: 262
+    end_line: 543
+    review_outcome: relations-captured
+    relation_entry_ids:
+      - SRCNET-harness-engineering-28-plus-2-001
+      - SRCNET-harness-engineering-28-plus-2-002
+      - SRCNET-harness-engineering-28-plus-2-003
+  - article_title: Harness Engineering 三个 Scaling 维度的统一框架
+    article_title_line: 544
+    end_line: 797
+    review_outcome: no-in-scope-relation
+    relation_entry_ids: []
+  - article_title: 你的 agent 需要的是 harness，不是又一个框架
+    article_title_line: 798
+    end_line: 1069
+    review_outcome: relations-captured
+    relation_entry_ids:
+      - SRCNET-harness-engineering-28-plus-2-004
+      - SRCNET-harness-engineering-28-plus-2-005
+  - article_title: HumanLayer：harness 工程就是把 coding agent 的配置点用到极致
+    article_title_line: 1070
+    end_line: 1367
+    review_outcome: relations-captured
+    relation_entry_ids:
+      - SRCNET-harness-engineering-28-plus-2-006
+      - SRCNET-harness-engineering-28-plus-2-007
+      - SRCNET-harness-engineering-28-plus-2-008
+  - article_title: Lilian Weng：把 harness 工程接到「递归自我改进」这条老线索上
+    article_title_line: 1368
+    end_line: 1728
+    review_outcome: no-in-scope-relation
+    relation_entry_ids: []
+  - article_title: Cursor 谈「会自动驾驶的代码库」：多 agent 研究 harness 开放预览
+    article_title_line: 1729
+    end_line: 2034
+    review_outcome: no-in-scope-relation
+    relation_entry_ids: []
+  - article_title: Cursor：让 coding agent 连续自治运行数周的工程经验
+    article_title_line: 2035
+    end_line: 2246
+    review_outcome: no-in-scope-relation
+    relation_entry_ids: []
+  - article_title: OpenAI Agents SDK 官方文档：抽象极少的轻量 agent 框架
+    article_title_line: 2247
+    end_line: 2445
+    review_outcome: no-in-scope-relation
+    relation_entry_ids: []
+  - article_title: Anthropic 工程实践：如何为长时间运行的 Agent 应用设计 Harness
+    article_title_line: 2446
+    end_line: 2683
+    review_outcome: relations-captured
+    relation_entry_ids:
+      - SRCNET-harness-engineering-28-plus-2-009
+  - article_title: 2026 AI 工程五大趋势：从模型能力转向可靠系统
+    article_title_line: 2684
+    end_line: 2889
+    review_outcome: relations-captured
+    relation_entry_ids:
+      - SRCNET-harness-engineering-28-plus-2-010
+  - article_title: OpenAI Agents SDK 下一代演进：原生沙箱 + 模型原生 harness
+    article_title_line: 2890
+    end_line: 3237
+    review_outcome: relations-captured
+    relation_entry_ids:
+      - SRCNET-harness-engineering-28-plus-2-011
+  - article_title: Anthropic 干脆把 harness 托管了：Claude Managed Agents 的设计取舍
+    article_title_line: 3238
+    end_line: 3441
+    review_outcome: no-in-scope-relation
+    relation_entry_ids: []
+  - article_title: GitHub：决定 AI 编码效果的是 harness，不是你换了哪个工具
+    article_title_line: 3442
+    end_line: 3731
+    review_outcome: no-in-scope-relation
+    relation_entry_ids: []
+  - article_title: Harness Engineering：AI-First 组织的信任机制重构
+    article_title_line: 3732
+    end_line: 3913
+    review_outcome: no-in-scope-relation
+    relation_entry_ids: []
+  - article_title: 一次关于 Loop 的工程争论
+    article_title_line: 3914
+    end_line: 4105
+    review_outcome: relations-captured
+    relation_entry_ids:
+      - SRCNET-harness-engineering-28-plus-2-012
+  - article_title: Loop Engineer：把 Agent 工作流变成可复用知识模板
+    article_title_line: 4106
+    end_line: 4285
+    review_outcome: relations-captured
+    relation_entry_ids:
+      - SRCNET-harness-engineering-28-plus-2-013
+  - article_title: 从 Prompt 转向 Loop Engineering 的工作流拐点
+    article_title_line: 4286
+    end_line: 4458
+    review_outcome: no-in-scope-relation
+    relation_entry_ids: []
+  - article_title: Harness 工程学习仓库：从原始文献到能跑的 skill
+    article_title_line: 4459
+    end_line: 4683
+    review_outcome: relations-captured
+    relation_entry_ids:
+      - SRCNET-harness-engineering-28-plus-2-014
+      - SRCNET-harness-engineering-28-plus-2-015
+  - article_title: Harness engineering：把 agent 能力落到工具、约束和循环里
+    article_title_line: 4684
+    end_line: 4863
+    review_outcome: relations-captured
+    relation_entry_ids:
+      - SRCNET-harness-engineering-28-plus-2-016
+  - article_title: 撕开 Claude Code 真相：让它好用的 98.4%，是工程不是 AI
+    article_title_line: 4864
+    end_line: 5194
+    review_outcome: no-in-scope-relation
+    relation_entry_ids: []
+  - article_title: 拆开 Claude Code：一个编码 agent 的 harness 内部长什么样
+    article_title_line: 5195
+    end_line: 5461
+    review_outcome: no-in-scope-relation
+    relation_entry_ids: []
+  - article_title: 为什么 harness 工程这么难
+    article_title_line: 5462
+    end_line: 5746
+    review_outcome: no-in-scope-relation
+    relation_entry_ids: []
+  - article_title: 为什么「软件工厂」会失败：光有 harness 工程还不够
+    article_title_line: 5747
+    end_line: 6016
+    review_outcome: no-in-scope-relation
+    relation_entry_ids: []
+  - article_title: Thin Harness, Fat Skills：harness 才是真正的产品
+    article_title_line: 6017
+    end_line: 6218
+    review_outcome: no-in-scope-relation
+    relation_entry_ids: []
+  - article_title: Agent Harness 的本质：把模型放进可控的执行系统
+    article_title_line: 6219
+    end_line: 6684
+    review_outcome: relations-captured
+    relation_entry_ids:
+      - SRCNET-harness-engineering-28-plus-2-017
+      - SRCNET-harness-engineering-28-plus-2-018
+      - SRCNET-harness-engineering-28-plus-2-019
+      - SRCNET-harness-engineering-28-plus-2-020
+      - SRCNET-harness-engineering-28-plus-2-021
+      - SRCNET-harness-engineering-28-plus-2-022
+      - SRCNET-harness-engineering-28-plus-2-023
+  - article_title: Harness Engineering vs Agentic Engineering：两种工程范式的概念辨析
+    article_title_line: 6685
+    end_line: 6826
+    review_outcome: no-in-scope-relation
+    relation_entry_ids: []
+  - article_title: The Anatomy of an Agent Harness
+    article_title_line: 6827
+    end_line: 7037
+    review_outcome: no-in-scope-relation
+    relation_entry_ids: []
+  - article_title: 只改两个 API 设置，OpenAI 把 ARC-AGI-3 成绩提到三倍
+    article_title_line: 7038
+    end_line: 7235
+    review_outcome: relations-captured
+    relation_entry_ids:
+      - SRCNET-harness-engineering-28-plus-2-024
+  - article_title: 一个被 harness 套住的 LLM agent：这个词到底指什么
+    article_title_line: 7236
+    end_line: 7529
+    review_outcome: no-in-scope-relation
+    relation_entry_ids: []
+entries:
+  - entry_id: SRCNET-harness-engineering-28-plus-2-001
+    article_title: LangChain 解剖 agent harness：Agent = 模型 + harness
+    article_title_line: 262
+    location:
+      start_line: 294
+      end_line: 302
+    observed_terms:
+      - Agent
+      - harness
+      - 系统提示词
+      - Tools
+      - Skills
+      - MCPs
+      - sandbox
+      - handoffs
+      - compaction
+    relation_paraphrase: 来源用 Agent = Model + Harness 定义组合关系，并列出系统提示、工具、Skill、MCP、沙箱、交接和压缩中间件。
+    exact_excerpt: |-
+      - 等式先行：Agent = Model + Harness；一句话版本是 **If you're not the model, you're the harness.**
+      - harness 是「除模型本身之外的每一段代码、配置和执行逻辑」（every piece of code, configuration, and execution logic that isn't the model itself）。
+      - 关键判断：**a raw model is not an agent**。裸模型只有在 harness 给了它四样东西之后才成为 agent——state（状态）、tool execution（工具执行）、feedback loops（反馈回路）、enforceable constraints（可强制执行的约束）。
+      - 作者给出的 harness 具体清单：
+      - System Prompts（系统提示词）
+      - Tools、Skills、MCPs 以及它们的描述（descriptions 本身也算 harness）
+      - Bundled Infrastructure：filesystem、sandbox、browser
+      - Orchestration Logic：subagent spawning、handoffs、model routing
+      - Hooks / Middleware，用于确定性执行：compaction、continuation、lint checks
+    excerpt_sha256: sha256:1cdcd919ae07465195511477db98a808743965319a058aa86b0b1b1d508acecf
+  - entry_id: SRCNET-harness-engineering-28-plus-2-002
+    article_title: LangChain 解剖 agent harness：Agent = 模型 + harness
+    article_title_line: 262
+    location:
+      start_line: 314
+      end_line: 316
+    observed_terms:
+      - while loop
+      - harness
+    relation_paraphrase: 追踪消息历史并重复调用模型的循环已经构成一副 harness。
+    exact_excerpt: |-
+      - 结构性结论：**LLM 的结构要求某种把它包起来的机器**（machinery that wraps them to do useful work）。
+      - 一个人人都用过的例子：为了得到「chatting」这种产品 UX，我们把模型包进一个 while loop，追踪历史消息并 append 新的用户消息——这已经是一副 harness 了。
+      - 主线心法：**把想要的 agent 行为，转换成 harness 里的一个实际功能**（convert a desired agent behavior into an actual feature in the harness）。
+    excerpt_sha256: sha256:43455d2703a7fd3df1f7897ea21ae23a0d7688e42034219507ced79e03c60d96
+  - entry_id: SRCNET-harness-engineering-28-plus-2-003
+    article_title: LangChain 解剖 agent harness：Agent = 模型 + harness
+    article_title_line: 262
+    location:
+      start_line: 342
+      end_line: 348
+    observed_terms:
+      - 沙箱
+      - self-verification loop
+    relation_paraphrase: 沙箱和观察工具为 Agent 提供安全执行与自验证环境。
+    exact_excerpt: |-
+      - 想要的行为：给 agent 一个默认配置正确的环境，让它能安全行动、观察结果、持续推进。
+      - 为什么不能就地跑：本地执行 agent 生成的代码有风险，而且单个本地环境无法扩展到大规模 agent 负载。
+      - **沙箱给 agent 安全的运行环境**：harness 连到沙箱里跑代码、检查文件、装依赖、完成任务，得到安全隔离的执行。安全再加码可以做命令 allow-list 和网络隔离。
+      - 沙箱同时解锁规模：环境可以按需创建、在众多任务上扇出（fanned out）、干完就销毁。
+      - **好环境自带好的默认工具**：harness 负责配置工具链——预装语言运行时和包，git 与测试用的 CLI，用于网页交互与验证的 browser。
+      - browser、logs、screenshots、test runners 让 agent 有办法观察和分析自己的产出，从而形成 **self-verification loop**：写应用代码 → 跑测试 → 查日志 → 修错误。
+      - 归属判定很清楚：模型不会自己配执行环境。**agent 在哪运行、有哪些工具可用、能访问什么、如何验证自己的工作，全部是 harness 级的设计决策。**
+    excerpt_sha256: sha256:36c453391e65654de2343483fa2376540790385e00e3ea6adad3b59bbe9b79e8
+  - entry_id: SRCNET-harness-engineering-28-plus-2-004
+    article_title: 你的 agent 需要的是 harness，不是又一个框架
+    article_title_line: 798
+    location:
+      start_line: 849
+      end_line: 855
+    observed_terms:
+      - harness
+      - 持久化执行
+      - 可观测性
+    relation_paraphrase: 解耦的编排层为 harness 带来可观测性、持久化执行和重试。
+    exact_excerpt: |-
+      - 作者承认 OpenClaw 和 pi coding-agent 系列库是这个项目的灵感来源，但指出关键差异：**它们内部用的是进程内事件，事件与编排都在内存里处理**；而 Inngest 本身是一个事件驱动的编排层，**这个项目把执行与编排解耦了**。
+      - 解耦为 harness 带来五项具体能力：
+      - 编排层通过 trace 和 step 级检视提供**可观测性**；
+      - 内建的**持久化执行**带来可靠性与重试；
+      - 解耦为**多人、分布式的 agent 编排**铺路；
+      - 事件历史提供系统内发生过什么的**审计轨迹**；
+      - **调度**内建，支持 cron 或延迟/定时函数。
+    excerpt_sha256: sha256:4cfde75ae04cc79ffd08f212a0fdbfa6767b516c30c34f625831b8aa9194dbe3
+  - entry_id: SRCNET-harness-engineering-28-plus-2-005
+    article_title: 你的 agent 需要的是 harness，不是又一个框架
+    article_title_line: 798
+    location:
+      start_line: 860
+      end_line: 864
+    observed_terms:
+      - agent loop
+      - 持久化执行
+    relation_paraphrase: 持久化执行把 Agent Loop 的每次模型和工具调用变成可独立重试的步骤。
+    exact_excerpt: |-
+      - Utah 的核心是 think → act → observe 循环：每一轮调用 LLM，检查它是否想用工具，执行工具，把结果喂回去。**关键洞见是：每一次 LLM 调用和每一次工具执行都是一个 Inngest step。**
+      - 循环骨架：step.run 包住 callLLM（think）；若有 toolCalls 则逐个 step.run 执行工具（act），把 toolResultMessage 推回 messages（observe）；若 LLM 只返回文本没有工具调用，那段文本**就是**回复，循环结束。
+      - 三个值得注意的机制：
+      - **Inngest 自动为重复的 step ID 编号**。step.run("think") 在循环里被调十次，Inngest 内部记为 think:0、think:1……你不需要自己管理唯一 step ID，SDK 负责。
+      - **每个 step 独立可重试**。第 3 轮 LLM API 返回 500，Inngest 只重试那一个 step；第 1、2 轮的结果已经持久化，不会重放。作者点出这就是持久化执行本来的设计意图，只不过**从结账工作流换到了 agent loop 上**。
+    excerpt_sha256: sha256:c251520b7c6a9de6e7622e192058561bfcd9b8134e3e43b086de3935751d1237
+  - entry_id: SRCNET-harness-engineering-28-plus-2-006
+    article_title: HumanLayer：harness 工程就是把 coding agent 的配置点用到极致
+    article_title_line: 1070
+    location:
+      start_line: 1110
+      end_line: 1117
+    observed_terms:
+      - harness 工程
+      - context engineering
+      - 上下文工程
+    relation_paraphrase: 该来源明确主张 Harness Engineering 是 Context Engineering 的子集。
+    exact_excerpt: |-
+      ## harness 工程是上下文工程的子集
+
+      ![图片为一张文氏图，展示了Harness工程作为Context Engineering（上下文工程）子集的关系。图中“Harness Engineering”位于“Context Engineering”内，两者相交部分包含“State/History”“Memory”等。此外，“Building a Coding Agent”包含“Prompt Engineering”“Structured Outputs”“RAG”等，还与“Harness Engineering”相交。图右下角有二维码及标注“@OniBlacklight & @daxhorty”。该图直观呈现了上下文工程与Harness工程的关系，与上下文提到的Harness工程定位为上下文工程子集的内容相契合。](https://internal-api-drive-stream.feishu.cn/space/api/box/stream/download/authcode/?code=OTczYmEyYTg3NzYyM2RjNjVjMTkwZTczNGQ4YzA0NjRfNGZlZDFiYWI5ZWE0YzU2MWYxYmVmMzIwZDk0NzAyMGRfSUQ6NzY3MTAwODA2Nzc0MzQxOTM2NF8xNzg2NTU0OTE0OjE3ODY1NTg1MTRfVjM)
+
+      *原文配图｜文氏图显示 harness 工程是上下文工程的子集，hooks 与子 agent 都在其中* ｜ [原图](https://neican-res.candobear.com/article-images/a817fbc02bab0c5c25595548ccd11cf004e8342cef08652a26ac7b39bfd744c2.png)
+
+      - 作者明确把 harness 工程定位为 **context engineering（上下文工程）** 的子集。上下文工程由联合创始人 Dex 在 12-factor agents 中提出，是「提示词工程」的超集，还包含一系列系统性提升 AI agent 可靠性的技术。
+      - 更精确的表述：harness 工程是上下文工程中**主要通过 harness 配置点来精细管理 coding agent 上下文窗口**的那一部分。
+    excerpt_sha256: sha256:3d7bc39e21e73b750acc3ecc1957b0a4cd86ff264b80952cb26ccb7ae402b524
+  - entry_id: SRCNET-harness-engineering-28-plus-2-007
+    article_title: HumanLayer：harness 工程就是把 coding agent 的配置点用到极致
+    article_title_line: 1070
+    location:
+      start_line: 1157
+      end_line: 1164
+    observed_terms:
+      - MCP
+      - MCP server
+      - 工具太多
+      - 上下文窗口
+      - 系统提示
+    relation_paraphrase: MCP 接入后的工具描述进入系统提示；工具过多会占满窗口，因此应关闭当前不用的能力。
+    exact_excerpt: |-
+      - MCP server 的主要用途是把工具插进 coding agent，让它的能力超出文件读写和 bash 命令。MCP 规范里的 resources、prompts、elicitations 等特性，**在各家 MCP 客户端和 coding agent harness 里普遍支持得不好**。
+      - MCP 既支持跑在本机的 server（让 agent 与本地环境交互），也支持基于 HTTP 的远程 server（连 Linear、Sentry 这类服务）。
+      - 关键机制：接入 MCP server 后，可用工具的列表、描述和调用参数**会被注入 coding agent 的系统提示**。因此 server 可以通过工具描述来影响 agent 行为，告诉它何时该用哪个工具。
+      - 由此带来一条安全警告：正因为工具描述进了系统提示，**绝不要连接你不信任的 MCP server**——这是提示注入的危险入口；用 npx 或 uvx 在客户端本地运行的 STDIO server，即使没有提示注入也能在你的主机上执行代码。
+      - 工具太多是坏事：插进去的 MCP 工具一多，上下文窗口就被工具描述填满，把你更快地推进「笨蛋区」（the dumb zone）。**instruction budget（指令预算）** 同样重要——每一条无关的工具描述都是 agent 必须处理却毫无收益的指令。
+      - 这类失败太常见，以至于 Anthropic 发布了实验性的 MCP tool search，在用户接入工具过多时向 Claude 渐进披露工具。结论很直接：不在主动使用、又提供大量工具的 server，关掉。
+      - 另一条经验：如果某个 MCP server 复制的功能已经有训练数据里充分出现过的 CLI，直接提示 agent 用 CLI 效果更好。GitHub、Docker、大多数数据库都属于这一类——模型在训练中见得够多、本来就会用，还能顺带与 grep、jq 组合，进一步提高上下文效率。
+      - HumanLayer 的实操案例：他们用了一阵 Linear MCP server，发现只用到其中一小部分工具，于是写了个包装 Linear API 的小 CLI，返回极度精简的响应，并在 agentfile 里给出 6 条示例用法（取 issue、列 issue、加评论、加链接、改状态、取分支名、取工单图片）。这一手省下了系统提示里成千上万个来自 MCP 工具定义的 token，以及更多来自冗长 MCP 响应的 token。
+    excerpt_sha256: sha256:4b81a988b76055a3a5afaae197606d715b0485cd18a71920912dbccf244a59f3
+  - entry_id: SRCNET-harness-engineering-28-plus-2-008
+    article_title: HumanLayer：harness 工程就是把 coding agent 的配置点用到极致
+    article_title_line: 1070
+    location:
+      start_line: 1172
+      end_line: 1177
+    observed_terms:
+      - skills
+      - progressive disclosure
+    relation_paraphrase: Skill 通过需要时才加载指令、知识或工具来实现渐进式披露。
+    exact_excerpt: |-
+      - skills 最初由 Anthropic 为 Claude Code 引入，此后成为开放标准，Codex、OpenCode 等 harness 也已支持。作者关心的不是它怎么组织，而是它**为什么有用**。
+      - 先泼一盆冷水：技能注册表已经被抓到分发过数百个恶意 skill。对待 skill 要像对待 npm install random-package 一样——读清楚你装了什么。ClawHub、[skills.sh](http://skills.sh/) 这类注册表能在你机器上执行任意代码。
+      - **progressive disclosure（渐进披露）** 是 skills 的核心价值。作者很早就吃过亏：把每条指令、每个工具都塞进系统提示，agent 越用越糟——还没开工，指令预算就烧光了。skills 的解法是，只有当 agent 判断（或你替它判断）需要时，它才拿到那部分指令、知识或工具。
+      - 技能激活的机制：skill 目录下的 SKILL.md 会作为一条 user message 载入 agent 的上下文窗口，同时 agent 被告知这个文件所在的目录，于是 SKILL.md 可以进一步说明目录里还捆绑了什么（模板文件、若干 CLI 等）。
+      - 由此可以把渐进披露玩得更深：一个 skill 里放多个 markdown 文件，各自承载不同功能、不同用途的信息，由主 SKILL.md 告诉 agent 其他文件是什么、什么时候该读。
+      - 一个现实限制：**没法把 MCP server 或自定义 agent 工具直接打包进 skill**，你得把它写成可执行文件、CLI、NPM 包之类，随 skill 分发，或在 skill 文件里指示 agent 去安装。例如与其配 Playwright MCP server，不如给 agent 一个用 BrowserBase 或 Vercel 浏览器 CLI 的 skill。
+    excerpt_sha256: sha256:c060e9d41d46203f50d2827b3bea6a35a967947fe2e727e7b501ecf66004043e
+  - entry_id: SRCNET-harness-engineering-28-plus-2-009
+    article_title: Anthropic 工程实践：如何为长时间运行的 Agent 应用设计 Harness
+    article_title_line: 2446
+    location:
+      start_line: 2486
+      end_line: 2492
+    observed_terms:
+      - handoff
+      - 状态
+    relation_paraphrase: 启动新 Agent 时，结构化 Handoff 必须传递前一 Agent 的状态和下一步。
+    exact_excerpt: |-
+      - 随着 context window 填满，模型倾向于失去连贯性
+      - 部分模型还会出现 **"context anxiety"**（上下文焦虑）——在接近自认为的上下文极限时提前收尾工作
+      - 解决方案：**context resets**（上下文重置）——彻底清空上下文窗口，启动全新 agent，配合结构化的 handoff 传递前一个 agent 的状态和下一步计划
+      - Context reset vs Compaction（压缩）的区别：
+      - Compaction：原地总结早期对话，同一个 agent 继续在缩短的历史上工作。保持了连续性，但没有给 agent 一个 "clean slate"，context anxiety 仍可能存在
+      - Reset：给 agent 一个全新起点，代价是 handoff artifact 必须包含足够的状态信息
+      - Sonnet 4.5 的 context anxiety 严重到 compaction 不够用，必须用 context reset
+    excerpt_sha256: sha256:753f8967506cca2adebb50264b859e38d6907ff90afc90ca60644f51f5c08c58
+  - entry_id: SRCNET-harness-engineering-28-plus-2-010
+    article_title: 2026 AI 工程五大趋势：从模型能力转向可靠系统
+    article_title_line: 2684
+    location:
+      start_line: 2720
+      end_line: 2724
+    observed_terms:
+      - Harness
+      - context
+      - permissions
+      - persistent state
+    relation_paraphrase: Harness 负责 workflow、Context、权限、评估与持久状态。
+    exact_excerpt: |-
+      - Lilian Weng 2023 年的《LLM Powered Autonomous Agents》把 Agent 分解为 planning、memory、tool use；2026 年新文章《Harness Engineering for Self-Improvement》则把重点转到模型周围的 harness。
+      - Harness 负责 workflow、context、permissions、evaluation、persistent state 与 continuous improvement。模型能力只是系统的一部分，可靠交付来自外围结构。
+      - 完全自治不仅不可靠，在规模化场景中也未必可取。大会更常把 Agent 定位为增强 AI engineer，而不是彻底替代人。
+      - OpenAI 的 Romain Huet 用“software ate the world, AI ate software, AI engineers are eating the world”描述新的工程主体：人通过 Agent 放大交付范围。
+      - Anthropic 的 Thariq Shihipar 说“models are grown, not designed”，能力会 spiky 地增长。正因为前沿公司也不能完全预测模型变化，外部评估、监控和控制系统更重要。
+    excerpt_sha256: sha256:c846dfd2a90bce286f4aa2b4ec4bc60f5f1c0b767250765737fb13c745eff464
+  - entry_id: SRCNET-harness-engineering-28-plus-2-011
+    article_title: OpenAI Agents SDK 下一代演进：原生沙箱 + 模型原生 harness
+    article_title_line: 2890
+    location:
+      start_line: 3014
+      end_line: 3020
+    observed_terms:
+      - durable execution
+      - sandbox
+      - state
+    relation_paraphrase: 状态外置和检查点让运行在沙箱失效后仍可恢复。
+    exact_excerpt: |-
+      ### 持久：durable execution
+
+      agent 的 state 被外部化后：
+
+      - sandbox 容器挂了，run 不会丢
+      - 内置 **snapshotting + rehydration**
+      - 原环境失败或过期，可在新容器里从上一个 checkpoint 继续
+    excerpt_sha256: sha256:44bcb9cba9d958896a7a71e6990b73dff2387fc39db1e66b8f63ea15cab50edf
+  - entry_id: SRCNET-harness-engineering-28-plus-2-012
+    article_title: 一次关于 Loop 的工程争论
+    article_title_line: 3914
+    location:
+      start_line: 4004
+      end_line: 4009
+    observed_terms:
+      - loop
+      - skill
+    relation_paraphrase: Loop 调用经过测试、可复用的 Skill，才形成可复利工作流。
+    exact_excerpt: |-
+      ## 最终答案：loop 是管道，skill 才是资产
+
+      - 作者最后把自己的结论落在 skill 上：loop 是 plumbing，真正的资产是它调用的 skill。
+      - Steinberger 关于 loops 的另一半观点是：如果一件事做超过一次，就把它变成自动化 skill；如果一件事很难，做完后也把它变成 skill，让下一次免费。
+      - 一个没有可复用技能的 loop，只是包住陌生 agent 的 while-true；一个能调用锋利、经过测试、命名清楚的技能库的 loop，才会复利。
+      - 文章对“WTF is a loop”的最终回答不是 prompt engineering 死了，而是：不要再做循环里的那个人；写一次 loop，给它值得调用的技能和可检查自己的反馈，给它预算和停止边界，然后让它在基础设施时间里运行。
+    excerpt_sha256: sha256:0ec34307d1eeeb1efc326674f90d9f9122f73ae2a75946968cbf29ebd78b39f4
+  - entry_id: SRCNET-harness-engineering-28-plus-2-013
+    article_title: Loop Engineer：把 Agent 工作流变成可复用知识模板
+    article_title_line: 4106
+    location:
+      start_line: 4162
+      end_line: 4167
+    observed_terms:
+      - 状态系统
+      - handoff
+    relation_paraphrase: 跨会话、跨 Agent 的交接依赖稳定、可读、可追加的状态系统。
+    exact_excerpt: |-
+      ## 四个核心组件：trigger、file structure、tools、parallel environment
+
+      - 第一是 triggers。触发器可以是 cron、webhook、incident、另一个 agent、用户事件或业务数据变化。好的 trigger 让 agent 在正确时机醒来，而不是等人手动发 prompt。
+      - 第二是 file structure。作者认为这是最重要的部分，因为跨 session、跨 agent 的工作必须依赖稳定、可读、可追加的状态系统。文件结构承担 memory、coordination、review、handoff 的职责。
+      - 第三是 tools and connectors。agent 必须能访问业务系统、日志、数据库、支付、客服、浏览器、仓库和测试工具，否则 loop 只能写总结，无法做 meaningful work。
+      - 第四是支持 parallel and autonomous work 的环境。代码库和运行环境必须允许多个 agent 同时工作、互不踩踏，并且每个 agent 都能验证自己的改动。没有这个前提，loop 一多就会互相冲突。
+    excerpt_sha256: sha256:e2fa10aa322d3e9553324c12f24b040550c6e9c37583aeaf15190217d34ac9b4
+  - entry_id: SRCNET-harness-engineering-28-plus-2-014
+    article_title: Harness 工程学习仓库：从原始文献到能跑的 skill
+    article_title_line: 4459
+    location:
+      start_line: 4543
+      end_line: 4549
+    observed_terms:
+      - Agent 会话生命周期
+      - 状态机
+      - claude-progress.md
+      - feature_list.json
+    relation_paraphrase: Agent 生命周期以结构化状态机读取进度、执行验证并写回恢复点。
+    exact_excerpt: |-
+      ## Agent 会话生命周期：一台 16 步的状态机
+
+      - 课程的一个核心理念：**agent 的会话应该遵循结构化的生命周期，而不是自由发挥。**
+      - **开工**（1-5）：读 AGENTS.md / CLAUDE.md → 跑 init.sh（安装、验证、健康检查）→ 读 claude-progress.md（上次做了什么）→ 读 feature_list.json（做完哪些、接下来做哪个）→ 检查 git log（最近的改动）。
+      - **选择**（6-7）：选定且只选一个未完成的功能；只做这一个功能。
+      - **执行**（8-11）：实现功能 → 运行验证（测试、lint、类型检查）→ 失败则修复后重跑 → 通过则**记录证据**。
+      - **收尾**（12-16）：更新 claude-progress.md → 更新 feature_list.json → 记录还没做完和还没验证的东西 → commit（只在可以安全恢复时）→ 给下次会话留干净的重启路径。
+    excerpt_sha256: sha256:62b11eea8877688bf0d51c3ee522402dc7140a1cd38dc3c4e6246d8bd9d3cf6d
+  - entry_id: SRCNET-harness-engineering-28-plus-2-015
+    article_title: Harness 工程学习仓库：从原始文献到能跑的 skill
+    article_title_line: 4459
+    location:
+      start_line: 4632
+      end_line: 4636
+    observed_terms:
+      - 可观测性
+      - harness
+      - 验证
+    relation_paraphrase: 来源明确说可观测性属于 Harness，并与状态和验证互相补充。
+    exact_excerpt: |-
+      ### 可观测性
+
+      **context**：L11 的主张——「可观测性属于 harness」，理由是「看不到 agent 做了什么，就修不了它搞坏的东西」。它在项目序列中作为综合项目 P06 的组成部分（完整 harness + 可观测性 + 消融实验）出现，与状态、验证互为补充。
+
+      **费曼一下**：黑箱里出了问题，你只能整箱换掉。装上仪表盘和日志之后，你才知道是哪一步坏的、什么时候坏的——修复的前提是能看见。
+    excerpt_sha256: sha256:98fec5d27565913d52632ffa01de184f205f336a296b781e8d92d046e32bdc96
+  - entry_id: SRCNET-harness-engineering-28-plus-2-016
+    article_title: Harness engineering：把 agent 能力落到工具、约束和循环里
+    article_title_line: 4684
+    location:
+      start_line: 4836
+      end_line: 4840
+    observed_terms:
+      - Long-running agent handoff
+      - 长任务延续
+    relation_paraphrase: Handoff 工件通过保留进度和证据支撑跨窗口、跨阶段的长任务延续。
+    exact_excerpt: |-
+      ### Long-running agent handoff
+
+      **context**：Anthropic 的 initializer agents、handoff artifacts、feature lists，以及 OpenHands 的 context condensation，都服务于跨上下文窗口、跨阶段的长任务延续。
+
+      **费曼一下**：长任务里的 agent 像接力队。每一棒都要留下清楚的进度、证据、失败和下一步，否则下一棒只能重新摸索。
+    excerpt_sha256: sha256:8b78b2d8fe7de153e87f61917b9d6cac799f154ae436f838910e401c2aa74cd9
+  - entry_id: SRCNET-harness-engineering-28-plus-2-017
+    article_title: Agent Harness 的本质：把模型放进可控的执行系统
+    article_title_line: 6219
+    location:
+      start_line: 6287
+      end_line: 6290
+    observed_terms:
+      - Context engineering
+      - 上下文窗口
+      - 压缩
+    relation_paraphrase: Context Engineering 决定窗口中的信息如何进入、压缩、检索或隐藏。
+    exact_excerpt: |-
+      ### Context engineering
+
+      - 上下文工程关注模型在什么时间点能看到什么内容。
+      - 它把上下文窗口视为稀缺资源，决定哪些信息进入窗口、哪些信息被压缩、检索或隐藏。
+    excerpt_sha256: sha256:9c7b27d1db1dc627ac874ae8ed96c405edff2f1a8164823d6de6b3ab55a04c85
+  - entry_id: SRCNET-harness-engineering-28-plus-2-018
+    article_title: Agent Harness 的本质：把模型放进可控的执行系统
+    article_title_line: 6219
+    location:
+      start_line: 6306
+      end_line: 6310
+    observed_terms:
+      - 工具
+      - 沙箱执行
+    relation_paraphrase: 工具层负责校验、参数提取、沙箱执行、结果捕获和观察格式化。
+    exact_excerpt: |-
+      ### 工具：Agent 的双手
+
+      - 工具以结构化模式暴露给模型，包括名称、描述和参数类型。
+      - 工具层要完成注册、校验、参数提取、沙箱执行、结果捕获和观察结果格式化。
+      - Claude Code、OpenAI Agents SDK 和 MCP 都体现了工具层在生产 Agent 中的中心位置。
+    excerpt_sha256: sha256:38c649619174e19596abc04f45b5141d8ee373d354c64a53af12a8cd87caa3f4
+  - entry_id: SRCNET-harness-engineering-28-plus-2-019
+    article_title: Agent Harness 的本质：把模型放进可控的执行系统
+    article_title_line: 6219
+    location:
+      start_line: 6319
+      end_line: 6324
+    observed_terms:
+      - 上下文工程
+      - 压缩
+      - 即时检索
+      - 最小但信号最强的 token 集合
+    relation_paraphrase: 压缩与即时检索是 Context Engineering 用来保持最小高信号信息集的生产策略。
+    exact_excerpt: |-
+      ### 上下文管理：防止上下文腐烂
+
+      - 许多 Agent 失败来自上下文窗口中的信号变差。
+      - 当关键信息处于窗口中间位置时，模型表现会下降；即使窗口达到百万级 token，指令遵循能力也会随上下文增长退化。
+      - 生产策略包括压缩、观察掩码、即时检索和子 Agent 委托。
+      - 上下文工程的目标是找到最小但信号最强的 token 集合。
+    excerpt_sha256: sha256:bbdedfb677033130026525eb7803ffbb78a61d30c514027cf628490d8e923e4b
+  - entry_id: SRCNET-harness-engineering-28-plus-2-020
+    article_title: Agent Harness 的本质：把模型放进可控的执行系统
+    article_title_line: 6219
+    location:
+      start_line: 6345
+      end_line: 6349
+    observed_terms:
+      - 错误处理
+      - Harness
+    relation_paraphrase: Harness 的错误处理决定重试、反馈、暂停等待人类或上报调试。
+    exact_excerpt: |-
+      ### 错误处理：防止小错误滚成大失败
+
+      - 多步骤流程的整体成功率会随步骤数量下降；10 个 99% 成功率的步骤串联后，全流程成功率只有约 90.4%。
+      - LangGraph 将错误分为临时性错误、模型可恢复错误、用户可修复错误和意外错误。
+      - Harness 的错误处理不是简单报错，而是决定重试、反馈给模型、暂停等待人类，或上报调试。
+    excerpt_sha256: sha256:46aa30c8ed58cdbcda5fd10fd850dd92d688ef645ce2190dfaf141db3c46ac1f
+  - entry_id: SRCNET-harness-engineering-28-plus-2-021
+    article_title: Agent Harness 的本质：把模型放进可控的执行系统
+    article_title_line: 6219
+    location:
+      start_line: 6357
+      end_line: 6361
+    observed_terms:
+      - 验证循环
+      - Agent
+    relation_paraphrase: 验证循环是生产级 Agent 的结果控制机制。
+    exact_excerpt: |-
+      ### 验证循环：生产级 Agent 的分水岭
+
+      - 验证循环区分玩具演示和生产级 Agent。
+      - Anthropic 推荐规则反馈、视觉反馈和 LLM-as-judge 三种验证方式。
+      - Claude Code 的创造者认为，让模型能够验证自己的工作，可以显著提升产出质量。
+    excerpt_sha256: sha256:01978b998b4dbfdbb3b1ada7ce32253759cec71b5bbd352de50b8a7a2ef336ae
+  - entry_id: SRCNET-harness-engineering-28-plus-2-022
+    article_title: Agent Harness 的本质：把模型放进可控的执行系统
+    article_title_line: 6219
+    location:
+      start_line: 6373
+      end_line: 6379
+    observed_terms:
+      - Harness
+      - 工具执行层
+      - 权限
+      - 沙箱
+      - 压缩
+      - 循环
+    relation_paraphrase: Harness 的工具执行层检查权限并在沙箱中运行，循环更新上下文时可触发压缩。
+    exact_excerpt: |-
+      - 第一步：Harness 组装完整输入。
+      - 第二步：模型基于输入生成 token，可能是文本，也可能是工具调用请求。
+      - 第三步：Harness 判断输出类型；没有工具调用则结束，有工具调用则进入执行。
+      - 第四步：工具执行层校验参数、检查权限、在沙箱中运行并捕获结果。
+      - 第五步：执行结果被打包为模型可读的观察消息，错误也会被转换成模型可以处理的反馈。
+      - 第六步：上下文被更新，必要时触发压缩。
+      - 第七步：循环返回第一步，直到满足退出条件。
+    excerpt_sha256: sha256:13691cea12c67c4bf94591c66306bfcd4e5b02649c0ca0500eee2ba445523915
+  - entry_id: SRCNET-harness-engineering-28-plus-2-023
+    article_title: Agent Harness 的本质：把模型放进可控的执行系统
+    article_title_line: 6219
+    location:
+      start_line: 6445
+      end_line: 6448
+    observed_terms:
+      - 工具范围管理
+      - 最小工具集
+    relation_paraphrase: 工具范围管理只向模型暴露当前步骤所需的最小工具集。
+    exact_excerpt: |-
+      ### 工具范围管理
+
+      - 工具不是越多越好。
+      - 给模型暴露当前步骤所需的最小工具集，往往效果更好。
+    excerpt_sha256: sha256:188c26fbd68c441d82e39ca2a71ae63e9c1010a63cb27511147d5337b866d670
+  - entry_id: SRCNET-harness-engineering-28-plus-2-024
+    article_title: 只改两个 API 设置，OpenAI 把 ARC-AGI-3 成绩提到三倍
+    article_title_line: 7038
+    location:
+      start_line: 7115
+      end_line: 7119
+    observed_terms:
+      - compaction
+      - 上下文窗口
+    relation_paraphrase: Compaction 替代滚动截断，使长运行不必一直占用更满的窗口。
+    exact_excerpt: |-
+      - 第二步改进是用 compaction 替换滚动截断。官方 harness 处理上下文上限的方式是：当对话上下文超过 175,000 字符时，丢弃最旧的消息。
+      - 滚动截断有两个弊端：
+      - 模型丢失了更早的观察与动作。
+      - 模型在任务的大部分时间里都运行在一个更满的上下文窗口下，而这会轻微损害表现。
+      - 启用 compaction 之后，GPT-5.6 Sol 能在更长的运行中更好地保住它对每个游戏学到的东西，用更少的输出 token 拿到更高的分数。
+    excerpt_sha256: sha256:08b4f83ae1eb147aef4e7babe1a871ebf0af3e2f35bf197fdf5692a862432694

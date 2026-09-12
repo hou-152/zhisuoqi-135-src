@@ -1,0 +1,36 @@
+schema_version: 1
+record_kind: canonical_concept
+id: attention-budget
+slug: attention-budget
+name_zh: 注意力预算
+name_en: Attention Budget
+aliases: []
+category_id: current-view
+learning_stage: now
+definition_status: evolving
+remember: 注意力预算是一种工程解释：模型处理 Context 的有效注意能力有限，加入更多信息会争夺而不只增加可用证据。
+feynman: 想象一盏亮度有限的台灯要同时照好多张卡。卡片越多，每张能分到的清晰光线往往越少；关键卡可能仍在桌上，却更难被稳定看见。这里的“预算”是提醒你做取舍的比喻，不是能精确读取的统一刻度。
+scenario:
+  type: hypothetical
+  text: 代码 Agent 同时收到完整仓库树、长日志、旧讨论和当前报错；关键错误信息虽然在其中，却可能因大量竞争材料而没有被可靠利用。
+image_mnemonic: 一束有限灯光被分配到多张卡片上，加入更多卡片后光线被摊薄，提醒每份材料都会竞争模型的有效注意。
+source_context: Anthropic 用 Attention Budget 类比模型处理大量 Context 时的有限能力，并主张把 Context 当作珍贵资源。本站把它作为帮助设计与诊断的工程解释框架，不把“每个 token 支取一点预算”的比喻冒充统一、可精确测量的物理机制。
+boundaries:
+  - Attention Budget 不等于 Context Window；前者描述有限利用与竞争的工程直觉，后者描述一次调用的容量和处理边界。
+  - 它不是一个跨模型、跨任务通用且可直接读取的精确数值，也不能单独解释所有长上下文退化。
+  - 更多 Context 不是必然更差；新增的高价值证据可能提高结果，关键在相关性、组织方式、位置和任务。
+  - Context Rot 与 Lost in the Middle 是经验表现或位置效应，不能被写成 Attention Budget 已证实的单一因果结果。
+how_to:
+  - 每加入一段材料都问它会支持哪项当前判断；说不清用途的内容优先留在外部。
+  - 当模型漏用关键信息时，同时检查总长度、噪声、冲突、位置和格式，不只盯窗口是否还有空位。
+transfer_question: 一个窗口还能继续装 token，是否就表示加入更多日志不会挤压模型对关键证据的利用？
+source_ids:
+  - SRC-anthropic-effective-context
+visual:
+  type: metaphor
+  skill: anthropic-art
+  source_image: src/assets/concepts/attention-budget/visual.png
+  alt: 冷白纸底上，一束亮度有限的手绘灯光分散照向多张卡片，表示更多材料会竞争模型有限的有效注意。
+  prompt_record: src/assets/concepts/attention-budget/PROMPT.md
+  receipt: src/assets/concepts/attention-budget/receipt.yaml
+  visual_qa: passed

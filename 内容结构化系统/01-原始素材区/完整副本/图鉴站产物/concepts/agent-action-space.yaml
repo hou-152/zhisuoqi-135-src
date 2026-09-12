@@ -1,0 +1,36 @@
+schema_version: 1
+record_kind: canonical_concept
+id: agent-action-space
+slug: agent-action-space
+name_zh: Agent 行动空间
+name_en: Agent Action Space
+aliases: []
+category_id: external-access
+learning_stage: when-needed
+definition_status: evolving
+remember: Agent 在当前运行环境中可选择的动作集合，以及这些动作向模型呈现的名称、参数、反馈和组合方式。
+feynman: 行动空间像一套棋盘规则：不只看有几种棋子，还要看每颗棋子能走哪格、何时能走、走完会看到什么。选项过多但规则含糊，反而更难下对。
+scenario:
+  type: hypothetical
+  text: 假设文件 Agent 只有一个“操作文件”工具，却可通过参数读取、覆盖、移动或删除；工具数量没变，参数范围扩大后风险和选择难度都变了。
+image_mnemonic: 一张只表达「Agent 行动空间」的纸面机制图：中心呈现「Agent 在当前运行环境中可选择的动作集合，以及这些动作向模型呈现的名称、参数、反馈和组合方式」，边缘用明确界线排除「行动空间不等于工具数量；同一工具的参数、调用时机和组合方式也会改变可行动边界」；不画候选关系。
+source_context: 本卡只采用以下来源范围：《构建 Claude Code 的经验教训：如何让 Agent「看见」世界》：原文把行动空间列为构建 Agent 的核心难题，并明确工具集合需要匹配模型能力而非越多越好。未被来源直接支持的产品结论、普遍因果或关系身份不写入本卡。
+boundaries:
+  - 行动空间不等于工具数量；同一工具的参数、调用时机和组合方式也会改变可行动边界。
+  - 更大的行动空间不必然更强，超出模型可理解范围的选择会增加混淆和风险。
+  - 当前证据缺口：当前证据未给出衡量行动空间复杂度或模型工具适配度的统一指标。
+how_to:
+  - 枚举当前环境允许的动作、参数范围、前置条件和返回反馈。
+  - 用任务样本检查模型能否区分近似动作，并标出高混淆或高风险组合。
+  - 收窄无用选项、拆分危险能力或增加确认，再比较成功率和误调用率。
+transfer_question: 如果两个系统都暴露五个工具，但一个允许任意路径、另一个只允许项目目录，它们的行动空间为什么不同？
+source_ids:
+  - SRC-v2-38c466ef2f30
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/agent-action-space/visual.png
+  alt: 一张只表达「Agent 行动空间」的纸面机制图：中心呈现「Agent 在当前运行环境中可选择的动作集合，以及这些动作向模型呈现的名称、参数、反馈和组合方式」，边缘用明确界线排除「行动空间不等于工具数量；同一工具的参数、调用时机和组合方式也会改变可行动边界」；不画候选关系。
+  prompt_record: src/assets/concepts/agent-action-space/PROMPT.md
+  receipt: src/assets/concepts/agent-action-space/receipt.yaml
+  visual_qa: passed

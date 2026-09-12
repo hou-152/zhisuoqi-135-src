@@ -1,0 +1,37 @@
+schema_version: 1
+record_kind: canonical_concept
+id: observability
+slug: observability
+name_zh: 可观测性
+name_en: Observability
+aliases: []
+category_id: result-trust
+learning_stage: when-needed
+definition_status: industry-common
+remember: 可观测性把运行事件变成可查询的轨迹、状态与时延证据，让人看见系统发生了什么；看得见不等于做得对。
+feynman: 黑箱机器只告诉你“结束了”，出了问题只能猜。可观测性像给它装上记录仪：哪一步发生了什么、状态怎样变化、每步花了多久都留下来。它提供的是事实材料，不是成绩单；是否正确仍要由判据、评测或人来判断。
+scenario:
+  type: hypothetical
+  text: 一个 Agent 调了错误工具后仍然给出最终答案。运行面板保存每次模型调用、工具参数、状态变化和时延，因此工程师能定位错误发生在哪一步；但这些记录本身不会宣布答案正确。
+image_mnemonic: 一串运行事件沿“记录”箭头进入证据面板，面板只展示轨迹、状态和时延三类事实，不出现通过、正确或评分标记。
+source_context: Harness 工程学习仓库把可观测性列为独立子系统：看不到 Agent 做了什么，就修不了它搞坏的东西。本站据此把它限定为运行证据基础设施，而不是验证结论或流程控制器。
+boundaries:
+  - 可观测性负责采集与呈现运行事实；它不自动判断路径质量、任务正确性或产品效果。
+  - Trace-based Evals 可以消费轨迹做跨运行判断，但“保存了 trace”不等于“已经做了 eval”。
+  - Verification Loop 可以消费某项观测结果控制重试或退出，但日志存在本身不会改变下一步。
+  - 指标与日志只能覆盖被记录的部分；缺少关联 ID、时间、环境或失败上下文时，证据可能无法解释。
+how_to:
+  - 为模型调用、工具调用、状态转换、错误与时延记录稳定的事件结构、时间戳和关联 ID。
+  - 保留能回答“哪一步、什么输入、什么结果、哪个环境”的必要字段，同时控制敏感数据与无关噪声。
+  - 提供按任务和运行回放的查询路径，让人能从异常结果追到具体事件，而不是只看汇总数字。
+transfer_question: 如果面板完整显示每一步都发生了什么，却没有任何成功标准，它能证明任务做对了吗？
+source_ids:
+  - SRC-harness-learning-repo
+visual:
+  type: infographic
+  skill: guizang-material-illustration
+  source_image: src/assets/concepts/observability/visual.png
+  alt: “运行事件”经“记录”箭头进入证据面板，面板分为“轨迹”“状态”“时延”三栏，没有正确、通过或评分标记，表示可观测性只提供可查询事实。
+  prompt_record: src/assets/concepts/observability/PROMPT.md
+  receipt: src/assets/concepts/observability/receipt.yaml
+  visual_qa: passed
