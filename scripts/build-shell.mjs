@@ -16,6 +16,7 @@ const POOL = path.join(ROOT, 'research', '内参概念池-AI时代怎么做事-2
 const TPL = path.join(ROOT, 'scripts', 'shell.template.html');
 const CURATION = path.join(ROOT, 'evidence', 'concept-curation-20260912.json');
 const EDGECUR  = path.join(ROOT, 'evidence', 'concept-edges-curated-20260912.json');
+const CLASSES  = path.join(ROOT, 'evidence', 'concept-classes-20260912.json');
 const ARGV = Object.fromEntries(process.argv.slice(2).map(a => a.replace(/^--/, '').split('=')));
 
 // 文章 → 图例短名
@@ -112,7 +113,20 @@ if (fs.existsSync(EDGECUR)) {
 } else {
   console.warn('⚠ 缺 evidence/concept-edges-curated-20260912.json —— 先跑 node scripts/curate-edges.mjs');
 }
+// 验收方式分类：compute 能算的 / judge 能判的 / use 能用的 / accept 只能认的
+let kinds = { meta: { dist: {} }, classes: {}, assign: {} };
+if (fs.existsSync(CLASSES)) {
+  kinds = JSON.parse(fs.readFileSync(CLASSES, 'utf8'));
+} else {
+  console.warn('⚠ 缺 evidence/concept-classes-20260912.json —— 先跑 node scripts/classify-concepts.mjs');
+}
+const KINDS = kinds.assign || {};
+const kindOf = id => (KINDS[id] || {}).k || 'compute';
+const kindDist = {};
+for (const n of nodes) kindDist[kindOf(n.id)] = (kindDist[kindOf(n.id)] || 0) + 1;
+
 const tagged = nodes.filter(n => (curation.assign[n.id] || []).length).length;
+console.log(`验收方式：` + Object.entries(kindDist).map(([k, v]) => (kinds.classes[k]?.name || k) + ' ' + v).join(' / '));
 console.log(`策展 ${curation.tags.length} 条线（${curation.tags.map(t => t.name).join('/')}）`
   + ` | 已打标 ${nodes.filter(n => (curation.assign[n.id] || []).length).length}/${nodes.length}`
   + ` | 边预判 ${curation.edgeAuto.length} 条，留人 ${curation.edgeHuman.length} 条`);
@@ -130,8 +144,10 @@ const meta = {
 // ── 注入 ──────────────────────────────────────────────────
 const payload = {
   nodes: nodes.map(n => ({ id: n.id, name: n.name, src: n.src, type: n.type, gloss: n.gloss,
-                           level: n.level, ci: n.ci, tags: curation.assign[n.id] || [] })),
+                           level: n.level, ci: n.ci, tags: curation.assign[n.id] || [],
+                           k: kindOf(n.id), kwhy: (KINDS[n.id] || {}).why || '' })),
   edges, sources, meta, curation,
+  kinds: { classes: kinds.classes || {}, dist: kindDist },
 };
 const tpl = fs.readFileSync(TPL, 'utf8');
 const json = JSON.stringify(payload).replace(/<\//g, '<\\/');

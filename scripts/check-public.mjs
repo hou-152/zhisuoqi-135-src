@@ -70,8 +70,13 @@ async function step(label, action, expect) {
 
 console.log('公网版验收 ' + URL_ + (ONLINE ? '（线上）' : '（本地静态服务·假域名）'));
 
-await step('首屏：左栏 5 格 + 10 条主题线', null,
-  { js: `document.querySelectorAll('.r-item').length + '|' + document.querySelectorAll('#lrows .lrow').length`, want: '5|10' });
+await step('首屏：左栏 5 格 + 默认按「要你怎么处理它」四列', null,
+  { js: `document.querySelectorAll('.r-item').length + '|' + [...document.querySelectorAll('#lrows .lrow')].map(e=>e.textContent.trim().replace(/\\d+$/,'')).join(',')`, want: '5|能算的,能判的,能用的,只能认的' });
+await step('三档轴都在（怎么验 / 按主题 / 按来源）', null,
+  { js: `['ax-kind','ax-tag','ax-src'].filter(i=>document.getElementById(i)).length`, want: '3' });
+await step('切回按主题是 10 条线', `setAxis('tag')`,
+  { js: `document.querySelectorAll('#lrows .lrow').length`, want: '10' });
+await step('切回怎么验', `setAxis('kind')`, { js: `axis`, want: 'kind' });
 await step('194 个点全部有标签', null,
   { js: `const n=DATA.nodes.filter(x=>(x.tags||[]).length).length; n+'/'+DATA.nodes.length`, want: '194/194' });
 await step('公网地址下不去探 /api（无 404 噪音）', null, { js: `String(LOCAL)`, want: 'false' });
@@ -92,6 +97,8 @@ await step('待你看一眼（已策展）', `filter=null; setAxis('tag'); setVi
   { js: `document.getElementById('pbody').innerText.includes('我自己判了') ? 'OK' : 'NO'`, want: 'OK' });
 
 // 倒逼层：公网无模型时必须走机械兜底，并且**不能**给出「过了」
+await step('「只能认的」不设验收', `openPanel(nodes.find(n=>n.k==='accept').id)`,
+  { js: `document.getElementById('pbody').innerText.includes('这一类不设验收') ? 'OK' : 'NO'`, want: 'OK' });
 await step('概念面板有复述输入框', `openPanel('C04')`,
   { js: `document.getElementById('said') ? 'OK' : 'NO'`, want: 'OK' });
 await step('无自报通道', `document.getElementById('pbody').innerHTML.includes('setMark') ? '还在' : 'OK'`,
