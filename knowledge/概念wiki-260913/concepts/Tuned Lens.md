@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: model-training
 learningStage: deep-dive
 verification: judge
-centrality: 0.045
-depth: 1
+centrality: 0.042
+depth: 2
 origin: [notion]
 aliases: ["调谐透镜 / Tuned-Lens"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 把中间层残差流隐藏状态提前映射成词表概率的可解释性方法，用于观察信息如何走向 logits。
 
-**领域** model-training ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** model-training ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 原文 context
 
@@ -37,7 +37,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[Q、K、V]] · **soft** — Tuned Lens 观察隐藏状态走向 logits，懂 QKV 才懂中间层信息如何被读取。
+- [[Logits]] · **hard** — Tuned Lens 把中间层映射成词表概率，不懂 logits 就不懂它的输出目标。
 
 ## 相关
 
@@ -55,4 +55,4 @@ sources: 1
 
 ## 反链
 
-- [[Q、K、V]]
+- [[Logits]]

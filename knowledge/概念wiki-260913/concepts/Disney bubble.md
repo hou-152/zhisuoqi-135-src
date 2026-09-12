@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: media-culture-education
 learningStage: when-needed
 verification: judge
-centrality: 0.126
+centrality: 0.067
 depth: 0
 origin: [notion]
 aliases: ["迪士尼泡泡 / Disney money / 园内货币"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 进入沉浸场景后现实价格感、克制感与风险感被悬置，形成并行货币体系，这才是沉浸真正售卖的东西。
 
-**领域** media-culture-education ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
+**领域** media-culture-education ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 原文 context
 
@@ -36,12 +36,10 @@ sources: 1
 
 > 用 {{name}} 解释为什么园区里高价不让人心疼？
 
-## 懂了它才能懂（解锁 4）
+## 懂了它才能懂（解锁 2）
 
-- [[swindle of fulfillment]] — 迪士尼泡泡悬置现实价格感，幸福才可能被包装成标准商品出售
-- [[Disney hierarchy]] — 资历阶梯靠反复进入沉浸场景消费来维持，泡泡是前提
-- [[death of the social]] — 迪士尼泡泡是付费沉浸体验取代免费公共空间的典型形态
-- [[Hypnopaedia]] — 睡眠灌输悬置自主意识，类似泡泡悬置现实感与风险感
+- [[Disney hierarchy]] — 资历靠入园次数，不懂沉浸场景如何悬置现实感，就难懂为何反复入园。
+- [[swindle of fulfillment]] — '幸福可购买'对应沉浸场景中悬置价格感的并行货币机制。
 
 ## 相关
 
@@ -59,7 +57,5 @@ sources: 1
 
 ## 反链
 
-- [[death of the social]]
-- [[swindle of fulfillment]]
-- [[Hypnopaedia]]
 - [[Disney hierarchy]]
+- [[swindle of fulfillment]]

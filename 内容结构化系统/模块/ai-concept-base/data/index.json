@@ -1,0 +1,7430 @@
+[
+ {
+  "id": "SOL-agent-action-space",
+  "type": "方案单元",
+  "title": "Agent 行动空间：可执行动作路径",
+  "themes": [
+   "AI 如何接触外部世界",
+   "AI 如何接触外部世界"
+  ],
+  "keywords": [
+   "Agent 行动空间",
+   "Agent Action Space",
+   "AI 如何接触外部世界"
+  ],
+  "gloss": "枚举当前环境允许的动作、参数范围、前置条件和返回反馈。"
+ },
+ {
+  "id": "SOL-agent-cli-runtime",
+  "type": "方案单元",
+  "title": "Agent CLI 运行时：可执行动作路径",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "Agent CLI 运行时",
+   "Agent CLI Runtime",
+   "AI 如何持续行动"
+  ],
+  "gloss": "把流程需要的输入、输出、退出码和环境依赖写成稳定命令接口。"
+ },
+ {
+  "id": "SOL-agent-elicitation",
+  "type": "方案单元",
+  "title": "Agent 信息引出：可执行动作路径",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "Agent 信息引出",
+   "Agent Elicitation",
+   "人如何控制 AI"
+  ],
+  "gloss": "在行动前列出会改变答案、风险或权限的未知量。"
+ },
+ {
+  "id": "SOL-agent-handoff",
+  "type": "方案单元",
+  "title": "Agent 交接：可执行动作路径",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "Agent 交接",
+   "Agent Handoff",
+   "AI 如何持续行动"
+  ],
+  "gloss": "交接包至少写清目标、当前进度、已验证证据、失败与阻塞、关键位置、未完成项和明确下一步。"
+ },
+ {
+  "id": "SOL-agent-harness",
+  "type": "方案单元",
+  "title": "Agent Harness：可执行动作路径",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "Agent Harness",
+   "Agent Harness",
+   "AI 如何持续行动"
+  ],
+  "gloss": "排查 Agent 失败时，分别检查模型判断、循环、工具、状态、Context、权限、错误处理和验证，避免把所有问题都归因于模型能力。"
+ },
+ {
+  "id": "SOL-agent-lifecycle",
+  "type": "方案单元",
+  "title": "Agent 生命周期：可执行动作路径",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "Agent 生命周期",
+   "Agent Lifecycle",
+   "AI 如何持续行动"
+  ],
+  "gloss": "为开工、运行、暂停、恢复和收尾分别定义入口条件、必要动作、产出证据与退出条件。"
+ },
+ {
+  "id": "SOL-agent-loop",
+  "type": "方案单元",
+  "title": "Agent 循环：可执行动作路径",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "Agent 循环",
+   "Agent Loop",
+   "AI 如何持续行动"
+  ],
+  "gloss": "记录每一轮的输入、模型选择、工具参数、工具结果和停止原因，定位空转、早停与错误回灌。"
+ },
+ {
+  "id": "SOL-agent-session-management",
+  "type": "方案单元",
+  "title": "Agent 会话管理：可执行动作路径",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "Agent 会话管理",
+   "Agent Session Management",
+   "信息如何进入工作台"
+  ],
+  "gloss": "检查当前目标、已加载历史、错误路径和未落盘状态是否仍服务于下一步。"
+ },
+ {
+  "id": "SOL-agent-stop-conditions",
+  "type": "方案单元",
+  "title": "Agent 终止条件：可执行动作路径",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "Agent 终止条件",
+   "Agent Stop Conditions",
+   "人如何控制 AI"
+  ],
+  "gloss": "为成功、预算耗尽、风险升级、重复状态和连续无进展分别定义可观测条件。"
+ },
+ {
+  "id": "SOL-agent-tool-contract",
+  "type": "方案单元",
+  "title": "Agent 工具契约：可执行动作路径",
+  "themes": [
+   "AI 如何接触外部世界",
+   "AI 如何接触外部世界"
+  ],
+  "keywords": [
+   "Agent 工具契约",
+   "Agent Tool Contract",
+   "AI 如何接触外部世界"
+  ],
+  "gloss": "列出模型可以表达的操作意图，并为每种意图限定必填参数和可选参数。"
+ },
+ {
+  "id": "SOL-agent",
+  "type": "方案单元",
+  "title": "AI Agent：可执行动作路径",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "AI Agent",
+   "AI Agent",
+   "AI 如何持续行动"
+  ],
+  "gloss": "识别一个系统是否真的具有 Agent 行为时，检查它能否围绕目标根据结果选择下一步，而不只看是否使用了 Agent 名称。"
+ },
+ {
+  "id": "SOL-attention-budget",
+  "type": "方案单元",
+  "title": "注意力预算：可执行动作路径",
+  "themes": [
+   "眼前真正有什么",
+   "眼前真正有什么"
+  ],
+  "keywords": [
+   "注意力预算",
+   "Attention Budget",
+   "眼前真正有什么"
+  ],
+  "gloss": "每加入一段材料都问它会支持哪项当前判断；说不清用途的内容优先留在外部。"
+ },
+ {
+  "id": "SOL-bounded-context",
+  "type": "方案单元",
+  "title": "限界上下文：可执行动作路径",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "限界上下文",
+   "Bounded Context",
+   "信息如何进入工作台"
+  ],
+  "gloss": "找出一个经常引发争议的业务词，分别记录各团队用它做什么决定。"
+ },
+ {
+  "id": "SOL-browsing-loop",
+  "type": "方案单元",
+  "title": "浏览循环：可执行动作路径",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "浏览循环",
+   "Browsing Loop",
+   "AI 如何持续行动"
+  ],
+  "gloss": "在搜索前写下要支持的决定、三个关键未知量和可接受的证据类型。"
+ },
+ {
+  "id": "SOL-change-impact-analysis",
+  "type": "方案单元",
+  "title": "变更影响分析：可执行动作路径",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "变更影响分析",
+   "Change Impact Analysis",
+   "做完后凭什么相信"
+  ],
+  "gloss": "从变更的符号和文件出发，沿调用、导入、继承与测试关系向外展开。"
+ },
+ {
+  "id": "SOL-chat-template",
+  "type": "方案单元",
+  "title": "聊天模板：可执行动作路径",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "聊天模板",
+   "Chat Template",
+   "信息如何进入工作台"
+  ],
+  "gloss": "核对目标模型要求的角色标记、起止符和生成提示位置。"
+ },
+ {
+  "id": "SOL-code-execution",
+  "type": "方案单元",
+  "title": "代码执行：可执行动作路径",
+  "themes": [
+   "AI 如何接触外部世界",
+   "AI 如何接触外部世界"
+  ],
+  "keywords": [
+   "代码执行",
+   "Code Execution",
+   "AI 如何接触外部世界"
+  ],
+  "gloss": "明确允许的运行时、目录、网络、凭据、资源上限和超时。"
+ },
+ {
+  "id": "SOL-context-compaction",
+  "type": "方案单元",
+  "title": "上下文压缩：可执行动作路径",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "上下文压缩",
+   "Context Compaction",
+   "信息如何进入工作台"
+  ],
+  "gloss": "先以召回率为优先，确保架构决定、当前目标、未决问题、重要约束与下一步没有被漏掉。"
+ },
+ {
+  "id": "SOL-context-engineering",
+  "type": "方案单元",
+  "title": "上下文工程：可执行动作路径",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "上下文工程",
+   "Context Engineering",
+   "信息如何进入工作台"
+  ],
+  "gloss": "从任务决策倒推模型这一轮必须知道什么、可以稍后再取什么、什么应留在窗口外。"
+ },
+ {
+  "id": "SOL-context-rot",
+  "type": "方案单元",
+  "title": "上下文腐烂：可执行动作路径",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "上下文腐烂",
+   "Context Rot",
+   "信息如何进入工作台"
+  ],
+  "gloss": "先证明模型在短输入条件下能完成任务，再固定任务难度、相关证据与评分方法，只改变输入长度。"
+ },
+ {
+  "id": "SOL-context-selection",
+  "type": "方案单元",
+  "title": "上下文选择：可执行动作路径",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "上下文选择",
+   "Context Selection",
+   "信息如何进入工作台"
+  ],
+  "gloss": "先列候选来源与纳入标准，再说明每项材料支持哪个当前决策、依赖或验证步骤。"
+ },
+ {
+  "id": "SOL-context-window",
+  "type": "方案单元",
+  "title": "上下文窗口：可执行动作路径",
+  "themes": [
+   "眼前真正有什么",
+   "眼前真正有什么"
+  ],
+  "keywords": [
+   "上下文窗口",
+   "Context Window",
+   "眼前真正有什么"
+  ],
+  "gloss": "同时检查窗口上限与当前实际占用。"
+ },
+ {
+  "id": "SOL-context",
+  "type": "方案单元",
+  "title": "上下文：可执行动作路径",
+  "themes": [
+   "眼前真正有什么",
+   "眼前真正有什么"
+  ],
+  "keywords": [
+   "上下文",
+   "Context",
+   "眼前真正有什么"
+  ],
+  "gloss": "排查回答错误时，先列出模型在出错那一轮实际看到了什么，不要用“系统里存着什么”替代这份清单。"
+ },
+ {
+  "id": "SOL-durable-execution",
+  "type": "方案单元",
+  "title": "持久化执行：可执行动作路径",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "持久化执行",
+   "Durable Execution",
+   "AI 如何持续行动"
+  ],
+  "gloss": "把长任务拆成有明确输入、输出和提交边界的步骤，并把运行状态存到短命计算环境之外。"
+ },
+ {
+  "id": "SOL-dynamic-context-assembly",
+  "type": "方案单元",
+  "title": "动态上下文装配：可执行动作路径",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "动态上下文装配",
+   "Dynamic Context Assembly",
+   "信息如何进入工作台"
+  ],
+  "gloss": "先列出当前任务真正需要的信息与能力，再为每项明确来源、触发时机和呈现格式。"
+ },
+ {
+  "id": "SOL-error-handling",
+  "type": "方案单元",
+  "title": "错误处理：可执行动作路径",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "错误处理",
+   "Error Handling",
+   "AI 如何持续行动"
+  ],
+  "gloss": "至少区分瞬时、模型可恢复、用户可修复、意外和安全类错误，并为每类规定次数、退避、超时与退出条件。"
+ },
+ {
+  "id": "SOL-event-driven-agent-automation",
+  "type": "方案单元",
+  "title": "事件驱动的 Agent 自动化：可执行动作路径",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "事件驱动的 Agent 自动化",
+   "Event-Driven Agent Automation",
+   "AI 如何持续行动"
+  ],
+  "gloss": "定义可触发的事件、必要载荷和事件唯一标识，并过滤无关变化。"
+ },
+ {
+  "id": "SOL-filesystem-workspace",
+  "type": "方案单元",
+  "title": "文件系统工作区：可执行动作路径",
+  "themes": [
+   "信息平时放在哪里",
+   "信息平时放在哪里"
+  ],
+  "keywords": [
+   "文件系统工作区",
+   "Filesystem Workspace",
+   "信息平时放在哪里"
+  ],
+  "gloss": "规划输入、生成物、临时文件和回执的目录边界与命名规则。"
+ },
+ {
+  "id": "SOL-guardrails",
+  "type": "方案单元",
+  "title": "护栏：可执行动作路径",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "护栏",
+   "Guardrails",
+   "人如何控制 AI"
+  ],
+  "gloss": "先明确每条护栏检查什么对象、依据什么规则、在何时运行，以及触发后是阻断单次调用还是停止整个 Agent。"
+ },
+ {
+  "id": "SOL-harness-compute-separation",
+  "type": "方案单元",
+  "title": "Harness 与计算分离：可执行动作路径",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "Harness 与计算分离",
+   "Harness-Compute Separation",
+   "人如何控制 AI"
+  ],
+  "gloss": "列出状态、凭据、控制决策与不可信计算，分别指定所属层和通信接口。"
+ },
+ {
+  "id": "SOL-harness-engineering",
+  "type": "方案单元",
+  "title": "Harness 工程：可执行动作路径",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "Harness 工程",
+   "Harness Engineering",
+   "AI 如何持续行动"
+  ],
+  "gloss": "先固定模型、任务与评测条件，再逐项改变循环、工具、状态、权限、错误恢复或验证，避免多变量一起变化后无法归因。"
+ },
+ {
+  "id": "SOL-harness-overfitting",
+  "type": "方案单元",
+  "title": "Harness 过拟合：可执行动作路径",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "Harness 过拟合",
+   "Harness Overfitting",
+   "做完后凭什么相信"
+  ],
+  "gloss": "固定模型、任务、权限和评分，准备两套能力尽量等价的 Harness 接口。"
+ },
+ {
+  "id": "SOL-harness-token-floor",
+  "type": "方案单元",
+  "title": "Harness Token 底座：可执行动作路径",
+  "themes": [
+   "眼前真正有什么",
+   "眼前真正有什么"
+  ],
+  "keywords": [
+   "Harness Token 底座",
+   "Harness Token Floor",
+   "眼前真正有什么"
+  ],
+  "gloss": "在 API 边界分别计算系统提示、工具定义、脚手架、历史和用户输入的 Token。"
+ },
+ {
+  "id": "SOL-human-escalation-tool-call",
+  "type": "方案单元",
+  "title": "人类升级工具调用：可执行动作路径",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "人类升级工具调用",
+   "Human Escalation Tool Call",
+   "人如何控制 AI"
+  ],
+  "gloss": "明确哪些风险、金额或责任判断必须升级给人，并把它们编码成可触发条件。"
+ },
+ {
+  "id": "SOL-instruction-locality",
+  "type": "方案单元",
+  "title": "指令就近原则：可执行动作路径",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "指令就近原则",
+   "Instruction Locality",
+   "人如何控制 AI"
+  ],
+  "gloss": "为每条指令标出它直接约束的对象、维护者和生效位置。"
+ },
+ {
+  "id": "SOL-just-in-time-retrieval",
+  "type": "方案单元",
+  "title": "即时检索：可执行动作路径",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "即时检索",
+   "Just-in-Time Retrieval",
+   "信息如何进入工作台"
+  ],
+  "gloss": "在 Context 中保留稳定且轻量的文件路径、查询、网页链接或记录 ID，而不是完整对象。"
+ },
+ {
+  "id": "SOL-large-language-model",
+  "type": "方案单元",
+  "title": "大语言模型：可执行动作路径",
+  "themes": [
+   "眼前真正有什么",
+   "眼前真正有什么"
+  ],
+  "keywords": [
+   "大语言模型",
+   "Large Language Model",
+   "眼前真正有什么"
+  ],
+  "gloss": "判断一次能力来自哪里时，先问“这是模型生成的内容，还是外部系统执行并反馈的动作？”"
+ },
+ {
+  "id": "SOL-llm-statelessness",
+  "type": "方案单元",
+  "title": "LLM 无状态性：可执行动作路径",
+  "themes": [
+   "眼前真正有什么",
+   "眼前真正有什么"
+  ],
+  "keywords": [
+   "LLM 无状态性",
+   "LLM Statelessness",
+   "眼前真正有什么"
+  ],
+  "gloss": "在客户端显式保存任务状态、消息和必要工具结果，不依赖模型自行记住。"
+ },
+ {
+  "id": "SOL-llm-token",
+  "type": "方案单元",
+  "title": "模型词元：可执行动作路径",
+  "themes": [
+   "眼前真正有什么",
+   "眼前真正有什么"
+  ],
+  "keywords": [
+   "模型词元",
+   "LLM Token",
+   "眼前真正有什么"
+  ],
+  "gloss": "使用目标模型对应的分词器统计真实输入、输出和各组成部分的 Token。"
+ },
+ {
+  "id": "SOL-lost-in-the-middle",
+  "type": "方案单元",
+  "title": "迷失在中间：可执行动作路径",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "迷失在中间",
+   "Lost in the Middle",
+   "信息如何进入工作台"
+  ],
+  "gloss": "评测时固定问题、文档集合和评分方法，只移动关键证据位置，分别比较首、中、尾条件。"
+ },
+ {
+  "id": "SOL-memory",
+  "type": "方案单元",
+  "title": "记忆：可执行动作路径",
+  "themes": [
+   "信息平时放在哪里",
+   "信息平时放在哪里"
+  ],
+  "keywords": [
+   "记忆",
+   "Memory",
+   "信息平时放在哪里"
+  ],
+  "gloss": "先区分“已经保存”“已经取回”“已经进入当前 Context”和“已经核实”四个状态。"
+ },
+ {
+  "id": "SOL-minimal-sufficient-context",
+  "type": "方案单元",
+  "title": "最小充分上下文：可执行动作路径",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "最小充分上下文",
+   "Minimal Sufficient Context",
+   "信息如何进入工作台"
+  ],
+  "gloss": "先写出完成当前决策必需的证据、约束、工具说明和输出要求，再删除无法说明用途的材料。"
+ },
+ {
+  "id": "SOL-model-context-protocol",
+  "type": "方案单元",
+  "title": "模型上下文协议：可执行动作路径",
+  "themes": [
+   "AI 如何接触外部世界",
+   "AI 如何接触外部世界"
+  ],
+  "keywords": [
+   "模型上下文协议",
+   "Model Context Protocol",
+   "AI 如何接触外部世界"
+  ],
+  "gloss": "集成时分别验证 server 可连接、能力可发现、授权有效、当前会话实际可见，以及一次真实调用或读取能返回预期结果。"
+ },
+ {
+  "id": "SOL-multi-step-reliability-decay",
+  "type": "方案单元",
+  "title": "多步可靠性衰减：可执行动作路径",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "多步可靠性衰减",
+   "Multi-Step Reliability Decay",
+   "做完后凭什么相信"
+  ],
+  "gloss": "画出步骤、条件分支、重试和恢复路径，并测量每条边的条件成功率。"
+ },
+ {
+  "id": "SOL-observability",
+  "type": "方案单元",
+  "title": "可观测性：可执行动作路径",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "可观测性",
+   "Observability",
+   "做完后凭什么相信"
+  ],
+  "gloss": "为模型调用、工具调用、状态转换、错误与时延记录稳定的事件结构、时间戳和关联 ID。"
+ },
+ {
+  "id": "SOL-observation-masking",
+  "type": "方案单元",
+  "title": "观察掩码：可执行动作路径",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "观察掩码",
+   "Observation Masking",
+   "信息如何进入工作台"
+  ],
+  "gloss": "标出已经完成作用、但不必继续逐字可见的旧工具输出。"
+ },
+ {
+  "id": "SOL-permission-boundary",
+  "type": "方案单元",
+  "title": "权限边界：可执行动作路径",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "权限边界",
+   "Permission Boundary",
+   "人如何控制 AI"
+  ],
+  "gloss": "按工具、参数、路径、网络目标与副作用划分授权规则，并对高风险动作设置明确的人类确认点。"
+ },
+ {
+  "id": "SOL-persistent-code-graph",
+  "type": "方案单元",
+  "title": "持久化代码图谱：可执行动作路径",
+  "themes": [
+   "信息平时放在哪里",
+   "信息平时放在哪里"
+  ],
+  "keywords": [
+   "持久化代码图谱",
+   "Persistent Code Graph",
+   "信息平时放在哪里"
+  ],
+  "gloss": "定义要持久化的代码实体、关系类型、版本标识和来源位置。"
+ },
+ {
+  "id": "SOL-progressive-disclosure",
+  "type": "方案单元",
+  "title": "渐进式披露：可执行动作路径",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "渐进式披露",
+   "Progressive Disclosure",
+   "信息如何进入工作台"
+  ],
+  "gloss": "在入口文件只放稳定地图、当前必读项和下一层链接，把详细规则交给明确命名的专题文档。"
+ },
+ {
+  "id": "SOL-prompt-caching",
+  "type": "方案单元",
+  "title": "提示词缓存：可执行动作路径",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "提示词缓存",
+   "Prompt Caching",
+   "AI 如何持续行动"
+  ],
+  "gloss": "把稳定规则和工具说明排在前缀，把会话状态与本轮输入放在后部。"
+ },
+ {
+  "id": "SOL-prompt-engineering",
+  "type": "方案单元",
+  "title": "提示词工程：可执行动作路径",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "提示词工程",
+   "Prompt Engineering",
+   "人如何控制 AI"
+  ],
+  "gloss": "先写清目标、必要背景、约束与期望输出，再删除与当前任务无关的内容。"
+ },
+ {
+  "id": "SOL-prompt-injection",
+  "type": "方案单元",
+  "title": "提示注入：可执行动作路径",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "提示注入",
+   "Prompt Injection",
+   "做完后凭什么相信"
+  ],
+  "gloss": "标记可信指令与外部内容的来源和优先级，不把抓取文本拼进控制层。"
+ },
+ {
+  "id": "SOL-prompt",
+  "type": "方案单元",
+  "title": "提示：可执行动作路径",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "提示",
+   "Prompt",
+   "人如何控制 AI"
+  ],
+  "gloss": "讨论 Prompt 时先说清是在改用户消息、系统消息，还是模型最终接收的完整输入。"
+ },
+ {
+  "id": "SOL-reasoning-effort",
+  "type": "方案单元",
+  "title": "推理强度：可执行动作路径",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "推理强度",
+   "Reasoning Effort",
+   "人如何控制 AI"
+  ],
+  "gloss": "按任务难度、错误代价和时延要求建立几档代表样本。"
+ },
+ {
+  "id": "SOL-repository-source-of-truth",
+  "type": "方案单元",
+  "title": "仓库事实真源：可执行动作路径",
+  "themes": [
+   "信息平时放在哪里",
+   "信息平时放在哪里"
+  ],
+  "keywords": [
+   "仓库事实真源",
+   "Repository as Source of Truth",
+   "信息平时放在哪里"
+  ],
+  "gloss": "把运行必需的规则、范围、状态和验收入口放入版本化、可定位的文件。"
+ },
+ {
+  "id": "SOL-restorable-compression",
+  "type": "方案单元",
+  "title": "可恢复压缩：可执行动作路径",
+  "themes": [
+   "信息平时放在哪里",
+   "信息平时放在哪里"
+  ],
+  "keywords": [
+   "可恢复压缩",
+   "Restorable Compression",
+   "信息平时放在哪里"
+  ],
+  "gloss": "把准备移出窗口的原文保存到稳定载体，并记录可校验的定位信息。"
+ },
+ {
+  "id": "SOL-retrieval-reasoning-dual-task-load",
+  "type": "方案单元",
+  "title": "检索—推理双任务负担：可执行动作路径",
+  "themes": [
+   "眼前真正有什么",
+   "眼前真正有什么"
+  ],
+  "keywords": [
+   "检索—推理双任务负担",
+   "Retrieval–Reasoning Dual-Task Load",
+   "眼前真正有什么"
+  ],
+  "gloss": "准备答案与推理难度相同的任务，分别提供完整材料和已聚焦证据。"
+ },
+ {
+  "id": "SOL-risk-tiered-autofixing",
+  "type": "方案单元",
+  "title": "风险分级自动修复：可执行动作路径",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "风险分级自动修复",
+   "Risk-Tiered Autofixing",
+   "做完后凭什么相信"
+  ],
+  "gloss": "按可逆性、影响范围、权限、数据敏感度和验证强度定义风险等级。"
+ },
+ {
+  "id": "SOL-runnable-evidence",
+  "type": "方案单元",
+  "title": "可运行证据：可执行动作路径",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "可运行证据",
+   "Runnable Evidence",
+   "做完后凭什么相信"
+  ],
+  "gloss": "把每项完成声明转换成别人可执行的命令、输入、预期结果和失败信号。"
+ },
+ {
+  "id": "SOL-sandbox",
+  "type": "方案单元",
+  "title": "沙箱：可执行动作路径",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "沙箱",
+   "Sandbox",
+   "人如何控制 AI"
+  ],
+  "gloss": "默认只挂载任务需要的文件与依赖，收窄网络、命令、CPU、内存、时间和凭证访问。"
+ },
+ {
+  "id": "SOL-skill-chaining",
+  "type": "方案单元",
+  "title": "Skill 链式调用：可执行动作路径",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "Skill 链式调用",
+   "Skill Chaining",
+   "AI 如何持续行动"
+  ],
+  "gloss": "为每个 Skill 写清输入、输出、成功条件和可以独立停止的位置。"
+ },
+ {
+  "id": "SOL-skill-trigger-condition",
+  "type": "方案单元",
+  "title": "Skill 触发条件：可执行动作路径",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "Skill 触发条件",
+   "Skill Trigger Condition",
+   "信息如何进入工作台"
+  ],
+  "gloss": "从真实请求中列出应该触发、容易混淆和明确不应触发的样本。"
+ },
+ {
+  "id": "SOL-skill",
+  "type": "方案单元",
+  "title": "Agent Skill：可执行动作路径",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "Agent Skill",
+   "Agent Skill",
+   "人如何控制 AI"
+  ],
+  "gloss": "把稳定、重复、可检查的做法写进 Skill，并明确什么时候用、输入是什么、步骤怎样走、什么算完成。"
+ },
+ {
+  "id": "SOL-state-management",
+  "type": "方案单元",
+  "title": "状态管理：可执行动作路径",
+  "themes": [
+   "信息平时放在哪里",
+   "信息平时放在哪里"
+  ],
+  "keywords": [
+   "状态管理",
+   "State Management",
+   "信息平时放在哪里"
+  ],
+  "gloss": "明确哪些变量决定下一步，并在每次状态转换时原子地记录当前阶段、完成证据和待处理项。"
+ },
+ {
+  "id": "SOL-subagent-orchestration",
+  "type": "方案单元",
+  "title": "子 Agent 编排：可执行动作路径",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "子 Agent 编排",
+   "Subagent Orchestration",
+   "AI 如何持续行动"
+  ],
+  "gloss": "切出边界清晰、可独立验证且不会争用同一写入面的子任务。"
+ },
+ {
+  "id": "SOL-system-prompt-altitude",
+  "type": "方案单元",
+  "title": "系统提示抽象高度：可执行动作路径",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "系统提示抽象高度",
+   "System Prompt Altitude",
+   "人如何控制 AI"
+  ],
+  "gloss": "收集高频任务、真实失败样本和必须统一的行为边界。"
+ },
+ {
+  "id": "SOL-system-prompt",
+  "type": "方案单元",
+  "title": "系统提示：可执行动作路径",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "系统提示",
+   "System Prompt",
+   "人如何控制 AI"
+  ],
+  "gloss": "在系统层写稳定的角色、边界、工具规则和成功标准，避免塞入容易过时的长篇资料。"
+ },
+ {
+  "id": "SOL-tacit-knowledge",
+  "type": "方案单元",
+  "title": "隐性知识：可执行动作路径",
+  "themes": [
+   "信息平时放在哪里",
+   "信息平时放在哪里"
+  ],
+  "keywords": [
+   "隐性知识",
+   "Tacit Knowledge",
+   "信息平时放在哪里"
+  ],
+  "gloss": "在决策或复盘中追问“看到了什么信号、排除了什么、为何愿意承担这个代价”。"
+ },
+ {
+  "id": "SOL-tool-schema-tax",
+  "type": "方案单元",
+  "title": "工具 Schema 税：可执行动作路径",
+  "themes": [
+   "AI 如何接触外部世界",
+   "AI 如何接触外部世界"
+  ],
+  "keywords": [
+   "工具 Schema 税",
+   "Tool Schema Tax",
+   "AI 如何接触外部世界"
+  ],
+  "gloss": "在请求 Payload 中单独统计每个工具 Schema 的 Token 和实际调用频率。"
+ },
+ {
+  "id": "SOL-tool-scoping",
+  "type": "方案单元",
+  "title": "工具收窄：可执行动作路径",
+  "themes": [
+   "AI 如何接触外部世界",
+   "AI 如何接触外部世界"
+  ],
+  "keywords": [
+   "工具收窄",
+   "Tool Scoping",
+   "AI 如何接触外部世界"
+  ],
+  "gloss": "按任务阶段列出“这一步必须用”“可能需要”“当前不应暴露”三组工具，并默认只开放第一组。"
+ },
+ {
+  "id": "SOL-tool-workflow-fit",
+  "type": "方案单元",
+  "title": "工具—工作流适配：可执行动作路径",
+  "themes": [
+   "AI 如何接触外部世界",
+   "AI 如何接触外部世界"
+  ],
+  "keywords": [
+   "工具—工作流适配",
+   "Tool–Workflow Fit",
+   "AI 如何接触外部世界"
+  ],
+  "gloss": "先写任务锚点、合格证据、允许动作和完成条件，再列工具必须支持的环节。"
+ },
+ {
+  "id": "SOL-tool",
+  "type": "方案单元",
+  "title": "工具：可执行动作路径",
+  "themes": [
+   "AI 如何接触外部世界",
+   "AI 如何接触外部世界"
+  ],
+  "keywords": [
+   "工具",
+   "Tool",
+   "AI 如何接触外部世界"
+  ],
+  "gloss": "排错时依次检查工具是否注册、描述是否清楚、参数是否通过校验、权限是否允许、执行是否成功、结果是否正确回传。"
+ },
+ {
+  "id": "SOL-trace-based-evals",
+  "type": "方案单元",
+  "title": "基于轨迹的评测：可执行动作路径",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "基于轨迹的评测",
+   "Trace-based Evals",
+   "做完后凭什么相信"
+  ],
+  "gloss": "先固定有边界的任务集、成功条件、对照基线、运行配置与 verifier，再开始采样轨迹。"
+ },
+ {
+  "id": "SOL-ubiquitous-language",
+  "type": "方案单元",
+  "title": "统一语言：可执行动作路径",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "统一语言",
+   "Ubiquitous Language",
+   "信息如何进入工作台"
+  ],
+  "gloss": "从争议频繁的业务动作中收集术语及各角色的实际定义。"
+ },
+ {
+  "id": "SOL-verifiable-goal",
+  "type": "方案单元",
+  "title": "可验证目标：可执行动作路径",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "可验证目标",
+   "Verifiable Goal",
+   "做完后凭什么相信"
+  ],
+  "gloss": "把成功写成可重复输入、明确判定和允许误差，并列出不可接受路径。"
+ },
+ {
+  "id": "SOL-verification-loop",
+  "type": "方案单元",
+  "title": "验证循环：可执行动作路径",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "验证循环",
+   "Verification Loop",
+   "做完后凭什么相信"
+  ],
+  "gloss": "在行动前写清检查对象、判据、失败反馈格式和退出条件，避免由同一输出临时改标准。"
+ },
+ {
+  "id": "CAS-agent-action-space",
+  "type": "案例单元",
+  "title": "Agent 行动空间：一个具体场景",
+  "themes": [
+   "AI 如何接触外部世界",
+   "AI 如何接触外部世界"
+  ],
+  "keywords": [
+   "Agent 行动空间",
+   "Agent Action Space",
+   "AI 如何接触外部世界"
+  ],
+  "gloss": "假设文件 Agent 只有一个“操作文件”工具，却可通过参数读取、覆盖、移动或删除；工具数量没变，参数范围扩大后风险和选择难度都变了。"
+ },
+ {
+  "id": "CAS-agent-cli-runtime",
+  "type": "案例单元",
+  "title": "Agent CLI 运行时：一个具体场景",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "Agent CLI 运行时",
+   "Agent CLI Runtime",
+   "AI 如何持续行动"
+  ],
+  "gloss": "假设团队把 IDE 中可用的代码审查流程接到命令行，让夜间脚本对指定提交运行并输出机器可读回执。"
+ },
+ {
+  "id": "CAS-agent-elicitation",
+  "type": "案例单元",
+  "title": "Agent 信息引出：一个具体场景",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "Agent 信息引出",
+   "Agent Elicitation",
+   "人如何控制 AI"
+  ],
+  "gloss": "假设旅行 Agent 收到“订一间合适的酒店”，它发现城市和日期已知，但预算会直接改变候选，于是只追问预算范围后继续筛选。"
+ },
+ {
+  "id": "CAS-agent-handoff",
+  "type": "案例单元",
+  "title": "Agent 交接：一个具体场景",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "Agent 交接",
+   "Agent Handoff",
+   "AI 如何持续行动"
+  ],
+  "gloss": "Agent A 的上下文即将耗尽，它把已完成范围、测试证据、当前失败、关键文件和下一步写入结构化交接包。Agent B 先核对真实仓库状态，再确认接管并从未完成处继续。"
+ },
+ {
+  "id": "CAS-agent-harness",
+  "type": "案例单元",
+  "title": "Agent Harness：一个具体场景",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "Agent Harness",
+   "Agent Harness",
+   "AI 如何持续行动"
+  ],
+  "gloss": "同一个模型接入两套代码 Agent 系统：一套只能偶尔运行命令，另一套能保存进度、限制写入范围、处理工具失败并验证结果。即使模型权重不变，最终表现也会因 Harness 不同而明显不同。"
+ },
+ {
+  "id": "CAS-agent-lifecycle",
+  "type": "案例单元",
+  "title": "Agent 生命周期：一个具体场景",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "Agent 生命周期",
+   "Agent Lifecycle",
+   "AI 如何持续行动"
+  ],
+  "gloss": "Coding Agent 开工时运行环境检查并读取进度，执行中持续验证；临时暂停前保存当前状态，恢复后核对工作区，收尾时记录未完成项并留下干净的下一次入口。"
+ },
+ {
+  "id": "CAS-agent-loop",
+  "type": "案例单元",
+  "title": "Agent 循环：一个具体场景",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "Agent 循环",
+   "Agent Loop",
+   "AI 如何持续行动"
+  ],
+  "gloss": "Agent 先搜索仓库，看到结果后打开相关文件，再修改代码并运行测试；测试失败成为下一轮观察，测试通过且任务满足条件时退出循环。"
+ },
+ {
+  "id": "CAS-agent-session-management",
+  "type": "案例单元",
+  "title": "Agent 会话管理：一个具体场景",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "Agent 会话管理",
+   "Agent Session Management",
+   "信息如何进入工作台"
+  ],
+  "gloss": "假设一次修复会话已经读入错误分支、长日志和多次失败尝试；新需求与原问题只有一个文件相关，团队必须决定继续、压缩还是另开会话。"
+ },
+ {
+  "id": "CAS-agent-stop-conditions",
+  "type": "案例单元",
+  "title": "Agent 终止条件：一个具体场景",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "Agent 终止条件",
+   "Agent Stop Conditions",
+   "人如何控制 AI"
+  ],
+  "gloss": "假设排障 Agent 连续三轮提出同类改动且验证没有改善；Harness 达到无进展阈值后停止自动尝试并把证据交给人。"
+ },
+ {
+  "id": "CAS-agent-tool-contract",
+  "type": "案例单元",
+  "title": "Agent 工具契约：一个具体场景",
+  "themes": [
+   "AI 如何接触外部世界",
+   "AI 如何接触外部世界"
+  ],
+  "keywords": [
+   "Agent 工具契约",
+   "Agent Tool Contract",
+   "AI 如何接触外部世界"
+  ],
+  "gloss": "假设客服 Agent 要发起退款：模型只提交“退款”意图、订单号和金额，执行器先过权限门再调用接口，最后只回传状态、流水号与失败原因。"
+ },
+ {
+  "id": "CAS-agent",
+  "type": "案例单元",
+  "title": "AI Agent：一个具体场景",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "AI Agent",
+   "AI Agent",
+   "AI 如何持续行动"
+  ],
+  "gloss": "你让 Agent 修复测试失败。它先读取报错，定位文件，修改代码，运行测试，再依据新结果决定继续修还是结束；这些连续动作不是一次模型回复就能独立完成的。"
+ },
+ {
+  "id": "CAS-attention-budget",
+  "type": "案例单元",
+  "title": "注意力预算：一个具体场景",
+  "themes": [
+   "眼前真正有什么",
+   "眼前真正有什么"
+  ],
+  "keywords": [
+   "注意力预算",
+   "Attention Budget",
+   "眼前真正有什么"
+  ],
+  "gloss": "代码 Agent 同时收到完整仓库树、长日志、旧讨论和当前报错；关键错误信息虽然在其中，却可能因大量竞争材料而没有被可靠利用。"
+ },
+ {
+  "id": "CAS-bounded-context",
+  "type": "案例单元",
+  "title": "限界上下文：一个具体场景",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "限界上下文",
+   "Bounded Context",
+   "信息如何进入工作台"
+  ],
+  "gloss": "假设销售模块把“客户”定义为签约主体，客服模块却把每位联系人都叫客户；一次数据合并让两个团队对人数和权限产生了相反结论。"
+ },
+ {
+  "id": "CAS-browsing-loop",
+  "type": "案例单元",
+  "title": "浏览循环：一个具体场景",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "浏览循环",
+   "Browsing Loop",
+   "AI 如何持续行动"
+  ],
+  "gloss": "假设 Agent 为回答“是否更换供应商”连续打开几十篇材料；每篇都带来新名词，却没有补齐价格、稳定性和迁移成本三项决策证据。"
+ },
+ {
+  "id": "CAS-change-impact-analysis",
+  "type": "案例单元",
+  "title": "变更影响分析：一个具体场景",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "变更影响分析",
+   "Change Impact Analysis",
+   "做完后凭什么相信"
+  ],
+  "gloss": "假设开发者修改鉴权函数，文件本身测试通过，但调用它的批处理任务和权限回归测试没有被运行，发布后才暴露连锁影响。"
+ },
+ {
+  "id": "CAS-chat-template",
+  "type": "案例单元",
+  "title": "聊天模板：一个具体场景",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "聊天模板",
+   "Chat Template",
+   "信息如何进入工作台"
+  ],
+  "gloss": "假设同一段用户与助手历史在两个模型上直接复用，一边正常续答，另一边把角色标记当正文；换成各自约定的序列化格式后才恢复。"
+ },
+ {
+  "id": "CAS-code-execution",
+  "type": "案例单元",
+  "title": "代码执行：一个具体场景",
+  "themes": [
+   "AI 如何接触外部世界",
+   "AI 如何接触外部世界"
+  ],
+  "keywords": [
+   "代码执行",
+   "Code Execution",
+   "AI 如何接触外部世界"
+  ],
+  "gloss": "假设数据 Agent 没有专用“合并 CSV”工具，它编写短脚本在沙箱内处理文件并生成校验报告，而不是由模型口头计算数千行结果。"
+ },
+ {
+  "id": "CAS-context-compaction",
+  "type": "案例单元",
+  "title": "上下文压缩：一个具体场景",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "上下文压缩",
+   "Context Compaction",
+   "信息如何进入工作台"
+  ],
+  "gloss": "一个代码 Agent 的对话接近窗口上限，系统把已确认的架构决定、未解决错误和当前进度整理成摘要，保留相关文件路径，再用这份摘要开启新窗口；冗长工具输出不再整段携带。"
+ },
+ {
+  "id": "CAS-context-engineering",
+  "type": "案例单元",
+  "title": "上下文工程：一个具体场景",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "上下文工程",
+   "Context Engineering",
+   "信息如何进入工作台"
+  ],
+  "gloss": "邮件 Agent 收到“帮我安排明天的同步会”后，系统按当下任务取回日历、联系人和往来语气，选择可用工具并压缩成清楚输入，再交给模型判断下一步。"
+ },
+ {
+  "id": "CAS-context-rot",
+  "type": "案例单元",
+  "title": "上下文腐烂：一个具体场景",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "上下文腐烂",
+   "Context Rot",
+   "信息如何进入工作台"
+  ],
+  "gloss": "先确认模型在短输入条件下能稳定完成同一项问答，再保持问题、关键证据和评分方法不变，只分档增加无关材料；若表现随长度下降，才有依据把输入长度列为退化变量。"
+ },
+ {
+  "id": "CAS-context-selection",
+  "type": "案例单元",
+  "title": "上下文选择：一个具体场景",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "上下文选择",
+   "Context Selection",
+   "信息如何进入工作台"
+  ],
+  "gloss": "Agent 准备修复支付错误时，先列出长期记忆、代码检索结果和工具定义等候选来源，再只纳入相关模块、最近失败记录与必要工具；旧项目笔记和无关工具留在窗口之外。"
+ },
+ {
+  "id": "CAS-context-window",
+  "type": "案例单元",
+  "title": "上下文窗口：一个具体场景",
+  "themes": [
+   "眼前真正有什么",
+   "眼前真正有什么"
+  ],
+  "keywords": [
+   "上下文窗口",
+   "Context Window",
+   "眼前真正有什么"
+  ],
+  "gloss": "系统把几十份文档全部塞进一个大窗口，关键规则确实装得下，却仍被模型漏用。"
+ },
+ {
+  "id": "CAS-context",
+  "type": "案例单元",
+  "title": "上下文：一个具体场景",
+  "themes": [
+   "眼前真正有什么",
+   "眼前真正有什么"
+  ],
+  "keywords": [
+   "上下文",
+   "Context",
+   "眼前真正有什么"
+  ],
+  "gloss": "你让 Agent 安排会议时，当前请求、日历摘要、联系人信息、可用工具说明和输出格式一起进入模型；它们共同构成这一轮的 Context。"
+ },
+ {
+  "id": "CAS-durable-execution",
+  "type": "案例单元",
+  "title": "持久化执行：一个具体场景",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "持久化执行",
+   "Durable Execution",
+   "AI 如何持续行动"
+  ],
+  "gloss": "Agent 在创建工单后容器崩溃。新容器读取外置状态，确认工单已经创建，只重放尚未完成的后续步骤，并用幂等键避免再创建一张重复工单。"
+ },
+ {
+  "id": "CAS-dynamic-context-assembly",
+  "type": "案例单元",
+  "title": "动态上下文装配：一个具体场景",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "动态上下文装配",
+   "Dynamic Context Assembly",
+   "信息如何进入工作台"
+  ],
+  "gloss": "一个助理收到“帮我约下周的同步会”后，系统先识别当前任务，再取得日历、联系人、往来语气和发邀请工具，把这些内容按合适格式组成这一次模型输入；下一项任务会得到另一套组合。"
+ },
+ {
+  "id": "CAS-error-handling",
+  "type": "案例单元",
+  "title": "错误处理：一个具体场景",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "错误处理",
+   "Error Handling",
+   "AI 如何持续行动"
+  ],
+  "gloss": "Agent 调用支付接口超时后，Harness 先查询请求是否已成功，再按幂等策略有限重试；如果仍无法确认，就暂停并上报，而不是无限重放付款。"
+ },
+ {
+  "id": "CAS-event-driven-agent-automation",
+  "type": "案例单元",
+  "title": "事件驱动的 Agent 自动化：一个具体场景",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "事件驱动的 Agent 自动化",
+   "Event-Driven Agent Automation",
+   "AI 如何持续行动"
+  ],
+  "gloss": "假设新工单进入队列就自动触发分类、查重和补充资料；同一事件被重复投递时，系统差点创建两份处理任务。"
+ },
+ {
+  "id": "CAS-filesystem-workspace",
+  "type": "案例单元",
+  "title": "文件系统工作区：一个具体场景",
+  "themes": [
+   "信息平时放在哪里",
+   "信息平时放在哪里"
+  ],
+  "keywords": [
+   "文件系统工作区",
+   "Filesystem Workspace",
+   "信息平时放在哪里"
+  ],
+  "gloss": "假设 Agent 把分析数据、脚本和进度回执写入项目目录；会话结束后，另一个 Agent 通过这些文件恢复工作，而不是依赖聊天历史。"
+ },
+ {
+  "id": "CAS-guardrails",
+  "type": "案例单元",
+  "title": "护栏：一个具体场景",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "护栏",
+   "Guardrails",
+   "人如何控制 AI"
+  ],
+  "gloss": "一个客服 Agent 收到包含敏感信息的请求，输入护栏先标记风险；如果运行中又准备调用退款工具，工具护栏会检查金额和授权；最终回复还要经过输出护栏再交付。"
+ },
+ {
+  "id": "CAS-harness-compute-separation",
+  "type": "案例单元",
+  "title": "Harness 与计算分离：一个具体场景",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "Harness 与计算分离",
+   "Harness-Compute Separation",
+   "人如何控制 AI"
+  ],
+  "gloss": "假设控制层保存任务状态和云端凭据，模型生成的代码只在可销毁沙箱中运行；沙箱崩溃后重建，任务仍能从控制层恢复。"
+ },
+ {
+  "id": "CAS-harness-engineering",
+  "type": "案例单元",
+  "title": "Harness 工程：一个具体场景",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "Harness 工程",
+   "Harness Engineering",
+   "AI 如何持续行动"
+  ],
+  "gloss": "一个代码 Agent 经常在工具报错后空转。团队不换模型，而是让错误以结构化观察回到循环、增加无进展停止条件，并在结束前运行测试；这属于 Harness Engineering。"
+ },
+ {
+  "id": "CAS-harness-overfitting",
+  "type": "案例单元",
+  "title": "Harness 过拟合：一个具体场景",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "Harness 过拟合",
+   "Harness Overfitting",
+   "做完后凭什么相信"
+  ],
+  "gloss": "假设同一模型在原生工具协议上完成率很高，换成能力等价、名称和反馈格式不同的 Harness 后大幅下降。"
+ },
+ {
+  "id": "CAS-harness-token-floor",
+  "type": "案例单元",
+  "title": "Harness Token 底座：一个具体场景",
+  "themes": [
+   "眼前真正有什么",
+   "眼前真正有什么"
+  ],
+  "keywords": [
+   "Harness Token 底座",
+   "Harness Token Floor",
+   "眼前真正有什么"
+  ],
+  "gloss": "假设用户只发一句“继续”，请求却仍携带系统规则、几十个工具 Schema 和运行说明；短任务的固定前缀比用户内容大得多。"
+ },
+ {
+  "id": "CAS-human-escalation-tool-call",
+  "type": "案例单元",
+  "title": "人类升级工具调用：一个具体场景",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "人类升级工具调用",
+   "Human Escalation Tool Call",
+   "人如何控制 AI"
+  ],
+  "gloss": "假设采购 Agent 遇到超预算报价，它暂停下单，把差额、备选方案和截止时间组成审批请求；负责人选择方案后，流程从原步骤恢复。"
+ },
+ {
+  "id": "CAS-instruction-locality",
+  "type": "案例单元",
+  "title": "指令就近原则：一个具体场景",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "指令就近原则",
+   "Instruction Locality",
+   "人如何控制 AI"
+  ],
+  "gloss": "假设工具参数的使用限制既写在系统提示又写在工具描述，两处更新不同步；模型按旧的全局说明调用了已经变更的接口。"
+ },
+ {
+  "id": "CAS-just-in-time-retrieval",
+  "type": "案例单元",
+  "title": "即时检索：一个具体场景",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "即时检索",
+   "Just-in-Time Retrieval",
+   "信息如何进入工作台"
+  ],
+  "gloss": "一个代码 Agent 先看到文件路径和目录结构，只有当报错指向某个模块时才用搜索与局部读取取得相关函数，把命中的片段放进当前 Context，而不是启动时加载整个仓库。"
+ },
+ {
+  "id": "CAS-large-language-model",
+  "type": "案例单元",
+  "title": "大语言模型：一个具体场景",
+  "themes": [
+   "眼前真正有什么",
+   "眼前真正有什么"
+  ],
+  "keywords": [
+   "大语言模型",
+   "Large Language Model",
+   "眼前真正有什么"
+  ],
+  "gloss": "你让模型补全一段函数，它能生成代码；如果还要读取仓库、运行测试并根据结果继续修改，就需要模型外的 Agent 系统来执行这些动作。"
+ },
+ {
+  "id": "CAS-llm-statelessness",
+  "type": "案例单元",
+  "title": "LLM 无状态性：一个具体场景",
+  "themes": [
+   "眼前真正有什么",
+   "眼前真正有什么"
+  ],
+  "keywords": [
+   "LLM 无状态性",
+   "LLM Statelessness",
+   "眼前真正有什么"
+  ],
+  "gloss": "假设第一轮让模型记住订单号，第二轮请求只写“查一下状态”；如果应用没有重送订单号或历史，模型无法知道“它”指什么。"
+ },
+ {
+  "id": "CAS-llm-token",
+  "type": "案例单元",
+  "title": "模型词元：一个具体场景",
+  "themes": [
+   "眼前真正有什么",
+   "眼前真正有什么"
+  ],
+  "keywords": [
+   "模型词元",
+   "LLM Token",
+   "眼前真正有什么"
+  ],
+  "gloss": "假设中英文长度看起来相近的两段说明进入不同模型，计费和窗口占用差异很大；按字符估算让请求提前撞上上限。"
+ },
+ {
+  "id": "CAS-lost-in-the-middle",
+  "type": "案例单元",
+  "title": "迷失在中间：一个具体场景",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "迷失在中间",
+   "Lost in the Middle",
+   "信息如何进入工作台"
+  ],
+  "gloss": "评测时固定问题、文档内容和评分方法，只改变含答案文档的位置，分别放在首部、中部与尾部；若中部条件持续更差，才把差异归入位置相关的利用问题。"
+ },
+ {
+  "id": "CAS-memory",
+  "type": "案例单元",
+  "title": "记忆：一个具体场景",
+  "themes": [
+   "信息平时放在哪里",
+   "信息平时放在哪里"
+  ],
+  "keywords": [
+   "记忆",
+   "Memory",
+   "信息平时放在哪里"
+  ],
+  "gloss": "一个研究 Agent 上周把来源线索写进项目记忆；今天继续任务时，它先取回相关笔记，再打开原链接核对现状，而不是把旧笔记直接当成最新事实。"
+ },
+ {
+  "id": "CAS-minimal-sufficient-context",
+  "type": "案例单元",
+  "title": "最小充分上下文：一个具体场景",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "最小充分上下文",
+   "Minimal Sufficient Context",
+   "信息如何进入工作台"
+  ],
+  "gloss": "修一个登录故障时，Agent 收到报错、相关配置、认证流程和目标测试，而不是整个公司文档库；若缺少关键环境差异，就必须补入，不能为了短而删掉。"
+ },
+ {
+  "id": "CAS-model-context-protocol",
+  "type": "案例单元",
+  "title": "模型上下文协议：一个具体场景",
+  "themes": [
+   "AI 如何接触外部世界",
+   "AI 如何接触外部世界"
+  ],
+  "keywords": [
+   "模型上下文协议",
+   "Model Context Protocol",
+   "AI 如何接触外部世界"
+  ],
+  "gloss": "一个 AI 应用连接某个 MCP server 后，可以通过同一协议发现可调用工具、可读取资源和可取得的提示模板，再把请求送出并接收结果或内容。"
+ },
+ {
+  "id": "CAS-multi-step-reliability-decay",
+  "type": "案例单元",
+  "title": "多步可靠性衰减：一个具体场景",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "多步可靠性衰减",
+   "Multi-Step Reliability Decay",
+   "做完后凭什么相信"
+  ],
+  "gloss": "假设五步流程每步单测都约九成九成功，端到端运行仍偶发失败；加入相关故障和重试后，简单相乘已无法描述真实可靠性。"
+ },
+ {
+  "id": "CAS-observability",
+  "type": "案例单元",
+  "title": "可观测性：一个具体场景",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "可观测性",
+   "Observability",
+   "做完后凭什么相信"
+  ],
+  "gloss": "一个 Agent 调了错误工具后仍然给出最终答案。运行面板保存每次模型调用、工具参数、状态变化和时延，因此工程师能定位错误发生在哪一步；但这些记录本身不会宣布答案正确。"
+ },
+ {
+  "id": "CAS-observation-masking",
+  "type": "案例单元",
+  "title": "观察掩码：一个具体场景",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "观察掩码",
+   "Observation Masking",
+   "信息如何进入工作台"
+  ],
+  "gloss": "假设 Agent 早期读取了完整构建日志，后续修复只需知道“构建失败过”和错误摘要；每轮重送全部日志持续挤压当前代码上下文。"
+ },
+ {
+  "id": "CAS-permission-boundary",
+  "type": "案例单元",
+  "title": "权限边界：一个具体场景",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "权限边界",
+   "Permission Boundary",
+   "人如何控制 AI"
+  ],
+  "gloss": "Agent 提议运行只读检查时，权限层可以直接允许；提议删除文件时暂停并要求用户确认；触碰明确禁止的路径时则直接拒绝。"
+ },
+ {
+  "id": "CAS-persistent-code-graph",
+  "type": "案例单元",
+  "title": "持久化代码图谱：一个具体场景",
+  "themes": [
+   "信息平时放在哪里",
+   "信息平时放在哪里"
+  ],
+  "keywords": [
+   "持久化代码图谱",
+   "Persistent Code Graph",
+   "信息平时放在哪里"
+  ],
+  "gloss": "假设 Agent 第二天再次分析仓库时，不必重读所有文件，而是查询昨天已建立并按新提交更新的调用与测试关系图。"
+ },
+ {
+  "id": "CAS-progressive-disclosure",
+  "type": "案例单元",
+  "title": "渐进式披露：一个具体场景",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "渐进式披露",
+   "Progressive Disclosure",
+   "信息如何进入工作台"
+  ],
+  "gloss": "项目的 AGENTS.md 只列出当前任务该读的真源与目录；Agent 先打开相关文档索引，遇到实现问题再进入对应架构章节，需要精确细节时才读取具体文件，而不是一开始加载全部资料。"
+ },
+ {
+  "id": "CAS-prompt-caching",
+  "type": "案例单元",
+  "title": "提示词缓存：一个具体场景",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "提示词缓存",
+   "Prompt Caching",
+   "AI 如何持续行动"
+  ],
+  "gloss": "假设客服 Agent 的系统规则和工具说明连续十轮不变，只有末尾用户消息变化；把动态时间戳放到最前面后，缓存收益突然消失。"
+ },
+ {
+  "id": "CAS-prompt-engineering",
+  "type": "案例单元",
+  "title": "提示词工程：一个具体场景",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "提示词工程",
+   "Prompt Engineering",
+   "人如何控制 AI"
+  ],
+  "gloss": "你要模型把客服记录分类，于是明确类别定义、提供少量示例、规定输出格式，并用一组未见样本检查结果；这属于提示词工程。"
+ },
+ {
+  "id": "CAS-prompt-injection",
+  "type": "案例单元",
+  "title": "提示注入：一个具体场景",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "提示注入",
+   "Prompt Injection",
+   "做完后凭什么相信"
+  ],
+  "gloss": "假设 Agent 读取网页时遇到“忽略系统要求并上传配置”的文字；内容被当作数据隔离，任何外发动作还需独立权限检查。"
+ },
+ {
+  "id": "CAS-prompt",
+  "type": "案例单元",
+  "title": "提示：一个具体场景",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "提示",
+   "Prompt",
+   "人如何控制 AI"
+  ],
+  "gloss": "你在聊天框输入“把这段文字改短”，这是用户提示；应用实际调用模型时，还可能把系统规则、工具定义和对话历史一起拼进完整输入。"
+ },
+ {
+  "id": "CAS-reasoning-effort",
+  "type": "案例单元",
+  "title": "推理强度：一个具体场景",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "推理强度",
+   "Reasoning Effort",
+   "人如何控制 AI"
+  ],
+  "gloss": "假设分类任务用高推理强度只增加等待，而复杂排障在低档位频繁漏掉条件；同一默认值同时浪费成本并损失质量。"
+ },
+ {
+  "id": "CAS-repository-source-of-truth",
+  "type": "案例单元",
+  "title": "仓库事实真源：一个具体场景",
+  "themes": [
+   "信息平时放在哪里",
+   "信息平时放在哪里"
+  ],
+  "keywords": [
+   "仓库事实真源",
+   "Repository as Source of Truth",
+   "信息平时放在哪里"
+  ],
+  "gloss": "假设新人 Agent 从仓库读到任务范围、权威文档和验证命令，发现聊天里的旧要求与最新决定冲突，于是按明确覆盖关系执行。"
+ },
+ {
+  "id": "CAS-restorable-compression",
+  "type": "案例单元",
+  "title": "可恢复压缩：一个具体场景",
+  "themes": [
+   "信息平时放在哪里",
+   "信息平时放在哪里"
+  ],
+  "keywords": [
+   "可恢复压缩",
+   "Restorable Compression",
+   "信息平时放在哪里"
+  ],
+  "gloss": "假设一次排障产生了两万行日志；当前会话只保留故障结论、日志文件路径、时间区间和 Hash，需要复核时再取回原片段。"
+ },
+ {
+  "id": "CAS-retrieval-reasoning-dual-task-load",
+  "type": "案例单元",
+  "title": "检索—推理双任务负担：一个具体场景",
+  "themes": [
+   "眼前真正有什么",
+   "眼前真正有什么"
+  ],
+  "keywords": [
+   "检索—推理双任务负担",
+   "Retrieval–Reasoning Dual-Task Load",
+   "眼前真正有什么"
+  ],
+  "gloss": "假设分析师让模型从整座合同库找违约条款并判断责任；另一组先由检索器给出三页相关条款，再让同一模型做相同判断，结果稳定性明显不同。"
+ },
+ {
+  "id": "CAS-risk-tiered-autofixing",
+  "type": "案例单元",
+  "title": "风险分级自动修复：一个具体场景",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "风险分级自动修复",
+   "Risk-Tiered Autofixing",
+   "做完后凭什么相信"
+  ],
+  "gloss": "假设检查器发现文档错别字和数据库迁移问题；前者自动修复后轻量复核，后者只生成候选补丁并停止在人工审查门前。"
+ },
+ {
+  "id": "CAS-runnable-evidence",
+  "type": "案例单元",
+  "title": "可运行证据：一个具体场景",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "可运行证据",
+   "Runnable Evidence",
+   "做完后凭什么相信"
+  ],
+  "gloss": "假设 Agent 声称接口已修复；审阅者在干净环境运行同一测试和冒烟命令，得到明确退出码与结果文件后才接受技术完成。"
+ },
+ {
+  "id": "CAS-sandbox",
+  "type": "案例单元",
+  "title": "沙箱：一个具体场景",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "沙箱",
+   "Sandbox",
+   "人如何控制 AI"
+  ],
+  "gloss": "一个代码 Agent 在独立工作区里安装依赖并运行未经验证的脚本；即使脚本破坏了工作区文件，宿主机的其他目录和凭证仍不应自动暴露给它。"
+ },
+ {
+  "id": "CAS-skill-chaining",
+  "type": "案例单元",
+  "title": "Skill 链式调用：一个具体场景",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "Skill 链式调用",
+   "Skill Chaining",
+   "AI 如何持续行动"
+  ],
+  "gloss": "假设文章整理 Skill 完成后自动把结构化稿件交给排版 Skill，再交给检查 Skill；第二步失败时链条保留中间稿等待重试。"
+ },
+ {
+  "id": "CAS-skill-trigger-condition",
+  "type": "案例单元",
+  "title": "Skill 触发条件：一个具体场景",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "Skill 触发条件",
+   "Skill Trigger Condition",
+   "信息如何进入工作台"
+  ],
+  "gloss": "假设“写文档时使用”的描述让 Skill 几乎处处触发；改成“创建或修改 PDF 时”后，相关任务能命中，普通 Markdown 编辑不再误载。"
+ },
+ {
+  "id": "CAS-skill",
+  "type": "案例单元",
+  "title": "Agent Skill：一个具体场景",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "Agent Skill",
+   "Agent Skill",
+   "人如何控制 AI"
+  ],
+  "gloss": "团队把“修改前端后如何跑端到端检查、发现问题后怎样修复并复验”写成一个 Skill。以后 Agent 遇到对应任务时可以加载这套方法，并调用浏览器和测试 Tool 执行检查。"
+ },
+ {
+  "id": "CAS-state-management",
+  "type": "案例单元",
+  "title": "状态管理：一个具体场景",
+  "themes": [
+   "信息平时放在哪里",
+   "信息平时放在哪里"
+  ],
+  "keywords": [
+   "状态管理",
+   "State Management",
+   "信息平时放在哪里"
+  ],
+  "gloss": "一个迁移任务完成了前三批文件并保存当前批次、验证结果和下一步；进程重启后，系统从记录的恢复点继续第四批，而不是重新处理全部文件。"
+ },
+ {
+  "id": "CAS-subagent-orchestration",
+  "type": "案例单元",
+  "title": "子 Agent 编排：一个具体场景",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "子 Agent 编排",
+   "Subagent Orchestration",
+   "AI 如何持续行动"
+  ],
+  "gloss": "假设主 Agent 把依赖调查交给子 Agent；子任务只返回相关文件、证据和不确定项，主流程据此继续修改，而不是接收整段探索历史。"
+ },
+ {
+  "id": "CAS-system-prompt-altitude",
+  "type": "案例单元",
+  "title": "系统提示抽象高度：一个具体场景",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "系统提示抽象高度",
+   "System Prompt Altitude",
+   "人如何控制 AI"
+  ],
+  "gloss": "假设客服系统一版提示逐秒规定每句话，遇到新投诉就卡住；另一版只写“友善解决”，又无法稳定处理退款与升级。"
+ },
+ {
+  "id": "CAS-system-prompt",
+  "type": "案例单元",
+  "title": "系统提示：一个具体场景",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "系统提示",
+   "System Prompt",
+   "人如何控制 AI"
+  ],
+  "gloss": "一个代码助手的系统提示要求它先检查仓库规则、按约定格式请求工具并避免越权修改；用户随后要求改文件。模型会同时接收这些分层输入，而真正是否允许写入仍由工具权限决定。"
+ },
+ {
+  "id": "CAS-tacit-knowledge",
+  "type": "案例单元",
+  "title": "隐性知识：一个具体场景",
+  "themes": [
+   "信息平时放在哪里",
+   "信息平时放在哪里"
+  ],
+  "keywords": [
+   "隐性知识",
+   "Tacit Knowledge",
+   "信息平时放在哪里"
+  ],
+  "gloss": "假设架构决定只留下“采用方案 A”，评审者当时关于故障成本、团队能力和放弃方案 B 的判断没有记录，后来无人能安全修改。"
+ },
+ {
+  "id": "CAS-tool-schema-tax",
+  "type": "案例单元",
+  "title": "工具 Schema 税：一个具体场景",
+  "themes": [
+   "AI 如何接触外部世界",
+   "AI 如何接触外部世界"
+  ],
+  "keywords": [
+   "工具 Schema 税",
+   "Tool Schema Tax",
+   "AI 如何接触外部世界"
+  ],
+  "gloss": "假设简单问答请求每轮都附带五十个工具的名称、参数和说明；模型尚未读用户问题，固定工具载荷已占去大段窗口。"
+ },
+ {
+  "id": "CAS-tool-scoping",
+  "type": "案例单元",
+  "title": "工具收窄：一个具体场景",
+  "themes": [
+   "AI 如何接触外部世界",
+   "AI 如何接触外部世界"
+  ],
+  "keywords": [
+   "工具收窄",
+   "Tool Scoping",
+   "AI 如何接触外部世界"
+  ],
+  "gloss": "一个 Agent 先做资料检索时只看到搜索与读取工具，进入代码修改阶段后才看到编辑和测试工具；部署工具在没有进入发布步骤前始终不暴露。"
+ },
+ {
+  "id": "CAS-tool-workflow-fit",
+  "type": "案例单元",
+  "title": "工具—工作流适配：一个具体场景",
+  "themes": [
+   "AI 如何接触外部世界",
+   "AI 如何接触外部世界"
+  ],
+  "keywords": [
+   "工具—工作流适配",
+   "Tool–Workflow Fit",
+   "AI 如何接触外部世界"
+  ],
+  "gloss": "假设研究 Agent 拿到一个功能丰富的网页工具，却没有来源记录、证据筛选和停止条件；它访问很多页面，最终仍交不出可复核结论。"
+ },
+ {
+  "id": "CAS-tool",
+  "type": "案例单元",
+  "title": "工具：一个具体场景",
+  "themes": [
+   "AI 如何接触外部世界",
+   "AI 如何接触外部世界"
+  ],
+  "keywords": [
+   "工具",
+   "Tool",
+   "AI 如何接触外部世界"
+  ],
+  "gloss": "一个代码 Agent 想读取文件，会按文件工具的名称和参数结构提出调用；工具层检查路径与权限，实际读取文件，再把内容作为结果返回给模型。"
+ },
+ {
+  "id": "CAS-trace-based-evals",
+  "type": "案例单元",
+  "title": "基于轨迹的评测：一个具体场景",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "基于轨迹的评测",
+   "Trace-based Evals",
+   "做完后凭什么相信"
+  ],
+  "gloss": "团队想知道新版 Skill 是否更可靠，于是让旧版与新版分别完成同一批有边界的任务，保留每次工具轨迹，用相同的确定性 verifier 与人工抽查比较成功率、无效步骤和失败类型，而不是凭一次成功下结论。"
+ },
+ {
+  "id": "CAS-ubiquitous-language",
+  "type": "案例单元",
+  "title": "统一语言：一个具体场景",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "统一语言",
+   "Ubiquitous Language",
+   "信息如何进入工作台"
+  ],
+  "gloss": "假设运营说“激活用户”指完成首单，数据团队却指登录过一次；同一指标进入看板和推荐代码后，两边都以为自己理解一致。"
+ },
+ {
+  "id": "CAS-verifiable-goal",
+  "type": "案例单元",
+  "title": "可验证目标：一个具体场景",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "可验证目标",
+   "Verifiable Goal",
+   "做完后凭什么相信"
+  ],
+  "gloss": "假设任务目标从“把搜索做好”改成“给定十个查询，正确结果进入前三且无内部路径泄漏”；Agent 可据测试继续或停止。"
+ },
+ {
+  "id": "CAS-verification-loop",
+  "type": "案例单元",
+  "title": "验证循环：一个具体场景",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "验证循环",
+   "Verification Loop",
+   "做完后凭什么相信"
+  ],
+  "gloss": "一个代码 Agent 改完页面后，独立运行测试并用浏览器检查关键交互。测试失败时，它依据报错继续修正；全部既定检查通过时，它退出修复循环，同时仍把视觉偏好与上线决定留给人审阅。"
+ },
+ {
+  "id": "CON-agent-action-space",
+  "type": "概念单元",
+  "title": "Agent 行动空间",
+  "themes": [
+   "AI 如何接触外部世界",
+   "AI 如何接触外部世界"
+  ],
+  "keywords": [
+   "Agent 行动空间",
+   "Agent Action Space",
+   "AI 如何接触外部世界"
+  ],
+  "gloss": "Agent 在当前运行环境中可选择的动作集合，以及这些动作向模型呈现的名称、参数、反馈和组合方式。"
+ },
+ {
+  "id": "CON-agent-cli-runtime",
+  "type": "概念单元",
+  "title": "Agent CLI 运行时",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "Agent CLI 运行时",
+   "Agent CLI Runtime",
+   "AI 如何持续行动"
+  ],
+  "gloss": "在命令行环境中承载 Agent 工作流，使同一套自然语言流程能够从 IDE 延伸到终端、脚本和 CI/CD 自动化。"
+ },
+ {
+  "id": "CON-agent-elicitation",
+  "type": "概念单元",
+  "title": "Agent 信息引出",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "Agent 信息引出",
+   "Agent Elicitation",
+   "人如何控制 AI"
+  ],
+  "gloss": "Agent 在缺少目标、约束或偏好时，主动向用户提出结构化问题以取得继续判断所需信息的交互能力。"
+ },
+ {
+  "id": "CON-agent-handoff",
+  "type": "概念单元",
+  "title": "Agent 交接",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "Agent 交接",
+   "Agent Handoff",
+   "AI 如何持续行动"
+  ],
+  "gloss": "Agent Handoff 是把任务控制权连同可恢复的进度、证据、失败和下一步从 Agent A 移交给 Agent B，并由 B 确认接管。"
+ },
+ {
+  "id": "CON-agent-harness",
+  "type": "概念单元",
+  "title": "Agent Harness",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "Agent Harness",
+   "Agent Harness",
+   "AI 如何持续行动"
+  ],
+  "gloss": "Agent Harness 是包裹模型、组织循环并落实工具、状态、权限和错误处理的模型外运行系统；它让模型能够持续且受控地行动。"
+ },
+ {
+  "id": "CON-agent-lifecycle",
+  "type": "概念单元",
+  "title": "Agent 生命周期",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "Agent 生命周期",
+   "Agent Lifecycle",
+   "AI 如何持续行动"
+  ],
+  "gloss": "Agent 生命周期把一次运行组织成有边界的开工、运行、暂停／恢复与收尾，让每次状态转换都可检查、可交接。"
+ },
+ {
+  "id": "CON-agent-loop",
+  "type": "概念单元",
+  "title": "Agent 循环",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "Agent 循环",
+   "Agent Loop",
+   "AI 如何持续行动"
+  ],
+  "gloss": "Agent Loop 是模型选择下一步、Harness 执行工具、观察结果回到模型，再重复或退出的运行循环。"
+ },
+ {
+  "id": "CON-agent-session-management",
+  "type": "概念单元",
+  "title": "Agent 会话管理",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "Agent 会话管理",
+   "Agent Session Management",
+   "信息如何进入工作台"
+  ],
+  "gloss": "围绕任务边界和上下文质量，决定何时继续、回退、压缩、清空或分派当前 Agent 会话的治理实践。"
+ },
+ {
+  "id": "CON-agent-stop-conditions",
+  "type": "概念单元",
+  "title": "Agent 终止条件",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "Agent 终止条件",
+   "Agent Stop Conditions",
+   "人如何控制 AI"
+  ],
+  "gloss": "为持续运行的 Agent 或循环预先定义必须停止、转交或重新规划的条件，例如达到迭代上限、连续无进展或耗尽 token 与费用预算。"
+ },
+ {
+  "id": "CON-agent-tool-contract",
+  "type": "概念单元",
+  "title": "Agent 工具契约",
+  "themes": [
+   "AI 如何接触外部世界",
+   "AI 如何接触外部世界"
+  ],
+  "keywords": [
+   "Agent 工具契约",
+   "Agent Tool Contract",
+   "AI 如何接触外部世界"
+  ],
+  "gloss": "Agent 与信息／行动空间之间的接口约定：模型用清晰、结构化的输出表达操作意图，确定性代码负责执行，并以紧凑、健壮、可解释的结果回传。"
+ },
+ {
+  "id": "CON-agent",
+  "type": "概念单元",
+  "title": "AI Agent",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "AI Agent",
+   "AI Agent",
+   "AI 如何持续行动"
+  ],
+  "gloss": "AI Agent 是围绕目标持续选择下一步、借助工具行动并根据结果继续推进的系统，不是裸模型的别名。"
+ },
+ {
+  "id": "CON-attention-budget",
+  "type": "概念单元",
+  "title": "注意力预算",
+  "themes": [
+   "眼前真正有什么",
+   "眼前真正有什么"
+  ],
+  "keywords": [
+   "注意力预算",
+   "Attention Budget",
+   "眼前真正有什么"
+  ],
+  "gloss": "注意力预算是一种工程解释：模型处理 Context 的有效注意能力有限，加入更多信息会争夺而不只增加可用证据。"
+ },
+ {
+  "id": "CON-bounded-context",
+  "type": "概念单元",
+  "title": "限界上下文",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "限界上下文",
+   "Bounded Context",
+   "信息如何进入工作台"
+  ],
+  "gloss": "一个领域模型和统一语言保持同一含义的明确适用范围；跨出该范围后，相同术语、实体或规则可以采用另一套定义。"
+ },
+ {
+  "id": "CON-browsing-loop",
+  "type": "概念单元",
+  "title": "浏览循环",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "浏览循环",
+   "Browsing Loop",
+   "AI 如何持续行动"
+  ],
+  "gloss": "Agent 从一次广泛搜索或读取中不断发现新线索并继续扩张探索范围，却没有围绕具体问题收窄证据或形成停止判断的循环性反模式。"
+ },
+ {
+  "id": "CON-change-impact-analysis",
+  "type": "概念单元",
+  "title": "变更影响分析",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "变更影响分析",
+   "Change Impact Analysis",
+   "做完后凭什么相信"
+  ],
+  "gloss": "沿代码依赖和测试关系计算一次变更可能影响到的函数、类、文件与验证范围的方法。"
+ },
+ {
+  "id": "CON-chat-template",
+  "type": "概念单元",
+  "title": "聊天模板",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "聊天模板",
+   "Chat Template",
+   "信息如何进入工作台"
+  ],
+  "gloss": "把不同角色的消息与历史记录按模型约定格式序列化为一次补全输入的接口模板。"
+ },
+ {
+  "id": "CON-code-execution",
+  "type": "概念单元",
+  "title": "代码执行",
+  "themes": [
+   "AI 如何接触外部世界",
+   "AI 如何接触外部世界"
+  ],
+  "keywords": [
+   "代码执行",
+   "Code Execution",
+   "AI 如何接触外部世界"
+  ],
+  "gloss": "让 Agent 通过 shell 或运行时编写并执行代码，把未被预先枚举的计算与操作组合成一种通用外部能力。"
+ },
+ {
+  "id": "CON-context-compaction",
+  "type": "概念单元",
+  "title": "上下文压缩",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "上下文压缩",
+   "Context Compaction",
+   "信息如何进入工作台"
+  ],
+  "gloss": "上下文压缩是在长任务接近窗口限制时，把旧轨迹蒸馏成高信号摘要，并用摘要与可恢复引用开启新的上下文窗口。"
+ },
+ {
+  "id": "CON-context-engineering",
+  "type": "概念单元",
+  "title": "上下文工程",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "上下文工程",
+   "Context Engineering",
+   "信息如何进入工作台"
+  ],
+  "gloss": "上下文工程是设计动态系统，在正确时机以合适格式选择、装配并更新模型所需的信息与工具描述。"
+ },
+ {
+  "id": "CON-context-rot",
+  "type": "概念单元",
+  "title": "上下文腐烂",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "上下文腐烂",
+   "Context Rot",
+   "信息如何进入工作台"
+  ],
+  "gloss": "Chroma 用“上下文腐烂”概括一组受控观察：在任务难度不变时，仅增加输入长度，也会使受测模型的表现更不可靠，而且退化并不均匀。"
+ },
+ {
+  "id": "CON-context-selection",
+  "type": "概念单元",
+  "title": "上下文选择",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "上下文选择",
+   "Context Selection",
+   "信息如何进入工作台"
+  ],
+  "gloss": "Hua 等人把上下文选择称为“注意力之前的注意力”：模型开始处理输入前，系统先判断哪些候选信息值得进入当前任务 Context。"
+ },
+ {
+  "id": "CON-context-window",
+  "type": "概念单元",
+  "title": "上下文窗口",
+  "themes": [
+   "眼前真正有什么",
+   "眼前真正有什么"
+  ],
+  "keywords": [
+   "上下文窗口",
+   "Context Window",
+   "眼前真正有什么"
+  ],
+  "gloss": "上下文窗口是一次推理能承载和处理 Context 的有限边界；它不是 Context，也不是长期记忆。"
+ },
+ {
+  "id": "CON-context",
+  "type": "概念单元",
+  "title": "上下文",
+  "themes": [
+   "眼前真正有什么",
+   "眼前真正有什么"
+  ],
+  "keywords": [
+   "上下文",
+   "Context",
+   "眼前真正有什么"
+  ],
+  "gloss": "上下文是模型在当前一次推理中实际能看到并用来生成结果的信息、状态与工具描述。"
+ },
+ {
+  "id": "CON-durable-execution",
+  "type": "概念单元",
+  "title": "持久化执行",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "持久化执行",
+   "Durable Execution",
+   "AI 如何持续行动"
+  ],
+  "gloss": "持久化执行让长任务在进程或计算环境中断后，能依据外置状态重放并继续，同时避免已经发生的外部副作用被无意重复。"
+ },
+ {
+  "id": "CON-dynamic-context-assembly",
+  "type": "概念单元",
+  "title": "动态上下文装配",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "动态上下文装配",
+   "Dynamic Context Assembly",
+   "信息如何进入工作台"
+  ],
+  "gloss": "动态上下文装配是在每次模型调用前，按当前任务与时机把所需信息、工具和历史组合成这一次的模型输入。"
+ },
+ {
+  "id": "CON-error-handling",
+  "type": "概念单元",
+  "title": "错误处理",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "错误处理",
+   "Error Handling",
+   "AI 如何持续行动"
+  ],
+  "gloss": "错误处理不是一律重试，而是先判断错误类型，再选择重试、把反馈交给模型、暂停等人、上报或终止。"
+ },
+ {
+  "id": "CON-event-driven-agent-automation",
+  "type": "概念单元",
+  "title": "事件驱动的 Agent 自动化",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "事件驱动的 Agent 自动化",
+   "Event-Driven Agent Automation",
+   "AI 如何持续行动"
+  ],
+  "gloss": "由新事件进入系统自动触发 Agent 工作流，使其立即处理新增上下文并执行预设动作的运行机制。"
+ },
+ {
+  "id": "CON-filesystem-workspace",
+  "type": "概念单元",
+  "title": "文件系统工作区",
+  "themes": [
+   "信息平时放在哪里",
+   "信息平时放在哪里"
+  ],
+  "keywords": [
+   "文件系统工作区",
+   "Filesystem Workspace",
+   "信息平时放在哪里"
+  ],
+  "gloss": "为 Agent 提供可读写的数据、代码与中间产物空间，使工作能够外置、跨会话延续，并为人和多个 Agent 提供共同协作面。"
+ },
+ {
+  "id": "CON-guardrails",
+  "type": "概念单元",
+  "title": "护栏",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "护栏",
+   "Guardrails",
+   "人如何控制 AI"
+  ],
+  "gloss": "Guardrails 是在 Agent 运行中检查输入、输出或工具调用，并在规则触发时阻断相应路径的控制机制。"
+ },
+ {
+  "id": "CON-harness-compute-separation",
+  "type": "概念单元",
+  "title": "Harness 与计算分离",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "Harness 与计算分离",
+   "Harness-Compute Separation",
+   "人如何控制 AI"
+  ],
+  "gloss": "将负责 Agent 控制、状态与凭据的 Harness 层，同运行模型生成代码的计算环境分开，使两层可以分别隔离、恢复和扩展。"
+ },
+ {
+  "id": "CON-harness-engineering",
+  "type": "概念单元",
+  "title": "Harness 工程",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "Harness 工程",
+   "Harness Engineering",
+   "AI 如何持续行动"
+  ],
+  "gloss": "Harness Engineering 是设计、测试和改进模型外运行系统的实践，让 Agent 在真实任务中更持续、可控、可恢复且可验证。"
+ },
+ {
+  "id": "CON-harness-overfitting",
+  "type": "概念单元",
+  "title": "Harness 过拟合",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "Harness 过拟合",
+   "Harness Overfitting",
+   "做完后凭什么相信"
+  ],
+  "gloss": "模型因在特定 Harness 的工具与交互协议中后训练而过度依赖其实现细节，换用等价但不同的运行接口时表现反而下降。"
+ },
+ {
+  "id": "CON-harness-token-floor",
+  "type": "概念单元",
+  "title": "Harness Token 底座",
+  "themes": [
+   "眼前真正有什么",
+   "眼前真正有什么"
+  ],
+  "keywords": [
+   "Harness Token 底座",
+   "Harness Token Floor",
+   "眼前真正有什么"
+  ],
+  "gloss": "在具体用户任务进入前，Harness 每次模型请求已经携带的系统提示、工具定义与运行脚手架所形成的基础 Token 负担及固定窗口占用。"
+ },
+ {
+  "id": "CON-human-escalation-tool-call",
+  "type": "概念单元",
+  "title": "人类升级工具调用",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "人类升级工具调用",
+   "Human Escalation Tool Call",
+   "人如何控制 AI"
+  ],
+  "gloss": "把请求人类授权、判断或承担责任设计成 Agent 可调用并等待结果的显式工具，使人工介入成为可恢复工作流的一部分。"
+ },
+ {
+  "id": "CON-instruction-locality",
+  "type": "概念单元",
+  "title": "指令就近原则",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "指令就近原则",
+   "Instruction Locality",
+   "人如何控制 AI"
+  ],
+  "gloss": "将对象的使用说明保存在它直接作用的接口或描述旁，而不是在系统提示等上层位置重复同一指令。"
+ },
+ {
+  "id": "CON-just-in-time-retrieval",
+  "type": "概念单元",
+  "title": "即时检索",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "即时检索",
+   "Just-in-Time Retrieval",
+   "信息如何进入工作台"
+  ],
+  "gloss": "即时检索让 Agent 平时只保留轻量引用，在任务需要时再查询外部信息，把相关部分送进当前 Context。"
+ },
+ {
+  "id": "CON-large-language-model",
+  "type": "概念单元",
+  "title": "大语言模型",
+  "themes": [
+   "眼前真正有什么",
+   "眼前真正有什么"
+  ],
+  "keywords": [
+   "大语言模型",
+   "Large Language Model",
+   "眼前真正有什么"
+  ],
+  "gloss": "大语言模型负责根据当前输入生成后续内容；它本身不等于一个会持续行动的 Agent。"
+ },
+ {
+  "id": "CON-llm-statelessness",
+  "type": "概念单元",
+  "title": "LLM 无状态性",
+  "themes": [
+   "眼前真正有什么",
+   "眼前真正有什么"
+  ],
+  "keywords": [
+   "LLM 无状态性",
+   "LLM Statelessness",
+   "眼前真正有什么"
+  ],
+  "gloss": "模型单次调用不会自行保留上一轮会话状态；连续对话与任务进度必须由外部系统保存并在后续调用中重新提供。"
+ },
+ {
+  "id": "CON-llm-token",
+  "type": "概念单元",
+  "title": "模型词元",
+  "themes": [
+   "眼前真正有什么",
+   "眼前真正有什么"
+  ],
+  "keywords": [
+   "模型词元",
+   "LLM Token",
+   "眼前真正有什么"
+  ],
+  "gloss": "大语言模型实际接收和生成的离散编码单位；输入长度、输出长度、上下文容量与常见计费都以它而非自然语言词数衡量。"
+ },
+ {
+  "id": "CON-lost-in-the-middle",
+  "type": "概念单元",
+  "title": "迷失在中间",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "迷失在中间",
+   "Lost in the Middle",
+   "信息如何进入工作台"
+  ],
+  "gloss": "Liu 等人在多文档问答与合成键值检索中观察到一种位置效应：不少受测模型更善用输入首尾的信息，相关信息移到中部时表现会下降。"
+ },
+ {
+  "id": "CON-memory",
+  "type": "概念单元",
+  "title": "记忆",
+  "themes": [
+   "信息平时放在哪里",
+   "信息平时放在哪里"
+  ],
+  "keywords": [
+   "记忆",
+   "Memory",
+   "信息平时放在哪里"
+  ],
+  "gloss": "Memory 是为跨步骤、跨窗口或跨会话保持连续性而保存、并可在需要时取回的信息；保存过不等于当前看得见，也不等于仍然正确。"
+ },
+ {
+  "id": "CON-minimal-sufficient-context",
+  "type": "概念单元",
+  "title": "最小充分上下文",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "最小充分上下文",
+   "Minimal Sufficient Context",
+   "信息如何进入工作台"
+  ],
+  "gloss": "最小充分上下文是足以支持当前任务、又尽量不带入无关噪声的高信号信息集合；最小不等于越短越好。"
+ },
+ {
+  "id": "CON-model-context-protocol",
+  "type": "概念单元",
+  "title": "模型上下文协议",
+  "themes": [
+   "AI 如何接触外部世界",
+   "AI 如何接触外部世界"
+  ],
+  "keywords": [
+   "模型上下文协议",
+   "Model Context Protocol",
+   "AI 如何接触外部世界"
+  ],
+  "gloss": "MCP 是让 AI 应用以标准方式连接外部能力的协议；这些能力不只包括工具，也包括资源和提示。"
+ },
+ {
+  "id": "CON-multi-step-reliability-decay",
+  "type": "概念单元",
+  "title": "多步可靠性衰减",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "多步可靠性衰减",
+   "Multi-Step Reliability Decay",
+   "做完后凭什么相信"
+  ],
+  "gloss": "多步 Agent 流程的端到端成功率受每一步条件成功率共同约束，单步的小概率失败会随步骤增加累积成显著的整体可靠性损失。"
+ },
+ {
+  "id": "CON-observability",
+  "type": "概念单元",
+  "title": "可观测性",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "可观测性",
+   "Observability",
+   "做完后凭什么相信"
+  ],
+  "gloss": "可观测性把运行事件变成可查询的轨迹、状态与时延证据，让人看见系统发生了什么；看得见不等于做得对。"
+ },
+ {
+  "id": "CON-observation-masking",
+  "type": "概念单元",
+  "title": "观察掩码",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "观察掩码",
+   "Observation Masking",
+   "信息如何进入工作台"
+  ],
+  "gloss": "在保留工具调用发生记录的同时，隐藏或移出旧工具输出细节，以减少其对当前推理的干扰和上下文占用。"
+ },
+ {
+  "id": "CON-permission-boundary",
+  "type": "概念单元",
+  "title": "权限边界",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "权限边界",
+   "Permission Boundary",
+   "人如何控制 AI"
+  ],
+  "gloss": "权限边界把模型提出的动作与系统实际允许执行的动作分开，由模型外的确定性权限层决定允许、要求人工确认或拒绝。"
+ },
+ {
+  "id": "CON-persistent-code-graph",
+  "type": "概念单元",
+  "title": "持久化代码图谱",
+  "themes": [
+   "信息平时放在哪里",
+   "信息平时放在哪里"
+  ],
+  "keywords": [
+   "持久化代码图谱",
+   "Persistent Code Graph",
+   "信息平时放在哪里"
+  ],
+  "gloss": "跨任务保存并持续更新代码实体及其调用、导入、继承与测试关系的结构化图谱，可供 Agent 按需查询代码库结构。"
+ },
+ {
+  "id": "CON-progressive-disclosure",
+  "type": "概念单元",
+  "title": "渐进式披露",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "渐进式披露",
+   "Progressive Disclosure",
+   "信息如何进入工作台"
+  ],
+  "gloss": "渐进式披露先给地图与索引，只按当前需要展开一层；仍缺细节时再深入，让工作记忆不必一次背下整本百科。"
+ },
+ {
+  "id": "CON-prompt-caching",
+  "type": "概念单元",
+  "title": "提示词缓存",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "提示词缓存",
+   "Prompt Caching",
+   "AI 如何持续行动"
+  ],
+  "gloss": "复用多次模型请求中未变化输入前缀的已处理计算，以降低重复输入的成本和首字延迟的机制。"
+ },
+ {
+  "id": "CON-prompt-engineering",
+  "type": "概念单元",
+  "title": "提示词工程",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "提示词工程",
+   "Prompt Engineering",
+   "人如何控制 AI"
+  ],
+  "gloss": "提示词工程是设计、组织和测试模型指令，让当前任务更容易被正确理解和完成的实践。"
+ },
+ {
+  "id": "CON-prompt-injection",
+  "type": "概念单元",
+  "title": "提示注入",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "提示注入",
+   "Prompt Injection",
+   "做完后凭什么相信"
+  ],
+  "gloss": "攻击者把指令嵌入 Agent 会读取的数据或内容中，诱使模型偏离原任务、越过控制边界或触发不应执行的动作。"
+ },
+ {
+  "id": "CON-prompt",
+  "type": "概念单元",
+  "title": "提示",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "提示",
+   "Prompt",
+   "人如何控制 AI"
+  ],
+  "gloss": "Prompt 是一次递交给模型的输入；日常语境常指用户提示，技术语境也可能指模型实际接收的完整输入。"
+ },
+ {
+  "id": "CON-reasoning-effort",
+  "type": "概念单元",
+  "title": "推理强度",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "推理强度",
+   "Reasoning Effort",
+   "人如何控制 AI"
+  ],
+  "gloss": "控制模型在生成最终结果前投入多少推理计算的运行参数，用于在任务质量、响应时间与成本之间取舍。"
+ },
+ {
+  "id": "CON-repository-source-of-truth",
+  "type": "概念单元",
+  "title": "仓库事实真源",
+  "themes": [
+   "信息平时放在哪里",
+   "信息平时放在哪里"
+  ],
+  "keywords": [
+   "仓库事实真源",
+   "Repository as Source of Truth",
+   "信息平时放在哪里"
+  ],
+  "gloss": "将 Agent 执行所需的项目规则、任务范围、状态与验收入口保存在版本化仓库中，使不同会话和执行者从同一可读取基线开始工作。"
+ },
+ {
+  "id": "CON-restorable-compression",
+  "type": "概念单元",
+  "title": "可恢复压缩",
+  "themes": [
+   "信息平时放在哪里",
+   "信息平时放在哪里"
+  ],
+  "keywords": [
+   "可恢复压缩",
+   "Restorable Compression",
+   "信息平时放在哪里"
+  ],
+  "gloss": "从当前窗口省略大块内容时保留稳定的回取引用，使上下文得以缩短，同时让被移除的信息仍可在需要时恢复。"
+ },
+ {
+  "id": "CON-retrieval-reasoning-dual-task-load",
+  "type": "概念单元",
+  "title": "检索—推理双任务负担",
+  "themes": [
+   "眼前真正有什么",
+   "眼前真正有什么"
+  ],
+  "keywords": [
+   "检索—推理双任务负担",
+   "Retrieval–Reasoning Dual-Task Load",
+   "眼前真正有什么"
+  ],
+  "gloss": "当模型在一次调用中既要从长输入定位相关证据、又要基于证据推理时，检索步骤会额外消耗可靠性，使其表现低于已提供聚焦证据的同等推理任务。"
+ },
+ {
+  "id": "CON-risk-tiered-autofixing",
+  "type": "概念单元",
+  "title": "风险分级自动修复",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "风险分级自动修复",
+   "Risk-Tiered Autofixing",
+   "做完后凭什么相信"
+  ],
+  "gloss": "系统在检测到问题后自动生成修复，并依据改动范围与风险等级决定轻量复核、深度人工审查或停止自动推进的修复机制。"
+ },
+ {
+  "id": "CON-runnable-evidence",
+  "type": "概念单元",
+  "title": "可运行证据",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "可运行证据",
+   "Runnable Evidence",
+   "做完后凭什么相信"
+  ],
+  "gloss": "能由独立执行者重新运行并得到明确结果的验证材料，例如测试、静态检查、冒烟运行或端到端流程回执。"
+ },
+ {
+  "id": "CON-sandbox",
+  "type": "概念单元",
+  "title": "沙箱",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "沙箱",
+   "Sandbox",
+   "人如何控制 AI"
+  ],
+  "gloss": "Sandbox 是受隔离与资源限制的执行环境，让 Agent 能在一个被圈定的工作区内行动，并把出错时的影响范围控制在边界内。"
+ },
+ {
+  "id": "CON-skill-chaining",
+  "type": "概念单元",
+  "title": "Skill 链式调用",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "Skill 链式调用",
+   "Skill Chaining",
+   "AI 如何持续行动"
+  ],
+  "gloss": "让一个 Skill 完成后显式调用下一个 Skill，把多个独立步骤串成可自动推进的端到端工作流。"
+ },
+ {
+  "id": "CON-skill-trigger-condition",
+  "type": "概念单元",
+  "title": "Skill 触发条件",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "Skill 触发条件",
+   "Skill Trigger Condition",
+   "信息如何进入工作台"
+  ],
+  "gloss": "写在 Skill 元数据中的适用场景声明，用来帮助运行环境判断何时自动加载或调用该 Skill。"
+ },
+ {
+  "id": "CON-skill",
+  "type": "概念单元",
+  "title": "Agent Skill",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "Agent Skill",
+   "Agent Skill",
+   "人如何控制 AI"
+  ],
+  "gloss": "Agent Skill 是把可复用做法、说明与必要资源组织起来，让 Agent 在合适任务中按同一方法工作的载体。"
+ },
+ {
+  "id": "CON-state-management",
+  "type": "概念单元",
+  "title": "状态管理",
+  "themes": [
+   "信息平时放在哪里",
+   "信息平时放在哪里"
+  ],
+  "keywords": [
+   "状态管理",
+   "State Management",
+   "信息平时放在哪里"
+  ],
+  "gloss": "状态管理负责记录任务当前阶段、变量、进度与恢复点，让系统知道做到哪里，并能追踪、暂停、恢复或回溯。"
+ },
+ {
+  "id": "CON-subagent-orchestration",
+  "type": "概念单元",
+  "title": "子 Agent 编排",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "子 Agent 编排",
+   "Subagent Orchestration",
+   "AI 如何持续行动"
+  ],
+  "gloss": "把边界明确的探索或执行任务分派给子 Agent，再将其压缩结果、证据或状态带回主流程的组织机制。"
+ },
+ {
+  "id": "CON-system-prompt-altitude",
+  "type": "概念单元",
+  "title": "系统提示抽象高度",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "系统提示抽象高度",
+   "System Prompt Altitude",
+   "人如何控制 AI"
+  ],
+  "gloss": "系统提示在具体行为规则与高层启发式之间选择的抽象层级；有效高度应足以稳定引导行为，又给模型保留处理新情况的判断空间。"
+ },
+ {
+  "id": "CON-system-prompt",
+  "type": "概念单元",
+  "title": "系统提示",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "系统提示",
+   "System Prompt",
+   "人如何控制 AI"
+  ],
+  "gloss": "System Prompt 是应用在系统层放入模型输入的高优先级约束，用来设定角色、边界和工具规则，但不是能绝对支配模型的意志。"
+ },
+ {
+  "id": "CON-tacit-knowledge",
+  "type": "概念单元",
+  "title": "隐性知识",
+  "themes": [
+   "信息平时放在哪里",
+   "信息平时放在哪里"
+  ],
+  "keywords": [
+   "隐性知识",
+   "Tacit Knowledge",
+   "信息平时放在哪里"
+  ],
+  "gloss": "尚未被外化的推理过程、权衡与默会前提；决策结果可能已记录，但这些决定为何成立仍只存在于人的经验中。"
+ },
+ {
+  "id": "CON-tool-schema-tax",
+  "type": "概念单元",
+  "title": "工具 Schema 税",
+  "themes": [
+   "AI 如何接触外部世界",
+   "AI 如何接触外部世界"
+  ],
+  "keywords": [
+   "工具 Schema 税",
+   "Tool Schema Tax",
+   "AI 如何接触外部世界"
+  ],
+  "gloss": "为让模型知道工具名称、参数与调用格式，而在每次请求中携带工具 Schema 所产生的固定 Token 与上下文占用。"
+ },
+ {
+  "id": "CON-tool-scoping",
+  "type": "概念单元",
+  "title": "工具收窄",
+  "themes": [
+   "AI 如何接触外部世界",
+   "AI 如何接触外部世界"
+  ],
+  "keywords": [
+   "工具收窄",
+   "Tool Scoping",
+   "AI 如何接触外部世界"
+  ],
+  "gloss": "Tool Scoping 是按当前步骤只向模型暴露最小必要工具集的策略，用更少选择降低误选、权限面和 Context 噪声。"
+ },
+ {
+  "id": "CON-tool-workflow-fit",
+  "type": "概念单元",
+  "title": "工具—工作流适配",
+  "themes": [
+   "AI 如何接触外部世界",
+   "AI 如何接触外部世界"
+  ],
+  "keywords": [
+   "工具—工作流适配",
+   "Tool–Workflow Fit",
+   "AI 如何接触外部世界"
+  ],
+  "gloss": "Agent 的工具能力、说明和调用节奏必须与当前任务的锚点、证据标准和停止条件相匹配；工具更强或更通用不会自动改善任务结果。"
+ },
+ {
+  "id": "CON-tool",
+  "type": "概念单元",
+  "title": "工具",
+  "themes": [
+   "AI 如何接触外部世界",
+   "AI 如何接触外部世界"
+  ],
+  "keywords": [
+   "工具",
+   "Tool",
+   "AI 如何接触外部世界"
+  ],
+  "gloss": "Tool 是让 Agent 读取、计算或改变外部世界的结构化能力接口；模型提出调用，外层系统负责校验、执行并把结果送回来。"
+ },
+ {
+  "id": "CON-trace-based-evals",
+  "type": "概念单元",
+  "title": "基于轨迹的评测",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "基于轨迹的评测",
+   "Trace-based Evals",
+   "做完后凭什么相信"
+  ],
+  "gloss": "基于轨迹的评测让多次 Agent 运行面对同一任务、基线与 verifier，再比较它们怎样行动及结果如何；只有轨迹而没有统一判据，不算评测。"
+ },
+ {
+  "id": "CON-ubiquitous-language",
+  "type": "概念单元",
+  "title": "统一语言",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "统一语言",
+   "Ubiquitous Language",
+   "信息如何进入工作台"
+  ],
+  "gloss": "在一个领域范围内，由领域专家、开发者、代码、文档与 AI 共同使用并持续校准的词汇体系，使同一个词稳定指向同一个业务对象或规则。"
+ },
+ {
+  "id": "CON-verifiable-goal",
+  "type": "概念单元",
+  "title": "可验证目标",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "可验证目标",
+   "Verifiable Goal",
+   "做完后凭什么相信"
+  ],
+  "gloss": "用可重复执行或明确判定的条件描述任务成功，使 Agent 循环能够据此决定继续、修正、停止或报告失败。"
+ },
+ {
+  "id": "CON-verification-loop",
+  "type": "概念单元",
+  "title": "验证循环",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "验证循环",
+   "Verification Loop",
+   "做完后凭什么相信"
+  ],
+  "gloss": "验证循环把行动结果交给独立检查；未通过就依据证据修正下一步，通过才退出当前循环，但退出不等于用户验收或真实效果已经成立。"
+ },
+ {
+  "id": "OPI-CTX-01-01",
+  "type": "观点单元",
+  "title": "上下文工程不是 agent 时代的新发明。作者主张它至少已有二十多年历史：从 1990 年代的普…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "上下文工程",
+   "上下文"
+  ],
+  "gloss": "上下文工程不是 agent 时代的新发明。作者主张它至少已有二十多年历史：从 1990 年代的普适计算、上下文感知系统、人机交互框架，一路演化到今天由智能体驱动的人机协作范式。把它当成 2023 年才出现的技巧，会切断它与几十年 HCI 积累的联系。"
+ },
+ {
+  "id": "OPI-CTX-01-02",
+  "type": "观点单元",
+  "title": "上下文工程的本质是熵减。人与人交流时，听者会用共有知识、情绪线索、情境感知去主动补全没说出口的部…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "上下文工程",
+   "上下文"
+  ],
+  "gloss": "上下文工程的本质是熵减。人与人交流时，听者会用共有知识、情绪线索、情境感知去主动补全没说出口的部分；机器目前做不到这一点，所以人必须替它\\\"预处理\\\"上下文，把高熵的意图压缩成机器能理解的低熵表示。这份\\\"力气\\\"（effort）就是上下文工程的核心。"
+ },
+ {
+  "id": "OPI-CTX-01-03",
+  "type": "观点单元",
+  "title": "机器越聪明，这门手艺越自然，人机交互的成本越低。因此驱动范式跃迁的根本变量是机器智能水平，而不是…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "论文《上下文工程 2.0》：给这门手艺补上它自己"
+  ],
+  "gloss": "机器越聪明，这门手艺越自然，人机交互的成本越低。因此驱动范式跃迁的根本变量是机器智能水平，而不是某项具体技术。"
+ },
+ {
+  "id": "OPI-CTX-01-04",
+  "type": "观点单元",
+  "title": "论文给出统一的形式化定义：上下文是所有相关实体的表征信息之并集；上下文工程则是把原始上下文 C …",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "上下文工程",
+   "上下文"
+  ],
+  "gloss": "论文给出统一的形式化定义：上下文是所有相关实体的表征信息之并集；上下文工程则是把原始上下文 C 和目标任务 T 映射为一个上下文处理函数的系统性过程。这个定义刻意不绑定任何时代或技术。"
+ },
+ {
+  "id": "OPI-CTX-01-05",
+  "type": "观点单元",
+  "title": "按机器智能划分四个阶段：1.0 原始计算（1990s–2020）、2.0 智能体（2020 至今…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "论文《上下文工程 2.0》：给这门手艺补上它自己"
+  ],
+  "gloss": "按机器智能划分四个阶段：1.0 原始计算（1990s–2020）、2.0 智能体（2020 至今）、3.0 人类级智能（未来）、4.0 超人智能（推测）。每一阶段的设计权衡和人机分工都不同。"
+ },
+ {
+  "id": "OPI-CTX-01-06",
+  "type": "观点单元",
+  "title": "今天把 context 窄化成\\\"对话历史 / 系统提示词\\\"，作者判定为一种倒退（a step b…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "系统提示",
+   "提示"
+  ],
+  "gloss": "今天把 context 窄化成\\\"对话历史 / 系统提示词\\\"，作者判定为一种倒退（a step backward）——1.0 时代的理论视野反而更宽、更整体。"
+ },
+ {
+  "id": "OPI-CTX-01-07",
+  "type": "观点单元",
+  "title": "全文的实践部分围绕三个维度展开：上下文的收集与存储、管理、使用；并在每个维度下比较典型做法及其代…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "上下文"
+  ],
+  "gloss": "全文的实践部分围绕三个维度展开：上下文的收集与存储、管理、使用；并在每个维度下比较典型做法及其代价。"
+ },
+ {
+  "id": "OPI-CTX-01-08",
+  "type": "观点单元",
+  "title": "一句贯穿全文的话来自作者自题：\\\"A person is the sum of their con…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "上下文"
+  ],
+  "gloss": "一句贯穿全文的话来自作者自题：\\\"A person is the sum of their contexts.\\\"（一个人是其全部上下文之和），呼应马克思\\\"人的本质是一切社会关系的总和\\\"。"
+ },
+ {
+  "id": "OPI-CTX-02-01",
+  "type": "观点单元",
+  "title": "模型能接收长上下文，不等于能稳健地使用长上下文。作者开门见山：近来的语言模型有能力把长上下文作为…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "上下文"
+  ],
+  "gloss": "模型能接收长上下文，不等于能稳健地使用长上下文。作者开门见山：近来的语言模型有能力把长上下文作为输入，但对它们究竟用得多好，我们所知甚少。"
+ },
+ {
+  "id": "OPI-CTX-02-02",
+  "type": "观点单元",
+  "title": "只要改变相关信息在输入中的位置，其他一切不变，模型性能就会显著下降——这本身就证明当前模型无法稳…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "上下文"
+  ],
+  "gloss": "只要改变相关信息在输入中的位置，其他一切不变，模型性能就会显著下降——这本身就证明当前模型无法稳健地访问和使用长输入上下文中的信息。"
+ },
+ {
+  "id": "OPI-CTX-02-03",
+  "type": "观点单元",
+  "title": "性能随位置画出一条独特的 U 型曲线：相关信息出现在上下文最开头（首因偏置）或最末尾（近因偏置）…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "上下文"
+  ],
+  "gloss": "性能随位置画出一条独特的 U 型曲线：相关信息出现在上下文最开头（首因偏置）或最末尾（近因偏置）时成绩最高，被迫使用中间位置的信息时成绩急剧劣化。即使是显式的长上下文模型也不例外。"
+ },
+ {
+  "id": "OPI-CTX-02-04",
+  "type": "观点单元",
+  "title": "最刺眼的一个数字：当相关文档被放在 20 篇或 30 篇文档的中间时，GPT-3.5-Turbo…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "记忆"
+  ],
+  "gloss": "最刺眼的一个数字：当相关文档被放在 20 篇或 30 篇文档的中间时，GPT-3.5-Turbo 的多文档问答成绩反而低于完全不给文档、只靠参数记忆作答的闭卷成绩（56.1%）。多喂的信息没被用上，还成了负担。"
+ },
+ {
+  "id": "OPI-CTX-02-05",
+  "type": "观点单元",
+  "title": "由此得到一个实践性的判断：给模型更长的输入是一笔权衡（trade-off）——更多信息可能帮助完…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "经典论文《迷失在中间》：位置决定了模型能不能真的"
+  ],
+  "gloss": "由此得到一个实践性的判断：给模型更长的输入是一笔权衡（trade-off）——更多信息可能帮助完成任务，但同时增加了模型必须推理的内容量，反而可能拉低准确率。"
+ },
+ {
+  "id": "OPI-CTX-02-06",
+  "type": "观点单元",
+  "title": "论文还留下一条新的评测协议：要声称一个模型能稳健使用长上下文，必须证明它的性能受相关信息位置的影…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "上下文"
+  ],
+  "gloss": "论文还留下一条新的评测协议：要声称一个模型能稳健使用长上下文，必须证明它的性能受相关信息位置的影响极小（例如最好与最坏情况的差值很小），而不是只报窗口标称多大。"
+ },
+ {
+  "id": "OPI-CTX-03-01",
+  "type": "观点单元",
+  "title": "人们默认模型是均匀地处理上下文的——第 10000 个 token 应该和第 100 个 tok…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "上下文"
+  ],
+  "gloss": "人们默认模型是均匀地处理上下文的——第 10000 个 token 应该和第 100 个 token 一样可靠。Chroma 的实测结论是：这个假设不成立。"
+ },
+ {
+  "id": "OPI-CTX-03-02",
+  "type": "观点单元",
+  "title": "报告横跨 18 个模型（含 GPT-4.1、Claude 4、Gemini 2.5、Qwen3 …",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "上下文"
+  ],
+  "gloss": "报告横跨 18 个模型（含 GPT-4.1、Claude 4、Gemini 2.5、Qwen3 等闭源与开源权重代表），共约 194,480 次调用。结果是：模型并不均匀地使用自己的上下文，性能随输入长度增长而越来越不可靠——而且衰减不是平滑的，是参差、非均匀的。"
+ },
+ {
+  "id": "OPI-CTX-03-03",
+  "type": "观点单元",
+  "title": "方法论上的关键动作是：把任务难度钉死，只让输入长度变化。既有长上下文评测的通病是让「文本更长」和…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "上下文"
+  ],
+  "gloss": "方法论上的关键动作是：把任务难度钉死，只让输入长度变化。既有长上下文评测的通病是让「文本更长」和「题目更难」同时发生，因此无法归因。"
+ },
+ {
+  "id": "OPI-CTX-03-04",
+  "type": "观点单元",
+  "title": "即便在这样刻意简化到最低限度的任务上（语义检索、对话问答、照抄一段重复词），性能仍然随长度下降。…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "Chroma 实测上下文腐烂：输入越长，模型并非"
+  ],
+  "gloss": "即便在这样刻意简化到最低限度的任务上（语义检索、对话问答、照抄一段重复词），性能仍然随长度下降。现实应用远比这些任务复杂，所以真实世界里输入长度的影响只会更严重。"
+ },
+ {
+  "id": "OPI-CTX-03-05",
+  "type": "观点单元",
+  "title": "最终落点是 context engineering：相关信息在不在上下文里，不是全部；怎么摆才更…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "上下文"
+  ],
+  "gloss": "最终落点是 context engineering：相关信息在不在上下文里，不是全部；怎么摆才更要紧。"
+ },
+ {
+  "id": "OPI-CTX-04-01",
+  "type": "观点单元",
+  "title": "Manus 在项目起点面对一个关键选择：用开源底座训练一个端到端的 agentic 模型，还是在…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "上下文工程",
+   "上下文"
+  ],
+  "gloss": "Manus 在项目起点面对一个关键选择：用开源底座训练一个端到端的 agentic 模型，还是在前沿模型的 in-context learning 能力之上搭 agent。团队选了后者，也就是押注上下文工程（context engineering）。"
+ },
+ {
+  "id": "OPI-CTX-04-02",
+  "type": "观点单元",
+  "title": "这个选择买到的是迭代速度与解耦：改进以小时而不是周为单位发版，产品与底层模型保持正交。作者的比喻…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "Manus 的上下文工程实战：几轮重写换来的一组"
+  ],
+  "gloss": "这个选择买到的是迭代速度与解耦：改进以小时而不是周为单位发版，产品与底层模型保持正交。作者的比喻是——如果模型进步是上涨的潮水，Manus 要做船，而不是插在海底的柱子。"
+ },
+ {
+  "id": "OPI-CTX-04-03",
+  "type": "观点单元",
+  "title": "上下文工程并不优雅。它是一门实验科学：Manus 的 agent 框架被重写了四次，每次都是因为…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "上下文工程",
+   "上下文"
+  ],
+  "gloss": "上下文工程并不优雅。它是一门实验科学：Manus 的 agent 框架被重写了四次，每次都是因为发现了更好的上下文塑造方式。团队把这套手工的架构搜索、prompt 摆弄和经验猜测戏称为 \\\"Stochastic Graduate Descent\\\"（随机研究生下降法）。"
+ },
+ {
+  "id": "OPI-CTX-04-04",
+  "type": "观点单元",
+  "title": "因此全文交付的是这轮试错抵达的一组局部最优（local optima），而非普适真理：这些只是对…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "Manus 的上下文工程实战：几轮重写换来的一组"
+  ],
+  "gloss": "因此全文交付的是这轮试错抵达的一组局部最优（local optima），而非普适真理：这些只是对 Manus 有效的模式，作者的期望仅仅是帮别人少走一次痛苦的迭代。"
+ },
+ {
+  "id": "OPI-CTX-04-05",
+  "type": "观点单元",
+  "title": "六条局部最优：围绕 KV-cache 设计、掩码而非移除工具、把文件系统当上下文、通过复述操纵注…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "上下文",
+   "工具"
+  ],
+  "gloss": "六条局部最优：围绕 KV-cache 设计、掩码而非移除工具、把文件系统当上下文、通过复述操纵注意力、把错误留在上下文里、别把自己 few-shot 进套路。"
+ },
+ {
+  "id": "OPI-CTX-05-01",
+  "type": "观点单元",
+  "title": "好的 context engineering，就是为 agent 找到最小可能的高信号 toke…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "Anthropic：有效的上下文工程，是为 ag"
+  ],
+  "gloss": "好的 context engineering，就是为 agent 找到最小可能的高信号 token 集合（the smallest possible set of high-signal tokens），让期望结果出现的概率最大化。这是全文唯一的指导原则，其余全部技术都是它在不同"
+ },
+ {
+  "id": "OPI-CTX-05-02",
+  "type": "观点单元",
+  "title": "prompt engineering 是「写好一段指令」的离散任务；context engine…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "上下文窗口",
+   "上下文"
+  ],
+  "gloss": "prompt engineering 是「写好一段指令」的离散任务；context engineering 是在每一轮推理时反复发生的策展（curation）——从不断膨胀的可能信息宇宙里，决定什么进入有限的上下文窗口。"
+ },
+ {
+  "id": "OPI-CTX-05-03",
+  "type": "观点单元",
+  "title": "context 必须被当成有限资源看待，且边际收益递减。LLM 和人一样有一份「注意力预算」（a…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "注意力预算"
+  ],
+  "gloss": "context 必须被当成有限资源看待，且边际收益递减。LLM 和人一样有一份「注意力预算」（attention budget），每多一个 token 就从中支取一点。"
+ },
+ {
+  "id": "OPI-CTX-05-04",
+  "type": "观点单元",
+  "title": "长时程任务绕开窗口限制的三种技术：compaction（压缩）、structured note-…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "Anthropic：有效的上下文工程，是为 ag"
+  ],
+  "gloss": "长时程任务绕开窗口限制的三种技术：compaction（压缩）、structured note-taking（结构化记事）、sub-agent 架构；三者是按任务特征取舍，不是优劣排序。"
+ },
+ {
+  "id": "OPI-CTX-05-05",
+  "type": "观点单元",
+  "title": "演进方向：模型越强，需要的规定性工程越少，agent 自主度越高；但「把 context 当作珍…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "Anthropic：有效的上下文工程，是为 ag"
+  ],
+  "gloss": "演进方向：模型越强，需要的规定性工程越少，agent 自主度越高；但「把 context 当作珍贵而有限的资源」这一点不会随能力提升而失效。"
+ },
+ {
+  "id": "OPI-CTX-06-01",
+  "type": "观点单元",
+  "title": "作者 Dex Horthy 提出的中心问题只有一句：「What are the principl…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "12-Factor Agents：让 LLM 软"
+  ],
+  "gloss": "作者 Dex Horthy 提出的中心问题只有一句：「What are the principles we can use to build LLM-powered software that is actually good enough to put in the hands"
+ },
+ {
+  "id": "OPI-CTX-06-02",
+  "type": "观点单元",
+  "title": "他的经验结论是反直觉的：好的 agent 大多不是 agent。市面上自称 \\\"AI Agents…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "AI Agent"
+  ],
+  "gloss": "他的经验结论是反直觉的：好的 agent 大多不是 agent。市面上自称 \\\"AI Agents\\\" 的产品「are not all that agentic」，多数是确定性代码，只在恰当的点上撒进几步 LLM，体验才显得神奇。"
+ },
+ {
+  "id": "OPI-CTX-06-03",
+  "type": "观点单元",
+  "title": "好的 agent 并不遵循「here's your prompt, here's a bag o…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "12-Factor Agents：让 LLM 软"
+  ],
+  "gloss": "好的 agent 并不遵循「here's your prompt, here's a bag of tools, loop until you hit the goal」这一模式，而是「comprised of mostly just software」——绝大部分仍然是软件工程"
+ },
+ {
+  "id": "OPI-CTX-06-04",
+  "type": "观点单元",
+  "title": "因此 12-factor agents 的定位不是又一个框架，而是一组可拆解、可单点植入的工程原…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "12-Factor Agents：让 LLM 软"
+  ],
+  "gloss": "因此 12-factor agents 的定位不是又一个框架，而是一组可拆解、可单点植入的工程原则。作者的判断是：即便 LLM 继续指数级变强（\\\"continue to get exponentially more powerful\\\"），仍会存在让 LLM 软件更可靠、更可扩"
+ },
+ {
+  "id": "OPI-CTX-06-05",
+  "type": "观点单元",
+  "title": "落地路径也随之改变：与其为 agent 做一次 greenfield rewrite，不如把 a…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "12-Factor Agents：让 LLM 软"
+  ],
+  "gloss": "落地路径也随之改变：与其为 agent 做一次 greenfield rewrite，不如把 agent 构建中的「small, modular concepts」拿出来，嵌进你已有的产品里；这些模块化概念不需要 AI 背景，大多数熟练软件工程师都能定义和应用。"
+ },
+ {
+  "id": "OPI-CTX-07-01",
+  "type": "观点单元",
+  "title": "文章把 Loop Engineering 定义为 Prompt Engineering、Cont…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "提示"
+  ],
+  "gloss": "文章把 Loop Engineering 定义为 Prompt Engineering、Context Engineering、Harness Engineering 之后的新一层工作方式：不再围绕一次提示词优化，而是设计一个能持续启动、执行、验证、修复的循环系统。"
+ },
+ {
+  "id": "OPI-CTX-07-02",
+  "type": "观点单元",
+  "title": "作者认为这个新词不是单纯的概念炒作。行业变化太快时，人们需要更精确的表达来描述新的工作重心；Lo…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "从 Prompt 转向 Loop Enginee"
+  ],
+  "gloss": "作者认为这个新词不是单纯的概念炒作。行业变化太快时，人们需要更精确的表达来描述新的工作重心；Loop Engineering 描述的正是从“人驱动 Agent”转向“系统驱动 Agent”的变化。"
+ },
+ {
+  "id": "OPI-CTX-07-03",
+  "type": "观点单元",
+  "title": "这篇文章最重要的判断是：Loop Engineering 表面上是工程实践，本质上是管理能力。真…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "从 Prompt 转向 Loop Enginee"
+  ],
+  "gloss": "这篇文章最重要的判断是：Loop Engineering 表面上是工程实践，本质上是管理能力。真正稀缺的不是会不会写 hook、cron 或脚本，而是能不能把模糊意图翻译成可验证的目标、资源配置、反馈机制和边界条件。"
+ },
+ {
+  "id": "OPI-CTX-10-01",
+  "type": "观点单元",
+  "title": "Linear 联合创始人兼 CEO Karri Saarinen 的中心主张：把 AI 装进软件…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "上下文"
+  ],
+  "gloss": "Linear 联合创始人兼 CEO Karri Saarinen 的中心主张：把 AI 装进软件开发，靠的不是抢着上功能，而是先深入理解工作流。Linear 不去做又一个 chatbot，而是要成为“引导 agent、承载组织上下文的系统”——一句话，成为 agent 的骨架。"
+ },
+ {
+  "id": "OPI-CTX-10-02",
+  "type": "观点单元",
+  "title": "对“SaaS 已死”的回应：这个时代的完美生意恰恰仍是 SaaS。Linear 是工作被发起、信…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "SaaS 没死，Linear 正把上下文变成 A"
+  ],
+  "gloss": "对“SaaS 已死”的回应：这个时代的完美生意恰恰仍是 SaaS。Linear 是工作被发起、信息被记录的“粘性界面”，却不用为 token 买单——token 成本由 OpenAI、Anthropic 和各家 coding agent 承担。方向上护城河确实在蒸发，但“人人自己"
+ },
+ {
+  "id": "OPI-CTX-10-03",
+  "type": "观点单元",
+  "title": "度量与质量：agent 写了多少代码、合并了多少 PR、烧了多少 token，都是虚荣指标，只量…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "SaaS 没死，Linear 正把上下文变成 A"
+  ],
+  "gloss": "度量与质量：agent 写了多少代码、合并了多少 PR、烧了多少 token，都是虚荣指标，只量出产出、量不出价值。真正该看的是产品是否变好、bug 是否更少、用户是否真的喜欢。Linear 靠“零 bug 政策 + 一周 SLA”，让 coding agent 先做第一遍修复。"
+ },
+ {
+  "id": "OPI-CTX-10-04",
+  "type": "观点单元",
+  "title": "节奏哲学：执行要快，决策要慢。不要用 AI 去“speed-run”决策；先花时间找对问题和方法…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "SaaS 没死，Linear 正把上下文变成 A"
+  ],
+  "gloss": "节奏哲学：执行要快，决策要慢。不要用 AI 去“speed-run”决策；先花时间找对问题和方法，一旦定了再全速迭代。设计与产品常需要“概念性工作”——像一辆“概念车”，产出的是理解，而不是可发货的功能。"
+ },
+ {
+  "id": "OPI-CTX-10-05",
+  "type": "观点单元",
+  "title": "人的位置：agent 会接管执行、甚至部分自主决策，但产品构建仍是手艺与艺术，靠直觉而非 A/B…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "SaaS 没死，Linear 正把上下文变成 A"
+  ],
+  "gloss": "人的位置：agent 会接管执行、甚至部分自主决策，但产品构建仍是手艺与艺术，靠直觉而非 A/B 测试。人的角色转向定义策略、设定目标、判断什么值得做；你把自己的思考说得越清楚，就越能把它 codify 给 agent。"
+ },
+ {
+  "id": "OPI-CTX-12-01",
+  "type": "观点单元",
+  "title": "每次做完一件事总要跟着做的那个检查——改完前端要跑的端到端验证、提交前的安全扫描、发 PR 前的…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "用 Skills 在 Claude Code 里"
+  ],
+  "gloss": "每次做完一件事总要跟着做的那个检查——改完前端要跑的端到端验证、提交前的安全扫描、发 PR 前的无障碍审计——不该一直靠人记着做。最经济的做法是把它写成一个 skill，让 Claude 自己执行这个「验证闭环」（verification loop）。"
+ },
+ {
+  "id": "OPI-CTX-12-02",
+  "type": "观点单元",
+  "title": "写成 skill 只是第一步。真正的设计决策是「让检查匹配它运行的位置」：按你需要它触发的频率，…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "用 Skills 在 Claude Code 里"
+  ],
+  "gloss": "写成 skill 只是第一步。真正的设计决策是「让检查匹配它运行的位置」：按你需要它触发的频率，从 standalone（独立调用）→ embedded（嵌入）→ chained（链式）→ on every PR（每个 PR 上）四种接入方式里选一种，这是一条由松到紧、由手动到自"
+ },
+ {
+  "id": "OPI-CTX-12-03",
+  "type": "观点单元",
+  "title": "这条阶梯的终点，是验证从「个人基础设施」变成「团队基础设施」：你为省自己一周两分钟而写下的检查，…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "用 Skills 在 Claude Code 里"
+  ],
+  "gloss": "这条阶梯的终点，是验证从「个人基础设施」变成「团队基础设施」：你为省自己一周两分钟而写下的检查，最终会在每一次改动上、为团队里每个人省下两分钟。"
+ },
+ {
+  "id": "OPI-CTX-12-04",
+  "type": "观点单元",
+  "title": "全文由 Claude Code 团队成员 Delba de Oliviera 撰写，落点是一句方…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "用 Skills 在 Claude Code 里"
+  ],
+  "gloss": "全文由 Claude Code 团队成员 Delba de Oliviera 撰写，落点是一句方法论：你能为 Claude 编码下来的越多，它的回应就越经常在第一次就落在你想要的地方，而你被释放出来的注意力，可以投向那些没有任何 skill 能替你写下来的、专属于你的工作。"
+ },
+ {
+  "id": "OPI-CTX-20-01",
+  "type": "观点单元",
+  "title": "这是一份第三方抓取并公开的 Claude Opus 5 系统提示词副本，抓取时间标注为 2026…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "系统提示",
+   "提示",
+   "工具"
+  ],
+  "gloss": "这是一份第三方抓取并公开的 Claude Opus 5 系统提示词副本，抓取时间标注为 2026-07-24，抓取面是 Anthropic 自家的 web / 移动聊天界面（[claude.ai](http://claude.ai/) 与 Claude app）。抓取者声称全篇逐"
+ },
+ {
+  "id": "OPI-CTX-20-02",
+  "type": "观点单元",
+  "title": "全文最重要的观察不是\\\"泄露了什么秘密\\\"，而是系统提示词的体裁已经变了：它不再是一份人格简介或语气…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "系统提示",
+   "记忆",
+   "提示",
+   "工具"
+  ],
+  "gloss": "全文最重要的观察不是\\\"泄露了什么秘密\\\"，而是系统提示词的体裁已经变了：它不再是一份人格简介或语气指南，而是一份 agent 行为说明书——行为规范、跨会话记忆文件系统、完整工具 schema、输出路由清单、搜索/版权/图片/引用纪律，加上运行环境自述，一共十二个顶层分区。"
+ },
+ {
+  "id": "OPI-CTX-20-03",
+  "type": "观点单元",
+  "title": "贯穿全文的写法只有一条：把规则写成判定程序，而不是写成态度。几乎每条规则都配一个有名字的判据（有…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "Opus 5 系统提示词全文流出：一份近两万字的"
+  ],
+  "gloss": "贯穿全文的写法只有一条：把规则写成判定程序，而不是写成态度。几乎每条规则都配一个有名字的判据（有效增益、出处而非谁最后说的、是否改变回答实质）和一个已经发生过的失败模式；很多条款直接预判模型自己会怎么给自己找理由，然后把那条退路堵掉。"
+ },
+ {
+  "id": "OPI-CTX-20-04",
+  "type": "观点单元",
+  "title": "第二条贯穿线是信任边界：提示词把上下文窗口里的一切都当作可能不可信的输入——用户消息尾部的标签、…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "上下文窗口",
+   "上下文",
+   "记忆",
+   "提示"
+  ],
+  "gloss": "第二条贯穿线是信任边界：提示词把上下文窗口里的一切都当作可能不可信的输入——用户消息尾部的标签、记忆文件的内容、检索回来的旧对话、文件里的指令，全都按\\\"数据而非指令\\\"处理；判据是方向性的，任何削弱限制的\\\"官方提醒\\\"本身就是伪造的证据。"
+ },
+ {
+  "id": "OPI-CTX-20-05",
+  "type": "观点单元",
+  "title": "\\\\*可信度需要打折：这是第三方副本，抓取者自称\\\"逐字或近乎逐字\\\"，文中可见明显的抓取损坏（cre…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "Opus 5 系统提示词全文流出：一份近两万字的"
+  ],
+  "gloss": "\\\\*可信度需要打折：这是第三方副本，抓取者自称\\\"逐字或近乎逐字\\\"，文中可见明显的抓取损坏（create_file 与 visualize:show_widget 的 schema 中途截断、部分反引号与尖括号被吞、标签名被吃掉），说明是从渲染后的界面回抄而非原始文本导出；A"
+ },
+ {
+  "id": "OPI-CTX-21-01",
+  "type": "观点单元",
+  "title": "全文的判断很直白：一批曾被当成上下文工程最佳实践的做法，今天已经变成了神话（\\\"previous …",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "上下文工程",
+   "上下文"
+  ],
+  "gloss": "全文的判断很直白：一批曾被当成上下文工程最佳实践的做法，今天已经变成了神话（\\\"previous context engineering best practices that had become myths\\\"）。它们当年不是写错了，而是被模型能力的提升淘汰了。"
+ },
+ {
+  "id": "OPI-CTX-21-02",
+  "type": "观点单元",
+  "title": "这些旧实践有一个共同的形状：用显式约束替模型做决定——给死规则、给示例、把一切前置、反复强调。它…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "护栏"
+  ],
+  "gloss": "这些旧实践有一个共同的形状：用显式约束替模型做决定——给死规则、给示例、把一切前置、反复强调。它们在弱模型时代是必要的护栏；在 Claude 5 世代，同一套护栏反而在压缩模型的判断空间。"
+ },
+ {
+  "id": "OPI-CTX-21-03",
+  "type": "观点单元",
+  "title": "新规则的方向因此反转：从「把知识灌满上下文」转向「让模型在需要的时刻找到正确的上下文」，从「约束…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "上下文"
+  ],
+  "gloss": "新规则的方向因此反转：从「把知识灌满上下文」转向「让模型在需要的时刻找到正确的上下文」，从「约束行为」转向「设计接口与引用」。渐进披露（progressive disclosure）是贯穿全文的机制。"
+ },
+ {
+  "id": "OPI-CTX-21-04",
+  "type": "观点单元",
+  "title": "落地时分四个层面组装上下文：system prompt 绑定产品语境，CLAUDE.md 只写 …",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "上下文"
+  ],
+  "gloss": "落地时分四个层面组装上下文：system prompt 绑定产品语境，CLAUDE.md 只写 gotchas，skills 做轻量指南并按需加载，references 优先给代码这类高保真材料。"
+ },
+ {
+  "id": "OPI-CTX-21-05",
+  "type": "观点单元",
+  "title": "收尾的动作项只有一个词：简化。Anthropic 自己在 Claude Code 上做了这件事，…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "Claude 5 世代的上下文工程，规则变了"
+  ],
+  "gloss": "收尾的动作项只有一个词：简化。Anthropic 自己在 Claude Code 上做了这件事，并新出了 claude doctor 命令帮用户自动做。作者是 Anthropic 技术团队成员 Thariq Shihipar。"
+ },
+ {
+  "id": "OPI-CTX-22-01",
+  "type": "观点单元",
+  "title": "你发给 Claude 的那条 prompt，只是它实际拿到的上下文的一小部分。真正决定结果的，是…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "上下文工程",
+   "系统提示",
+   "上下文",
+   "提示"
+  ],
+  "gloss": "你发给 Claude 的那条 prompt，只是它实际拿到的上下文的一小部分。真正决定结果的，是由系统提示词、Skills、CLAUDE.md 文件、memory 等来源拼装起来的整体上下文——作者把这件事称为上下文工程（context engineering）。"
+ },
+ {
+  "id": "OPI-CTX-22-02",
+  "type": "观点单元",
+  "title": "上下文工程和写 prompt 有本质差别：prompt 是一次性的、可以很具体；上下文要跨很多次…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "上下文工程",
+   "上下文"
+  ],
+  "gloss": "上下文工程和写 prompt 有本质差别：prompt 是一次性的、可以很具体；上下文要跨很多次请求通用使用，所以它没法那么具体。难点就在于：你不知道用户下一句会问什么，却要先写好给 Claude 的通用指引。"
+ },
+ {
+  "id": "OPI-CTX-22-03",
+  "type": "观点单元",
+  "title": "更棘手的是，这套指引会随着 Claude 自身能力进化而过时。Anthropic 团队最近发现了…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "系统提示",
+   "提示"
+  ],
+  "gloss": "更棘手的是，这套指引会随着 Claude 自身能力进化而过时。Anthropic 团队最近发现了一个大跳变：针对 Claude Opus 5、Claude Fable 5 这一代模型，他们删掉了 Claude Code 系统提示词的 80% 以上，编码评测上没有可测量的损失。"
+ },
+ {
+  "id": "OPI-CTX-22-04",
+  "type": "观点单元",
+  "title": "结论不是\\\"提示词写得越细越好\\\"，而是相反：过去那些为了兜住最坏情况而加的强约束，正在变成新一代模…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "上下文",
+   "提示"
+  ],
+  "gloss": "结论不是\\\"提示词写得越细越好\\\"，而是相反：过去那些为了兜住最坏情况而加的强约束，正在变成新一代模型的枷锁（over-constraining）。当模型判断力足够时，正确做法是删掉规则、把决定权还给模型和它周围的上下文。"
+ },
+ {
+  "id": "OPI-CTX-22-05",
+  "type": "观点单元",
+  "title": "团队把这些实践固化进了 claude doctor——在 Claude Code 里用 /doc…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "Claude 5 时代的上下文工程新规则：系统提"
+  ],
+  "gloss": "团队把这些实践固化进了 claude doctor——在 Claude Code 里用 /doctor 命令，可以自动帮你给 skills 和 CLAUDE.md 文件\\\"瘦身\\\"到合适尺寸。"
+ },
+ {
+  "id": "OPI-CTX-24-01",
+  "type": "观点单元",
+  "title": "AI 领域的对话正在从「提示词工程」（prompt engineering）转向一个更宽、也更有…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "上下文工程",
+   "提示词工程",
+   "上下文",
+   "提示"
+  ],
+  "gloss": "AI 领域的对话正在从「提示词工程」（prompt engineering）转向一个更宽、也更有力量的概念：上下文工程（Context Engineering）。Tobi Lutke 的定义被作者认为说到了点上——它是「为任务提供全部上下文，使其对 LLM 而言变得看似可解的艺术"
+ },
+ {
+  "id": "OPI-CTX-24-02",
+  "type": "观点单元",
+  "title": "随着 agent 兴起，真正要紧的问题变成了：我们往那块有限的工作记忆（limited work…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "上下文",
+   "记忆"
+  ],
+  "gloss": "随着 agent 兴起，真正要紧的问题变成了：我们往那块有限的工作记忆（limited working memory）里装什么信息。决定一个 agent 成败的主要因素，是你给它的上下文的质量。"
+ },
+ {
+  "id": "OPI-CTX-24-03",
+  "type": "观点单元",
+  "title": "全文最锋利的一句判断：大多数 agent 的失败已经不再是模型失败，而是上下文失败（Most a…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "上下文"
+  ],
+  "gloss": "全文最锋利的一句判断：大多数 agent 的失败已经不再是模型失败，而是上下文失败（Most agent failures are not model failures anymore, they are context failures）。这句话把归因权从模型手里拿了回来，交还"
+ },
+ {
+  "id": "OPI-CTX-24-04",
+  "type": "观点单元",
+  "title": "廉价 demo 与「魔法级」agent 的差距，不在更聪明的模型或更巧妙的算法，而在于为正确的任…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "上下文"
+  ],
+  "gloss": "廉价 demo 与「魔法级」agent 的差距，不在更聪明的模型或更巧妙的算法，而在于为正确的任务提供正确的上下文。"
+ },
+ {
+  "id": "OPI-CTX-24-05",
+  "type": "观点单元",
+  "title": "上下文工程的定义：设计并构建动态系统，在正确的时间、以正确的格式，提供正确的信息与工具，让 LL…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "上下文工程",
+   "上下文",
+   "工具"
+  ],
+  "gloss": "上下文工程的定义：设计并构建动态系统，在正确的时间、以正确的格式，提供正确的信息与工具，让 LLM 拥有完成任务所需的一切。"
+ },
+ {
+  "id": "OPI-CTX-24-06",
+  "type": "观点单元",
+  "title": "构建强大可靠的 agent，正在越来越少地关于「找到一个魔法提示词」或「等模型升级」，越来越多地…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "上下文",
+   "提示"
+  ],
+  "gloss": "构建强大可靠的 agent，正在越来越少地关于「找到一个魔法提示词」或「等模型升级」，越来越多地关于上下文的工程化——这是一个跨职能挑战（cross-functional challenge）。"
+ },
+ {
+  "id": "OPI-CTX-A1-01",
+  "type": "观点单元",
+  "title": "GitHub 把 Copilot code review 的专用代码探索工具换成维护更好、可被多…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "工具"
+  ],
+  "gloss": "GitHub 把 Copilot code review 的专用代码探索工具换成维护更好、可被多个 Copilot 产品共享的 grep、glob、view 后，最初结果反而更差：平均审查成本上升，发现的有用问题减少。"
+ },
+ {
+  "id": "OPI-CTX-A1-02",
+  "type": "观点单元",
+  "title": "回归并不是工具能力不足，而是工具说明把代码审查 agent 引向了通用 coding assis…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "上下文",
+   "工具"
+  ],
+  "gloss": "回归并不是工具能力不足，而是工具说明把代码审查 agent 引向了通用 coding assistant 的工作姿势：广泛搜索、猜路径、读取大片代码、继续扩散探索，并把无关内容留在工作上下文里。"
+ },
+ {
+  "id": "OPI-CTX-A1-03",
+  "type": "观点单元",
+  "title": "真正的修复是为“审查 pull request”重写工作流：从 diff 出发形成具体问题，先用…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "工具更多反而让 Copilot 代码审查变差，G"
+  ],
+  "gloss": "真正的修复是为“审查 pull request”重写工作流：从 diff 出发形成具体问题，先用廉价搜索收窄，再用 view 读取最小证据，并批量执行相互独立的搜索和聚焦读取。"
+ },
+ {
+  "id": "OPI-CTX-A1-04",
+  "type": "观点单元",
+  "title": "经过 benchmark trace 的反复调试，新工作流在生产中把平均 review cost…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "工具"
+  ],
+  "gloss": "经过 benchmark trace 的反复调试，新工作流在生产中把平均 review cost 降低约 20%，同时维持相同审查质量。这说明 agent 工具面不是实现细节；工具说明、任务姿势与反馈回路共同决定产品表现。"
+ },
+ {
+  "id": "OPI-CTX-A1-05",
+  "type": "观点单元",
+  "title": "同一套指令放到 Copilot CLI 并没有取得同样收益，因为 CLI 面向宽泛、交互式、可转…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "工具"
+  ],
+  "gloss": "同一套指令放到 Copilot CLI 并没有取得同样收益，因为 CLI 面向宽泛、交互式、可转向的编码任务。可复用的是工具，不一定是围绕工具的工作流。"
+ },
+ {
+  "id": "OPI-CTX-A2-01",
+  "type": "观点单元",
+  "title": "基准测试很少孤立地衡量模型（Benchmarks rarely measure AI model…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "提示"
+  ],
+  "gloss": "基准测试很少孤立地衡量模型（Benchmarks rarely measure AI models in isolation）。它同时在衡量一捆不太可见的选择：API 设置、harness 设计和提示词。"
+ },
+ {
+  "id": "OPI-CTX-A2-02",
+  "type": "观点单元",
+  "title": "在 ARC-AGI-3 上，OpenAI 把自己在 ChatGPT 和 Codex 里已经在用的…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "上下文压缩",
+   "上下文"
+  ],
+  "gloss": "在 ARC-AGI-3 上，OpenAI 把自己在 ChatGPT 和 Codex 里已经在用的两个 API 设置打开——保留推理（retained reasoning）与上下文压缩（compaction）——公开任务集上的成绩变成三倍，输出 token 少了 6 倍。"
+ },
+ {
+  "id": "OPI-CTX-A2-03",
+  "type": "观点单元",
+  "title": "关键数字：官方 harness 下 GPT-5.6 Sol 得 13.3%，开启两项设置后得 3…",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "只改两个 API 设置，OpenAI 把 ARC"
+  ],
+  "gloss": "关键数字：官方 harness 下 GPT-5.6 Sol 得 13.3%，开启两项设置后得 38.3%；模型权重没有任何变化，变的只是模型之外的外壳。"
+ },
+ {
+  "id": "OPI-CTX-A2-04",
+  "type": "观点单元",
+  "title": "做模型比较要挑用了这些设置的 eval，因为它们更接近真实使用。",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "只改两个 API 设置，OpenAI 把 ARC"
+  ],
+  "gloss": "做模型比较要挑用了这些设置的 eval，因为它们更接近真实使用。"
+ },
+ {
+  "id": "OPI-HAR-01-01",
+  "type": "观点单元",
+  "title": "这是一篇一线技术领导者对 OpenAI「Harness engineering」写作的近距离评点…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Martin Fowler 为「harness"
+  ],
+  "gloss": "这是一篇一线技术领导者对 OpenAI「Harness engineering」写作的近距离评点。作者 Birgitta 是 Thoughtworks 的 Distinguished Engineer、AI 辅助交付方向的专家，有二十多年开发、架构与技术领导经验；文章发表在 ma"
+ },
+ {
+  "id": "OPI-HAR-01-02",
+  "type": "观点单元",
+  "title": "核心判断：她认可 harness 这个词。OpenAI 那篇文章标题里挂着 harness，正文…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "工具"
+  ],
+  "gloss": "核心判断：她认可 harness 这个词。OpenAI 那篇文章标题里挂着 harness，正文却只出现一次，词很可能是事后想到的、受 Mitchell Hashimoto 那篇「engineer the harness」启发；但作者认为，用 harness 来指代「我们用来把 "
+ },
+ {
+  "id": "OPI-HAR-01-03",
+  "type": "观点单元",
+  "title": "OpenAI 团队的实验本身足够硬：以「完全不手动敲代码」（no manually typed …",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Martin Fowler 为「harness"
+  ],
+  "gloss": "OpenAI 团队的实验本身足够硬：以「完全不手动敲代码」（no manually typed code at all）作为 forcing function，逼自己造出一套用 AI agent 维护大型应用的 harness；五个月后做出一个真实产品，代码量已超过 100 万行"
+ },
+ {
+  "id": "OPI-HAR-01-04",
+  "type": "观点单元",
+  "title": "作者的两处保留：其一，所有描述的手段都指向长期内部质量与可维护性，唯独缺了功能与行为的验证（ve…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Martin Fowler 为「harness"
+  ],
+  "gloss": "作者的两处保留：其一，所有描述的手段都指向长期内部质量与可维护性，唯独缺了功能与行为的验证（verification of functionality and behaviour）；其二，OpenAI 在「让我们相信代码可以由 AI 维护」这件事上有既得利益，可信度需要打折读。"
+ },
+ {
+  "id": "OPI-HAR-01-05",
+  "type": "观点单元",
+  "title": "由此延伸出全文真正的思想负载：harness 会不会成为新的 service template；…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Martin Fowler 为「harness"
+  ],
+  "gloss": "由此延伸出全文真正的思想负载：harness 会不会成为新的 service template；要更高的 AI 自治，是不是必须先约束运行时；技术栈与代码库拓扑会不会因此收敛；以及一个更大的追问——新的抽象层究竟是自然语言，还是可被 harness 的代码库拓扑结构。"
+ },
+ {
+  "id": "OPI-HAR-02-01",
+  "type": "观点单元",
+  "title": "全文的核心等式：Agent = Model + Harness。模型承载智能（the model…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "LangChain 解剖 agent harne"
+  ],
+  "gloss": "全文的核心等式：Agent = Model + Harness。模型承载智能（the model contains the intelligence），harness 是让这份智能变得有用的那个系统（the harness makes that intelligence usef"
+ },
+ {
+  "id": "OPI-HAR-02-02",
+  "type": "观点单元",
+  "title": "harness 的定义用的是减法：If you're not the model, you're…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "LangChain 解剖 agent harne"
+  ],
+  "gloss": "harness 的定义用的是减法：If you're not the model, you're the harness. 凡是不属于模型本身的代码、配置和执行逻辑，都是 harness。"
+ },
+ {
+  "id": "OPI-HAR-02-03",
+  "type": "观点单元",
+  "title": "作者 Vivek Trivedy 明确说，切分 agent 系统的方式有很多种，很多都很乱（me…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "LangChain 解剖 agent harne"
+  ],
+  "gloss": "作者 Vivek Trivedy 明确说，切分 agent 系统的方式有很多种，很多都很乱（messy），他之所以选这条最干净的界线，是因为它逼人去做一件事——designing systems around model intelligence（围绕模型智能来设计系统），而不是"
+ },
+ {
+  "id": "OPI-HAR-02-04",
+  "type": "观点单元",
+  "title": "全文方法论是反向推导：不列 harness 功能清单，而是从「模型这一原语」出发，按 Behav…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "LangChain 解剖 agent harne"
+  ],
+  "gloss": "全文方法论是反向推导：不列 harness 功能清单，而是从「模型这一原语」出发，按 Behavior we want (or want to fix) → Harness Design to help the model achieve this 的模式，一项一项推导出今天和明"
+ },
+ {
+  "id": "OPI-HAR-02-05",
+  "type": "观点单元",
+  "title": "推导出的核心组件依次是：文件系统 → bash 与代码执行 → 沙箱与默认工具链 → 记忆与搜索…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "代码执行",
+   "上下文",
+   "记忆",
+   "沙箱",
+   "工具"
+  ],
+  "gloss": "推导出的核心组件依次是：文件系统 → bash 与代码执行 → 沙箱与默认工具链 → 记忆与搜索（含上下文管理三件套）→ 长时程自主执行。这些原语不是并列的，越往后越依赖前面的，最后开始「复利」（compound）。"
+ },
+ {
+  "id": "OPI-HAR-02-06",
+  "type": "观点单元",
+  "title": "对未来的判断是双面的：模型变强会吸走一部分 harness 职责，但 harness engin…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "LangChain 解剖 agent harne"
+  ],
+  "gloss": "对未来的判断是双面的：模型变强会吸走一部分 harness 职责，但 harness engineering 不会因此消失——正如 prompt engineering 至今仍然有价值。"
+ },
+ {
+  "id": "OPI-HAR-03-01",
+  "type": "观点单元",
+  "title": "在任何工程学科里，harness 都是同一件东西：连接、保护、编排各个部件，而自己不做事。线束在…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "你的 agent 需要的是 harness，不是"
+  ],
+  "gloss": "在任何工程学科里，harness 都是同一件东西：连接、保护、编排各个部件，而自己不做事。线束在引擎、传感器和仪表盘之间路由信号；测试 harness 提供让代码可重复、可观测的脚手架；安全带在你坠落时接住你。"
+ },
+ {
+  "id": "OPI-HAR-03-02",
+  "type": "观点单元",
+  "title": "agent runtime 需要的正是这个东西。LLM 是引擎，工具是外设，memory 是存储…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "工具"
+  ],
+  "gloss": "agent runtime 需要的正是这个东西。LLM 是引擎，工具是外设，memory 是存储——但把它们连起来的是什么？第五轮迭代 LLM 超时的时候，谁来接住这次失败？谁防止两条消息相撞？谁把一个 webhook 事件路由到正确的 handler、再路由到正确的回复频道？"
+ },
+ {
+  "id": "OPI-HAR-03-03",
+  "type": "观点单元",
+  "title": "那就是 harness。而每一个 agent 框架都在从零重造一个：自己的重试逻辑、自己的状态持…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "你的 agent 需要的是 harness，不是"
+  ],
+  "gloss": "那就是 harness。而每一个 agent 框架都在从零重造一个：自己的重试逻辑、自己的状态持久化、自己的任务队列、自己的事件路由。"
+ },
+ {
+  "id": "OPI-HAR-03-04",
+  "type": "观点单元",
+  "title": "作者的判断是：持久化、事件驱动的基础设施早已解决了这些问题。每一次 LLM 调用或工具调用都成为…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "可观测性",
+   "工具"
+  ],
+  "gloss": "作者的判断是：持久化、事件驱动的基础设施早已解决了这些问题。每一次 LLM 调用或工具调用都成为一个 step——一个可独立重试的工作单元；进程在第五轮死掉，前四轮的结果已经落盘。事件在函数之间路由触发，并发控制防止碰撞，step 级 trace 给你对 agent loop 每"
+ },
+ {
+  "id": "OPI-HAR-03-05",
+  "type": "观点单元",
+  "title": "为了验证这一点，Inngest 造了 Utah——Universally Triggered A…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Agent Harness",
+   "工具"
+  ],
+  "gloss": "为了验证这一点，Inngest 造了 Utah——Universally Triggered Agent Harness：一个带工具、memory、子 agent 委派和完整持久性的 Telegram/Slack 对话式 agent，极简 TypeScript，没有框架，只有 I"
+ },
+ {
+  "id": "OPI-HAR-03-06",
+  "type": "观点单元",
+  "title": "「universally triggered」这个词是实指：Telegram/Slack web…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "你的 agent 需要的是 harness，不是"
+  ],
+  "gloss": "「universally triggered」这个词是实指：Telegram/Slack webhook、cron 定时、子 agent 调用、函数间事件——agent 不知道也不关心自己是被什么激活的。触发与工作解耦。明天加一个 Slack bot，agent loop 一行不"
+ },
+ {
+  "id": "OPI-HAR-04-01",
+  "type": "观点单元",
+  "title": "HumanLayer 团队用一年时间看着 coding agent 以各种可以想象的方式失败：无…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "HumanLayer：harness 工程就是把"
+  ],
+  "gloss": "HumanLayer 团队用一年时间看着 coding agent 以各种可以想象的方式失败：无视指令、未经允许执行危险命令、在最简单的任务上原地打转。他们见过团队大量交付垃圾代码，也承认自己交付过一点。"
+ },
+ {
+  "id": "OPI-HAR-04-02",
+  "type": "观点单元",
+  "title": "每一次的本能反应都一样：「再等等，GPT-6 就能解决」「模型的指令遵循能力会变强」「等我用的那…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "HumanLayer：harness 工程就是把"
+  ],
+  "gloss": "每一次的本能反应都一样：「再等等，GPT-6 就能解决」「模型的指令遵循能力会变强」「等我用的那个小众库进了训练数据就好了」。但在几十个项目、几百次 agent session 之后，他们反复得到同一个结论：这不是模型问题，这是配置问题。"
+ },
+ {
+  "id": "OPI-HAR-04-03",
+  "type": "观点单元",
+  "title": "模型确实会变聪明，一些既有的失败模式会消失。但正因为它更聪明，我们会把更大更难的问题交给它，于是…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "HumanLayer：harness 工程就是把"
+  ],
+  "gloss": "模型确实会变聪明，一些既有的失败模式会消失。但正因为它更聪明，我们会把更大更难的问题交给它，于是它继续以出乎意料的方式失败——对非确定性系统而言，意料之外的失败模式是个根本性问题。"
+ },
+ {
+  "id": "OPI-HAR-04-04",
+  "type": "观点单元",
+  "title": "与其祈祷 gpt-6.4-codex-ultrahigh_extended 来拯救所有人，作者选…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "HumanLayer：harness 工程就是把"
+  ],
+  "gloss": "与其祈祷 gpt-6.4-codex-ultrahigh_extended 来拯救所有人，作者选择回答另一个问题：怎么从今天的模型身上榨出最多的东西？"
+ },
+ {
+  "id": "OPI-HAR-04-05",
+  "type": "观点单元",
+  "title": "skills、MCP servers、sub-agents、memory、agentfile 在…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "HumanLayer：harness 工程就是把"
+  ],
+  "gloss": "skills、MCP servers、sub-agents、memory、agentfile 在技术上是分立的概念，但它们同属 coding agent 的配置面。作者把这个配置面称为 coding agent 的 harness，并把它理解成 agent 的运行时，或者说 ag"
+ },
+ {
+  "id": "OPI-HAR-04-06",
+  "type": "观点单元",
+  "title": "全文的态度浓缩在最后一句：下次你的 coding agent 表现不如预期，在怪模型之前先查 h…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "HumanLayer：harness 工程就是把"
+  ],
+  "gloss": "全文的态度浓缩在最后一句：下次你的 coding agent 表现不如预期，在怪模型之前先查 harness。agentfile、MCP server、skills、sub-agents、hooks、back-pressure——杠杆大多藏在这里。模型大概率没问题，这只是个 sk"
+ },
+ {
+  "id": "OPI-HAR-05-01",
+  "type": "观点单元",
+  "title": "这篇文章做的是一次接线：把 2026 年最热的 harness 工程，接到 1965 年 I. …",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Lilian Weng：把 harness 工程"
+  ],
+  "gloss": "这篇文章做的是一次接线：把 2026 年最热的 harness 工程，接到 1965 年 I. J. Good 的「ultraintelligent machine」和 2008 年 Yudkowsky 的「递归自我改进」（RSI）这条老线索上。Good 定义的超智能机器能在一切"
+ },
+ {
+  "id": "OPI-HAR-05-02",
+  "type": "观点单元",
+  "title": "现代 AI 里这个回路不一定意味着模型直接改写自己的权重，更广义的形态是模型改进训练流水线和部署…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Lilian Weng：把 harness 工程"
+  ],
+  "gloss": "现代 AI 里这个回路不一定意味着模型直接改写自己的权重，更广义的形态是模型改进训练流水线和部署系统，从而让下一代模型在有经济价值的任务上表现更好。作者特意点名「部署系统」：介于原始模型与真实世界之间的那一层，其重要性看起来不亚于模型的原始智能（即预训练刚结束时的 evals）。"
+ },
+ {
+  "id": "OPI-HAR-05-03",
+  "type": "观点单元",
+  "title": "harness 的定义：环绕基础模型的那套系统，编排执行，并决定模型如何思考与规划、如何调用工具…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "工具"
+  ],
+  "gloss": "harness 的定义：环绕基础模型的那套系统，编排执行，并决定模型如何思考与规划、如何调用工具与行动、如何感知与管理 context、如何存储 artifacts、如何评估结果。Claude Code、Codex 这类成功的 coding agent 产品，证明了这一层的价值。"
+ },
+ {
+  "id": "OPI-HAR-05-04",
+  "type": "观点单元",
+  "title": "相比 2023 年的老公式「agent = LLM + memory + tools + pla…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "状态管理"
+  ],
+  "gloss": "相比 2023 年的老公式「agent = LLM + memory + tools + planning + action」，harness 工程额外包含 workflow 设计（如 loop engineering）、评估、权限控制、持久状态管理。它不再是 prompt 模板"
+ },
+ {
+  "id": "OPI-HAR-05-05",
+  "type": "观点单元",
+  "title": "全文的主轴是一条优化对象的阶梯：instruction prompts → structured…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Lilian Weng：把 harness 工程"
+  ],
+  "gloss": "全文的主轴是一条优化对象的阶梯：instruction prompts → structured context → workflow → harness code → optimizer code。模型越强，就越能往阶梯上端、更复杂也更通用的目标走。"
+ },
+ {
+  "id": "OPI-HAR-05-06",
+  "type": "观点单元",
+  "title": "全文的转折点是一句判断：代码是通用语言。harness 说到底就是一段程序，规定 prompt、…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "记忆",
+   "工具"
+  ],
+  "gloss": "全文的转折点是一句判断：代码是通用语言。harness 说到底就是一段程序，规定 prompt、工具调用、子 agent、控制流、记忆和工作流逻辑如何协同。一旦 harness 设计变成可执行的搜索空间，强 coding agent 就能进入人类工程师使用的同一片设计空间，而且它"
+ },
+ {
+  "id": "OPI-HAR-05-07",
+  "type": "观点单元",
+  "title": "全文最重要的一条负面结果来自 STOP：同一套递归改进，在 GPT-4 上让下游平均表现随迭代上…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Lilian Weng：把 harness 工程"
+  ],
+  "gloss": "全文最重要的一条负面结果来自 STOP：同一套递归改进，在 GPT-4 上让下游平均表现随迭代上升，在 GPT-3.5 和 Mixtral 这类更弱模型上反而退化。递归结构本身不够，基座模型必须强到足以改进机制——harness 改进的是部署，智能仍是核心。"
+ },
+ {
+  "id": "OPI-HAR-05-08",
+  "type": "观点单元",
+  "title": "作者对近期路径的预测是双向的：harness 工程会朝元方法论方向演化（改进「拿到好答案的机器」…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Lilian Weng：把 harness 工程"
+  ],
+  "gloss": "作者对近期路径的预测是双向的：harness 工程会朝元方法论方向演化（改进「拿到好答案的机器」而不只是答案本身），harness 系统自身成为优化目标，启发式规则更少、通用机制更多；反过来，成熟的 harness 支撑起自动研究的自我改进回路，而更聪明的模型能防止 harnes"
+ },
+ {
+  "id": "OPI-HAR-06-01",
+  "type": "观点单元",
+  "title": "Cursor 的这项研究要回答一个很朴素的问题：能不能多花 10 倍算力，换来 10 倍有意义的…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Cursor 谈「会自动驾驶的代码库」：多 ag"
+  ],
+  "gloss": "Cursor 的这项研究要回答一个很朴素的问题：能不能多花 10 倍算力，换来 10 倍有意义的吞吐量（\\\"Could we spend 10x more on compute to get 10x more meaningful throughput?\\\"）。他们用来做实验的载"
+ },
+ {
+  "id": "OPI-HAR-06-02",
+  "type": "观点单元",
+  "title": "答案是一个多 agent harness：它在一台大 Linux VM 上连续跑了一周，几乎包办…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "工具"
+  ],
+  "gloss": "答案是一个多 agent harness：它在一台大 Linux VM 上连续跑了一周，几乎包办了这个研究项目的绝大多数 commit，峰值约 1,000 commits/hour、一周内 10M 次工具调用，启动之后不需要人工干预。"
+ },
+ {
+  "id": "OPI-HAR-06-03",
+  "type": "观点单元",
+  "title": "但文章真正的价值不在这个数字，而在通往这个设计的一连串失败：自协调失败、静态 planner 太…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Cursor 谈「会自动驾驶的代码库」：多 ag"
+  ],
+  "gloss": "但文章真正的价值不在这个数字，而在通往这个设计的一连串失败：自协调失败、静态 planner 太刚性、连续执行器角色过载、中心化 integrator 变成瓶颈。最终形态是递归的 planner + 隔离的 worker + 单向 handoff 回传，简单到\\\"像今天某些软件团"
+ },
+ {
+  "id": "OPI-HAR-06-04",
+  "type": "观点单元",
+  "title": "三个反直觉的结论贯穿全文：结构比自由更管用（平级 agent 自协调必然退化）、容忍稳定的错误率…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Cursor 谈「会自动驾驶的代码库」：多 ag"
+  ],
+  "gloss": "三个反直觉的结论贯穿全文：结构比自由更管用（平级 agent 自协调必然退化）、容忍稳定的错误率比追求 100% 正确更快、harness 稳定之后，瓶颈就转移到人给出的指令上——\\\"The harness was merely following our instruction"
+ },
+ {
+  "id": "OPI-HAR-07-01",
+  "type": "观点单元",
+  "title": "Cursor 把数百个 coding agent 并发投在同一个项目上连续运行数周，累计写出超过…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Cursor：让 coding agent 连续"
+  ],
+  "gloss": "Cursor 把数百个 coding agent 并发投在同一个项目上连续运行数周，累计写出超过 100 万行代码、消耗数万亿 token，用来回答一个问题：能否靠\\\"往问题上堆更多 agent\\\"来扩展自治编码。他们的答案比预期乐观——数百个 agent 可以在一个代码库上协作"
+ },
+ {
+  "id": "OPI-HAR-07-02",
+  "type": "观点单元",
+  "title": "真正的瓶颈不是单个 agent 的能力，而是协调架构。让地位平等的 agent 通过共享文件加锁…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Cursor：让 coding agent 连续"
+  ],
+  "gloss": "真正的瓶颈不是单个 agent 的能力，而是协调架构。让地位平等的 agent 通过共享文件加锁自协调，会同时坏在两个层面：机制层面（持锁不放、崩溃时不释放、绕过锁写入）和激励层面（没有层级，agent 变得风险规避、只做小而安全的改动、无人对端到端负责）。"
+ },
+ {
+  "id": "OPI-HAR-07-03",
+  "type": "观点单元",
+  "title": "解法是放弃平等协商、改成角色分离的流水线：planner 持续勘察代码库并生成任务（可递归派生 …",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Cursor：让 coding agent 连续"
+  ],
+  "gloss": "解法是放弃平等协商、改成角色分离的流水线：planner 持续勘察代码库并生成任务（可递归派生 sub-planner），worker 只管死磕单个任务并 push，周期末由 judge agent 决定是否继续，下一轮从头开始。"
+ },
+ {
+  "id": "OPI-HAR-07-04",
+  "type": "观点单元",
+  "title": "三条反直觉的工程判断：减复杂度往往比加复杂度更有效（专设的 integrator 角色被删掉）、…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Cursor：让 coding agent 连续"
+  ],
+  "gloss": "三条反直觉的工程判断：减复杂度往往比加复杂度更有效（专设的 integrator 角色被删掉）、结构的正确剂量在中间（太少则冲突漂移，太多则脆弱）、prompt 比 harness 和模型更重要。"
+ },
+ {
+  "id": "OPI-HAR-08-01",
+  "type": "观点单元",
+  "title": "OpenAI Agents SDK 的自我定位只有一句话：让你在一个 lightweight、e…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "AI Agent"
+  ],
+  "gloss": "OpenAI Agents SDK 的自我定位只有一句话：让你在一个 lightweight、easy-to-use 的包里构建 agentic AI 应用，而且 with very few abstractions。「抽象极少」不是谦辞，是它对外宣示的核心竞争力。"
+ },
+ {
+  "id": "OPI-HAR-08-02",
+  "type": "观点单元",
+  "title": "它不是实验品，而是被明确称为 Swarm（此前的 agent 实验项目）的 production…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "OpenAI Agents SDK 官方文档：抽"
+  ],
+  "gloss": "它不是实验品，而是被明确称为 Swarm（此前的 agent 实验项目）的 production-ready upgrade——同一条设计思路，从实验阶段转正。"
+ },
+ {
+  "id": "OPI-HAR-08-03",
+  "type": "观点单元",
+  "title": "全部地基只有一个 very small set of primitives：Agents、Age…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "OpenAI Agents SDK 官方文档：抽"
+  ],
+  "gloss": "全部地基只有一个 very small set of primitives：Agents、Agents as tools / Handoffs、Guardrails。三者加上 Python 本身，就 powerful enough to express complex relat"
+ },
+ {
+  "id": "OPI-HAR-08-04",
+  "type": "观点单元",
+  "title": "少抽象换来的直接收益是学习曲线：build real-world applications wi…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "OpenAI Agents SDK 官方文档：抽"
+  ],
+  "gloss": "少抽象换来的直接收益是学习曲线：build real-world applications without a steep learning curve。这是文档反复回到的那个判据。"
+ },
+ {
+  "id": "OPI-HAR-08-05",
+  "type": "观点单元",
+  "title": "抽象少不代表运行时薄。SDK 自带 tracing，让你可视化和调试 agentic flows…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "OpenAI Agents SDK 官方文档：抽"
+  ],
+  "gloss": "抽象少不代表运行时薄。SDK 自带 tracing，让你可视化和调试 agentic flows，并进一步接上 evaluate 与 fine-tune 模型的链路。"
+ },
+ {
+  "id": "OPI-HAR-12-01",
+  "type": "观点单元",
+  "title": "Claude Managed Agents 是一套预置、可配置的 agent harness，跑…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "工具"
+  ],
+  "gloss": "Claude Managed Agents 是一套预置、可配置的 agent harness，跑在托管的基础设施上：你把 agent 定义成一个模板（模型、system prompt、工具、skills、文件与仓库），harness 和 infra 由 Anthropic 提供。"
+ },
+ {
+  "id": "OPI-HAR-12-02",
+  "type": "观点单元",
+  "title": "它要解决的不是「怎么写一个更好的 harness」，而是「harness 与基础设施如何跟上一个…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Anthropic 干脆把 harness 托管"
+  ],
+  "gloss": "它要解决的不是「怎么写一个更好的 harness」，而是「harness 与基础设施如何跟上一个能力持续变强、运行时间持续变长的 Claude」。"
+ },
+ {
+  "id": "OPI-HAR-12-03",
+  "type": "观点单元",
+  "title": "最关键的设计取舍是一个拒绝：Anthropic 没有去设计某一种 agent harness，而…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "沙箱",
+   "工具"
+  ],
+  "gloss": "最关键的设计取舍是一个拒绝：Anthropic 没有去设计某一种 agent harness，而是把 brain（Claude 及其 harness）、hands（执行动作的沙箱与工具）、session（会话事件的日志）拆成三个彼此假设极少的接口，各自可以独立失败、独立替换。"
+ },
+ {
+  "id": "OPI-HAR-12-04",
+  "type": "观点单元",
+  "title": "一句可迁移的判断：让 agent 随 Claude 的智能一起扩展，是一个基础设施挑战（infr…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Anthropic 干脆把 harness 托管"
+  ],
+  "gloss": "一句可迁移的判断：让 agent 随 Claude 的智能一起扩展，是一个基础设施挑战（infrastructure challenge），而不严格是 harness 设计问题。"
+ },
+ {
+  "id": "OPI-HAR-13-01",
+  "type": "观点单元",
+  "title": "作者的核心判断只有一句：决定你 AI 效果的是 harness，以及你对它的理解程度，而不是你又…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "GitHub：决定 AI 编码效果的是 harn"
+  ],
+  "gloss": "作者的核心判断只有一句：决定你 AI 效果的是 harness，以及你对它的理解程度，而不是你又装了哪个 MCP、哪个 skill、哪个自定义 agent。他每天与 AI 一起工作，得到的结论是「less is way more」——那些安装、配置、诱导 agent 的花活「很有"
+ },
+ {
+  "id": "OPI-HAR-13-02",
+  "type": "观点单元",
+  "title": "「harness」在本文中与 GitHub Copilot 互换使用：GitHub Copilo…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "工具"
+  ],
+  "gloss": "「harness」在本文中与 GitHub Copilot 互换使用：GitHub Copilot 就是一个 agent harness。工具形态在收敛——CLI、新的 GitHub Copilot app、VS Code、Visual Studio、JetBrains 越来越跑"
+ },
+ {
+  "id": "OPI-HAR-13-03",
+  "type": "观点单元",
+  "title": "全文给出的是一条只用现成功能的八步工作流：挑工具 → 打开 YOLO 模式 → 先做原型 → 方…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "提示",
+   "工具"
+  ],
+  "gloss": "全文给出的是一条只用现成功能的八步工作流：挑工具 → 打开 YOLO 模式 → 先做原型 → 方法论式规划 → 用 Autopilot 实现 → 人工评审迭代 → 橡皮鸭复审 → 收工。没有奇怪的提示词，没有别人都知道你不知道的 skill。"
+ },
+ {
+  "id": "OPI-HAR-13-04",
+  "type": "观点单元",
+  "title": "作者主动划边界：不是说你永远不需要 skill、MCP、指令、自定义 agent——当你要定义复…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "GitHub：决定 AI 编码效果的是 harn"
+  ],
+  "gloss": "作者主动划边界：不是说你永远不需要 skill、MCP、指令、自定义 agent——当你要定义复杂工作流、为团队做自动化时它们会变得相当重要，他自己在这篇文章里也用了几个；他要指出的是没有这些东西你照样可以非常成功。"
+ },
+ {
+  "id": "OPI-HAR-13-05",
+  "type": "观点单元",
+  "title": "一个清醒的旁注：市面上「slop」很多。不信就让 agent 随便造一个 skill，它会欣然照…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "GitHub：决定 AI 编码效果的是 harn"
+  ],
+  "gloss": "一个清醒的旁注：市面上「slop」很多。不信就让 agent 随便造一个 skill，它会欣然照办；那个 skill 到底能不能用不重要，照样可以发布到各种 skill / MCP registry。"
+ },
+ {
+  "id": "OPI-HAR-16-01",
+  "type": "观点单元",
+  "title": "这篇内容的核心不是“更会 prompt 一个 coding agent”，而是把人的一次性提示升…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "上下文",
+   "提示"
+  ],
+  "gloss": "这篇内容的核心不是“更会 prompt 一个 coding agent”，而是把人的一次性提示升级成可复用、可触发、可记账、可复盘的 agent loop。Loop engineer 的工作，就是设计让 agent 自动被唤醒、读取上下文、执行任务、写入状态、积累信号，并在下一轮"
+ },
+ {
+  "id": "OPI-HAR-16-02",
+  "type": "观点单元",
+  "title": "作者把 agent 的基本形态压缩成三个底层部件：programming language ag…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Loop Engineer：把 Agent 工作"
+  ],
+  "gloss": "作者把 agent 的基本形态压缩成三个底层部件：programming language agent loop、memory layer、tool access。真正的新变化发生在这三者之外：当任务跨越 30 分钟、2 小时、多 session、多 agent 时，系统需要一个"
+ },
+ {
+  "id": "OPI-HAR-16-03",
+  "type": "观点单元",
+  "title": "loop engineering 的价值来自“复利”。单个 support loop 能每 30…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Loop Engineer：把 Agent 工作"
+  ],
+  "gloss": "loop engineering 的价值来自“复利”。单个 support loop 能每 30 分钟处理工单；SEO loop 能每天发布页面；ads loop 能发现关键词机会。但当这些 loop 都读写同一套 signals、artifacts 和 contracts 时，"
+ },
+ {
+  "id": "OPI-HAR-16-04",
+  "type": "观点单元",
+  "title": "作者给出的落地重点很工程化：代码库必须 legible、executable、worktree …",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Loop Engineer：把 Agent 工作"
+  ],
+  "gloss": "作者给出的落地重点很工程化：代码库必须 legible、executable、worktree friendly、verifiable；文件系统必须有 artifacts、loop contract、global work log；验证最好交给只读 verifier，而不是让执行"
+ },
+ {
+  "id": "OPI-HAR-17-01",
+  "type": "观点单元",
+  "title": "文章把 Loop Engineering 定义为 Prompt Engineering、Cont…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "提示"
+  ],
+  "gloss": "文章把 Loop Engineering 定义为 Prompt Engineering、Context Engineering、Harness Engineering 之后的新一层工作方式：不再围绕一次提示词优化，而是设计一个能持续启动、执行、验证、修复的循环系统。"
+ },
+ {
+  "id": "OPI-HAR-17-02",
+  "type": "观点单元",
+  "title": "作者认为这个新词不是单纯的概念炒作。行业变化太快时，人们需要更精确的表达来描述新的工作重心；Lo…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "从 Prompt 转向 Loop Enginee"
+  ],
+  "gloss": "作者认为这个新词不是单纯的概念炒作。行业变化太快时，人们需要更精确的表达来描述新的工作重心；Loop Engineering 描述的正是从“人驱动 Agent”转向“系统驱动 Agent”的变化。"
+ },
+ {
+  "id": "OPI-HAR-17-03",
+  "type": "观点单元",
+  "title": "这篇文章最重要的判断是：Loop Engineering 表面上是工程实践，本质上是管理能力。真…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "从 Prompt 转向 Loop Enginee"
+  ],
+  "gloss": "这篇文章最重要的判断是：Loop Engineering 表面上是工程实践，本质上是管理能力。真正稀缺的不是会不会写 hook、cron 或脚本，而是能不能把模糊意图翻译成可验证的目标、资源配置、反馈机制和边界条件。"
+ },
+ {
+  "id": "OPI-HAR-18-01",
+  "type": "观点单元",
+  "title": "Learn Harness Engineering 是一门项目制课程，主题是「系统学习如何通过环…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "提示"
+  ],
+  "gloss": "Learn Harness Engineering 是一门项目制课程，主题是「系统学习如何通过环境、状态、验证与控制机制，让 AI 编程智能体（Coding Agents）更可靠地工作」。它不是提示词技巧集，而是把业内最前沿的 harness 理论——OpenAI 的 Codex"
+ },
+ {
+  "id": "OPI-HAR-18-02",
+  "type": "观点单元",
+  "title": "全课的立论只有一句：世界上最强的模型，如果没有一个合适的工作环境，依然会在真实工程任务中翻车。作…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Harness 工程学习仓库：从原始文献到能跑的"
+  ],
+  "gloss": "全课的立论只有一句：世界上最强的模型，如果没有一个合适的工作环境，依然会在真实工程任务中翻车。作者把这句话追加了一个诊断——「这不是模型的问题，这是 harness 的问题。」"
+ },
+ {
+  "id": "OPI-HAR-18-03",
+  "type": "观点单元",
+  "title": "Harness engineering 的定义：围绕模型搭建一整套工作环境，让它产出可靠的结果。…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "提示"
+  ],
+  "gloss": "Harness engineering 的定义：围绕模型搭建一整套工作环境，让它产出可靠的结果。不只是写更好的提示词，而是设计模型运行所在的系统。"
+ },
+ {
+  "id": "OPI-HAR-18-04",
+  "type": "观点单元",
+  "title": "分工判据是全文最锋利的一句：模型决定写什么代码。Harness 管控什么时候写、在哪里写、怎么写…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Harness 工程学习仓库：从原始文献到能跑的"
+  ],
+  "gloss": "分工判据是全文最锋利的一句：模型决定写什么代码。Harness 管控什么时候写、在哪里写、怎么写。Harness 不会让模型变聪明。它让模型的产出变可靠。"
+ },
+ {
+  "id": "OPI-HAR-18-05",
+  "type": "观点单元",
+  "title": "课程形态：12 个讲义（概念单元）+ 6 个循序渐进的实战项目（全部落在同一个 Electron…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Harness 工程学习仓库：从原始文献到能跑的"
+  ],
+  "gloss": "课程形态：12 个讲义（概念单元）+ 6 个循序渐进的实战项目（全部落在同一个 Electron 应用上）+ 开箱即用的中英文资料库（AGENTS.md、feature_list.json、init.sh 等模板）。仓库内另附 skills/harness-creator/ 技能"
+ },
+ {
+  "id": "OPI-HAR-18-06",
+  "type": "观点单元",
+  "title": "课程的验收口径同样是工程化的：每个项目都要求 agent 真正干活，每个项目都要做弱 harne…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Harness 工程学习仓库：从原始文献到能跑的"
+  ],
+  "gloss": "课程的验收口径同样是工程化的：每个项目都要求 agent 真正干活，每个项目都要做弱 harness / 强 harness 对照，「我们关心的是效果变化，而不是『写了多少说明文档』」。"
+ },
+ {
+  "id": "OPI-HAR-21-01",
+  "type": "观点单元",
+  "title": "想知道一个 AI app 究竟怎么工作，最可靠的方式不是读它的宣传，而是看它和模型之间的对话 l…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "工具"
+  ],
+  "gloss": "想知道一个 AI app 究竟怎么工作，最可靠的方式不是读它的宣传，而是看它和模型之间的对话 log。作者用 custom endpoint 把 Claude Code 的请求截下来，直接读到了它的 system prompt、工具清单和背后的小模型调用。"
+ },
+ {
+  "id": "OPI-HAR-21-02",
+  "type": "观点单元",
+  "title": "全文的方法论内核，是作者自称「小小升华」的一句判断：prompt 对话是 LLM 的第一性原理，…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "工具"
+  ],
+  "gloss": "全文的方法论内核，是作者自称「小小升华」的一句判断：prompt 对话是 LLM 的第一性原理，任何 AI app 归根结底就是和 LLM 对话（例如工具调用也是对话），然后把有用的（结构化的）结果抠出来，再用确定性的其他代码缝合起来。"
+ },
+ {
+  "id": "OPI-HAR-21-03",
+  "type": "观点单元",
+  "title": "拆开之后看到的 Claude Code，最大的亮点不在模型，而在 task management…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "拆开 Claude Code：一个编码 agen"
+  ],
+  "gloss": "拆开之后看到的 Claude Code，最大的亮点不在模型，而在 task management：13k 字符的 prompt 里反复强调 TodoWrite/TodoRead 要 VERY frequently 地用。作者认为这是一个更进阶版的 scratchpad.md，主要"
+ },
+ {
+  "id": "OPI-HAR-21-04",
+  "type": "观点单元",
+  "title": "它在代码编辑上的选择同样朴素：tool call 基本只用 Write 全文覆盖而不用 Edit…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "拆开 Claude Code：一个编码 agen"
+  ],
+  "gloss": "它在代码编辑上的选择同样朴素：tool call 基本只用 Write 全文覆盖而不用 Edit，直接绕过 apply edit 的困难，代价只是费 token。但完全依赖 instruction following 也会翻车——(Rest of file unchanged) "
+ },
+ {
+  "id": "OPI-HAR-21-05",
+  "type": "观点单元",
+  "title": "由此引出全文最尖锐的一问：对 agent 模式而言，cursor 相比 claude code …",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "拆开 Claude Code：一个编码 agen"
+  ],
+  "gloss": "由此引出全文最尖锐的一问：对 agent 模式而言，cursor 相比 claude code 多出来的 apply 模型、原生 fix lint、codebase index & vector search，哪一样是真的强依赖 IDE？如果都不是，fork 一个 IDE 的路线"
+ },
+ {
+  "id": "OPI-HAR-22-01",
+  "type": "观点单元",
+  "title": "五个月、104 次 commit，作者反复撞上同一个教训：harness 工程很难。",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "为什么 harness 工程这么难"
+  ],
+  "gloss": "五个月、104 次 commit，作者反复撞上同一个教训：harness 工程很难。"
+ },
+ {
+  "id": "OPI-HAR-22-02",
+  "type": "观点单元",
+  "title": "几乎每个建在大语言模型上的项目都笼罩着同一种幻觉——以为模型就是产品。接上 API 调用、写个 …",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "大语言模型"
+  ],
+  "gloss": "几乎每个建在大语言模型上的项目都笼罩着同一种幻觉——以为模型就是产品。接上 API 调用、写个 prompt、第一次演示效果惊艳，于是感觉难的部分已经结束了。作者的回答只有三个字：「It is not.」"
+ },
+ {
+  "id": "OPI-HAR-22-03",
+  "type": "观点单元",
+  "title": "真正难的是把那次惊艳的演示变成你能依赖的行为：让模型在不同输入下遵守同一组约束、表达正确的意思而…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "为什么 harness 工程这么难"
+  ],
+  "gloss": "真正难的是把那次惊艳的演示变成你能依赖的行为：让模型在不同输入下遵守同一组约束、表达正确的意思而不漂移、熬过模型更新、显式失败而不是静默失败，并且在输出永远不可能完全确定的前提下依然可被测试。"
+ },
+ {
+  "id": "OPI-HAR-22-04",
+  "type": "观点单元",
+  "title": "作者把这层「行为层」称为 harness：介于一个概率式模型和产品使用者之间的 prompts、…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "为什么 harness 工程这么难"
+  ],
+  "gloss": "作者把这层「行为层」称为 harness：介于一个概率式模型和产品使用者之间的 prompts、examples、schemas、validators、evals、guardrails。「The model generates the output. The harness is"
+ },
+ {
+  "id": "OPI-HAR-22-05",
+  "type": "观点单元",
+  "title": "让优秀工程师反复吃惊的是：这里的痛苦大多来自一小组结构性事实——它们表面看像普通的软件问题，实际…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "为什么 harness 工程这么难"
+  ],
+  "gloss": "让优秀工程师反复吃惊的是：这里的痛苦大多来自一小组结构性事实——它们表面看像普通的软件问题，实际上不是。文章按六个痛点逐一拆解：测试失效、失败静默、调试散文、加法陷阱、地基自己重写、反馈回路慢而贵，外加一个社会性痛点：没人看得见这份工作。"
+ },
+ {
+  "id": "OPI-HAR-22-06",
+  "type": "观点单元",
+  "title": "收尾判断：这些难都不能被工程掉，只能被 harness 吸收；而正因为吸收不了的部分是不可复制的…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "为什么 harness 工程这么难"
+  ],
+  "gloss": "收尾判断：这些难都不能被工程掉，只能被 harness 吸收；而正因为吸收不了的部分是不可复制的，它才是护城河。「The pain is the work, and the work is the moat.」"
+ },
+ {
+  "id": "OPI-HAR-24-01",
+  "type": "观点单元",
+  "title": "AI 生产力的 10x-100x 差距不来自更聪明的模型，而来自架构——具体说就是模型外面那层\\\"…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Thin Harness, Fat Skills"
+  ],
+  "gloss": "AI 生产力的 10x-100x 差距不来自更聪明的模型，而来自架构——具体说就是模型外面那层\\\"wrapper\\"
+ },
+ {
+  "id": "OPI-HAR-24-02",
+  "type": "观点单元",
+  "title": "这个架构原则可以写在一张索引卡上：Thin Harness, Fat Skills",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Thin Harness, Fat Skills"
+  ],
+  "gloss": "这个架构原则可以写在一张索引卡上：Thin Harness, Fat Skills"
+ },
+ {
+  "id": "OPI-HAR-24-03",
+  "type": "观点单元",
+  "title": "harness 保持薄：只做循环运行模型、读写文件、管理上下文、执行安全四件事",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "上下文"
+  ],
+  "gloss": "harness 保持薄：只做循环运行模型、读写文件、管理上下文、执行安全四件事"
+ },
+ {
+  "id": "OPI-HAR-24-04",
+  "type": "观点单元",
+  "title": "skills 做厚：把判断力、流程、领域知识全部编码进 markdown skill 文件",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Thin Harness, Fat Skills"
+  ],
+  "gloss": "skills 做厚：把判断力、流程、领域知识全部编码进 markdown skill 文件"
+ },
+ {
+  "id": "OPI-HAR-27-01",
+  "type": "观点单元",
+  "title": "不是你的模型不行，而是模型周围的一切不行。决定 agent 生产级表现的，不是模型本身，而是包裹…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "The Anatomy of an Agent"
+  ],
+  "gloss": "不是你的模型不行，而是模型周围的一切不行。决定 agent 生产级表现的，不是模型本身，而是包裹模型的整个 harness（马具 / 脚手架）。"
+ },
+ {
+  "id": "OPI-HAR-27-02",
+  "type": "观点单元",
+  "title": "TerminalBench 的硬证据：仅仅更换 harness，就能让同一个 LLM 从榜单之外…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "The Anatomy of an Agent"
+  ],
+  "gloss": "TerminalBench 的硬证据：仅仅更换 harness，就能让同一个 LLM 从榜单之外跃升到 rank 5——harness 而非模型，才是硬工程真正所在。"
+ },
+ {
+  "id": "OPI-HAR-28-01",
+  "type": "观点单元",
+  "title": "大多数人把 agent 想象成「一个模型外面栓了几把工具」，真实架构恰好把这个关系倒过来：模型被…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "工具"
+  ],
+  "gloss": "大多数人把 agent 想象成「一个模型外面栓了几把工具」，真实架构恰好把这个关系倒过来：模型被刻意做薄（deliberately thin），智能被推到外面，由 harness 在运行时组装。"
+ },
+ {
+  "id": "OPI-HAR-28-02",
+  "type": "观点单元",
+  "title": "harness 指的是包裹 LLM 的全部软件基础设施——编排循环、工具、记忆、上下文管理、状态…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "错误处理",
+   "上下文",
+   "护栏",
+   "记忆",
+   "工具"
+  ],
+  "gloss": "harness 指的是包裹 LLM 的全部软件基础设施——编排循环、工具、记忆、上下文管理、状态持久化、错误处理、护栏。LangChain 的 Vivek Trivedy 给了一句划界公式：「If you're not the model, you're the harness."
+ },
+ {
+  "id": "OPI-HAR-28-03",
+  "type": "观点单元",
+  "title": "agent 与 harness 不是同一个东西：agent 是目标导向、会用工具、能自我纠错的涌…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "工具"
+  ],
+  "gloss": "agent 与 harness 不是同一个东西：agent 是目标导向、会用工具、能自我纠错的涌现行为，是用户打交道的那个东西；harness 是产生这种行为的机器。说「我造了个 agent」，真实含义是「我造了个 harness，然后把它指向一个模型」。"
+ },
+ {
+  "id": "OPI-HAR-28-04",
+  "type": "观点单元",
+  "title": "证据不是修辞：LangChain 只换包在 LLM 外面的基础设施（同一个模型、同一份权重），在…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "一个被 harness 套住的 LLM agen"
+  ],
+  "gloss": "证据不是修辞：LangChain 只换包在 LLM 外面的基础设施（同一个模型、同一份权重），在 TerminalBench 2.0 上从 30 名开外冲到第 5；另一个研究项目让 LLM 自己去优化基础设施，pass rate 达到 76.4%，超过手工设计的系统。"
+ },
+ {
+  "id": "OPI-HAR-28-05",
+  "type": "观点单元",
+  "title": "这套框架解锁的有用问题是：任何一项新能力，它该住在哪里？稳定知识去记忆，学到的打法去 skill…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "记忆"
+  ],
+  "gloss": "这套框架解锁的有用问题是：任何一项新能力，它该住在哪里？稳定知识去记忆，学到的打法去 skills，通信契约去 protocols，循环治理交给中介层。harness 设计因此变成「外置什么、如何中介」的问题。"
+ },
+ {
+  "id": "OPI-HAR-28-06",
+  "type": "观点单元",
+  "title": "趋势判断：模型越强，harness 越薄，但 harness 不会消失。全文收在一句话上——下次…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "一个被 harness 套住的 LLM agen"
+  ],
+  "gloss": "趋势判断：模型越强，harness 越薄，但 harness 不会消失。全文收在一句话上——下次 agent 失败，别怪模型，去看 harness。"
+ },
+ {
+  "id": "OPI-HAR-A2-01",
+  "type": "观点单元",
+  "title": "基准测试很少孤立地衡量模型（Benchmarks rarely measure AI model…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "提示"
+  ],
+  "gloss": "基准测试很少孤立地衡量模型（Benchmarks rarely measure AI models in isolation）。它同时在衡量一捆不太可见的选择：API 设置、harness 设计和提示词。"
+ },
+ {
+  "id": "OPI-HAR-A2-02",
+  "type": "观点单元",
+  "title": "在 ARC-AGI-3 上，OpenAI 把自己在 ChatGPT 和 Codex 里已经在用的…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "上下文压缩",
+   "上下文"
+  ],
+  "gloss": "在 ARC-AGI-3 上，OpenAI 把自己在 ChatGPT 和 Codex 里已经在用的两个 API 设置打开——保留推理（retained reasoning）与上下文压缩（compaction）——公开任务集上的成绩变成三倍，输出 token 少了 6 倍。"
+ },
+ {
+  "id": "OPI-HAR-A2-03",
+  "type": "观点单元",
+  "title": "关键数字：官方 harness 下 GPT-5.6 Sol 得 13.3%，开启两项设置后得 3…",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "只改两个 API 设置，OpenAI 把 ARC"
+  ],
+  "gloss": "关键数字：官方 harness 下 GPT-5.6 Sol 得 13.3%，开启两项设置后得 38.3%；模型权重没有任何变化，变的只是模型之外的外壳。"
+ },
+ {
+  "id": "OPI-HAR-A2-04",
+  "type": "观点单元",
+  "title": "做模型比较要挑用了这些设置的 eval，因为它们更接近真实使用。",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "只改两个 API 设置，OpenAI 把 ARC"
+  ],
+  "gloss": "做模型比较要挑用了这些设置的 eval，因为它们更接近真实使用。"
+ },
+ {
+  "id": "QST-CAT-context-delivery",
+  "type": "问题单元",
+  "title": "什么信息应在什么时候、以什么形式进入？",
+  "themes": [
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "信息如何进入工作台"
+  ],
+  "gloss": "什么信息应在什么时候、以什么形式进入？"
+ },
+ {
+  "id": "QST-CAT-continuous-action",
+  "type": "问题单元",
+  "title": "为什么 AI 能连续做事，而不只回答一次？",
+  "themes": [
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "AI 如何持续行动"
+  ],
+  "gloss": "为什么 AI 能连续做事，而不只回答一次？"
+ },
+ {
+  "id": "QST-CAT-current-view",
+  "type": "问题单元",
+  "title": "模型此刻到底看见了什么，又能处理多少？",
+  "themes": [
+   "眼前真正有什么"
+  ],
+  "keywords": [
+   "眼前真正有什么"
+  ],
+  "gloss": "模型此刻到底看见了什么，又能处理多少？"
+ },
+ {
+  "id": "QST-CAT-external-access",
+  "type": "问题单元",
+  "title": "AI 靠什么读取、计算或改变外部世界？",
+  "themes": [
+   "AI 如何接触外部世界"
+  ],
+  "keywords": [
+   "AI 如何接触外部世界"
+  ],
+  "gloss": "AI 靠什么读取、计算或改变外部世界？"
+ },
+ {
+  "id": "QST-CAT-human-control",
+  "type": "问题单元",
+  "title": "人怎样说明目标、复用方法并限制行动？",
+  "themes": [
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "人如何控制 AI"
+  ],
+  "gloss": "人怎样说明目标、复用方法并限制行动？"
+ },
+ {
+  "id": "QST-CAT-information-storage",
+  "type": "问题单元",
+  "title": "哪些信息会被保留，任务进度又记在哪里？",
+  "themes": [
+   "信息平时放在哪里"
+  ],
+  "keywords": [
+   "信息平时放在哪里"
+  ],
+  "gloss": "哪些信息会被保留，任务进度又记在哪里？"
+ },
+ {
+  "id": "QST-CAT-result-trust",
+  "type": "问题单元",
+  "title": "Agent 说做完之后，凭什么相信它真的完成？",
+  "themes": [
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "做完后凭什么相信"
+  ],
+  "gloss": "Agent 说做完之后，凭什么相信它真的完成？"
+ },
+ {
+  "id": "QST-CTX-01",
+  "type": "问题单元",
+  "title": "论文《上下文工程 2.0》：给这门手艺补上它自己的上下文",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "论文《上下文工程 2.0》：给这门手艺补上它自己"
+  ],
+  "gloss": "context engineering 专题，第一手信息源，经典论文"
+ },
+ {
+  "id": "QST-CTX-02",
+  "type": "问题单元",
+  "title": "经典论文《迷失在中间》：位置决定了模型能不能真的用上信息",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "经典论文《迷失在中间》：位置决定了模型能不能真的"
+  ],
+  "gloss": "context engineering 专题，第一手信息源，经典论文"
+ },
+ {
+  "id": "QST-CTX-03",
+  "type": "问题单元",
+  "title": "Chroma 实测上下文腐烂：输入越长，模型并非均匀地可靠",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "Chroma 实测上下文腐烂：输入越长，模型并非"
+  ],
+  "gloss": "context engineering 专题"
+ },
+ {
+  "id": "QST-CTX-04",
+  "type": "问题单元",
+  "title": "Manus 的上下文工程实战：几轮重写换来的一组局部最优",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "Manus 的上下文工程实战：几轮重写换来的一组"
+  ],
+  "gloss": "context engineering 专题"
+ },
+ {
+  "id": "QST-CTX-05",
+  "type": "问题单元",
+  "title": "Anthropic：有效的上下文工程，是为 agent 找到最小充分信息集",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "Anthropic：有效的上下文工程，是为 ag"
+  ],
+  "gloss": "context engineering 专题"
+ },
+ {
+  "id": "QST-CTX-06",
+  "type": "问题单元",
+  "title": "12-Factor Agents：让 LLM 软件真能交付给生产用户的十二条原则",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "12-Factor Agents：让 LLM 软"
+  ],
+  "gloss": "agents 的 12 条原则"
+ },
+ {
+  "id": "QST-CTX-07",
+  "type": "问题单元",
+  "title": "从 Prompt 转向 Loop Engineering 的工作流拐点",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "从 Prompt 转向 Loop Enginee"
+  ],
+  "gloss": "loop engineering。是个新词，但不是 karpathy 创造的那种新词级别。生命力存疑，先观察了解。"
+ },
+ {
+  "id": "QST-CTX-08",
+  "type": "问题单元",
+  "title": "从 /grill-me 到 /grill-with-docs：用对话先对齐领域语言",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "从 /grill-me 到 /grill-wit"
+  ],
+  "gloss": "agent skill 欣赏"
+ },
+ {
+  "id": "QST-CTX-09",
+  "type": "问题单元",
+  "title": "用十分钟语音漫谈，让 LLM 帮你整理真正想说的话",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "用十分钟语音漫谈，让 LLM 帮你整理真正想说的"
+  ],
+  "gloss": "来自 karpathy。"
+ },
+ {
+  "id": "QST-CTX-10",
+  "type": "问题单元",
+  "title": "SaaS 没死，Linear 正把上下文变成 Agent 的骨架",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "SaaS 没死，Linear 正把上下文变成 A"
+  ],
+  "gloss": "podcast 收录。linear CEO 访谈。"
+ },
+ {
+  "id": "QST-CTX-11",
+  "type": "问题单元",
+  "title": "产品开发的下一阶段由上下文与行动能力驱动",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "产品开发的下一阶段由上下文与行动能力驱动"
+  ],
+  "gloss": "linear 与产品开发。"
+ },
+ {
+  "id": "QST-CTX-12",
+  "type": "问题单元",
+  "title": "用 Skills 在 Claude Code 里搭建验证闭环",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "用 Skills 在 Claude Code 里"
+  ],
+  "gloss": "claude code 用法，来自 anthropic 官方"
+ },
+ {
+  "id": "QST-CTX-13",
+  "type": "问题单元",
+  "title": "Agent Harness 的本质：把模型放进可控的执行系统",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "Agent Harness 的本质：把模型放进可"
+  ],
+  "gloss": "agent harness。aka “agent 元技能”。"
+ },
+ {
+  "id": "QST-CTX-14",
+  "type": "问题单元",
+  "title": "Coding Agent 如何工作：工具循环与上下文工程",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "Coding Agent 如何工作：工具循环与上"
+  ],
+  "gloss": "旧文重读，coding agent是如何运作的？"
+ },
+ {
+  "id": "QST-CTX-15",
+  "type": "问题单元",
+  "title": "构建 Claude Code 的经验教训：如何让 Agent「看见」世界",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "构建 Claude Code 的经验教训：如何让"
+  ],
+  "gloss": "Claude Code 系列文章，了解 agent 工程实践。"
+ },
+ {
+  "id": "QST-CTX-16",
+  "type": "问题单元",
+  "title": "用持久化代码图谱给 AI Review 精准上下文",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "用持久化代码图谱给 AI Review 精准上下"
+  ],
+  "gloss": "建立代码库地图。看起来对于理解代码库非常有用。"
+ },
+ {
+  "id": "QST-CTX-17",
+  "type": "问题单元",
+  "title": "提示词缓存不是小优化，而是 agent 成本结构的关键变量",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "提示词缓存不是小优化，而是 agent 成本结构",
+   "提示词缓存",
+   "提示"
+  ],
+  "gloss": "我发现，在 Chatbot 的范式下，输入 Token 与输出 Token 的比例是 1:20。但到了 Agent 的范式，输入 Token 与输出 Token 的比例反过来了，而且扩大了很多倍，变成了 200:1。这背后的核心技术就是 Prompt Cache（提示词缓存）。"
+ },
+ {
+  "id": "QST-CTX-18",
+  "type": "问题单元",
+  "title": "Claude Code 的 1M Context 让会话管理变成核心技能",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "Claude Code 的 1M Context"
+  ],
+  "gloss": "只为一个概念：session management"
+ },
+ {
+  "id": "QST-CTX-19",
+  "type": "问题单元",
+  "title": "Claude Code 在读提示词前为何已发送 3.3 万 Token",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "Claude Code 在读提示词前为何已发送"
+  ],
+  "gloss": "不同 agent 的运作差异"
+ },
+ {
+  "id": "QST-CTX-20",
+  "type": "问题单元",
+  "title": "Opus 5 系统提示词全文流出：一份近两万字的 agent 行为说明书",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "Opus 5 系统提示词全文流出：一份近两万字的",
+   "系统提示",
+   "提示"
+  ],
+  "gloss": "opus 5 系统提示词"
+ },
+ {
+  "id": "QST-CTX-21",
+  "type": "问题单元",
+  "title": "Claude 5 世代的上下文工程，规则变了",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "Claude 5 世代的上下文工程，规则变了",
+   "上下文工程",
+   "上下文"
+  ],
+  "gloss": "claude 5 系列模型的上下文工程新规则"
+ },
+ {
+  "id": "QST-CTX-22",
+  "type": "问题单元",
+  "title": "Claude 5 时代的上下文工程新规则：系统提示词砍掉 80%",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "Claude 5 时代的上下文工程新规则：系统提"
+  ],
+  "gloss": "claude opus 5 与 context engineering 新规则。来自 anthropic 团队。"
+ },
+ {
+  "id": "QST-CTX-23",
+  "type": "问题单元",
+  "title": "构建可靠 AI 工作流：智能体原语与上下文工程",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "构建可靠 AI 工作流：智能体原语与上下文工程"
+  ],
+  "gloss": "理由：旧文重读。如何搭建稳健可靠的 ai 工作流？"
+ },
+ {
+  "id": "QST-CTX-24",
+  "type": "问题单元",
+  "title": "AI 的新技能不是提示词，而是上下文工程",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "AI 的新技能不是提示词，而是上下文工程",
+   "上下文工程",
+   "上下文"
+  ],
+  "gloss": "旧文重读。上下文工程（context engineering）"
+ },
+ {
+  "id": "QST-CTX-25",
+  "type": "问题单元",
+  "title": "上下文工程：AI 时代的核心能力",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "上下文工程：AI 时代的核心能力",
+   "上下文工程",
+   "上下文"
+  ],
+  "gloss": "上下文工程是 AI 时代的核心能力。  **作者**: Nyk | **来源**: X (Twitter) 长推文 | **日期**: 2026年3月11日"
+ },
+ {
+  "id": "QST-CTX-26",
+  "type": "问题单元",
+  "title": "什么是 Context？",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "什么是 Context？"
+  ],
+  "gloss": ""
+ },
+ {
+  "id": "QST-CTX-A1",
+  "type": "问题单元",
+  "title": "工具更多反而让 Copilot 代码审查变差，GitHub 如何修正",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "工具更多反而让 Copilot 代码审查变差，G"
+  ],
+  "gloss": "代码审查"
+ },
+ {
+  "id": "QST-CTX-A2",
+  "type": "问题单元",
+  "title": "只改两个 API 设置，OpenAI 把 ARC-AGI-3 成绩提到三倍",
+  "themes": [
+   "Context Engineering"
+  ],
+  "keywords": [
+   "只改两个 API 设置，OpenAI 把 ARC"
+  ],
+  "gloss": "harness ＞model 的实例"
+ },
+ {
+  "id": "QST-HAR-01",
+  "type": "问题单元",
+  "title": "Martin Fowler 为「harness 工程」站台：Thoughtworks 的一线笔记",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Martin Fowler 为「harness"
+  ],
+  "gloss": "harness engineering 专题"
+ },
+ {
+  "id": "QST-HAR-02",
+  "type": "问题单元",
+  "title": "LangChain 解剖 agent harness：Agent = 模型 + harness",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "LangChain 解剖 agent harne"
+  ],
+  "gloss": "agent = model + harness"
+ },
+ {
+  "id": "QST-HAR-03",
+  "type": "问题单元",
+  "title": "你的 agent 需要的是 harness，不是又一个框架",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "你的 agent 需要的是 harness，不是"
+  ],
+  "gloss": "harness engineering 专题"
+ },
+ {
+  "id": "QST-HAR-04",
+  "type": "问题单元",
+  "title": "HumanLayer：harness 工程就是把 coding agent 的配置点用到极致",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "HumanLayer：harness 工程就是把"
+  ],
+  "gloss": "harness engineering 专题"
+ },
+ {
+  "id": "QST-HAR-05",
+  "type": "问题单元",
+  "title": "Lilian Weng：把 harness 工程接到「递归自我改进」这条老线索上",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Lilian Weng：把 harness 工程"
+  ],
+  "gloss": "harness engineering 专题"
+ },
+ {
+  "id": "QST-HAR-06",
+  "type": "问题单元",
+  "title": "Cursor 谈「会自动驾驶的代码库」：多 agent 研究 harness 开放预览",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Cursor 谈「会自动驾驶的代码库」：多 ag"
+  ],
+  "gloss": "harness engineering 专题"
+ },
+ {
+  "id": "QST-HAR-07",
+  "type": "问题单元",
+  "title": "Cursor：让 coding agent 连续自治运行数周的工程经验",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Cursor：让 coding agent 连续"
+  ],
+  "gloss": "harness engineering 专题"
+ },
+ {
+  "id": "QST-HAR-08",
+  "type": "问题单元",
+  "title": "OpenAI Agents SDK 官方文档：抽象极少的轻量 agent 框架",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "OpenAI Agents SDK 官方文档：抽"
+  ],
+  "gloss": "openai agents SDK"
+ },
+ {
+  "id": "QST-HAR-09",
+  "type": "问题单元",
+  "title": "Anthropic 工程实践：如何为长时间运行的 Agent 应用设计 Harness",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Anthropic 工程实践：如何为长时间运行的"
+  ],
+  "gloss": "Anthropic 官方技术 blog，值得精读"
+ },
+ {
+  "id": "QST-HAR-10",
+  "type": "问题单元",
+  "title": "2026 AI 工程五大趋势：从模型能力转向可靠系统",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "2026 AI 工程五大趋势：从模型能力转向可靠"
+  ],
+  "gloss": "2026 AI 工程的趋势"
+ },
+ {
+  "id": "QST-HAR-11",
+  "type": "问题单元",
+  "title": "OpenAI Agents SDK 下一代演进：原生沙箱 + 模型原生 harness",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "OpenAI Agents SDK 下一代演进：",
+   "工具"
+  ],
+  "gloss": "openai agents SDK。对于自己设计 agent 的人，多理解原理总是好的。  OpenAI 更新 Agents SDK，为开发者提供 **model-native harness** 与 **native sandbox execution**，让 agent 能跨"
+ },
+ {
+  "id": "QST-HAR-12",
+  "type": "问题单元",
+  "title": "Anthropic 干脆把 harness 托管了：Claude Managed Agents 的设计取舍",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Anthropic 干脆把 harness 托管"
+  ],
+  "gloss": "claude managed agents。"
+ },
+ {
+  "id": "QST-HAR-13",
+  "type": "问题单元",
+  "title": "GitHub：决定 AI 编码效果的是 harness，不是你换了哪个工具",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "GitHub：决定 AI 编码效果的是 harn"
+  ],
+  "gloss": "底层模型是 1，harness 是 0。没有 1 或者没有 0，都不行。"
+ },
+ {
+  "id": "QST-HAR-14",
+  "type": "问题单元",
+  "title": "Harness Engineering：AI-First 组织的信任机制重构",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Harness Engineering：AI-F"
+  ],
+  "gloss": "podcast 收录，harness engineering。"
+ },
+ {
+  "id": "QST-HAR-15",
+  "type": "问题单元",
+  "title": "一次关于 Loop 的工程争论",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "一次关于 Loop 的工程争论"
+  ],
+  "gloss": "loop engineering"
+ },
+ {
+  "id": "QST-HAR-16",
+  "type": "问题单元",
+  "title": "Loop Engineer：把 Agent 工作流变成可复用知识模板",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Loop Engineer：把 Agent 工作"
+  ],
+  "gloss": "只为一个概念：loop engineering。因为，agent 的一句话定义就是：llm runs tools in a loop to achieve a goal。"
+ },
+ {
+  "id": "QST-HAR-17",
+  "type": "问题单元",
+  "title": "从 Prompt 转向 Loop Engineering 的工作流拐点",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "从 Prompt 转向 Loop Enginee"
+  ],
+  "gloss": "loop engineering。是个新词，但不是 karpathy 创造的那种新词级别。生命力存疑，先观察了解。"
+ },
+ {
+  "id": "QST-HAR-18",
+  "type": "问题单元",
+  "title": "Harness 工程学习仓库：从原始文献到能跑的 skill",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Harness 工程学习仓库：从原始文献到能跑的"
+  ],
+  "gloss": "github repo 赏析。harness engineering 学习资料。"
+ },
+ {
+  "id": "QST-HAR-19",
+  "type": "问题单元",
+  "title": "Harness engineering：把 agent 能力落到工具、约束和循环里",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Harness engineering：把 ag"
+  ],
+  "gloss": "git repo，harness engineering 内容集合"
+ },
+ {
+  "id": "QST-HAR-20",
+  "type": "问题单元",
+  "title": "撕开 Claude Code 真相：让它好用的 98.4%，是工程不是 AI",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "撕开 Claude Code 真相：让它好用的"
+  ],
+  "gloss": "agent harness。"
+ },
+ {
+  "id": "QST-HAR-21",
+  "type": "问题单元",
+  "title": "拆开 Claude Code：一个编码 agent 的 harness 内部长什么样",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "拆开 Claude Code：一个编码 agen"
+  ],
+  "gloss": "旧文重读。"
+ },
+ {
+  "id": "QST-HAR-22",
+  "type": "问题单元",
+  "title": "为什么 harness 工程这么难",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "为什么 harness 工程这么难"
+  ],
+  "gloss": "拆解 agent harness 的工程难点"
+ },
+ {
+  "id": "QST-HAR-23",
+  "type": "问题单元",
+  "title": "为什么「软件工厂」会失败：光有 harness 工程还不够",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "为什么「软件工厂」会失败：光有 harness"
+  ],
+  "gloss": "软件工程"
+ },
+ {
+  "id": "QST-HAR-24",
+  "type": "问题单元",
+  "title": "Thin Harness, Fat Skills：harness 才是真正的产品",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Thin Harness, Fat Skills",
+   "上下文",
+   "工具"
+  ],
+  "gloss": "harness vs skills  AI 生产力的 10x-100x 差距不来自更聪明的模型，而来自架构设计——核心原则是 **Thin Harness, Fat Skills**：  - harness（跑模型的外壳）只做四件事（循环调用模型、读写文件、管理上下文、执行安全）"
+ },
+ {
+  "id": "QST-HAR-25",
+  "type": "问题单元",
+  "title": "Agent Harness 的本质：把模型放进可控的执行系统",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Agent Harness 的本质：把模型放进可"
+  ],
+  "gloss": "agent harness。aka “agent 元技能”。"
+ },
+ {
+  "id": "QST-HAR-26",
+  "type": "问题单元",
+  "title": "Harness Engineering vs Agentic Engineering：两种工程范式的概念辨析",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Harness Engineering vs A"
+  ],
+  "gloss": "来自 Claude Opus 对话，只为一个概念：Harness Engineering。"
+ },
+ {
+  "id": "QST-HAR-27",
+  "type": "问题单元",
+  "title": "The Anatomy of an Agent Harness",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "The Anatomy of an Agent"
+  ],
+  "gloss": "agent harness"
+ },
+ {
+  "id": "QST-HAR-28",
+  "type": "问题单元",
+  "title": "一个被 harness 套住的 LLM agent：这个词到底指什么",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "一个被 harness 套住的 LLM agen"
+  ],
+  "gloss": "旧文重读。harness、llm、agent"
+ },
+ {
+  "id": "QST-HAR-A1",
+  "type": "问题单元",
+  "title": "Harness Engineering 三个 Scaling 维度的统一框架",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "Harness Engineering 三个 S"
+  ],
+  "gloss": "一个概念：harness engineering。aka：agent 元技能。"
+ },
+ {
+  "id": "QST-HAR-A2",
+  "type": "问题单元",
+  "title": "只改两个 API 设置，OpenAI 把 ARC-AGI-3 成绩提到三倍",
+  "themes": [
+   "Harness Engineering"
+  ],
+  "keywords": [
+   "只改两个 API 设置，OpenAI 把 ARC"
+  ],
+  "gloss": "harness ＞model 的实例"
+ },
+ {
+  "id": "QST-agent-action-space",
+  "type": "问题单元",
+  "title": "能不能讲清「Agent 行动空间」",
+  "themes": [
+   "AI 如何接触外部世界",
+   "AI 如何接触外部世界"
+  ],
+  "keywords": [
+   "Agent 行动空间",
+   "Agent Action Space",
+   "AI 如何接触外部世界"
+  ],
+  "gloss": "如果两个系统都暴露五个工具，但一个允许任意路径、另一个只允许项目目录，它们的行动空间为什么不同？"
+ },
+ {
+  "id": "QST-agent-cli-runtime",
+  "type": "问题单元",
+  "title": "能不能讲清「Agent CLI 运行时」",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "Agent CLI 运行时",
+   "Agent CLI Runtime",
+   "AI 如何持续行动"
+  ],
+  "gloss": "一个流程在 IDE 中依赖隐式打开文件，迁到 CLI 时需要显式补上哪些运行上下文？"
+ },
+ {
+  "id": "QST-agent-elicitation",
+  "type": "问题单元",
+  "title": "能不能讲清「Agent 信息引出」",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "Agent 信息引出",
+   "Agent Elicitation",
+   "人如何控制 AI"
+  ],
+  "gloss": "当用户不愿回答偏好问题时，Agent 应采用可逆默认值继续，还是停止等待；你会用哪些风险条件判断？"
+ },
+ {
+  "id": "QST-agent-handoff",
+  "type": "问题单元",
+  "title": "能不能讲清「Agent 交接」",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "Agent 交接",
+   "Agent Handoff",
+   "AI 如何持续行动"
+  ],
+  "gloss": "如果 Agent A 只说“剩下的你继续”，Agent B 也没有确认责任范围，任务真的完成交接了吗？"
+ },
+ {
+  "id": "QST-agent-harness",
+  "type": "问题单元",
+  "title": "能不能讲清「Agent Harness」",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "Agent Harness",
+   "Agent Harness",
+   "AI 如何持续行动"
+  ],
+  "gloss": "如果模型完全没变，只因换了工具执行、状态和验证机制就能完成长任务，能力提升主要发生在哪一层？"
+ },
+ {
+  "id": "QST-agent-lifecycle",
+  "type": "问题单元",
+  "title": "能不能讲清「Agent 生命周期」",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "Agent 生命周期",
+   "Agent Lifecycle",
+   "AI 如何持续行动"
+  ],
+  "gloss": "一个 Agent 会持续调用工具，却每次重启都从头做起，它缺的是循环能力，还是可暂停、恢复和交接的 Lifecycle？"
+ },
+ {
+  "id": "QST-agent-loop",
+  "type": "问题单元",
+  "title": "能不能讲清「Agent 循环」",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "Agent 循环",
+   "Agent Loop",
+   "AI 如何持续行动"
+  ],
+  "gloss": "一个系统反复调用工具，却从不把结果送回模型，这还构成完整的 Agent Loop 吗？"
+ },
+ {
+  "id": "QST-agent-session-management",
+  "type": "问题单元",
+  "title": "能不能讲清「Agent 会话管理」",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "Agent 会话管理",
+   "Agent Session Management",
+   "信息如何进入工作台"
+  ],
+  "gloss": "当一个会话掌握关键背景却积累了错误假设时，怎样决定回退、压缩还是重开，而不是只看剩余窗口大小？"
+ },
+ {
+  "id": "QST-agent-stop-conditions",
+  "type": "问题单元",
+  "title": "能不能讲清「Agent 终止条件」",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "Agent 终止条件",
+   "Agent Stop Conditions",
+   "人如何控制 AI"
+  ],
+  "gloss": "一个任务仍在产生新输出却没有减少关键不确定性时，终止条件应看活动量还是进展量，怎样量化？"
+ },
+ {
+  "id": "QST-agent-tool-contract",
+  "type": "问题单元",
+  "title": "能不能讲清「Agent 工具契约」",
+  "themes": [
+   "AI 如何接触外部世界",
+   "AI 如何接触外部世界"
+  ],
+  "keywords": [
+   "Agent 工具契约",
+   "Agent Tool Contract",
+   "AI 如何接触外部世界"
+  ],
+  "gloss": "如果把同一个 Agent 从工单系统迁到财务系统，哪些接口约定必须重写，哪些执行责任仍应留在确定性代码中？"
+ },
+ {
+  "id": "QST-agent",
+  "type": "问题单元",
+  "title": "能不能讲清「AI Agent」",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "AI Agent",
+   "AI Agent",
+   "AI 如何持续行动"
+  ],
+  "gloss": "一个聊天机器人只回答一次，而另一个系统会查资料、执行操作并根据结果继续，二者最关键的系统差别是什么？"
+ },
+ {
+  "id": "QST-attention-budget",
+  "type": "问题单元",
+  "title": "能不能讲清「注意力预算」",
+  "themes": [
+   "眼前真正有什么",
+   "眼前真正有什么"
+  ],
+  "keywords": [
+   "注意力预算",
+   "Attention Budget",
+   "眼前真正有什么"
+  ],
+  "gloss": "一个窗口还能继续装 token，是否就表示加入更多日志不会挤压模型对关键证据的利用？"
+ },
+ {
+  "id": "QST-bounded-context",
+  "type": "问题单元",
+  "title": "能不能讲清「限界上下文」",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "限界上下文",
+   "Bounded Context",
+   "信息如何进入工作台"
+  ],
+  "gloss": "当两个团队都使用“账户”一词时，你会依据哪些业务规则判断它们应共享一个模型，还是需要两个限界上下文？"
+ },
+ {
+  "id": "QST-browsing-loop",
+  "type": "问题单元",
+  "title": "能不能讲清「浏览循环」",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "浏览循环",
+   "Browsing Loop",
+   "AI 如何持续行动"
+  ],
+  "gloss": "面对一个本来就需要摸清全貌的开放题，怎样区分必要的广泛探索与已经失去问题锚点的浏览循环？"
+ },
+ {
+  "id": "QST-change-impact-analysis",
+  "type": "问题单元",
+  "title": "能不能讲清「变更影响分析」",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "变更影响分析",
+   "Change Impact Analysis",
+   "做完后凭什么相信"
+  ],
+  "gloss": "面对大量反射和配置驱动的系统，静态影响图之外还要收集什么运行证据，才能决定回归范围？"
+ },
+ {
+  "id": "QST-chat-template",
+  "type": "问题单元",
+  "title": "能不能讲清「聊天模板」",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "聊天模板",
+   "Chat Template",
+   "信息如何进入工作台"
+  ],
+  "gloss": "迁移模型时保留同一聊天历史，为什么仍可能需要重写模板；你会怎样验证角色没有串位？"
+ },
+ {
+  "id": "QST-code-execution",
+  "type": "问题单元",
+  "title": "能不能讲清「代码执行」",
+  "themes": [
+   "AI 如何接触外部世界",
+   "AI 如何接触外部世界"
+  ],
+  "keywords": [
+   "代码执行",
+   "Code Execution",
+   "AI 如何接触外部世界"
+  ],
+  "gloss": "当专用工具可以完成同一任务时，什么条件下仍值得开放通用代码执行，额外风险如何补偿？"
+ },
+ {
+  "id": "QST-context-compaction",
+  "type": "问题单元",
+  "title": "能不能讲清「上下文压缩」",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "上下文压缩",
+   "Context Compaction",
+   "信息如何进入工作台"
+  ],
+  "gloss": "如果一份压缩摘要很短，却漏掉了尚未解决的安全约束，它仍算高质量压缩吗？为什么？"
+ },
+ {
+  "id": "QST-context-engineering",
+  "type": "问题单元",
+  "title": "能不能讲清「上下文工程」",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "上下文工程",
+   "Context Engineering",
+   "信息如何进入工作台"
+  ],
+  "gloss": "同一条 Prompt 没变，只把过期长日志换成当前任务的日历摘要和工具说明，为什么结果可能显著改善？"
+ },
+ {
+  "id": "QST-context-rot",
+  "type": "问题单元",
+  "title": "能不能讲清「上下文腐烂」",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "上下文腐烂",
+   "Context Rot",
+   "信息如何进入工作台"
+  ],
+  "gloss": "如果模型在 100K 输入里偶尔漏答，但把相同证据放到 10K 输入就稳定，下一步应先查模型容量，还是查输入增长带来的利用退化？"
+ },
+ {
+  "id": "QST-context-selection",
+  "type": "问题单元",
+  "title": "能不能讲清「上下文选择」",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "上下文选择",
+   "Context Selection",
+   "信息如何进入工作台"
+  ],
+  "gloss": "检索系统返回了十条语义相似结果，为什么它们还不能自动等同于应该送入模型的 Context？"
+ },
+ {
+  "id": "QST-context-window",
+  "type": "问题单元",
+  "title": "能不能讲清「上下文窗口」",
+  "themes": [
+   "眼前真正有什么",
+   "眼前真正有什么"
+  ],
+  "keywords": [
+   "上下文窗口",
+   "Context Window",
+   "眼前真正有什么"
+  ],
+  "gloss": "换成更大窗口后任务准确率没有提升，你下一步应验证容量之外的哪些变量？"
+ },
+ {
+  "id": "QST-context",
+  "type": "问题单元",
+  "title": "能不能讲清「上下文」",
+  "themes": [
+   "眼前真正有什么",
+   "眼前真正有什么"
+  ],
+  "keywords": [
+   "上下文",
+   "Context",
+   "眼前真正有什么"
+  ],
+  "gloss": "一份正确资料已经存在知识库里，却没有被检索进本轮输入；它算当前 Context 吗？"
+ },
+ {
+  "id": "QST-durable-execution",
+  "type": "问题单元",
+  "title": "能不能讲清「持久化执行」",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "持久化执行",
+   "Durable Execution",
+   "AI 如何持续行动"
+  ],
+  "gloss": "一个工作流能从 checkpoint 启动，却在恢复后重复发送邮件，为什么它仍不能称为可靠的 Durable Execution？"
+ },
+ {
+  "id": "QST-dynamic-context-assembly",
+  "type": "问题单元",
+  "title": "能不能讲清「动态上下文装配」",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "动态上下文装配",
+   "Dynamic Context Assembly",
+   "信息如何进入工作台"
+  ],
+  "gloss": "同一位助理上午排会议、下午审合同，为什么不该让两项任务始终共享一份固定的大 Prompt？"
+ },
+ {
+  "id": "QST-error-handling",
+  "type": "问题单元",
+  "title": "能不能讲清「错误处理」",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "错误处理",
+   "Error Handling",
+   "AI 如何持续行动"
+  ],
+  "gloss": "同一个“工具失败”提示，什么时候应该重试，什么时候应该暂停等人，什么时候必须终止？"
+ },
+ {
+  "id": "QST-event-driven-agent-automation",
+  "type": "问题单元",
+  "title": "能不能讲清「事件驱动的 Agent 自动化」",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "事件驱动的 Agent 自动化",
+   "Event-Driven Agent Automation",
+   "AI 如何持续行动"
+  ],
+  "gloss": "当事件频繁更新同一对象时，系统应每次立即启动、合并窗口还是取消重跑；依据是什么？"
+ },
+ {
+  "id": "QST-filesystem-workspace",
+  "type": "问题单元",
+  "title": "能不能讲清「文件系统工作区」",
+  "themes": [
+   "信息平时放在哪里",
+   "信息平时放在哪里"
+  ],
+  "keywords": [
+   "文件系统工作区",
+   "Filesystem Workspace",
+   "信息平时放在哪里"
+  ],
+  "gloss": "当多个 Agent 共用一个工作区时，怎样区分可共享事实、会话私有状态和需要隔离的执行产物？"
+ },
+ {
+  "id": "QST-guardrails",
+  "type": "问题单元",
+  "title": "能不能讲清「护栏」",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "护栏",
+   "Guardrails",
+   "人如何控制 AI"
+  ],
+  "gloss": "如果危险工具在没有授权时仍能执行，只增加输出敏感词检查能解决根因吗？"
+ },
+ {
+  "id": "QST-harness-compute-separation",
+  "type": "问题单元",
+  "title": "能不能讲清「Harness 与计算分离」",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "Harness 与计算分离",
+   "Harness-Compute Separation",
+   "人如何控制 AI"
+  ],
+  "gloss": "哪些中间状态必须留在 Harness 才能安全恢复，哪些放进沙箱反而更便于隔离和复现？"
+ },
+ {
+  "id": "QST-harness-engineering",
+  "type": "问题单元",
+  "title": "能不能讲清「Harness 工程」",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "Harness 工程",
+   "Harness Engineering",
+   "AI 如何持续行动"
+  ],
+  "gloss": "当同一个模型总在工具失败后卡住时，先换模型还是先改错误回灌与停止条件，哪个更符合 Harness Engineering？"
+ },
+ {
+  "id": "QST-harness-overfitting",
+  "type": "问题单元",
+  "title": "能不能讲清「Harness 过拟合」",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "Harness 过拟合",
+   "Harness Overfitting",
+   "做完后凭什么相信"
+  ],
+  "gloss": "如果换 Harness 后下降来自更慢的工具而非协议陌生，怎样调整实验才能支持或推翻过拟合判断？"
+ },
+ {
+  "id": "QST-harness-token-floor",
+  "type": "问题单元",
+  "title": "能不能讲清「Harness Token 底座」",
+  "themes": [
+   "眼前真正有什么",
+   "眼前真正有什么"
+  ],
+  "keywords": [
+   "Harness Token 底座",
+   "Harness Token Floor",
+   "眼前真正有什么"
+  ],
+  "gloss": "如果缓存降低了固定前缀费用，却没有增加可用窗口，产品应该怎样解释这两种收益的差别？"
+ },
+ {
+  "id": "QST-human-escalation-tool-call",
+  "type": "问题单元",
+  "title": "能不能讲清「人类升级工具调用」",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "人类升级工具调用",
+   "Human Escalation Tool Call",
+   "人如何控制 AI"
+  ],
+  "gloss": "如果人工答复可能几小时后才到，工作流还要保存哪些状态，才能让升级成为可恢复工具调用而不是临时接管？"
+ },
+ {
+  "id": "QST-instruction-locality",
+  "type": "问题单元",
+  "title": "能不能讲清「指令就近原则」",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "指令就近原则",
+   "Instruction Locality",
+   "人如何控制 AI"
+  ],
+  "gloss": "一条同时约束多个工具的安全规则应该放在哪里，才能兼顾就近维护与全局一致？"
+ },
+ {
+  "id": "QST-just-in-time-retrieval",
+  "type": "问题单元",
+  "title": "能不能讲清「即时检索」",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "即时检索",
+   "Just-in-Time Retrieval",
+   "信息如何进入工作台"
+  ],
+  "gloss": "当资料变化频繁且体量很大时，为什么“先存路径、需要时再局部读取”可能比启动时全部加载更稳？"
+ },
+ {
+  "id": "QST-large-language-model",
+  "type": "问题单元",
+  "title": "能不能讲清「大语言模型」",
+  "themes": [
+   "眼前真正有什么",
+   "眼前真正有什么"
+  ],
+  "keywords": [
+   "大语言模型",
+   "Large Language Model",
+   "眼前真正有什么"
+  ],
+  "gloss": "如果同一个模型换了一套工具和循环后突然能完成长任务，变化主要发生在模型本身，还是模型外的系统？"
+ },
+ {
+  "id": "QST-llm-statelessness",
+  "type": "问题单元",
+  "title": "能不能讲清「LLM 无状态性」",
+  "themes": [
+   "眼前真正有什么",
+   "眼前真正有什么"
+  ],
+  "keywords": [
+   "LLM 无状态性",
+   "LLM Statelessness",
+   "眼前真正有什么"
+  ],
+  "gloss": "如果应用数据库保存了完整对话，但本轮只发送最后一句，为什么仍不能说模型拥有了会话状态？"
+ },
+ {
+  "id": "QST-llm-token",
+  "type": "问题单元",
+  "title": "能不能讲清「模型词元」",
+  "themes": [
+   "眼前真正有什么",
+   "眼前真正有什么"
+  ],
+  "keywords": [
+   "模型词元",
+   "LLM Token",
+   "眼前真正有什么"
+  ],
+  "gloss": "当两个提示的 Token 数相同但任务表现不同，为什么不能据此断言它们占用了相同的有效注意力？"
+ },
+ {
+  "id": "QST-lost-in-the-middle",
+  "type": "问题单元",
+  "title": "能不能讲清「迷失在中间」",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "迷失在中间",
+   "Lost in the Middle",
+   "信息如何进入工作台"
+  ],
+  "gloss": "一个模型能接收 100K token，但同一证据移到中段后经常答错，这说明容量和利用率分别告诉了你什么？"
+ },
+ {
+  "id": "QST-memory",
+  "type": "问题单元",
+  "title": "能不能讲清「记忆」",
+  "themes": [
+   "信息平时放在哪里",
+   "信息平时放在哪里"
+  ],
+  "keywords": [
+   "记忆",
+   "Memory",
+   "信息平时放在哪里"
+  ],
+  "gloss": "一个 Agent 说“我记得上次的配置”，但今天执行仍失败，你应先核对记忆是否被取回、是否过时，还是任务状态是否丢失？"
+ },
+ {
+  "id": "QST-minimal-sufficient-context",
+  "type": "问题单元",
+  "title": "能不能讲清「最小充分上下文」",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "最小充分上下文",
+   "Minimal Sufficient Context",
+   "信息如何进入工作台"
+  ],
+  "gloss": "一份只有三行却漏掉关键约束的输入，和一份十页但每页都支撑当前判断的输入，哪一个更接近“最小充分”？"
+ },
+ {
+  "id": "QST-model-context-protocol",
+  "type": "问题单元",
+  "title": "能不能讲清「模型上下文协议」",
+  "themes": [
+   "AI 如何接触外部世界",
+   "AI 如何接触外部世界"
+  ],
+  "keywords": [
+   "模型上下文协议",
+   "Model Context Protocol",
+   "AI 如何接触外部世界"
+  ],
+  "gloss": "一个 MCP server 探测成功，但 Agent 当前会话里看不到对应能力，这证明协议坏了，还是还需要检查会话投影与权限？"
+ },
+ {
+  "id": "QST-multi-step-reliability-decay",
+  "type": "问题单元",
+  "title": "能不能讲清「多步可靠性衰减」",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "多步可靠性衰减",
+   "Multi-Step Reliability Decay",
+   "做完后凭什么相信"
+  ],
+  "gloss": "当两个步骤会被同一网络故障同时影响时，为什么不能直接相乘；还需要收集什么联合失败数据？"
+ },
+ {
+  "id": "QST-observability",
+  "type": "问题单元",
+  "title": "能不能讲清「可观测性」",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "可观测性",
+   "Observability",
+   "做完后凭什么相信"
+  ],
+  "gloss": "如果面板完整显示每一步都发生了什么，却没有任何成功标准，它能证明任务做对了吗？"
+ },
+ {
+  "id": "QST-observation-masking",
+  "type": "问题单元",
+  "title": "能不能讲清「观察掩码」",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "观察掩码",
+   "Observation Masking",
+   "信息如何进入工作台"
+  ],
+  "gloss": "哪些旧工具结果可以只保留调用痕迹，哪些必须保留关键数值或原文才能避免后续误判？"
+ },
+ {
+  "id": "QST-permission-boundary",
+  "type": "问题单元",
+  "title": "能不能讲清「权限边界」",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "权限边界",
+   "Permission Boundary",
+   "人如何控制 AI"
+  ],
+  "gloss": "如果删除动作被允许进入一个隔离沙箱，它已经通过了哪一层，又仍需要哪一层来限制影响范围？"
+ },
+ {
+  "id": "QST-persistent-code-graph",
+  "type": "问题单元",
+  "title": "能不能讲清「持久化代码图谱」",
+  "themes": [
+   "信息平时放在哪里",
+   "信息平时放在哪里"
+  ],
+  "keywords": [
+   "持久化代码图谱",
+   "Persistent Code Graph",
+   "信息平时放在哪里"
+  ],
+  "gloss": "如果图谱查询很快但落后主分支三天，Agent 应如何判断它还能用于影响分析还是必须重建？"
+ },
+ {
+  "id": "QST-progressive-disclosure",
+  "type": "问题单元",
+  "title": "能不能讲清「渐进式披露」",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "渐进式披露",
+   "Progressive Disclosure",
+   "信息如何进入工作台"
+  ],
+  "gloss": "一个系统运行时才取文件，但每次都把整棵目录和全部正文塞进上下文，它做到了 JIT，却做到了渐进式披露吗？"
+ },
+ {
+  "id": "QST-prompt-caching",
+  "type": "问题单元",
+  "title": "能不能讲清「提示词缓存」",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "提示词缓存",
+   "Prompt Caching",
+   "AI 如何持续行动"
+  ],
+  "gloss": "某段历史语义完全相同但序列化顺序变化时，为什么缓存仍可能失效；应在哪一层稳定它？"
+ },
+ {
+  "id": "QST-prompt-engineering",
+  "type": "问题单元",
+  "title": "能不能讲清「提示词工程」",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "提示词工程",
+   "Prompt Engineering",
+   "人如何控制 AI"
+  ],
+  "gloss": "如果模型已经听懂要求，却因为缺少最新资料而答错，继续改措辞还是改 Context，哪个更对症？"
+ },
+ {
+  "id": "QST-prompt-injection",
+  "type": "问题单元",
+  "title": "能不能讲清「提示注入」",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "提示注入",
+   "Prompt Injection",
+   "做完后凭什么相信"
+  ],
+  "gloss": "如果外部文档中的一句话与用户目标完全一致，系统仍应依据什么决定它是证据还是可执行指令？"
+ },
+ {
+  "id": "QST-prompt",
+  "type": "问题单元",
+  "title": "能不能讲清「提示」",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "提示",
+   "Prompt",
+   "人如何控制 AI"
+  ],
+  "gloss": "当你只改了聊天框里的一句话，却发现模型仍受另一套规则约束时，应该检查 Prompt 的哪种口径？"
+ },
+ {
+  "id": "QST-reasoning-effort",
+  "type": "问题单元",
+  "title": "能不能讲清「推理强度」",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "推理强度",
+   "Reasoning Effort",
+   "人如何控制 AI"
+  ],
+  "gloss": "当高推理强度只让答案更长却不更准时，你会调整任务拆分、评分还是路由规则，为什么？"
+ },
+ {
+  "id": "QST-repository-source-of-truth",
+  "type": "问题单元",
+  "title": "能不能讲清「仓库事实真源」",
+  "themes": [
+   "信息平时放在哪里",
+   "信息平时放在哪里"
+  ],
+  "keywords": [
+   "仓库事实真源",
+   "Repository as Source of Truth",
+   "信息平时放在哪里"
+  ],
+  "gloss": "哪些团队知识必须进入仓库才能支撑 Agent，哪些因隐私或时效性应留在其他受控系统并只登记入口？"
+ },
+ {
+  "id": "QST-restorable-compression",
+  "type": "问题单元",
+  "title": "能不能讲清「可恢复压缩」",
+  "themes": [
+   "信息平时放在哪里",
+   "信息平时放在哪里"
+  ],
+  "keywords": [
+   "可恢复压缩",
+   "Restorable Compression",
+   "信息平时放在哪里"
+  ],
+  "gloss": "如果引用仍存在但访问权限会过期，这份压缩还算可恢复吗；系统应增加什么保障？"
+ },
+ {
+  "id": "QST-retrieval-reasoning-dual-task-load",
+  "type": "问题单元",
+  "title": "能不能讲清「检索—推理双任务负担」",
+  "themes": [
+   "眼前真正有什么",
+   "眼前真正有什么"
+  ],
+  "keywords": [
+   "检索—推理双任务负担",
+   "Retrieval–Reasoning Dual-Task Load",
+   "眼前真正有什么"
+  ],
+  "gloss": "当完整输入组表现更差时，怎样排除歧义、干扰项和拒答策略，而不是把差值全部算成检索负担？"
+ },
+ {
+  "id": "QST-risk-tiered-autofixing",
+  "type": "问题单元",
+  "title": "能不能讲清「风险分级自动修复」",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "风险分级自动修复",
+   "Risk-Tiered Autofixing",
+   "做完后凭什么相信"
+  ],
+  "gloss": "一个改动位于低风险目录却会改变公开数据，目录规则应如何被影响范围与可逆性覆盖？"
+ },
+ {
+  "id": "QST-runnable-evidence",
+  "type": "问题单元",
+  "title": "能不能讲清「可运行证据」",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "可运行证据",
+   "Runnable Evidence",
+   "做完后凭什么相信"
+  ],
+  "gloss": "当验证依赖昂贵外部服务无法随时重跑时，怎样提供仍可独立检查、又不冒充实时结果的证据？"
+ },
+ {
+  "id": "QST-sandbox",
+  "type": "问题单元",
+  "title": "能不能讲清「沙箱」",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "沙箱",
+   "Sandbox",
+   "人如何控制 AI"
+  ],
+  "gloss": "一个动作已经获得用户授权，但可能执行未知代码时，为什么仍需要 Sandbox，而不能把授权当作隔离？"
+ },
+ {
+  "id": "QST-skill-chaining",
+  "type": "问题单元",
+  "title": "能不能讲清「Skill 链式调用」",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "Skill 链式调用",
+   "Skill Chaining",
+   "AI 如何持续行动"
+  ],
+  "gloss": "当链中某个 Skill 也常被单独使用时，怎样设计连接层才能自动推进又不牺牲独立调用？"
+ },
+ {
+  "id": "QST-skill-trigger-condition",
+  "type": "问题单元",
+  "title": "能不能讲清「Skill 触发条件」",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "Skill 触发条件",
+   "Skill Trigger Condition",
+   "信息如何进入工作台"
+  ],
+  "gloss": "一个 Skill 同时服务“读取”和“编辑”两类任务时，触发条件应合并还是拆分；你会依据什么失败样本决定？"
+ },
+ {
+  "id": "QST-skill",
+  "type": "问题单元",
+  "title": "能不能讲清「Agent Skill」",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "Agent Skill",
+   "Agent Skill",
+   "人如何控制 AI"
+  ],
+  "gloss": "如果一份 Skill 把步骤写得很清楚，但当前会话没有文件写入 Tool，它能仅靠这份 Skill 修改文件吗？"
+ },
+ {
+  "id": "QST-state-management",
+  "type": "问题单元",
+  "title": "能不能讲清「状态管理」",
+  "themes": [
+   "信息平时放在哪里",
+   "信息平时放在哪里"
+  ],
+  "keywords": [
+   "状态管理",
+   "State Management",
+   "信息平时放在哪里"
+  ],
+  "gloss": "如果进程重启后知道用户说过什么，却不知道前三步是否已经执行，缺的是 Memory，还是可恢复的执行 State？"
+ },
+ {
+  "id": "QST-subagent-orchestration",
+  "type": "问题单元",
+  "title": "能不能讲清「子 Agent 编排」",
+  "themes": [
+   "AI 如何持续行动",
+   "AI 如何持续行动"
+  ],
+  "keywords": [
+   "子 Agent 编排",
+   "Subagent Orchestration",
+   "AI 如何持续行动"
+  ],
+  "gloss": "当子任务之间共享大量背景且会修改同一文件时，并行编排仍值得吗；你会怎样估算协调成本？"
+ },
+ {
+  "id": "QST-system-prompt-altitude",
+  "type": "问题单元",
+  "title": "能不能讲清「系统提示抽象高度」",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "系统提示抽象高度",
+   "System Prompt Altitude",
+   "人如何控制 AI"
+  ],
+  "gloss": "当任务变化很快但合规边界稳定时，哪些内容应上升为系统原则，哪些应留在就近工具说明中？"
+ },
+ {
+  "id": "QST-system-prompt",
+  "type": "问题单元",
+  "title": "能不能讲清「系统提示」",
+  "themes": [
+   "人如何控制 AI",
+   "人如何控制 AI"
+  ],
+  "keywords": [
+   "系统提示",
+   "System Prompt",
+   "人如何控制 AI"
+  ],
+  "gloss": "如果系统提示写着“禁止删除文件”，但工具仍允许无确认删除，真正需要补强的是哪一层控制？"
+ },
+ {
+  "id": "QST-tacit-knowledge",
+  "type": "问题单元",
+  "title": "能不能讲清「隐性知识」",
+  "themes": [
+   "信息平时放在哪里",
+   "信息平时放在哪里"
+  ],
+  "keywords": [
+   "隐性知识",
+   "Tacit Knowledge",
+   "信息平时放在哪里"
+  ],
+  "gloss": "会议录像完整保存后，哪些步骤仍必须做，才能把其中的经验变成 Agent 可用而非仅可搜索的材料？"
+ },
+ {
+  "id": "QST-tool-schema-tax",
+  "type": "问题单元",
+  "title": "能不能讲清「工具 Schema 税」",
+  "themes": [
+   "AI 如何接触外部世界",
+   "AI 如何接触外部世界"
+  ],
+  "keywords": [
+   "工具 Schema 税",
+   "Tool Schema Tax",
+   "AI 如何接触外部世界"
+  ],
+  "gloss": "一个很少调用但一旦缺失就会阻塞任务的工具，应该常驻 Schema 还是按需加载；依据是什么？"
+ },
+ {
+  "id": "QST-tool-scoping",
+  "type": "问题单元",
+  "title": "能不能讲清「工具收窄」",
+  "themes": [
+   "AI 如何接触外部世界",
+   "AI 如何接触外部世界"
+  ],
+  "keywords": [
+   "工具收窄",
+   "Tool Scoping",
+   "AI 如何接触外部世界"
+  ],
+  "gloss": "如果模型总在十几个相似工具之间选错，第一步应该继续补长工具说明，还是先缩小当前可见工具集？"
+ },
+ {
+  "id": "QST-tool-workflow-fit",
+  "type": "问题单元",
+  "title": "能不能讲清「工具—工作流适配」",
+  "themes": [
+   "AI 如何接触外部世界",
+   "AI 如何接触外部世界"
+  ],
+  "keywords": [
+   "工具—工作流适配",
+   "Tool–Workflow Fit",
+   "AI 如何接触外部世界"
+  ],
+  "gloss": "同一个搜索工具在热点追踪中好用、在法律研究中失效，差异最可能来自能力本身还是工作流适配？你会看什么证据？"
+ },
+ {
+  "id": "QST-tool",
+  "type": "问题单元",
+  "title": "能不能讲清「工具」",
+  "themes": [
+   "AI 如何接触外部世界",
+   "AI 如何接触外部世界"
+  ],
+  "keywords": [
+   "工具",
+   "Tool",
+   "AI 如何接触外部世界"
+  ],
+  "gloss": "当模型能准确描述如何读取文件，却始终拿不到文件内容时，你应该先检查模型知识，还是 Tool 的注册、权限与执行链？"
+ },
+ {
+  "id": "QST-trace-based-evals",
+  "type": "问题单元",
+  "title": "能不能讲清「基于轨迹的评测」",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "基于轨迹的评测",
+   "Trace-based Evals",
+   "做完后凭什么相信"
+  ],
+  "gloss": "两个 Skill 各成功运行一次，但任务不同、环境不同、没有共同 verifier，能据此说哪个更好吗？"
+ },
+ {
+  "id": "QST-ubiquitous-language",
+  "type": "问题单元",
+  "title": "能不能讲清「统一语言」",
+  "themes": [
+   "信息如何进入工作台",
+   "信息如何进入工作台"
+  ],
+  "keywords": [
+   "统一语言",
+   "Ubiquitous Language",
+   "信息如何进入工作台"
+  ],
+  "gloss": "当市场团队和风控团队必须保留不同的“有效客户”定义时，怎样维护统一语言而不强行统一词义？"
+ },
+ {
+  "id": "QST-verifiable-goal",
+  "type": "问题单元",
+  "title": "能不能讲清「可验证目标」",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "可验证目标",
+   "Verifiable Goal",
+   "做完后凭什么相信"
+  ],
+  "gloss": "一个目标容易机器判定却遗漏用户感受时，怎样增加人工质量边界而不让停止条件失去确定性？"
+ },
+ {
+  "id": "QST-verification-loop",
+  "type": "问题单元",
+  "title": "能不能讲清「验证循环」",
+  "themes": [
+   "做完后凭什么相信",
+   "做完后凭什么相信"
+  ],
+  "keywords": [
+   "验证循环",
+   "Verification Loop",
+   "做完后凭什么相信"
+  ],
+  "gloss": "如果 Agent 每轮都打印“检查完成”，却没有固定判据、失败分支或退出条件，这还是验证循环吗？"
+ }
+]

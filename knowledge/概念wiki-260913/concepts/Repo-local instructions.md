@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: context-engineering
 learningStage: now
 verification: use
-centrality: 0.126
+centrality: 0.042
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 放在仓库内的 CLAUDE.md、AGENTS.md 等规则文件，是 agent 可反复读取的持久化协作接口。
 
-**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
+**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -36,15 +36,9 @@ sources: 1
 
 > 在项目里 {{name}} 应该写什么、放在哪里？
 
-## 先懂这些（前置 2）
+## 先懂这些（前置 1）
 
-- [[Agentic primitives]] · **hard** — 仓库规则文件正是可复用、可版本化原语的一类实例
-- [[agent 不是读心者 agents are not mind readers]] · **soft** — agent 不读心，约定才必须写成仓库内可反复读取的文件
-
-## 懂了它才能懂（解锁 2）
-
-- [[gotchas 优先的 CLAUDE.md]] — CLAUDE.md 就是仓库内规则文件的一种，先懂这类持久接口
-- [[Codified Context]] — 把隐性约定写成入库文档，是仓库内协作文件思路的延伸
+- [[仓库即唯一事实来源]] · **hard** — 仓库内规则文件可反复读取的前提，是仓库对 agent 才是唯一事实来源。
 
 ## 相关
 
@@ -58,9 +52,6 @@ sources: 1
 ## 反链
 
 - [[Harness 工程 Harness Engineering]]
+- [[仓库即唯一事实来源]]
 - [[Context as working memory budget]]
-- [[Agentic primitives]]
-- [[gotchas 优先的 CLAUDE.md]]
-- [[agent 不是读心者 agents are not mind readers]]
-- [[Codified Context]]
 - [[Reliability-critical harness primitives]]

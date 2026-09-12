@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: media-culture-education
 learningStage: deep-dive
 verification: accept
-centrality: 0.045
+centrality: 0.042
 depth: 0
 origin: [notion]
 aliases: ["首版对开本"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 1623 年出版的莎士比亚剧作合集，若无它，凯撒、暴风雨、麦克白等半数剧作将失传。
 
-**领域** media-culture-education ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.045
+**领域** media-culture-education ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -38,7 +38,7 @@ sources: 1
 
 ## 懂了它才能懂（解锁 1）
 
-- [[Pananthropos]] — 没有第一对开本，莎士比亚半数剧作失传，普遍之人无从谈起
+- [[Pananthropos]] — 不懂 First Folio 保存了莎剧全集，就无法理解莎士比亚何以成为'全人'的例证。
 
 ## 相关
 

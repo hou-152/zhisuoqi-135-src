@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: economy-business
 learningStage: deep-dive
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 0
 origin: [notion]
 aliases: ["通用目的技术", "GPT"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 能广泛渗透并重塑整个经济的技术，如蒸汽机、电力、互联网，需要配套的组织变革。
 
-**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 掌握证据（做到这些才算会）
 

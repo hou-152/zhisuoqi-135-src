@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: thinking-method
 learningStage: when-needed
 verification: judge
-centrality: 0.045
-depth: 4
+centrality: 0.042
+depth: 5
 origin: [context]
 aliases: ["echo of your own tangle of thoughts"]
 sources: 1
@@ -16,9 +16,9 @@ sources: 1
 
 # 回声 · echo of your own tangle of thoughts
 
-> 模型输出的并非新观点，而是你自己那团缠绕想法的回声。
+> 模型返回的常不是新观点，而是你原有那团缠绕想法的回声，于是对话容易变成自我确认而非真正推进。
 
-**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能识别回答只是复述自己已有观点
-- 能区分回声与真正的新信息
+- 能分辨输出中属回声与属新增信息的部分
+- 能据此调整提问以避免自我确认
 
 ## 验收问句
 
-> 怎么判断这次输出只是 {{name}}？
+> 能否判断这段输出是 {{name}} 还是新观点？
 
 ## 先懂这些（前置 1）
 

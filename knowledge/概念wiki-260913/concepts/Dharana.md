@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: mind-body
 learningStage: when-needed
 verification: use
-centrality: 0.045
+centrality: 0.042
 depth: 2
 origin: [notion]
 aliases: ["专注训练", "凝念", "瑜伽专注", "Concentration Practice", "瑜伽八支之一"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 瑜伽中的专注练习：训练心智一次只专注一件事，并让它按你的指令忽略其他杂念。
 
-**领域** mind-body ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** mind-body ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 

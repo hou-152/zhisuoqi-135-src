@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > messages API 是通往模型的直连网关，接收 messages 返回 content blocks；足够底层，所以 agent 必须自己补上 harness。
 
-**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -38,11 +38,11 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[stateless]] · **hard** — 网关本身不保存状态，每次调用都从空白开始
+- [[stateless]] · **hard** — 直连网关无状态，agent 才必须自己补上 harness。
 
 ## 懂了它才能懂（解锁 1）
 
-- [[prefill 与 decode 的高度倾斜]] — messages 逐轮追加的结构正是输入膨胀、输出短小的成因
+- [[prefill 与 decode 的高度倾斜]] — 知道直连网关的请求响应形态，才能理解输入膨胀而输出短。
 
 ## 相关
 
@@ -50,13 +50,13 @@ sources: 1
 - [[任务时域 task horizon]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
 - [[长周期任务的基础设施压力]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
 - [[Environment]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
-- [[Session]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
 - [[brain hands session 解耦]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
 - [[基础设施挑战而非 harness 设计问题]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
 - [[触发模式谱系]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
-- [[agent 模板的声明式持久化]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
 - [[skill 作为 onboarding 载体]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
 - [[agent 作为 Claude API 的新核心原语]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
+- [[Session]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
+- [[agent 模板的声明式持久化]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
 - [[Claude Managed Agents]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
 - [[Agent]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
@@ -70,14 +70,14 @@ sources: 1
 - [[Session]]
 - [[stateless]]
 - [[agent 模板的声明式持久化]]
+- [[Claude Managed Agents]]
 - [[harness 的过时假设]]
-- [[agent 作为 Claude API 的新核心原语]]
+- [[prefill 与 decode 的高度倾斜]]
+- [[skill 作为 onboarding 载体]]
 - [[触发模式谱系]]
 - [[基础设施挑战而非 harness 设计问题]]
 - [[任务时域 task horizon]]
 - [[长周期任务的基础设施压力]]
+- [[agent 作为 Claude API 的新核心原语]]
 - [[brain hands session 解耦]]
-- [[Claude Managed Agents]]
 - [[Environment]]
-- [[prefill 与 decode 的高度倾斜]]
-- [[skill 作为 onboarding 载体]]

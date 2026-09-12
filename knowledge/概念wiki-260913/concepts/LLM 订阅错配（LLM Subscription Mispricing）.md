@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: economy-business
 learningStage: when-needed
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 2
 origin: [notion]
 aliases: ["LLM Subscription Mispricing", "AI 订阅模式失灵", "月费订阅不适合 LLM"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 月费订阅要求单位用户成本稳定，而 LLM 用户成本可相差百倍，二者从根上不兼容。
 
-**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 

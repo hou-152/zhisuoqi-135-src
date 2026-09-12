@@ -16,7 +16,7 @@ sources: 1
 
 # 过度约束与松绑 · over-constraining / unhobbling
 
-> 团队在系统提示词、CLAUDE.md 与 skills 中过度约束模型；判断力提升后删掉冗余指令反而无损失。
+> 在系统提示词、CLAUDE.md 与 skills 里过度约束模型，松绑后提示可大幅精简。
 
 **领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
@@ -30,12 +30,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能指出系统提示词里被删掉的那类强指令
-- 能说出松绑后编码评测无可测量损失这一结果
+- 能说出 Claude Code 系统提示词删掉 80% 以上、编码评测无可测量损失
+- 能指出过度约束出现在哪三类载体
 
 ## 验收问句
 
-> {{name}} 的松绑带来了什么可测的结果变化？
+> {{name}} 的松绑带来了什么可测量结果？
 
 ## 相关
 
@@ -65,7 +65,6 @@ sources: 1
 
 ## 反链
 
-- [[gotchas 优先的 CLAUDE.md]]
 - [[渐进式披露 progressive disclosure]]
 - [[接口即指令 design interfaces]]
 - [[Rubrics 与验证 agent]]
@@ -74,8 +73,9 @@ sources: 1
 - [[示例会收窄探索空间]]
 - [[延迟加载工具与 ToolSearch]]
 - [[指令就近原则]]
-- [[prompt 与 context 的通用性落差]]
+- [[gotchas 优先的 CLAUDE.md]]
 - [[富引用 rich references]]
 - [[上下文文件树 tree of files]]
 - [[自动记忆 auto-memory]]
 - [[护栏与判断力的取舍 guardrail tradeoff]]
+- [[prompt 与 context 的通用性落差]]

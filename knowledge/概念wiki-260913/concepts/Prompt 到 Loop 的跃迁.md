@@ -6,7 +6,7 @@ subject: Context Engineering × Harness Engineering
 domain: loop-autonomy
 learningStage: when-needed
 verification: judge
-centrality: 0.062
+centrality: 0.06
 depth: 2
 origin: [context, harness]
 aliases: []
@@ -15,9 +15,9 @@ sources: 2
 
 # Prompt 到 Loop 的跃迁
 
-> Prompt→Context→Harness→Loop Engineering 四次跃迁：语言表达、信息组织、规则约束、系统自运行。
+> 从提示词、上下文、harness 到 loop 的四次跃迁：语言表达、信息组织、规则约束、系统自运行。
 
-**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.062
+**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.06
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ sources: 2
 
 ## 掌握证据（做到这些才算会）
 
-- 能按顺序说出四次跃迁各自解决什么
-- 能说明 Loop 是在既有约束上把任务变成可持续流程
+- 能按顺序说出四次跃迁各自解决什么问题
+- 能判断自己当前工程实践处在哪一级
 
 ## 验收问句
 
-> {{name}} 的第四次跃迁比前三次多解决了什么？
+> 你的项目处在 {{name}} 的哪一级，下一级要补什么？
 
 ## 先懂这些（前置 1）
 
@@ -61,9 +61,9 @@ sources: 2
 
 - [[Loop Engineering]]
 - [[子 Agent 分工]]
+- [[可验证目标]]
 - [[自动循环的心跳]]
 - [[管理 Agent]]
-- [[可验证目标]]
 - [[项目知识体系]]
 - [[工作树隔离]]
 - [[古德哈特定律]]

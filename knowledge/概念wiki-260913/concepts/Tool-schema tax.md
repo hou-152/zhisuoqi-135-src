@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: caching-cost
 learningStage: when-needed
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 0
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 工具越多、schema 越丰富，每次请求都要附带的静态 token 开销越高，与任务难度无关。
 
-**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -68,15 +68,15 @@ Claude Code 27 个工具的 schema 约 99,778 字符，贡献约 24K token；Ope
 - [[注意力预算 attention budget]]
 - [[Harness token floor]]
 - [[工具收窄 tool scoping]]
-- [[Context-window tax]]
-- [[Instruction-file tax]]
-- [[API-boundary observability]]
 - [[Baseline-request product]]
-- [[Cache temperature]]
+- [[API-boundary observability]]
 - [[Configuration multiplier]]
+- [[Context-window tax]]
 - [[Framework-template repetition]]
+- [[Instruction-file tax]]
 - [[MCP schema amplification]]
 - [[Measurement snapshot]]
 - [[Subagent bootstrap multiplier]]
 - [[Tamper-evident audit trail]]
 - [[Cache prefix stability]]
+- [[Cache temperature]]

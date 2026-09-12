@@ -4,9 +4,9 @@ name: 看守看守者（Watchmen Watching the Watchmen）
 type: CONCEPTUAL
 subject: AI 概念库
 domain: safety-governance
-learningStage: deep-dive
+learningStage: when-needed
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [notion]
 aliases: ["Watchmen Watching the Watchmen / Quis custodiet ipsos custodes / 谁来监督监督者"]
@@ -15,9 +15,9 @@ sources: 1
 
 # 看守看守者（Watchmen Watching the Watchmen）
 
-> 对掌握全民监控的一方，必须再建一套能反向监督、并在其滥权时实施惩罚的机制。
+> 对掌握大规模监控权力者建立反向监督与惩罚机制，是他们滥权时唯一的对冲。
 
-**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 原文 context
 
@@ -29,12 +29,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能说出单靠监控者自律为什么不够
-- 能提出一个反向监督与问责的具体设计
+- 能说明为何单靠监控者自律不足以约束滥权
+- 能设计一条对滥用监控者可执行的追责路径
 
 ## 验收问句
 
-> 对一套 bulk surveillance 系统，你能按 {{name}} 设计制衡吗？
+> 若要落实{{name}}，你会设计哪些反向监督与惩罚机制？
 
 ## 先懂这些（前置 1）
 

@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: code-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 解析器框架，为代码构建结构化语法地图，是多语言代码理解工具的底层基础。
 
-**领域** code-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** code-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -59,13 +59,13 @@ sources: 1
 - Context Engineering ｜ 《用持久化代码图谱给 AI Review 精准上下文》 ｜ https://github.com/tirth8205/code-review-graph
 ## 反链
 
+- [[持久化代码图谱 structural map graph]]
 - [[Blast radius]]
 - [[code-review-graph]]
 - [[Review Quality 评分方法]]
 - [[软件即有向图]]
 - [[code-review-graphignore 排除配置]]
 - [[MCP 工具层]]
-- [[持久化代码图谱 structural map graph]]
 - [[多语言结构化解析 12 languages node type mappings]]
 - [[语义搜索 semantic search embeddings]]
 - [[增量更新 incremental update]]

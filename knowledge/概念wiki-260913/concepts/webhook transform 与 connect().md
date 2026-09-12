@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: when-needed
 verification: use
-centrality: 0.045
-depth: 3
+centrality: 0.042
+depth: 2
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > transform 在云端把原始 http payload 转成带类型的 event；connect() 从本地建持久 WebSocket，无需公网 endpoint。
 
-**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -38,7 +38,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[higher-level runtime]] · **soft** — 外部事件要先转成类型化 event 才能喂进运行时
+- [[higher-level runtime]] · **soft** — 事件接入是运行时接管工具执行与路由的一部分。
 
 ## 相关
 

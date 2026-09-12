@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.099
-depth: 4
+centrality: 0.042
+depth: 1
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > CLAUDE.md 写法准则：轻量说明仓库用途，token 主要花在代码库内反直觉的 gotchas 上，不写显而易见的事。
 
-**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.099
+**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -36,11 +36,9 @@ CLAUDE.md 层的具体写法准则。保持轻量、简述 repo 用途，**把�
 
 > 给你一份 {{name}}，你会优先把篇幅花在哪类内容上？
 
-## 先懂这些（前置 3）
+## 先懂这些（前置 1）
 
-- [[gotchas 优先原则]] · **hard** — CLAUDE.md 写法准则是 token 分配原则的具体落地
-- [[Repo-local instructions]] · **hard** — CLAUDE.md 就是仓库内规则文件的一种，先懂这类持久接口
-- [[Context Bloat]] · **soft** — 这条准则正是为对抗把一切塞进 CLAUDE.md 的膨胀问题
+- [[gotchas 优先原则]] · **hard** — 它是该 token 分配原则在 CLAUDE.md 上的具体落地写法
 
 ## 相关
 
@@ -54,8 +52,6 @@ CLAUDE.md 层的具体写法准则。保持轻量、简述 repo 用途，**把�
 ## 反链
 
 - [[上下文工程 context engineering]]
-- [[Repo-local instructions]]
-- [[Context Bloat]]
 - [[gotchas 优先原则]]
-- [[prompt 与 context 的通用性落差]]
 - [[过度约束与松绑 over-constraining unhobbling]]
+- [[prompt 与 context 的通用性落差]]

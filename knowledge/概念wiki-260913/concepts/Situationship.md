@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: personal-life
 learningStage: when-needed
 verification: accept
-centrality: 0.045
+centrality: 0.042
 depth: 2
 origin: [notion]
 aliases: ["暧昧关系", "长期暧昧", "不明状态关系"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 长期暧昧却未确立排他关系的相处状态，介于朋友与恋人之间。
 
-**领域** personal-life ｜ **类型** LANGUAGE ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.045
+**领域** personal-life ｜ **类型** LANGUAGE ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 费曼一下
 

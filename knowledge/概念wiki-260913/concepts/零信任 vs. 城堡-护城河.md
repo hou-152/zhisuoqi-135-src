@@ -4,9 +4,9 @@ name: 零信任 vs. 城堡-护城河
 type: CONCEPTUAL
 subject: AI 概念库
 domain: safety-governance
-learningStage: now
+learningStage: when-needed
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 0
 origin: [notion]
 aliases: ["Zero Trust", "Castle-and-Moat", "零信任安全", "安全心智模型"]
@@ -15,9 +15,9 @@ sources: 1
 
 # 零信任 vs. 城堡-护城河
 
-> 旧模型靠边界防御（城堡护城河），零信任则默认任何位置都不可信，逐次校验。
+> 安全模型从边界防护的城堡-护城河，转向不默认信任任何内部请求的零信任。
 
-**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ Ben 用来切「Local Agent vs. Cloud Agent」的安全心智模型——
 
 ## 掌握证据（做到这些才算会）
 
-- 能说清两种模型的边界与信任假设差异
-- 能指出本地运行相当于自建城堡护城河
+- 能对比两种模型对「内网」的信任假设
+- 能指出本地运行如何变成自设的城堡-护城河
 
 ## 验收问句
 
-> {{name}} 在「信任谁」这一点上差别在哪？
+> {{name}} 两种模型对内网的信任假设差在哪？
 
 ## 懂了它才能懂（解锁 2）
 

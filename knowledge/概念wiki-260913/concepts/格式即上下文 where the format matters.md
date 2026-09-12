@@ -5,8 +5,8 @@ nameEn: where the format matters
 type: CONCEPTUAL
 subject: Context Engineering
 domain: context-engineering
-learningStage: when-needed
-verification: judge
+learningStage: now
+verification: use
 centrality: 0.017
 depth: 0
 origin: [context]
@@ -16,9 +16,9 @@ sources: 1
 
 # 格式即上下文 · where the format matters
 
-> 信息如何呈现是有影响的：简洁摘要优于原始数据倾倒，清晰工具 schema 优于含糊指令，结构化输出也属格式层。
+> 信息的呈现方式本身构成上下文：简洁摘要优于原始数据倾倒，清晰工具 schema 优于含糊指令。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能把一份原始数据倾倒改写为简洁摘要
-- 能为含糊指令写出清晰的工具 schema 替代
+- 能举出把原始数据换成摘要后表现改善的例子
+- 能说明 Structured Output 属于格式层面的上下文
 
 ## 验收问句
 
-> 举例说明{{name}}如何影响模型表现？
+> 你能用 {{name}} 说明这段输出为什么该改写成摘要？
 
 ## 相关
 

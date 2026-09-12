@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: economy-business
 learningStage: when-needed
 verification: judge
-centrality: 0.154
+centrality: 0.142
 depth: 0
 origin: [notion]
 aliases: ["Token Subsidy Gap", "token 补贴差", "AI 补贴缺口"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 用户付 1 美元却烧掉约 8–13.5 美元算力的结构性补贴，活跃用户越多亏得越多。
 
-**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.154
+**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.142
 
 ## 费曼一下
 

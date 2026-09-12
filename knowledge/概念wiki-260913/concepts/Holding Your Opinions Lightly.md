@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: thinking-method
 learningStage: when-needed
 verification: use
-centrality: 0.099
-depth: 1
+centrality: 0.067
+depth: 5
 origin: [notion]
 aliases: ["轻轻拿着自己的观点", "松握观点", "观点不焊在身份上"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 把观点当可放下的临时假设而非身份的一部分，靠反复练习从小事认错，最终变成默认反应。
 
-**领域** thinking-method ｜ **类型** META ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.099
+**领域** thinking-method ｜ **类型** META ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
 
 ## 原文 context
 
@@ -40,12 +40,11 @@ Cate Hall 强调这个状态来自练习——从小事开始承认错（哪家�
 
 ## 先懂这些（前置 1）
 
-- [[Without Defensiveness]] · **hard** — 不学会不防御地认错，就无法把观点当可放下的临时假设。
+- [[Without Defensiveness]] · **soft** — 不懂不防御地认错，就做不到把观点当临时假设。
 
-## 懂了它才能懂（解锁 2）
+## 懂了它才能懂（解锁 1）
 
-- [[Beliefs as Lenses, Not Armor]] — 不懂信念是可戴可摘的镜片，就难把观点当临时假设。
-- [[Superforecasting]] — 频繁更新、找反证需要把观点当临时假设而非身份。
+- [[Superforecasting]] — 频繁更新与细颗粒信念，需要把观点当可放下的临时假设。
 
 ## 相关
 
@@ -63,6 +62,5 @@ Cate Hall 强调这个状态来自练习——从小事开始承认错（哪家�
 
 ## 反链
 
-- [[Beliefs as Lenses, Not Armor]]
-- [[Superforecasting]]
 - [[Without Defensiveness]]
+- [[Superforecasting]]

@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: clinical-medicine
 learningStage: when-needed
 verification: accept
-centrality: 0.045
+centrality: 0.042
 depth: 0
 origin: [notion]
 aliases: ["National Health Interview Survey", "美国国家健康访谈调查", "美国国家健康访问调查"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 美国国家卫生统计中心全年持续开展的全国代表性家庭调查，覆盖非机构化平民。
 
-**领域** clinical-medicine ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.045
+**领域** clinical-medicine ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -38,7 +38,7 @@ CDC 旗下国家卫生统计中心（NCHS）持续运行的全国性家庭抽样
 
 ## 懂了它才能懂（解锁 1）
 
-- [[睡眠的社会人口学差异]] — NHIS是全国代表性调查，是此类差异研究的典型数据来源。
+- [[睡眠的社会人口学差异]] — NHIS是全国代表性调查，为理解社会人口学差异提供数据基础。
 
 ## 相关
 

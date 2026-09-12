@@ -5,8 +5,8 @@ type: CONCEPTUAL
 subject: Harness Engineering
 domain: model-training
 learningStage: deep-dive
-verification: accept
-centrality: 0.126
+verification: judge
+centrality: 0.117
 depth: 0
 origin: [harness]
 aliases: []
@@ -15,9 +15,9 @@ sources: 1
 
 # 模型训练与 harness 设计的耦合
 
-> 模型与harness在同一loop中做post-training，形成「发现原语→加进harness→训练下一代模型」的回路。
+> 模型与 harness 在同一 loop 中做 post-training，形成「发现原语→加进 harness→训下一代」回环，并带来过拟合副作用。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.126
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.117
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ Claude Code、Codex 这类产品是模型与 harness 同在 loop 中做的 post-
 
 ## 掌握证据（做到这些才算会）
 
-- 能描述Claude Code与Codex的post-training反馈回路
-- 能举出过拟合副作用与换harness后得分反转的例子
+- 能说明该反馈回路的两端各自是什么
+- 能举出改工具逻辑后表现变差的过拟合案例
 
 ## 验收问句
 
-> {{name}}能解释模型训练与harness设计如何互相塑造吗？
+> {{name}}的反馈回路包含哪几步，过拟合会以什么现象暴露？
 
 ## 懂了它才能懂（解锁 4）
 
@@ -58,5 +58,5 @@ Claude Code、Codex 这类产品是模型与 harness 同在 loop 中做的 post-
 - [[Harness 工程 Harness Engineering]]
 - [[Agent = Model + Harness]]
 - [[协同进化与紧耦合 co-evolution principle]]
-- [[Harness 内 RL RL inside the harness]]
 - [[Muon 优化器]]
+- [[Harness 内 RL RL inside the harness]]

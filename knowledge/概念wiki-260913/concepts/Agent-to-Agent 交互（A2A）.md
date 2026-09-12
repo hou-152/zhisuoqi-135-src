@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: multi-agent
 learningStage: when-needed
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [notion]
 aliases: ["用户 Agent ↔ 软件 Agent｜两个 LLM 协作完成一件事"]
@@ -15,9 +15,9 @@ sources: 1
 
 # Agent-to-Agent 交互（A2A）
 
-> 用户经自己的智能体对接软件的智能体，两个 LLM 协作朝同一结果推进的交互形态。
+> 用户侧 Agent 与软件侧 Agent 相互调用协作、朝同一结果推进的交互形态。
 
-**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能画出用户→用户 agent→软件 agent→数据库的链路
-- 能说明两模型协作时的结果归属与协调方式
+- 能画出用户→其 Agent→软件 Agent→数据库的链路
+- 能指出链路中两处需要协商的接口
 
 ## 验收问句
 
-> {{name}} 中两个 LLM 如何协作推进同一结果？
+> {{name}}的调用链路是怎样的？
 
 ## 先懂这些（前置 1）
 

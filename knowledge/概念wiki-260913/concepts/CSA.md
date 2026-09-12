@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: model-training
 learningStage: deep-dive
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 3
 origin: [notion]
 aliases: ["Compressed Sparse Attention", "压缩稀疏注意力"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 压缩稀疏注意力：把 KV 分组压缩、每步只挑关键 KV 并保留滑动窗口，抑制上下文 n² 暴增。
 
-**领域** model-training ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** model-training ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 原文 context
 

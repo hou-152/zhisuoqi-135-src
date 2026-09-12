@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: verification-eval
 learningStage: when-needed
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 2
 origin: [context]
 aliases: []
@@ -15,9 +15,9 @@ sources: 1
 
 # 闭卷与 oracle 基线
 
-> 给成绩定位的两条参照线：闭卷只靠参数记忆作答，oracle 只给含答案的那一篇文档。
+> 用不给任何文档与只给含答案文档两条参照线，为成绩定位的评测设定。
 
-**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能说出闭卷与 oracle 各自提供了什么信息
-- 能引用 GPT-3.5-Turbo 的 56.1% 与 88.3% 两条线
+- 能说明闭卷与 oracle 各给模型什么信息
+- 能用两线差距判断是缺知识还是缺检索利用
 
 ## 验收问句
 
-> {{name}}中两条线各代表什么条件下的成绩？
+> {{name}} 中 oracle 高而闭卷低说明缺什么能力？
 
 ## 先懂这些（前置 1）
 
@@ -51,7 +51,7 @@ sources: 1
 - Context Engineering ｜ 《经典论文《迷失在中间》：位置决定了模型能不能真的用上信息》 ｜ https://arxiv.org/pdf/2307.03172
 ## 反链
 
-- [[多文档问答受控实验]]
 - [[迷失在中间 lost in the middle]]
+- [[多文档问答受控实验]]
 - [[首因偏置 primacy bias]]
 - [[U 型性能曲线]]

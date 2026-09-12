@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: society-law
 learningStage: when-needed
 verification: accept
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [notion]
 aliases: ["Civilization's Feature", "Not Bug / 文明的特性"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 高考式简化性暴力不是可修的 bug，而是「需要大规模分工的现代文明」这个操作系统的底层特性。
 
-**领域** society-law ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.045
+**领域** society-law ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 原文 context
 
@@ -55,7 +55,7 @@ sources: 1
 
 ## 反链
 
-- [[简化性暴力]]
 - [[外包思考，但不外包理解]]
+- [[简化性暴力]]
 - [[Agent-Native Infrastructure]]
 - [[Sensors 与 Actuators]]

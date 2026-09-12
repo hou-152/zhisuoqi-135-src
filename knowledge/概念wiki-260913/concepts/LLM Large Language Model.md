@@ -7,7 +7,7 @@ subject: Context Engineering
 domain: model-training
 learningStage: now
 verification: judge
-centrality: 0.126
+centrality: 0.117
 depth: 0
 origin: [context]
 aliases: ["Large Language Model"]
@@ -18,7 +18,7 @@ sources: 1
 
 > 大语言模型，本质上可被还原为一个根据前文做文本补全的模型。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.117
 
 ## 费曼一下
 
@@ -73,17 +73,17 @@ LLM 的基本能力是根据输入预测接下来最可能的 token；coding age
 
 - [[Agent]]
 - [[tokens]]
-- [[系统提示 System Prompt]]
 - [[stateless]]
+- [[系统提示 System Prompt]]
 - [[推理模型]]
 - [[coding agent]]
 - [[multimodal Vision LLMs]]
 - [[reasoning thinking]]
 - [[模型蒸馏]]
 - [[cached input tokens]]
-- [[prompt completion]]
 - [[工具 Tools]]
 - [[押注 in-context learning]]
 - [[chat templated prompts]]
+- [[prompt completion]]
 - [[reasoning effort]]
 - [[tool loop]]

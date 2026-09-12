@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: memory-retrieval
 learningStage: when-needed
 verification: use
-centrality: 0.045
+centrality: 0.042
 depth: 2
 origin: [notion]
 aliases: ["会话搜索", "情景回溯", "hermes session_search"]
@@ -17,7 +17,7 @@ sources: 1
 
 > Hermes 的长尾回溯系统，负责从历史会话里把需要的那一段过去翻出来。
 
-**领域** memory-retrieval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** memory-retrieval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 

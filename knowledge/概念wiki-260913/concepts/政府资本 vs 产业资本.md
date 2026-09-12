@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: economy-business
 learningStage: when-needed
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 0
 origin: [notion]
 aliases: ["State Capital vs Industrial / Venture Capital"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 政府资本以政策意志、KPI、政治安全为决策函数求「可控」；产业资本以风险—回报为函数求指数级回报。
 
-**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 原文 context
 

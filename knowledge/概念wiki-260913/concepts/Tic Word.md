@@ -4,9 +4,9 @@ name: Tic Word
 type: CONCEPTUAL
 subject: AI 概念库
 domain: model-training
-learningStage: when-needed
+learningStage: deep-dive
 verification: judge
-centrality: 0.062
+centrality: 0.06
 depth: 1
 origin: [notion]
 aliases: ["抽动词", "verbal tic", "lexical tic", "language tic", "语言癖", "Style Tic", "风格性口癖", "语言怪癖"]
@@ -15,9 +15,9 @@ sources: 2
 
 # Tic Word
 
-> 模型在不该出现的语境也忍不住反复用的词，是奖励偏差留下的口癖；可用奖励是否系统性偏向来诊断。
+> 模型在不该出现的语境下仍反复使用的词，是奖励信号系统性偏差的可量化指纹。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.062
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.06
 
 ## 原文 context
 
@@ -36,12 +36,12 @@ sources: 2
 
 ## 掌握证据（做到这些才算会）
 
-- 能对比同一任务出现与不出现该词的输出判断奖励偏向
-- 能区分抽动词与合理用词（如哥布林之谜里的 frog）
+- 能用出现与不出现某词的同一任务输出比较奖励偏向
+- 能区分抽动词与合理使用（如作品里的专有名词）
 
 ## 验收问句
 
-> 怎么判定某个高频词是不是 {{name}}？
+> 你能否用 {{name}} 的诊断法找出一个被奖励偏置植入的词？
 
 ## 先懂这些（前置 1）
 

@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: thinking-method
 learningStage: when-needed
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 1
 origin: [notion]
 aliases: ["摩擦中淬炼出技能", "摩擦塑造技能", "skills built through friction", "struggle as the forge"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 调试直觉、系统直觉、品味与怀疑能力只能从犯错、溯源、碰壁的摩擦中长出来，没有捷径。
 
-**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 原文 context
 
@@ -38,11 +38,11 @@ debugging 直觉、系统直觉、taste、怀疑能力、问题分解能力—�
 
 ## 先懂这些（前置 1）
 
-- [[Taste]] · **soft** — 品味只能从犯错、溯源、碰壁的摩擦中长出来。
+- [[稀疏反馈推断规则]] · **soft** — 从碰壁摩擦中长能力，需要从稀疏反馈反推可复用规则。
 
 ## 懂了它才能懂（解锁 1）
 
-- [[稀疏反馈推断规则]] — 从稀疏反馈反推规则，是摩擦中长出的调试与系统直觉之一。
+- [[The Deferred Bill]] — 不懂技能从摩擦中形成，就不懂跳过思考为何是未来账单。
 
 ## 相关
 
@@ -60,5 +60,5 @@ debugging 直觉、系统直觉、taste、怀疑能力、问题分解能力—�
 
 ## 反链
 
+- [[The Deferred Bill]]
 - [[稀疏反馈推断规则]]
-- [[Taste]]

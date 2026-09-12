@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: spec-intent
 learningStage: now
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 缺口不在模型能力，而在于描述你意图所需的信息量不足。
 
-**领域** spec-intent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** spec-intent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -38,7 +38,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[Elicitation】]] · **soft** — bits 指描述意图的信息量不足，需要靠信息引出把缺失部分补上。
+- [[Elicitation]] · **soft** — bits 指描述意图的信息量不足，需要靠信息引出把缺失部分补上。
 
 ## 相关
 
@@ -59,7 +59,7 @@ sources: 1
 - Context Engineering ｜ 《用十分钟语音漫谈，让 LLM 帮你整理真正想说的话》 ｜ https://x.com/karpathy/status/2079610838143623371/
 ## 反链
 
-- [[Elicitation】]]
+- [[Elicitation]]
 - [[不连贯输入的重构能力]]
 - [[回声 echo of your own tangle of thoughts]]
 - [[前置声明]]

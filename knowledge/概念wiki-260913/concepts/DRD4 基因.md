@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: mind-body
 learningStage: when-needed
 verification: accept
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [notion]
 aliases: ["多动症基因", "D4 dopamine receptor", "DRD4"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 又称多动症基因，其突变既关联多动与霸凌，也关联热爱探索与寻求奖赏，走向由环境决定。
 
-**领域** mind-body ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.045
+**领域** mind-body ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 原文 context
 

@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: loop-autonomy
 learningStage: now
 verification: compute
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 带 steps 的 while 循环：调 LLM 思考、执行工具、把结果回灌 messages，返回纯文本即本轮结束。
 
-**领域** loop-autonomy ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.045
+**领域** loop-autonomy ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -53,5 +53,5 @@ Utah 的 agent loop 形态，也是作者认为不需要框架就能写出来的
 
 - [[Harness]]
 - [[持久化执行 durable execution]]
-- [[ReAct loop]]
 - [[harness 与 framework 的分野]]
+- [[ReAct loop]]

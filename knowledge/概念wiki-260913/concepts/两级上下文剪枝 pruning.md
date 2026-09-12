@@ -5,7 +5,7 @@ nameEn: pruning
 type: PROCEDURAL
 subject: Harness Engineering
 domain: context-engineering
-learningStage: when-needed
+learningStage: now
 verification: use
 centrality: 0.017
 depth: 0
@@ -16,9 +16,9 @@ sources: 1
 
 # 两级上下文剪枝 · pruning
 
-> 上下文过长时的配置化修法：留最近 3 轮助手回合，旧工具结果超 4000 字符软裁首尾，总量超 50000 硬清留占位。
+> 上下文超限时的两级裁剪：软裁旧工具结果、硬清超量历史并留占位符。
 
-**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能说出软裁与硬清各自的触发阈值
-- 能识别 loop 反复调工具却无回复是上下文问题
+- 能写出保留最近 3 轮、单结果头尾各 1500 字符、总量 50000 的具体阈值
+- 能在 agent loop 里复现从「无限调工具」到「开始产出回复」的转变
 
 ## 验收问句
 
-> 按 {{name}} 的规则，工具结果和总上下文各在什么阈值被处理？
+> {{name}} 的软裁与硬清阈值分别是多少？
 
 ## 相关
 

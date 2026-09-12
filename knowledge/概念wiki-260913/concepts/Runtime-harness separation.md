@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.072
+centrality: 0.092
 depth: 0
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > LangChain 的 framework/runtime/harness 三层分解：执行环境与可靠工作循环不是同一层。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.092
 
 ## 费曼一下
 
@@ -36,10 +36,11 @@ LangChain 的 framework、runtime、harness 分解，以及 Claude Agent SDK、A
 
 > 举例说明 {{name}} 中三层各自负责什么。
 
-## 懂了它才能懂（解锁 2）
+## 懂了它才能懂（解锁 3）
 
-- [[harness 与 framework 的分野]] — 不先分清执行环境与工作循环两层，就分不清框架与 harness
-- [[higher-level runtime]] — 框架/运行时/harness 三层分解正是运行时叠加的前提
+- [[higher-level runtime]] — 不懂运行时与 harness 分层，就不知道这层该接管什么。
+- [[harness 与 framework 的分野]] — 三层分解把 framework 与 harness 分开，才能准确说两者分野。
+- [[Reliability-critical harness primitives]] — 筛选运行时控制原语，需先区分执行环境与可靠工作循环。
 
 ## 相关
 
@@ -53,7 +54,7 @@ LangChain 的 framework、runtime、harness 分解，以及 Claude Agent SDK、A
 ## 反链
 
 - [[Harness 工程 Harness Engineering]]
-- [[Context as working memory budget]]
 - [[higher-level runtime]]
+- [[Context as working memory budget]]
 - [[harness 与 framework 的分野]]
 - [[Reliability-critical harness primitives]]

@@ -7,7 +7,7 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: now
 verification: use
-centrality: 0.126
+centrality: 0.117
 depth: 1
 origin: [context]
 aliases: ["System Prompt"]
@@ -18,7 +18,7 @@ sources: 1
 
 > 调用前注入的系统级指令；文中批评每轮把当前时间、当前模式、当前状态写回它的做法。
 
-**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
+**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.117
 
 ## 费曼一下
 
@@ -45,7 +45,7 @@ sources: 1
 
 - [[Harness]] — System Prompt 是 Agent Harness 配置模型行为的组成部分。
 - [[上下文 context]] — System Prompt 是模型生成响应前可见 Context 的组成之一。
-- [[系统 prompt 的体量差]] — 比较claude code与cursor的体量差，先要知道system prompt是什么
+- [[指令子系统与渐进式展开]] — 指令子系统是 system prompt 的组织结构，不懂 system prompt 就无从理解它。
 
 ## 相关
 
@@ -73,13 +73,13 @@ sources: 1
 ## 反链
 
 - [[Harness]]
+- [[上下文 context]]
 - [[MCP Model Context Protocol]]
 - [[tokens]]
 - [[Harness token floor]]
-- [[上下文 context]]
 - [[LLM Large Language Model]]
 - [[coding agent]]
-- [[系统 prompt 的体量差]]
+- [[指令子系统与渐进式展开]]
 - [[缓存断点 Cache Breakpoint]]
 - [[提示词缓存 Prompt Caching]]
 - [[稳定前缀 Stable Prefix]]

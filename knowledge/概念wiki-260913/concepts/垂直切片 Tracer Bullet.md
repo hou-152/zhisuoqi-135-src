@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: code-engineering
 learningStage: now
 verification: use
-centrality: 0.045
+centrality: 0.042
 depth: 2
 origin: [harness]
 aliases: []
@@ -15,9 +15,9 @@ sources: 1
 
 # 垂直切片 / Tracer Bullet
 
-> 从中间向外打通一条完整可测试通路，替代按技术分层的横向计划，每步都能摸到、可随时评审 100-200 行。
+> 不按技术分层横向推进，而从中间打通一条端到端可运行可测的通路，每步都能摸到并随时评审。
 
-**领域** code-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** code-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能列出切片顺序：契约＋mock＋curl→前端→服务层→迁移→逻辑→错误处理
-- 能说明它为何优于数据库到前端的横向分层计划
+- 能列出 API 契约配 mock 加 curl 测试 → 前端 → 服务层 → 迁移 的切片顺序
+- 能把单次改动控制在 100-200 行并给出可运行的验证点
 
 ## 验收问句
 
-> 你能把当前计划改成 {{name}} 吗？
+> 用{{name}}推进时，你会先写哪一段、怎么证明它跑通了？
 
 ## 先懂这些（前置 1）
 

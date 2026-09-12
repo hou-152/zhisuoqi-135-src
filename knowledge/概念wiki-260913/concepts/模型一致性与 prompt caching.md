@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: caching-cost
 learningStage: when-needed
 verification: use
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [harness]
 aliases: []
@@ -15,9 +15,9 @@ sources: 1
 
 # 模型一致性与 prompt caching
 
-> 同一功能全程不换模型与推理档位，让模型侧缓存保留，后续请求省token又省钱。
+> 同一功能或 bug 全程不切换模型与推理档位，使对话在模型侧保持缓存，从而享折扣、省 token。
 
-**领域** caching-cost ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** caching-cost ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能说出中等模型配中等推理档位的默认选择
-- 能解释切换模型或档位会打断prompt缓存
+- 能说明中途换模型为何让缓存失效
+- 能在实操中固定模型与档位并核算省下的 token
 
 ## 验收问句
 
-> {{name}}能说出为什么不换模型和推理档位就能省token吗？
+> 针对一个 bug，你会怎样按{{name}}安排模型与档位以省 token？
 
 ## 先懂这些（前置 1）
 
@@ -42,7 +42,7 @@ sources: 1
 
 ## 相关
 
-- [[少即是多」：gimmick 与真实增益的分界]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
+- [[「少即是多」：gimmick 与真实增益的分界]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
 - [[废料怪兽]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
 
@@ -53,4 +53,4 @@ sources: 1
 
 - [[提示词缓存（Prompt Caching）]]
 - [[废料怪兽]]
-- [[少即是多」：gimmick 与真实增益的分界]]
+- [[「少即是多」：gimmick 与真实增益的分界]]

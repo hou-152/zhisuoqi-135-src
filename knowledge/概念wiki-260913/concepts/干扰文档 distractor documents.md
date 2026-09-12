@@ -2,11 +2,11 @@
 id: cm_d4fab5a8
 name: 干扰文档
 nameEn: distractor documents
-type: REPRESENTATIONAL
+type: CONCEPTUAL
 subject: Context Engineering
-domain: context-engineering
+domain: verification-eval
 learningStage: when-needed
-verification: judge
+verification: use
 centrality: 0.017
 depth: 0
 origin: [context]
@@ -16,9 +16,9 @@ sources: 1
 
 # 干扰文档 · distractor documents
 
-> 与查询高度相关但不含答案的维基片段，共 k−1 篇，由 Contriever 检索并按相关性递减排列。
+> 评测中插入的 k−1 篇不含答案但与查询高度相关的维基片段，按相关性递减排列，用来测长上下文的抗干扰。
 
-**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ k−1 篇不含答案但与查询高度相关的维基百科片段，由 Contrie
 
 ## 掌握证据（做到这些才算会）
 
-- 能说明干扰文档与答案段落的差别
-- 能复述其构造方式与排序规则
+- 能构造按相关性递减排列的干扰文档集
+- 能说明随机干扰与随机排序两种变体的差别
 
 ## 验收问句
 
-> {{name}}在长上下文评测中扮演什么角色？
+> 你能否说明 {{name}} 在你的评测集里是怎么生成的？
 
 ## 相关
 

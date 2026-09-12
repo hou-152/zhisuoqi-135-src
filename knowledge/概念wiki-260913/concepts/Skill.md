@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: context-engineering
 learningStage: now
 verification: use
-centrality: 0.263
+centrality: 0.242
 depth: 1
 origin: [notion]
 aliases: ["Claude Code Skill", ".claude/skills", "SKILL.md", "技能文件夹"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 放在 .claude/skills/ 下的文件夹，含声明触发条件的 frontmatter 与完整正文，按需加载。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.263
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.242
 
 ## 费曼一下
 

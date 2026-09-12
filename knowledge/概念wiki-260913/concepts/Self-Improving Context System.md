@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 上下文工程不是一次性设置，而是每次 agent 工作都在变好的活系统，维护由 agent 自己承担。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -38,12 +38,12 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[Personal Context】]] · **soft** — 系统每次工作都在积累不可复制的个人上下文
+- [[Context Infrastructure]] · **soft** — 自改进系统持续优化的是 agent 拿到的信息，属上下文基础设施
 
 ## 相关
 
 - [[Agent Drift]] · 同篇出现（co-occurrence） — 同篇出现：context-25
-- [[Context 四种失败模式】 Context Pollution Distraction Confusion Clash]] · 同篇出现（co-occurrence） — 同篇出现：context-25
+- [[Context 四种失败模式 Context Pollution Distraction Confusion Clash]] · 同篇出现（co-occurrence） — 同篇出现：context-25
 - [[上下文工程 context engineering]] · 同篇出现（co-occurrence） — 同篇出现：context-25
 
 ## 出场
@@ -51,6 +51,6 @@ sources: 1
 - Context Engineering ｜ 《上下文工程：AI 时代的核心能力》 ｜ https://x.com/nyk_builderz/status/2031581912071127158/?s=12&rw_tt_thread=True
 ## 反链
 
+- [[Context Infrastructure]]
 - [[Agent Drift]]
-- [[Context 四种失败模式】 Context Pollution Distraction Confusion Clash]]
-- [[Personal Context】]]
+- [[Context 四种失败模式 Context Pollution Distraction Confusion Clash]]

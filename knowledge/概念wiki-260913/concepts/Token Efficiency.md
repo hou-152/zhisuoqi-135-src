@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: caching-cost
 learningStage: when-needed
 verification: judge
-centrality: 0.099
+centrality: 0.092
 depth: 1
 origin: [notion]
 aliases: ["词元效率", "token efficiency", "token 效率"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 单位算力能换到的有效智能，是从 demo 走到产品与基础设施的门槛。
 
-**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.099
+**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.092
 
 ## 原文 context
 

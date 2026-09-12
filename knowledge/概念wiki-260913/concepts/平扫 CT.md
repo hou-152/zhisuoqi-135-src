@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: clinical-medicine
 learningStage: when-needed
 verification: accept
-centrality: 0.099
+centrality: 0.092
 depth: 0
 origin: [notion]
 aliases: ["Non-contrast CT", "非增强 CT", "non-contrast computed tomography"]
@@ -15,9 +15,9 @@ sources: 1
 
 # 平扫 CT
 
-> 医院最普通、最便宜、最常做的 CT：不打造影剂、不做特殊准备，影像本就存在。
+> 不打造影剂、不做特殊准备的最普通最便宜的 CT，属临床常规检查，零额外成本与辐射。
 
-**领域** clinical-medicine ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.099
+**领域** clinical-medicine ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.092
 
 ## 原文 context
 
@@ -27,18 +27,18 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能说出平扫 CT 与增强 CT 在造影剂和准备上的区别
-- 能解释它为何零额外成本、零额外辐射，可作筛查入口
+- 能说明平扫 CT 与增强 CT 的区别
+- 能指出体检或术前常规拍下的片子就是平扫 CT
 
 ## 验收问句
 
-> 为什么{{name}}是机会性筛查的物理基础？
+> 为什么{{name}}能作为机会性筛查的物理基础？
 
 ## 懂了它才能懂（解锁 3）
 
-- [[平扫 CT + AI 多癌筛查路线]] — 该路线完全建立在平扫CT影像上，不懂平扫CT就无基础。
-- [[DAMO COCA]] — DAMO COCA从平扫CT识别肠癌，依赖平扫CT这一影像模态。
-- [[机会性筛查]] — 机会性筛查借其他目的影像，平扫CT是其典型载体。
+- [[平扫 CT + AI 多癌筛查路线]] — 该路线以平扫CT为筛查入口，不懂平扫CT就不知其影像基础。
+- [[DAMO COCA]] — DAMO COCA从最普通的平扫CT识别肠癌，不懂平扫CT就不懂其输入。
+- [[机会性筛查]] — 平扫CT是机会性筛查最典型的载体，懂它更易理解顺带筛查。
 
 ## 相关
 

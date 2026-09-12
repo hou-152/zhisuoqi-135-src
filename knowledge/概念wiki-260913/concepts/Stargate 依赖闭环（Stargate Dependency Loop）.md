@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: economy-business
 learningStage: when-needed
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 2
 origin: [notion]
 aliases: ["Stargate Dependency Loop", "Oracle-OpenAI 死循环", "Stargate 闭环", "Abilene 依赖链"]
@@ -17,7 +17,7 @@ sources: 1
 
 > Oracle 借债建 Stargate、OpenAI 付费、资本市场叙事三者互相绑死的融资闭环
 
-**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 费曼一下
 

@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: mind-body
 learningStage: when-needed
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 0
 origin: [notion]
 aliases: ["醒觉中心价值观", "Colonize Sleep", "殖民睡眠", "用清醒世界的价值观殖民睡眠"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 把清醒时段的价值凌驾于睡眠之上、试图殖民睡眠的取向；Konkoly 主张从睡眠中学习。
 
-**领域** mind-body ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** mind-body ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 费曼一下
 

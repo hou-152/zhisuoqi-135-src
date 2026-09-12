@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: safety-governance
 learningStage: now
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 2
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 武器与 CBRN 红线不看类别，而看输出是否对制造、优化或部署给出实质帮助；框定为防御、虚构也不改变判定。
 
-**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 

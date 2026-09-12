@@ -6,7 +6,7 @@ subject: Context Engineering × Harness Engineering
 domain: verification-eval
 learningStage: when-needed
 verification: compute
-centrality: 0.062
+centrality: 0.06
 depth: 2
 origin: [context, harness]
 aliases: []
@@ -15,9 +15,9 @@ sources: 2
 
 # RHAE
 
-> 把模型表现与人类基线相比的评分指标；官方人类测试者约 48%，GPT-5.6 Sol 开启两项设置后 38.3%。
+> ARC-AGI-3 的评分指标，把模型表现与人类测试基线相比，得出相对人类动作效率。
 
-**领域** verification-eval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.062
+**领域** verification-eval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.06
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ ARC-AGI-3 的评分指标，把模型表现与人类基线相比。基于官方�
 
 ## 掌握证据（做到这些才算会）
 
-- 能算出模型相对人类基线的比值
-- 能解释 38.3% 与 48% 差距的含义
+- 能说出人类基线约 48%、GPT-5.6 Sol 为 38.3% 这一对比
+- 能用该口径把模型分数换算成相对人类效率
 
 ## 验收问句
 
-> {{name}} 是拿什么跟什么比出来的？
+> 能否用 {{name}} 算出模型相对人类基线的百分比？
 
 ## 先懂这些（前置 1）
 
@@ -53,6 +53,6 @@ ARC-AGI-3 的评分指标，把模型表现与人类基线相比。基于官方�
 ## 反链
 
 - [[Harness]]
-- [[基准测试的捆绑测量性]]
 - [[通用 harness 的公平性张力]]
+- [[基准测试的捆绑测量性]]
 - [[保留推理 retained reasoning]]

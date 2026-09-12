@@ -39,7 +39,7 @@ sources: 1
 
 ## 相关
 
-- [[少即是多」：gimmick 与真实增益的分界]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
+- [[「少即是多」：gimmick 与真实增益的分界]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
 - [[废料怪兽]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-13
 
@@ -54,4 +54,4 @@ sources: 1
 ## 反链
 
 - [[废料怪兽]]
-- [[少即是多」：gimmick 与真实增益的分界]]
+- [[「少即是多」：gimmick 与真实增益的分界]]

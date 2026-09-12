@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: society-law
 learningStage: when-needed
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 0
 origin: [notion]
 aliases: ["opt in", "opt out", "家长选择权", "默认选项"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 制度默认值的设计：默认全员使用不可退出，还是须家长主动选择，决定家长有无发言权。
 
-**领域** society-law ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** society-law ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 原文 context
 

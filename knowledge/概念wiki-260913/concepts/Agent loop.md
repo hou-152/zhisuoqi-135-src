@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: loop-autonomy
 learningStage: now
 verification: use
-centrality: 0.243
+centrality: 0.227
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 3
 
 > SDK 内置的循环：发起工具调用、把结果送回模型、持续迭代直到任务完成。
 
-**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.243
+**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.227
 
 ## 费曼一下
 
@@ -85,10 +85,11 @@ A built-in agent loop that handles tool invocation, sends results back to the LL
 - [[Agent]]
 - [[Cross-session Work]]
 - [[验证闭环 verification loop]]
-- [[primitives]]
+- [[Artifact Schema]]
+- [[model-native harness]]
 - [[Read-only Verifier Agent]]
 - [[持久化执行 durable execution]]
-- [[Artifact Schema]]
+- [[primitives]]
 - [[Shared File System]]
 - [[Verifiable Codebase]]
 - [[Ralph Loop]]
@@ -97,11 +98,10 @@ A built-in agent loop that handles tool invocation, sends results back to the LL
 - [[Signals]]
 - [[steering]]
 - [[TodoWrite 与 TodoRead]]
+- [[very few abstractions]]
 - [[Agents SDK]]
 - [[Executable Codebase]]
 - [[Loop Contract]]
 - [[Loop Engineer]]
-- [[model-native harness]]
 - [[tool loop]]
-- [[very few abstractions]]
 - [[Legible Codebase]]

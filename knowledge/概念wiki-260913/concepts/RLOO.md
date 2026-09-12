@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: model-training
 learningStage: deep-dive
 verification: compute
-centrality: 0.072
-depth: 4
+centrality: 0.067
+depth: 5
 origin: [notion]
 aliases: ["REINFORCE Leave-One-Out"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 每 prompt 采 K 条回复，优势=自身奖励减其余 K-1 条均值，不除标准差并放弃裁剪回到纯 REINFORCE。
 
-**领域** model-training ｜ **类型** PROCEDURAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.072
+**领域** model-training ｜ **类型** PROCEDURAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.067
 
 ## 原文 context
 
@@ -36,8 +36,8 @@ sources: 1
 
 ## 先懂这些（前置 2）
 
-- [[REINFORCE]] · **hard** — RLOO 是纯 REINFORCE 加留一基线，不懂 REINFORCE 就不懂其优势如何构造。
-- [[DPPO]] · **soft** — RLOO 放弃 PPO 的裁剪，懂 PPO 才能看清它回退到哪一步。
+- [[REINFORCE]] · **hard** — RLOO 放弃裁剪回到纯 REINFORCE，不懂 REINFORCE 就理解不了它的优势定义。
+- [[DPPO]] · **soft** — RLOO 放弃 PPO 的裁剪，先懂 PPO 才能理解它做了哪些简化。
 
 ## 相关
 

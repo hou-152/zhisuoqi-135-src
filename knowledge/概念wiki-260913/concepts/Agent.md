@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.226
-depth: 4
+centrality: 0.235
+depth: 3
 origin: [harness]
 aliases: []
 sources: 2
@@ -17,7 +17,7 @@ sources: 2
 
 > Agent 即装备了指令与工具的 LLM；最小配置只需 name 与 instructions。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.226
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.235
 
 ## 费曼一下
 
@@ -41,13 +41,14 @@ agent 不是一个神秘的智能体，而是「模型 + 一段说明它该做�
 - [[LLM Large Language Model]] · **hard** — 模型提供推理与生成，Agent 还需要外部运行系统。
 - [[Harness]] · **hard** — 来源提出 Agent = Model + Harness；本站在运行组成轴接纳该关系，同时保留 Agent 与 Agent Harness 不同义的行为视角。
 
-## 懂了它才能懂（解锁 5）
+## 懂了它才能懂（解锁 6）
 
 - [[Agent = Model + Harness]] — 不懂 Agent 是什么，就理解不了这个等式在说什么。
 - [[AI Agent]] — AI Agent 被定义为 Agent 的对外表现。
 - [[Agents SDK]] — SDK 为构建 agent 提供基础设施，先懂 agent 的定义。
 - [[AgentCore]] — 它是 agent 原语集合，先懂 agent 是什么才能用好原语。
 - [[APM]] — 包管理器分发的是 agent primitives，先懂 agent 是什么。
+- [[Bedrock Managed Agents]] — 它托管的是 agent，不懂 agent 的最小构成就理解不了被托管的单位。
 
 ## 相关
 
@@ -81,20 +82,21 @@ agent 不是一个神秘的智能体，而是「模型 + 一段说明它该做�
 - [[Sessions]]
 - [[Agent = Model + Harness]]
 - [[Guardrails]]
-- [[primitives]]
+- [[Bedrock Managed Agents]]
 - [[higher-level runtime]]
 - [[LLM Large Language Model]]
+- [[primitives]]
+- [[Claude Managed Agents]]
 - [[Function tools]]
 - [[messages API 作为直连网关]]
 - [[Tracing]]
+- [[very few abstractions]]
 - [[AI Agent]]
 - [[AgentCore]]
 - [[Agents SDK]]
 - [[APM]]
-- [[Claude Managed Agents]]
 - [[Handoffs Agents as tools]]
 - [[Human in the loop]]
 - [[MCP server tool calling]]
 - [[Python-first]]
 - [[Sandbox agents]]
-- [[very few abstractions]]

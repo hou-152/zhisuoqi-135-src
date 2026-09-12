@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: model-training
 learningStage: deep-dive
 verification: accept
-centrality: 0.045
-depth: 2
+centrality: 0.067
+depth: 3
 origin: [notion]
 aliases: ["视觉 Engram", "Vision Engram"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 基于 Qwen-3 复现文本 Engram 后，把 Engram 迁到 Stable Diffusion 的视觉版本。
 
-**领域** model-training ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.045
+**领域** model-training ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -36,9 +36,10 @@ sources: 1
 
 > {{name}} 把 Engram 搬到了什么载体，分层抓什么？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
-- [[multimodal Vision LLMs]] · **soft** — Tiny Engram 把 Engram 迁到视觉模型，懂多模态编码才懂视觉版改了什么。
+- [[multimodal Vision LLMs]] · **soft** — Tiny Engram 把 Engram 迁到视觉扩散，懂多模态视觉处理更易理解其迁移。
+- [[VLM]] · **soft** — 视觉版 Engram 与 VLM 同属视觉-语言处理，懂 VLM 更易定位它的目标。
 
 ## 相关
 
@@ -58,5 +59,6 @@ sources: 1
 
 - [[外包思考，但不外包理解]]
 - [[multimodal Vision LLMs]]
+- [[VLM]]
 - [[Agent-Native Infrastructure]]
 - [[Sensors 与 Actuators]]

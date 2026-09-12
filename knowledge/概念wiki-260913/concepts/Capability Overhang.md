@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: model-training
 learningStage: when-needed
 verification: judge
-centrality: 0.099
+centrality: 0.092
 depth: 3
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 模型是长出来的而非设计出来的，能力零星出现，形成一时未被利用的能力余量。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.099
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.092
 
 ## 费曼一下
 
@@ -65,15 +65,15 @@ Anthropic 认为模型是“grown, not designed”，能力会 spiky 地出现�
 ## 反链
 
 - [[Loop Engineering]]
-- [[锯齿状智能（Jagged Intelligence）]]
 - [[程序记忆（Procedural Memory Skills） progressive disclosure]]
+- [[锯齿状智能（Jagged Intelligence）]]
 - [[软件工厂 Software Factory]]
 - [[Orchestra Interface]]
 - [[模型蒸馏]]
 - [[capability spike 公式]]
 - [[Inner Loop]]
+- [[Model-relative Curriculum]]
 - [[Skills Hell]]
 - [[Agent as a New Type of Software]]
 - [[Forward Deployed Engineer]]
-- [[Model-relative Curriculum]]
 - [[Outer Loop]]

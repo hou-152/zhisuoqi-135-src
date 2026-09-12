@@ -7,7 +7,7 @@ subject: Harness Engineering
 domain: multi-agent
 learningStage: now
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [harness]
 aliases: ["risk-averse agents"]
@@ -18,7 +18,7 @@ sources: 1
 
 > 没有层级时 Agent 会趋避风险，只做小而安全的改动，难题无人负责、长期空转无进展。
 
-**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 

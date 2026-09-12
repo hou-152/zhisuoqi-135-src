@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: when-needed
 verification: accept
-centrality: 0.045
-depth: 3
+centrality: 0.042
+depth: 6
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 团队沿既定路径快速实例化新服务的现成实践，被用来类比 harness 未来按拓扑挑选。
 
-**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.045
+**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -38,7 +38,7 @@ golden path 是组织内被推荐的默认路线——照它走，脚手架、�
 
 ## 先懂这些（前置 1）
 
-- [[Harness evolution]] · **soft** — 按拓扑挑 harness 的前提是 harness 本身可演进、可选型
+- [[Harness evolution]] · **soft** — 类比 harness 按拓扑挑选，需先懂 harness 会持续演进。
 
 ## 相关
 

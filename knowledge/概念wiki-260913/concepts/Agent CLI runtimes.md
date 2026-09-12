@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: harness-runtime
 learningStage: when-needed
 verification: use
-centrality: 0.045
-depth: 6
+centrality: 0.042
+depth: 5
 origin: [context]
 aliases: []
 sources: 1
@@ -15,9 +15,9 @@ sources: 1
 
 # Agent CLI runtimes
 
-> 运行 agent workflow 的命令行环境，让自然语言工作流可跑在本地脚本、终端任务与 CI/CD 中。
+> 运行 agent workflow 的命令行环境，使自然语言工作流可在本地脚本、终端任务与 CI/CD 中执行。
 
-**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 原文 context
 
@@ -25,12 +25,12 @@ Agent CLI runtimes 是运行 agent workflow 的命令行环境，让自然语言
 
 ## 掌握证据（做到这些才算会）
 
-- 能把一个 agent workflow 用 CLI 在本地跑通
-- 能在 CI/CD 中调用该 CLI 执行工作流
+- 能在本地用命令行跑起一个 agent workflow
+- 能把同一 workflow 挂进 CI/CD 触发执行
 
 ## 验收问句
 
-> 用 {{name}} 能把自然语言工作流跑在哪些场景？
+> {{name}}能在哪些地方执行自然语言工作流？
 
 ## 先懂这些（前置 1）
 

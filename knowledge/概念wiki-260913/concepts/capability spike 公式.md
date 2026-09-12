@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: model-training
 learningStage: deep-dive
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 4
 origin: [notion]
 aliases: ["capability spike formula", "capability spike", "能力跃迁公式"]
@@ -17,7 +17,7 @@ sources: 1
 
 > capability spike ≈ 可验证性 × 训练注意力 × 数据覆盖 × 经济价值，四者同时高才可能跃迁。
 
-**领域** model-training ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** model-training ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 原文 context
 

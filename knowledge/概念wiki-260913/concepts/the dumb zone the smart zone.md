@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: judge
-centrality: 0.099
+centrality: 0.092
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 上下文被工具描述等填充后模型变笨为笨蛋区；把子任务拆给 sub-agents 可让主线程留在聪明区。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.099
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.092
 
 ## 费曼一下
 
@@ -60,5 +60,5 @@ sources: 1
 - [[Harness 工程 Harness Engineering]]
 - [[tokens]]
 - [[Tool call offloading]]
-- [[Skills Hell]]
 - [[configuration problem]]
+- [[Skills Hell]]

@@ -6,7 +6,7 @@ subject: AI 概念库 × Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.117
+centrality: 0.11
 depth: 0
 origin: [notion, harness]
 aliases: ["Latent space", "Deterministic", "latent 空间", "确定性", "latent / deterministic 边界", "latent与确定性"]
@@ -15,9 +15,9 @@ sources: 2
 
 # Latent vs Deterministic
 
-> 系统每一步非 latent 即 deterministic：智能住在潜在空间，信任住在确定性层，混淆二者是最常见错误。
+> 系统每一步非潜空间即确定性：智能住在潜空间，信任住在确定性层，混淆二者最常见错。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.117
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.11
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ agent 系统里每一步都必须落在其中一边。
 
 ## 掌握证据（做到这些才算会）
 
-- 能逐一标注流程里每步属于 latent 还是 deterministic
-- 能举出让确定性代码承担判断以换取信任的例子
+- 能逐个标注流程中每步属于潜空间还是确定性
+- 能指出把判断交给确定性代码或反之导致的具体故障
 
 ## 验收问句
 
-> 这套系统里哪几步是 {{name}} 中的潜在空间，哪几步必须确定性？
+> 你能指出 {{name}} 的实例中哪些步骤属于哪一类吗？
 
 ## 懂了它才能懂（解锁 3）
 

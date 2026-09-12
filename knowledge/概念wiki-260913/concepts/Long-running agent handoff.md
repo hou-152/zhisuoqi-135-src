@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: state-persistence
 learningStage: when-needed
 verification: use
-centrality: 0.126
+centrality: 0.142
 depth: 4
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 跨上下文窗口、跨阶段维持长任务的交接机制，如 initializer agent、handoff artifact、feature list 与上下文压缩。
 
-**领域** state-persistence ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
+**领域** state-persistence ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.142
 
 ## 费曼一下
 
@@ -36,12 +36,13 @@ Anthropic 的 initializer agents、handoff artifacts、feature lists，以及 Op
 
 > 长任务跨多个上下文窗口时，{{name}} 靠什么保证进度不丢？
 
-## 先懂这些（前置 4）
+## 先懂这些（前置 5）
 
 - [[Sessions]] · **hard** — 长任务交接靠跨轮持久记忆层维持上下文，不懂 Sessions 无法理解交接载体。
-- [[Sessions]] · **hard** — 交接要跨上下文窗口携带状态，前提是存在跨轮维持上下文的持久记忆层。
+- [[Cross-session Work]] · **hard** — 交接跨上下文窗口，前提是状态能跨 session 保存与恢复。
+- [[状态子系统与进度持久化]] · **hard** — 交接靠 feature list 与进度文件判断做到哪、下一步做啥。
 - [[Cross-session Work]] · **soft** — 交接机制服务于跨 session 推进长任务，懂该场景让交接目的更清楚。
-- [[Cross-session Work]] · **soft** — 交接 artifact 与 feature list 在多 session 间流转，先懂跨 session 分工才懂交接对象是什么。
+- [[持久化执行 durable execution]] · **soft** — 长任务要能续跑，依赖可独立重试的持久化 step。
 
 ## 相关
 
@@ -57,5 +58,7 @@ Anthropic 的 initializer agents、handoff artifacts、feature lists，以及 Op
 - [[Harness 工程 Harness Engineering]]
 - [[Cross-session Work]]
 - [[Sessions]]
+- [[状态子系统与进度持久化]]
+- [[持久化执行 durable execution]]
 - [[Context as working memory budget]]
 - [[Reliability-critical harness primitives]]

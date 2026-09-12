@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: when-needed
 verification: accept
-centrality: 0.154
+centrality: 0.092
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > SDK 中不可再拆的三个基本构件：Agents、Agents as tools/Handoffs、Guardrails。
 
-**领域** harness-runtime ｜ **类型** LANGUAGE ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.154
+**领域** harness-runtime ｜ **类型** LANGUAGE ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.092
 
 ## 费曼一下
 
@@ -38,14 +38,12 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[very few abstractions]] · **hard** — 只有极少抽象才能把构件收敛成 Agents、Handoffs、Guardrails
+- [[very few abstractions]] · **hard** — 只暴露极少抽象是 SDK 定位，不懂它就不理解原语为何不可再拆。
 
-## 懂了它才能懂（解锁 4）
+## 懂了它才能懂（解锁 2）
 
-- [[higher-level runtime]] — handoffs、guardrails 等原语是运行时接管的构件
-- [[turnkey yet flexible]] — 默认能跑靠原语开箱可用，可改造靠原语留出接口
-- [[Reliability-critical harness primitives]] — 筛选标准围绕可靠性原语，先有原语概念才谈筛选
-- [[SayCan]] — 出主意与评估的结合，可看作 agent 与工具原语的接驳
+- [[Reliability-critical harness primitives]] — 筛选标准针对 SDK 原语，不懂 primitives 就不知道在筛什么。
+- [[turnkey yet flexible]] — 原语少而稳，才既开箱即用又方便改造。
 
 ## 相关
 
@@ -68,19 +66,18 @@ sources: 1
 - Harness Engineering ｜ 《OpenAI Agents SDK 官方文档：抽象极少的轻量 agent 框架》 ｜ https://openai.github.io/openai-agents-python/
 ## 反链
 
-- [[Agent loop]]
 - [[Agent]]
+- [[Agent loop]]
 - [[Sessions]]
 - [[Guardrails]]
 - [[higher-level runtime]]
 - [[Function tools]]
+- [[Reliability-critical harness primitives]]
 - [[Tracing]]
+- [[turnkey yet flexible]]
+- [[very few abstractions]]
 - [[Handoffs Agents as tools]]
 - [[Human in the loop]]
 - [[MCP server tool calling]]
 - [[Python-first]]
-- [[Reliability-critical harness primitives]]
 - [[Sandbox agents]]
-- [[SayCan]]
-- [[turnkey yet flexible]]
-- [[very few abstractions]]

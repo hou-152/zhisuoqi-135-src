@@ -7,7 +7,7 @@ subject: Context Engineering
 domain: tools-sandbox
 learningStage: now
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 0
 origin: [context]
 aliases: ["tools as the contract"]
@@ -16,9 +16,9 @@ sources: 1
 
 # 工具即契约 · tools as the contract
 
-> 工具是 agent 与其信息/行动空间之间的契约，须返回 token 高效的信息、鼓励高效行为，并自包含、健壮、用途清晰。
+> 工具是 Agent 与其信息/行动空间之间的契约，须返回 token 高效的信息，并像良好代码库函数那样自包含、健壮、用途清晰。
 
-**领域** tools-sandbox ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** tools-sandbox ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能按契约标准评审一个工具定义的返回值与错误处理
-- 能指出某个工具因用途含糊而诱发的错误用法
+- 能按自包含、对错误健壮、用途清晰三条评审一个工具定义
+- 能判断某工具返回的信息是否 token 高效
 
 ## 验收问句
 
-> 把{{name}}当设计原则，工具该满足哪些要求？
+> 你能按 {{name}} 的标准评审这个工具定义吗？
 
 ## 懂了它才能懂（解锁 2）
 

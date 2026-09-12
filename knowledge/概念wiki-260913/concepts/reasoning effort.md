@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: model-training
 learningStage: when-needed
 verification: use
-centrality: 0.045
-depth: 1
+centrality: 0.042
+depth: 3
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > coding agent 可调高或调低的推理强度，在输出质量与 token 成本之间取舍。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -38,7 +38,7 @@ coding agents 可调高或调低 reasoning effort。
 
 ## 先懂这些（前置 1）
 
-- [[reasoning thinking]] · **hard** — 推理强度是推理/思考模式的调节旋钮，不懂推理模式就不知道在调什么。
+- [[reasoning thinking]] · **hard** — 推理强度调节的是思考模式花多少 token，不懂思考模式就不懂它在调什么。
 
 ## 相关
 

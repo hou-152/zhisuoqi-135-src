@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: personal-life
 learningStage: when-needed
 verification: accept
-centrality: 0.072
+centrality: 0.067
 depth: 1
 origin: [notion]
 aliases: ["AI 媒人", "AI 红娘", "AI matchmaker", "AI 撮合"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 由 AI 了解你的偏好、筛选撮合、安排约会并事后复盘的交友方式，被预判为五年后的常态。
 
-**领域** personal-life ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
+**领域** personal-life ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.067
 
 ## 费曼一下
 

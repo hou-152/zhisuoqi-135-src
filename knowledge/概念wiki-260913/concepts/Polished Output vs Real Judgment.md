@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: agent-org
 learningStage: when-needed
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [notion]
 aliases: ["光鲜输出 vs 真判断力", "distinguish polished output from real judgment", "fluency vs depth"]
@@ -17,7 +17,7 @@ sources: 1
 
 > AI 时代领导力核心是分辨漂亮表达与真实判断；分不清会让组织知识环境整体退化。
 
-**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 原文 context
 

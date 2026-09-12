@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: context-engineering
 learningStage: when-needed
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 0
 origin: [notion]
 aliases: ["Software 3.0", "软件 3.0", "software three"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 第三种编程范式：用 prompt、context、tools、examples 编程，context window 是新程序，LLM 是新解释器。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 原文 context
 

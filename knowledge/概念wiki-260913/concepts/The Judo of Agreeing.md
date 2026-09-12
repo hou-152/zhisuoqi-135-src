@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: personal-life
 learningStage: when-needed
 verification: use
-centrality: 0.099
+centrality: 0.092
 depth: 3
 origin: [notion]
 aliases: ["同意的柔道", "承认的柔道", "借力打力承认错误"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 被攻击时主动承认错误，借走对方进攻动量，前提是接完不接「但是」。
 
-**领域** personal-life ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.099
+**领域** personal-life ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.092
 
 ## 原文 context
 

@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: economy-business
 learningStage: when-needed
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 3
 origin: [notion]
 aliases: ["Getting vs Keeping Wealth", "变富 vs 守富", "生存是前提"]
@@ -15,9 +15,9 @@ sources: 1
 
 # 获取财富 vs 保持财富
 
-> 获取财富靠冒险与乐观，保持财富靠谨慎与对风险的敬畏；有优势与能生存是两回事。
+> 致富靠冒险乐观进取，守富靠谨慎谦逊与对风险的敬畏；有优势和能生存是两码事。
 
-**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 原文 context
 
@@ -27,12 +27,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能对比赚钱与守钱两种相反心态
-- 能指出最危险的时刻是自认天赋异禀之时
+- 能说出获取与保持两阶段所需的心态几乎相反
+- 能指出财富曲线最危险的时点是从自信天赋异禀开始
 
 ## 验收问句
 
-> 为什么 {{name}} 需要两种相反的心态？
+> 为什么{{name}}需要两种几乎相反的心态？
 
 ## 先懂这些（前置 1）
 

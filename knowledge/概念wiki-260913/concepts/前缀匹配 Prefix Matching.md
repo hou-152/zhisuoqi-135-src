@@ -5,7 +5,7 @@ nameEn: Prefix Matching
 type: CONCEPTUAL
 subject: Context Engineering
 domain: caching-cost
-learningStage: now
+learningStage: when-needed
 verification: judge
 centrality: 0.017
 depth: 0
@@ -16,9 +16,9 @@ sources: 1
 
 # 前缀匹配 · Prefix Matching
 
-> 缓存命中要求请求前缀逐 token 一致；语义相近但前缀不同不算命中。
+> 缓存命中依赖请求前缀完全一致，语义相近不等于前缀一致，前缀稳定性直接决定命中率。
 
-**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能解释为什么在 prompt 前部插入时间戳会破坏命中
-- 能重排 prompt，把稳定内容放前面、变量放后面以提高命中
+- 能区分『语义差不多』与『前缀一致』两种情况
+- 能指出改动哪一段会打破前缀一致导致缓存失效
 
 ## 验收问句
 
-> 这样改 prompt 之后还能命中{{name}}吗，为什么？
+> 这里缓存没命中，是{{name}}被破坏了吗？
 
 ## 相关
 

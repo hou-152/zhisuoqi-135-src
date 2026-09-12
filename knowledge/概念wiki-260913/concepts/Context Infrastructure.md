@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: judge
-centrality: 0.045
-depth: 2
+centrality: 0.067
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > Harness 决定 Agent 怎么工作与协调，上下文基础设施决定它拿到什么信息，进而决定质量上限。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -36,9 +36,10 @@ Harness engineering 的互补方向。Harness 解决「怎么干活」，context
 
 > {{name}} 与 harness 各自负责什么？
 
-## 先懂这些（前置 1）
+## 懂了它才能懂（解锁 2）
 
-- [[Context Management 四策略]] · **soft** — 基础设施决定给 agent 什么信息，四策略是其落地手段
+- [[Self-Improving Context System]] — 自改进系统持续优化的是 agent 拿到的信息，属上下文基础设施
+- [[Personal Context]] — 个人笔记与框架要靠基础设施系统接入，才可能越用越懂你
 
 ## 相关
 
@@ -52,6 +53,7 @@ Harness engineering 的互补方向。Harness 解决「怎么干活」，context
 ## 反链
 
 - [[Harness 工程 Harness Engineering]]
-- [[Context Management 四策略]]
 - [[空间 Scalability Spatial Scalability]]
 - [[时间 Scalability Temporal Scalability]]
+- [[Personal Context]]
+- [[Self-Improving Context System]]

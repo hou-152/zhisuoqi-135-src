@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: economy-business
 learningStage: when-needed
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 1
 origin: [notion]
 aliases: ["Open-source vs Closed-source AI"]
@@ -15,9 +15,9 @@ sources: 1
 
 # 开源 vs 闭源
 
-> 开源靠社区传播与低门槛，闭源靠资本回报循环；能走多远取决于资本独立性。
+> 靠社区传播的开源与靠资本算力循环的闭源之争，胜负取决于产业资本能否持续独立投入。
 
-**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 原文 context
 
@@ -27,12 +27,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能分别说出开源与闭源路线的资源约束
-- 能指出制度与资本环境如何决定开源路线上限
+- 能分别说出两条路线各自依赖的资本与传播机制
+- 能指出监管与金融环境如何影响开源路线的上限
 
 ## 验收问句
 
-> 你能用 {{name}} 的框架判断某条模型路线能走多远吗？
+> 在当前制度与资本环境下，你判断{{name}}中哪条路线能走更远？
 
 ## 先懂这些（前置 1）
 

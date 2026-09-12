@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: verification-eval
 learningStage: now
 verification: use
-centrality: 0.126
+centrality: 0.117
 depth: 0
 origin: [notion]
 aliases: ["评分量表", "评估量表", "scoring rubric", "Rubric"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 明确写出「什么表现算好、什么算差」的评分标准，既驱动场景生成又约束最终评分，须指向具体片段。
 
-**领域** verification-eval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
+**领域** verification-eval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.117
 
 ## 原文 context
 
@@ -40,7 +40,7 @@ sources: 1
 - [[Review Quality 评分方法]] — 四项 1-10 打分本质是把评审质量写成分维 rubric。
 - [[Rubric 与 verifier agent]] — 用 rubric 起验证 agent，不懂 rubric 就无从谈这套招式。
 - [[Rubrics 与验证 agent]] — 带 rubric 启动验证 agent，前提是先有明确评分标准。
-- [[Sprint Contract】]] — 契约本质就是开工前双方对齐的验收 rubric。
+- [[Sprint Contract]] — 契约本质就是开工前双方对齐的验收 rubric。
 
 ## 相关
 
@@ -61,4 +61,4 @@ sources: 1
 - [[Review Quality 评分方法]]
 - [[Rubric 与 verifier agent]]
 - [[Rubrics 与验证 agent]]
-- [[Sprint Contract】]]
+- [[Sprint Contract]]

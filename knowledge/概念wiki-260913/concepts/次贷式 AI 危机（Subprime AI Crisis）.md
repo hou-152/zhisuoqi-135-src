@@ -4,9 +4,9 @@ name: 次贷式 AI 危机（Subprime AI Crisis）
 type: CONCEPTUAL
 subject: AI 概念库
 domain: economy-business
-learningStage: deep-dive
+learningStage: when-needed
 verification: judge
-centrality: 0.126
+centrality: 0.117
 depth: 2
 origin: [notion]
 aliases: ["Subprime AI Crisis", "次贷 AI", "AI 次贷危机"]
@@ -15,9 +15,9 @@ sources: 1
 
 # 次贷式 AI 危机（Subprime AI Crisis）
 
-> AI 以极低折扣出售、由大厂大量补贴、风险层层打包隐藏，当烧钱追上真实成本时整条链路反向崩塌。
+> AI 被低价出售、风险打包转嫁，整条链依赖模型会变便宜、创业公司会盈利、算力永远赚钱三个未证假设。
 
-**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
+**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.117
 
 ## 费曼一下
 
@@ -25,12 +25,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能说出三条未证明假设：LLM 会变便宜、AI 创业公司会盈利、算力永远盈利
-- 能指出补贴止血带松开比亏损本身更是危机信号
+- 能指出补贴止血带松开的信号，如 Copilot 改 token 计费、限速
+- 能说清与 2008 同构的风险打包与末端持有者不知情
 
 ## 验收问句
 
-> {{name}} 里真正的危机信号是什么？
+> 按{{name}}，哪个现象会让你判断补贴链条开始断裂？
 
 ## 先懂这些（前置 1）
 

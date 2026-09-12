@@ -6,7 +6,7 @@ subject: AI 概念库 × Harness Engineering
 domain: code-engineering
 learningStage: now
 verification: judge
-centrality: 0.144
+centrality: 0.135
 depth: 0
 origin: [notion, harness]
 aliases: ["Agentic Engineering", "agentic engineering", "智能体工程", "agent 工程"]
@@ -17,7 +17,7 @@ sources: 2
 
 > 协调可错、随机而强大的 agent 快速产出，同时守住正确性、安全、品味与可维护性的工程纪律。
 
-**领域** code-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.144
+**领域** code-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.135
 
 ## 费曼一下
 
@@ -60,7 +60,7 @@ Karpathy 说：旧的"10x 工程师"概念会被极大放大——掌握 agentic
 
 ## 相关
 
-- [[Bitter Lesson】]] · 同篇出现（co-occurrence） — 同篇出现：harness-26
+- [[Bitter Lesson]] · 同篇出现（co-occurrence） — 同篇出现：harness-26
 - [[Creator → Curator 角色转换]] · 同篇出现（co-occurrence） — 同篇出现：harness-26
 - [[Vibe Coding]] · 同篇出现（co-occurrence） — 同篇出现：harness-26
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-26
@@ -85,4 +85,4 @@ Karpathy 说：旧的"10x 工程师"概念会被极大放大——掌握 agentic
 - [[Vibe Coding]]
 - [[12-factor agents]]
 - [[准比快重要]]
-- [[Bitter Lesson】]]
+- [[Bitter Lesson]]

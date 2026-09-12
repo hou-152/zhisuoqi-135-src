@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.017
-depth: 0
+centrality: 0.067
+depth: 1
 origin: [harness]
 aliases: []
 sources: 1
@@ -15,9 +15,9 @@ sources: 1
 
 # 时间 Scalability / Temporal Scalability
 
-> Agent在精心设计的环境中连续运行数小时，仍能保持方向与质量的能力。
+> agent 在数小时连续运行中保持方向与质量的能力，是长时任务的骨架问题。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -29,12 +29,20 @@ agent 在精心设计的环境里开始工作后，怎么在几个小时的连�
 
 ## 掌握证据（做到这些才算会）
 
-- 能说出长时间运行中方向漂移与质量下降的具体表现
-- 能给出维持数小时稳定运行的检查点或机制
+- 能指出长时运行中常见的失焦与质量衰减
+- 能提出维持方向的具体机制
 
 ## 验收问句
 
-> {{name}}要解决几小时连续运行中的什么问题？
+> 怎样验证一个 agent 具备时间可扩展性？
+
+## 先懂这些（前置 1）
+
+- [[context window 即 agent 状态]] · **hard** — 长时运行保持方向，前提是把上下文当作可累积的持久状态来管理。
+
+## 懂了它才能懂（解锁 1）
+
+- [[长周期任务的基础设施压力]] — 时域一长压力就从模型转向周围基础设施，前提是先理解时间可扩展性。
 
 ## 相关
 
@@ -58,8 +66,10 @@ agent 在精心设计的环境里开始工作后，怎么在几个小时的连�
 - [[递归 Planner-Worker 架构]]
 - [[空间 Scalability Spatial Scalability]]
 - [[自评失真 Self-evaluation Distortion]]
-- [[Harness 组件生命周期]]
+- [[Context Infrastructure]]
 - [[方向漂移 Direction Drift]]
 - [[交互 Scalability Interaction Scalability]]
-- [[Context Infrastructure]]
+- [[长周期任务的基础设施压力]]
+- [[context window 即 agent 状态]]
 - [[Generative Kernel]]
+- [[Harness 组件生命周期]]

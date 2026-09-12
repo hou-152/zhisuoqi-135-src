@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: now
 verification: use
-centrality: 0.045
-depth: 2
+centrality: 0.042
+depth: 1
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 在 frontmatter 的 description 里写清「什么时候用」，以此决定该 skill 何时被自动拉进上下文。
 
-**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -38,7 +38,7 @@ frontmatter 里最关键的一行。示例把 description 写成「…Use when t
 
 ## 先懂这些（前置 1）
 
-- [[Progressive disclosure（渐进式披露）与 Skills]] · **hard** — description 决定 skill 何时被拉入，正是渐进披露的触发机制
+- [[Agent Skills]] · **hard** — description 是 skill frontmatter 的字段，不懂 Skill 结构就无从谈触发
 
 ## 相关
 
@@ -53,5 +53,5 @@ frontmatter 里最关键的一行。示例把 description 写成「…Use when t
 
 - [[验证闭环 verification loop]]
 - [[skill-creator 访谈式创建]]
-- [[Progressive disclosure（渐进式披露）与 Skills]]
+- [[Agent Skills]]
 - [[把重复步骤编码成 Skill]]

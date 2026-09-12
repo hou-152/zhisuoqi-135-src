@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: media-culture-education
 learningStage: when-needed
 verification: use
-centrality: 0.045
+centrality: 0.042
 depth: 0
 origin: [notion]
 aliases: ["Generative Engine Optimization", "生成式引擎优化"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 面向生成式引擎的内容优化，如加入权威引用可提升 AI 可见性 115%。
 
-**领域** media-culture-education ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** media-culture-education ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -38,7 +38,7 @@ sources: 1
 
 ## 懂了它才能懂（解锁 1）
 
-- [[Human-Only Social Networks]] — 理解 AI 可见性优化，才懂真人网络为何要抵御机器内容
+- [[Human-Only Social Networks]] — 懂 AI 可见性可被批量优化，才懂为何要防 AI 污染公共空间。
 
 ## 相关
 

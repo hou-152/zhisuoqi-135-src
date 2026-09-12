@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: thinking-method
 learningStage: now
 verification: judge
-centrality: 0.045
-depth: 2
+centrality: 0.017
+depth: 0
 origin: [notion]
 aliases: ["HiFi", "HiEx", "High-Fidelity Information", "High-Expertise Information", "高保真度信息", "高专业度信息"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 把信息质量拆成高保真（贴近一手真相）与高专业度（来源是真专家）两条，优先取一手资料与专家见解。
 
-**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 原文 context
 
@@ -34,10 +34,6 @@ sources: 1
 
 > 按 {{name}}，一条信息该从哪两个维度判断值不值得用？
 
-## 先懂这些（前置 1）
-
-- [[Facts are facts, but perception is reality]] · **soft** — 优先一手真相与真专家，是对“感知即现实”的纠偏。
-
 ## 相关
 
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -51,7 +47,3 @@ sources: 1
 ## 别名
 
 `HiFi`、`HiEx`、`High-Fidelity Information`、`High-Expertise Information`、`高保真度信息`、`高专业度信息`
-
-## 反链
-
-- [[Facts are facts, but perception is reality]]

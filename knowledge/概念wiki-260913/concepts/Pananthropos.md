@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: media-culture-education
 learningStage: when-needed
 verification: accept
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [notion]
 aliases: ["全人类", "All-Human"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 希腊语「全人」，用来称莎士比亚这样拥抱整个人类经验的普遍之人。
 
-**领域** media-culture-education ｜ **类型** LANGUAGE ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.045
+**领域** media-culture-education ｜ **类型** LANGUAGE ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -38,7 +38,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[First Folio]] · **hard** — 没有第一对开本，莎士比亚半数剧作失传，普遍之人无从谈起
+- [[First Folio]] · **soft** — 不懂 First Folio 保存了莎剧全集，就无法理解莎士比亚何以成为'全人'的例证。
 
 ## 相关
 

@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: model-training
 learningStage: when-needed
 verification: accept
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [notion]
 aliases: ["Mixture of Experts", "混合专家", "专家模型"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 把计算稀疏化，每次只激活部分专家，用更少算力换同等能力。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.045
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -38,7 +38,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[Q、K、V]] · **soft** — MoE 在 Transformer 中替换 FFN，懂 QKV 才懂它在计算流里的位置。
+- [[Q、K、V]] · **soft** — MoE 稀疏化的是 Transformer 的 FFN，懂 QKV 注意力才能定位它的替换位置。
 
 ## 相关
 

@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.045
-depth: 2
+centrality: 0.017
+depth: 0
 origin: [context]
 aliases: ["entropy reduction"]
 sources: 1
@@ -16,9 +16,9 @@ sources: 1
 
 # 熵减 · entropy reduction
 
-> 上下文工程的本质是把高熵的上下文与意图压缩成低熵表示，这份人工预处理成本与机器智能水平成反比。
+> 上下文工程的本质是把高熵的上下文与意图压缩成低熵表示，该成本与机器智能水平成反比。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -30,16 +30,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能说明人交流时靠共有知识与情境主动降熵、机器为何做不到
-- 能指出某次上下文准备中省掉的部分本可由模型补上
+- 能解释人靠共有知识与情境补全省略信息
+- 能说明模型变强后这份effort如何变化
 
 ## 验收问句
 
-> {{name}}要付出的成本是什么，为何会随模型变强而下降？
-
-## 先懂这些（前置 1）
-
-- [[上下文工程 context engineering]] · **hard** — 上下文工程的本质就是把高熵上下文压成低熵表示，不懂熵减就不懂其目标
+> 为什么{{name}}是上下文工程的核心成本？
 
 ## 相关
 
@@ -68,15 +64,14 @@ sources: 1
 
 ## 反链
 
-- [[上下文工程 context engineering]]
 - [[上下文 context]]
 - [[分层记忆架构]]
-- [[注意力之前的注意力 attention before attention]]
+- [[上下文隔离 context isolation]]
 - [[四阶段演化模型]]
+- [[注意力之前的注意力 attention before attention]]
 - [[最小充分性与语义连续性原则]]
 - [[self-baking]]
 - [[轻量引用 lightweight references]]
-- [[上下文隔离 context isolation]]
 - [[上下文协作 context-cooperative]]
 - [[数字存在 Digital Presence]]
 - [[意图翻译者 intention translator]]

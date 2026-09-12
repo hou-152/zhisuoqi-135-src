@@ -6,7 +6,7 @@ subject: Context Engineering × Harness Engineering
 domain: multi-agent
 learningStage: now
 verification: use
-centrality: 0.171
+centrality: 0.16
 depth: 2
 origin: [context, harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 2
 
 > 把执行、审查、修复分给不同子 Agent 或模型，避免写代码的 Agent 给自己打分。
 
-**领域** multi-agent ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.171
+**领域** multi-agent ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.16
 
 ## 费曼一下
 
@@ -43,7 +43,7 @@ sources: 2
 
 ## 懂了它才能懂（解锁 3）
 
-- [[Generator-Evaluator Loop】]] — 生成与评估分离本质上是执行者与审查者的分工
+- [[Generator-Evaluator Loop]] — 生成与评估分离本质上是执行者与审查者的分工
 - [[模型—角色适配]] — 没有角色分工，就无所谓按角色挑选最合适的模型
 - [[意图理解、路由与升级 understand intent, route, escalate]] — 把工作路由给正确执行者，就是按分工选择合适子 Agent。
 
@@ -64,6 +64,6 @@ sources: 2
 - [[自动循环的心跳]]
 - [[模型—角色适配]]
 - [[意图理解、路由与升级 understand intent, route, escalate]]
-- [[Generator-Evaluator Loop】]]
+- [[Generator-Evaluator Loop]]
 - [[Prompt 到 Loop 的跃迁]]
 - [[所有权与问责]]

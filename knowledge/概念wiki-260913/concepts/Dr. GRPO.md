@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: model-training
 learningStage: deep-dive
 verification: judge
-centrality: 0.181
-depth: 4
+centrality: 0.167
+depth: 5
 origin: [notion]
 aliases: ["GRPO Done Right", "做对的 GRPO"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 指出 GRPO 样本级归一化带来偏向简短正确与冗长错误的偏置，改用固定常量归一化并去掉标准差归一化。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.181
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.167
 
 ## 原文 context
 
@@ -65,8 +65,8 @@ sources: 1
 - [[DPPO]]
 - [[外包思考，但不外包理解]]
 - [[价值函数]]
+- [[MaxRL]]
 - [[Agent-Native Infrastructure]]
 - [[优势函数]]
 - [[DAPO]]
-- [[MaxRL]]
 - [[Sensors 与 Actuators]]

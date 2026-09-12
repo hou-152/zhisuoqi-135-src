@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: clinical-medicine
 learningStage: when-needed
 verification: accept
-centrality: 0.045
+centrality: 0.042
 depth: 0
 origin: [notion]
 aliases: ["电子健康记录", "Electronic Health Record", "电子病历"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 电子健康记录，汇总分诊、问诊、化验、影像与住院评估的病人在院数字病历底盘。
 
-**领域** clinical-medicine ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.045
+**领域** clinical-medicine ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 原文 context
 
@@ -36,7 +36,7 @@ sources: 1
 
 ## 懂了它才能懂（解锁 1）
 
-- [[第二意见]] — 第二意见在EHR中被动运行，无EHR则无运行底盘。
+- [[第二意见]] — 第二意见是运行在EHR中的被动安全网，不懂EHR就不知其工作环境。
 
 ## 相关
 
@@ -54,7 +54,7 @@ sources: 1
 
 ## 反链
 
-- [[第二意见]]
 - [[外包思考，但不外包理解]]
+- [[第二意见]]
 - [[Agent-Native Infrastructure]]
 - [[Sensors 与 Actuators]]

@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: media-culture-education
 learningStage: when-needed
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 1
 origin: [notion]
 aliases: ["Passive vs. Interactive Screen Use"]
@@ -15,9 +15,9 @@ sources: 1
 
 # 被动 vs. 互动屏幕使用
 
-> 把屏幕使用切成被动娱乐消费与主动协作学习两类，二者影响截然不同，总量指标因此失效。
+> 同样屏幕时长，被动娱乐消费与主动协作学习影响不同，总量指标因此失效。
 
-**领域** media-culture-education ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** media-culture-education ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 原文 context
 
@@ -28,12 +28,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能用这把分类刀重新评估一段屏幕使用时间
-- 能说出为何「屏幕时间总量」不再是有效指标
+- 能区分被动消费与主动使用
+- 能说明为何屏幕总时长不再是有效指标
 
 ## 验收问句
 
-> 用{{name}}看两小时刷视频与两小时写论文，差别在哪？
+> 用 {{name}} 判断，你这段屏幕时间属于哪一类？
 
 ## 先懂这些（前置 1）
 

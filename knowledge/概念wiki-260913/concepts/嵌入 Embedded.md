@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: harness-runtime
 learningStage: when-needed
 verification: use
-centrality: 0.072
-depth: 1
+centrality: 0.017
+depth: 0
 origin: [context]
 aliases: ["Embedded"]
 sources: 1
@@ -16,9 +16,9 @@ sources: 1
 
 # 嵌入 · Embedded
 
-> 第二种接入方式：检查作为 skill 产出物的一部分自动触发，不必人工点名。
+> 第二种接入方式：检查作为 skill 产出物的一部分自动触发，无需开口，如生成组件后自动跑 eslint。
 
-**领域** harness-runtime ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** harness-runtime ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -30,20 +30,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能在产出型 skill 的 body 末尾加一行，让检查随产出自动运行
-- 能在一个全新任务上调用该 skill，验证新步骤作为输出一部分跑出来
+- 能在 skill body 末尾加一行让检查随产出自动执行
+- 能在全新任务上调用该 skill 并看到新步骤自动跑出来
 
 ## 验收问句
 
-> 怎么验证某个检查是{{name}}而不是手动触发的？
-
-## 先懂这些（前置 1）
-
-- [[Agent Skills】]] · **hard** — 嵌入即作为 skill 产出物的一部分触发，不懂 skill 就无从谈嵌入。
-
-## 懂了它才能懂（解锁 1）
-
-- [[灵活性与自动化的权衡]] — 嵌入式接入的自动程度，是这条权衡坐标上的一个具体点。
+> 这个检查流程该做成显式调用，还是做成{{name}}？
 
 ## 相关
 
@@ -63,6 +55,4 @@ sources: 1
 
 - [[验证闭环 verification loop]]
 - [[skill-creator 访谈式创建]]
-- [[Agent Skills】]]
 - [[把重复步骤编码成 Skill]]
-- [[灵活性与自动化的权衡]]

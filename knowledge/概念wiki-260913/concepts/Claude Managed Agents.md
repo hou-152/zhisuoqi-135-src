@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: use
-centrality: 0.045
-depth: 2
+centrality: 0.067
+depth: 1
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 预置、可配置、跑在托管基础设施上的 agent harness：你定义 agent 模板，harness 与 infra 由 Anthropic 提供。
 
-**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -38,7 +38,11 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[agent 作为 Claude API 的新核心原语]] · **soft** — 托管 harness 的产品形态，建立在 agent 成为 API 原语之上。
+- [[agent 与 harness 的分工]] · **hard** — 你定义 agent 模板、harness 由 Anthropic 提供，正建立在这一分工上。
+
+## 懂了它才能懂（解锁 1）
+
+- [[agent 作为 Claude API 的新核心原语]] — 托管 harness 与基础设施被接管后，agent 才成为 API 的核心原语。
 
 ## 相关
 
@@ -46,13 +50,13 @@ sources: 1
 - [[任务时域 task horizon]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
 - [[长周期任务的基础设施压力]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
 - [[Environment]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
-- [[Session]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
 - [[brain hands session 解耦]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
 - [[基础设施挑战而非 harness 设计问题]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
 - [[触发模式谱系]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
-- [[agent 模板的声明式持久化]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
 - [[skill 作为 onboarding 载体]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
 - [[agent 作为 Claude API 的新核心原语]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
+- [[Session]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
+- [[agent 模板的声明式持久化]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
 - [[messages API 作为直连网关]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
 - [[Agent]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
@@ -64,14 +68,15 @@ sources: 1
 
 - [[Agent]]
 - [[Session]]
+- [[agent 与 harness 的分工]]
 - [[agent 模板的声明式持久化]]
 - [[harness 的过时假设]]
-- [[agent 作为 Claude API 的新核心原语]]
 - [[messages API 作为直连网关]]
+- [[skill 作为 onboarding 载体]]
 - [[触发模式谱系]]
 - [[基础设施挑战而非 harness 设计问题]]
 - [[任务时域 task horizon]]
 - [[长周期任务的基础设施压力]]
+- [[agent 作为 Claude API 的新核心原语]]
 - [[brain hands session 解耦]]
 - [[Environment]]
-- [[skill 作为 onboarding 载体]]

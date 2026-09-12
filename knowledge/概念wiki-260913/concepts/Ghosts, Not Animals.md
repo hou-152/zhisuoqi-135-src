@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: thinking-method
 learningStage: now
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 0
 origin: [notion]
 aliases: ["Ghosts vs Animals", "Animals vs Ghosts", "ghosts not animals", "鬼魂而非动物"]
@@ -17,7 +17,7 @@ sources: 1
 
 > LLM 不是有生物驱动的动物，而是人类制品的统计模拟，正确姿态是经验性熟悉。
 
-**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 原文 context
 
@@ -48,7 +48,7 @@ LLM 是 ghost 不是 animal。这意味着：
 
 ## 懂了它才能懂（解锁 1）
 
-- [[Simulated Competence]] — LLM 是统计模拟而非生物，故能模拟胜任且与真懂难分。
+- [[Simulated Competence]] — 不懂 LLM 是统计模拟而非动物，就难理解它为何能模拟胜任。
 
 ## 相关
 

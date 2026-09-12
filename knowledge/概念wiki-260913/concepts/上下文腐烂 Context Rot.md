@@ -60,9 +60,9 @@ sources: 8
 - [[结构化记事 agentic memory]] · 同篇出现（co-occurrence） — 同篇出现：context-05
 - [[sub-agent 架构与关注点分离]] · 同篇出现（co-occurrence） — 同篇出现：context-05
 - [[观察掩码 Observation Masking]] · 常一起用（工作流） — 掩码旧工具输出用于降低低信号历史对当前推理的干扰。
-- [[Action Space】]] · 同篇出现（co-occurrence） — 同篇出现：context-15
-- [[See Like an Agent】]] · 同篇出现（co-occurrence） — 同篇出现：context-15
-- [[Elicitation】]] · 同篇出现（co-occurrence） — 同篇出现：context-15
+- [[Action Space]] · 同篇出现（co-occurrence） — 同篇出现：context-15
+- [[See Like an Agent]] · 同篇出现（co-occurrence） — 同篇出现：context-15
+- [[Elicitation]] · 同篇出现（co-occurrence） — 同篇出现：context-15
 - [[上下文均匀处理假设]] · 同篇出现（co-occurrence） — 同篇出现：context-03
 - [[大海捞针（NIAH）与词面匹配]] · 同篇出现（co-occurrence） — 同篇出现：context-03
 - [[上下文压缩 Context Compression Summarization]] · 同篇出现（co-occurrence） — 同篇出现：context-05
@@ -98,35 +98,35 @@ sources: 8
 - [[Agent = Model + Harness]]
 - [[注意力预算 attention budget]]
 - [[结构化记事 agentic memory]]
-- [[Action Space】]]
 - [[渐进式披露 progressive disclosure]]
+- [[迷失在中间 lost in the middle]]
 - [[大海捞针（NIAH）与词面匹配]]
 - [[工具即契约 tools as the contract]]
-- [[上下文均匀处理假设]]
 - [[输入长度与任务难度的混淆]]
-- [[Elicitation】]]
+- [[自回归下输出也是上下文]]
+- [[Action Space]]
+- [[configuration problem]]
+- [[Elicitation]]
 - [[just in time 上下文检索]]
-- [[迷失在中间 lost in the middle]]
 - [[AI Agent]]
 - [[上下文压缩 Context Compression Summarization]]
+- [[非尝试率与拒答模式]]
+- [[上下文均匀处理假设]]
 - [[性能梯度而非硬悬崖 performance gradient rather than a hard cliff]]
 - [[臃肿工具集 bloated tool sets]]
-- [[自回归下输出也是上下文]]
 - [[最小高信号 token 集合 smallest possible set of high-signal tokens]]
-- [[Agent vs Harness]]
-- [[configuration problem]]
 - [[haystack 结构连贯性效应]]
 - [[needle-haystack 相似度]]
 - [[needle-question 语义相似度谱系]]
-- [[See Like an Agent】]]
+- [[See Like an Agent]]
 - [[sub-agent 架构与关注点分离]]
 - [[非模型架构 Non-model Architecture]]
 - [[观察掩码 Observation Masking]]
 - [[典型示例策展 diverse, canonical examples]]
-- [[非尝试率与拒答模式]]
 - [[干扰项的非均匀影响]]
 - [[干扰项与无关内容之分]]
 - [[混合检索策略 hybrid strategy]]
 - [[检索与推理的双任务负担]]
 - [[弃答与幻觉：两种失败姿态]]
 - [[恰当高度 the right altitude]]
+- [[Agent vs Harness]]

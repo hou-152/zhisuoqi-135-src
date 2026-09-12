@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: verification-eval
 learningStage: when-needed
 verification: use
-centrality: 0.072
+centrality: 0.067
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 用 agent trace、JSONL、确定性验证器、baseline 与轨迹复盘来衡量 skill 或 harness 的改动。
 
-**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -57,6 +57,6 @@ OpenAI、OpenHands、Anthropic 和 LangChain 的 eval 资源都强调用 agent t
 - [[验证闭环 verification loop]]
 - [[Context as working memory budget]]
 - [[harness over-fitting]]
+- [[Reliability-critical harness primitives]]
 - [[Tracing]]
 - [[Measurement snapshot]]
-- [[Reliability-critical harness primitives]]

@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 对话式提示只是补全式提示的一种特殊包装，本质仍是前缀文本。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -38,7 +38,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[prompt completion]] · **hard** — 对话模板只是 prompt/completion 的一种包装，先懂输入输出基本框架
+- [[prompt completion]] · **hard** — 对话式提示只是补全式提示的包装，不懂 prompt/completion 就无从理解它
 
 ## 相关
 

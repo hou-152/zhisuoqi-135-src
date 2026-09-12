@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: personal-life
 learningStage: when-needed
 verification: accept
-centrality: 0.126
+centrality: 0.117
 depth: 4
 origin: [notion]
 aliases: ["男友轮盘", "dating roulette", "派对轮盘"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 多个潜在交往对象同时出现、靠手机消息随机选中其一的说法。
 
-**领域** personal-life ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.126
+**领域** personal-life ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.117
 
 ## 费曼一下
 

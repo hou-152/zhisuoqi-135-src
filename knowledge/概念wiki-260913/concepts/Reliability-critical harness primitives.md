@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: when-needed
 verification: judge
-centrality: 0.045
+centrality: 0.067
 depth: 2
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 只收录直接影响 harness 设计、上下文管理、评测与运行时控制等可靠性原语的资源筛选标准。
 
-**领域** harness-runtime ｜ **类型** META ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** harness-runtime ｜ **类型** META ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -36,9 +36,10 @@ sources: 1
 
 > 给一份资源，你依 {{name}} 判断它该不该收？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
-- [[primitives]] · **soft** — 筛选标准围绕可靠性原语，先有原语概念才谈筛选
+- [[primitives]] · **hard** — 筛选标准针对 SDK 原语，不懂 primitives 就不知道在筛什么。
+- [[Runtime-harness separation]] · **soft** — 筛选运行时控制原语，需先区分执行环境与可靠工作循环。
 
 ## 相关
 
@@ -59,14 +60,14 @@ sources: 1
 - Harness Engineering ｜ 《Harness engineering：把 agent 能力落到工具、约束和循环里》 ｜ https://github.com/walkinglabs/awesome-harness-engineering
 ## 反链
 
-- [[primitives]]
-- [[Context as working memory budget]]
 - [[Long-running agent handoff]]
-- [[Repo-local instructions]]
+- [[Context as working memory budget]]
 - [[Harness evolution]]
+- [[primitives]]
 - [[Runtime-harness separation]]
 - [[Safe autonomy]]
 - [[Spec-driven agent workflow]]
 - [[Trace-based evals]]
 - [[Harness-level benchmarks]]
 - [[Infrastructure noise]]
+- [[Repo-local instructions]]

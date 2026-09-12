@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: judge
-centrality: 0.045
-depth: 1
+centrality: 0.042
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 用固定 anchor files 与稳定任务边界约束每轮迭代的上下文，不让对话无限膨胀。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -36,9 +36,9 @@ AI 很容易被长聊天搞糊涂。上下文纪律就是每轮只给它该看�
 
 > {{name}} 靠什么机制让每轮迭代不膨胀？
 
-## 先懂这些（前置 1）
+## 懂了它才能懂（解锁 1）
 
-- [[context rot（上下文腐烂）与 Lost in the Middle]] · **soft** — 用锚文件与稳定边界，正是为对抗长上下文注意力退化
+- [[Explicit Breakpoints]] — 显式分层边界是约束上下文的做法之一，属于上下文纪律
 
 ## 相关
 
@@ -52,6 +52,6 @@ AI 很容易被长聊天搞糊涂。上下文纪律就是每轮只给它该看�
 ## 反链
 
 - [[Loop Engineering]]
-- [[context rot（上下文腐烂）与 Lost in the Middle]]
 - [[Continuous orchestration loop]]
+- [[Explicit Breakpoints]]
 - [[Model as subroutine]]

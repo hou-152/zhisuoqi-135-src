@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: caching-cost
 learningStage: now
 verification: compute
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 模板本身 token 不多，但会被每个后续请求重复携带，真实成本是模板体积乘以请求次数。
 
-**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.045
+**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -51,7 +51,7 @@ sources: 1
 - Context Engineering ｜ 《Claude Code 在读提示词前为何已发送 3.3 万 Token》 ｜ https://systima.ai/blog/claude-code-vs-opencode-token-overhead
 ## 反链
 
-- [[Harness token floor]]
 - [[Token count]]
+- [[Harness token floor]]
 - [[Tool-schema tax]]
 - [[API-boundary observability]]

@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: model-training
 learningStage: deep-dive
 verification: judge
-centrality: 0.208
-depth: 3
+centrality: 0.192
+depth: 4
 origin: [notion]
 aliases: ["散度 PPO", "Divergence PPO"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 用预估策略散度（TV/KL）定义的信任域，取代 PPO 中基于采样 token 概率比例的裁剪掩码。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.208
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.192
 
 ## 原文 context
 
@@ -34,18 +34,18 @@ sources: 1
 
 > {{name}} 把约束对象从比例换成了什么？
 
-## 先懂这些（前置 3）
+## 先懂这些（前置 4）
 
 - [[信任域]] · **hard** — DPPO用散度定义信任域取代PPO裁剪，不懂信任域就看不懂其替换。
-- [[REINFORCE]] · **hard** — PPO 是带裁剪与优势的策略梯度，不懂 REINFORCE 的加权更新就不懂它在优化什么。
+- [[REINFORCE]] · **hard** — PPO 是带裁剪与重要性加权的策略梯度，基础是 REINFORCE 的加权采样。
+- [[Reward Signal]] · **hard** — PPO 靠奖励信号优化策略，不懂奖励通道就不知道它优化什么。
 - [[价值函数]] · **hard** — PPO靠价值模型做基线来降方差，不懂价值函数就理解不了它的信任域裁剪与优势估计。
 
-## 懂了它才能懂（解锁 4）
+## 懂了它才能懂（解锁 3）
 
-- [[RLHF]] — RLHF 默认用 PPO 做 RL 优化，不懂 PPO 就不知道偏好如何变成权重更新。
+- [[RLHF]] — PPO 是 RLHF 默认优化算法，不懂 PPO 就抓不住 RLHF 的优化过程。
 - [[Dr. GRPO]] — GRPO是PPO的变体，去掉critic改用组内相对优势，不懂PPO就不知道它到底改掉了什么。
-- [[RLOO]] — RLOO 放弃 PPO 的裁剪，懂 PPO 才能看清它回退到哪一步。
-- [[RLVR 与编码 agent 的 RL 训练循环]] — RLVR 通常用 PPO/GRPO 类算法更新权重，懂 PPO 才懂更新环节怎么发生。
+- [[RLOO]] — RLOO 放弃 PPO 的裁剪，先懂 PPO 才能理解它做了哪些简化。
 
 ## 相关
 
@@ -63,13 +63,13 @@ sources: 1
 
 ## 反链
 
+- [[Reward Signal]]
 - [[Dr. GRPO]]
 - [[RLHF]]
-- [[RLVR 与编码 agent 的 RL 训练循环]]
+- [[REINFORCE]]
 - [[外包思考，但不外包理解]]
 - [[价值函数]]
 - [[信任域]]
-- [[REINFORCE]]
 - [[RLOO]]
 - [[Agent-Native Infrastructure]]
 - [[Sensors 与 Actuators]]

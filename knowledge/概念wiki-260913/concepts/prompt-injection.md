@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: safety-governance
 learningStage: now
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 2
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 设计 Agent 系统时应假设 prompt-injection 与数据外泄尝试一定会发生。
 
-**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -57,7 +57,7 @@ Agent systems should be designed assuming prompt-injection and exfiltration atte
 ## 反链
 
 - [[Guardrails]]
+- [[model-native harness]]
 - [[上下文即不可信输入]]
 - [[exfiltration]]
 - [[Agents SDK]]
-- [[model-native harness]]

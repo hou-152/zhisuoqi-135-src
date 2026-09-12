@@ -2,7 +2,7 @@
 id: cm_d049e24c
 name: 把上下文转化为执行
 nameEn: turn context into execution
-type: CONCEPTUAL
+type: REPRESENTATIONAL
 subject: Context Engineering
 domain: context-engineering
 learningStage: when-needed
@@ -16,9 +16,9 @@ sources: 1
 
 # 把上下文转化为执行 · turn context into execution
 
-> 把反馈、意图、决策、计划和代码当作上下文塑造成工作，再一路带到生产环境。
+> Linear 的定位：把反馈、意图、决策、计划、代码塑造成工作并带到生产。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ Linear 的一句话定位与核心机制——"Linear is the shared product syst
 
 ## 掌握证据（做到这些才算会）
 
-- 能画出上下文从收集到进入生产的流转环节
-- 能说明系统在其中的承载与塑造作用
+- 能说出 Linear 承载哪些上下文
+- 能解释上下文如何变成执行
 
 ## 验收问句
 
-> {{name}}里的系统到底把什么塑造成什么？
+> {{name}} 里上下文在哪一步被转成可执行动作？
 
 ## 相关
 

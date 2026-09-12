@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: model-training
 learningStage: when-needed
 verification: accept
-centrality: 0.072
+centrality: 0.067
 depth: 5
 origin: [notion]
 aliases: ["DeepSeek V4 / Open-source AI Model"]
@@ -17,7 +17,7 @@ sources: 1
 
 > DeepSeek 发布的第四代开源模型，代码能力全球领先；同时成为「开源路线能否走远」之争的具体抓手。
 
-**领域** model-training ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
+**领域** model-training ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.067
 
 ## 原文 context
 

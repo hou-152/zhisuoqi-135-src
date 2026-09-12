@@ -7,8 +7,8 @@ subject: Harness Engineering
 domain: state-persistence
 learningStage: now
 verification: judge
-centrality: 0.117
-depth: 2
+centrality: 0.11
+depth: 1
 origin: [harness]
 aliases: ["durable execution"]
 sources: 2
@@ -18,7 +18,7 @@ sources: 2
 
 > 把每次 LLM 或工具调用变成一个可独立重试的 step，进程崩溃后从已持久化的检查点继续。
 
-**领域** state-persistence ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.117
+**领域** state-persistence ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.11
 
 ## 费曼一下
 
@@ -39,12 +39,12 @@ sources: 2
 
 ## 先懂这些（前置 1）
 
-- [[统一执行状态与业务状态]] · **soft** — 能从检查点续跑的前提，是执行状态与业务状态已被统一记录在同一个状态模型里。
+- [[文件系统即持久记忆]] · **soft** — 检查点须持久化到磁盘，进程崩溃后才能恢复。
 
 ## 懂了它才能懂（解锁 2）
 
 - [[Harness]] — Durable Execution 是 Agent Harness 提供可靠重试与恢复的组成部分。
-- [[Git-backed state]] — 把循环状态放 git 是为了崩溃恢复，需先懂 step 与检查点的持久化执行模型。
+- [[Long-running agent handoff]] — 长任务要能续跑，依赖可独立重试的持久化 step。
 
 ## 相关
 
@@ -83,23 +83,23 @@ sources: 2
 ## 反链
 
 - [[Harness]]
+- [[文件系统即持久记忆]]
 - [[Agent loop]]
 - [[Sandbox]]
-- [[Git-backed state]]
-- [[事件驱动编排与执行解耦]]
-- [[统一执行状态与业务状态]]
-- [[压缩（compaction）与运行内外的分工]]
+- [[Long-running agent handoff]]
+- [[model-native harness]]
+- [[harness 与 framework 的分野]]
 - [[steering]]
 - [[基础设施问题，不是 AI 问题]]
-- [[普遍可触发 universally triggered]]
+- [[事件驱动编排与执行解耦]]
 - [[小函数组合]]
+- [[压缩（compaction）与运行内外的分工]]
 - [[预算警告与溢出恢复]]
 - [[子 agent 与 step.invoke()]]
 - [[Agents SDK]]
-- [[harness 与 framework 的分野]]
-- [[model-native harness]]
 - [[step]]
 - [[step ID 自动索引]]
 - [[think → act → observe 循环]]
 - [[webhook transform 与 connect()]]
 - [[两级上下文剪枝 pruning]]
+- [[普遍可触发 universally triggered]]

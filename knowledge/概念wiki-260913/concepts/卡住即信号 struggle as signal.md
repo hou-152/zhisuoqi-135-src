@@ -4,10 +4,10 @@ name: 卡住即信号
 nameEn: struggle as signal
 type: CONCEPTUAL
 subject: Harness Engineering
-domain: loop-autonomy
-learningStage: when-needed
+domain: harness-runtime
+learningStage: now
 verification: use
-centrality: 0.045
+centrality: 0.042
 depth: 0
 origin: [harness]
 aliases: ["struggle as signal"]
@@ -16,9 +16,9 @@ sources: 1
 
 # 卡住即信号 · struggle as signal
 
-> agent 卡住不是失败而是信号：据此补工具、护栏与文档，并让它自己动手修。
+> Agent 卡住不是故障而是信号，据此补上缺的工具、护栏与文档，并让它自己写修复。
 
-**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ OpenAI 团队被作者引用的迭代机制原话：agent 卡住时把它当信�
 
 ## 掌握证据（做到这些才算会）
 
-- 能把一次 agent 卡点转写成缺失的工具或护栏清单
-- 能指出修复始终由 agent 自己写回代码库
+- 能把一次卡住转译成「缺什么工具／护栏／文档」的具体条目
+- 能展示修复代码由 agent 自己提交而非人工代写
 
 ## 验收问句
 
-> agent 卡住时，你会按 {{name}} 先找缺什么而不是人工接管吗？
+> Agent 卡住时，你按{{name}}补了哪些工具或文档？
 
 ## 懂了它才能懂（解锁 1）
 

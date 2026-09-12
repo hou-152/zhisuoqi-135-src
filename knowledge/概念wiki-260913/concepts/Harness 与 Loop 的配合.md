@@ -3,11 +3,11 @@ id: cm_5d1ba3e1
 name: Harness 与 Loop 的配合
 type: CONCEPTUAL
 subject: Context Engineering × Harness Engineering
-domain: harness-runtime
-learningStage: now
+domain: loop-autonomy
+learningStage: when-needed
 verification: judge
-centrality: 0.062
-depth: 5
+centrality: 0.06
+depth: 4
 origin: [context, harness]
 aliases: []
 sources: 2
@@ -15,9 +15,9 @@ sources: 2
 
 # Harness 与 Loop 的配合
 
-> Harness 提供约束与护栏，Loop 提供驱动力；好的自动循环既要有完成标准，也要有不可越过的边界。
+> Harness 提供约束护栏、Loop 提供驱动力，二者配合让任务可持续自动推进。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.062
+**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.06
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ Loop 是油门，Harness 是护栏。只有油门没有护栏，车会跑偏；�
 
 ## 掌握证据（做到这些才算会）
 
-- 能说出完成标准与边界条件缺一不可
-- 能指出哪些约束写进 harness、哪些驱动交给 loop
+- 能分别指出自己系统中护栏与驱动力的部分
+- 能为一循环同时写出完成标准与不可越过的边界条件
 
 ## 验收问句
 
-> {{name}} 里谁负责判定做完、谁负责不许越界？
+> 你的 {{name}} 是否同时具备完成标准与不可越过的边界条件？
 
 ## 先懂这些（前置 1）
 

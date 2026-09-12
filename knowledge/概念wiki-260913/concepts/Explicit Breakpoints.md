@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.017
-depth: 0
+centrality: 0.042
+depth: 1
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 在上下文中显式标出分层边界（长期稳定层、中期变化层、短期动态层），适合层次清楚的场景。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -36,6 +36,10 @@ sources: 1
 
 > 什么场景下该用 {{name}} 而不是自动分层？
 
+## 先懂这些（前置 1）
+
+- [[Context discipline]] · **soft** — 显式分层边界是约束上下文的做法之一，属于上下文纪律
+
 ## 相关
 
 - [[稳定前缀 Stable Prefix]] · 同篇出现（co-occurrence） — 同篇出现：context-17
@@ -47,6 +51,7 @@ sources: 1
 - Context Engineering ｜ 《提示词缓存不是小优化，而是 agent 成本结构的关键变量》 ｜ https://x.com/shachepi/status/2053463461729046817/?rw_tt_thread=True&s=12
 ## 反链
 
+- [[Context discipline]]
 - [[缓存断点 Cache Breakpoint]]
 - [[提示词缓存 Prompt Caching]]
 - [[稳定前缀 Stable Prefix]]

@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.154
-depth: 1
+centrality: 0.142
+depth: 4
 origin: [context]
 aliases: ["attention budget"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 把 LLM 注意力类比为有限的工作记忆预算，每新增一个 token 都要从中支取，故上下文是有限资源。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.154
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.142
 
 ## 费曼一下
 
@@ -39,14 +39,14 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[有限的工作记忆 limited working memory]] · **hard** — 注意力预算把LLM注意力类比为有限工作记忆，前提是先懂工作记忆有限
+- [[有限的工作记忆 limited working memory]] · **hard** — 注意力预算把工作记忆有限性换算成 token 开销，是其直接推论。
 
 ## 懂了它才能懂（解锁 4）
 
-- [[选择性注意力压缩]] — 远压近留的分层处理是在有限注意力预算下做的取舍
-- [[延迟加载工具 deferred loading]] — 工具按需加载是为不在预算里白占token，先懂预算才懂渐进披露
-- [[最小高信号 token 集合 smallest possible set of high-signal tokens]] — 追求最小高信号集合本身就是为了省下有限的注意力预算
-- [[注意力之前的注意力 attention before attention]] — 选上下文前的过滤重排是因为预算有限，必须先做取舍
+- [[选择性注意力压缩]] — 分层压缩是为在有限注意力预算内分配资源，不懂预算就不知为何要分层。
+- [[注意力之前的注意力 attention before attention]] — 先说清注意力是有限预算，才谈得上在它之前做筛选与重排。
+- [[最小高信号 token 集合 smallest possible set of high-signal tokens]] — 追求最小高信号集合的前提是注意力为有限预算，需做取舍。
+- [[最小充分上下文]] — 只取最小附近代码是为节省有限注意力预算，不懂预算就不懂为何要最小。
 
 ## 相关
 
@@ -78,18 +78,18 @@ sources: 1
 ## 反链
 
 - [[上下文腐烂 Context Rot]]
+- [[有限的工作记忆 limited working memory]]
 - [[结构化记事 agentic memory]]
 - [[渐进式披露 progressive disclosure]]
 - [[工具即契约 tools as the contract]]
-- [[有限的工作记忆 limited working memory]]
-- [[注意力之前的注意力 attention before attention]]
+- [[选择性注意力压缩]]
 - [[just in time 上下文检索]]
 - [[Tool-schema tax]]
 - [[上下文压缩 Context Compression Summarization]]
 - [[性能梯度而非硬悬崖 performance gradient rather than a hard cliff]]
-- [[选择性注意力压缩]]
-- [[延迟加载工具 deferred loading]]
 - [[臃肿工具集 bloated tool sets]]
+- [[注意力之前的注意力 attention before attention]]
+- [[最小充分上下文]]
 - [[最小高信号 token 集合 smallest possible set of high-signal tokens]]
 - [[reasoning effort]]
 - [[sub-agent 架构与关注点分离]]

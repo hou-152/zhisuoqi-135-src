@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: model-training
 learningStage: now
 verification: judge
-centrality: 0.045
-depth: 5
+centrality: 0.042
+depth: 4
 origin: [notion]
 aliases: ["RL Circuits", "RL 电路", "RL 轨道", "RL rails", "in the circuits"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 每个应用都落在 LLM 的某片训练分布切片上：在 RL 电路里就飞，不在就得自建环境微调。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 原文 context
 
@@ -40,7 +40,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[RLVR 与编码 agent 的 RL 训练循环]] · **soft** — RL 电路讲应用落在训练分布切片上，懂 RLVR 循环才懂切片从哪来。
+- [[RLVR 与编码 agent 的 RL 训练循环]] · **soft** — RL 电路指应用落在训练分布切片，懂 RLVR 长循环更易理解电路如何形成。
 
 ## 相关
 

@@ -5,7 +5,7 @@ nameEn: context-cooperative
 type: CONCEPTUAL
 subject: Context Engineering
 domain: context-engineering
-learningStage: when-needed
+learningStage: deep-dive
 verification: judge
 centrality: 0.017
 depth: 0
@@ -16,9 +16,9 @@ sources: 1
 
 # 上下文协作 · context-cooperative
 
-> 从按位置触发动作的context-aware，升级为主动解释用户在做什么、协作达成共同目标的上下文。
+> 从『你在哪就做什么』的条件—动作，转向主动理解用户正在做什么并协作达成共同目标。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能对比“条件—动作”规则与解释用户意图的差别
-- 能举出分析已写段落并建议下一节内容的例子
+- 能对比 1.0 规则式与 2.0 协作式的差别
+- 能举例说明系统如何推断写作意图并建议下一节
 
 ## 验收问句
 
-> {{name}}与context-aware的关键差别是什么？
+> 它与 context-aware 的关键差别是什么？
 
 ## 相关
 

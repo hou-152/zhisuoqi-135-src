@@ -6,8 +6,8 @@ subject: Context Engineering × Harness Engineering
 domain: harness-runtime
 learningStage: when-needed
 verification: judge
-centrality: 0.062
-depth: 4
+centrality: 0.06
+depth: 3
 origin: [context, harness]
 aliases: []
 sources: 2
@@ -15,9 +15,9 @@ sources: 2
 
 # LLM-as-CPU / Harness-as-OS
 
-> 把 LLM 当 CPU、把 Harness 当操作系统的类比：模型提供算力，Harness 负责调度、上下文与 I/O。
+> 把 LLM 当作 CPU、把 Harness 当作操作系统的类比框架，用于界定二者的职责边界。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.062
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.06
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ sources: 2
 
 ## 掌握证据（做到这些才算会）
 
-- 能用这个类比解释 harness 承担的角色
-- 能指出类比中对应上下文、工具、权限的部分
+- 能用该类比解释模型的裸能力缺口
+- 能列出自己 harness 承担的调度、约束、资源管理职责
 
 ## 验收问句
 
-> 用 {{name}} 的比喻说说 harness 到底在管什么？
+> 用 {{name}} 类比解释你的 harness 承担了哪些 OS 职责？
 
 ## 先懂这些（前置 1）
 

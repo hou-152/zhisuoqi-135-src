@@ -5,8 +5,8 @@ type: CONCEPTUAL
 subject: AI 概念库
 domain: safety-governance
 learningStage: when-needed
-verification: judge
-centrality: 0.045
+verification: accept
+centrality: 0.042
 depth: 1
 origin: [notion]
 aliases: ["Camel's Nose in the Tent / Camel's Nose / 得寸进尺式扩张 / 滑坡的第一寸"]
@@ -15,9 +15,9 @@ sources: 1
 
 # 骆驼鼻子探入帐篷（Camel's Nose in the Tent）
 
-> 谚语：鼻子一伸进来，整只骆驼迟早跟进；指高优先级理由一开大规模监控，低优先级用途会接连涌入。
+> 谚语：鼻子伸进帐篷整只骆驼迟早跟进；隐私上指最高优先级理由一旦开门，低优先级用途接踵而来。
 
-**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 原文 context
 
@@ -29,12 +29,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能复述该谚语在隐私语境下的推论
-- 能解释为何「装作不知道」的策略注定悲观
+- 能说明该谚语在监控语境下的推论
+- 能解释作者为何对「装作不知道」的策略悲观
 
 ## 验收问句
 
-> 为什么 {{name}} 让作者对事后设限不抱期待？
+> 用 {{name}} 解释监控权限为何很难只限反恐用途？
 
 ## 先懂这些（前置 1）
 

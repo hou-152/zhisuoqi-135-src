@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: caching-cost
 learningStage: when-needed
 verification: use
-centrality: 0.045
-depth: 2
+centrality: 0.017
+depth: 0
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 为命中提示缓存，应把最稳定的内容放前面：工具定义在前、系统提示居中、对话消息在后。
 
-**领域** caching-cost ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** caching-cost ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,10 +36,6 @@ sources: 1
 
 > 要提升缓存命中率，{{name}} 该怎么安排你请求里的各段内容？
 
-## 先懂这些（前置 1）
-
-- [[Harness token floor]] · **soft** — 工具与系统提示构成固定前缀，不懂harness固定开销就不知顺序的价值。
-
 ## 相关
 
 - [[稳定前缀 Stable Prefix]] · 同篇出现（co-occurrence） — 同篇出现：context-17
@@ -51,7 +47,6 @@ sources: 1
 - Context Engineering ｜ 《提示词缓存不是小优化，而是 agent 成本结构的关键变量》 ｜ https://x.com/shachepi/status/2053463461729046817/?rw_tt_thread=True&s=12
 ## 反链
 
-- [[Harness token floor]]
 - [[缓存断点 Cache Breakpoint]]
 - [[提示词缓存 Prompt Caching]]
 - [[稳定前缀 Stable Prefix]]

@@ -39,12 +39,12 @@ just in time 检索带来的认知模式——agent 通过探索增量发现相�
 
 ## 相关
 
-- [[Agent Skills】]] · 常一起用 — Skill 文件及其递归引用是渐进式披露的实现载体。
-- [[Action Space】]] · 同篇出现（co-occurrence） — 同篇出现：context-15
-- [[See Like an Agent】]] · 同篇出现（co-occurrence） — 同篇出现：context-15
-- [[Elicitation】]] · 同篇出现（co-occurrence） — 同篇出现：context-15
+- [[Agent Skills]] · 常一起用 — Skill 文件及其递归引用是渐进式披露的实现载体。
+- [[Action Space]] · 同篇出现（co-occurrence） — 同篇出现：context-15
+- [[See Like an Agent]] · 同篇出现（co-occurrence） — 同篇出现：context-15
+- [[Elicitation]] · 同篇出现（co-occurrence） — 同篇出现：context-15
 - [[Agent Drift]] · 同篇出现（co-occurrence） — 同篇出现：context-25
-- [[Context 四种失败模式】 Context Pollution Distraction Confusion Clash]] · 同篇出现（co-occurrence） — 同篇出现：context-25
+- [[Context 四种失败模式 Context Pollution Distraction Confusion Clash]] · 同篇出现（co-occurrence） — 同篇出现：context-25
 - [[Skill]] · 常一起用（工作流） — Skill 通过按需加载文件与能力实现 Progressive Disclosure。
 - [[记忆 Memory]] · 常一起用（工作流） — Memory 可用路由文档与主题文件按 Progressive Disclosure 分层加载。
 - [[记忆 Memory]] · 常一起用 — Memory 用路由文档和主题文件分层，让详细知识按需披露。
@@ -78,13 +78,13 @@ just in time 检索带来的认知模式——agent 通过探索增量发现相�
 - [[注意力预算 attention budget]]
 - [[上下文腐烂 Context Rot]]
 - [[程序记忆（Procedural Memory Skills） progressive disclosure]]
-- [[Action Space】]]
 - [[即时检索 Just-in-time Retrieval]]
-- [[Agent Skills】]]
-- [[Elicitation】]]
-- [[Agent Drift]]
+- [[Action Space]]
+- [[Agent Skills]]
 - [[configuration problem]]
-- [[Context 四种失败模式】 Context Pollution Distraction Confusion Clash]]
-- [[prompt 与 context 的通用性落差]]
-- [[See Like an Agent】]]
+- [[Elicitation]]
+- [[Agent Drift]]
+- [[Context 四种失败模式 Context Pollution Distraction Confusion Clash]]
+- [[See Like an Agent]]
 - [[过度约束与松绑 over-constraining unhobbling]]
+- [[prompt 与 context 的通用性落差]]

@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: agent-org
 learningStage: when-needed
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 0
 origin: [notion]
 aliases: ["AI Agent as a New Coworker", "新来的同事", "AI 同事比喻"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 用同事而非工具来比喻 AI：被授权、被记录、被审计、可能犯错、需要边界。
 
-**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 原文 context
 

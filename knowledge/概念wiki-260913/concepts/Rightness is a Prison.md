@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: thinking-method
 learningStage: when-needed
 verification: judge
-centrality: 0.072
-depth: 3
+centrality: 0.067
+depth: 2
 origin: [notion]
 aliases: ["对是一座监狱", "对错监狱"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > Cate Hall 的隐喻：把「我必须对」焊在 ego 上会锁住人，解药是松开抓握、把信念当可换镜片。
 
-**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 原文 context
 
@@ -37,11 +37,11 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[Beliefs as Lenses, Not Armor]] · **hard** — 解药是把信念当可换镜片，不懂此则不懂“必须对”为何是监狱。
+- [[Seeming-Rightness]] · **soft** — 不懂“显得对”人设的代价，就难理解把正确焊在 ego 上为何是监狱。
 
 ## 懂了它才能懂（解锁 1）
 
-- [[Seeming-Rightness]] — 显得对的人设是“必须对”监狱的典型表现，先懂监狱更易懂人设。
+- [[Beliefs as Lenses, Not Armor]] — 不懂对正确的执着是监狱，就不懂为何要把信念当镜片而非盔甲。
 
 ## 相关
 
@@ -59,5 +59,5 @@ sources: 1
 
 ## 反链
 
-- [[Beliefs as Lenses, Not Armor]]
 - [[Seeming-Rightness]]
+- [[Beliefs as Lenses, Not Armor]]

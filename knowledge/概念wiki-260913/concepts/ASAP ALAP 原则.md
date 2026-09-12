@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: thinking-method
 learningStage: when-needed
 verification: judge
-centrality: 0.045
+centrality: 0.017
 depth: 0
 origin: [notion]
 aliases: ["ASAP / ALAP", "As Soon As Possible", "As Late As Possible", "可逆决策", "不可逆决策"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 按决策可逆性定速度：可逆决策尽早做，不可逆决策尽量晚做以留足信息。
 
-**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 原文 context
 
@@ -34,10 +34,6 @@ sources: 1
 
 > 按 {{name}}，一个不可逆决策该早定还是晚定？
 
-## 懂了它才能懂（解锁 1）
-
-- [[Stop FLOP Know 原则]] — 何时收手需先懂按可逆性定速度的时机原则。
-
 ## 相关
 
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -51,7 +47,3 @@ sources: 1
 ## 别名
 
 `ASAP / ALAP`、`As Soon As Possible`、`As Late As Possible`、`可逆决策`、`不可逆决策`
-
-## 反链
-
-- [[Stop FLOP Know 原则]]

@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.045
-depth: 1
+centrality: 0.042
+depth: 0
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 按任务类型切换模型角色与关注点的机制：架构设计、写码、审 PR、调试各有一套输出习惯。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 原文 context
 
@@ -32,9 +32,9 @@ Chat modes 是模型的角色切换机制。做架构设计、写代码、审查
 
 > 审查 PR 时你会切到哪个 {{name}}，为什么？
 
-## 先懂这些（前置 1）
+## 懂了它才能懂（解锁 1）
 
-- [[Agentic primitives]] · **soft** — 按任务切换角色，靠的是可组合复用的角色类原语
+- [[Agentic primitives]] — 角色与流程被拆成可复用文件后，才有按任务切换角色的做法
 
 ## 相关
 

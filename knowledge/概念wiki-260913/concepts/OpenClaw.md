@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: memory-retrieval
 learningStage: when-needed
 verification: use
-centrality: 0.045
+centrality: 0.042
 depth: 2
 origin: [notion]
 aliases: ["小龙虾"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 一种记忆方案，以 Markdown 为中心的存储，日志与长效文件是主要事实来源。
 
-**领域** memory-retrieval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** memory-retrieval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 

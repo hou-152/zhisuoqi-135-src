@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: context-engineering
 learningStage: now
 verification: use
-centrality: 0.072
+centrality: 0.067
 depth: 2
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 可复用的 markdown 文档，只教模型怎么做，不定义做什么，目标由用户提供。
 
-**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -63,8 +63,8 @@ Skill file 是用 markdown 写的可复用流程文档，告诉模型“怎么�
 - [[Skill]]
 - [[Latent vs Deterministic]]
 - [[skill-creator 访谈式创建]]
-- [[Context Bloat]]
 - [[Skill-as-method-call]]
+- [[Context Bloat]]
 - [[Learning Loop]]
 - [[Diarization]]
 - [[Resolver]]

@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: verification-eval
 learningStage: now
 verification: use
-centrality: 0.072
+centrality: 0.042
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 由规则式反馈、视觉反馈、LLM-as-judge 组成的验证通路，分为行动前的 guides 与行动后的 sensors。
 
-**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -38,11 +38,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[验证闭环 verification loop]] · **hard** — guides 与 sensors 是验证闭环的具体实现，不懂闭环就不知它们在补什么。
-
-## 懂了它才能懂（解锁 1）
-
-- [[行为提取]] — 行为提取是一种传感器式观测，先懂 guides/sensors 才能给它定位。
+- [[验证闭环 verification loop]] · **hard** — guides 与 sensors 就是验证闭环的行动前/后两半，不懂闭环无法理解其分工。
 
 ## 相关
 
@@ -55,7 +51,6 @@ sources: 1
 - Harness Engineering ｜ 《一个被 harness 套住的 LLM agent：这个词到底指什么》 ｜ https://x.com/akshay_pachaar/status/2045510648474530263/?s=12
 ## 反链
 
-- [[agent 与 harness 的分工]]
 - [[验证闭环 verification loop]]
+- [[agent 与 harness 的分工]]
 - [[If you're not the model, you're the harness.]]
-- [[行为提取]]

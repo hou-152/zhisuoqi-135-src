@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: media-culture-education
 learningStage: deep-dive
 verification: accept
-centrality: 0.126
+centrality: 0.067
 depth: 1
 origin: [notion]
 aliases: ["满足感的骗局 / the swindle of fulfillment / 标准化幸福骗局"]
@@ -17,7 +17,7 @@ sources: 1
 
 > Giroux 诊断：迪士尼把幸福包装成可购买的标准化产品，代价是放弃其他快乐
 
-**领域** media-culture-education ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.126
+**领域** media-culture-education ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.067
 
 ## 原文 context
 
@@ -37,13 +37,11 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[Disney bubble]] · **hard** — 迪士尼泡泡悬置现实价格感，幸福才可能被包装成标准商品出售
+- [[Disney bubble]] · **soft** — '幸福可购买'对应沉浸场景中悬置价格感的并行货币机制。
 
-## 懂了它才能懂（解锁 3）
+## 懂了它才能懂（解锁 1）
 
-- [[Disney hierarchy]] — 粉丝靠重复消费维护身份，正因幸福被包装成可购买商品
-- [[death of the social]] — 付费体验经济售卖的标准化幸福，正是公共社交空间被取代的动力
-- [[Hypnopaedia]] — 两者都是制造同意/幸福的工程，睡教先例助懂幸福商品化
+- [[Disney hierarchy]] — 用消费维护身份，正是'幸福可购买'批判的具体表现。
 
 ## 相关
 
@@ -61,7 +59,5 @@ sources: 1
 
 ## 反链
 
-- [[death of the social]]
-- [[Disney bubble]]
-- [[Hypnopaedia]]
 - [[Disney hierarchy]]
+- [[Disney bubble]]

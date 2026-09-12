@@ -7,7 +7,7 @@ subject: Context Engineering
 domain: agent-org
 learningStage: when-needed
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 2
 origin: [context]
 aliases: ["compression"]
@@ -16,9 +16,9 @@ sources: 1
 
 # 阶段压缩 · compression
 
-> 随着 Agent 吸收程序性工作，规划、实现、代码评审三个原本分离的阶段开始压缩融合。
+> agent 吸收程序性工作后，原本分离的规划、实现、代码评审三个阶段开始合并压缩。
 
-**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -31,11 +31,11 @@ agent 把"移除开销"推得更远的机制。随着 agent 吸收程序性工�
 ## 掌握证据（做到这些才算会）
 
 - 能说出被压缩的三个阶段名称
-- 能解释压缩的驱动力是 agent 接走了程序性工作
+- 能解释压缩为何发生——agent 接管了程序性工作
 
 ## 验收问句
 
-> {{name}}发生时，哪三个阶段的边界最先消失？
+> {{name}} 指的是哪三个阶段开始合并？
 
 ## 先懂这些（前置 1）
 

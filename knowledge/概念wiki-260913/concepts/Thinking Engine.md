@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: thinking-method
 learningStage: deep-dive
 verification: accept
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [notion]
 aliases: ["思维引擎"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 仅有名称的具名概念，材料未给出定义、来源与用法。
 
-**领域** thinking-method ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.045
+**领域** thinking-method ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 掌握证据（做到这些才算会）
 

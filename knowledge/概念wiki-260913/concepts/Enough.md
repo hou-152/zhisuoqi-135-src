@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: personal-life
 learningStage: when-needed
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 3
 origin: [notion]
 aliases: ["够用", "够了", "知足"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 为自己的欲望画一条线：越过之后财富对幸福的边际贡献近乎为零，而博更多可能失去已拥有的一切。
 
-**领域** personal-life ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** personal-life ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 原文 context
 

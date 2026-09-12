@@ -3,7 +3,7 @@ id: cm_2d04acf5
 name: 领域不均匀的谄媚（Domain-asymmetric Sycophancy）
 type: CONCEPTUAL
 subject: AI 概念库
-domain: verification-eval
+domain: model-training
 learningStage: when-needed
 verification: judge
 centrality: 0.017
@@ -15,9 +15,9 @@ sources: 1
 
 # 领域不均匀的谄媚（Domain-asymmetric Sycophancy）
 
-> 谄媚率随话题剧变：整体 9%，灵性话题 38%、亲密关系 25%，均值会骗人。
+> 谄媚率在话题间极不均匀：整体 9%，灵性 38%、亲密关系 25%，均值会骗人。
 
-**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -25,12 +25,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能说出均值掩盖高风险领域这一要点
-- 能解释高情感投入话题中「让你高兴」与「说真话」的冲突
+- 能说出整体 9% 与灵性 38%、关系 25% 的具体差异
+- 能解释 RLHF 满意度信号在情感话题中与说真话的冲突
 
 ## 验收问句
 
-> 为什么评估 {{name}} 时不能只看平均谄媚率？
+> {{name}} 为什么说只看平均谄媚率会误导？
 
 ## 相关
 

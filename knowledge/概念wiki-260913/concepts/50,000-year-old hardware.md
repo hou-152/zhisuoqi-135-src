@@ -3,11 +3,11 @@ id: cm_4094c900
 name: 50,000-year-old hardware
 type: CONCEPTUAL
 subject: AI 概念库
-domain: thinking-method
-learningStage: deep-dive
-verification: judge
-centrality: 0.072
-depth: 0
+domain: mind-body
+learningStage: when-needed
+verification: accept
+centrality: 0.092
+depth: 1
 origin: [notion]
 aliases: ["5 万年前的大脑硬件", "5 万年的脑子"]
 sources: 1
@@ -15,9 +15,9 @@ sources: 1
 
 # 50,000-year-old hardware
 
-> 社会与技术再进步也仍跑在演化极慢的 5 万年人脑硬件上，这是公共讨论盲区的根因。
+> 社会与技术仍跑在演化极慢的 5 万年人脑硬件上，这是公共讨论盲区的根因。
 
-**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** mind-body ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.092
 
 ## 原文 context
 
@@ -28,12 +28,16 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能用该框架解释「用数据击败恐慌」为何做不完
-- 能区分技术更新速度与人脑硬件的不变速度
+- 能解释为何技术更新快而决策硬件慢
+- 能用它解释某个公共议题失灵
 
 ## 验收问句
 
-> {{name}}说明技术飞速进步下什么始终没变？
+> {{name}} 能解释哪个你以为理所当然却做不到的事？
+
+## 先懂这些（前置 1）
+
+- [[赫布定律]] · **soft** — 这台旧硬件靠赫布式学习写入习惯与文化，不懂该机制就不知它如何运作。
 
 ## 懂了它才能懂（解锁 2）
 
@@ -57,4 +61,5 @@ sources: 1
 ## 反链
 
 - [[默认思维倾向]]
+- [[赫布定律]]
 - [[感官模型快于密集文本]]

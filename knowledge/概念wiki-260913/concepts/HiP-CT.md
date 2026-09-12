@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: clinical-medicine
 learningStage: when-needed
 verification: accept
-centrality: 0.045
-depth: 0
+centrality: 0.042
+depth: 2
 origin: [notion]
 aliases: ["同步辐射相衬断层扫描", "Hierarchical Phase-Contrast Tomography"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 同步辐射相衬断层扫描，用粒子加速器超强 X 射线做微米级三维成像，可无损画出深层神经纤维走线。
 
-**领域** clinical-medicine ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.045
+**领域** clinical-medicine ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 原文 context
 
@@ -34,9 +34,9 @@ sources: 1
 
 > {{name}} 相比传统显微成像，多看到了什么、少破坏了什么？
 
-## 懂了它才能懂（解锁 1）
+## 先懂这些（前置 1）
 
-- [[阴蒂背神经]] — HiP-CT无损画出深层神经走线，是理解阴蒂背神经新发现的技术背景。
+- [[阴蒂背神经]] · **soft** — HiP-CT可无损画出阴蒂背神经走线，不懂该神经就不懂其应用价值。
 
 ## 相关
 

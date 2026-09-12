@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: economy-business
 learningStage: when-needed
 verification: judge
-centrality: 0.099
+centrality: 0.092
 depth: 0
 origin: [context]
 aliases: []
@@ -15,9 +15,9 @@ sources: 1
 
 # “SaaS 已死”叙事与护城河蒸发
 
-> 市场认为 SaaS 已死、护城河蒸发；作者认为方向大致对，但更可能冒出灵活新公司、笨重方案被惯性拖住。
+> 市场认为 SaaS 护城河消失、未来现金流更不确定的叙事，但“人人自攒 CRM”的版本被指过于简化。
 
-**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.099
+**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.092
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能说出叙事中投资人现金流与护城河的变化
-- 能指出作者对「人们自己攒 CRM」这一简化版本的保留
+- 能说明该叙事对投资人现金流与上市公司的冲击
+- 能指出更可能是灵活新公司冒出而非用户自建全栈
 
 ## 验收问句
 
-> {{name}} 这个叙事里作者同意哪一半、反对哪一半？
+> 你如何用 {{name}} 判断某 SaaS 公司的护城河是否真的蒸发？
 
 ## 懂了它才能懂（解锁 3）
 
@@ -79,9 +79,9 @@ sources: 1
 - [[大杂烩产品陷阱 kitchen sink product]]
 - [[第一天心态 day one]]
 - [[概念性工作与“概念车”]]
+- [[上下文骨架]]
 - [[虚荣指标 vanity metrics]]
 - [[粘性界面与 token 成本转移]]
 - [[自动驾驶产品与项目记忆 self-driving project memory]]
-- [[上下文骨架]]
 - [[缩短循环 shortening the loop]]
 - [[组织级技能与指引 skills Linear way skill]]

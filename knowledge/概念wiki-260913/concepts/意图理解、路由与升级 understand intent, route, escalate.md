@@ -7,7 +7,7 @@ subject: Context Engineering
 domain: multi-agent
 learningStage: when-needed
 verification: use
-centrality: 0.072
+centrality: 0.067
 depth: 3
 origin: [context]
 aliases: ["understand intent, route, escalate"]
@@ -18,7 +18,7 @@ sources: 1
 
 > 新系统应具备的运行能力：理解意图、把工作路由给正确的执行者、必要时升级，并保持执行推进。
 
-**领域** multi-agent ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** multi-agent ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
 
 ## 费曼一下
 

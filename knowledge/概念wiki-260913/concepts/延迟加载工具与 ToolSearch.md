@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: tools-sandbox
 learningStage: when-needed
 verification: use
-centrality: 0.045
+centrality: 0.042
 depth: 2
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 渐进式披露在工具层的具体形态：agent 必须先用 ToolSearch 搜索到完整定义才能调用该工具。
 
-**领域** tools-sandbox ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** tools-sandbox ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -53,5 +53,5 @@ sources: 1
 
 - [[上下文工程 context engineering]]
 - [[工具收窄 tool scoping]]
-- [[prompt 与 context 的通用性落差]]
 - [[过度约束与松绑 over-constraining unhobbling]]
+- [[prompt 与 context 的通用性落差]]

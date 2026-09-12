@@ -7,7 +7,7 @@ subject: Harness Engineering
 domain: loop-autonomy
 learningStage: now
 verification: use
-centrality: 0.072
+centrality: 0.067
 depth: 1
 origin: [harness]
 aliases: ["long-running autonomous coding"]
@@ -18,7 +18,7 @@ sources: 1
 
 > 把 coding agent 的使用场景推到以周为单位的连续自治运行，目标是自主跑数周、完成人类团队通常要数月完成的项目。
 
-**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -73,6 +73,7 @@ sources: 1
 - [[漂移与隧道视野 drift & tunnel vision]]
 - [[动态协调 dynamic coordination]]
 - [[共享文件加锁的协调机制]]
+- [[乐观并发控制 optimistic concurrency control]]
 - [[单 agent 的速度天花板]]
 - [[模型—角色适配]]
 - [[锁竞争瓶颈 lock contention]]
@@ -83,4 +84,3 @@ sources: 1
 - [[prompt 主导论]]
 - [[递归并行规划 sub-planner]]
 - [[减法式改进 removing complexity]]
-- [[乐观并发控制 optimistic concurrency control]]

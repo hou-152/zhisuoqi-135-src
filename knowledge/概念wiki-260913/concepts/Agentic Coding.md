@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: loop-autonomy
 learningStage: now
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 2
 origin: [notion]
 aliases: ["Agentic Coding Tasks", "agent 编程任务", "agent coding", "agentic programming"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 让模型自主完成读代码、改代码、跑测试、反思再改的多步编程任务，考核的是能不能把活儿干完。
 
-**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 原文 context
 

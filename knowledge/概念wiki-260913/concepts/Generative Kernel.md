@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: agent-org
 learningStage: deep-dive
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 交付物从成品软件变为生成内核，需要被 harness 的系统复杂度本身随之下降。
 
-**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -53,5 +53,5 @@ sources: 1
 
 - [[Harness 工程 Harness Engineering]]
 - [[空间 Scalability Spatial Scalability]]
-- [[Creator → Curator 角色转换]]
 - [[时间 Scalability Temporal Scalability]]
+- [[Creator → Curator 角色转换]]

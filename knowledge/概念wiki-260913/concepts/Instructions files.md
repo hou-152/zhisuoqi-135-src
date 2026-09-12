@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: spec-intent
 learningStage: now
 verification: use
-centrality: 0.099
+centrality: 0.092
 depth: 0
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 给 AI agent 写的长期工作规则文件（如 AGENTS.md/CLAUDE.md），每次执行任务都直接影响模型行为。
 
-**领域** spec-intent ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.099
+**领域** spec-intent ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.092
 
 ## 原文 context
 
@@ -51,7 +51,7 @@ Instructions files 是 AI agent 的长期工作规则。它们类似项目里的
 
 - [[上下文工程 context engineering]]
 - [[教会 AI Agent 如何成功]]
-- [[Agentic primitives]]
 - [[AGENTS.md]]
+- [[Agentic primitives]]
 - [[Natural language as code]]
 - [[Markdown prompt engineering]]

@@ -5,9 +5,9 @@ nameEn: design interfaces
 type: PROCEDURAL
 subject: Context Engineering
 domain: tools-sandbox
-learningStage: when-needed
+learningStage: now
 verification: use
-centrality: 0.072
+centrality: 0.067
 depth: 2
 origin: [context]
 aliases: ["design interfaces"]
@@ -16,9 +16,9 @@ sources: 1
 
 # 接口即指令 · design interfaces
 
-> 用接口设计本身传达用法：参数更有表达力，枚举与约束直接定义期望行为，替代示例说明。
+> 通过重新设计工具、脚本、文件的参数与枚举取值，让接口本身就在提示 agent 的正确用法。
 
-**领域** tools-sandbox ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** tools-sandbox ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能设计一个用 pending/in_progress/completed 枚举表达状态与约束的工具 schema
-- 能指出哪些示例可以被接口约束取代
+- 能举出 Todo 工具用 pending/in_progress/completed 枚举暗示用法的例子
+- 能为一个易误用的工具重新设计出更少歧义的参数
 
 ## 验收问句
 
-> 你会怎样让{{name}}替你说清工具用法而不靠示例？
+> 你能否用 {{name}} 改造一个易误用的工具？
 
 ## 先懂这些（前置 1）
 
@@ -64,5 +64,5 @@ sources: 1
 - [[上下文工程 context engineering]]
 - [[工具接口的表达力设计]]
 - [[任务特定工具说明]]
-- [[prompt 与 context 的通用性落差]]
 - [[过度约束与松绑 over-constraining unhobbling]]
+- [[prompt 与 context 的通用性落差]]

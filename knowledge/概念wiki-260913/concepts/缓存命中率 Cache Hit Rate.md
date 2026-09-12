@@ -5,7 +5,7 @@ nameEn: Cache Hit Rate
 type: CONCEPTUAL
 subject: Context Engineering
 domain: caching-cost
-learningStage: when-needed
+learningStage: now
 verification: use
 centrality: 0.017
 depth: 0
@@ -16,9 +16,9 @@ sources: 1
 
 # 缓存命中率 · Cache Hit Rate
 
-> 把缓存命中率当运行状态指标，联动监控 cache_read、cache_creation、首字延迟与上线后变化。
+> 把缓存命中率当作运行状态指标，监控 cache_read_input_tokens、cache_creation_input_tokens、首字延迟及版本上线后的变化。
 
-**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能列出要监控的字段：cache_read_input_tokens 等
-- 能说明版本上线后应对比命中率变化
+- 能列出该监控需要看的两三个字段
+- 能说明上线版本后该指标的变化意味着什么
 
 ## 验收问句
 
-> 如何用 {{name}} 判断线上是否变慢？
+> 能否为线上服务搭一套 {{name}} 的监控口径？
 
 ## 相关
 

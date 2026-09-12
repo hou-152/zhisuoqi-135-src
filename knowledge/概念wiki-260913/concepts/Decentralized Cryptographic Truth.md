@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: society-law
 learningStage: deep-dive
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 0
 origin: [notion]
 aliases: ["去中心化的密码学事实 / 去中心化可验证真相 / Cryptographic Truth"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 把比特币式账本共识推广到金融以外的社会事实：免费、开源、任何人可验证，不藏在付费墙后。
 
-**领域** society-law ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** society-law ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 原文 context
 

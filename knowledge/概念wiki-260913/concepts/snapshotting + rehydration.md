@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: state-persistence
 learningStage: when-needed
 verification: use
-centrality: 0.045
+centrality: 0.042
 depth: 2
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > Agents SDK 内置的快照与再水合能力，可在新容器里从上次检查点恢复状态继续跑。
 
-**领域** state-persistence ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** state-persistence ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -52,5 +52,5 @@ With built-in snapshotting and rehydration, the Agents SDK can restore the agent
 ## 反链
 
 - [[Session]]
-- [[Agents SDK]]
 - [[model-native harness]]
+- [[Agents SDK]]

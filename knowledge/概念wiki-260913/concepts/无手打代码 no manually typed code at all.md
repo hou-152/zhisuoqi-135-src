@@ -40,7 +40,7 @@ OpenAI 团队的自我设限规则，作者称之为 forcing function。正是�
 ## 相关
 
 - [[架构约束的确定性执行]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
-- [[垃圾回收」型 agent]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
+- [[「垃圾回收」型 agent]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
 - [[熵与腐化 entropy and decay]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
 - [[卡住即信号 struggle as signal]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
 - [[功能与行为验证的缺口]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
@@ -62,10 +62,10 @@ OpenAI 团队的自我设限规则，作者称之为 forcing function。正是�
 
 ## 反链
 
+- [[「垃圾回收」型 agent]]
 - [[功能与行为验证的缺口]]
 - [[架构约束的确定性执行]]
 - [[卡住即信号 struggle as signal]]
-- [[垃圾回收」型 agent]]
 - [[AI 友好度（AI-friendliness）作为选型标准]]
 - [[service template 与 golden path]]
 - [[解空间收窄 constraining the solution space]]

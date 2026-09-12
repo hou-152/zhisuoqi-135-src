@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: harness-runtime
 learningStage: when-needed
 verification: judge
-centrality: 0.045
-depth: 2
+centrality: 0.042
+depth: 1
 origin: [notion]
 aliases: ["skill 复利", "永久升级", "codify everything", "不退化不遗忘", "build it once runs forever"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 每个写下的 skill 都是系统永久升级：不遗忘、不退化，模型换代时判断部分自动变强。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -38,7 +38,7 @@ Garry Tan 提出的一条「为什么 skill-based 架构会复利」的机制。
 
 ## 先懂这些（前置 1）
 
-- [[Filesystem 作为最基础的 harness 原语]] · **soft** — skill 作为文件落盘，才谈得上不遗忘、不退化
+- [[stateless]] · **hard** — 与每次空白相对，skill 才成为不遗忘不退化的永久升级。
 
 ## 相关
 
@@ -56,7 +56,7 @@ Garry Tan 提出的一条「为什么 skill-based 架构会复利」的机制。
 
 ## 反链
 
+- [[stateless]]
 - [[外包思考，但不外包理解]]
-- [[Filesystem 作为最基础的 harness 原语]]
 - [[Agent-Native Infrastructure]]
 - [[Sensors 与 Actuators]]

@@ -5,8 +5,8 @@ type: CONCEPTUAL
 subject: AI 概念库
 domain: geo-infrastructure
 learningStage: when-needed
-verification: judge
-centrality: 0.045
+verification: accept
+centrality: 0.042
 depth: 1
 origin: [notion]
 aliases: ["Parallel AI Infrastructure", "平行 AI 栈", "国产 AI 基础设施"]
@@ -15,9 +15,9 @@ sources: 1
 
 # 平行 AI 基础设施
 
-> 从芯片、框架到数据中心，中国建一套不依赖美国体系的完整 AI 技术栈。
+> 从芯片到框架到数据中心，整条 AI 技术栈做出不依赖美国体系的另一份，V4 是早期拼图。
 
-**领域** geo-infrastructure ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** geo-infrastructure ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 原文 context
 
@@ -28,12 +28,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能说出这套栈至少三层（芯片、框架、数据中心）
-- 能把某个模型发布判读为这套平行基础设施的早期信号
+- 能说出这条栈至少三个层次（芯片、框架、数据中心）
+- 能区分『平行栈』与『在美国栈上做应用』
 
 ## 验收问句
 
-> 用什么证据判断{{name}}已经成形？
+> 这个项目是在建{{name}}，还是只在美国栈上做应用？
 
 ## 先懂这些（前置 1）
 

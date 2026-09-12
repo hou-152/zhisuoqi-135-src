@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: tools-sandbox
 learningStage: now
 verification: compute
-centrality: 0.099
+centrality: 0.092
 depth: 0
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 让模型在真实环境里执行 shell 命令、跑代码并读回输出的具名工具。
 
-**领域** tools-sandbox ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.099
+**领域** tools-sandbox ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.092
 
 ## 费曼一下
 
@@ -38,7 +38,7 @@ code execution using the shell tool
 
 ## 懂了它才能懂（解锁 3）
 
-- [[通用工具与「给模型一台计算机]] — 该思路就是让 agent 用自带 bash 写代码，不懂 shell tool 就不知它依赖什么。
+- [[通用工具与「给模型一台计算机」]] — 该思路就是让 agent 用自带 bash 写代码，不懂 shell tool 就不知它依赖什么。
 - [[code mode]] — 写代码执行代码要靠能跑 shell 的具名工具落地，先懂 shell tool 更具体。
 - [[apply patch tool]] — 两者同属让模型在真实环境改文件与执行的具名工具，懂 shell 才懂 apply patch 的定位。
 
@@ -53,8 +53,8 @@ code execution using the shell tool
 - Harness Engineering ｜ 《OpenAI Agents SDK 下一代演进：原生沙箱 + 模型原生 harness》 ｜ https://openai.com/index/the-next-evolution-of-the-agents-sdk/
 ## 反链
 
-- [[通用工具与「给模型一台计算机]]
+- [[model-native harness]]
+- [[通用工具与「给模型一台计算机」]]
 - [[Agents SDK]]
 - [[apply patch tool]]
 - [[code mode]]
-- [[model-native harness]]

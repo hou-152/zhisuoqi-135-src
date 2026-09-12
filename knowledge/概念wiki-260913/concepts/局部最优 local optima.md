@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: thinking-method
 learningStage: when-needed
 verification: judge
-centrality: 0.072
-depth: 3
+centrality: 0.067
+depth: 4
 origin: [context]
 aliases: ["local optima"]
 sources: 1
@@ -16,9 +16,9 @@ sources: 1
 
 # 局部最优 · local optima
 
-> 某条实践路径上可用的解，受自身摸索过程限制而非普适真理，分享时应标明适用边界。
+> 承认所分享的模式只是自家迭代过程抵达的局部最优，而非普适真理。
 
-**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能说明为何本文分享的只是自家 SGD 抵达的局部最优
-- 能在借鉴他人经验前先问它的适用条件
+- 能说出该经验来自什么具体迭代过程与约束条件
+- 能指出哪些条件下结论可能失效
 
 ## 验收问句
 
-> 你怎么判断一条经验是{{name}}还是普适规律？
+> 你怎么判断一份经验分享是{{name}}还是普适结论？
 
 ## 先懂这些（前置 1）
 

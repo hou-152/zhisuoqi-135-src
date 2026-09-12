@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: economy-business
 learningStage: when-needed
 verification: use
-centrality: 0.099
+centrality: 0.092
 depth: 5
 origin: [notion]
 aliases: ["bzrcdn.openai.com", "bzr.openai.com", "OpenAI ad infrastructure domains"]
@@ -17,7 +17,7 @@ sources: 1
 
 > bzrcdn.openai.com 托管广告创意与 SDK，bzr.openai.com 收事件上报，是广告网络自建的物理标志。
 
-**领域** economy-business ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.099
+**领域** economy-business ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.092
 
 ## 原文 context
 

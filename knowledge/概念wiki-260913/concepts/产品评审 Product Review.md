@@ -4,7 +4,7 @@ name: 产品评审
 nameEn: Product Review
 type: PROCEDURAL
 subject: Harness Engineering
-domain: spec-intent
+domain: agent-org
 learningStage: now
 verification: use
 centrality: 0.017
@@ -16,9 +16,9 @@ sources: 1
 
 # 产品评审 · Product Review
 
-> 评审前先用短文档钉住要解决什么问题与成功标准，用粗糙 HTML mockup 代替文字界面，并作者自选评审人提前对齐。
+> 前置流程第一步：用短文档钉住要解决的问题与成功样貌，粗糙 HTML mockup 代文字，作者自选评审人提前对齐。
 
-**领域** spec-intent ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** agent-org ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能按步骤产出一页问题＋成功标准文档与 mockup
-- 能判断文案微调、一次性脚本、复现明确的 bug 可跳过此步
+- 能写出含用户语言问题与可量化成功标准的评审文档
+- 能判断文案微调、一次性脚本等哪些改动可跳过此步
 
 ## 验收问句
 
-> 你能为手上这个需求做一次 {{name}} 吗？
+> 这件事要不要走 {{name}}，你的判断依据是什么？
 
 ## 相关
 

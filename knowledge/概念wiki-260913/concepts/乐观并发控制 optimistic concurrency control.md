@@ -7,8 +7,8 @@ subject: Harness Engineering
 domain: state-persistence
 learningStage: when-needed
 verification: use
-centrality: 0.017
-depth: 0
+centrality: 0.117
+depth: 5
 origin: [harness]
 aliases: ["optimistic concurrency control"]
 sources: 1
@@ -16,9 +16,9 @@ sources: 1
 
 # 乐观并发控制 · optimistic concurrency control
 
-> 允许自由读状态，但若状态自上次读取后已改变则写入失败，实现更简单稳健。
+> agent 可自由读状态，但状态自上次读取后被改动则写入失败，比加锁更简单稳健。
 
-**领域** state-persistence ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** state-persistence ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.117
 
 ## 费曼一下
 
@@ -30,12 +30,19 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能描述读—校验—写失败的完整流程
-- 能指出它比加锁方案更简单在哪
+- 能说明读后状态变更导致写入失败的条件
+- 能说出它相比悲观加锁为何更简单
 
 ## 验收问句
 
-> {{name}} 在什么情况下写入失败，为什么仍更稳健？
+> {{name}}在什么条件下写入失败，代价是什么？
+
+## 先懂这些（前置 4）
+
+- [[统一执行状态与业务状态]] · **hard** — 判断状态自读取后是否被改动，前提是状态可统一版本化。
+- [[本地状态层]] · **soft** — 需要本地存储层承载可比较、可回读的状态版本。
+- [[Git-backed state]] · **soft** — git 的快照与比较机制正是乐观并发控制的现成基础。
+- [[Cross-session Work]] · **soft** — 只有存在多 session 并发写入，写冲突检测才有实际必要。
 
 ## 相关
 
@@ -53,6 +60,10 @@ sources: 1
 
 ## 反链
 
+- [[Cross-session Work]]
+- [[本地状态层]]
+- [[Git-backed state]]
 - [[动态协调 dynamic coordination]]
+- [[统一执行状态与业务状态]]
 - [[单 agent 的速度天花板]]
 - [[长时程自治编码 long-running autonomous coding]]

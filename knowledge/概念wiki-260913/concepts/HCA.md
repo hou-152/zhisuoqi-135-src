@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: context-engineering
 learningStage: deep-dive
 verification: judge
-centrality: 0.017
-depth: 0
+centrality: 0.042
+depth: 6
 origin: [notion]
 aliases: ["Heavily Compressed Attention", "重度压缩注意力"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 重度压缩注意力：每 128 个相邻标签含义 KV 压成 1 个输入，压缩率达 CSA 四倍，剩下太少便不做稀疏筛选、让 Q 全量关注。
 
-**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 原文 context
 
@@ -39,6 +39,10 @@ sources: 1
 
 > {{name}} 为什么敢省掉稀疏筛选这一步？
 
+## 先懂这些（前置 1）
+
+- [[选择性注意力压缩]] · **hard** — HCA 是一种具体的压缩注意力实现，不懂选择性注意力压缩就无从理解它。
+
 ## 相关
 
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -52,3 +56,7 @@ sources: 1
 ## 别名
 
 `Heavily Compressed Attention`、`重度压缩注意力`
+
+## 反链
+
+- [[选择性注意力压缩]]

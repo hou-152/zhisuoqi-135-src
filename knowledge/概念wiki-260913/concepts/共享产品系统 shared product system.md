@@ -6,8 +6,8 @@ type: CONCEPTUAL
 subject: Context Engineering
 domain: agent-org
 learningStage: when-needed
-verification: accept
-centrality: 0.126
+verification: judge
+centrality: 0.117
 depth: 2
 origin: [context]
 aliases: ["shared product system"]
@@ -16,9 +16,9 @@ sources: 1
 
 # 共享产品系统 · shared product system
 
-> 人与 agent 能共同工作的系统，同时承载反馈、意图、决策、计划与代码，是上下文的载体。
+> 承载反馈、意图、决策、计划与代码的载体，让人与 agent 能共同在其中工作。
 
-**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.126
+**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.117
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能列出该系统同时容纳的几类信息
-- 能用它解释 Linear 的自我定位
+- 能指出 Linear 把自身定位为人与 agent 共同工作的系统
+- 能列出该系统承载的几类内容
 
 ## 验收问句
 
-> {{name}} 里同时承载了哪些人与 agent 的共同信息？
+> {{name}} 承载哪些内容，其定位是什么？
 
 ## 先懂这些（前置 1）
 

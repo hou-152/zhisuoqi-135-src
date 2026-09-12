@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: safety-governance
 learningStage: when-needed
 verification: accept
-centrality: 0.045
+centrality: 0.042
 depth: 0
 origin: [notion]
 aliases: ["Virtual Private Cloud", "AWS 私有网络隔离区"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 数据库认证与数据处理都在 AWS VPC 内完成，数据受 Bedrock 环境保护。
 
-**领域** safety-governance ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.045
+**领域** safety-governance ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 费曼一下
 

@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: now
 verification: use
-centrality: 0.045
-depth: 1
+centrality: 0.017
+depth: 0
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > skill 的最小结构：frontmatter 声明 name、description、allowed-tools，body 写清流程与报告方式。
 
-**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,10 +36,6 @@ sources: 1
 
 > 一份能跑的最小 {{name}}，frontmatter 要写哪些字段？
 
-## 先懂这些（前置 1）
-
-- [[指令子系统与渐进式展开]] · **soft** — SKILL.md正是渐进式展开结构中的一个最小指令单元
-
 ## 相关
 
 - [[把重复步骤编码成 Skill]] · 同篇出现（co-occurrence） — 同篇出现：context-12
@@ -54,4 +50,3 @@ sources: 1
 - [[验证闭环 verification loop]]
 - [[skill-creator 访谈式创建]]
 - [[把重复步骤编码成 Skill]]
-- [[指令子系统与渐进式展开]]

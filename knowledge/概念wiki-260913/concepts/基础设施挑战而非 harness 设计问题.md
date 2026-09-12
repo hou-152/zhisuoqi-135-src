@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 3
 origin: [harness]
 aliases: []
@@ -15,9 +15,9 @@ sources: 1
 
 # 基础设施挑战而非 harness 设计问题
 
-> 让 Agent 随模型能力规模化，本质是基础设施挑战，而非单纯的 harness 设计技巧问题。
+> 把规模化跑Agent遇到的困难归类为基础设施挑战，而非harness设计技巧问题。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能把扩缩容、状态、重试一类问题归到 infra 而非 prompt 技巧
-- 能举出被误当成 harness 问题的具体基础设施需求
+- 能举出被归入infra而非harness设计的具体问题
+- 遇到瓶颈时能先判断这是不是infra问题
 
 ## 验收问句
 
-> 按 {{name}}，Agent 规模化受阻时该先查什么？
+> 遇到Agent规模化瓶颈时，怎么判断它是否属于{{name}}？
 
 ## 先懂这些（前置 1）
 
@@ -52,5 +52,5 @@ sources: 1
 ## 反链
 
 - [[Harness 工程 Harness Engineering]]
-- [[messages API 作为直连网关]]
 - [[Claude Managed Agents]]
+- [[messages API 作为直连网关]]

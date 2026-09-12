@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: thinking-method
 learningStage: deep-dive
 verification: judge
-centrality: 0.045
-depth: 0
+centrality: 0.042
+depth: 1
 origin: [notion]
 aliases: ["Ostwald's Step Rule", "奥斯特瓦尔德阶梯规则", "Ostwald rule"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 系统相变时先跳到最容易到达的相而非最稳定的相，且常卡在那里，是反直觉的惯性法则。
 
-**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 原文 context
 
@@ -36,9 +36,9 @@ sources: 1
 
 > 按 {{name}}，系统会先停在哪种相、为什么卡住？
 
-## 懂了它才能懂（解锁 1）
+## 先懂这些（前置 1）
 
-- [[亚稳态]] — 不懂亚稳态（半稳中间相），就不懂相变为何先跳易达相并卡住。
+- [[亚稳态]] · **hard** — 不懂亚稳态是半稳中间相，就不懂系统为何卡在易达相。
 
 ## 相关
 

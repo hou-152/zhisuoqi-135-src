@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: model-training
 learningStage: deep-dive
 verification: compute
-centrality: 0.072
-depth: 0
+centrality: 0.117
+depth: 1
 origin: [notion]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 按奖励对同策略采样答案加权强化的策略梯度基础形式，相当于带权 SFT，方差大需靠基线降。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.072
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.117
 
 ## 原文 context
 
@@ -34,10 +34,15 @@ sources: 1
 
 > 用一句话说明 {{name}} 与 SFT 的关系及其主要缺陷。
 
-## 懂了它才能懂（解锁 2）
+## 先懂这些（前置 1）
 
-- [[DPPO]] — PPO 是带裁剪与优势的策略梯度，不懂 REINFORCE 的加权更新就不懂它在优化什么。
-- [[RLOO]] — RLOO 是纯 REINFORCE 加留一基线，不懂 REINFORCE 就不懂其优势如何构造。
+- [[Reward Signal]] · **hard** — REINFORCE 按奖励对采样答案加权，没有奖励信号就无从加权。
+
+## 懂了它才能懂（解锁 3）
+
+- [[DPPO]] — PPO 是带裁剪与重要性加权的策略梯度，基础是 REINFORCE 的加权采样。
+- [[RLOO]] — RLOO 放弃裁剪回到纯 REINFORCE，不懂 REINFORCE 就理解不了它的优势定义。
+- [[MaxRL]] — MaxRL 仍是策略梯度，只对成功样本平均梯度，基础是 REINFORCE 的加权形式。
 
 ## 相关
 
@@ -51,7 +56,9 @@ sources: 1
 ## 反链
 
 - [[DPPO]]
+- [[Reward Signal]]
 - [[外包思考，但不外包理解]]
+- [[MaxRL]]
 - [[RLOO]]
 - [[Agent-Native Infrastructure]]
 - [[Sensors 与 Actuators]]

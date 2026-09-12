@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: verification-eval
 learningStage: now
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 工作流中的检查点：完成一步后须通过测试、审查、人工确认或明示验收条件才能继续。
 
-**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 原文 context
 
@@ -38,7 +38,7 @@ Validation gates 是工作流中的检查点。模型完成某一步之后，必
 
 ## 懂了它才能懂（解锁 1）
 
-- [[Sprint Contract】]] — 契约是冲刺起点的一道验收门禁。
+- [[Sprint Contract]] — 契约是冲刺起点的一道验收门禁。
 
 ## 相关
 
@@ -52,7 +52,7 @@ Validation gates 是工作流中的检查点。模型完成某一步之后，必
 ## 反链
 
 - [[上下文工程 context engineering]]
-- [[Agentic primitives]]
 - [[instruction following 的可靠性边界]]
-- [[Sprint Contract】]]
+- [[Sprint Contract]]
+- [[Agentic primitives]]
 - [[Markdown prompt engineering]]

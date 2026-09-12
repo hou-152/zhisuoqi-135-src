@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: memory-retrieval
 learningStage: when-needed
 verification: use
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [notion]
 aliases: ["LLM Wiki", "LLM Knowledge Base", "llm wiki", "个人 wiki", "agent 维护的 wiki"]
@@ -17,7 +17,7 @@ sources: 1
 
 > agent 增量把杂乱原始资料编译成持久 markdown 知识库：摘要、实体页、概念页、矛盾、日志。
 
-**领域** memory-retrieval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** memory-retrieval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 原文 context
 

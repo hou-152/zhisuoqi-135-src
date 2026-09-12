@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: verification-eval
 learningStage: when-needed
 verification: accept
-centrality: 0.045
+centrality: 0.042
 depth: 0
 origin: [notion]
 aliases: ["VirtualHome"]
@@ -17,7 +17,7 @@ sources: 1
 
 > Puig 等 2018 提出的具身智能基准，用程序化脚本模拟家庭日常活动。
 
-**领域** verification-eval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.045
+**领域** verification-eval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 原文 context
 

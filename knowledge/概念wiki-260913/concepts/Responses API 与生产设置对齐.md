@@ -6,7 +6,7 @@ subject: Context Engineering × Harness Engineering
 domain: harness-runtime
 learningStage: when-needed
 verification: use
-centrality: 0.062
+centrality: 0.06
 depth: 3
 origin: [context, harness]
 aliases: []
@@ -15,9 +15,9 @@ sources: 2
 
 # Responses API 与生产设置对齐
 
-> 用 Responses API 而非 legacy Chat Completions API 重新实现 harness，以更贴合生产设置。
+> 用 Responses API 重写 harness 以更好对齐生产设置，并建议开发者弃用 legacy Chat Completions。
 
-**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.062
+**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.06
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ sources: 2
 
 ## 掌握证据（做到这些才算会）
 
-- 能说出理由「To better match our production setup」
-- 能建议开发者改用 Responses API
+- 能说出改用 Responses API 的理由是匹配生产设置
+- 能在自己的 harness 里完成 API 迁移并跑通
 
 ## 验收问句
 
-> 为什么这个 harness 要用 {{name}} 重写而不是旧接口？
+> 你的 {{name}} 是否已用 Responses API 而非旧 Chat Completions 实现？
 
 ## 先懂这些（前置 1）
 

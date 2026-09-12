@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: now
 verification: accept
-centrality: 0.072
+centrality: 0.042
 depth: 0
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 模型的输入称 prompt，输出称 completion 或 response。
 
-**领域** context-engineering ｜ **类型** LANGUAGE ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
+**领域** context-engineering ｜ **类型** LANGUAGE ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -36,10 +36,9 @@ sources: 1
 
 > 在 {{name}} 里，输出那一侧叫什么？
 
-## 懂了它才能懂（解锁 2）
+## 懂了它才能懂（解锁 1）
 
-- [[chat templated prompts]] — 对话模板只是 prompt/completion 的一种包装，先懂输入输出基本框架
-- [[prompt 与 context 的通用性落差]] — 该落差讲的是 prompt 与 context 可具体程度之差，先要知道 prompt 是什么
+- [[chat templated prompts]] — 对话式提示只是补全式提示的包装，不懂 prompt/completion 就无从理解它
 
 ## 相关
 
@@ -56,4 +55,3 @@ sources: 1
 - [[LLM Large Language Model]]
 - [[coding agent]]
 - [[chat templated prompts]]
-- [[prompt 与 context 的通用性落差]]

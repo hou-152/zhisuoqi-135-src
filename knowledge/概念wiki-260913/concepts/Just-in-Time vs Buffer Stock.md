@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: economy-business
 learningStage: when-needed
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 3
 origin: [notion]
 aliases: ["准时供应链 / 缓冲库存 / JIT / 零库存 vs 安全库存"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 效率优先的零库存随用随到，对比为抗冲击而保留冗余库存；极端事件下冗余比效率更值钱。
 
-**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** economy-business ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 原文 context
 

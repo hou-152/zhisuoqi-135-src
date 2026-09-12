@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: model-training
 learningStage: when-needed
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 因微调迁移任务成本高、自研模型被通用大模型一夜超越，选择把宝押在模型的上下文内学习能力上。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -64,15 +64,15 @@ sources: 1
 
 - [[LLM Large Language Model]]
 - [[局部最优 local optima]]
-- [[文件系统即终极上下文]]
-- [[与底层模型正交 orthogonal to the underlying models]]
-- [[action space 膨胀]]
-- [[KV-cache 命中率]]
-- [[logits 掩码与 context-aware 状态机]]
 - [[prefill 与 decode 的高度倾斜]]
+- [[文件系统即终极上下文]]
+- [[few-shot 套路化与受控多样性]]
+- [[logits 掩码与 context-aware 状态机]]
 - [[Stochastic Graduate Descent]]
 - [[保留错误证据与错误恢复]]
 - [[复述（recitation）与 lost-in-the-middle]]
 - [[可恢复的压缩 restorable compression]]
 - [[稳定的 prompt 前缀]]
-- [[few-shot 套路化与受控多样性]]
+- [[与底层模型正交 orthogonal to the underlying models]]
+- [[action space 膨胀]]
+- [[KV-cache 命中率]]

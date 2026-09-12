@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: when-needed
 verification: judge
-centrality: 0.045
-depth: 1
+centrality: 0.017
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 工程师能力曲线的转移：衡量标准从『我能写多少行代码』转向『我能为 AI 设计多严格的工作环境』。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -38,21 +38,17 @@ sources: 1
 
 > 按{{name}}，未来衡量工程师的标准变成了什么？
 
-## 先懂这些（前置 1）
-
-- [[AI 工程基础设施】 AI engineering infrastructure]] · **hard** — 工程师能力转向设计环境，正因为有一整套工程基础设施要做。
-
 ## 相关
 
-- [[AI 工程基础设施】 AI engineering infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
+- [[AI 工程基础设施 AI engineering infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
 - [[1.6% vs 98.4%]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
-- [[确定性工程基础设施】 deterministic engineering infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
+- [[确定性工程基础设施 deterministic engineering infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
 
 ## 出场
 
 - Harness Engineering ｜ 《撕开 Claude Code 真相：让它好用的 98.4%，是工程不是 AI》 ｜ https://mp.weixin.qq.com/s?\_\_biz=MzI3MTA0MTk1MA==&mid=2652696950&idx=2&sn=b8388fc8a9c5f6b51dbdf7e799d7f349
 ## 反链
 
-- [[确定性工程基础设施】 deterministic engineering infrastructure]]
-- [[AI 工程基础设施】 AI engineering infrastructure]]
 - [[1.6% vs 98.4%]]
+- [[确定性工程基础设施 deterministic engineering infrastructure]]
+- [[AI 工程基础设施 AI engineering infrastructure]]

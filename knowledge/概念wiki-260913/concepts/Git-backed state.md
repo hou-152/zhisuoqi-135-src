@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: state-persistence
 learningStage: when-needed
 verification: use
-centrality: 0.154
+centrality: 0.142
 depth: 4
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 把循环状态落在 git 中获得显式持久性，从而支持系统重启后的崩溃恢复。
 
-**领域** state-persistence ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.154
+**领域** state-persistence ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.142
 
 ## 费曼一下
 
@@ -36,16 +36,16 @@ loop 要长期运行，就不能只靠当前窗口里的记忆。把状态存进
 
 > {{name}} 如何支撑崩溃恢复？
 
-## 先懂这些（前置 4）
+## 先懂这些（前置 3）
 
 - [[文件系统即持久记忆]] · **hard** — 把循环状态落在 git 中，git 本身基于文件系统，不懂文件持久记忆无法理解。
 - [[Cross-session Work]] · **hard** — git 提供显式持久性以支持系统重启后的崩溃恢复，不懂跨 session 需求就不知为何要 git。
-- [[持久化执行 durable execution]] · **soft** — 把循环状态放 git 是为了崩溃恢复，需先懂 step 与检查点的持久化执行模型。
-- [[文件系统即持久记忆]] · **soft** — git 状态最终落地为工作区文件，先懂状态以文件持久才懂 git 提供的显式持久性。
+- [[文件系统即持久记忆]] · **soft** — git 仓库自身也落在文件系统上。
 
-## 懂了它才能懂（解锁 1）
+## 懂了它才能懂（解锁 2）
 
 - [[agent 模板的声明式持久化]] — 把模型、prompt、工具等存成 YAML 放进 git，需先懂 git 持久状态。
+- [[乐观并发控制 optimistic concurrency control]] — git 的快照与比较机制正是乐观并发控制的现成基础。
 
 ## 相关
 
@@ -61,7 +61,7 @@ loop 要长期运行，就不能只靠当前窗口里的记忆。把状态存进
 - [[文件系统即持久记忆]]
 - [[Loop Engineering]]
 - [[Cross-session Work]]
-- [[持久化执行 durable execution]]
+- [[乐观并发控制 optimistic concurrency control]]
 - [[agent 模板的声明式持久化]]
 - [[Continuous orchestration loop]]
 - [[Model as subroutine]]

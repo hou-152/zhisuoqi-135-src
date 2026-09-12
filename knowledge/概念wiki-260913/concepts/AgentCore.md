@@ -5,9 +5,9 @@ type: REPRESENTATIONAL
 subject: AI 概念库
 domain: harness-runtime
 learningStage: when-needed
-verification: use
-centrality: 0.045
-depth: 5
+verification: accept
+centrality: 0.042
+depth: 4
 origin: [notion]
 aliases: ["AWS Agent 原语库", "AgentCore primitives"]
 sources: 1
@@ -15,9 +15,9 @@ sources: 1
 
 # AgentCore
 
-> AWS 提供的一组 agent 原语：记忆组件、安全执行环境、权限能力等，可自建 agentic workflow。
+> AWS 提供的一套 agent 原语，含记忆组件、安全执行环境与权限能力，供自建 agentic workflow 使用。
 
-**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ AWS 的 **Agent 原语库**——记忆、安全执行、权限等单独的零�
 
 ## 掌握证据（做到这些才算会）
 
-- 能列出 AgentCore 提供的几类原语
-- 能说明用这些原语能搭出什么形态的工作流
+- 能列出 AgentCore 提供的三类原语
+- 能说明各原语分别替代了什么自建组件
 
 ## 验收问句
 
-> {{name}} 提供哪些原语，用它们能搭出什么？
+> {{name}}提供哪些原语？分别解决什么问题？
 
 ## 先懂这些（前置 1）
 

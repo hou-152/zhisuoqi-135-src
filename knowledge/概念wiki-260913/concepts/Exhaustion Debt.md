@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: mind-body
 learningStage: when-needed
 verification: judge
-centrality: 0.072
-depth: 1
+centrality: 0.067
+depth: 5
 origin: [notion]
 aliases: ["疲惫债", "倦怠债", "能量负债", "Burnout Debt"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 白天消耗多于夜间恢复、醒来没回到满格所累积的疲劳债务，长期必然压垮产出。
 
-**领域** mind-body ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** mind-body ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -58,7 +58,7 @@ sources: 1
 ## 反链
 
 - [[外包思考，但不外包理解]]
-- [[Agent-Native Infrastructure]]
 - [[短睡眠时长]]
+- [[Agent-Native Infrastructure]]
 - [[醒后清爽感]]
 - [[Sensors 与 Actuators]]

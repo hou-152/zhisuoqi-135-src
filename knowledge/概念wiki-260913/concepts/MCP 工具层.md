@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: tools-sandbox
 learningStage: when-needed
 verification: use
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 图谱建好后，Claude 通过 build/query/semantic search/list stats/get docs 等八个 MCP 工具自动与图谱交互。
 
-**领域** tools-sandbox ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** tools-sandbox ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -52,6 +52,6 @@ sources: 1
 ## 反链
 
 - [[MCP Model Context Protocol]]
+- [[持久化代码图谱 structural map graph]]
 - [[code-review-graph]]
 - [[Tree-sitter]]
-- [[持久化代码图谱 structural map graph]]

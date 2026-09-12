@@ -2,7 +2,7 @@
 id: cm_2c214b3c
 name: 独立调用
 nameEn: Standalone
-type: CONCEPTUAL
+type: PROCEDURAL
 subject: Context Engineering
 domain: verification-eval
 learningStage: when-needed
@@ -16,9 +16,9 @@ sources: 1
 
 # 独立调用 · Standalone
 
-> 最松的接入方式：产物已存在后手动触发一次，适合不必每次都做的横切检查。
+> 四种接入方式中最松的一种：产物已存在后手动调用，用于不必每次都做的横切检查。
 
-**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能列出提交前安全扫描、PR 前无障碍审计、license 校验等适用场景
-- 能判断何时该从独立调用升级为嵌入或链式
+- 能列出适合场景：提交前安全扫描、发 PR 前无障碍审计、license-header 校验
+- 能在发现自己每次改动后都在跑它时升级为嵌入或链式
 
 ## 验收问句
 
-> 什么场景该用 {{name}}，何时该升级成嵌入或链式？
+> 这次检查该用 {{name}}，还是升级成链式？
 
 ## 相关
 

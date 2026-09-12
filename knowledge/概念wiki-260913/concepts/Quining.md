@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: thinking-method
 learningStage: deep-dive
 verification: accept
-centrality: 0.045
-depth: 0
+centrality: 0.042
+depth: 2
 origin: [notion]
 aliases: ["to quine", "Quining Qualia", "釜底抽薪式否定"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 丹尼特造的词，意为坚决否认某真实或重要事物的存在或意义，用以致敬奎因。
 
-**领域** thinking-method ｜ **类型** LANGUAGE ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.045
+**领域** thinking-method ｜ **类型** LANGUAGE ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -36,9 +36,9 @@ sources: 1
 
 > 说某人在 {{name}}，是指他在做什么？
 
-## 懂了它才能懂（解锁 1）
+## 先懂这些（前置 1）
 
-- [[消除主义]] — 消除主义正是对“自我”这一实在的坚决否认，即一种 Quining 操作。
+- [[消除主义]] · **soft** — 不懂消除主义对不存在物的坚决否认，就不懂 Quining 的用法。
 
 ## 相关
 

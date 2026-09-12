@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: judge
-centrality: 0.072
+centrality: 0.042
 depth: 0
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 剪枝处理运行内的上下文，压缩处理跨运行的会话累积：token 超阈值就把历史摘要后喂进下一次运行。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -36,10 +36,9 @@ sources: 1
 
 > 跨运行累积的历史该用剪枝还是压缩，依据{{name}}怎么判？
 
-## 懂了它才能懂（解锁 2）
+## 懂了它才能懂（解锁 1）
 
-- [[预算警告与溢出恢复]] — 溢出恢复靠强制压缩消息并重试，必须先懂压缩。
-- [[新鲜度机制]] — 近上限时自动总结等做法要借用跨运行的压缩思路。
+- [[预算警告与溢出恢复]] — 溢出恢复即触发强制压缩消息并重试，前提是懂压缩。
 
 ## 相关
 
@@ -54,6 +53,5 @@ sources: 1
 
 - [[Harness]]
 - [[持久化执行 durable execution]]
-- [[新鲜度机制]]
-- [[预算警告与溢出恢复]]
 - [[harness 与 framework 的分野]]
+- [[预算警告与溢出恢复]]

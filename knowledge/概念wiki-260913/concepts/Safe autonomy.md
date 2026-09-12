@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: safety-governance
 learningStage: now
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 在降低人工审批摩擦的同时保留权限边界与安全控制，让 Agent 能自主推进又不越界。
 
-**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -55,5 +55,5 @@ Anthropic 的 sandboxing、MCP code execution、tool design，以及 OpenHands �
 - [[Harness 工程 Harness Engineering]]
 - [[权限与推理的架构分离]]
 - [[Context as working memory budget]]
-- [[审批疲劳]]
 - [[Reliability-critical harness primitives]]
+- [[审批疲劳]]

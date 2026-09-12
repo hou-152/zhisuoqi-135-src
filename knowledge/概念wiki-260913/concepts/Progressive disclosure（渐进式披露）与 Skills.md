@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: judge
-centrality: 0.072
+centrality: 0.042
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > harness 启动时不把 Skill 全部载入，按需逐步披露，避免 agent 开工前就拖垮性能。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -38,11 +38,7 @@ Skills 被定位为 harness 级原语，解决启动时载入过多工具或 MCP
 
 ## 先懂这些（前置 1）
 
-- [[Agentic primitives]] · **soft** — 按需披露的对象就是可复用、可组合的 skill 原语
-
-## 懂了它才能懂（解锁 1）
-
-- [[description 作为触发条件]] — description 决定 skill 何时被拉入，正是渐进披露的触发机制
+- [[Agent Skills]] · **hard** — 渐进披露讲的正是 Skill 的按需加载，没有 Skill 就没有披露对象
 
 ## 相关
 
@@ -58,5 +54,4 @@ Skills 被定位为 harness 级原语，解决启动时载入过多工具或 MCP
 - [[Harness]]
 - [[Harness 工程 Harness Engineering]]
 - [[Agent = Model + Harness]]
-- [[Agentic primitives]]
-- [[description 作为触发条件]]
+- [[Agent Skills]]

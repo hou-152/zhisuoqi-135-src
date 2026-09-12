@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: thinking-method
 learningStage: deep-dive
 verification: judge
-centrality: 0.072
-depth: 3
+centrality: 0.042
+depth: 6
 origin: [notion]
 aliases: ["超级预测", "Tetlock 超级预测", "超预测者心智习惯"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > Tetlock 总结的高准确预测者心智习惯：频繁更新、找反证、outside view、细颗粒信念
 
-**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 原文 context
 
@@ -40,10 +40,9 @@ Cate Hall 的洞察是：超级预测者的真正超能力不是 IQ 高，而是
 
 > 面对一个预测，你会怎样按 {{name}} 主动找反证？
 
-## 先懂这些（前置 2）
+## 先懂这些（前置 1）
 
-- [[稀疏反馈推断规则]] · **soft** — 高准确预测者需从稀疏反馈中反推规则并频繁更新。
-- [[Holding Your Opinions Lightly]] · **soft** — 频繁更新、找反证需要把观点当临时假设而非身份。
+- [[Holding Your Opinions Lightly]] · **soft** — 频繁更新与细颗粒信念，需要把观点当可放下的临时假设。
 
 ## 相关
 
@@ -62,4 +61,3 @@ Cate Hall 的洞察是：超级预测者的真正超能力不是 IQ 高，而是
 ## 反链
 
 - [[Holding Your Opinions Lightly]]
-- [[稀疏反馈推断规则]]

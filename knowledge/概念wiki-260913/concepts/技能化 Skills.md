@@ -2,9 +2,9 @@
 id: cm_92cb645b
 name: 技能化
 nameEn: Skills
-type: PROCEDURAL
+type: REPRESENTATIONAL
 subject: Context Engineering
-domain: harness-runtime
+domain: loop-autonomy
 learningStage: when-needed
 verification: use
 centrality: 0.017
@@ -16,9 +16,9 @@ sources: 1
 
 # 技能化 · Skills
 
-> 把值得重复的工作流固化为可复用技能，支持斜杠命令触发或自动应用，让学习复利累积。
+> 把值得重复的工作流固化为可复用技能，让学习复利累积，可斜杠命令手动触发或在相关时自动应用。
 
-**领域** harness-runtime ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** loop-autonomy ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能写出一条可复用 skill 并说明其触发方式
-- 能判断哪些重复工作流值得技能化
+- 能把一个重复工作流写成可复用技能
+- 能说出手动斜杠触发与自动应用两种调用方式
 
 ## 验收问句
 
-> 把这段重复流程 {{name}} 后，它靠什么被触发？
+> 把哪个重复工作流做成{{name}}后，下次能直接复用？
 
 ## 相关
 

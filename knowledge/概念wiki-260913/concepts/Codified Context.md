@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.045
-depth: 2
+centrality: 0.042
+depth: 1
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 把代码库的隐性约定写成教学文档式上下文并入库；某项目达 26000 行，超过部分模块代码。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -38,12 +38,12 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[Repo-local instructions]] · **soft** — 把隐性约定写成入库文档，是仓库内协作文件思路的延伸
+- [[仓库即唯一事实来源]] · **hard** — 把隐性约定写成入库文档，前提是承认仓库才是唯一事实来源。
 
 ## 相关
 
 - [[Agent Drift]] · 同篇出现（co-occurrence） — 同篇出现：context-25
-- [[Context 四种失败模式】 Context Pollution Distraction Confusion Clash]] · 同篇出现（co-occurrence） — 同篇出现：context-25
+- [[Context 四种失败模式 Context Pollution Distraction Confusion Clash]] · 同篇出现（co-occurrence） — 同篇出现：context-25
 - [[上下文工程 context engineering]] · 同篇出现（co-occurrence） — 同篇出现：context-25
 
 ## 出场
@@ -51,6 +51,6 @@ sources: 1
 - Context Engineering ｜ 《上下文工程：AI 时代的核心能力》 ｜ https://x.com/nyk_builderz/status/2031581912071127158/?s=12&rw_tt_thread=True
 ## 反链
 
-- [[Repo-local instructions]]
+- [[仓库即唯一事实来源]]
 - [[Agent Drift]]
-- [[Context 四种失败模式】 Context Pollution Distraction Confusion Clash]]
+- [[Context 四种失败模式 Context Pollution Distraction Confusion Clash]]

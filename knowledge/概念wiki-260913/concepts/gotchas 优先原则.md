@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 0
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > token 分配原则：简要说明 repo 用途，大部分 token 留给代码库内部的反直觉约定，避免陈述显而易见的事。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -38,7 +38,7 @@ CLAUDE.md 一节给出的 token 分配原则：保持轻量，简要说明 repo 
 
 ## 懂了它才能懂（解锁 1）
 
-- [[gotchas 优先的 CLAUDE.md]] — CLAUDE.md 写法准则是 token 分配原则的具体落地
+- [[gotchas 优先的 CLAUDE.md]] — 它是该 token 分配原则在 CLAUDE.md 上的具体落地写法
 
 ## 相关
 

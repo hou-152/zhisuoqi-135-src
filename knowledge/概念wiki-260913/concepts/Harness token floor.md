@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: caching-cost
 learningStage: now
 verification: compute
-centrality: 0.154
+centrality: 0.117
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 用户任务进入前，harness 已发送的 system prompt、tool schema 与 scaffolding 所占的固定 token 量。
 
-**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.154
+**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.117
 
 ## 费曼一下
 
@@ -41,11 +41,10 @@ sources: 1
 - [[Tool-schema tax]] · **hard** — 工具 Schema 的固定载荷是 Harness Token 底座中可单独测量的一部分。
 - [[Token count]] · **hard** — harness 固定开销以 token 数计量，先懂 token 才能量化。
 
-## 懂了它才能懂（解锁 3）
+## 懂了它才能懂（解锁 2）
 
 - [[Configuration multiplier]] — 配置膨胀是在 harness 基线之上做倍数放大。
 - [[Subagent bootstrap multiplier]] — 子 agent 独立 bootstrap 即重复支付 harness 固定开销。
-- [[tools → system → messages 缓存顺序]] — 工具与系统提示构成固定前缀，不懂harness固定开销就不知顺序的价值。
 
 ## 相关
 
@@ -77,17 +76,16 @@ sources: 1
 - [[Token count]]
 - [[系统提示 System Prompt]]
 - [[工具收窄 tool scoping]]
-- [[Context-window tax]]
-- [[Instruction-file tax]]
+- [[Baseline-request product]]
 - [[Tool-schema tax]]
 - [[API-boundary observability]]
-- [[Baseline-request product]]
-- [[Cache temperature]]
 - [[Configuration multiplier]]
+- [[Context-window tax]]
 - [[Framework-template repetition]]
+- [[Instruction-file tax]]
 - [[MCP schema amplification]]
 - [[Measurement snapshot]]
 - [[Subagent bootstrap multiplier]]
 - [[Tamper-evident audit trail]]
-- [[tools → system → messages 缓存顺序]]
 - [[Cache prefix stability]]
+- [[Cache temperature]]

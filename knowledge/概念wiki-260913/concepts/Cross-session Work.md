@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: state-persistence
 learningStage: now
 verification: judge
-centrality: 0.208
+centrality: 0.217
 depth: 3
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 任务由多个 agent session 各承担一部分并在循环中推进，因此要求外部状态能跨 session 保存与恢复。
 
-**领域** state-persistence ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.208
+**领域** state-persistence ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.217
 
 ## 费曼一下
 
@@ -40,14 +40,15 @@ cross-session work 就像多人接力跑。每个人只跑一段，但接力棒�
 
 - [[Session]] · **hard** — 跨 session 任务由多个 Session 各承担一部分，不懂 Session 无法理解分工。
 - [[Sessions]] · **hard** — 跨 session 要求外部状态能跨 session 保存与恢复，需懂 Sessions 持久层。
-- [[Session]] · **hard** — 跨 session 任务以“一次有状态运行”为分工单位，不懂 Session 就无法理解任务如何切分与传递。
+- [[Sessions]] · **hard** — 跨 session 推进前，得先懂单次 session 内上下文如何携带。
 
-## 懂了它才能懂（解锁 4）
+## 懂了它才能懂（解锁 5）
 
 - [[Git-backed state]] — git 提供显式持久性以支持系统重启后的崩溃恢复，不懂跨 session 需求就不知为何要 git。
+- [[Long-running agent handoff]] — 交接跨上下文窗口，前提是状态能跨 session 保存与恢复。
 - [[Long-running agent handoff]] — 交接机制服务于跨 session 推进长任务，懂该场景让交接目的更清楚。
 - [[Artifact Schema]] — artifact 要跨 session 复用，懂跨 session 工作更懂为何需要 schema。
-- [[Long-running agent handoff]] — 交接 artifact 与 feature list 在多 session 间流转，先懂跨 session 分工才懂交接对象是什么。
+- [[乐观并发控制 optimistic concurrency control]] — 只有存在多 session 并发写入，写冲突检测才有实际必要。
 
 ## 相关
 
@@ -61,9 +62,10 @@ cross-session work 就像多人接力跑。每个人只跑一段，但接力棒�
 ## 反链
 
 - [[Agent loop]]
-- [[Session]]
 - [[Sessions]]
 - [[Git-backed state]]
 - [[Long-running agent handoff]]
+- [[Session]]
+- [[乐观并发控制 optimistic concurrency control]]
 - [[Artifact Schema]]
 - [[Loop Engineer]]

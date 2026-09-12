@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: deep-dive
 verification: accept
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 同批语料保留思路流与随机打乱句序相比，打乱版性能反而更好，提示输入结构会影响注意力施加方式。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.045
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -38,7 +38,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[context rot（上下文腐烂）与 Lost in the Middle]] · **soft** — 两者都在讲输入结构如何影响注意力的施加方式
+- [[context rot（上下文腐烂）与 Lost in the Middle]] · **soft** — 它解释输入结构如何影响注意力，与长上下文退化同属一类发现
 
 ## 相关
 
@@ -52,6 +52,6 @@ sources: 1
 ## 反链
 
 - [[上下文腐烂 Context Rot]]
+- [[context rot（上下文腐烂）与 Lost in the Middle]]
 - [[大海捞针（NIAH）与词面匹配]]
 - [[上下文均匀处理假设]]
-- [[context rot（上下文腐烂）与 Lost in the Middle]]

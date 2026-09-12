@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: judge
-centrality: 0.045
-depth: 3
+centrality: 0.017
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > Agent 在接到指令后自动挑选相关文件进入上下文，却看不到对应的 tool use 记录或本地索引。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,10 +36,6 @@ sources: 1
 
 > {{name}}指什么现象，它为什么让人怀疑 Claude Code 藏了东西？
 
-## 先懂这些（前置 1）
-
-- [[注意力之前的注意力 attention before attention]] · **soft** — Agent自动挑文件进上下文，属于注意力之前的筛选环节
-
 ## 相关
 
 - [[看对话 log]] · 同篇出现（co-occurrence） — 同篇出现：harness-21
@@ -53,5 +49,4 @@ sources: 1
 
 - [[对话加确定性缝合]]
 - [[看对话 log]]
-- [[注意力之前的注意力 attention before attention]]
 - [[反向代理式窥探]]

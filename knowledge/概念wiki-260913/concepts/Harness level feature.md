@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.072
+centrality: 0.092
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 模型开箱做不到、必须由 harness 提供的能力：跨交互持久状态、执行代码、访问实时知识、搭环境装依赖。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.092
 
 ## 费曼一下
 
@@ -36,10 +36,14 @@ sources: 1
 
 > {{name}} 包含哪四项，各自为什么模型开箱做不到？
 
-## 先懂这些（前置 2）
+## 先懂这些（前置 1）
 
-- [[stateless]] · **hard** — 跨交互持久状态这类能力，正因模型无状态才需要 harness 补
-- [[harness 的过时假设]] · **soft** — “开箱做不到”的清单随模型变强而变，正是过时假设的来源
+- [[stateless]] · **hard** — 每次调用从空白开始，才需要 harness 提供跨交互持久状态。
+
+## 懂了它才能懂（解锁 2）
+
+- [[Harness Thickness]] — 先知道模型开箱缺什么，才能讨论多少逻辑放 harness。
+- [[model-native harness]] — 顺着模型设计的前提是知道模型开箱做不到什么。
 
 ## 相关
 
@@ -56,4 +60,5 @@ sources: 1
 - [[Harness 工程 Harness Engineering]]
 - [[Agent = Model + Harness]]
 - [[stateless]]
-- [[harness 的过时假设]]
+- [[model-native harness]]
+- [[Harness Thickness]]

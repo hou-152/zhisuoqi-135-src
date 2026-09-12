@@ -3,11 +3,11 @@ id: cm_2944fd6c
 name: 编排循环与「dumb loop」
 type: CONCEPTUAL
 subject: Harness Engineering
-domain: harness-runtime
+domain: loop-autonomy
 learningStage: now
-verification: judge
-centrality: 0.099
-depth: 4
+verification: use
+centrality: 0.092
+depth: 3
 origin: [harness]
 aliases: []
 sources: 1
@@ -15,9 +15,9 @@ sources: 1
 
 # 编排循环与「dumb loop」
 
-> Harness 的心跳：组装提示→调 LLM→解析输出→执行工具→结果回喂并重复，机制上常只是一个 while 循环。
+> 组装提示、调模型、解析输出、执行工具、回喂结果并重复的编排心跳循环。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.099
+**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.092
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ harness 的心跳，实现 Thought-Action-Observation（ReAct）循环：组装�
 
 ## 掌握证据（做到这些才算会）
 
-- 能画出 ReAct 循环的五个步骤并指出代码里的对应位置
-- 能解释 Anthropic 为何把自家 runtime 称为 dumb loop、智能全在模型
+- 能列出 Thought-Action-Observation 循环的各步骤
+- 能解释复杂度在循环所管理的东西、而非循环本身
 
 ## 验收问句
 
-> 请用 {{name}} 说明一次任务从提示到工具回喂的完整循环步骤。
+> 用 {{name}} 说出一次完整 ReAct 循环的步骤。
 
 ## 先懂这些（前置 1）
 

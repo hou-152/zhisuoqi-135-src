@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: model-training
 learningStage: when-needed
 verification: accept
-centrality: 0.045
-depth: 1
+centrality: 0.042
+depth: 0
 origin: [notion]
 aliases: ["N-gram 查表", "N-gram 模型"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 经典局部依赖语言模型，用 O(1) 复杂度捕捉邻近词之间的关系。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.045
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -36,9 +36,9 @@ sources: 1
 
 > {{name}} 捕捉的是哪一段范围内的依赖？
 
-## 先懂这些（前置 1）
+## 懂了它才能懂（解锁 1）
 
-- [[reasoning thinking]] · **soft** — 懂 N-gram 的局部依赖局限，才懂为何需要花更多 token 做长程推理。
+- [[Logits]] — N-gram 的下一词概率是 logits 的简化前身，先懂它更易理解原始得分。
 
 ## 相关
 
@@ -56,4 +56,4 @@ sources: 1
 
 ## 反链
 
-- [[reasoning thinking]]
+- [[Logits]]

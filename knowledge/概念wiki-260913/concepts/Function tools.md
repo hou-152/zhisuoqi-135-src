@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: tools-sandbox
 learningStage: when-needed
 verification: use
-centrality: 0.072
+centrality: 0.067
 depth: 0
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 把任意 Python 函数变成工具，自动生成 schema 并用 Pydantic 做参数校验。
 
-**领域** tools-sandbox ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** tools-sandbox ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -54,6 +54,6 @@ Turn any Python function into a tool with automatic schema generation and Pydant
 
 - [[Agent]]
 - [[primitives]]
+- [[very few abstractions]]
 - [[工具即结构化输出]]
 - [[MCP server tool calling]]
-- [[very few abstractions]]

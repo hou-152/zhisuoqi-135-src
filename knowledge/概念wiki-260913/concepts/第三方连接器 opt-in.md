@@ -3,10 +3,10 @@ id: cm_e549dff0
 name: 第三方连接器 opt-in
 type: PROCEDURAL
 subject: Context Engineering
-domain: safety-governance
+domain: tools-sandbox
 learningStage: now
 verification: use
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [context]
 aliases: []
@@ -15,9 +15,9 @@ sources: 1
 
 # 第三方连接器 opt-in
 
-> 第三方工具即使已连上，也必须由用户在选择器中点名，紧急也不构成例外。
+> 第三方 MCP 工具即便已连上也要经选择器由用户 opt-in；不得替用户挑服务商，紧急也不例外。
 
-**领域** safety-governance ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** tools-sandbox ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -29,12 +29,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能说明 20 分钟内紧急用车仍走选择器的理由
-- 能说出电商场景永不主动建议的规则
+- 能说出紧急 20 分钟内用车仍走选择器这一反例
+- 能说明电商场景永不主动建议
 
 ## 验收问句
 
-> {{name}} 之下，紧急场景可以跳过选择器吗？
+> {{name}} 能在调用第三方工具时坚持 opt-in 且不代选吗？
 
 ## 先懂这些（前置 1）
 

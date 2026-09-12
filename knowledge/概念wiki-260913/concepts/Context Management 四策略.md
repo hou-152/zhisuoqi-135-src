@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: context-engineering
 learningStage: now
 verification: use
-centrality: 0.126
+centrality: 0.092
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 把上下文当内存来管：该压缩就压缩、该外置就外置、该懒加载就懒加载。
 
-**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
+**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.092
 
 ## 费曼一下
 
@@ -34,13 +34,12 @@ context 是稀缺资源，不是 "越大越好"。真正的 harness 工程是把
 
 ## 先懂这些（前置 1）
 
-- [[Context as working memory budget]] · **hard** — 四策略就是按内存预算来管理上下文的具体操作
+- [[Context as working memory budget]] · **hard** — 四策略就是把窗口当内存预算来经营，没有预算观就没有这些策略
 
-## 懂了它才能懂（解锁 3）
+## 懂了它才能懂（解锁 2）
 
-- [[Context Infrastructure]] — 基础设施决定给 agent 什么信息，四策略是其落地手段
-- [[just in time 上下文检索]] — 按引用懒加载正属于该外置、该懒加载的策略
-- [[Agent Drift]] — 漂移几乎全源于上下文管理问题，对策即四策略
+- [[Context Reset vs Compaction]] — 压缩与重来是四策略里压缩、外置思路的具体抉择
+- [[just in time 上下文检索]] — 它实现的是四策略中该懒加载就懒加载那一条
 
 ## 相关
 
@@ -54,7 +53,6 @@ context 是稀缺资源，不是 "越大越好"。真正的 harness 工程是把
 ## 反链
 
 - [[Context as working memory budget]]
+- [[Context Reset vs Compaction]]
 - [[just in time 上下文检索]]
-- [[Agent Drift]]
 - [[Agent vs Harness]]
-- [[Context Infrastructure]]

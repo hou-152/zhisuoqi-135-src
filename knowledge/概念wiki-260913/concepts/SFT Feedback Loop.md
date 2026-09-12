@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: model-training
 learningStage: when-needed
 verification: judge
-centrality: 0.045
-depth: 5
+centrality: 0.042
+depth: 0
 origin: [notion]
 aliases: ["SFT 反馈循环", "supervised fine-tuning feedback loop", "model-generated rollouts loop"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 模型生成的 rollout 被回收作 SFT 数据，把自己的口癖喂回自己，偏差逐代变成标准答案。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 原文 context
 
@@ -50,9 +50,9 @@ sources: 1
 
 > 要打断 {{name}}，得在哪两端同时动手？
 
-## 先懂这些（前置 1）
+## 懂了它才能懂（解锁 1）
 
-- [[RLHF]] · **soft** — 反馈回路常嵌在 RLHF 的 rollout 采集里，懂 RLHF 才懂数据从哪回收。
+- [[Model-relative Curriculum]] — 懂自生成数据回灌会固化旧口癖，才理解模型换代后旧课程为何必须重写。
 
 ## 相关
 
@@ -70,7 +70,7 @@ sources: 1
 
 ## 反链
 
-- [[RLHF]]
 - [[外包思考，但不外包理解]]
+- [[Model-relative Curriculum]]
 - [[Agent-Native Infrastructure]]
 - [[Sensors 与 Actuators]]

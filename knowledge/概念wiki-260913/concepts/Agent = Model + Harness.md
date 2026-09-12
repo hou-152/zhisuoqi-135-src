@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.171
-depth: 5
+centrality: 0.16
+depth: 4
 origin: [harness]
 aliases: []
 sources: 2
@@ -17,7 +17,7 @@ sources: 2
 
 > Agent = Model + Harness：模型只有在 harness 提供状态、工具执行、反馈回路与约束后才成为 agent。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.171
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.16
 
 ## 费曼一下
 
@@ -45,7 +45,7 @@ sources: 2
 
 - [[Agent as a New Type of Software]] — 它是一种新软件形态，先懂 agent 由模型加 harness 组成。
 - [[Agent CLI runtimes]] — 能跑自然语言工作流的 CLI，先懂 agent 的模型加 harness 结构。
-- [[垃圾回收」型 agent]] — 它是周期性运行的 agent，先懂 agent 由模型加 harness 构成。
+- [[「垃圾回收」型 agent]] — 它是周期性运行的 agent，先懂 agent 由模型加 harness 构成。
 
 ## 相关
 
@@ -53,7 +53,7 @@ sources: 2
 - [[从期望行为反推 harness 设计]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
 - [[Filesystem 作为最基础的 harness 原语]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
 - [[ReAct loop]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
-- [[通用工具与「给模型一台计算机]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
+- [[通用工具与「给模型一台计算机」]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
 - [[Self-verification loop]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
 - [[Context injection]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
 - [[Memory file 与 continual learning]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
@@ -62,9 +62,9 @@ sources: 2
 - [[模型训练与 harness 设计的耦合]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
 - [[Ralph Loop]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
 - [[Sandbox]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
-- [[AI 工程基础设施】 AI engineering infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
+- [[AI 工程基础设施 AI engineering infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
 - [[1.6% vs 98.4%]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
-- [[确定性工程基础设施】 deterministic engineering infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
+- [[确定性工程基础设施 deterministic engineering infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：harness-20
 - [[上下文压缩 Context Compression Summarization]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
 - [[上下文腐烂 Context Rot]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
@@ -81,21 +81,21 @@ sources: 2
 - [[Sandbox]]
 - [[上下文腐烂 Context Rot]]
 - [[模型训练与 harness 设计的耦合]]
-- [[确定性工程基础设施】 deterministic engineering infrastructure]]
+- [[Harness level feature]]
 - [[Tool call offloading]]
 - [[Ralph Loop]]
-- [[通用工具与「给模型一台计算机]]
-- [[AI 工程基础设施】 AI engineering infrastructure]]
-- [[Filesystem 作为最基础的 harness 原语]]
-- [[Harness level feature]]
-- [[Progressive disclosure（渐进式披露）与 Skills]]
+- [[通用工具与「给模型一台计算机」]]
 - [[ReAct loop]]
 - [[Self-verification loop]]
 - [[上下文压缩 Context Compression Summarization]]
+- [[「垃圾回收」型 agent]]
 - [[1.6% vs 98.4%]]
 - [[从期望行为反推 harness 设计]]
-- [[垃圾回收」型 agent]]
 - [[Agent as a New Type of Software]]
 - [[Agent CLI runtimes]]
 - [[Context injection]]
+- [[Filesystem 作为最基础的 harness 原语]]
 - [[Memory file 与 continual learning]]
+- [[Progressive disclosure（渐进式披露）与 Skills]]
+- [[确定性工程基础设施 deterministic engineering infrastructure]]
+- [[AI 工程基础设施 AI engineering infrastructure]]

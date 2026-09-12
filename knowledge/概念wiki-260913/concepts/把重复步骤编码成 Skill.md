@@ -4,9 +4,9 @@ name: 把重复步骤编码成 Skill
 type: PROCEDURAL
 subject: Context Engineering
 domain: verification-eval
-learningStage: when-needed
+learningStage: now
 verification: use
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [context]
 aliases: []
@@ -15,9 +15,9 @@ sources: 1
 
 # 把重复步骤编码成 Skill
 
-> 把重复的检查步骤写成可复用的 skill，是验证闭环落地最常见的手段。
+> 把重复步骤编码进验证闭环，最常见方式是写成一个 skill，作为可复用底座。
 
-**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -29,16 +29,16 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能把一项重复检查抽成可复用 skill
-- 能说出 skill 是多种接入方式共同的底座
+- 能把一个重复检查写成 skill
+- 能说清 skill 在四种接入方式中的位置
 
 ## 验收问句
 
-> 你会把哪一步抽成 skill 来落地{{name}}？
+> 你会把哪个重复步骤用 {{name}} 固化下来？
 
 ## 先懂这些（前置 1）
 
-- [[验证闭环 verification loop]] · **hard** — 不知道闭环里有哪些必做检查，就无从决定哪一步值得固化复用。
+- [[验证闭环 verification loop]] · **hard** — skill 是把验证闭环中重复步骤固化的可复用底座，不懂闭环就没有要编码的对象。
 
 ## 相关
 
@@ -64,15 +64,15 @@ sources: 1
 
 - [[验证闭环 verification loop]]
 - [[skill-creator 访谈式创建]]
-- [[嵌入 Embedded]]
 - [[个人基础设施 → 团队基础设施]]
-- [[灵活性与自动化的权衡]]
 - [[description 作为触发条件]]
-- [[SKILL.md：frontmatter＋body 契约]]
 - [[Wrapper skill]]
 - [[独立调用 Standalone]]
 - [[可编辑性边界]]
 - [[链式 Chained]]
+- [[灵活性与自动化的权衡]]
+- [[嵌入 Embedded]]
 - [[习惯变契约 habit → contract]]
 - [[循环工程 loop engineering]]
 - [[PR 级门禁 On every PR]]
+- [[SKILL.md：frontmatter＋body 契约]]

@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: multi-agent
 learningStage: when-needed
 verification: use
-centrality: 0.045
+centrality: 0.042
 depth: 5
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 用语言内置特性直接编排与串联 agent，而不引入需要另学的新抽象。
 
-**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -52,6 +52,6 @@ Use built-in language features to orchestrate and chain agents, rather than need
 ## 反链
 
 - [[Agent]]
-- [[primitives]]
 - [[开箱即用的编排与子 agent]]
+- [[primitives]]
 - [[very few abstractions]]

@@ -1,12 +1,12 @@
 ---
 id: cm_6ede31c8
 name: 合理性的三个考量（Three Considerations of Reasonableness）
-type: CONCEPTUAL
+type: REPRESENTATIONAL
 subject: AI 概念库
 domain: society-law
 learningStage: when-needed
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 1
 origin: [notion]
 aliases: ["Three Considerations of Reasonableness / 4th Amendment 三考量 / 合理搜查三要件"]
@@ -15,9 +15,9 @@ sources: 1
 
 # 合理性的三个考量（Three Considerations of Reasonableness）
 
-> 搜查是否合理取决于三项权衡：伤及无辜的概率、带来有效信息的多少、执行成本的高低。
+> 判断搜查是否合理，看伤及无辜的概率、带来的信息量、执行成本三者的权衡。
 
-**领域** society-law ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** society-law ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 原文 context
 
@@ -29,12 +29,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能说出三个考量各自衡量什么
-- 能说明执行成本趋近零时隐私边界为何后退
+- 能列出三个考量：隐私、信息量、成本
+- 能说明成本降到近零时搜查为何变得「合理」
 
 ## 验收问句
 
-> {{name}} 中的三项权衡分别是什么？
+> 成本降到近零后，{{name}} 的权衡会怎样改变？
 
 ## 先懂这些（前置 1）
 

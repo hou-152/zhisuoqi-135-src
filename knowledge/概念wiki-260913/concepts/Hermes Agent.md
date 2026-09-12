@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: harness-runtime
 learningStage: when-needed
 verification: accept
-centrality: 0.072
-depth: 3
+centrality: 0.067
+depth: 4
 origin: [notion]
 aliases: ["Hermes"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 一个开源 Agent，代码库与文档公开，研究者可直接读源码，而非只能对其行为做逆向工程。
 
-**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
+**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -38,8 +38,8 @@ sources: 1
 
 ## 先懂这些（前置 2）
 
-- [[higher-level runtime]] · **soft** — 读源码要先懂它在模型调用之上叠了哪层运行时
-- [[harness over-fitting]] · **soft** — 可读源码才能验证它是否只与特定 harness 深度耦合
+- [[model-native harness]] · **soft** — 可读源码的 Agent 是 model-native harness 的实例，不懂设计方式就难读结构。
+- [[higher-level runtime]] · **soft** — 开源 Agent 源码体现运行时如何接管 turns/工具执行。
 
 ## 相关
 
@@ -58,4 +58,4 @@ sources: 1
 ## 反链
 
 - [[higher-level runtime]]
-- [[harness over-fitting]]
+- [[model-native harness]]

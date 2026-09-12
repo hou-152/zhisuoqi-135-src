@@ -6,7 +6,7 @@ subject: Context Engineering × Harness Engineering
 domain: caching-cost
 learningStage: when-needed
 verification: compute
-centrality: 0.062
+centrality: 0.06
 depth: 2
 origin: [context, harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 2
 
 > 同能力下输出 token 越少越省；材料中改版后分数约 3 倍，输出 token 少 6 倍。
 
-**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.062
+**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.06
 
 ## 费曼一下
 
@@ -53,6 +53,6 @@ sources: 2
 ## 反链
 
 - [[Harness]]
-- [[基准测试的捆绑测量性]]
 - [[Token Efficiency]]
+- [[基准测试的捆绑测量性]]
 - [[保留推理 retained reasoning]]

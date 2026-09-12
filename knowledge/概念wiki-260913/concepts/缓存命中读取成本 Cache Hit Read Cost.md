@@ -6,7 +6,7 @@ type: CONCEPTUAL
 subject: Context Engineering
 domain: caching-cost
 learningStage: when-needed
-verification: accept
+verification: compute
 centrality: 0.017
 depth: 0
 origin: [context]
@@ -16,9 +16,9 @@ sources: 1
 
 # 缓存命中读取成本 · Cache Hit Read Cost
 
-> 缓存命中读取的成本远低于普通输入处理，命中越多整体越省。
+> 缓存命中的读取价格远低于普通输入处理成本，是压低 token 花费的主要来源。
 
-**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.017
+**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -30,12 +30,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能说出缓存读取价低于基准输入价
-- 能据此估算同一上下文的成本差
+- 能按单价算出命中读取相对普通输入省下的比例
+- 能据此估算一次请求的实际成本
 
 ## 验收问句
 
-> {{name}} 为什么能显著省钱？
+> 能否算出 {{name}} 相对普通输入省多少钱？
 
 ## 相关
 

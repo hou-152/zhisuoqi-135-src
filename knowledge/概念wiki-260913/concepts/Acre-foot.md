@@ -1,12 +1,12 @@
 ---
 id: cm_531af891
 name: Acre-foot
-type: LANGUAGE
+type: REPRESENTATIONAL
 subject: AI 概念库
 domain: geo-infrastructure
 learningStage: when-needed
 verification: compute
-centrality: 0.045
+centrality: 0.042
 depth: 0
 origin: [notion]
 aliases: ["英亩-英尺", "taf", "千英亩-英尺"]
@@ -15,9 +15,9 @@ sources: 1
 
 # Acre-foot
 
-> 美西水文标准水量单位：1 英亩面积上 1 英尺深的水，约 1,233 立方米。
+> 美国西部水文标准水量单位，1 acre-foot 约 1,233 m³，即 1 英亩上 1 英尺深的水。
 
-**领域** geo-infrastructure ｜ **类型** LANGUAGE ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.045
+**领域** geo-infrastructure ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.042
 
 ## 原文 context
 
@@ -28,12 +28,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能完成 acre-foot 与立方米的换算
-- 能用它把加州年用水 4,000 万 acre-ft 当作判断 AI 耗水的分母
+- 能把 acre-foot 换算成立方米或加仑
+- 能引用加州人类年用水约 4,000 万 acre-ft 这一分母
 
 ## 验收问句
 
-> 32,000 {{name}} 约合多少立方米，占加州年用水几成？
+> {{name}}约合多少立方米？加州年用水折合多少？
 
 ## 懂了它才能懂（解锁 1）
 

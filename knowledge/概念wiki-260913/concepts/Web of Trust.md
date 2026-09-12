@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: safety-governance
 learningStage: deep-dive
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [notion]
 aliases: ["信任网络 / 信任之网"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 信任靠图结构中多跳传递与多源交叉，每条边附「为何信」元数据，不依赖中心认证局。
 
-**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 原文 context
 

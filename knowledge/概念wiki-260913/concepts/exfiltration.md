@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: safety-governance
 learningStage: when-needed
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 3
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 借助提示注入等手段，把系统内部敏感数据偷偷带出边界的攻击行为。
 
-**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -55,7 +55,7 @@ sources: 1
 - Harness Engineering ｜ 《OpenAI Agents SDK 下一代演进：原生沙箱 + 模型原生 harness》 ｜ https://openai.com/index/the-next-evolution-of-the-agents-sdk/
 ## 反链
 
+- [[model-native harness]]
 - [[harness–compute separation]]
 - [[prompt-injection]]
 - [[Agents SDK]]
-- [[model-native harness]]

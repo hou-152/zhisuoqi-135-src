@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: verification-eval
 learningStage: when-needed
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [notion]
 aliases: ["记录账本 / 改看历史账本 / Instrumental Record"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 以不可篡改的时间戳与链上记录为底账，先有原始记录再在其上写引用它的叙事。
 
-**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 原文 context
 

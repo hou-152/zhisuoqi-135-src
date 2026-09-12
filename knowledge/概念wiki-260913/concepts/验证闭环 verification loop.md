@@ -7,7 +7,7 @@ subject: Context Engineering × Harness Engineering
 domain: verification-eval
 learningStage: now
 verification: use
-centrality: 0.198
+centrality: 0.21
 depth: 0
 origin: [context, harness]
 aliases: ["verification loop"]
@@ -18,7 +18,7 @@ sources: 2
 
 > 把产出后必做的检查固化成可自动执行的一环，让 Claude 自己验证自己的产物。
 
-**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.198
+**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.21
 
 ## 费曼一下
 
@@ -37,14 +37,15 @@ sources: 2
 
 > {{name}} 建成后，谁来触发这次检查？
 
-## 懂了它才能懂（解锁 6）
+## 懂了它才能懂（解锁 7）
 
 - [[Harness]] — Verification Loop 是 Agent Harness 检查结果并回灌反馈的组成部分。
-- [[把重复步骤编码成 Skill]] — 不知道闭环里有哪些必做检查，就无从决定哪一步值得固化复用。
-- [[功能与行为验证的缺口]] — 缺口是相对闭环覆盖范围而言的，不知道闭环管什么就界定不了缺口。
-- [[验证循环：guides 与 sensors]] — guides 与 sensors 是验证闭环的具体实现，不懂闭环就不知它们在补什么。
-- [[back-pressure]] — 自我验证压力本身就是闭环里的一环，不懂闭环就无从施加。
-- [[端到端验证]] — e2e 与 smoke 是闭环里最重的一环，先懂闭环才知道它补的是什么。
+- [[把重复步骤编码成 Skill]] — skill 是把验证闭环中重复步骤固化的可复用底座，不懂闭环就没有要编码的对象。
+- [[端到端验证]] — e2e 是验证闭环里跑通完整流程的那一环，不懂闭环就无从谈端到端。
+- [[验证循环：guides 与 sensors]] — guides 与 sensors 就是验证闭环的行动前/后两半，不懂闭环无法理解其分工。
+- [[功能与行为验证的缺口]] — 缺口是相对验证闭环而言的：不懂闭环覆盖什么，就说不清缺了什么。
+- [[行为提取]] — 行为提取是验证闭环中「看见什么」的一环，不懂闭环就不知它喂给谁。
+- [[back-pressure]] — back-pressure 靠 agent 自我验证施压，不懂验证闭环就不知压力来自哪。
 
 ## 相关
 
@@ -88,22 +89,23 @@ sources: 2
 - [[Agent loop]]
 - [[Sandbox]]
 - [[skill-creator 访谈式创建]]
-- [[端到端验证]]
-- [[嵌入 Embedded]]
-- [[验证循环：guides 与 sensors]]
+- [[back-pressure]]
 - [[Trace-based evals]]
 - [[把重复步骤编码成 Skill]]
+- [[端到端验证]]
 - [[个人基础设施 → 团队基础设施]]
 - [[功能与行为验证的缺口]]
-- [[灵活性与自动化的权衡]]
-- [[Agent vs Harness]]
-- [[back-pressure]]
+- [[行为提取]]
+- [[验证循环：guides 与 sensors]]
 - [[description 作为触发条件]]
-- [[SKILL.md：frontmatter＋body 契约]]
 - [[Wrapper skill]]
 - [[独立调用 Standalone]]
 - [[可编辑性边界]]
 - [[链式 Chained]]
+- [[灵活性与自动化的权衡]]
+- [[嵌入 Embedded]]
 - [[习惯变契约 habit → contract]]
 - [[循环工程 loop engineering]]
+- [[Agent vs Harness]]
 - [[PR 级门禁 On every PR]]
+- [[SKILL.md：frontmatter＋body 契约]]

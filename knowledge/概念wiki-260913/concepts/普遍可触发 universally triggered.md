@@ -7,8 +7,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: use
-centrality: 0.045
-depth: 3
+centrality: 0.017
+depth: 0
 origin: [harness]
 aliases: ["universally triggered"]
 sources: 1
@@ -16,9 +16,9 @@ sources: 1
 
 # 普遍可触发 · universally triggered
 
-> Agent 不关心也不需知道自己如何被激活，触发方式与 agent loop 解耦，由 harness 路由。
+> Harness 设计原则：触发与工作解耦，agent 不关心自己是被 webhook、cron 还是子调用激活的。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -30,16 +30,12 @@ Utah 名字里的第一个词（Universally Triggered Agent Harness），作者�
 
 ## 掌握证据（做到这些才算会）
 
-- 能说明新增一个 Slack bot 触发源时 agent loop 无需改动
-- 能画出 webhook／cron／子 agent 调用→harness 路由→loop 的结构
+- 能列出至少三种触发源并说明 agent loop 不变
+- 能接入一个新触发源而不改动 agent 主体逻辑
 
 ## 验收问句
 
-> 新增一种触发源后，怎么证明{{name}}仍然成立？
-
-## 先懂这些（前置 1）
-
-- [[事件驱动编排与执行解耦]] · **soft** — 触发与 agent loop 解耦，靠的正是外部事件驱动的编排层。
+> 加一个 Slack bot 触发，在{{name}}下 agent 主体要不要改？
 
 ## 相关
 
@@ -59,5 +55,4 @@ Utah 名字里的第一个词（Universally Triggered Agent Harness），作者�
 
 - [[Harness]]
 - [[持久化执行 durable execution]]
-- [[事件驱动编排与执行解耦]]
 - [[harness 与 framework 的分野]]

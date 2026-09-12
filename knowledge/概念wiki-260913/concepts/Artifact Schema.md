@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: state-persistence
 learningStage: when-needed
 verification: use
-centrality: 0.099
+centrality: 0.117
 depth: 4
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 把 artifacts 当作共享知识层，每种都配 README、schema、添加流程与 timeline。
 
-**领域** state-persistence ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.099
+**领域** state-persistence ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.117
 
 ## 费曼一下
 
@@ -40,7 +40,11 @@ artifact schema 是统一表格格式。大家都按同一列写，后面的 age
 
 - [[Shared File System]] · **hard** — artifacts 作为共享知识层存放在共享文件系统中，不懂共享文件系统无法理解其位置。
 - [[Cross-session Work]] · **soft** — artifact 要跨 session 复用，懂跨 session 工作更懂为何需要 schema。
-- [[文件系统即持久记忆]] · **soft** — artifacts 以文件加 README/schema 落地为共享知识层，依赖把状态写进文件系统。
+- [[文件系统即持久记忆]] · **soft** — artifacts 作为共享知识层需落盘持久化。
+
+## 懂了它才能懂（解锁 1）
+
+- [[持久化代码图谱 structural map graph]] — 图谱是被查询的共享知识成果，需要 artifact 的 schema 与更新约定。
 
 ## 相关
 
@@ -56,5 +60,6 @@ artifact schema 是统一表格格式。大家都按同一列写，后面的 age
 - [[文件系统即持久记忆]]
 - [[Agent loop]]
 - [[Cross-session Work]]
+- [[持久化代码图谱 structural map graph]]
 - [[Shared File System]]
 - [[Loop Engineer]]

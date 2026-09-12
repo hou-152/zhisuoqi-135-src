@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: judge
-centrality: 0.045
-depth: 1
+centrality: 0.042
+depth: 2
 origin: [context]
 aliases: ["performance gradient rather than a hard cliff"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 长上下文退化是渐变滑坡而非某个长度后突然失效：模型仍高度可用，只是检索精度与长程推理相对变弱。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -39,7 +39,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[上下文均匀处理假设]] · **hard** — 梯度论正是对均匀处理假设的否定，先懂假设才懂它在反驳什么
+- [[上下文占用率与性能衰减]] · **hard** — 性能梯度是在描述占用率上升如何渐变地拖累表现，不懂衰减就无从理解。
 
 ## 相关
 
@@ -58,6 +58,6 @@ sources: 1
 ## 反链
 
 - [[上下文工程 context engineering]]
+- [[上下文占用率与性能衰减]]
 - [[注意力预算 attention budget]]
 - [[上下文腐烂 Context Rot]]
-- [[上下文均匀处理假设]]

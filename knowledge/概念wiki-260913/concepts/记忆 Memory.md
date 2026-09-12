@@ -7,7 +7,7 @@ subject: Context Engineering × Harness Engineering
 domain: memory-retrieval
 learningStage: now
 verification: judge
-centrality: 0.308
+centrality: 0.285
 depth: 0
 origin: [context, harness]
 aliases: ["Memory"]
@@ -18,7 +18,7 @@ sources: 2
 
 > 在不同时间尺度上运作的存储：会话内、跨会话、长期沉淀，各层服务于不同的取回需求。
 
-**领域** memory-retrieval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.308
+**领域** memory-retrieval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.285
 
 ## 费曼一下
 

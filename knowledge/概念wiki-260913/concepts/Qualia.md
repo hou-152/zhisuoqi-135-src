@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: mind-body
 learningStage: deep-dive
 verification: judge
-centrality: 0.072
+centrality: 0.067
 depth: 1
 origin: [notion]
 aliases: ["感受质", "qualia（小写 q）", "Qualia（大写 Q）"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 意识的体验特性，被主张具本质性、私密性、不可言说性与可直接内省性。
 
-**领域** mind-body ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** mind-body ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.067
 
 ## 费曼一下
 

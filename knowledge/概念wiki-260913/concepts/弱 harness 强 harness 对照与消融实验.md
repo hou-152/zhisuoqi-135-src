@@ -5,9 +5,9 @@ type: PROCEDURAL
 subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
-verification: compute
-centrality: 0.072
-depth: 3
+verification: use
+centrality: 0.017
+depth: 0
 origin: [harness]
 aliases: []
 sources: 1
@@ -15,9 +15,9 @@ sources: 1
 
 # 弱 harness / 强 harness 对照与消融实验
 
-> 每个项目跑两次同样任务：只写提示词（弱 harness）与定好规则（强 harness），再用消融实验看效果变化。
+> 同一任务分别用弱harness与强harness跑两次并对比效果，关心效果变化而非写了多少说明文档。
 
-**领域** harness-runtime ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.072
+**领域** harness-runtime ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -29,20 +29,12 @@ sources: 1
 
 ## 掌握证据（做到这些才算会）
 
-- 能对同一任务分别跑出弱/强 harness 两份结果并对比差异
-- 能用消融实验说明某条规则具体贡献了多少效果
+- 能设计一次只写提示词vs定好规则的对照实验
+- 能用消融实验说明某条规则带来的收益
 
 ## 验收问句
 
-> 用{{name}}设计实验，说明强 harness 带来了什么变化？
-
-## 先懂这些（前置 1）
-
-- [[让不可见变得可见]] · **soft** — 对照与消融靠检查与指标暴露差异，本质是可见性手段。
-
-## 懂了它才能懂（解锁 1）
-
-- [[未来防腐测试 future-proofing test]] — 换更强模型重跑同一对照，是同类实验范式用于验证长期设计。
+> 怎么用{{name}}证明某条harness规则真的有用？
 
 ## 相关
 
@@ -56,7 +48,5 @@ sources: 1
 ## 反链
 
 - [[Harness 工程 Harness Engineering]]
-- [[让不可见变得可见]]
 - [[能力鸿沟]]
-- [[未来防腐测试 future-proofing test]]
 - [[指令子系统与渐进式展开]]

@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: agent-org
 learningStage: when-needed
 verification: judge
-centrality: 0.062
+centrality: 0.06
 depth: 2
 origin: [notion]
 aliases: ["Agent-Native Infrastructure", "agent-native infrastructure", "agent-first infrastructure", "面向 agent 的基础设施", "agent-native", "agent 原生基础设施", "智能体原生基础设施", "agent native"]
@@ -17,7 +17,7 @@ sources: 2
 
 > 为 agent 而非给人点屏幕设计的基础设施：Markdown、CLI/API/MCP、结构化日志与可粘贴指令。
 
-**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.062
+**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.06
 
 ## 原文 context
 
@@ -126,39 +126,39 @@ Karpathy 的怨念：现在的文档还在告诉他"去这个 URL，点这个按
 - [[Skill]]
 - [[默认思维倾向]]
 - [[常识心理学]]
-- [[吹哨人困境]]
-- [[鉴别诊断]]
 - [[DPPO]]
-- [[长上下文窗口]]
-- [[党的隐性契约]]
+- [[Reward Signal]]
+- [[上下文 context]]
+- [[低电量模式]]
 - [[环境即无形之手]]
-- [[可疑疾病]]
-- [[三种应对：接受 清除 装作不知道（Acceptance Purging Pretend Ignorance）]]
+- [[基因 × 环境交互]]
+- [[液体活检]]
 - [[指代表达]]
 - [[Dr. GRPO]]
+- [[长上下文窗口]]
 - [[苍白之马（Pale Horse）]]
-- [[承诺链条]]
 - [[搭子文化]]
-- [[法律的模糊性]]
+- [[反向幸存者偏差]]
+- [[赫布定律]]
+- [[基底神经节]]
+- [[记忆巩固]]
 - [[剪辑经济]]
-- [[简化性暴力]]
-- [[临床推理]]
+- [[焦虑]]
 - [[旅行者号]]
+- [[四项心智力量]]
 - [[五人平均法则]]
 - [[隐式指代]]
-- [[death of the social]]
+- [[自我默认]]
 - [[RLHF]]
 - [[Token 补贴缺口（Token Subsidy Gap）]]
 - [[Token count]]
 - [[安全边际]]
 - [[Agentic Engineering]]
-- [[上下文 context]]
+- [[程序记忆（Procedural Memory Skills） progressive disclosure]]
+- [[5-HTTLPR 基因]]
 - [[冰相]]
 - [[次贷式 AI 危机（Subprime AI Crisis）]]
-- [[第二意见]]
+- [[党的隐性契约]]
 - [[二阶思维]]
 - [[付出按旧规则，兑现按新规则]]
-- [[干预窗口]]
 - [[宏动作]]
-- [[混合指代]]
-- [[机会性筛查]]

@@ -7,8 +7,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: deep-dive
 verification: judge
-centrality: 0.045
-depth: 4
+centrality: 0.017
+depth: 0
 origin: [harness]
 aliases: ["future-proofing test"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 未来防腐测试：换更强模型、不加 harness 复杂度性能就跟着涨，则设计为好，即模型越强 harness 越薄。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -37,10 +37,6 @@ sources: 1
 
 > 用{{name}}判断一个 harness 好不好，看什么？
 
-## 先懂这些（前置 1）
-
-- [[弱 harness 强 harness 对照与消融实验]] · **soft** — 换更强模型重跑同一对照，是同类实验范式用于验证长期设计。
-
 ## 相关
 
 - [[agent 与 harness 的分工]] · 同篇出现（co-occurrence） — 同篇出现：harness-28
@@ -58,5 +54,4 @@ sources: 1
 ## 反链
 
 - [[agent 与 harness 的分工]]
-- [[弱 harness 强 harness 对照与消融实验]]
 - [[If you're not the model, you're the harness.]]

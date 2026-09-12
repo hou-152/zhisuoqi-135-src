@@ -7,7 +7,7 @@ domain: harness-runtime
 learningStage: now
 verification: judge
 centrality: 1
-depth: 3
+depth: 2
 origin: [notion, context, harness]
 aliases: ["项目级感知", "整个项目一起看", "model 外壳", "runtime", "agent harness"]
 sources: 23
@@ -48,7 +48,7 @@ sources: 23
 - [[系统提示 System Prompt]] · **hard** — System Prompt 是 Agent Harness 配置模型行为的组成部分。
 - [[验证闭环 verification loop]] · **hard** — Verification Loop 是 Agent Harness 检查结果并回灌反馈的组成部分。
 
-## 懂了它才能懂（解锁 13）
+## 懂了它才能懂（解锁 15）
 
 - [[Agent]] — 来源提出 Agent = Model + Harness；本站在运行组成轴接纳该关系，同时保留 Agent 与 Agent Harness 不同义的行为视角。
 - [[If you're not the model, you're the harness.]] — 该划界公式的定义直接依赖 Harness 这一侧的概念。
@@ -60,9 +60,11 @@ sources: 23
 - [[共享 harness]] — 共享的对象就是 harness，不懂它无从谈复用。
 - [[从期望行为反推 harness 设计]] — 反推的产物是 harness 功能，前提是懂 harness。
 - [[舱单]] — 舱单是描述工作区与挂载的清单，属 harness 的组成部分。
+- [[Bedrock Managed Agents]] — 它本质是 AWS 官方托管的 harness，不懂 harness 职责就看不懂它打包了什么。
 - [[可观测性]] — 可观测性被归为 harness 自身的组成部分。
 - [[部署系统层]] — 该层基本等同于模型之外的 harness 层。
 - [[动态系统]] — 说 harness 是动态系统，需先懂 harness 是什么。
+- [[harness 的过时假设]] — 假设是编码在 harness 里的，不懂 harness 装了什么就无从谈其过时。
 
 ## 相关
 
@@ -88,7 +90,7 @@ sources: 23
 - [[上下文占用率与性能衰减]] · 同篇出现（co-occurrence） — 同篇出现：context-A2
 - [[输出 token 效率]] · 同篇出现（co-occurrence） — 同篇出现：context-A2
 - [[架构约束的确定性执行]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
-- [[垃圾回收」型 agent]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
+- [[「垃圾回收」型 agent]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
 - [[熵与腐化 entropy and decay]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
 - [[卡住即信号 struggle as signal]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
 - [[功能与行为验证的缺口]] · 同篇出现（co-occurrence） — 同篇出现：harness-01
@@ -101,7 +103,7 @@ sources: 23
 - [[从期望行为反推 harness 设计]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
 - [[Filesystem 作为最基础的 harness 原语]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
 - [[ReAct loop]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
-- [[通用工具与「给模型一台计算机]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
+- [[通用工具与「给模型一台计算机」]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
 - [[Self-verification loop]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
 - [[Context injection]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
 - [[Memory file 与 continual learning]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
@@ -144,43 +146,43 @@ sources: 23
 
 ## 反链
 
-- [[记忆 Memory]]
 - [[文件系统即持久记忆]]
+- [[记忆 Memory]]
 - [[Skill]]
 - [[Loop Engineering]]
-- [[Agent loop]]
 - [[Agent]]
-- [[agent 与 harness 的分工]]
+- [[Agent loop]]
 - [[Cross-session Work]]
 - [[验证闭环 verification loop]]
+- [[上下文 context]]
 - [[MCP Model Context Protocol]]
-- [[Session]]
 - [[tokens]]
 - [[上下文占用率与性能衰减]]
 - [[Agent = Model + Harness]]
 - [[Sandbox]]
 - [[Guardrails]]
-- [[Harness token floor]]
-- [[Agentic Engineering]]
+- [[Session]]
+- [[stateless]]
 - [[上下文腐烂 Context Rot]]
-- [[上下文 context]]
+- [[Agentic Engineering]]
+- [[程序记忆（Procedural Memory Skills） progressive disclosure]]
 - [[模型训练与 harness 设计的耦合]]
 - [[权限与推理的架构分离]]
 - [[系统提示 System Prompt]]
-- [[协同进化与紧耦合 co-evolution principle]]
-- [[Context Management 四策略]]
+- [[Artifact Schema]]
+- [[Bedrock Managed Agents]]
+- [[Harness token floor]]
 - [[LLM Large Language Model]]
+- [[model-native harness]]
 - [[Read-only Verifier Agent]]
-- [[stateless]]
-- [[程序记忆（Procedural Memory Skills） progressive disclosure]]
 - [[持久化执行 durable execution]]
-- [[基准测试的捆绑测量性]]
 - [[通用 harness 的公平性张力]]
 - [[Latent vs Deterministic]]
 - [[废料怪兽]]
 - [[编排循环与「dumb loop」]]
+- [[操作系统类比]]
 - [[工具收窄 tool scoping]]
-- [[会话的话题边界]]
 - [[开箱即用的编排与子 agent]]
-- [[确定性工程基础设施】 deterministic engineering infrastructure]]
-- [[三层工程 prompt context harness engineering]]
+- [[示例强于规则]]
+- [[协同进化与紧耦合 co-evolution principle]]
+- [[agent 与 harness 的分工]]

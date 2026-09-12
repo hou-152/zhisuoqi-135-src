@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: unclassified
 learningStage: when-needed
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [notion]
 aliases: ["OpenAI 广告 pixel SDK", "oaiq.min.js"]
@@ -17,7 +17,7 @@ sources: 1
 
 > OAIQ
 
-**领域** unclassified ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** unclassified ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 原文 context
 

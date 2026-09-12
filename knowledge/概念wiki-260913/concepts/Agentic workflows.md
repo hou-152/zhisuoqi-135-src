@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: loop-autonomy
 learningStage: when-needed
 verification: use
-centrality: 0.045
+centrality: 0.042
 depth: 3
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 由规则、上下文、工具调用、验证与输出格式组成的端到端 AI 工作流。
 
-**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.045
+**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.042
 
 ## 原文 context
 
@@ -48,6 +48,6 @@ Agentic workflows 是由规则、上下文、工具调用、验证和输出格�
 ## 反链
 
 - [[上下文工程 context engineering]]
-- [[Agentic primitives]]
 - [[Agentic Coding]]
+- [[Agentic primitives]]
 - [[Markdown prompt engineering]]

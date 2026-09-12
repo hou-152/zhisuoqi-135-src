@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.045
+centrality: 0.042
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 把模型与 harness、沙箱工具、会话事件日志拆成三个互相假设极少、可独立失败或被替换的接口。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.045
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.042
 
 ## 费曼一下
 
@@ -38,7 +38,7 @@ sources: 1
 
 ## 先懂这些（前置 1）
 
-- [[agent 与 harness 的分工]] · **hard** — 三段接口拆分，是对 agent 与 harness 分工的进一步切分。
+- [[agent 与 harness 的分工]] · **soft** — 把模型与 harness、工具、会话日志拆开，是在分工认识上的进一步切分。
 
 ## 相关
 
@@ -52,5 +52,5 @@ sources: 1
 ## 反链
 
 - [[agent 与 harness 的分工]]
-- [[messages API 作为直连网关]]
 - [[Claude Managed Agents]]
+- [[messages API 作为直连网关]]

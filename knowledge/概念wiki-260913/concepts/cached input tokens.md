@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: caching-cost
 learningStage: when-needed
 verification: compute
-centrality: 0.072
+centrality: 0.067
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 请求中与历史请求共享前缀、可被缓存复用从而降低处理成本的那部分输入 token。
 
-**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.072
+**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能算 ｜ **中心度** 0.067
 
 ## 费曼一下
 
@@ -42,7 +42,7 @@ sources: 1
 
 ## 懂了它才能懂（解锁 1）
 
-- [[API-boundary observability]] — 要抓usage里的cached input tokens才能核对缓存效果，否则无从观测。
+- [[API-boundary observability]] — 边界计量块里 cached input tokens 是核心字段之一
 
 ## 相关
 
