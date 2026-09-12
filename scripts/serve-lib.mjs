@@ -16,6 +16,7 @@ import http from 'node:http';
 import { spawn } from 'node:child_process';
 import { readFileSync, existsSync, readdirSync, mkdirSync, writeFileSync } from 'node:fs';
 import { join, extname } from 'node:path';
+import { chatCompletion } from './lib/llm.mjs';
 
 const MIME = {
   '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.json': 'application/json',
@@ -96,17 +97,10 @@ export function createZssServer(opts = {}) {
     // 默认走 JSON 模式（费曼判定用）。DeepSeek 的 JSON 模式要求提示词里出现 "json" 字样，
     // 否则 400；失败时原样带出上游报错，免得只看到 llm-http-400 却不知道为什么。
     // o.json === false 时走自由文本（对话用）。
-    const res = await fetch(`${base.replace(/\/$/, '')}/chat/completions`, {
-      method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${key}` },
-      body: JSON.stringify({ model, messages, temperature: 0,
-        ...(o.json === false ? {} : { response_format: { type: 'json_object' } }) }),
-    });
-    if (!res.ok) {
-      const detail = (await res.text().catch(() => '')).slice(0, 300);
-      return { error: `llm-http-${res.status}`, detail };
-    }
-    const data = await res.json();
-    return { content: data.choices?.[0]?.message?.content || '', tokens: data.usage?.total_tokens ?? 0, model: data.model };
+    const reply = await chatCompletion({ base, key, model, messages,
+      json: o.json !== false, errorBodyFallback: true });
+    if (!reply.ok) return { error: `llm-http-${reply.status}`, detail: reply.detail };
+    return { content: reply.content, tokens: reply.tokens, model: reply.model };
   }
 
   const server = http.createServer(async (req, res) => {

@@ -52,6 +52,7 @@
 import { writeFileSync, mkdirSync, readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { chatCompletion } from './lib/llm.mjs';
 
 const ROOT = join(fileURLToPath(new URL('.', import.meta.url)), '..');
 const ENV_FILE = join(ROOT, '.private', 'llm.env');
@@ -106,17 +107,10 @@ ${COMMON(q)}`;
 async function callLLM(prompt) {
   const base = process.env.LLM_API_BASE, key = process.env.LLM_API_KEY, model = process.env.LLM_MODEL;
   if (!base || !key || !model) throw new Error('llm-not-configured（缺 LLM_API_BASE / LLM_API_KEY / LLM_MODEL）');
-  const res = await fetch(`${base.replace(/\/$/, '')}/chat/completions`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${key}` },
-    body: JSON.stringify({ model, messages: [{ role: 'user', content: prompt }], temperature: 0 }),
-  });
-  if (!res.ok) {
-    const detail = (await res.text().catch(() => '')).slice(0, 300);
-    throw new Error(`llm-http-${res.status} / ${detail}`);
-  }
-  const data = await res.json();
-  return { text: data.choices?.[0]?.message?.content || '', tokens: data.usage?.total_tokens ?? 0, model: data.model };
+  const reply = await chatCompletion({ base, key, model,
+    messages: [{ role: 'user', content: prompt }], json: false, errorBodyFallback: true });
+  if (!reply.ok) throw new Error(`llm-http-${reply.status} / ${reply.detail}`);
+  return { text: reply.content, tokens: reply.tokens, model: reply.model };
 }
 
 /* 评分：只用可复算的字符串统计，不做主观判断 */

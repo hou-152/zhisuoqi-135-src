@@ -19,6 +19,8 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { chatCompletion } from './lib/llm.mjs';
+import { parseConceptPool } from './lib/pool.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const POOL = path.join(ROOT, 'research', '内参概念池-AI时代怎么做事-20260912.md');
@@ -38,16 +40,12 @@ try { cache = JSON.parse(fs.readFileSync(CACHE, 'utf8')); } catch (e) { cache = 
 
 async function jsonCached(system, user, maxTokens, cacheKey) {
   if (cache[cacheKey]) { console.log(`   （用缓存 ${cacheKey}）`); return cache[cacheKey]; }
-  const res = await fetch(`${BASE.replace(/\/$/, '')}/chat/completions`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${KEY}` },
-    body: JSON.stringify({ model: MODEL, temperature: 0, max_tokens: maxTokens,
-      response_format: { type: 'json_object' },
-      messages: [{ role: 'system', content: system }, { role: 'user', content: user }] }),
-  });
-  if (!res.ok) throw new Error(`HTTP ${res.status}: ${(await res.text()).slice(0, 300)}`);
-  const d = await res.json();
-  const txt = d.choices?.[0]?.message?.content || '';
+  const reply = await chatCompletion({ base: BASE, key: KEY, model: MODEL,
+    messages: [{ role: 'system', content: system }, { role: 'user', content: user }],
+    json: true, maxTokens });
+  if (!reply.ok) throw new Error(`HTTP ${reply.status}: ${reply.detail}`);
+  const d = reply.data;
+  const txt = reply.content;
   if (!txt.trim()) throw new Error(`空回复：finish=${d.choices?.[0]?.finish_reason}，reasoning=${d.usage?.completion_tokens_details?.reasoning_tokens}`);
   const out = { obj: JSON.parse(txt), tokens: d.usage?.total_tokens ?? 0 };
   cache[cacheKey] = out;
@@ -57,19 +55,8 @@ async function jsonCached(system, user, maxTokens, cacheKey) {
 
 /* ── 概念池（与 build-shell.mjs 同序） ───────────────────── */
 const md = fs.readFileSync(POOL, 'utf8');
-const nodes = [];
-{
-  let art = null;
-  for (const L of md.split('\n')) {
-    if (L.startsWith('## 第二部分')) break;
-    const h = L.match(/^### (S\d+)\s+(.+?)\s*｜/);
-    if (h) { art = h[1]; continue; }
-    if (!art || !L.startsWith('| ') || L.startsWith('| 概念原文') || L.startsWith('|---')) continue;
-    const c = L.split('|').map(s => s.trim());
-    if (c.length < 5 || !c[1]) continue;
-    nodes.push({ id: 'C' + String(nodes.length + 1).padStart(2, '0'), name: c[1], type: c[2], gloss: c[4] });
-  }
-}
+const nodes = parseConceptPool(md).map(({ id, name, type, gloss }) =>
+  ({ id, name, type, gloss }));
 const axes = JSON.parse(fs.readFileSync(AXES, 'utf8'));
 axes.rows.forEach((r, i) => { if (nodes[i]) { nodes[i].a = r.a; nodes[i].b = r.b; } });
 

@@ -18,6 +18,8 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { chatCompletion } from './lib/llm.mjs';
+import { parseConceptPool } from './lib/pool.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const POOL = path.join(ROOT, 'research', '内参概念池-AI时代怎么做事-20260912.md');
@@ -32,17 +34,8 @@ const BASE = process.env.LLM_API_BASE, KEY = process.env.LLM_API_KEY, MODEL = pr
 if (!BASE || !KEY || !MODEL) { console.error('缺少 LLM 凭证'); process.exit(2); }
 
 const md = fs.readFileSync(POOL, 'utf8');
-const concepts = [];
-let art = null;
-for (const L of md.split('\n')) {
-  if (L.startsWith('## 第二部分')) break;
-  const h = L.match(/^### (S\d+)\s+(.+?)\s*｜/);
-  if (h) { art = h[1]; continue; }
-  if (!art || !L.startsWith('| ') || L.startsWith('| 概念原文') || L.startsWith('|---')) continue;
-  const c = L.split('|').map(s => s.trim());
-  if (c.length < 5 || !c[1]) continue;
-  concepts.push({ art, name: c[1], gloss: c[4] });
-}
+const concepts = parseConceptPool(md).map(({ src: art, name, gloss }) =>
+  ({ art, name, gloss }));
 console.log(`概念 ${concepts.length} 个`);
 
 const list = concepts.map((c, i) => `N${String(i + 1).padStart(3, '0')} ｜ ${c.name} ｜ ${c.gloss}`).join('\n');
@@ -76,15 +69,11 @@ ${list}
 
 console.log(`prompt ${prompt.length} 字符，调用 ${MODEL} …`);
 const t0 = Date.now();
-const res = await fetch(`${BASE.replace(/\/$/, '')}/chat/completions`, {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${KEY}` },
-  body: JSON.stringify({ model: MODEL, messages: [{ role: 'user', content: prompt }], temperature: 0, response_format: { type: 'json_object' } }),
-});
-const raw = await res.text();
-if (!res.ok) { console.error(`HTTP ${res.status}:`, raw.slice(0, 300)); process.exit(3); }
-const data = JSON.parse(raw);
-const parsed = JSON.parse(data.choices?.[0]?.message?.content || '{}');
+const reply = await chatCompletion({ base: BASE, key: KEY, model: MODEL,
+  messages: [{ role: 'user', content: prompt }], json: true });
+if (!reply.ok) { console.error(`HTTP ${reply.status}:`, reply.raw.slice(0, 300)); process.exit(3); }
+const data = reply.data;
+const parsed = JSON.parse(reply.content || '{}');
 console.log(`返回 ${data.usage?.total_tokens ?? '?'} tokens, ${((Date.now() - t0) / 1000).toFixed(1)}s`);
 
 const labels = parsed.labels || [];

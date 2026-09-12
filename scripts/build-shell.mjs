@@ -10,6 +10,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { parseConceptPool } from './lib/pool.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const POOL = path.join(ROOT, 'research', '内参概念池-AI时代怎么做事-20260912.md');
@@ -28,19 +29,8 @@ const SHORT = {
 
 // ── 概念池 ─────────────────────────────────────────────────
 const md = fs.readFileSync(POOL, 'utf8');
-const nodes = [];
-{
-  let art = null, artTitle = {};
-  for (const L of md.split('\n')) {
-    if (L.startsWith('## 第二部分')) break;
-    const h = L.match(/^### (S\d+)\s+(.+?)\s*｜/);
-    if (h) { art = h[1]; artTitle[art] = h[2]; continue; }
-    if (!art || !L.startsWith('| ') || L.startsWith('| 概念原文') || L.startsWith('|---')) continue;
-    const c = L.split('|').map(s => s.trim());
-    if (c.length < 5 || !c[1]) continue;
-    nodes.push({ id: 'C' + String(nodes.length + 1).padStart(2, '0'), src: art, name: c[1], type: c[2], gloss: c[4] });
-  }
-}
+const nodes = parseConceptPool(md).map(({ id, src, name, type, gloss }) =>
+  ({ id, src, name, type, gloss }));
 const byId = new Map(nodes.map(n => [n.id, n]));
 
 // ── 边 ────────────────────────────────────────────────────

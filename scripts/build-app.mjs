@@ -8,7 +8,7 @@
 // 为什么不能直接把项目根当 source：那会把 `.private/`（凭证）一起装进可分发的东西里。
 // AGENTS.md 硬边界：key 不进任何会被分发/提交的文件。
 //
-// 装什么：app/lib/serve-lib.mjs（代码）、app/assets/prototype/（页面）、
+// 装什么：app/lib/serve-lib.mjs 及其 lib/llm.mjs 依赖、app/assets/prototype/（页面）、
 //        app/assets/.agents/skills/（skill 原文）。**不装 .private/、不装 evidence/、不装 .git/**。
 //
 // 用法：node scripts/build-app.mjs [--skip-pack]
@@ -36,6 +36,7 @@ const kb = p => {
 /* ① 代码：serve-lib 必须进包 */
 fs.mkdirSync(LIB, { recursive: true });
 cp(path.join(ROOT, 'scripts', 'serve-lib.mjs'), path.join(LIB, 'serve-lib.mjs'));
+cp(path.join(ROOT, 'scripts', 'lib', 'llm.mjs'), path.join(LIB, 'lib', 'llm.mjs'));
 
 /* ② 资源：页面 + skill 原文 */
 rm(ASSETS);

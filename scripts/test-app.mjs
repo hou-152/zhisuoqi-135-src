@@ -9,10 +9,10 @@
 //
 // 用法：node scripts/test-app.mjs
 
-import { spawn } from 'node:child_process';
 import { existsSync, readFileSync, rmSync, mkdtempSync } from 'node:fs';
 import { join } from 'node:path';
 import { homedir, tmpdir } from 'node:os';
+import { openCDP, sleep, spawnProcess, waitForPage } from './lib/cdp.mjs';
 
 const APP_DIR = join(import.meta.dirname, '..', 'app');
 const ELECTRON = join(APP_DIR, 'node_modules', '.bin', 'electron');
@@ -21,33 +21,21 @@ const DATA_DIR = join(homedir(), 'Documents', '知所栖-135');
 
 if (!existsSync(ELECTRON)) { console.error('没装 electron：cd app && npm install'); process.exit(2); }
 
-const sleep = ms => new Promise(r => setTimeout(r, ms));
-const child = spawn(ELECTRON, ['.', `--remote-debugging-port=${PORT}`], { cwd: APP_DIR, stdio: 'ignore' });
+const child = spawnProcess(ELECTRON, ['.', `--remote-debugging-port=${PORT}`], { cwd: APP_DIR, stdio: 'ignore' });
 
-let page = null;
-for (let i = 0; i < 60; i++) {
-  try {
-    const j = await (await fetch(`http://127.0.0.1:${PORT}/json/list`)).json();
-    page = j.find(t => t.type === 'page' && /^http:\/\/127\.0\.0\.1:\d+/.test(t.url));
-    if (page) break;
-  } catch {}
-  await sleep(400);
-}
+const page = await waitForPage(PORT, {
+  attempts: 60,
+  intervalMs: 400,
+  waitBeforePoll: true,
+  predicate: t => t.type === 'page' && /^http:\/\/127\.0\.0\.1:\d+/.test(t.url),
+});
 if (!page) { console.error('Electron 窗口没起来（CDP 找不到页面）'); child.kill(); process.exit(2); }
 
-const ws = new WebSocket(page.webSocketDebuggerUrl);
-await new Promise(r => { ws.onopen = r; });
-let id = 0; const waiting = new Map(); const events = [];
-ws.onmessage = e => {
-  const m = JSON.parse(e.data);
-  if (m.id && waiting.has(m.id)) { waiting.get(m.id)(m); waiting.delete(m.id); }
-  else if (m.method) events.push(m);
-};
-const send = (me, p = {}) => { const i = ++id; ws.send(JSON.stringify({ id: i, method: me, params: p })); return new Promise(r => waiting.set(i, r)); };
+const cdp = await openCDP(page.webSocketDebuggerUrl);
+const send = (me, p = {}) => cdp.send(me, p);
+const events = cdp.events;
 const ex = async x => {
-  const r = await send('Runtime.evaluate', { expression: x, returnByValue: true, awaitPromise: true });
-  if (r.result?.exceptionDetails) return 'THREW: ' + (r.result.exceptionDetails.exception?.description || '').split('\n')[0];
-  return r.result?.result?.value;
+  return cdp.eval(x, { onException: details => 'THREW: ' + (details.exception?.description || '').split('\n')[0] });
 };
 
 await send('Page.enable'); await send('Runtime.enable'); await send('Log.enable');
@@ -112,5 +100,5 @@ console.log('  截图 prototype/预览/32-桌面版.png');
 rmSync(probe, { force: true });
 console.log(errs.length ? `\n❌ JS 报错 ${errs.length}` : '\n✅ 0 条 JS 报错');
 console.log(fails.length ? `❌ 断言失败 ${fails.length}:\n` + fails.join('\n') : '✅ 断言全过');
-ws.close(); child.kill();
+cdp.close(); child.kill();
 process.exit(fails.length || errs.length ? 1 : 0);

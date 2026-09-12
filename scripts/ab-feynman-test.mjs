@@ -10,6 +10,7 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
+import { chatCompletion } from './lib/llm.mjs';
 
 const ROOT = join(fileURLToPath(new URL('.', import.meta.url)), '..');
 const OUT = join(ROOT, 'evidence', 'ab-feynman-results.json');
@@ -56,14 +57,11 @@ function groupA(speech) {
 async function llm(messages) {
   if (!CFG.apiBase || !CFG.apiKey) throw new Error('未配置 LLM_API_BASE / LLM_API_KEY');
   const started = Date.now();
-  const res = await fetch(`${CFG.apiBase.replace(/\/$/, '')}/chat/completions`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${CFG.apiKey}` },
-    body: JSON.stringify({ model: CFG.model, messages, temperature: 0, response_format: { type: 'json_object' } }),
-  });
-  if (!res.ok) throw new Error(`LLM HTTP ${res.status}: ${(await res.text()).slice(0, 200)}`);
-  const data = await res.json();
-  const text = data.choices?.[0]?.message?.content || '';
+  const reply = await chatCompletion({ base: CFG.apiBase, key: CFG.apiKey, model: CFG.model,
+    messages, json: true });
+  if (!reply.ok) throw new Error(`LLM HTTP ${reply.status}: ${reply.raw.slice(0, 200)}`);
+  const data = reply.data;
+  const text = reply.content;
   let parsed;
   try { parsed = JSON.parse(text); } catch { throw new Error('LLM 返回非 JSON: ' + text.slice(0, 120)); }
   const tokens = (data.usage?.total_tokens ?? 0);
