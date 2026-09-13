@@ -22,6 +22,13 @@ const arg = (k, d = null) => {
 const units = JSON.parse(fs.readFileSync(path.join(DATA, 'units.json'), 'utf8'));
 const byId = new Map(units.map((u) => [u.id, u]));
 const pick = (pred) => units.filter(pred);
+const listArg = (k) => String(arg(k, '') || '').split(',').map((x) => x.trim()).filter(Boolean);
+const getExplicit = (k, type) => listArg(k).map((id) => {
+  const u = byId.get(id);
+  if (!u) { console.error(`找不到 ${type}：${id}`); process.exit(1); }
+  if (u.type !== type) { console.error(`${id} 不是 ${type}`); process.exit(1); }
+  return u;
+});
 
 // 1. 入口问题
 let qst = arg('qst') ? byId.get(arg('qst')) : null;
@@ -41,19 +48,26 @@ const opiCons = pick((u) => u.type === '观点单元' && doc && u.id.startsWith(
 const kwCons = pick((u) => u.type === '概念单元'
   && [].concat(u.keywords).some((k) => k && k.length > 1 && qst.title.includes(k))).map((u) => u.id);
 const ordered = [...new Set([...relCons, ...opiCons, ...kwCons])];
-const cons = ordered.slice(0, 4).map((id) => byId.get(id)).filter(Boolean);
+const explicitCons = getExplicit('concept', '概念单元');
+const cons = (explicitCons.length ? explicitCons : ordered.slice(0, Number(arg('max-concepts', 3))).map((id) => byId.get(id)).filter(Boolean));
 
 // 3. 观点：指向这些概念、或同一篇的
 const conIds = new Set(cons.map((c) => c.id));
-const opis = pick((u) => u.type === '观点单元' && (
+const explicitOpis = getExplicit('opinion', '观点单元');
+const opis = explicitOpis.length ? explicitOpis : pick((u) => u.type === '观点单元' && (
   (u.relationships || []).some((r) => conIds.has(r.target))
   || (doc && u.id.startsWith(`OPI-${doc}-`) && qst.id.split('-')[2] === u.id.split('-')[2]))).slice(0, 4);
 
 // 4. 案例与方案：取第一个概念的同名单元
 const slug = cons.length ? cons[0].id.replace(/^CON-/, '') : null;
-const cas = slug ? byId.get('CAS-' + slug) : null;
-const sol = slug ? byId.get('SOL-' + slug) : null;
-const selfCheck = slug ? byId.get('QST-' + slug) : null;
+const cas = (getExplicit('case', '案例单元')[0]) || (slug ? byId.get('CAS-' + slug) : null);
+const sol = (getExplicit('solution', '方案单元')[0]) || (slug ? byId.get('SOL-' + slug) : null);
+const selfCheck = (getExplicit('self-check', '问题单元')[0]) || (slug ? byId.get('QST-' + slug) : null);
+
+if (!cons.length || !cas || !sol) {
+  console.error(`装配不完整：概念 ${cons.length} 个，案例 ${cas ? '有' : '缺'}，方案 ${sol ? '有' : '缺'}。请显式补齐 --concept/--case/--solution。`);
+  process.exit(2);
+}
 
 const L = (u) => (u ? `- **${u.title}**（\`${u.id}\`）` : '- （缺）');
 const body = [
@@ -84,6 +98,8 @@ const body = [
   '## 六、自测（讲完答得出才算过）',
   L(selfCheck),
   selfCheck ? `\n> ${String(selfCheck.key_fields?.question_text || '')}\n` : '',
+  '## 七、来源与状态',
+  ...[qst, ...cons, ...opis, cas, sol, selfCheck].filter(Boolean).map((u) => `- \`${u.id}\`｜${u.status || '未知状态'}｜${[].concat(u.source_documents || []).join(', ') || '未登记来源'}`),
 ].join('\n');
 
 const out = arg('out');

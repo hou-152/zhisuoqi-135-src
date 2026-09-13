@@ -1,0 +1,14 @@
+{
+  "materials": [
+    {
+      "id": "A-context-rot",
+      "qst": "QST-context-rot",
+      "concepts": ["CON-context-rot", "CON-context", "CON-context-window"],
+      "opinions": ["OPI-CTX-03-03"],
+      "cases": ["CAS-context-rot"],
+      "solutions": ["SOL-context-rot"],
+      "selfChecks": ["QST-context-rot"],
+      "out": "docs/mvp-generated/A-context-rot.md"
+    }
+  ]
+}
