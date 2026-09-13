@@ -1,0 +1,295 @@
+{
+ "learnerIs": "合成学习者（脚本扮演，不是真人，也不是学习效果实验）",
+ "modelMode": "real",
+ "base": "http://127.0.0.1:5199",
+ "chapter": {
+  "id": "agent",
+  "order": 1,
+  "title": "Agent"
+ },
+ "criteriaVersion": "v3-20260914",
+ "calls": [
+  {
+   "tag": "inline-round-1",
+   "http": 200,
+   "ms": 3546,
+   "chars": 596
+  },
+  {
+   "tag": "inline-round-2",
+   "http": 200,
+   "ms": 7356,
+   "chars": 795
+  },
+  {
+   "tag": "summative",
+   "http": 200,
+   "ms": 2540,
+   "chars": 117
+  }
+ ],
+ "callPreview": [
+  {
+   "tag": "inline-round-1",
+   "content": "{\"checks\":[{\"id\":\"agent-F1\",\"status\":\"partial\",\"evidence\":\"「Agent 的最小构成是『模型 ＋ 指令 ＋ 工具』这三样打包在一起，不是换一个更大的模型就更像 Agent」\",\"evidence_note\":\"\"},{\"id\":\"agent-F2\",\"status\":\"missing\",\"evidence\":\"复述中只提到模型、指令、工具打包，未涉及工具执行、状态维护、权限与循环来自模型之外的系统\"},{\"id\":\"agent-F3\",\"status\":\"missing\",\"evidence\":\"仅说「不是换一个更大的模型就更像 Agent」，未点明模型负责推理与生成、Agent 是围绕目标持续推进的系统，也未给出具体差别\"}],\"teaching\":{\"focusId\":\"agent-F1\",\"text\":\"你说的「模型＋指令＋工具」是配置清单，但最小构成还缺一件最关键的事：它得围绕目标持续选择下一步、借助工具行动、再根据结果决定下一步——也就是那个「循环」。光有工具能调用一次，只是分界；能拿结果继续推进，才算 Agent。另外要记住：工具执行、状态维护、权限与循环都在模型之外，模型只负责推理与生成。\",\"question\":\"如果给模型加了一个工具，但一次调用后不管结果就结束，这算不算 Agent？为什么？\"}}"
+  },
+  {
+   "tag": "inline-round-2",
+   "content": "{\"checks\":[{\"id\":\"agent-F1\",\"status\":\"partial\",\"evidence\":\"「Agent 的最小构成是『模型 ＋ 指令 ＋ 工具』这三样打包在一起，不是换一个更大的模型就更像 Agent」——排除了「更大模型」这一误解，也提到了工具，但只说成静态组件打包，没说到『围绕目标持续选择下一步、借助工具行动并根据结果继续推进』的循环。\"},{\"id\":\"agent-F2\",\"status\":\"partial\",\"evidence\":\"「后者是让这种行动真正发生并受到约束的运行机器」「生产级还要错误处理、验证、停止条件和状态管理」——暗示行动由外部运行机器产生，但没有明说工具执行、状态维护、权限与循环来自模型之外的系统。\"},{\"id\":\"agent-F3\",\"status\":\"partial\",\"evidence\":\"「不是换一个更大的模型就更像 Agent」触及了与模型的差别，但没说『模型负责推理与生成』，也没说 Agent 是围绕目标持续推进的系统；后面区分的是 Agent 与 Agent Harness，不是 Agent 与模型。\"}],\"teaching\":{\"focusId\":\"agent-F1\",\"text\":\"最小构成不等于「模型＋指令＋工具」打包堆在一起，关键是那套循环：围绕目标持续选择下一步 → 借助工具行动 → 根据结果决定是否"
+  },
+  {
+   "tag": "summative",
+   "content": "{\"covered\":[\"最小构成\",\"行动来源\",\"与模型的区别\"],\"missing\":[],\"next\":\"下一步请结合边界材料，补充说明“能调用一次工具”与生产级 Agent 在错误处理、验证、停止条件和状态管理上的差别。\"}"
+  }
+ ],
+ "modelTeachingText": "你说的「模型＋指令＋工具」是配置清单，但最小构成还缺一件最关键的事：它得围绕目标持续选择下一步、借助工具行动、再根据结果决定下一步——也就是那个「循环」。光有工具能调用一次，只是分界；能拿结果继续推进，才算 Agent。另外要记住：工具执行、状态维护、权限与循环都在模型之外，模型只负责推理与生成。",
+ "steps": [
+  {
+   "event": "explain",
+   "ok": true,
+   "to": "activity:unit:chapter-agent:formative",
+   "reason": "",
+   "guard": "always",
+   "effect": "openFormativeTurn",
+   "note": ""
+  },
+  {
+   "event": "evaluated",
+   "ok": true,
+   "to": "activity:unit:chapter-agent:support",
+   "reason": "",
+   "guard": "needSupport",
+   "effect": "recordGapAndReturn",
+   "note": ""
+  },
+  {
+   "event": "replied",
+   "ok": true,
+   "to": "activity:unit:chapter-agent:return",
+   "reason": "",
+   "guard": "always",
+   "effect": "recordEvidence",
+   "note": ""
+  },
+  {
+   "event": "returned",
+   "ok": true,
+   "to": "activity:unit:chapter-agent:formative",
+   "reason": "",
+   "guard": "targetIsFormative",
+   "effect": "popReturnStack",
+   "note": ""
+  },
+  {
+   "event": "answered",
+   "ok": false,
+   "to": null,
+   "reason": "当前活动 activity:unit:chapter-agent:formative 上没有注册事件 answered",
+   "guard": "",
+   "effect": "",
+   "note": ""
+  },
+  {
+   "event": "reviewed",
+   "ok": false,
+   "to": null,
+   "reason": "当前活动 activity:unit:chapter-agent:formative 上没有注册事件 reviewed",
+   "guard": "",
+   "effect": "",
+   "note": "第 1 题选「看它能否围绕目标、根据上一步的结果选择下一步，而…」（真实正确项）"
+  },
+  {
+   "event": "answered",
+   "ok": false,
+   "to": null,
+   "reason": "当前活动 activity:unit:chapter-agent:formative 上没有注册事件 answered",
+   "guard": "",
+   "effect": "",
+   "note": ""
+  },
+  {
+   "event": "reviewed",
+   "ok": false,
+   "to": null,
+   "reason": "当前活动 activity:unit:chapter-agent:formative 上没有注册事件 reviewed",
+   "guard": "",
+   "effect": "",
+   "note": "第 2 题选「把问题拆成模型判断、工具能力、状态、权限、循环和…」（真实正确项）"
+  },
+  {
+   "event": "answered",
+   "ok": false,
+   "to": null,
+   "reason": "当前活动 activity:unit:chapter-agent:formative 上没有注册事件 answered",
+   "guard": "",
+   "effect": "",
+   "note": ""
+  },
+  {
+   "event": "reviewed",
+   "ok": false,
+   "to": null,
+   "reason": "当前活动 activity:unit:chapter-agent:formative 上没有注册事件 reviewed",
+   "guard": "",
+   "effect": "",
+   "note": "第 3 题选「模型负责推理与生成；工具执行、状态维护、权限和循…」（真实正确项）"
+  },
+  {
+   "event": "assessed",
+   "ok": false,
+   "to": null,
+   "reason": "当前活动 activity:unit:chapter-agent:formative 上没有注册事件 assessed",
+   "guard": "",
+   "effect": "",
+   "note": ""
+  },
+  {
+   "event": "applied",
+   "ok": false,
+   "to": null,
+   "reason": "当前活动 activity:unit:chapter-agent:formative 上没有注册事件 applied",
+   "guard": "",
+   "effect": "",
+   "note": ""
+  }
+ ],
+ "eventLog": [
+  {
+   "seq": 1,
+   "event": "explain",
+   "from": "·reading",
+   "to": "·formative",
+   "guard": "always",
+   "effect": "openFormativeTurn"
+  },
+  {
+   "seq": 2,
+   "event": "evaluated",
+   "from": "·formative",
+   "to": "·support",
+   "guard": "needSupport",
+   "effect": "recordGapAndReturn"
+  },
+  {
+   "seq": 3,
+   "event": "replied",
+   "from": "·support",
+   "to": "·return",
+   "guard": "always",
+   "effect": "recordEvidence"
+  },
+  {
+   "seq": 4,
+   "event": "returned",
+   "from": "·return",
+   "to": "·formative",
+   "guard": "targetIsFormative",
+   "effect": "popReturnStack"
+  }
+ ],
+ "evidenceByCriterion": {
+  "agent-F1": {
+   "status": "partial",
+   "evidence": "「Agent 的最小构成是『模型 ＋ 指令 ＋ 工具』这三样打包在一起，不是换一个更大的模型就更像 Agent」——排除",
+   "source": "student",
+   "turnId": "turn:1",
+   "version": "v3-20260914",
+   "at": "2026-09-13T22:55:56.913Z"
+  },
+  "agent-F2": {
+   "status": "partial",
+   "evidence": "「后者是让这种行动真正发生并受到约束的运行机器」「生产级还要错误处理、验证、停止条件和状态管理」——暗示行动由外部运行机",
+   "source": "student",
+   "turnId": "turn:1",
+   "version": "v3-20260914",
+   "at": "2026-09-13T22:55:56.913Z"
+  },
+  "agent-F3": {
+   "status": "partial",
+   "evidence": "「不是换一个更大的模型就更像 Agent」触及了与模型的差别，但没说『模型负责推理与生成』，也没说 Agent 是围绕目",
+   "source": "student",
+   "turnId": "turn:1",
+   "version": "v3-20260914",
+   "at": "2026-09-13T22:55:56.913Z"
+  }
+ },
+ "notJudged": [],
+ "kept": [],
+ "decisionAttempts": 0,
+ "summativeAttempts": [],
+ "returnedTo": {
+  "returnTo": "activity:unit:chapter-agent:reading",
+  "criterionId": "agent-F1",
+  "at": "2026-09-13T22:55:49.554Z"
+ },
+ "currentNode": "activity:unit:chapter-agent:formative",
+ "checks": [
+  {
+   "label": "真判定接进链路：没讲全就进补讲／回原活动（不是直接通过）",
+   "ok": true,
+   "note": "判定 worst=missing focus=agent-F1"
+  },
+  {
+   "label": "链路里记下了\"核对了哪项理解\"",
+   "ok": true,
+   "note": "agent-F1"
+  },
+  {
+   "label": "链路里有\"用哪段材料补讲\"这一段（六章绑的是整章阅读梯度）",
+   "ok": true,
+   "note": "5 段"
+  },
+  {
+   "label": "补讲结束回到**发起补讲的那个活动**（这里是阅读），不是一律回决策题",
+   "ok": true,
+   "note": "·formative"
+  },
+  {
+   "label": "补答之后有新的理解证据进来",
+   "ok": false,
+   "note": "0 项 met"
+  },
+  {
+   "label": "三道题都记成真实作答（0 条）",
+   "ok": false,
+   "note": ""
+  },
+  {
+   "label": "作答记录里正确项标对",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "label": "练习做完才到章末验收",
+   "ok": false,
+   "note": "·formative"
+  },
+  {
+   "label": "章末验收单独留了一条记录",
+   "ok": false,
+   "note": ""
+  },
+  {
+   "label": "验收记录逐条记了每项理解的判定",
+   "ok": false,
+   "note": "{}"
+  },
+  {
+   "label": "应用核对正式通过条件后才解锁",
+   "ok": false,
+   "note": ""
+  },
+  {
+   "label": "通过之后沿流程边进下一单元",
+   "ok": false,
+   "note": "当前活动 activity:unit:chapter-agent:formative 上没有注册事件 advanced"
+  }
+ ],
+ "pass": 5,
+ "fail": 7,
+ "boundary": [
+  "这一趟证明的是\"真模型接进来以后，链路与状态照样按同一套规则跑\"。",
+  "它不证明模型理解力，也不证明学习效果；学习者不是真人。",
+  "模型给的判定是候选语义判断，通过与否由 graph-runner 的规则决定。"
+ ]
+}

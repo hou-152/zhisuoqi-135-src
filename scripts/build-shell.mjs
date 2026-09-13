@@ -83,7 +83,13 @@ payload.learning = loadLearning();
 
 const tpl = fs.readFileSync(TPL, 'utf8');
 const json = JSON.stringify(payload).replace(/<\//g, '<\\/');
-const html = tpl.replace('/*__DATA__*/', json);
+// 全链路 Graph：运行时与视图作为独立模块内联进来（UMD → window.GRAPH_RUNNER / window.GRAPH_VIEW）。
+// 页面与 Node 验收脚本用的是**同一份文件**，所以「图驱动实际学习」不是旁边另画的一张图。
+const RUNNER_SRC = fs.readFileSync(path.join(ROOT, 'scripts', 'lib', 'graph-runner.js'), 'utf8');
+const VIEW_SRC = fs.readFileSync(path.join(ROOT, 'scripts', 'lib', 'graph-view.js'), 'utf8');
+const html = tpl.replace('/*__DATA__*/', json)
+  .replace('/*__GRAPH_RUNNER__*/', () => RUNNER_SRC)
+  .replace('/*__GRAPH_VIEW__*/', () => VIEW_SRC);
 
 const OUT = path.join(ROOT, 'prototype', '知所栖-壳.html');
 fs.mkdirSync(path.dirname(OUT), { recursive: true });

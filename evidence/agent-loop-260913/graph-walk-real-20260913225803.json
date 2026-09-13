@@ -1,0 +1,425 @@
+{
+ "learnerIs": "合成学习者（脚本扮演，不是真人，也不是学习效果实验）",
+ "modelMode": "real",
+ "base": "http://127.0.0.1:5199",
+ "chapter": {
+  "id": "agent",
+  "order": 1,
+  "title": "Agent"
+ },
+ "criteriaVersion": "v3-20260914",
+ "calls": [
+  {
+   "tag": "inline-round-1",
+   "http": 200,
+   "ms": 3133,
+   "chars": 666
+  },
+  {
+   "tag": "inline-round-2",
+   "http": 200,
+   "ms": 5345,
+   "chars": 545
+  },
+  {
+   "tag": "summative",
+   "http": 200,
+   "ms": 3567,
+   "chars": 126
+  }
+ ],
+ "callPreview": [
+  {
+   "tag": "inline-round-1",
+   "content": "{\"checks\":[{\"id\":\"agent-F1\",\"status\":\"partial\",\"evidence\":\"Agent 的最小构成是「模型 ＋ 指令 ＋ 工具」这三样打包在一起，不是换一个更大的模型就更像 Agent。\",\"teaching\":\"\",\"question\":\"\"},{\"id\":\"agent-F2\",\"status\":\"missing\",\"evidence\":\"（复述中未提及工具执行、状态维护、权限与循环来自模型之外的系统）\",\"teaching\":\"\",\"question\":\"\"},{\"id\":\"agent-F3\",\"status\":\"missing\",\"evidence\":\"（只说「不是换一个更大的模型就更像 Agent」，未点明模型负责推理与生成、Agent 是围绕目标持续推进的系统，也未给出具体差别）\",\"teaching\":\"\",\"question\":\"\"}],\"teaching\":{\"focusId\":\"agent-F1\",\"text\":\"你点出了「模型＋指令＋工具」这个打包，方向对，但最小构成里还缺最关键的一环：围绕目标持续选择下一步、借助工具行动、再根据结果决定怎么继续——也就是那个「循环推进」。只有三件套摆在那里、不会根据结果接着走，还不算 Agent。另外你提醒的「不是换更大模型」也正对：规模不构成 Agent。\",\"question\":\""
+  },
+  {
+   "tag": "inline-round-2",
+   "content": "{\"checks\":[{\"id\":\"agent-F1\",\"status\":\"met\",\"evidence\":\"「Agent 的最小构成要看那套循环——围绕目标持续选择下一步、借助工具行动、再根据结果决定继续推进还是停下」\"},{\"id\":\"agent-F2\",\"status\":\"met\",\"evidence\":\"「行动能力不长在模型权重里，工具执行、状态维护、权限与循环来自模型之外」\"},{\"id\":\"agent-F3\",\"status\":\"met\",\"evidence\":\"「模型负责推理与生成，Agent 是围绕目标持续推进的系统，这两者不是一回事」，并配合前句「工具执行、状态维护、权限与循环来自模型之外」给出具体差别\"}],\"teaching\":{\"focusId\":\"agent-F3\",\"text\":\"三条都到位了。再往前推半步：Agent 和 Agent Harness 不是同义词——前者说的是呈现出来的行动系统，后者是产生并约束这种行为的运行机器；另外「能调用一次工具」只是分界，生产级 Agent 还要有错误处理、验证、停止条件和状态管理。\",\"question\":\"如果一个人把「更强的 LLM」当成 Agent 变强的全部原因，你会用哪个具体差别来纠正他？\"}}"
+  },
+  {
+   "tag": "summative",
+   "content": "{\"covered\":[\"最小构成\",\"行动来源\",\"与模型的区别\"],\"missing\":[],\"next\":\"下一步可补充 Agent 与 Agent Harness 不是同义词，以及生产级 Agent 还需错误处理、验证、停止条件与状态管理。\"}"
+  }
+ ],
+ "modelTeachingText": "三条都到位了。再往前推半步：Agent 和 Agent Harness 不是同义词——前者说的是呈现出来的行动系统，后者是产生并约束这种行为的运行机器；另外「能调用一次工具」只是分界，生产级 Agent 还要有错误处理、验证、停止条件和状态管理。",
+ "steps": [
+  {
+   "event": "explain",
+   "ok": true,
+   "to": "activity:unit:chapter-agent:formative",
+   "reason": "",
+   "guard": "always",
+   "effect": "openFormativeTurn",
+   "note": "读中想讲一讲"
+  },
+  {
+   "event": "evaluated",
+   "ok": true,
+   "to": "activity:unit:chapter-agent:support",
+   "reason": "",
+   "guard": "needSupport",
+   "effect": "recordGapAndReturn",
+   "note": ""
+  },
+  {
+   "event": "replied",
+   "ok": true,
+   "to": "activity:unit:chapter-agent:return",
+   "reason": "",
+   "guard": "always",
+   "effect": "recordEvidence",
+   "note": "学生只补当前问题（只回答刚才那一处）"
+  },
+  {
+   "event": "returned",
+   "ok": true,
+   "to": "activity:unit:chapter-agent:formative",
+   "reason": "",
+   "guard": "targetIsFormative",
+   "effect": "popReturnStack",
+   "note": "补讲结束 → 回**发起补讲的活动**"
+  },
+  {
+   "event": "evaluated",
+   "ok": true,
+   "to": "activity:unit:chapter-agent:return",
+   "reason": "",
+   "guard": "resolved",
+   "effect": "recordEvidence",
+   "note": ""
+  },
+  {
+   "event": "returned",
+   "ok": true,
+   "to": "activity:unit:chapter-agent:reading",
+   "reason": "",
+   "guard": "targetIsReading",
+   "effect": "popReturnStack",
+   "note": "本次缺口已解决 → 回原活动"
+  },
+  {
+   "event": "proceed",
+   "ok": true,
+   "to": "activity:unit:chapter-agent:decision:1",
+   "reason": "",
+   "guard": "always",
+   "effect": "openAttempt",
+   "note": ""
+  },
+  {
+   "event": "answered",
+   "ok": true,
+   "to": "activity:unit:chapter-agent:review:1",
+   "reason": "",
+   "guard": "always",
+   "effect": "recordAttempt",
+   "note": ""
+  },
+  {
+   "event": "reviewed",
+   "ok": true,
+   "to": "activity:unit:chapter-agent:decision:2",
+   "reason": "",
+   "guard": "hasNextDecision",
+   "effect": "openAttempt",
+   "note": "第 1 题选「看它能否围绕目标、根据上一步的结果选择下一步，而…」（真实正确项）"
+  },
+  {
+   "event": "answered",
+   "ok": true,
+   "to": "activity:unit:chapter-agent:review:2",
+   "reason": "",
+   "guard": "always",
+   "effect": "recordAttempt",
+   "note": ""
+  },
+  {
+   "event": "reviewed",
+   "ok": true,
+   "to": "activity:unit:chapter-agent:decision:3",
+   "reason": "",
+   "guard": "hasNextDecision",
+   "effect": "openAttempt",
+   "note": "第 2 题选「把问题拆成模型判断、工具能力、状态、权限、循环和…」（真实正确项）"
+  },
+  {
+   "event": "answered",
+   "ok": true,
+   "to": "activity:unit:chapter-agent:review:3",
+   "reason": "",
+   "guard": "always",
+   "effect": "recordAttempt",
+   "note": ""
+  },
+  {
+   "event": "reviewed",
+   "ok": true,
+   "to": "activity:unit:chapter-agent:summative",
+   "reason": "",
+   "guard": "practiceComplete",
+   "effect": "openAttempt",
+   "note": "第 3 题选「模型负责推理与生成；工具执行、状态维护、权限和循…」（真实正确项）"
+  },
+  {
+   "event": "assessed",
+   "ok": true,
+   "to": "activity:unit:chapter-agent:apply",
+   "reason": "",
+   "guard": "summativePass",
+   "effect": "recordSummative",
+   "note": ""
+  },
+  {
+   "event": "applied",
+   "ok": true,
+   "to": "activity:unit:chapter-agent:advance",
+   "reason": "",
+   "guard": "formallyPassed",
+   "effect": "markUnitPass",
+   "note": ""
+  }
+ ],
+ "eventLog": [
+  {
+   "seq": 1,
+   "event": "explain",
+   "from": "·reading",
+   "to": "·formative",
+   "guard": "always",
+   "effect": "openFormativeTurn"
+  },
+  {
+   "seq": 2,
+   "event": "evaluated",
+   "from": "·formative",
+   "to": "·support",
+   "guard": "needSupport",
+   "effect": "recordGapAndReturn"
+  },
+  {
+   "seq": 3,
+   "event": "replied",
+   "from": "·support",
+   "to": "·return",
+   "guard": "always",
+   "effect": "recordEvidence"
+  },
+  {
+   "seq": 4,
+   "event": "returned",
+   "from": "·return",
+   "to": "·formative",
+   "guard": "targetIsFormative",
+   "effect": "popReturnStack"
+  },
+  {
+   "seq": 5,
+   "event": "evaluated",
+   "from": "·formative",
+   "to": "·return",
+   "guard": "resolved",
+   "effect": "recordEvidence"
+  },
+  {
+   "seq": 6,
+   "event": "returned",
+   "from": "·return",
+   "to": "·reading",
+   "guard": "targetIsReading",
+   "effect": "popReturnStack"
+  },
+  {
+   "seq": 7,
+   "event": "proceed",
+   "from": "·reading",
+   "to": "·decision:1",
+   "guard": "always",
+   "effect": "openAttempt"
+  },
+  {
+   "seq": 8,
+   "event": "answered",
+   "from": "·decision:1",
+   "to": "·review:1",
+   "guard": "always",
+   "effect": "recordAttempt"
+  },
+  {
+   "seq": 9,
+   "event": "reviewed",
+   "from": "·review:1",
+   "to": "·decision:2",
+   "guard": "hasNextDecision",
+   "effect": "openAttempt"
+  },
+  {
+   "seq": 10,
+   "event": "answered",
+   "from": "·decision:2",
+   "to": "·review:2",
+   "guard": "always",
+   "effect": "recordAttempt"
+  },
+  {
+   "seq": 11,
+   "event": "reviewed",
+   "from": "·review:2",
+   "to": "·decision:3",
+   "guard": "hasNextDecision",
+   "effect": "openAttempt"
+  },
+  {
+   "seq": 12,
+   "event": "answered",
+   "from": "·decision:3",
+   "to": "·review:3",
+   "guard": "always",
+   "effect": "recordAttempt"
+  },
+  {
+   "seq": 13,
+   "event": "reviewed",
+   "from": "·review:3",
+   "to": "·summative",
+   "guard": "practiceComplete",
+   "effect": "openAttempt"
+  },
+  {
+   "seq": 14,
+   "event": "assessed",
+   "from": "·summative",
+   "to": "·apply",
+   "guard": "summativePass",
+   "effect": "recordSummative"
+  },
+  {
+   "seq": 15,
+   "event": "applied",
+   "from": "·apply",
+   "to": "·advance",
+   "guard": "formallyPassed",
+   "effect": "markUnitPass"
+  },
+  {
+   "seq": 16,
+   "event": "advanced",
+   "from": "·advance",
+   "to": "unit:chapter-tool:reading",
+   "guard": "hasNextUnit",
+   "effect": "markUnitAdvance"
+  }
+ ],
+ "evidenceByCriterion": {
+  "agent-F1": {
+   "status": "met",
+   "evidence": "最小构成",
+   "source": "summative",
+   "turnId": "turn:1",
+   "version": "v3-20260914",
+   "at": "2026-09-13T22:58:15.671Z",
+   "attemptId": "summative:0"
+  },
+  "agent-F2": {
+   "status": "met",
+   "evidence": "行动来源",
+   "source": "summative",
+   "turnId": "turn:1",
+   "version": "v3-20260914",
+   "at": "2026-09-13T22:58:15.671Z",
+   "attemptId": "summative:0"
+  },
+  "agent-F3": {
+   "status": "met",
+   "evidence": "与模型的区别",
+   "source": "summative",
+   "turnId": "turn:1",
+   "version": "v3-20260914",
+   "at": "2026-09-13T22:58:15.671Z",
+   "attemptId": "summative:0"
+  }
+ },
+ "notJudged": [],
+ "kept": [],
+ "decisionAttempts": 3,
+ "summativeAttempts": [
+  {
+   "attemptId": "summative:0",
+   "at": "2026-09-13T22:58:15.671Z",
+   "unitId": "unit:chapter-agent",
+   "verdicts": {
+    "agent-F1": "met",
+    "agent-F2": "met",
+    "agent-F3": "met"
+   },
+   "passed": true,
+   "note": "真模型章末判定"
+  }
+ ],
+ "returnedTo": null,
+ "currentNode": "activity:unit:chapter-tool:reading",
+ "checks": [
+  {
+   "label": "读中费曼真的跑了 2 轮真判定",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "label": "每一轮都记下了链路落点（补讲 / 回原活动）",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "label": "系统未判定没有污染证据账本",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "label": "讲清之后回到阅读（补讲结束回发起它的那个活动）",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "label": "三道题都记成真实作答（3 条）",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "label": "作答记录里正确项标对",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "label": "练习做完才到章末验收",
+   "ok": true,
+   "note": "·summative"
+  },
+  {
+   "label": "章末验收单独留了一条记录",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "label": "验收记录逐条记了每项理解的判定",
+   "ok": true,
+   "note": "{\"agent-F1\":\"met\",\"agent-F2\":\"met\",\"agent-F3\":\"met\"}"
+  },
+  {
+   "label": "应用核对正式通过条件后才解锁",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "label": "通过之后沿流程边进下一单元",
+   "ok": true,
+   "note": "unit:chapter-tool:reading"
+  }
+ ],
+ "pass": 11,
+ "fail": 0,
+ "boundary": [
+  "这一趟证明的是\"真模型接进来以后，链路与状态照样按同一套规则跑\"。",
+  "它不证明模型理解力，也不证明学习效果；学习者不是真人。",
+  "模型给的判定是候选语义判断，通过与否由 graph-runner 的规则决定。"
+ ]
+}
