@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: thinking-method
 learningStage: deep-dive
 verification: judge
-centrality: 0.072
-depth: 1
+centrality: 0.017
+depth: 0
 origin: [context]
 aliases: ["Digital Presence"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 人的数字上下文可持续演化，甚至在人离开后仍通过 AI 系统与世界互动。
 
-**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
 
 ## 费曼一下
 
@@ -36,10 +36,6 @@ sources: 1
 ## 验收问句
 
 > 按 {{name}}，什么可以被上传并持续演化？
-
-## 先懂这些（前置 1）
-
-- [[软件脑]] · **soft** — 不懂软件脑，就做不了设想人的数字上下文在人离开后仍通过 AI 系统持续演化互动这件事。
 
 ## 相关
 
@@ -59,5 +55,4 @@ sources: 1
 
 - [[上下文 context]]
 - [[上下文工程 context engineering]]
-- [[软件脑]]
 - [[熵减 entropy reduction]]

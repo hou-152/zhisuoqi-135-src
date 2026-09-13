@@ -1,0 +1,3922 @@
+{
+ "generatedAt": "2026-09-13T18:44:56.122Z",
+ "model": "deepseek-flash",
+ "scope": "all",
+ "tokens": 104825,
+ "total": 936,
+ "keep": 918,
+ "drop": 18,
+ "undecided": 0,
+ "failed": [],
+ "droppedList": [
+  {
+   "id": "cm_5676c394",
+   "name": "Rockset 离线二级视图",
+   "origin": [
+    "neican"
+   ],
+   "domain": "state-persistence",
+   "why": "纯数据基础设施"
+  },
+  {
+   "id": "cm_37869804",
+   "name": "可行性分析",
+   "origin": [
+    "neican"
+   ],
+   "domain": "agent-org",
+   "why": "通用产品可行性"
+  },
+  {
+   "id": "cm_8ff0bd7e",
+   "name": "从客户端库到独立服务",
+   "origin": [
+    "neican"
+   ],
+   "domain": "state-persistence",
+   "why": "纯软件架构"
+  },
+  {
+   "id": "cm_fccba9a9",
+   "name": "对象-边模型与分区",
+   "origin": [
+    "neican"
+   ],
+   "domain": "state-persistence",
+   "why": "纯数据库模型"
+  },
+  {
+   "id": "cm_cbbe3f8e",
+   "name": "亚稳态故障与 LIFO/FIFO 连接重用",
+   "origin": [
+    "neican"
+   ],
+   "domain": "harness-runtime",
+   "why": "纯后端连接重用"
+  },
+  {
+   "id": "cm_f8c2e9ae",
+   "name": "连接扇入",
+   "origin": [
+    "neican"
+   ],
+   "domain": "harness-runtime",
+   "why": "纯后端连接扇入"
+  },
+  {
+   "id": "cm_e243f570",
+   "name": "目标—项目—日常工作的连接",
+   "origin": [
+    "neican"
+   ],
+   "domain": "agent-org",
+   "why": "纯个人目标工作管理"
+  },
+  {
+   "id": "cm_803a4462",
+   "name": "软件脑",
+   "origin": [
+    "notion"
+   ],
+   "domain": "thinking-method",
+   "why": "非AI，软件世界观"
+  },
+  {
+   "id": "cm_b4276278",
+   "name": "设计师与工程师的推拉关系",
+   "origin": [
+    "neican"
+   ],
+   "domain": "agent-org",
+   "why": "非AI，设计工程协作"
+  },
+  {
+   "id": "cm_e056dcdf",
+   "name": "为特定用途而设计",
+   "origin": [
+    "neican"
+   ],
+   "domain": "agent-org",
+   "why": "通用软件设计原则"
+  },
+  {
+   "id": "cm_cf92487f",
+   "name": "小函数组合",
+   "origin": [
+    "harness"
+   ],
+   "domain": "harness-runtime",
+   "why": "纯代码架构拆分"
+  },
+  {
+   "id": "cm_8a12b121",
+   "name": "周期",
+   "origin": [
+    "neican"
+   ],
+   "domain": "agent-org",
+   "why": "通用敏捷周期管理"
+  },
+  {
+   "id": "cm_7c5152aa",
+   "name": "oppref",
+   "origin": [
+    "notion"
+   ],
+   "domain": "economy-business",
+   "why": "广告归因cookie"
+  },
+  {
+   "id": "cm_e66df281",
+   "name": "战略性技术债务：Python 服务",
+   "origin": [
+    "neican"
+   ],
+   "domain": "code-engineering",
+   "why": "纯后端工程债务"
+  },
+  {
+   "id": "cm_983f29fd",
+   "name": "asyncio 调度延迟与尾部延迟",
+   "origin": [
+    "neican"
+   ],
+   "domain": "harness-runtime",
+   "why": "纯asyncio工程性能"
+  },
+  {
+   "id": "cm_76d98cb5",
+   "name": "给事物命名",
+   "origin": [
+    "notion"
+   ],
+   "domain": "thinking-method",
+   "why": "通用命名，非AI"
+  },
+  {
+   "id": "cm_c22bacf6",
+   "name": "政府资本 vs 产业资本",
+   "origin": [
+    "notion"
+   ],
+   "domain": "economy-business",
+   "why": "纯政经非AI"
+  },
+  {
+   "id": "cm_98e749f2",
+   "name": "人的手感与产品手艺",
+   "origin": [
+    "context"
+   ],
+   "domain": "agent-org",
+   "why": "纯产品手艺，与AI无关（09-14 单跑 context 315 条复判）"
+  }
+ ],
+ "verdicts": {
+  "cm_0a4ca4ce": {
+   "ai": "keep",
+   "why": "LLM外部软件架构harness"
+  },
+  "cm_34b33e00": {
+   "ai": "keep",
+   "why": "Claude技能按需加载机制"
+  },
+  "cm_e56f1e8b": {
+   "ai": "keep",
+   "why": "agent系统构建工程"
+  },
+  "cm_8089ce21": {
+   "ai": "keep",
+   "why": "Agent工具schema与token"
+  },
+  "cm_d9aa9fe0": {
+   "ai": "keep",
+   "why": "模型上下文定义"
+  },
+  "cm_6fe071ac": {
+   "ai": "keep",
+   "why": "RL奖励信号与对齐"
+  },
+  "cm_d78a3680": {
+   "ai": "keep",
+   "why": "技能元数据发现层"
+  },
+  "cm_32e036a5": {
+   "ai": "keep",
+   "why": "企业技能与插件治理"
+  },
+  "cm_a500a4cb": {
+   "ai": "keep",
+   "why": "LLM提示词缓存优化"
+  },
+  "cm_691a420e": {
+   "ai": "keep",
+   "why": "token计量与上下文预算"
+  },
+  "cm_cc101992": {
+   "ai": "keep",
+   "why": "技能按需加载省上下文"
+  },
+  "cm_9ed037b8": {
+   "ai": "keep",
+   "why": "Agent沙箱隔离执行"
+  },
+  "cm_30201f36": {
+   "ai": "keep",
+   "why": "上下文工程管理"
+  },
+  "cm_200893a2": {
+   "ai": "keep",
+   "why": "子代理技能字段委派"
+  },
+  "cm_036f0092": {
+   "ai": "keep",
+   "why": "缓存前缀匹配机制"
+  },
+  "cm_668cf70f": {
+   "ai": "keep",
+   "why": "缓存稳定前缀复用"
+  },
+  "cm_a4f9a7e3": {
+   "ai": "keep",
+   "why": "循环工程固化为技能"
+  },
+  "cm_05146d91": {
+   "ai": "keep",
+   "why": "LLM注意力预算资源"
+  },
+  "cm_51de352d": {
+   "ai": "keep",
+   "why": "模型工具调用原语"
+  },
+  "cm_a72ef18d": {
+   "ai": "keep",
+   "why": "Agent工具行动能力"
+  },
+  "cm_10cbe746": {
+   "ai": "keep",
+   "why": "LLM调用持久化执行"
+  },
+  "cm_b55ff5c3": {
+   "ai": "keep",
+   "why": "Agent多尺度记忆"
+  },
+  "cm_28c258d9": {
+   "ai": "keep",
+   "why": "技能启动仅载描述"
+  },
+  "cm_01d6a01e": {
+   "ai": "keep",
+   "why": "模型长上下文窗口"
+  },
+  "cm_f45e5118": {
+   "ai": "keep",
+   "why": "agent工程纪律"
+  },
+  "cm_f1e9d39c": {
+   "ai": "keep",
+   "why": "AI 指代理解任务"
+  },
+  "cm_34c3e3e7": {
+   "ai": "keep",
+   "why": "agent 验证子系统"
+  },
+  "cm_4805cdf5": {
+   "ai": "keep",
+   "why": "AI 指代理解任务"
+  },
+  "cm_b2154cb8": {
+   "ai": "keep",
+   "why": "自治编码 agent"
+  },
+  "cm_197a049b": {
+   "ai": "keep",
+   "why": "子 agent 编排"
+  },
+  "cm_c63aeadd": {
+   "ai": "keep",
+   "why": "agent 循环"
+  },
+  "cm_b9c659d4": {
+   "ai": "keep",
+   "why": "LLM 缓存前缀"
+  },
+  "cm_63e5d090": {
+   "ai": "keep",
+   "why": "LLM 输入 token 缓存"
+  },
+  "cm_ba8d0829": {
+   "ai": "keep",
+   "why": "托管 agent harness"
+  },
+  "cm_4f9d35ac": {
+   "ai": "keep",
+   "why": "上下文压缩与重置"
+  },
+  "cm_ca69391c": {
+   "ai": "keep",
+   "why": "AI 时代工程师角色"
+  },
+  "cm_a46abbb1": {
+   "ai": "keep",
+   "why": "跨 session agent 状态"
+  },
+  "cm_c63842fd": {
+   "ai": "keep",
+   "why": "RL 训练算法"
+  },
+  "cm_3a7b088a": {
+   "ai": "keep",
+   "why": "AI 输出评分标准"
+  },
+  "cm_345d4b18": {
+   "ai": "keep",
+   "why": "agent 交接机制"
+  },
+  "cm_5c93f4e7": {
+   "ai": "keep",
+   "why": "agent 编排风格"
+  },
+  "cm_e00f590e": {
+   "ai": "keep",
+   "why": "harness token 开销"
+  },
+  "cm_b46838eb": {
+   "ai": "keep",
+   "why": "agent 指令预算"
+  },
+  "cm_49b4fe8b": {
+   "ai": "keep",
+   "why": "LLM prefill/decode"
+  },
+  "cm_a3f25593": {
+   "ai": "keep",
+   "why": "agent SDK 构件"
+  },
+  "cm_9191c944": {
+   "ai": "keep",
+   "why": "策略梯度算法"
+  },
+  "cm_56230a91": {
+   "ai": "keep",
+   "why": "AI 评分 rubric"
+  },
+  "cm_5973b47c": {
+   "ai": "keep",
+   "why": "agent 记忆机制"
+  },
+  "cm_94db716e": {
+   "ai": "keep",
+   "why": "agent 自检能力"
+  },
+  "cm_a85cb1f1": {
+   "ai": "keep",
+   "why": "agent 自检回路"
+  },
+  "cm_4a78d263": {
+   "ai": "keep",
+   "why": "子代理上下文与编排"
+  },
+  "cm_dc9a27be": {
+   "ai": "keep",
+   "why": "AI技能安全审计"
+  },
+  "cm_1d5a247c": {
+   "ai": "keep",
+   "why": "agent记忆机制"
+  },
+  "cm_698b655e": {
+   "ai": "keep",
+   "why": "AI自改进训练失效"
+  },
+  "cm_588433b7": {
+   "ai": "keep",
+   "why": "人把关AI产出质量"
+  },
+  "cm_f5944e33": {
+   "ai": "keep",
+   "why": "LLM提示词缓存"
+  },
+  "cm_f50a09c9": {
+   "ai": "keep",
+   "why": "上下文工程前提"
+  },
+  "cm_be951649": {
+   "ai": "keep",
+   "why": "agent状态持久化"
+  },
+  "cm_d9636b24": {
+   "ai": "keep",
+   "why": "子agent编排机制"
+  },
+  "cm_44a5e9cc": {
+   "ai": "keep",
+   "why": "agent与harness区分"
+  },
+  "cm_b9224922": {
+   "ai": "keep",
+   "why": "人机协作隐喻"
+  },
+  "cm_968e8f3d": {
+   "ai": "keep",
+   "why": "AI优先组织重构"
+  },
+  "cm_e09e7cfa": {
+   "ai": "keep",
+   "why": "编码代理定义"
+  },
+  "cm_285b2834": {
+   "ai": "keep",
+   "why": "agent安全校验"
+  },
+  "cm_5103a6a6": {
+   "ai": "keep",
+   "why": "人在环控制面"
+  },
+  "cm_8e93fc18": {
+   "ai": "keep",
+   "why": "AI商业模式"
+  },
+  "cm_b8e70a87": {
+   "ai": "keep",
+   "why": "长任务交接机制"
+  },
+  "cm_511bf6de": {
+   "ai": "keep",
+   "why": "多agent角色分离"
+  },
+  "cm_a47a4e89": {
+   "ai": "keep",
+   "why": "harness运行时分层"
+  },
+  "cm_fcbdc4c2": {
+   "ai": "keep",
+   "why": "agent会话运行"
+  },
+  "cm_a0ca0f95": {
+   "ai": "keep",
+   "why": "技能即方法调用"
+  },
+  "cm_30fb0c9b": {
+   "ai": "keep",
+   "why": "AI技能创建"
+  },
+  "cm_668afc3e": {
+   "ai": "keep",
+   "why": "技能膨胀拖低可靠性"
+  },
+  "cm_91b202fd": {
+   "ai": "keep",
+   "why": "agent工作流校验"
+  },
+  "cm_c8798fb1": {
+   "ai": "keep",
+   "why": "上下文压缩"
+  },
+  "cm_2cbdf384": {
+   "ai": "keep",
+   "why": "agent技能验证"
+  },
+  "cm_43781275": {
+   "ai": "keep",
+   "why": "agent技能优先级"
+  },
+  "cm_c8c4d5c6": {
+   "ai": "keep",
+   "why": "harness厚度取舍"
+  },
+  "cm_e11bd63b": {
+   "ai": "keep",
+   "why": "agent循环收敛条件"
+  },
+  "cm_4b769318": {
+   "ai": "keep",
+   "why": "技能匹配标识"
+  },
+  "cm_80dfaf37": {
+   "ai": "keep",
+   "why": "技能加载流程"
+  },
+  "cm_a8179581": {
+   "ai": "keep",
+   "why": "上下文工程文件树"
+  },
+  "cm_08f36fe6": {
+   "ai": "keep",
+   "why": "提示词工程"
+  },
+  "cm_b0946442": {
+   "ai": "keep",
+   "why": "技能语义触发"
+  },
+  "cm_9cc03c6d": {
+   "ai": "keep",
+   "why": "多agent分工编排"
+  },
+  "cm_247d8cf9": {
+   "ai": "keep",
+   "why": "agent循环心跳"
+  },
+  "cm_0608c405": {
+   "ai": "keep",
+   "why": "Agent定义"
+  },
+  "cm_253ad423": {
+   "ai": "keep",
+   "why": "Model+Harness框架"
+  },
+  "cm_012fc42e": {
+   "ai": "keep",
+   "why": "agent原生基础设施"
+  },
+  "cm_0c98a6cf": {
+   "ai": "keep",
+   "why": "AI Agent对外行为"
+  },
+  "cm_1da0e9a6": {
+   "ai": "keep",
+   "why": "OpenAI存储平台"
+  },
+  "cm_75dd4394": {
+   "ai": "keep",
+   "why": "LLM与Harness类比"
+  },
+  "cm_75e723cc": {
+   "ai": "keep",
+   "why": "harness与skill设计原则"
+  },
+  "cm_916d7db2": {
+   "ai": "keep",
+   "why": "agent渐进式披露"
+  },
+  "cm_d793c38e": {
+   "ai": "keep",
+   "why": "技能作用域优先级"
+  },
+  "cm_5face436": {
+   "ai": "keep",
+   "why": "技能内容分类加载"
+  },
+  "cm_86d3d4a6": {
+   "ai": "keep",
+   "why": "零人工AI工作流"
+  },
+  "cm_e5fee124": {
+   "ai": "keep",
+   "why": "重复步骤编码成skill"
+  },
+  "cm_2944fd6c": {
+   "ai": "keep",
+   "why": "编排循环"
+  },
+  "cm_16dcca78": {
+   "ai": "keep",
+   "why": "AI反弹潮意象"
+  },
+  "cm_29b24ddb": {
+   "ai": "keep",
+   "why": "提示工程与AI劳动"
+  },
+  "cm_73952fe1": {
+   "ai": "keep",
+   "why": "Agent可读lint与约束"
+  },
+  "cm_3184d5ac": {
+   "ai": "keep",
+   "why": "LLM训练偏差"
+  },
+  "cm_d59c122f": {
+   "ai": "keep",
+   "why": "Agent代码图谱工具"
+  },
+  "cm_b73dd02f": {
+   "ai": "keep",
+   "why": "Agent触发模式"
+  },
+  "cm_6d5da93d": {
+   "ai": "keep",
+   "why": "系统提示对齐指令"
+  },
+  "cm_80b8a64a": {
+   "ai": "keep",
+   "why": "harness设计方法"
+  },
+  "cm_1031d6f6": {
+   "ai": "keep",
+   "why": "递归planner编排"
+  },
+  "cm_307d9aaf": {
+   "ai": "keep",
+   "why": "Planner-Worker架构"
+  },
+  "cm_b8ef30e6": {
+   "ai": "keep",
+   "why": "递归并行规划"
+  },
+  "cm_aed663a2": {
+   "ai": "keep",
+   "why": "递归与基座智能"
+  },
+  "cm_d7b26e2a": {
+   "ai": "keep",
+   "why": "递归自我改进"
+  },
+  "cm_4ecbd69b": {
+   "ai": "keep",
+   "why": "多agent动态协调"
+  },
+  "cm_12a39025": {
+   "ai": "keep",
+   "why": "对话式广告商业模式"
+  },
+  "cm_a6d3f8f2": {
+   "ai": "keep",
+   "why": "LLM非确定性"
+  },
+  "cm_5b5b3631": {
+   "ai": "keep",
+   "why": "Agent记忆架构"
+  },
+  "cm_8ff76ff3": {
+   "ai": "keep",
+   "why": "Agent调试根因优先"
+  },
+  "cm_1531fbe3": {
+   "ai": "keep",
+   "why": "工具即契约"
+  },
+  "cm_c3159c94": {
+   "ai": "keep",
+   "why": "工具接口表达力"
+  },
+  "cm_8a295891": {
+   "ai": "keep",
+   "why": "harness原语"
+  },
+  "cm_519accd8": {
+   "ai": "keep",
+   "why": "共享harness工程"
+  },
+  "cm_69b3d608": {
+   "ai": "keep",
+   "why": "人机共享产品系统"
+  },
+  "cm_492ee3e8": {
+   "ai": "keep",
+   "why": "人机共享理解"
+  },
+  "cm_b3524e24": {
+   "ai": "keep",
+   "why": "共享上下文窗口"
+  },
+  "cm_a966ce15": {
+   "ai": "keep",
+   "why": "agent文件加锁协调"
+  },
+  "cm_1973b1d3": {
+   "ai": "keep",
+   "why": "Agent循环工具调用"
+  },
+  "cm_c3ecbf70": {
+   "ai": "keep",
+   "why": "MCP工具接入标准"
+  },
+  "cm_ad086a79": {
+   "ai": "keep",
+   "why": "AI产品技能同步边界"
+  },
+  "cm_94fa45bf": {
+   "ai": "keep",
+   "why": "模型跨轮记忆策略"
+  },
+  "cm_f3b13df1": {
+   "ai": "keep",
+   "why": "人机协作外包理解"
+  },
+  "cm_7cd7335d": {
+   "ai": "keep",
+   "why": "Agent自验证闭环"
+  },
+  "cm_b6da7e6e": {
+   "ai": "keep",
+   "why": "执行者变Agent"
+  },
+  "cm_369f10ff": {
+   "ai": "keep",
+   "why": "技能自动激活机制"
+  },
+  "cm_6db0527f": {
+   "ai": "keep",
+   "why": "MCP服务器工具集成"
+  },
+  "cm_5676c394": {
+   "ai": "drop",
+   "why": "纯数据基础设施"
+  },
+  "cm_37869804": {
+   "ai": "drop",
+   "why": "通用产品可行性"
+  },
+  "cm_a2868643": {
+   "ai": "keep",
+   "why": "技能运行时权限边界"
+  },
+  "cm_20bf8a66": {
+   "ai": "keep",
+   "why": "Agent循环工作流"
+  },
+  "cm_2c89a6a8": {
+   "ai": "keep",
+   "why": "模型上下文腐烂"
+  },
+  "cm_2211c604": {
+   "ai": "keep",
+   "why": "结果回喂闭环"
+  },
+  "cm_3639ae12": {
+   "ai": "keep",
+   "why": "模型注意力机制"
+  },
+  "cm_30843ecf": {
+   "ai": "keep",
+   "why": "多智能体任务编排"
+  },
+  "cm_c684222f": {
+   "ai": "keep",
+   "why": "LLM缓存命中监控"
+  },
+  "cm_4b3d0d0a": {
+   "ai": "keep",
+   "why": "Agentic memory笔记"
+  },
+  "cm_d926baac": {
+   "ai": "keep",
+   "why": "AI开源闭源商业"
+  },
+  "cm_bf008303": {
+   "ai": "keep",
+   "why": "提示模型判断力"
+  },
+  "cm_03aaef77": {
+   "ai": "keep",
+   "why": "AI基础设施自主"
+  },
+  "cm_c1dd6faa": {
+   "ai": "keep",
+   "why": "权限推理架构分离"
+  },
+  "cm_e1ce170d": {
+   "ai": "keep",
+   "why": "开源追平闭源临界"
+  },
+  "cm_03726492": {
+   "ai": "keep",
+   "why": "文件系统持久记忆"
+  },
+  "cm_a4926419": {
+   "ai": "keep",
+   "why": "委派任务给模型的人机协作"
+  },
+  "cm_ae8fef15": {
+   "ai": "keep",
+   "why": "agent能力鸿沟与harness"
+  },
+  "cm_64e86aa5": {
+   "ai": "keep",
+   "why": "规则可被agent机械执行"
+  },
+  "cm_10f48272": {
+   "ai": "keep",
+   "why": "长时程自治agent退化"
+  },
+  "cm_2440f85e": {
+   "ai": "keep",
+   "why": "AI技能版本优先级"
+  },
+  "cm_fb6ae85a": {
+   "ai": "keep",
+   "why": "前沿AI实验室竞争"
+  },
+  "cm_cc5fefd6": {
+   "ai": "keep",
+   "why": "暴露agent静默失败"
+  },
+  "cm_8bb611ea": {
+   "ai": "keep",
+   "why": "人机协作关键节点确认"
+  },
+  "cm_3d84afe1": {
+   "ai": "keep",
+   "why": "Agent任务时域能力指标"
+  },
+  "cm_ecf56dd0": {
+   "ai": "keep",
+   "why": "harness强弱消融实验"
+  },
+  "cm_7675253d": {
+   "ai": "keep",
+   "why": "prompt/context/harness工程"
+  },
+  "cm_5faf59f3": {
+   "ai": "keep",
+   "why": "agent沙箱化自主运行"
+  },
+  "cm_3a76f8e5": {
+   "ai": "keep",
+   "why": "上下文注入攻击防护"
+  },
+  "cm_2be548ed": {
+   "ai": "keep",
+   "why": "agent长时运行能力"
+  },
+  "cm_db9042f2": {
+   "ai": "keep",
+   "why": "agent事件驱动编排"
+  },
+  "cm_c3a45aa3": {
+   "ai": "keep",
+   "why": "事件驱动agent自动化"
+  },
+  "cm_18997927": {
+   "ai": "keep",
+   "why": "AI物理基础设施"
+  },
+  "cm_058c8106": {
+   "ai": "keep",
+   "why": "AI技能故障分类"
+  },
+  "cm_7f906cf0": {
+   "ai": "keep",
+   "why": "agent所有权与问责"
+  },
+  "cm_7a03b65b": {
+   "ai": "keep",
+   "why": "多agent锁竞争瓶颈"
+  },
+  "cm_2ac17989": {
+   "ai": "keep",
+   "why": "AI编码工作流统一语言"
+  },
+  "cm_00f1e097": {
+   "ai": "keep",
+   "why": "agent执行状态统一"
+  },
+  "cm_d8f80acf": {
+   "ai": "keep",
+   "why": "推理模型原理"
+  },
+  "cm_b87e2d6f": {
+   "ai": "keep",
+   "why": "prompt前缀与KV-cache"
+  },
+  "cm_980c195f": {
+   "ai": "keep",
+   "why": "系统提示机制批评"
+  },
+  "cm_32dc32a9": {
+   "ai": "keep",
+   "why": "harness工程类比"
+  },
+  "cm_926aa05d": {
+   "ai": "keep",
+   "why": "模型执行shell工具"
+  },
+  "cm_0b420d69": {
+   "ai": "keep",
+   "why": "AI能力与限制"
+  },
+  "cm_8e7dfd61": {
+   "ai": "keep",
+   "why": "Agent软件工厂"
+  },
+  "cm_894f275b": {
+   "ai": "keep",
+   "why": "Agent运行环境"
+  },
+  "cm_78a628e1": {
+   "ai": "keep",
+   "why": "LLM无状态调用"
+  },
+  "cm_4c6ea3d7": {
+   "ai": "keep",
+   "why": "LLM评测基准"
+  },
+  "cm_4e58443d": {
+   "ai": "keep",
+   "why": "人用AI的代价"
+  },
+  "cm_b2c86d88": {
+   "ai": "keep",
+   "why": "Agent可观测"
+  },
+  "cm_53822d1c": {
+   "ai": "keep",
+   "why": "LLM长上下文现象"
+  },
+  "cm_53ec7c9b": {
+   "ai": "keep",
+   "why": "AI技能工具权限"
+  },
+  "cm_dc4f803b": {
+   "ai": "keep",
+   "why": "Claude技能触发"
+  },
+  "cm_f986a343": {
+   "ai": "keep",
+   "why": "人机确认环节"
+  },
+  "cm_78356595": {
+   "ai": "keep",
+   "why": "Agent自我验证"
+  },
+  "cm_a5573df7": {
+   "ai": "keep",
+   "why": "技能文件结构"
+  },
+  "cm_67483624": {
+   "ai": "keep",
+   "why": "harness定义"
+  },
+  "cm_a63808b6": {
+   "ai": "keep",
+   "why": "上下文加载策略"
+  },
+  "cm_dee9d8f3": {
+   "ai": "keep",
+   "why": "Agent循环机制"
+  },
+  "cm_629e8fdc": {
+   "ai": "keep",
+   "why": "Agent编排循环"
+  },
+  "cm_8ff0bd7e": {
+   "ai": "drop",
+   "why": "纯软件架构"
+  },
+  "cm_fccba9a9": {
+   "ai": "drop",
+   "why": "纯数据库模型"
+  },
+  "cm_03d2000c": {
+   "ai": "keep",
+   "why": "非模型架构层"
+  },
+  "cm_ca26306b": {
+   "ai": "keep",
+   "why": "Agent评测风险"
+  },
+  "cm_622b0b3b": {
+   "ai": "keep",
+   "why": "上下文检索策略"
+  },
+  "cm_ae03bb56": {
+   "ai": "keep",
+   "why": "Claude技能描述"
+  },
+  "cm_75392c01": {
+   "ai": "keep",
+   "why": "AI安全护栏策略"
+  },
+  "cm_68c53198": {
+   "ai": "keep",
+   "why": "上下文缓存机制"
+  },
+  "cm_c7901d9f": {
+   "ai": "keep",
+   "why": "prompt缓存连续性"
+  },
+  "cm_a87b8600": {
+   "ai": "keep",
+   "why": "缓存计费机制"
+  },
+  "cm_998e7068": {
+   "ai": "keep",
+   "why": "会话上下文管理"
+  },
+  "cm_fa9f0763": {
+   "ai": "keep",
+   "why": "LLM指代清晰度"
+  },
+  "cm_b5172a28": {
+   "ai": "keep",
+   "why": "算力分配决策"
+  },
+  "cm_92cb645b": {
+   "ai": "keep",
+   "why": "Agent技能复用"
+  },
+  "cm_2733c0ea": {
+   "ai": "keep",
+   "why": "RAG检索与引用"
+  },
+  "cm_5caaad9a": {
+   "ai": "keep",
+   "why": "检索阅读问答架构"
+  },
+  "cm_026f933a": {
+   "ai": "keep",
+   "why": "项目规范写法"
+  },
+  "cm_572c8e76": {
+   "ai": "keep",
+   "why": "Agent信息预置"
+  },
+  "cm_1fe2a6e6": {
+   "ai": "keep",
+   "why": "模型失败模式"
+  },
+  "cm_67e2a43e": {
+   "ai": "keep",
+   "why": "AI模式局限认知"
+  },
+  "cm_51595412": {
+   "ai": "keep",
+   "why": "Agent卡顿信号"
+  },
+  "cm_0d71e42c": {
+   "ai": "keep",
+   "why": "多agent编排"
+  },
+  "cm_8da6f44c": {
+   "ai": "keep",
+   "why": "调试AI应用方法"
+  },
+  "cm_9f1af4c9": {
+   "ai": "keep",
+   "why": "harness可观测性"
+  },
+  "cm_7a183315": {
+   "ai": "keep",
+   "why": "上下文压缩锚点"
+  },
+  "cm_62691348": {
+   "ai": "keep",
+   "why": "SWE-bench评测缺陷"
+  },
+  "cm_f8410eb3": {
+   "ai": "keep",
+   "why": "AI自动化甜蜜区"
+  },
+  "cm_2efed2e0": {
+   "ai": "keep",
+   "why": "与LLM协作方式"
+  },
+  "cm_2abb5209": {
+   "ai": "keep",
+   "why": "模型角色选型"
+  },
+  "cm_ff08655e": {
+   "ai": "keep",
+   "why": "prompt缓存与模型一致"
+  },
+  "cm_cffbc825": {
+   "ai": "keep",
+   "why": "模型拒绝策略"
+  },
+  "cm_899730c5": {
+   "ai": "keep",
+   "why": "harness 并行 subagent 编排"
+  },
+  "cm_dc8d4037": {
+   "ai": "keep",
+   "why": "AI 芯片管制与算力"
+  },
+  "cm_89a74f67": {
+   "ai": "keep",
+   "why": "组织信任 AI 系统机制"
+  },
+  "cm_d28ed61f": {
+   "ai": "keep",
+   "why": "PPO 信任域"
+  },
+  "cm_73e12992": {
+   "ai": "keep",
+   "why": "上下文压缩与摘要"
+  },
+  "cm_fbdb3635": {
+   "ai": "keep",
+   "why": "模型自评与验证落差"
+  },
+  "cm_dcb78706": {
+   "ai": "keep",
+   "why": "agent 验证循环"
+  },
+  "cm_fa98c676": {
+   "ai": "keep",
+   "why": "harness 意图规约"
+  },
+  "cm_3336ded4": {
+   "ai": "keep",
+   "why": "agent 意图路由升级"
+  },
+  "cm_2fb2521d": {
+   "ai": "keep",
+   "why": "RL 优势函数"
+  },
+  "cm_457d789e": {
+   "ai": "keep",
+   "why": "harness 回归闸"
+  },
+  "cm_41176d23": {
+   "ai": "keep",
+   "why": "原生工具与 MCP"
+  },
+  "cm_d5c7bde8": {
+   "ai": "keep",
+   "why": "AI 记忆知识端点"
+  },
+  "cm_32134c6f": {
+   "ai": "keep",
+   "why": "RL 重要性采样"
+  },
+  "cm_30bee42a": {
+   "ai": "keep",
+   "why": "LLM 注意力机制"
+  },
+  "cm_e5f2ba8e": {
+   "ai": "keep",
+   "why": "人机追问式对齐"
+  },
+  "cm_cf32c22f": {
+   "ai": "keep",
+   "why": "agent 自评失真"
+  },
+  "cm_4bc8eb62": {
+   "ai": "keep",
+   "why": "多 agent handoff 自收敛"
+  },
+  "cm_eec62acc": {
+   "ai": "keep",
+   "why": "多 agent 共享协调文件"
+  },
+  "cm_2a9d80ad": {
+   "ai": "keep",
+   "why": "自注意力机制"
+  },
+  "cm_974aa29f": {
+   "ai": "keep",
+   "why": "组织级 agent skills"
+  },
+  "cm_f174c068": {
+   "ai": "keep",
+   "why": "reviewer 最小上下文"
+  },
+  "cm_86f56dae": {
+   "ai": "keep",
+   "why": "agent 动作空间"
+  },
+  "cm_4cd0f50d": {
+   "ai": "keep",
+   "why": "agent 与 harness 分工"
+  },
+  "cm_094c89da": {
+   "ai": "keep",
+   "why": "Claude Agent Skills"
+  },
+  "cm_8d5752d9": {
+   "ai": "keep",
+   "why": "Agent 驱动 CI/CD"
+  },
+  "cm_8e23b5e7": {
+   "ai": "keep",
+   "why": "Agentic 编程能力"
+  },
+  "cm_a84f8f6d": {
+   "ai": "keep",
+   "why": "编码 Agent 指令文件"
+  },
+  "cm_7738ecbf": {
+   "ai": "keep",
+   "why": "AI 基础设施与治理"
+  },
+  "cm_d2b53bb8": {
+   "ai": "keep",
+   "why": "面向 AI 的内容可见性"
+  },
+  "cm_307c714e": {
+   "ai": "keep",
+   "why": "AI 团队岗位分工"
+  },
+  "cm_ae93d5b5": {
+   "ai": "keep",
+   "why": "Agent 共享知识层"
+  },
+  "cm_0569ae91": {
+   "ai": "keep",
+   "why": "意图描述信息量"
+  },
+  "cm_f3d3cb69": {
+   "ai": "keep",
+   "why": "模型与 harness 共演化"
+  },
+  "cm_f5d40204": {
+   "ai": "keep",
+   "why": "上下文预算管理"
+  },
+  "cm_da4daeff": {
+   "ai": "keep",
+   "why": "上下文膨胀问题"
+  },
+  "cm_98b9a0aa": {
+   "ai": "keep",
+   "why": "上下文隔离防火墙"
+  },
+  "cm_d10f0a1e": {
+   "ai": "keep",
+   "why": "上下文注入"
+  },
+  "cm_7be88c4d": {
+   "ai": "keep",
+   "why": "上下文即 Agent 状态"
+  },
+  "cm_b28a9fc2": {
+   "ai": "keep",
+   "why": "上下文窗口成本"
+  },
+  "cm_841b55e5": {
+   "ai": "keep",
+   "why": "持续编排循环"
+  },
+  "cm_4c4e24be": {
+   "ai": "keep",
+   "why": "AI 模型市场冲击"
+  },
+  "cm_aad08abd": {
+   "ai": "keep",
+   "why": "skill 触发条件"
+  },
+  "cm_e907a229": {
+   "ai": "keep",
+   "why": "给 AI 的决策记录"
+  },
+  "cm_859f857b": {
+   "ai": "keep",
+   "why": "需求引出能力"
+  },
+  "cm_c6e454d9": {
+   "ai": "keep",
+   "why": "Agent 沙箱环境"
+  },
+  "cm_98e85c1e": {
+   "ai": "keep",
+   "why": "可执行代码库形态"
+  },
+  "cm_a9276da2": {
+   "ai": "keep",
+   "why": "数据外泄风险"
+  },
+  "cm_0db0f875": {
+   "ai": "keep",
+   "why": "验证反馈闭环"
+  },
+  "cm_6072455f": {
+   "ai": "keep",
+   "why": "文件系统 harness 原语"
+  },
+  "cm_511c902a": {
+   "ai": "keep",
+   "why": "AI落地岗位与交付"
+  },
+  "cm_19ecf6b3": {
+   "ai": "keep",
+   "why": "人机协作下的技能养成"
+  },
+  "cm_319174c9": {
+   "ai": "keep",
+   "why": "LLM工具调用机制"
+  },
+  "cm_deefef79": {
+   "ai": "keep",
+   "why": "多agent生成评估循环"
+  },
+  "cm_98bb96e7": {
+   "ai": "keep",
+   "why": "agent循环状态持久化"
+  },
+  "cm_8b69f567": {
+   "ai": "keep",
+   "why": "上下文工程token分配"
+  },
+  "cm_14ba4d5c": {
+   "ai": "keep",
+   "why": "harness假设与模型演进"
+  },
+  "cm_3e211f91": {
+   "ai": "keep",
+   "why": "harness厚薄架构决策"
+  },
+  "cm_f2871b54": {
+   "ai": "keep",
+   "why": "harness内RL训练"
+  },
+  "cm_94dea071": {
+   "ai": "keep",
+   "why": "harness与框架分野"
+  },
+  "cm_7fdc01a5": {
+   "ai": "keep",
+   "why": "harness提供的模型外能力"
+  },
+  "cm_b8127840": {
+   "ai": "keep",
+   "why": "harness厚薄架构决策"
+  },
+  "cm_a5b42ae5": {
+   "ai": "keep",
+   "why": "agent与沙箱隔离"
+  },
+  "cm_561dcec8": {
+   "ai": "keep",
+   "why": "agent运行时分层"
+  },
+  "cm_cb97c505": {
+   "ai": "keep",
+   "why": "coding基准基础设施噪声"
+  },
+  "cm_03a44650": {
+   "ai": "keep",
+   "why": "多agent合并瓶颈"
+  },
+  "cm_89d0cc05": {
+   "ai": "keep",
+   "why": "AI评分与人类一致性"
+  },
+  "cm_838289d1": {
+   "ai": "keep",
+   "why": "LLM推理缓存成本"
+  },
+  "cm_ddb0ab8c": {
+   "ai": "keep",
+   "why": "面向agent的代码库"
+  },
+  "cm_ca4c9960": {
+   "ai": "keep",
+   "why": "无人软件工厂实践"
+  },
+  "cm_4cddc093": {
+   "ai": "keep",
+   "why": "大语言模型本质"
+  },
+  "cm_3bf9ffd4": {
+   "ai": "keep",
+   "why": "LLM订阅商业模式"
+  },
+  "cm_75ee7205": {
+   "ai": "keep",
+   "why": "agent循环契约"
+  },
+  "cm_5f282c0d": {
+   "ai": "keep",
+   "why": "循环工程师与编排"
+  },
+  "cm_433754e0": {
+   "ai": "keep",
+   "why": "MCP工具交互层"
+  },
+  "cm_a5b4380f": {
+   "ai": "keep",
+   "why": "Agent自评能力与偏差"
+  },
+  "cm_50e4c470": {
+   "ai": "keep",
+   "why": "会话上下文管理实践"
+  },
+  "cm_c1139916": {
+   "ai": "keep",
+   "why": "Agent历史会话回溯系统"
+  },
+  "cm_781791f5": {
+   "ai": "keep",
+   "why": "agent loop 持久记忆层"
+  },
+  "cm_448f21b3": {
+   "ai": "keep",
+   "why": "多agent共享文件系统"
+  },
+  "cm_36e39546": {
+   "ai": "keep",
+   "why": "Agent状态快照与恢复"
+  },
+  "cm_95c0c22c": {
+   "ai": "keep",
+   "why": "生成者评估者完成标准对齐"
+  },
+  "cm_63a18f9e": {
+   "ai": "keep",
+   "why": "子agent架构与关注点分离"
+  },
+  "cm_b2c9fd9e": {
+   "ai": "keep",
+   "why": "子agent隔离与并行"
+  },
+  "cm_60c1be3b": {
+   "ai": "keep",
+   "why": "上下文填充致模型变笨"
+  },
+  "cm_a6beb11f": {
+   "ai": "keep",
+   "why": "agent think-act-observe循环"
+  },
+  "cm_858e3280": {
+   "ai": "keep",
+   "why": "Engram迁移至扩散模型"
+  },
+  "cm_7c40465d": {
+   "ai": "keep",
+   "why": "LLM前置指令重写"
+  },
+  "cm_3391436a": {
+   "ai": "keep",
+   "why": "LLM的token基本单位"
+  },
+  "cm_3e69d260": {
+   "ai": "keep",
+   "why": "工具输出卸载到文件系统"
+  },
+  "cm_45b7faf3": {
+   "ai": "keep",
+   "why": "LLM工具调用循环"
+  },
+  "cm_e17efd1f": {
+   "ai": "keep",
+   "why": "工具schema的token开销"
+  },
+  "cm_93c0b683": {
+   "ai": "keep",
+   "why": "提示缓存排序策略"
+  },
+  "cm_f6f6390f": {
+   "ai": "keep",
+   "why": "基于trace的agent评估"
+  },
+  "cm_b433c375": {
+   "ai": "keep",
+   "why": "trace驱动harness评估"
+  },
+  "cm_2e332668": {
+   "ai": "keep",
+   "why": "提示缓存有效时长"
+  },
+  "cm_a56d4934": {
+   "ai": "keep",
+   "why": "任务可验证性与RL训练"
+  },
+  "cm_19f7de6c": {
+   "ai": "keep",
+   "why": "视觉语言多模态模型"
+  },
+  "cm_8d161688": {
+   "ai": "keep",
+   "why": "LLM类比CPU与harness操作系统"
+  },
+  "cm_5244b02e": {
+   "ai": "keep",
+   "why": "技能的分层与共享"
+  },
+  "cm_138a8b67": {
+   "ai": "keep",
+   "why": "子代理上下文隔离"
+  },
+  "cm_7098bed1": {
+   "ai": "keep",
+   "why": "AI记忆机制"
+  },
+  "cm_2b63a21c": {
+   "ai": "keep",
+   "why": "AI原生开发"
+  },
+  "cm_6a2b80d9": {
+   "ai": "keep",
+   "why": "上下文压缩"
+  },
+  "cm_5d1ba3e1": {
+   "ai": "keep",
+   "why": "harness与loop"
+  },
+  "cm_de3faada": {
+   "ai": "keep",
+   "why": "agent设计原理"
+  },
+  "cm_186ee145": {
+   "ai": "keep",
+   "why": "上下文路由"
+  },
+  "cm_60061253": {
+   "ai": "keep",
+   "why": "模型奖励偏差"
+  },
+  "cm_80fd0c67": {
+   "ai": "keep",
+   "why": "AI商业模式"
+  },
+  "cm_143bc730": {
+   "ai": "keep",
+   "why": "agent组件"
+  },
+  "cm_92c032dc": {
+   "ai": "keep",
+   "why": "AI产品认知"
+  },
+  "cm_9f288e75": {
+   "ai": "keep",
+   "why": "AI工程基础设施"
+  },
+  "cm_d26c5950": {
+   "ai": "keep",
+   "why": "模型约束理论"
+  },
+  "cm_d261b319": {
+   "ai": "keep",
+   "why": "AI安全路由"
+  },
+  "cm_b722f6a4": {
+   "ai": "keep",
+   "why": "模型输入重构能力"
+  },
+  "cm_e7db9123": {
+   "ai": "keep",
+   "why": "模型内部机制"
+  },
+  "cm_2335d9d6": {
+   "ai": "keep",
+   "why": "harness类比"
+  },
+  "cm_d566cc19": {
+   "ai": "keep",
+   "why": "模型回归评测"
+  },
+  "cm_2fd13e0c": {
+   "ai": "keep",
+   "why": "上下文工程"
+  },
+  "cm_36605218": {
+   "ai": "keep",
+   "why": "模型输出风险"
+  },
+  "cm_3a2cd7d5": {
+   "ai": "keep",
+   "why": "产品记忆平台"
+  },
+  "cm_46db5383": {
+   "ai": "keep",
+   "why": "AI组织岗位"
+  },
+  "cm_23c93d39": {
+   "ai": "keep",
+   "why": "AI产业经济"
+  },
+  "cm_876e1d7e": {
+   "ai": "keep",
+   "why": "AI评测方法"
+  },
+  "cm_44d86f15": {
+   "ai": "keep",
+   "why": "多步流程错误"
+  },
+  "cm_edc164c5": {
+   "ai": "keep",
+   "why": "agent 原生产品形态"
+  },
+  "cm_91279ade": {
+   "ai": "keep",
+   "why": "追问 skill 与文档上下文"
+  },
+  "cm_e549dff0": {
+   "ai": "keep",
+   "why": "MCP 工具权限与 opt-in"
+  },
+  "cm_4fe5238f": {
+   "ai": "keep",
+   "why": "few-shot 示例策展"
+  },
+  "cm_4fa039db": {
+   "ai": "keep",
+   "why": "Harness 动态系统迭代"
+  },
+  "cm_ffd117a0": {
+   "ai": "keep",
+   "why": "agent 端到端验证"
+  },
+  "cm_29215fd7": {
+   "ai": "keep",
+   "why": "LLM 对话加确定性缝合"
+  },
+  "cm_50015d52": {
+   "ai": "keep",
+   "why": "对话上下文定向信号"
+  },
+  "cm_6b94283f": {
+   "ai": "keep",
+   "why": "长上下文问答受控实验"
+  },
+  "cm_5e360f2f": {
+   "ai": "keep",
+   "why": "多 agent 反脆弱设计"
+  },
+  "cm_2d0b9637": {
+   "ai": "keep",
+   "why": "提示中的反思步骤"
+  },
+  "cm_83155f74": {
+   "ai": "keep",
+   "why": "模型安全元规则"
+  },
+  "cm_224f14d4": {
+   "ai": "keep",
+   "why": "agent 范围与完成定义"
+  },
+  "cm_f6006789": {
+   "ai": "keep",
+   "why": "长上下文方向漂移"
+  },
+  "cm_1d86964c": {
+   "ai": "keep",
+   "why": "复述与 lost-in-the-middle"
+  },
+  "cm_d4fab5a8": {
+   "ai": "keep",
+   "why": "长上下文干扰文档评测"
+  },
+  "cm_ee2878f3": {
+   "ai": "keep",
+   "why": "干扰项对长上下文影响"
+  },
+  "cm_00851466": {
+   "ai": "keep",
+   "why": "干扰项术语界定"
+  },
+  "cm_d7cd90db": {
+   "ai": "keep",
+   "why": "格式即上下文工程"
+  },
+  "cm_f0c99ed4": {
+   "ai": "keep",
+   "why": "agent 工具工作流适配"
+  },
+  "cm_59a6d9c5": {
+   "ai": "keep",
+   "why": "工具调用批处理策略"
+  },
+  "cm_067b5d04": {
+   "ai": "keep",
+   "why": "工具即结构化输出"
+  },
+  "cm_b6cabad1": {
+   "ai": "keep",
+   "why": "工具收窄提升表现"
+  },
+  "cm_2081e44e": {
+   "ai": "keep",
+   "why": "多人共享 agent 会话"
+  },
+  "cm_8ad267da": {
+   "ai": "keep",
+   "why": "规划模式边界问题"
+  },
+  "cm_9c15cd8d": {
+   "ai": "keep",
+   "why": "MCP工具调用"
+  },
+  "cm_a5ed35be": {
+   "ai": "keep",
+   "why": "AI安全红线判定"
+  },
+  "cm_1e2c70a5": {
+   "ai": "keep",
+   "why": "API边界测量方法"
+  },
+  "cm_45bcde21": {
+   "ai": "keep",
+   "why": "agent记忆开发"
+  },
+  "cm_0e8f0431": {
+   "ai": "keep",
+   "why": "loop中模型作子程序"
+  },
+  "cm_b74eee38": {
+   "ai": "keep",
+   "why": "模型原生harness"
+  },
+  "cm_ed8dcd39": {
+   "ai": "keep",
+   "why": "视觉LLM多模态"
+  },
+  "cm_a25b0163": {
+   "ai": "keep",
+   "why": "变异测试与判官模型"
+  },
+  "cm_836f9734": {
+   "ai": "keep",
+   "why": "ChatGPT人格由RL决定"
+  },
+  "cm_21a4ec33": {
+   "ai": "keep",
+   "why": "OpenAI转化追踪SDK"
+  },
+  "cm_fe668e3c": {
+   "ai": "keep",
+   "why": "Agent部署如新人"
+  },
+  "cm_5ae9faf9": {
+   "ai": "keep",
+   "why": "Agent循环心跳"
+  },
+  "cm_9e82be87": {
+   "ai": "keep",
+   "why": "采样k次评测指标"
+  },
+  "cm_6b2df7f0": {
+   "ai": "keep",
+   "why": "三Agent编码架构"
+  },
+  "cm_7cbbd7dc": {
+   "ai": "keep",
+   "why": "规划执行裁判分工"
+  },
+  "cm_a09398f3": {
+   "ai": "keep",
+   "why": "Skills按需披露"
+  },
+  "cm_1c3de8a9": {
+   "ai": "keep",
+   "why": "提示注入防御"
+  },
+  "cm_1e5e4cee": {
+   "ai": "keep",
+   "why": "注意力QKV原理"
+  },
+  "cm_b068ccc7": {
+   "ai": "keep",
+   "why": "模型推理思考模式"
+  },
+  "cm_39225cd5": {
+   "ai": "keep",
+   "why": "仓库规则文件"
+  },
+  "cm_e3bf5147": {
+   "ai": "keep",
+   "why": "人类偏好RL训练"
+  },
+  "cm_759cbeb8": {
+   "ai": "keep",
+   "why": "RLOO优势算法"
+  },
+  "cm_231cf0b4": {
+   "ai": "keep",
+   "why": "编码agent RL循环"
+  },
+  "cm_ca597dd5": {
+   "ai": "keep",
+   "why": "rubric验证agent"
+  },
+  "cm_96526063": {
+   "ai": "keep",
+   "why": "沙箱agent隔离运行"
+  },
+  "cm_19d82c87": {
+   "ai": "keep",
+   "why": "提示词约束与松绑"
+  },
+  "cm_66ea7313": {
+   "ai": "keep",
+   "why": "AI委派编程单位"
+  },
+  "cm_c83244fc": {
+   "ai": "keep",
+   "why": "旧模型护栏指令过期"
+  },
+  "cm_43c32a20": {
+   "ai": "keep",
+   "why": "压缩注意力滑动窗口"
+  },
+  "cm_cb785e57": {
+   "ai": "keep",
+   "why": "AI缓存定价成本"
+  },
+  "cm_31908564": {
+   "ai": "keep",
+   "why": "灰盒访问泄隐私"
+  },
+  "cm_bfc70d0d": {
+   "ai": "keep",
+   "why": "会话级安全判定"
+  },
+  "cm_4ee31e8e": {
+   "ai": "keep",
+   "why": "Agent会话生命周期"
+  },
+  "cm_ed4c8f9f": {
+   "ai": "keep",
+   "why": "模型自改概率系统"
+  },
+  "cm_9de70b84": {
+   "ai": "keep",
+   "why": "agent混合检索策略"
+  },
+  "cm_b7fd37c0": {
+   "ai": "keep",
+   "why": "混合注意力架构"
+  },
+  "cm_1c61d688": {
+   "ai": "keep",
+   "why": "Agent规模化基础设施"
+  },
+  "cm_eeb4d9c2": {
+   "ai": "keep",
+   "why": "基础设施非AI问题"
+  },
+  "cm_38d561bd": {
+   "ai": "keep",
+   "why": "压缩前记忆冲刷"
+  },
+  "cm_ebd8076f": {
+   "ai": "keep",
+   "why": "记忆须改变回答"
+  },
+  "cm_99444a52": {
+   "ai": "keep",
+   "why": "加规则陷阱"
+  },
+  "cm_f6aae481": {
+   "ai": "keep",
+   "why": "架构约束确定性执行"
+  },
+  "cm_8d8d6cae": {
+   "ai": "keep",
+   "why": "减法提升质量"
+  },
+  "cm_b965af7f": {
+   "ai": "keep",
+   "why": "检索推理双负担"
+  },
+  "cm_99c2938a": {
+   "ai": "keep",
+   "why": "渐进披露上下文"
+  },
+  "cm_eea3f2a9": {
+   "ai": "keep",
+   "why": "角色过载病态行为"
+  },
+  "cm_31a86272": {
+   "ai": "keep",
+   "why": "LLM与冯诺依曼类比"
+  },
+  "cm_d8b3f368": {
+   "ai": "keep",
+   "why": "接口即指令"
+  },
+  "cm_b75933cd": {
+   "ai": "keep",
+   "why": "结构断言不变量"
+  },
+  "cm_86490863": {
+   "ai": "keep",
+   "why": "最佳实践变反模式"
+  },
+  "cm_0f3d389d": {
+   "ai": "keep",
+   "why": "上下文位置效应，模型能力"
+  },
+  "cm_71e0e9c9": {
+   "ai": "keep",
+   "why": "AI搜索优化算法"
+  },
+  "cm_f0aa9b79": {
+   "ai": "keep",
+   "why": "harness改进收益"
+  },
+  "cm_61efc972": {
+   "ai": "keep",
+   "why": "LLM能力边界"
+  },
+  "cm_0ac7b3a2": {
+   "ai": "keep",
+   "why": "开放权重模型"
+  },
+  "cm_790b8f7b": {
+   "ai": "keep",
+   "why": "harness权限与循环设计"
+  },
+  "cm_765d717a": {
+   "ai": "keep",
+   "why": "工具与团队扩展，涉AI产品"
+  },
+  "cm_7554a017": {
+   "ai": "keep",
+   "why": "agent代码维护"
+  },
+  "cm_430f0874": {
+   "ai": "keep",
+   "why": "代码质量预言机，AI评测"
+  },
+  "cm_b8729c07": {
+   "ai": "keep",
+   "why": "跨会话记忆，上下文工程"
+  },
+  "cm_43b4ce43": {
+   "ai": "keep",
+   "why": "框架与prompt反向工程"
+  },
+  "cm_ae0e52be": {
+   "ai": "keep",
+   "why": "agent执行器架构"
+  },
+  "cm_2ad4f942": {
+   "ai": "keep",
+   "why": "上下文剪枝"
+  },
+  "cm_26923d16": {
+   "ai": "keep",
+   "why": "coding agent流程"
+  },
+  "cm_2d04acf5": {
+   "ai": "keep",
+   "why": "LLM谄媚偏差"
+  },
+  "cm_ae577191": {
+   "ai": "keep",
+   "why": "AI领域语言缺口"
+  },
+  "cm_5c014074": {
+   "ai": "keep",
+   "why": "检索门控机制"
+  },
+  "cm_bc68c1e9": {
+   "ai": "keep",
+   "why": "Claude技能描述设计"
+  },
+  "cm_3db52bcb": {
+   "ai": "keep",
+   "why": "模型与harness训练耦合"
+  },
+  "cm_da460738": {
+   "ai": "keep",
+   "why": "harness护城河"
+  },
+  "cm_e9a0f6f2": {
+   "ai": "keep",
+   "why": "AI平台跃迁与商业"
+  },
+  "cm_3f39fb13": {
+   "ai": "keep",
+   "why": "harness触发设计"
+  },
+  "cm_74099998": {
+   "ai": "keep",
+   "why": "Codex重写服务"
+  },
+  "cm_11d409eb": {
+   "ai": "keep",
+   "why": "AI协作前端对齐"
+  },
+  "cm_814ac817": {
+   "ai": "keep",
+   "why": "上下文记忆语言推理"
+  },
+  "cm_0684e3d0": {
+   "ai": "keep",
+   "why": "AI可读化，人机协作"
+  },
+  "cm_346dbb8c": {
+   "ai": "keep",
+   "why": "医疗AI人机协作"
+  },
+  "cm_cc92779a": {
+   "ai": "keep",
+   "why": "agent工具说明配置"
+  },
+  "cm_803a4462": {
+   "ai": "drop",
+   "why": "非AI，软件世界观"
+  },
+  "cm_0ac0017c": {
+   "ai": "keep",
+   "why": "AI自我改进与verifier"
+  },
+  "cm_03a5ad13": {
+   "ai": "keep",
+   "why": "上下文工程，条目维护"
+  },
+  "cm_9b459d5c": {
+   "ai": "keep",
+   "why": "agent上下文隔离"
+  },
+  "cm_81d0190c": {
+   "ai": "keep",
+   "why": "LLM上下文处理假设"
+  },
+  "cm_fd9f7a87": {
+   "ai": "keep",
+   "why": "人机上下文缺口"
+  },
+  "cm_4a83a8b3": {
+   "ai": "keep",
+   "why": "agent上下文失败"
+  },
+  "cm_b3514645": {
+   "ai": "keep",
+   "why": "prompt上下文坍塌"
+  },
+  "cm_d25c3997": {
+   "ai": "keep",
+   "why": "AI上下文文档"
+  },
+  "cm_0e10a538": {
+   "ai": "keep",
+   "why": "人机上下文协作"
+  },
+  "cm_b747de39": {
+   "ai": "keep",
+   "why": "上下文压缩与检索"
+  },
+  "cm_b4276278": {
+   "ai": "drop",
+   "why": "非AI，设计工程协作"
+  },
+  "cm_a62137fd": {
+   "ai": "keep",
+   "why": "AI审批疲劳"
+  },
+  "cm_afd87770": {
+   "ai": "keep",
+   "why": "国产AI芯片"
+  },
+  "cm_3f42a3b3": {
+   "ai": "keep",
+   "why": "AI世界模型"
+  },
+  "cm_7026ed33": {
+   "ai": "keep",
+   "why": "LLM示例强于规则"
+  },
+  "cm_d2a08592": {
+   "ai": "keep",
+   "why": "agent失败恢复"
+  },
+  "cm_59d3ad3b": {
+   "ai": "keep",
+   "why": "人给AI输入的摩擦"
+  },
+  "cm_703ec1e4": {
+   "ai": "keep",
+   "why": "LLM评测长度难度混淆"
+  },
+  "cm_cc071be2": {
+   "ai": "keep",
+   "why": "AI数字存在"
+  },
+  "cm_f6bd0ed2": {
+   "ai": "keep",
+   "why": "agent锁与并发控制"
+  },
+  "cm_f5f80946": {
+   "ai": "keep",
+   "why": "AI通关不等于理解"
+  },
+  "cm_f27655ca": {
+   "ai": "keep",
+   "why": "上下文选择工程"
+  },
+  "cm_c21ec7b2": {
+   "ai": "keep",
+   "why": "模型写代码准确性"
+  },
+  "cm_2be15a80": {
+   "ai": "keep",
+   "why": "AI-First组织与岗位"
+  },
+  "cm_8594943f": {
+   "ai": "keep",
+   "why": "模型训练数据偏差"
+  },
+  "cm_96db0031": {
+   "ai": "keep",
+   "why": "项目记忆如agent"
+  },
+  "cm_cf8c068b": {
+   "ai": "keep",
+   "why": "自回归LLM原理"
+  },
+  "cm_e4f63171": {
+   "ai": "keep",
+   "why": "agent循环与瓶颈"
+  },
+  "cm_36c8ca5c": {
+   "ai": "keep",
+   "why": "上下文工程原则"
+  },
+  "cm_7be9a292": {
+   "ai": "keep",
+   "why": "上下文token原则"
+  },
+  "cm_9bbb52e5": {
+   "ai": "keep",
+   "why": "Anthropic提示缓存"
+  },
+  "cm_fc9668d6": {
+   "ai": "keep",
+   "why": "agent模板配置"
+  },
+  "cm_07373436": {
+   "ai": "keep",
+   "why": "Claude API原语"
+  },
+  "cm_066bbed0": {
+   "ai": "keep",
+   "why": "agent上下文漂移"
+  },
+  "cm_5a9d980b": {
+   "ai": "keep",
+   "why": "多agent协作"
+  },
+  "cm_e0ddbb7e": {
+   "ai": "keep",
+   "why": "harness注入文件"
+  },
+  "cm_5be4de59": {
+   "ai": "keep",
+   "why": "AI工作流零件"
+  },
+  "cm_5a9e35b6": {
+   "ai": "keep",
+   "why": "OpenAI Agent SDK"
+  },
+  "cm_52318cc3": {
+   "ai": "keep",
+   "why": "公众对AI态度"
+  },
+  "cm_4a63cc27": {
+   "ai": "keep",
+   "why": "AI身份与责任"
+  },
+  "cm_e0891b4f": {
+   "ai": "keep",
+   "why": "AI爬虫分类"
+  },
+  "cm_a41e7117": {
+   "ai": "keep",
+   "why": "AI选型标准"
+  },
+  "cm_1f0a5c75": {
+   "ai": "keep",
+   "why": "AI主权治理"
+  },
+  "cm_13cad3a9": {
+   "ai": "keep",
+   "why": "AI撮合交友"
+  },
+  "cm_8b09eec8": {
+   "ai": "keep",
+   "why": "LLM调用可观测"
+  },
+  "cm_b5f16cbc": {
+   "ai": "keep",
+   "why": "Agent包管理器"
+  },
+  "cm_f2ba2f91": {
+   "ai": "keep",
+   "why": "人机协作分工"
+  },
+  "cm_02b6da8f": {
+   "ai": "keep",
+   "why": "AI延伸意图与责任"
+  },
+  "cm_5d035695": {
+   "ai": "keep",
+   "why": "AI认知与预测框架"
+  },
+  "cm_22909587": {
+   "ai": "keep",
+   "why": "意向系统与AI状态"
+  },
+  "cm_264fbc7c": {
+   "ai": "keep",
+   "why": "agent工具选择"
+  },
+  "cm_63d8b13a": {
+   "ai": "keep",
+   "why": "复杂系统与AI涌现"
+  },
+  "cm_71ea022e": {
+   "ai": "keep",
+   "why": "agent调用人类协作"
+  },
+  "cm_198a8008": {
+   "ai": "keep",
+   "why": "harness优化演进"
+  },
+  "cm_e807b74f": {
+   "ai": "keep",
+   "why": "上下文语言影响代码"
+  },
+  "cm_26e8e066": {
+   "ai": "keep",
+   "why": "终身上下文系统"
+  },
+  "cm_e838bb08": {
+   "ai": "keep",
+   "why": "上下文预算治理"
+  },
+  "cm_91d3545d": {
+   "ai": "keep",
+   "why": "智能度量与原始输入"
+  },
+  "cm_868cd978": {
+   "ai": "keep",
+   "why": "AI问责坐标"
+  },
+  "cm_8f0cba43": {
+   "ai": "keep",
+   "why": "AI问责链条"
+  },
+  "cm_70f49de3": {
+   "ai": "keep",
+   "why": "AI商业模式成本"
+  },
+  "cm_f563e9fc": {
+   "ai": "keep",
+   "why": "长上下文原理限制"
+  },
+  "cm_2efbcc89": {
+   "ai": "keep",
+   "why": "长上下文评测"
+  },
+  "cm_d6183379": {
+   "ai": "keep",
+   "why": "agent基础设施压力"
+  },
+  "cm_eb2997be": {
+   "ai": "keep",
+   "why": "AI用电用水规模"
+  },
+  "cm_bfcecaf0": {
+   "ai": "keep",
+   "why": "整理上下文净增益"
+  },
+  "cm_5c9cf5c5": {
+   "ai": "keep",
+   "why": "上下文与工具时机"
+  },
+  "cm_787006fe": {
+   "ai": "keep",
+   "why": "知识能力双供给"
+  },
+  "cm_1b119e04": {
+   "ai": "keep",
+   "why": "agent指令子系统"
+  },
+  "cm_1bd7da1b": {
+   "ai": "keep",
+   "why": "上下文重排序截断"
+  },
+  "cm_8a12b121": {
+   "ai": "drop",
+   "why": "通用敏捷周期管理"
+  },
+  "cm_a9c7e512": {
+   "ai": "keep",
+   "why": "agent 自造工具执行"
+  },
+  "cm_e056dcdf": {
+   "ai": "drop",
+   "why": "通用软件设计原则"
+  },
+  "cm_cdbb0432": {
+   "ai": "keep",
+   "why": "agent 吞吐与错误率"
+  },
+  "cm_715376b5": {
+   "ai": "keep",
+   "why": "agent 行为与风险规避"
+  },
+  "cm_f232fade": {
+   "ai": "keep",
+   "why": "AI 代理责任归属"
+  },
+  "cm_ddfa6bcb": {
+   "ai": "keep",
+   "why": "上下文系统而非模板"
+  },
+  "cm_13a8a97f": {
+   "ai": "keep",
+   "why": "人机架构沟通带宽"
+  },
+  "cm_4b0f8086": {
+   "ai": "keep",
+   "why": "大模型系统竞争"
+  },
+  "cm_4221a1fc": {
+   "ai": "keep",
+   "why": "AI 模型互相评审"
+  },
+  "cm_f67b66b8": {
+   "ai": "keep",
+   "why": "上下文分层与稳定"
+  },
+  "cm_7ab1296f": {
+   "ai": "keep",
+   "why": "与 AI 多轮澄清意图"
+  },
+  "cm_cf92487f": {
+   "ai": "drop",
+   "why": "纯代码架构拆分"
+  },
+  "cm_f9eca213": {
+   "ai": "keep",
+   "why": "模型与 harness 耦合"
+  },
+  "cm_d0269dfa": {
+   "ai": "keep",
+   "why": "模型 logits 探针"
+  },
+  "cm_4a910d74": {
+   "ai": "keep",
+   "why": "防 agent 长跑漂移"
+  },
+  "cm_75224b2e": {
+   "ai": "keep",
+   "why": "AI 与人分工优势"
+  },
+  "cm_b47f23f7": {
+   "ai": "keep",
+   "why": "AI 规模化形成性评估"
+  },
+  "cm_9fceeefa": {
+   "ai": "keep",
+   "why": "RAG 检索器与阅读器"
+  },
+  "cm_d757d9ee": {
+   "ai": "keep",
+   "why": "AI 代理角色命名"
+  },
+  "cm_4d990391": {
+   "ai": "keep",
+   "why": "注意力压缩机制"
+  },
+  "cm_eb3087aa": {
+   "ai": "keep",
+   "why": "押注上下文内学习"
+  },
+  "cm_e4b6932b": {
+   "ai": "keep",
+   "why": "工具渐进披露"
+  },
+  "cm_6bd125f5": {
+   "ai": "keep",
+   "why": "工具延迟加载"
+  },
+  "cm_4fa6863f": {
+   "ai": "keep",
+   "why": "AI 记忆隐私判据"
+  },
+  "cm_85804ebb": {
+   "ai": "keep",
+   "why": "AI 漫谈式输入"
+  },
+  "cm_66b2aa92": {
+   "ai": "keep",
+   "why": "AI能力基准"
+  },
+  "cm_a378789a": {
+   "ai": "keep",
+   "why": "LLM缓存策略"
+  },
+  "cm_50087bfe": {
+   "ai": "keep",
+   "why": "Agent自验证"
+  },
+  "cm_c5c2a8cb": {
+   "ai": "keep",
+   "why": "Agent成本度量"
+  },
+  "cm_b8dff81c": {
+   "ai": "keep",
+   "why": "托管Agent运行时"
+  },
+  "cm_37be6149": {
+   "ai": "keep",
+   "why": "AI模型能力规律"
+  },
+  "cm_61f02158": {
+   "ai": "keep",
+   "why": "上下文输出控制"
+  },
+  "cm_82e4b4e7": {
+   "ai": "keep",
+   "why": "Agent成本上限"
+  },
+  "cm_085b498a": {
+   "ai": "keep",
+   "why": "LLM缓存特性"
+  },
+  "cm_64ae7813": {
+   "ai": "keep",
+   "why": "模型能力涌现"
+  },
+  "cm_6a5b3651": {
+   "ai": "keep",
+   "why": "对话式提示工程"
+  },
+  "cm_07d6de4f": {
+   "ai": "keep",
+   "why": "RL训练目标"
+  },
+  "cm_c2266b88": {
+   "ai": "keep",
+   "why": "Claude诊断命令"
+  },
+  "cm_018c5168": {
+   "ai": "keep",
+   "why": "AI编程Agent产品"
+  },
+  "cm_40c8f5ff": {
+   "ai": "keep",
+   "why": "Agent代码模式"
+  },
+  "cm_10db34e6": {
+   "ai": "keep",
+   "why": "AI代码审查工具"
+  },
+  "cm_b797f401": {
+   "ai": "keep",
+   "why": "AI代码图谱配置"
+  },
+  "cm_d688ae4f": {
+   "ai": "keep",
+   "why": "OpenAI编码代理"
+  },
+  "cm_33922d87": {
+   "ai": "keep",
+   "why": "Harness配置开销"
+  },
+  "cm_d4790a0d": {
+   "ai": "keep",
+   "why": "模型上下文焦虑"
+  },
+  "cm_ed6d76b6": {
+   "ai": "keep",
+   "why": "上下文工程策略"
+  },
+  "cm_bdf121d1": {
+   "ai": "keep",
+   "why": "LLM稀疏注意力"
+  },
+  "cm_34451fc9": {
+   "ai": "keep",
+   "why": "RL优化算法"
+  },
+  "cm_da1f0987": {
+   "ai": "keep",
+   "why": "Agent循环决策"
+  },
+  "cm_b58e822c": {
+   "ai": "keep",
+   "why": "开源大模型"
+  },
+  "cm_cb329146": {
+   "ai": "keep",
+   "why": "技能匹配描述字段"
+  },
+  "cm_9249f51b": {
+   "ai": "keep",
+   "why": "AI数据与内容生态比喻"
+  },
+  "cm_ac2e95b3": {
+   "ai": "keep",
+   "why": "AI编码瓶颈转移"
+  },
+  "cm_5a687800": {
+   "ai": "keep",
+   "why": "技能与钩子触发机制"
+  },
+  "cm_4b8163f5": {
+   "ai": "keep",
+   "why": "上下文压缩机制"
+  },
+  "cm_cbbe3f8e": {
+   "ai": "drop",
+   "why": "纯后端连接重用"
+  },
+  "cm_6c8463ad": {
+   "ai": "keep",
+   "why": "受限工具API成本设计"
+  },
+  "cm_db455b2f": {
+   "ai": "keep",
+   "why": "技能脚本执行失败排查"
+  },
+  "cm_01671cb1": {
+   "ai": "keep",
+   "why": "harness循环模式"
+  },
+  "cm_3ff5d50f": {
+   "ai": "keep",
+   "why": "插件技能缺失排查"
+  },
+  "cm_857d56ba": {
+   "ai": "keep",
+   "why": "任务小颗粒分解"
+  },
+  "cm_ef696870": {
+   "ai": "keep",
+   "why": "AI辅助原型设计"
+  },
+  "cm_5b033c9f": {
+   "ai": "keep",
+   "why": "管理Agent是核心竞争力"
+  },
+  "cm_69fd0c3c": {
+   "ai": "keep",
+   "why": "基准捆绑测量性"
+  },
+  "cm_ba882963": {
+   "ai": "keep",
+   "why": "记忆即提示"
+  },
+  "cm_40b450ca": {
+   "ai": "keep",
+   "why": "脚本执行省token"
+  },
+  "cm_c2dd0286": {
+   "ai": "keep",
+   "why": "连接器接入真实环境"
+  },
+  "cm_f8c2e9ae": {
+   "ai": "drop",
+   "why": "纯后端连接扇入"
+  },
+  "cm_e243f570": {
+   "ai": "drop",
+   "why": "纯个人目标工作管理"
+  },
+  "cm_4eb02f12": {
+   "ai": "keep",
+   "why": "子代理技能访问边界"
+  },
+  "cm_3cd29e1b": {
+   "ai": "keep",
+   "why": "上下文占用与性能衰减"
+  },
+  "cm_8897d219": {
+   "ai": "keep",
+   "why": "harness公平性张力"
+  },
+  "cm_079fba1c": {
+   "ai": "keep",
+   "why": "loop项目知识体系"
+  },
+  "cm_226cbc01": {
+   "ai": "keep",
+   "why": "预构建与自定义技能"
+  },
+  "cm_1db64a00": {
+   "ai": "keep",
+   "why": "执行可靠性机制"
+  },
+  "cm_786f3b46": {
+   "ai": "keep",
+   "why": "LLM  RL 训练算法偏置"
+  },
+  "cm_558fd935": {
+   "ai": "keep",
+   "why": "AI 安全默认拒绝策略"
+  },
+  "cm_ca227b76": {
+   "ai": "keep",
+   "why": "上下文模板 token 成本"
+  },
+  "cm_0f46e34c": {
+   "ai": "keep",
+   "why": "技术经济，常论 AI 属此类"
+  },
+  "cm_7a8f6388": {
+   "ai": "keep",
+   "why": "生成式引擎内容优化"
+  },
+  "cm_7f6b7ae0": {
+   "ai": "keep",
+   "why": "LLM 本质与认知姿态"
+  },
+  "cm_5788cb30": {
+   "ai": "keep",
+   "why": "并行 Agent 工作目录隔离"
+  },
+  "cm_ebeee733": {
+   "ai": "keep",
+   "why": "CLAUDE.md 上下文写法"
+  },
+  "cm_999f2a7c": {
+   "ai": "keep",
+   "why": "注意力 KV 共享机制"
+  },
+  "cm_c3027f5b": {
+   "ai": "keep",
+   "why": "LLM 强化学习算法"
+  },
+  "cm_6d45fdf6": {
+   "ai": "keep",
+   "why": "Agent 上下文交接工件"
+  },
+  "cm_94448257": {
+   "ai": "keep",
+   "why": "harness 简化原则"
+  },
+  "cm_24c4322f": {
+   "ai": "keep",
+   "why": "harness 组件生命周期"
+  },
+  "cm_c88b81b3": {
+   "ai": "keep",
+   "why": "harness 自我演进"
+  },
+  "cm_561b8021": {
+   "ai": "keep",
+   "why": "模型与 harness 耦合过拟合"
+  },
+  "cm_5465cd64": {
+   "ai": "keep",
+   "why": "Agent 骨架评测基准"
+  },
+  "cm_fcf9bcbe": {
+   "ai": "keep",
+   "why": "云厂商与模型公司经济"
+  },
+  "cm_f53425d9": {
+   "ai": "keep",
+   "why": "AI 时代工程师实现力"
+  },
+  "cm_705ac76d": {
+   "ai": "keep",
+   "why": "Agent 主执行循环"
+  },
+  "cm_dafd9d2f": {
+   "ai": "keep",
+   "why": "指令文件 token 税"
+  },
+  "cm_5e26a484": {
+   "ai": "keep",
+   "why": "给 agent 的规则文件"
+  },
+  "cm_10cff6a4": {
+   "ai": "keep",
+   "why": "judge agent 对抗漂移"
+  },
+  "cm_7e14e299": {
+   "ai": "keep",
+   "why": "Agent 即时上下文检索"
+  },
+  "cm_592eb60e": {
+   "ai": "keep",
+   "why": "Agent 技能自改写循环"
+  },
+  "cm_69e03c25": {
+   "ai": "keep",
+   "why": "面向 LLM 的站点文件"
+  },
+  "cm_0986f0e5": {
+   "ai": "keep",
+   "why": "面向AI检索的站点文件"
+  },
+  "cm_c7d6c722": {
+   "ai": "keep",
+   "why": "模型输出概率得分"
+  },
+  "cm_70a22373": {
+   "ai": "keep",
+   "why": "解码时logits掩码约束"
+  },
+  "cm_aadd5ef8": {
+   "ai": "keep",
+   "why": "RL训练目标改进"
+  },
+  "cm_ca2c1a03": {
+   "ai": "keep",
+   "why": "MCP server token成本"
+  },
+  "cm_a9b26989": {
+   "ai": "keep",
+   "why": "harness跨会话记忆学习"
+  },
+  "cm_c45d61bf": {
+   "ai": "keep",
+   "why": "messages API与agent harness"
+  },
+  "cm_b9e6e94d": {
+   "ai": "keep",
+   "why": "Transformer层间连接改进"
+  },
+  "cm_d22095a4": {
+   "ai": "keep",
+   "why": "人与模型目标对齐"
+  },
+  "cm_4a3ac824": {
+   "ai": "keep",
+   "why": "模型换代skill与scaffold"
+  },
+  "cm_0767b398": {
+   "ai": "keep",
+   "why": "语言模型N-gram"
+  },
+  "cm_35dc59c9": {
+   "ai": "keep",
+   "why": "agent原生沙箱执行"
+  },
+  "cm_fc4706e8": {
+   "ai": "keep",
+   "why": "自然语言驱动agent行为"
+  },
+  "cm_fada3d6a": {
+   "ai": "keep",
+   "why": "检索任务相似度度量"
+  },
+  "cm_60fc8578": {
+   "ai": "keep",
+   "why": "检索相似度与性能"
+  },
+  "cm_dd0feb2c": {
+   "ai": "keep",
+   "why": "生产loop硬停止条件"
+  },
+  "cm_7c5152aa": {
+   "ai": "drop",
+   "why": "广告归因cookie"
+  },
+  "cm_81936d81": {
+   "ai": "keep",
+   "why": "AI系统外循环监督"
+  },
+  "cm_01347b98": {
+   "ai": "keep",
+   "why": "个人上下文供AI使用"
+  },
+  "cm_46c26da4": {
+   "ai": "keep",
+   "why": "Agent先规划再执行"
+  },
+  "cm_99d52c0a": {
+   "ai": "keep",
+   "why": "AI时代领导力判断"
+  },
+  "cm_4fa31dae": {
+   "ai": "keep",
+   "why": "PR级自动门禁链"
+  },
+  "cm_daaeed70": {
+   "ai": "keep",
+   "why": "偏好写入过滤防不安全"
+  },
+  "cm_83367caa": {
+   "ai": "keep",
+   "why": "模型输入输出定义"
+  },
+  "cm_136dab9c": {
+   "ai": "keep",
+   "why": "prompt与context通用性"
+  },
+  "cm_ee5a5c29": {
+   "ai": "keep",
+   "why": "harness 与 prompt 工程权衡"
+  },
+  "cm_0e153b8f": {
+   "ai": "keep",
+   "why": "工具调用意图可追溯"
+  },
+  "cm_668a45c5": {
+   "ai": "keep",
+   "why": "agent 主执行循环"
+  },
+  "cm_ff09ab2a": {
+   "ai": "keep",
+   "why": "子 agent 验证机制"
+  },
+  "cm_dcc44537": {
+   "ai": "keep",
+   "why": "agent 知识工作流程"
+  },
+  "cm_3c530f4a": {
+   "ai": "keep",
+   "why": "agent 推理强度参数"
+  },
+  "cm_b77b7537": {
+   "ai": "keep",
+   "why": "harness 可靠性原语"
+  },
+  "cm_2ae6e6ed": {
+   "ai": "keep",
+   "why": "AI 评审质量评分"
+  },
+  "cm_df44ac27": {
+   "ai": "keep",
+   "why": "RL 奖励泛化"
+  },
+  "cm_14dace51": {
+   "ai": "keep",
+   "why": "验证 agent 与 rubric"
+  },
+  "cm_6db6f598": {
+   "ai": "keep",
+   "why": "agent 自主与权限边界"
+  },
+  "cm_9381d3bf": {
+   "ai": "keep",
+   "why": "上下文工程活系统"
+  },
+  "cm_41982abd": {
+   "ai": "keep",
+   "why": "skill 用于 AI onboarding"
+  },
+  "cm_be8b8c24": {
+   "ai": "keep",
+   "why": "agent skill 复利资产"
+  },
+  "cm_4bceb333": {
+   "ai": "keep",
+   "why": "skill 文件定义"
+  },
+  "cm_633b4cd7": {
+   "ai": "keep",
+   "why": "skill 永久升级"
+  },
+  "cm_67aa1645": {
+   "ai": "keep",
+   "why": "spec 驱动 agent 流程"
+  },
+  "cm_f6219aa0": {
+   "ai": "keep",
+   "why": "spec-first agent 协作"
+  },
+  "cm_3df7e56f": {
+   "ai": "keep",
+   "why": "AI 产业融资闭环"
+  },
+  "cm_f5056d61": {
+   "ai": "keep",
+   "why": "记忆存储出处纪律"
+  },
+  "cm_9654c780": {
+   "ai": "keep",
+   "why": "agent 运行中干预"
+  },
+  "cm_bd370d1b": {
+   "ai": "keep",
+   "why": "agent step 执行原语"
+  },
+  "cm_d8ea2176": {
+   "ai": "keep",
+   "why": "AI 能力台阶式跃迁"
+  },
+  "cm_2c7c13db": {
+   "ai": "keep",
+   "why": "step ID 自动索引"
+  },
+  "cm_950e6265": {
+   "ai": "keep",
+   "why": "子 agent token 放大"
+  },
+  "cm_75642cd0": {
+   "ai": "keep",
+   "why": "模型评测设定"
+  },
+  "cm_f7e1a40f": {
+   "ai": "keep",
+   "why": "模型部署层"
+  },
+  "cm_caf38b64": {
+   "ai": "keep",
+   "why": "agent 上下文状态"
+  },
+  "cm_63c544a7": {
+   "ai": "keep",
+   "why": "AI 产业临界信号"
+  },
+  "cm_933a0031": {
+   "ai": "keep",
+   "why": "AI 冲击职业承诺链"
+  },
+  "cm_7adc989d": {
+   "ai": "keep",
+   "why": "模型指令冲突成本"
+  },
+  "cm_0fa5b8ce": {
+   "ai": "keep",
+   "why": "AI 视频出海产业"
+  },
+  "cm_794add76": {
+   "ai": "keep",
+   "why": "多 agent 协同与审查"
+  },
+  "cm_4fed89a8": {
+   "ai": "keep",
+   "why": "AI 安全红线监管"
+  },
+  "cm_71ce4e8a": {
+   "ai": "keep",
+   "why": "长上下文基准评测"
+  },
+  "cm_00aa581a": {
+   "ai": "keep",
+   "why": "大小模型分工编排"
+  },
+  "cm_f65b924e": {
+   "ai": "keep",
+   "why": "上下文引用工程"
+  },
+  "cm_201c8b41": {
+   "ai": "keep",
+   "why": "单 agent 性能限制"
+  },
+  "cm_6a2735cf": {
+   "ai": "keep",
+   "why": "agent 项目负责人制"
+  },
+  "cm_7901a192": {
+   "ai": "keep",
+   "why": "多 agent 并发瓶颈"
+  },
+  "cm_c53dcd72": {
+   "ai": "keep",
+   "why": "AI 医疗辅助协作"
+  },
+  "cm_b3551678": {
+   "ai": "keep",
+   "why": "harness 调试工程"
+  },
+  "cm_a37ffd56": {
+   "ai": "keep",
+   "why": "上下文动态装配"
+  },
+  "cm_2c214b3c": {
+   "ai": "keep",
+   "why": "工具接入调用方式"
+  },
+  "cm_2f356845": {
+   "ai": "keep",
+   "why": "AI 分类任务定义"
+  },
+  "cm_6670bb25": {
+   "ai": "keep",
+   "why": "短上下文评测模型"
+  },
+  "cm_57950e87": {
+   "ai": "keep",
+   "why": "人机交互 agent 反转"
+  },
+  "cm_f65d0103": {
+   "ai": "keep",
+   "why": "AI 产品反馈研究"
+  },
+  "cm_95233874": {
+   "ai": "keep",
+   "why": "AI gateway 真实 prompt"
+  },
+  "cm_38d4b92a": {
+   "ai": "keep",
+   "why": "模型拒答率评测"
+  },
+  "cm_1792f259": {
+   "ai": "keep",
+   "why": "AI上下文泄露"
+  },
+  "cm_270fdbaa": {
+   "ai": "keep",
+   "why": "AI取舍判断"
+  },
+  "cm_6c38ddcf": {
+   "ai": "keep",
+   "why": "AI商业模式单位经济"
+  },
+  "cm_01e0efb3": {
+   "ai": "keep",
+   "why": "MCP评审工具"
+  },
+  "cm_09566489": {
+   "ai": "keep",
+   "why": "算力换智能效率"
+  },
+  "cm_5512c772": {
+   "ai": "keep",
+   "why": "模型可解释性方法"
+  },
+  "cm_d854798b": {
+   "ai": "keep",
+   "why": "长上下文性能规律"
+  },
+  "cm_063155cf": {
+   "ai": "keep",
+   "why": "agent验证代码库"
+  },
+  "cm_6881bd11": {
+   "ai": "keep",
+   "why": "图谱自动同步harness"
+  },
+  "cm_f7b95548": {
+   "ai": "keep",
+   "why": "AI助手行为准则"
+  },
+  "cm_da125473": {
+   "ai": "keep",
+   "why": "skill包装验证"
+  },
+  "cm_cfab9407": {
+   "ai": "keep",
+   "why": "agent权限模式"
+  },
+  "cm_fbccd97c": {
+   "ai": "keep",
+   "why": "智能体程序记忆"
+  },
+  "cm_5bff7310": {
+   "ai": "keep",
+   "why": "Claude技能分类"
+  },
+  "cm_f282148c": {
+   "ai": "keep",
+   "why": "AI产品黑盒测试"
+  },
+  "cm_ae250f40": {
+   "ai": "keep",
+   "why": "技能随Git共享"
+  },
+  "cm_48ea99ce": {
+   "ai": "keep",
+   "why": "技能插件市场"
+  },
+  "cm_64663de2": {
+   "ai": "keep",
+   "why": "该写技能的信号"
+  },
+  "cm_af4d864f": {
+   "ai": "keep",
+   "why": "AI功能组合使用"
+  },
+  "cm_fb4c75d6": {
+   "ai": "keep",
+   "why": "人机Agent沟通载体"
+  },
+  "cm_07e5e0c3": {
+   "ai": "keep",
+   "why": "agent代码执行环境"
+  },
+  "cm_42f28056": {
+   "ai": "keep",
+   "why": "跨轮保留模型推理"
+  },
+  "cm_49d1aa2a": {
+   "ai": "keep",
+   "why": "agent规格引用"
+  },
+  "cm_7d8d74f0": {
+   "ai": "keep",
+   "why": "多agent工作树隔离"
+  },
+  "cm_31ec728d": {
+   "ai": "keep",
+   "why": "上下文窗口管理"
+  },
+  "cm_b7424773": {
+   "ai": "keep",
+   "why": "harness上下文管理"
+  },
+  "cm_325fef11": {
+   "ai": "keep",
+   "why": "agent技能生效机制"
+  },
+  "cm_d4a0e687": {
+   "ai": "keep",
+   "why": "AI技能结构"
+  },
+  "cm_652d3291": {
+   "ai": "keep",
+   "why": "模型输出token效率"
+  },
+  "cm_e66df281": {
+   "ai": "drop",
+   "why": "纯后端工程债务"
+  },
+  "cm_983f29fd": {
+   "ai": "drop",
+   "why": "纯asyncio工程性能"
+  },
+  "cm_b9d1dd66": {
+   "ai": "keep",
+   "why": "Claude项目配置"
+  },
+  "cm_5d506128": {
+   "ai": "keep",
+   "why": "AI知识工作蒸馏"
+  },
+  "cm_7e6ba505": {
+   "ai": "keep",
+   "why": "agent生命周期钩子"
+  },
+  "cm_d5428fa4": {
+   "ai": "keep",
+   "why": "prompt到loop跃迁"
+  },
+  "cm_b3f7d7cc": {
+   "ai": "keep",
+   "why": "Responses API harness"
+  },
+  "cm_103560db": {
+   "ai": "keep",
+   "why": "模型评测指标"
+  },
+  "cm_df8ed356": {
+   "ai": "keep",
+   "why": "SKILL.md结构要求"
+  },
+  "cm_9102c409": {
+   "ai": "keep",
+   "why": "AI编程范式"
+  },
+  "cm_d37ac913": {
+   "ai": "keep",
+   "why": "AI Agent真伪"
+  },
+  "cm_f4ccedd3": {
+   "ai": "keep",
+   "why": "LLM决策路径"
+  },
+  "cm_b442cd6e": {
+   "ai": "keep",
+   "why": "harness理解与用法"
+  },
+  "cm_716dd66e": {
+   "ai": "keep",
+   "why": "LLM生产工程要素"
+  },
+  "cm_d3be9743": {
+   "ai": "keep",
+   "why": "AI协作多方案思考"
+  },
+  "cm_90e93725": {
+   "ai": "keep",
+   "why": "AI产品质量墙"
+  },
+  "cm_eadc084c": {
+   "ai": "keep",
+   "why": "模型反馈回路"
+  },
+  "cm_d049e24c": {
+   "ai": "keep",
+   "why": "agent转化上下文"
+  },
+  "cm_8e16a624": {
+   "ai": "keep",
+   "why": "AI内容版权上限"
+  },
+  "cm_a4c5a8aa": {
+   "ai": "keep",
+   "why": "agent轨迹错误恢复"
+  },
+  "cm_5c7e3009": {
+   "ai": "keep",
+   "why": "Claude本地状态层"
+  },
+  "cm_a75270b6": {
+   "ai": "keep",
+   "why": "模型上下文位置偏置能力"
+  },
+  "cm_3fef769a": {
+   "ai": "keep",
+   "why": "LLM推理延迟与缓存"
+  },
+  "cm_99702518": {
+   "ai": "keep",
+   "why": "机器智能演化阶段"
+  },
+  "cm_9e54f48a": {
+   "ai": "keep",
+   "why": "算法推荐影响内容分发"
+  },
+  "cm_d7854221": {
+   "ai": "keep",
+   "why": "agent上下文压缩实现距离"
+  },
+  "cm_beb0a7aa": {
+   "ai": "keep",
+   "why": "AI用法的核心循环模式"
+  },
+  "cm_964615a4": {
+   "ai": "keep",
+   "why": "掌控提示词与上下文"
+  },
+  "cm_99eaee44": {
+   "ai": "keep",
+   "why": "harness拓扑抽象层"
+  },
+  "cm_0696197e": {
+   "ai": "keep",
+   "why": "探针读取模型中间层"
+  },
+  "cm_963c2230": {
+   "ai": "keep",
+   "why": "prompt即行为程序"
+  },
+  "cm_9cc2a39e": {
+   "ai": "keep",
+   "why": "AI持久记忆文件设计"
+  },
+  "cm_7f5a8483": {
+   "ai": "keep",
+   "why": "下一代稀疏模型记忆原语"
+  },
+  "cm_04880489": {
+   "ai": "keep",
+   "why": "人机交互通道切换"
+  },
+  "cm_03ce5cbe": {
+   "ai": "keep",
+   "why": "模型训练与推理差异"
+  },
+  "cm_f24b82cc": {
+   "ai": "keep",
+   "why": "为AI设计工作环境"
+  },
+  "cm_e936aae0": {
+   "ai": "keep",
+   "why": "harness未来防腐测试"
+  },
+  "cm_0626f36e": {
+   "ai": "keep",
+   "why": "文件系统作为agent上下文"
+  },
+  "cm_c5a896fe": {
+   "ai": "keep",
+   "why": "不手写代码逼出harness"
+  },
+  "cm_f23a5dfb": {
+   "ai": "keep",
+   "why": "构建世界模型的推断能力"
+  },
+  "cm_48fd3852": {
+   "ai": "keep",
+   "why": "习惯转为系统契约"
+  },
+  "cm_b8aa3676": {
+   "ai": "keep",
+   "why": "系统prompt体量比较"
+  },
+  "cm_743bdcd9": {
+   "ai": "keep",
+   "why": "agent检索先收窄后读取"
+  },
+  "cm_72b614cb": {
+   "ai": "keep",
+   "why": "agent构建的模块化概念"
+  },
+  "cm_4efca7d4": {
+   "ai": "keep",
+   "why": "模型信息瓶颈压缩原则"
+  },
+  "cm_d57cf98f": {
+   "ai": "keep",
+   "why": "独立agent行为抽取"
+  },
+  "cm_efd9e49f": {
+   "ai": "keep",
+   "why": "agent技能链编排"
+  },
+  "cm_e65cdf93": {
+   "ai": "keep",
+   "why": "agent接入权衡"
+  },
+  "cm_dd90b8e3": {
+   "ai": "keep",
+   "why": "review agent行为"
+  },
+  "cm_be0d6099": {
+   "ai": "keep",
+   "why": "AI组织超增长"
+  },
+  "cm_1378dde9": {
+   "ai": "keep",
+   "why": "AI上下文打磨"
+  },
+  "cm_0ee58644": {
+   "ai": "keep",
+   "why": "AI模型蒸馏"
+  },
+  "cm_df73085f": {
+   "ai": "keep",
+   "why": "agent能力外置"
+  },
+  "cm_1ad67d26": {
+   "ai": "keep",
+   "why": "AI医学影像应用"
+  },
+  "cm_ae80194d": {
+   "ai": "keep",
+   "why": "LLM失败姿态"
+  },
+  "cm_9d5fc50e": {
+   "ai": "keep",
+   "why": "system prompt写作"
+  },
+  "cm_29cc1536": {
+   "ai": "keep",
+   "why": "skill自动触发"
+  },
+  "cm_d8aa34b6": {
+   "ai": "keep",
+   "why": "上下文隔离手法"
+  },
+  "cm_b226afb7": {
+   "ai": "keep",
+   "why": "agent文件编辑"
+  },
+  "cm_122b687d": {
+   "ai": "keep",
+   "why": "agent工程基础设施"
+  },
+  "cm_98e749f2": {
+   "ai": "drop",
+   "why": "AI产品构建手艺"
+  },
+  "cm_8d443f8b": {
+   "ai": "keep",
+   "why": "人机协作监督"
+  },
+  "cm_600a5349": {
+   "ai": "keep",
+   "why": "AI软件工厂"
+  },
+  "cm_26914899": {
+   "ai": "keep",
+   "why": "agent演化史"
+  },
+  "cm_2458ffe3": {
+   "ai": "keep",
+   "why": "上下文工程本质"
+  },
+  "cm_3a51a33e": {
+   "ai": "keep",
+   "why": "agent改造代码库"
+  },
+  "cm_343d14e9": {
+   "ai": "keep",
+   "why": "模型上下文定义"
+  },
+  "cm_a25937b3": {
+   "ai": "keep",
+   "why": "上下文骨架"
+  },
+  "cm_5daa0620": {
+   "ai": "keep",
+   "why": "示例约束模型"
+  },
+  "cm_3aee29d5": {
+   "ai": "keep",
+   "why": "示例收窄模型"
+  },
+  "cm_bcebf5df": {
+   "ai": "keep",
+   "why": "agent工具路由"
+  },
+  "cm_50f21101": {
+   "ai": "keep",
+   "why": "多agent角色与策略"
+  },
+  "cm_95f5ef7c": {
+   "ai": "keep",
+   "why": "上下文分层边界"
+  },
+  "cm_6b20739f": {
+   "ai": "keep",
+   "why": "LLM估算与感知"
+  },
+  "cm_8fabdf4b": {
+   "ai": "keep",
+   "why": "few-shot上下文模式"
+  },
+  "cm_91df6151": {
+   "ai": "keep",
+   "why": "AI前沿市场需求"
+  },
+  "cm_1bb0da58": {
+   "ai": "keep",
+   "why": "Agent执行循环"
+  },
+  "cm_b3d14b63": {
+   "ai": "keep",
+   "why": "harness与生成内核"
+  },
+  "cm_84f14edc": {
+   "ai": "keep",
+   "why": "赛博脑义体与意识"
+  },
+  "cm_8c8c6e16": {
+   "ai": "keep",
+   "why": "注意力与输入结构"
+  },
+  "cm_f61cc152": {
+   "ai": "keep",
+   "why": "压缩注意力机制"
+  },
+  "cm_3cee2463": {
+   "ai": "keep",
+   "why": "Agent工具化架构"
+  },
+  "cm_94565417": {
+   "ai": "keep",
+   "why": "开源Agent代码"
+  },
+  "cm_6aeb848e": {
+   "ai": "keep",
+   "why": "信息质量与来源"
+  },
+  "cm_65ce9cd3": {
+   "ai": "keep",
+   "why": "Agent跨端记忆"
+  },
+  "cm_16f314f0": {
+   "ai": "keep",
+   "why": "抵御AI内容污染"
+  },
+  "cm_3ca84975": {
+   "ai": "keep",
+   "why": "指令遵循可靠性"
+  },
+  "cm_19961532": {
+   "ai": "keep",
+   "why": "知识图谱上下文"
+  },
+  "cm_60d08d73": {
+   "ai": "keep",
+   "why": "Agent知识库编译"
+  },
+  "cm_de4b075f": {
+   "ai": "keep",
+   "why": "AI并购监管事件"
+  },
+  "cm_f2b65d01": {
+   "ai": "keep",
+   "why": "Markdown降token"
+  },
+  "cm_ade7239f": {
+   "ai": "keep",
+   "why": "Markdown提示工程"
+  },
+  "cm_63e885ca": {
+   "ai": "keep",
+   "why": "MoE稀疏计算"
+  },
+  "cm_a9c55d8b": {
+   "ai": "keep",
+   "why": "训练优化器"
+  },
+  "cm_6ae99955": {
+   "ai": "keep",
+   "why": "SKILL.md字段规范"
+  },
+  "cm_34ec5743": {
+   "ai": "keep",
+   "why": "小模型上下文管理"
+  },
+  "cm_9bbbd67c": {
+   "ai": "keep",
+   "why": "长上下文模型退化"
+  },
+  "cm_9b54eda3": {
+   "ai": "keep",
+   "why": "agent产出度量"
+  },
+  "cm_65eea963": {
+   "ai": "keep",
+   "why": "解释模型上下文表现"
+  },
+  "cm_e4fb81cb": {
+   "ai": "keep",
+   "why": "AI工具用户设计"
+  },
+  "cm_b728a002": {
+   "ai": "keep",
+   "why": "AI设计者角色"
+  },
+  "cm_d2597b53": {
+   "ai": "keep",
+   "why": "Claude Code上下文"
+  },
+  "cm_5c858fdc": {
+   "ai": "keep",
+   "why": "上下文工程收益"
+  },
+  "cm_6f5b5fa0": {
+   "ai": "keep",
+   "why": "向量检索代码"
+  },
+  "cm_07e54adc": {
+   "ai": "keep",
+   "why": "AI提示出原型"
+  },
+  "cm_ce68156a": {
+   "ai": "keep",
+   "why": "信息不足保守保留"
+  },
+  "cm_c62013d8": {
+   "ai": "keep",
+   "why": "prompt优化经验"
+  },
+  "cm_d7cb257d": {
+   "ai": "keep",
+   "why": "模型语境理解测试"
+  },
+  "cm_7d0aaf27": {
+   "ai": "keep",
+   "why": "代码索引增量更新"
+  },
+  "cm_c22bacf6": {
+   "ai": "drop",
+   "why": "纯政经非AI"
+  },
+  "cm_2f011406": {
+   "ai": "keep",
+   "why": "指代理解难度"
+  },
+  "cm_a105fa65": {
+   "ai": "keep",
+   "why": "模型听指令位置"
+  },
+  "cm_b36e15d0": {
+   "ai": "keep",
+   "why": "AI内容注水刷分"
+  },
+  "cm_d2724a8b": {
+   "ai": "keep",
+   "why": "agent工具选择"
+  },
+  "cm_96f9ee78": {
+   "ai": "keep",
+   "why": "agent依赖上下文"
+  },
+  "cm_37aa3700": {
+   "ai": "keep",
+   "why": "Agent经济消费"
+  },
+  "cm_75e26472": {
+   "ai": "keep",
+   "why": "Agent软件基础设施"
+  },
+  "cm_d0fbb9bb": {
+   "ai": "keep",
+   "why": "Agent命令行运行"
+  },
+  "cm_f47cd4ad": {
+   "ai": "keep",
+   "why": "Agent工作会话"
+  },
+  "cm_14bf0b8b": {
+   "ai": "keep",
+   "why": "AWS agent原语"
+  },
+  "cm_9b8f7efc": {
+   "ai": "keep",
+   "why": "Agentic工具工作流"
+  },
+  "cm_2037dc40": {
+   "ai": "keep",
+   "why": "AI工作流"
+  },
+  "cm_bfabbb33": {
+   "ai": "keep",
+   "why": "Agent工程基础设施"
+  },
+  "cm_43eb8977": {
+   "ai": "keep",
+   "why": "AI组织与上下文"
+  },
+  "cm_2458edfa": {
+   "ai": "keep",
+   "why": "AI产业经济"
+  },
+  "cm_4cae7681": {
+   "ai": "keep",
+   "why": "具身智能基准"
+  },
+  "cm_1725c0a2": {
+   "ai": "keep",
+   "why": "Cursor专用LLM"
+  },
+  "cm_43840984": {
+   "ai": "keep",
+   "why": "Agent编辑工具"
+  },
+  "cm_4318a3dc": {
+   "ai": "keep",
+   "why": "AI代码自动修复"
+  },
+  "cm_01dc8b9f": {
+   "ai": "keep",
+   "why": "Copilot循环"
+  },
+  "cm_4eda0819": {
+   "ai": "keep",
+   "why": "Bedrock数据安全"
+  },
+  "cm_ad8666e5": {
+   "ai": "keep",
+   "why": "Agent架构解耦"
+  },
+  "cm_4f1a541c": {
+   "ai": "keep",
+   "why": "模型能力跃迁"
+  },
+  "cm_6b38efa5": {
+   "ai": "keep",
+   "why": "AI角色模式"
+  },
+  "cm_9c9c0044": {
+   "ai": "keep",
+   "why": "AI视频生成冲击"
+  },
+  "cm_55cb0243": {
+   "ai": "keep",
+   "why": "上下文工程"
+  },
+  "cm_463b3b95": {
+   "ai": "keep",
+   "why": "Agent配置问题"
+  },
+  "cm_f4ee6204": {
+   "ai": "keep",
+   "why": "上下文失败模式"
+  },
+  "cm_33d0987a": {
+   "ai": "keep",
+   "why": "上下文纪律"
+  },
+  "cm_acc5b32d": {
+   "ai": "keep",
+   "why": "上下文限制"
+  },
+  "cm_398fc084": {
+   "ai": "keep",
+   "why": "上下文基础设施"
+  },
+  "cm_beedff1a": {
+   "ai": "keep",
+   "why": "LLM长上下文退化"
+  },
+  "cm_3b8ca49c": {
+   "ai": "keep",
+   "why": "自定义Agent"
+  },
+  "cm_bf8b94c6": {
+   "ai": "keep",
+   "why": "AI硬件内存层"
+  },
+  "cm_7a2322bb": {
+   "ai": "keep",
+   "why": "医学AI筛查"
+  },
+  "cm_180723ac": {
+   "ai": "keep",
+   "why": "Transformer查表模块"
+  },
+  "cm_27f09dcf": {
+   "ai": "keep",
+   "why": "Agent多方案可视化原型"
+  },
+  "cm_81c1415e": {
+   "ai": "keep",
+   "why": "无效AI请求消耗调用"
+  },
+  "cm_02c17fdd": {
+   "ai": "keep",
+   "why": "AI技能个人转团队"
+  },
+  "cm_76d98cb5": {
+   "ai": "drop",
+   "why": "通用命名，非AI"
+  },
+  "cm_65b2c79c": {
+   "ai": "keep",
+   "why": "用AI工具而非维护工具"
+  },
+  "cm_85b611d5": {
+   "ai": "keep",
+   "why": "OpenAI功能行为验证缺口"
+  },
+  "cm_09d0ea1a": {
+   "ai": "keep",
+   "why": "LLM精确检索评测任务"
+  },
+  "cm_c1626a4e": {
+   "ai": "keep",
+   "why": "AI插件护城河与路线"
+  },
+  "cm_5bbcf2e0": {
+   "ai": "keep",
+   "why": "模型输出是想法回声"
+  },
+  "cm_a6fd3a89": {
+   "ai": "keep",
+   "why": "上下文机制内容分离"
+  },
+  "cm_7a436f8a": {
+   "ai": "keep",
+   "why": "AI数据安全控制点"
+  },
+  "cm_abf595d3": {
+   "ai": "keep",
+   "why": "AI时代人的价值判断"
+  },
+  "cm_66ce6909": {
+   "ai": "keep",
+   "why": "RL critic价值函数"
+  },
+  "cm_5c74d915": {
+   "ai": "keep",
+   "why": "Agent交互可扩展性"
+  },
+  "cm_fdbc5cbc": {
+   "ai": "keep",
+   "why": "Agent压缩研发阶段"
+  },
+  "cm_8aeec1ff": {
+   "ai": "keep",
+   "why": "Agent结构适量原则"
+  },
+  "cm_f6804f52": {
+   "ai": "keep",
+   "why": "收窄Agent解空间换可靠"
+  },
+  "cm_5797325c": {
+   "ai": "keep",
+   "why": "人决策慢执行快用AI"
+  },
+  "cm_a952aba7": {
+   "ai": "keep",
+   "why": "AI skill可编辑性边界"
+  },
+  "cm_fa3c0516": {
+   "ai": "keep",
+   "why": "harness可执行搜索空间"
+  },
+  "cm_f62b6821": {
+   "ai": "keep",
+   "why": "AI算力空间扩展性"
+  },
+  "cm_adb56344": {
+   "ai": "keep",
+   "why": "扩展上下文窗口模型"
+  },
+  "cm_b851c4b8": {
+   "ai": "keep",
+   "why": "Agent乐观并发控制"
+  },
+  "cm_14ddbc41": {
+   "ai": "keep",
+   "why": "AI记忆冷热分离"
+  },
+  "cm_5b94bd81": {
+   "ai": "keep",
+   "why": "上下文丰富Agent更魔法"
+  },
+  "cm_1536f249": {
+   "ai": "keep",
+   "why": "提示与上下文规划"
+  },
+  "cm_769e3775": {
+   "ai": "keep",
+   "why": "OpenAI广告业务"
+  },
+  "cm_c0e408a0": {
+   "ai": "keep",
+   "why": "Agent记忆方案"
+  },
+  "cm_6541b55e": {
+   "ai": "keep",
+   "why": "AI使用默认值治理"
+  },
+  "cm_9b645487": {
+   "ai": "keep",
+   "why": "多Agent编排界面"
+  },
+  "cm_27e4e0df": {
+   "ai": "keep",
+   "why": "RLHF训练算法"
+  },
+  "cm_222e47e9": {
+   "ai": "keep",
+   "why": "Agent编排方式"
+  },
+  "cm_cd19781c": {
+   "ai": "keep",
+   "why": "机器人指令评测"
+  },
+  "cm_421d2a5f": {
+   "ai": "keep",
+   "why": "AI工程严谨迁移"
+  },
+  "cm_f6856800": {
+   "ai": "keep",
+   "why": "模型训练分布"
+  },
+  "cm_9e10ff83": {
+   "ai": "keep",
+   "why": "LLM机器人接驳"
+  },
+  "cm_5cb52469": {
+   "ai": "keep",
+   "why": "Agent脚手架"
+  },
+  "cm_937edec6": {
+   "ai": "keep",
+   "why": "大规模RL工程"
+  },
+  "cm_afd69b11": {
+   "ai": "keep",
+   "why": "理解模型能力"
+  },
+  "cm_61e4efaf": {
+   "ai": "keep",
+   "why": "Agent感知执行"
+  },
+  "cm_0145bdc5": {
+   "ai": "keep",
+   "why": "Agent原子操作"
+  },
+  "cm_6945fcf2": {
+   "ai": "keep",
+   "why": "SFT自我放大"
+  },
+  "cm_72385793": {
+   "ai": "keep",
+   "why": "ChatGPT广告事件"
+  },
+  "cm_c14c7ca3": {
+   "ai": "keep",
+   "why": "Agent skill结构"
+  },
+  "cm_dadcb3e5": {
+   "ai": "keep",
+   "why": "LLM编程范式"
+  },
+  "cm_76707ff6": {
+   "ai": "keep",
+   "why": "上下文工程戏称"
+  },
+  "cm_1c882ecb": {
+   "ai": "keep",
+   "why": "Agent守护进程"
+  },
+  "cm_8a0db137": {
+   "ai": "keep",
+   "why": "系统提示"
+  },
+  "cm_5205e3fc": {
+   "ai": "keep",
+   "why": "AI审计追踪"
+  },
+  "cm_99528c32": {
+   "ai": "keep",
+   "why": "AI具名概念"
+  },
+  "cm_9754bbb2": {
+   "ai": "keep",
+   "why": "AI agent 工具/任务管理"
+  },
+  "cm_b3ad200a": {
+   "ai": "keep",
+   "why": "AI 商业模式与激励"
+  },
+  "cm_aec0eb30": {
+   "ai": "keep",
+   "why": "AI 芯片/推理硬件"
+  },
+  "cm_847c4f22": {
+   "ai": "keep",
+   "why": "代码理解工具基础"
+  },
+  "cm_44a5c3f4": {
+   "ai": "keep",
+   "why": "AI SDK 设计取向"
+  },
+  "cm_7e9b87ba": {
+   "ai": "keep",
+   "why": "GenAI 模拟协作测量"
+  },
+  "cm_3211d04e": {
+   "ai": "keep",
+   "why": "AI SDK 原语设计"
+  },
+  "cm_9701c104": {
+   "ai": "keep",
+   "why": "具身智能基准"
+  },
+  "cm_33d3954f": {
+   "ai": "keep",
+   "why": "AI 代理信任机制"
+  },
+  "cm_bdec85a7": {
+   "ai": "keep",
+   "why": "LLM 上下文工程"
+  },
+  "cm_1d3875f8": {
+   "ai": "keep",
+   "why": "AI 工具集成基础设施"
+  }
+ },
+ "note": "2026-09-14 复判：先单跑 context 源 315 条（-- 默认），再 --all 全量 936 条；两次结果合并，context 源唯一一条 drop 在两次里都出现过。"
+}

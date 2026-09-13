@@ -52,7 +52,6 @@ sources: 1
 - [[决策慢、执行快]] · 同篇出现（co-occurrence） — 同篇出现：context-10
 - [[Token 卖家的激励错配]] · 同篇出现（co-occurrence） — 同篇出现：context-10
 - [[零 bug 政策与一周 SLA]] · 同篇出现（co-occurrence） — 同篇出现：context-10
-- [[人的手感与产品手艺]] · 同篇出现（co-occurrence） — 同篇出现：context-10
 - [[护城河清单与插件化路线]] · related-to（audit） — “SaaS 已死”叙事只是护城河清单/插件化路线的动机，不是理解该方法的前置。
 - [[代理原生 agent-native]] · 同篇出现（co-occurrence） — 同篇出现：context-10
 - [[上下文骨架]] · 同篇出现（co-occurrence） — 同篇出现：context-10
@@ -72,7 +71,6 @@ sources: 1
 - [[自动驾驶产品与项目记忆 self-driving project memory]]
 - [[护城河清单与插件化路线]]
 - [[决策慢、执行快]]
-- [[人的手感与产品手艺]]
 - [[上下文骨架]]
 - [[缩短循环 shortening the loop]]
 - [[虚荣指标 vanity metrics]]

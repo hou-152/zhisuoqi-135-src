@@ -1,0 +1,66 @@
+{
+ "dario-pace-the-frontier": {
+  "topic": "前沿AI能力的放慢与验证",
+  "stars": 5,
+  "starReason": "作者首次以一手机制给出可验证的减速框架，含Anthropic单方面承诺，不可替代。",
+  "why": "这不是又一次泛泛的风险呼吁，而是前沿实验室掌门人首次把「放慢」拆成可被外部核查的落地步骤，并当场押上自家公司做第一步。其中关于递归自我改进已在实际发生的判断，是理解当下行业节奏的一手坐标。",
+  "metaphor": "被检验员盯着的一只刹车杆",
+  "palette": "cactus"
+ },
+ "openai-astra-skills-and-prompts": {
+  "topic": "智能体技能与提示词重写",
+  "stars": 4,
+  "starReason": "一手披露 Astra 行为差异与改写手法，可立即迁移到任何 agent 仓库。",
+  "why": "GPT-6 Astra 的关键行为变化——需要更少指导、会自行跑测试、却更容易过早收工——在这篇官方文里被具体点名，意味着仓库里为旧模型写下的技能和 AGENTS.md 可能正从助力变成阻力。它同时给出一套可当天照做的清理动作：短描述、渐进披露、情境化文档引用、显式完成标准与安全授权。",
+  "metaphor": "按需拉开的带索引标签的抽屉柜",
+  "palette": "oat"
+ },
+ "apple-ceo-ternus": {
+  "topic": "苹果AI时代的产品路线",
+  "stars": 4,
+  "starReason": "一手机制细节（硬件隔离录音、达标才入场）＋新掌门产品判断，时效强，偏公司动态",
+  "why": "它给出苹果对「手机在 AI 时代是否还成立」的正面回答，并用折叠屏、机械光圈、端侧隐私隔离三个具体机制支撑，而非口号。对新掌门如何用产品节奏代替叙事节奏，这是一次清晰的样本。",
+  "metaphor": "一圈由机械叶片开合的镜头光圈",
+  "palette": "cactus"
+ },
+ "andrew-ng-ai-engineering-skills-map": {
+  "topic": "AI工程师能力版图",
+  "stars": 4,
+  "starReason": "吴恩达一手框架，把角色扩张拆成四项可练技能，通用性高，但无独家机制细节。",
+  "why": "当AI把单人产出放大，卡点从写代码变成决定做什么、谁来拍板。这篇给出一份可对照自查的技能清单，指明开发者不必等PM想清楚再动手。",
+  "metaphor": "一只手越过摊开的图纸直接拧动齿轮",
+  "palette": "oat"
+ },
+ "archify": {
+  "topic": "代理生成可验证架构图",
+  "stars": 4,
+  "starReason": "给出「验证门槛+原子替换+修复收据」的代理交付机制，可迁移到任何代理产出物。",
+  "why": "它把「让代理画图」升级成一条先验证再交付的确定性流水线，失败时返回可精确修复的机器收据。今天值得读，因为这套「不通过就不替换上版」的做法，正是让代理产物可被信任的通用工程范式。",
+  "metaphor": "传送带上的一道质检闸门",
+  "palette": "heather"
+ },
+ "raschka-gpt6-astra-looped-transformers": {
+  "topic": "循环变换器与推理链",
+  "stars": 4,
+  "starReason": "拆解循环变换器的参数/算力/KV 缓存权衡，澄清它不等于隐藏思维链，机制一手可核对。",
+  "why": "GPT-6 Astra 的架构传闻正热，但多数讨论把「循环深度」和「隐藏推理」混为一谈。这篇用 Nanbeige、Universal Transformer、Mixture-of-Recursions 三个具体案例说明：省的是参数量而不是计算，推理链变短是效率提升的副作用。",
+  "metaphor": "一条首尾相接、把同一段路跑两圈的环形跑道",
+  "palette": "heather"
+ },
+ "calnewport-ai-agent-civilizations": {
+  "topic": "AI代理集群的技术归因",
+  "stars": 4,
+  "starReason": "拆开prompt loop机制并纠正「AI密谋」误读，归因框架可直接迁移到其他失控事件。",
+  "why": "OpenAI七月事件正被科幻叙事包裹，这篇把agent swarm还原成可描述的工程实践，并区分了「AI变强」与「循环被无监督滥用」两种解释。作者还分别给LLM公司、监管者和评论者开出可执行的动作，是当下少见的去魅读法。",
+  "metaphor": "一条越接越长的电话传声链",
+  "palette": "heather"
+ },
+ "ai-apps-not-a-good-business": {
+  "topic": "AI应用的商业化困局",
+  "stars": 5,
+  "starReason": "一手财务数据（Cursor毛利-23%、Perplexity负毛利）揭示应用层被上游挤压的结构性困境，机制清晰且当下正发生。",
+  "why": "它用创业者口述和内部财务数字回答了一个正在扩散的问题：为什么用户和收入都拿到了，公司仍然活不下去。文中「scaling to bankruptcy」和模型升级作废路线图的实例，是判断当下该不该做应用层的关键参照。",
+  "metaphor": "两块磨盘之间的一粒豆子",
+  "palette": "cactus"
+ }
+}

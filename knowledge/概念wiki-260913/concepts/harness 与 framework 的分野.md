@@ -47,6 +47,7 @@ sources: 1
 ## 相关
 
 - [[step ID 自动索引]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
+- [[事件驱动编排与执行解耦]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[普遍可触发 universally triggered]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[子 agent 与 step.invoke()]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[两级上下文剪枝 pruning]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
@@ -54,9 +55,7 @@ sources: 1
 - [[steering]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[step]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[think → act → observe 循环]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
-- [[事件驱动编排与执行解耦]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[webhook transform 与 connect()]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
-- [[小函数组合]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[压缩（compaction）与运行内外的分工]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[基础设施问题，不是 AI 问题]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[Runtime-harness separation]] · related-to（audit） — framework 与 harness 的分野靠『谁决定怎么想 / 谁保证动作可靠』即可立住；LangChain 的三层分解只是一例，不是理解该分野的前提。
@@ -72,7 +71,6 @@ sources: 1
 - [[持久化执行 durable execution]]
 - [[子 agent 与 step.invoke()]]
 - [[Runtime-harness separation]]
-- [[事件驱动编排与执行解耦]]
 - [[压缩（compaction）与运行内外的分工]]
 - [[harness 厚薄 thin vs thick]]
 - [[Harness Thickness]]
@@ -80,7 +78,7 @@ sources: 1
 - [[基础设施问题，不是 AI 问题]]
 - [[两级上下文剪枝 pruning]]
 - [[普遍可触发 universally triggered]]
-- [[小函数组合]]
+- [[事件驱动编排与执行解耦]]
 - [[预算警告与溢出恢复]]
 - [[steering]]
 - [[step]]

@@ -53,7 +53,6 @@ sources: 1
 - [[决策慢、执行快]] · 同篇出现（co-occurrence） — 同篇出现：context-10
 - [[Token 卖家的激励错配]] · 同篇出现（co-occurrence） — 同篇出现：context-10
 - [[零 bug 政策与一周 SLA]] · 同篇出现（co-occurrence） — 同篇出现：context-10
-- [[人的手感与产品手艺]] · 同篇出现（co-occurrence） — 同篇出现：context-10
 - [[上下文骨架]] · 同篇出现（co-occurrence） — 同篇出现：context-10
 - [[“SaaS 已死”叙事与护城河蒸发]] · 同篇出现（co-occurrence） — 同篇出现：context-10
 
@@ -76,7 +75,6 @@ sources: 1
 - [[粘性界面与 token 成本转移]]
 - [[自动驾驶产品与项目记忆 self-driving project memory]]
 - [[决策慢、执行快]]
-- [[人的手感与产品手艺]]
 - [[上下文骨架]]
 - [[缩短循环 shortening the loop]]
 - [[虚荣指标 vanity metrics]]

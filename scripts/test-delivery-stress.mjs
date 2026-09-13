@@ -129,7 +129,7 @@ ok(round.t < 3000, `往返 <3s（实测 ${ms(round.t)}）`);
 ok(round.r.topics.length === topics.length, '往返后条数不变');
 
 /* ── 7. wiki 全量读 ─────────────────────────────────────── */
-console.log('\n[7] wiki 链接层 —— 936 个文件全量读');
+console.log('\n[7] wiki 链接层 —— 918 个文件全量读');
 const WIKI = P('knowledge', '概念wiki-260913', 'concepts');
 const wiki = time(() => {
   const files = fs.readdirSync(WIKI).filter(f => f.endsWith('.md'));

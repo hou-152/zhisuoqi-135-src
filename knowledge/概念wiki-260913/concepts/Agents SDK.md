@@ -56,9 +56,9 @@ We’re introducing new capabilities to the Agents SDK that give developers stan
 - [[MCP Model Context Protocol]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
 - [[Sandbox]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
 - [[程序记忆（Procedural Memory Skills） progressive disclosure]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
+- [[持久化执行 durable execution]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
 - [[model-native harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
 - [[Agent loop]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
-- [[持久化执行 durable execution]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
 - [[Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
 
 ## 出场

@@ -1,7 +1,7 @@
 {
  "version": "v1",
- "generatedAt": "2026-09-13T08:28:09.042Z",
- "count": 3406,
+ "generatedAt": "2026-09-13T20:03:27.041Z",
+ "count": 3410,
  "relations": [
   {
    "from": "cm_4cddc093",
@@ -1774,36 +1774,6 @@
    "evidence": "notion"
   },
   {
-   "from": "cm_c22bacf6",
-   "to": "cm_f3b13df1",
-   "kind": "co-article",
-   "strength": "soft",
-   "axis": "co-occurrence",
-   "note": "同篇出现：notion",
-   "origin": "co-occurrence",
-   "evidence": "notion"
-  },
-  {
-   "from": "cm_c22bacf6",
-   "to": "cm_012fc42e",
-   "kind": "co-article",
-   "strength": "soft",
-   "axis": "co-occurrence",
-   "note": "同篇出现：notion",
-   "origin": "co-occurrence",
-   "evidence": "notion"
-  },
-  {
-   "from": "cm_c22bacf6",
-   "to": "cm_61e4efaf",
-   "kind": "co-article",
-   "strength": "soft",
-   "axis": "co-occurrence",
-   "note": "同篇出现：notion",
-   "origin": "co-occurrence",
-   "evidence": "notion"
-  },
-  {
    "from": "cm_d28ed61f",
    "to": "cm_f3b13df1",
    "kind": "co-article",
@@ -2635,36 +2605,6 @@
   },
   {
    "from": "cm_c53dcd72",
-   "to": "cm_61e4efaf",
-   "kind": "co-article",
-   "strength": "soft",
-   "axis": "co-occurrence",
-   "note": "同篇出现：notion",
-   "origin": "co-occurrence",
-   "evidence": "notion"
-  },
-  {
-   "from": "cm_76d98cb5",
-   "to": "cm_f3b13df1",
-   "kind": "co-article",
-   "strength": "soft",
-   "axis": "co-occurrence",
-   "note": "同篇出现：notion",
-   "origin": "co-occurrence",
-   "evidence": "notion"
-  },
-  {
-   "from": "cm_76d98cb5",
-   "to": "cm_012fc42e",
-   "kind": "co-article",
-   "strength": "soft",
-   "axis": "co-occurrence",
-   "note": "同篇出现：notion",
-   "origin": "co-occurrence",
-   "evidence": "notion"
-  },
-  {
-   "from": "cm_76d98cb5",
    "to": "cm_61e4efaf",
    "kind": "co-article",
    "strength": "soft",
@@ -4864,36 +4804,6 @@
    "evidence": "notion"
   },
   {
-   "from": "cm_7c5152aa",
-   "to": "cm_f3b13df1",
-   "kind": "co-article",
-   "strength": "soft",
-   "axis": "co-occurrence",
-   "note": "同篇出现：notion",
-   "origin": "co-occurrence",
-   "evidence": "notion"
-  },
-  {
-   "from": "cm_7c5152aa",
-   "to": "cm_012fc42e",
-   "kind": "co-article",
-   "strength": "soft",
-   "axis": "co-occurrence",
-   "note": "同篇出现：notion",
-   "origin": "co-occurrence",
-   "evidence": "notion"
-  },
-  {
-   "from": "cm_7c5152aa",
-   "to": "cm_61e4efaf",
-   "kind": "co-article",
-   "strength": "soft",
-   "axis": "co-occurrence",
-   "note": "同篇出现：notion",
-   "origin": "co-occurrence",
-   "evidence": "notion"
-  },
-  {
    "from": "cm_3bf9ffd4",
    "to": "cm_f3b13df1",
    "kind": "co-article",
@@ -6475,36 +6385,6 @@
   },
   {
    "from": "cm_8ff76ff3",
-   "to": "cm_61e4efaf",
-   "kind": "co-article",
-   "strength": "soft",
-   "axis": "co-occurrence",
-   "note": "同篇出现：notion",
-   "origin": "co-occurrence",
-   "evidence": "notion"
-  },
-  {
-   "from": "cm_803a4462",
-   "to": "cm_f3b13df1",
-   "kind": "co-article",
-   "strength": "soft",
-   "axis": "co-occurrence",
-   "note": "同篇出现：notion",
-   "origin": "co-occurrence",
-   "evidence": "notion"
-  },
-  {
-   "from": "cm_803a4462",
-   "to": "cm_012fc42e",
-   "kind": "co-article",
-   "strength": "soft",
-   "axis": "co-occurrence",
-   "note": "同篇出现：notion",
-   "origin": "co-occurrence",
-   "evidence": "notion"
-  },
-  {
-   "from": "cm_803a4462",
    "to": "cm_61e4efaf",
    "kind": "co-article",
    "strength": "soft",
@@ -10925,36 +10805,6 @@
   },
   {
    "from": "cm_96db0031",
-   "to": "cm_80fd0c67",
-   "kind": "co-article",
-   "strength": "soft",
-   "axis": "co-occurrence",
-   "note": "同篇出现：context-10",
-   "origin": "co-occurrence",
-   "evidence": "context-10"
-  },
-  {
-   "from": "cm_98e749f2",
-   "to": "cm_edc164c5",
-   "kind": "co-article",
-   "strength": "soft",
-   "axis": "co-occurrence",
-   "note": "同篇出现：context-10",
-   "origin": "co-occurrence",
-   "evidence": "context-10"
-  },
-  {
-   "from": "cm_98e749f2",
-   "to": "cm_a25937b3",
-   "kind": "co-article",
-   "strength": "soft",
-   "axis": "co-occurrence",
-   "note": "同篇出现：context-10",
-   "origin": "co-occurrence",
-   "evidence": "context-10"
-  },
-  {
-   "from": "cm_98e749f2",
    "to": "cm_80fd0c67",
    "kind": "co-article",
    "strength": "soft",
@@ -16845,36 +16695,6 @@
   },
   {
    "from": "cm_1d3875f8",
-   "to": "cm_10cbe746",
-   "kind": "co-article",
-   "strength": "soft",
-   "axis": "co-occurrence",
-   "note": "同篇出现：harness-03",
-   "origin": "co-occurrence",
-   "evidence": "harness-03"
-  },
-  {
-   "from": "cm_cf92487f",
-   "to": "cm_0a4ca4ce",
-   "kind": "co-article",
-   "strength": "soft",
-   "axis": "co-occurrence",
-   "note": "同篇出现：harness-03",
-   "origin": "co-occurrence",
-   "evidence": "harness-03"
-  },
-  {
-   "from": "cm_cf92487f",
-   "to": "cm_94dea071",
-   "kind": "co-article",
-   "strength": "soft",
-   "axis": "co-occurrence",
-   "note": "同篇出现：harness-03",
-   "origin": "co-occurrence",
-   "evidence": "harness-03"
-  },
-  {
-   "from": "cm_cf92487f",
    "to": "cm_10cbe746",
    "kind": "co-article",
    "strength": "soft",
@@ -25294,16 +25114,6 @@
    "evidence": "audit:weak"
   },
   {
-   "from": "cm_cf92487f",
-   "to": "cm_db9042f2",
-   "kind": "related-to",
-   "strength": "soft",
-   "axis": "audit",
-   "note": "六函数事件通信是「编排/执行解耦」的实例，不懂抽象原则也能懂这个具体组合，应降为 soft。",
-   "origin": "llm",
-   "evidence": "audit:weak"
-  },
-  {
    "from": "cm_c88b81b3",
    "to": "cm_24c4322f",
    "kind": "related-to",
@@ -26764,42 +26574,12 @@
    "evidence": "audit:weak"
   },
   {
-   "from": "cm_d926baac",
-   "to": "cm_c22bacf6",
-   "kind": "related-to",
-   "strength": "soft",
-   "axis": "audit",
-   "note": "开源 vs 闭源的传播/资本之别可独立理解，「政府资本 vs 产业资本」只是解释胜负的一种框架，且其定义偏向算力语境，非必要条件。",
-   "origin": "llm",
-   "evidence": "audit:weak"
-  },
-  {
-   "from": "cm_72385793",
-   "to": "cm_7c5152aa",
-   "kind": "related-to",
-   "strength": "soft",
-   "axis": "audit",
-   "note": "oppref 只解释了广告单元里 token 这一个字段的用途，整节点（结构化广告事件）不懂它也能立住。",
-   "origin": "llm",
-   "evidence": "audit:weak"
-  },
-  {
    "from": "cm_769e3775",
    "to": "cm_72385793",
    "kind": "related-to",
    "strength": "soft",
    "axis": "audit",
    "note": "域名角色的定义是「托管创意/SDK、收事件上报」，理解它不需要先懂 SSE 广告单元，只是同链条相关。",
-   "origin": "llm",
-   "evidence": "audit:weak"
-  },
-  {
-   "from": "cm_769e3775",
-   "to": "cm_7c5152aa",
-   "kind": "related-to",
-   "strength": "soft",
-   "axis": "audit",
-   "note": "「bzr 收事件上报」这条定义懂不懂 oppref 都成立，回传内容的具体格式不是理解域名的前提。",
    "origin": "llm",
    "evidence": "audit:weak"
   },
@@ -27220,26 +27000,6 @@
    "strength": "soft",
    "axis": "audit",
    "note": "管理 loop 可在不懂「人上移抽象层」原则下理解，后者只是前者的另一种表述，非前置。",
-   "origin": "llm",
-   "evidence": "audit:weak"
-  },
-  {
-   "from": "cm_90e93725",
-   "to": "cm_98e749f2",
-   "kind": "related-to",
-   "strength": "soft",
-   "axis": "audit",
-   "note": "质量墙是现象，人的手艺是破墙手段；不懂手艺也能懂墙，属相关而非前置。",
-   "origin": "llm",
-   "evidence": "audit:weak"
-  },
-  {
-   "from": "cm_29b24ddb",
-   "to": "cm_98e749f2",
-   "kind": "related-to",
-   "strength": "soft",
-   "axis": "audit",
-   "note": "『不可见的劳动是产品手艺的一部分』是归属/论证性论断，不是理解前提；不懂产品手艺照样能懂何谓不产出可见物的劳动。",
    "origin": "llm",
    "evidence": "audit:weak"
   },
@@ -29774,16 +29534,6 @@
    "evidence": "audit:yes"
   },
   {
-   "from": "cm_cf92487f",
-   "to": "cm_db9042f2",
-   "kind": "prerequisite",
-   "strength": "hard",
-   "axis": "mechanism",
-   "note": "不懂事件驱动编排与执行解耦，就做不了小函数组合里「六个函数靠事件通信而非巨石」",
-   "origin": "llm-strict",
-   "evidence": "audit:yes"
-  },
-  {
    "from": "cm_94448257",
    "to": "cm_14ba4d5c",
    "kind": "prerequisite",
@@ -31410,16 +31160,6 @@
    "strength": "soft",
    "axis": "mechanism",
    "note": "不懂【难度即护城河】，就做不了反驳“人人自攒 CRM”式的护城河蒸发论断",
-   "origin": "llm-strict",
-   "evidence": "audit:weak"
-  },
-  {
-   "from": "cm_cc071be2",
-   "to": "cm_803a4462",
-   "kind": "prerequisite",
-   "strength": "soft",
-   "axis": "mechanism",
-   "note": "不懂软件脑，就做不了设想人的数字上下文在人离开后仍通过 AI 系统持续演化互动这件事。",
    "origin": "llm-strict",
    "evidence": "audit:weak"
   },
@@ -33434,16 +33174,6 @@
    "evidence": "audit:yes"
   },
   {
-   "from": "cm_d59c122f",
-   "to": "cm_fccba9a9",
-   "kind": "prerequisite",
-   "strength": "soft",
-   "axis": "composition",
-   "note": "不懂【对象-边模型与分区】，就做不了【持久化代码图谱】的 ⟨函数/类对象与调用/导入边的持久化建模⟩",
-   "origin": "llm-strict",
-   "evidence": "audit:yes"
-  },
-  {
    "from": "cm_b722f6a4",
    "to": "cm_85804ebb",
    "kind": "prerequisite",
@@ -33540,16 +33270,6 @@
    "strength": "hard",
    "axis": "mechanism",
    "note": "不懂【迷失在中间】，就做不了【查询感知语境化】的「为什么把查询同时放在数据前后能避免中段被忽略」的机制设计。",
-   "origin": "llm-strict",
-   "evidence": "audit:yes"
-  },
-  {
-   "from": "cm_21a4ec33",
-   "to": "cm_7c5152aa",
-   "kind": "prerequisite",
-   "strength": "hard",
-   "axis": "mechanism",
-   "note": "不懂 oppref 这个前向归因 token，就做不了 OAIQ 把访问、加购、下单回传到具体广告点击的归因链路。",
    "origin": "llm-strict",
    "evidence": "audit:yes"
   },
@@ -33734,16 +33454,6 @@
    "evidence": ""
   },
   {
-   "from": "cm_f8c2e9ae",
-   "to": "cm_cbbe3f8e",
-   "kind": "prerequisite",
-   "strength": "soft",
-   "axis": "neican",
-   "note": "不懂 aiohttp 默认 LIFO 重用连接会把流量越推越集中在慢 Pod 上、压力退去后进程仍卡在降级状态，就做不好用连接池与长连接收拢扇入这件事。",
-   "origin": "llm-strict",
-   "evidence": ""
-  },
-  {
    "from": "cm_28c258d9",
    "to": "cm_d78a3680",
    "kind": "prerequisite",
@@ -33884,46 +33594,6 @@
    "evidence": ""
   },
   {
-   "from": "cm_8ff0bd7e",
-   "to": "cm_1da0e9a6",
-   "kind": "prerequisite",
-   "strength": "hard",
-   "axis": "neican",
-   "note": "不懂 Habitat 是从一个 Python 客户端库长出来的在线存储平台，就做不了「把存储逻辑从客户端库解耦为独立服务」这条演化路径的判断",
-   "origin": "llm-strict",
-   "evidence": ""
-  },
-  {
-   "from": "cm_5676c394",
-   "to": "cm_fccba9a9",
-   "kind": "prerequisite",
-   "strength": "hard",
-   "axis": "neican",
-   "note": "不懂在线存储是只查直接边、不支持图遍历的对象-边模型，就做不了「为什么必须专设一个 Rockset 复杂查询逃生舱」的判断",
-   "origin": "llm-strict",
-   "evidence": ""
-  },
-  {
-   "from": "cm_5676c394",
-   "to": "cm_8ff0bd7e",
-   "kind": "prerequisite",
-   "strength": "soft",
-   "axis": "neican",
-   "note": "不懂存储已解耦为独立服务、有了部署与平台增强的统一控制点，就做不了用变更数据捕获把在线存储变化近实时同步到隔离实例这件事",
-   "origin": "llm-strict",
-   "evidence": ""
-  },
-  {
-   "from": "cm_5676c394",
-   "to": "cm_1da0e9a6",
-   "kind": "prerequisite",
-   "strength": "soft",
-   "axis": "neican",
-   "note": "不懂 Habitat 在线侧的规模（每秒超 7000 万请求、超 500PB），就做不了「复杂查询为何不能压在主库、须甩到隔离实例」的取舍",
-   "origin": "llm-strict",
-   "evidence": ""
-  },
-  {
    "from": "cm_ef696870",
    "to": "cm_026f933a",
    "kind": "prerequisite",
@@ -33985,51 +33655,11 @@
   },
   {
    "from": "cm_8bb611ea",
-   "to": "cm_37869804",
-   "kind": "prerequisite",
-   "strength": "hard",
-   "axis": "neican",
-   "note": "不懂【可行性分析】，就做不了【人在关键路径确认】里 ⟨在关键节点对「做不做」拍板这一动作⟩",
-   "origin": "llm-strict",
-   "evidence": ""
-  },
-  {
-   "from": "cm_e243f570",
-   "to": "cm_8a12b121",
-   "kind": "prerequisite",
-   "strength": "hard",
-   "axis": "neican",
-   "note": "不懂【周期】，就做不了【目标—项目—日常工作的连接】里 ⟨排周期计划时回看项目、把日常工作挂到更大目标上这件事⟩",
-   "origin": "llm-strict",
-   "evidence": ""
-  },
-  {
-   "from": "cm_8bb611ea",
    "to": "cm_b6da7e6e",
    "kind": "prerequisite",
    "strength": "soft",
    "axis": "neican",
    "note": "不懂【执行主体从人变成 Agent】，就做不了【人在关键路径确认】里 ⟨划出哪些节点必须留给人拍板这件事⟩",
-   "origin": "llm-strict",
-   "evidence": ""
-  },
-  {
-   "from": "cm_765d717a",
-   "to": "cm_e056dcdf",
-   "kind": "prerequisite",
-   "strength": "soft",
-   "axis": "neican",
-   "note": "不懂【为特定用途而设计】，就做不了【可扩展性】里 ⟨随着团队规模扩大仍不断增强功能而不滑向混乱这件事⟩",
-   "origin": "llm-strict",
-   "evidence": ""
-  },
-  {
-   "from": "cm_b4276278",
-   "to": "cm_37869804",
-   "kind": "prerequisite",
-   "strength": "soft",
-   "axis": "neican",
-   "note": "不懂【可行性分析】，就做不了【设计师与工程师的推拉关系】里 ⟨工程师往回拉的那一手——用技术与成本判断把设计拉回地面⟩",
    "origin": "llm-strict",
    "evidence": ""
   },
@@ -34060,6 +33690,416 @@
    "strength": "soft",
    "axis": "neican",
    "note": "不懂【技能验证器】，就做不了【让 Agent 自行验证】里「给 Agent 挂一个在命令行先捕获技能结构性问题的自检关卡」这件事。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_1bc9fd34",
+   "to": "cm_d65b4094",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【推理成本锁死毛利】，就做不了【卖token的生意】的单位经济测算：算不出每卖一次调用都产生一笔推理成本、加价转卖后毛利仍被锁在低位，也就分不清它是流水还是好生意",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_efc3a316",
+   "to": "cm_d65b4094",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【推理成本锁死毛利】，就做不了【Scaling to bankruptcy】的判断：无法解释在成本不随规模摊薄的结构里，为什么用户涨得越快离死亡越近",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_0b9dd702",
+   "to": "cm_d65b4094",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【推理成本锁死毛利】，就做不了【往下游去：卖结果】的模式设计：不知道按工具或算力加价卖已经盖不住每次使用的成本，必须对客户的结果和利润负责才卖得出远高于算力的价格",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_e23c30a8",
+   "to": "cm_1bc9fd34",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【卖token的生意】的收入本质是流水而非订阅，就做不了【ARR 的失真】的识别：看不出把最高单日流水乘成年度数字、把一次性收入包装成经常性收入究竟错在哪",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_a1325dbd",
+   "to": "cm_29e30984",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【应用公司的\"租客\"处境】（最重要的能力和更新节奏都握在上游模型手里），就做不了【模型吞噬】的判断：说不清模型每升级一次为什么就能收走一批应用赖以生存的核心价值",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_59ead63a",
+   "to": "cm_a1325dbd",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【模型吞噬】，就做不了【窗口期】的判断：说不出一个应用还能独立存在并被验证的时间，为什么从一两年缩到两三个月甚至一个月",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_a3568a50",
+   "to": "cm_29e30984",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【应用公司的\"租客\"处境】，就做不了【往上游去：自己做模型】的决策：不知道要反向进入模型层拿回的究竟是哪一块被上游握住的核心能力",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_773134ff",
+   "to": "cm_a1325dbd",
+   "kind": "prerequisite",
+   "strength": "soft",
+   "axis": "neican",
+   "note": "不懂【模型吞噬】，就做不了【\"模型即应用\"】的命题判断：无法解释模型为什么能持续吞掉应用层的价值，也就分不清两边证据到底谁站得住",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_9e69a850",
+   "to": "cm_e14bd82a",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂 AI 工程技能，就做不了主动决定要构建什么、下一步做什么、为什么这样做——只能继续实现别人写好的既定规格。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_c5e51add",
+   "to": "cm_9e69a850",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂主动决定构建什么、为什么这样做，就做不了在规格未覆盖时凭产品感知自行判断方向与取舍。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_c5e51add",
+   "to": "cm_70f030e3",
+   "kind": "prerequisite",
+   "strength": "soft",
+   "axis": "neican",
+   "note": "不懂 PM、设计、开发之间分工边界正在消失，就做不了在「没有 PM」的前提下由开发者自己拍板产品方向这件事。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_01be8021",
+   "to": "cm_9e69a850",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂主动决定要构建什么、下一步做什么，就做不了在他人尚不清楚 AI 能做什么时主动发现机会、提出方案并端到端负责。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_deaf418e",
+   "to": "cm_e14bd82a",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂 AI 工程技能带来的更广工作范围，就做不了与市场、财务、法务协调，也向非工程人员解释 AI 可行性。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_3ba46971",
+   "to": "cm_e3e6b958",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂 iPad 累积的大屏交互、自适应 API 与第三方适配经验，就做不了展开前后界面等比缩放、控件收拢右侧、交互不断裂的折叠屏连续性。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_12b4b314",
+   "to": "cm_f3e1b053",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂硬件、软件与服务咬合出的综合体验远超零件相加，就做不了把 iPhone 押成 AI 时代个人中枢（端侧算力＋常伴屏幕＋核心数据自控）这盘棋。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_9f11ab05",
+   "to": "cm_846ea075",
+   "kind": "prerequisite",
+   "strength": "soft",
+   "axis": "neican",
+   "note": "不懂「不因某品类热就拿出未过质量、耐用与工业设计关的产品」这条筛选线，就做不了把发布节拍交给产品成熟度决定的克制推进。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_f11b6b87",
+   "to": "cm_48fd6532",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【Prompt loop／agent】「把任务与上一步结果发回 LLM 求下一步、执行其输出、再回到第一步」的机制，就做不了《被启动的电话游戏》的 ⟨解释成千上万条建议为何会被自动串成一条链、并在传递中把目标扭曲掉⟩ 这件事。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_5c63e329",
+   "to": "cm_48fd6532",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【Prompt loop／agent】里「无人在环、上一步结果直接驱动下一步」的循环结构，就做不了 ⟨同一模型做成人类对话式交互更可控、塞进无监督循环自动跑才是危险源⟩ 这个对照判断。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_f11b6b87",
+   "to": "cm_5c63e329",
+   "kind": "prerequisite",
+   "strength": "soft",
+   "axis": "neican",
+   "note": "不懂【交互式系统 vs. prompt loop 系统】把危险归结为「无监督自动串联」而不是模型本身，就做不了《被启动的电话游戏》的 ⟨失控归因：判断扭曲来自循环方式而非单次模型能力⟩。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_f6dede97",
+   "to": "cm_3f38fe5e",
+   "kind": "prerequisite",
+   "strength": "soft",
+   "axis": "neican",
+   "note": "不懂【完成标准】「开始前说清什么算做完、把运行检查修复都写进请求」，就做不了 ⟨设定持久性：决定模型该连续执行到哪一步、何时返回（例如初次实现后即返回审核）⟩。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_e0dfb367",
+   "to": "cm_3f38fe5e",
+   "kind": "prerequisite",
+   "strength": "soft",
+   "axis": "neican",
+   "note": "不懂【完成标准】「先明确什么算做完」，就做不了 Driving the build loop 中的 ⟨决定下一步：判断这一轮反馈之后该继续改还是收工⟩。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_2b7480ab",
+   "to": "cm_e87125d3",
+   "kind": "prerequisite",
+   "strength": "soft",
+   "axis": "neican",
+   "note": "不懂【放缓所换来的时间的用途】（运营卓越、对齐、可解释性、测试与评测），就做不了【领跑节奏】的「把能力提升速度调到对齐防护跟得上」这件事。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_76be18e9",
+   "to": "cm_2b7480ab",
+   "kind": "prerequisite",
+   "strength": "soft",
+   "axis": "neican",
+   "note": "不懂【领跑节奏】（给能力提升装可调限速器），就做不了【检查点式节奏与“配料”式节奏】的「按行为口径设关卡或按配料口径限量投入」这件事。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_d3ec66a4",
+   "to": "cm_01363896",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂类型化 JSON IR 的 schema 与字段，就做不了五种图表类型各自的 prompt 信息骨架——不知道 Architecture/Workflow/Sequence/Data Flow/Lifecycle 每类该让代理产出哪些节点、哪些字段。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_94bf8880",
+   "to": "cm_01363896",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂类型化 JSON IR 里作者定义的节点关系，就做不了真实交互里的聚焦、上下游、路径、角色比较与故事——没有可复用的关系源，只能自己发明拓扑。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_94bf8880",
+   "to": "cm_a9aea49f",
+   "kind": "prerequisite",
+   "strength": "soft",
+   "axis": "neican",
+   "note": "不懂 Archify 定位为「把技术意图变成可沟通的图」这条非目标，就做不了真实交互中「不声称运行时影响」的边界判断——会把它当成运行时事实的推断工具。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_ecb62df3",
+   "to": "cm_c2ad902b",
+   "kind": "prerequisite",
+   "strength": "soft",
+   "axis": "neican",
+   "note": "不懂旧提示词不是天然正确、每条指令都是待验证假设，就做不了对过度具体指导的处置——无法判断旧技能里那些路线式、食谱式细节该删还是该留。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_3df52d72",
+   "to": "cm_c2ad902b",
+   "kind": "prerequisite",
+   "strength": "soft",
+   "axis": "neican",
+   "note": "不懂指令应被当作待验证假设，就做不了仓库技能的跨模型影响判断——不会因为换模型而回头检验既有的措辞是否仍然成立。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_a786850e",
+   "to": "cm_3c7b40a0",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【确定性编译】，就做不了【原子验证与交付门】里的「候选原子替换目标」——同一份 IR 若每次编译出的布局/HTML 都可能不同，全过的检查结果贴不到实际交付物上，放行就等于没放行",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_2bd22aed",
+   "to": "cm_a786850e",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【原子验证与交付门】，就做不了【修复收据与有限修复轮次】的「验证失败时返回稳定规则码、具体对象与测量证据」——不知道门里到底有 schema、布局、HTML/SVG、路由、标签到路由间距哪几项检查，就编不出对应的规则码与证据",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_2a6f7367",
+   "to": "cm_2bd22aed",
+   "kind": "prerequisite",
+   "strength": "soft",
+   "axis": "neican",
+   "note": "不懂【修复收据与有限修复轮次】，就做不了【Reasoning Trace Faithfulness】里「判断 looped 是否更常给出误导性 fake trace」——不知道代理是在按 supportedFixes、最多两轮的修复循环里反复跑，就界定不了 looped 指的是哪",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_75dfab95",
+   "to": "cm_2a6f7367",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【Reasoning Trace Faithfulness】，就做不了【嵌入式评估者】的「评估模型与训练流程」——把可读的推理 trace 当成模型内部计算的忠实记录，评估结论就立不住",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_602ca158",
+   "to": "cm_533406a4",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【Transformer Block、Stack、Block Application】，就无法说清「让中间表示多次通过同一批 blocks」到底重复的是什么——循环次数就是 block application 的次数。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_66fcff60",
+   "to": "cm_602ca158",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【Looped Transformer / Recurrent Depth】，就算不出「循环展开后 token 经历更多次 block application、有效深度变大而参数不按深度翻倍」这笔账。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_754efbf8",
+   "to": "cm_602ca158",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【Looped Transformer / Recurrent Depth】，就分不清循环省下的是不同 block 的权重参数、而不省前向反向计算，也想不到二次进 block 的 keys/values 不同、需分开缓存。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_2ca4e836",
+   "to": "cm_602ca158",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【Looped Transformer / Recurrent Depth】，就无法定义「累积 halting probability 到阈值即停、并用最大循环数兜底」停的到底是哪个循环。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_eb2850df",
+   "to": "cm_602ca158",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【Looped Transformer / Recurrent Depth】，就无法理解 router 决定的「这个 token 过几次共享 stack」是在决定什么。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_fa24d6ae",
+   "to": "cm_602ca158",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【Looped Transformer / Recurrent Depth】，就无法把「沿架构深度复用权重」与 RNN「沿时间步、以 hidden state 传递来复用权重」对照起来。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_68fd0bbe",
+   "to": "cm_602ca158",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【Looped Transformer / Recurrent Depth】，就无法理解 latent reasoning「推理时多跑循环、把计算放在内部」具体是在做什么。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_963f0df3",
+   "to": "cm_754efbf8",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【Looping Costs：参数、计算与 KV Cache】，就没法设定并解释 SMELT 的对照条件——相同每 token 计算与相同 KV cache 究竟怎么算。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_5fdeff34",
+   "to": "cm_5fcd44e5",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【Reasoning model 与 chain-of-thought traces】是模型先出声生成、属输出的文本，就无法理解为何理由可以是事后编出、与答案无关的合理说辞。",
    "origin": "llm-strict",
    "evidence": ""
   }

@@ -1,7 +1,7 @@
 {
  "version": "v1",
  "generatedAt": "2026-09-13",
- "builtAt": "2026-09-13T18:57:24.555Z",
+ "builtAt": "2026-09-13T20:58:02.942Z",
  "source": {
   "pairings": "evidence/agent-loop-260913/pairings.json",
   "authored": "evidence/agent-loop-260913/authored.json",
@@ -278,6 +278,26 @@
      "最小构成",
      "行动来源",
      "与模型的区别"
+    ],
+    "checks": [
+     {
+      "id": "agent-F1",
+      "point": "最小构成",
+      "condition": "说到「围绕目标持续选择下一步、借助工具行动并根据结果继续推进」这几件事，才算说清最小构成；只说「会调用工具」不够。",
+      "misconception": "把最小构成当成模型规模或参数量——以为换一个更大的模型就更像 Agent。"
+     },
+     {
+      "id": "agent-F2",
+      "point": "行动来源",
+      "condition": "说清工具执行、状态维护、权限与循环来自模型之外的系统，而不是模型权重自带的动作能力。",
+      "misconception": "以为行动能力长在模型里（「模型自己会执行工具」），说不清执行发生在模型外。"
+     },
+     {
+      "id": "agent-F3",
+      "point": "与模型的区别",
+      "condition": "点明模型负责推理与生成，Agent 是围绕目标持续推进的系统，并至少说出一条具体差别。",
+      "misconception": "把 Agent 与 Agent Harness 当同义词，或用「更强的 LLM」解释全部差别。"
+     }
     ]
    },
    "narrative": {
@@ -637,6 +657,26 @@
      "提出调用",
      "外层执行",
      "四个环节"
+    ],
+    "checks": [
+     {
+      "id": "tool-F1",
+      "point": "提出调用",
+      "condition": "说清模型产出的是结构化的调用请求（Tool Call），请求本身不是执行。",
+      "misconception": "看到模型输出「我要读这个文件」，就当成文件已经读到了。"
+     },
+     {
+      "id": "tool-F2",
+      "point": "外层执行",
+      "condition": "说清校验、执行与结果回传发生在外层系统（Harness），不在模型里；工具存在不等于会被选对、填对参数、拿到权限。",
+      "misconception": "以为模型亲自执行工具，或者以为「工具已注册」就等于这次调用会成功。"
+     },
+     {
+      "id": "tool-F3",
+      "point": "四个环节",
+      "condition": "按 Tool Definition → Tool Call → Tool Execution → Tool Result 的顺序点出至少三个环节，并说清它们连续但不同。",
+      "misconception": "把定义、调用、执行、结果压成一件事——「注册了就等于能跑通」。"
+     }
     ]
    },
    "narrative": {
@@ -965,6 +1005,26 @@
      "一步的动作",
      "观察回灌",
      "退出条件"
+    ],
+    "checks": [
+     {
+      "id": "agent-loop-F1",
+      "point": "一步的动作",
+      "condition": "说清一轮里模型只负责选下一步（生成工具调用请求），执行由 Harness 完成。",
+      "misconception": "把「反复调用工具」当成完整的循环——只数轮次，不说每一轮里谁做了什么。"
+     },
+     {
+      "id": "agent-loop-F2",
+      "point": "观察回灌",
+      "condition": "说清工具结果要作为观察回到模型，才构成下一轮选择的依据。",
+      "misconception": "以为工具跑完这一轮就结束了，忽略结果必须回灌进上下文。"
+     },
+     {
+      "id": "agent-loop-F3",
+      "point": "退出条件",
+      "condition": "说清退出不能只靠模型说「完成」，还要有最大回合、预算、无进展、权限拒绝或用户中断这类边界。",
+      "misconception": "把「循环还在跑」或「模型说完成了」当成任务已经正确完成。"
+     }
     ]
    },
    "narrative": {
@@ -1290,6 +1350,26 @@
      "执行事实",
      "记录什么",
      "恢复前核对"
+    ],
+    "checks": [
+     {
+      "id": "state-persistence-F1",
+      "point": "执行事实",
+      "condition": "说清 State 是任务当前可描述的执行事实（当前阶段、变量、进度、恢复点），既不是模型权重，也不只是聊天记录。",
+      "misconception": "把状态理解成「把对话存下来」，或把 State 与 Memory 当同一件事。"
+     },
+     {
+      "id": "state-persistence-F2",
+      "point": "记录什么",
+      "condition": "说清要记的是决定下一步的那些变量，并在每次状态转换时记下当前阶段、完成证据与待处理项。",
+      "misconception": "以为存了一份进度文件（或打了 checkpoint）就等于状态管理做好了。"
+     },
+     {
+      "id": "state-persistence-F3",
+      "point": "恢复前核对",
+      "condition": "说清恢复前要核对状态与外部副作用；checkpoint 存在不代表变量完整、恢复正确。",
+      "misconception": "以为有 checkpoint 就能原样续跑——忽略变量不全、外部副作用已发生或结果已过期。"
+     }
     ]
    },
    "narrative": {
@@ -1622,6 +1702,26 @@
      "运行系统",
      "与模型分工",
      "边界口径"
+    ],
+    "checks": [
+     {
+      "id": "harness-F1",
+      "point": "运行系统",
+      "condition": "说清 Harness 是模型之外的运行系统：组织循环，并落实工具、状态、权限与错误处理。",
+      "misconception": "把 Harness 当成模型的一部分，或当成提示词／框架的别名。"
+     },
+     {
+      "id": "harness-F2",
+      "point": "与模型分工",
+      "condition": "说清模型负责生成判断或工具请求，Harness 负责执行、回灌、状态与控制，两边分工不同。",
+      "misconception": "把表现差异全归给模型能力，忽略循环、工具、状态、权限与验证这些外部环节。"
+     },
+     {
+      "id": "harness-F3",
+      "point": "边界口径",
+      "condition": "至少声明一种口径（广义「模型外一切」，或只含循环／工具分发／状态处理的薄口径），并区分 Agent 与 Harness、Context 与 Harness。",
+      "misconception": "不声明口径就混用「模型外一切」，把用户感知到的 Agent 与产生它的 Harness 说成同一件东西。"
+     }
     ]
    },
    "narrative": {
@@ -1953,6 +2053,26 @@
      "独立检查",
      "改变下一步",
      "通过范围"
+    ],
+    "checks": [
+     {
+      "id": "verification-loop-F1",
+      "point": "独立检查",
+      "condition": "说清检查由行动之外的东西完成（确定性测试／视觉检查／LLM-as-judge 等），并知道这些证据的强度不同。",
+      "misconception": "把「Agent 说自己检查过了」或同一个模型自评当成独立检查。"
+     },
+     {
+      "id": "verification-loop-F2",
+      "point": "改变下一步",
+      "condition": "说清未通过要依据证据修正下一步、通过才退出当前循环；检查结果要真的改变运行。",
+      "misconception": "把 Observability（采集事件、轨迹、时延）当成验证闭环——只看了日志，没有改变下一步。"
+     },
+     {
+      "id": "verification-loop-F3",
+      "point": "通过范围",
+      "condition": "说清机器检查只覆盖既定判据，退出不等于用户验收、发布授权或真实业务效果成立。",
+      "misconception": "把一次机器检查通过扩张成「整件事已经成功」。"
+     }
     ]
    },
    "narrative": {

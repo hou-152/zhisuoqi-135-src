@@ -1,6 +1,6 @@
 {
  "_what": "前端离线开发用的接口样本。真结构；标注 mock 的内容只用来做界面，不要当产品输出。",
- "_generatedAt": "2026-09-12T18:39:42.880Z",
+ "_generatedAt": "2026-09-13T18:55:34.644Z",
  "_contract": "docs/前端契约-知所栖135.md §二 §三",
  "endpoints": {
   "GET /api/health": {
@@ -74,14 +74,14 @@
   }
  },
  "payloadSample": {
-   "_why": "壳 payload 的真结构样本。完整 936 点/531 边在 prototype/知所栖-壳.html 的 const DATA 里，不要复制整份。",
+  "_why": "壳 payload 的真结构样本。完整 918 点/591 边在 prototype/知所栖-壳.html 的 const DATA 里，不要复制整份。",
   "_fullSource": "evidence/cm-260913/05-shell-payload.json",
   "_counts": {
-    "nodes": 936,
-    "edges": 531,
+   "nodes": 918,
+   "edges": 591,
    "tags": 21
   },
-  "generatedAt": "2026-09-12T17:42:32.510Z",
+  "generatedAt": "2026-09-13T18:46:12.756Z",
   "nodes": [
    {
     "id": "cm_0a4ca4ce",
@@ -90,7 +90,7 @@
     "type": "CONCEPTUAL",
     "gloss": "包裹在大语言模型之外的完整软件架构，负责让模型能读文件、跑命令、改代码并自主完成任务。",
     "level": 0,
-    "ci": 3,
+    "ci": 4,
     "tags": [
      "harness-runtime"
     ],
@@ -104,13 +104,46 @@
      "能指出 Claude Code 里哪些组件属于 Harness、哪些属于模型自身",
      "能解释为何同一模型换一个 Harness 表现差异巨大"
     ],
-    "ap": "{{name}} 指什么？它和模型权重各负责哪部分？",
+    "sourceContext": "> 它最不一样的地方是模型能力本身就很不错，加上 Claude Code 自己的代码实现也把 Harness 这一套玩到了极致——整个项目一起看：先扫一遍 [CLAUDE.md](http://CLAUDE.md) 和目录结构摸清楚上下文，然后跨文件改代码、跑命令、看报错、再改，自己全部完成。",
+    "aliases": [
+     "项目级感知",
+     "整个项目一起看",
+     "model 外壳",
+     "runtime",
+     "agent harness"
+    ],
+    "ap": "Harness 指什么？它和模型权重各负责哪部分？",
     "origin": [
      "notion",
      "context",
      "harness"
     ],
-    "mentionCount": 23
+    "mentionCount": 23,
+    "sa": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19,
+     20
+    ],
+    "rx": -0.01822,
+    "ry": 0.00722
    },
    {
     "id": "cm_253ad423",
@@ -118,7 +151,7 @@
     "src": "harness",
     "type": "CONCEPTUAL",
     "gloss": "Agent = Model + Harness：模型只有在 harness 提供状态、工具执行、反馈回路与约束后才成为 agent。",
-    "level": 1,
+    "level": 2,
     "ci": 2,
     "tags": [
      "harness-runtime"
@@ -126,18 +159,26 @@
     "k": "judge",
     "kwhy": "能指出 raw model 为什么不算 agent",
     "nameEn": "",
-    "centrality": 0.089,
+    "centrality": 0.144,
     "stage": "now",
     "feynman": "把「agent」这个模糊的词做了一次因式分解。以后评价一个 agent 好不好，可以分开问两个问题：模型这一项有多强？框架这一项做了多少事？两项是可以独立优化、也可以独立归因的。",
     "evidence": [
      "能指出 raw model 为什么不算 agent",
      "能列出 harness 至少四项能力中的三项"
     ],
-    "ap": "在 {{name}} 里，缺了状态和反馈回路会怎样？",
+    "sourceContext": "文章的核心等式，也是 TLDR 的第一句。作者强调 raw model is not an agent，模型只有在 harness 提供 state、tool execution、feedback loops 和 enforceable constraints 之后才成为 agent。",
+    "aliases": [],
+    "ap": "在 Agent = Model + Harness 里，缺了状态和反馈回路会怎样？",
     "origin": [
      "harness"
     ],
-    "mentionCount": 2
+    "mentionCount": 2,
+    "sa": [
+     5,
+     15
+    ],
+    "rx": 0.03057,
+    "ry": -0.25866
    },
    {
     "id": "cm_8a295891",
@@ -145,7 +186,7 @@
     "src": "harness",
     "type": "REPRESENTATIONAL",
     "gloss": "feature_list.json 既是任务来源、进度记录又是范围边界，被视为 harness 的原语。",
-    "level": 1,
+    "level": 2,
     "ci": 2,
     "tags": [
      "harness-runtime"
@@ -153,18 +194,25 @@
     "k": "use",
     "kwhy": "能说明 feature_list.json 同时出现在指令、状态、范围三个子系统",
     "nameEn": "",
-    "centrality": 0.072,
+    "centrality": 0.126,
     "stage": "now",
     "feynman": "便签上的手写清单只有人能读；JSON 清单机器也能读、能校验、能在流水线里当门禁。当边界写成机器能解析的格式，它就从「善意的提醒」变成了「绕不过去的判据」。",
     "evidence": [
      "能说明 feature_list.json 同时出现在指令、状态、范围三个子系统",
      "能解释它为何被称作 harness 的原语"
     ],
-    "ap": "{{name}} 为何同时属于指令、状态与范围三个子系统？",
+    "sourceContext": "L08 的主张，「机器可读的范围边界，agent 无法忽略」。feature_list.json 在课程里同时出现在指令、状态、范围三个子系统中：它既是任务来源，也是进度记录，还是范围边界，因此被称为 harness 的**原语**（primitive）。",
+    "aliases": [],
+    "ap": "功能清单作为 harness 原语 为何同时属于指令、状态与范围三个子系统？",
     "origin": [
      "harness"
     ],
-    "mentionCount": 1
+    "mentionCount": 1,
+    "sa": [
+     25
+    ],
+    "rx": -0.06011,
+    "ry": 0.29849
    }
   ],
   "edges": [
@@ -206,8 +254,8 @@
      "name": "Harness 与运行时",
      "why": "Agent 靠什么骨架才能跑起来、跑得久？",
      "color": "#5B8FF9",
-     "size": 115,
-     "primary": 115,
+     "size": 134,
+     "primary": 134,
      "entry": [
       {
        "id": "cm_0a4ca4ce",
@@ -215,14 +263,14 @@
        "unlocks": 11
       },
       {
+       "id": "cm_200893a2",
+       "name": "skills 字段",
+       "unlocks": 1
+      },
+      {
        "id": "cm_44a5e9cc",
        "name": "Agent vs Harness",
        "unlocks": 4
-      },
-      {
-       "id": "cm_a3f25593",
-       "name": "primitives",
-       "unlocks": 3
       }
      ],
      "goal": [
@@ -232,6 +280,11 @@
        "level": 0
       },
       {
+       "id": "cm_e56f1e8b",
+       "name": "Harness 工程",
+       "level": 1
+      },
+      {
        "id": "cm_44a5e9cc",
        "name": "Agent vs Harness",
        "level": 0
@@ -239,11 +292,6 @@
       {
        "id": "cm_a3f25593",
        "name": "primitives",
-       "level": 0
-      },
-      {
-       "id": "cm_78a628e1",
-       "name": "stateless",
        "level": 0
       }
      ],
@@ -304,10 +352,10 @@
   "kinds": {
    "classes": {},
    "dist": {
-    "judge": 467,
-    "use": 264,
+    "judge": 505,
+    "use": 282,
     "compute": 26,
-    "accept": 99
+    "accept": 105
    }
   }
  },

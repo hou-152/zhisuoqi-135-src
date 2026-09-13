@@ -15,10 +15,27 @@ import { fileURLToPath } from 'node:url';
 import { chatCompletion } from './lib/llm.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const SRC = path.join(ROOT, 'knowledge', '内参-260912');
+const ARGV = (() => {                        // 两种写法都收：--issue 260913 与 --issue=260913
+  const a = process.argv.slice(2), o = {};
+  for (let i = 0; i < a.length; i++) {
+    const m = a[i].match(/^--([^=]+)(?:=(.*))?$/);
+    if (!m) continue;
+    o[m[1]] = m[2] !== undefined ? m[2] : (a[i + 1] && !a[i + 1].startsWith('--') ? a[++i] : true);
+  }
+  return o;
+})();
+const FORCE = 'force' in ARGV || process.argv.includes('--force');
+/* 期号：--issue 指定；不给就取 knowledge/内参-* 里最新的一期（期号是 YYMMDD，字典序即时间序）。
+   一期一个目录、一份页面数据，壳把全部期合成「内参日报集合」（build-shell.mjs）。 */
+const ISSUE = String(ARGV.issue || '') || fs.readdirSync(path.join(ROOT, 'knowledge'))
+  .filter((d) => /^内参-\d{6}$/.test(d) && fs.existsSync(path.join(ROOT, 'knowledge', d, '内参-页面数据.json')))
+  .sort().pop()?.replace(/^内参-/, '');
+if (!ISSUE) { console.error('❌ 找不到任何一期内参（knowledge/内参-YYMMDD/）'); process.exit(2); }
+const SRC = path.join(ROOT, 'knowledge', `内参-${ISSUE}`);
 const META_CACHE = path.join(SRC, '内参-元数据.json');
 const OUT = path.join(SRC, '内参-页面数据.json');
-const FORCE = process.argv.includes('--force');
+const ISSUE_JSON = path.join(SRC, 'issue.json');
+const ISSUE_META = fs.existsSync(ISSUE_JSON) ? JSON.parse(fs.readFileSync(ISSUE_JSON, 'utf8')) : null;
 
 // ── 凭证：只补未设置的变量（与 serve-135.mjs 同规则），不打印任何值 ──────────
 for (const line of fs.readFileSync(path.join(ROOT, '.private', 'llm.env'), 'utf8').split('\n')) {
@@ -29,11 +46,16 @@ const { LLM_API_BASE, LLM_API_KEY, LLM_MODEL } = process.env;
 const llmReady = Boolean(LLM_API_BASE && LLM_API_KEY && LLM_MODEL);
 if (!llmReady) console.warn('⚠ LLM 未配置 —— 只重建页面，不补元数据');
 
-// ── 1. 篇目顺序与字数：直接读编辑日志（它就是那一轮的记账） ────────────────
-const log = fs.readFileSync(path.join(SRC, '编辑日志.md'), 'utf8');
-const ITEMS = [...log.matchAll(/^- ✅ (.+?)（([a-z0-9-]+)）原文 (\d+) 字$/gm)]
-  .map(m => ({ title: m[1], slug: m[2], words: Number(m[3]) }));
-if (!ITEMS.length) { console.error('❌ 编辑日志里没解析到篇目'); process.exit(2); }
+// ── 1. 篇目顺序与字数 ────────────────────────────────────────────────────
+// 有 issue.json（pull-readwise-inbox.mjs 生成）就以它为准；没有则回退读编辑日志（260912 期那条路）。
+const ITEMS = ISSUE_META
+  ? ISSUE_META.items.map((it) => ({ title: it.title, slug: it.slug, words: it.words, tag: it.tag || '文章' }))
+  : (() => {
+    const log = fs.readFileSync(path.join(SRC, '编辑日志.md'), 'utf8');
+    return [...log.matchAll(/^- ✅ (.+?)（([a-z0-9-]+)）原文 (\d+) 字$/gm)]
+      .map((m) => ({ title: m[1], slug: m[2], words: Number(m[3]), tag: '文章' }));
+  })();
+if (!ITEMS.length) { console.error('❌ issue.json / 编辑日志里都没解析到篇目'); process.exit(2); }
 
 // ── 2. 原文头部元信息 ────────────────────────────────────────────────────
 function parseSource(slug) {
@@ -324,12 +346,14 @@ function conceptCards(md) {
 const articles = ITEMS.map((it, idx) => {
   const src = parseSource(it.slug);
   const m = cache[it.slug] || {};
-  const dim = JSON.parse(fs.readFileSync(path.join(SRC, '拆解五维', it.slug + '.json'), 'utf8'));
+  // 五维（学习编译层试点）是**可选**的：260913 期只做三产物，没有拆解五维 → dim = null，壳里那一栏不出现
+  const dimPath = path.join(SRC, '拆解五维', it.slug + '.json');
+  const dim = fs.existsSync(dimPath) ? JSON.parse(fs.readFileSync(dimPath, 'utf8')) : null;
   const notes = fs.readFileSync(path.join(SRC, '三级笔记', it.slug + '.md'), 'utf8');
   const concepts = fs.readFileSync(path.join(SRC, '概念辞典', it.slug + '.md'), 'utf8');
   const feyn = fs.readFileSync(path.join(SRC, 'AI费曼', it.slug + '.md'), 'utf8');
   return {
-    slug: it.slug, no: idx + 1, title: it.title, words: it.words,
+    slug: it.slug, no: idx + 1, title: it.title, words: it.words, tag: it.tag || '文章',
     url: src.url, author: src.author, summary: src.summary, fetched: src.fetched,
     topic: m.topic || '', stars: m.stars || 3, starReason: m.starReason || '', why: m.why || '',
     metaphor: m.metaphor || '', palette: m.palette || 'heather',
@@ -338,13 +362,13 @@ const articles = ITEMS.map((it, idx) => {
     notes: mdToHtml(notes),
     conceptCards: conceptCards(concepts),
     feynman: {
-      short: dim.feynman?.demo || '',
+      short: dim?.feynman?.demo || '',
       long: mdToHtml(feyn),
-      rubric: dim.feynman?.rubric || [],
+      rubric: dim?.feynman?.rubric || [],
     },
     /* 五维（学习编译层试点）：reading / decisions / experiments 各自留出口。
        选项覆盖层（evidence/neican-fivedim/<slug>.json）只补干扰项——正确项逐字取自资产。 */
-    dim: (() => {
+    dim: !dim ? null : (() => {
       const overlayPath = path.join(ROOT, 'evidence', 'neican-fivedim', it.slug + '.json');
       const overlay = fs.existsSync(overlayPath) ? JSON.parse(fs.readFileSync(overlayPath, 'utf8')) : null;
       const decisions = (dim.decisions || []).map((d, i) => {
@@ -356,7 +380,7 @@ const articles = ITEMS.map((it, idx) => {
       });
       const focusIdx = overlay?.focusConceptIndex ?? 0;
       return {
-        source: `knowledge/内参-260912/拆解五维/${it.slug}.json`,
+        source: `knowledge/内参-${ISSUE}/拆解五维/${it.slug}.json`,
         contentStatus: 'generated-unreviewed',
         concepts: dim.concepts || [],
         reading: dim.reading || null,
@@ -371,10 +395,19 @@ const articles = ITEMS.map((it, idx) => {
           const m = JSON.parse(fs.readFileSync(p, 'utf8'));
           return {
             concept: m.concept,
+            unit: m.unit?.slug || it.slug,
+            criteriaVersion: m.criteriaVersion || m.version || '',
+            sourceFile: m.unit?.sourceFile || null,
+            sourceSha256: m.unit?.sourceSha256 || null,
             criteria: (m.criteria || []).map((c) => ({
-              id: c.id, criterion: c.criterion, misconception: c.misconception,
+              id: c.id, criterion: c.criterion,
+              /* gradingRules 必须整段搬出来：B 层判定协议是「逐判据状态」，
+                 每一档（met/partial/missing/contradicted/uncertain）的定义是唯一判定口径。
+                 此前这一栏根本没进 payload → 页面就算想注入也拿不到（C 层真实请求也没用到）。 */
+              gradingRules: c.gradingRules || null,
+              misconception: c.misconception,
               teachingAction: c.teachingAction,
-              material: (c.material || []).map((x) => ({ ref: x.ref, label: x.label })),
+              material: (c.material || []).map((x) => ({ ref: x.ref, label: x.label, kind: x.kind, quote: x.quote })),
             })),
           };
         })(),
@@ -392,9 +425,11 @@ const articles = ITEMS.map((it, idx) => {
 });
 
 const payload = {
-  period: '260912', date: '2026-09-12', weekday: '星期六',
-  source: `今日 Readwise 精选 ${ITEMS.length + 1} 篇 → 处理 ${ITEMS.length} 篇，跳过 1 篇（The Information · Cloudflare 反爬）`,
-  pipeline: `原文快照 → 三级笔记 → 概念辞典 → AI 费曼示范 → 五维拆解 ｜ 模型 ${LLM_MODEL || '（未调用）'}`,
+  period: ISSUE,
+  date: ISSUE_META?.date || `${ISSUE.slice(0, 2)}${ISSUE.slice(2, 4)}-${ISSUE.slice(4, 6)}`.replace(/^(\d\d)(\d\d)-(\d\d)/, '20$1-$2-$3'),
+  weekday: ISSUE_META?.weekday || '',
+  source: ISSUE_META?.source || `Readwise 精选 → 处理 ${ITEMS.length} 篇`,
+  pipeline: `${ISSUE_META?.pipeline || '原文快照 → 三级笔记 → 概念辞典 → AI 费曼示范'}${articles.some((a) => a.dim) ? ' → 五维拆解' : ''} ｜ 模型 ${LLM_MODEL || '（未调用）'}`,
   generatedAt: new Date().toLocaleString('zh-CN', { hour12: false }),
   llmCalls: calls, tokens,
   articles,

@@ -30,7 +30,7 @@ __MOCK__.force(null)                               // 取消强制
 ## 怎么算通过（两条命令）
 
 ```sh
-node scripts/verify-mock.mjs          # 60 项：断言 mock 的键与真实代码读的键一致（不需要 serve）
+node scripts/verify-mock.mjs          # 59 项：断言 mock 的键与真实代码读的键一致（不需要 serve）
 node scripts/verify-mock-browser.mjs  # 11 项：真无头 Chrome，在 about:blank 上验证「真的接管了」
 ```
 

@@ -70,7 +70,7 @@ for (let i = 0; i < 3; i++) {
   if (i < 2) await ex('learnNext()');
 }
 await ex('learnNext()');
-record('费曼区已出现', await ex(`document.getElementById('learn-said')!==null`));
+record('章末验收区已出现（读中即时费曼另在 #learn-said）', await ex(`document.getElementById('learn-final-said')!==null`));
 await shotOf('#learn-fey', '55-学习空间-真模型走查-三题通过.png');
 
 /* 真实费曼判定：先漏点，再补齐 */
@@ -89,7 +89,7 @@ const FULL = await ex(`(()=>{const c=chapterById(learnCur);
     + '边界是：' + c.reading.boundary.items.join('；') + '。';})()`);
 
 async function submit(text) {
-  await ex(`document.getElementById('learn-said').value=${JSON.stringify(text)}`);
+  await ex(`document.getElementById('learn-final-said').value=${JSON.stringify(text)}`);
   await ex('learnSaidChanged(); learnFeynman()');
   for (let i = 0; i < 180; i++) {
     const st = await ex('stOf(learnCur).feynman');
@@ -109,7 +109,7 @@ const fullResult = await submit(FULL);
 record('费曼-补齐复述（真模型）', fullResult);
 await shotOf('#learn-fres', '57-学习空间-真模型走查-费曼通过.png');
 
-record('编辑复述后旧状态清除', await ex(`(()=>{const b=document.getElementById('learn-said'); b.value=b.value+' 再补一句。'; learnSaidChanged(); return stOf(learnCur).feynman+'|'+chapterUnlocked(1)})()`));
+record('编辑复述后旧状态清除', await ex(`(()=>{const b=document.getElementById('learn-final-said'); b.value=b.value+' 再补一句。'; learnSaidChanged(); return stOf(learnCur).feynman+'|'+chapterUnlocked(1)})()`));
 
 const requested = cdp.events.filter((e) => e.method === 'Network.requestWillBeSent').map((e) => e.params.request.url);
 const zhihu = requested.filter((u) => /zhihu/i.test(u));

@@ -36,9 +36,8 @@ sources: 1
 
 ## 相关
 
-- [[oppref]] · related-to（audit） — 「bzr 收事件上报」这条定义懂不懂 oppref 都成立，回传内容的具体格式不是理解域名的前提。
-- [[LLM 订阅错配（LLM Subscription Mispricing）]] · rejected（audit） — 域名事实本身不依赖订阅错配；错配只是解释 OpenAI 为何做广告，不是理解 bzrcdn/bzr 的前提。
 - [[single_advertiser_ad_unit]] · related-to（audit） — 域名角色的定义是「托管创意/SDK、收事件上报」，理解它不需要先懂 SSE 广告单元，只是同链条相关。
+- [[LLM 订阅错配（LLM Subscription Mispricing）]] · rejected（audit） — 域名事实本身不依赖订阅错配；错配只是解释 OpenAI 为何做广告，不是理解 bzrcdn/bzr 的前提。
 - [[Token 补贴缺口（Token Subsidy Gap）]] · related-to（audit） — 域名与 SDK 的归属和功能可独立看懂，补贴缺口只解释「为什么要有它」，属存在理由而非理解前提。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -55,6 +54,5 @@ sources: 1
 ## 反链
 
 - [[LLM 订阅错配（LLM Subscription Mispricing）]]
-- [[oppref]]
 - [[Token 补贴缺口（Token Subsidy Gap）]]
 - [[single_advertiser_ad_unit]]

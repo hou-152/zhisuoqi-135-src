@@ -55,7 +55,6 @@ sources: 1
 - Harness Engineering ｜ 《Anthropic 干脆把 harness 托管了：Claude Managed Agents 的设计取舍》 ｜ https://x.com/rlancemartin/status/2041927992986009773/?s=12
 ## 反链
 
-- [[Harness]]
 - [[Sandbox]]
 - [[Claude Managed Agents]]
 - [[Sandbox agents]]

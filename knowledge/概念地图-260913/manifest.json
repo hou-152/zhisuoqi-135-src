@@ -1,63 +1,63 @@
 {
  "version": "v1",
- "generatedAt": "2026-09-13T08:28:09.047Z",
+ "generatedAt": "2026-09-13T20:03:27.053Z",
  "name": "知所栖 135 · AI 时代怎么做事 概念地图",
  "sources": {
   "notion-概念库": {
    "raw": 509,
-   "nodes": 226,
+   "nodes": 222,
    "note": "用户 Notion 概念库（原始 509 条，只读；跨源合并后落到节点的 502 个）"
   },
   "context-engineering": {
    "raw": 358,
-   "nodes": 315,
+   "nodes": 314,
    "note": "飞书-Context-Engineering-26+2.md（28 篇）"
   },
   "harness-engineering": {
    "raw": 432,
-   "nodes": 373,
+   "nodes": 372,
    "note": "飞书-Harness-Engineering-28+2.md（30 篇）"
   },
   "neican-260912": {
    "raw": 88,
-   "nodes": 80,
+   "nodes": 149,
    "note": "AI 内参 260912 期 · 10 篇概念辞典（88 条；撞已有 8 条、新增 80 条，见 08-neican-merge.json）"
   }
  },
- "topics": 936,
- "dependencies": 604,
- "relations": 3406,
+ "topics": 999,
+ "dependencies": 632,
+ "relations": 3410,
  "clusters": 21,
  "byType": {
-  "CONCEPTUAL": 656,
-  "REPRESENTATIONAL": 121,
-  "LANGUAGE": 14,
+  "CONCEPTUAL": 715,
+  "REPRESENTATIONAL": 124,
+  "LANGUAGE": 16,
   "PROCEDURAL": 141,
-  "META": 4
+  "META": 3
  },
  "byStage": {
-  "now": 308,
-  "when-needed": 557,
-  "deep-dive": 71
+  "now": 331,
+  "when-needed": 595,
+  "deep-dive": 73
  },
  "byVerification": {
-  "judge": 519,
-  "use": 284,
+  "judge": 576,
+  "use": 287,
   "compute": 26,
-  "accept": 107
+  "accept": 110
  },
  "byOrigin": {
-  "contextOnly": 268,
-  "harnessOnly": 319,
-  "neicanOnly": 80,
-  "notionOnly": 213,
+  "contextOnly": 267,
+  "harnessOnly": 318,
+  "neicanOnly": 149,
+  "notionOnly": 209,
   "multi": 56
  },
  "checksums": {
-  "topics.json": "sha256:986cab2cefced1d220dd491a1331fe69279ce02d9d3321ce63a12829d9191d27",
-  "dependencies.json": "sha256:910217f57d22964bbcc893e838607705f0b980f5673903cad217e1a1321a7618",
-  "relations.json": "sha256:b78980e4eaa678f35d775dc7996103d9f2773d70c78ecef56320509733648519",
-  "clusters.json": "sha256:f6402b791d2651665a4b12bf1f647354f401c59d3a5a58738113fea08157ff4c"
+  "topics.json": "sha256:e2aa8f9af8e2bd088ff38690d702434e2a5e3bd234fffcf73d7636c6553b51d2",
+  "dependencies.json": "sha256:5c9952d8fc0d1e0a406e3ae1b14aec0c3c63f3dab5eec883d3b135b2dd88cf4a",
+  "relations.json": "sha256:1d838d8a1759d176ff5c7439ad50574e3a00f03aecb5f31a0871ea5aefed111c",
+  "clusters.json": "sha256:7791caa52d7fa75eaabf8177424c9d8f13137085f3ca8c5b9c7bfd3761d6bf41"
  },
  "license": "源材料为用户私人收藏（Notion 概念库 / AI 内参），本图仅供本项目内部使用，不对外再分发。"
 }

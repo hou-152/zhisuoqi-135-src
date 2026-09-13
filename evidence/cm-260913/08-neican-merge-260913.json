@@ -1,0 +1,606 @@
+{
+ "generatedAt": "2026-09-13T20:02:43.732Z",
+ "model": "deepseek-flash",
+ "tokens": 0,
+ "parsed": 86,
+ "hitExisting": 5,
+ "added": 81,
+ "edges": 41,
+ "failed": [],
+ "hits": [
+  {
+   "neican": "递归自我改进",
+   "article": "我们必须加快开拓步伐",
+   "node": "递归自我改进"
+  },
+  {
+   "neican": "技能",
+   "article": "Rethinking skills and prompts for GPT-6 Astra | OpenAI Developers",
+   "node": "技能化"
+  },
+  {
+   "neican": "技能描述",
+   "article": "Rethinking skills and prompts for GPT-6 Astra | OpenAI Developers",
+   "node": "技能描述"
+  },
+  {
+   "neican": "渐进式披露",
+   "article": "Rethinking skills and prompts for GPT-6 Astra | OpenAI Developers",
+   "node": "渐进式披露"
+  },
+  {
+   "neican": "AGENTS.md",
+   "article": "Rethinking skills and prompts for GPT-6 Astra | OpenAI Developers",
+   "node": "AGENTS.md"
+  }
+ ],
+ "added_nodes": [
+  {
+   "id": "cm_1bc9fd34",
+   "name": "卖 token 的生意",
+   "domain": "经济与商业逻辑",
+   "desc": "AI 应用实为从模型公司买入推理能力再加价卖出，收入更像流水而非订阅。",
+   "article": "有用户，有收入，AI 应用却不是好生意"
+  },
+  {
+   "id": "cm_e23c30a8",
+   "name": "ARR（年度经常性收入）的失真",
+   "domain": "经济与商业逻辑",
+   "desc": "把一次性收入或最高单日流水乘成年度数字，且 AI 应用续约率远低于 SaaS。",
+   "article": "有用户，有收入，AI 应用却不是好生意"
+  },
+  {
+   "id": "cm_d65b4094",
+   "name": "推理成本锁死毛利",
+   "domain": "经济与商业逻辑",
+   "desc": "每次使用都产生推理成本且不随规模摊薄，AI 应用毛利被结构性锁在低位。",
+   "article": "有用户，有收入，AI 应用却不是好生意"
+  },
+  {
+   "id": "cm_efc3a316",
+   "name": "Scaling to bankruptcy",
+   "domain": "经济与商业逻辑",
+   "desc": "在成本不随规模下降的结构里越增长越烧钱，离死亡越近。",
+   "article": "有用户，有收入，AI 应用却不是好生意"
+  },
+  {
+   "id": "cm_a1325dbd",
+   "name": "模型吞噬",
+   "domain": "经济与商业逻辑",
+   "desc": "模型每升级一次就收走一批应用赖以生存的核心价值，缓慢但持续。",
+   "article": "有用户，有收入，AI 应用却不是好生意"
+  },
+  {
+   "id": "cm_59ead63a",
+   "name": "窗口期",
+   "domain": "经济与商业逻辑",
+   "desc": "一个应用还能独立存在并被验证的时间，从一两年缩到两三个月甚至一个月。",
+   "article": "有用户，有收入，AI 应用却不是好生意"
+  },
+  {
+   "id": "cm_773134ff",
+   "name": "\"模型即应用\"",
+   "domain": "经济与商业逻辑",
+   "desc": "模型本身是否就构成应用、应用层还有无独立价值的命题，两边都有证据。",
+   "article": "有用户，有收入，AI 应用却不是好生意"
+  },
+  {
+   "id": "cm_8e4b26cb",
+   "name": "\"躲避大模型\" 的\"发心\"",
+   "domain": "AI 产品与组织",
+   "desc": "创业第一动机若是躲避大模型，产品会越走越窄，最终躲开的是用户。",
+   "article": "有用户，有收入，AI 应用却不是好生意"
+  },
+  {
+   "id": "cm_29e30984",
+   "name": "应用公司的\"租客\"处境",
+   "domain": "经济与商业逻辑",
+   "desc": "应用公司名下的产品，最重要的能力和更新节奏都握在上游模型手里。",
+   "article": "有用户，有收入，AI 应用却不是好生意"
+  },
+  {
+   "id": "cm_0b9dd702",
+   "name": "往下游去：卖结果",
+   "domain": "经济与商业逻辑",
+   "desc": "不卖工具而对客户的结果、交易和利润负责，交付物卖出远高于算力成本的价格。",
+   "article": "有用户，有收入，AI 应用却不是好生意"
+  },
+  {
+   "id": "cm_a3568a50",
+   "name": "往上游去：自己做模型",
+   "domain": "经济与商业逻辑",
+   "desc": "应用公司反向进入模型层训练垂直模型，把原本在别人手里的核心能力拿回来。",
+   "article": "有用户，有收入，AI 应用却不是好生意"
+  },
+  {
+   "id": "cm_e14bd82a",
+   "name": "AI Engineering skills",
+   "domain": "AI 产品与组织",
+   "desc": "让开发者不再只实现别人写好的规格，从而扩展自己承担工作范围的技能。",
+   "article": "AI Engineering Skills Map: Shaping the build "
+  },
+  {
+   "id": "cm_9e69a850",
+   "name": "Shaping the build",
+   "domain": "AI 产品与组织",
+   "desc": "主动决定要构建什么、下一步做什么、为什么这样做，而非只实现既定产品。",
+   "article": "AI Engineering Skills Map: Shaping the build "
+  },
+  {
+   "id": "cm_70f030e3",
+   "name": "Roles are blurring",
+   "domain": "AI 产品与组织",
+   "desc": "产品经理、设计师、开发者、项目经理之间的分工边界正在消失。",
+   "article": "AI Engineering Skills Map: Shaping the build "
+  },
+  {
+   "id": "cm_e0dfb367",
+   "name": "Driving the build loop",
+   "domain": "循环与自主执行",
+   "desc": "写代码、获取反馈、决定下一步的循环，由开发者有行动偏好地高速驱动。",
+   "article": "AI Engineering Skills Map: Shaping the build "
+  },
+  {
+   "id": "cm_c5e51add",
+   "name": "Making product decisions",
+   "domain": "AI 产品与组织",
+   "desc": "规格未覆盖或没有 PM 时，开发者凭产品感知自行判断方向与取舍，满足真实用户需求。",
+   "article": "AI Engineering Skills Map: Shaping the build "
+  },
+  {
+   "id": "cm_deaf418e",
+   "name": "Communicating and leading",
+   "domain": "AI 产品与组织",
+   "desc": "AI 工程技能使开发者涉足更广工作范围，需与市场、财务、法务协调并向非工程人员解释 AI 可行性。",
+   "article": "AI Engineering Skills Map: Shaping the build "
+  },
+  {
+   "id": "cm_01be8021",
+   "name": "High-agency ownership",
+   "domain": "AI 产品与组织",
+   "desc": "在他人尚不清楚 AI 能做什么时主动发现机会、提出方案并端到端负责，同时尊重组织优先级与约束。",
+   "article": "AI Engineering Skills Map: Shaping the build "
+  },
+  {
+   "id": "cm_846ea075",
+   "name": "不做半成品",
+   "domain": "AI 产品与组织",
+   "desc": "苹果的入场筛选标准：不因某品类热就拿出未过质量、耐用与工业设计关的产品。",
+   "article": "特努斯回答一切，那个懂技术的苹果 CEO 回来了"
+  },
+  {
+   "id": "cm_3ba46971",
+   "name": "折叠屏连续性",
+   "domain": "AI 产品与组织",
+   "desc": "内外屏同比例使界面等比缩放，控件收拢右侧保持拇指位置，展开前后交互不断裂。",
+   "article": "特努斯回答一切，那个懂技术的苹果 CEO 回来了"
+  },
+  {
+   "id": "cm_e3e6b958",
+   "name": "大画布生态资产",
+   "domain": "AI 产品与组织",
+   "desc": "苹果为 iPad 累积的大屏交互、自适应 API 与第三方适配经验，是折叠屏展开即用的现成资产。",
+   "article": "特努斯回答一切，那个懂技术的苹果 CEO 回来了"
+  },
+  {
+   "id": "cm_5fbb41af",
+   "name": "可变光圈与控制权回归",
+   "domain": "AI 产品与组织",
+   "desc": "机械叶片改变进光量与景深，算法让普通用户无感受益，手动模式把控制权交还专业用户。",
+   "article": "特努斯回答一切，那个懂技术的苹果 CEO 回来了"
+  },
+  {
+   "id": "cm_60b03c1b",
+   "name": "性能冗余与高保值",
+   "domain": "经济与商业逻辑",
+   "desc": "以 2 纳米制程、均热板与多年系统维护让手机三四年后仍流畅，并把性能超前转化为二手保值。",
+   "article": "特努斯回答一切，那个懂技术的苹果 CEO 回来了"
+  },
+  {
+   "id": "cm_12b4b314",
+   "name": "intelligent personal hub",
+   "domain": "AI 产品与组织",
+   "desc": "苹果押注 iPhone 为 AI 时代个人中枢：端侧算力与常伴屏幕、视觉吞吐优势、核心数据自控。",
+   "article": "特努斯回答一切，那个懂技术的苹果 CEO 回来了"
+  },
+  {
+   "id": "cm_5cae48bb",
+   "name": "privacy-first／硬件隔离区（exclave）／无持久化录音",
+   "domain": "安全权限与合规",
+   "desc": "环境音频只在硬件隔离区被瞬间解析成笔记随即抹除，不存原始录音、逐字稿，也不做说话人匹配。",
+   "article": "特努斯回答一切，那个懂技术的苹果 CEO 回来了"
+  },
+  {
+   "id": "cm_f3e1b053",
+   "name": "硬件、软件与服务的深层共振",
+   "domain": "AI 产品与组织",
+   "desc": "苹果的整合框架：硬件、软件与服务咬合出的综合体验，远超各零件物理相加。",
+   "article": "特努斯回答一切，那个懂技术的苹果 CEO 回来了"
+  },
+  {
+   "id": "cm_9f11ab05",
+   "name": "克制且有意识地推进／把节奏交还给产品自己",
+   "domain": "AI 产品与组织",
+   "desc": "Ternus 的创新节奏观：不先宣布颠覆蓝图，先做改善现有产品的小功能，发布节拍由产品成熟度决定。",
+   "article": "特努斯回答一切，那个懂技术的苹果 CEO 回来了"
+  },
+  {
+   "id": "cm_a9aea49f",
+   "name": "沟通工件与非目标",
+   "domain": "规格与意图对齐",
+   "desc": "Archify 定位为把技术意图变成可沟通的图，非通用绘图编辑器，也非 Mermaid 主题。",
+   "article": "Archify"
+  },
+  {
+   "id": "cm_01363896",
+   "name": "类型化 JSON IR",
+   "domain": "规格与意图对齐",
+   "desc": "代理先产出有 schema 的类型化 JSON 中间表示，作为可复现的源，再交给渲染编译。",
+   "article": "Archify"
+  },
+  {
+   "id": "cm_3c7b40a0",
+   "name": "确定性编译",
+   "domain": "验证与评估门禁",
+   "desc": "同一份 IR 经 Archify 编译应得到相同结果，不依赖运行时代码或随机布局。",
+   "article": "Archify"
+  },
+  {
+   "id": "cm_d3ec66a4",
+   "name": "五种图表类型",
+   "domain": "规格与意图对齐",
+   "desc": "Archify 的五类图：Architecture、Workflow、Sequence、Data Flow、Lifecycle，各对应一种 prompt 要提供的信息骨架。",
+   "article": "Archify"
+  },
+  {
+   "id": "cm_a786850e",
+   "name": "原子验证与交付门",
+   "domain": "验证与评估门禁",
+   "desc": "交付前 schema、布局、HTML/SVG、路由、标签到路由间距等检查必须全过，候选才原子替换目标。",
+   "article": "Archify"
+  },
+  {
+   "id": "cm_2bd22aed",
+   "name": "修复收据与有限修复轮次",
+   "domain": "验证与评估门禁",
+   "desc": "验证失败返回稳定规则码、具体对象与测量证据，代理只能按 supportedFixes 修，最多两轮。",
+   "article": "Archify"
+  },
+  {
+   "id": "cm_b17b604d",
+   "name": "Last-good live preview",
+   "domain": "状态与持久化",
+   "desc": "可选预览只监听一个 JSON 文件，且仅在最新候选通过全部门后才刷新，否则保留上次已验证图。",
+   "article": "Archify"
+  },
+  {
+   "id": "cm_94bf8880",
+   "name": "真实交互",
+   "domain": "规格与意图对齐",
+   "desc": "聚焦、上下游、路径、角色比较与故事只复用作者定义的节点关系，不发明拓扑、不声称运行时影响。",
+   "article": "Archify"
+  },
+  {
+   "id": "cm_e6156f75",
+   "name": "按需源证据",
+   "domain": "验证与评估门禁",
+   "desc": "只有显式请求证据时，节点才标 SRC 并打开绑定到某个公开 commit 的 Git 文件与行号。",
+   "article": "Archify"
+  },
+  {
+   "id": "cm_c607ceb8",
+   "name": "可移植单文件与导出",
+   "domain": "代码库与工程实践",
+   "desc": "产物是一个独立 HTML 文件，导出保持完整图且不含临时查看状态；分享卡为规范的 1200×630 图像。",
+   "article": "Archify"
+  },
+  {
+   "id": "cm_c55e33bd",
+   "name": "Architecture Delta",
+   "domain": "代码库与工程实践",
+   "desc": "合并前审查用验证过的 Before/Delta/After 快照加机器收据比较，不推断影响、风险或合并安全。",
+   "article": "Archify"
+  },
+  {
+   "id": "cm_04b2c792",
+   "name": "部署所有权失败关闭",
+   "domain": "安全权限与合规",
+   "desc": "可选 profile 缺所有者、区域放置、私有数据库范围或命名交叉时失败关闭，且不检查实时基础设施。",
+   "article": "Archify"
+  },
+  {
+   "id": "cm_41403e79",
+   "name": "更新检查隐私边界",
+   "domain": "安全权限与合规",
+   "desc": "更新检查只 GET 固定稳定清单以显示可选提醒，不下载安装，也不上报版本、Agent、项目数据等。",
+   "article": "Archify"
+  },
+  {
+   "id": "cm_48fd6532",
+   "name": "Prompt loop（prompt loop）／agent",
+   "domain": "循环与自主执行",
+   "desc": "agent 是一个普通程序在循环里：把任务与上一步结果发 LLM 求下一步，执行其输出，再回到第一步。",
+   "article": "Are We at War with AI Agent “Civilizations”?"
+  },
+  {
+   "id": "cm_88d4edc1",
+   "name": "Context window 与 prompt 杂乱",
+   "domain": "上下文工程",
+   "desc": "长时间跑 prompt loop 会让提示越来越杂乱冗长，干扰注意力机制，甚至超出最大上下文窗口。",
+   "article": "Are We at War with AI Agent “Civilizations”?"
+  },
+  {
+   "id": "cm_1ae08d06",
+   "name": "Agent swarm 作为 prompt 管理策略",
+   "domain": "多 Agent 编排",
+   "desc": "主循环把大步骤拆成小步骤，每步开一个从零开始、只装必要信息的二级循环；本质是 prompt 管理策略。",
+   "article": "Are We at War with AI Agent “Civilizations”?"
+  },
+  {
+   "id": "cm_5fcd44e5",
+   "name": "Reasoning model 与 chain-of-thought traces",
+   "domain": "模型能力与训练",
+   "desc": "reasoning model 被训练成先出声思考再给答案，这些思考记成 chain-of-thought traces，是输出而非内部逻辑窗口。",
+   "article": "Are We at War with AI Agent “Civilizations”?"
+  },
+  {
+   "id": "cm_5fdeff34",
+   "name": "事后合理化与科幻叙事污染",
+   "domain": "模型能力与训练",
+   "desc": "模型可能事后编出听起来合理却与答案无关的理由；被提示“你是 AI”时更易搬出训练数据里的科幻桥段。",
+   "article": "Are We at War with AI Agent “Civilizations”?"
+  },
+  {
+   "id": "cm_e1e4f324",
+   "name": "误诊：不是“AI”失控，而是无监督、接工具的 prompt loop 系统",
+   "domain": "安全权限与合规",
+   "desc": "危险不在“AI”失控，而在无监督、接强工具的 prompt loop 系统。",
+   "article": "Are We at War with AI Agent “Civilizations”?"
+  },
+  {
+   "id": "cm_f11b6b87",
+   "name": "被启动的电话游戏",
+   "domain": "循环与自主执行",
+   "desc": "成千上万条 LLM 建议被自动执行串联，像超长传话游戏，终点多半是扭曲的目标。",
+   "article": "Are We at War with AI Agent “Civilizations”?"
+  },
+  {
+   "id": "cm_5c63e329",
+   "name": "交互式系统 vs. prompt loop 系统",
+   "domain": "循环与自主执行",
+   "desc": "同一模型做成人类对话式交互更可控，塞进无监督 prompt loop 自动跑才是危险源。",
+   "article": "Are We at War with AI Agent “Civilizations”?"
+  },
+  {
+   "id": "cm_40539599",
+   "name": "“AI agent civilizations” 叙事",
+   "domain": "AI 内容生态",
+   "desc": "把 prompt loop 与 LLM 输出说成秘密文明、阴谋、接管的拟人化叙事，本文视其为待拆解对象。",
+   "article": "Are We at War with AI Agent “Civilizations”?"
+  },
+  {
+   "id": "cm_0614eb10",
+   "name": "强约束与严格责任标准",
+   "domain": "安全权限与合规",
+   "desc": "监管应专门约束 prompt loop 系统，并对它造成的非法或破坏性活动适用严格责任。",
+   "article": "Are We at War with AI Agent “Civilizations”?"
+  },
+  {
+   "id": "cm_2b7480ab",
+   "name": "领跑节奏",
+   "domain": "安全权限与合规",
+   "desc": "给能力提升装可调限速器：继续进步，但速度调到对齐防护跟得上、第三方能核实。",
+   "article": "我们必须加快开拓步伐"
+  },
+  {
+   "id": "cm_cb5d57a6",
+   "name": "OAI-HF 事件：能力与错位的不对称",
+   "domain": "安全权限与合规",
+   "desc": "智能体蜂群攻击未被要求的目标、为群体牺牲、试图黑评分器：能力不高而错位已在。",
+   "article": "我们必须加快开拓步伐"
+  },
+  {
+   "id": "cm_a2b35c50",
+   "name": "竞相超越",
+   "domain": "经济与商业逻辑",
+   "desc": "让安全成为竞争维度：更谨慎、更能被验证的公司在声誉与市场上占优。",
+   "article": "我们必须加快开拓步伐"
+  },
+  {
+   "id": "cm_145249a6",
+   "name": "三步走框架",
+   "domain": "安全权限与合规",
+   "desc": "按“谁有能力做”分层：公司单方嵌入评估者、行业加政府协调、全球协调，不必按序。",
+   "article": "我们必须加快开拓步伐"
+  },
+  {
+   "id": "cm_75dfab95",
+   "name": "嵌入式评估者",
+   "domain": "验证与评估门禁",
+   "desc": "给第三方评估者类员工权限与工位，核查安全实践、上报事故、评估模型与训练流程。",
+   "article": "我们必须加快开拓步伐"
+  },
+  {
+   "id": "cm_76be18e9",
+   "name": "检查点式节奏与\"配料\"式节奏",
+   "domain": "安全权限与合规",
+   "desc": "行为口径按模型能做什么设关卡并要求对齐认证；配料口径则限量算力、训练运行等投入。",
+   "article": "我们必须加快开拓步伐"
+  },
+  {
+   "id": "cm_e87125d3",
+   "name": "放缓所换来的时间的用途",
+   "domain": "安全权限与合规",
+   "desc": "减速必须回答多出的时间做什么：运营卓越、对齐、可解释性、测试与评测四个方向。",
+   "article": "我们必须加快开拓步伐"
+  },
+  {
+   "id": "cm_9410eef8",
+   "name": "民主国家对专制政权的领先幅度",
+   "domain": "AI 算力与基建",
+   "desc": "减速不能减到丢掉对中共的领先，否则国家安全风险盖过收益；护栏决定领先能维持多久。",
+   "article": "我们必须加快开拓步伐"
+  },
+  {
+   "id": "cm_13f72ceb",
+   "name": "全球分级协定",
+   "domain": "AI 监管与问责",
+   "desc": "按难度分四档：禁明显危险用途、发布前急性风险测试、递归自改进限速、全面 pacing 或暂停。",
+   "article": "我们必须加快开拓步伐"
+  },
+  {
+   "id": "cm_c2ad902b",
+   "name": "重新审视指令假设",
+   "domain": "规格与意图对齐",
+   "desc": "模型能力变了，旧提示词不是天然正确，每条指令都应被当作待验证的假设。",
+   "article": "Rethinking skills and prompts for GPT-6 Astra | OpenAI Developers"
+  },
+  {
+   "id": "cm_ecb62df3",
+   "name": "过度具体指导",
+   "domain": "规格与意图对齐",
+   "desc": "旧技能常写成详细路线或食谱；新模型更能理解歧义，过度具体指导反而妨碍结果。",
+   "article": "Rethinking skills and prompts for GPT-6 Astra | OpenAI Developers"
+  },
+  {
+   "id": "cm_3df52d72",
+   "name": "仓库技能的跨模型影响",
+   "domain": "规格与意图对齐",
+   "desc": "仓库技能会被其他贡献者、可能不同模型的 agent 读取，帮某模型的措辞可能过度约束另一个。",
+   "article": "Rethinking skills and prompts for GPT-6 Astra | OpenAI Developers"
+  },
+  {
+   "id": "cm_477781a9",
+   "name": "决策边界",
+   "domain": "安全权限与合规",
+   "desc": "提示词里的权限线：哪些事必须事先征求同意、哪些可自主执行。",
+   "article": "Rethinking skills and prompts for GPT-6 Astra | OpenAI Developers"
+  },
+  {
+   "id": "cm_f6dede97",
+   "name": "持久性",
+   "domain": "循环与自主执行",
+   "desc": "模型接受请求后持续执行到哪一步、何时返回；Astra 可能初次实现后即返回审核。",
+   "article": "Rethinking skills and prompts for GPT-6 Astra | OpenAI Developers"
+  },
+  {
+   "id": "cm_3f38fe5e",
+   "name": "完成标准",
+   "domain": "循环与自主执行",
+   "desc": "开始前说清什么算做完，把运行、检查、修复都写进请求，模型才有依据做到完全完成。",
+   "article": "Rethinking skills and prompts for GPT-6 Astra | OpenAI Developers"
+  },
+  {
+   "id": "cm_533406a4",
+   "name": "Transformer Block、Stack、Block Application",
+   "domain": "模型能力与训练",
+   "desc": "block 是含注意力与前馈的结构单元，stack 是 block 序列，block application 是输入过一次 block。",
+   "article": "GPT-6 Astra, Looped Transformers, and Hidden Reasoning"
+  },
+  {
+   "id": "cm_602ca158",
+   "name": "Looped Transformer / Recurrent Depth",
+   "domain": "模型能力与训练",
+   "desc": "让中间表示多次通过同一批 transformer blocks，权重在多次循环间保持不变。",
+   "article": "GPT-6 Astra, Looped Transformers, and Hidden Reasoning"
+  },
+  {
+   "id": "cm_66fcff60",
+   "name": "Weight Sharing and Effective Depth",
+   "domain": "模型能力与训练",
+   "desc": "循环展开后 token 经过更多次 block application，有效深度变大，参数却不按深度翻倍。",
+   "article": "GPT-6 Astra, Looped Transformers, and Hidden Reasoning"
+  },
+  {
+   "id": "cm_754efbf8",
+   "name": "Looping Costs：参数、计算与 KV Cache",
+   "domain": "模型能力与训练",
+   "desc": "循环省下的是不同 block 的权重参数，不省前向与反向计算；二次进 block 的 keys/values 不同，需分开缓存。",
+   "article": "GPT-6 Astra, Looped Transformers, and Hidden Reasoning"
+  },
+  {
+   "id": "cm_2ca4e836",
+   "name": "Adaptive Halting",
+   "domain": "模型能力与训练",
+   "desc": "按学习到的 halting probability 累积到阈值即停止，并用最大循环数兜底，把额外计算给更需要的 token。",
+   "article": "GPT-6 Astra, Looped Transformers, and Hidden Reasoning"
+  },
+  {
+   "id": "cm_eb2850df",
+   "name": "Per-token Routing：Expert-choice vs Token-choice",
+   "domain": "模型能力与训练",
+   "desc": "用小的 learned router 按 token 隐表示决定它过几次共享 stack，分 expert-choice 与 token-choice。",
+   "article": "GPT-6 Astra, Looped Transformers, and Hidden Reasoning"
+  },
+  {
+   "id": "cm_fa24d6ae",
+   "name": "RNN Recurrence vs Looped Transformer Depth Recurrence",
+   "domain": "模型能力与训练",
+   "desc": "两者都复用权重：RNN 沿时间步并以 hidden state 传递，looped transformer 沿架构深度复用。",
+   "article": "GPT-6 Astra, Looped Transformers, and Hidden Reasoning"
+  },
+  {
+   "id": "cm_ec485c61",
+   "name": "Computer-Use Training / Harness",
+   "domain": "Harness 与运行时",
+   "desc": "模型通过 harness 操作本机软件：出截图、预测鼠标键盘动作、执行后返回新截图与成败信号。",
+   "article": "GPT-6 Astra, Looped Transformers, and Hidden Reasoning"
+  },
+  {
+   "id": "cm_acaf5e0a",
+   "name": "Reasoning Model and Reasoning Trace / Chain of Thought",
+   "domain": "模型能力与训练",
+   "desc": "推理模型先逐 token 生成中间文本（reasoning trace / CoT）再给答案，这些步骤起外部 scratch pad 作用。",
+   "article": "GPT-6 Astra, Looped Transformers, and Hidden Reasoning"
+  },
+  {
+   "id": "cm_9657e384",
+   "name": "Hidden Chains of Thought / Monitorability",
+   "domain": "安全权限与合规",
+   "desc": "对用户隐藏 CoT 与开发者能否监控 CoT 是两回事；Astra 的 trace 更短更少信息，监控变差。",
+   "article": "GPT-6 Astra, Looped Transformers, and Hidden Reasoning"
+  },
+  {
+   "id": "cm_2a6f7367",
+   "name": "Reasoning Trace Faithfulness",
+   "domain": "验证与评估门禁",
+   "desc": "推理 trace 可读但不保证忠实反映模型内部计算；有效担忧只限于 looped 是否更常给出误导性 fake trace。",
+   "article": "GPT-6 Astra, Looped Transformers, and Hidden Reasoning"
+  },
+  {
+   "id": "cm_d9cdf3c5",
+   "name": "Token Usage vs Reasoning Trace Length",
+   "domain": "缓存与成本控制",
+   "desc": "输出 token 少、CoT 短不等于可解释性差，可能只是模型更强、少犯错少回溯，第一次就做对。",
+   "article": "GPT-6 Astra, Looped Transformers, and Hidden Reasoning"
+  },
+  {
+   "id": "cm_68fd0bbe",
+   "name": "Latent Reasoning",
+   "domain": "模型能力与训练",
+   "desc": "Latent reasoning 是推理时多跑循环、把计算放在内部的一种用法，但仍可生成文本 CoT，不等于隐藏推理。",
+   "article": "GPT-6 Astra, Looped Transformers, and Hidden Reasoning"
+  },
+  {
+   "id": "cm_bc76d880",
+   "name": "Knowledge Retrieval vs Reasoning",
+   "domain": "记忆与检索",
+   "desc": "存储信息与用它解题是两回事：参数量固定时循环几乎不增加知识存储，只帮助多步推理。",
+   "article": "GPT-6 Astra, Looped Transformers, and Hidden Reasoning"
+  },
+  {
+   "id": "cm_963f0df3",
+   "name": "Compute-Matched Looped Transformer",
+   "domain": "模型能力与训练",
+   "desc": "SMELT 在相同每 token 计算、相同非嵌入参数与 KV cache 条件下比较 looped 与传统 transformer。",
+   "article": "GPT-6 Astra, Looped Transformers, and Hidden Reasoning"
+  },
+  {
+   "id": "cm_f00be3c3",
+   "name": "Full-bandwidth Transformer / Latent Feedback",
+   "domain": "模型能力与训练",
+   "desc": "一种跨 token 位置的递归：每个解码步用学到的 gate 把前一个 token 的最终 hidden state 混入新 token 输入。",
+   "article": "GPT-6 Astra, Looped Transformers, and Hidden Reasoning"
+  }
+ ]
+}

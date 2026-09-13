@@ -41,12 +41,12 @@ sources: 1
 - [[「扔掉 DAG」的承诺]] · 同篇出现（co-occurrence） — 同篇出现：context-06
 - [[agent 循环]] · 同篇出现（co-occurrence） — 同篇出现：context-06
 - [[context window 即 agent 状态]] · 同篇出现（co-occurrence） — 同篇出现：context-06
+- [[80% 质量墙]] · 同篇出现（co-occurrence） — 同篇出现：context-06
 - [[框架反向工程]] · 同篇出现（co-occurrence） — 同篇出现：context-06
 - [[小而模块化的概念]] · 同篇出现（co-occurrence） — 同篇出现：context-06
 - [[所有权原则]] · 同篇出现（co-occurrence） — 同篇出现：context-06
 - [[工具即结构化输出]] · 同篇出现（co-occurrence） — 同篇出现：context-06
 - [[用工具调用联系人类]] · 同篇出现（co-occurrence） — 同篇出现：context-06
-- [[80% 质量墙]] · 同篇出现（co-occurrence） — 同篇出现：context-06
 - [[统一执行状态与业务状态]] · 同篇出现（co-occurrence） — 同篇出现：context-06
 - [[Agentic Engineering]] · related-to（audit） — 12-factor agents 是可独立取用的具体纲领，属于 Agentic Engineering 的一个实例，不懂上位术语也能读懂 12 条；实例化不等于依赖
 - [[「并不 agentic」的 AI Agent]] · 同篇出现（co-occurrence） — 同篇出现：context-06

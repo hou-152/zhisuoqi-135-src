@@ -47,6 +47,7 @@ sources: 2
 ## 相关
 
 - [[step ID 自动索引]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
+- [[事件驱动编排与执行解耦]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[普遍可触发 universally triggered]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[子 agent 与 step.invoke()]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[两级上下文剪枝 pruning]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
@@ -54,9 +55,7 @@ sources: 2
 - [[steering]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[step]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[think → act → observe 循环]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
-- [[事件驱动编排与执行解耦]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[webhook transform 与 connect()]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
-- [[小函数组合]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[压缩（compaction）与运行内外的分工]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[基础设施问题，不是 AI 问题]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[Sandbox]] · 常一起用（工作流） — Sandbox 与 Durable Execution 配合，让环境失效后仍能从检查点恢复。
@@ -84,7 +83,6 @@ sources: 2
 - [[子 agent 与 step.invoke()]]
 - [[Agent loop]]
 - [[Stateful Runtime Environment (SRE)]]
-- [[事件驱动编排与执行解耦]]
 - [[统一执行状态与业务状态]]
 - [[压缩（compaction）与运行内外的分工]]
 - [[Git-backed state]]
@@ -95,7 +93,7 @@ sources: 2
 - [[基础设施问题，不是 AI 问题]]
 - [[两级上下文剪枝 pruning]]
 - [[普遍可触发 universally triggered]]
-- [[小函数组合]]
+- [[事件驱动编排与执行解耦]]
 - [[预算警告与溢出恢复]]
 - [[Agents SDK]]
 - [[steering]]

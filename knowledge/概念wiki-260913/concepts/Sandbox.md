@@ -49,9 +49,9 @@ sources: 2
 - [[harness–compute separation]] · 常一起用（运行时组成） — 沙箱承担被隔离的计算侧，是该分层模式的执行端。
 - [[Guardrails]] · 对照（概念边界） — Sandbox 遏制后果，Guardrails 检查并尝试阻断路径。
 - [[Agents SDK]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
-- [[Agent = Model + Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
 - [[持久化执行 durable execution]] · 常一起用（工作流） — Sandbox 与 Durable Execution 配合，让环境失效后仍能从检查点恢复。
 - [[持久化执行 durable execution]] · 常一起用 — 状态外置和检查点让运行在沙箱失效后仍可恢复。
+- [[Agent = Model + Harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
 - [[model-native harness]] · 同篇出现（co-occurrence） — 同篇出现：harness-11
 - [[验证闭环 verification loop]] · 常一起用（运行时组成） — Sandbox 为 Verification Loop 提供安全执行、日志、截图与测试环境。
 - [[Harness 工程 Harness Engineering]] · 同篇出现（co-occurrence） — 同篇出现：harness-02

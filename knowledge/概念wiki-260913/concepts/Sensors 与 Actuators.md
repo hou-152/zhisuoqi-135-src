@@ -63,7 +63,6 @@ sources: 1
 - [[Manus 收购叫停事件]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[死亡地带]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[机会成本]] · 同篇出现（co-occurrence） — 同篇出现：notion
-- [[给事物命名]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Ghosts, Not Animals]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[CISPO]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agentic Tools]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -73,6 +72,7 @@ sources: 1
 - [[Engram]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[llms-full.txt]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[ARC-AGI-3]] · 同篇出现（co-occurrence） — 同篇出现：notion
+- [[开源 vs 闭源]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Simulated Competence]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[AgentCore]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Hyperscaler]] · 同篇出现（co-occurrence） — 同篇出现：notion

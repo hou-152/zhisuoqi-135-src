@@ -13,10 +13,11 @@ function endpoint(base) {
  * The return value is intentionally response-shaped rather than throwing for
  * HTTP failures, so each caller can retain its existing error text and exit
  * behavior. `raw` is kept because some callers include the upstream body in
- * diagnostics.
+ * diagnostics. `signal` is passed straight through, so a caller can impose its
+ * own timeout without this module choosing a retry or fallback policy.
  */
 export async function chatCompletion({ base, key, model, messages, json = false, maxTokens, temperature = 0,
-  errorBodyFallback = false }) {
+  errorBodyFallback = false, signal }) {
   const payload = { model, messages, temperature };
   if (maxTokens !== undefined) payload.max_tokens = maxTokens;
   if (json) payload.response_format = { type: 'json_object' };
@@ -25,6 +26,7 @@ export async function chatCompletion({ base, key, model, messages, json = false,
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${key}` },
     body: JSON.stringify(payload),
+    ...(signal ? { signal } : {}),
   });
 
   if (!response.ok) {

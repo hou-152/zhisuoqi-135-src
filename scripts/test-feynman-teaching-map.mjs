@@ -32,6 +32,8 @@ check('每条判据的判据原文逐字来自源资产', criteria.every((c) => 
   return c.criterionQuote && all.includes(c.criterionQuote);
 }));
 check('每条判据都有误解（≥8 字）与教学动作（≥8 字）', criteria.every((c) => (c.misconception || '').length >= 8 && (c.teachingAction || '').length >= 8));
+check('每条判据都有成立条件（§4.3：稳定 ID／成立条件／常见误解）', criteria.every((c) => (c.condition || '').length >= 8));
+check('成立条件与 met 档同口径，不是另加一档', criteria.every((c) => !/\b(pass|fail)\b/.test(c.condition) && typeof c.gradingRules.met === 'string'));
 check('教学动作不是「再讲一遍」占位', criteria.every((c) => !/^(再讲一遍|重新讲一遍|再看看)/.test(c.teachingAction)));
 check('每条判据都有 ≥1 条材料指针', criteria.every((c) => (c.material || []).length >= 1));
 check('材料类型覆盖 reading／decision／experiment', new Set(criteria.flatMap((c) => c.material.map((m) => m.kind))).size >= 3);
@@ -80,6 +82,16 @@ check('完全无关的复述 → 也全部算漏（不会误判为说到）', of
 const wrongId = plan(['C99'], criteria);
 check('给不存在的判据编号 → 明确报错，不当成通过', wrongId.length === 1 && !!wrongId[0].error);
 
+/* ⑤b §8A 第 1 行「明确说没读懂／说不清」：确定性诊断按缺口处理——不当通过，也不当成「无缺口」。
+   预期（含该行的教学动作预期）写在 scripts/diag-feynman-real.mjs 的固定答案集里，与实测分开落盘。 */
+const noRead = diagnose('这一段我没读懂，也说不清——技能到底是怎么加载进上下文的？', criteria);
+check('§8A「没读懂」行：不给任何判据记「说到」', noRead.covered.length === 0, noRead.covered.join(','));
+check('§8A「没读懂」行：按缺口展开教学动作（不是判通过、也不是空缺口）', plan(noRead.missing, criteria).length === criteria.length && noRead.missing.length === criteria.length);
+const diagSrc = fs.readFileSync(path.join(ROOT2, 'scripts', 'diag-feynman-real.mjs'), 'utf8');
+const fixedB = [...diagSrc.matchAll(/id: '([AB]\d-[^']+)'/g)].map((m) => m[1]);
+check('§8A 合成输入固定答案集：A 组 4 条 ＋ B 组 7 条 = 11 组，含「明确说没读懂」', answers.length === 4 && fixedB.length === 7 && fixedB.includes('B7-明确说没读懂'), `A ${answers.length} / B ${fixedB.length}：${fixedB.join(',')}`);
+check('§8A「没读懂」行的预期与实测分开写（diag 记录含 expected／observed 两段）', /expected: \{ missing: expectMissing/.test(diagSrc) && /observed: \{ missing: gotMissing/.test(diagSrc));
+
 
 /* ⑥ Issue 2 · A 层：四判据 16 种缺口组合（预期独立写明，不由被测函数生成） */
 const SUBSETS = [
@@ -101,6 +113,8 @@ check('只缺 C2 与只缺 C3：动作不同', onlyC2.teachingAction !== onlyC3.
 check('只缺 C2 与只缺 C3：材料不同', sig(onlyC2.material.map((m) => m.ref)) !== sig(onlyC3.material.map((m) => m.ref)));
 check('只缺 C2 回指「存着 vs 已加载」的机制材料（不要求实测）', onlyC2.material.some((m) => m.ref === 'reading.ladder[1]'));
 check('C2 的评分规则写明了 met／partial／missing／contradicted／uncertain', ['met','partial','missing','contradicted','uncertain'].every((k) => criteria.find((c) => c.id === 'C2').gradingRules[k]));
+check('C1/C3/C4 也各写全五档评分规则（判定不再回落到通用口径）', criteria.every((c) => ['met','partial','missing','contradicted','uncertain'].every((k) => (c.gradingRules || {})[k] && String(c.gradingRules[k]).length >= 6)));
+check('五档定义逐条不同（不是同一句话复制五遍）', criteria.every((c) => new Set(['met','partial','missing','contradicted','uncertain'].map((k) => c.gradingRules[k])).size === 5));
 check('uncertain 不套用已确认误解的纠错动作', plan(['C2'], criteria, { C2: 'uncertain' })[0].clarify.kind === 'clarify' && !plan(['C2'], criteria, { C2: 'uncertain' })[0].misconception);
 check('只缺 C3 回指脚本/输出实验', onlyC3.material.some((m) => m.ref === 'experiments[2]'));
 check('判据绑定单元与判据版本', criteria.every((c) => c.unit === map.unit.slug && c.criteriaVersion === map.criteriaVersion));
