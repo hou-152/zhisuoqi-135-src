@@ -49,25 +49,10 @@ button{font-family:inherit}
 .r-item b{font-weight:450;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .r-item i{font-style:normal;font-size:11px;color:var(--fg4);white-space:nowrap}
 .r-item.on i{color:var(--fg3)}
-.r-lines{overflow:auto;min-height:0;flex:1 1 auto;scrollbar-width:none;display:flex;
-  flex-direction:column;gap:1px;margin-top:10px}   /* 减法后原本由 .r-sec 撑开的间距，改由这里给 */
-.r-lines::-webkit-scrollbar{display:none}
-.lrow{display:flex;align-items:center;gap:8px;height:26px;padding:0 8px;border-radius:5px;
-  cursor:pointer;color:var(--fg3);font-size:12px}
-.lrow:hover{background:#161719;color:var(--fg2)}
-.lrow.off{opacity:.32}
-.lrow .n{margin-left:auto;font-size:10.5px;color:var(--fg4);font-variant-numeric:tabular-nums}
-#myrow{font-size:11px;color:var(--fg4);display:flex;gap:9px;flex-wrap:wrap;align-items:center}
-#myrow .n{margin-left:2px;color:var(--fg3)}
-#myrow>span{display:inline-flex;align-items:center;gap:4px}
-#myrow .dot{display:inline-block;width:6px;height:6px;border-radius:50%;flex:0 0 6px}
-.r-foot{margin-top:8px;padding-top:8px;border-top:1px solid var(--line);display:flex;
-  align-items:center;gap:6px;color:var(--fg4);font-size:11.5px}
-.r-foot .spacer{flex:1}
 
 /* 列表栏 */
-#list{background:var(--panel2);border-right:1px solid var(--line);display:flex;
-  flex-direction:column;min-height:0;min-width:0}
+#list{background:var(--panel2);border-right:1px solid var(--line);
+  display:flex;flex-direction:column;min-height:0;min-width:0}
 .lp-head{display:flex;align-items:center;gap:8px;height:44px;padding:0 12px 0 14px;
   border-bottom:1px solid var(--line);flex:0 0 44px}
 .lp-head b{font-size:13px;font-weight:550}
@@ -97,6 +82,9 @@ button{font-family:inherit}
 #main.pinned #hero-mini{max-width:290px}
 #c{position:absolute;inset:0;display:block;cursor:grab;touch-action:none;transition:right .14s}
 #c.drag{cursor:grabbing}
+/* tab 板（图谱 / 星球）：**知识体系这个页面内的视图切换**，长在主区顶部。
+   09-13 曾提到三栏之上当全局顶栏，所有者 04:0x 改口：「它不应该在顶栏，
+   而是它在知识体系下面的那个 tab」——层级归位，位置回主区。 */
 .mtools{position:absolute;top:0;left:0;right:0;height:44px;display:flex;align-items:center;
   gap:6px;padding:0 12px 0 14px;border-bottom:1px solid var(--line);z-index:4;
   background:linear-gradient(180deg,rgba(8,9,10,.92),rgba(8,9,10,.55));backdrop-filter:blur(6px)}
@@ -268,21 +256,15 @@ code{background:#161719;border:1px solid var(--line);border-radius:4px;padding:1
     <div class="r-brand">知所栖<span>135</span><span class="pubtag" id="pubtag" style="display:none">公网快照</span></div>
     <label class="r-search">⌕<input id="q-filter" placeholder="筛选…" oninput="renderList()"></label>
     <nav class="r-list">
-      <button class="r-item on" data-view="graph" onclick="setView('graph')"><span class="ic">◧</span><b>知识体系</b><i id="r-all"></i></button>
       <button class="r-item" data-view="neican" onclick="setView('neican')"><span class="ic">▤</span><b>内参</b><i id="r-nei"></i></button>
+      <button class="r-item on" data-view="graph" onclick="setView('graph')"><span class="ic">◧</span><b>知识体系</b><i id="r-all"></i></button>
     </nav>
-    <div class="r-lines" id="lrows"></div>
-    <div class="r-foot">
-      <span id="myrow" style="flex:1"></span>
-      <span id="rhint"></span>
-    </div>
   </aside>
 
   <section id="list">
     <header class="lp-head">
-      <b id="lp-title">知识体系</b><span class="cnt" id="lp-count"></span>
-      <span class="spacer"></span>
-      <button onclick="setView('graph')" title="回到全图">全图</button>
+      <button id="lp-back" onclick="setView('graph')" title="回到全部主题" style="display:none">← 全部主题</button>
+      <b id="lp-title">主题</b><span class="cnt" id="lp-count"></span>
     </header>
     <div class="lp-body" id="lp-body"></div>
   </section>
@@ -373,25 +355,7 @@ try { marks = JSON.parse(localStorage.getItem(MARK_KEY) || '{}') || {}; } catch 
 for (const k of Object.keys(marks)) if (typeof marks[k] === 'string') delete marks[k];
 function saveMarks() { try { localStorage.setItem(MARK_KEY, JSON.stringify(marks)); } catch (e) {} }
 
-function stats() {
-  const v = Object.values(marks);
-  return {
-    pass: v.filter(x => x.state === 'pass').length,
-    fail: v.filter(x => x.state === 'fail').length,
-    mech: v.filter(x => x.state === 'mech').length,
-    read: v.filter(x => x.state === 'read').length,
-    done: v.length,
-  };
-}
 function refreshMarks() {
-  const s = stats();
-  const el = document.getElementById('myrow');
-  if (el) el.innerHTML =
-    `<span><span class="dot" style="background:#4cb782"></span><span class="n">${s.pass}</span></span>` +
-    `<span><span class="dot" style="background:#eb5757"></span><span class="n">${s.fail}</span></span>` +
-    (s.mech ? `<span><span class="dot" style="background:#f2c94c"></span><span class="n">${s.mech}</span></span>` : '') +
-    `<span><span class="dot" style="background:#9b7fe8"></span><span class="n">${s.read}</span></span>` +
-    `<span class="n" style="color:#3c3f44">／${nodes.length}</span>`;
   if (window.refreshRail) refreshRail();
 }
 function markRead(id) {
@@ -605,10 +569,12 @@ function groupCount(g) {
   if (g.id === '__un') return nodes.filter(x => !TAGI.has((x.tags || [])[0])).length;
   return nodes.filter(x => (x.tags || [])[0] === g.id).length;
 }
+/* 口径统一到「主标签」：中间栏数出来的条数、画布上那一列的点数、筛选后剩的点数，
+   三个数字必须一致。原来这里用 includes（相关标签也算），数字对不上。 */
 function matches(x) {
   if (!filter) return true;
   if (filter === '__un') return !TAGI.has((x.tags || [])[0]);
-  return (x.tags || []).includes(filter);
+  return (x.tags || [])[0] === filter;
 }
 
 /* ── 投影 ───────────────────────────────────────────── */
@@ -901,6 +867,16 @@ function pinMain(on) {
 }
 window.pinMain = pinMain;
 
+/* ── 主题筛选：点一条＝只看这一列，再点一次＝取消 ────────────────────
+   09-13 phase 02：主题列表从**左栏**搬到**中间栏**（二级），左栏只剩一级导航。
+   这个函数现在只改状态 + 重绘，列表长什么样由 renderList() 决定。 */
+function setFilter(g) {
+  filter = (filter === g) ? null : g;
+  computeLayout();
+  renderList();
+}
+window.setFilter = setFilter;
+
 function closePanel() {
   selected = null;
   document.getElementById('panel').classList.remove('on');
@@ -908,43 +884,17 @@ function closePanel() {
 }
 window.openPanel = openPanel; window.closePanel = closePanel;
 
-/* ── 图例：按主题分列（09-13 起为唯一分组轴） ───────────────── */
-function buildLegend() {
-  const G = groups();
-  document.getElementById('lrows').innerHTML = G.map(g => {
-    // 数字＝**主标签**数，跟画布上那一列的点数一一对应。
-    const cnt = groupCount(g);
-    return `<div class="lrow${filter && filter !== g.id ? ' off' : ''}" data-g="${g.id}">
-      <span class="dot" style="background:${g.color}"></span>
-      ${esc(g.label)}<span class="n">${cnt}</span></div>`;
-  }).join('');
-  document.querySelectorAll('#lrows .lrow').forEach(el => {
-    el.onclick = () => setFilter(el.dataset.g);
-  });
-}
-function setFilter(g) {
-  filter = (filter === g) ? null : g;
-  buildLegend(); renderList();
-}
-window.setFilter = setFilter;
 /* ── 启动 ───────────────────────────────────────────── */
 function setMode(m) {
   mode = m;
   document.querySelectorAll('.tab').forEach(t => t.classList.toggle('on', t.dataset.mode === m));
   panX = panY = 0; rotX = -0.22; rotY = 0.5; zoom = m === 'grid' ? 1 : 1.35;
-  const h = document.querySelector('.hint');   // 壳里已无 .hint，改写到左栏
-  if (h) h.innerHTML = '<b>实线</b> 骨架 · <b>虚线</b> 候选';
-  const rh = document.getElementById('rhint');
-  if (rh) rh.innerHTML = (m === 'grid'
-    ? '<b>拖拽</b> 平移 · <b>滚轮</b> 缩放'
-    : '<b>拖拽</b> 旋转 · <b>滚轮</b> 缩放') + '<br><b>点一个点</b> 看它的来路';
   computeLayout();
 }
 
 async function boot() {
   detectApp();
   resize();
-  buildLegend();
   refreshMarks();
   refreshRail();
   renderList();
@@ -968,7 +918,12 @@ function refreshRail() {
   const e2 = document.getElementById('r-nei');
   if (e2) e2.textContent = (NEI.articles || []).length;
   const mm = document.getElementById('main-meta');
-  if (mm) mm.textContent = nodes.length + ' 概念 · ' + (CUR.tags || []).length + ' 个主题 · ' + edges.length + ' 条依赖';
+  if (mm) {
+    const t = (currentView === 'theme' && themeId) ? (CUR.tags || []).find(x => x.id === themeId) : null;
+    mm.textContent = t
+      ? t.name + ' · ' + groupCount(t) + ' 个概念'
+      : nodes.length + ' 概念 · ' + (CUR.tags || []).length + ' 个主题 · ' + edges.length + ' 条依赖';
+  }
 }
 window.refreshRail = refreshRail;
 
@@ -976,7 +931,8 @@ window.refreshRail = refreshRail;
    之前没有这一栏——所以没有 Linear 的味道。
    它是当前导航项的**可扫列表**：一行一个东西，右边是元信息，点开看详情。 */
 let currentView = 'graph';
-const VIEW_TITLE = { graph: '知识体系', neican: '内参 · 260912 期' };
+let themeId = null;   // theme 态（三级）当前所在的主题；graph 态恒为 null
+const VIEW_TITLE = { graph: '主题', theme: '主题', neican: '内参 · 260912 期' };
 const ST_COLOR = { pass: '#4cb782', fail: '#eb5757', mech: '#f2c94c', read: '#9b7fe8' };
 
 function rowHTML(inner, onclick, on) {
@@ -987,18 +943,31 @@ function renderList() {
   if (!box) return;
   const q = ((document.getElementById('q-filter') || {}).value || '').trim().toLowerCase();
   const hit = t => !q || String(t).toLowerCase().includes(q);
-  document.getElementById('lp-title').textContent = VIEW_TITLE[currentView] || '';
+  const inTheme = currentView === 'theme' && !!themeId;
+  const tagOf = id => (CUR.tags || []).find(t => t.id === id) || {};
+  document.getElementById('lp-title').textContent =
+    inTheme ? (tagOf(themeId).name || '主题') : (VIEW_TITLE[currentView] || '');
+  const back = document.getElementById('lp-back');
+  if (back) back.style.display = inTheme ? '' : 'none';
   const cntEl = document.getElementById('lp-count');
   let html = '', cnt = 0;
 
   if (currentView === 'graph') {
+    /* 二级＝主题。936 条概念是三级，默认不在这里出现（phase 03 走「点主题 → 下钻」才渲染）。 */
+    const list = groups().filter(g => hit(g.label));
+    cnt = list.length;
+    html = list.map(g => rowHTML(
+      `<span class="rd" style="background:${g.color}"></span>`
+      + `<span class="rn">${esc(g.label)}</span>`
+      + `<span class="rm">${groupCount(g)}</span>`,
+      `setView('theme','${g.id}')`, false)).join('')
+      || '<div class="lp-empty">没有符合条件的主题。</div>';
+  } else if (currentView === 'theme') {
+    /* 三级＝某条主题下的概念。默认不渲染，只有从这里进来才看得到。 */
     const list = nodes.filter(n => matches(n) && hit(n.name + n.gloss))
       .sort((a, b) => (a.level - b.level) || a.name.localeCompare(b.name));
     cnt = list.length;
-    // 概念地图 v2 有 1000+ 个点，列表不再切在 400：全量渲染，只在真的渲染不完时才提示。
-    const LIST_CAP = 3000;
-    const shown = list.slice(0, LIST_CAP);
-    html = shown.map(n => {
+    html = list.map(n => {
       const st = marks[n.id];
       return rowHTML(
         `<span class="rd" style="background:${KIND[kOf(n)].color}"></span>`
@@ -1006,8 +975,7 @@ function renderList() {
         + `<span class="rm">L${n.level}</span>`
         + (st ? `<span class="st" style="background:${ST_COLOR[st.state] || '#3c3f44'}"></span>` : ''),
         `openPanel('${n.id}')`, selected === n.id);
-    }).join('') || '<div class="lp-empty">没有符合条件的点。<br>（左侧换个分组，或清掉筛选）</div>';
-    if (cnt > shown.length) html += `<div class="lp-empty">只渲染了前 ${shown.length} 条，共 ${cnt} 条。<br>（用上面的搜索或左侧分组缩小范围）</div>`;
+    }).join('') || '<div class="lp-empty">这条主题下没有符合条件的点。</div>';
   } else if (currentView === 'neican') {
     const list = (NEI.articles || []).filter(a => hit(a.title + a.topic + a.author));
     cnt = list.length;
@@ -1030,12 +998,18 @@ function syncListSel() {
   });
 }
 
-function setView(v) {
+/* setView('theme', tagId) 下钻到三级；setView('graph') 回二级（全部主题）。
+   「知识体系」这个导航项在 theme 态也保持高亮——它和主题态属于同一个一级页面。 */
+function setView(v, tid) {
   currentView = v;
+  themeId = (v === 'theme' && tid) ? tid : null;
+  filter = themeId;                       // 画布只亮这一列；回主题态自动清掉
   if (v !== 'neican') hideReader();
-  document.querySelectorAll('.r-item').forEach(b => b.classList.toggle('on', b.dataset.view === v));
+  const nav = v === 'theme' ? 'graph' : v;
+  document.querySelectorAll('.r-item').forEach(b => b.classList.toggle('on', b.dataset.view === nav));
   if (v === 'neican') { closePanel(); openNeican(neiSlug); }
   else closePanel();
+  computeLayout();
   refreshRail(); renderList();
 }
 window.setView = setView;

@@ -36,9 +36,9 @@ cd app && npm start               # 桌面版（能写真文件）→ ~/Document
 
 # 验收（前四个要 serve 在跑）
 node scripts/verify-135.mjs       # 61 项：主产物 知所栖-135-基础框架.html 全流程
-node scripts/test-daobi.mjs       # 24 项：倒逼层 + 分类层 + 三栏外壳（真 LLM）
-node scripts/shot-shell.mjs       # 11 步截图 + 面板越界断言
-node scripts/check-public.mjs     # 17 项：公网版（**必须假域名**，127.0.0.1 会走错分支）
+node scripts/test-daobi.mjs       # 30 项：倒逼层 + 分类层 + 三栏外壳 + 减法边界（真 LLM）
+node scripts/shot-shell.mjs       # 13 步截图 + 面板越界断言
+node scripts/check-public.mjs     # 20 项：公网版（**必须假域名**，127.0.0.1 会走错分支）
 node scripts/test-app.mjs         # 12 项：桌面版（自动起 Electron，不需要 serve）
 node scripts/ab-feynman-test.mjs  # AB 实验（A 免 key；B/C1 需凭证；无 ab-samples.json 会拒跑）
 
@@ -51,7 +51,7 @@ node scripts/cm-build-map.mjs && node scripts/cm-build-wiki.mjs # → knowledge/
 node scripts/cm-wire.mjs                                       # → 壳 payload
 node scripts/cm-validate.mjs                                   # 地图体检（结构/引用/DAG/校验和/wiki 断链）
 node scripts/build-shell.mjs        # → prototype/知所栖-壳.html（--legacy 回退旧 194 池）
-node scripts/build-public.mjs       # → deploy/zhisuoqi-135/index.html（公网版）
+node scripts/build-public.mjs       # → deploy/zhisuoqi-135/index.html（公网版；**改文件 ≠ 发布，线上要 git push**）
 node scripts/build-app.mjs          # → app/dist/知所栖 135.app（含凭证自检）
 
 curl -s localhost:5180/api/health   # {"ok":true,"llm":true,"app":false}
@@ -65,8 +65,8 @@ curl -s localhost:5180/api/health   # {"ok":true,"llm":true,"app":false}
 | `knowledge/概念地图-260913/` | **概念唯一真源**。936 概念 / 531 前置依赖 / 21 领域（四源：Notion 概念库 + Context + Harness + AI 内参 260912；AI 相关性过滤后；过滤前 1156），os-taxonomy 形态 + JSON Schema + manifest 校验和 | 直接读 JSON |
 | `knowledge/概念wiki-260913/` | 概念链接层，llm_wiki 形态：936 页 + `[[双链]]` + 反链 + index/log | 读 `index.md` 或丢进 Obsidian |
 | `prototype/知所栖-135-基础框架.html` | **主产物**。1 阅读 → 3 决策 → 5 实验 → 费曼验收 全流程，单文件 | 双击，或经 serve |
-| `prototype/知所栖-壳.html` | 936 概念图 + 21 条主题线 + 倒逼判定 + 内参 + 对话，Linear 式三栏 | **必须经 serve**（`/api/*` 才通） |
-| `deploy/zhisuoqi-135/` | 公网版（单文件零服务端，对话三条路） | <https://hou-152.github.io/zhisuoqi-135/> |
+| `prototype/知所栖-壳.html` | **09-13 两轮减法后只剩两栏**：知识体系（936 概念 · 画布按 21 条主题分列）+ 内参；倒逼判定在概念卡里。策展 / 待你看一眼 / 我在学 / 对话 / 底部那条栏 / 左栏主题图例与状态点 **全已删**，左栏＝品牌+搜索+两个导航项+**主题分类列表**（21 条，点一条只看这一列）；图谱/星球 tab 板在三栏之上、横跨列表栏与主区（在「知识体系」上方） | **必须经 serve**（`/api/*` 才通） |
+| `deploy/zhisuoqi-135/` | 公网版（单文件零服务端）。**09-13 减法后只剩 知识体系 + 内参**，对话三条路已随对话层删除；无服务端时交卷走机械兜底（只标 mech）。本地已重建，**线上未 push** | <https://hou-152.github.io/zhisuoqi-135/>（仍是减法前旧版） |
 | `app/` | 桌面版（Electron，本地数据落真文件） | `cd app && npm start` |
 
 ## 沟通偏好

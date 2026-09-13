@@ -70,13 +70,21 @@ await cdp.eval(`(()=>{const s=document.createElement('style');
   document.head.appendChild(s); return 'ok';})()`);
 await sleep(400);
 
-// 概念源 2026-09-13 换成「概念地图 v2」：id 现查，倒逼线取第一条有路线的。
-const T0 = await cdp.eval(`((CUR.collections||[]).find(c=>c.route.length>1)||(CUR.collections||[])[0]||{}).tagId`);
+// 概念源 2026-09-13 换成「概念地图 v2」：id 现查。
 const USE0 = await cdp.eval(`(nodes.find(n=>n.k==='use')||{}).id`);
 const JUDGE0 = await cdp.eval(`(nodes.find(n=>n.k==='judge')||nodes[0]).id`);
-console.log(`  抽检：倒逼线 ${T0} ｜ 能用的 ${USE0} ｜ 能判的 ${JUDGE0}`);
+console.log(`  抽检：能用的 ${USE0} ｜ 能判的 ${JUDGE0}`);
 
-await step('首屏 · 按「要你怎么处理它」分列', async () => { shots.push(await shot('25-分类-怎么验.png')); });
+await step('二级 · 全部主题（左栏只剩导航，中间栏 21 条）', async () => { shots.push(await shot('25-主题-首屏.png')); });
+
+await step('三级 · 点一条主题下钻', async () => {
+  await cdp.eval(`document.querySelectorAll('#lp-body .row')[2].click()`);
+  shots.push(await shot('25b-主题-下钻概念.png'));
+});
+await step('下钻后点「← 全部主题」回二级', async () => {
+  await cdp.eval(`setView('graph')`);
+  shots.push(await shot('25c-主题-返回全部主题.png'));
+});
 
 const rail = await cdp.eval(`JSON.stringify([...document.querySelectorAll('.r-item')].map(b=>b.querySelector('b').textContent+' ‖ '+b.querySelector('i').textContent))`);
 console.log('左栏：', JSON.parse(rail).join('  |  '));
@@ -112,46 +120,7 @@ await step('回到知识体系（阅读区应让位）', async () => {
   shots.push(await shot('38-内参-退出后回到图谱.png'));
 });
 
-await step('左栏 策展', async () => {
-  await cdp.eval(`setView('curate')`);
-  shots.push(await shot('11-壳-策展.png'));
-});
 
-await step('某一條线 · 路线', async () => {
-  await cdp.eval(`openCollection('${T0}')`);
-  shots.push(await shot('12-壳-一条线.png'));
-});
-
-await step('只看这条线', async () => {
-  await cdp.eval(`focusTag('${T0}')`);
-  shots.push(await shot('13-壳-只看一条线.png'));
-});
-
-await step('待你看一眼（已策展）', async () => {
-  await cdp.eval(`filter=null; setAxis('tag'); setView('todo')`);
-  shots.push(await shot('14-壳-待你看一眼.png'));
-});
-
-await step('按来源分列（旧轴仍在）', async () => {
-  await cdp.eval(`closePanel(); setAxis('src')`);
-  shots.push(await shot('15-壳-按来源.png'));
-});
-
-await step('Agent · 真 skill 列表', async () => {
-  await cdp.eval(`setAxis('tag'); setView('chat')`);
-  shots.push(await shot('16-壳-agent真skill.png'));
-});
-
-await step('真对话（dbs-learning-beta）', async () => {
-  await cdp.eval(`pickAgent('dbs-learning-beta','dbs-learning-beta')`);
-  await cdp.eval(`document.getElementById('b-q').value='我要不要辞掉工作去做独立开发？'; send()`);
-  await sleep(9000);
-  shots.push(await shot('17-壳-真skill对话.png'));
-  return null;
-});
-
-const conv = await cdp.eval(`document.getElementById('clist') ? document.getElementById('clist').innerText.slice(-420) : '(无会话)'`);
-console.log('--- 会话结尾 ---\n' + conv + '\n---');
 
 await step('「只能认的」不设验收', async () => {
   await cdp.eval(`closePanel(); openPanel(nodes.find(n=>n.k==='accept').id)`);
@@ -164,7 +133,7 @@ await step('「能用的」任务词', async () => {
 });
 
 await step('概念 · 倒逼输入框', async () => {
-  await cdp.eval(`closePanel(); setAxis('tag'); filter=null; localStorage.removeItem('zss135.proof.v2'); marks={}; refreshMarks(); openPanel('${JUDGE0}')`);
+  await cdp.eval(`closePanel(); filter=null; localStorage.removeItem('zss135.proof.v2'); marks={}; refreshMarks(); openPanel('${JUDGE0}')`);
   shots.push(await shot('21-倒逼-输入框.png'));
 });
 
@@ -180,10 +149,6 @@ await step('说清楚了才给过', async () => {
   shots.push(await shot('23-倒逼-过了.png'));
 });
 
-await step('一条线的倒逼链', async () => {
-  await cdp.eval(`startLine('${T0}')`);
-  shots.push(await shot('24-倒逼-一条线的链.png'));
-});
 
 await step('星球', async () => {
   await cdp.eval(`closePanel(); setMode('sphere')`);

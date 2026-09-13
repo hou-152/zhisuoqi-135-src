@@ -49,8 +49,7 @@ const NODE = {
   accept: await ex(`(nodes.find(n => n.k === 'accept') || {}).id || ''`),
 };
 const TOTAL = await ex('String(nodes.length)');
-const TAG = await ex(`((CUR.collections || []).find(c => c.route.length > 1) || (CUR.collections || [])[0] || {}).tagId`);
-console.log('  目标概念：' + JSON.stringify(NODE) + ` ｜ 共 ${TOTAL} 个 ｜ 倒逼线 ${TAG}`);
+console.log('  目标概念：' + JSON.stringify(NODE) + ` ｜ 共 ${TOTAL} 个`);
 for (const [k, v] of Object.entries(NODE)) if (!v) { console.error(`找不到目标概念：${k}`); process.exit(2); }
 // 期望串太短会误命中：'read' 能命中 'reading'，一个 THREW 被当成通过。显式挡掉。
 // 通过侧断言要重试：deepseek-flash 是推理模型，temperature=0 也不保证逐字复现，
@@ -144,33 +143,29 @@ check('⑦ 只能认的·没有交卷按钮', await ex(`document.getElementById(
 await ex(`markRead('${NODE.accept}')`); await sleep(400);
 check('⑦ 只能认的·只记读过，不判过没过', await ex(`marks['${NODE.accept}'].state`), 'read');
 
-/* ⑧ 三栏外壳 + 落盘 */
+/* ⑧ 三栏外壳 + 落盘 + 09-13 减法后的边界 */
+check('⑧ 导航只剩两项且内参在上', await ex(`[...document.querySelectorAll('.r-item b')].map(b => b.textContent).join('|')`), '内参|知识体系');
+check('⑧ 底部那条栏已删', await ex(`document.getElementById('bar') ? '还在' : 'OK'`), 'OK');
 check('⑧ 三栏都在（导航|列表|主区）', await ex(`['rail','list','main'].filter(i => document.getElementById(i)).length`), '3');
-check(`⑧ 列表栏 ${TOTAL} 行`, await ex(`document.querySelectorAll('#lp-body .row').length`), TOTAL);
-check('⑧ 落盘到 proof.v2', await ex(`Object.keys(JSON.parse(localStorage.getItem('zss135.proof.v2')||'{}')).sort().join(',')`), NODE.accept);
-check('⑧ 左栏·我在学＝验过的条数', await ex(`document.getElementById('r-mine').textContent`), await ex(`String(Object.keys(marks).length)`));
-check('⑧ 左栏·待你看一眼＝没人看过的边数', await ex(`document.getElementById('r-todo').textContent`),
-  await ex(`String((CUR.edgeHuman||[]).filter(k => !insertMarks[k]).length)`));
-// 底部固定渲染 过/没过/读过 三态（mech 出现时才加第四个）
-check('⑧ 底部状态点是三态', await ex(`document.querySelectorAll('#myrow .dot').length`), '3');
-check('⑧ 底部计数与实际一致', await ex(`(()=>{const t=document.getElementById('myrow').innerText.replace(/\\s+/g,' ').trim();
-  const st=Object.values(marks); const p=st.filter(m=>m.state==='pass').length, r=st.filter(m=>m.state==='read').length;
-  return t.startsWith(p+' '+p) || (t.includes(String(p)) && t.includes(String(r))) ? 'OK' : t})()`), 'OK');
+check(`⑧ 中间栏 ${await ex('String(groups().length)')} 条主题（二级）`, await ex(`document.querySelectorAll('#lp-body .row').length`), await ex(`String(groups().length)`));
+// 09-13 v1-shell-ia phase 02：主题从左栏搬到中间栏，936 条概念默认不再出现（三级）
+check('⑧ 三级概念默认隐藏（中间栏不是 936 行）', await ex(`document.querySelectorAll('#lp-body .row').length === DATA.nodes.length ? '还是 936' : 'OK'`), 'OK');
+check('⑧ 左栏只剩品牌+搜索+两项导航', await ex(`document.querySelectorAll('#rail .r-item').length + '|' + (document.getElementById('lrows') ? '还有图例' : '干净')`), '2|干净');
+check('⑧ 主题行有圆点有数字', await ex(`(()=>{const r=document.querySelector('#lp-body .row'); return r ? (r.querySelector('.rd')?'有圆点':'缺') + (r.querySelector('.rm')?'有数字':'缺') : '无行'})()`), '有圆点有数字');
+check('⑧ 点一条主题 → 下钻到三级', await ex(`(()=>{const rows=document.querySelectorAll('#lp-body .row'); const label=rows[1].querySelector('.rn').textContent; const id=(CUR.tags.find(t=>t.name===label)||{}).id; rows[1].click(); return currentView + '|' + (themeId===id?'主题对':'主题错') + '|' + (filter===id?'画布跟上了':'画布没跟') + '|' + (document.getElementById('lp-back').style.display===''?'有返回':'没返回')})()`), 'theme|主题对|画布跟上了|有返回');
+check('⑧ 三级只列这条主题的概念', await ex(`(()=>{const want=nodes.filter(n=>(n.tags||[])[0]===themeId).length; const got=document.querySelectorAll('#lp-body .row').length; return got + '/' + want + '|' + (got===want && got < nodes.length ? 'OK' : '不对')})()`), 'OK');
+check('⑧ 点「← 全部主题」回到二级', await ex(`(()=>{setView('graph'); return currentView + '|' + String(filter) + '|' + (document.getElementById('lp-back').style.display==='none'?'返回已藏':'还露着') + '|' + document.querySelectorAll('#lp-body .row').length})()`), await ex(`'graph|null|返回已藏|' + groups().length`));
+check('⑧ 左栏没有底部状态点了', await ex(`document.querySelector('#rail .r-foot, #myrow, #rhint') ? '还在' : 'OK'`), 'OK');
+check('⑧ 左栏只剩导航两项 + 搜索框', await ex(`document.querySelectorAll('#rail .r-item').length + '|' + (document.getElementById('q-filter') ? 'OK' : 'NO')`), '2|OK');
 
 /* ⑨ 分类决定系统对你做什么 */
-await ex(`closePanel(); setAxis('kind')`);
-check('⑨ 默认轴＝「要你怎么处理它」四列', await ex(`JSON.stringify(groups().map(g => g.label))`), '能算的');
+await ex(`closePanel(); filter=null`);
+check('⑨ 唯一分组轴＝主题（数字与 CUR.tags 一致）', await ex(`String(groups().length)`), await ex(`String((CUR.tags || []).length)`));
+check('⑨ 主题列＝21 条线，非空', await ex(`groups().length > 5 ? 'OK' : 'NO'`), 'OK');
 check(`⑨ ${TOTAL} 条全有验收类别`, await ex(`DATA.nodes.filter(n => n.k).length + '/' + DATA.nodes.length`), `${TOTAL}/${TOTAL}`);
 check('⑨ 能算的·任务词', await ex(`openPanel(nodes.find(n => n.k === 'compute').id); document.getElementById('pbody').innerText.includes('说清它的机制') ? 'OK' : 'NO'`), 'OK');
 check('⑨ 能判的·任务词', await ex(`openPanel(nodes.find(n => n.k === 'judge').id); document.getElementById('pbody').innerText.includes('它给的是什么判据') ? 'OK' : 'NO'`), 'OK');
 check('⑨ 能用的·任务词', await ex(`openPanel(nodes.find(n => n.k === 'use').id); document.getElementById('pbody').innerText.includes('真拿它做过') ? 'OK' : 'NO'`), 'OK');
-
-/* ⑩ 一条线的倒逼链 */
-await ex(`closePanel(); setView('curate'); openCollection('${TAG}')`);
-check('⑩ 策展面板有「开始倒逼」', await ex(`document.getElementById('pbody').innerText.includes('开始倒逼') ? 'OK' : 'NO'`), 'OK');
-await ex(`startLine('${TAG}')`); await sleep(800);
-check('⑩ 链头显示第 1 步', await ex(`document.querySelector('.chainhead')?.innerText.slice(0, 26) || '无'`), '第 1/');
-check('⑩ 只铺开这条线', await ex(`filter`), TAG);
 
 const errs = events
   .filter(e => e.method === 'Runtime.exceptionThrown' || (e.method === 'Log.entryAdded' && e.params?.entry?.level === 'error'))

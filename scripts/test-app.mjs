@@ -61,8 +61,7 @@ check('① 给出数据目录', await ex(`fetch('/api/health').then(r=>r.json())
 
 /* ② 界面认出来了 */
 check('② 角标变「桌面版」', await ex(`document.getElementById('pubtag')?.textContent || '无'`), '桌面版');
-await ex(`setView('mine')`); await sleep(600);
-check('② 我在学里出现「存成本地文件」', await ex(`document.getElementById('lp-filter')?.innerText || '无'`), '把学习记录存成本地文件');
+check('② 桌面版壳也是减法后的两栏', await ex(`[...document.querySelectorAll('.r-item b')].map(b=>b.textContent).join('|')`), '知识体系|内参');
 
 /* ③ 真写真文件 */
 const probe = join(DATA_DIR, '产物', '__验收探针.md');

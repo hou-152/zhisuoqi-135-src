@@ -88,10 +88,7 @@ function buildMenu() {
       label: '视图',
       submenu: [
         { label: '知识体系', accelerator: 'CmdOrCtrl+1', click: () => win?.webContents.executeJavaScript(`setView('graph')`) },
-        { label: '策展', accelerator: 'CmdOrCtrl+2', click: () => win?.webContents.executeJavaScript(`setView('curate')`) },
-        { label: '待你看一眼', accelerator: 'CmdOrCtrl+3', click: () => win?.webContents.executeJavaScript(`setView('todo')`) },
-        { label: '我在学', accelerator: 'CmdOrCtrl+4', click: () => win?.webContents.executeJavaScript(`setView('mine')`) },
-        { label: '对话', accelerator: 'CmdOrCtrl+5', click: () => win?.webContents.executeJavaScript(`setView('chat')`) },
+        { label: '内参', accelerator: 'CmdOrCtrl+2', click: () => win?.webContents.executeJavaScript(`setView('neican')`) },
         { type: 'separator' },
         { label: '图谱', click: () => win?.webContents.executeJavaScript(`setMode('grid')`) },
         { label: '星球', click: () => win?.webContents.executeJavaScript(`setMode('sphere')`) },
