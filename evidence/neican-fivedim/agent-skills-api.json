@@ -1,0 +1,34 @@
+{
+  "version": "v1",
+  "generatedAt": "2026-09-14",
+  "slug": "agent-skills-api",
+  "source": "knowledge/内参-260912/拆解五维/agent-skills-api.json",
+  "focusConceptIndex": 1,
+  "contentStatus": "generated-unreviewed",
+  "authoredBy": "DeepSeek Harness（正确选项＝五维资产原文；干扰项与 why 由 agent 撰写，未经负责人审核）",
+  "note": "五维资产的 decisions 只有「情境／做法／适用条件」，没有选项。本文件给三道决策各补 2 个干扰项（agent 撰写），干扰项的 why 一律回指资产里的 condition／reading／experiments 原文；正确选项逐字取自 decisions[i].choice。",
+  "trapNote": "本单元没有 OPI／SOL 语义单元（那 58 篇只出了 OPI／QST），所以正确选项的依据只能回指 decisions[i].choice 与 reading／experiments 原文——这条缺口照实显示，不补写。",
+  "decisions": [
+    {
+      "options": [
+        { "text": "继续每次手写粘贴，反正复制一段规范也不费事。", "correct": false, "why": "适用条件里写明这类任务要反复出现、指导可复用；反复粘贴正是要解决的场景，不是不封装的理由。", "basis": "decisions[0].condition", "basisQuote": "这类任务反复出现、指导可复用、来源可信" },
+        { "text": "打包成技能：SKILL.md 放工作流程，description 同时写清做什么和什么时候用。", "correct": true, "basis": "decisions[0].choice", "basisQuote": "把它打包成技能：SKILL.md 里放工作流程，YAML 的 description 同时写清「技能做什么」和「什么时候该用它」" },
+        { "text": "把整套规范一次性写进系统提示，让它一直挂在上下文里。", "correct": false, "why": "这与渐进式披露相反：启动时只该带 name 与 description（约百词），全文常驻会把固定成本抬高。", "basis": "reading.ladder[1]", "basisQuote": "启动时系统提示只带 YAML 里的 name 与 description（约 100 tokens/技能）" }
+      ]
+    },
+    {
+      "options": [
+        { "text": "把资料全文贴进 SKILL.md 正文，让模型一次性读完。", "correct": false, "why": "SKILL.md 正文是 Level 2，触发时才加载且量级有限；资料应该放成 Level 3，被引用时才读。", "basis": "reading.ladder[1]", "basisQuote": "Claude 用 bash 读 SKILL.md（正文不足 5k tokens）" },
+        { "text": "资料放成 Level 3 资源只按需读；重复性操作写成脚本交给 bash 运行。", "correct": true, "basis": "decisions[1].choice", "basisQuote": "把资料放成 Level 3 资源，只在指令引用时才读取；把重复性操作写成脚本交给 bash 运行" },
+        { "text": "不写脚本，每次让模型临时生成等效代码来执行。", "correct": false, "why": "实验 3 的结论正好相反：脚本运行只有输出消耗 token，比让模型临时生成等效代码更省。", "basis": "experiments[2].conclude", "basisQuote": "因此比让 Claude 临时生成等效代码更省" }
+      ]
+    },
+    {
+      "options": [
+        { "text": "先装上用起来，等出问题再处理。", "correct": false, "why": "适用条件写着：任何要接入敏感数据或关键操作的环境都应先审计，生产系统尤其。", "basis": "decisions[2].condition", "basisQuote": "任何要接入敏感数据或关键操作的环境都应如此，生产系统尤其" },
+        { "text": "只要组织级扫描过了就当作安全，直接用。", "correct": false, "why": "组织级 Skill content scanning 的覆盖范围有限，不覆盖通过 Skills API 或 Claude Console 上传的技能。", "basis": "decisions[2].condition", "basisQuote": "不覆盖通过 Skills API 或 Claude Console 上传的" },
+        { "text": "像安装软件一样对待：只从可信来源使用，必须用时先审计包内所有文件。", "correct": true, "basis": "decisions[2].choice", "basisQuote": "像安装软件一样对待它：只从可信来源（自己创建或来自 Anthropic）使用；必须用时先彻底审计包内所有文件" }
+      ]
+    }
+  ]
+}

@@ -9,12 +9,16 @@
 //       ④ 全说对的答案不倒回；只错一处只倒回一处
 //       ⑤ 确定性（同一输入两次跑结果一致）＋ 不调用知乎／不调模型
 
-import { checkMap, diagnose, plan, loadMap } from './map-feynman-gaps.mjs';
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import { checkMap, diagnose, plan, loadMap, statusesToGaps } from './map-feynman-gaps.mjs';
 
 const failures = [];
 const oks = [];
 const check = (label, cond, detail = '') => { (cond ? oks : failures).push(label + (detail ? `（${detail}）` : '')); return cond; };
 
+const ROOT2 = path.resolve(import.meta.dirname, '..');
 const { map, source } = loadMap('agent-skills-api');
 const criteria = map.criteria;
 const sig = (x) => JSON.stringify(x);
@@ -75,6 +79,44 @@ const off = diagnose('我觉得这个功能挺好用的，界面也漂亮。', c
 check('完全无关的复述 → 也全部算漏（不会误判为说到）', off.missing.length === criteria.length);
 const wrongId = plan(['C99'], criteria);
 check('给不存在的判据编号 → 明确报错，不当成通过', wrongId.length === 1 && !!wrongId[0].error);
+
+
+/* ⑥ Issue 2 · A 层：四判据 16 种缺口组合（预期独立写明，不由被测函数生成） */
+const SUBSETS = [
+  [], ['C1'], ['C2'], ['C3'], ['C4'],
+  ['C1', 'C2'], ['C1', 'C3'], ['C1', 'C4'], ['C2', 'C3'], ['C2', 'C4'], ['C3', 'C4'],
+  ['C1', 'C2', 'C3'], ['C1', 'C2', 'C4'], ['C1', 'C3', 'C4'], ['C2', 'C3', 'C4'],
+  ['C1', 'C2', 'C3', 'C4'],
+];
+check('16 种组合齐全且互不重复', SUBSETS.length === 16 && new Set(SUBSETS.map((s) => s.join('+'))).size === 16);
+for (const s of SUBSETS) {
+  const tag = s.join('+') || '（无缺口）';
+  const p = plan(s, criteria);
+  check(`组合 ${tag}｜动作数量＝缺口数量`, p.length === s.length, `${p.length}/${s.length}`);
+  check(`组合 ${tag}｜动作与缺口一一对应且保序`, sig(p.map((x) => x.id)) === sig(s));
+  check(`组合 ${tag}｜每个动作都带材料与误解`, p.every((x) => x.material.length >= 1 && (x.misconception || '').length >= 8));
+}
+const onlyC2 = plan(['C2'], criteria)[0], onlyC3 = plan(['C3'], criteria)[0];
+check('只缺 C2 与只缺 C3：动作不同', onlyC2.teachingAction !== onlyC3.teachingAction);
+check('只缺 C2 与只缺 C3：材料不同', sig(onlyC2.material.map((m) => m.ref)) !== sig(onlyC3.material.map((m) => m.ref)));
+check('只缺 C2 回指占用测量实验', onlyC2.material.some((m) => m.ref === 'experiments[3]'));
+check('只缺 C3 回指脚本/输出实验', onlyC3.material.some((m) => m.ref === 'experiments[2]'));
+check('判据绑定单元与判据版本', criteria.every((c) => c.unit === map.unit.slug && c.criteriaVersion === map.criteriaVersion));
+check('材料带源文件与版本（sha256）', criteria.every((c) => c.material.every((m) => m.sourceFile === map.unit.sourceFile && m.sourceSha256 === map.unit.sourceSha256)));
+check('C2 不再把示例 token 数当固定规律', /不背示例数字|自己测出的量级/.test(criteria.find((c) => c.id === 'C2').criterion));
+check('C3 区分执行脚本与读源码，不用绝对表述', /执行脚本/.test(criteria.find((c) => c.id === 'C3').criterion) && /读取时才占用|读多少占多少/.test(criteria.find((c) => c.id === 'C3').teachingAction));
+check('与源材料冲突处单列修订（不静默改原文）', Array.isArray(map.contentRevisionNotes) && map.contentRevisionNotes.length >= 2);
+check('源材料 sha256 与映射登记一致', crypto.createHash('sha256').update(fs.readFileSync(path.join(ROOT2, map.unit.sourceFile))).digest('hex') === map.unit.sourceSha256);
+
+/* ⑦ 状态 → 缺口：只有 met 算说到；未判定不得被当成通过 */
+const st = (o) => criteria.map((c) => ({ id: c.id, status: o[c.id] || 'met' }));
+check('四项全 met → 无缺口', statusesToGaps(st({}), criteria).missing.length === 0);
+check('partial 也算缺口', statusesToGaps(st({ C2: 'partial' }), criteria).missing.join() === 'C2');
+check('contradicted 也算缺口', statusesToGaps(st({ C3: 'contradicted' }), criteria).missing.join() === 'C3');
+check('uncertain 也算缺口（不当通过）', statusesToGaps(st({ C4: 'uncertain' }), criteria).missing.join() === 'C4');
+check('解析失败 → 未判定，不是空缺口', statusesToGaps(null, criteria, false).notJudged === true);
+check('判据不全 → 未判定', statusesToGaps([{ id: 'C1', status: 'met' }], criteria).notJudged === true);
+check('未知判据 ID 被忽略后仍判未判定', statusesToGaps([...st({}), { id: 'C99', status: 'met' }], criteria).notJudged === true);
 
 console.log(`费曼教学映射验收：${oks.length} 项通过${failures.length ? `，${failures.length} 项失败` : ''}`);
 if (failures.length) { for (const f of failures) console.log('  ⚠ ' + f); process.exit(1); }

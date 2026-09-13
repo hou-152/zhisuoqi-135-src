@@ -146,4 +146,13 @@ if (import.meta.filename === process.argv[1] || process.argv[1]?.endsWith('map-f
   }
 }
 
+/* ── 逐判据状态 → 缺口（Issue 2）：只有 met 算说到；partial/missing/contradicted/uncertain 全部记为缺口；整份不可解析 → notJudged ── */
+export function statusesToGaps(rows, criteria, parseOk = true) {
+  if (!parseOk || !Array.isArray(rows) || rows.length === 0) return { missing: [], notJudged: true };
+  const known = new Set(criteria.map((c) => c.id));
+  if (rows.some((r) => !r || !known.has(r.id))) return { missing: [], notJudged: true };   // 未知 ID → 未判定
+  const seen = new Map(rows.map((r) => [r.id, String(r.status || 'uncertain')]));
+  if (seen.size !== criteria.length) return { missing: [], notJudged: true };
+  return { missing: criteria.filter((c) => seen.get(c.id) !== 'met').map((c) => c.id), notJudged: false };
+}
 export { signature };

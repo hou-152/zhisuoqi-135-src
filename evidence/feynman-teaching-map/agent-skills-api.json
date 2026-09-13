@@ -48,20 +48,26 @@
           "kind": "reading",
           "ref": "reading.ladder[1]",
           "label": "阅读梯度 · 机制",
-          "quote": "启动时系统提示只带 YAML 里的 name 与 description（约 100 tokens/技能）"
+          "quote": "启动时系统提示只带 YAML 里的 name 与 description（约 100 tokens/技能）",
+          "sourceFile": "knowledge/内参-260912/拆解五维/agent-skills-api.json",
+          "sourceSha256": "611d7b54b4f24509554b70b8a7821895df9e5ea78dbb7c6913e5ce93bb3bfa20"
         },
         {
           "kind": "experiment",
           "ref": "experiments[3]",
           "label": "实验 4 · 加载成本阶梯表",
-          "quote": "为同一个技能做一张加载成本阶梯表"
+          "quote": "为同一个技能做一张加载成本阶梯表",
+          "sourceFile": "knowledge/内参-260912/拆解五维/agent-skills-api.json",
+          "sourceSha256": "611d7b54b4f24509554b70b8a7821895df9e5ea78dbb7c6913e5ce93bb3bfa20"
         }
-      ]
+      ],
+      "unit": "agent-skills-api",
+      "criteriaVersion": "v2-20260914"
     },
     {
       "id": "C2",
-      "criterion": "给出层级间的成本差异（元数据约百词、指令不足 5k、未访问资源为零）",
-      "criterionQuote": "给出层级间的成本差异（元数据约百词、指令不足 5k、未访问资源为零）",
+      "criterion": "说清三层的实际加载时机与上下文占用差异（用自己测出的量级说，不背示例数字）",
+      "criterionQuote": "结果：保证任一时刻只有相关内容占用上下文窗口，可安装多个技能而不造成启动开销，未使用的捆绑内容没有上下文惩罚。",
       "keywords": [
         [
           "一百",
@@ -83,27 +89,33 @@
           "未访问资源"
         ]
       ],
-      "misconception": "只会说「按需加载省 token」，但说不出省在哪个量级——常见的反向错误是「技能写得越长越占启动上下文」或「脚本越长越贵」。",
-      "teachingAction": "别停在形容词上，去跑实验 4：把 Level 1／Level 2／Level 3 的字符数各统计一次并换算成 token，用自己测出来的三个数字重讲一遍。",
+      "misconception": "把示例里的数字当成固定规律背下来（「每技能一定 100 token」），却没有真的量过自己那套技能的启动层与触发层各占多少；于是换个技能包就说不出占用变化。",
+      "teachingAction": "别背数字，跑实验 4 自己量一次：把你手上技能的 Level 1／Level 2／Level 3 各统计字符数并换算 token，用测出来的数说明「哪一层在启动时就付出、哪一层触发后才付出、哪一层访问前是零」。",
       "material": [
         {
           "kind": "experiment",
           "ref": "experiments[3]",
-          "label": "实验 4 · 三层量级",
-          "quote": "分别统计 Level 1（name + description）、Level 2（SKILL.md 正文）、Level 3（被引用文件）的字符/词数"
+          "label": "实验 4 · 一层一层量占用",
+          "quote": "分别统计 Level 1（name + description）、Level 2（SKILL.md 正文）、Level 3（被引用文件）的字符/词数",
+          "sourceFile": "knowledge/内参-260912/拆解五维/agent-skills-api.json",
+          "sourceSha256": "611d7b54b4f24509554b70b8a7821895df9e5ea78dbb7c6913e5ce93bb3bfa20"
         },
         {
           "kind": "reading",
           "ref": "reading.ladder[1]",
-          "label": "阅读梯度 · 机制（成本差异）",
-          "quote": "请求匹配 description 后，Claude 用 bash 读 SKILL.md（正文不足 5k tokens）"
+          "label": "阅读梯度 · 机制（各层什么时候被加载）",
+          "quote": "请求匹配 description 后，Claude 用 bash 读 SKILL.md（正文不足 5k tokens）",
+          "sourceFile": "knowledge/内参-260912/拆解五维/agent-skills-api.json",
+          "sourceSha256": "611d7b54b4f24509554b70b8a7821895df9e5ea78dbb7c6913e5ce93bb3bfa20"
         }
-      ]
+      ],
+      "unit": "agent-skills-api",
+      "criteriaVersion": "v2-20260914"
     },
     {
       "id": "C3",
-      "criterion": "说清脚本通过 bash 运行，只有输出进入上下文，代码本身不进入",
-      "criterionQuote": "说清脚本通过 bash 运行，只有输出进入上下文，代码本身不进入",
+      "criterion": "区分「执行脚本」与「读源码」：脚本交给 bash 执行，回到上下文的是执行输出；源码被读取时才占用上下文",
+      "criterionQuote": "引用文件被读取时才进入上下文；脚本通过 bash 运行，只有输出进入上下文，脚本代码本身从不进入上下文。",
       "keywords": [
         [
           "脚本",
@@ -123,22 +135,28 @@
           "代码本身从不"
         ]
       ],
-      "misconception": "以为「脚本」也是给模型看的内容，所以把代码当成上下文成本的一部分（或反过来，以为把逻辑写进 SKILL.md 正文就够了）。",
-      "teachingAction": "跑实验 3：把同一段校验脚本的源码量与它执行后那一行输出各统计一次，用倍数差说服自己——然后重讲「代码不进上下文，只有输出进」。",
+      "misconception": "把「跑脚本」和「读源码」混成一件事：要么以为脚本代码会随执行一起进上下文，要么反过来以为源码在任何情况下都不占上下文（真正决定占用的是「有没有被读」）。",
+      "teachingAction": "跑实验 3：把同一段校验脚本的源码量与执行后那一行输出各量一次，看清楚两条路径；再讲一遍「执行脚本 → 只有输出回来」和「读源码 → 读多少占多少」这两件事不是同一件。",
       "material": [
         {
           "kind": "experiment",
           "ref": "experiments[2]",
           "label": "实验 3 · 源码量 vs 输出量",
-          "quote": "分别统计两种路径的量级"
+          "quote": "分别统计两种路径的量级",
+          "sourceFile": "knowledge/内参-260912/拆解五维/agent-skills-api.json",
+          "sourceSha256": "611d7b54b4f24509554b70b8a7821895df9e5ea78dbb7c6913e5ce93bb3bfa20"
         },
         {
           "kind": "decision",
           "ref": "decisions[1]",
           "label": "决策 2 · 大资料与必须精确执行的代码",
-          "quote": "把重复性操作写成脚本交给 bash 运行，只让输出（如「Validation passed」或具体报错）消耗 token"
+          "quote": "把重复性操作写成脚本交给 bash 运行，只让输出（如「Validation passed」或具体报错）消耗 token",
+          "sourceFile": "knowledge/内参-260912/拆解五维/agent-skills-api.json",
+          "sourceSha256": "611d7b54b4f24509554b70b8a7821895df9e5ea78dbb7c6913e5ce93bb3bfa20"
         }
-      ]
+      ],
+      "unit": "agent-skills-api",
+      "criteriaVersion": "v2-20260914"
     },
     {
       "id": "C4",
@@ -169,15 +187,21 @@
           "kind": "reading",
           "ref": "reading.ladder[2]",
           "label": "阅读梯度 · 边界",
-          "quote": "API 沙箱无网络访问、无运行时包安装，只能用预装依赖"
+          "quote": "API 沙箱无网络访问、无运行时包安装，只能用预装依赖",
+          "sourceFile": "knowledge/内参-260912/拆解五维/agent-skills-api.json",
+          "sourceSha256": "611d7b54b4f24509554b70b8a7821895df9e5ea78dbb7c6913e5ce93bb3bfa20"
         },
         {
           "kind": "experiment",
           "ref": "experiments[4]",
           "label": "实验 5 · 边界清单",
-          "quote": "逐条对照运行时限制、跨产品面同步与数据留存边界"
+          "quote": "逐条对照运行时限制、跨产品面同步与数据留存边界",
+          "sourceFile": "knowledge/内参-260912/拆解五维/agent-skills-api.json",
+          "sourceSha256": "611d7b54b4f24509554b70b8a7821895df9e5ea78dbb7c6913e5ce93bb3bfa20"
         }
-      ]
+      ],
+      "unit": "agent-skills-api",
+      "criteriaVersion": "v2-20260914"
     }
   ],
   "fixedAnswers": [
@@ -217,5 +241,16 @@
       "text": "技能按需加载，分三级：启动时只有 name 和 description，约一百词每个技能；请求匹配 description 后才读 SKILL.md，正文不足 5k tokens；被引用的文件在被读取前零成本。脚本是交给 bash 运行的，只有输出进入上下文，脚本代码本身从不进入。边界上，按需加载不等于随处可用：API 沙箱没有网络、不能装包，自定义技能不跨产品面同步，Agent Skills 也不在 ZDR 覆盖范围内。",
       "expectMissing": []
     }
+  ],
+  "unit": {
+    "slug": "agent-skills-api",
+    "unitType": "内参文章·五维",
+    "sourceFile": "knowledge/内参-260912/拆解五维/agent-skills-api.json",
+    "sourceSha256": "611d7b54b4f24509554b70b8a7821895df9e5ea78dbb7c6913e5ce93bb3bfa20"
+  },
+  "criteriaVersion": "v2-20260914",
+  "contentRevisionNotes": [
+    "源材料 concepts[1].points[1] 写「脚本代码本身从不进入上下文」；本映射不改原文，但对外表述收紧为「执行脚本时回到上下文的是输出；源码被读取时才占用」——因为是否占用取决于有没有被读，而不是文件类型。",
+    "源材料 concepts[1].points[0] 的「约 100 tokens／不足 5k」是示例量级，不是固定规律；C2 的教学动作因此要求学习者自己量一次，而不是背数字。"
   ]
 }

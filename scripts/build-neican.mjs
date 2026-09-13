@@ -342,6 +342,51 @@ const articles = ITEMS.map((it, idx) => {
       long: mdToHtml(feyn),
       rubric: dim.feynman?.rubric || [],
     },
+    /* 五维（学习编译层试点）：reading / decisions / experiments 各自留出口。
+       选项覆盖层（evidence/neican-fivedim/<slug>.json）只补干扰项——正确项逐字取自资产。 */
+    dim: (() => {
+      const overlayPath = path.join(ROOT, 'evidence', 'neican-fivedim', it.slug + '.json');
+      const overlay = fs.existsSync(overlayPath) ? JSON.parse(fs.readFileSync(overlayPath, 'utf8')) : null;
+      const decisions = (dim.decisions || []).map((d, i) => {
+        const ov = overlay?.decisions?.[i]?.options || null;
+        return {
+          id: `decisions[${i}]`, situation: d.situation, choice: d.choice, condition: d.condition,
+          options: ov, optionsAuthored: !!ov,
+        };
+      });
+      const focusIdx = overlay?.focusConceptIndex ?? 0;
+      return {
+        source: `knowledge/内参-260912/拆解五维/${it.slug}.json`,
+        contentStatus: 'generated-unreviewed',
+        concepts: dim.concepts || [],
+        reading: dim.reading || null,
+        decisions,
+        experiments: dim.experiments || [],
+        focusConceptIndex: focusIdx,
+        focusRubric: (dim.feynman?.rubric || [])[focusIdx] || null,
+        trapNote: overlay?.trapNote || '',
+        teachingMap: (() => {
+          const p = path.join(ROOT, 'evidence', 'feynman-teaching-map', it.slug + '.json');
+          if (!fs.existsSync(p)) return null;
+          const m = JSON.parse(fs.readFileSync(p, 'utf8'));
+          return {
+            concept: m.concept,
+            criteria: (m.criteria || []).map((c) => ({
+              id: c.id, criterion: c.criterion, misconception: c.misconception,
+              teachingAction: c.teachingAction,
+              material: (c.material || []).map((x) => ({ ref: x.ref, label: x.label })),
+            })),
+          };
+        })(),
+        gaps: [
+          !dim.reading ? '缺 reading（分层阅读）' : '',
+          !(dim.decisions || []).length ? '缺 decisions（决策）' : '',
+          !(dim.experiments || []).length ? '缺 experiments（实验）' : '',
+          !(dim.feynman?.rubric || []).length ? '缺 feynman.rubric' : '',
+          decisions.some((d) => !d.options) ? '有决策缺三选项（需要覆盖层）' : '',
+        ].filter(Boolean),
+      };
+    })(),
     oneLine: (notes.match(/^## 一句话主旨\s*\n+([\s\S]*?)(?=\n##|$)/m) || [])[1]?.trim().split('\n')[0] || '',
   };
 });
