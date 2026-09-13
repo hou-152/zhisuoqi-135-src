@@ -99,11 +99,13 @@ for (const s of SUBSETS) {
 const onlyC2 = plan(['C2'], criteria)[0], onlyC3 = plan(['C3'], criteria)[0];
 check('只缺 C2 与只缺 C3：动作不同', onlyC2.teachingAction !== onlyC3.teachingAction);
 check('只缺 C2 与只缺 C3：材料不同', sig(onlyC2.material.map((m) => m.ref)) !== sig(onlyC3.material.map((m) => m.ref)));
-check('只缺 C2 回指占用测量实验', onlyC2.material.some((m) => m.ref === 'experiments[3]'));
+check('只缺 C2 回指「存着 vs 已加载」的机制材料（不要求实测）', onlyC2.material.some((m) => m.ref === 'reading.ladder[1]'));
+check('C2 的评分规则写明了 met／partial／missing／contradicted／uncertain', ['met','partial','missing','contradicted','uncertain'].every((k) => criteria.find((c) => c.id === 'C2').gradingRules[k]));
+check('uncertain 不套用已确认误解的纠错动作', plan(['C2'], criteria, { C2: 'uncertain' })[0].clarify.kind === 'clarify' && !plan(['C2'], criteria, { C2: 'uncertain' })[0].misconception);
 check('只缺 C3 回指脚本/输出实验', onlyC3.material.some((m) => m.ref === 'experiments[2]'));
 check('判据绑定单元与判据版本', criteria.every((c) => c.unit === map.unit.slug && c.criteriaVersion === map.criteriaVersion));
 check('材料带源文件与版本（sha256）', criteria.every((c) => c.material.every((m) => m.sourceFile === map.unit.sourceFile && m.sourceSha256 === map.unit.sourceSha256)));
-check('C2 不再把示例 token 数当固定规律', /不背示例数字|自己测出的量级/.test(criteria.find((c) => c.id === 'C2').criterion));
+check('C2 只考占用与加载内容的关系，不含实测门槛', /实际加载内容的关系/.test(criteria.find((c) => c.id === 'C2').criterion) && !/实测/.test(criteria.find((c) => c.id === 'C2').criterion));
 check('C3 区分执行脚本与读源码，不用绝对表述', /执行脚本/.test(criteria.find((c) => c.id === 'C3').criterion) && /读取时才占用|读多少占多少/.test(criteria.find((c) => c.id === 'C3').teachingAction));
 check('与源材料冲突处单列修订（不静默改原文）', Array.isArray(map.contentRevisionNotes) && map.contentRevisionNotes.length >= 2);
 check('源材料 sha256 与映射登记一致', crypto.createHash('sha256').update(fs.readFileSync(path.join(ROOT2, map.unit.sourceFile))).digest('hex') === map.unit.sourceSha256);

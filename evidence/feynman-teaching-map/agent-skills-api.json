@@ -62,12 +62,12 @@
         }
       ],
       "unit": "agent-skills-api",
-      "criteriaVersion": "v2-20260914"
+      "criteriaVersion": "v3-20260914"
     },
     {
       "id": "C2",
-      "criterion": "说清三层的实际加载时机与上下文占用差异（用自己测出的量级说，不背示例数字）",
-      "criterionQuote": "结果：保证任一时刻只有相关内容占用上下文窗口，可安装多个技能而不造成启动开销，未使用的捆绑内容没有上下文惩罚。",
+      "criterion": "能解释上下文占用与实际加载内容的关系：说清哪些内容真的进了上下文，并区分「资源存放在目录里」与「资源正文已经被加载」",
+      "criterionQuote": "引用文件被读取时才进入上下文；脚本通过 bash 运行，只有输出进入上下文，脚本代码本身从不进入上下文。",
       "keywords": [
         [
           "一百",
@@ -89,28 +89,35 @@
           "未访问资源"
         ]
       ],
-      "misconception": "把示例里的数字当成固定规律背下来（「每技能一定 100 token」），却没有真的量过自己那套技能的启动层与触发层各占多少；于是换个技能包就说不出占用变化。",
-      "teachingAction": "别背数字，跑实验 4 自己量一次：把你手上技能的 Level 1／Level 2／Level 3 各统计字符数并换算 token，用测出来的数说明「哪一层在启动时就付出、哪一层触发后才付出、哪一层访问前是零」。",
+      "misconception": "把「占用」当成跟文件类型或跟总量绑定：以为资源放在技能目录里就已经占着上下文，或以为「省 token」是天生属性，解释不出占用取决于「这一层的内容有没有真的被读进来」。",
+      "teachingAction": "回到阅读梯度的「机制」层，只做一件对账：把技能目录里存在的东西列一行，再把这一次任务里真的被读进来的东西列一行，逐项对上「存着」与「已加载」的区别——用这个对账说明占用差异，不要求实测 token。",
       "material": [
         {
-          "kind": "experiment",
-          "ref": "experiments[3]",
-          "label": "实验 4 · 一层一层量占用",
-          "quote": "分别统计 Level 1（name + description）、Level 2（SKILL.md 正文）、Level 3（被引用文件）的字符/词数",
+          "kind": "reading",
+          "ref": "reading.ladder[1]",
+          "label": "阅读梯度 · 机制（存着 vs 已加载）",
+          "quote": "请求匹配 description 后，Claude 用 bash 读 SKILL.md（正文不足 5k tokens）",
           "sourceFile": "knowledge/内参-260912/拆解五维/agent-skills-api.json",
           "sourceSha256": "611d7b54b4f24509554b70b8a7821895df9e5ea78dbb7c6913e5ce93bb3bfa20"
         },
         {
           "kind": "reading",
-          "ref": "reading.ladder[1]",
-          "label": "阅读梯度 · 机制（各层什么时候被加载）",
-          "quote": "请求匹配 description 后，Claude 用 bash 读 SKILL.md（正文不足 5k tokens）",
+          "ref": "reading.ladder[0]",
+          "label": "阅读梯度 · 直觉（清单 vs 手册）",
+          "quote": "平时只先交给他一张技能清单，真遇到做 PPT 或填 PDF 表格，才去翻对应手册、附件和工具",
           "sourceFile": "knowledge/内参-260912/拆解五维/agent-skills-api.json",
           "sourceSha256": "611d7b54b4f24509554b70b8a7821895df9e5ea78dbb7c6913e5ce93bb3bfa20"
         }
       ],
       "unit": "agent-skills-api",
-      "criteriaVersion": "v2-20260914"
+      "criteriaVersion": "v3-20260914",
+      "gradingRules": {
+        "met": "说清哪些内容真的进了上下文，并区分「存放在目录里」与「正文已被加载」；不要求数字、不要求实测",
+        "partial": "只说「省 token／按需加载省地方」，但没有解释占用与加载内容的关系",
+        "missing": "完全没谈到占用与加载的关系",
+        "contradicted": "把关系说反（如「放在目录里就等于已占用」「加载过的内容不占上下文」）",
+        "uncertain": "表达不足以判断 → 先澄清，不套用误解纠错动作"
+      }
     },
     {
       "id": "C3",
@@ -156,7 +163,7 @@
         }
       ],
       "unit": "agent-skills-api",
-      "criteriaVersion": "v2-20260914"
+      "criteriaVersion": "v3-20260914"
     },
     {
       "id": "C4",
@@ -201,7 +208,7 @@
         }
       ],
       "unit": "agent-skills-api",
-      "criteriaVersion": "v2-20260914"
+      "criteriaVersion": "v3-20260914"
     }
   ],
   "fixedAnswers": [
@@ -248,9 +255,10 @@
     "sourceFile": "knowledge/内参-260912/拆解五维/agent-skills-api.json",
     "sourceSha256": "611d7b54b4f24509554b70b8a7821895df9e5ea78dbb7c6913e5ce93bb3bfa20"
   },
-  "criteriaVersion": "v2-20260914",
+  "criteriaVersion": "v3-20260914",
   "contentRevisionNotes": [
     "源材料 concepts[1].points[1] 写「脚本代码本身从不进入上下文」；本映射不改原文，但对外表述收紧为「执行脚本时回到上下文的是输出；源码被读取时才占用」——因为是否占用取决于有没有被读，而不是文件类型。",
-    "源材料 concepts[1].points[0] 的「约 100 tokens／不足 5k」是示例量级，不是固定规律；C2 的教学动作因此要求学习者自己量一次，而不是背数字。"
+    "源材料 concepts[1].points[0] 的「约 100 tokens／不足 5k」是示例量级，不是固定规律；C2 的教学动作因此要求学习者自己量一次，而不是背数字。",
+    "2026-09-14 负责人裁决：C2 只考「占用与实际加载内容的关系」，不要求实测、不要求背数字；实测量级降级为额外证据与未来实验目标（criteriaVersion v3）。"
   ]
 }

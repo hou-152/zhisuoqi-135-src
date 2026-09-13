@@ -81,8 +81,13 @@ export function plan(missing, criteria) {
   return missing.map((id) => {
     const c = criteria.find((x) => x.id === id);
     if (!c) return { id, error: '判据不存在' };
+    const st = (arguments[2] && arguments[2][c.id]) || 'missing';
+    if (st === 'uncertain') {
+      return { id: c.id, status: 'uncertain', criterion: c.criterion, clarify: CLARIFY_ACTION, misconception: '', teachingAction: CLARIFY_ACTION.action, material: [] };
+    }
     return {
       id: c.id,
+      status: st,
       criterion: c.criterion,
       misconception: c.misconception,
       teachingAction: c.teachingAction,
@@ -147,6 +152,12 @@ if (import.meta.filename === process.argv[1] || process.argv[1]?.endsWith('map-f
 }
 
 /* ── 逐判据状态 → 缺口（Issue 2）：只有 met 算说到；partial/missing/contradicted/uncertain 全部记为缺口；整份不可解析 → notJudged ── */
+export const CLARIFY_ACTION = {
+  kind: 'clarify',
+  label: '先澄清，不纠错',
+  action: '你这句话我还判断不了你指的是哪一层。先补一句：你说的是「资源存在技能目录里」，还是「这份资源的正文已经被读进上下文」？',
+};
+
 export function statusesToGaps(rows, criteria, parseOk = true) {
   if (!parseOk || !Array.isArray(rows) || rows.length === 0) return { missing: [], notJudged: true };
   const known = new Set(criteria.map((c) => c.id));
