@@ -1,0 +1,127 @@
+{
+ "generatedAt": "2026-09-13T16:08:59.516Z",
+ "page": "http://127.0.0.1:5180/mvp-decision-context-rot.html",
+ "purpose": "真实模型走查（不替换 fetch）。不是学习效果样本，也不替代 test-mvp-learning.mjs 的状态门黑盒。",
+ "health": {
+  "ok": true,
+  "llm": true,
+  "app": false,
+  "dataDir": null,
+  "version": null,
+  "packaged": false,
+  "root": "/Users/housibo/Documents/知乎黑客松"
+ },
+ "llmCalls": 2,
+ "zhihuRequests": 0,
+ "log": [
+  {
+   "step": "api-health",
+   "value": {
+    "ok": true,
+    "llm": true,
+    "app": false,
+    "dataDir": null,
+    "version": null,
+    "packaged": false,
+    "root": "/Users/housibo/Documents/知乎黑客松"
+   },
+   "at": "2026-09-13T16:08:53.166Z"
+  },
+  {
+   "step": "阅读-正文",
+   "value": "1 · 阅读 为什么输入变长，回答可能变差？ 本章材料由五类语义单元配对而来。五类单元是材料来源，不是五个学习步骤。 QST 要回答什么？ QST-context-rot CON 上下文腐烂 CON-context-rot OPI 判断依据 OPI-CTX-03-03 CAS 假设场景 CAS-context-rot SOL 行动说明 SOL-context-rot 原文 context：同一道题、同一条关键证据都不变，只往输入里加入更多材料。如果输入越长，模型越容易漏用证据、混入干扰项或放弃作答，那么增加长度本身就带来了可靠性成本。 直觉：上下文窗口像容量上限，但“装得下”不等于模型能稳定利用里面的每一条信息。 机制：要判断是不是输入变长造成可靠性下降，需要固定模型、任务、关键证据和评分方法，只分档增加无关材料，然后逐档记录结果。 边界：如果同时换模型、换任务或加入新的关键证据，就无法知道结果变化究竟由哪个因素造成。Context Rot 也不等于 Context Window；这里没有统一失效阈值。 主案例 · 假设场景 先确认模型在短输入条件下能稳定完成同一项问答，再保持问题、关键证据和评分方法不变，只分档增加无关材料；若表现随长度下降，才有依据把输入长度列为退化变量。 CAS-context-rot · 不是实际复盘；来源依据：SRC-EXT-003 来源定位：CON-context-rot 的「费曼一下／边界」；OPI-CTX-03-03 的「核心判断」；CAS-context-rot 的「场景」；SOL-context-rot 的「动作路径」。OPI 的适用范围仍以 SRC-EXT-001 原文为准。 读完，开始第一道判断",
+   "at": "2026-09-13T16:08:53.177Z"
+  },
+  {
+   "step": "阅读-五类材料 ID",
+   "value": "QST-context-rot | CON-context-rot | OPI-CTX-03-03 | CAS-context-rot | SOL-context-rot",
+   "at": "2026-09-13T16:08:53.186Z"
+  },
+  {
+   "step": "阅读-主案例标记",
+   "value": true,
+   "at": "2026-09-13T16:08:53.192Z"
+  },
+  {
+   "step": "三道决策",
+   "value": [
+    {
+     "q": 1,
+     "prompt": "1. 短输入稳定，加入大量无关内容后开始漏答。第一步做什么？",
+     "options": [
+      "A 先换更大的模型。",
+      "B 固定模型、任务、关键证据和评分方法，只分档增加无关内容。",
+      "C 先换更大的上下文窗口。"
+     ],
+     "firstChoice": 2,
+     "firstChoiceCorrect": false,
+     "stayed": true,
+     "feedback": "窗口容量变大不等于模型利用长输入的可靠性变高。",
+     "nextLabel": "选对后进入下一题"
+    },
+    {
+     "q": 2,
+     "prompt": "2. 为了比较不同长度的输入，哪一组变量应该保持不变？",
+     "options": [
+      "A 模型、任务、关键证据和评分方法。",
+      "B 只固定模型，其他都可以一起调整。",
+      "C 只要最后答案看起来合理，变量是否固定都无所谓。"
+     ],
+     "chosen": 0,
+     "chosenCorrect": true,
+     "nextLabel": "选对后进入下一题"
+    },
+    {
+     "q": 3,
+     "prompt": "3. 长输入组表现下降后，哪种结论最稳妥？",
+     "options": [
+      "A 证明所有模型都无法处理长上下文。",
+      "B 只要窗口没满，长输入就一定没有问题。",
+      "C 在本次固定条件下，输入长度增加与可靠性下降同时出现；还要说明测量范围。"
+     ],
+     "chosen": 2,
+     "chosenCorrect": true,
+     "nextLabel": "三题通过，进入费曼"
+    }
+   ],
+   "at": "2026-09-13T16:08:53.398Z"
+  },
+  {
+   "step": "进入费曼",
+   "value": true,
+   "at": "2026-09-13T16:08:53.657Z"
+  },
+  {
+   "step": "费曼-漏点复述",
+   "value": {
+    "status": "fail",
+    "text": "费曼未通过 · 判定等级：本地模型\n讲到了：无\n漏点：固定模型、任务、关键证据和评分方法的条件、分档增加无关输入并观察可靠性变化、上下文窗口容量不等于长上下文利用可靠性\n下一步：请按固定条件分档加入无关输入，记录可靠性变化，并区分窗口容量与长上下文利用可靠性。\n请补齐漏点后重新提交。",
+    "dots": 2
+   },
+   "at": "2026-09-13T16:08:56.737Z"
+  },
+  {
+   "step": "费曼-完整复述",
+   "value": {
+    "status": "ok",
+    "text": "费曼通过 · 判定等级：本地模型\n讲到了：变量、证据、边界\n漏点：无\n下一步：下一步：补充说明如何量化可靠性变化，例如漏用证据、混入干扰项或放弃作答的比例。",
+    "dots": 4
+   },
+   "at": "2026-09-13T16:08:59.349Z"
+  },
+  {
+   "step": "本页请求",
+   "value": {
+    "total": 4,
+    "llm": 2,
+    "zhihu": 0
+   },
+   "at": "2026-09-13T16:08:59.515Z"
+  },
+  {
+   "step": "JS 报错",
+   "value": 0,
+   "at": "2026-09-13T16:08:59.516Z"
+  }
+ ]
+}

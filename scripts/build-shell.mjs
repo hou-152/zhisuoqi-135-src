@@ -54,8 +54,24 @@ function loadNeican() {
   return d;
 }
 
+/* 独立学习空间：Agent Loop 六章（scripts/build-learning-materials.mjs 装配 → chapters.json）
+   候选装配稿也只进本地壳；公网产物由 build-public.mjs 按审核状态决定是否剥离。 */
+function loadLearning() {
+  const f = path.join(ROOT, 'evidence', 'agent-loop-260913', 'chapters.json');
+  if (!fs.existsSync(f)) {
+    console.warn('⚠ 缺 evidence/agent-loop-260913/chapters.json —— 先跑 node scripts/build-learning-materials.mjs');
+    return { chapters: [], caseReview: {}, gaps: [] };
+  }
+  const d = JSON.parse(fs.readFileSync(f, 'utf8'));
+  const ready = d.chapters.filter((c) => c.review.status === 'ready').length;
+  console.log(`学习空间：${d.chapters.length} 章 · ready ${ready} 章 · 主案例审核状态 ${d.caseReview.state}（${d.caseReview.confirmedAt || '未确认'}）`);
+  console.log(`  ${d.chapters.map((c) => `${c.order}.${c.title}(${c.cm.id}↔${c.concept.id})`).join(' · ')}`);
+  return d;
+}
+
 const payload = LEGACY ? buildLegacy() : buildFromMap();
 payload.neican = loadNeican();
+payload.learning = loadLearning();
 
 const tpl = fs.readFileSync(TPL, 'utf8');
 const json = JSON.stringify(payload).replace(/<\//g, '<\\/');

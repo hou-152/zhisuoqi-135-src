@@ -1,0 +1,132 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>知所栖 135 · 上下文腐烂 · MVP</title>
+<style>
+  :root{--bg:#f6f7fb;--card:#fff;--ink:#18233d;--muted:#63728e;--line:#dce3f0;--blue:#315edb;--green:#23845b;--red:#b94b53;--gold:#9b6a16}
+  *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 system-ui,-apple-system,"PingFang SC",sans-serif}
+  main{max-width:920px;margin:0 auto;padding:42px 22px 80px}.eyebrow{color:var(--blue);font-weight:700;letter-spacing:.08em;font-size:13px}
+  h1{font-size:38px;line-height:1.2;margin:8px 0}.lead{color:var(--muted);font-size:18px}.progress{display:flex;gap:7px;margin:22px 0}.dot{height:7px;flex:1;border-radius:8px;background:#d8deeb}.dot.on{background:var(--blue)}.dot.done{background:var(--green)}
+  section{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:25px 28px;margin:16px 0;box-shadow:0 8px 24px #20345a0a}.hidden{display:none!important}.tag{display:inline-block;background:#edf2ff;color:var(--blue);padding:2px 9px;border-radius:6px;font-size:13px;font-weight:650}
+  h2{font-size:24px;line-height:1.3;margin:8px 0 12px}h3{font-size:18px;margin:22px 0 6px}.context{border-left:3px solid var(--blue);padding:12px 16px;background:#f5f7ff;margin:16px 0}.muted{color:var(--muted);font-size:14px}.source{color:var(--muted);font-size:13px;border-top:1px solid var(--line);padding-top:12px;margin-top:18px}
+  .pairing{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:18px 0}.pairing div{border:1px solid var(--line);border-radius:9px;padding:9px 10px;background:#fafbfe}.pairing b{display:block;color:var(--blue);font-size:13px}.pairing span{display:block;font-size:13px;line-height:1.45;margin-top:2px}.case{background:#fff8e8;border:1px solid #ecd49f;border-radius:10px;padding:13px 15px;margin:16px 0}.case strong{color:var(--gold)}
+  .decision{border-top:1px solid var(--line);padding-top:18px;margin-top:20px}.option{display:block;width:100%;text-align:left;background:#fff;border:1px solid var(--line);border-radius:11px;padding:14px 16px;margin:9px 0;color:var(--ink);font:inherit;cursor:pointer}.option:hover{border-color:#9eb4ef;background:#fbfcff}.option.selected{border-color:var(--blue);background:#edf2ff}.option.correct{border-color:#7bc29f;background:#effaf4}.option.wrong{border-color:#dfa0a5;background:#fff5f5}.option:disabled{cursor:default}.feedback{font-size:14px;margin:8px 0;color:var(--muted)}
+  textarea{width:100%;min-height:150px;border:1px solid var(--line);border-radius:10px;padding:12px;font:inherit;resize:vertical;color:var(--ink)}button.primary{background:var(--blue);color:#fff;border:0;border-radius:9px;padding:10px 18px;font:inherit;cursor:pointer}button.primary:disabled{background:#aeb9d2;cursor:not-allowed}button.secondary{background:#fff;color:var(--blue);border:1px solid #b7c5ec;border-radius:9px;padding:9px 16px;font:inherit;cursor:pointer}.actions{display:flex;gap:10px;align-items:center;margin-top:20px}.result{border-radius:10px;padding:13px 15px;margin-top:16px;white-space:pre-wrap}.result.ok{background:#effaf4;color:var(--green)}.result.fail{background:#fff5f5;color:var(--red)}.result.wait{background:#fff8e8;color:var(--gold)}.result b{display:block;margin-bottom:4px}.small{font-size:12px;color:var(--muted)}
+  @media(max-width:680px){main{padding:28px 14px 58px}h1{font-size:32px}section{padding:20px 17px}.pairing{grid-template-columns:repeat(2,1fr)}.pairing div:last-child{grid-column:span 2}}
+</style>
+<main>
+  <div class="eyebrow">知所栖 135 · 一个概念的可运行 MVP</div>
+  <h1>上下文腐烂</h1>
+  <p class="lead">读懂一段当前概念的 context，逐题判断 3 个情境，最后用自己的话复述。当前只验证这一章，不伪造下一章。</p>
+  <div class="progress" aria-label="学习进度"><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+
+  <section id="reading">
+    <span class="tag">1 · 阅读</span><h2>为什么输入变长，回答可能变差？</h2>
+    <p class="muted">本章材料由五类语义单元配对而来。五类单元是材料来源，不是五个学习步骤。</p>
+    <div class="pairing" aria-label="五类语义单元配对">
+      <div><b>QST</b><span>要回答什么？</span><span class="small">QST-context-rot</span></div>
+      <div><b>CON</b><span>上下文腐烂</span><span class="small">CON-context-rot</span></div>
+      <div><b>OPI</b><span>判断依据</span><span class="small">OPI-CTX-03-03</span></div>
+      <div><b>CAS</b><span>假设场景</span><span class="small">CAS-context-rot</span></div>
+      <div><b>SOL</b><span>行动说明</span><span class="small">SOL-context-rot</span></div>
+    </div>
+    <div class="context"><b>原文 context：</b>同一道题、同一条关键证据都不变，只往输入里加入更多材料。如果输入越长，模型越容易漏用证据、混入干扰项或放弃作答，那么增加长度本身就带来了可靠性成本。</div>
+    <div class="context"><b>直觉：</b>上下文窗口像容量上限，但“装得下”不等于模型能稳定利用里面的每一条信息。</div>
+    <div class="context"><b>机制：</b>要判断是不是输入变长造成可靠性下降，需要固定模型、任务、关键证据和评分方法，只分档增加无关材料，然后逐档记录结果。</div>
+    <div class="context"><b>边界：</b>如果同时换模型、换任务或加入新的关键证据，就无法知道结果变化究竟由哪个因素造成。Context Rot 也不等于 Context Window；这里没有统一失效阈值。</div>
+    <div class="case"><strong>主案例 · 假设场景</strong><br>先确认模型在短输入条件下能稳定完成同一项问答，再保持问题、关键证据和评分方法不变，只分档增加无关材料；若表现随长度下降，才有依据把输入长度列为退化变量。<br><span class="small">CAS-context-rot · 不是实际复盘；来源依据：SRC-EXT-003</span></div>
+    <div class="source">来源定位：CON-context-rot 的「费曼一下／边界」；OPI-CTX-03-03 的「核心判断」；CAS-context-rot 的「场景」；SOL-context-rot 的「动作路径」。OPI 的适用范围仍以 SRC-EXT-001 原文为准。</div>
+    <div class="actions"><button class="primary" onclick="startDecisions()">读完，开始第一道判断</button></div>
+  </section>
+
+  <section id="decisions" class="hidden">
+    <span class="tag">2 · 一题一判</span><h2>先做判断，再看依据</h2><p class="muted" id="decision-progress">第 1 / 3 题 · 每题 3 个选项，只有 1 个正确。</p>
+    <div id="decision-list"></div>
+    <div class="actions"><button class="primary" id="next-decision" onclick="nextDecision()" disabled>选对后进入下一题</button><span id="decision-status" class="muted"></span></div>
+  </section>
+
+  <section id="feynman" class="hidden">
+    <span class="tag">3 · 费曼收尾</span><h2>用自己的话讲清楚</h2>
+    <p>为什么“上下文窗口更大”不能直接推出“长上下文使用更可靠”？请至少说清：变量、证据和边界。</p>
+    <textarea id="feynman-input" placeholder="我会这样解释……"></textarea>
+    <div class="actions"><button class="primary" id="submit-feynman" onclick="finish()">提交复述</button><button class="secondary" onclick="backToDecisions()">回看决策</button></div>
+    <div id="feynman-result" aria-live="polite"></div>
+  </section>
+</main>
+<script>
+const MATERIAL = Object.freeze({
+  qst:'QST-context-rot', concept:'CON-context-rot', opinion:'OPI-CTX-03-03', primaryCase:'CAS-context-rot', solution:'SOL-context-rot',
+  required:['变量','证据','边界']
+});
+const decisions = [
+  {primaryCaseId:'CAS-context-rot', opinionIds:['OPI-CTX-03-03'], solutionIds:['SOL-context-rot'], prompt:'短输入稳定，加入大量无关内容后开始漏答。第一步做什么？', options:[
+    ['A','先换更大的模型。',false,'这会同时改变模型变量，无法先判断输入长度的影响。'],
+    ['B','固定模型、任务、关键证据和评分方法，只分档增加无关内容。',true,'对。先隔离输入长度，才知道是否发生可靠性退化。依据：OPI-CTX-03-03；动作：SOL-context-rot。'],
+    ['C','先换更大的上下文窗口。',false,'窗口容量变大不等于模型利用长输入的可靠性变高。']
+  ]},
+  {primaryCaseId:'CAS-context-rot', opinionIds:['OPI-CTX-03-03'], solutionIds:['SOL-context-rot'], prompt:'为了比较不同长度的输入，哪一组变量应该保持不变？', options:[
+    ['A','模型、任务、关键证据和评分方法。',true,'对。只有一个主要变化量，结果才有可解释性。依据：OPI-CTX-03-03。'],
+    ['B','只固定模型，其他都可以一起调整。',false,'任务和评分也变了，就无法把结果归因到长度。'],
+    ['C','只要最后答案看起来合理，变量是否固定都无所谓。',false,'主观印象不能替代可复核的比较条件。']
+  ]},
+  {primaryCaseId:'CAS-context-rot', opinionIds:['OPI-CTX-03-03'], solutionIds:['SOL-context-rot'], prompt:'长输入组表现下降后，哪种结论最稳妥？', options:[
+    ['A','证明所有模型都无法处理长上下文。',false,'一次设置不能推出所有模型的普遍结论。'],
+    ['B','只要窗口没满，长输入就一定没有问题。',false,'容量边界和实际利用可靠性是两件事。'],
+    ['C','在本次固定条件下，输入长度增加与可靠性下降同时出现；还要说明测量范围。',true,'对。结论必须带条件和证据范围。依据：CON-context-rot 的边界；动作：SOL-context-rot。']
+  ]}
+];
+let currentQuestion = 0;
+let answers = Array(decisions.length).fill(null);
+let feynmanSubmitting = false;
+window.__MVP = { material:MATERIAL, decisions, answers, currentQuestion:0, feynmanStatus:'not-started' };
+
+function setDot(index, state='on'){const dot=document.querySelectorAll('.dot')[index];if(dot)dot.className='dot '+state}
+function startDecisions(){document.getElementById('reading').classList.add('hidden');document.getElementById('decisions').classList.remove('hidden');setDot(0,'done');setDot(1,'on');renderDecision();scrollTo(0,0)}
+function renderDecision(){
+  const d=decisions[currentQuestion], selected=answers[currentQuestion], correct=selected!==null&&d.options[selected][2];
+  document.getElementById('decision-progress').textContent=`第 ${currentQuestion+1} / ${decisions.length} 题 · 每题 3 个选项，只有 1 个正确。`;
+  document.getElementById('decision-list').innerHTML=`<div class="decision"><h3>${currentQuestion+1}. ${d.prompt}</h3>${d.options.map((o,j)=>`<button class="option ${selected===j?(o[2]?'correct':'wrong'):''}" ${selected!==null&&correct?'disabled':''} onclick="choose(${j})"><b>${o[0]}</b> ${o[1]}</button>`).join('')}${selected!==null?`<div class="feedback">${d.options[selected][3]}</div>`:''}</div>`;
+  const next=document.getElementById('next-decision');next.disabled=!correct;next.textContent=currentQuestion===decisions.length-1?'三题通过，进入费曼':'选对后进入下一题';
+  document.getElementById('decision-status').textContent=correct?`${currentQuestion+1} / ${decisions.length} 题通过`:`本题尚未通过；可以重选`;
+  window.__MVP.currentQuestion=currentQuestion;window.__MVP.answers=[...answers];
+}
+function choose(j){answers[currentQuestion]=j;renderDecision()}
+function nextDecision(){
+  const d=decisions[currentQuestion];if(answers[currentQuestion]===null||!d.options[answers[currentQuestion]][2])return;
+  if(currentQuestion<decisions.length-1){currentQuestion++;renderDecision();scrollTo(0,0);return}
+  document.getElementById('decisions').classList.add('hidden');document.getElementById('feynman').classList.remove('hidden');setDot(1,'done');setDot(2,'on');window.__MVP.feynmanStatus='not-submitted';scrollTo(0,0)
+}
+function backToDecisions(){document.getElementById('feynman').classList.add('hidden');document.getElementById('decisions').classList.remove('hidden');setDot(2,'on');renderDecision();scrollTo(0,0)}
+function parseVerdict(raw){
+  if(typeof raw!=='string')return null;
+  const text=raw.replace(/^```(?:json)?\s*/i,'').replace(/\s*```$/,'').trim();let value;
+  try{value=JSON.parse(text)}catch{return null}
+  if(!Array.isArray(value.covered)||!Array.isArray(value.missing))return null;
+  const covered=value.covered.map(x=>String(x));const missing=value.missing.map(x=>String(x));
+  const has=key=>covered.some(x=>x.includes(key));
+  return {covered,missing,next:String(value.next||''),pass:MATERIAL.required.every(has)&&missing.length===0};
+}
+function showVerdict(out, status, title, body){out.className='result '+status;out.innerHTML='';const b=document.createElement('b');b.textContent=title;out.append(b,document.createTextNode(body));window.__MVP.feynmanStatus=status}
+async function finish(){
+  const input=document.getElementById('feynman-input').value.trim(),out=document.getElementById('feynman-result'),button=document.getElementById('submit-feynman');
+  if(feynmanSubmitting)return;
+  if(input.length<30){showVerdict(out,'wait','还不能判定','请再具体一些，至少说清变量、证据和边界。');return}
+  feynmanSubmitting=true;button.disabled=true;showVerdict(out,'wait','复述已提交','正在尝试本地判定（不调用知乎）。');
+  const local=/^(127\.0\.0\.1|localhost|\[::1\])$/.test(location.hostname);
+  if(!local){showVerdict(out,'wait','待人工复核','公网静态版不调用模型，也不把提交当作通过。');setDot(2,'on');feynmanSubmitting=false;button.disabled=false;return}
+  try{
+    const r=await fetch('/api/llm',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({json:false,messages:[
+      {role:'system',content:'你是一个学习单元的费曼复述检查器。只根据给定材料判断，不调用外部资料，不引用知乎。必须只输出 JSON，格式为 {"covered":["变量","证据","边界"],"missing":[],"next":"一句下一步"}。covered 只填复述中确实说到的要点，missing 填漏掉的要点。'},
+      {role:'user',content:`材料：上下文腐烂要在固定模型、任务、关键证据和评分方法的条件下分档增加无关输入，观察可靠性变化；上下文窗口的容量不等于长上下文的利用可靠性。\n复述：${input}`}
+    ]})});
+    if(!r.ok)throw new Error('llm-http-'+r.status);
+    const j=await r.json(),verdict=parseVerdict(j.content);
+    if(!verdict){showVerdict(out,'wait','待人工复核','本地模型返回的格式不符合判定协议，没有把它当作通过。\n原始返回：'+String(j.content||'').slice(0,500));setDot(2,'on');return}
+    const body=`讲到了：${verdict.covered.join('、')||'无'}\n漏点：${verdict.missing.join('、')||'无'}\n下一步：${verdict.next||'无'}`;
+    if(verdict.pass){showVerdict(out,'ok','费曼通过 · 判定等级：本地模型',body);setDot(2,'done');setDot(3,'done')}
+    else{showVerdict(out,'fail','费曼未通过 · 判定等级：本地模型',body+'\n请补齐漏点后重新提交。');setDot(2,'on')}
+  }catch(e){showVerdict(out,'wait','待人工复核','本地模型暂不可用或请求失败，没有把它当作通过。\n'+e.message);setDot(2,'on')}
+  finally{feynmanSubmitting=false;button.disabled=false}
+}
+window.startDecisions=startDecisions;window.renderDecision=renderDecision;window.choose=choose;window.nextDecision=nextDecision;window.finish=finish;window.backToDecisions=backToDecisions;window.parseVerdict=parseVerdict;
+</script>

@@ -1,0 +1,552 @@
+{
+  "version": "v1",
+  "generatedAt": "2026-09-13",
+  "authoredBy": "DeepSeek Harness（agent 撰写，未经负责人审核）",
+  "rules": [
+    "每题 3 个选项，恰好 1 个正确；正确答案必须能回到 OPI 或 SOL 的具体字段。",
+    "basis 指向 <单元ID>#<字段>，basisQuote 必须是该字段里逐字存在的片段（build 脚本会校验，不匹配即失败）。",
+    "每章三题分别检验不同判断（结构／排错动作／边界结论），不是换措辞重复出题。",
+    "费曼要点按章制定，六章要点集合两两不同，也不复用上下文腐烂那一章的「变量／证据／边界」。"
+  ],
+  "chapters": {
+    "agent": {
+      "narrative": {
+        "authored": true,
+        "authoredBy": "DeepSeek Harness（agent 撰写，未经负责人审核）",
+        "note": "正文流：把概念之间的连线写成正文里的解释句。bridges/links 的句子是 agent 撰写的过渡句，quote 才是逐字原文，build 脚本逐条校验。",
+        "lead": "一个会回答问题的模型，和一个会自己把事做完的系统，差在哪？",
+        "bridges": [
+          {
+            "fromUnit": "CON-large-language-model",
+            "question": "模型能回答问题，可它自己不能查资料、不能改文件，也不能在失败之后换个做法。「会回答」和「会做事」之间缺的是什么？",
+            "answer": "缺的是一层围绕目标的行动结构：模型负责判断下一步，外部系统负责执行并把结果送回来。这一层出现之后，才有「Agent」这个说法。",
+            "quote": "AI Agent 是围绕目标持续选择下一步、借助工具行动并根据结果继续推进的系统，不是裸模型的别名。",
+            "quoteFrom": "definition",
+            "basis": ["CON-agent", "CON-large-language-model"]
+          },
+          {
+            "fromUnit": "QST-agent",
+            "question": "这条路线要回答的是：为什么 AI 能连续做事，而不只回答一次？",
+            "answer": "要回答它，先得把承载体立住——不知道 Agent 的最小构成是「模型 ＋ 指令 ＋ 工具」，后面的工具、循环、状态都没有挂点。",
+            "quote": "Agent 不等于 LLM；模型负责推理与生成，工具执行、状态维护、权限和循环来自外部系统。",
+            "quoteFrom": "boundary",
+            "basis": ["CON-agent", "QST-agent"]
+          }
+        ],
+        "links": [
+          {
+            "pair": ["Agent", "工具"],
+            "sentence": "Agent 的定义里就写着「借助工具行动」：模型提出下一步要做什么，真正伸手的是模型外的系统。所以工具不是 Agent 的外挂，而是它定义的一部分。",
+            "quote": "你看到的这种连续行为，通常由模型与外部 Harness 共同产生。",
+            "quoteFrom": "intuition"
+          },
+          {
+            "pair": ["Agent", "Harness"],
+            "sentence": "Agent 描述你看到的那个行动系统，Harness 描述让这种行动真正发生并受到约束的运行机器——两者不是同义词。",
+            "quote": "Agent 与 Agent Harness 不是同义词；前者描述呈现出来的行动系统，后者强调产生和约束这种行为的运行机器。",
+            "quoteFrom": "boundary"
+          },
+          {
+            "pair": ["Agent", "一次工具调用"],
+            "sentence": "「能调用一次工具」是分界线，但不是终点：生产级 Agent 还要错误处理、验证、停止条件与状态管理。",
+            "quote": "“能调用一次工具”是重要分界，但生产级 Agent 通常还需要错误处理、验证、停止条件与状态管理。",
+            "quoteFrom": "boundary"
+          }
+        ],
+        "inlineFeynman": true,
+        "nextBridge": {
+          "toChapter": "tool",
+          "question": "Agent 的定义里既然包含「一组它能调用的工具」，那工具到底是什么、边界在哪？",
+          "answer": "下一站是工具：让 Agent 读取、计算或改变外部世界的结构化能力接口——先有主体，再谈它的手。",
+          "basis": ["CON-tool"]
+        }
+      },
+      "questions": [
+        {
+          "judgment": "结构判定：什么才算真的具有 Agent 行为",
+          "prompt": "两个产品都自称 Agent。要判断哪一个真的具有 Agent 行为，先看什么？",
+          "options": [
+            { "text": "看它有没有用「Agent」这个名字、宣传页上有没有写。", "correct": false, "why": "名字不构成行为证据；SOL-agent 明确要求不只看是否使用了 Agent 名称。" },
+            { "text": "看它能否围绕目标、根据上一步的结果选择下一步，而不是只回答一次。", "correct": true, "basis": ["SOL-agent#solution_summary"], "basisQuote": "检查它能否围绕目标根据结果选择下一步，而不只看是否使用了 Agent 名称" },
+            { "text": "看它背后的模型参数是不是更大。", "correct": false, "why": "参数规模属于模型层；本章讨论的是模型外是否构成了围绕目标的行动系统。" }
+          ]
+        },
+        {
+          "judgment": "排错动作：Agent 表现差时先怎么拆",
+          "prompt": "一个 Agent 在长任务里表现很差。按本章材料，第一步该怎么拆问题？",
+          "options": [
+            { "text": "直接换一个更大的模型。", "correct": false, "why": "换模型把变量一起改掉了，而且先把归因锁死在模型层。" },
+            { "text": "笼统归因成「这个 Agent 不聪明」。", "correct": false, "why": "SOL-agent 把这种归因列为要避免的做法。" },
+            { "text": "把问题拆成模型判断、工具能力、状态、权限、循环和验证，逐项检查。", "correct": true, "basis": ["SOL-agent#action_steps[1]"], "basisQuote": "排错时把问题拆成模型判断、工具能力、状态、权限、循环和验证" }
+          ]
+        },
+        {
+          "judgment": "边界结论：Agent 与 LLM 的关系",
+          "prompt": "关于 Agent 与 LLM 的关系，下面哪种说法是本章材料支持的？",
+          "options": [
+            { "text": "Agent 就是参数更多、上下文更长的 LLM。", "correct": false, "why": "这条正好踩中 SOL-agent 要避免的误区。" },
+            { "text": "模型负责推理与生成；工具执行、状态维护、权限和循环来自外部系统。", "correct": true, "basis": ["SOL-agent#target_problem"], "basisQuote": "模型负责推理与生成，工具执行、状态维护、权限和循环来自外部系统" },
+            { "text": "只要能成功调用一次工具，就是生产级 Agent。", "correct": false, "why": "CON-agent 的边界写明：能调用一次工具是重要分界，但生产级还需要错误处理、验证、停止条件与状态管理。" }
+          ]
+        }
+      ],
+      "feynman": {
+        "prompt": "为什么「AI Agent」不能直接等同于「一个更强的 LLM」？请至少说清三件事。",
+        "required": ["最小构成", "行动来源", "与模型的区别"]
+      }
+    },
+    "tool": {
+      "narrative": {
+        "authored": true,
+        "authoredBy": "DeepSeek Harness（agent 撰写，未经负责人审核）",
+        "note": "正文流：同上。句子是 agent 撰写的过渡句，quote 逐字来自本章阅读块。",
+        "lead": "模型说「我要读这个文件」，这句话和文件真的被读到，差在哪？",
+        "bridges": [
+          {
+            "fromChapter": "agent",
+            "fromUnit": "CON-agent",
+            "question": "Agent 的最小构成里已经写着「一组它能调用的工具」；可工具到底是什么？",
+            "answer": "工具是让 Agent 读取、计算或改变外部世界的结构化能力接口。先有围绕目标行动的主体，再谈它的手。",
+            "quote": "Tool 是让 Agent 读取、计算或改变外部世界的结构化能力接口；模型提出调用，外层系统负责校验、执行并把结果送回来。",
+            "quoteFrom": "definition",
+            "basis": ["CON-tool", "CON-agent"]
+          },
+          {
+            "fromUnit": "CON-agent-harness",
+            "question": "模型提出调用之后，是谁在伸手？",
+            "answer": "真正伸手、检查参数、执行动作和收回结果的是 Harness。模型可以按规定格式说「用这只手做什么」，但执行不在模型里。",
+            "quote": "模型可以按规定格式说“用这只手做什么”，但真正伸手、检查参数、执行动作和收回结果的是 Harness。",
+            "quoteFrom": "intuition",
+            "basis": ["CON-tool", "CON-agent-harness"]
+          },
+          {
+            "fromUnit": "CON-tool",
+            "question": "看到模型发出了工具调用请求，就能说这一步成功了吗？",
+            "answer": "不能。定义、调用、执行和结果回传是连续但不同的环节，看到请求不等于动作已经发生。",
+            "quote": "Tool Definition、Tool Call、Tool Execution 与 Tool Result 是连续但不同的环节；看到调用请求不等于动作已经执行成功。",
+            "quoteFrom": "boundary",
+            "basis": ["CON-tool"]
+          }
+        ],
+        "links": [
+          {
+            "pair": ["工具", "Agent"],
+            "sentence": "工具是 Agent 定义里的一个字段，不是外挂：先有围绕目标行动的主体，才有「它的手」。",
+            "quote": "Tool 是让 Agent 读取、计算或改变外部世界的结构化能力接口；模型提出调用，外层系统负责校验、执行并把结果送回来。",
+            "quoteFrom": "definition"
+          },
+          {
+            "pair": ["工具", "Harness"],
+            "sentence": "工具以名称、描述和参数类型暴露给模型；注册、校验、执行与结果回传都发生在模型之外的那一层。",
+            "quote": "排错时依次检查工具是否注册、描述是否清楚、参数是否通过校验、权限是否允许、执行是否成功、结果是否正确回传。",
+            "quoteFrom": "mechanism"
+          },
+          {
+            "pair": ["工具", "MCP"],
+            "sentence": "工具是具体的能力接口，MCP 是连接一组外部能力的标准协议——两者不能互作同义词。",
+            "quote": "Tool 是具体能力接口，MCP 是连接一组外部能力的标准协议；二者不能互作同义词。",
+            "quoteFrom": "boundary"
+          }
+        ],
+        "inlineFeynman": true,
+        "nextBridge": {
+          "toChapter": "agent-loop",
+          "question": "工具是单次动作；那什么把单次动作变成「持续做事」？",
+          "answer": "下一站是 Agent loop：模型选择下一步、Harness 执行工具、观察结果回到模型，再重复或退出。",
+          "basis": ["CON-agent-loop"]
+        }
+      },
+      "questions": [
+        {
+          "judgment": "环节定位：调用请求不等于执行成功",
+          "prompt": "日志里能看到模型发出了一次读文件的调用请求，但文件内容始终没有出现在上下文里。先查哪一段？",
+          "options": [
+            { "text": "先怀疑模型不知道文件怎么读，补一段提示词教它。", "correct": false, "why": "QST-tool 问的正是这件事：模型能准确描述怎么读，却拿不到内容时，问题不在模型知识。" },
+            { "text": "依次查工具是否注册、描述是否清楚、参数是否通过校验、权限是否允许、执行是否成功、结果是否正确回传。", "correct": true, "basis": ["SOL-tool#action_steps[0]"], "basisQuote": "排错时依次检查工具是否注册、描述是否清楚、参数是否通过校验、权限是否允许、执行是否成功、结果是否正确回传" },
+            { "text": "先把整个工具删掉，改成让模型直接输出文件内容。", "correct": false, "why": "删工具解决的是能力面，不是这条执行链断在哪一环。" }
+          ]
+        },
+        {
+          "judgment": "工具面收窄：工具不是越多越好",
+          "prompt": "有人主张「把所有能找到的工具都挂上，让 Agent 自己挑」。按本章材料，这条主张的问题在哪？",
+          "options": [
+            { "text": "没有问题，工具越多能力一定越强。", "correct": false, "why": "GitHub 把 Copilot code review 的探索工具换成更通用的 grep／glob／view 后，最初结果反而更差（OPI-CTX-A1-01）。" },
+            { "text": "只多花一点 token，对选择没有影响。", "correct": false, "why": "无关能力会改变工具说明把 Agent 引向的工作姿势，不只是 token 成本。" },
+            { "text": "无关能力会增加选择噪声与权限面，只应向当前任务暴露必要工具。", "correct": true, "basis": ["SOL-tool#action_steps[1]"], "basisQuote": "只向当前任务暴露必要工具，避免无关能力增加选择噪声与权限面" }
+          ]
+        },
+        {
+          "judgment": "高风险工具的权限放在哪一层",
+          "prompt": "一个能写生产库的工具，怎么防止它被误调用？",
+          "options": [
+            { "text": "把权限检查和执行日志放在模型外层，不依赖提示词自我约束。", "correct": true, "basis": ["SOL-tool#action_steps[2]"], "basisQuote": "对高风险 Tool 把权限检查和执行日志放在模型外层，不依赖提示词自我约束" },
+            { "text": "在系统提示里写一句「不要误调用」就够了。", "correct": false, "why": "这条正是材料要求不要依赖的做法。" },
+            { "text": "把工具描述写得更详细，模型就不会误用。", "correct": false, "why": "描述只影响模型怎么选，不构成模型外的权限边界。" }
+          ]
+        }
+      ],
+      "feynman": {
+        "prompt": "为什么「模型发出了工具调用请求」不等于「动作已经执行成功」？请至少说清三件事。",
+        "required": ["提出调用", "外层执行", "四个环节"]
+      }
+    },
+    "agent-loop": {
+      "narrative": {
+        "authored": true,
+        "authoredBy": "DeepSeek Harness（agent 撰写，未经负责人审核）",
+        "note": "正文流：同上。句子是 agent 撰写的过渡句，quote 逐字来自本章阅读块。",
+        "lead": "一次工具调用之后，系统凭什么决定「再来一轮」还是「收工」？",
+        "bridges": [
+          {
+            "fromChapter": "tool",
+            "fromUnit": "CON-tool",
+            "question": "工具能执行单次动作了；可一个任务往往要几十次动作，谁来决定下一次做什么？",
+            "answer": "循环来决定：模型选择下一步，Harness 执行工具，观察结果回到模型，再重复或退出。",
+            "quote": "Agent Loop 是模型选择下一步、Harness 执行工具、观察结果回到模型，再重复或退出的运行循环。",
+            "quoteFrom": "definition",
+            "basis": ["CON-agent-loop", "CON-tool"]
+          },
+          {
+            "fromUnit": "CON-agent-harness",
+            "question": "循环里，模型是不是亲自执行了工具？",
+            "answer": "不是。模型生成的是工具调用请求；执行和结果封装由 Harness 完成——这就是「循环」和「循环跑在一台机器上」的区别。",
+            "quote": "模型生成工具调用请求，不是模型亲自执行工具；执行和结果封装由 Harness 完成。",
+            "quoteFrom": "boundary",
+            "basis": ["CON-agent-loop", "CON-agent-harness"]
+          }
+        ],
+        "links": [
+          {
+            "pair": ["Agent loop", "工具"],
+            "sentence": "循环的每一次迭代都在调工具；不先弄清工具的调用边界，循环就只剩一句抽象的话。",
+            "quote": "如果它请求工具，外部系统就执行工具，把结果作为新观察交还模型；模型根据这个新结果决定继续、换一种做法，或给出最终答案。",
+            "quoteFrom": "intuition"
+          },
+          {
+            "pair": ["Agent loop", "退出条件"],
+            "sentence": "循环的关键不是绕圈，而是每次观察都会影响下一步，并且有明确的退出条件。",
+            "quote": "循环的关键不是绕圈，而是每次观察都会影响下一步，并且有明确的退出条件。",
+            "quoteFrom": "intuition"
+          },
+          {
+            "pair": ["Agent loop", "外层工作流"],
+            "sentence": "它只描述单个 Agent 内部「选择—执行—观察—再选择」的行动心跳，不等于外层持续工作流、多 Agent 编排或 Loop Engineering。",
+            "quote": "Agent Loop 只描述单个 Agent 内部“选择—执行—观察—再选择”的行动心跳，不等于外层持续工作流、多 Agent 编排或 Loop Engineering。",
+            "quoteFrom": "boundary"
+          }
+        ],
+        "inlineFeynman": true,
+        "nextBridge": {
+          "toChapter": "state-persistence",
+          "question": "循环能跑起来了，可会话一断就归零——跑到一半的东西放在哪？",
+          "answer": "下一站是状态子系统与进度持久化：记录任务当前阶段、变量、进度与恢复点，让任务跨会话接着做。",
+          "basis": ["CON-state-management"]
+        }
+      },
+      "questions": [
+        {
+          "judgment": "结构判定：缺了哪一步就不成循环",
+          "prompt": "一个系统反复调用工具，但从不把工具结果送回模型。这还构成完整的 Agent Loop 吗？",
+          "options": [
+            { "text": "构成——只要反复调用工具就是循环。", "correct": false, "why": "循环的关键不是绕圈，而是每次观察都会影响下一步。" },
+            { "text": "缺的是「观察回到模型」：结果不回灌，下一步就不会受结果影响。", "correct": true, "basis": ["SOL-agent-loop#target_problem"], "basisQuote": "单个 Agent 内部“选择—执行—观察—再选择”的行动心跳" },
+            { "text": "缺的只是更长的上下文窗口。", "correct": false, "why": "窗口容量解决的是装得下多少，不解决结果有没有回到模型。" }
+          ]
+        },
+        {
+          "judgment": "排错动作：循环空转时先做什么",
+          "prompt": "Agent 连续 40 轮重复同一个命令，没有产生任何新证据。第一步做什么？",
+          "options": [
+            { "text": "把最大回合数从 40 调到 200，让它接着跑。", "correct": false, "why": "这只是在继续消耗预算；材料把无进展检测列为触发条件。" },
+            { "text": "记录并查看每一轮的输入、模型选择、工具参数、工具结果和停止原因，并触发无进展检测。", "correct": true, "basis": ["SOL-agent-loop#action_steps[0]", "SOL-agent-loop#action_steps[2]"], "basisQuote": "记录每一轮的输入、模型选择、工具参数、工具结果和停止原因" },
+            { "text": "直接换一个更大的模型重跑。", "correct": false, "why": "换了模型就没有可比的轨迹，定位不了空转发生在哪一环。" }
+          ]
+        },
+        {
+          "judgment": "退出与结论：循环停下来代表什么",
+          "prompt": "模型自己说了一句「任务完成」，循环就此退出。这样够吗？",
+          "options": [
+            { "text": "够——模型说完成就是完成。", "correct": false, "why": "CON-agent-loop 的边界写明：退出不能只依赖模型随口说「完成」。" },
+            { "text": "不够：要设置清楚的退出条件、最大回合或预算，并提供用户中断路径；而且循环停下不等于任务已经正确完成，仍需独立验证。", "correct": true, "basis": ["SOL-agent-loop#action_steps[1]"], "basisQuote": "为每个循环设置清楚的退出条件、最大回合或预算，并提供用户中断路径" },
+            { "text": "够，只要在提示词里加上「请仔细检查」。", "correct": false, "why": "提示词不构成退出条件，也不构成独立检查。" }
+          ]
+        }
+      ],
+      "feynman": {
+        "prompt": "为什么「反复调用工具」不自动等于「一个完整的 Agent 循环」？请至少说清三件事。",
+        "required": ["一步的动作", "观察回灌", "退出条件"]
+      }
+    },
+    "state-persistence": {
+      "narrative": {
+        "authored": true,
+        "authoredBy": "DeepSeek Harness（agent 撰写，未经负责人审核）",
+        "note": "正文流：同上。句子是 agent 撰写的过渡句，quote 逐字来自本章阅读块。",
+        "lead": "进程重启之后，系统凭什么知道「做到哪了」？",
+        "bridges": [
+          {
+            "fromChapter": "agent-loop",
+            "fromUnit": "CON-agent-loop",
+            "question": "循环能连续跑了；可会话一断，之前跑到哪一步就没了——缺的是什么？",
+            "answer": "缺的是记录：任务当前阶段、变量、进度与恢复点。没有它，中断后系统只知道「做过事」，不知道该从哪接上。",
+            "quote": "状态管理负责记录任务当前阶段、变量、进度与恢复点，让系统知道做到哪里，并能追踪、暂停、恢复或回溯。",
+            "quoteFrom": "definition",
+            "basis": ["CON-state-management", "CON-agent-loop"]
+          },
+          {
+            "fromUnit": "CON-state-management",
+            "question": "保存了一份文件，就等于状态管理做对了吗？",
+            "answer": "不等于。State 是任务当前可描述的执行事实；State Management 是记录、更新、持久化和恢复这些事实的实践。",
+            "quote": "State 是任务当前可描述的执行事实；State Management 是记录、更新、持久化和恢复这些事实的实践。",
+            "quoteFrom": "boundary",
+            "basis": ["CON-state-management"]
+          }
+        ],
+        "links": [
+          {
+            "pair": ["状态", "Agent loop"],
+            "sentence": "循环负责推进，状态负责让推进可接续：把任务想成一列沿轨道运行的小车，状态记录的是它停在哪一段、车上有哪些变量。",
+            "quote": "没有这些记录，中断后系统只知道“做过事”，却不知道该从哪里接上。",
+            "quoteFrom": "intuition"
+          },
+          {
+            "pair": ["状态", "Checkpoint"],
+            "sentence": "Checkpoint 只是保存某个恢复点的机制之一；有 checkpoint 不代表变量完整、恢复正确或外部副作用安全。",
+            "quote": "Checkpoint 只是保存某个恢复点的机制之一；有 checkpoint 不代表变量完整、恢复正确或外部副作用安全。",
+            "quoteFrom": "boundary"
+          },
+          {
+            "pair": ["状态", "Harness"],
+            "sentence": "状态是 Harness 每一步要读写和守护的数据：哪些变量决定下一步、每次状态转换要记什么，都在这里定。",
+            "quote": "明确哪些变量决定下一步，并在每次状态转换时原子地记录当前阶段、完成证据和待处理项。",
+            "quoteFrom": "mechanism"
+          }
+        ],
+        "inlineFeynman": true,
+        "nextBridge": {
+          "toChapter": "harness",
+          "question": "工具、循环、状态各自成立之后，谁把它们组织成一个可控的运行系统？",
+          "answer": "下一站是 Harness：包裹模型、组织循环并落实工具、状态、权限和错误处理的模型外运行系统。",
+          "basis": ["CON-agent-harness"]
+        }
+      },
+      "questions": [
+        {
+          "judgment": "缺的是哪一类记录",
+          "prompt": "进程重启后，系统知道用户之前说过什么，却不知道前三步是否已经执行过。缺的是什么？",
+          "options": [
+            { "text": "缺 Memory——把聊天记录补全就行。", "correct": false, "why": "聊天记录回答的是「说过什么」，回答不了「做到哪里」。" },
+            { "text": "缺可恢复的执行状态：任务当前阶段、已完成步骤与恢复点没有被记下来。", "correct": true, "basis": ["SOL-state-management#target_problem"], "basisQuote": "State 是任务当前可描述的执行事实" },
+            { "text": "缺更大的上下文窗口。", "correct": false, "why": "窗口容量与「前三步是否执行过」是两件事。" }
+          ]
+        },
+        {
+          "judgment": "状态转换时要记什么",
+          "prompt": "每次状态转换时，应该记下什么？",
+          "options": [
+            { "text": "把完整会话历史整段存下来，越多越好。", "correct": false, "why": "SOL-state-management 要求避免把会话历史、业务状态和执行状态混成一个不可审计的大对象。" },
+            { "text": "只存一句「进行中」。", "correct": false, "why": "没有完成证据和待处理项，恢复时仍然不知道该从哪里接。" },
+            { "text": "明确哪些变量决定下一步，并原子地记录当前阶段、完成证据和待处理项。", "correct": true, "basis": ["SOL-state-management#action_steps[0]"], "basisQuote": "明确哪些变量决定下一步，并在每次状态转换时原子地记录当前阶段、完成证据和待处理项" }
+          ]
+        },
+        {
+          "judgment": "恢复动作：接着跑之前先做什么",
+          "prompt": "从记录的恢复点继续执行之前，第一步做什么？",
+          "options": [
+            { "text": "直接接着往下跑，记录里怎么写的就怎么信。", "correct": false, "why": "Checkpoint 只是保存恢复点的机制之一；有记录不代表变量完整、恢复正确或外部副作用安全。" },
+            { "text": "先核对外部世界的实际状态，再继续执行。", "correct": true, "basis": ["SOL-state-management#action_steps[1]"], "basisQuote": "恢复后先核对外部世界，再继续执行" },
+            { "text": "不管记录，从头把整个任务重跑一遍。", "correct": false, "why": "这等于放弃持久化的意义，重复的副作用也不安全。" }
+          ]
+        }
+      ],
+      "feynman": {
+        "prompt": "为什么「存了一份进度文件」不等于「状态管理做好了」？请至少说清三件事。",
+        "required": ["执行事实", "记录什么", "恢复前核对"]
+      }
+    },
+    "harness": {
+      "narrative": {
+        "authored": true,
+        "authoredBy": "DeepSeek Harness（agent 撰写，未经负责人审核）",
+        "note": "正文流装配（先做这一页）：把概念之间的连线写成正文里的解释句，并把 阅读 → 费曼一下 → 用一个场景试试 接成一段。bridges/links 里的句子是 agent 撰写的过渡句（出线文案性质），quote 才是逐字原文，build 脚本逐条校验——句子可以被改，quote 不可被改。",
+        "lead": "同一个模型，换一套 Harness，表现为什么会差很多？",
+        "bridges": [
+          {
+            "fromChapter": "tool",
+            "fromUnit": "CON-tool",
+            "question": "工具能执行具体操作；可是这一次调用之后，谁组织调用、接收结果、安排下一步？",
+            "answer": "这正是 Harness 出场的地方：它把任务和当前状态送给模型，执行模型请求的工具，再把观察结果送回去。",
+            "quote": "模型负责生成判断或工具请求，Harness 负责执行、回灌、状态与控制。",
+            "quoteFrom": "boundary",
+            "basis": ["CON-agent-harness", "CON-tool"]
+          },
+          {
+            "fromChapter": "agent-loop",
+            "fromUnit": "CON-agent-loop",
+            "question": "循环解释了「选择—执行—观察—再选择」的心跳；心跳靠什么真的跳起来？",
+            "answer": "循环本身不是一个运行系统。装着工具、状态、权限与停止条件、让心跳真的跳起来的那一层，才是 Harness。",
+            "quote": "Agent Harness 是包裹模型、组织循环并落实工具、状态、权限和错误处理的模型外运行系统；它让模型能够持续且受控地行动。",
+            "quoteFrom": "definition",
+            "basis": ["CON-agent-harness"]
+          },
+          {
+            "fromChapter": "state-persistence",
+            "fromUnit": "CON-state-management",
+            "question": "状态子系统决定「跑到一半时东西放在哪」；那么谁在每一步读写它、出错时又怎么办？",
+            "answer": "Harness 在每一步读写状态、检查权限与错误，并决定继续还是停止——状态是它管理的一部分，不是它的同义词。",
+            "quote": "它把任务和当前状态送给模型，执行模型请求的工具，把观察结果送回去，并在每一步检查权限、错误与停止条件。",
+            "quoteFrom": "intuition",
+            "basis": ["CON-agent-harness"]
+          }
+        ],
+        "links": [
+          {
+            "pair": ["Harness", "工具"],
+            "sentence": "模型只提出「要用什么工具、带什么参数」，真正执行的是 Harness；执行结果由 Harness 送回模型，模型才有下一步可判断。",
+            "quote": "模型负责生成判断或工具请求，Harness 负责执行、回灌、状态与控制。",
+            "quoteFrom": "boundary"
+          },
+          {
+            "pair": ["Harness", "Agent loop"],
+            "sentence": "循环是动作的形状（选择—执行—观察—再选择）；Harness 是让这个形状在真实机器上转起来的东西——它组织循环，并给循环装上权限、错误处理和停止条件。",
+            "quote": "Agent Harness 是包裹模型、组织循环并落实工具、状态、权限和错误处理的模型外运行系统；它让模型能够持续且受控地行动。",
+            "quoteFrom": "definition"
+          },
+          {
+            "pair": ["Harness", "状态子系统"],
+            "sentence": "状态是 Harness 每一步要读写和守护的数据：拿什么状态给模型、什么时候写回、失败时怎么恢复，都由 Harness 决定。",
+            "quote": "它把任务和当前状态送给模型，执行模型请求的工具，把观察结果送回去，并在每一步检查权限、错误与停止条件。",
+            "quoteFrom": "intuition"
+          }
+        ],
+        "inlineFeynman": true,
+        "nextBridge": {
+          "toChapter": "verification-loop",
+          "question": "Harness 让系统受控地跑起来了；可谁来判断它这一趟到底做对了没有？",
+          "answer": "下一站是验证闭环：独立检查结果是否符合目标，并把检查结论变成下一步动作。",
+          "basis": ["CON-verification-loop"]
+        }
+      },
+      "questions": [
+        {
+          "judgment": "归因层：能力提升发生在哪一层",
+          "prompt": "模型完全没变，只换了工具执行、状态与验证机制，Agent 就能完成以前做不动的长任务。提升主要发生在哪一层？",
+          "options": [
+            { "text": "在模型权重那一层——一定是偷偷换了模型。", "correct": false, "why": "题目已固定模型不变；SOL-agent-harness 把归因指向模型外。" },
+            { "text": "在 Harness 这一层：模型外的执行、回灌、状态与控制。", "correct": true, "basis": ["SOL-agent-harness#target_problem"], "basisQuote": "Harness 负责执行、回灌、状态与控制" },
+            { "text": "在评测集那一层——一定是任务太简单。", "correct": false, "why": "这条是把结论推给测量，而不是定位能力来源。" }
+          ]
+        },
+        {
+          "judgment": "消融方法：怎么确认是哪个组件起了作用",
+          "prompt": "想确认到底是哪个 Harness 组件带来的提升，该怎么做？",
+          "options": [
+            { "text": "固定模型、任务和输入，逐项更换 Harness 组件，再比较轨迹与结果。", "correct": true, "basis": ["SOL-agent-harness#action_steps[1]"], "basisQuote": "更换 Harness 组件时固定模型、任务和输入，再比较轨迹与结果" },
+            { "text": "一口气把所有组件都换掉，再看总分涨了多少。", "correct": false, "why": "多变量一起变，无法判断改动实际影响了什么。" },
+            { "text": "多跑几次取平均就行，不用固定输入。", "correct": false, "why": "输入不一致时，分数变化同样无法归因。" }
+          ]
+        },
+        {
+          "judgment": "口径边界：讨论厚薄之前先做什么",
+          "prompt": "有人说「Harness 就是模型外的一切」，也有人说「Harness 只指那个 while 循环」。按本章材料，先做什么？",
+          "options": [
+            { "text": "先比谁的 Harness 更厚，厚的一定更强。", "correct": false, "why": "厚薄是结论，边界没定之前比较没有意义。" },
+            { "text": "先定义 Harness 在当前系统中的边界，再讨论厚薄。", "correct": true, "basis": ["SOL-agent-harness#action_steps[2]"], "basisQuote": "先定义 Harness 在当前系统中的边界，再讨论厚薄" },
+            { "text": "两个说法都行，同一个词在同一句里可以一会儿指全部、一会儿只指循环。", "correct": false, "why": "材料明确要求不要让同一个词在不同范围间来回切换。" }
+          ]
+        }
+      ],
+      "feynman": {
+        "prompt": "为什么同一个模型换一套 Harness 表现会差很多？请至少说清三件事。",
+        "required": ["运行系统", "与模型分工", "边界口径"]
+      }
+    },
+    "verification-loop": {
+      "narrative": {
+        "authored": true,
+        "authoredBy": "DeepSeek Harness（agent 撰写，未经负责人审核）",
+        "note": "正文流：同上。句子是 agent 撰写的过渡句，quote 逐字来自本章阅读块。这一章是路线的收口。",
+        "lead": "系统说「做完了」，凭什么信？",
+        "bridges": [
+          {
+            "fromChapter": "harness",
+            "fromUnit": "CON-agent-harness",
+            "question": "Harness 让系统受控地跑起来了；可它自己说「做完了」，算不算数？",
+            "answer": "不算。要把行动结果交给独立检查：未通过就依据证据修正下一步，通过才退出当前循环。",
+            "quote": "验证循环把行动结果交给独立检查；未通过就依据证据修正下一步，通过才退出当前循环，但退出不等于用户验收或真实效果已经成立。",
+            "quoteFrom": "definition",
+            "basis": ["CON-verification-loop", "CON-agent-harness"]
+          },
+          {
+            "fromUnit": "CON-verification-loop",
+            "question": "检查通过，就等于这件事真的成了吗？",
+            "answer": "不等于：退出当前循环不等于用户验收，也不等于真实效果已经成立——这一步留给人和后续观察。",
+            "quote": "退出不等于用户验收或真实效果已经成立",
+            "quoteFrom": "definition",
+            "basis": ["CON-verification-loop"]
+          }
+        ],
+        "links": [
+          {
+            "pair": ["验证闭环", "Harness"],
+            "sentence": "检查挂在产出之后：得先有稳定的产出系统，才谈得上把检查固化成一环；判据要在行动前写清，不能由同一份输出临时改标准。",
+            "quote": "在行动前写清检查对象、判据、失败反馈格式和退出条件，避免由同一输出临时改标准。",
+            "quoteFrom": "mechanism"
+          },
+          {
+            "pair": ["验证闭环", "可观测性"],
+            "sentence": "可观测性负责采集运行事件、轨迹、状态和时延；验证闭环负责消费检查结果，并据此改变当前运行的下一步。",
+            "quote": "Observability 负责采集运行事件、轨迹、状态和时延；Verification Loop 负责消费检查结果并改变当前运行的下一步。",
+            "quoteFrom": "boundary"
+          },
+          {
+            "pair": ["验证闭环", "一次运行"],
+            "sentence": "它通常作用于一次任务里的重试与退出；跨多次运行的比较是另一件事（用共同任务、基线和 verifier 去比）。",
+            "quote": "Trace-based Evals 用共同任务、基线和 verifier 比较多次运行；Verification Loop 通常作用于一次任务里的重试与退出。",
+            "quoteFrom": "boundary"
+          }
+        ],
+        "inlineFeynman": true,
+        "nextBridge": {
+          "toChapter": "",
+          "question": "这条路线到这里收口：目标、工具、循环、状态、验证各自解决哪一步？",
+          "answer": "各自解决一步，而验证必须独立成环——因为它检查的是前四步共同的产物，不能由产生产物的那一层自己说了算。",
+          "basis": ["CON-verification-loop"]
+        }
+      },
+      "questions": [
+        {
+          "judgment": "结构判定：什么才算验证循环",
+          "prompt": "Agent 每一轮都打印「检查完成」，但没有固定判据、没有失败分支，也没有退出条件。这还是验证循环吗？",
+          "options": [
+            { "text": "算——只要打印了「检查完成」就算。", "correct": false, "why": "打印动作本身不消费检查结果，也不改变下一步。" },
+            { "text": "不算：未通过的结果必须连回一个明确可改变的下一步；若反馈不能改变行动，它只是记录。", "correct": true, "basis": ["SOL-verification-loop#action_steps[2]"], "basisQuote": "若反馈不能改变行动，它只是记录，不是验证循环" },
+            { "text": "算，只要有日志留下就算。", "correct": false, "why": "采集日志是 Observability 的事，不是验证循环。" }
+          ]
+        },
+        {
+          "judgment": "判据什么时候定",
+          "prompt": "检查的标准该在什么时候定下来？",
+          "options": [
+            { "text": "做完之后看结果，再决定标准定在哪。", "correct": false, "why": "材料要求避免由同一输出临时改标准。" },
+            { "text": "由生成者自己在交付前临时判断。", "correct": false, "why": "检查应尽量独立于生成者。" },
+            { "text": "在行动之前写清检查对象、判据、失败反馈格式和退出条件。", "correct": true, "basis": ["SOL-verification-loop#action_steps[0]"], "basisQuote": "在行动前写清检查对象、判据、失败反馈格式和退出条件" }
+          ]
+        },
+        {
+          "judgment": "通过覆盖到哪里",
+          "prompt": "既定自动检查全部通过之后，哪种说法最稳妥？",
+          "options": [
+            { "text": "质量已经被证明，可以直接上线交付。", "correct": false, "why": "机器检查通过只覆盖既定判据，不自动证明用户满意或发布授权。" },
+            { "text": "只说明既定判据通过了；主观部分还要另补视觉检查或人工复核，通过不等于用户验收。", "correct": true, "basis": ["SOL-verification-loop#action_steps[1]"], "basisQuote": "尽量让检查独立于生成者，并优先采用可重复运行的确定性证据；主观任务再补视觉检查或人工复核" },
+            { "text": "再多打印几次「检查完成」就更可靠了。", "correct": false, "why": "重复打印不增加证据强度。" }
+          ]
+        }
+      ],
+      "feynman": {
+        "prompt": "为什么「Agent 说自己检查过了」不能当成验证闭环？请至少说清三件事。",
+        "required": ["独立检查", "改变下一步", "通过范围"]
+      }
+    }
+  }
+}

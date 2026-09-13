@@ -170,7 +170,7 @@ button{font-family:inherit}
 .pctx .nav i{font-style:normal;color:#4cb782}
 .pctx .nav u{text-decoration:none;color:var(--fg4);font-size:11px}
 .pctx .acts{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
-.pctx .loop-note{margin-top:9px;padding:7px 8px;border-left:2px solid #d9a84e;background:rgba(217,168,78,.08);font-size:10.5px;line-height:1.65;color:var(--fg4)}
+.pctx .loop-note{margin-top:9px;padding:7px 8px;border-left:2px solid #d9a84e;background:rgba(217,168,78,.08);font-size:11.5px;line-height:1.65;color:var(--fg2)}
 .pctx .loop-note b{color:#e4bd72;font-weight:500}
 .pctx.off{border-color:var(--line2);background:#101113;font-size:11.5px;color:var(--fg4);line-height:1.8}
 .pctx.off button{background:#17181b;border:1px solid var(--line2);border-radius:5px;color:var(--fg2);
@@ -378,6 +378,87 @@ code{background:#161719;border:1px solid var(--line);border-radius:4px;padding:1
 .case-mvp .case-option:hover{border-color:#d9a84e}.case-mvp .case-option.ok{border-color:#4cb782;background:#f0faf5}.case-mvp .case-option.bad{border-color:#d99a9a;background:#fff5f5}
 .case-mvp .case-result{margin-top:10px;line-height:1.65;font-size:12px}.case-mvp .case-back{margin-bottom:10px}
 .practice-card{border:1px solid var(--line);border-radius:10px;padding:16px;background:var(--panel2);margin:12px 0}.practice-card h2{margin:0 0 6px}.practice-card .mut{margin:6px 0 12px}
+
+/* ── 独立学习空间（Agent Loop 六章）─────────────────────────────
+   进入时 body 加 .learning：左栏导航、主题列表、画布全部 display:none——
+   「隐藏全量图谱和主题列表」是 DOM 层面的事实，不是视觉遮挡。 */
+body.learning #rail,body.learning #list,body.learning #main{display:none}
+#learn{position:fixed;inset:0;z-index:30;background:var(--bg);display:none;overflow:auto}
+#learn.on{display:block}
+#learn-head{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:10px;height:48px;padding:0 18px;
+  background:var(--panel);border-bottom:1px solid var(--line);font-size:12.5px;color:var(--fg3)}
+#learn-head .lk{color:var(--fg);font-weight:600;font-size:13px}
+#learn-head .sp{flex:1}
+#learn-head .lg{display:flex;gap:6px;align-items:center}
+#learn-head .lg i{width:9px;height:9px;border-radius:50%;background:#33363c;display:block}
+#learn-head .lg i.on{background:#5e6ad2}#learn-head .lg i.ok{background:#4cb782}#learn-head .lg i.lock{background:#2a2c31}
+#learn-wrap{max-width:1140px;margin:0 auto;padding:26px 22px 90px;display:grid;grid-template-columns:minmax(0,1fr) 268px;gap:24px;align-items:start}
+#learn-wrap>.lbody{min-width:0}
+#learn-wrap h1{font-size:26px;line-height:1.3;margin:6px 0 4px}
+#learn-wrap h2{font-size:16px;margin:0 0 8px}
+#learn-wrap .sub{color:var(--fg3);font-size:12.5px;line-height:1.8}
+/* 右栏：这次课题的单元（现在在哪、接下来去哪） */
+.lrail{position:sticky;top:64px;border:1px solid var(--line);border-radius:11px;background:var(--panel2);padding:12px 12px 14px}
+.lrail-h{font-size:10.5px;letter-spacing:.06em;color:#8fa2ff;margin:4px 0 8px}
+.lrail-h span{display:block;color:var(--fg2);font-size:12px;letter-spacing:0;margin-top:4px;line-height:1.6}
+.lrail-steps{list-style:none;margin:0 0 12px;padding:0;display:flex;flex-direction:column;gap:3px}
+.lrail-steps .lchip{display:flex;align-items:center;gap:7px;width:100%;text-align:left;border-radius:8px;padding:6px 8px;font-size:11.5px;line-height:1.5}
+.lrail-steps .lchip b{color:#8fa2ff;font-size:10.5px;flex:0 0 12px}
+.lrail-steps .lchip span{flex:1;min-width:0}
+.lrail-steps .lchip i{font-style:normal;color:#4cb782;font-size:10.5px}
+.lrail-steps li.on .lchip{border-color:#5e6ad2;background:#171a2b;color:#c3caff}
+.lrail-m{display:flex;flex-direction:column;gap:0;margin-bottom:8px}
+.lrail-m div{display:flex;justify-content:space-between;gap:8px;font-size:11px;color:var(--fg3);padding:5px 0;border-top:1px solid var(--line)}
+.lrail-m b{color:#8fa2ff;font-weight:500}
+.lrail-m code{font-size:10.5px;color:var(--fg4)}
+.lrail-n{font-size:10.5px;color:var(--fg4);line-height:1.7;border-top:1px solid var(--line);padding-top:8px}
+@media (max-width:980px){#learn-wrap{grid-template-columns:minmax(0,1fr)}.lrail{position:static}}
+/* 正文流：过渡句 / 关系解释句 */
+.lstep{border-left:3px solid #3a4a8f;background:#15161a;border-radius:0 8px 8px 0;padding:10px 14px;margin:10px 0}
+.lstep .lq2{font-size:13.5px;color:#c3caff;line-height:1.7}
+.lstep .la{font-size:13px;color:var(--fg2);line-height:1.85;margin-top:6px}
+.lquote{font-size:11.5px;color:var(--fg4);line-height:1.75;margin-top:7px;border-top:1px dashed #2a2c31;padding-top:6px}
+.lquote code{color:#8fa2ff}
+.lcard{border:1px solid var(--line);border-radius:11px;padding:18px 20px;background:var(--panel2);margin:14px 0}
+.lcard .lb{display:inline-block;font-size:10.5px;letter-spacing:.06em;color:#8fa2ff;border:1px solid #33396b;
+  border-radius:5px;padding:1px 7px;margin-bottom:8px}
+.lcard .lb.warn{color:#e0a94a;border-color:#5a4a24}
+.lcard .quote{border-left:3px solid #3a4a8f;background:#15161a;padding:10px 14px;border-radius:0 8px 8px 0;margin:9px 0;font-size:13px;line-height:1.85;color:var(--fg2)}
+.lcard ul{margin:6px 0 0 18px}.lcard li{margin:5px 0;line-height:1.75;font-size:13px;color:var(--fg2)}
+.lpair{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin:10px 0}
+.lpair div{border:1px solid var(--line);border-radius:8px;padding:8px 9px;background:#141518}
+.lpair b{display:block;color:#8fa2ff;font-size:10.5px;letter-spacing:.06em}
+.lpair span{display:block;font-size:11px;line-height:1.5;color:var(--fg2);margin-top:3px}
+.lpair code{font-size:10.5px;color:var(--fg4)}
+.lcase{border:1px solid #4a3f22;background:#1b1710;border-radius:9px;padding:13px 15px;margin:12px 0}
+.lcase b{color:#e0a94a}
+.lq{border-top:1px solid var(--line);padding-top:14px;margin-top:16px}
+.lq h3{font-size:14.5px;margin:0 0 10px;line-height:1.6}
+.lopt{display:block;width:100%;text-align:left;background:#141518;border:1px solid var(--line);border-radius:9px;
+  padding:11px 13px;margin:7px 0;color:var(--fg);font:inherit;font-size:13px;line-height:1.6;cursor:pointer}
+.lopt:hover{border-color:#4a5580}
+.lopt.ok{border-color:#3f7f61;background:#12211b}
+.lopt.bad{border-color:#7f4444;background:#211212}
+.lopt[disabled]{cursor:default;opacity:.85}
+.lfb{font-size:12px;line-height:1.75;color:var(--fg3);margin:7px 0 0;white-space:pre-wrap}
+.lfb b{color:var(--fg2)}
+.lbtn{background:#5e6ad2;color:#fff;border:0;border-radius:8px;padding:9px 16px;font:inherit;font-size:12.5px;cursor:pointer}
+.lbtn[disabled]{background:#3a3d47;color:#8b8f99;cursor:not-allowed}
+.lbtn.ghost{background:transparent;color:var(--fg2);border:1px solid var(--line)}
+.lrow{display:flex;gap:10px;align-items:center;margin-top:14px;flex-wrap:wrap}
+#learn textarea{width:100%;min-height:140px;background:#141518;border:1px solid var(--line);border-radius:9px;
+  padding:11px 13px;color:var(--fg);font:inherit;font-size:13px;line-height:1.75;resize:vertical}
+.lres{border-radius:9px;padding:12px 14px;margin-top:12px;white-space:pre-wrap;font-size:12.5px;line-height:1.8;display:none}
+.lres.on{display:block}
+.lres.ok{background:#12211b;color:#7fd0a6;border:1px solid #2f5c48}
+.lres.fail{background:#211212;color:#e39b9b;border:1px solid #5c3030}
+.lres.wait{background:#1b1710;color:#e0a94a;border:1px solid #4a3f22}
+.lres b{display:block;margin-bottom:4px}
+.lchips{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 0}
+.lchip{border:1px solid var(--line);border-radius:20px;padding:3px 10px;font-size:11px;color:var(--fg3);cursor:pointer;background:#141518}
+.lchip.on{border-color:#5e6ad2;color:#c3caff}
+.lchip.lock{opacity:.42;cursor:not-allowed}
+.lgap{font-size:11.5px;color:var(--fg4);line-height:1.8}
 </style>
 </head>
 <body>
@@ -425,6 +506,17 @@ code{background:#161719;border:1px solid var(--line);border-radius:4px;padding:1
       <div id="pbody"></div>
     </aside>
   </main>
+
+  <section id="learn" aria-label="学习空间">
+    <header id="learn-head">
+      <button class="lbtn ghost" id="learn-back" onclick="exitLearn()">← 返回知识体系</button>
+      <span class="lk" id="learn-title">学习空间</span>
+      <span class="sp"></span>
+      <span class="lg" id="learn-dots"></span>
+      <span id="learn-step"></span>
+    </header>
+    <div id="learn-wrap"></div>
+  </section>
 </div>
 
 <div id="tip"></div>
@@ -1109,7 +1201,7 @@ function pick(mx, my) {
 /* ── 面板 ───────────────────────────────────────────── */
 /* ── 来源：粗标签之外的「这篇概念是从哪篇原文来的」 ────────────────
    原来概念卡上的来源是个死标签（只印 notion / context / harness 之一），点不动。
-   实测 936 个概念里 897 个只有 1 篇来源，最多的是 Harness（21 篇）—— 只列前 6 篇，
+   实测 918 个概念里 879 个只有 1 篇来源，最多的是 Harness（21 篇）—— 只列前 6 篇，
    每篇带「同源概念」（同一篇原文里还长出过哪些概念），点一下直接跳过去。 */
 function srcBlockOf(n) {
   const arts = (n.sa || []).map((i) => ({ i, a: articles[i] })).filter((x) => x.a && x.a.u);
@@ -1177,11 +1269,12 @@ function pathBlock(id) {
       ${st.fallback ? `卡住时回退：<button onclick="openPanel('${st.fallback.id}')">${esc(st.fallback.name)}</button>` : ''}
     </div>
     <div class="acts">
-      <button class="jbtn" onclick="focusProof()">学习这个</button>
-      <button class="jbtn ghost" onclick="openPractice()">进入 1 / 3 / 5 · 01 案例决策场</button>
+      <button class="jbtn" onclick="${chapterOf(id) ? `openLearnFor('${id}')` : 'focusProof()'}">${learnEntryLabel(id)}</button>
+      ${chapterOf(id) ? `<button class="jbtn ghost" onclick="openLearnIndex()">学习空间 · Agent Loop 六章</button>` : ''}
+      <button class="jbtn ghost" onclick="openPractice('${id}')">进入 1 / 3 / 5 · 01 案例决策场</button>
       <button class="jbtn ghost" onclick="this.closest('.pctx').querySelector('details').open=true">查看前置理由</button>
     </div>
-    <div class="loop-note"><b>学习闭环位置：</b>当前路径负责把概念带到这里；下一段进入 01 案例决策场。03 / 05 仍按现有入口逐步补齐，不在此处自动编造案例。</div>
+    <div class="loop-note"><b>1 / 3 / 5 学习闭环：</b>${chapterOf(id) ? `这一步已装配「${esc(chapterOf(id).title)}」章节材料，点「${learnEntryLabel(id)}」进独立学习空间（隐藏全图与主题列表，返回时回到这一步）。` : '从当前概念进入 01 案例决策场，再回到这条路径继续学习。03 / 05 暂未开放。'}</div>
     <details>
       <summary>前置理由 · 四类关系分开看（${hard.length} 强 / ${soft.length} 弱 / ${st.support.sources} 支撑 / ${st.relatedCount} 相关）</summary>
       <h5>强前置 hard · 不懂就立不住（默认进主路径）</h5>
@@ -1337,12 +1430,18 @@ function openPanel(id) {
   if (typeof syncListSel === 'function') syncListSel();
 }
 
-/* 案例决策场 1：概念集合不假设一一对应，本轮只接入一个已验证案例。 */
+/* 案例决策场 1：概念集合不假设一一对应，本轮只接入一个已验证案例。
+   09-13 追加：Agent Loop 六步已装配章节材料，卡上直接给独立学习空间入口。 */
 function caseMvpLink(n) {
-  if (n.name !== '上下文腐烂') return '';
-  return `<div class="case-mvp"><h4>1 · 案例决策场</h4>
-    <div class="case-meta">从当前概念匹配到 3 个候选案例，本轮只测试 1 个：上下文腐烂。</div>
-    <button class="jbtn" onclick="openCaseMvp()">进入单案例判断 →</button></div>`;
+  const ch = chapterOf(n.id);
+  const hasCase = n.name === '上下文腐烂';
+  return `<div class="case-mvp"><h4>学习空间</h4>
+    <div class="case-meta">从这张概念卡进入学习，不丢失当前概念和路径位置。${ch ? `本概念是 Agent Loop 第 ${ch.order} 章，已装配：一个核心概念 → 原文 context → 三道决策 → 费曼收尾。` : ''}</div>
+    ${ch ? `<button class="jbtn" onclick="openLearnFor('${n.id}')">学习这个 · 第 ${ch.order} 章 →</button>` : ''}
+    <button class="jbtn${ch ? ' ghost' : ''}" onclick="openPractice('${n.id}')">进入学习空间 →</button>
+    ${ch ? `<button class="jbtn ghost" onclick="openLearnIndex()">六章总览</button>` : ''}
+    ${hasCase ? '<div class="case-meta" style="margin-top:5px">本概念已有 01 案例决策材料。</div>' : (ch ? `<div class="case-meta" style="margin-top:5px">${ch.review.caseState === 'owner-confirmed' ? `主案例已由负责人确认 · 场景类型 ${esc(ch.case.type)}` : `候选装配稿：主案例为${esc(ch.case.type)}、负责人尚未确认`}。</div>` : '<div class="case-meta" style="margin-top:5px">本概念的 01 / 03 / 05 材料尚在装配中。</div>')}
+  </div>`;
 }
 function openCaseMvp() {
   const p = document.getElementById('pbody');
@@ -1483,6 +1582,14 @@ async function boot() {
   window.addEventListener('resize', () => { resize(); computeLayout(); });
   requestAnimationFrame(() => document.getElementById('load').classList.add('off'));
   const h = decodeURIComponent(location.hash.slice(1));
+  if (h.startsWith('learn=')) {
+    // #learn=<chapterId> 与其它入口一样受解锁门约束。
+    // 只有显式带 review=1（审核／复现用）才走 force 直达，学生入口不再能绕过解锁。
+    const [cid, query] = h.slice(6).split('&');
+    const review = /(^|&)review=1(&|$)/.test(query || '');
+    const ch = chapterById(cid);
+    if (ch) { setMode('path'); focusRoute(); openPanel(ch.cm.id); openLearn(cid, { force: review, from: ch.cm.id }); return; }
+  }
   if (h === 'sphere' || h === 'grid' || h === 'relation' || h === 'path') setMode(h);
   else if (h && byId.has(h)) openPanel(h);
   else syncPath();
@@ -1536,7 +1643,7 @@ function renderList() {
   let html = '', cnt = 0;
 
   if (currentView === 'graph') {
-    /* 二级＝主题。936 条概念是三级，默认不在这里出现（phase 03 走「点主题 → 下钻」才渲染）。 */
+    /* 二级＝主题。918 条概念是三级，默认不在这里出现（phase 03 走「点主题 → 下钻」才渲染）。 */
     const list = groups().filter(g => hit(g.label));
     cnt = list.length;
     html = list.map(g => rowHTML(
@@ -1551,7 +1658,7 @@ function renderList() {
        路径行用 .prow，不是 .row：概念行的条数断言数的还是概念，路径不是概念。 */
     const mine = ROUTES.filter(r => r.topicId === themeId);
     if (mine.length) {
-      html += `<div class="lp-sec">推荐路径 · ${mine.length} 条（人工策展，不是把 936 个概念排成课表）</div>`
+      html += `<div class="lp-sec">推荐路径 · ${mine.length} 条（人工策展，不是把 918 个概念排成课表）</div>`
         + mine.map(r => `<div class="prow${r.routeId === routeId && mode === 'path' ? ' on' : ''}" onclick="openRoute('${r.routeId}')">
             <span class="rd"></span>
             <span class="rn">${esc(r.title)}<i>${esc(r.entryQuestion)}</i></span>
@@ -1588,16 +1695,30 @@ function renderList() {
 }
 window.renderList = renderList;
 
-function openPractice() {
+function openPractice(originId = null) {
   currentView = 'practice'; themeId = null; filter = null;
   document.querySelectorAll('.r-item').forEach(b => b.classList.toggle('on', b.dataset.view === 'practice'));
   closePanel();
   const reader = document.getElementById('reader');
   const concept = nodes.find(n => n.name === '上下文腐烂');
+  const origin = byId.get(originId);
+  const originStep = origin ? routeIndexOf(origin.id) : -1;
+  const matched = !!origin && origin.id === concept?.id;
   reader.innerHTML = `<div class="nei"><div class="nei-crumb"><b>实践空间</b><span>›</span><span>1 / 3 / 5</span></div>
     <h1 class="nei-title">从概念进入实践</h1><div class="nei-meta"><span>当前只开放 01 MVP</span></div>
-    <div class="practice-card"><h2>01 · 案例决策场</h2><div class="mut">从一个概念匹配候选案例，再只选一个案例和一个正确方向。本轮已接入「上下文腐烂」。</div>
-      ${concept ? `<button class="jbtn" onclick="openPanel('${concept.id}')">继续：上下文腐烂 →</button>` : '<div class="mut">当前概念地图未找到测试入口。</div>'}</div>
+    ${origin ? `<div class="practice-card"><h2>当前概念：${esc(origin.name)}</h2>
+      <div class="mut">${originStep >= 0 ? `${esc(activeRoute().title)} · 第 ${originStep + 1} / ${activeRoute().steps.length} 步。` : ''}${chapterOf(origin.id) ? `已装配独立学习空间「第 ${chapterOf(origin.id).order} 章 ${esc(chapterOf(origin.id).title)}」（主案例已由负责人确认）。` : (matched ? '已接入本轮 A 判断材料。' : '这个概念的 01 判断材料尚未装配，当前不标记完成。')}</div>
+      <div class="mut" style="margin-top:7px">${esc(origin.gloss || '这张卡的学习材料正在装配。')}</div>
+      ${chapterOf(origin.id) ? `<button class="jbtn" style="margin-top:8px" onclick="openLearnFor('${origin.id}')">学习这个 · 第 ${chapterOf(origin.id).order} 章 →</button>` : ''}
+      <button class="jbtn" style="margin-top:8px" onclick="askConceptHelp('${origin.id}')">让 AI 解释这一步</button>
+      <div id="concept-help" class="mut" style="margin-top:8px"></div>
+      <button class="jbtn ghost" onclick="returnToPracticeOrigin('${origin.id}')">${originStep >= 0 ? '返回这一步的路径与概念' : '返回当前概念'}</button></div>` : ''}
+    ${LEARN.length ? `<div class="practice-card"><h2>独立学习空间 · Agent Loop 六章</h2><div class="mut">${LEARN.map(c => `${c.order}. ${esc(c.title)}`).join(' → ')}</div>
+      <div class="mut">一个核心概念 → 原文 context 与解释 → 三道决策（一题一判）→ 费曼收尾。学习时隐藏全图与主题列表，返回时恢复原路线、原步骤、原概念。六章主案例已由负责人确认（2026-09-14）；场景类型仍是「假设场景」，不写成实际复盘。</div>
+      <button class="jbtn" onclick="openLearnIndex()">进入学习空间</button></div>` : ''}
+    <div class="practice-card"><h2>01 · 案例决策场</h2><div class="mut">从当前概念匹配候选案例，再只选一个案例和一个正确方向。</div>
+      ${origin && !matched ? '<div class="mut">下面是另一主题的已跑通示例，不计入当前路线进度。</div>' : ''}
+      ${concept ? `<button class="jbtn" onclick="openPanel('${concept.id}')">${origin && !matched ? '查看独立示例' : '继续'}：上下文腐烂 →</button>` : '<div class="mut">当前概念地图未找到测试入口。</div>'}</div>
     <div class="practice-card" style="opacity:.55"><h2>03 · 费曼演练室</h2><div class="mut">等 01 MVP 跑通后接入。</div></div>
     <div class="practice-card" style="opacity:.55"><h2>05 · 技术实验台</h2><div class="mut">等 01 MVP 跑通后接入。</div></div></div>`;
   reader.classList.add('on');
@@ -1606,6 +1727,36 @@ function openPractice() {
   renderList();
 }
 window.openPractice = openPractice;
+/* 公网版由 build-public.mjs 注入 `const LOCAL`；本地壳模板里没有这个常量，
+   所以这里以前会直接抛 ReferenceError（点「让 AI 解释这一步」必崩）。
+   改成先看注入的常量在不在，不在就自己按地址判一次——两种壳行为一致。 */
+function isLocalHost() {
+  return typeof LOCAL !== 'undefined' ? LOCAL
+    : (/^(127\.0\.0\.1|localhost|\[::1\])$/.test(location.hostname) || location.protocol === 'file:');
+}
+async function askConceptHelp(id) {
+  const out = document.getElementById('concept-help');
+  const n = byId.get(id);
+  if (!out || !n) return;
+  if (!isLocalHost()) { out.textContent = '公网静态版没有在线模型；这里保留预先装配的概念材料。'; return; }
+  out.textContent = 'AI 解释中…';
+  try {
+    const r = await fetch('/api/llm', { method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ messages:[{role:'system',content:'你是学习导师。只解释给定概念，先给直觉，再给机制，最后说一个边界。不要编造来源。'}, {role:'user',content:`概念：${n.name}\n已有定义：${n.gloss}`}], json:false }) });
+    const j = await r.json();
+    out.textContent = j.content || j.error || '暂时没有得到解释。';
+  } catch (e) { out.textContent = '当前本地服务不可用；可先阅读概念卡。'; }
+}
+window.askConceptHelp = askConceptHelp;
+function returnToPracticeOrigin(id) {
+  const idx = routeIndexOf(id);
+  document.getElementById('reader').classList.remove('on');
+  currentView = 'graph'; themeId = null; filter = null;
+  document.querySelectorAll('.r-item').forEach(b => b.classList.toggle('on', b.dataset.view === 'graph'));
+  if (idx >= 0) { routeStepIdx = idx; setMode('path'); }
+  renderList(); openPanel(id); syncPath();
+}
+window.returnToPracticeOrigin = returnToPracticeOrigin;
 
 function syncListSel() {
   document.querySelectorAll('#lp-body .row').forEach(r => r.classList.remove('on'));
@@ -1733,6 +1884,389 @@ function renderNeican(reset) {
     <div class="nei-foot">${esc(NEI.pipeline || '')}<br>${esc(NEI.source || '')}<br>生成 ${esc(NEI.generatedAt || '')}</div>`;
   if (reset) wrap.parentElement.scrollTop = 0;
 }
+
+/* ══ 独立学习空间（Agent Loop 六章）══════════════════════════════
+   数据：evidence/agent-loop-260913/chapters.json（build-learning-materials.mjs 装配）
+   规则（来自 docs/企划书-135-MVP到DeepSeek执行-20260913.md §2–§3 与交接件 §3）：
+     · 一题一判：答错留在当前题，答对才放下一题；三题按顺序全过才出现费曼；
+     · 费曼只允许 通过／未通过／待人工复核；请求失败、格式不对、来源缺失都不能算通过；
+     · 费曼未通过或待复核 → 不解锁下一章；
+     · 重新编辑复述 → 立刻清掉旧的通过状态（含下一章解锁）；
+     · 学习时隐藏全量图谱与主题列表，返回知识体系时恢复原路线、原步骤、原概念。 */
+const LEARN_CFG = DATA.learning || { chapters: [], caseReview: {}, gaps: [] };
+const LEARN = LEARN_CFG.chapters || [];
+const LEARN_KEY = 'zss135.learn.v1';
+const LEARN_STATUS = { ok: '费曼通过', fail: '费曼未通过', wait: '待人工复核' };
+let learnState = {}, learnCur = null, learnQ = 0, learnReturn = null, learnReq = 0;
+const learnBusyOf = Object.create(null);   // 判定请求按章各管各的：切章不会把新章的提交吞掉
+function loadLearnState() { try { learnState = JSON.parse(localStorage.getItem(LEARN_KEY) || '{}') || {}; } catch (e) { learnState = {}; } }
+function saveLearnState() { try { localStorage.setItem(LEARN_KEY, JSON.stringify(learnState)); } catch (e) {} }
+function stOf(id) {
+  if (!learnState[id] || !Array.isArray(learnState[id].decisions)) learnState[id] = { decisions: [false, false, false], picked: [null, null, null], feynman: null, said: '', verdict: '', at: '' };
+  return learnState[id];
+}
+const chapterOf = (cmId) => LEARN.find(c => c.cm.id === cmId) || null;
+const chapterById = (id) => LEARN.find(c => c.chapterId === id) || null;
+const chapterCleared = (id) => { const s = learnState[id]; return !!(s && s.feynman === 'ok'); };
+const chapterUnlocked = (i) => i === 0 || chapterCleared(LEARN[i - 1].chapterId);
+const chapterIdx = (id) => LEARN.findIndex(c => c.chapterId === id);
+function learnDots() {
+  const el = document.getElementById('learn-dots');
+  if (!el) return;
+  el.innerHTML = LEARN.map((c, i) => {
+    const s = learnState[c.chapterId] || {};
+    const cls = s.feynman === 'ok' ? 'ok' : (chapterUnlocked(i) ? (i === chapterIdx(learnCur) ? 'on' : '') : 'lock');
+    return `<i class="${cls}" title="第 ${c.order} 章 ${esc(c.title)}"></i>`;
+  }).join('');
+  const st = document.getElementById('learn-step');
+  if (st && learnCur) st.textContent = `第 ${chapterById(learnCur).order} / ${LEARN.length} 章`;
+}
+function openLearnFor(cmId) { const c = chapterOf(cmId); return c ? openLearn(c.chapterId, { from: cmId }) : openLearnIndex(); }
+function openLearnIndex() {
+  if (!LEARN.length) return false;
+  const first = LEARN.findIndex(c => !chapterCleared(c.chapterId));
+  return openLearn(LEARN[first < 0 ? LEARN.length - 1 : first].chapterId);
+}
+function captureLearnReturn(cmId) {
+  const id = cmId || selected;
+  learnReturn = { routeId, stepIdx: id ? routeIndexOf(id) : routeStepIdx, conceptId: id && byId.has(id) ? id : null };
+}
+function openLearn(chapterId, opts = {}) {
+  const i = chapterIdx(chapterId);
+  if (i < 0) return false;
+  const entering = !document.getElementById('learn').classList.contains('on');
+  if (entering) captureLearnReturn(opts.from || (byId.has(chapterId) ? chapterId : null));
+  if (!chapterUnlocked(i) && !opts.force) {
+    // 上一章没通过就不解锁：送到上一章的费曼，并说明原因
+    const prev = LEARN[i - 1];
+    learnCur = prev.chapterId;
+    learnQ = Math.max(0, stOf(prev.chapterId).decisions.findIndex(d => !d));
+    document.body.classList.add('learning');
+    document.getElementById('learn').classList.add('on');
+    renderLearn(`第 ${LEARN[i].order} 章还没解锁：先把第 ${prev.order} 章「${esc(prev.title)}」的费曼复述讲通过。`);
+    return false;
+  }
+  learnCur = chapterId;
+  const firstOpen = stOf(chapterId).decisions.findIndex(d => !d);
+  learnQ = firstOpen < 0 ? LEARN[i].questions.length - 1 : firstOpen;
+  document.body.classList.add('learning');
+  document.getElementById('learn').classList.add('on');
+  renderLearn(opts.notice || '');
+  const box = document.getElementById('learn');
+  if (box) box.scrollTop = 0;
+  return true;
+}
+window.openLearn = openLearn; window.openLearnFor = openLearnFor; window.openLearnIndex = openLearnIndex;
+function exitLearn() {
+  document.body.classList.remove('learning');
+  document.getElementById('learn').classList.remove('on');
+  const ret = learnReturn || {};
+  learnCur = null;
+  if (ret.routeId) routeId = ret.routeId;
+  if (typeof ret.stepIdx === 'number' && ret.stepIdx >= 0) routeStepIdx = ret.stepIdx;
+  currentView = 'graph'; themeId = null; filter = null;
+  document.querySelectorAll('.r-item').forEach(b => b.classList.toggle('on', b.dataset.view === 'graph'));
+  resize(); computeLayout();
+  if (ret.conceptId) { try { location.hash = ret.conceptId; } catch (e) {} }
+  setMode('path');
+  renderList(); syncPath();
+  if (ret.conceptId) openPanel(ret.conceptId);
+  learnReturn = null;
+}
+window.exitLearn = exitLearn;
+
+/* 「学习这个」在路径条上的落点：有章节就进独立学习空间，没有章节才回落到原来的交卷框 */
+function learnEntryLabel(cmId) { const c = chapterOf(cmId); return c ? `学习这个 · 第 ${c.order} 章` : '学习这个'; }
+window.learnEntryLabel = learnEntryLabel;
+
+/* 课题单元列表（右栏）：费曼通过后立刻刷新解锁状态（不必整页重渲染） */
+function learnChipsHtml() {
+  return LEARN.map((x, i) => {
+    const un = chapterUnlocked(i), done = chapterCleared(x.chapterId), cur = x.chapterId === learnCur;
+    return `<li class="${cur ? 'on' : ''}${un ? '' : ' lock'}"><button class="lchip ${cur ? 'on' : ''} ${un ? '' : 'lock'}" ${un ? '' : 'disabled'} onclick="openLearn('${x.chapterId}')"><b>${i + 1}</b><span>${esc(x.title)}</span>${done ? '<i>✓</i>' : (un ? '' : '<i>🔒</i>')}</button></li>`;
+  }).join('');
+}
+function learnChips() {
+  const el = document.querySelector('#learn-wrap .lrail-steps') || document.querySelector('#learn-wrap .lchips');
+  if (el) el.innerHTML = learnChipsHtml();
+}
+
+function renderLearn(notice) {
+  const c = chapterById(learnCur);
+  if (!c) return;
+  const s = stOf(c.chapterId);
+  const wrap = document.getElementById('learn-wrap');
+  document.getElementById('learn-title').textContent = `学习空间 · ${c.title}`;
+  const read = (label, text, from) => text ? `<div class="quote"><b>${esc(label)}${from ? ` <code>${esc(from)}</code>` : ''}</b><br>${esc(text)}</div>` : '';
+  const pair = [
+    ['QST', c.qst.title, c.qst.id], ['CON', c.concept.title, c.concept.id],
+    ['CAS', c.case.type || '案例', c.case.id],
+    ['OPI', c.opinions.length ? `${c.opinions.length} 条判断依据` : '本章没有 OPI 直连', c.opinions.map(o => o.id).join(' / ') || '—'],
+    ['SOL', '行动说明', c.solution.id],
+  ];
+  const decisionsDone = s.decisions.every(Boolean);
+  const n = c.narrative || null;                       // 有 narrative 的章 = 「正文流」页（连线写成解释句）
+  const reviewLine = c.review.caseState === 'owner-confirmed'
+    ? `<div class="lgap" style="color:#7fd0a6">审核状态：主案例已由负责人确认（${esc(c.review.confirmedAt || '')}）。场景类型照实显示：<b>${esc(c.case.type)}</b> —— 确认的是「哪一个是本章主案例」，不等于这是真实复盘。</div>`
+    : `<div class="lgap" style="color:#e0a94a">审核状态：主案例是<b>候选</b>（${esc(c.case.type)}），负责人尚未确认 —— 本页只作候选装配稿，不当已审核材料。</div>`;
+
+  /* ── 右栏：这次课题的单元（告诉你现在在哪、接下来去哪） ── */
+  const rail = `<aside class="lrail">
+    <div class="lrail-h">本次课题<span>${esc(c.routeTitle)}</span></div>
+    <ol class="lrail-steps">${learnChipsHtml()}</ol>
+    <div class="lrail-h">本页材料</div>
+    <div class="lrail-m">${pair.map(([k, v, id]) => `<div><b>${k}</b><code>${esc(id)}</code></div>`).join('')}</div>
+    <div class="lrail-n">正文解释「为什么这一步接着上一步」；本页判定不调用知乎。</div>
+  </aside>`;
+
+  /* ── 正文各块 ── */
+  const blockLead = n && n.lead ? `<div class="lcard">
+      <span class="lb">这一页要弄明白</span>
+      <h2>${esc(n.lead)}</h2>
+      <div class="lgap">导语由 agent 撰写（不是原文摘录）。</div>
+    </div>` : '';
+
+  const blockBridges = n && (n.bridges || []).length ? `<div class="lcard">
+      <span class="lb">为什么这一页现在出现</span>
+      <h2>上一单元留下了什么问题</h2>
+      ${n.bridges.map((b) => `<div class="lstep"><div class="lq2">${esc(b.question)}</div><div class="la">${esc(b.answer)}</div>
+        <div class="lquote">逐字原文 <code>${esc((b.basis || []).join(' · '))}</code>：${esc(b.quote)}</div></div>`).join('')}
+      <div class="lgap">过渡句由 agent 撰写（出线文案性质），不是原文摘录；引文才是逐字来源。</div>
+    </div>` : '';
+
+  const blockReading = `<div class="lcard">
+      <span class="lb">1 · 阅读</span>
+      <h2>概念地图打的是这张卡</h2>
+      <div class="quote"><b>${esc(c.cm.name)}</b> <code>${esc(c.cm.id)}</code><br>${esc(c.cm.description)}</div>
+      ${read(`原文 context${c.review.ruling ? '（概念地图卡原文 · 不作本章定义）' : ''}`, c.reading.original.text)}
+      ${read('定义', c.reading.explain.text, c.reading.explain.from)}
+      ${read('直觉', c.reading.intuition.text, c.reading.intuition.from)}
+      ${read('机制', c.reading.mechanism.text, c.reading.mechanism.from)}
+      <div class="quote"><b>边界 ${c.reading.boundary.from ? `<code>${esc(c.reading.boundary.from)}</code>` : ''}</b><ul>${c.reading.boundary.items.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>
+      ${c.review.ruling
+        ? `<div class="lcase"><b>口径裁决（负责人 ${esc(c.review.ruling.at)}）</b><br>原话：「${esc(c.review.ruling.quote)}」<br>裁决：${esc(c.review.ruling.decision)}<br><span class="lgap">影响：${esc(c.review.ruling.effect)}</span></div>`
+        : (c.framingNote ? `<div class="lcase"><b>口径注（两处来源不同，已登记不合并）</b><br>${esc(c.framingNote)}</div>` : '')}
+      <div class="lpair">${pair.map(([k, v, id]) => `<div><b>${k}</b><span>${esc(v)}</span><code>${esc(id)}</code></div>`).join('')}</div>
+      ${reviewLine}
+      <div class="lgap">迁移问题：${esc(c.concept.transferQuestion)}<br>分类问题：${esc(c.concept.categoryQuestion)}<br>来源：${esc(c.concept.sources.join(' · '))}（CON）／${esc(c.case.sources.join(' · '))}（CAS）／${esc(c.solution.sources.join(' · '))}（SOL）</div>
+      ${c.sourceChain ? `<div class="lgap">知识根：${esc(c.sourceChain.docs.join(' ＋ '))}（58 篇）→ 图鉴站卡片 <code>${esc(c.sourceChain.cardFile)}</code> → 本页单元<br>原始来源：${c.sourceChain.originalSources.map((s) => `<a href="${esc(s.url)}" target="_blank" rel="noreferrer">${esc(s.title)}</a>${s.author ? `（${esc(s.author)}${s.primary ? ' · 一手' : ''}）` : ''}`).join(' · ')}</div>` : ''}
+    </div>`;
+
+  const blockLinks = n && (n.links || []).length ? `<div class="lcard">
+      <span class="lb">这些概念是怎么连起来的</span>
+      <h2>不是并排摆着，而是在同一件事里分工</h2>
+      ${n.links.map((l) => `<div class="lstep"><div class="lq2">${esc((l.pair || []).join(' ↔ '))}</div><div class="la">${esc(l.sentence)}</div>
+        <div class="lquote">逐字原文：${esc(l.quote)}</div></div>`).join('')}
+      <div class="lgap">说明句由 agent 撰写；引文逐字来自本章阅读块。图谱里的「有关联」不等于「必须先学」——顺序来自路线配置，不来自这张网。</div>
+    </div>` : '';
+
+  const blockCase = `<div class="lcase">
+      <b>${n ? '用一个场景试试 · ' : ''}主案例 · ${esc(c.case.type)}${c.review.caseState === 'owner-confirmed' ? ' · 主案例已由负责人确认' : ' · 候选（未经负责人确认）'}</b><br>
+      ${esc(c.case.summary)}
+      <div class="lgap" style="margin-top:8px">${esc(c.case.id)} · 候选案例 ${c.case.candidates.length} 个（${esc(c.case.candidates.join('、'))}）· 本章主案例 ${esc(c.case.primaryCaseId)}<br>来源依据：${esc(c.case.evidence)}</div>
+    </div>`;
+
+  const blockQuestions = `<div class="lcard">
+      <span class="lb">${n ? '3 · 用一个场景试试' : '2 · 一题一判'}</span>
+      <h2>三道决策，按顺序通过</h2>
+      <div class="sub" id="learn-qhint"></div>
+      <div id="learn-q"></div>
+      <div class="lrow"><button class="lbtn" id="learn-next" onclick="learnNext()" disabled>选对后进入下一题</button><span class="lgap" id="learn-qstatus"></span></div>
+    </div>`;
+
+  const feyCard = (label, title, hint) => `<div class="lcard" id="learn-fey">
+      <span class="lb">${label}</span>
+      <h2>${title}</h2>
+      <div class="sub">${esc(c.feynman.prompt)}<br>要点：${c.feynman.required.map(esc).join(' · ')}${hint || ''}</div>
+      <textarea id="learn-said" placeholder="我会这样解释……" oninput="learnSaidChanged()">${esc(s.said || '')}</textarea>
+      <div class="lrow"><button class="lbtn" id="learn-submit" onclick="learnFeynman()">提交复述</button><button class="lbtn ghost" onclick="learnQ=0;renderLearn()">回看决策</button><span class="lgap" id="learn-fstatus">${s.feynman ? '当前状态：' + LEARN_STATUS[s.feynman] : ''}</span></div>
+      <div class="lres ${s.feynman || ''} ${s.feynman ? 'on' : ''}" id="learn-fres">${s.feynman ? esc(s.verdict || '') : ''}</div>
+    </div>`;
+
+  const blockFeyInline = n && n.inlineFeynman ? feyCard('2 · 费曼一下', '读完就用自己的话讲一遍', '<br>读完这一段就讲，不必等三道题做完。') : '';
+  const blockFeyLate = n && n.inlineFeynman ? ''
+    : (decisionsDone ? feyCard('3 · 费曼收尾', '用自己的话讲清楚')
+      : '<div class="lcard" id="learn-fey" style="opacity:.6"><span class="lb warn">3 · 费曼收尾</span><h2>三题按顺序全对后才会出现</h2><div class="sub">费曼是限速器：没过就不解锁下一章。</div></div>');
+
+  const blockNext = n && n.nextBridge ? `<div class="lcard">
+      <span class="lb">下一站</span>
+      <h2>${esc(n.nextBridge.question)}</h2>
+      <div class="la">${esc(n.nextBridge.answer)}</div>
+    </div>` : '';
+
+  const head = `<h1>${esc(c.title)}</h1>
+    <div class="sub">路线：${esc(c.routeTitle)} · 第 ${c.routeStep} / ${c.routeSteps} 步 · ${esc(c.cm.domain || '')}<br>${esc(c.why)}</div>
+    ${notice ? `<div class="lcard" style="border-color:#5a4a24;background:#1b1710"><b style="color:#e0a94a">${notice}</b></div>` : ''}`;
+
+  const gaps = `<div class="lcard">
+      <span class="lb">材料缺口（照实登记，不补齐）</span>
+      <ul>${(LEARN_CFG.gaps || []).map(g => `<li>${esc(g)}</li>`).join('')}</ul>
+      <div class="lgap">本页不调用知乎。装配状态：${esc(c.review.statusNote)}</div>
+    </div>`;
+
+  const body = n
+    ? [head, blockLead, blockBridges, blockReading, blockLinks, blockFeyInline, blockCase, blockQuestions, blockNext, gaps].join('')
+    : [head, blockReading, blockCase, blockQuestions, blockFeyLate, gaps].join('');
+
+  wrap.innerHTML = `<div class="lbody">${body}</div>${rail}`;
+  learnRenderQ();
+  learnDots();
+}
+window.renderLearn = renderLearn;
+
+/* 选项顺序：按「章 + 题号」做稳定洗牌 —— 同一题每次渲染顺序一致（已选中的高亮不会错位），
+   但不再沿用 authored.json 里的数组顺序，避免「正解总在同一位置／总在最长的那个」被当线索用。
+   返回值是渲染顺序上的**源下标**；点击与判分仍用源下标。 */
+function learnPerm(chapterId, qi) {
+  let h = 2166136261;
+  const seed = chapterId + '#' + qi;
+  for (let i = 0; i < seed.length; i++) { h ^= seed.charCodeAt(i); h = Math.imul(h, 16777619); }
+  const perm = [0, 1, 2];
+  for (let i = perm.length - 1; i > 0; i--) {
+    h = Math.imul(h ^ (h >>> 15), 2246822507); h ^= h >>> 13;
+    const j = Math.abs(h) % (i + 1);
+    const t = perm[i]; perm[i] = perm[j]; perm[j] = t;
+  }
+  return perm;
+}
+window.learnPerm = learnPerm;
+
+function learnRenderQ() {
+  const c = chapterById(learnCur); if (!c) return;
+  const s = stOf(c.chapterId);
+  const q = c.questions[learnQ];
+  const picked = s.picked[learnQ];
+  const passed = !!s.decisions[learnQ];
+  document.getElementById('learn-qhint').textContent = `第 ${learnQ + 1} / ${c.questions.length} 题 · ${q.judgment}（每题 3 个选项，只有 1 个正确）`;
+  const perm = learnPerm(c.chapterId, learnQ);
+  document.getElementById('learn-q').innerHTML = `<div class="lq"><h3>${learnQ + 1}. ${esc(q.prompt)}</h3>`
+    + perm.map((src, j) => {
+      const o = q.options[src];
+      const cls = picked === src ? (o.correct ? 'ok' : 'bad') : '';
+      return `<button class="lopt ${cls}" ${passed ? 'disabled' : ''} onclick="learnChoose(${src})"><b>${'ABC'[j]}.</b> ${esc(o.text)}</button>`;
+    }).join('')
+    + (picked === null || picked === undefined ? '' : `<div class="lfb">${learnFeedback(q, picked)}</div>`)
+    + '</div>';
+  const btn = document.getElementById('learn-next');
+  btn.disabled = !passed;
+  btn.textContent = learnQ === c.questions.length - 1 ? '三题通过，进入费曼' : '选对后进入下一题';
+  document.getElementById('learn-qstatus').textContent = passed ? `${learnQ + 1} / ${c.questions.length} 题通过` : '本题尚未通过；可以重选';
+}
+function learnFeedback(q, j) {
+  const o = q.options[j];
+  if (o.correct) {
+    const basis = (o.basis || []).length ? `依据：${o.basis.join('、')}` : '';
+    const quote = o.basisQuote ? `<br>原文：${esc(o.basisQuote)}` : '';
+    return `<b>对。</b>${esc(o.why || '')}${o.why ? '<br>' : ''}${esc(basis)}${quote}`;
+  }
+  return `<b>这一步不对。</b>${esc(o.why || '')} 留在本题，可以重选。`;
+}
+function learnChoose(j) {
+  const c = chapterById(learnCur); if (!c) return;
+  const s = stOf(c.chapterId);
+  if (s.decisions[learnQ]) return;                 // 已通过的题不再改
+  const q = c.questions[learnQ];
+  s.picked[learnQ] = j;
+  s.decisions[learnQ] = !!q.options[j].correct;    // 只有选对才记为通过
+  if (!s.decisions[learnQ]) { s.feynman = null; s.verdict = ''; }   // 决策没全过，费曼的旧状态一律作废
+  saveLearnState();
+  learnRenderQ(); learnDots();
+}
+function learnNext() {
+  const c = chapterById(learnCur); if (!c) return;
+  const s = stOf(c.chapterId);
+  if (!s.decisions[learnQ]) return;
+  if (learnQ < c.questions.length - 1) { learnQ++; learnRenderQ(); }
+  else renderLearn();
+  const box = document.getElementById('learn');
+  if (box) box.scrollTop = 0;
+}
+window.learnChoose = learnChoose; window.learnNext = learnNext;
+
+/* 重新编辑复述 = 旧的通过状态作废（下一章随之重新锁上） */
+function learnSaidChanged() {
+  const c = chapterById(learnCur); if (!c) return;
+  const s = stOf(c.chapterId);
+  const box = document.getElementById('learn-said');
+  s.said = box ? box.value : '';
+  learnReq++;                       // 复述一改，进行中的那次判定立刻作废（返回了也不写状态）
+  const had = s.feynman;
+  if (had) {
+    s.feynman = null; s.verdict = '';
+    const res = document.getElementById('learn-fres');
+    if (res) { res.className = 'lres'; res.textContent = ''; }
+    const st = document.getElementById('learn-fstatus');
+    if (st) st.textContent = had === 'ok' ? '已修改复述 —— 旧的通过状态已清除，请重新提交判定。' : '当前状态：还没提交';
+    learnDots();
+  }
+  saveLearnState();                 // 草稿也落盘：没提交就刷新不该丢
+}
+window.learnSaidChanged = learnSaidChanged;
+
+function parseLearnVerdict(raw, required) {
+  if (typeof raw !== 'string') return null;
+  const text = raw.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '').trim();
+  let value;
+  try { value = JSON.parse(text); } catch (e) { return null; }
+  if (!Array.isArray(value.covered) || !Array.isArray(value.missing)) return null;
+  const covered = value.covered.map(String), missing = value.missing.map(String);
+  const has = (key) => covered.some(x => x.includes(key));
+  return { covered, missing, next: String(value.next || ''), pass: required.every(has) && missing.length === 0 };
+}
+window.parseLearnVerdict = parseLearnVerdict;
+
+async function learnFeynman() {
+  const c = chapterById(learnCur), out = document.getElementById('learn-fres');
+  const box = document.getElementById('learn-said');
+  const s = stOf(c.chapterId);
+  if (learnBusyOf[c.chapterId]) return;             // 同一章不许并发提交；别的章不受影响
+  const said = (box ? box.value : '').trim();
+  s.said = said;
+  const seq = ++learnReq;                           // 本次判定的代次
+  const stale = () => seq !== learnReq;             // 复述被改过／又提过一次 → 旧结果作废
+  const show = (status, title, body) => {
+    if (stale()) return;
+    s.feynman = status; s.verdict = title + '\n' + body; s.at = new Date().toISOString();
+    saveLearnState();
+    if (out && document.contains(out)) { out.className = 'lres on ' + status; out.textContent = title + '\n' + body; }
+    const st = document.getElementById('learn-fstatus');
+    if (st && learnCur === c.chapterId) st.textContent = '当前状态：' + LEARN_STATUS[status];
+    learnDots(); learnChips();
+  };
+  if (said.length < 30) { show('wait', '还不能判定', '请再具体一些：至少说清 ' + c.feynman.required.join('、') + '。'); return; }
+  const local = /^(127\.0\.0\.1|localhost|\[::1\])$/.test(location.hostname);
+  if (!local) { show('wait', '待人工复核', '公网静态版不调用模型，也不把提交当作通过。'); return; }
+  learnBusyOf[c.chapterId] = true;
+  const btn = document.getElementById('learn-submit');
+  if (btn) btn.disabled = true;
+  if (box) box.disabled = true;                     // 提交中锁住复述：判定结果必须对应这一版文本
+  show('wait', '复述已提交', '正在尝试本地判定（不调用知乎）。');
+  try {
+    const material = [
+      `概念：${c.cm.name}（${c.cm.description}）`,
+      `定义：${c.reading.explain.text}`,
+      `机制：${c.reading.mechanism.text}`,
+      `边界：${c.reading.boundary.items.join('；')}`,
+    ].join('\n');
+    const r = await fetch('/api/llm', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ json: false, messages: [
+      { role: 'system', content: '你是一个学习单元的费曼复述检查器。只根据给定材料判断，不调用外部资料，不引用知乎。必须只输出 JSON，格式为 {"covered":["要点"],"missing":[],"next":"一句下一步"}。covered 只填复述中确实说到的要点，取值必须从给定要点列表里原样挑选；missing 填漏掉的要点；两者都只能用要点列表里的原词。' },
+      { role: 'user', content: `要点列表：${c.feynman.required.join('、')}\n材料：\n${material}\n复述：${said}` },
+    ] }) });
+    if (stale()) return;
+    if (!r.ok) throw new Error('llm-http-' + r.status);
+    const j = await r.json();
+    if (stale()) return;
+    const v = parseLearnVerdict(j.content, c.feynman.required);
+    if (!v) { show('wait', '待人工复核', '本地模型返回的格式不符合判定协议，没有把它当作通过。\n原始返回：' + String(j.content || '').slice(0, 400)); return; }
+    const body = `讲到了：${v.covered.join('、') || '无'}\n漏点：${v.missing.join('、') || '无'}\n下一步：${v.next || '无'}`;
+    if (v.pass) show('ok', '费曼通过 · 判定等级：本地模型', body + '\n下一章已解锁。');
+    else show('fail', '费曼未通过 · 判定等级：本地模型', body + '\n请补齐漏点后重新提交；下一章保持锁定。');
+  } catch (e) {
+    show('wait', '待人工复核', '本地模型暂不可用或请求失败，没有把它当作通过。\n' + e.message);
+  } finally { learnBusyOf[c.chapterId] = false; if (btn) btn.disabled = false; if (box) box.disabled = false; }
+}
+window.learnFeynman = learnFeynman;
+loadLearnState();
 
 /* 一条候选边的详情（列表里点进来） */
 

@@ -37,15 +37,23 @@ cd app && npm start               # 桌面版（能写真文件）→ ~/Document
 # 验收（前五个要 serve 在跑）
 node scripts/verify-135.mjs       # 61 项：主产物 知所栖-135-基础框架.html 全流程
 node scripts/test-daobi.mjs       # 40 项：倒逼层 + 分类层 + 三栏外壳 + 减法边界 + 概念卡来源/费曼门（真 LLM）
-node scripts/test-path.mjs        # 50 项：路径视图（默认路径模式 · 真实 6 步路线 · 像素级高亮 · 卡上路径上下文 · 分支 ≤2 · 回退 · 产品 5 问）
+node scripts/test-path.mjs        # 56 项：路径视图（默认路径模式 · 真实 6 步路线 · 像素级高亮 · 卡上路径上下文 · 分支 ≤2 · 回退 · 产品 5 问 · 六章材料是否已装配）
+node scripts/check-learning-materials.mjs  # 344 项：Agent Loop 六章材料体检（不需要 serve、不调模型；含正文流「过渡句/关系句必须带逐字原文」＋来源链「58 篇 → 卡片 → 原始来源」）
+node scripts/test-learn-agent-loop.mjs     # 72 项：独立学习空间状态门（一题一判 · 费曼门 · 未过不解锁下一章 · 改复述清状态 · 选项稳定打乱 · 判定竞态作废 · 草稿落盘 · 地址入口不再绕过解锁 · 六章正文流一页 · 知识根与原始来源 · 返回恢复路线；费曼走固定响应）
+node scripts/walk-learn-agent-loop.mjs <chapterId>  # 真模型走查一章（六章各跑过一次；真调 /api/llm；是证据不是断言；入口用 #learn=<id>&review=1）
+node scripts/build-source-chain.mjs  # 来源链：58 篇 → 49 个原始来源 → 76 张图鉴站卡片（逐条核对标题能否在 58 篇里找到；只读）
+node scripts/test-feynman-teaching-map.mjs  # 41 项：费曼漏点 → 教学动作映射（判据→误解→动作→材料；4 组固定答案证明不同缺口得不同动作；不调模型）
+node scripts/map-feynman-gaps.mjs    # 同一个映射的 CLI：--check 校验映射表 · --answers 跑 4 组固定答案 · --diagnose "复述" 诊断自由复述
+node scripts/walk-mvp-real-llm.mjs  # 真模型走查原 MVP 那一章（同上）
 node scripts/shot-shell.mjs       # 13 步截图 + 面板越界断言
-node scripts/check-public.mjs     # 23 项：公网版（**必须假域名**，127.0.0.1 会走错分支；其「首屏 2 格导航」断言已过期，见工作日志第十六轮）
+node scripts/check-public.mjs     # 23 项：公网版（**必须假域名**，127.0.0.1 会走错分支；「首屏导航」断言 2026-09-14 已改准为 3 格）
 node scripts/test-app.mjs         # 12 项：桌面版（自动起 Electron，不需要 serve；「减法后两栏」断言已过期，同上）
 node scripts/paths-validate.mjs   # 路线配置体检：ID/预算/分支理由/声称的 hard 前置在 dependencies.json 里是否真有
 node scripts/ab-feynman-test.mjs  # AB 实验（A 免 key；B/C1 需凭证；无 ab-samples.json 会拒跑）
 
 # 重新生成产物
-# 概念地图 v2（当前概念唯一真源 · 2026-09-13 起）：三源 = Notion 概念库 + Context + Harness
+# 概念地图 v2（当前概念唯一真源 · 2026-09-13 起）：四源 = Notion 概念库 + Context + Harness + AI 内参 260912
+node scripts/cm-audit-context-ai.mjs --all && node scripts/cm-drop-non-ai.mjs  # AI 相关性复判（只读）→ 剔除非 AI（可重跑）
 node scripts/cm-extract.mjs && node scripts/cm-merge.mjs      # 抽取 + 合并去重（确定性）
 node scripts/cm-enrich.mjs --concurrency=5                     # LLM 富化：领域/类型/定义/掌握证据/验收问句
 node scripts/cm-edges.mjs --concurrency=6 --pass2              # 依赖边 + 环检测（--pass2 救孤立点）
@@ -64,11 +72,11 @@ curl -s localhost:5180/api/health   # {"ok":true,"llm":true,"app":false}
 
 | 产物 | 是什么 | 怎么开 |
 |---|---|---|
-| `knowledge/概念地图-260913/` | **概念唯一真源**。936 概念 / 531 前置依赖 / 21 领域（四源：Notion 概念库 + Context + Harness + AI 内参 260912；AI 相关性过滤后；过滤前 1156），os-taxonomy 形态 + JSON Schema + manifest 校验和 | 直接读 JSON |
-| `knowledge/概念wiki-260913/` | 概念链接层，llm_wiki 形态：936 页 + `[[双链]]` + 反链 + index/log | 读 `index.md` 或丢进 Obsidian |
+| `knowledge/概念地图-260913/` | **概念唯一真源**。918 概念 / 591 前置依赖 / 21 领域（2026-09-14 剔除非 AI 概念后；此前 936 / 604）（四源：Notion 概念库 + Context + Harness + AI 内参 260912；AI 相关性过滤后；过滤前 1156），os-taxonomy 形态 + JSON Schema + manifest 校验和 | 直接读 JSON |
+| `knowledge/概念wiki-260913/` | 概念链接层，llm_wiki 形态：918 页 + `[[双链]]` + 反链 + index/log | 读 `index.md` 或丢进 Obsidian |
 | `prototype/知所栖-135-基础框架.html` | **主产物**。1 阅读 → 3 决策 → 5 实验 → 费曼验收 全流程，单文件 | 双击，或经 serve |
-| `prototype/知所栖-壳.html` | **09-13 两轮减法后只剩两栏**：知识体系（936 概念 · 画布按 21 条主题分列）+ 内参；倒逼判定在概念卡里。策展 / 待你看一眼 / 我在学 / 对话 / 底部那条栏 / 左栏主题图例与状态点 **全已删**，左栏＝品牌+搜索+三个导航项（内参 · 知识体系 · 实践空间）+**主题分类列表**（21 条，点一条只看这一列）。**09-13 19:2x 加「路径」视图**：主区 tab 板（在三栏之上、横跨列表栏与主区）现在是 `路径｜图谱｜关系｜星球`，**路径默认**——左上 262px 路径条（为什么现在学 / 前置 / 下一步 / 卡住回退 / 分支 ≤2 · 回到全图），画布上路线 6 点标号加亮、当前步白环、其余变灰缩小（仍可点）；概念卡顶部加路径上下文；主题下钻后顶部出现路径入口。路线配置在 `evidence/paths-260913/routes.json`（不改概念地图源数据） | **必须经 serve**（`/api/*` 才通） |
-| `deploy/zhisuoqi-135/` | 公网版（单文件零服务端）。**09-13 减法后只剩 知识体系 + 内参**，对话三条路已随对话层删除；无服务端时交卷走机械兜底（只标 mech）。本地已重建，**线上未 push** | <https://hou-152.github.io/zhisuoqi-135/>（仍是减法前旧版） |
+| `prototype/知所栖-壳.html` | **09-13 两轮减法后只剩两栏**：知识体系（918 概念 · 画布按 21 条主题分列）+ 内参；倒逼判定在概念卡里。策展 / 待你看一眼 / 我在学 / 对话 / 底部那条栏 / 左栏主题图例与状态点 **全已删**，左栏＝品牌+搜索+三个导航项（内参 · 知识体系 · 实践空间）+**主题分类列表**（21 条，点一条只看这一列）。**09-13 19:2x 加「路径」视图**：主区 tab 板（在三栏之上、横跨列表栏与主区）现在是 `路径｜图谱｜关系｜星球`，**路径默认**——左上 262px 路径条（为什么现在学 / 前置 / 下一步 / 卡住回退 / 分支 ≤2 · 回到全图），画布上路线 6 点标号加亮、当前步白环、其余变灰缩小（仍可点）；概念卡顶部加路径上下文；主题下钻后顶部出现路径入口。路线配置在 `evidence/paths-260913/routes.json`（不改概念地图源数据）。**09-13 深夜加「独立学习空间」**：路径条／概念卡／实践空间的「学习这个 · 第 N 章」进全屏 `#learn`（DOM 隐藏左栏、主题列表、画布），一个核心概念 → 原文 context＋定义/直觉/机制/边界 → 三道决策（一题一判）→ 费曼收尾；六章＝Agent Loop 六步，主案例已由负责人确认（2026-09-14）→ `ready`，但**场景类型仍是「假设场景」**、页面照实标；第 1 章口径已裁决为「Agent 不等于 LLM」；费曼未过／待复核不解锁下一章，改复述即清通过状态；`#learn=<chapterId>` 可直达，返回恢复原路线/原步骤/原概念。材料与验收在 `evidence/agent-loop-260913/` | **必须经 serve**（`/api/*` 才通） |
+| `deploy/zhisuoqi-135/` | 公网版（单文件零服务端）。**09-13 减法后只剩 知识体系 + 内参**，对话三条路已随对话层删除；无服务端时交卷走机械兜底（只标 mech）。本地已重建（2026-09-14 剔除非 AI 概念后：**918 概念 / 591 依赖**，本地 check-public.mjs 全过），**线上未 push** | <https://hou-152.github.io/zhisuoqi-135/>（线上仍是 936 概念那版） |
 | `app/` | 桌面版（Electron，本地数据落真文件） | `cd app && npm start` |
 
 ## 沟通偏好

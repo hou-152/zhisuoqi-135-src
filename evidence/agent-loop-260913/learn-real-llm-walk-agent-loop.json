@@ -1,0 +1,140 @@
+{
+ "generatedAt": "2026-09-13T18:01:37.438Z",
+ "page": "http://127.0.0.1:5180/知所栖-壳.html#learn=agent-loop&review=1",
+ "chapter": "agent-loop",
+ "purpose": "真实模型走查学习空间的一章（不替换 fetch）。样本 1 章，不是学习效果样本，也不替代黑盒状态门验收。",
+ "health": {
+  "ok": true,
+  "llm": true,
+  "app": false,
+  "dataDir": null,
+  "version": null,
+  "packaged": false,
+  "root": "/Users/housibo/Documents/知乎黑客松"
+ },
+ "llmCalls": 2,
+ "zhihuRequests": 0,
+ "log": [
+  {
+   "step": "api-health",
+   "value": {
+    "ok": true,
+    "llm": true,
+    "app": false,
+    "dataDir": null,
+    "version": null,
+    "packaged": false,
+    "root": "/Users/housibo/Documents/知乎黑客松"
+   },
+   "at": "2026-09-13T18:01:30.117Z"
+  },
+  {
+   "step": "章节",
+   "value": "3 Agent loop | cm_1973b1d3 ↔ CON-agent-loop",
+   "at": "2026-09-13T18:01:30.130Z"
+  },
+  {
+   "step": "主案例（候选／假设场景）",
+   "value": "CAS-agent-loop · 假设场景 · 候选 CAS-agent-loop",
+   "at": "2026-09-13T18:01:30.131Z"
+  },
+  {
+   "step": "审核状态",
+   "value": "owner-confirmed / ready",
+   "at": "2026-09-13T18:01:30.132Z"
+  },
+  {
+   "step": "阅读区摘要",
+   "value": "Agent loop\n路线：理解 AI 如何持续行动 · 第 3 / 6 步 · loop-autonomy\n工具是单次动作，循环才把单次动作变成「持续做事」——入口问题在这一步第一次被正面回答。\n1. Agent\n2. 工具 🔒\n3. Agent loop 🔒\n4. 状态子系统与进度持久化 🔒\n5. Harness 🔒\n6. 验证闭环 🔒\n1 · 阅读\n概念地图打的是这张卡\nAgent loop cm_1973b1d3\nSDK 内置的循环：发起工具调用、把结果送回模型、持续迭代直到任务完成。\n原文 context\nA built-in agent loop that handles tool invocation, sends results back to the LLM, and continues until the task is complete。它是 SDK 作为 higher-level runtime 的核心承载。\n定义 CON-agent-loop\nAgent Loop 是模型选择下一步、Harness 执行工具、观察结果回到模型，再重复或退出的运行循环。\n直觉 CON-agent-loop\n模型先看当前信息并选择下一步。如果它请求工具，外部系统就执行工具，把结果作为新观察交还模型；模型根据这个新结果决定继续、换一种做法，或给出最终答案。循环的关键不是绕圈，而是每次观察都会影响下一步，并且有明确的退出条件。\n机制 SOL-agent-loop\n记录每一轮的输入、模型选择、工具参数、工具结果和停止原因，定位空转、早停与错误回灌。\n边界 CON-age",
+   "at": "2026-09-13T18:01:30.134Z"
+  },
+  {
+   "step": "第 1 题先答错",
+   "value": {
+    "选": 0,
+    "停留": 0,
+    "通过": false,
+    "反馈": "这一步不对。循环的关键不是绕圈，而是每次观察都会影响下一步。 留在本题，可以重选。"
+   },
+   "at": "2026-09-13T18:01:30.703Z"
+  },
+  {
+   "step": "第 1 题选对",
+   "value": {
+    "prompt": "一个系统反复调用工具，但从不把工具结果送回模型。这还构成完整的 Agent Loop 吗？",
+    "选项号": 1,
+    "通过": true
+   },
+   "at": "2026-09-13T18:01:30.704Z"
+  },
+  {
+   "step": "第 2 题选对",
+   "value": {
+    "prompt": "Agent 连续 40 轮重复同一个命令，没有产生任何新证据。第一步做什么？",
+    "选项号": 1,
+    "通过": true
+   },
+   "at": "2026-09-13T18:01:30.708Z"
+  },
+  {
+   "step": "第 3 题选对",
+   "value": {
+    "prompt": "模型自己说了一句「任务完成」，循环就此退出。这样够吗？",
+    "选项号": 1,
+    "通过": true
+   },
+   "at": "2026-09-13T18:01:30.711Z"
+  },
+  {
+   "step": "费曼区已出现",
+   "value": true,
+   "at": "2026-09-13T18:01:30.717Z"
+  },
+  {
+   "step": "本章费曼要点",
+   "value": [
+    "一步的动作",
+    "观察回灌",
+    "退出条件"
+   ],
+   "at": "2026-09-13T18:01:31.221Z"
+  },
+  {
+   "step": "费曼-漏点复述（真模型）",
+   "value": {
+    "status": "fail",
+    "text": "费曼未通过 · 判定等级：本地模型 讲到了：一步的动作 漏点：观察回灌、退出条件 下一步：请补充观察结果如何回灌给模型，并说明循环在什么条件下退出。 请补齐漏点后重新提交；下一章保持锁定。",
+    "unlocked2": false
+   },
+   "at": "2026-09-13T18:01:34.500Z"
+  },
+  {
+   "step": "费曼-补齐复述（真模型）",
+   "value": {
+    "status": "ok",
+    "text": "费曼通过 · 判定等级：本地模型 讲到了：一步的动作、观察回灌、退出条件 漏点：无 下一步：下一步可结合一个具体任务，逐轮标出选择、工具执行、观察回灌与退出判断。 下一章已解锁。",
+    "unlocked2": false
+   },
+   "at": "2026-09-13T18:01:36.968Z"
+  },
+  {
+   "step": "编辑复述后旧状态清除",
+   "value": "null|false",
+   "at": "2026-09-13T18:01:37.437Z"
+  },
+  {
+   "step": "本页请求",
+   "value": {
+    "total": 5,
+    "llm": 2,
+    "zhihu": 0
+   },
+   "at": "2026-09-13T18:01:37.437Z"
+  },
+  {
+   "step": "JS 报错",
+   "value": 0,
+   "at": "2026-09-13T18:01:37.438Z"
+  }
+ ]
+}

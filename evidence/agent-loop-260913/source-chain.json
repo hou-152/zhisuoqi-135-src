@@ -1,0 +1,1562 @@
+{
+ "version": "v1",
+ "generatedAt": "2026-09-13",
+ "note": "58 篇（Context 28 ＋ Harness 30）→ 49 个原始来源 → 76 张图鉴站卡片。inDocs 表示该来源标题能在 58 篇里逐字找到（这是「58 篇是根」的可核对证据，不是因果断言）。",
+ "docs": [
+  {
+   "id": "SRC-EXT-001",
+   "path": "内容结构化系统/01-原始素材区/完整副本/飞书-Context-Engineering-26+2.md"
+  },
+  {
+   "id": "SRC-EXT-002",
+   "path": "内容结构化系统/01-原始素材区/完整副本/飞书-Harness-Engineering-28+2.md"
+  }
+ ],
+ "stats": {
+  "docs": 2,
+  "sources": 49,
+  "sourcesFoundInDocs": 49,
+  "cards": 76,
+  "cardsWithSources": 76,
+  "cardsWithPrimarySource": 4,
+  "cardsWithMissingSource": 0,
+  "sourceTypeCount": {
+   "article": 31,
+   "paper": 2,
+   "research": 1,
+   "post": 10,
+   "documentation": 5
+  }
+ },
+ "sources": [
+  {
+   "id": "SRC-simon-coding-agents",
+   "title": "How coding agents work",
+   "author": "Simon Willison",
+   "url": "https://simonwillison.net/guides/agentic-engineering-patterns/how-coding-agents-work/",
+   "sourceType": "article",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-001"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-anthropic-effective-context",
+   "title": "Effective context engineering for AI agents",
+   "author": "Anthropic",
+   "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+   "sourceType": "article",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-001"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-philipp-context-engineering",
+   "title": "The New Skill in AI is Not Prompting, It's Context Engineering",
+   "author": "Philipp Schmid",
+   "url": "https://www.philschmid.de/context-engineering",
+   "sourceType": "article",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-001"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-context-engineering-2",
+   "title": "Context Engineering 2.0: The Context of Context Engineering",
+   "author": "Qishuo Hua et al.",
+   "url": "https://arxiv.org/abs/2510.26493",
+   "sourceType": "paper",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-001"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-lost-in-the-middle-paper",
+   "title": "Lost in the Middle: How Language Models Use Long Contexts",
+   "author": "Nelson F. Liu et al.",
+   "url": "https://arxiv.org/abs/2307.03172",
+   "sourceType": "paper",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-001"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-chroma-context-rot",
+   "title": "Context Rot: How Increasing Input Tokens Impacts LLM Performance",
+   "author": "Chroma Research",
+   "url": "https://research.trychroma.com/context-rot",
+   "sourceType": "research",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-001"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-thariq-session-management",
+   "title": "Using Claude Code: Session Management & 1M Context",
+   "author": "Thariq Shihipar",
+   "url": "https://x.com/trq212/status/2044548257058328723",
+   "sourceType": "post",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-001"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-akshay-agent-harness",
+   "title": "深度拆解：AI Agent Harness 的构造",
+   "author": "Akshay",
+   "url": "https://baoyu.io/translations/2026-05-10/akshay-pachaar-2041146899319971922",
+   "sourceType": "article",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-001",
+    "SRC-EXT-002"
+   ],
+   "docCount": 2
+  },
+  {
+   "id": "SRC-model-context-protocol-official",
+   "title": "Model Context Protocol",
+   "author": "Anthropic",
+   "url": "https://modelcontextprotocol.io/docs/getting-started/intro",
+   "sourceType": "documentation",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-001",
+    "SRC-EXT-002"
+   ],
+   "docCount": 2
+  },
+  {
+   "id": "SRC-anthropic-agent-skills",
+   "title": "Agent Skills",
+   "author": "Anthropic",
+   "url": "https://www.anthropic.com/news/skills",
+   "sourceType": "documentation",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-001"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-langchain-agent-harness",
+   "title": "The Anatomy of an Agent Harness",
+   "author": "LangChain",
+   "url": "https://blog.langchain.com/the-anatomy-of-an-agent-harness/",
+   "sourceType": "article",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-001",
+    "SRC-EXT-002"
+   ],
+   "docCount": 2
+  },
+  {
+   "id": "SRC-openai-agents-sdk",
+   "title": "OpenAI Agents SDK",
+   "author": "OpenAI",
+   "url": "https://openai.github.io/openai-agents-python/",
+   "sourceType": "documentation",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-001",
+    "SRC-EXT-002"
+   ],
+   "docCount": 2
+  },
+  {
+   "id": "SRC-harness-term-explainer",
+   "title": "A harnessed LLM agent",
+   "author": "Akshay",
+   "url": "https://x.com/akshay_pachaar/status/2045510648474530263",
+   "sourceType": "post",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-002"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-openai-agent-runtime",
+   "title": "The next evolution of the Agents SDK",
+   "author": "OpenAI",
+   "url": "https://openai.com/index/the-next-evolution-of-the-agents-sdk/",
+   "sourceType": "article",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-002"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-harness-learning-repo",
+   "title": "Learn Harness Engineering",
+   "author": "walkinglabs",
+   "url": "https://github.com/walkinglabs/learn-harness-engineering/blob/main/README-CN.md",
+   "sourceType": "documentation",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-002"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-harness-engineering-practice",
+   "title": "Awesome Harness Engineering",
+   "author": "walkinglabs",
+   "url": "https://github.com/walkinglabs/awesome-harness-engineering",
+   "sourceType": "documentation",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-002"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-delba-verification-skills",
+   "title": "Building verification loops in Claude Code with Skills",
+   "author": "Delba de Oliveira",
+   "url": "https://claude.com/blog/building-verification-loops-in-claude-code-with-skills",
+   "sourceType": "article",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-001"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-v2-13ffd54fc159",
+   "title": "Context Engineering for AI Agents: Lessons from Building Manus",
+   "author": "Yichao 'Peak' Ji (Manus)",
+   "url": "https://manus.im/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus",
+   "sourceType": "article",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-001"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-v2-1e6c9a5d416a",
+   "title": "E238｜聊聊Harness时代AI-First的组织架构：从信任人到信任AI | 硅谷101播客",
+   "author": "硅谷101播客",
+   "url": "https://app.podwise.ai/dashboard/episodes/8185395",
+   "sourceType": "article",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-002"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-v2-265c6a0134ab",
+   "title": "How enabling two settings tripled our scores on the ARC-AGI-3 benchmark",
+   "author": "OpenAI",
+   "url": "https://openai.com/index/how-two-settings-tripled-our-arc-agi-3-scores",
+   "sourceType": "article",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-001",
+    "SRC-EXT-002"
+   ],
+   "docCount": 2
+  },
+  {
+   "id": "SRC-v2-2aef6d7392e2",
+   "title": "Claude Code 内部工作原理窥探",
+   "author": "xxchan",
+   "url": "https://xxchan.me/ai/2025/05/06/claude-code.html",
+   "sourceType": "article",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-002"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-v2-2c589c3624db",
+   "title": "Harness Engineering for Self-Improvement",
+   "author": "lilianweng.github.io",
+   "url": "https://lilianweng.github.io/posts/2026-07-04-harness/",
+   "sourceType": "article",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-002"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-v2-2fe0a33dcecf",
+   "title": "Why Harness Engineering Is So Hard",
+   "author": "Winter",
+   "url": "https://x.com/winterarc2125/status/2081042507471696318/?s=12",
+   "sourceType": "post",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-002"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-v2-33f520c0c534",
+   "title": "Harness Engineering",
+   "author": "martinfowler.com",
+   "url": "https://martinfowler.com/articles/exploring-gen-ai/harness-engineering.html",
+   "sourceType": "article",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-001",
+    "SRC-EXT-002"
+   ],
+   "docCount": 2
+  },
+  {
+   "id": "SRC-v2-344d46b0f790",
+   "title": "tirth8205/code-review-graph",
+   "author": "GitHub",
+   "url": "https://github.com/tirth8205/code-review-graph",
+   "sourceType": "article",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-001"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-v2-34a4bc8578ec",
+   "title": "wtf is Loop Engineer & how to setup for real",
+   "author": "AI Jason ·",
+   "url": "https://www.youtube.com/watch?v=W6x-hb44C0c",
+   "sourceType": "article",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-002"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-v2-38c466ef2f30",
+   "title": "Lessons from Building Claude Code: Seeing like an Agent",
+   "author": "Anthropic",
+   "url": "https://x.com/trq212/status/2027463795355095314",
+   "sourceType": "post",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-001"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-v2-3908c0a1cbd6",
+   "title": "I stopped using /grill-me for coding. Here’s what I use instead:",
+   "author": "Matt Pocock",
+   "url": "https://www.youtube.com/watch?v=6BB6exR8Zd8",
+   "sourceType": "article",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-001"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-v2-398431a5f118",
+   "title": "Claude Code sends 33k tokens before reading the prompt; OpenCode sends 7k",
+   "author": "systima.ai",
+   "url": "https://systima.ai/blog/claude-code-vs-opencode-token-overhead",
+   "sourceType": "article",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-001"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-v2-416dd5f674d6",
+   "title": "Harness Engineering 在讨论什么：三个 Scaling 维度的统一框架",
+   "author": "grapeot",
+   "url": "https://yage.ai/share/harness-engineering-scalability-20260330.html",
+   "sourceType": "article",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-002"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-v2-698946ec367c",
+   "title": "Context Engineering Is The Only Engineering That Matters Now",
+   "author": "Nyk 🌱",
+   "url": "https://x.com/nyk_builderz/status/2031581912071127158/?s=12&rw_tt_thread=True",
+   "sourceType": "post",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-001"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-v2-6b1c0707b89f",
+   "title": "Skill Issue: Harness Engineering for Coding Agents",
+   "author": "humanlayer.dev",
+   "url": "https://www.humanlayer.dev/blog/skill-issue-harness-engineering-for-coding-agents",
+   "sourceType": "article",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-002"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-v2-7322db202bed",
+   "title": "How to build reliable AI workflows with agentic primitives and context engineering",
+   "author": "Daniel Meppiel",
+   "url": "https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/",
+   "sourceType": "article",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-001"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-v2-7696a130388b",
+   "title": "撕开Claude Code真相：让它好用的98.4%，是工程不是AI",
+   "author": "新智元",
+   "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652696950&idx=2&sn=b8388fc8a9c5f6b51dbdf7e799d7f349",
+   "sourceType": "article",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-002"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-v2-798edcfd87a0",
+   "title": "If SaaS Is Dead, Linear Didn't Get the Memo | AI and I",
+   "author": "AI and I",
+   "url": "https://app.podwise.ai/dashboard/episodes/7673574",
+   "sourceType": "article",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-001"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-v2-84ce862aa10d",
+   "title": "WTF Is a Loop? Peter Steinberger vs. Boris Cherny",
+   "author": "Matt Van Horn",
+   "url": "https://x.com/mvanhorn/status/2063865685558903149/?rw_tt_thread=True",
+   "sourceType": "post",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-002"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-v2-8e2243bbd540",
+   "title": "Issue tracking is dead.",
+   "author": "linear.app",
+   "url": "https://linear.app/next",
+   "sourceType": "article",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-001"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-v2-8e418fc06184",
+   "title": "The new rules of context engineering for Claude 5 generation models",
+   "author": "Claude",
+   "url": "https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models",
+   "sourceType": "article",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-001"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-v2-9e0f126b01bb",
+   "title": "Why Software Factories Fail (or: harness engineering is not enough)",
+   "author": "GitHub",
+   "url": "https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/wsff.md",
+   "sourceType": "article",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-002"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-v2-9fa759b72385",
+   "title": "Harness design for long-running application development",
+   "author": "Anthropic",
+   "url": "https://www.anthropic.com/engineering/harness-design-long-running-apps",
+   "sourceType": "article",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-002"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-v2-aa1b1ea88e57",
+   "title": "The new rules of context engineering for Claude 5 models",
+   "author": "Thariq",
+   "url": "https://x.com/trq212/status/2080710971228918066/?s=12",
+   "sourceType": "post",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-001"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-v2-b6522add3c54",
+   "title": "Thin Harness, Fat Skills",
+   "author": "Garry Tan",
+   "url": "https://x.com/garrytan/status/2042925773300908103/",
+   "sourceType": "post",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-002"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-v2-c1d00a81c46f",
+   "title": "提示词缓存不是小优化，详解AI模型缓存命中率",
+   "author": "UNKNOWN",
+   "url": "https://x.com/shachepi/status/2053463461729046817/?rw_tt_thread=True&s=12",
+   "sourceType": "post",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-001"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-v2-c8dc1df61461",
+   "title": "Better tools made Copilot code review worse. Here’s how we actually improved it.",
+   "author": "GitHub",
+   "url": "https://github.blog/ai-and-ml/github-copilot/better-tools-made-copilot-code-review-worse-heres-how-we-actually-improved-it/",
+   "sourceType": "article",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-001"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-v2-c921217d3267",
+   "title": "Your Agent Needs a Harness, Not a Framework",
+   "author": "inngest.com",
+   "url": "https://www.inngest.com/blog/your-agent-needs-a-harness-not-a-framework",
+   "sourceType": "article",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-002"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-v2-e70c38d2c825",
+   "title": "Prompt该退环境了，未来属于Loop Engineering。",
+   "author": "数字生命卡兹克",
+   "url": "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647683561&idx=1&sn=cb696e11357022c64360c79bf9471f22",
+   "sourceType": "article",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-001",
+    "SRC-EXT-002"
+   ],
+   "docCount": 2
+  },
+  {
+   "id": "SRC-v2-e9eb05e2bf38",
+   "title": "GitHub - humanlayer/12-factor-agents: What are the principles we can use to build LLM-powered software that is actually good enough to put in the hands of production customers?",
+   "author": "Dex Horthy (HumanLayer)",
+   "url": "https://github.com/humanlayer/12-factor-agents",
+   "sourceType": "article",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-001"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-v2-ec950eddc45a",
+   "title": "The harness is all you need (mostly)",
+   "author": "GitHub",
+   "url": "https://github.blog/company/the-harness-is-all-you-need-mostly/",
+   "sourceType": "article",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-002"
+   ],
+   "docCount": 1
+  },
+  {
+   "id": "SRC-v2-f4003266c381",
+   "title": "The Anatomy of an Agent Harness",
+   "author": "Akshay 🚀",
+   "url": "https://x.com/akshay_pachaar/status/2041146899319971922",
+   "sourceType": "post",
+   "inDocs": true,
+   "docIds": [
+    "SRC-EXT-001",
+    "SRC-EXT-002"
+   ],
+   "docCount": 2
+  }
+ ],
+ "cards": [
+  {
+   "slug": "agent-action-space",
+   "nameZh": "Agent 行动空间",
+   "sourceIds": [
+    "SRC-v2-38c466ef2f30"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "post"
+   ]
+  },
+  {
+   "slug": "agent-cli-runtime",
+   "nameZh": "Agent CLI 运行时",
+   "sourceIds": [
+    "SRC-v2-7322db202bed"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "agent-elicitation",
+   "nameZh": "Agent 信息引出",
+   "sourceIds": [
+    "SRC-v2-38c466ef2f30"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "post"
+   ]
+  },
+  {
+   "slug": "agent-handoff",
+   "nameZh": "Agent 交接",
+   "sourceIds": [
+    "SRC-harness-engineering-practice"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "documentation"
+   ]
+  },
+  {
+   "slug": "agent-harness",
+   "nameZh": "Agent Harness",
+   "sourceIds": [
+    "SRC-akshay-agent-harness"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "agent-lifecycle",
+   "nameZh": "Agent 生命周期",
+   "sourceIds": [
+    "SRC-harness-learning-repo"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "documentation"
+   ]
+  },
+  {
+   "slug": "agent-loop",
+   "nameZh": "Agent 循环",
+   "sourceIds": [
+    "SRC-simon-coding-agents"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "agent-session-management",
+   "nameZh": "Agent 会话管理",
+   "sourceIds": [
+    "SRC-thariq-session-management"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "post"
+   ]
+  },
+  {
+   "slug": "agent-stop-conditions",
+   "nameZh": "Agent 终止条件",
+   "sourceIds": [
+    "SRC-v2-84ce862aa10d"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "post"
+   ]
+  },
+  {
+   "slug": "agent-tool-contract",
+   "nameZh": "Agent 工具契约",
+   "sourceIds": [
+    "SRC-anthropic-effective-context",
+    "SRC-v2-e9eb05e2bf38",
+    "SRC-v2-2aef6d7392e2"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "agent",
+   "nameZh": "AI Agent",
+   "sourceIds": [
+    "SRC-simon-coding-agents"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "attention-budget",
+   "nameZh": "注意力预算",
+   "sourceIds": [
+    "SRC-anthropic-effective-context"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "bounded-context",
+   "nameZh": "限界上下文",
+   "sourceIds": [
+    "SRC-v2-3908c0a1cbd6"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "browsing-loop",
+   "nameZh": "浏览循环",
+   "sourceIds": [
+    "SRC-v2-c8dc1df61461"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "change-impact-analysis",
+   "nameZh": "变更影响分析",
+   "sourceIds": [
+    "SRC-v2-344d46b0f790"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "chat-template",
+   "nameZh": "聊天模板",
+   "sourceIds": [
+    "SRC-simon-coding-agents"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "code-execution",
+   "nameZh": "代码执行",
+   "sourceIds": [
+    "SRC-langchain-agent-harness"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "context-compaction",
+   "nameZh": "上下文压缩",
+   "sourceIds": [
+    "SRC-anthropic-effective-context"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "context-engineering",
+   "nameZh": "上下文工程",
+   "sourceIds": [
+    "SRC-philipp-context-engineering"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "context-rot",
+   "nameZh": "上下文腐烂",
+   "sourceIds": [
+    "SRC-chroma-context-rot"
+   ],
+   "missing": [],
+   "primarySourceIds": [
+    "SRC-chroma-context-rot"
+   ],
+   "sourceTypes": [
+    "research"
+   ]
+  },
+  {
+   "slug": "context-selection",
+   "nameZh": "上下文选择",
+   "sourceIds": [
+    "SRC-context-engineering-2",
+    "SRC-anthropic-effective-context"
+   ],
+   "missing": [],
+   "primarySourceIds": [
+    "SRC-context-engineering-2"
+   ],
+   "sourceTypes": [
+    "paper",
+    "article"
+   ]
+  },
+  {
+   "slug": "context-window",
+   "nameZh": "上下文窗口",
+   "sourceIds": [
+    "SRC-thariq-session-management"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "post"
+   ]
+  },
+  {
+   "slug": "context",
+   "nameZh": "上下文",
+   "sourceIds": [
+    "SRC-philipp-context-engineering"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "durable-execution",
+   "nameZh": "持久化执行",
+   "sourceIds": [
+    "SRC-openai-agent-runtime"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "dynamic-context-assembly",
+   "nameZh": "动态上下文装配",
+   "sourceIds": [
+    "SRC-philipp-context-engineering"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "error-handling",
+   "nameZh": "错误处理",
+   "sourceIds": [
+    "SRC-akshay-agent-harness"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "event-driven-agent-automation",
+   "nameZh": "事件驱动的 Agent 自动化",
+   "sourceIds": [
+    "SRC-v2-8e2243bbd540"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "filesystem-workspace",
+   "nameZh": "文件系统工作区",
+   "sourceIds": [
+    "SRC-langchain-agent-harness"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "guardrails",
+   "nameZh": "护栏",
+   "sourceIds": [
+    "SRC-openai-agents-sdk"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "documentation"
+   ]
+  },
+  {
+   "slug": "harness-compute-separation",
+   "nameZh": "Harness 与计算分离",
+   "sourceIds": [
+    "SRC-openai-agent-runtime",
+    "SRC-harness-engineering-practice"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article",
+    "documentation"
+   ]
+  },
+  {
+   "slug": "harness-engineering",
+   "nameZh": "Harness 工程",
+   "sourceIds": [
+    "SRC-akshay-agent-harness"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "harness-overfitting",
+   "nameZh": "Harness 过拟合",
+   "sourceIds": [
+    "SRC-langchain-agent-harness",
+    "SRC-v2-6b1c0707b89f"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "harness-token-floor",
+   "nameZh": "Harness Token 底座",
+   "sourceIds": [
+    "SRC-v2-398431a5f118"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "human-escalation-tool-call",
+   "nameZh": "人类升级工具调用",
+   "sourceIds": [
+    "SRC-v2-e9eb05e2bf38"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "instruction-locality",
+   "nameZh": "指令就近原则",
+   "sourceIds": [
+    "SRC-v2-8e418fc06184",
+    "SRC-v2-aa1b1ea88e57"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article",
+    "post"
+   ]
+  },
+  {
+   "slug": "just-in-time-retrieval",
+   "nameZh": "即时检索",
+   "sourceIds": [
+    "SRC-anthropic-effective-context"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "large-language-model",
+   "nameZh": "大语言模型",
+   "sourceIds": [
+    "SRC-simon-coding-agents"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "llm-statelessness",
+   "nameZh": "LLM 无状态性",
+   "sourceIds": [
+    "SRC-simon-coding-agents"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "llm-token",
+   "nameZh": "模型词元",
+   "sourceIds": [
+    "SRC-simon-coding-agents"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "lost-in-the-middle",
+   "nameZh": "迷失在中间",
+   "sourceIds": [
+    "SRC-lost-in-the-middle-paper"
+   ],
+   "missing": [],
+   "primarySourceIds": [
+    "SRC-lost-in-the-middle-paper"
+   ],
+   "sourceTypes": [
+    "paper"
+   ]
+  },
+  {
+   "slug": "memory",
+   "nameZh": "记忆",
+   "sourceIds": [
+    "SRC-anthropic-effective-context"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "minimal-sufficient-context",
+   "nameZh": "最小充分上下文",
+   "sourceIds": [
+    "SRC-anthropic-effective-context"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "model-context-protocol",
+   "nameZh": "模型上下文协议",
+   "sourceIds": [
+    "SRC-model-context-protocol-official"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "documentation"
+   ]
+  },
+  {
+   "slug": "multi-step-reliability-decay",
+   "nameZh": "多步可靠性衰减",
+   "sourceIds": [
+    "SRC-harness-term-explainer"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "post"
+   ]
+  },
+  {
+   "slug": "observability",
+   "nameZh": "可观测性",
+   "sourceIds": [
+    "SRC-harness-learning-repo"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "documentation"
+   ]
+  },
+  {
+   "slug": "observation-masking",
+   "nameZh": "观察掩码",
+   "sourceIds": [
+    "SRC-akshay-agent-harness"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "permission-boundary",
+   "nameZh": "权限边界",
+   "sourceIds": [
+    "SRC-akshay-agent-harness"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "persistent-code-graph",
+   "nameZh": "持久化代码图谱",
+   "sourceIds": [
+    "SRC-v2-344d46b0f790"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "progressive-disclosure",
+   "nameZh": "渐进式披露",
+   "sourceIds": [
+    "SRC-anthropic-effective-context"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "prompt-caching",
+   "nameZh": "提示词缓存",
+   "sourceIds": [
+    "SRC-v2-c1d00a81c46f"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "post"
+   ]
+  },
+  {
+   "slug": "prompt-engineering",
+   "nameZh": "提示词工程",
+   "sourceIds": [
+    "SRC-anthropic-effective-context"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "prompt-injection",
+   "nameZh": "提示注入",
+   "sourceIds": [
+    "SRC-openai-agent-runtime"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "prompt",
+   "nameZh": "提示",
+   "sourceIds": [
+    "SRC-simon-coding-agents"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "reasoning-effort",
+   "nameZh": "推理强度",
+   "sourceIds": [
+    "SRC-simon-coding-agents"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "repository-source-of-truth",
+   "nameZh": "仓库事实真源",
+   "sourceIds": [
+    "SRC-harness-learning-repo"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "documentation"
+   ]
+  },
+  {
+   "slug": "restorable-compression",
+   "nameZh": "可恢复压缩",
+   "sourceIds": [
+    "SRC-v2-13ffd54fc159"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "retrieval-reasoning-dual-task-load",
+   "nameZh": "检索—推理双任务负担",
+   "sourceIds": [
+    "SRC-chroma-context-rot"
+   ],
+   "missing": [],
+   "primarySourceIds": [
+    "SRC-chroma-context-rot"
+   ],
+   "sourceTypes": [
+    "research"
+   ]
+  },
+  {
+   "slug": "risk-tiered-autofixing",
+   "nameZh": "风险分级自动修复",
+   "sourceIds": [
+    "SRC-v2-1e6c9a5d416a"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "runnable-evidence",
+   "nameZh": "可运行证据",
+   "sourceIds": [
+    "SRC-harness-learning-repo"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "documentation"
+   ]
+  },
+  {
+   "slug": "sandbox",
+   "nameZh": "沙箱",
+   "sourceIds": [
+    "SRC-langchain-agent-harness"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "skill-chaining",
+   "nameZh": "Skill 链式调用",
+   "sourceIds": [
+    "SRC-delba-verification-skills"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "skill-trigger-condition",
+   "nameZh": "Skill 触发条件",
+   "sourceIds": [
+    "SRC-delba-verification-skills"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "skill",
+   "nameZh": "Agent Skill",
+   "sourceIds": [
+    "SRC-anthropic-agent-skills"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "documentation"
+   ]
+  },
+  {
+   "slug": "state-management",
+   "nameZh": "状态管理",
+   "sourceIds": [
+    "SRC-akshay-agent-harness"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "subagent-orchestration",
+   "nameZh": "子 Agent 编排",
+   "sourceIds": [
+    "SRC-akshay-agent-harness",
+    "SRC-v2-398431a5f118"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "system-prompt-altitude",
+   "nameZh": "系统提示抽象高度",
+   "sourceIds": [
+    "SRC-anthropic-effective-context"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "system-prompt",
+   "nameZh": "系统提示",
+   "sourceIds": [
+    "SRC-simon-coding-agents",
+    "SRC-anthropic-effective-context"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "tacit-knowledge",
+   "nameZh": "隐性知识",
+   "sourceIds": [
+    "SRC-v2-698946ec367c"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "post"
+   ]
+  },
+  {
+   "slug": "tool-schema-tax",
+   "nameZh": "工具 Schema 税",
+   "sourceIds": [
+    "SRC-v2-398431a5f118"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "tool-scoping",
+   "nameZh": "工具收窄",
+   "sourceIds": [
+    "SRC-harness-term-explainer"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "post"
+   ]
+  },
+  {
+   "slug": "tool-workflow-fit",
+   "nameZh": "工具—工作流适配",
+   "sourceIds": [
+    "SRC-v2-c8dc1df61461"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "tool",
+   "nameZh": "工具",
+   "sourceIds": [
+    "SRC-akshay-agent-harness"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "trace-based-evals",
+   "nameZh": "基于轨迹的评测",
+   "sourceIds": [
+    "SRC-harness-engineering-practice"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "documentation"
+   ]
+  },
+  {
+   "slug": "ubiquitous-language",
+   "nameZh": "统一语言",
+   "sourceIds": [
+    "SRC-v2-3908c0a1cbd6"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "verifiable-goal",
+   "nameZh": "可验证目标",
+   "sourceIds": [
+    "SRC-v2-e70c38d2c825"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  },
+  {
+   "slug": "verification-loop",
+   "nameZh": "验证循环",
+   "sourceIds": [
+    "SRC-delba-verification-skills"
+   ],
+   "missing": [],
+   "primarySourceIds": [],
+   "sourceTypes": [
+    "article"
+   ]
+  }
+ ]
+}

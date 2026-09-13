@@ -182,6 +182,19 @@ check('节点上没有路线字段（路线不写回图谱）',
   await ex(`nodes.some(n => n.route || n.routeStep || n.order) ? '写回了' : 'OK'`), 'OK');
 check('主题筛选口径没变（matches 仍按主标签）', await ex(`typeof matches === 'function' && typeof giOf === 'function' ? 'OK' : 'NO'`), 'OK');
 
+/* ⑪ 路径到实践空间：保留概念上下文，未装配不能借用别的案例冒充完成。 */
+console.log('\n⑪ 路径接入 01');
+await ex(`pickRouteStep(2); window.__proofBeforeLoop = JSON.stringify(marks);`);
+check('点击概念卡入口进入实践空间', await ex(`(()=>{const b=Array.from(document.querySelectorAll('#pbody button')).find(b=>b.textContent.includes('进入 1 / 3 / 5')); b.click(); return currentView+'|'+document.getElementById('reader').classList.contains('on')})()`), 'practice|true');
+check('当前概念和路径位置保留', await ex(`(()=>{const t=document.getElementById('reader').innerText; return t.includes(ROUTES[0].steps[2].name)&&t.includes('第 3 / '+ROUTES[0].steps.length+' 步')})()`), 'true');
+/* 09-13 变更（本轮 Agent Loop 六章装配）：路线第三步已有章节材料，所以这里不再显示「尚未装配」。
+   断言没有删掉，而是改成断言新的产品事实——并且补一条：**没有**章节材料的概念仍然照实说没装配。 */
+check('路线第三步已装配章节材料，且标明主案例已由负责人确认', await ex(`(()=>{const t=document.getElementById('reader').innerText; return t.includes('独立学习空间')&&t.includes('主案例已由负责人确认')})()`), 'true');
+check('没装配的概念仍然照实说没装配（不借别的材料冒充完成）', await ex(`(()=>{openPractice('cm_a4f9a7e3'); const t=document.getElementById('reader').innerText; return t.includes('判断材料尚未装配')&&t.includes('不计入当前路线进度')})()`), 'true');
+await ex(`openPractice(ROUTES[0].steps[2].conceptId)`);
+check('实际点击返回，恢复路径第三步和原概念', await ex(`(()=>{document.querySelector('#reader .practice-card .jbtn.ghost').click(); return mode+'|'+routeStepIdx+'|'+(selected===ROUTES[0].steps[2].conceptId)+'|'+document.getElementById('reader').classList.contains('on')})()`), 'path|2|true|false');
+check('进出学习闭环不伪造掌握记录', await ex(`JSON.stringify(marks)===window.__proofBeforeLoop`), 'true');
+
 await ex(`closePanel()`); await sleep(200);
 /* 截图落到 prototype/预览/（和 shot-shell 同一处），文件名用 40 段避开已有编号 */
 const OUTDIR = '/Users/housibo/Documents/知乎黑客松/prototype/预览';

@@ -86,6 +86,27 @@ rep(`<span class="pubtag" id="pubtag" style="display:none">公网快照</span>`,
     `<span class="pubtag" id="pubtag" title="公网快照：概念地图与内参都是 ${builtAt} 烘焙好的静态数据；静态站上没有服务端，交卷走机械覆盖检查">公网快照</span>`,
     'brand');
 
+/* ── ④ 学习材料边界：未经负责人确认的章节不进公网产物 ────────────
+   evidence/agent-loop-260913/chapters.json 里的六章是**候选装配稿**
+   （主案例是「假设场景」、负责人尚未确认）。公网版只接受 review.status === 'ready' 的章节；
+   不够格的一律从 DATA.learning.chapters 里摘掉——宁可在公网上没有学习入口，
+   也不把候选材料发成公网学习材料。 */
+{
+  const lines = html.split('\n');
+  const i = lines.findIndex((l) => l.startsWith('const DATA = '));
+  if (i < 0) throw new Error('公网构建找不到 const DATA 行 —— 模板改了，构建中止');
+  const data = JSON.parse(lines[i].slice('const DATA = '.length, -1));
+  const all = (data.learning && data.learning.chapters) || [];
+  const ready = all.filter((c) => c.review && c.review.status === 'ready');
+  if (all.length !== ready.length) {
+    console.log(`学习材料边界：${all.length} 章候选装配稿未获负责人确认，已从公网产物剥离（保留 ready ${ready.length} 章）`);
+  }
+  data.learning = { ...(data.learning || {}), chapters: ready, publicNote: '候选装配稿不进公网产物（scripts/build-public.mjs ④）' };
+  // 与 build-shell.mjs 同一条转义：内联 JSON 里的 </ 必须写成 <\/ ，否则字符串里的 </script> 会提前关掉脚本标签
+  lines[i] = 'const DATA = ' + JSON.stringify(data).replace(/<\//g, '<\\/') + ';';
+  html = lines.join('\n');
+}
+
 /* ── 写盘 ─────────────────────────────────────────────────── */
 html = html.replace('</title>', `</title>\n<!-- 知所栖 135 · 公网快照 ${builtAt}
      概念地图与内参是烘焙好的静态数据，不依赖服务端。

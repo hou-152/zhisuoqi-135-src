@@ -1,0 +1,264 @@
+{
+  "version": "v1",
+  "generatedAt": "2026-09-14",
+  "article": "agent-skills-api",
+  "slug": "渐进式披露",
+  "concept": "渐进式披露（Progressive Disclosure）",
+  "source": "knowledge/内参-260912/拆解五维/agent-skills-api.json",
+  "sourceKind": "真五维（concepts / reading / decisions / experiments / feynman 五维齐全）",
+  "authoredBy": "DeepSeek Harness（判据逐字取自该篇；误解与教学动作由 agent 撰写，未经负责人审核）",
+  "note": "判据＝该概念在五维资产里的 points/rubric 原文；misconception 与 teachingAction 是 agent 撰写的诊断映射；material 必须指到真实条目且 quote 逐字存在（test 脚本校验，找不到即失败）。",
+  "criteria": [
+    {
+      "id": "C1",
+      "criterion": "说清内容分阶段进入上下文：先元数据、触发后读指令、资源被引用时才读取",
+      "criterionQuote": "说清内容分阶段进入上下文：先元数据、触发后读指令、资源被引用时才读取",
+      "keywords": [
+        [
+          "分三级",
+          "分阶段",
+          "分层",
+          "三级",
+          "三层",
+          "Level 1",
+          "Level1",
+          "Level 2",
+          "Level 3"
+        ],
+        [
+          "元数据",
+          "name",
+          "名字",
+          "描述",
+          "description"
+        ],
+        [
+          "触发",
+          "匹配"
+        ],
+        [
+          "引用",
+          "按需"
+        ]
+      ],
+      "misconception": "把「按需加载」听成「一次性把技能读进来再挑着用」——分不出启动、触发、引用这三段，所以会以为技能装得越多启动就越慢。",
+      "teachingAction": "回到阅读梯度的「机制」层重走一遍三层顺序，再跑实验 4 把三层的量级写成一张阶梯表；讲的时候必须按「启动 → 触发 → 引用」的顺序说。",
+      "material": [
+        {
+          "kind": "reading",
+          "ref": "reading.ladder[1]",
+          "label": "阅读梯度 · 机制",
+          "quote": "启动时系统提示只带 YAML 里的 name 与 description（约 100 tokens/技能）",
+          "sourceFile": "knowledge/内参-260912/拆解五维/agent-skills-api.json",
+          "sourceSha256": "611d7b54b4f24509554b70b8a7821895df9e5ea78dbb7c6913e5ce93bb3bfa20"
+        },
+        {
+          "kind": "experiment",
+          "ref": "experiments[3]",
+          "label": "实验 4 · 加载成本阶梯表",
+          "quote": "为同一个技能做一张加载成本阶梯表",
+          "sourceFile": "knowledge/内参-260912/拆解五维/agent-skills-api.json",
+          "sourceSha256": "611d7b54b4f24509554b70b8a7821895df9e5ea78dbb7c6913e5ce93bb3bfa20"
+        }
+      ],
+      "unit": "agent-skills-api",
+      "criteriaVersion": "v3-20260914"
+    },
+    {
+      "id": "C2",
+      "criterion": "能解释上下文占用与实际加载内容的关系：说清哪些内容真的进了上下文，并区分「资源存放在目录里」与「资源正文已经被加载」",
+      "criterionQuote": "引用文件被读取时才进入上下文；脚本通过 bash 运行，只有输出进入上下文，脚本代码本身从不进入上下文。",
+      "keywords": [
+        [
+          "一百",
+          "百词",
+          "100 tokens",
+          "约 100",
+          "一百词"
+        ],
+        [
+          "5k",
+          "5 k",
+          "不足 5",
+          "五千"
+        ],
+        [
+          "零成本",
+          "为零",
+          "没有上下文惩罚",
+          "未访问资源"
+        ]
+      ],
+      "misconception": "把「占用」当成跟文件类型或跟总量绑定：以为资源放在技能目录里就已经占着上下文，或以为「省 token」是天生属性，解释不出占用取决于「这一层的内容有没有真的被读进来」。",
+      "teachingAction": "回到阅读梯度的「机制」层，只做一件对账：把技能目录里存在的东西列一行，再把这一次任务里真的被读进来的东西列一行，逐项对上「存着」与「已加载」的区别——用这个对账说明占用差异，不要求实测 token。",
+      "material": [
+        {
+          "kind": "reading",
+          "ref": "reading.ladder[1]",
+          "label": "阅读梯度 · 机制（存着 vs 已加载）",
+          "quote": "请求匹配 description 后，Claude 用 bash 读 SKILL.md（正文不足 5k tokens）",
+          "sourceFile": "knowledge/内参-260912/拆解五维/agent-skills-api.json",
+          "sourceSha256": "611d7b54b4f24509554b70b8a7821895df9e5ea78dbb7c6913e5ce93bb3bfa20"
+        },
+        {
+          "kind": "reading",
+          "ref": "reading.ladder[0]",
+          "label": "阅读梯度 · 直觉（清单 vs 手册）",
+          "quote": "平时只先交给他一张技能清单，真遇到做 PPT 或填 PDF 表格，才去翻对应手册、附件和工具",
+          "sourceFile": "knowledge/内参-260912/拆解五维/agent-skills-api.json",
+          "sourceSha256": "611d7b54b4f24509554b70b8a7821895df9e5ea78dbb7c6913e5ce93bb3bfa20"
+        }
+      ],
+      "unit": "agent-skills-api",
+      "criteriaVersion": "v3-20260914",
+      "gradingRules": {
+        "met": "说清哪些内容真的进了上下文，并区分「存放在目录里」与「正文已被加载」；不要求数字、不要求实测",
+        "partial": "只说「省 token／按需加载省地方」，但没有解释占用与加载内容的关系",
+        "missing": "完全没谈到占用与加载的关系",
+        "contradicted": "把关系说反（如「放在目录里就等于已占用」「加载过的内容不占上下文」）",
+        "uncertain": "表达不足以判断 → 先澄清，不套用误解纠错动作"
+      }
+    },
+    {
+      "id": "C3",
+      "criterion": "区分「执行脚本」与「读源码」：脚本交给 bash 执行，回到上下文的是执行输出；源码被读取时才占用上下文",
+      "criterionQuote": "引用文件被读取时才进入上下文；脚本通过 bash 运行，只有输出进入上下文，脚本代码本身从不进入上下文。",
+      "keywords": [
+        [
+          "脚本",
+          "bash"
+        ],
+        [
+          "只有输出",
+          "输出进入上下文",
+          "只让输出",
+          "只接收输出"
+        ],
+        [
+          "代码本身不",
+          "源码不",
+          "脚本代码不进",
+          "代码不进入",
+          "代码本身从不"
+        ]
+      ],
+      "misconception": "把「跑脚本」和「读源码」混成一件事：要么以为脚本代码会随执行一起进上下文，要么反过来以为源码在任何情况下都不占上下文（真正决定占用的是「有没有被读」）。",
+      "teachingAction": "跑实验 3：把同一段校验脚本的源码量与执行后那一行输出各量一次，看清楚两条路径；再讲一遍「执行脚本 → 只有输出回来」和「读源码 → 读多少占多少」这两件事不是同一件。",
+      "material": [
+        {
+          "kind": "experiment",
+          "ref": "experiments[2]",
+          "label": "实验 3 · 源码量 vs 输出量",
+          "quote": "分别统计两种路径的量级",
+          "sourceFile": "knowledge/内参-260912/拆解五维/agent-skills-api.json",
+          "sourceSha256": "611d7b54b4f24509554b70b8a7821895df9e5ea78dbb7c6913e5ce93bb3bfa20"
+        },
+        {
+          "kind": "decision",
+          "ref": "decisions[1]",
+          "label": "决策 2 · 大资料与必须精确执行的代码",
+          "quote": "把重复性操作写成脚本交给 bash 运行，只让输出（如「Validation passed」或具体报错）消耗 token",
+          "sourceFile": "knowledge/内参-260912/拆解五维/agent-skills-api.json",
+          "sourceSha256": "611d7b54b4f24509554b70b8a7821895df9e5ea78dbb7c6913e5ce93bb3bfa20"
+        }
+      ],
+      "unit": "agent-skills-api",
+      "criteriaVersion": "v3-20260914"
+    },
+    {
+      "id": "C4",
+      "criterion": "说清边界：按需加载不等于随处可用（沙箱无网络、不跨产品面同步、不在 ZDR 覆盖内）",
+      "criterionQuote": "「按需加载」不等于随处可用：API 沙箱无网络访问、无运行时包安装",
+      "keywords": [
+        [
+          "边界",
+          "不等于随处可用",
+          "沙箱",
+          "无网络",
+          "没有网络",
+          "不能装包",
+          "无运行时包安装"
+        ],
+        [
+          "不跨产品面",
+          "跨产品面",
+          "产品面同步",
+          "ZDR",
+          "数据留存"
+        ]
+      ],
+      "misconception": "把机制当成能力：以为「技能装好了在哪儿都能用」，规划时忽略产品面差异（沙箱无网、不跨面同步、ZDR 不覆盖）。",
+      "teachingAction": "跑实验 5：把你计划让技能做的事逐条对着运行时限制、跨产品面同步与数据留存边界打勾，标出哪几条在你实际用的产品面上不成立。",
+      "material": [
+        {
+          "kind": "reading",
+          "ref": "reading.ladder[2]",
+          "label": "阅读梯度 · 边界",
+          "quote": "API 沙箱无网络访问、无运行时包安装，只能用预装依赖",
+          "sourceFile": "knowledge/内参-260912/拆解五维/agent-skills-api.json",
+          "sourceSha256": "611d7b54b4f24509554b70b8a7821895df9e5ea78dbb7c6913e5ce93bb3bfa20"
+        },
+        {
+          "kind": "experiment",
+          "ref": "experiments[4]",
+          "label": "实验 5 · 边界清单",
+          "quote": "逐条对照运行时限制、跨产品面同步与数据留存边界",
+          "sourceFile": "knowledge/内参-260912/拆解五维/agent-skills-api.json",
+          "sourceSha256": "611d7b54b4f24509554b70b8a7821895df9e5ea78dbb7c6913e5ce93bb3bfa20"
+        }
+      ],
+      "unit": "agent-skills-api",
+      "criteriaVersion": "v3-20260914"
+    }
+  ],
+  "fixedAnswers": [
+    {
+      "id": "A1-空泛",
+      "kind": "只复述名词，没有机制",
+      "text": "技能就是给模型的一段提示词，把要求写清楚，模型就会照着做。",
+      "expectMissing": [
+        "C1",
+        "C2",
+        "C3",
+        "C4"
+      ]
+    },
+    {
+      "id": "A2-分层对、成本与边界错",
+      "kind": "知道三段加载，但成本说反、还以为到处能用",
+      "text": "技能分三层加载：启动时先给名字和描述，匹配之后读 SKILL.md，里面引用的文件再读。脚本会连同代码一起发给模型，所以脚本越长越占上下文。装了技能之后在哪个产品里都能用。",
+      "expectMissing": [
+        "C2",
+        "C3",
+        "C4"
+      ]
+    },
+    {
+      "id": "A3-机制对、脚本与边界错",
+      "kind": "成本量级说得出，但脚本代码当成上下文、边界没想过",
+      "text": "渐进式披露分三级：启动只加载 name 和 description，约一百词；触发后读 SKILL.md 正文，不到 5k tokens；被引用的资源在你访问前是零成本。脚本运行后代码本身也会进入上下文。至于能不能联网、能不能跨产品面复用，我觉得技能是通用的，没想过。",
+      "expectMissing": [
+        "C3",
+        "C4"
+      ]
+    },
+    {
+      "id": "A4-完整",
+      "kind": "三段、量级、脚本、边界都说到了",
+      "text": "技能按需加载，分三级：启动时只有 name 和 description，约一百词每个技能；请求匹配 description 后才读 SKILL.md，正文不足 5k tokens；被引用的文件在被读取前零成本。脚本是交给 bash 运行的，只有输出进入上下文，脚本代码本身从不进入。边界上，按需加载不等于随处可用：API 沙箱没有网络、不能装包，自定义技能不跨产品面同步，Agent Skills 也不在 ZDR 覆盖范围内。",
+      "expectMissing": []
+    }
+  ],
+  "unit": {
+    "slug": "agent-skills-api",
+    "unitType": "内参文章·五维",
+    "sourceFile": "knowledge/内参-260912/拆解五维/agent-skills-api.json",
+    "sourceSha256": "611d7b54b4f24509554b70b8a7821895df9e5ea78dbb7c6913e5ce93bb3bfa20"
+  },
+  "criteriaVersion": "v3-20260914",
+  "contentRevisionNotes": [
+    "源材料 concepts[1].points[1] 写「脚本代码本身从不进入上下文」；本映射不改原文，但对外表述收紧为「执行脚本时回到上下文的是输出；源码被读取时才占用」——因为是否占用取决于有没有被读，而不是文件类型。",
+    "源材料 concepts[1].points[0] 的「约 100 tokens／不足 5k」是示例量级，不是固定规律；C2 的教学动作因此要求学习者自己量一次，而不是背数字。",
+    "2026-09-14 负责人裁决：C2 只考「占用与实际加载内容的关系」，不要求实测、不要求背数字；实测量级降级为额外证据与未来实验目标（criteriaVersion v3）。"
+  ]
+}
