@@ -1339,10 +1339,12 @@ function openPanel(id) {
 
 /* 案例决策场 1：概念集合不假设一一对应，本轮只接入一个已验证案例。 */
 function caseMvpLink(n) {
-  if (n.name !== '上下文腐烂') return '';
-  return `<div class="case-mvp"><h4>1 · 案例决策场</h4>
-    <div class="case-meta">从当前概念匹配到 3 个候选案例，本轮只测试 1 个：上下文腐烂。</div>
-    <button class="jbtn" onclick="openCaseMvp()">进入单案例判断 →</button></div>`;
+  const hasCase = n.name === '上下文腐烂';
+  return `<div class="case-mvp"><h4>学习空间</h4>
+    <div class="case-meta">从这张概念卡进入学习，不丢失当前概念和路径位置。</div>
+    <button class="jbtn" onclick="openPractice('${n.id}')">进入学习空间 →</button>
+    ${hasCase ? '<div class="case-meta" style="margin-top:5px">本概念已有 01 案例决策材料。</div>' : '<div class="case-meta" style="margin-top:5px">本概念的 01 / 03 / 05 材料尚在装配中。</div>'}
+  </div>`;
 }
 function openCaseMvp() {
   const p = document.getElementById('pbody');
@@ -1601,8 +1603,11 @@ function openPractice(originId = null) {
     <h1 class="nei-title">从概念进入实践</h1><div class="nei-meta"><span>当前只开放 01 MVP</span></div>
     ${origin ? `<div class="practice-card"><h2>当前概念：${esc(origin.name)}</h2>
       <div class="mut">${originStep >= 0 ? `${esc(activeRoute().title)} · 第 ${originStep + 1} / ${activeRoute().steps.length} 步。` : ''}${matched ? '已接入本轮 A 判断材料。' : '这个概念的 01 判断材料尚未装配，当前不标记完成。'}</div>
+      <div class="mut" style="margin-top:7px">${esc(origin.gloss || '这张卡的学习材料正在装配。')}</div>
+      <button class="jbtn" style="margin-top:8px" onclick="askConceptHelp('${origin.id}')">让 AI 解释这一步</button>
+      <div id="concept-help" class="mut" style="margin-top:8px"></div>
       <button class="jbtn ghost" onclick="returnToPracticeOrigin('${origin.id}')">${originStep >= 0 ? '返回这一步的路径与概念' : '返回当前概念'}</button></div>` : ''}
-    <div class="practice-card"><h2>01 · 案例决策场</h2><div class="mut">从一个概念匹配候选案例，再只选一个案例和一个正确方向。本轮已接入「上下文腐烂」。</div>
+    <div class="practice-card"><h2>01 · 案例决策场</h2><div class="mut">从当前概念匹配候选案例，再只选一个案例和一个正确方向。</div>
       ${origin && !matched ? '<div class="mut">下面是另一主题的已跑通示例，不计入当前路线进度。</div>' : ''}
       ${concept ? `<button class="jbtn" onclick="openPanel('${concept.id}')">${origin && !matched ? '查看独立示例' : '继续'}：上下文腐烂 →</button>` : '<div class="mut">当前概念地图未找到测试入口。</div>'}</div>
     <div class="practice-card" style="opacity:.55"><h2>03 · 费曼演练室</h2><div class="mut">等 01 MVP 跑通后接入。</div></div>
@@ -1613,6 +1618,20 @@ function openPractice(originId = null) {
   renderList();
 }
 window.openPractice = openPractice;
+async function askConceptHelp(id) {
+  const out = document.getElementById('concept-help');
+  const n = byId.get(id);
+  if (!out || !n) return;
+  if (!LOCAL) { out.textContent = '公网静态版没有在线模型；这里保留预先装配的概念材料。'; return; }
+  out.textContent = 'AI 解释中…';
+  try {
+    const r = await fetch('/api/llm', { method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ messages:[{role:'system',content:'你是学习导师。只解释给定概念，先给直觉，再给机制，最后说一个边界。不要编造来源。'}, {role:'user',content:`概念：${n.name}\n已有定义：${n.gloss}`}], json:false }) });
+    const j = await r.json();
+    out.textContent = j.content || j.error || '暂时没有得到解释。';
+  } catch (e) { out.textContent = '当前本地服务不可用；可先阅读概念卡。'; }
+}
+window.askConceptHelp = askConceptHelp;
 function returnToPracticeOrigin(id) {
   const idx = routeIndexOf(id);
   document.getElementById('reader').classList.remove('on');
