@@ -42,6 +42,8 @@ node scripts/check-learning-materials.mjs  # 344 项：Agent Loop 六章材料�
 node scripts/test-learn-agent-loop.mjs     # 72 项：独立学习空间状态门（一题一判 · 费曼门 · 未过不解锁下一章 · 改复述清状态 · 选项稳定打乱 · 判定竞态作废 · 草稿落盘 · 地址入口不再绕过解锁 · 六章正文流一页 · 知识根与原始来源 · 返回恢复路线；费曼走固定响应）
 node scripts/walk-learn-agent-loop.mjs <chapterId>  # 真模型走查一章（六章各跑过一次；真调 /api/llm；是证据不是断言；入口用 #learn=<id>&review=1）
 node scripts/build-source-chain.mjs  # 来源链：58 篇 → 49 个原始来源 → 76 张图鉴站卡片（逐条核对标题能否在 58 篇里找到；只读）
+node scripts/test-feynman-teaching-map.mjs  # 41 项：费曼漏点 → 教学动作映射（判据→误解→动作→材料；4 组固定答案证明不同缺口得不同动作；不调模型）
+node scripts/map-feynman-gaps.mjs    # 同一个映射的 CLI：--check 校验映射表 · --answers 跑 4 组固定答案 · --diagnose "复述" 诊断自由复述
 node scripts/walk-mvp-real-llm.mjs  # 真模型走查原 MVP 那一章（同上）
 node scripts/shot-shell.mjs       # 13 步截图 + 面板越界断言
 node scripts/check-public.mjs     # 23 项：公网版（**必须假域名**，127.0.0.1 会走错分支；「首屏导航」断言 2026-09-14 已改准为 3 格）
