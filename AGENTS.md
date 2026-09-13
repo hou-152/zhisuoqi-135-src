@@ -34,12 +34,14 @@
 node scripts/serve-135.mjs        # 命令行版 → http://127.0.0.1:5180/知所栖-壳.html
 cd app && npm start               # 桌面版（能写真文件）→ ~/Documents/知所栖-135/
 
-# 验收（前四个要 serve 在跑）
+# 验收（前五个要 serve 在跑）
 node scripts/verify-135.mjs       # 61 项：主产物 知所栖-135-基础框架.html 全流程
-node scripts/test-daobi.mjs       # 30 项：倒逼层 + 分类层 + 三栏外壳 + 减法边界（真 LLM）
+node scripts/test-daobi.mjs       # 40 项：倒逼层 + 分类层 + 三栏外壳 + 减法边界 + 概念卡来源/费曼门（真 LLM）
+node scripts/test-path.mjs        # 50 项：路径视图（默认路径模式 · 真实 6 步路线 · 像素级高亮 · 卡上路径上下文 · 分支 ≤2 · 回退 · 产品 5 问）
 node scripts/shot-shell.mjs       # 13 步截图 + 面板越界断言
-node scripts/check-public.mjs     # 20 项：公网版（**必须假域名**，127.0.0.1 会走错分支）
-node scripts/test-app.mjs         # 12 项：桌面版（自动起 Electron，不需要 serve）
+node scripts/check-public.mjs     # 23 项：公网版（**必须假域名**，127.0.0.1 会走错分支；其「首屏 2 格导航」断言已过期，见工作日志第十六轮）
+node scripts/test-app.mjs         # 12 项：桌面版（自动起 Electron，不需要 serve；「减法后两栏」断言已过期，同上）
+node scripts/paths-validate.mjs   # 路线配置体检：ID/预算/分支理由/声称的 hard 前置在 dependencies.json 里是否真有
 node scripts/ab-feynman-test.mjs  # AB 实验（A 免 key；B/C1 需凭证；无 ab-samples.json 会拒跑）
 
 # 重新生成产物
@@ -65,7 +67,7 @@ curl -s localhost:5180/api/health   # {"ok":true,"llm":true,"app":false}
 | `knowledge/概念地图-260913/` | **概念唯一真源**。936 概念 / 531 前置依赖 / 21 领域（四源：Notion 概念库 + Context + Harness + AI 内参 260912；AI 相关性过滤后；过滤前 1156），os-taxonomy 形态 + JSON Schema + manifest 校验和 | 直接读 JSON |
 | `knowledge/概念wiki-260913/` | 概念链接层，llm_wiki 形态：936 页 + `[[双链]]` + 反链 + index/log | 读 `index.md` 或丢进 Obsidian |
 | `prototype/知所栖-135-基础框架.html` | **主产物**。1 阅读 → 3 决策 → 5 实验 → 费曼验收 全流程，单文件 | 双击，或经 serve |
-| `prototype/知所栖-壳.html` | **09-13 两轮减法后只剩两栏**：知识体系（936 概念 · 画布按 21 条主题分列）+ 内参；倒逼判定在概念卡里。策展 / 待你看一眼 / 我在学 / 对话 / 底部那条栏 / 左栏主题图例与状态点 **全已删**，左栏＝品牌+搜索+两个导航项+**主题分类列表**（21 条，点一条只看这一列）；图谱/星球 tab 板在三栏之上、横跨列表栏与主区（在「知识体系」上方） | **必须经 serve**（`/api/*` 才通） |
+| `prototype/知所栖-壳.html` | **09-13 两轮减法后只剩两栏**：知识体系（936 概念 · 画布按 21 条主题分列）+ 内参；倒逼判定在概念卡里。策展 / 待你看一眼 / 我在学 / 对话 / 底部那条栏 / 左栏主题图例与状态点 **全已删**，左栏＝品牌+搜索+三个导航项（内参 · 知识体系 · 实践空间）+**主题分类列表**（21 条，点一条只看这一列）。**09-13 19:2x 加「路径」视图**：主区 tab 板（在三栏之上、横跨列表栏与主区）现在是 `路径｜图谱｜关系｜星球`，**路径默认**——左上 262px 路径条（为什么现在学 / 前置 / 下一步 / 卡住回退 / 分支 ≤2 · 回到全图），画布上路线 6 点标号加亮、当前步白环、其余变灰缩小（仍可点）；概念卡顶部加路径上下文；主题下钻后顶部出现路径入口。路线配置在 `evidence/paths-260913/routes.json`（不改概念地图源数据） | **必须经 serve**（`/api/*` 才通） |
 | `deploy/zhisuoqi-135/` | 公网版（单文件零服务端）。**09-13 减法后只剩 知识体系 + 内参**，对话三条路已随对话层删除；无服务端时交卷走机械兜底（只标 mech）。本地已重建，**线上未 push** | <https://hou-152.github.io/zhisuoqi-135/>（仍是减法前旧版） |
 | `app/` | 桌面版（Electron，本地数据落真文件） | `cd app && npm start` |
 
