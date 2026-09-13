@@ -13,7 +13,12 @@
 
 import { CHROME, openCDP, sleep, spawnProcess, waitForPage } from './lib/cdp.mjs';
 
-const PORT = 9388;
+// 端口按 pid 散开，并在退出时杀掉自己起的 Chrome。
+// 起因（2026-09-13 实测）：这里原本写死 9388，而脚本从不杀 Chrome —— 9 小时前遗留的一个
+// headless Chrome 还占着 9388，新 run 的 waitForPage 直接接管了**旧浏览器**，
+// 读到的还是几小时前缓存的旧页面（快照 04:15:04），于是线上验收稳定报 4 条假失败
+// （中间栏 936 而不是 21、lp-back 为 null）。页面本身没问题，是验收环境脏了。
+const PORT = 9388 + (process.pid % 400);
 const PROF = '/tmp/check-public-' + Date.now();
 const URL_ = process.argv[2] || 'http://zhisuoqi-135.test:5199/';
 const ONLINE = /^https?:/.test(URL_) && !/zhisuoqi-135\.test/.test(URL_);
@@ -24,6 +29,9 @@ const chrome = spawnProcess(CHROME, ['--headless=new', `--remote-debugging-port=
   // 09-12 加：验收必须绕开代理，否则测的不是产品。
   '--no-proxy-server',
   '--host-resolver-rules=MAP zhisuoqi-135.test 127.0.0.1', 'about:blank'], { stdio: 'ignore' });
+const killChrome = () => { try { chrome.kill('SIGKILL'); } catch {} };
+process.on('exit', killChrome);
+process.on('SIGINT', () => { killChrome(); process.exit(130); });
 
 const page = await waitForPage(PORT);
 if (!page) { console.error('Chrome 调试端口没起来'); process.exit(2); }
@@ -57,8 +65,7 @@ const fails = [];
 const N_TOTAL = await ev('String(DATA.nodes.length)');
 const N_TAGS = await ev('String((DATA.curation && DATA.curation.tags || []).length)');
 const COMPUTE0 = await ev(`(nodes.find(n => n.k === 'compute') || nodes[0]).id`);
-const TAG0 = await ev(`((DATA.curation && DATA.curation.collections) || []).find(c => c.route && c.route.length > 1)?.tagId || DATA.curation.tags[0].id`);
-console.log(`  概念 ${N_TOTAL} 个 · 主题线 ${N_TAGS} 条 · 抽检线 ${TAG0}`);
+console.log(`  概念 ${N_TOTAL} 个 · 主题线 ${N_TAGS} 条`);
 async function step(label, action, expect, waitMs = 900) {
   const before = events.length;
   if (action) await ev(action);
@@ -79,34 +86,22 @@ async function step(label, action, expect, waitMs = 900) {
 
 console.log('公网版验收 ' + URL_ + (ONLINE ? '（线上）' : '（本地静态服务·假域名）'));
 
-await step('首屏：左栏 6 格 + 默认按「要你怎么处理它」四列', null,
-  { js: `document.querySelectorAll('.r-item').length + '|' + [...document.querySelectorAll('#lrows .lrow')].map(e=>e.textContent.trim().replace(/\\d+$/,'')).join(',')`, want: '6|能算的,能判的,能用的,只能认的' });
-// 三档轴的按钮现在长在列表栏的筛选行里（不再有 ax-* 这些 id）
-await step('三档轴都在（怎么验 / 按主题 / 按来源）', null,
-  { js: `[...document.querySelectorAll('#lp-filter button')].map(b=>b.textContent).join(',')`, want: '怎么验,按主题,按来源' });
-await step('三栏都在', null,
-  { js: `['rail','list','main'].filter(i=>document.getElementById(i)).length + '|' + document.querySelectorAll('#lp-body .row').length`, want: '3|' + N_TOTAL });
-await step(`切回按主题是 ${N_TAGS} 条线`, `setAxis('tag')`,
-  { js: `document.querySelectorAll('#lrows .lrow').length`, want: N_TAGS });
-await step('切回怎么验', `setAxis('kind')`, { js: `axis`, want: 'kind' });
+await step('首屏：左栏 2 格导航（内参在上）+ 中间栏就是那 21 条主题', null,
+  { js: `[...document.querySelectorAll('.r-item b')].map(b=>b.textContent).join('|') + '｜' + document.querySelectorAll('#lp-body .row').length + '｜' + groups().length`, want: '内参|知识体系｜' + N_TAGS + '｜' + N_TAGS });
+await step('点一条主题 → 下钻到三级', `document.querySelectorAll('#lp-body .row')[0].click()`,
+  { js: `currentView + '|' + (filter === DATA.curation.tags[0].id ? '画布跟上了' : '画布没跟') + '|' + (document.getElementById('lp-back').style.display === '' ? '有返回' : '没返回')`, want: 'theme|画布跟上了|有返回' });
+await step('「← 全部主题」回到二级', `setView('graph')`,
+  { js: `currentView + '|' + String(filter) + '|' + document.querySelectorAll('#lp-body .row').length`, want: 'graph|null|' + N_TAGS });
+await step('09-13 减法：底部那条栏已删', null,
+  { js: `document.getElementById('bar') ? '还在' : 'OK'`, want: 'OK' });
+await step('09-13 减法：已删的四个入口不再是导航项，旧轴函数也没了', null,
+  { js: `['curate','todo','mine','chat'].filter(v => document.querySelector('.r-item[data-view="'+v+'"]')).length + '|' + typeof window.setAxis`, want: '0|undefined' });
+await step('三栏都在（列表栏现在列的是主题，不是 936 条概念）', null,
+  { js: `['rail','list','main'].filter(i=>document.getElementById(i)).length + '|' + document.querySelectorAll('#lp-body .row').length`, want: '3|' + N_TAGS });
 await step(`${N_TOTAL} 个点全部有标签`, null,
   { js: `const n=DATA.nodes.filter(x=>(x.tags||[]).length).length; n+'/'+DATA.nodes.length`, want: N_TOTAL + '/' + N_TOTAL });
 await step('公网地址下不去探 /api（无 404 噪音）', null, { js: `String(LOCAL)`, want: 'false' });
-await step('策展面板', `setView('curate')`, { js: `document.getElementById('pbody').innerText.slice(0,12)`, want: '策展' });
-await step('某条线的路线', `openCollection('${TAG0}')`, { js: `document.querySelectorAll('.stop').length > 3 ? 'OK' : 'NO'`, want: 'OK' });
-await step('Agent：烘好的 15 个 skill', `setView('chat')`,
-  { js: `ALLSKILLS.length + '|' + (document.getElementById('pbody').innerText.includes('已装 15 个 skill') ? 'OK' : 'NO')`, want: '15|OK' });
-await step('无 key 发消息 → 播录制回放并声明不是本次回答',
-  `pickAgent('dbs-learning-beta','dbs-learning-beta'); document.getElementById('b-q').value='随便问一句'; send()`,
-  { js: `(()=>{const x=document.getElementById('clist').innerText; return (x.includes('不是对你那句话的回答')?'OK':'NO')+'|'+x.length})()`, want: 'OK' });
-await step('回放正文是录的那段真回答', null,
-  { js: `(()=>{const x=document.getElementById('clist').innerText; return (x.includes('课题类型判定')&&x.includes('录制回放'))?'OK':'NO'})()`, want: 'OK' });
-await step('key 输入框是 password 型（不明文回显）', null,
-  { js: `document.getElementById('vk') ? document.getElementById('vk').type : 'none'`, want: 'password' });
 await step('星球', `closePanel(); setMode('sphere')`, { js: `mode`, want: 'sphere' });
-await step('只看一条线', `setView('graph'); focusTag('${TAG0}')`, { js: `filter`, want: TAG0 });
-await step('待你看一眼（已策展）', `filter=null; setAxis('tag'); setView('todo')`,
-  { js: `document.getElementById('pbody').innerText.includes('我自己判了') ? 'OK' : 'NO'`, want: 'OK' });
 
 // 倒逼层：公网无模型时必须走机械兜底，并且**不能**给出「过了」
 await step('「只能认的」不设验收', `openPanel(nodes.find(n=>n.k==='accept').id)`,
