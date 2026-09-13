@@ -13,8 +13,9 @@ app/assets/
 .DS_Store
 .mimosa/
 
-# 部署产物（自身是独立仓库，见 deploy/zhisuoqi/README.md）
-deploy/zhisuoqi/
+# 部署产物（自身是独立仓库）
+# 注：这里原来还写着 `deploy/zhisuoqi/`（2026-09-13 仓库体检发现：那是早已改名的历史路径，
+#     真身 `deploy/zhisuoqi-135/` 在下面单独忽略；那条规则和它指向的 README 都不存在了，已删）。
 
 # 本地安全备份（git 历史本身也是备份）
 .trash/
