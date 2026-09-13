@@ -28,31 +28,57 @@
 
 ## 二、跑起来
 
+### 需要什么
+
+- **Node ≥ 20.11**（脚本用了 `import.meta.dirname`；本机实测 v24 全通）。除桌面版外**零 npm 依赖**。
+- 跑截图与浏览器验收需要本机有 **Google Chrome**（走 CDP，不装 Playwright）。
+- 桌面版要 `npm install`（会下 Electron）。
+- **不需要任何 API key** 也能跑：没有 key 时模型相关的功能退回机械兜底。
+
+### 5 分钟上手（下面每条都在**全新克隆**里实测过）
+
 ```sh
-# 网页壳（有服务端才通 /api/llm；没有则退回机械兜底）
-node scripts/serve-135.mjs        # → http://127.0.0.1:5180/知所栖-壳.html
+git clone https://github.com/hou-152/zhisuoqi-135-src.git && cd zhisuoqi-135-src
+
+# ① 概念地图体检 —— 应输出 936 概念 / 531 依赖 / 3333 关系 / 21 领域，并「全部通过」
+node scripts/cm-validate.mjs
+
+# ② 538 个语义单元能查（不需要装任何东西）
+node 内容结构化系统/模块/ai-concept-base/scripts/query.mjs --q "护栏"
+
+# ③ 起壳看界面（没 key 时 /api/health 返回 llm:false，交卷走机械兜底）
+PORT=5300 node scripts/serve-135.mjs   # → http://127.0.0.1:5300/知所栖-壳.html
+
+# ④ 重建三件产物（deploy/ 不在仓库里，是在本地生成的，它自己是另一个 git 仓库）
+node scripts/build-shell.mjs && node scripts/build-public.mjs && node scripts/build-units-page.mjs
+
+# ⑤ 验收（要 Chrome；用一个静态服务把刚生成的产物挂起来）
+cd deploy/zhisuoqi-135 && python3 -m http.server 5205 &
+cd - && node scripts/check-public.mjs http://zhisuoqi-135.test:5205/   # 21 项
+node scripts/check-units-page.mjs http://127.0.0.1:5205/units.html     # 10 项
+```
+
+想接自己的模型：把 `LLM_API_KEY` / `LLM_API_BASE` 写进 `.private/llm.env`（目录 600，已 gitignore），
+`serve-135.mjs` 启动时会自动加载。**永远不要把 key 写进任何会提交的文件。**
+
+### 其余命令
+
+```sh
 # 桌面版（能写真文件）
-cd app && npm start
+cd app && npm install && npm start
 
-# 验收（前四个要 serve 在跑）
-node scripts/verify-135.mjs       # 主产物全流程
-node scripts/test-daobi.mjs       # 倒逼层 + 分类层 + 三栏外壳（真 LLM）
+# 更多验收（前三个要 serve 在跑）
+node scripts/verify-135.mjs       # 主产物全流程，61 项
+node scripts/test-daobi.mjs       # 倒逼层 + 分类层 + 两栏外壳（真 LLM）
 node scripts/shot-shell.mjs       # 13 步截图 + 面板越界断言
-node scripts/check-public.mjs     # 公网版（**必须假域名**，127.0.0.1 会走错分支）
-node scripts/check-units-page.mjs # 538 个语义单元索引页
-node scripts/test-app.mjs         # 桌面版（自动起 Electron）
+node scripts/test-app.mjs         # 桌面版，12 项（自动起 Electron）
 
-# 重新生成
+# 概念地图 v2 全链路重跑（要 LLM 凭证；两次 LLM 都有本地缓存，可断点续跑）
 node scripts/cm-extract.mjs && node scripts/cm-merge.mjs && node scripts/cm-enrich.mjs \
   && node scripts/cm-edges.mjs --pass2 && node scripts/cm-build-map.mjs \
   && node scripts/cm-build-wiki.mjs && node scripts/cm-wire.mjs && node scripts/cm-validate.mjs
-node scripts/build-shell.mjs      # → prototype/知所栖-壳.html
-node scripts/build-public.mjs     # → deploy/zhisuoqi-135/index.html
-node scripts/build-units-page.mjs # → deploy/zhisuoqi-135/units.html
 ```
 
-LLM 相关脚本读 `.private/llm.env`（**不入库**）。没有凭证时，判定类功能退回**机械兜底**：只标 `mech`，
-并在页面上写明「没经语义判定」——**不冒充「过了」**。
 
 ## 三、怎么读这个仓库
 
