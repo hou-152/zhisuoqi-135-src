@@ -100,6 +100,11 @@ await step('三栏都在（列表栏现在列的是主题，不是 936 条概念
   { js: `['rail','list','main'].filter(i=>document.getElementById(i)).length + '|' + document.querySelectorAll('#lp-body .row').length`, want: '3|' + N_TAGS });
 await step(`${N_TOTAL} 个点全部有标签`, null,
   { js: `const n=DATA.nodes.filter(x=>(x.tags||[]).length).length; n+'/'+DATA.nodes.length`, want: N_TOTAL + '/' + N_TOTAL });
+await step('关系视图：语义边与图例可切换', `setMode('relation')`,
+  { js: `mode+'|'+relations.length+'|'+(document.getElementById('rel-legend').classList.contains('on')?'图例':'无图例')+'|'+relations.filter(r=>r.kind==='co-article'||r.kind==='rejected').length`, want: 'relation|' });
+await step('关系视图：默认不含共现与拒绝边', null,
+  { js: `relations.filter(r=>r.kind==='co-article'||r.kind==='rejected').length`, want: '0' });
+await step('回到默认依赖视图', `setMode('grid')`, { js: `mode`, want: 'grid' });
 await step('公网地址下不去探 /api（无 404 噪音）', null, { js: `String(LOCAL)`, want: 'false' });
 await step('星球', `closePanel(); setMode('sphere')`, { js: `mode`, want: 'sphere' });
 

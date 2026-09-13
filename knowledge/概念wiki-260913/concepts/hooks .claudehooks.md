@@ -58,8 +58,8 @@ sources: 2
 
 ## 反链
 
-- [[架构约束的确定性执行]]
 - [[1.6% vs 98.4%]]
+- [[架构约束的确定性执行]]
 - [[确定性工程基础设施 deterministic engineering infrastructure]]
 - [[AI 工程基础设施 AI engineering infrastructure]]
 - [[configuration problem]]

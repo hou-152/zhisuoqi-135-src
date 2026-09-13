@@ -7,7 +7,7 @@ subject: AI 内参 260912
 domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.089
+centrality: 0.144
 depth: 0
 origin: [neican]
 aliases: ["name / description"]
@@ -18,7 +18,7 @@ sources: 1
 
 > 名称是技能标识，描述是匹配条件；请求先与描述做语义匹配，允许意图重叠
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.089
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.144
 
 ## 费曼一下
 
@@ -39,9 +39,10 @@ sources: 1
 
 > {{name}}分别解决什么问题？请求匹配的到底是哪一个？
 
-## 懂了它才能懂（解锁 1）
+## 懂了它才能懂（解锁 2）
 
 - [[按需加载]] — 不懂名称与描述，就做不了按需加载里的「起初只加载名称与描述，请求匹配时才加载正文」
+- [[启动时仅加载名称和描述]] — 不懂【名称与描述】，就做不了启动时的懒加载设计——不知道加载进上下文的那两项分别是什么。
 
 ## 出场
 
@@ -54,3 +55,4 @@ sources: 1
 ## 反链
 
 - [[按需加载]]
+- [[启动时仅加载名称和描述]]

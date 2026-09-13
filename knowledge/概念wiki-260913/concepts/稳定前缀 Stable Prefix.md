@@ -7,7 +7,7 @@ subject: Context Engineering
 domain: caching-cost
 learningStage: when-needed
 verification: judge
-centrality: 0.072
+centrality: 0.29
 depth: 1
 origin: [context]
 aliases: ["Stable Prefix"]
@@ -18,7 +18,7 @@ sources: 1
 
 > 缓存真正复用的是请求开头到缓存断点之间的稳定内容，而不是整段 prompt。
 
-**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.29
 
 ## 费曼一下
 
@@ -40,6 +40,13 @@ sources: 1
 ## 先懂这些（前置 1）
 
 - [[缓存断点 Cache Breakpoint]] · **hard** — 不懂缓存断点，就做不了稳定前缀的范围界定（从请求开头到断点）。
+
+## 懂了它才能懂（解锁 4）
+
+- [[tools → system → messages 缓存顺序]] — 不懂【稳定前缀】，就排不出【tools → system → messages 缓存顺序】
+- [[缓存连续性 Cache Continuity]] — 不懂【稳定前缀】，就没法维持【缓存连续性】——不知道该保住哪段不被动到
+- [[cached input tokens]] — 不懂【稳定前缀】，就下不出【cached input tokens】的定义，说不清究竟哪部分 token 算被复用的共享前缀
+- [[稳定的 prompt 前缀]] — 不懂【稳定前缀】，就写不出真正能命中 KV-cache 的【稳定的 prompt 前缀】
 
 ## 相关
 
@@ -76,15 +83,17 @@ sources: 1
 - [[前缀匹配 Prefix Matching]]
 - [[上下文压缩 Context Compression Summarization]]
 - [[缓存命中率 Cache Hit Rate]]
+- [[cached input tokens]]
 - [[缓存断点 Cache Breakpoint]]
-- [[系统提示 System Prompt]]
-- [[TTL]]
 - [[缓存连续性 Cache Continuity]]
 - [[缓存命中读取成本 Cache Hit Read Cost]]
+- [[稳定的 prompt 前缀]]
+- [[系统提示 System Prompt]]
+- [[tools → system → messages 缓存顺序]]
+- [[TTL]]
 - [[缓存写入成本 Cache Write Cost]]
 - [[消息层 Messages Layer]]
 - [[最小可缓存 token 门槛 Minimum Cacheable Tokens]]
 - [[Automatic Caching]]
-- [[tools → system → messages 缓存顺序]]
 - [[首字输出延迟 Time to First Token Latency]]
 - [[Explicit Breakpoints]]

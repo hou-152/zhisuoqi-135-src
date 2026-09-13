@@ -53,7 +53,7 @@ sources: 1
 ## 反链
 
 - [[Rubric]]
-- [[Kappa 系数]]
 - [[持久化代码图谱 structural map graph]]
+- [[Kappa 系数]]
 - [[code-review-graph]]
 - [[Tree-sitter]]

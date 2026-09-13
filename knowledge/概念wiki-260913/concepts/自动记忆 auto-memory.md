@@ -60,8 +60,8 @@ sources: 2
 
 ## 反链
 
+- [[判断力优先 let Claude use judgement]]
 - [[记忆即提示 Memory as Prompt]]
 - [[过度约束与松绑 over-constraining unhobbling]]
 - [[护栏型指令的过期]]
-- [[判断力优先 let Claude use judgement]]
 - [[prompt 与 context 的通用性落差]]

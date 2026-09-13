@@ -60,9 +60,9 @@ sources: 1
 ## 反链
 
 - [[外包思考，但不外包理解]]
+- [[cached input tokens]]
 - [[Agent-Native Infrastructure]]
 - [[模型一致性与 prompt caching]]
 - [[TTL]]
 - [[Automatic Caching]]
-- [[cached input tokens]]
 - [[Sensors 与 Actuators]]

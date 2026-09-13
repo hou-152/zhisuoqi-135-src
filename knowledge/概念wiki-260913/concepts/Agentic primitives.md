@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.017
+centrality: 0.072
 depth: 0
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 把规则、角色、背景与流程拆成可复用、可版本化、可组合的文件，充当 AI 工作流的标准零件。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 原文 context
 
@@ -31,6 +31,10 @@ Agentic primitives 就像 AI 工作流里的“标准零件”。它们把原本
 ## 验收问句
 
 > 用 {{name}} 重构一个工作流时，你会把哪些内容拆成独立文件？
+
+## 懂了它才能懂（解锁 1）
+
+- [[指令子系统与渐进式展开]] — 不懂 Agentic primitives，就做不了指令子系统的 ⟨把做什么/什么顺序/先读什么拆成可组合文件⟩
 
 ## 相关
 
@@ -52,9 +56,10 @@ Agentic primitives 就像 AI 工作流里的“标准零件”。它们把原本
 ## 反链
 
 - [[Validation gates]]
+- [[Memory-driven development]]
+- [[指令子系统与渐进式展开]]
 - [[APM]]
 - [[Instructions files]]
-- [[Memory-driven development]]
 - [[Natural language as code]]
 - [[Agent CLI runtimes]]
 - [[Agentic workflows]]

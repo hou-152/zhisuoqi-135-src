@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: multi-agent
 learningStage: when-needed
 verification: use
-centrality: 0.072
-depth: 1
+centrality: 0.126
+depth: 4
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 编排器自动按任务复杂度分派小模型探查子 agent 与大模型通用子 agent，无需手工配置。
 
-**领域** multi-agent ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** multi-agent ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,9 +36,10 @@ Autopilot 阶段 Copilot 自动当 orchestrator：读代码库文件用小模型
 
 > 不做任何自定义配置，你能否用{{name}}完成一次多子 agent 任务？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
 - [[subagents]] · **soft** — 编排器调度的对象就是探查与通用子 agent
+- [[模型—角色适配]] · **soft** — 不懂【模型—角色适配】就做不了【开箱即用的编排与子 agent】的「按任务复杂度分派小模型探查子 agent 与大模型通用子 agent」
 
 ## 相关
 
@@ -52,7 +53,7 @@ Autopilot 阶段 Copilot 自动当 orchestrator：读代码库文件用小模型
 - Harness Engineering ｜ 《GitHub：决定 AI 编码效果的是 harness，不是你换了哪个工具》 ｜ https://github.blog/company/the-harness-is-all-you-need-mostly/
 ## 反链
 
+- [[模型—角色适配]]
 - [[subagents]]
 - [[废料怪兽]]
-- [[模型—角色适配]]
 - [[「少即是多」：gimmick 与真实增益的分界]]

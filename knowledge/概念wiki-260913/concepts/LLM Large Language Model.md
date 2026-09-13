@@ -70,19 +70,19 @@ LLM 的基本能力是根据输入预测接下来最可能的 token；coding age
 
 ## 反链
 
+- [[工具 Tools]]
 - [[coding agent]]
+- [[cached input tokens]]
 - [[stateless]]
 - [[Agent]]
 - [[推理模型]]
 - [[系统提示 System Prompt]]
+- [[multimodal Vision LLMs]]
 - [[reasoning thinking]]
 - [[tokens]]
 - [[tool loop]]
-- [[工具 Tools]]
 - [[押注 in-context learning]]
-- [[cached input tokens]]
 - [[chat templated prompts]]
-- [[multimodal Vision LLMs]]
 - [[prompt completion]]
 - [[reasoning effort]]
 - [[模型蒸馏]]

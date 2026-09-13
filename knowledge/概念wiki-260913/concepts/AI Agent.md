@@ -6,7 +6,7 @@ subject: Context Engineering × Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.089
+centrality: 0.144
 depth: 1
 origin: [context, harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 2
 
 > 用户感知到的行为体现：Agent 的对外表现，而非其内部实现。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.089
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.144
 
 ## 费曼一下
 
@@ -39,6 +39,10 @@ AI Agent 是用户看到的“会做事的东西”。它看起来有目标、�
 ## 先懂这些（前置 1）
 
 - [[Agent]] · **soft** — AI Agent 被定义为 Agent 的对外表现。
+
+## 懂了它才能懂（解锁 1）
+
+- [[从期望行为反推 harness 设计]] — 不懂【AI Agent】，就做不了 ⟨从期望的对外行为出发反推所需能力⟩
 
 ## 相关
 
@@ -68,20 +72,21 @@ AI Agent 是用户看到的“会做事的东西”。它看起来有目标、�
 - Harness Engineering ｜ 《Agent Harness 的本质：把模型放进可控的执行系统》 ｜ https://baoyu.io/translations/2026-05-10/akshay-pachaar-2041146899319971922
 ## 反链
 
+- [[工具 Tools]]
 - [[记忆 Memory]]
 - [[MCP Model Context Protocol]]
 - [[上下文腐烂 Context Rot]]
+- [[迷失在中间 lost in the middle]]
 - [[笨循环 Dumb Loop]]
+- [[编排循环 Orchestration Loop TAO ReAct]]
 - [[非模型架构 Non-model Architecture]]
+- [[即时检索 Just-in-time Retrieval]]
+- [[脚手架与 Harness 厚度 Scaffolding Harness Thickness]]
 - [[提示词工程 Prompt Engineering]]
 - [[Agent]]
 - [[LLM-as-CPU Harness-as-OS]]
-- [[迷失在中间 lost in the middle]]
-- [[工具 Tools]]
+- [[从期望行为反推 harness 设计]]
 - [[压缩 Compaction]]
-- [[编排循环 Orchestration Loop TAO ReAct]]
-- [[即时检索 Just-in-time Retrieval]]
 - [[记忆即提示 Memory as Prompt]]
 - [[执行可靠性机制 State Error Guardrails Verification]]
 - [[观察掩码 Observation Masking]]
-- [[脚手架与 Harness 厚度 Scaffolding Harness Thickness]]

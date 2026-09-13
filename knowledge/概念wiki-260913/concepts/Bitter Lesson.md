@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: model-training
 learningStage: when-needed
 verification: judge
-centrality: 0.017
+centrality: 0.072
 depth: 0
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 人们在推理模型上搭的脚手架，最终可能被更强大的模型本身取代。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,6 +36,10 @@ Noam Brown 的反论：人们在推理模型之上构建脚手架，但这些脚
 
 > {{name}} 对当前 agent 脚手架的前景作何判断？
 
+## 懂了它才能懂（解锁 1）
+
+- [[递归结构不能替代基座智能]] — 不懂通用能力终将压过人工脚手架，就做不了“递归改进只在强基座上持续上升”的判断
+
 ## 相关
 
 - [[推理模型]] · rejected（audit） — 推理模型只是 Bitter Lesson 的举例，原理本身不依赖它，属「只是例子」
@@ -50,4 +54,5 @@ Noam Brown 的反论：人们在推理模型之上构建脚手架，但这些脚
 
 - [[Harness 工程 Harness Engineering]]
 - [[Agentic Engineering]]
+- [[递归结构不能替代基座智能]]
 - [[推理模型]]

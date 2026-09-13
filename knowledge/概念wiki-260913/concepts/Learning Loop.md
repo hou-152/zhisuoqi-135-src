@@ -7,7 +7,7 @@ domain: loop-autonomy
 learningStage: now
 verification: use
 centrality: 0.072
-depth: 3
+depth: 4
 origin: [harness]
 aliases: []
 sources: 1

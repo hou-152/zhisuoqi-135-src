@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: model-training
 learningStage: deep-dive
 verification: judge
-centrality: 0.072
+centrality: 0.126
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 生成编码 agent 的 trace、用 verifier 打分、更新权重强化好 trace 抑制坏的，循环上百万次数周到数月。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -40,6 +40,10 @@ sources: 1
 
 - [[Reward Signal]] · **hard** — RLVR 用 verifier 打分作为奖励信号，不懂奖励通道就不懂循环如何强化。
 
+## 懂了它才能懂（解锁 1）
+
+- [[Harness 内 RL RL inside the harness]] — 不懂编码 agent 的 RL 训练循环，就搭不出 harness 内 RL 的 trace 生成—verifier 打分—更新权重这条回路
+
 ## 相关
 
 - [[RL Circuits]] · related-to（audit） — RL Circuits 泛指训练分布切片；RLVR 编码 agent 循环只是形成电路的一种具体训练方式，不是理解该概念的必要前提。
@@ -55,8 +59,9 @@ sources: 1
 ## 反链
 
 - [[Reward Signal]]
-- [[reasoning thinking]]
+- [[Harness 内 RL RL inside the harness]]
 - [[Lights-off 软件工厂]]
+- [[reasoning thinking]]
 - [[软件工厂 Software Factory]]
 - [[RL Circuits]]
 - [[ScaleRL]]

@@ -8,7 +8,7 @@ domain: context-engineering
 learningStage: when-needed
 verification: judge
 centrality: 0.161
-depth: 1
+depth: 2
 origin: [neican]
 aliases: ["Skill Triggering / Automatic Use"]
 sources: 1

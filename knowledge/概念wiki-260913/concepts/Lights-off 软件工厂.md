@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: agent-org
 learningStage: when-needed
 verification: judge
-centrality: 0.072
+centrality: 0.126
 depth: 2
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 连代码评审都去掉、不再有人读代码的软件工厂形态，实践后因反复撞上无解问题而放弃。
 
-**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,9 +36,10 @@ Dan Shapiro 命名、StrongDM 用 factory.strongdm.ai 实践的极端形态—�
 
 > {{name}} 为什么会撞上解决不了的问题？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
 - [[Software Factory]] · **hard** — 不懂【Software Factory】，就做不了【Lights-off 软件工厂】的定义——它是去掉代码评审后的软件工厂形态
+- [[不可见的劳动]] · **hard** — 不懂【不可见的劳动】，就做不了 Lights-off 软件工厂的 ⟨可行性判断⟩
 
 ## 相关
 
@@ -64,13 +65,14 @@ Dan Shapiro 命名、StrongDM 用 factory.strongdm.ai 实践的极端形态—�
 - [[Software Factory]]
 - [[SWE-bench 与二元打分]]
 - [[0 人工代码、0 人工 review 极限形态]]
+- [[不可见的劳动]]
 - [[可维护性没有惩罚项]]
+- [[Harness 内 RL RL inside the harness]]
 - [[Mutation Testing 与前沿质量评测]]
+- [[RLVR 与编码 agent 的 RL 训练循环]]
 - [[2026 版约束理论]]
+- [[可维护性 霰弹式手术]]
 - [[可维护性缺一个可靠的打分预言机]]
 - [[前置对齐 front-loading alignment]]
 - [[系统架构评审]]
-- [[Harness 内 RL RL inside the harness]]
-- [[RLVR 与编码 agent 的 RL 训练循环]]
-- [[可维护性 霰弹式手术]]
 - [[软件工厂 Software Factory]]

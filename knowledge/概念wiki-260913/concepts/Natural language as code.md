@@ -49,6 +49,6 @@ Natural language as code 指自然语言不再只是说明文字，而是会驱�
 ## 反链
 
 - [[从禁止什么到对齐什么]]
-- [[Instructions files]]
 - [[Agentic primitives]]
+- [[Instructions files]]
 - [[Markdown prompt engineering]]

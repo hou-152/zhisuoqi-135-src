@@ -64,17 +64,17 @@ U 型曲线的左半边——模型更善于使用出现在输入上下文最开
 
 ## 反链
 
-- [[检索器-阅读器配置 retriever-reader]]
 - [[迷失在中间 lost in the middle]]
+- [[检索器-阅读器配置 retriever-reader]]
+- [[查询感知语境化 query-aware contextualization]]
 - [[多文档问答受控实验]]
 - [[干扰文档 distractor documents]]
 - [[近因偏置 recency bias]]
 - [[性能饱和早于召回饱和]]
 - [[长上下文评测协议]]
 - [[重排序与排序列表截断]]
+- [[U 型性能曲线]]
 - [[闭卷与 oracle 基线]]
-- [[查询感知语境化 query-aware contextualization]]
 - [[合成键值检索任务]]
 - [[扩展上下文模型 extended-context models]]
 - [[序列位置效应 serial-position effect]]
-- [[U 型性能曲线]]

@@ -59,7 +59,7 @@ sources: 2
 - [[Loop Engineering]]
 - [[多智能体架构]]
 - [[自动循环的心跳]]
+- [[模型—角色适配]]
 - [[所有权与问责]]
 - [[Generator-Evaluator Loop]]
-- [[模型—角色适配]]
 - [[Prompt 到 Loop 的跃迁]]

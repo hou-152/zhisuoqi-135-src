@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: tools-sandbox
 learningStage: when-needed
 verification: use
-centrality: 0.017
-depth: 0
+centrality: 0.072
+depth: 3
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > Agent 以写代码并执行代码来完成任务的能力模式，与 subagents 等并列的额外能力。
 
-**领域** tools-sandbox ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** tools-sandbox ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,6 +36,10 @@ additional agent capabilities, including code mode and subagents
 
 > 什么任务你会让 agent 走 {{name}} 而不是逐个调工具？
 
+## 先懂这些（前置 1）
+
+- [[shell tool]] · **soft** — 不懂【shell tool】，就做不了【code mode】的⟨让 agent 写代码并真跑起来拿到结果⟩
+
 ## 相关
 
 - [[shell tool]] · related-to（audit） — code mode 靠的是代码执行原语，shell tool 只是其中一种落地方式；不懂 shell tool 也能理解 code mode，应降 soft。
@@ -49,6 +53,6 @@ additional agent capabilities, including code mode and subagents
 - Harness Engineering ｜ 《OpenAI Agents SDK 下一代演进：原生沙箱 + 模型原生 harness》 ｜ https://openai.com/index/the-next-evolution-of-the-agents-sdk/
 ## 反链
 
+- [[shell tool]]
 - [[model-native harness]]
 - [[Agents SDK]]
-- [[shell tool]]

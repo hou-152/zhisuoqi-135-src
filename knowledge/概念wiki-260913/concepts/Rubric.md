@@ -58,7 +58,7 @@ sources: 1
 
 ## 反链
 
+- [[Rubric 与 verifier agent]]
 - [[Sprint Contract]]
 - [[Review Quality 评分方法]]
-- [[Rubric 与 verifier agent]]
 - [[Rubrics 与验证 agent]]

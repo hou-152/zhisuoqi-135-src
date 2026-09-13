@@ -58,8 +58,8 @@ sources: 1
 
 ## 反链
 
-- [[检索池 vs 引用]]
 - [[迷失在中间 lost in the middle]]
+- [[检索池 vs 引用]]
 - [[门控机制]]
-- [[首因偏置 primacy bias]]
 - [[U 型性能曲线]]
+- [[首因偏置 primacy bias]]

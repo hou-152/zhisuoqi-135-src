@@ -11,8 +11,8 @@
 //   ② 写不出「不懂 B 就做不了 A 这件事」这句话的，不许写
 //   ③ 宁少勿滥：每组 30 个概念里挑 8–15 条，不要凑数
 //
-// 用法：node scripts/cm-edges-strict.mjs [--concurrency=6]
-// 产出：把新边并入 evidence/cm-260913/04-edges.json（origin=llm-strict），随后要再跑一次审核
+// 用法：node scripts/cm-edges-strict.mjs [--concurrency=6] [--scope=low-degree]
+// 产出：evidence/cm-260913/04-edges-remine.json（候选，不改 canonical 边文件）
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -23,6 +23,7 @@ const DIR = path.join(ROOT, 'evidence', 'cm-260913');
 const CACHE = path.join(ROOT, 'evidence', '.cm-edges-strict-cache.json');
 const ARGV = Object.fromEntries(process.argv.slice(2).map((a) => a.replace(/^--/, '').split('=')));
 const CONC = Number(ARGV.concurrency || 6);
+const SCOPE = ARGV.scope || 'low-degree';
 
 for (const line of fs.readFileSync(path.join(ROOT, '.private', 'llm.env'), 'utf8').split('\n')) {
   const m = line.match(/^\s*export\s+([A-Za-z_][A-Za-z0-9_]*)=(.*)$/);
@@ -61,10 +62,13 @@ for (const n of nodes) { for (const k of [n.name, n.nameEn, n.slug, ...(n.aliase
 const find = (k) => lookup.get(norm(k)) || null;
 
 const existing = new Set(edgeFile.dependencies.map((d) => d.topicId + '->' + d.prerequisiteId));
+const existingBefore = new Set(existing);
 const deg = new Map(nodes.map((n) => [n.id, 0]));
 for (const d of edgeFile.dependencies) { deg.set(d.topicId, deg.get(d.topicId) + 1); deg.set(d.prerequisiteId, deg.get(d.prerequisiteId) + 1); }
 const iso = nodes.filter((n) => !deg.get(n.id));
-console.log(`现有 DAG ${edgeFile.dependencies.length} 条 · 孤立点 ${iso.length}/${nodes.length}`);
+const targets = SCOPE === 'all' ? nodes : nodes.filter((n) => deg.get(n.id) <= 1);
+const targetIds = new Set(targets.map((n) => n.id));
+console.log(`现有 DAG ${edgeFile.dependencies.length} 条 · 孤立点 ${iso.length}/${nodes.length} · 本轮目标（${SCOPE}）${targets.length}`);
 
 const SYS = `你是概念依赖关系的建模者。只输出 JSON。
 你的判据比一般人严：**只有「不懂前置，依赖方就立不住」才算依赖**。
@@ -80,10 +84,8 @@ for (const n of nodes) { if (!groups.has(n.domain)) groups.set(n.domain, []); gr
 // 孤立点优先分组，保证它们一定被送到模型面前
 const jobs = [];
 for (const [dom, list] of groups) {
-  const isoList = list.filter((n) => !deg.get(n.id));
-  const rest = list.filter((n) => deg.get(n.id));
-  for (let i = 0; i < isoList.length; i += 30) jobs.push({ dom, list: isoList.slice(i, i + 30), pass: 'iso' });
-  for (let i = 0; i < rest.length; i += 30) jobs.push({ dom, list: rest.slice(i, i + 30), pass: 'rest' });
+  const targetList = list.filter((n) => targetIds.has(n.id));
+  for (let i = 0; i < targetList.length; i += 30) jobs.push({ dom, list: targetList.slice(i, i + 30), pass: SCOPE });
 }
 console.log(`严判据补边：${jobs.length} 组`);
 
@@ -146,16 +148,20 @@ for (const e of all) {
   if (!adj.has(e.topicId)) adj.set(e.topicId, []);
   adj.get(e.topicId).push(e.prerequisiteId);
 }
-edgeFile.dependencies = final;
-edgeFile.dropped = [...(edgeFile.dropped || []), ...dropped];
-const touched = new Set(); for (const e of final) { touched.add(e.topicId); touched.add(e.prerequisiteId); }
-edgeFile.stats = { ...edgeFile.stats, dependencies: final.length, byOrigin: tally(final, 'origin'), byStrength: tally(final, 'strength'), droppedForCycle: (edgeFile.dropped || []).filter((d) => d.dropReason === 'cycle').length, isolated: nodes.length - touched.size };
-edgeFile.strictAt = new Date().toISOString();
 function tally(arr, k) { const o = {}; for (const x of arr) o[x[k]] = (o[x[k]] || 0) + 1; return o; }
-fs.writeFileSync(path.join(DIR, '04-edges.json'), JSON.stringify(edgeFile, null, 1));
+const candidates = final.filter((e) => !existingBefore.has(e.topicId + '->' + e.prerequisiteId));
+const out = {
+  version: 'v1-remine', generatedAt: new Date().toISOString(), scope: SCOPE,
+  targetIds: [...targetIds], targetCount: targets.length,
+  baseDependencies: edgeFile.dependencies.length,
+  candidates, dropped,
+  stats: { candidates: candidates.length, droppedForCycle: dropped.length,
+    byStrength: tally(candidates, 'strength'), byAxis: tally(candidates, 'axis') },
+};
+fs.writeFileSync(path.join(DIR, '04-edges-remine.json'), JSON.stringify(out, null, 1));
 
 console.log('✅ 严判据补边完成');
-console.log(`  新增 ${added.length} 条 · 环丢 ${dropped.length} · DAG ${final.length} · 孤立点 ${edgeFile.stats.isolated}/${nodes.length}`);
-console.log(`  来源 ${JSON.stringify(edgeFile.stats.byOrigin)} · 强度 ${JSON.stringify(edgeFile.stats.byStrength)}`);
+console.log(`  候选 ${candidates.length} 条 · 环丢 ${dropped.length} · 基线 DAG ${edgeFile.dependencies.length}`);
+console.log(`  强度 ${JSON.stringify(out.stats.byStrength)} · 类型 ${JSON.stringify(out.stats.byAxis)}`);
 console.log(`  失败组 ${failed.length} · tokens ${tokens}`);
-console.log('  ⚠ 新边还没审：接着跑 node scripts/cm-audit-full.mjs --phase=edges');
+console.log('  ⚠ 候选还没审：接着跑 node scripts/cm-audit-full.mjs --phase=edges --candidate=04-edges-remine.json');

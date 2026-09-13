@@ -62,7 +62,7 @@ LangChain 的 framework、runtime、harness 分解，以及 Claude Agent SDK、A
 - [[stateless]]
 - [[Tracing]]
 - [[Context as working memory budget]]
+- [[harness 与 framework 的分野]]
 - [[higher-level runtime]]
 - [[Von Neumann Architecture Analogy]]
-- [[harness 与 framework 的分野]]
 - [[Reliability-critical harness primitives]]

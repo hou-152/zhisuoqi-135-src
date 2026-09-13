@@ -7,7 +7,7 @@ subject: Harness Engineering
 domain: model-training
 learningStage: when-needed
 verification: accept
-centrality: 0.072
+centrality: 0.126
 depth: 2
 origin: [harness]
 aliases: ["RL inside the harness"]
@@ -18,7 +18,7 @@ sources: 1
 
 > 用即将发布的确切工具集在 harness 内部对模型做 RL，而非事后适配，这是工具调用成功率优势的来源。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -37,9 +37,10 @@ sources: 1
 
 > 为什么 {{name}} 比事后适配工具更有优势？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
 - [[Co-evolution Principle]] · **hard** — 不懂【Co-evolution Principle】，就做不了 Harness 内 RL 的⟨用确切工具集在环内训练以避免紧耦合掉性能的设计⟩
+- [[RLVR 与编码 agent 的 RL 训练循环]] · **hard** — 不懂编码 agent 的 RL 训练循环，就搭不出 harness 内 RL 的 trace 生成—verifier 打分—更新权重这条回路
 
 ## 相关
 
@@ -60,6 +61,7 @@ sources: 1
 
 - [[Harness 工程 Harness Engineering]]
 - [[Co-evolution Principle]]
-- [[模型训练与 harness 设计的耦合]]
 - [[Lights-off 软件工厂]]
+- [[RLVR 与编码 agent 的 RL 训练循环]]
+- [[模型训练与 harness 设计的耦合]]
 - [[软件工厂 Software Factory]]

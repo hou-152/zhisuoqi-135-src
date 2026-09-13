@@ -53,8 +53,8 @@ route subagents to isolated environments… We’re also working to bring additi
 - Harness Engineering ｜ 《OpenAI Agents SDK 下一代演进：原生沙箱 + 模型原生 harness》 ｜ https://openai.com/index/the-next-evolution-of-the-agents-sdk/
 ## 反链
 
+- [[开箱即用的编排与子 agent]]
 - [[显式且可检查的并行]]
 - [[model-native harness]]
-- [[开箱即用的编排与子 agent]]
 - [[Agents SDK]]
 - [[工作树隔离]]

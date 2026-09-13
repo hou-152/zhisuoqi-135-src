@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: tools-sandbox
 learningStage: now
 verification: judge
-centrality: 0.072
-depth: 1
+centrality: 0.126
+depth: 2
 origin: [context]
 aliases: ["tools as the contract"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 工具是 Agent 与其信息/行动空间之间的契约，须返回 token 高效的信息，并像良好代码库函数那样自包含、健壮、用途清晰。
 
-**领域** tools-sandbox ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** tools-sandbox ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -37,8 +37,9 @@ sources: 1
 
 > 你能按 {{name}} 的标准评审这个工具定义吗？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
+- [[工具 Tools]] · **hard** — 不懂【工具】，就做不了【工具即契约】的⟨把工具定义成自包含、健壮、用途清晰的函数式接口⟩
 - [[工具定义 Tool Definitions Tool Schema]] · **soft** — 不懂【工具定义】，就做不了【工具即契约】的契约撰写——参数、返回结构与用途约束都写在定义里
 
 ## 相关
@@ -60,4 +61,5 @@ sources: 1
 - [[工具定义 Tool Definitions Tool Schema]]
 - [[上下文工程 context engineering]]
 - [[注意力预算 attention budget]]
+- [[工具 Tools]]
 - [[上下文腐烂 Context Rot]]

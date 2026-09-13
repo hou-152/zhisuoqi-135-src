@@ -17,6 +17,7 @@ const load = (f) => JSON.parse(fs.readFileSync(path.join(MAP, f), 'utf8'));
 
 const topics = load('topics.json').topics;
 const dependencies = load('dependencies.json').dependencies;
+const rawRelations = load('relations.json').relations;
 const clusters = load('clusters.json').clusters;
 
 const SRC = {
@@ -51,11 +52,90 @@ const nodes = topics.map((t) => {
   };
 });
 
+/* ── 关系层：只把已接受的语义关系接到壳，保留共现/拒绝边的统计 ── */
+const RELATION_KINDS = new Set(['prerequisite', 'related-to', 'used-with', 'part-of', 'contrast']);
+const nodeIds = new Set(nodes.map((n) => n.id));
+const relationScore = (r) => (r.strength === 'hard' ? 2 : 1) + (r.note ? .25 : 0) + (r.evidence ? .1 : 0);
+const relationKey = (r) => {
+  if (r.kind === 'prerequisite') return `${r.kind}:${r.from}:${r.to}`;
+  const [a, b] = [r.from, r.to].sort();
+  return `${r.kind}:${a}:${b}`;
+};
+const relationMap = new Map();
+for (const r of rawRelations) {
+  if (!RELATION_KINDS.has(r.kind) || !nodeIds.has(r.from) || !nodeIds.has(r.to) || r.from === r.to) continue;
+  const key = relationKey(r);
+  if (!relationMap.has(key) || relationScore(r) > relationScore(relationMap.get(key))) relationMap.set(key, r);
+}
+const relations = [...relationMap.values()];
+const rawByKind = {};
+for (const r of rawRelations) rawByKind[r.kind] = (rawByKind[r.kind] || 0) + 1;
+const relationStats = {
+  visible: relations.length,
+  hidden: (rawByKind['co-article'] || 0) + (rawByKind.rejected || 0),
+  byKind: Object.fromEntries([...new Set([...Object.keys(rawByKind), ...[...RELATION_KINDS]])]
+    .map((k) => [k, rawByKind[k] || 0])),
+};
+
+
 /* ── 边：hard→实线（7+），soft→虚线（<7） ────────────────── */
 // 实线/虚线只看**审核后的强度**，不看来源：hard=实线，soft=虚线。
 // （踩过：llm-strict 因为 origin 不等于 'llm' 被当成 curated，531 条 soft 全画成实线）
 const VOTES = (e) => (e.strength === 'hard' ? 9 : 3);
 const edges = dependencies.map((e) => [e.topicId, e.prerequisiteId, VOTES(e)]);
+
+/* ── 关系视图坐标：确定性、构建时计算，避免浏览器首次打开卡住 ── */
+function hash01(s) {
+  let h = 2166136261;
+  for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); }
+  return ((h >>> 0) % 100000) / 100000;
+}
+function buildRelationLayout(list, rels) {
+  const N = list.length;
+  const index = new Map(list.map((n, i) => [n.id, i]));
+  const pos = list.map((n, i) => {
+    const a = 2.399963229728653 * i + hash01(n.id) * .28;
+    const radius = .12 + .78 * Math.sqrt((i + .5) / Math.max(1, N));
+    return { x: Math.cos(a) * radius, y: Math.sin(a) * radius };
+  });
+  const links = rels.map((r) => [index.get(r.from), index.get(r.to)]).filter(([a, b]) => a !== undefined && b !== undefined);
+  const fx = new Float64Array(N), fy = new Float64Array(N);
+  for (let iter = 0; iter < 110; iter++) {
+    fx.fill(0); fy.fill(0);
+    for (let i = 0; i < N; i++) {
+      for (let j = i + 1; j < N; j++) {
+        let dx = pos[i].x - pos[j].x, dy = pos[i].y - pos[j].y;
+        const d2 = Math.max(.0009, dx * dx + dy * dy);
+        const f = .00016 / d2;
+        dx *= f; dy *= f;
+        fx[i] += dx; fy[i] += dy; fx[j] -= dx; fy[j] -= dy;
+      }
+    }
+    for (const [a, b] of links) {
+      let dx = pos[b].x - pos[a].x, dy = pos[b].y - pos[a].y;
+      const d = Math.max(.001, Math.hypot(dx, dy));
+      const f = (d - .18) * .010;
+      dx = dx / d * f; dy = dy / d * f;
+      fx[a] += dx; fy[a] += dy; fx[b] -= dx; fy[b] -= dy;
+    }
+    const damp = .72 * (1 - iter / 180);
+    for (let i = 0; i < N; i++) {
+      fx[i] -= pos[i].x * .003; fy[i] -= pos[i].y * .003;
+      const dx = Math.max(-.035, Math.min(.035, fx[i] * damp));
+      const dy = Math.max(-.035, Math.min(.035, fy[i] * damp));
+      pos[i].x += dx; pos[i].y += dy;
+    }
+  }
+  const minX = Math.min(...pos.map((p) => p.x)), maxX = Math.max(...pos.map((p) => p.x));
+  const minY = Math.min(...pos.map((p) => p.y)), maxY = Math.max(...pos.map((p) => p.y));
+  const span = Math.max(.001, maxX - minX, maxY - minY);
+  const midX = (minX + maxX) / 2, midY = (minY + maxY) / 2;
+  for (const p of pos) { p.x = (p.x - midX) / span * 1.82; p.y = (p.y - midY) / span * 1.82; }
+  return new Map(list.map((n, i) => [n.id, { rx: Number(pos[i].x.toFixed(5)), ry: Number(pos[i].y.toFixed(5)) }]));
+}
+const relationLayout = buildRelationLayout(nodes, relations);
+for (const n of nodes) Object.assign(n, relationLayout.get(n.id));
+
 
 /* ── 策展：领域即主题线，路线沿真实依赖边走 ─────────────── */
 const byId = new Map(nodes.map((n) => [n.id, n]));
@@ -138,7 +218,7 @@ const meta = {
 
 const payload = {
   generatedAt: new Date().toISOString(),
-  nodes, edges,
+  nodes, edges, relations, relationStats,
   sources: SRC_KEYS.map((k) => ({ id: k, label: SRC[k].label, color: SRC[k].color })),
   meta,
   curation: { tags, assign, collections, edgeAuto, edgeHuman },

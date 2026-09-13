@@ -7,7 +7,7 @@ subject: Context Engineering × Harness Engineering
 domain: memory-retrieval
 learningStage: when-needed
 verification: use
-centrality: 0.089
+centrality: 0.144
 depth: 0
 origin: [context, harness]
 aliases: ["Just-in-time Retrieval"]
@@ -18,7 +18,7 @@ sources: 2
 
 > 上下文里只保留轻量级标识符（路径、ID、链接），需要时再取全文，而不是把内容全塞进去。
 
-**领域** memory-retrieval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.089
+**领域** memory-retrieval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.144
 
 ## 费曼一下
 
@@ -37,9 +37,10 @@ sources: 2
 
 > 上下文里只放标识符时，{{name}} 靠什么把需要的内容取回来？
 
-## 懂了它才能懂（解锁 1）
+## 懂了它才能懂（解锁 2）
 
 - [[混合检索策略 hybrid strategy]] — 不懂【即时检索】，就做不了【混合检索策略】的『预检索与即时检索折中』设计
+- [[session_search]] — 不懂【即时检索】就做不了 session_search 的「只留索引、需要时再翻出那一段」
 
 ## 相关
 
@@ -67,8 +68,9 @@ sources: 2
 
 - [[长上下文窗口]]
 - [[非模型架构 Non-model Architecture]]
+- [[AI Agent]]
 - [[渐进式披露 progressive disclosure]]
 - [[可恢复的压缩 restorable compression]]
-- [[AI Agent]]
+- [[session_search]]
 - [[混合检索策略 hybrid strategy]]
 - [[观察掩码 Observation Masking]]

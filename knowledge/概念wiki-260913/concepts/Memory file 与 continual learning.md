@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: memory-retrieval
 learningStage: when-needed
 verification: use
-centrality: 0.017
+centrality: 0.072
 depth: 0
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > harness 支持 AGENTS.md 等 memory file 标准，启动时注入 context，agent 编辑后重新载入，实现跨 session 的持续学习。
 
-**领域** memory-retrieval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** memory-retrieval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -35,6 +35,10 @@ harness 支持 AGENTS.md 这类 memory file 标准，在 agent 启动时注入 c
 ## 验收问句
 
 > {{name}} 是怎么让一次 session 的知识进入未来 session 的？
+
+## 懂了它才能懂（解锁 1）
+
+- [[Memory-driven development]] — 不懂【Memory file 与 continual learning】就做不了把决策写成后续 agent 启动即读的记忆
 
 ## 相关
 

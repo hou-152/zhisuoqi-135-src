@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.072
+centrality: 0.126
 depth: 2
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 多少逻辑住在 harness 而非模型里：Anthropic 押薄 harness 与模型进步，图式框架押显式控制。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,9 +36,10 @@ Harness thickness. How much logic lives in the harness versus the model. Anthrop
 
 > 某框架把规划逻辑写死在代码里，按 {{name}} 它属于哪种押注？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
 - [[Harness level feature]] · **soft** — 先知道模型开箱缺什么，才能讨论多少逻辑放 harness。
+- [[harness 与 framework 的分野]] · **soft** — 不懂【harness 与 framework 的分野】，就做不了【Harness Thickness】的 ⟨判断哪些逻辑算住在 harness 里⟩
 
 ## 相关
 
@@ -54,6 +55,6 @@ Harness thickness. How much logic lives in the harness versus the model. Anthrop
 ## 反链
 
 - [[Agent vs Harness]]
+- [[harness 与 framework 的分野]]
 - [[Harness level feature]]
 - [[model-native harness]]
-- [[harness 与 framework 的分野]]

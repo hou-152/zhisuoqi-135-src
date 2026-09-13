@@ -49,8 +49,8 @@ Instructions files 是 AI agent 的长期工作规则。它们类似项目里的
 - Context Engineering ｜ 《构建可靠 AI 工作流：智能体原语与上下文工程》 ｜ https://github.blog/ai-and-ml/github-copilot/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering/
 ## 反链
 
-- [[AGENTS.md]]
 - [[教会 AI Agent 如何成功]]
-- [[Natural language as code]]
+- [[AGENTS.md]]
 - [[Agentic primitives]]
+- [[Natural language as code]]
 - [[Markdown prompt engineering]]

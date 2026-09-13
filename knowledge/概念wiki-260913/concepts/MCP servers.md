@@ -6,7 +6,7 @@ subject: AI 内参 260912
 domain: tools-sandbox
 learningStage: when-needed
 verification: accept
-centrality: 0.089
+centrality: 0.198
 depth: 0
 origin: [neican]
 aliases: ["外部工具和集成"]
@@ -17,7 +17,7 @@ sources: 1
 
 > MCP servers 提供外部工具和集成，与 skills 是完全不同的类别。
 
-**领域** tools-sandbox ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.089
+**领域** tools-sandbox ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.198
 
 ## 费曼一下
 
@@ -38,9 +38,11 @@ MCP 提供外部工具。
 
 > {{name}} 在文中负责什么？和 skills 有何区别？
 
-## 懂了它才能懂（解锁 1）
+## 懂了它才能懂（解锁 3）
 
 - [[allowed-tools]] — 不懂【MCP servers】是提供外部工具与集成、与 skills 完全不同的类别，就做不了 allowed-tools 的 ⟨把 MCP 提供的外部工具列进免许可可用工具清单⟩
+- [[MCP 工具层]] — 不懂【MCP servers】，就做不了【MCP 工具层】的⟨让 Claude 通过 build/query 等八个工具与图谱交互⟩
+- [[原生工具与 MCP 外挂]] — 不懂【MCP servers】，就做不了【原生工具与 MCP 外挂】的⟨判断要不要直接外挂一个 MCP todo manager⟩
 
 ## 出场
 
@@ -53,3 +55,5 @@ MCP 提供外部工具。
 ## 反链
 
 - [[allowed-tools]]
+- [[原生工具与 MCP 外挂]]
+- [[MCP 工具层]]

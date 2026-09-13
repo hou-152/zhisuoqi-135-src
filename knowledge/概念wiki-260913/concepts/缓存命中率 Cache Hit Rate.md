@@ -63,7 +63,7 @@ sources: 1
 ## 反链
 
 - [[提示词缓存 Prompt Caching]]
+- [[稳定前缀 Stable Prefix]]
 - [[缓存断点 Cache Breakpoint]]
 - [[KV-cache 命中率]]
-- [[稳定前缀 Stable Prefix]]
 - [[API-boundary observability]]

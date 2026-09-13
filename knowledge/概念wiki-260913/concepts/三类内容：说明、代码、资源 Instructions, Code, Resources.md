@@ -8,7 +8,7 @@ domain: context-engineering
 learningStage: when-needed
 verification: judge
 centrality: 0.142
-depth: 2
+depth: 4
 origin: [neican]
 aliases: ["Instructions, Code, Resources"]
 sources: 1

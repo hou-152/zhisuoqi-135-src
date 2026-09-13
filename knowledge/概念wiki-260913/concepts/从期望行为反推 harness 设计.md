@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: use
-centrality: 0.072
-depth: 1
+centrality: 0.126
+depth: 2
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 不从功能清单出发，而由希望模型做出的行为反推 harness 需要提供哪些能力。
 
-**领域** harness-runtime ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** harness-runtime ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,9 +36,10 @@ sources: 1
 
 > 给你一个期望行为，你怎么用{{name}}推出所需功能？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
 - [[Harness]] · **hard** — 反推的产物是 harness 功能，前提是懂 harness。
+- [[AI Agent]] · **soft** — 不懂【AI Agent】，就做不了 ⟨从期望的对外行为出发反推所需能力⟩
 
 ## 相关
 
@@ -54,3 +55,4 @@ sources: 1
 - [[Harness]]
 - [[Harness 工程 Harness Engineering]]
 - [[Agent = Model + Harness]]
+- [[AI Agent]]

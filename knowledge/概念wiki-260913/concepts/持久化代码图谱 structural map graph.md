@@ -7,7 +7,7 @@ subject: Context Engineering
 domain: state-persistence
 learningStage: when-needed
 verification: use
-centrality: 0.072
+centrality: 0.126
 depth: 3
 origin: [context]
 aliases: ["structural map / graph"]
@@ -18,7 +18,7 @@ sources: 1
 
 > 把代码库每个函数、类、导入、调用、继承与测试映射成图谱，构建后持久保存在本地，供查询与增量更新。
 
-**领域** state-persistence ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** state-persistence ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -37,9 +37,10 @@ sources: 1
 
 > {{name}} 更新一次要多久，能支撑后续增量查询吗？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
 - [[Artifact Schema]] · **soft** — 不懂【Artifact Schema】，就做不了【持久化代码图谱】的「把图谱作为共享知识层定义 README、schema 与增量添加流程」
+- [[对象-边模型与分区]] · **soft** — 不懂【对象-边模型与分区】，就做不了【持久化代码图谱】的 ⟨函数/类对象与调用/导入边的持久化建模⟩
 
 ## 相关
 
@@ -63,10 +64,11 @@ sources: 1
 
 ## 反链
 
+- [[对象-边模型与分区]]
 - [[Artifact Schema]]
+- [[MCP 工具层]]
 - [[code-review-graph]]
 - [[code-review-graphignore 排除配置]]
-- [[MCP 工具层]]
 - [[Review Quality 评分方法]]
 - [[Token 优化的评审上下文 get_review_context_tool]]
 - [[Watch 模式与自动更新 hooks]]

@@ -6,8 +6,8 @@ subject: AI 内参 260912
 domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.07
-depth: 0
+centrality: 0.124
+depth: 1
 origin: [neican]
 aliases: ["必填字段"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 必填字段，≤1024 字符，是匹配依据，须写清技能作用与何时使用它
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.07
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.124
 
 ## 费曼一下
 
@@ -42,6 +42,10 @@ description 是克劳德做匹配的依据：它拿当前请求去比对描述�
 
 > {{name}}要回答哪两个问题？写含糊会有什么后果？
 
+## 先懂这些（前置 1）
+
+- [[SKILL.md 与 YAML 前置元数据 SKILL.md YAML frontmatter]] · **hard** — 不懂【SKILL.md 与 YAML 前置元数据】，就做不了 description 字段的编写——不知道它是前置元数据里的必需字段。
+
 ## 出场
 
 - AI 内参 260912 ｜ 《Claude 官方课程 · 第 3 课：写好 name 与 description》 ｜ https://academy.claude.com/courses/introduction-to-agent-skills/configuration-and-multi-file-skills
@@ -49,3 +53,7 @@ description 是克劳德做匹配的依据：它拿当前请求去比对描述�
 ## 别名
 
 `必填字段`
+
+## 反链
+
+- [[SKILL.md 与 YAML 前置元数据 SKILL.md YAML frontmatter]]

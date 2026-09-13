@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: verification-eval
 learningStage: when-needed
 verification: use
-centrality: 0.072
+centrality: 0.126
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 借动态工作流让 Claude 起 verifier agent，用 rubric 去尝试并验证你在某领域的品味，如什么算好的 API 设计。
 
-**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,9 +36,10 @@ sources: 1
 
 > 用 {{name}} 验证你对好 API 设计的判断。
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
 - [[Rubric]] · **hard** — 用 rubric 起验证 agent，不懂 rubric 就无从谈这套招式。
+- [[Self-evaluation Failure]] · **soft** — 不懂【Self-evaluation Failure】，就做不了【Rubric 与 verifier agent】的「为何必须另起 verifier、而不信自己的品味判断」这件事
 
 ## 相关
 
@@ -52,7 +53,8 @@ sources: 1
 - Context Engineering ｜ 《Claude 5 世代的上下文工程，规则变了》 ｜ https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models
 ## 反链
 
-- [[Rubric]]
-- [[护栏型指令的过期]]
 - [[判断力优先 let Claude use judgement]]
+- [[Rubric]]
+- [[Self-evaluation Failure]]
+- [[护栏型指令的过期]]
 - [[Read-only Verifier Agent]]

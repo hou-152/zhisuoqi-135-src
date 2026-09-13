@@ -60,5 +60,5 @@ sources: 2
 
 - [[Harness]]
 - [[非模型架构 Non-model Architecture]]
-- [[自动记忆 auto-memory]]
 - [[AI Agent]]
+- [[自动记忆 auto-memory]]

@@ -58,7 +58,7 @@ sources: 1
 
 ## 反链
 
+- [[判断力优先 let Claude use judgement]]
 - [[护栏型指令的过期]]
 - [[检索与推理的双任务负担]]
-- [[判断力优先 let Claude use judgement]]
 - [[程序记忆（Procedural Memory Skills） progressive disclosure]]

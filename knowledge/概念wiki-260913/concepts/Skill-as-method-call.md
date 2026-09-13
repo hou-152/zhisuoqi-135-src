@@ -61,6 +61,6 @@ sources: 1
 - [[Skill]]
 - [[skill-creator 访谈式创建]]
 - [[Skills Hell]]
-- [[tokens]]
 - [[Thin Harness, Fat Skills]]
+- [[tokens]]
 - [[Skill Files]]

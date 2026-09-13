@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: multi-agent
 learningStage: when-needed
 verification: use
-centrality: 0.072
+centrality: 0.236
 depth: 2
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 用 step.invoke() 启动独立 agent run 并 fork 带自己 session key 的子会话，工具集去掉 delegate_task 禁止递归，最后向父级回摘要。
 
-**领域** multi-agent ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** multi-agent ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.236
 
 ## 费曼一下
 
@@ -36,9 +36,15 @@ sources: 1
 
 > 你如何用 {{name}} 防止子会话无限制递归派生？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
 - [[Subagent]] · **hard** — step.invoke() 启动的正是带独立 session key 的子代理会话
+- [[Handoffs Agents as tools]] · **soft** — 不懂【Handoffs / Agents as tools】就做不了【子 agent 与 step.invoke()】的「把任务派给独立 agent run 并回摘要」
+
+## 懂了它才能懂（解锁 2）
+
+- [[子代理的技能隔离]] — 不懂【子 agent 与 step.invoke()】就做不了【子代理的技能隔离】的「让子会话带自己的 session key 全新启动并显式列 skills」
+- [[递归并行规划 sub-planner]] — 不懂【子 agent 与 step.invoke()】就做不了【递归并行规划】的「为特定区域启动只会做子 planner 的独立 run」
 
 ## 相关
 
@@ -54,4 +60,7 @@ sources: 1
 - [[Harness]]
 - [[持久化执行 durable execution]]
 - [[Subagent]]
+- [[Handoffs Agents as tools]]
+- [[递归并行规划 sub-planner]]
 - [[harness 与 framework 的分野]]
+- [[子代理的技能隔离]]

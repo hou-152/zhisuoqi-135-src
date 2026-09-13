@@ -73,14 +73,14 @@ sources: 1
 ## 反链
 
 - [[Planner–Worker 角色分离]]
+- [[递归并行规划 sub-planner]]
 - [[动态协调 dynamic coordination]]
 - [[共享文件加锁的协调机制]]
-- [[漂移与隧道视野 drift & tunnel vision]]
-- [[Agentic Coding]]
-- [[递归并行规划 sub-planner]]
 - [[模型—角色适配]]
+- [[漂移与隧道视野 drift & tunnel vision]]
 - [[任务时域 task horizon]]
 - [[锁竞争瓶颈 lock contention]]
+- [[Agentic Coding]]
 - [[无层级导致的风险规避 risk-averse agents]]
 - [[judge agent 与周期性 fresh start]]
 - [[prompt 主导论]]

@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: safety-governance
 learningStage: now
 verification: judge
-centrality: 0.072
+centrality: 0.126
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 武器与 CBRN 红线不看类别，而看输出是否对制造、优化或部署给出实质帮助；框定为防御、虚构也不改变判定。
 
-**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -40,6 +40,10 @@ sources: 1
 
 - [[默认帮助的高门槛拒绝]] · **soft** — 武器与 CBRN 红线判据建立在默认帮助的高门槛拒绝之上
 
+## 懂了它才能懂（解锁 1）
+
+- [[会话级累积判断]] — 不懂【meaningful uplift 判据】，就判不出整场对话累积起来是否已构成武器设计包
+
 ## 相关
 
 - [[判定程序化写法]] · 同篇出现（co-occurrence） — 同篇出现：context-20
@@ -54,4 +58,5 @@ sources: 1
 - [[默认帮助的高门槛拒绝]]
 - [[判定程序化写法]]
 - [[反自我合理化条款]]
+- [[会话级累积判断]]
 - [[fail-closed 默认]]

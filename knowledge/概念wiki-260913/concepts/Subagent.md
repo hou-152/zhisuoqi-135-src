@@ -61,11 +61,11 @@ We also saw Opus 4.5 also get much better at using subagents, but how could suba
 - Harness Engineering ｜ 《HumanLayer：harness 工程就是把 coding agent 的配置点用到极致》 ｜ https://www.humanlayer.dev/blog/skill-issue-harness-engineering-for-coding-agents
 ## 反链
 
+- [[子 agent 与 step.invoke()]]
 - [[显式且可检查的并行]]
 - [[Action Space]]
 - [[context firewall]]
 - [[Elicitation]]
 - [[sub-agent 架构与关注点分离]]
-- [[子 agent 与 step.invoke()]]
 - [[configuration problem]]
 - [[See Like an Agent]]

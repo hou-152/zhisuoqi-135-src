@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: verification-eval
 learningStage: now
 verification: use
-centrality: 0.072
+centrality: 0.126
 depth: 0
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 由规则式反馈、视觉反馈、LLM-as-judge 组成的验证通路，分为行动前的 guides 与行动后的 sensors。
 
-**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,9 +36,10 @@ sources: 1
 
 > {{name}} 里的 guides 和 sensors 各在什么时候起作用？
 
-## 懂了它才能懂（解锁 1）
+## 懂了它才能懂（解锁 2）
 
 - [[形成性评估]] — 不懂【验证循环：guides 与 sensors】，就做不了【形成性评估】的「持续测量、反馈与调整」
+- [[把重复步骤编码成 Skill]] — 不懂验证循环：guides 与 sensors，就做不了把重复步骤编码成 Skill 的「挑出哪些闭环步骤值得固化」
 
 ## 相关
 
@@ -52,5 +53,6 @@ sources: 1
 ## 反链
 
 - [[If you're not the model, you're the harness.]]
+- [[把重复步骤编码成 Skill]]
 - [[agent 与 harness 的分工]]
 - [[形成性评估]]

@@ -8,7 +8,7 @@ domain: caching-cost
 learningStage: when-needed
 verification: use
 centrality: 0.345
-depth: 3
+depth: 4
 origin: [context]
 aliases: ["Prompt Caching"]
 sources: 1
@@ -79,18 +79,18 @@ sources: 1
 
 - [[工具定义 Tool Definitions Tool Schema]]
 - [[前缀匹配 Prefix Matching]]
+- [[稳定前缀 Stable Prefix]]
 - [[上下文压缩 Context Compression Summarization]]
 - [[缓存命中率 Cache Hit Rate]]
 - [[缓存断点 Cache Breakpoint]]
-- [[系统提示 System Prompt]]
-- [[TTL]]
 - [[缓存连续性 Cache Continuity]]
 - [[缓存命中读取成本 Cache Hit Read Cost]]
+- [[系统提示 System Prompt]]
+- [[tools → system → messages 缓存顺序]]
+- [[TTL]]
 - [[缓存写入成本 Cache Write Cost]]
-- [[稳定前缀 Stable Prefix]]
 - [[消息层 Messages Layer]]
 - [[最小可缓存 token 门槛 Minimum Cacheable Tokens]]
 - [[Automatic Caching]]
-- [[tools → system → messages 缓存顺序]]
 - [[首字输出延迟 Time to First Token Latency]]
 - [[Explicit Breakpoints]]

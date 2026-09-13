@@ -59,9 +59,9 @@ sources: 1
 ## 反链
 
 - [[持久化代码图谱 structural map graph]]
+- [[MCP 工具层]]
 - [[code-review-graphignore 排除配置]]
 - [[just in time 上下文检索]]
-- [[MCP 工具层]]
 - [[Review Quality 评分方法]]
 - [[Token 优化的评审上下文 get_review_context_tool]]
 - [[Watch 模式与自动更新 hooks]]

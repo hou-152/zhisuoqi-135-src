@@ -55,5 +55,5 @@ For clients with more complex querying needs, we do provide an offline secondary
 ## 反链
 
 - [[从客户端库到独立服务]]
-- [[Habitat]]
 - [[对象-边模型与分区]]
+- [[Habitat]]

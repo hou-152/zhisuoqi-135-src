@@ -6,7 +6,8 @@
 //   交给 cm-apply-audit.mjs 落到 03-enriched.json / 04-edges.json 上。
 //
 // 用法：node scripts/cm-audit-full.mjs [--concurrency=6] [--phase=concepts|edges|both]
-// 产出：evidence/cm-260913/06-audit-full.json（带缓存 evidence/.cm-audit-full-cache.json）
+//       [--candidate=04-edges-remine.json]
+// 产出：evidence/cm-260913/06-audit-full.json，或候选对应的 06-audit-remine.json
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -19,6 +20,7 @@ const CACHE = path.join(ROOT, 'evidence', '.cm-audit-full-cache.json');
 const ARGV = Object.fromEntries(process.argv.slice(2).map((a) => a.replace(/^--/, '').split('=')));
 const CONC = Number(ARGV.concurrency || 6);
 const PHASE = ARGV.phase || 'both';
+const CANDIDATE_FILE = ARGV.candidate || '';
 
 for (const line of fs.readFileSync(path.join(ROOT, '.private', 'llm.env'), 'utf8').split('\n')) {
   const m = line.match(/^\s*export\s+([A-Za-z_][A-Za-z0-9_]*)=(.*)$/);
@@ -48,15 +50,21 @@ async function askJson(system, user, { maxTokens = 24000, key = null } = {}) {
 }
 
 const topicsAll = JSON.parse(fs.readFileSync(path.join(MAP, 'topics.json'), 'utf8')).topics;
-const depsAll = JSON.parse(fs.readFileSync(path.join(MAP, 'dependencies.json'), 'utf8')).dependencies;
+const candidate = CANDIDATE_FILE
+  ? JSON.parse(fs.readFileSync(path.join(DIR, CANDIDATE_FILE), 'utf8'))
+  : null;
+const depsAll = candidate
+  ? candidate.candidates
+  : JSON.parse(fs.readFileSync(path.join(MAP, 'dependencies.json'), 'utf8')).dependencies;
 const clusters = JSON.parse(fs.readFileSync(path.join(MAP, 'clusters.json'), 'utf8')).clusters;
 const byId = new Map(topicsAll.map((t) => [t.id, t]));
 const labelOf = new Map(clusters.map((c) => [c.id, c.label]));
 const chunk = (a, n) => { const o = []; for (let i = 0; i < a.length; i += n) o.push(a.slice(i, i + n)); return o; };
 
 // 分阶段跑时读回已有结果再合并，别把上一阶段审过的覆盖掉（2026-09-13 踩过：--phase=edges 把概念判决冲没了）
+const auditOut = candidate ? '06-audit-remine.json' : '06-audit-full.json';
 let prev = {};
-try { prev = JSON.parse(fs.readFileSync(path.join(DIR, '06-audit-full.json'), 'utf8')); } catch { prev = {}; }
+try { prev = JSON.parse(fs.readFileSync(path.join(DIR, auditOut), 'utf8')); } catch { prev = {}; }
 const out = { generatedAt: new Date().toISOString(), model: MODEL, concepts: prev.concepts || {}, edges: prev.edges || {} };
 
 /* ── 概念全审 ───────────────────────────────────────────── */
@@ -149,7 +157,7 @@ ${b.name}：${b.description}
 
 ${body}`;
       try {
-        const r = await askJson(SYS, prompt, { key: `full-e-${bi}-${batch.map((d) => d.topicId + d.prerequisiteId).join(',')}`, maxTokens: 24000 });
+        const r = await askJson(SYS, prompt, { key: `${candidate ? 'remine' : 'full'}-e-${bi}-${batch.map((d) => d.topicId + d.prerequisiteId).join(',')}`, maxTokens: 24000 });
         for (const it of r.items || []) {
           const d = batch[Number(it.i)];
           if (d) out.edges[d.topicId + '->' + d.prerequisiteId] = it;
@@ -159,7 +167,7 @@ ${body}`;
       } catch (e) { failed.push({ bi, err: String(e.message).slice(0, 140) }); }
     }
   };
-  console.log(`边全审：${depsAll.length} 条 → ${batches.length} 组 · 并发 ${CONC}`);
+  console.log(`${candidate ? '候选边' : '边'}全审：${depsAll.length} 条 → ${batches.length} 组 · 并发 ${CONC}`);
   await Promise.all(Array.from({ length: CONC }, worker));
   out.edgeFailed = failed;
   const v = {};
@@ -168,5 +176,6 @@ ${body}`;
 }
 
 out.tokens = tokens;
-fs.writeFileSync(path.join(DIR, '06-audit-full.json'), JSON.stringify(out, null, 1));
-console.log(`✅ 全量审核完成 · tokens ${tokens} → evidence/cm-260913/06-audit-full.json`);
+out.candidate = CANDIDATE_FILE || null;
+fs.writeFileSync(path.join(DIR, auditOut), JSON.stringify(out, null, 1));
+console.log(`✅ ${candidate ? '候选边' : '全量'}审核完成 · tokens ${tokens} → evidence/cm-260913/${auditOut}`);

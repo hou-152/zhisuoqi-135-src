@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: use
-centrality: 0.072
-depth: 1
+centrality: 0.126
+depth: 2
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > feature_list.json 既是任务来源、进度记录又是范围边界，被视为 harness 的原语。
 
-**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,9 +36,10 @@ L08 的主张，「机器可读的范围边界，agent 无法忽略」。feature
 
 > {{name}} 为何同时属于指令、状态与范围三个子系统？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
 - [[Harness]] · **hard** — 要成为 harness 原语，得先懂 harness 需要什么。
+- [[Harness 工程 Harness Engineering]] · **soft** — 不懂【Harness 工程】，就做不了 ⟨把 feature_list.json 当任务来源与范围边界看待⟩
 
 ## 相关
 

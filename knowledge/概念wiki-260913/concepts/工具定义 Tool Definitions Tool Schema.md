@@ -65,13 +65,13 @@ sources: 1
 ## 反链
 
 - [[提示词缓存 Prompt Caching]]
+- [[稳定前缀 Stable Prefix]]
+- [[工具 Tools]]
 - [[MCP Model Context Protocol]]
+- [[工具即契约 tools as the contract]]
 - [[工具接口的表达力设计]]
 - [[缓存断点 Cache Breakpoint]]
-- [[工具 Tools]]
-- [[工具即契约 tools as the contract]]
 - [[任务特定工具说明]]
-- [[稳定前缀 Stable Prefix]]
 - [[延迟加载工具与 ToolSearch]]
 - [[logits 掩码与 context-aware 状态机]]
 - [[Rationale 参数]]

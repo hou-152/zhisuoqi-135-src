@@ -7,7 +7,7 @@ subject: Harness Engineering
 domain: multi-agent
 learningStage: when-needed
 verification: judge
-centrality: 0.072
+centrality: 0.126
 depth: 4
 origin: [harness]
 aliases: ["lock contention"]
@@ -18,7 +18,7 @@ sources: 1
 
 > 锁本身工作正常也会成为瓶颈，二十个 agent 吞吐退化为两三个。
 
-**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -41,6 +41,10 @@ sources: 1
 
 - [[共享文件加锁的协调机制]] · **hard** — 瓶颈来自锁机制本身，不懂加锁就理解不了为何吞吐退化
 
+## 懂了它才能懂（解锁 1）
+
+- [[锁竞争与乐观并发控制]] — 不懂【锁竞争瓶颈】就做不了【锁竞争与乐观并发控制】的「判断持锁过久、忘释放为何拖垮吞吐并改用乐观并发」
+
 ## 相关
 
 - [[长时程自治编码 long-running autonomous coding]] · 同篇出现（co-occurrence） — 同篇出现：harness-07
@@ -61,5 +65,5 @@ sources: 1
 - [[长时程自治编码 long-running autonomous coding]]
 - [[动态协调 dynamic coordination]]
 - [[共享文件加锁的协调机制]]
-- [[单 agent 的速度天花板]]
 - [[锁竞争与乐观并发控制]]
+- [[单 agent 的速度天花板]]

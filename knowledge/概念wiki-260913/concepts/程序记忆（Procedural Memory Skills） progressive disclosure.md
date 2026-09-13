@@ -69,10 +69,10 @@ sources: 4
 
 - [[渐进式披露 progressive disclosure]]
 - [[model-native harness]]
+- [[1.6% vs 98.4%]]
 - [[渐进披露 progressive disclosure]]
 - [[Agents SDK]]
 - [[Capability Overhang]]
 - [[Inner Loop]]
-- [[1.6% vs 98.4%]]
 - [[确定性工程基础设施 deterministic engineering infrastructure]]
 - [[AI 工程基础设施 AI engineering infrastructure]]

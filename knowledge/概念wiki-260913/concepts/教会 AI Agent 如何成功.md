@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: spec-intent
 learningStage: now
 verification: use
-centrality: 0.072
+centrality: 0.126
 depth: 1
 origin: [notion]
 aliases: ["Teach Agents How to Succeed｜把成功所需的规范主动喂给 Agent"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 先想清楚调用 agent 的人需要知道什么才能成功，再主动把这些信息预先交给它，而不是让它自己摸索。
 
-**领域** spec-intent ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** spec-intent ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,9 +36,10 @@ sources: 1
 
 > 你能用 {{name}} 列出交付任务前该交代什么吗？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
 - [[共享理解 shared understanding]] · **soft** — 不懂【共享理解】，就做不了【教会 AI Agent 如何成功】里「先想清楚调用者需要知道什么」这一步
+- [[目标清楚 + 结果好验收]] · **soft** — 不懂【目标清楚 + 结果好验收】，就做不了想清楚该预先交给 agent 哪些成功所需信息
 
 ## 相关
 
@@ -58,4 +59,5 @@ sources: 1
 ## 反链
 
 - [[共享理解 shared understanding]]
+- [[目标清楚 + 结果好验收]]
 - [[Instructions files]]

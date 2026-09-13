@@ -70,12 +70,12 @@ sources: 1
 
 - [[上下文 context]]
 - [[提示词缓存 Prompt Caching]]
+- [[稳定前缀 Stable Prefix]]
 - [[coding agent]]
 - [[MCP Model Context Protocol]]
 - [[Harness token floor]]
 - [[缓存断点 Cache Breakpoint]]
 - [[LLM Large Language Model]]
 - [[tokens]]
-- [[稳定前缀 Stable Prefix]]
 - [[消息层 Messages Layer]]
 - [[agentfile CLAUDE.md 与 AGENTS.md]]

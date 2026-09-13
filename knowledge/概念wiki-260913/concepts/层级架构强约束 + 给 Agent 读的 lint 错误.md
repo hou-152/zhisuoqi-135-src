@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: code-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.072
+centrality: 0.126
 depth: 2
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 把 lint 错误从『violation detected』改写成给 Agent 直接可读可改的修复指令，配合层级架构的强约束。
 
-**领域** code-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** code-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -38,9 +38,10 @@ OpenAI Frontier 实验里最反直觉的工程细节。Types→Config→Repo→S
 
 > 你项目里 {{name}} 的报错，Agent 能据此直接改对吗？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
 - [[Agentic Engineering]] · **soft** — 不懂【Agentic Engineering】就做不了【层级架构强约束 + 给 Agent 读的 lint 错误】的 ⟨给 Agent 读的修复指令设计⟩
+- [[可维护性 霰弹式手术]] · **soft** — 不懂【可维护性 / 霰弹式手术】，就没有衡量【层级架构强约束 + 给 Agent 读的 lint 错误】是否真的挡住牵连式修改的口径
 
 ## 相关
 
@@ -55,7 +56,8 @@ OpenAI Frontier 实验里最反直觉的工程细节。Types→Config→Repo→S
 ## 反链
 
 - [[Agentic Engineering]]
-- [[架构约束的确定性执行]]
 - [[1.6% vs 98.4%]]
+- [[架构约束的确定性执行]]
+- [[可维护性 霰弹式手术]]
 - [[确定性工程基础设施 deterministic engineering infrastructure]]
 - [[AI 工程基础设施 AI engineering infrastructure]]

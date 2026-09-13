@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: tools-sandbox
 learningStage: now
 verification: use
-centrality: 0.072
-depth: 0
+centrality: 0.181
+depth: 2
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 让模型在真实环境里执行 shell 命令、跑代码并读回输出的具名工具。
 
-**领域** tools-sandbox ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** tools-sandbox ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.181
 
 ## 费曼一下
 
@@ -36,9 +36,14 @@ code execution using the shell tool
 
 > 要跑一段脚本验证结果，怎么用 {{name}} 执行并取回输出？
 
-## 懂了它才能懂（解锁 1）
+## 先懂这些（前置 1）
+
+- [[工具 Tools]] · **hard** — 不懂【工具】，就做不了【shell tool】的⟨把执行能力包装成模型可调用的具名工具⟩
+
+## 懂了它才能懂（解锁 2）
 
 - [[通用工具与「给模型一台计算机」]] — 不懂【shell tool】，就做不了【通用工具与「给模型一台计算机」】——让模型写代码执行必须有一个执行 shell 的具名工具
+- [[code mode]] — 不懂【shell tool】，就做不了【code mode】的⟨让 agent 写代码并真跑起来拿到结果⟩
 
 ## 相关
 
@@ -54,6 +59,7 @@ code execution using the shell tool
 - Harness Engineering ｜ 《OpenAI Agents SDK 下一代演进：原生沙箱 + 模型原生 harness》 ｜ https://openai.com/index/the-next-evolution-of-the-agents-sdk/
 ## 反链
 
+- [[工具 Tools]]
 - [[model-native harness]]
 - [[通用工具与「给模型一台计算机」]]
 - [[Agents SDK]]

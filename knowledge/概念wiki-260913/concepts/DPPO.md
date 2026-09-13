@@ -61,5 +61,5 @@ sources: 1
 - [[Reward Signal]]
 - [[REINFORCE]]
 - [[信任域]]
-- [[RLOO]]
 - [[RLHF]]
+- [[RLOO]]

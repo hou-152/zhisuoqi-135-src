@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: thinking-method
 learningStage: when-needed
 verification: judge
-centrality: 0.017
+centrality: 0.072
 depth: 0
 origin: [notion]
 aliases: ["不辩护", "不带辩护承认错误", "不甩锅承认"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 承认错误后不甩锅、不列条件、不找借口，否则承认失效，只是给「被错」打麻药。
 
-**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 原文 context
 
@@ -38,6 +38,10 @@ Cate Hall 给的反例：
 
 > 怎样判断一次承认错误是否做到了 {{name}}？
 
+## 懂了它才能懂（解锁 1）
+
+- [[Friction-based Skill Formation]] — 不懂【Without Defensiveness】，就做不了【Friction-based Skill Formation】的⟨从犯错中真正吸收教训这一步⟩
+
 ## 相关
 
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -56,4 +60,5 @@ Cate Hall 给的反例：
 
 - [[外包思考，但不外包理解]]
 - [[Agent-Native Infrastructure]]
+- [[Friction-based Skill Formation]]
 - [[Sensors 与 Actuators]]

@@ -7,7 +7,7 @@ subject: Context Engineering
 domain: caching-cost
 learningStage: when-needed
 verification: judge
-centrality: 0.072
+centrality: 0.126
 depth: 2
 origin: [context]
 aliases: ["Cache Continuity"]
@@ -18,7 +18,7 @@ sources: 1
 
 > 同一主对话中不随意切模型、不把分支探索混进主链路，以维持缓存前缀连续，避免反复重写缓存。
 
-**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** caching-cost ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -37,9 +37,10 @@ sources: 1
 
 > 能否指出哪些操作会破坏 {{name}}？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
 - [[Cache prefix stability]] · **hard** — 不懂Cache prefix stability，就做不了缓存连续性的维护（不切模型、不混分支以保持前缀一致）。
+- [[稳定前缀 Stable Prefix]] · **hard** — 不懂【稳定前缀】，就没法维持【缓存连续性】——不知道该保住哪段不被动到
 
 ## 相关
 
@@ -58,6 +59,6 @@ sources: 1
 ## 反链
 
 - [[提示词缓存 Prompt Caching]]
+- [[稳定前缀 Stable Prefix]]
 - [[Cache prefix stability]]
 - [[缓存断点 Cache Breakpoint]]
-- [[稳定前缀 Stable Prefix]]

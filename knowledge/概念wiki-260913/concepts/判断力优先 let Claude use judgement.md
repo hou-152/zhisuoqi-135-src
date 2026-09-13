@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: spec-intent
 learningStage: when-needed
 verification: judge
-centrality: 0.072
-depth: 0
+centrality: 0.181
+depth: 1
 origin: [context]
 aliases: ["let Claude use judgement"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 把结论式规定换成取向式指令，只给对齐对象与判断依据，具体决策留给模型的判断力。
 
-**领域** spec-intent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** spec-intent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.181
 
 ## 费曼一下
 
@@ -36,6 +36,11 @@ sources: 1
 ## 验收问句
 
 > 这段 system prompt 里，哪些规定该按{{name}}改成取向式指令？
+
+## 先懂这些（前置 2）
+
+- [[mind meld]] · **soft** — 不懂【mind meld】，就做不了「只给对齐对象与判断依据、决策交给模型」这件事
+- [[目标清楚 + 结果好验收]] · **soft** — 不懂【目标清楚 + 结果好验收】，就判断不了能否把具体决策交给模型的判断力
 
 ## 懂了它才能懂（解锁 1）
 
@@ -69,12 +74,14 @@ sources: 1
 - [[上下文文件树 tree of files]]
 - [[从禁止什么到对齐什么]]
 - [[工具接口的表达力设计]]
+- [[目标清楚 + 结果好验收]]
+- [[gotchas 优先原则]]
+- [[Rubric 与 verifier agent]]
 - [[自动记忆 auto-memory]]
 - [[护栏型指令的过期]]
 - [[渐进披露 progressive disclosure]]
 - [[延迟加载工具 deferred loading]]
-- [[gotchas 优先原则]]
-- [[Rubric 与 verifier agent]]
+- [[mind meld]]
 - [[富引用 rich references]]
 - [[代码即高保真引用]]
 - [[示例的探索空间约束]]

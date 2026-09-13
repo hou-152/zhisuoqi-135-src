@@ -61,6 +61,6 @@ sources: 2
 
 - [[Harness]]
 - [[非模型架构 Non-model Architecture]]
-- [[tool loop]]
 - [[AI Agent]]
 - [[Model as subroutine]]
+- [[tool loop]]

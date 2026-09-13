@@ -59,5 +59,5 @@ k−1 篇不含答案但与查询高度相关的维基百科片段，由 Contrie
 
 - [[迷失在中间 lost in the middle]]
 - [[多文档问答受控实验]]
-- [[首因偏置 primacy bias]]
 - [[U 型性能曲线]]
+- [[首因偏置 primacy bias]]

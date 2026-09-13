@@ -6,7 +6,7 @@ subject: AI 内参 260912
 domain: harness-runtime
 learningStage: now
 verification: use
-centrality: 0.107
+centrality: 0.161
 depth: 0
 origin: [neican]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > SKILL.md 上为前置信息（名称、描述），下为任务说明，如审阅清单或格式偏好。
 
-**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.107
+**领域** harness-runtime ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.161
 
 ## 费曼一下
 
@@ -40,9 +40,10 @@ SKILL.md 是技能的文件形态。它上面有前置信息，至少包含名�
 
 > {{name}} 中前置信息下方应该写什么内容？
 
-## 懂了它才能懂（解锁 1）
+## 懂了它才能懂（解锁 2）
 
 - [[自动激活]] — 不懂 SKILL.md 顶部的名称与描述就是前置信息、决定技能何时被识别，就写不出让 Claude 自动激活该技能的触发条件。
+- [[Skills as permanent upgrades]] — 不懂【SKILL.md 与前置信息】，就做不了【Skills as permanent upgrades】的 ⟨把一次经验固化成不会遗忘的技能⟩
 
 ## 出场
 
@@ -50,3 +51,4 @@ SKILL.md 是技能的文件形态。它上面有前置信息，至少包含名�
 ## 反链
 
 - [[自动激活]]
+- [[Skills as permanent upgrades]]

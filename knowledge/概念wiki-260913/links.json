@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-12T18:51:49.324Z",
+ "generatedAt": "2026-09-13T08:28:09.365Z",
  "pages": 936,
  "links": {
   "Harness": [
@@ -73,6 +73,91 @@
    "[[长周期任务的基础设施压力]]",
    "[[Environment]]"
   ],
+  "Skill": [
+   "[[SKILL.md 与 YAML 前置元数据 SKILL.md YAML frontmatter]]",
+   "[[Skill Files]]",
+   "[[Skills Hell]]",
+   "[[Skill-as-method-call]]",
+   "[[skill-creator 访谈式创建]]",
+   "[[description 作为触发条件]]",
+   "[[Progressive disclosure（渐进式披露）与 Skills]]",
+   "[[共享上下文窗口]]",
+   "[[Software 3.0]]",
+   "[[tokens]]",
+   "[[渐进式披露 progressive disclosure]]",
+   "[[Agent loop]]",
+   "[[验证闭环 verification loop]]",
+   "[[外包思考，但不外包理解]]",
+   "[[Agent-Native Infrastructure]]",
+   "[[Sensors 与 Actuators]]",
+   "[[Harness]]"
+  ],
+  "Harness 工程 Harness Engineering": [
+   "[[If you're not the model, you're the harness.]]",
+   "[[Agent = Model + Harness]]",
+   "[[共享 harness]]",
+   "[[功能清单作为 harness 原语]]",
+   "[[操作系统类比]]",
+   "[[从期望行为反推 harness 设计]]",
+   "[[Filesystem 作为最基础的 harness 原语]]",
+   "[[Self-verification loop]]",
+   "[[Context injection]]",
+   "[[Progressive disclosure（渐进式披露）与 Skills]]",
+   "[[递归 Planner-Worker 架构]]",
+   "[[Symphony]]",
+   "[[context firewall]]",
+   "[[长上下文的幻觉]]",
+   "[[agentfile CLAUDE.md 与 AGENTS.md]]",
+   "[[back-pressure]]",
+   "[[Outer Loop]]",
+   "[[Orchestra Interface]]",
+   "[[Agent as a New Type of Software]]",
+   "[[产品经理的组织化]]",
+   "[[Implementation 能力]]",
+   "[[Agent 经济]]",
+   "[[资深悖论]]",
+   "[[验证子系统与可运行的证据]]",
+   "[[会话生命周期]]",
+   "[[端到端验证]]",
+   "[[弱 harness 强 harness 对照与消融实验]]",
+   "[[从救火到审查的角色转移]]",
+   "[[Repo-local instructions]]",
+   "[[Long-running agent handoff]]",
+   "[[前置对齐 front-loading alignment]]",
+   "[[可维护性 霰弹式手术]]",
+   "[[可维护性缺一个可靠的打分预言机]]",
+   "[[系统架构评审]]",
+   "[[Von Neumann Architecture Analogy]]",
+   "[[原则侧]]",
+   "[[通用工具与「给模型一台计算机」]]",
+   "[[Memory file 与 continual learning]]",
+   "[[交互 Scalability Interaction Scalability]]",
+   "[[方向漂移 Direction Drift]]",
+   "[[Harness 组件生命周期]]",
+   "[[Generative Kernel]]",
+   "[[instruction budget]]",
+   "[[Forward Deployed Engineer]]",
+   "[[Skills Hell]]",
+   "[[动态系统]]",
+   "[[Agent-driven CICD]]",
+   "[[Autofixing]]",
+   "[[Architecture Operator 分工]]",
+   "[[价值定义]]",
+   "[[状态子系统与进度持久化]]",
+   "[[范围控制与显式的完成定义]]",
+   "[[仓库即唯一事实来源]]",
+   "[[验证缺口]]",
+   "[[可观测性]]",
+   "[[Safe autonomy]]",
+   "[[Infrastructure noise]]",
+   "[[Harness-level benchmarks]]",
+   "[[可维护性没有惩罚项]]",
+   "[[Mutation Testing 与前沿质量评测]]",
+   "[[Harness 内 RL RL inside the harness]]",
+   "[[2026 版约束理论]]",
+   "[[Bitter Lesson]]",
+   "[[Orchestration Loop TAO Cycle ReAct Loop]]"
+  ],
   "工具定义 Tool Definitions Tool Schema": [
    "[[工具接口的表达力设计]]",
    "[[任务特定工具说明]]",
@@ -85,23 +170,6 @@
    "[[稳定前缀 Stable Prefix]]",
    "[[缓存断点 Cache Breakpoint]]",
    "[[提示词缓存 Prompt Caching]]"
-  ],
-  "Skill": [
-   "[[Skill Files]]",
-   "[[Skills Hell]]",
-   "[[Skill-as-method-call]]",
-   "[[skill-creator 访谈式创建]]",
-   "[[description 作为触发条件]]",
-   "[[Progressive disclosure（渐进式披露）与 Skills]]",
-   "[[Software 3.0]]",
-   "[[tokens]]",
-   "[[渐进式披露 progressive disclosure]]",
-   "[[Agent loop]]",
-   "[[验证闭环 verification loop]]",
-   "[[外包思考，但不外包理解]]",
-   "[[Agent-Native Infrastructure]]",
-   "[[Sensors 与 Actuators]]",
-   "[[Harness]]"
   ],
   "上下文 context": [
    "[[上下文工程 context engineering]]",
@@ -142,6 +210,11 @@
    "[[外包思考，但不外包理解]]",
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
+  ],
+  "SKILL.md 与 YAML 前置元数据 SKILL.md YAML frontmatter": [
+   "[[启动时仅加载名称和描述]]",
+   "[[description]]",
+   "[[Skill]]"
   ],
   "企业托管设置（Managed Settings）与 strictKnownMarketplaces": [
    "[[安全审计与受信任来源 Security Considerations Trusted Sources]]",
@@ -275,6 +348,27 @@
    "[[稳定前缀 Stable Prefix]]",
    "[[缓存断点 Cache Breakpoint]]"
   ],
+  "稳定前缀 Stable Prefix": [
+   "[[缓存断点 Cache Breakpoint]]",
+   "[[tools → system → messages 缓存顺序]]",
+   "[[缓存连续性 Cache Continuity]]",
+   "[[cached input tokens]]",
+   "[[稳定的 prompt 前缀]]",
+   "[[前缀匹配 Prefix Matching]]",
+   "[[工具定义 Tool Definitions Tool Schema]]",
+   "[[消息层 Messages Layer]]",
+   "[[缓存写入成本 Cache Write Cost]]",
+   "[[缓存命中读取成本 Cache Hit Read Cost]]",
+   "[[TTL]]",
+   "[[最小可缓存 token 门槛 Minimum Cacheable Tokens]]",
+   "[[Automatic Caching]]",
+   "[[缓存命中率 Cache Hit Rate]]",
+   "[[首字输出延迟 Time to First Token Latency]]",
+   "[[Explicit Breakpoints]]",
+   "[[系统提示 System Prompt]]",
+   "[[上下文压缩 Context Compression Summarization]]",
+   "[[提示词缓存 Prompt Caching]]"
+  ],
   "循环工程 loop engineering": [
    "[[闭环]]",
    "[[自动循环的心跳]]",
@@ -317,71 +411,16 @@
    "[[See Like an Agent]]",
    "[[Elicitation]]"
   ],
-  "Harness 工程 Harness Engineering": [
-   "[[If you're not the model, you're the harness.]]",
-   "[[从期望行为反推 harness 设计]]",
-   "[[Filesystem 作为最基础的 harness 原语]]",
-   "[[Self-verification loop]]",
-   "[[Context injection]]",
-   "[[Progressive disclosure（渐进式披露）与 Skills]]",
-   "[[递归 Planner-Worker 架构]]",
-   "[[Symphony]]",
-   "[[context firewall]]",
-   "[[长上下文的幻觉]]",
-   "[[agentfile CLAUDE.md 与 AGENTS.md]]",
-   "[[back-pressure]]",
-   "[[Outer Loop]]",
-   "[[Orchestra Interface]]",
-   "[[Agent as a New Type of Software]]",
-   "[[产品经理的组织化]]",
-   "[[Implementation 能力]]",
-   "[[Agent 经济]]",
-   "[[资深悖论]]",
-   "[[验证子系统与可运行的证据]]",
-   "[[功能清单作为 harness 原语]]",
-   "[[会话生命周期]]",
-   "[[端到端验证]]",
-   "[[弱 harness 强 harness 对照与消融实验]]",
-   "[[从救火到审查的角色转移]]",
-   "[[Repo-local instructions]]",
-   "[[Long-running agent handoff]]",
-   "[[前置对齐 front-loading alignment]]",
-   "[[可维护性 霰弹式手术]]",
-   "[[可维护性缺一个可靠的打分预言机]]",
-   "[[系统架构评审]]",
-   "[[Von Neumann Architecture Analogy]]",
-   "[[原则侧]]",
-   "[[通用工具与「给模型一台计算机」]]",
-   "[[Memory file 与 continual learning]]",
-   "[[交互 Scalability Interaction Scalability]]",
-   "[[方向漂移 Direction Drift]]",
-   "[[Harness 组件生命周期]]",
-   "[[Generative Kernel]]",
-   "[[instruction budget]]",
-   "[[Forward Deployed Engineer]]",
-   "[[Skills Hell]]",
-   "[[动态系统]]",
-   "[[Agent-driven CICD]]",
-   "[[Autofixing]]",
-   "[[Architecture Operator 分工]]",
-   "[[价值定义]]",
-   "[[状态子系统与进度持久化]]",
-   "[[范围控制与显式的完成定义]]",
-   "[[仓库即唯一事实来源]]",
-   "[[验证缺口]]",
-   "[[可观测性]]",
-   "[[Safe autonomy]]",
-   "[[Infrastructure noise]]",
-   "[[Harness-level benchmarks]]",
-   "[[可维护性没有惩罚项]]",
-   "[[Mutation Testing 与前沿质量评测]]",
-   "[[Harness 内 RL RL inside the harness]]",
-   "[[2026 版约束理论]]",
-   "[[Bitter Lesson]]",
-   "[[Orchestration Loop TAO Cycle ReAct Loop]]"
-  ],
-  "SKILL.md 与 YAML 前置元数据 SKILL.md YAML frontmatter": [
-   "[[启动时仅加载名称和描述]]"
+  "工具 Tools": [
+   "[[工具定义 Tool Definitions Tool Schema]]",
+   "[[工具即契约 tools as the contract]]",
+   "[[工具即结构化输出]]",
+   "[[shell tool]]",
+   "[[coding agent]]",
+   "[[LLM Large Language Model]]",
+   "[[AI Agent]]",
+   "[[非模型架构 Non-model Architecture]]",
+   "[[Harness]]"
   ],
   "持久化执行 durable execution": [
    "[[snapshotting + rehydration]]",
@@ -419,6 +458,12 @@
    "[[AI Agent]]",
    "[[非模型架构 Non-model Architecture]]",
    "[[Harness]]"
+  ],
+  "启动时仅加载名称和描述": [
+   "[[SKILL.md 与 YAML 前置元数据 SKILL.md YAML frontmatter]]",
+   "[[名称与描述 name description]]",
+   "[[匹配后的确认与完整加载]]",
+   "[[按需加载与始终加载]]"
   ],
   "长上下文窗口": [
    "[[上下文占用率与性能衰减]]",
@@ -531,6 +576,15 @@
    "[[指令子系统与渐进式展开]]",
    "[[能力鸿沟]]",
    "[[Harness 工程 Harness Engineering]]"
+  ],
+  "子 agent 与 step.invoke()": [
+   "[[Subagent]]",
+   "[[Handoffs Agents as tools]]",
+   "[[子代理的技能隔离]]",
+   "[[递归并行规划 sub-planner]]",
+   "[[harness 与 framework 的分野]]",
+   "[[持久化执行 durable execution]]",
+   "[[Harness]]"
   ],
   "Agent vs Harness": [
    "[[弱 harness 强 harness 对照与消融实验]]",
@@ -885,6 +939,11 @@
    "[[请求驱动与事件驱动]]",
    "[[四类故障分类框架]]"
   ],
+  "MCP servers": [
+   "[[allowed-tools]]",
+   "[[MCP 工具层]]",
+   "[[原生工具与 MCP 外挂]]"
+  ],
   "Rockset 离线二级视图": [
    "[[对象-边模型与分区]]",
    "[[从客户端库到独立服务]]",
@@ -1022,6 +1081,23 @@
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
   ],
+  "判断力优先 let Claude use judgement": [
+   "[[mind meld]]",
+   "[[目标清楚 + 结果好验收]]",
+   "[[从禁止什么到对齐什么]]",
+   "[[工具接口的表达力设计]]",
+   "[[延迟加载工具 deferred loading]]",
+   "[[代码即高保真引用]]",
+   "[[示例的探索空间约束]]",
+   "[[渐进披露 progressive disclosure]]",
+   "[[Rubric 与 verifier agent]]",
+   "[[gotchas 优先原则]]",
+   "[[上下文文件树 tree of files]]",
+   "[[自动记忆 auto-memory]]",
+   "[[富引用 rich references]]",
+   "[[护栏型指令的过期]]",
+   "[[上下文工程 context engineering]]"
+  ],
   "平行 AI 基础设施": [
    "[[芯片管制]]",
    "[[数据中心]]",
@@ -1126,6 +1202,14 @@
    "[[Tool-schema tax]]",
    "[[Harness token floor]]"
   ],
+  "cached input tokens": [
+   "[[提示词缓存（Prompt Caching）]]",
+   "[[稳定前缀 Stable Prefix]]",
+   "[[缓存命中读取成本 Cache Hit Read Cost]]",
+   "[[coding agent]]",
+   "[[LLM Large Language Model]]",
+   "[[Harness]]"
+  ],
   "Claude Managed Agents": [
    "[[agent 与 harness 的分工]]",
    "[[Harness]]",
@@ -1205,6 +1289,14 @@
    "[[锁竞争与乐观并发控制]]",
    "[[Harness]]"
   ],
+  "Handoffs Agents as tools": [
+   "[[多智能体架构]]",
+   "[[子 agent 与 step.invoke()]]",
+   "[[自收敛与免全局同步]]",
+   "[[very few abstractions]]",
+   "[[primitives]]",
+   "[[Agent]]"
+  ],
   "Harness token floor": [
    "[[Token count]]",
    "[[Configuration multiplier]]",
@@ -1223,6 +1315,15 @@
    "[[API-boundary observability]]",
    "[[Tool-schema tax]]",
    "[[长上下文窗口]]",
+   "[[Harness]]"
+  ],
+  "instruction budget": [
+   "[[the dumb zone the smart zone]]",
+   "[[Context Bloat]]",
+   "[[gotchas 优先原则]]",
+   "[[Context as working memory budget]]",
+   "[[configuration problem]]",
+   "[[Harness 工程 Harness Engineering]]",
    "[[Harness]]"
   ],
   "prefill 与 decode 的高度倾斜": [
@@ -1303,6 +1404,14 @@
    "[[上下文工程 context engineering]]",
    "[[Harness]]"
   ],
+  "shell tool": [
+   "[[工具 Tools]]",
+   "[[通用工具与「给模型一台计算机」]]",
+   "[[code mode]]",
+   "[[Agents SDK]]",
+   "[[model-native harness]]",
+   "[[Harness]]"
+  ],
   "Simulated Competence": [
    "[[Ghosts, Not Animals]]",
    "[[The Deferred Bill]]",
@@ -1361,6 +1470,29 @@
    "[[primitives]]",
    "[[Agent]]"
   ],
+  "迷失在中间 lost in the middle": [
+   "[[复述（recitation）与 lost-in-the-middle]]",
+   "[[查询感知语境化 query-aware contextualization]]",
+   "[[近因偏置 recency bias]]",
+   "[[干扰文档 distractor documents]]",
+   "[[扩展上下文模型 extended-context models]]",
+   "[[检索器-阅读器配置 retriever-reader]]",
+   "[[性能饱和早于召回饱和]]",
+   "[[重排序与排序列表截断]]",
+   "[[序列位置效应 serial-position effect]]",
+   "[[闭卷与 oracle 基线]]",
+   "[[合成键值检索任务]]",
+   "[[多文档问答受控实验]]",
+   "[[长上下文评测协议]]",
+   "[[首因偏置 primacy bias]]",
+   "[[U 型性能曲线]]",
+   "[[Agent vs Harness]]",
+   "[[AI Agent]]",
+   "[[非模型架构 Non-model Architecture]]",
+   "[[上下文腐烂 Context Rot]]",
+   "[[Harness 工程 Harness Engineering]]",
+   "[[Harness]]"
+  ],
   "allowed-tools": [
    "[[运行时限制、权限与数据保留边界 Runtime Limitations, Constraints, and Retention]]",
    "[[MCP servers]]"
@@ -1376,6 +1508,10 @@
   "让 Agent 自行验证": [
    "[[确认环节可以合并，但不能省略]]",
    "[[技能验证器 agent skills verifier]]"
+  ],
+  "SKILL.md 与前置信息": [
+   "[[自动激活]]",
+   "[[Skills as permanent upgrades]]"
   ],
   "If you're not the model, you're the harness.": [
    "[[Harness 工程 Harness Engineering]]",
@@ -1399,8 +1535,19 @@
    "[[agent 与 harness 的分工]]",
    "[[Harness]]"
   ],
+  "按需加载与始终加载": [
+   "[[按需加载]]",
+   "[[启动时仅加载名称和描述]]"
+  ],
   "笨循环 Dumb Loop": [
    "[[tool loop]]",
+   "[[Model as subroutine]]",
+   "[[AI Agent]]",
+   "[[非模型架构 Non-model Architecture]]",
+   "[[Harness]]"
+  ],
+  "编排循环 Orchestration Loop TAO ReAct": [
+   "[[think → act → observe 循环]]",
    "[[Model as subroutine]]",
    "[[AI Agent]]",
    "[[非模型架构 Non-model Architecture]]",
@@ -1409,6 +1556,10 @@
   "从客户端库到独立服务": [
    "[[Habitat]]",
    "[[Rockset 离线二级视图]]"
+  ],
+  "对象-边模型与分区": [
+   "[[Rockset 离线二级视图]]",
+   "[[持久化代码图谱 structural map graph]]"
   ],
   "非模型架构 Non-model Architecture": [
    "[[If you're not the model, you're the harness.]]",
@@ -1433,9 +1584,45 @@
    "[[上下文工程 context engineering]]",
    "[[Harness]]"
   ],
+  "古德哈特定律": [
+   "[[弱而模糊的评估器]]",
+   "[[有界改动与回归闸]]",
+   "[[可维护性没有惩罚项]]",
+   "[[Prompt 到 Loop 的跃迁]]",
+   "[[自动循环的心跳]]",
+   "[[Loop Engineering]]"
+  ],
+  "即时检索 Just-in-time Retrieval": [
+   "[[混合检索策略 hybrid strategy]]",
+   "[[session_search]]",
+   "[[可恢复的压缩 restorable compression]]",
+   "[[观察掩码 Observation Masking]]",
+   "[[即时检索 Just-in-time Retrieval]]",
+   "[[渐进式披露 progressive disclosure]]",
+   "[[长上下文窗口]]",
+   "[[AI Agent]]",
+   "[[非模型架构 Non-model Architecture]]",
+   "[[上下文工程 context engineering]]",
+   "[[Harness]]"
+  ],
+  "技能描述": [
+   "[[技能触发与自动使用 Skill Triggering Automatic Use]]",
+   "[[语义匹配（semantic matching）与触发短语]]"
+  ],
   "技能验证器 agent skills verifier": [
    "[[确认环节可以合并，但不能省略]]",
    "[[让 Agent 自行验证]]"
+  ],
+  "技能优先级层级结构": [
+   "[[插件技能缺失]]",
+   "[[名称冲突优先级与技能作用域]]"
+  ],
+  "脚手架与 Harness 厚度 Scaffolding Harness Thickness": [
+   "[[Thin Harness, Fat Skills]]",
+   "[[1.6% vs 98.4%]]",
+   "[[AI Agent]]",
+   "[[非模型架构 Non-model Architecture]]",
+   "[[Harness]]"
   ],
   "可验证目标": [
    "[[验证子系统与可运行的证据]]",
@@ -1443,6 +1630,14 @@
    "[[Prompt 到 Loop 的跃迁]]",
    "[[自动循环的心跳]]",
    "[[Loop Engineering]]"
+  ],
+  "名称与描述 name description": [
+   "[[按需加载]]",
+   "[[启动时仅加载名称和描述]]"
+  ],
+  "匹配后的确认与完整加载": [
+   "[[按需加载]]",
+   "[[启动时仅加载名称和描述]]"
   ],
   "上下文文件树 tree of files": [
    "[[渐进式披露 progressive disclosure]]",
@@ -1460,6 +1655,10 @@
    "[[非模型架构 Non-model Architecture]]",
    "[[上下文工程 context engineering]]",
    "[[Harness]]"
+  ],
+  "语义匹配（semantic matching）与触发短语": [
+   "[[技能描述]]",
+   "[[技能触发与自动使用 Skill Triggering Automatic Use]]"
   ],
   "子 Agent 分工": [
    "[[多智能体架构]]",
@@ -1506,6 +1705,29 @@
    "[[Agent = Model + Harness]]",
    "[[Agent loop]]",
    "[[Harness]]"
+  ],
+  "Agent = Model + Harness": [
+   "[[Harness]]",
+   "[[Harness 工程 Harness Engineering]]",
+   "[[从期望行为反推 harness 设计]]",
+   "[[Filesystem 作为最基础的 harness 原语]]",
+   "[[Self-verification loop]]",
+   "[[Context injection]]",
+   "[[Progressive disclosure（渐进式披露）与 Skills]]",
+   "[[通用工具与「给模型一台计算机」]]",
+   "[[Memory file 与 continual learning]]",
+   "[[Harness level feature]]",
+   "[[ReAct loop]]",
+   "[[Tool call offloading]]",
+   "[[模型训练与 harness 设计的耦合]]",
+   "[[Ralph Loop]]",
+   "[[Sandbox]]",
+   "[[AI 工程基础设施 AI engineering infrastructure]]",
+   "[[确定性工程基础设施 deterministic engineering infrastructure]]",
+   "[[上下文压缩 Context Compression Summarization]]",
+   "[[1.6% vs 98.4%]]",
+   "[[Agent]]",
+   "[[上下文腐烂 Context Rot]]"
   ],
   "Agent-Native Infrastructure": [
    "[[代理原生 agent-native]]",
@@ -1571,6 +1793,29 @@
    "[[意向性系统理论]]",
    "[[无国籍智能体]]"
   ],
+  "AI Agent": [
+   "[[Agent]]",
+   "[[从期望行为反推 harness 设计]]",
+   "[[编排循环 Orchestration Loop TAO ReAct]]",
+   "[[笨循环 Dumb Loop]]",
+   "[[记忆即提示 Memory as Prompt]]",
+   "[[执行可靠性机制 State Error Guardrails Verification]]",
+   "[[脚手架与 Harness 厚度 Scaffolding Harness Thickness]]",
+   "[[LLM-as-CPU Harness-as-OS]]",
+   "[[提示词工程 Prompt Engineering]]",
+   "[[工具 Tools]]",
+   "[[观察掩码 Observation Masking]]",
+   "[[MCP Model Context Protocol]]",
+   "[[压缩 Compaction]]",
+   "[[记忆 Memory]]",
+   "[[即时检索 Just-in-time Retrieval]]",
+   "[[非模型架构 Non-model Architecture]]",
+   "[[迷失在中间 lost in the middle]]",
+   "[[上下文腐烂 Context Rot]]",
+   "[[Harness 工程 Harness Engineering]]",
+   "[[上下文工程 context engineering]]",
+   "[[Harness]]"
+  ],
   "Habitat": [
    "[[从客户端库到独立服务]]",
    "[[Rockset 离线二级视图]]"
@@ -1579,6 +1824,21 @@
    "[[非模型架构 Non-model Architecture]]",
    "[[脚手架化 LLM 与冯·诺依曼架构类比]]",
    "[[AI Agent]]",
+   "[[Harness]]"
+  ],
+  "Thin Harness, Fat Skills": [
+   "[[技能化 Skills]]",
+   "[[脚手架与 Harness 厚度 Scaffolding Harness Thickness]]",
+   "[[Context Bloat]]",
+   "[[Skill-as-method-call]]",
+   "[[Learning Loop]]",
+   "[[Resolver]]",
+   "[[Latent vs Deterministic]]",
+   "[[Diarization]]",
+   "[[Skill Files]]",
+   "[[外包思考，但不外包理解]]",
+   "[[Agent-Native Infrastructure]]",
+   "[[Sensors 与 Actuators]]",
    "[[Harness]]"
   ],
   "渐进式披露 progressive disclosure": [
@@ -1602,6 +1862,9 @@
    "[[上下文工程 context engineering]]",
    "[[Harness]]"
   ],
+  "名称冲突优先级与技能作用域": [
+   "[[技能优先级层级结构]]"
+  ],
   "三类内容：说明、代码、资源 Instructions, Code, Resources": [
    "[[按需加载]]"
   ],
@@ -1613,6 +1876,23 @@
    "[[确定性工程基础设施 deterministic engineering infrastructure]]",
    "[[Lights-off 软件工厂]]",
    "[[1.6% vs 98.4%]]"
+  ],
+  "把重复步骤编码成 Skill": [
+   "[[验证闭环 verification loop]]",
+   "[[验证循环：guides 与 sensors]]",
+   "[[SKILL.md：frontmatter＋body 契约]]",
+   "[[description 作为触发条件]]",
+   "[[独立调用 Standalone]]",
+   "[[PR 级门禁 On every PR]]",
+   "[[可编辑性边界]]",
+   "[[Wrapper skill]]",
+   "[[习惯变契约 habit → contract]]",
+   "[[个人基础设施 → 团队基础设施]]",
+   "[[循环工程 loop engineering]]",
+   "[[灵活性与自动化的权衡]]",
+   "[[嵌入 Embedded]]",
+   "[[链式 Chained]]",
+   "[[skill-creator 访谈式创建]]"
   ],
   "编排循环与「dumb loop」": [
    "[[Harness 与 Loop 的配合]]",
@@ -1628,6 +1908,21 @@
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
   ],
+  "不可见的劳动": [
+   "[[「模型即产品」的幻觉]]",
+   "[[Lights-off 软件工厂]]",
+   "[[人的手感与产品手艺]]",
+   "[[非确定性 nondeterminism]]",
+   "[[Harness]]"
+  ],
+  "层级架构强约束 + 给 Agent 读的 lint 错误": [
+   "[[Agentic Engineering]]",
+   "[[可维护性 霰弹式手术]]",
+   "[[架构约束的确定性执行]]",
+   "[[AI 工程基础设施 AI engineering infrastructure]]",
+   "[[确定性工程基础设施 deterministic engineering infrastructure]]",
+   "[[1.6% vs 98.4%]]"
+  ],
   "谄媚（Sycophancy）": [
    "[[奖励攻击与多样性坍塌]]",
    "[[领域不均匀的谄媚（Domain-asymmetric Sycophancy）]]",
@@ -1635,12 +1930,38 @@
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
   ],
+  "持久化代码图谱 structural map graph": [
+   "[[Artifact Schema]]",
+   "[[对象-边模型与分区]]",
+   "[[增量更新 incremental update]]",
+   "[[Token 优化的评审上下文 get_review_context_tool]]",
+   "[[MCP 工具层]]",
+   "[[语义搜索 semantic search embeddings]]",
+   "[[code-review-graphignore 排除配置]]",
+   "[[Review Quality 评分方法]]",
+   "[[Watch 模式与自动更新 hooks]]",
+   "[[code-review-graph]]",
+   "[[Tree-sitter]]"
+  ],
+  "触发模式谱系": [
+   "[[任务时域 task horizon]]",
+   "[[自动循环的心跳]]",
+   "[[Claude Managed Agents]]",
+   "[[messages API 作为直连网关]]",
+   "[[Harness]]"
+  ],
   "从禁止什么到对齐什么": [
    "[[Natural language as code]]",
    "[[判断力优先 let Claude use judgement]]",
    "[[prompt 与 context 的通用性落差]]",
    "[[过度约束与松绑 over-constraining unhobbling]]",
    "[[上下文工程 context engineering]]"
+  ],
+  "从期望行为反推 harness 设计": [
+   "[[Harness]]",
+   "[[AI Agent]]",
+   "[[Agent = Model + Harness]]",
+   "[[Harness 工程 Harness Engineering]]"
   ],
   "递归 planner 与 subplanner": [
    "[[子 agent 编排 Fork Teammate Worktree]]",
@@ -1656,6 +1977,19 @@
    "[[时间 Scalability Temporal Scalability]]",
    "[[空间 Scalability Spatial Scalability]]",
    "[[Harness 工程 Harness Engineering]]"
+  ],
+  "递归并行规划 sub-planner": [
+   "[[递归 planner 与 subplanner]]",
+   "[[子 agent 与 step.invoke()]]",
+   "[[长时程自治编码 long-running autonomous coding]]",
+   "[[动态协调 dynamic coordination]]",
+   "[[单 agent 的速度天花板]]"
+  ],
+  "递归结构不能替代基座智能": [
+   "[[递归自我改进 RSI]]",
+   "[[Bitter Lesson]]",
+   "[[部署系统层]]",
+   "[[Harness]]"
   ],
   "递归自我改进 RSI": [
    "[[奖励攻击与多样性坍塌]]",
@@ -1737,12 +2071,37 @@
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
   ],
+  "工具即契约 tools as the contract": [
+   "[[工具 Tools]]",
+   "[[工具定义 Tool Definitions Tool Schema]]",
+   "[[注意力预算 attention budget]]",
+   "[[上下文腐烂 Context Rot]]",
+   "[[上下文工程 context engineering]]"
+  ],
   "工具接口的表达力设计": [
    "[[工具定义 Tool Definitions Tool Schema]]",
    "[[接口即指令 design interfaces]]",
    "[[护栏型指令的过期]]",
    "[[判断力优先 let Claude use judgement]]",
    "[[上下文工程 context engineering]]"
+  ],
+  "功能清单作为 harness 原语": [
+   "[[Harness]]",
+   "[[Harness 工程 Harness Engineering]]",
+   "[[指令子系统与渐进式展开]]",
+   "[[能力鸿沟]]"
+  ],
+  "共享 harness": [
+   "[[Harness]]",
+   "[[Harness 工程 Harness Engineering]]",
+   "[[最小充分上下文]]",
+   "[[先收窄、后读取]]",
+   "[[工具调用批处理]]",
+   "[[Trace 驱动评估]]",
+   "[[任务特定工具说明]]",
+   "[[收敛式失败恢复]]",
+   "[[工具—工作流适配]]",
+   "[[浏览循环]]"
   ],
   "共享产品系统 shared product system": [
    "[[共享 多人 agent 会话]]",
@@ -1758,6 +2117,10 @@
    "[[独立视频 standalone video]]",
    "[[语言驱动的代码一致性 language-code alignment]]",
    "[[统一语言 ubiquitous language]]"
+  ],
+  "共享上下文窗口": [
+   "[[Skill]]",
+   "[[按需加载]]"
   ],
   "共享文件加锁的协调机制": [
    "[[自协调与共享协调文件]]",
@@ -1790,6 +2153,18 @@
    "[[Explicit Breakpoints]]",
    "[[系统提示 System Prompt]]",
    "[[上下文压缩 Context Compression Summarization]]"
+  ],
+  "缓存连续性 Cache Continuity": [
+   "[[Cache prefix stability]]",
+   "[[稳定前缀 Stable Prefix]]",
+   "[[缓存断点 Cache Breakpoint]]",
+   "[[提示词缓存 Prompt Caching]]"
+  ],
+  "缓存命中读取成本 Cache Hit Read Cost": [
+   "[[cached input tokens]]",
+   "[[提示词缓存 Prompt Caching]]",
+   "[[稳定前缀 Stable Prefix]]",
+   "[[缓存断点 Cache Breakpoint]]"
   ],
   "会话的话题边界": [
    "[[长上下文窗口]]",
@@ -1834,6 +2209,21 @@
    "[[高精度原型设计]]",
    "[[描述区分度]]"
   ],
+  "教会 AI Agent 如何成功": [
+   "[[共享理解 shared understanding]]",
+   "[[目标清楚 + 结果好验收]]",
+   "[[Instructions files]]",
+   "[[外包思考，但不外包理解]]",
+   "[[Agent-Native Infrastructure]]",
+   "[[Sensors 与 Actuators]]"
+  ],
+  "静默的分级失败": [
+   "[[差一点就通过的输出]]",
+   "[[验证缺口]]",
+   "[[「模型即产品」的幻觉]]",
+   "[[非确定性 nondeterminism]]",
+   "[[Harness]]"
+  ],
   "局部最优 local optima": [
    "[[今天的魔法咒语，明天的反模式]]",
    "[[2026 版约束理论]]",
@@ -1847,6 +2237,13 @@
    "[[收敛式失败恢复]]",
    "[[无手打代码 no manually typed code at all]]",
    "[[上下文工程 context engineering]]",
+   "[[Harness]]"
+  ],
+  "开箱即用的编排与子 agent": [
+   "[[subagents]]",
+   "[[模型—角色适配]]",
+   "[[「少即是多」：gimmick 与真实增益的分界]]",
+   "[[废料怪兽]]",
    "[[Harness]]"
   ],
   "看对话 log": [
@@ -1867,6 +2264,13 @@
    "[[护城河清单与插件化路线]]",
    "[[对话加确定性缝合]]",
    "[[反向代理式窥探]]"
+  ],
+  "可观测性": [
+   "[[让不可见变得可见]]",
+   "[[Harness]]",
+   "[[指令子系统与渐进式展开]]",
+   "[[能力鸿沟]]",
+   "[[Harness 工程 Harness Engineering]]"
   ],
   "可恢复的压缩 restorable compression": [
    "[[上下文压缩与即时检索 compaction just-in-time retrieval]]",
@@ -1903,6 +2307,14 @@
    "[[纠正成本递减 correct things less from that point on]]",
    "[[bits]]"
   ],
+  "模型—角色适配": [
+   "[[planner–executor–judge 角色分工]]",
+   "[[开箱即用的编排与子 agent]]",
+   "[[子 Agent 分工]]",
+   "[[长时程自治编码 long-running autonomous coding]]",
+   "[[动态协调 dynamic coordination]]",
+   "[[单 agent 的速度天花板]]"
+  ],
   "模型一致性与 prompt caching": [
    "[[提示词缓存（Prompt Caching）]]",
    "[[TTL]]",
@@ -1916,6 +2328,31 @@
    "[[会话级累积判断]]",
    "[[判定程序化写法]]",
    "[[fail-closed 默认]]"
+  ],
+  "目标清楚 + 结果好验收": [
+   "[[判断力优先 let Claude use judgement]]",
+   "[[教会 AI Agent 如何成功]]",
+   "[[外包思考，但不外包理解]]",
+   "[[Agent-Native Infrastructure]]",
+   "[[Sensors 与 Actuators]]"
+  ],
+  "能力鸿沟": [
+   "[[Agent vs Harness]]",
+   "[[弱 harness 强 harness 对照与消融实验]]",
+   "[[验证子系统与可运行的证据]]",
+   "[[功能清单作为 harness 原语]]",
+   "[[会话生命周期]]",
+   "[[端到端验证]]",
+   "[[从救火到审查的角色转移]]",
+   "[[状态子系统与进度持久化]]",
+   "[[范围控制与显式的完成定义]]",
+   "[[仓库即唯一事实来源]]",
+   "[[验证缺口]]",
+   "[[可观测性]]",
+   "[[让不可见变得可见]]",
+   "[[指令子系统与渐进式展开]]",
+   "[[configuration problem]]",
+   "[[Harness 工程 Harness Engineering]]"
   ],
   "判定程序化写法": [
    "[[示例强于规则]]",
@@ -1956,9 +2393,30 @@
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
   ],
+  "让不可见变得可见": [
+   "[[卡住即信号 struggle as signal]]",
+   "[[可观测性]]",
+   "[[能力鸿沟]]",
+   "[[「模型即产品」的幻觉]]",
+   "[[非确定性 nondeterminism]]",
+   "[[Harness]]"
+  ],
   "人在关键路径确认": [
    "[[可行性分析]]",
    "[[执行主体从人变成 Agent]]"
+  ],
+  "任务时域 task horizon": [
+   "[[长时程自治编码 long-running autonomous coding]]",
+   "[[触发模式谱系]]",
+   "[[Claude Managed Agents]]",
+   "[[messages API 作为直连网关]]",
+   "[[Harness]]"
+  ],
+  "弱 harness 强 harness 对照与消融实验": [
+   "[[Agent vs Harness]]",
+   "[[能力鸿沟]]",
+   "[[指令子系统与渐进式展开]]",
+   "[[Harness 工程 Harness Engineering]]"
   ],
   "三层工程 prompt context harness engineering": [
    "[[Agent vs Harness]]",
@@ -2028,6 +2486,13 @@
    "[[锁竞争与乐观并发控制]]",
    "[[Harness]]"
   ],
+  "锁竞争瓶颈 lock contention": [
+   "[[共享文件加锁的协调机制]]",
+   "[[锁竞争与乐观并发控制]]",
+   "[[长时程自治编码 long-running autonomous coding]]",
+   "[[动态协调 dynamic coordination]]",
+   "[[单 agent 的速度天花板]]"
+  ],
   "统一语言 ubiquitous language": [
    "[[语言驱动的代码一致性 language-code alignment]]",
    "[[系统架构评审]]",
@@ -2051,6 +2516,13 @@
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
   ],
+  "稳定的 prompt 前缀": [
+   "[[前缀匹配 Prefix Matching]]",
+   "[[稳定前缀 Stable Prefix]]",
+   "[[押注 in-context learning]]",
+   "[[与底层模型正交 orthogonal to the underlying models]]",
+   "[[上下文工程 context engineering]]"
+  ],
   "系统提示 System Prompt": [
    "[[agentfile CLAUDE.md 与 AGENTS.md]]",
    "[[消息层 Messages Layer]]",
@@ -2071,6 +2543,13 @@
    "[[递归自我改进 RSI]]",
    "[[部署系统层]]",
    "[[Harness]]"
+  ],
+  "芯片管制": [
+   "[[平行 AI 基础设施]]",
+   "[[昇腾]]",
+   "[[外包思考，但不外包理解]]",
+   "[[Agent-Native Infrastructure]]",
+   "[[Sensors 与 Actuators]]"
   ],
   "信任机制重构": [
    "[[Agent-Native Infrastructure]]",
@@ -2103,6 +2582,20 @@
    "[[持久化执行 durable execution]]",
    "[[Harness]]"
   ],
+  "验证缺口": [
+   "[[静默的分级失败]]",
+   "[[自评失真 Self-evaluation Distortion]]",
+   "[[指令子系统与渐进式展开]]",
+   "[[能力鸿沟]]",
+   "[[Harness 工程 Harness Engineering]]"
+  ],
+  "验证循环：guides 与 sensors": [
+   "[[形成性评估]]",
+   "[[把重复步骤编码成 Skill]]",
+   "[[agent 与 harness 的分工]]",
+   "[[If you're not the model, you're the harness.]]",
+   "[[Harness]]"
+  ],
   "意图规约与可引导性": [
    "[[Elicitation]]",
    "[[bits]]",
@@ -2120,6 +2613,20 @@
    "[[外包思考，但不外包理解]]",
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
+  ],
+  "有界改动与回归闸": [
+   "[[验证子系统与可运行的证据]]",
+   "[[古德哈特定律]]",
+   "[[递归自我改进 RSI]]",
+   "[[部署系统层]]",
+   "[[Harness]]"
+  ],
+  "原生工具与 MCP 外挂": [
+   "[[MCP Model Context Protocol]]",
+   "[[MCP servers]]",
+   "[[对话加确定性缝合]]",
+   "[[反向代理式窥探]]",
+   "[[看对话 log]]"
   ],
   "知识端点": [
    "[[Context injection]]",
@@ -2161,6 +2668,13 @@
    "[[空间 Scalability Spatial Scalability]]",
    "[[Harness 工程 Harness Engineering]]"
   ],
+  "自收敛与免全局同步": [
+   "[[handoff 交接]]",
+   "[[Handoffs Agents as tools]]",
+   "[[自协调与共享协调文件]]",
+   "[[锁竞争与乐观并发控制]]",
+   "[[Harness]]"
+  ],
   "自协调与共享协调文件": [
    "[[动态协调 dynamic coordination]]",
    "[[共享文件加锁的协调机制]]",
@@ -2196,6 +2710,13 @@
    "[[代理原生 agent-native]]",
    "[[上下文骨架]]",
    "[[“SaaS 已死”叙事与护城河蒸发]]"
+  ],
+  "最小充分上下文": [
+   "[[注意力预算 attention budget]]",
+   "[[最小充分性与语义连续性原则]]",
+   "[[共享 harness]]",
+   "[[工具—工作流适配]]",
+   "[[浏览循环]]"
   ],
   "Action Space": [
    "[[Filesystem 作为最基础的 harness 原语]]",
@@ -2269,6 +2790,13 @@
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
   ],
+  "AI 可见性": [
+   "[[AI 爬虫五大分类]]",
+   "[[GEO]]",
+   "[[外包思考，但不外包理解]]",
+   "[[Agent-Native Infrastructure]]",
+   "[[Sensors 与 Actuators]]"
+  ],
   "Architecture Operator 分工": [
    "[[Creator → Curator 角色转换]]",
    "[[Software Factory]]",
@@ -2320,10 +2848,24 @@
    "[[Reliability-critical harness primitives]]",
    "[[Harness 工程 Harness Engineering]]"
   ],
+  "Context Bloat": [
+   "[[注意力预算 attention budget]]",
+   "[[instruction budget]]",
+   "[[Skill Files]]",
+   "[[Thin Harness, Fat Skills]]",
+   "[[Harness]]"
+  ],
   "context firewall": [
    "[[Subagent]]",
    "[[sub-agent 架构与关注点分离]]",
    "[[configuration problem]]",
+   "[[Harness 工程 Harness Engineering]]",
+   "[[Harness]]"
+  ],
+  "Context injection": [
+   "[[知识端点]]",
+   "[[Personal Context]]",
+   "[[Agent = Model + Harness]]",
    "[[Harness 工程 Harness Engineering]]",
    "[[Harness]]"
   ],
@@ -2434,6 +2976,14 @@
    "[[Inner Loop]]",
    "[[Harness 工程 Harness Engineering]]"
   ],
+  "Friction-based Skill Formation": [
+   "[[Without Defensiveness]]",
+   "[[The Deferred Bill]]",
+   "[[稀疏反馈推断规则]]",
+   "[[外包思考，但不外包理解]]",
+   "[[Agent-Native Infrastructure]]",
+   "[[Sensors 与 Actuators]]"
+  ],
   "Function tools": [
    "[[Tool Calling]]",
    "[[MCP server tool calling]]",
@@ -2458,6 +3008,13 @@
    "[[Continuous orchestration loop]]",
    "[[Loop Engineering]]"
   ],
+  "gotchas 优先原则": [
+   "[[instruction budget]]",
+   "[[gotchas 优先的 CLAUDE.md]]",
+   "[[护栏型指令的过期]]",
+   "[[判断力优先 let Claude use judgement]]",
+   "[[上下文工程 context engineering]]"
+  ],
   "harness 的过时假设": [
    "[[Harness 组件生命周期]]",
    "[[Harness 简化原则 Harness Simplification]]",
@@ -2472,6 +3029,34 @@
    "[[If you're not the model, you're the harness.]]",
    "[[Harness]]"
   ],
+  "Harness 内 RL RL inside the harness": [
+   "[[Co-evolution Principle]]",
+   "[[RLVR 与编码 agent 的 RL 训练循环]]",
+   "[[模型训练与 harness 设计的耦合]]",
+   "[[Lights-off 软件工厂]]",
+   "[[软件工厂 Software Factory]]",
+   "[[Harness 工程 Harness Engineering]]"
+  ],
+  "harness 与 framework 的分野": [
+   "[[harness 厚薄 thin vs thick]]",
+   "[[Harness Thickness]]",
+   "[[step ID 自动索引]]",
+   "[[普遍可触发 universally triggered]]",
+   "[[子 agent 与 step.invoke()]]",
+   "[[两级上下文剪枝 pruning]]",
+   "[[预算警告与溢出恢复]]",
+   "[[steering]]",
+   "[[step]]",
+   "[[think → act → observe 循环]]",
+   "[[事件驱动编排与执行解耦]]",
+   "[[webhook transform 与 connect()]]",
+   "[[小函数组合]]",
+   "[[压缩（compaction）与运行内外的分工]]",
+   "[[基础设施问题，不是 AI 问题]]",
+   "[[Runtime-harness separation]]",
+   "[[持久化执行 durable execution]]",
+   "[[Harness]]"
+  ],
   "Harness level feature": [
    "[[Harness]]",
    "[[Harness Thickness]]",
@@ -2479,6 +3064,14 @@
    "[[Agent = Model + Harness]]",
    "[[model-native harness]]",
    "[[Harness 工程 Harness Engineering]]"
+  ],
+  "Harness Thickness": [
+   "[[Harness level feature]]",
+   "[[harness 与 framework 的分野]]",
+   "[[Agent vs Harness]]",
+   "[[model-native harness]]",
+   "[[Harness 工程 Harness Engineering]]",
+   "[[Harness]]"
   ],
   "harness–compute separation": [
    "[[exfiltration]]",
@@ -2537,6 +3130,23 @@
    "[[Agent loop]]",
    "[[Harness]]"
   ],
+  "Lights-off 软件工厂": [
+   "[[Software Factory]]",
+   "[[不可见的劳动]]",
+   "[[前置对齐 front-loading alignment]]",
+   "[[可维护性 霰弹式手术]]",
+   "[[可维护性缺一个可靠的打分预言机]]",
+   "[[系统架构评审]]",
+   "[[可维护性没有惩罚项]]",
+   "[[Mutation Testing 与前沿质量评测]]",
+   "[[Harness 内 RL RL inside the harness]]",
+   "[[2026 版约束理论]]",
+   "[[SWE-bench 与二元打分]]",
+   "[[0 人工代码、0 人工 review 极限形态]]",
+   "[[RLVR 与编码 agent 的 RL 训练循环]]",
+   "[[软件工厂 Software Factory]]",
+   "[[Harness 工程 Harness Engineering]]"
+  ],
   "LLM Large Language Model": [
    "[[推理模型]]",
    "[[押注 in-context learning]]",
@@ -2587,12 +3197,26 @@
    "[[Agent loop]]",
    "[[Harness]]"
   ],
+  "MCP 工具层": [
+   "[[MCP Model Context Protocol]]",
+   "[[MCP servers]]",
+   "[[持久化代码图谱 structural map graph]]",
+   "[[code-review-graph]]",
+   "[[Tree-sitter]]"
+  ],
   "MCP server tool calling": [
    "[[Tool Calling]]",
    "[[Function tools]]",
    "[[very few abstractions]]",
    "[[primitives]]",
    "[[Agent]]"
+  ],
+  "meaningful uplift 判据": [
+   "[[默认帮助的高门槛拒绝]]",
+   "[[会话级累积判断]]",
+   "[[判定程序化写法]]",
+   "[[反自我合理化条款]]",
+   "[[fail-closed 默认]]"
   ],
   "Measurement snapshot": [
    "[[pass@k]]",
@@ -2601,6 +3225,28 @@
    "[[API-boundary observability]]",
    "[[Tool-schema tax]]",
    "[[Harness token floor]]"
+  ],
+  "Memory-driven development": [
+   "[[记忆 Memory]]",
+   "[[Memory file 与 continual learning]]",
+   "[[Markdown prompt engineering]]",
+   "[[Agentic primitives]]",
+   "[[上下文工程 context engineering]]"
+  ],
+  "Model as subroutine": [
+   "[[编排循环 Orchestration Loop TAO ReAct]]",
+   "[[笨循环 Dumb Loop]]",
+   "[[Budget ceiling]]",
+   "[[Context discipline]]",
+   "[[Decision-maker in the body]]",
+   "[[Self-verification]]",
+   "[[Feedback loop]]",
+   "[[No-progress detection]]",
+   "[[Skill as asset]]",
+   "[[Ralph Loop]]",
+   "[[Git-backed state]]",
+   "[[Continuous orchestration loop]]",
+   "[[Loop Engineering]]"
   ],
   "model-native harness": [
    "[[harness 厚薄 thin vs thick]]",
@@ -2627,6 +3273,15 @@
    "[[持久化执行 durable execution]]",
    "[[Harness]]"
   ],
+  "multimodal Vision LLMs": [
+   "[[原始上下文容忍度 tolerance for raw context]]",
+   "[[VLM]]",
+   "[[Tiny Engram]]",
+   "[[Q、K、V]]",
+   "[[coding agent]]",
+   "[[LLM Large Language Model]]",
+   "[[Harness]]"
+  ],
   "Mutation Testing 与前沿质量评测": [
    "[[Grading Criteria]]",
    "[[Kappa 系数]]",
@@ -2634,6 +3289,21 @@
    "[[Lights-off 软件工厂]]",
    "[[软件工厂 Software Factory]]",
    "[[Harness 工程 Harness Engineering]]"
+  ],
+  "Nerdy Personality": [
+   "[[RLHF]]",
+   "[[Reward Signal]]",
+   "[[外包思考，但不外包理解]]",
+   "[[Agent-Native Infrastructure]]",
+   "[[Sensors 与 Actuators]]"
+  ],
+  "OAIQ": [
+   "[[oppref]]",
+   "[[对话式广告归因闭环]]",
+   "[[正确的信息与工具，在正确的时间]]",
+   "[[外包思考，但不外包理解]]",
+   "[[Agent-Native Infrastructure]]",
+   "[[Sensors 与 Actuators]]"
   ],
   "Onboarding Agent": [
    "[[安全路由与能力分层]]",
@@ -2715,6 +3385,16 @@
    "[[Context as working memory budget]]",
    "[[Harness 工程 Harness Engineering]]"
   ],
+  "RLHF": [
+   "[[Reward Signal]]",
+   "[[Nerdy Personality]]",
+   "[[Reward Generalization]]",
+   "[[DPPO]]",
+   "[[ScaleRL]]",
+   "[[外包思考，但不外包理解]]",
+   "[[Agent-Native Infrastructure]]",
+   "[[Sensors 与 Actuators]]"
+  ],
   "RLOO": [
    "[[REINFORCE]]",
    "[[优势函数]]",
@@ -2723,6 +3403,24 @@
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
   ],
+  "RLVR 与编码 agent 的 RL 训练循环": [
+   "[[Reward Signal]]",
+   "[[Harness 内 RL RL inside the harness]]",
+   "[[RL Circuits]]",
+   "[[reasoning thinking]]",
+   "[[ScaleRL]]",
+   "[[Lights-off 软件工厂]]",
+   "[[软件工厂 Software Factory]]",
+   "[[Harness 工程 Harness Engineering]]"
+  ],
+  "Rubric 与 verifier agent": [
+   "[[Rubric]]",
+   "[[Self-evaluation Failure]]",
+   "[[Read-only Verifier Agent]]",
+   "[[护栏型指令的过期]]",
+   "[[判断力优先 let Claude use judgement]]",
+   "[[上下文工程 context engineering]]"
+  ],
   "Sandbox agents": [
    "[[Sandbox]]",
    "[[Environment]]",
@@ -2730,10 +3428,26 @@
    "[[primitives]]",
    "[[Agent]]"
   ],
+  "Self-evaluation Failure": [
+   "[[Read-only Verifier Agent]]",
+   "[[Rubric 与 verifier agent]]",
+   "[[Self-verification]]",
+   "[[Context Anxiety]]",
+   "[[Context Reset vs Compaction]]",
+   "[[Harness]]"
+  ],
   "Session Management": [
    "[[Context Reset vs Compaction]]",
    "[[会话的话题边界]]",
    "[[new topic 判定]]"
+  ],
+  "session_search": [
+   "[[记忆 Memory]]",
+   "[[即时检索 Just-in-time Retrieval]]",
+   "[[跨会话记忆文件系统]]",
+   "[[外包思考，但不外包理解]]",
+   "[[Agent-Native Infrastructure]]",
+   "[[Sensors 与 Actuators]]"
   ],
   "Sessions": [
    "[[Session]]",
@@ -2832,6 +3546,15 @@
    "[[skill-creator 访谈式创建]]",
    "[[Harness]]"
   ],
+  "Tool call offloading": [
+   "[[tokens]]",
+   "[[U 型性能曲线]]",
+   "[[WebFetch 两阶段总结]]",
+   "[[the dumb zone the smart zone]]",
+   "[[Agent = Model + Harness]]",
+   "[[Harness 工程 Harness Engineering]]",
+   "[[Harness]]"
+  ],
   "tool loop": [
    "[[笨循环 Dumb Loop]]",
    "[[agent 循环]]",
@@ -2857,6 +3580,12 @@
    "[[API-boundary observability]]",
    "[[注意力预算 attention budget]]",
    "[[Harness token floor]]"
+  ],
+  "tools → system → messages 缓存顺序": [
+   "[[前缀匹配 Prefix Matching]]",
+   "[[稳定前缀 Stable Prefix]]",
+   "[[缓存断点 Cache Breakpoint]]",
+   "[[提示词缓存 Prompt Caching]]"
   ],
   "Trace 驱动评估": [
    "[[Tracing]]",
@@ -2890,6 +3619,14 @@
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
   ],
+  "VLM": [
+   "[[multimodal Vision LLMs]]",
+   "[[Q、K、V]]",
+   "[[Tiny Engram]]",
+   "[[外包思考，但不外包理解]]",
+   "[[Agent-Native Infrastructure]]",
+   "[[Sensors 与 Actuators]]"
+  ],
   "Von Neumann Architecture Analogy": [
    "[[stateless]]",
    "[[Runtime-harness separation]]",
@@ -2897,28 +3634,11 @@
    "[[Harness 工程 Harness Engineering]]",
    "[[Harness]]"
   ],
-  "迷失在中间 lost in the middle": [
-   "[[复述（recitation）与 lost-in-the-middle]]",
-   "[[近因偏置 recency bias]]",
-   "[[干扰文档 distractor documents]]",
-   "[[扩展上下文模型 extended-context models]]",
-   "[[查询感知语境化 query-aware contextualization]]",
-   "[[检索器-阅读器配置 retriever-reader]]",
-   "[[性能饱和早于召回饱和]]",
-   "[[重排序与排序列表截断]]",
-   "[[序列位置效应 serial-position effect]]",
-   "[[闭卷与 oracle 基线]]",
-   "[[合成键值检索任务]]",
-   "[[多文档问答受控实验]]",
-   "[[长上下文评测协议]]",
-   "[[首因偏置 primacy bias]]",
-   "[[U 型性能曲线]]",
-   "[[Agent vs Harness]]",
-   "[[AI Agent]]",
-   "[[非模型架构 Non-model Architecture]]",
-   "[[上下文腐烂 Context Rot]]",
-   "[[Harness 工程 Harness Engineering]]",
-   "[[Harness]]"
+  "个人技能与项目技能": [
+   "[[agent 模板的声明式持久化]]"
+  ],
+  "description": [
+   "[[SKILL.md 与 YAML 前置元数据 SKILL.md YAML frontmatter]]"
   ],
   "废料怪兽": [
    "[[扁平化]]",
@@ -2943,14 +3663,6 @@
    "[[外包思考，但不外包理解]]",
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]",
-   "[[Harness]]"
-  ],
-  "工具 Tools": [
-   "[[工具定义 Tool Definitions Tool Schema]]",
-   "[[coding agent]]",
-   "[[LLM Large Language Model]]",
-   "[[AI Agent]]",
-   "[[非模型架构 Non-model Architecture]]",
    "[[Harness]]"
   ],
   "瓶颈转移到代码两侧": [
@@ -2989,36 +3701,14 @@
    "[[Harness 工程 Harness Engineering]]",
    "[[Harness]]"
   ],
-  "SKILL.md 与前置信息": [
-   "[[自动激活]]"
-  ],
-  "按需加载与始终加载": [
-   "[[按需加载]]"
-  ],
-  "编排循环 Orchestration Loop TAO ReAct": [
-   "[[think → act → observe 循环]]",
-   "[[AI Agent]]",
-   "[[非模型架构 Non-model Architecture]]",
-   "[[Harness]]"
-  ],
   "插件技能缺失": [
    "[[技能优先级层级结构]]"
-  ],
-  "对象-边模型与分区": [
-   "[[Rockset 离线二级视图]]"
   ],
   "分解为小颗粒度工作": [
    "[[迁移到 Rust Python→Rust]]"
   ],
   "高精度原型设计": [
    "[[简洁规范]]"
-  ],
-  "古德哈特定律": [
-   "[[弱而模糊的评估器]]",
-   "[[可维护性没有惩罚项]]",
-   "[[Prompt 到 Loop 的跃迁]]",
-   "[[自动循环的心跳]]",
-   "[[Loop Engineering]]"
   ],
   "管理 Agent": [
    "[[0 人工代码、0 人工 review 极限形态]]",
@@ -3040,29 +3730,11 @@
    "[[上下文压缩 Context Compression Summarization]]",
    "[[Harness]]"
   ],
-  "即时检索 Just-in-time Retrieval": [
-   "[[混合检索策略 hybrid strategy]]",
-   "[[可恢复的压缩 restorable compression]]",
-   "[[观察掩码 Observation Masking]]",
-   "[[即时检索 Just-in-time Retrieval]]",
-   "[[渐进式披露 progressive disclosure]]",
-   "[[长上下文窗口]]",
-   "[[AI Agent]]",
-   "[[非模型架构 Non-model Architecture]]",
-   "[[上下文工程 context engineering]]",
-   "[[Harness]]"
-  ],
   "记忆即提示 Memory as Prompt": [
    "[[自动记忆 auto-memory]]",
    "[[AI Agent]]",
    "[[非模型架构 Non-model Architecture]]",
    "[[Harness]]"
-  ],
-  "技能描述": [
-   "[[技能触发与自动使用 Skill Triggering Automatic Use]]"
-  ],
-  "技能优先级层级结构": [
-   "[[插件技能缺失]]"
   ],
   "脚本执行": [
    "[[约束型 API 与成本不平衡]]"
@@ -3076,20 +3748,11 @@
   "连接扇入": [
    "[[亚稳态故障与 LIFOFIFO 连接重用]]"
   ],
-  "名称与描述 name description": [
-   "[[按需加载]]"
-  ],
   "目标—项目—日常工作的连接": [
    "[[周期 Cycle]]"
   ],
   "内置代理与自定义子代理的技能访问边界": [
    "[[skills 字段]]"
-  ],
-  "匹配后的确认与完整加载": [
-   "[[按需加载]]"
-  ],
-  "启动时仅加载名称和描述": [
-   "[[SKILL.md 与 YAML 前置元数据 SKILL.md YAML frontmatter]]"
   ],
   "上下文占用率与性能衰减": [
    "[[长上下文窗口]]",
@@ -3113,9 +3776,6 @@
    "[[自动循环的心跳]]",
    "[[Loop Engineering]]"
   ],
-  "语义匹配（semantic matching）与触发短语": [
-   "[[技能触发与自动使用 Skill Triggering Automatic Use]]"
-  ],
   "预构建技能与自定义技能 Pre-built vs Custom Skills": [
    "[[跨产品面的同步与共享边界 Surface-specific Sync and Sharing]]"
   ],
@@ -3125,6 +3785,9 @@
    "[[非模型架构 Non-model Architecture]]",
    "[[Harness]]"
   ],
+  "子代理的技能隔离": [
+   "[[子 agent 与 step.invoke()]]"
+  ],
   "自动记忆 auto-memory": [
    "[[记忆即提示 Memory as Prompt]]",
    "[[护栏型指令的过期]]",
@@ -3133,53 +3796,8 @@
    "[[过度约束与松绑 over-constraining unhobbling]]",
    "[[上下文工程 context engineering]]"
   ],
-  "Agent = Model + Harness": [
-   "[[Harness]]",
-   "[[从期望行为反推 harness 设计]]",
-   "[[Filesystem 作为最基础的 harness 原语]]",
-   "[[Self-verification loop]]",
-   "[[Context injection]]",
-   "[[Progressive disclosure（渐进式披露）与 Skills]]",
-   "[[通用工具与「给模型一台计算机」]]",
-   "[[Memory file 与 continual learning]]",
-   "[[Harness level feature]]",
-   "[[ReAct loop]]",
-   "[[Tool call offloading]]",
-   "[[模型训练与 harness 设计的耦合]]",
-   "[[Ralph Loop]]",
-   "[[Sandbox]]",
-   "[[AI 工程基础设施 AI engineering infrastructure]]",
-   "[[确定性工程基础设施 deterministic engineering infrastructure]]",
-   "[[上下文压缩 Context Compression Summarization]]",
-   "[[1.6% vs 98.4%]]",
-   "[[Agent]]",
-   "[[上下文腐烂 Context Rot]]",
-   "[[Harness 工程 Harness Engineering]]"
-  ],
   "AI 原生开发 AI-native development": [
    "[[执行主体从人变成 Agent]]"
-  ],
-  "AI Agent": [
-   "[[Agent]]",
-   "[[编排循环 Orchestration Loop TAO ReAct]]",
-   "[[笨循环 Dumb Loop]]",
-   "[[记忆即提示 Memory as Prompt]]",
-   "[[执行可靠性机制 State Error Guardrails Verification]]",
-   "[[脚手架与 Harness 厚度 Scaffolding Harness Thickness]]",
-   "[[LLM-as-CPU Harness-as-OS]]",
-   "[[提示词工程 Prompt Engineering]]",
-   "[[工具 Tools]]",
-   "[[观察掩码 Observation Masking]]",
-   "[[MCP Model Context Protocol]]",
-   "[[压缩 Compaction]]",
-   "[[记忆 Memory]]",
-   "[[即时检索 Just-in-time Retrieval]]",
-   "[[非模型架构 Non-model Architecture]]",
-   "[[迷失在中间 lost in the middle]]",
-   "[[上下文腐烂 Context Rot]]",
-   "[[Harness 工程 Harness Engineering]]",
-   "[[上下文工程 context engineering]]",
-   "[[Harness]]"
   ],
   "compaction": [
    "[[上下文压缩 Context Compression Summarization]]"
@@ -3199,27 +3817,10 @@
    "[[Sensors 与 Actuators]]",
    "[[Harness]]"
   ],
-  "MCP servers": [
-   "[[allowed-tools]]"
-  ],
   "Resolver": [
    "[[上下文文件树 tree of files]]",
    "[[Skill Files]]",
    "[[Thin Harness, Fat Skills]]",
-   "[[外包思考，但不外包理解]]",
-   "[[Agent-Native Infrastructure]]",
-   "[[Sensors 与 Actuators]]",
-   "[[Harness]]"
-  ],
-  "Thin Harness, Fat Skills": [
-   "[[技能化 Skills]]",
-   "[[Context Bloat]]",
-   "[[Skill-as-method-call]]",
-   "[[Learning Loop]]",
-   "[[Resolver]]",
-   "[[Latent vs Deterministic]]",
-   "[[Diarization]]",
-   "[[Skill Files]]",
    "[[外包思考，但不外包理解]]",
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]",
@@ -3231,7 +3832,6 @@
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
   ],
-  "名称冲突优先级与技能作用域": [],
   "“SaaS 已死”叙事与护城河蒸发": [
    "[[难度即护城河]]",
    "[[粘性界面与 token 成本转移]]",
@@ -3255,6 +3855,42 @@
    "[[上下文工程 context engineering]]",
    "[[Harness]]"
   ],
+  "「模型即产品」的幻觉": [
+   "[[不可见的劳动]]",
+   "[[结构断言与不变量断言]]",
+   "[[从单元测试到评估：置信度而非正确性证明]]",
+   "[[静默的分级失败]]",
+   "[[差一点就通过的输出]]",
+   "[[调试散文：一个词就是 bug]]",
+   "[[示例强于规则]]",
+   "[[会自己重写的地基]]",
+   "[[测试是绿的，产品却在退化]]",
+   "[[昂贵的反馈回路与欠测试]]",
+   "[[让不可见变得可见]]",
+   "[[加法本能陷阱与过度约束]]",
+   "[[减法带来质量跃迁]]",
+   "[[提示词即行为程序]]",
+   "[[难度即护城河]]",
+   "[[非确定性 nondeterminism]]",
+   "[[Harness]]"
+  ],
+  "1.6% vs 98.4%": [
+   "[[脚手架与 Harness 厚度 Scaffolding Harness Thickness]]",
+   "[[AI 公司岗位编制]]",
+   "[[为 AI 设计工作环境]]",
+   "[[docsdecisions]]",
+   "[[层级架构强约束 + 给 Agent 读的 lint 错误]]",
+   "[[0 人工代码、0 人工 review 极限形态]]",
+   "[[CLAUDE.md]]",
+   "[[hooks .claudehooks]]",
+   "[[AI 工程基础设施 AI engineering infrastructure]]",
+   "[[确定性工程基础设施 deterministic engineering infrastructure]]",
+   "[[程序记忆（Procedural Memory Skills） progressive disclosure]]",
+   "[[非模型架构 Non-model Architecture]]",
+   "[[Agent = Model + Harness]]",
+   "[[Harness 工程 Harness Engineering]]",
+   "[[Harness]]"
+  ],
   "2026 版约束理论": [
    "[[局部最优 local optima]]",
    "[[今天的魔法咒语，明天的反模式]]",
@@ -3269,21 +3905,11 @@
    "[[反自我合理化条款]]",
    "[[fail-closed 默认]]"
   ],
-  "把重复步骤编码成 Skill": [
-   "[[验证闭环 verification loop]]",
-   "[[SKILL.md：frontmatter＋body 契约]]",
-   "[[description 作为触发条件]]",
-   "[[独立调用 Standalone]]",
-   "[[PR 级门禁 On every PR]]",
-   "[[可编辑性边界]]",
-   "[[Wrapper skill]]",
-   "[[习惯变契约 habit → contract]]",
-   "[[个人基础设施 → 团队基础设施]]",
-   "[[循环工程 loop engineering]]",
-   "[[灵活性与自动化的权衡]]",
-   "[[嵌入 Embedded]]",
-   "[[链式 Chained]]",
-   "[[skill-creator 访谈式创建]]"
+  "不连贯输入的重构能力": [
+   "[[意识流输入 full stream of consciousness]]",
+   "[[漫谈会话 ramble session]]",
+   "[[bits]]",
+   "[[输入摩擦 too lazy to type]]"
   ],
   "残差流": [
    "[[mHC]]",
@@ -3292,18 +3918,23 @@
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
   ],
+  "操作系统类比": [
+   "[[Harness 工程 Harness Engineering]]",
+   "[[脚手架化 LLM 与冯·诺依曼架构类比]]",
+   "[[递归自我改进 RSI]]",
+   "[[部署系统层]]",
+   "[[Harness]]"
+  ],
   "测试是绿的，产品却在退化": [
    "[[可维护性没有惩罚项]]",
    "[[「模型即产品」的幻觉]]",
    "[[非确定性 nondeterminism]]",
    "[[Harness]]"
   ],
-  "层级架构强约束 + 给 Agent 读的 lint 错误": [
-   "[[Agentic Engineering]]",
-   "[[架构约束的确定性执行]]",
-   "[[AI 工程基础设施 AI engineering infrastructure]]",
-   "[[确定性工程基础设施 deterministic engineering infrastructure]]",
-   "[[1.6% vs 98.4%]]"
+  "查询感知语境化 query-aware contextualization": [
+   "[[迷失在中间 lost in the middle]]",
+   "[[首因偏置 primacy bias]]",
+   "[[U 型性能曲线]]"
   ],
   "差一点就通过的输出": [
    "[[静默的分级失败]]",
@@ -3317,23 +3948,11 @@
    "[[上下文骨架]]",
    "[[“SaaS 已死”叙事与护城河蒸发]]"
   ],
-  "持久化代码图谱 structural map graph": [
-   "[[Artifact Schema]]",
-   "[[增量更新 incremental update]]",
-   "[[Token 优化的评审上下文 get_review_context_tool]]",
-   "[[MCP 工具层]]",
-   "[[语义搜索 semantic search embeddings]]",
-   "[[code-review-graphignore 排除配置]]",
-   "[[Review Quality 评分方法]]",
-   "[[Watch 模式与自动更新 hooks]]",
-   "[[code-review-graph]]",
-   "[[Tree-sitter]]"
-  ],
-  "触发模式谱系": [
-   "[[自动循环的心跳]]",
-   "[[Claude Managed Agents]]",
-   "[[messages API 作为直连网关]]",
-   "[[Harness]]"
+  "产品经理的组织化": [
+   "[[Implementation 能力]]",
+   "[[AI-First]]",
+   "[[信任机制重构]]",
+   "[[Harness 工程 Harness Engineering]]"
   ],
   "次贷式 AI 危机（Subprime AI Crisis）": [
    "[[Hyperscaler]]",
@@ -3346,11 +3965,6 @@
    "[[非确定性 nondeterminism]]",
    "[[「模型即产品」的幻觉]]",
    "[[Harness]]"
-  ],
-  "从期望行为反推 harness 设计": [
-   "[[Harness]]",
-   "[[Agent = Model + Harness]]",
-   "[[Harness 工程 Harness Engineering]]"
   ],
   "错误复利 compounding errors": [
    "[[收敛式失败恢复]]",
@@ -3377,17 +3991,6 @@
   "带文档追问 Grill with Docs": [
    "[[追问式对齐 Grill Me]]",
    "[[共享理解 shared understanding]]"
-  ],
-  "递归并行规划 sub-planner": [
-   "[[递归 planner 与 subplanner]]",
-   "[[长时程自治编码 long-running autonomous coding]]",
-   "[[动态协调 dynamic coordination]]",
-   "[[单 agent 的速度天花板]]"
-  ],
-  "递归结构不能替代基座智能": [
-   "[[递归自我改进 RSI]]",
-   "[[部署系统层]]",
-   "[[Harness]]"
   ],
   "第三方连接器 opt-in": [
    "[[连接器]]",
@@ -3539,11 +4142,11 @@
    "[[工具—工作流适配]]",
    "[[浏览循环]]"
   ],
-  "工具即契约 tools as the contract": [
-   "[[工具定义 Tool Definitions Tool Schema]]",
-   "[[注意力预算 attention budget]]",
-   "[[上下文腐烂 Context Rot]]",
-   "[[上下文工程 context engineering]]"
+  "工具即结构化输出": [
+   "[[工具 Tools]]",
+   "[[「并不 agentic」的 AI Agent]]",
+   "[[软件即有向图]]",
+   "[[12-factor agents]]"
   ],
   "工具收窄 tool scoping": [
    "[[臃肿工具集 bloated tool sets]]",
@@ -3555,31 +4158,11 @@
    "[[If you're not the model, you're the harness.]]",
    "[[Harness]]"
   ],
-  "功能清单作为 harness 原语": [
-   "[[Harness]]",
-   "[[指令子系统与渐进式展开]]",
-   "[[能力鸿沟]]",
-   "[[Harness 工程 Harness Engineering]]"
-  ],
   "共享 多人 agent 会话": [
    "[[共享产品系统 shared product system]]",
    "[[代理原生 agent-native]]",
    "[[上下文骨架]]",
    "[[“SaaS 已死”叙事与护城河蒸发]]"
-  ],
-  "共享 harness": [
-   "[[Harness]]",
-   "[[最小充分上下文]]",
-   "[[先收窄、后读取]]",
-   "[[工具调用批处理]]",
-   "[[Trace 驱动评估]]",
-   "[[任务特定工具说明]]",
-   "[[收敛式失败恢复]]",
-   "[[工具—工作流适配]]",
-   "[[浏览循环]]"
-  ],
-  "共享上下文窗口": [
-   "[[按需加载]]"
   ],
   "规划模式与边界问题清单": [
    "[[Plan 模式]]",
@@ -3633,17 +4216,6 @@
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
   ],
-  "缓存连续性 Cache Continuity": [
-   "[[Cache prefix stability]]",
-   "[[稳定前缀 Stable Prefix]]",
-   "[[缓存断点 Cache Breakpoint]]",
-   "[[提示词缓存 Prompt Caching]]"
-  ],
-  "缓存命中读取成本 Cache Hit Read Cost": [
-   "[[提示词缓存 Prompt Caching]]",
-   "[[稳定前缀 Stable Prefix]]",
-   "[[缓存断点 Cache Breakpoint]]"
-  ],
   "缓存写入成本 Cache Write Cost": [
    "[[提示词缓存 Prompt Caching]]",
    "[[稳定前缀 Stable Prefix]]",
@@ -3654,6 +4226,13 @@
    "[[外包思考，但不外包理解]]",
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
+  ],
+  "会话级累积判断": [
+   "[[meaningful uplift 判据]]",
+   "[[默认帮助的高门槛拒绝]]",
+   "[[判定程序化写法]]",
+   "[[反自我合理化条款]]",
+   "[[fail-closed 默认]]"
   ],
   "会话生命周期": [
    "[[Loop Contract]]",
@@ -3752,13 +4331,6 @@
    "[[If you're not the model, you're the harness.]]",
    "[[Harness]]"
   ],
-  "教会 AI Agent 如何成功": [
-   "[[共享理解 shared understanding]]",
-   "[[Instructions files]]",
-   "[[外包思考，但不外包理解]]",
-   "[[Agent-Native Infrastructure]]",
-   "[[Sensors 与 Actuators]]"
-  ],
   "接口即指令 design interfaces": [
    "[[工具接口的表达力设计]]",
    "[[prompt 与 context 的通用性落差]]",
@@ -3789,12 +4361,6 @@
    "[[部署系统层]]",
    "[[Harness]]"
   ],
-  "静默的分级失败": [
-   "[[差一点就通过的输出]]",
-   "[[「模型即产品」的幻觉]]",
-   "[[非确定性 nondeterminism]]",
-   "[[Harness]]"
-  ],
   "纠正成本递减 correct things less from that point on": [
    "[[技能化 Skills]]",
    "[[漫谈会话 ramble session]]",
@@ -3813,27 +4379,20 @@
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
   ],
-  "开箱即用的编排与子 agent": [
-   "[[subagents]]",
-   "[[模型—角色适配]]",
-   "[[「少即是多」：gimmick 与真实增益的分界]]",
-   "[[废料怪兽]]",
-   "[[Harness]]"
-  ],
   "可编辑面与循环外的权限控制": [
    "[[权限与推理的架构分离]]",
    "[[递归自我改进 RSI]]",
    "[[部署系统层]]",
    "[[Harness]]"
   ],
-  "可观测性": [
-   "[[Harness]]",
-   "[[指令子系统与渐进式展开]]",
-   "[[能力鸿沟]]",
-   "[[Harness 工程 Harness Engineering]]"
-  ],
   "可扩展性": [
    "[[为特定用途而设计]]"
+  ],
+  "可维护性 霰弹式手术": [
+   "[[层级架构强约束 + 给 Agent 读的 lint 错误]]",
+   "[[Lights-off 软件工厂]]",
+   "[[软件工厂 Software Factory]]",
+   "[[Harness 工程 Harness Engineering]]"
   ],
   "可维护性缺一个可靠的打分预言机": [
    "[[可维护性没有惩罚项]]",
@@ -3896,14 +4455,6 @@
   "描述区分度": [
    "[[简洁规范]]"
   ],
-  "模型—角色适配": [
-   "[[planner–executor–judge 角色分工]]",
-   "[[开箱即用的编排与子 agent]]",
-   "[[子 Agent 分工]]",
-   "[[长时程自治编码 long-running autonomous coding]]",
-   "[[动态协调 dynamic coordination]]",
-   "[[单 agent 的速度天花板]]"
-  ],
   "模型训练与 harness 设计的耦合": [
    "[[Co-evolution Principle]]",
    "[[Harness 内 RL RL inside the harness]]",
@@ -3918,39 +4469,6 @@
    "[[「模型即产品」的幻觉]]",
    "[[非确定性 nondeterminism]]",
    "[[Harness]]"
-  ],
-  "能力鸿沟": [
-   "[[Agent vs Harness]]",
-   "[[验证子系统与可运行的证据]]",
-   "[[功能清单作为 harness 原语]]",
-   "[[会话生命周期]]",
-   "[[端到端验证]]",
-   "[[弱 harness 强 harness 对照与消融实验]]",
-   "[[从救火到审查的角色转移]]",
-   "[[状态子系统与进度持久化]]",
-   "[[范围控制与显式的完成定义]]",
-   "[[仓库即唯一事实来源]]",
-   "[[验证缺口]]",
-   "[[可观测性]]",
-   "[[让不可见变得可见]]",
-   "[[指令子系统与渐进式展开]]",
-   "[[configuration problem]]",
-   "[[Harness 工程 Harness Engineering]]"
-  ],
-  "判断力优先 let Claude use judgement": [
-   "[[从禁止什么到对齐什么]]",
-   "[[工具接口的表达力设计]]",
-   "[[延迟加载工具 deferred loading]]",
-   "[[代码即高保真引用]]",
-   "[[示例的探索空间约束]]",
-   "[[渐进披露 progressive disclosure]]",
-   "[[Rubric 与 verifier agent]]",
-   "[[gotchas 优先原则]]",
-   "[[上下文文件树 tree of files]]",
-   "[[自动记忆 auto-memory]]",
-   "[[富引用 rich references]]",
-   "[[护栏型指令的过期]]",
-   "[[上下文工程 context engineering]]"
   ],
   "平台跃迁四浪 Platform Shifts": [
    "[[General Purpose Technology]]",
@@ -3979,13 +4497,6 @@
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
   ],
-  "让不可见变得可见": [
-   "[[卡住即信号 struggle as signal]]",
-   "[[能力鸿沟]]",
-   "[[「模型即产品」的幻觉]]",
-   "[[非确定性 nondeterminism]]",
-   "[[Harness]]"
-  ],
   "让自己对 AI 可读": [
    "[[AI matchmaking]]",
    "[[信任机制重构]]",
@@ -4000,12 +4511,6 @@
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
   ],
-  "任务时域 task horizon": [
-   "[[长时程自治编码 long-running autonomous coding]]",
-   "[[Claude Managed Agents]]",
-   "[[messages API 作为直连网关]]",
-   "[[Harness]]"
-  ],
   "任务特定工具说明": [
    "[[工具定义 Tool Definitions Tool Schema]]",
    "[[共享 harness]]",
@@ -4017,12 +4522,6 @@
    "[[外包思考，但不外包理解]]",
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
-  ],
-  "弱 harness 强 harness 对照与消融实验": [
-   "[[Agent vs Harness]]",
-   "[[指令子系统与渐进式展开]]",
-   "[[能力鸿沟]]",
-   "[[Harness 工程 Harness Engineering]]"
   ],
   "弱而模糊的评估器": [
    "[[古德哈特定律]]",
@@ -4058,6 +4557,13 @@
    "[[上下文腐烂 Context Rot]]",
    "[[上下文工程 context engineering]]"
   ],
+  "上下文缺口": [
+   "[[上下文协作 context-cooperative]]",
+   "[[Agent-to-Agent 交互（A2A）]]",
+   "[[外包思考，但不外包理解]]",
+   "[[Agent-Native Infrastructure]]",
+   "[[Sensors 与 Actuators]]"
+  ],
   "上下文失败，而非模型失败 context failures, not model failures": [
    "[[上下文 context]]",
    "[[上下文（Context）：模型生成之前看到的一切]]",
@@ -4075,6 +4581,12 @@
    "[[追问式对齐 Grill Me]]",
    "[[共享理解 shared understanding]]"
   ],
+  "上下文协作 context-cooperative": [
+   "[[上下文缺口]]",
+   "[[熵减 entropy reduction]]",
+   "[[上下文 context]]",
+   "[[上下文工程 context engineering]]"
+  ],
   "上下文压缩与即时检索 compaction just-in-time retrieval": [
    "[[可恢复的压缩 restorable compression]]",
    "[[agent 与 harness 的分工]]",
@@ -4090,6 +4602,13 @@
    "[[「少即是多」：gimmick 与真实增益的分界]]",
    "[[废料怪兽]]",
    "[[Harness]]"
+  ],
+  "昇腾": [
+   "[[芯片管制]]",
+   "[[CXL 内存池化]]",
+   "[[外包思考，但不外包理解]]",
+   "[[Agent-Native Infrastructure]]",
+   "[[Sensors 与 Actuators]]"
   ],
   "世界模型": [
    "[[字面类比]]",
@@ -4135,12 +4654,25 @@
    "[[上下文 context]]",
    "[[上下文工程 context engineering]]"
   ],
-  "锁竞争瓶颈 lock contention": [
-   "[[共享文件加锁的协调机制]]",
-   "[[长时程自治编码 long-running autonomous coding]]",
-   "[[动态协调 dynamic coordination]]",
-   "[[单 agent 的速度天花板]]",
-   "[[锁竞争与乐观并发控制]]"
+  "锁竞争与乐观并发控制": [
+   "[[锁竞争瓶颈 lock contention]]",
+   "[[最慢 worker 瓶颈与刚性]]",
+   "[[handoff 交接]]",
+   "[[自收敛与免全局同步]]",
+   "[[integrator 瓶颈]]",
+   "[[为吞吐量设计与可接受错误率]]",
+   "[[意图规约与可引导性]]",
+   "[[所有权与问责]]",
+   "[[planner–executor–judge 角色分工]]",
+   "[[连续执行器]]",
+   "[[新鲜度机制]]",
+   "[[角色过载与病态行为]]",
+   "[[递归 planner 与 subplanner]]",
+   "[[反脆弱]]",
+   "[[约束优于指令]]",
+   "[[单用户假设的失效]]",
+   "[[自协调与共享协调文件]]",
+   "[[Harness]]"
   ],
   "通关 ≠ 理解": [
    "[[ARC-AGI-3]]",
@@ -4162,31 +4694,6 @@
    "[[自协调与共享协调文件]]",
    "[[锁竞争与乐观并发控制]]",
    "[[Harness]]"
-  ],
-  "稳定的 prompt 前缀": [
-   "[[前缀匹配 Prefix Matching]]",
-   "[[押注 in-context learning]]",
-   "[[与底层模型正交 orthogonal to the underlying models]]",
-   "[[上下文工程 context engineering]]"
-  ],
-  "稳定前缀 Stable Prefix": [
-   "[[缓存断点 Cache Breakpoint]]",
-   "[[前缀匹配 Prefix Matching]]",
-   "[[tools → system → messages 缓存顺序]]",
-   "[[工具定义 Tool Definitions Tool Schema]]",
-   "[[消息层 Messages Layer]]",
-   "[[缓存写入成本 Cache Write Cost]]",
-   "[[缓存命中读取成本 Cache Hit Read Cost]]",
-   "[[TTL]]",
-   "[[最小可缓存 token 门槛 Minimum Cacheable Tokens]]",
-   "[[Automatic Caching]]",
-   "[[缓存连续性 Cache Continuity]]",
-   "[[缓存命中率 Cache Hit Rate]]",
-   "[[首字输出延迟 Time to First Token Latency]]",
-   "[[Explicit Breakpoints]]",
-   "[[系统提示 System Prompt]]",
-   "[[上下文压缩 Context Compression Summarization]]",
-   "[[提示词缓存 Prompt Caching]]"
   ],
   "无层级导致的风险规避 risk-averse agents": [
    "[[所有权与问责]]",
@@ -4258,13 +4765,6 @@
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
   ],
-  "芯片管制": [
-   "[[平行 AI 基础设施]]",
-   "[[昇腾]]",
-   "[[外包思考，但不外包理解]]",
-   "[[Agent-Native Infrastructure]]",
-   "[[Sensors 与 Actuators]]"
-  ],
   "新鲜度机制": [
    "[[Agent Drift]]",
    "[[自协调与共享协调文件]]",
@@ -4331,17 +4831,17 @@
    "[[过度约束与松绑 over-constraining unhobbling]]",
    "[[上下文工程 context engineering]]"
   ],
-  "验证缺口": [
-   "[[自评失真 Self-evaluation Distortion]]",
-   "[[指令子系统与渐进式展开]]",
-   "[[能力鸿沟]]",
-   "[[Harness 工程 Harness Engineering]]"
+  "遗漏式隐私": [
+   "[[preferences 写入过滤]]",
+   "[[判定程序化写法]]",
+   "[[反自我合理化条款]]",
+   "[[fail-closed 默认]]"
   ],
-  "验证循环：guides 与 sensors": [
-   "[[形成性评估]]",
-   "[[agent 与 harness 的分工]]",
-   "[[If you're not the model, you're the harness.]]",
-   "[[Harness]]"
+  "意识流输入 full stream of consciousness": [
+   "[[不连贯输入的重构能力]]",
+   "[[漫谈会话 ramble session]]",
+   "[[bits]]",
+   "[[输入摩擦 too lazy to type]]"
   ],
   "意图、判断与品味 intent, judgment, taste": [
    "[[Taste]]",
@@ -4390,12 +4890,6 @@
    "[[部署系统层]]",
    "[[Harness]]"
   ],
-  "有界改动与回归闸": [
-   "[[验证子系统与可运行的证据]]",
-   "[[递归自我改进 RSI]]",
-   "[[部署系统层]]",
-   "[[Harness]]"
-  ],
   "语言驱动的代码一致性 language-code alignment": [
    "[[统一语言 ubiquitous language]]",
    "[[追问式对齐 Grill Me]]",
@@ -4412,12 +4906,6 @@
    "[[harness 与 framework 的分野]]",
    "[[持久化执行 durable execution]]",
    "[[Harness]]"
-  ],
-  "原生工具与 MCP 外挂": [
-   "[[MCP Model Context Protocol]]",
-   "[[对话加确定性缝合]]",
-   "[[反向代理式窥探]]",
-   "[[看对话 log]]"
   ],
   "原始上下文容忍度 tolerance for raw context": [
    "[[multimodal Vision LLMs]]",
@@ -4475,6 +4963,35 @@
    "[[bits]]",
    "[[输入摩擦 too lazy to type]]"
   ],
+  "正确的信息与工具，在正确的时间": [
+   "[[知识与能力的双供给 information and tools]]",
+   "[[OAIQ]]",
+   "[[上下文（Context）：模型生成之前看到的一切]]",
+   "[[有限的工作记忆 limited working memory]]",
+   "[[上下文工程 context engineering]]"
+  ],
+  "知识与能力的双供给 information and tools": [
+   "[[正确的信息与工具，在正确的时间]]",
+   "[[上下文（Context）：模型生成之前看到的一切]]",
+   "[[有限的工作记忆 limited working memory]]",
+   "[[上下文工程 context engineering]]"
+  ],
+  "指令子系统与渐进式展开": [
+   "[[Agentic primitives]]",
+   "[[验证子系统与可运行的证据]]",
+   "[[功能清单作为 harness 原语]]",
+   "[[会话生命周期]]",
+   "[[端到端验证]]",
+   "[[弱 harness 强 harness 对照与消融实验]]",
+   "[[从救火到审查的角色转移]]",
+   "[[状态子系统与进度持久化]]",
+   "[[范围控制与显式的完成定义]]",
+   "[[仓库即唯一事实来源]]",
+   "[[验证缺口]]",
+   "[[可观测性]]",
+   "[[能力鸿沟]]",
+   "[[Harness 工程 Harness Engineering]]"
+  ],
   "重排序与排序列表截断": [
    "[[性能饱和早于召回饱和]]",
    "[[首因偏置 primacy bias]]",
@@ -4501,12 +5018,6 @@
    "[[信任机制重构]]",
    "[[Harness 工程 Harness Engineering]]"
   ],
-  "子 agent 与 step.invoke()": [
-   "[[Subagent]]",
-   "[[harness 与 framework 的分野]]",
-   "[[持久化执行 durable execution]]",
-   "[[Harness]]"
-  ],
   "字面类比": [
    "[[世界模型]]",
    "[[外包思考，但不外包理解]]",
@@ -4525,23 +5036,17 @@
    "[[大海捞针（NIAH）与词面匹配]]",
    "[[上下文腐烂 Context Rot]]"
   ],
-  "自收敛与免全局同步": [
-   "[[handoff 交接]]",
-   "[[自协调与共享协调文件]]",
-   "[[锁竞争与乐观并发控制]]",
-   "[[Harness]]"
-  ],
   "最慢 worker 瓶颈与刚性": [
    "[[Planner–Worker 角色分离]]",
    "[[自协调与共享协调文件]]",
    "[[锁竞争与乐观并发控制]]",
    "[[Harness]]"
   ],
-  "最小充分上下文": [
-   "[[注意力预算 attention budget]]",
-   "[[共享 harness]]",
-   "[[工具—工作流适配]]",
-   "[[浏览循环]]"
+  "最小充分性与语义连续性原则": [
+   "[[最小充分上下文]]",
+   "[[熵减 entropy reduction]]",
+   "[[上下文 context]]",
+   "[[上下文工程 context engineering]]"
   ],
   "最小高信号 token 集合 smallest possible set of high-signal tokens": [
    "[[注意力预算 attention budget]]",
@@ -4552,6 +5057,14 @@
    "[[提示词缓存 Prompt Caching]]",
    "[[稳定前缀 Stable Prefix]]",
    "[[缓存断点 Cache Breakpoint]]"
+  ],
+  "agent 模板的声明式持久化": [
+   "[[个人技能与项目技能]]",
+   "[[文件系统即持久记忆]]",
+   "[[Git-backed state]]",
+   "[[Claude Managed Agents]]",
+   "[[messages API 作为直连网关]]",
+   "[[Harness]]"
   ],
   "agent 作为 Claude API 的新核心原语": [
    "[[Claude Managed Agents]]",
@@ -4580,6 +5093,19 @@
    "[[configuration problem]]",
    "[[Harness 工程 Harness Engineering]]",
    "[[Harness]]"
+  ],
+  "Agentic primitives": [
+   "[[指令子系统与渐进式展开]]",
+   "[[Agent CLI runtimes]]",
+   "[[APM]]",
+   "[[Chat modes]]",
+   "[[Memory-driven development]]",
+   "[[Agentic workflows]]",
+   "[[Natural language as code]]",
+   "[[Validation gates]]",
+   "[[Instructions files]]",
+   "[[Markdown prompt engineering]]",
+   "[[上下文工程 context engineering]]"
   ],
   "Agents SDK": [
    "[[primitives]]",
@@ -4611,12 +5137,6 @@
   ],
   "AI 护照": [
    "[[责任链条散了]]",
-   "[[外包思考，但不外包理解]]",
-   "[[Agent-Native Infrastructure]]",
-   "[[Sensors 与 Actuators]]"
-  ],
-  "AI 可见性": [
-   "[[AI 爬虫五大分类]]",
    "[[外包思考，但不外包理解]]",
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
@@ -4697,6 +5217,13 @@
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
   ],
+  "Bitter Lesson": [
+   "[[递归结构不能替代基座智能]]",
+   "[[推理模型]]",
+   "[[Agentic Engineering]]",
+   "[[Harness 工程 Harness Engineering]]",
+   "[[Harness]]"
+  ],
   "Bounded Output": [
    "[[自回归下输出也是上下文]]",
    "[[外包思考，但不外包理解]]",
@@ -4714,12 +5241,6 @@
    "[[API-boundary observability]]",
    "[[Tool-schema tax]]",
    "[[Harness token floor]]"
-  ],
-  "cached input tokens": [
-   "[[提示词缓存（Prompt Caching）]]",
-   "[[coding agent]]",
-   "[[LLM Large Language Model]]",
-   "[[Harness]]"
   ],
   "Capability Overhang": [
    "[[锯齿状智能（Jagged Intelligence）]]",
@@ -4755,6 +5276,12 @@
    "[[外包思考，但不外包理解]]",
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
+  ],
+  "code mode": [
+   "[[shell tool]]",
+   "[[Agents SDK]]",
+   "[[model-native harness]]",
+   "[[Harness]]"
   ],
   "code-review-graph": [
    "[[code-review-graphignore 排除配置]]",
@@ -4796,18 +5323,6 @@
    "[[context rot（上下文腐烂）与 Lost in the Middle]]",
    "[[Context Reset vs Compaction]]",
    "[[废料怪兽]]",
-   "[[Harness]]"
-  ],
-  "Context Bloat": [
-   "[[注意力预算 attention budget]]",
-   "[[Skill Files]]",
-   "[[Thin Harness, Fat Skills]]",
-   "[[Harness]]"
-  ],
-  "Context injection": [
-   "[[知识端点]]",
-   "[[Agent = Model + Harness]]",
-   "[[Harness 工程 Harness Engineering]]",
    "[[Harness]]"
   ],
   "Context Management 四策略": [
@@ -4879,15 +5394,15 @@
    "[[Tool-schema tax]]",
    "[[Harness token floor]]"
   ],
-  "Friction-based Skill Formation": [
-   "[[The Deferred Bill]]",
-   "[[稀疏反馈推断规则]]",
+  "General Purpose Technology": [
+   "[[平台跃迁四浪 Platform Shifts]]",
    "[[外包思考，但不外包理解]]",
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
   ],
-  "General Purpose Technology": [
-   "[[平台跃迁四浪 Platform Shifts]]",
+  "GEO": [
+   "[[AI 可见性]]",
+   "[[Human-Only Social Networks]]",
    "[[外包思考，但不外包理解]]",
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
@@ -4910,12 +5425,6 @@
    "[[过度约束与松绑 over-constraining unhobbling]]",
    "[[上下文工程 context engineering]]"
   ],
-  "gotchas 优先原则": [
-   "[[gotchas 优先的 CLAUDE.md]]",
-   "[[护栏型指令的过期]]",
-   "[[判断力优先 let Claude use judgement]]",
-   "[[上下文工程 context engineering]]"
-  ],
   "GQA": [
    "[[多头注意力]]",
    "[[外包思考，但不外包理解]]",
@@ -4930,43 +5439,10 @@
    "[[Context Anxiety]]",
    "[[Harness]]"
   ],
-  "Handoffs Agents as tools": [
-   "[[多智能体架构]]",
-   "[[very few abstractions]]",
-   "[[primitives]]",
-   "[[Agent]]"
-  ],
   "Harness 简化原则 Harness Simplification": [
    "[[harness 的过时假设]]",
    "[[Context Anxiety]]",
    "[[Context Reset vs Compaction]]",
-   "[[Harness]]"
-  ],
-  "Harness 内 RL RL inside the harness": [
-   "[[Co-evolution Principle]]",
-   "[[模型训练与 harness 设计的耦合]]",
-   "[[Lights-off 软件工厂]]",
-   "[[软件工厂 Software Factory]]",
-   "[[Harness 工程 Harness Engineering]]"
-  ],
-  "harness 与 framework 的分野": [
-   "[[harness 厚薄 thin vs thick]]",
-   "[[step ID 自动索引]]",
-   "[[普遍可触发 universally triggered]]",
-   "[[子 agent 与 step.invoke()]]",
-   "[[两级上下文剪枝 pruning]]",
-   "[[预算警告与溢出恢复]]",
-   "[[steering]]",
-   "[[step]]",
-   "[[think → act → observe 循环]]",
-   "[[事件驱动编排与执行解耦]]",
-   "[[webhook transform 与 connect()]]",
-   "[[小函数组合]]",
-   "[[压缩（compaction）与运行内外的分工]]",
-   "[[基础设施问题，不是 AI 问题]]",
-   "[[Runtime-harness separation]]",
-   "[[Harness Thickness]]",
-   "[[持久化执行 durable execution]]",
    "[[Harness]]"
   ],
   "Harness 组件生命周期": [
@@ -4992,14 +5468,6 @@
    "[[Harness 工程 Harness Engineering]]",
    "[[Harness]]"
   ],
-  "Harness Thickness": [
-   "[[Harness level feature]]",
-   "[[Agent vs Harness]]",
-   "[[harness 与 framework 的分野]]",
-   "[[model-native harness]]",
-   "[[Harness 工程 Harness Engineering]]",
-   "[[Harness]]"
-  ],
   "Harness-level benchmarks": [
    "[[Validation gates]]",
    "[[通用 harness 的公平性张力]]",
@@ -5012,6 +5480,12 @@
    "[[外包思考，但不外包理解]]",
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
+  ],
+  "Implementation 能力": [
+   "[[产品经理的组织化]]",
+   "[[AI-First]]",
+   "[[信任机制重构]]",
+   "[[Harness 工程 Harness Engineering]]"
   ],
   "Inner Loop": [
    "[[Outer Loop]]",
@@ -5026,13 +5500,6 @@
    "[[Agent loop]]",
    "[[Loop Engineering]]",
    "[[Harness 工程 Harness Engineering]]"
-  ],
-  "instruction budget": [
-   "[[the dumb zone the smart zone]]",
-   "[[Context as working memory budget]]",
-   "[[configuration problem]]",
-   "[[Harness 工程 Harness Engineering]]",
-   "[[Harness]]"
   ],
   "Instruction-file tax": [
    "[[Repo-local instructions]]",
@@ -5069,22 +5536,6 @@
    "[[Loop Engineering]]",
    "[[Harness]]"
   ],
-  "Lights-off 软件工厂": [
-   "[[Software Factory]]",
-   "[[前置对齐 front-loading alignment]]",
-   "[[可维护性 霰弹式手术]]",
-   "[[可维护性缺一个可靠的打分预言机]]",
-   "[[系统架构评审]]",
-   "[[可维护性没有惩罚项]]",
-   "[[Mutation Testing 与前沿质量评测]]",
-   "[[Harness 内 RL RL inside the harness]]",
-   "[[2026 版约束理论]]",
-   "[[SWE-bench 与二元打分]]",
-   "[[0 人工代码、0 人工 review 极限形态]]",
-   "[[RLVR 与编码 agent 的 RL 训练循环]]",
-   "[[软件工厂 Software Factory]]",
-   "[[Harness 工程 Harness Engineering]]"
-  ],
   "llms-full.txt": [
    "[[llms.txt]]",
    "[[外包思考，但不外包理解]]",
@@ -5120,29 +5571,16 @@
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
   ],
-  "MCP 工具层": [
-   "[[MCP Model Context Protocol]]",
-   "[[持久化代码图谱 structural map graph]]",
-   "[[code-review-graph]]",
-   "[[Tree-sitter]]"
-  ],
   "MCP schema amplification": [
    "[[Tool-schema tax]]",
    "[[API-boundary observability]]",
    "[[Harness token floor]]"
   ],
-  "meaningful uplift 判据": [
-   "[[默认帮助的高门槛拒绝]]",
-   "[[判定程序化写法]]",
-   "[[反自我合理化条款]]",
-   "[[fail-closed 默认]]"
-  ],
-  "Memory-driven development": [
-   "[[记忆 Memory]]",
-   "[[Memory file 与 continual learning]]",
-   "[[Markdown prompt engineering]]",
-   "[[Agentic primitives]]",
-   "[[上下文工程 context engineering]]"
+  "Memory file 与 continual learning": [
+   "[[Memory-driven development]]",
+   "[[Agent = Model + Harness]]",
+   "[[Harness 工程 Harness Engineering]]",
+   "[[Harness]]"
   ],
   "messages API 作为直连网关": [
    "[[prefill 与 decode 的高度倾斜]]",
@@ -5169,19 +5607,11 @@
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
   ],
-  "Model as subroutine": [
-   "[[笨循环 Dumb Loop]]",
-   "[[Budget ceiling]]",
-   "[[Context discipline]]",
-   "[[Decision-maker in the body]]",
-   "[[Self-verification]]",
-   "[[Feedback loop]]",
-   "[[No-progress detection]]",
-   "[[Skill as asset]]",
-   "[[Ralph Loop]]",
-   "[[Git-backed state]]",
-   "[[Continuous orchestration loop]]",
-   "[[Loop Engineering]]"
+  "mind meld": [
+   "[[判断力优先 let Claude use judgement]]",
+   "[[漫谈会话 ramble session]]",
+   "[[bits]]",
+   "[[输入摩擦 too lazy to type]]"
   ],
   "Model-relative Curriculum": [
    "[[会自己重写的地基]]",
@@ -5190,15 +5620,6 @@
    "[[Capability Overhang]]",
    "[[Inner Loop]]",
    "[[Harness 工程 Harness Engineering]]"
-  ],
-  "multimodal Vision LLMs": [
-   "[[原始上下文容忍度 tolerance for raw context]]",
-   "[[VLM]]",
-   "[[Tiny Engram]]",
-   "[[Q、K、V]]",
-   "[[coding agent]]",
-   "[[LLM Large Language Model]]",
-   "[[Harness]]"
   ],
   "N-gram": [
    "[[Tiny Engram]]",
@@ -5232,13 +5653,6 @@
    "[[大海捞针（NIAH）与词面匹配]]",
    "[[上下文腐烂 Context Rot]]"
   ],
-  "Nerdy Personality": [
-   "[[Reward Signal]]",
-   "[[RLHF]]",
-   "[[外包思考，但不外包理解]]",
-   "[[Agent-Native Infrastructure]]",
-   "[[Sensors 与 Actuators]]"
-  ],
   "No-progress detection": [
    "[[范围控制与显式的完成定义]]",
    "[[漂移与隧道视野 drift & tunnel vision]]",
@@ -5246,9 +5660,10 @@
    "[[Continuous orchestration loop]]",
    "[[Loop Engineering]]"
   ],
-  "OAIQ": [
-   "[[对话式广告归因闭环]]",
-   "[[正确的信息与工具，在正确的时间]]",
+  "oppref": [
+   "[[OAIQ]]",
+   "[[single_advertiser_ad_unit]]",
+   "[[OpenAI 广告基础设施域名]]",
    "[[外包思考，但不外包理解]]",
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
@@ -5257,6 +5672,13 @@
    "[[Inner Loop]]",
    "[[Capability Overhang]]",
    "[[Harness 工程 Harness Engineering]]"
+  ],
+  "Personal Context": [
+   "[[Context injection]]",
+   "[[Context Infrastructure]]",
+   "[[Context Distraction]]",
+   "[[长上下文窗口]]",
+   "[[上下文工程 context engineering]]"
   ],
   "Plan 模式": [
    "[[规划模式与边界问题清单]]",
@@ -5277,6 +5699,12 @@
    "[[把重复步骤编码成 Skill]]",
    "[[skill-creator 访谈式创建]]",
    "[[验证闭环 verification loop]]"
+  ],
+  "preferences 写入过滤": [
+   "[[遗漏式隐私]]",
+   "[[判定程序化写法]]",
+   "[[反自我合理化条款]]",
+   "[[fail-closed 默认]]"
   ],
   "prompt completion": [
    "[[chat templated prompts]]",
@@ -5373,32 +5801,6 @@
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
   ],
-  "RLHF": [
-   "[[Reward Signal]]",
-   "[[Nerdy Personality]]",
-   "[[Reward Generalization]]",
-   "[[DPPO]]",
-   "[[ScaleRL]]",
-   "[[外包思考，但不外包理解]]",
-   "[[Agent-Native Infrastructure]]",
-   "[[Sensors 与 Actuators]]"
-  ],
-  "RLVR 与编码 agent 的 RL 训练循环": [
-   "[[Reward Signal]]",
-   "[[RL Circuits]]",
-   "[[reasoning thinking]]",
-   "[[ScaleRL]]",
-   "[[Lights-off 软件工厂]]",
-   "[[软件工厂 Software Factory]]",
-   "[[Harness 工程 Harness Engineering]]"
-  ],
-  "Rubric 与 verifier agent": [
-   "[[Rubric]]",
-   "[[Read-only Verifier Agent]]",
-   "[[护栏型指令的过期]]",
-   "[[判断力优先 let Claude use judgement]]",
-   "[[上下文工程 context engineering]]"
-  ],
   "Rubrics 与验证 agent": [
    "[[Rubric]]",
    "[[Read-only Verifier Agent]]",
@@ -5413,33 +5815,12 @@
    "[[Context as working memory budget]]",
    "[[Harness 工程 Harness Engineering]]"
   ],
-  "Self-evaluation Failure": [
-   "[[Read-only Verifier Agent]]",
-   "[[Self-verification]]",
-   "[[Context Anxiety]]",
-   "[[Context Reset vs Compaction]]",
-   "[[Harness]]"
-  ],
   "Self-Improving Context System": [
    "[[Repo-local instructions]]",
    "[[Context Infrastructure]]",
    "[[Agent Drift]]",
    "[[Context 四种失败模式 Context Pollution Distraction Confusion Clash]]",
    "[[上下文工程 context engineering]]"
-  ],
-  "session_search": [
-   "[[记忆 Memory]]",
-   "[[跨会话记忆文件系统]]",
-   "[[外包思考，但不外包理解]]",
-   "[[Agent-Native Infrastructure]]",
-   "[[Sensors 与 Actuators]]"
-  ],
-  "shell tool": [
-   "[[通用工具与「给模型一台计算机」]]",
-   "[[code mode]]",
-   "[[Agents SDK]]",
-   "[[model-native harness]]",
-   "[[Harness]]"
   ],
   "skill 作为 onboarding 载体": [
    "[[组织级技能与指引 skills Linear way skill]]",
@@ -5467,6 +5848,13 @@
    "[[Thin Harness, Fat Skills]]",
    "[[skill-creator 访谈式创建]]",
    "[[Harness]]"
+  ],
+  "Skills as permanent upgrades": [
+   "[[SKILL.md 与前置信息]]",
+   "[[stateless]]",
+   "[[外包思考，但不外包理解]]",
+   "[[Agent-Native Infrastructure]]",
+   "[[Sensors 与 Actuators]]"
   ],
   "Spec-driven agent workflow": [
    "[[Spec-First Workflow]]",
@@ -5561,25 +5949,29 @@
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
   ],
-  "Tool call offloading": [
-   "[[tokens]]",
-   "[[WebFetch 两阶段总结]]",
-   "[[the dumb zone the smart zone]]",
-   "[[Agent = Model + Harness]]",
-   "[[Harness 工程 Harness Engineering]]",
-   "[[Harness]]"
-  ],
-  "tools → system → messages 缓存顺序": [
-   "[[前缀匹配 Prefix Matching]]",
-   "[[稳定前缀 Stable Prefix]]",
-   "[[缓存断点 Cache Breakpoint]]",
-   "[[提示词缓存 Prompt Caching]]"
-  ],
   "Tuned Lens": [
    "[[Logits]]",
    "[[外包思考，但不外包理解]]",
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
+  ],
+  "U 型性能曲线": [
+   "[[Tool call offloading]]",
+   "[[近因偏置 recency bias]]",
+   "[[干扰文档 distractor documents]]",
+   "[[扩展上下文模型 extended-context models]]",
+   "[[查询感知语境化 query-aware contextualization]]",
+   "[[检索器-阅读器配置 retriever-reader]]",
+   "[[性能饱和早于召回饱和]]",
+   "[[重排序与排序列表截断]]",
+   "[[序列位置效应 serial-position effect]]",
+   "[[闭卷与 oracle 基线]]",
+   "[[合成键值检索任务]]",
+   "[[多文档问答受控实验]]",
+   "[[长上下文评测协议]]",
+   "[[tokens]]",
+   "[[首因偏置 primacy bias]]",
+   "[[迷失在中间 lost in the middle]]"
   ],
   "Verifiable Codebase": [
    "[[Self-verification loop]]",
@@ -5589,20 +5981,18 @@
    "[[Agent loop]]",
    "[[Harness]]"
   ],
-  "VLM": [
-   "[[Q、K、V]]",
-   "[[Tiny Engram]]",
-   "[[multimodal Vision LLMs]]",
-   "[[外包思考，但不外包理解]]",
-   "[[Agent-Native Infrastructure]]",
-   "[[Sensors 与 Actuators]]"
-  ],
   "Watch 模式与自动更新 hooks": [
    "[[Legible Codebase]]",
    "[[Skill as asset]]",
    "[[持久化代码图谱 structural map graph]]",
    "[[code-review-graph]]",
    "[[Tree-sitter]]"
+  ],
+  "Without Defensiveness": [
+   "[[Friction-based Skill Formation]]",
+   "[[外包思考，但不外包理解]]",
+   "[[Agent-Native Infrastructure]]",
+   "[[Sensors 与 Actuators]]"
   ],
   "Wrapper skill": [
    "[[Self-verification]]",
@@ -5632,9 +6022,7 @@
    "[[Sensors 与 Actuators]]",
    "[[Harness]]"
   ],
-  "个人技能与项目技能": [],
   "两类 Skills": [],
-  "description": [],
   "把自己当普通用户／黑盒测试": [],
   "仓库提交": [],
   "插件与市场 Plugin Marketplace": [],
@@ -5681,11 +6069,6 @@
   ],
   "技能变更生效条件：编辑、删除、重启": [],
   "技能与 SKILL.md 结构 Skill SKILL.md": [],
-  "脚手架与 Harness 厚度 Scaffolding Harness Thickness": [
-   "[[AI Agent]]",
-   "[[非模型架构 Non-model Architecture]]",
-   "[[Harness]]"
-  ],
   "输出 token 效率": [
    "[[Token Efficiency]]",
    "[[保留推理 retained reasoning]]",
@@ -5693,7 +6076,6 @@
    "[[Harness]]"
   ],
   "战略性技术债务：Python 服务": [],
-  "子代理的技能隔离": [],
   "asyncio 调度延迟与尾部延迟": [],
   "CLAUDE.md": [
    "[[AI 工程基础设施 AI engineering infrastructure]]",
@@ -5766,25 +6148,6 @@
    "[[软件即有向图]]",
    "[[12-factor agents]]"
   ],
-  "「模型即产品」的幻觉": [
-   "[[结构断言与不变量断言]]",
-   "[[从单元测试到评估：置信度而非正确性证明]]",
-   "[[静默的分级失败]]",
-   "[[差一点就通过的输出]]",
-   "[[调试散文：一个词就是 bug]]",
-   "[[示例强于规则]]",
-   "[[会自己重写的地基]]",
-   "[[测试是绿的，产品却在退化]]",
-   "[[昂贵的反馈回路与欠测试]]",
-   "[[让不可见变得可见]]",
-   "[[加法本能陷阱与过度约束]]",
-   "[[减法带来质量跃迁]]",
-   "[[提示词即行为程序]]",
-   "[[不可见的劳动]]",
-   "[[难度即护城河]]",
-   "[[非确定性 nondeterminism]]",
-   "[[Harness]]"
-  ],
   "「扔掉 DAG」的承诺": [
    "[[「并不 agentic」的 AI Agent]]",
    "[[软件即有向图]]",
@@ -5806,22 +6169,6 @@
    "[[橡皮鸭复审]]",
    "[[今天的魔法咒语，明天的反模式]]",
    "[[废料怪兽]]",
-   "[[Harness]]"
-  ],
-  "1.6% vs 98.4%": [
-   "[[AI 公司岗位编制]]",
-   "[[为 AI 设计工作环境]]",
-   "[[docsdecisions]]",
-   "[[层级架构强约束 + 给 Agent 读的 lint 错误]]",
-   "[[0 人工代码、0 人工 review 极限形态]]",
-   "[[CLAUDE.md]]",
-   "[[hooks .claudehooks]]",
-   "[[AI 工程基础设施 AI engineering infrastructure]]",
-   "[[确定性工程基础设施 deterministic engineering infrastructure]]",
-   "[[程序记忆（Procedural Memory Skills） progressive disclosure]]",
-   "[[非模型架构 Non-model Architecture]]",
-   "[[Agent = Model + Harness]]",
-   "[[Harness 工程 Harness Engineering]]",
    "[[Harness]]"
   ],
   "12-factor agents": [
@@ -5880,17 +6227,6 @@
    "[[U 型性能曲线]]",
    "[[迷失在中间 lost in the middle]]"
   ],
-  "不可见的劳动": [
-   "[[人的手感与产品手艺]]",
-   "[[「模型即产品」的幻觉]]",
-   "[[非确定性 nondeterminism]]",
-   "[[Harness]]"
-  ],
-  "不连贯输入的重构能力": [
-   "[[漫谈会话 ramble session]]",
-   "[[bits]]",
-   "[[输入摩擦 too lazy to type]]"
-  ],
   "部署系统层": [
    "[[显式且可检查的并行]]",
    "[[优化对象的阶梯]]",
@@ -5921,22 +6257,6 @@
    "[[外包思考，但不外包理解]]",
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
-  ],
-  "操作系统类比": [
-   "[[脚手架化 LLM 与冯·诺依曼架构类比]]",
-   "[[递归自我改进 RSI]]",
-   "[[部署系统层]]",
-   "[[Harness]]"
-  ],
-  "查询感知语境化 query-aware contextualization": [
-   "[[首因偏置 primacy bias]]",
-   "[[U 型性能曲线]]",
-   "[[迷失在中间 lost in the middle]]"
-  ],
-  "产品经理的组织化": [
-   "[[AI-First]]",
-   "[[信任机制重构]]",
-   "[[Harness 工程 Harness Engineering]]"
   ],
   "承诺链条": [
    "[[外包思考，但不外包理解]]",
@@ -6096,11 +6416,6 @@
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
   ],
-  "工具即结构化输出": [
-   "[[「并不 agentic」的 AI Agent]]",
-   "[[软件即有向图]]",
-   "[[12-factor agents]]"
-  ],
   "工具为你服务，而非你为工具服务": [],
   "功能与行为验证的缺口": [
    "[[无手打代码 no manually typed code at all]]",
@@ -6124,12 +6439,6 @@
    "[[漫谈会话 ramble session]]",
    "[[bits]]",
    "[[输入摩擦 too lazy to type]]"
-  ],
-  "会话级累积判断": [
-   "[[默认帮助的高门槛拒绝]]",
-   "[[判定程序化写法]]",
-   "[[反自我合理化条款]]",
-   "[[fail-closed 默认]]"
   ],
   "机制与内容分离": [
    "[[递归自我改进 RSI]]",
@@ -6177,11 +6486,6 @@
    "[[把重复步骤编码成 Skill]]",
    "[[skill-creator 访谈式创建]]",
    "[[验证闭环 verification loop]]"
-  ],
-  "可维护性 霰弹式手术": [
-   "[[Lights-off 软件工厂]]",
-   "[[软件工厂 Software Factory]]",
-   "[[Harness 工程 Harness Engineering]]"
   ],
   "可执行搜索空间": [
    "[[递归自我改进 RSI]]",
@@ -6252,11 +6556,6 @@
   ],
   "模型蒸馏": [
    "[[LLM Large Language Model]]",
-   "[[外包思考，但不外包理解]]",
-   "[[Agent-Native Infrastructure]]",
-   "[[Sensors 与 Actuators]]"
-  ],
-  "目标清楚 + 结果好验收": [
    "[[外包思考，但不外包理解]]",
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
@@ -6405,24 +6704,6 @@
    "[[代理原生 agent-native]]",
    "[[“SaaS 已死”叙事与护城河蒸发]]"
   ],
-  "上下文缺口": [
-   "[[Agent-to-Agent 交互（A2A）]]",
-   "[[外包思考，但不外包理解]]",
-   "[[Agent-Native Infrastructure]]",
-   "[[Sensors 与 Actuators]]"
-  ],
-  "上下文协作 context-cooperative": [
-   "[[熵减 entropy reduction]]",
-   "[[上下文 context]]",
-   "[[上下文工程 context engineering]]"
-  ],
-  "昇腾": [
-   "[[芯片管制]]",
-   "[[CXL 内存池化]]",
-   "[[外包思考，但不外包理解]]",
-   "[[Agent-Native Infrastructure]]",
-   "[[Sensors 与 Actuators]]"
-  ],
   "示例的探索空间约束": [
    "[[示例会收窄探索空间]]",
    "[[护栏型指令的过期]]",
@@ -6481,26 +6762,6 @@
    "[[「并不 agentic」的 AI Agent]]",
    "[[软件即有向图]]",
    "[[12-factor agents]]"
-  ],
-  "锁竞争与乐观并发控制": [
-   "[[最慢 worker 瓶颈与刚性]]",
-   "[[handoff 交接]]",
-   "[[自收敛与免全局同步]]",
-   "[[integrator 瓶颈]]",
-   "[[为吞吐量设计与可接受错误率]]",
-   "[[意图规约与可引导性]]",
-   "[[所有权与问责]]",
-   "[[planner–executor–judge 角色分工]]",
-   "[[连续执行器]]",
-   "[[新鲜度机制]]",
-   "[[角色过载与病态行为]]",
-   "[[递归 planner 与 subplanner]]",
-   "[[反脆弱]]",
-   "[[约束优于指令]]",
-   "[[锁竞争瓶颈 lock contention]]",
-   "[[单用户假设的失效]]",
-   "[[自协调与共享协调文件]]",
-   "[[Harness]]"
   ],
   "拓扑作为新抽象层": [
    "[[无手打代码 no manually typed code at all]]",
@@ -6622,18 +6883,7 @@
    "[[U 型性能曲线]]",
    "[[迷失在中间 lost in the middle]]"
   ],
-  "遗漏式隐私": [
-   "[[preferences 写入过滤]]",
-   "[[判定程序化写法]]",
-   "[[反自我合理化条款]]",
-   "[[fail-closed 默认]]"
-  ],
   "以项目创建者为中心": [],
-  "意识流输入 full stream of consciousness": [
-   "[[漫谈会话 ramble session]]",
-   "[[bits]]",
-   "[[输入摩擦 too lazy to type]]"
-  ],
   "意图翻译者 intention translator": [
    "[[熵减 entropy reduction]]",
    "[[上下文 context]]",
@@ -6692,22 +6942,11 @@
    "[[code-review-graph]]",
    "[[Tree-sitter]]"
   ],
-  "正确的信息与工具，在正确的时间": [
-   "[[OAIQ]]",
-   "[[上下文（Context）：模型生成之前看到的一切]]",
-   "[[有限的工作记忆 limited working memory]]",
-   "[[上下文工程 context engineering]]"
-  ],
   "政府资本 vs 产业资本": [
    "[[开源 vs 闭源]]",
    "[[外包思考，但不外包理解]]",
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
-  ],
-  "知识与能力的双供给 information and tools": [
-   "[[上下文（Context）：模型生成之前看到的一切]]",
-   "[[有限的工作记忆 limited working memory]]",
-   "[[上下文工程 context engineering]]"
   ],
   "指代表达": [
    "[[隐式指代]]",
@@ -6722,30 +6961,10 @@
    "[[过度约束与松绑 over-constraining unhobbling]]",
    "[[上下文工程 context engineering]]"
   ],
-  "指令子系统与渐进式展开": [
-   "[[验证子系统与可运行的证据]]",
-   "[[功能清单作为 harness 原语]]",
-   "[[会话生命周期]]",
-   "[[端到端验证]]",
-   "[[弱 harness 强 harness 对照与消融实验]]",
-   "[[从救火到审查的角色转移]]",
-   "[[状态子系统与进度持久化]]",
-   "[[范围控制与显式的完成定义]]",
-   "[[仓库即唯一事实来源]]",
-   "[[验证缺口]]",
-   "[[可观测性]]",
-   "[[能力鸿沟]]",
-   "[[Harness 工程 Harness Engineering]]"
-  ],
   "注水内容": [
    "[[外包思考，但不外包理解]]",
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
-  ],
-  "最小充分性与语义连续性原则": [
-   "[[熵减 entropy reduction]]",
-   "[[上下文 context]]",
-   "[[上下文工程 context engineering]]"
   ],
   "action space 膨胀": [
    "[[押注 in-context learning]]",
@@ -6757,13 +6976,6 @@
    "[[AI-First]]",
    "[[信任机制重构]]",
    "[[Harness 工程 Harness Engineering]]"
-  ],
-  "agent 模板的声明式持久化": [
-   "[[文件系统即持久记忆]]",
-   "[[Git-backed state]]",
-   "[[Claude Managed Agents]]",
-   "[[messages API 作为直连网关]]",
-   "[[Harness]]"
   ],
   "Agent as a New Type of Software": [
    "[[Capability Overhang]]",
@@ -6780,18 +6992,6 @@
    "[[外包思考，但不外包理解]]",
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
-  ],
-  "Agentic primitives": [
-   "[[Agent CLI runtimes]]",
-   "[[APM]]",
-   "[[Chat modes]]",
-   "[[Memory-driven development]]",
-   "[[Agentic workflows]]",
-   "[[Natural language as code]]",
-   "[[Validation gates]]",
-   "[[Instructions files]]",
-   "[[Markdown prompt engineering]]",
-   "[[上下文工程 context engineering]]"
   ],
   "Agentic Tools": [
    "[[外包思考，但不外包理解]]",
@@ -6864,12 +7064,6 @@
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
   ],
-  "Bitter Lesson": [
-   "[[推理模型]]",
-   "[[Agentic Engineering]]",
-   "[[Harness 工程 Harness Engineering]]",
-   "[[Harness]]"
-  ],
   "brain hands session 解耦": [
    "[[Claude Managed Agents]]",
    "[[messages API 作为直连网关]]",
@@ -6890,12 +7084,6 @@
    "[[外包思考，但不外包理解]]",
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
-  ],
-  "code mode": [
-   "[[shell tool]]",
-   "[[Agents SDK]]",
-   "[[model-native harness]]",
-   "[[Harness]]"
   ],
   "Codified Context": [
    "[[Agent Drift]]",
@@ -7021,12 +7209,6 @@
    "[[空间 Scalability Spatial Scalability]]",
    "[[Harness 工程 Harness Engineering]]"
   ],
-  "GEO": [
-   "[[Human-Only Social Networks]]",
-   "[[外包思考，但不外包理解]]",
-   "[[Agent-Native Infrastructure]]",
-   "[[Sensors 与 Actuators]]"
-  ],
   "Ghost in the Shell": [
    "[[Human-Only Social Networks]]",
    "[[外包思考，但不外包理解]]",
@@ -7074,11 +7256,6 @@
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
   ],
-  "Implementation 能力": [
-   "[[AI-First]]",
-   "[[信任机制重构]]",
-   "[[Harness 工程 Harness Engineering]]"
-  ],
   "instruction following 的可靠性边界": [
    "[[Validation gates]]",
    "[[REI-Bench]]",
@@ -7120,17 +7297,6 @@
    "[[Agentic primitives]]",
    "[[上下文工程 context engineering]]"
   ],
-  "Memory file 与 continual learning": [
-   "[[Memory-driven development]]",
-   "[[Agent = Model + Harness]]",
-   "[[Harness 工程 Harness Engineering]]",
-   "[[Harness]]"
-  ],
-  "mind meld": [
-   "[[漫谈会话 ramble session]]",
-   "[[bits]]",
-   "[[输入摩擦 too lazy to type]]"
-  ],
   "MoE": [
    "[[Q、K、V]]",
    "[[外包思考，但不外包理解]]",
@@ -7171,13 +7337,6 @@
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
   ],
-  "oppref": [
-   "[[single_advertiser_ad_unit]]",
-   "[[OpenAI 广告基础设施域名]]",
-   "[[外包思考，但不外包理解]]",
-   "[[Agent-Native Infrastructure]]",
-   "[[Sensors 与 Actuators]]"
-  ],
   "opt in opt out": [
    "[[外包思考，但不外包理解]]",
    "[[Agent-Native Infrastructure]]",
@@ -7188,21 +7347,9 @@
    "[[Inner Loop]]",
    "[[Harness 工程 Harness Engineering]]"
   ],
-  "Personal Context": [
-   "[[Context Infrastructure]]",
-   "[[Context Distraction]]",
-   "[[长上下文窗口]]",
-   "[[上下文工程 context engineering]]"
-  ],
   "PPO": [
    "[[SFT Feedback Loop]]",
    "[[ScaleRL]]"
-  ],
-  "preferences 写入过滤": [
-   "[[遗漏式隐私]]",
-   "[[判定程序化写法]]",
-   "[[反自我合理化条款]]",
-   "[[fail-closed 默认]]"
   ],
   "Python-first": [
    "[[very few abstractions]]",
@@ -7339,12 +7486,6 @@
    "[[skill-creator 访谈式创建]]",
    "[[验证闭环 verification loop]]"
   ],
-  "Skills as permanent upgrades": [
-   "[[stateless]]",
-   "[[外包思考，但不外包理解]]",
-   "[[Agent-Native Infrastructure]]",
-   "[[Sensors 与 Actuators]]"
-  ],
   "Software 3.0": [
    "[[Stochastic Graduate Descent]]",
    "[[Skill]]",
@@ -7411,23 +7552,6 @@
    "[[model-native harness]]",
    "[[Harness]]"
   ],
-  "U 型性能曲线": [
-   "[[近因偏置 recency bias]]",
-   "[[干扰文档 distractor documents]]",
-   "[[扩展上下文模型 extended-context models]]",
-   "[[查询感知语境化 query-aware contextualization]]",
-   "[[检索器-阅读器配置 retriever-reader]]",
-   "[[性能饱和早于召回饱和]]",
-   "[[重排序与排序列表截断]]",
-   "[[序列位置效应 serial-position effect]]",
-   "[[闭卷与 oracle 基线]]",
-   "[[合成键值检索任务]]",
-   "[[多文档问答受控实验]]",
-   "[[长上下文评测协议]]",
-   "[[tokens]]",
-   "[[首因偏置 primacy bias]]",
-   "[[迷失在中间 lost in the middle]]"
-  ],
   "Vantage": [
    "[[外包思考，但不外包理解]]",
    "[[Agent-Native Infrastructure]]",
@@ -7472,11 +7596,6 @@
    "[[harness 与 framework 的分野]]",
    "[[持久化执行 durable execution]]",
    "[[Harness]]"
-  ],
-  "Without Defensiveness": [
-   "[[外包思考，但不外包理解]]",
-   "[[Agent-Native Infrastructure]]",
-   "[[Sensors 与 Actuators]]"
   ]
  }
 }

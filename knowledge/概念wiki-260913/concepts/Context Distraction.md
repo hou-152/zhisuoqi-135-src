@@ -51,7 +51,7 @@ Context 塞得越多不等于越好。超过某个阈值后，模型反而被"�
 ## 反链
 
 - [[长上下文窗口]]
+- [[Personal Context]]
 - [[Context 四种失败模式 Context Pollution Distraction Confusion Clash]]
 - [[context rot（上下文腐烂）与 Lost in the Middle]]
 - [[few-shot 套路化与受控多样性]]
-- [[Personal Context]]

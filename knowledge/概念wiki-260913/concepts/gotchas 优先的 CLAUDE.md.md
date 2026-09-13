@@ -7,7 +7,7 @@ domain: context-engineering
 learningStage: when-needed
 verification: use
 centrality: 0.072
-depth: 1
+depth: 2
 origin: [context]
 aliases: []
 sources: 1
@@ -52,6 +52,6 @@ CLAUDE.md 层的具体写法准则。保持轻量、简述 repo 用途，**把�
 - Context Engineering ｜ 《Claude 5 时代的上下文工程新规则：系统提示词砍掉 80%》 ｜ https://x.com/trq212/status/2080710971228918066/?s=12
 ## 反链
 
-- [[过度约束与松绑 over-constraining unhobbling]]
 - [[gotchas 优先原则]]
+- [[过度约束与松绑 over-constraining unhobbling]]
 - [[prompt 与 context 的通用性落差]]

@@ -59,7 +59,7 @@ artifact schema 是统一表格格式。大家都按同一列写，后面的 age
 
 - [[Agent loop]]
 - [[Cross-session Work]]
+- [[持久化代码图谱 structural map graph]]
 - [[Git-backed state]]
 - [[Loop Engineer]]
 - [[Shared File System]]
-- [[持久化代码图谱 structural map graph]]

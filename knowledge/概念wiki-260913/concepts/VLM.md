@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: model-training
 learningStage: when-needed
 verification: accept
-centrality: 0.072
+centrality: 0.126
 depth: 1
 origin: [notion]
 aliases: ["Vision-Language Model / 视觉-语言模型 / 视觉语言模型"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 视觉-语言模型，能同时处理图像与文字的多模态大模型。
 
-**领域** model-training ｜ **类型** LANGUAGE ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
+**领域** model-training ｜ **类型** LANGUAGE ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.126
 
 ## 原文 context
 
@@ -35,8 +35,9 @@ sources: 1
 
 > 为什么 {{name}} 是这项隐私泄露研究的对象？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
+- [[multimodal Vision LLMs]] · **hard** — 不懂把图像编码成模型可处理 token，就做不了 VLM 的图文同流程前向
 - [[Q、K、V]] · **soft** — 不懂 Q、K、V，就做不了 VLM 的跨模态注意力融合（图像 token 对文本 token 的加权）
 
 ## 相关
@@ -57,6 +58,6 @@ sources: 1
 
 ## 反链
 
+- [[multimodal Vision LLMs]]
 - [[Q、K、V]]
 - [[Tiny Engram]]
-- [[multimodal Vision LLMs]]
