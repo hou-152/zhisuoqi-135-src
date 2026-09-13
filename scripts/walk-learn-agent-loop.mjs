@@ -28,6 +28,7 @@ const chrome = spawnProcess(CHROME, [
 process.on('exit', () => { try { chrome.kill('SIGKILL'); } catch {} });
 
 const log = [];
+const shotOf = async (sel, file) => { if (sel) { await ex(`(()=>{const e=document.querySelector(${JSON.stringify(sel)}); if(e&&e.scrollIntoView) e.scrollIntoView({block:'center'}); return true})()`); await sleep(220); } await cdp.screenshot(path.join(SHOT_DIR, file)); };
 const record = (step, value) => { log.push({ step, value, at: new Date().toISOString() }); console.log(`  · ${step} ｜ ${typeof value === 'string' ? value.replace(/\s+/g, ' ').slice(0, 200) : JSON.stringify(value).slice(0, 200)}`); };
 
 const target = await waitForPage(port);
@@ -53,7 +54,7 @@ record('章节', await ex(`chapterById(learnCur).order + ' ' + chapterById(learn
 record('主案例（候选／假设场景）', await ex(`chapterById(learnCur).case.id + ' · ' + chapterById(learnCur).case.type + ' · 候选 ' + chapterById(learnCur).case.candidates.join('、')`));
 record('审核状态', await ex(`chapterById(learnCur).review.caseState + ' / ' + chapterById(learnCur).review.status`));
 record('阅读区摘要', (await ex(`document.getElementById('learn-wrap').innerText`)).slice(0, 700));
-await cdp.screenshot(path.join(SHOT_DIR, '54-学习空间-真模型走查-阅读.png'));
+await shotOf('.lpair', '54-学习空间-真模型走查-阅读.png');
 
 /* 三道决策：真实点击，第一题故意先错一次 */
 for (let i = 0; i < 3; i++) {
@@ -70,7 +71,7 @@ for (let i = 0; i < 3; i++) {
 }
 await ex('learnNext()');
 record('费曼区已出现', await ex(`document.getElementById('learn-said')!==null`));
-await cdp.screenshot(path.join(SHOT_DIR, '55-学习空间-真模型走查-三题通过.png'));
+await shotOf('#learn-fey', '55-学习空间-真模型走查-三题通过.png');
 
 /* 真实费曼判定：先漏点，再补齐 */
 const required = await ex(`chapterById(learnCur).feynman.required`);
@@ -102,11 +103,11 @@ async function submit(text) {
 
 const shortResult = await submit(SHORT);
 record('费曼-漏点复述（真模型）', shortResult);
-await cdp.screenshot(path.join(SHOT_DIR, '56-学习空间-真模型走查-费曼未通过.png'));
+await shotOf('#learn-fres', '56-学习空间-真模型走查-费曼未通过.png');
 
 const fullResult = await submit(FULL);
 record('费曼-补齐复述（真模型）', fullResult);
-await cdp.screenshot(path.join(SHOT_DIR, '57-学习空间-真模型走查-费曼通过.png'));
+await shotOf('#learn-fres', '57-学习空间-真模型走查-费曼通过.png');
 
 record('编辑复述后旧状态清除', await ex(`(()=>{const b=document.getElementById('learn-said'); b.value=b.value+' 再补一句。'; learnSaidChanged(); return stOf(learnCur).feynman+'|'+chapterUnlocked(1)})()`));
 

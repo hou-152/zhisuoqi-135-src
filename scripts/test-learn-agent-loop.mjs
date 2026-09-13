@@ -36,6 +36,8 @@ const check = (label, got, expected) => {
   if (!ok) failures.push(`${label}：期望 ${expected}，实得 ${got}`);
 };
 const note = (label, got) => console.log(`  · ${label} ｜ ${got}`);
+// 截图前把目标区域滚进视口——否则每张图都是页面顶部，几张图会长得一模一样
+const shotOf = async (sel, file) => { if (sel) { await ex(`(()=>{const e=document.querySelector(${JSON.stringify(sel)}); if(e&&e.scrollIntoView) e.scrollIntoView({block:'center'}); return true})()`); await sleep(220); } await cdp.screenshot(path.join(SHOT_DIR, file)); };
 
 const target = await waitForPage(port);
 if (!target) throw new Error('Chrome 调试端口没起来');
@@ -81,7 +83,7 @@ check('学习时隐藏左栏导航', await ex(`getComputedStyle(document.getElem
 check('阅读区带出五类材料 ID', await ex(`['QST-','CON-','CAS-','SOL-'].every(p=>document.getElementById('learn-wrap').innerText.includes(p))`), 'true');
 check('页面显示主案例是候选（未经负责人确认）', await ex(`document.getElementById('learn-wrap').innerText.includes('候选') && document.getElementById('learn-wrap').innerText.includes('未经负责人确认')`), 'true');
 check('显示假设场景标记', await ex(`document.getElementById('learn-wrap').innerText.includes('假设场景')`), 'true');
-await cdp.screenshot(path.join(SHOT_DIR, '50-学习空间-第一章阅读.png'));
+await shotOf('.lpair', '50-学习空间-第一章阅读.png');
 
 /* ② 一题一判：答错留在当前题，答对才放行 */
 console.log('\n② 三道决策 · 一题一判');
@@ -102,7 +104,7 @@ check('第三题的按钮文案变成进入费曼', await ex(`document.getElemen
 check('三题未全过前没有费曼框', await ex(`document.getElementById('learn-said')===null`), 'true');
 await ex(`learnChoose(chapterById(learnCur).questions[2].options.findIndex(o=>o.correct)); learnNext()`);
 check('三题全对后才出现费曼', await ex(`document.getElementById('learn-said')!==null`), 'true');
-await cdp.screenshot(path.join(SHOT_DIR, '51-学习空间-决策与费曼.png'));
+await shotOf('#learn-fey', '51-学习空间-决策与费曼.png');
 
 /* ③ 费曼状态门：固定响应，不依赖模型随机性 */
 console.log('\n③ 费曼状态门（固定响应）');
@@ -120,7 +122,7 @@ await ex('learnFeynman()');
 await sleep(200);
 check('漏点为空且要点齐全才显示通过', await ex(`stOf(learnCur).feynman`), 'ok');
 check('通过后章节状态可查', await ex(`chapterCleared(learnCur)`), 'true');
-await cdp.screenshot(path.join(SHOT_DIR, '52-学习空间-费曼通过.png'));
+await shotOf('#learn-fres', '52-学习空间-费曼通过.png');
 
 /* ④ 重新编辑复述 → 清除旧的通过状态 */
 console.log('\n④ 重新编辑复述 → 清掉通过状态');
@@ -163,7 +165,7 @@ check('恢复原路线', await ex(`activeRoute().routeId`), 'agent-continuous-ac
 check('恢复原步骤（第 1 步）', await ex(`routeStepIdx`), 0);
 check('恢复原概念（Agent 那张卡）', await ex(`selected===ROUTES[0].steps[0].conceptId`), 'true');
 check('恢复为路径模式', await ex(`mode`), 'path');
-await cdp.screenshot(path.join(SHOT_DIR, '53-学习空间-返回知识体系.png'));
+await shotOf('#pbody .pctx', '53-学习空间-返回知识体系.png');
 
 /* ⑦ 地址可复现 + 边界 */
 console.log('\n⑦ 可复现入口与边界');
