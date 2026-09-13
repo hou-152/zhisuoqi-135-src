@@ -259,6 +259,11 @@ code{background:#161719;border:1px solid var(--line);border-radius:4px;padding:1
 .fybox li{margin:4px 0;line-height:1.7}
 .fybox li b{color:var(--fg)}
 .nei-foot{margin-top:26px;padding-top:12px;border-top:1px solid var(--line);color:var(--fg3);font-size:11.5px}
+.case-mvp{border:1px solid #d9c8a6;border-radius:9px;padding:13px 14px;margin:14px 0;background:#fffaf0}
+.case-mvp h4{margin:0 0 6px;color:#8a5a13}.case-mvp .case-meta{font-size:11px;color:var(--fg3);margin-bottom:10px}
+.case-mvp .case-option{display:block;width:100%;text-align:left;border:1px solid var(--line);border-radius:8px;background:var(--panel2);padding:10px;margin:7px 0;color:var(--fg);cursor:pointer}
+.case-mvp .case-option:hover{border-color:#d9a84e}.case-mvp .case-option.ok{border-color:#4cb782;background:#f0faf5}.case-mvp .case-option.bad{border-color:#d99a9a;background:#fff5f5}
+.case-mvp .case-result{margin-top:10px;line-height:1.65;font-size:12px}.case-mvp .case-back{margin-bottom:10px}
 </style>
 </head>
 <body>
@@ -924,6 +929,7 @@ function openPanel(id) {
     <div class="src" style="margin-top:6px">${esc(tags.length ? tags.join(' · ') : (src ? src.label : n.src))} · ${n.type}</div>
     <h2>${esc(n.name)}</h2>
     <div class="gloss">${esc(n.gloss)}</div>
+    ${caseMvpLink(n)}
     ${((n.evidence||[]).length || n.ap) ? `<details class="deep"${kk === "accept" ? " open" : ""}>
       <summary>深看 · 做到这些才算会${n.ap ? " · 验收问句" : ""}</summary>
       ${(n.evidence||[]).length ? `<h5>掌握证据（可观察的行为，不是「理解了」）</h5><ul>${n.evidence.map(e => `<li>${esc(e)}</li>`).join('')}</ul>` : ''}
@@ -977,6 +983,36 @@ function openPanel(id) {
   pinMain(true);
   if (typeof syncListSel === 'function') syncListSel();
 }
+/* 案例决策场 1：概念集合不假设一一对应，本轮只接入一个已验证案例。 */
+function caseMvpLink(n) {
+  if (n.name !== '上下文腐烂') return '';
+  return `<div class="case-mvp"><h4>1 · 案例决策场</h4>
+    <div class="case-meta">从当前概念匹配到 3 个候选案例，本轮只测试 1 个：上下文腐烂。</div>
+    <button class="jbtn" onclick="openCaseMvp()">进入单案例判断 →</button></div>`;
+}
+function openCaseMvp() {
+  const p = document.getElementById('pbody');
+  p.innerHTML = `<div class="case-mvp" style="border:0;padding:0;background:none">
+    <button class="jbtn ghost case-back" onclick="openPanel(selected)">← 返回概念</button>
+    <h2>1 · 案例决策场</h2>
+    <div class="case-meta">案例：CAS-context-rot · 假设场景 · 本轮只验收一个方向</div>
+    <h4>情境</h4><p>同一模型、同一任务、同一批关键证据，短输入时稳定；加入大量无关材料后开始漏答。你下一步先做什么？</p>
+    <h4>选择一个方向</h4>
+    <button class="case-option" onclick="judgeCaseMvp(this,false)"><b>A.</b> 先换更大的模型。</button>
+    <button class="case-option" onclick="judgeCaseMvp(this,true)"><b>B.</b> 固定模型、任务、关键证据和评分方法，只分档增加无关材料。</button>
+    <button class="case-option" onclick="judgeCaseMvp(this,false)"><b>C.</b> 先换更大的上下文窗口规格。</button>
+    <div id="case-mvp-result"></div>
+  </div>`;
+}
+window.openCaseMvp = openCaseMvp;
+function judgeCaseMvp(button, ok) {
+  document.querySelectorAll('.case-option').forEach(b => b.classList.remove('ok','bad'));
+  button.classList.add(ok ? 'ok' : 'bad');
+  document.getElementById('case-mvp-result').innerHTML = ok
+    ? '<div class="case-result"><b>方向成立。</b>先固定变量，再把输入长度作为唯一变化量；否则无法判断退化来自哪里。依据：OPI-CTX-03-03、SOL-context-rot。</div>'
+    : '<div class="case-result"><b>这不是本轮要验收的方向。</b>先回到情境：要把输入长度单独隔离出来，才能判断是否发生利用退化。</div>';
+}
+window.judgeCaseMvp = judgeCaseMvp;
 function pinMain(on) {
   const m = document.getElementById('main');
   if (!m || m.classList.contains('pinned') === on) return;
