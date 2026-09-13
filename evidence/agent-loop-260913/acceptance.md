@@ -119,3 +119,24 @@ MVP 那一章同样有三份：`test-mvp-learning.mjs`（黑盒）· `walk-mvp-r
 
 复跑：材料体检 **257/257**（+15）· 学习空间黑盒 **71/71 ＋ 0 JS 报错**（+6）· `walk-learn-agent-loop.mjs harness` 真模型：答错留在本题 → 三题 → 费曼未通过（漏「与模型分工／边界口径」）→ 补齐通过 → 编辑后重新锁上；2 次真实调用、0 次知乎请求、0 JS 报错。截图 `prototype/预览/54..57`。
 **边界**：只有 Harness 一页走正文流（其余五章 `narrative: null`，版式未动）；过渡句/关系句**未经负责人审核**，属 agent 撰写；「同一个模型换一套 Harness」这一类解释句的最终口径仍需负责人过一遍。
+
+## 八、2026-09-14 all in：六章正文流 ＋ 来源链
+
+**来源链（回应负责人质疑「Context 28 篇 + Harness 30 篇是图鉴站的根」）**：负责人是对的。`scripts/build-source-chain.mjs`（只读）实测：
+
+| 环 | 数量 | 核对方式 |
+|---|---|---|
+| 58 篇（`SRC-EXT-001` Context 28 ＋ `SRC-EXT-002` Harness 30） | 2 份文档 | `01-原始素材区/完整副本/飞书-*.md` |
+| 原始来源 | **49**（article 31 · post 10 · documentation 5 · paper 2 · research 1） | 图鉴站 `sources.yaml` |
+| 49/49 标题能在 58 篇里逐字找到 | **49 / 49** | 标题前 26 字逐字比对 |
+| 卡片 | **76**（全部带 `source_ids`，缺失 0） | 图鉴站 `concepts/*.yaml` |
+| 引用一手来源（论文/研究）的卡片 | **4** | `SRC-context-engineering-2` · `SRC-lost-in-the-middle-paper` · `SRC-chroma-context-rot` |
+
+**必须照实说的两点**：① 两边互不引用——卡片只写 `source_ids` → 原始 URL，58 篇里 0 次提「图鉴」，`sources.yaml` 里 0 次提「内参/飞书」，所以「图鉴站是以 58 篇为语料，还是独立读了同一批原始来源」**判不出来，记为未知**；② 六章 Agent Loop 的卡片**各只引用 1 篇 article**（Simon Willison 的 coding agents 指南、Akshay 的 Harness 拆解、Building verification loops），要升级成「真实复盘」得从这些原文里抽作者自述的实践，不是现成就有。
+
+**页面**：`chapters.json` 的每章带 `sourceChain`（卡片文件 ＋ `docs` ＋ `originalSources`），「阅读」块显示：知识根（58 篇 → 卡片 → 本页单元）＋ 可点开的原始来源标题／作者（一手标「· 一手」）。
+
+**正文流扩到六章**：其余五章各加 `narrative`（导语 ＋ 过渡句 2—3 条 ＋ 关系句 3 条 ＋ `inlineFeynman` ＋ `nextBridge`）。第 1 章没有上一单元，过渡句改为「入口问题 ＋ 为什么先立承载体」；第 6 章是收口，末尾给「各自解决哪一步」。所有句子均由 agent 撰写并在页面标明，`quote` 逐字回源（build 失败即中止）。
+
+**复跑**：材料体检 **344/344** · 学习空间黑盒 **72/72 ＋ 0 JS 报错** · `walk-learn-agent-loop.mjs harness` 真模型全过（2 次真实调用、0 次知乎请求、0 JS 报错）· `paths-validate` 在并行会话的 918 概念 / 591 依赖新地图上仍全过。
+**未做**：真实案例仍未抽（六章的卡片各只有 1 篇 article 来源）；学生/审核视图未分离；公网未重建、未 push。

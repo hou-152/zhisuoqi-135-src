@@ -120,6 +120,18 @@ for (const c of data.chapters) {
   check(`${t}｜读完就讲（费曼在决策之前）`, n.inlineFeynman === true);
 }
 
+/* ⑤c 来源链：58 篇 → 49 个原始来源 → 图鉴站卡片 → 本页单元（每一环都要能点开） */
+const chain = read(path.join(DIR, 'source-chain.json'));
+check('来源链：49 个来源标题在 58 篇里逐字命中', chain.stats.sources === chain.stats.sourcesFoundInDocs, `${chain.stats.sourcesFoundInDocs}/${chain.stats.sources}`);
+check('来源链：76 张卡都带 source_ids 且无缺失', chain.stats.cardsWithSources === 76 && chain.stats.cardsWithMissingSource === 0);
+for (const c of data.chapters) {
+  const t = `第 ${c.order} 章 ${c.title}`;
+  const sc = c.sourceChain || {};
+  check(`${t}｜来源链指到图鉴站卡片文件`, /^concepts\/[a-z0-9-]+\.yaml$/.test(sc.cardFile || ''), sc.cardFile || '缺');
+  check(`${t}｜知识根可追到原始来源（标题＋链接）`, (sc.originalSources || []).length > 0 && sc.originalSources.every((s) => !!s.title && !!s.url));
+  check(`${t}｜来源链声明 58 篇为根`, (sc.docs || []).join(',') === 'SRC-EXT-001,SRC-EXT-002');
+}
+
 /* ⑥ 费曼要点按章制定 */
 const sets = data.chapters.map((c) => c.feynman.required.join('|'));
 check('费曼要点六章两两不同', new Set(sets).size === 6);

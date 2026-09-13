@@ -33,6 +33,13 @@ const byTopic = new Map(topics.map((t) => [t.id, t]));
 const route = read(ROUTES).routes.find((r) => r.routeId === 'agent-continuous-action-v1');
 if (!route) throw new Error('routes.json 里找不到 agent-continuous-action-v1');
 
+/* 来源链（scripts/build-source-chain.mjs 产出）：58 篇 → 49 个原始来源 → 76 张卡。
+   章节只带「这张卡引用了哪些原始来源」，让页面能显示知识根；链本身的核对在链脚本里做。 */
+const CHAIN = read(path.join(DIR, 'source-chain.json'));
+const chainSource = new Map(CHAIN.sources.map((s) => [s.id, s]));
+const chainCard = new Map(CHAIN.cards.map((c) => [c.slug, c]));
+const PRIMARY_TYPE = /^(paper|research|report)$/;
+
 const fail = [];
 const need = (cond, msg) => { if (!cond) fail.push(msg); };
 const TYPE_OF = { CON: '概念单元', QST: '问题单元', CAS: '案例单元', OPI: '观点单元', SOL: '方案单元' };
@@ -179,6 +186,12 @@ for (const ch of pairings.chapters) {
     domain: topic.domain, level: topic.level, kind: topic.kind || '',
   };
   const primary = byUnit.get(ch.primaryCaseId);
+  const cardSlug = (body.sourceLines.join('\n').match(/concepts\/([a-z0-9-]+)\.yaml/) || [])[1] || '';
+  const card = chainCard.get(cardSlug);
+  need(!!card, `${tag}：来源链里找不到卡片 ${cardSlug || '(CON 的 sourceLines 没写 concepts/*.yaml)'}`);
+  const originalSources = ((card && card.sourceIds) || []).map((id) => chainSource.get(id)).filter(Boolean)
+    .map((s) => ({ id: s.id, title: s.title, author: s.author, url: s.url, type: s.sourceType, primary: PRIMARY_TYPE.test(s.sourceType) }));
+  need(originalSources.length > 0, `${tag}：卡片 ${cardSlug} 没有可解析的原始来源`);
   const chapter = {
     chapterId: ch.chapterId,
     order: ch.order,
@@ -228,6 +241,13 @@ for (const ch of pairings.chapters) {
       correspondence: ch.correspondence,
       needsOwnerRuling: !!(ch.correspondence && ch.correspondence.needsOwnerRuling),
       ruling: (ch.correspondence && ch.correspondence.ruling) || null,
+    },
+    sourceChain: {
+      card: cardSlug, cardFile: `concepts/${cardSlug}.yaml`,
+      docs: CHAIN.docs.map((d) => d.id),
+      originalSources,
+      primaryCount: originalSources.filter((s) => s.primary).length,
+      note: '58 篇（Context 28 ＋ Harness 30）→ 图鉴站卡片 → 本单元的 CON/CAS/SOL；卡片 source_ids 指向的原始来源见 originalSources。',
     },
   };
   chapters.push(chapter);

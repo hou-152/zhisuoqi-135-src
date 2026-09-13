@@ -1201,7 +1201,7 @@ function pick(mx, my) {
 /* ── 面板 ───────────────────────────────────────────── */
 /* ── 来源：粗标签之外的「这篇概念是从哪篇原文来的」 ────────────────
    原来概念卡上的来源是个死标签（只印 notion / context / harness 之一），点不动。
-   实测 936 个概念里 897 个只有 1 篇来源，最多的是 Harness（21 篇）—— 只列前 6 篇，
+   实测 918 个概念里 879 个只有 1 篇来源，最多的是 Harness（21 篇）—— 只列前 6 篇，
    每篇带「同源概念」（同一篇原文里还长出过哪些概念），点一下直接跳过去。 */
 function srcBlockOf(n) {
   const arts = (n.sa || []).map((i) => ({ i, a: articles[i] })).filter((x) => x.a && x.a.u);
@@ -1643,7 +1643,7 @@ function renderList() {
   let html = '', cnt = 0;
 
   if (currentView === 'graph') {
-    /* 二级＝主题。936 条概念是三级，默认不在这里出现（phase 03 走「点主题 → 下钻」才渲染）。 */
+    /* 二级＝主题。918 条概念是三级，默认不在这里出现（phase 03 走「点主题 → 下钻」才渲染）。 */
     const list = groups().filter(g => hit(g.label));
     cnt = list.length;
     html = list.map(g => rowHTML(
@@ -1658,7 +1658,7 @@ function renderList() {
        路径行用 .prow，不是 .row：概念行的条数断言数的还是概念，路径不是概念。 */
     const mine = ROUTES.filter(r => r.topicId === themeId);
     if (mine.length) {
-      html += `<div class="lp-sec">推荐路径 · ${mine.length} 条（人工策展，不是把 936 个概念排成课表）</div>`
+      html += `<div class="lp-sec">推荐路径 · ${mine.length} 条（人工策展，不是把 918 个概念排成课表）</div>`
         + mine.map(r => `<div class="prow${r.routeId === routeId && mode === 'path' ? ' on' : ''}" onclick="openRoute('${r.routeId}')">
             <span class="rd"></span>
             <span class="rn">${esc(r.title)}<i>${esc(r.entryQuestion)}</i></span>
@@ -2049,6 +2049,7 @@ function renderLearn(notice) {
       <div class="lpair">${pair.map(([k, v, id]) => `<div><b>${k}</b><span>${esc(v)}</span><code>${esc(id)}</code></div>`).join('')}</div>
       ${reviewLine}
       <div class="lgap">迁移问题：${esc(c.concept.transferQuestion)}<br>分类问题：${esc(c.concept.categoryQuestion)}<br>来源：${esc(c.concept.sources.join(' · '))}（CON）／${esc(c.case.sources.join(' · '))}（CAS）／${esc(c.solution.sources.join(' · '))}（SOL）</div>
+      ${c.sourceChain ? `<div class="lgap">知识根：${esc(c.sourceChain.docs.join(' ＋ '))}（58 篇）→ 图鉴站卡片 <code>${esc(c.sourceChain.cardFile)}</code> → 本页单元<br>原始来源：${c.sourceChain.originalSources.map((s) => `<a href="${esc(s.url)}" target="_blank" rel="noreferrer">${esc(s.title)}</a>${s.author ? `（${esc(s.author)}${s.primary ? ' · 一手' : ''}）` : ''}`).join(' · ')}</div>` : ''}
     </div>`;
 
   const blockLinks = n && (n.links || []).length ? `<div class="lcard">

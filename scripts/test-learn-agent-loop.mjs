@@ -89,7 +89,7 @@ await shotOf('.lpair', '50-学习空间-第一章阅读.png');
 /* ② 一题一判：答错留在当前题，答对才放行 */
 console.log('\n② 三道决策 · 一题一判');
 check('第一题恰好 3 个选项', await ex(`document.querySelectorAll('#learn-q .lopt').length`), 3);
-check('三题没全过时不显示费曼输入框', await ex(`document.getElementById('learn-said')===null`), 'true');
+check('费曼一下在阅读之后就出现（读完就讲，不必等三道题）', await ex(`document.getElementById('learn-said')!==null`), 'true');
 const wrongIdx = await ex(`chapterById(learnCur).questions[0].options.findIndex(o=>!o.correct)`);
 const rightIdx = await ex(`chapterById(learnCur).questions[0].options.findIndex(o=>o.correct)`);
 await ex(`learnChoose(${wrongIdx})`);
@@ -102,7 +102,7 @@ check('进入第二题', await ex(`learnQ`), 1);
 await ex(`learnChoose(chapterById(learnCur).questions[1].options.findIndex(o=>o.correct)); learnNext()`);
 check('进入第三题', await ex(`learnQ`), 2);
 check('第三题的按钮文案变成进入费曼', await ex(`document.getElementById('learn-next').textContent`), '三题通过，进入费曼');
-check('三题未全过前没有费曼框', await ex(`document.getElementById('learn-said')===null`), 'true');
+check('费曼框全章只有一份（走完三题不重复渲染）', await ex(`document.querySelectorAll('#learn-wrap #learn-said').length`), 1);
 await ex(`learnChoose(chapterById(learnCur).questions[2].options.findIndex(o=>o.correct)); learnNext()`);
 check('三题全对后才出现费曼', await ex(`document.getElementById('learn-said')!==null`), 'true');
 await shotOf('#learn-fey', '51-学习空间-决策与费曼.png');
@@ -214,6 +214,7 @@ check('正文有过渡句：上一单元留下了什么问题', await ex(`(()=>{
 check('关系句写成完整句、并带逐字原文', await ex(`(()=>{const t=document.getElementById('learn-wrap').innerText;return t.includes('这些概念是怎么连起来的')&&t.includes('真正执行的是 Harness')&&t.includes('逐字原文')})()`), 'true');
 check('费曼一下排在决策之前（读完就讲）', await ex(`(()=>{const t=document.getElementById('learn-wrap').innerText;const a=t.indexOf('读完就用自己的话讲一遍'),b=t.indexOf('三道决策，按顺序通过');return a>0&&b>0&&a<b})()`), 'true');
 check('这一页末尾给出下一站', await ex(`(()=>{const t=document.getElementById('learn-wrap').innerText;return t.includes('下一站')&&t.includes('谁来判断它这一趟到底做对了没有')})()`), 'true');
+check('页面显示知识根（58 篇 → 卡片 → 单元）与原始来源链接', await ex(`(()=>{const t=document.getElementById('learn-wrap').innerText;const a=document.querySelector('#learn-wrap a[href^="http"]');return t.includes('知识根')&&t.includes('SRC-EXT-001')&&t.includes('concepts/agent-harness.yaml')&&!!a&&a.textContent.length>4})()`), 'true');
 const requested = cdp.events.filter((e) => e.method === 'Network.requestWillBeSent').map((e) => e.params.request.url);
 check('全程没有知乎请求', requested.some((u) => /zhihu/i.test(u)), 'false');
 check('没有把学习进度写进倒逼记录（marks 保持独立）', await ex(`Object.keys(marks).length`), 0);

@@ -1,7 +1,7 @@
 {
  "version": "v1",
  "generatedAt": "2026-09-13",
- "builtAt": "2026-09-13T18:07:29.641Z",
+ "builtAt": "2026-09-13T18:57:24.555Z",
  "source": {
   "pairings": "evidence/agent-loop-260913/pairings.json",
   "authored": "evidence/agent-loop-260913/authored.json",
@@ -280,7 +280,74 @@
      "与模型的区别"
     ]
    },
-   "narrative": null,
+   "narrative": {
+    "authored": true,
+    "authoredBy": "DeepSeek Harness（agent 撰写，未经负责人审核）",
+    "note": "正文流：把概念之间的连线写成正文里的解释句。bridges/links 的句子是 agent 撰写的过渡句，quote 才是逐字原文，build 脚本逐条校验。",
+    "lead": "一个会回答问题的模型，和一个会自己把事做完的系统，差在哪？",
+    "bridges": [
+     {
+      "fromUnit": "CON-large-language-model",
+      "question": "模型能回答问题，可它自己不能查资料、不能改文件，也不能在失败之后换个做法。「会回答」和「会做事」之间缺的是什么？",
+      "answer": "缺的是一层围绕目标的行动结构：模型负责判断下一步，外部系统负责执行并把结果送回来。这一层出现之后，才有「Agent」这个说法。",
+      "quote": "AI Agent 是围绕目标持续选择下一步、借助工具行动并根据结果继续推进的系统，不是裸模型的别名。",
+      "quoteFrom": "definition",
+      "basis": [
+       "CON-agent",
+       "CON-large-language-model"
+      ]
+     },
+     {
+      "fromUnit": "QST-agent",
+      "question": "这条路线要回答的是：为什么 AI 能连续做事，而不只回答一次？",
+      "answer": "要回答它，先得把承载体立住——不知道 Agent 的最小构成是「模型 ＋ 指令 ＋ 工具」，后面的工具、循环、状态都没有挂点。",
+      "quote": "Agent 不等于 LLM；模型负责推理与生成，工具执行、状态维护、权限和循环来自外部系统。",
+      "quoteFrom": "boundary",
+      "basis": [
+       "CON-agent",
+       "QST-agent"
+      ]
+     }
+    ],
+    "links": [
+     {
+      "pair": [
+       "Agent",
+       "工具"
+      ],
+      "sentence": "Agent 的定义里就写着「借助工具行动」：模型提出下一步要做什么，真正伸手的是模型外的系统。所以工具不是 Agent 的外挂，而是它定义的一部分。",
+      "quote": "你看到的这种连续行为，通常由模型与外部 Harness 共同产生。",
+      "quoteFrom": "intuition"
+     },
+     {
+      "pair": [
+       "Agent",
+       "Harness"
+      ],
+      "sentence": "Agent 描述你看到的那个行动系统，Harness 描述让这种行动真正发生并受到约束的运行机器——两者不是同义词。",
+      "quote": "Agent 与 Agent Harness 不是同义词；前者描述呈现出来的行动系统，后者强调产生和约束这种行为的运行机器。",
+      "quoteFrom": "boundary"
+     },
+     {
+      "pair": [
+       "Agent",
+       "一次工具调用"
+      ],
+      "sentence": "「能调用一次工具」是分界线，但不是终点：生产级 Agent 还要错误处理、验证、停止条件与状态管理。",
+      "quote": "“能调用一次工具”是重要分界，但生产级 Agent 通常还需要错误处理、验证、停止条件与状态管理。",
+      "quoteFrom": "boundary"
+     }
+    ],
+    "inlineFeynman": true,
+    "nextBridge": {
+     "toChapter": "tool",
+     "question": "Agent 的定义里既然包含「一组它能调用的工具」，那工具到底是什么、边界在哪？",
+     "answer": "下一站是工具：让 Agent 读取、计算或改变外部世界的结构化能力接口——先有主体，再谈它的手。",
+     "basis": [
+      "CON-tool"
+     ]
+    }
+   },
    "review": {
     "status": "ready",
     "statusNote": "材料齐全；主案例已由负责人确认（2026-09-14）。六章 CAS 仍全部是「假设场景」，页面照原样显示该标记。",
@@ -309,6 +376,26 @@
      "decision": "本章定义以 CON-agent 的行为口径为准：Agent 不等于 LLM。",
      "effect": "概念地图卡的最小配置口径只作为该卡原文保留在阅读区，页面上标为「不作本章定义」；本章定义、三道题与费曼要点一律用 CON-agent 口径（模型负责推理与生成，工具执行、状态维护、权限和循环在模型外）。"
     }
+   },
+   "sourceChain": {
+    "card": "agent",
+    "cardFile": "concepts/agent.yaml",
+    "docs": [
+     "SRC-EXT-001",
+     "SRC-EXT-002"
+    ],
+    "originalSources": [
+     {
+      "id": "SRC-simon-coding-agents",
+      "title": "How coding agents work",
+      "author": "Simon Willison",
+      "url": "https://simonwillison.net/guides/agentic-engineering-patterns/how-coding-agents-work/",
+      "type": "article",
+      "primary": false
+     }
+    ],
+    "primaryCount": 0,
+    "note": "58 篇（Context 28 ＋ Harness 30）→ 图鉴站卡片 → 本单元的 CON/CAS/SOL；卡片 source_ids 指向的原始来源见 originalSources。"
    }
   },
   {
@@ -552,7 +639,85 @@
      "四个环节"
     ]
    },
-   "narrative": null,
+   "narrative": {
+    "authored": true,
+    "authoredBy": "DeepSeek Harness（agent 撰写，未经负责人审核）",
+    "note": "正文流：同上。句子是 agent 撰写的过渡句，quote 逐字来自本章阅读块。",
+    "lead": "模型说「我要读这个文件」，这句话和文件真的被读到，差在哪？",
+    "bridges": [
+     {
+      "fromChapter": "agent",
+      "fromUnit": "CON-agent",
+      "question": "Agent 的最小构成里已经写着「一组它能调用的工具」；可工具到底是什么？",
+      "answer": "工具是让 Agent 读取、计算或改变外部世界的结构化能力接口。先有围绕目标行动的主体，再谈它的手。",
+      "quote": "Tool 是让 Agent 读取、计算或改变外部世界的结构化能力接口；模型提出调用，外层系统负责校验、执行并把结果送回来。",
+      "quoteFrom": "definition",
+      "basis": [
+       "CON-tool",
+       "CON-agent"
+      ]
+     },
+     {
+      "fromUnit": "CON-agent-harness",
+      "question": "模型提出调用之后，是谁在伸手？",
+      "answer": "真正伸手、检查参数、执行动作和收回结果的是 Harness。模型可以按规定格式说「用这只手做什么」，但执行不在模型里。",
+      "quote": "模型可以按规定格式说“用这只手做什么”，但真正伸手、检查参数、执行动作和收回结果的是 Harness。",
+      "quoteFrom": "intuition",
+      "basis": [
+       "CON-tool",
+       "CON-agent-harness"
+      ]
+     },
+     {
+      "fromUnit": "CON-tool",
+      "question": "看到模型发出了工具调用请求，就能说这一步成功了吗？",
+      "answer": "不能。定义、调用、执行和结果回传是连续但不同的环节，看到请求不等于动作已经发生。",
+      "quote": "Tool Definition、Tool Call、Tool Execution 与 Tool Result 是连续但不同的环节；看到调用请求不等于动作已经执行成功。",
+      "quoteFrom": "boundary",
+      "basis": [
+       "CON-tool"
+      ]
+     }
+    ],
+    "links": [
+     {
+      "pair": [
+       "工具",
+       "Agent"
+      ],
+      "sentence": "工具是 Agent 定义里的一个字段，不是外挂：先有围绕目标行动的主体，才有「它的手」。",
+      "quote": "Tool 是让 Agent 读取、计算或改变外部世界的结构化能力接口；模型提出调用，外层系统负责校验、执行并把结果送回来。",
+      "quoteFrom": "definition"
+     },
+     {
+      "pair": [
+       "工具",
+       "Harness"
+      ],
+      "sentence": "工具以名称、描述和参数类型暴露给模型；注册、校验、执行与结果回传都发生在模型之外的那一层。",
+      "quote": "排错时依次检查工具是否注册、描述是否清楚、参数是否通过校验、权限是否允许、执行是否成功、结果是否正确回传。",
+      "quoteFrom": "mechanism"
+     },
+     {
+      "pair": [
+       "工具",
+       "MCP"
+      ],
+      "sentence": "工具是具体的能力接口，MCP 是连接一组外部能力的标准协议——两者不能互作同义词。",
+      "quote": "Tool 是具体能力接口，MCP 是连接一组外部能力的标准协议；二者不能互作同义词。",
+      "quoteFrom": "boundary"
+     }
+    ],
+    "inlineFeynman": true,
+    "nextBridge": {
+     "toChapter": "agent-loop",
+     "question": "工具是单次动作；那什么把单次动作变成「持续做事」？",
+     "answer": "下一站是 Agent loop：模型选择下一步、Harness 执行工具、观察结果回到模型，再重复或退出。",
+     "basis": [
+      "CON-agent-loop"
+     ]
+    }
+   },
    "review": {
     "status": "ready",
     "statusNote": "材料齐全；主案例已由负责人确认（2026-09-14）。六章 CAS 仍全部是「假设场景」，页面照原样显示该标记。",
@@ -568,6 +733,26 @@
     },
     "needsOwnerRuling": false,
     "ruling": null
+   },
+   "sourceChain": {
+    "card": "tool",
+    "cardFile": "concepts/tool.yaml",
+    "docs": [
+     "SRC-EXT-001",
+     "SRC-EXT-002"
+    ],
+    "originalSources": [
+     {
+      "id": "SRC-akshay-agent-harness",
+      "title": "深度拆解：AI Agent Harness 的构造",
+      "author": "Akshay",
+      "url": "https://baoyu.io/translations/2026-05-10/akshay-pachaar-2041146899319971922",
+      "type": "article",
+      "primary": false
+     }
+    ],
+    "primaryCount": 0,
+    "note": "58 篇（Context 28 ＋ Harness 30）→ 图鉴站卡片 → 本单元的 CON/CAS/SOL；卡片 source_ids 指向的原始来源见 originalSources。"
    }
   },
   {
@@ -782,7 +967,75 @@
      "退出条件"
     ]
    },
-   "narrative": null,
+   "narrative": {
+    "authored": true,
+    "authoredBy": "DeepSeek Harness（agent 撰写，未经负责人审核）",
+    "note": "正文流：同上。句子是 agent 撰写的过渡句，quote 逐字来自本章阅读块。",
+    "lead": "一次工具调用之后，系统凭什么决定「再来一轮」还是「收工」？",
+    "bridges": [
+     {
+      "fromChapter": "tool",
+      "fromUnit": "CON-tool",
+      "question": "工具能执行单次动作了；可一个任务往往要几十次动作，谁来决定下一次做什么？",
+      "answer": "循环来决定：模型选择下一步，Harness 执行工具，观察结果回到模型，再重复或退出。",
+      "quote": "Agent Loop 是模型选择下一步、Harness 执行工具、观察结果回到模型，再重复或退出的运行循环。",
+      "quoteFrom": "definition",
+      "basis": [
+       "CON-agent-loop",
+       "CON-tool"
+      ]
+     },
+     {
+      "fromUnit": "CON-agent-harness",
+      "question": "循环里，模型是不是亲自执行了工具？",
+      "answer": "不是。模型生成的是工具调用请求；执行和结果封装由 Harness 完成——这就是「循环」和「循环跑在一台机器上」的区别。",
+      "quote": "模型生成工具调用请求，不是模型亲自执行工具；执行和结果封装由 Harness 完成。",
+      "quoteFrom": "boundary",
+      "basis": [
+       "CON-agent-loop",
+       "CON-agent-harness"
+      ]
+     }
+    ],
+    "links": [
+     {
+      "pair": [
+       "Agent loop",
+       "工具"
+      ],
+      "sentence": "循环的每一次迭代都在调工具；不先弄清工具的调用边界，循环就只剩一句抽象的话。",
+      "quote": "如果它请求工具，外部系统就执行工具，把结果作为新观察交还模型；模型根据这个新结果决定继续、换一种做法，或给出最终答案。",
+      "quoteFrom": "intuition"
+     },
+     {
+      "pair": [
+       "Agent loop",
+       "退出条件"
+      ],
+      "sentence": "循环的关键不是绕圈，而是每次观察都会影响下一步，并且有明确的退出条件。",
+      "quote": "循环的关键不是绕圈，而是每次观察都会影响下一步，并且有明确的退出条件。",
+      "quoteFrom": "intuition"
+     },
+     {
+      "pair": [
+       "Agent loop",
+       "外层工作流"
+      ],
+      "sentence": "它只描述单个 Agent 内部「选择—执行—观察—再选择」的行动心跳，不等于外层持续工作流、多 Agent 编排或 Loop Engineering。",
+      "quote": "Agent Loop 只描述单个 Agent 内部“选择—执行—观察—再选择”的行动心跳，不等于外层持续工作流、多 Agent 编排或 Loop Engineering。",
+      "quoteFrom": "boundary"
+     }
+    ],
+    "inlineFeynman": true,
+    "nextBridge": {
+     "toChapter": "state-persistence",
+     "question": "循环能跑起来了，可会话一断就归零——跑到一半的东西放在哪？",
+     "answer": "下一站是状态子系统与进度持久化：记录任务当前阶段、变量、进度与恢复点，让任务跨会话接着做。",
+     "basis": [
+      "CON-state-management"
+     ]
+    }
+   },
    "review": {
     "status": "ready",
     "statusNote": "材料齐全；主案例已由负责人确认（2026-09-14）。六章 CAS 仍全部是「假设场景」，页面照原样显示该标记。",
@@ -798,6 +1051,26 @@
     },
     "needsOwnerRuling": false,
     "ruling": null
+   },
+   "sourceChain": {
+    "card": "agent-loop",
+    "cardFile": "concepts/agent-loop.yaml",
+    "docs": [
+     "SRC-EXT-001",
+     "SRC-EXT-002"
+    ],
+    "originalSources": [
+     {
+      "id": "SRC-simon-coding-agents",
+      "title": "How coding agents work",
+      "author": "Simon Willison",
+      "url": "https://simonwillison.net/guides/agentic-engineering-patterns/how-coding-agents-work/",
+      "type": "article",
+      "primary": false
+     }
+    ],
+    "primaryCount": 0,
+    "note": "58 篇（Context 28 ＋ Harness 30）→ 图鉴站卡片 → 本单元的 CON/CAS/SOL；卡片 source_ids 指向的原始来源见 originalSources。"
    }
   },
   {
@@ -1019,7 +1292,74 @@
      "恢复前核对"
     ]
    },
-   "narrative": null,
+   "narrative": {
+    "authored": true,
+    "authoredBy": "DeepSeek Harness（agent 撰写，未经负责人审核）",
+    "note": "正文流：同上。句子是 agent 撰写的过渡句，quote 逐字来自本章阅读块。",
+    "lead": "进程重启之后，系统凭什么知道「做到哪了」？",
+    "bridges": [
+     {
+      "fromChapter": "agent-loop",
+      "fromUnit": "CON-agent-loop",
+      "question": "循环能连续跑了；可会话一断，之前跑到哪一步就没了——缺的是什么？",
+      "answer": "缺的是记录：任务当前阶段、变量、进度与恢复点。没有它，中断后系统只知道「做过事」，不知道该从哪接上。",
+      "quote": "状态管理负责记录任务当前阶段、变量、进度与恢复点，让系统知道做到哪里，并能追踪、暂停、恢复或回溯。",
+      "quoteFrom": "definition",
+      "basis": [
+       "CON-state-management",
+       "CON-agent-loop"
+      ]
+     },
+     {
+      "fromUnit": "CON-state-management",
+      "question": "保存了一份文件，就等于状态管理做对了吗？",
+      "answer": "不等于。State 是任务当前可描述的执行事实；State Management 是记录、更新、持久化和恢复这些事实的实践。",
+      "quote": "State 是任务当前可描述的执行事实；State Management 是记录、更新、持久化和恢复这些事实的实践。",
+      "quoteFrom": "boundary",
+      "basis": [
+       "CON-state-management"
+      ]
+     }
+    ],
+    "links": [
+     {
+      "pair": [
+       "状态",
+       "Agent loop"
+      ],
+      "sentence": "循环负责推进，状态负责让推进可接续：把任务想成一列沿轨道运行的小车，状态记录的是它停在哪一段、车上有哪些变量。",
+      "quote": "没有这些记录，中断后系统只知道“做过事”，却不知道该从哪里接上。",
+      "quoteFrom": "intuition"
+     },
+     {
+      "pair": [
+       "状态",
+       "Checkpoint"
+      ],
+      "sentence": "Checkpoint 只是保存某个恢复点的机制之一；有 checkpoint 不代表变量完整、恢复正确或外部副作用安全。",
+      "quote": "Checkpoint 只是保存某个恢复点的机制之一；有 checkpoint 不代表变量完整、恢复正确或外部副作用安全。",
+      "quoteFrom": "boundary"
+     },
+     {
+      "pair": [
+       "状态",
+       "Harness"
+      ],
+      "sentence": "状态是 Harness 每一步要读写和守护的数据：哪些变量决定下一步、每次状态转换要记什么，都在这里定。",
+      "quote": "明确哪些变量决定下一步，并在每次状态转换时原子地记录当前阶段、完成证据和待处理项。",
+      "quoteFrom": "mechanism"
+     }
+    ],
+    "inlineFeynman": true,
+    "nextBridge": {
+     "toChapter": "harness",
+     "question": "工具、循环、状态各自成立之后，谁把它们组织成一个可控的运行系统？",
+     "answer": "下一站是 Harness：包裹模型、组织循环并落实工具、状态、权限和错误处理的模型外运行系统。",
+     "basis": [
+      "CON-agent-harness"
+     ]
+    }
+   },
    "review": {
     "status": "ready",
     "statusNote": "材料齐全；主案例已由负责人确认（2026-09-14）。六章 CAS 仍全部是「假设场景」，页面照原样显示该标记。",
@@ -1035,6 +1375,26 @@
     },
     "needsOwnerRuling": false,
     "ruling": null
+   },
+   "sourceChain": {
+    "card": "state-management",
+    "cardFile": "concepts/state-management.yaml",
+    "docs": [
+     "SRC-EXT-001",
+     "SRC-EXT-002"
+    ],
+    "originalSources": [
+     {
+      "id": "SRC-akshay-agent-harness",
+      "title": "深度拆解：AI Agent Harness 的构造",
+      "author": "Akshay",
+      "url": "https://baoyu.io/translations/2026-05-10/akshay-pachaar-2041146899319971922",
+      "type": "article",
+      "primary": false
+     }
+    ],
+    "primaryCount": 0,
+    "note": "58 篇（Context 28 ＋ Harness 30）→ 图鉴站卡片 → 本单元的 CON/CAS/SOL；卡片 source_ids 指向的原始来源见 originalSources。"
    }
   },
   {
@@ -1359,6 +1719,26 @@
     },
     "needsOwnerRuling": false,
     "ruling": null
+   },
+   "sourceChain": {
+    "card": "agent-harness",
+    "cardFile": "concepts/agent-harness.yaml",
+    "docs": [
+     "SRC-EXT-001",
+     "SRC-EXT-002"
+    ],
+    "originalSources": [
+     {
+      "id": "SRC-akshay-agent-harness",
+      "title": "深度拆解：AI Agent Harness 的构造",
+      "author": "Akshay",
+      "url": "https://baoyu.io/translations/2026-05-10/akshay-pachaar-2041146899319971922",
+      "type": "article",
+      "primary": false
+     }
+    ],
+    "primaryCount": 0,
+    "note": "58 篇（Context 28 ＋ Harness 30）→ 图鉴站卡片 → 本单元的 CON/CAS/SOL；卡片 source_ids 指向的原始来源见 originalSources。"
    }
   },
   {
@@ -1575,7 +1955,74 @@
      "通过范围"
     ]
    },
-   "narrative": null,
+   "narrative": {
+    "authored": true,
+    "authoredBy": "DeepSeek Harness（agent 撰写，未经负责人审核）",
+    "note": "正文流：同上。句子是 agent 撰写的过渡句，quote 逐字来自本章阅读块。这一章是路线的收口。",
+    "lead": "系统说「做完了」，凭什么信？",
+    "bridges": [
+     {
+      "fromChapter": "harness",
+      "fromUnit": "CON-agent-harness",
+      "question": "Harness 让系统受控地跑起来了；可它自己说「做完了」，算不算数？",
+      "answer": "不算。要把行动结果交给独立检查：未通过就依据证据修正下一步，通过才退出当前循环。",
+      "quote": "验证循环把行动结果交给独立检查；未通过就依据证据修正下一步，通过才退出当前循环，但退出不等于用户验收或真实效果已经成立。",
+      "quoteFrom": "definition",
+      "basis": [
+       "CON-verification-loop",
+       "CON-agent-harness"
+      ]
+     },
+     {
+      "fromUnit": "CON-verification-loop",
+      "question": "检查通过，就等于这件事真的成了吗？",
+      "answer": "不等于：退出当前循环不等于用户验收，也不等于真实效果已经成立——这一步留给人和后续观察。",
+      "quote": "退出不等于用户验收或真实效果已经成立",
+      "quoteFrom": "definition",
+      "basis": [
+       "CON-verification-loop"
+      ]
+     }
+    ],
+    "links": [
+     {
+      "pair": [
+       "验证闭环",
+       "Harness"
+      ],
+      "sentence": "检查挂在产出之后：得先有稳定的产出系统，才谈得上把检查固化成一环；判据要在行动前写清，不能由同一份输出临时改标准。",
+      "quote": "在行动前写清检查对象、判据、失败反馈格式和退出条件，避免由同一输出临时改标准。",
+      "quoteFrom": "mechanism"
+     },
+     {
+      "pair": [
+       "验证闭环",
+       "可观测性"
+      ],
+      "sentence": "可观测性负责采集运行事件、轨迹、状态和时延；验证闭环负责消费检查结果，并据此改变当前运行的下一步。",
+      "quote": "Observability 负责采集运行事件、轨迹、状态和时延；Verification Loop 负责消费检查结果并改变当前运行的下一步。",
+      "quoteFrom": "boundary"
+     },
+     {
+      "pair": [
+       "验证闭环",
+       "一次运行"
+      ],
+      "sentence": "它通常作用于一次任务里的重试与退出；跨多次运行的比较是另一件事（用共同任务、基线和 verifier 去比）。",
+      "quote": "Trace-based Evals 用共同任务、基线和 verifier 比较多次运行；Verification Loop 通常作用于一次任务里的重试与退出。",
+      "quoteFrom": "boundary"
+     }
+    ],
+    "inlineFeynman": true,
+    "nextBridge": {
+     "toChapter": "",
+     "question": "这条路线到这里收口：目标、工具、循环、状态、验证各自解决哪一步？",
+     "answer": "各自解决一步，而验证必须独立成环——因为它检查的是前四步共同的产物，不能由产生产物的那一层自己说了算。",
+     "basis": [
+      "CON-verification-loop"
+     ]
+    }
+   },
    "review": {
     "status": "ready",
     "statusNote": "材料齐全；主案例已由负责人确认（2026-09-14）。六章 CAS 仍全部是「假设场景」，页面照原样显示该标记。",
@@ -1591,6 +2038,26 @@
     },
     "needsOwnerRuling": false,
     "ruling": null
+   },
+   "sourceChain": {
+    "card": "verification-loop",
+    "cardFile": "concepts/verification-loop.yaml",
+    "docs": [
+     "SRC-EXT-001",
+     "SRC-EXT-002"
+    ],
+    "originalSources": [
+     {
+      "id": "SRC-delba-verification-skills",
+      "title": "Building verification loops in Claude Code with Skills",
+      "author": "Delba de Oliveira",
+      "url": "https://claude.com/blog/building-verification-loops-in-claude-code-with-skills",
+      "type": "article",
+      "primary": false
+     }
+    ],
+    "primaryCount": 0,
+    "note": "58 篇（Context 28 ＋ Harness 30）→ 图鉴站卡片 → 本单元的 CON/CAS/SOL；卡片 source_ids 指向的原始来源见 originalSources。"
    }
   }
  ]
