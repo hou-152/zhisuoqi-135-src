@@ -36,9 +36,8 @@ sources: 1
 
 ## 相关
 
-- [[oppref]] · related-to（audit） — oppref 只解释了广告单元里 token 这一个字段的用途，整节点（结构化广告事件）不懂它也能立住。
-- [[Token 补贴缺口（Token Subsidy Gap）]] · related-to（audit） — 补贴缺口只是广告变现的动机背景，理解 SSE 里的结构化广告事件不需要先懂算力补贴经济，属可选语境而非构成前提。
 - [[OpenAI 广告基础设施域名]] · related-to（audit） — 域名角色的定义是「托管创意/SDK、收事件上报」，理解它不需要先懂 SSE 广告单元，只是同链条相关。
+- [[Token 补贴缺口（Token Subsidy Gap）]] · related-to（audit） — 补贴缺口只是广告变现的动机背景，理解 SSE 里的结构化广告事件不需要先懂算力补贴经济，属可选语境而非构成前提。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -53,6 +52,5 @@ sources: 1
 
 ## 反链
 
-- [[oppref]]
 - [[Token 补贴缺口（Token Subsidy Gap）]]
 - [[OpenAI 广告基础设施域名]]

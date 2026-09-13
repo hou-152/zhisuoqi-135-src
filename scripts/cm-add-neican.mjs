@@ -11,8 +11,10 @@
 //   ③ 撞不上的才作为新节点，LLM 补齐领域/类型/学习时机/验收方式/定义/掌握证据/验收问句
 //   ④ 给新节点用严判据生成前置依赖边
 //
-// 用法：node scripts/cm-add-neican.mjs [--concurrency=5] [--dry]
-// 产出：改写 evidence/cm-260913/03-enriched.json 与 04-edges.json（备份 *.pre-neican.bak）
+// 用法：node scripts/cm-add-neican.mjs [--issue=260913] [--concurrency=5] [--dry]
+//      不给 --issue 时按 260912 期（这条链最早那一期）。
+// 产出：改写 evidence/cm-260913/03-enriched.json 与 04-edges.json（备份 *.pre-neican-<期>.bak）
+//      记账 evidence/cm-260913/08-neican-merge-<期>.json
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -21,9 +23,19 @@ import { chatCompletion } from './lib/llm.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DIR = path.join(ROOT, 'evidence', 'cm-260913');
-const SRC = path.join(ROOT, 'knowledge', '内参-260912');
-const CACHE = path.join(ROOT, 'evidence', '.cm-neican-cache.json');
-const ARGV = Object.fromEntries(process.argv.slice(2).map((a) => a.replace(/^--/, '').split('=')));
+const ARGV = (() => {                        // 两种写法都收：--issue 260913 与 --issue=260913
+  const a = process.argv.slice(2), o = {};
+  for (let i = 0; i < a.length; i++) {
+    const m = a[i].match(/^--([^=]+)(?:=(.*))?$/);
+    if (!m) continue;
+    o[m[1]] = m[2] !== undefined ? m[2] : (a[i + 1] && !a[i + 1].startsWith('--') ? a[++i] : true);
+  }
+  return o;
+})();
+const ISSUE = String(ARGV.issue || '260912');
+const TAG = `AI 内参 ${ISSUE}`;                 // 节点来源标签（260912 期写的是「AI 内参 260912」）
+const SRC = path.join(ROOT, 'knowledge', `内参-${ISSUE}`);
+const CACHE = path.join(ROOT, 'evidence', `.cm-neican-cache-${ISSUE}.json`);
 const CONC = Number(ARGV.concurrency || 5);
 const DRY = 'dry' in ARGV;
 
@@ -134,7 +146,7 @@ const worker = async () => {
     const bi = cur++;
     const batch = batches[bi];
     try {
-      const r = await askJson(SYS, prompt(batch), `neican-${bi}-${batch.map((x) => norm(x.name)).join(',')}`);
+      const r = await askJson(SYS, prompt(batch), `neican-${ISSUE}-${bi}-${batch.map((x) => norm(x.name)).join(',')}`);
       for (const it of r.items || []) {
         const idx = Number(it.i);
         if (Number.isInteger(idx) && idx >= 0 && idx < batch.length) ann[bi * B + idx] = it;
@@ -159,8 +171,8 @@ fresh.forEach((r, i) => {
     aliases: [r.nameEn, r.gloss].filter(Boolean),
     origin: ['neican'],
     articles: 1,
-    sources: [{ type: 'neican', label: 'AI 内参 260912', article: r.article, url: r.url, id: `${r.slug}#${r.name}` }],
-    bodies: r.quotes.length ? [{ source: 'AI 内参 260912', article: r.article, text: r.quotes.join('\n\n') }] : [],
+    sources: [{ type: 'neican', label: TAG, article: r.article, url: r.url, id: `${r.slug}#${r.name}` }],
+    bodies: r.quotes.length ? [{ source: TAG, article: r.article, text: r.quotes.join('\n\n') }] : [],
     feynmans: r.feynman ? [r.feynman] : [],
     values: [],
     sourceCount: 1, mentionCount: r.quotes.length || 1, merges: 0,
@@ -168,7 +180,7 @@ fresh.forEach((r, i) => {
     type: TYPES.has(a.type) ? a.type : 'CONCEPTUAL',
     stage: STAGES.has(a.stage) ? a.stage : 'when-needed',
     k: VERIF.has(a.k) ? a.k : 'judge',
-    desc: String(a.desc || '').trim().slice(0, 120) || r.gloss || `${r.name}（来自 AI 内参 260912）`,
+    desc: String(a.desc || '').trim().slice(0, 120) || r.gloss || `${r.name}（来自 ${TAG}）`,
     evidence: Array.isArray(a.evidence) ? a.evidence.slice(0, 3) : [],
     ap: String(a.ap || '').trim().slice(0, 120),
     annotated: !!ann[i],
@@ -198,7 +210,7 @@ const worker2 = async () => {
     const body = list.map((n) => `${n.name}：${n.desc}`).join('\n');
     const prompt2 = `领域：${labelOf.get(dom) || dom}
 
-下面是 **AI 内参 260912** 这一期新收进地图的概念。请写出**组内**真正成立的前置依赖边，3–10 条，宁少勿滥。
+下面是 **${TAG}** 这一期新收进地图的概念。请写出**组内**真正成立的前置依赖边，3–10 条，宁少勿滥。
 只有「不懂前置，依赖方就立不住」才算依赖；只是相关、只是例子、只是可选组件都不算。
 
 每条要能造出这句话：「不懂【前置】，就做不了【依赖方】的 ⟨具体哪件事⟩」。
@@ -208,7 +220,7 @@ ${body}
 
 输出 JSON：{"edges":[{"from":"依赖方概念名","to":"前置概念名","strength":"hard|soft","cannot":"不懂【to】就做不了【from】的 ⟨具体哪件事⟩"}]}`;
     try {
-      const r = await askJson(SYS, prompt2, `neican-edge-${dom}-${list[0].id}`, 16000);
+      const r = await askJson(SYS, prompt2, `neican-edge-${ISSUE}-${dom}-${list[0].id}`, 16000);
       for (const e of r.edges || []) {
         const a = find(e.from), b = find(e.to);
         if (!a || !b || a === b) continue;
@@ -237,16 +249,16 @@ edgeFile.stats = { ...edgeFile.stats, dependencies: edgeFile.dependencies.length
 function tally(arr, k) { const o = {}; for (const x of arr) o[x[k]] = (o[x[k]] || 0) + 1; return o; }
 for (const [f, obj] of [['03-enriched.json', enriched], ['04-edges.json', edgeFile]]) {
   const p = path.join(DIR, f);
-  if (!fs.existsSync(p + '.pre-neican.bak')) fs.copyFileSync(p, p + '.pre-neican.bak');
+  if (!fs.existsSync(p + `.pre-neican-${ISSUE}.bak`)) fs.copyFileSync(p, p + `.pre-neican-${ISSUE}.bak`);
   fs.writeFileSync(p, JSON.stringify(obj, null, 1));
 }
-fs.writeFileSync(path.join(DIR, '08-neican-merge.json'), JSON.stringify({
+fs.writeFileSync(path.join(DIR, `08-neican-merge-${ISSUE}.json`), JSON.stringify({
   generatedAt: new Date().toISOString(), model: MODEL, tokens,
   parsed: raw.length, hitExisting: hits.length, added: newNodes.length, edges: newEdges.length, failed,
   hits: hits.map((h) => ({ neican: h.name, article: h.article, node: h.nodeName })),
   added_nodes: newNodes.map((n) => ({ id: n.id, name: n.name, domain: labelOf.get(n.domain) || n.domain, desc: n.desc, article: n.sources[0].article })),
 }, null, 1));
-console.log('✅ 内参概念已并入地图');
+console.log(`✅ ${TAG} 概念已并入地图`);
 console.log(`  内参概念 ${raw.length} → 撞上已有 ${hits.length} · 新增 ${newNodes.length} · 新边 ${newEdges.length}`);
 console.log(`  节点 ${nodes.length} → ${enriched.nodes.length} · 依赖 ${edgeFile.dependencies.length} · 孤立 ${edgeFile.stats.isolated}`);
 console.log('  下一步：cm-build-map → cm-build-wiki → cm-wire → cm-validate → build-shell → build-public');

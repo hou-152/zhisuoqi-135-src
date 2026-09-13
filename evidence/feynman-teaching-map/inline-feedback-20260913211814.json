@@ -1,0 +1,259 @@
+{
+ "generatedAt": "2026-09-13T21:17:56.738Z",
+ "endpoint": "http://127.0.0.1:5199/知所栖-壳.html/api/llm",
+ "mode": "real",
+ "notRun": null,
+ "learnerIs": "合成学习者（脚本扮演，不是真人，也不是学习效果实验）",
+ "unit": "agent-skills-api",
+ "rounds": [
+  {
+   "tag": "D1-C3讲错",
+   "at": "2026-09-13T21:18:05.457Z",
+   "learnerInput": "技能里的内容不是一次性全塞进模型的：启动时只有名字和一句描述，请求匹配上 description 之后才去读 SKILL.md 正文，正文里引用的附件要等真的用到、被读进来的时候才进上下文；存在技能目录里和正文已经被读进来是两回事。脚本运行的时候，脚本的代码本身也会一起进上下文，所以脚本越长越占地方。至于它在不同产品面上是不是都能用，我还没想过。",
+   "learnerInputSha256": "e3d2ee5395f720f1ea14ab3ceaf5657c61ee101787a14f21733f0cdbccf9ee1a",
+   "request": {
+    "httpStatus": null,
+    "criteriaVersionInPrompt": null,
+    "unitInPrompt": null,
+    "promptHasAllFourRuleBlocks": false,
+    "promptRulesCount": 0,
+    "promptChars": 0,
+    "promptDigest": ""
+   },
+   "api": {
+    "model": null,
+    "tokens": null,
+    "pageMeasuredMs": 4786,
+    "notJudged": null,
+    "note": "响应正文由页面消费；模型名/tokens 见本文件 callLog"
+   },
+   "page": {
+    "statuses": {
+     "C1": "met",
+     "C2": "met",
+     "C3": "contradicted",
+     "C4": "missing"
+    },
+    "gaps": [
+     "C3",
+     "C4"
+    ],
+    "focusCid": "C3",
+    "focusRef": "experiments[2]",
+    "focusText": "重点补讲 · C3区分「执行脚本」与「读源码」：脚本交给 bash 执行，回到上下文的是执行输出；源码被读取时才占用上下文\n可能的误解把「跑脚本」和「读源码」混成一件事：要么以为脚本代码会随执行一起进上下文，要么反过来以为源码在任何情况下都不占上下文（真正决定占用的是「有没有被读」）。\n教学动作跑实验 3：把同一段校验脚本的源码量与执行后那一行输出各量一次，看清楚两条路径；再讲一遍「执行脚本 → 只有输出回来」和「读源码 → 读多少占多少」这两件事不是同一件。\n回到材料：实验 3 · 源码量 vs 输出量 ↗\n逐字原文：分别统计两种路径的量级\n一个追问脚本交给 bash 运行时，回到上下文的是脚本源码本身还是执行输出？",
+    "nextPrompt": "脚本交给 bash 运行时，回到上下文的是脚本源码本身还是执行输出？",
+    "notJudged": null,
+    "passed": false,
+    "rawModelReturn": "{\"criteria\":[{\"id\":\"C1\",\"status\":\"met\",\"evidence\":\"启动时只有名字和一句描述，匹配 description 后才读 SKILL.md，引用附件真用到才进\"},{\"id\":\"C2\",\"status\":\"met\",\"evidence\":\"存在技能目录里和正文已经被读进来是两回事\"},{\"id\":\"C3\",\"status\":\"contradicted\",\"evidence\":\"脚本运行的时候，脚本的代码本身也会一起进上下文\"},{\"id\":\"C4\",\"status\":\"missing\",\"evidence\":\"在不同产品面上是不是都能用，我还没想过\"}],\"nextPrompt\":\"脚本交给 bash 运行时，回到上下文的是脚本源码本身还是执行输出？\"}",
+    "resultText": "这一次先补一处（共记下 2 处缺口，其余留到后面几轮）\nC1 说到了\nC2 说到了\nC3 说反了\nC4 没提到\n重点补讲 · C3区分「执行脚本」与「读源码」：脚本交给 bash 执行，回到上下文的是执行输出；源码被读取时才占用上下文\n可能的误解把「跑脚本」和「读源码」混成一件事：要么以为脚本代码会随执行一起进上下文，要么反过来以为源码在任何情况下都不占上下文（真正决定占用的是「有没有被读」）。\n教学动作跑实验 3：把同一段校验脚本的源码量与执行后那一行输出各量一次，看清楚两条路径；再讲一遍「执行脚本 → 只有输出回来」和「读源码 → 读多少占多少」这两件事不是同一件。\n回到材料：实验 3 · 源码量 vs 输出量 ↗\n逐字原文：分别统计两种路径的量级\n一个追问脚本交给 bash 运行时，回到上下文的是脚本源码本身还是执行输出？"
+   }
+  },
+  {
+   "tag": "D2-负对照-错误未纠正",
+   "at": "2026-09-13T21:18:10.466Z",
+   "learnerInput": "技能里的内容不是一次性全塞进模型的：启动时只有名字和一句描述，请求匹配上 description 之后才去读 SKILL.md 正文，正文里引用的附件要等真的用到、被读进来的时候才进上下文；存在技能目录里和正文已经被读进来是两回事。顺便说一句，这个技能我上周刚用过一次，界面挺顺手的。脚本运行的时候，脚本的代码本身也会一起进上下文，所以脚本越长越占地方。至于它在不同产品面上是不是都能用，我还没想过。",
+   "learnerInputSha256": "450177b31e7f1eab301233366f892e0759b5c8584b3b8dd25da8251416d83967",
+   "request": {
+    "httpStatus": null,
+    "criteriaVersionInPrompt": null,
+    "unitInPrompt": null,
+    "promptHasAllFourRuleBlocks": false,
+    "promptRulesCount": 0,
+    "promptChars": 0,
+    "promptDigest": ""
+   },
+   "api": {
+    "model": null,
+    "tokens": null,
+    "pageMeasuredMs": 3844,
+    "notJudged": null,
+    "note": "响应正文由页面消费；模型名/tokens 见本文件 callLog"
+   },
+   "page": {
+    "statuses": {
+     "C1": "met",
+     "C2": "met",
+     "C3": "contradicted",
+     "C4": "missing"
+    },
+    "gaps": [
+     "C3",
+     "C4"
+    ],
+    "focusCid": "C3",
+    "focusRef": "decisions[1]",
+    "focusText": "重点补讲 · C3区分「执行脚本」与「读源码」：脚本交给 bash 执行，回到上下文的是执行输出；源码被读取时才占用上下文\n可能的误解把「跑脚本」和「读源码」混成一件事：要么以为脚本代码会随执行一起进上下文，要么反过来以为源码在任何情况下都不占上下文（真正决定占用的是「有没有被读」）。\n教学动作跑实验 3：把同一段校验脚本的源码量与执行后那一行输出各量一次，看清楚两条路径；再讲一遍「执行脚本 → 只有输出回来」和「读源码 → 读多少占多少」这两件事不是同一件。\n回到材料：决策 2 · 大资料与必须精确执行的代码 ↗\n逐字原文：把重复性操作写成脚本交给 bash 运行，只让输出（如「Validation passed」或具体报错）消耗 tok",
+    "nextPrompt": "脚本执行时回到上下文的是什么，和读源码占上下文有什么区别？",
+    "notJudged": null,
+    "passed": false,
+    "rawModelReturn": "{\"criteria\":[{\"id\":\"C1\",\"status\":\"met\",\"evidence\":\"启动时只有名字和一句描述；匹配上 description 之后才去读 SKILL.md 正文；引用的附件要等真的用到才进上下文\"},{\"id\":\"C2\",\"status\":\"met\",\"evidence\":\"存在技能目录里和正文已经被读进来是两回事\"},{\"id\":\"C3\",\"status\":\"contradicted\",\"evidence\":\"脚本运行的时候，脚本的代码本身也会一起进上下文\"},{\"id\":\"C4\",\"status\":\"missing\",\"evidence\":\"至于它在不同产品面上是不是都能用，我还没想过\"}],\"nextPrompt\":\"脚本执行时回到上下文的是什么，和读源码占上下文有什么区别？\"}",
+    "resultText": "这一次先补一处（共记下 2 处缺口，其余留到后面几轮）\nC1 说到了\nC2 说到了\nC3 说反了\nC4 没提到\n重点补讲 · C3区分「执行脚本」与「读源码」：脚本交给 bash 执行，回到上下文的是执行输出；源码被读取时才占用上下文\n可能的误解把「跑脚本」和「读源码」混成一件事：要么以为脚本代码会随执行一起进上下文，要么反过来以为源码在任何情况下都不占上下文（真正决定占用的是「有没有被读」）。\n教学动作跑实验 3：把同一段校验脚本的源码量与执行后那一行输出各量一次，看清楚两条路径；再讲一遍「执行脚本 → 只有输出回来」和「读源码 → 读多少占多少」这两件事不是同一件。\n回到材料：决策 2 · 大资料与必须精确执行的代码 ↗\n逐字原文：把重复性操作写成脚本交给 bash 运行，只让输出（如「Validation passed」或具体报错）消耗 token\n这条补讲前面已经给过 1 次，这一次换的是「决策 2 · 大资料与必须精确执行的代码」这条材料，不是把上一次的动作再念一遍。\n一个追问脚本执行时回到上下文的是什么，和读源码占上下文有什么区别？"
+   }
+  },
+  {
+   "tag": "D3-C3讲对",
+   "at": "2026-09-13T21:18:13.755Z",
+   "learnerInput": "技能里的内容不是一次性全塞进模型的：启动时只有名字和一句描述，请求匹配上 description 之后才去读 SKILL.md 正文，正文里引用的附件要等真的用到、被读进来的时候才进上下文；存在技能目录里和正文已经被读进来是两回事。脚本是交给 bash 去执行的，回到上下文里的只有执行输出，源码本身不进上下文；只有真的去读源码，读多少才占多少。至于它在不同产品面上是不是都能用，我还没想过。",
+   "learnerInputSha256": "2fe978aa684cc774f04b08c5951e0e6f44079373d58785b6654b4ff66ddcd061",
+   "request": {
+    "httpStatus": null,
+    "criteriaVersionInPrompt": null,
+    "unitInPrompt": null,
+    "promptHasAllFourRuleBlocks": false,
+    "promptRulesCount": 0,
+    "promptChars": 0,
+    "promptDigest": ""
+   },
+   "api": {
+    "model": null,
+    "tokens": null,
+    "pageMeasuredMs": 2545,
+    "notJudged": null,
+    "note": "响应正文由页面消费；模型名/tokens 见本文件 callLog"
+   },
+   "page": {
+    "statuses": {
+     "C1": "met",
+     "C2": "met",
+     "C3": "met",
+     "C4": "missing"
+    },
+    "gaps": [
+     "C4"
+    ],
+    "focusCid": "C4",
+    "focusRef": "reading.ladder[2]",
+    "focusText": "重点补讲 · C4说清边界：按需加载不等于随处可用（沙箱无网络、不跨产品面同步、不在 ZDR 覆盖内）\n可能的误解把机制当成能力：以为「技能装好了在哪儿都能用」，规划时忽略产品面差异（沙箱无网、不跨面同步、ZDR 不覆盖）。\n教学动作跑实验 5：把你计划让技能做的事逐条对着运行时限制、跨产品面同步与数据留存边界打勾，标出哪几条在你实际用的产品面上不成立。\n回到材料：阅读梯度 · 边界 ↗\n逐字原文：API 沙箱无网络访问、无运行时包安装，只能用预装依赖\n一个追问那这套按需加载在运行环境上有什么做不到的地方，比如沙箱里能不能联网或装包？",
+    "nextPrompt": "那这套按需加载在运行环境上有什么做不到的地方，比如沙箱里能不能联网或装包？",
+    "notJudged": null,
+    "passed": false,
+    "rawModelReturn": "{\"criteria\":[{\"id\":\"C1\",\"status\":\"met\",\"evidence\":\"启动时只有名字和一句描述…之后才去读 SKILL.md 正文…附件要等真的用到…才进上下文\"},{\"id\":\"C2\",\"status\":\"met\",\"evidence\":\"存在技能目录里和正文已经被读进来是两回事\"},{\"id\":\"C3\",\"status\":\"met\",\"evidence\":\"脚本是交给 bash 去执行的，回到上下文里的只有执行输出；只有真的去读源码，读多少才占多少\"},{\"id\":\"C4\",\"status\":\"missing\",\"evidence\":\"至于它在不同产品面上是不是都能用，我还没想过\"}],\"nextPrompt\":\"那这套按需加载在运行环境上有什么做不到的地方，比如沙箱里能不能联网或装包？\"}",
+    "resultText": "这一次先补一处（共记下 1 处缺口，其余留到后面几轮）\nC1 说到了\nC2 说到了\nC3 说到了\nC4 没提到\n重点补讲 · C4说清边界：按需加载不等于随处可用（沙箱无网络、不跨产品面同步、不在 ZDR 覆盖内）\n可能的误解把机制当成能力：以为「技能装好了在哪儿都能用」，规划时忽略产品面差异（沙箱无网、不跨面同步、ZDR 不覆盖）。\n教学动作跑实验 5：把你计划让技能做的事逐条对着运行时限制、跨产品面同步与数据留存边界打勾，标出哪几条在你实际用的产品面上不成立。\n回到材料：阅读梯度 · 边界 ↗\n逐字原文：API 沙箱无网络访问、无运行时包安装，只能用预装依赖\n一个追问那这套按需加载在运行环境上有什么做不到的地方，比如沙箱里能不能联网或装包？"
+   }
+  }
+ ],
+ "screenshots": [
+  "prototype/预览/70-即时费曼-真模型第一轮-C3讲错.png",
+  "prototype/预览/71-即时费曼-真模型第三轮-C3讲对.png"
+ ],
+ "assertions": [
+  {
+   "label": "第一轮判出 C3 是缺口（contradicted 或 missing）",
+   "ok": true,
+   "detail": "{\"C1\":\"met\",\"C2\":\"met\",\"C3\":\"contradicted\",\"C4\":\"missing\"}"
+  },
+  {
+   "label": "第一轮页面只展示一处重点（第一个非 met 的判据）",
+   "ok": true,
+   "detail": "focus=C3"
+  },
+  {
+   "label": "第一轮发出去的请求带上了 v3-20260914",
+   "ok": false,
+   "detail": ""
+  },
+  {
+   "label": "第一轮发出去的请求带上了 C1～C4 全部判据与五档规则",
+   "ok": false,
+   "detail": "规则档位出现 0 次"
+  },
+  {
+   "label": "负对照：C3 仍然是缺口",
+   "ok": true,
+   "detail": "{\"C1\":\"met\",\"C2\":\"met\",\"C3\":\"contradicted\",\"C4\":\"missing\"}"
+  },
+  {
+   "label": "负对照：页面仍在补讲（没有因为又提交一次就放行）",
+   "ok": true,
+   "detail": "focus=C3"
+  },
+  {
+   "label": "负对照：没有显示\"都讲到了\"",
+   "ok": true,
+   "detail": "这一次先补一处（共记下 2 处缺口，其余留到后面几轮）\nC1 说到了\nC2 说到了\nC3 说反了\nC4 没提到\n重点补讲 · C3区分「执行脚本」与「读源码」："
+  },
+  {
+   "label": "负对照：不问\"过了吗\"就算过 —— passed 为 false",
+   "ok": true,
+   "detail": "false"
+  },
+  {
+   "label": "第三轮 C3 变成 met",
+   "ok": true,
+   "detail": "{\"C1\":\"met\",\"C2\":\"met\",\"C3\":\"met\",\"C4\":\"missing\"}"
+  },
+  {
+   "label": "C3 讲对后不再重复补 C3",
+   "ok": true,
+   "detail": "focus=C4"
+  },
+  {
+   "label": "焦点换到还没讲到的判据",
+   "ok": true,
+   "detail": "focus=C4"
+  },
+  {
+   "label": "第三轮不再出现 C3 的补讲材料",
+   "ok": true,
+   "detail": "ref=reading.ladder[2]"
+  },
+  {
+   "label": "第三轮截图前焦点已不在 C3",
+   "ok": true,
+   "detail": "focus=C4 → reading.ladder[2]"
+  },
+  {
+   "label": "即时反馈没有写正式掌握状态（zss135.learn.v1 仍是空）",
+   "ok": true,
+   "detail": "{\"keys\":0,\"marks\":0,\"nfxKey\":true}"
+  },
+  {
+   "label": "没有解锁任何一章、也没碰倒逼记录 marks",
+   "ok": true,
+   "detail": "{\"keys\":0,\"marks\":0,\"nfxKey\":true}"
+  },
+  {
+   "label": "即时反馈存在自己的键上",
+   "ok": true,
+   "detail": "{\"keys\":0,\"marks\":0,\"nfxKey\":true}"
+  },
+  {
+   "label": "已有的三道决策题仍在（不要求先答，也不被即时反馈替代）",
+   "ok": true,
+   "detail": "{\"defaultOpen\":false,\"boxes\":3,\"summary\":\"决策题（3 道 · 参考材料 · 不必先答，即时费曼不要求答完）\",\"hasDecision1\":true,\"hasCondition\":true}"
+  },
+  {
+   "label": "决策题默认折叠，不构成完成本轮学习的必经步骤",
+   "ok": true,
+   "detail": "{\"defaultOpen\":false,\"boxes\":3,\"summary\":\"决策题（3 道 · 参考材料 · 不必先答，即时费曼不要求答完）\",\"hasDecision1\":true,\"hasCondition\":true}"
+  },
+  {
+   "label": "决策题入口写明\"不必先答，即时费曼不要求答完\"",
+   "ok": true,
+   "detail": "\"决策题（3 道 · 参考材料 · 不必先答，即时费曼不要求答完）\""
+  },
+  {
+   "label": "全程 0 条 JS 报错",
+   "ok": true,
+   "detail": "0 条"
+  },
+  {
+   "label": "全程没有知乎请求",
+   "ok": true,
+   "detail": ""
+  }
+ ],
+ "unlockProbe": {
+  "keys": 0,
+  "marks": 0,
+  "nfxKey": true
+ },
+ "decisionEntry": {
+  "defaultOpen": false,
+  "boxes": 3,
+  "summary": "决策题（3 道 · 参考材料 · 不必先答，即时费曼不要求答完）",
+  "hasDecision1": true,
+  "hasCondition": true
+ },
+ "callLog": []
+}

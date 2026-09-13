@@ -139,6 +139,16 @@ check('没有章节套用上下文腐烂的「变量／证据／边界」', !set
 check('每章费曼要点 3 条且无「变量／证据／边界」原词', data.chapters.every((c) => c.feynman.required.length === 3 && !c.feynman.required.some((k) => ['变量', '证据', '边界'].includes(k))));
 check('费曼提示按章不同', new Set(data.chapters.map((c) => c.feynman.prompt)).size === 6);
 
+/* ⑥b 费曼要点：稳定 ID／成立条件／常见误解（交接件 §4.3；加 ID 不改题面与要点措辞） */
+for (const c of data.chapters) {
+  const t = `第 ${c.order} 章 ${c.title}`;
+  const ck = c.feynman.checks || [];
+  check(`${t}｜费曼要点带稳定 ID`, ck.length === c.feynman.required.length && ck.every((x, i) => x.id === `${c.chapterId}-F${i + 1}`), ck.map((x) => x.id).join(',') || '缺');
+  check(`${t}｜ID 绑定要点原文（逐字一致，未改题面）`, ck.length > 0 && ck.every((x, i) => x.point === c.feynman.required[i]));
+  check(`${t}｜每条要点都有成立条件与常见误解`, ck.length > 0 && ck.every((x) => (x.condition || '').length >= 8 && (x.misconception || '').length >= 8));
+}
+check('费曼要点稳定 ID 共 18 条且不重复', new Set(data.chapters.flatMap((c) => (c.feynman.checks || []).map((x) => x.id))).size === 18);
+
 /* ⑦ 不改概念地图源数据 */
 check('payload 不含写回 topics/dependencies 的字段', !JSON.stringify(data).match(/dependencies\s*:/));
 

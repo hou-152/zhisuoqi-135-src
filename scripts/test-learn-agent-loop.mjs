@@ -86,6 +86,47 @@ check('页面显示主案例已由负责人确认', await ex(`document.getElemen
 check('显示假设场景标记', await ex(`document.getElementById('learn-wrap').innerText.includes('假设场景')`), 'true');
 await shotOf('.lpair', '50-学习空间-第一章阅读.png');
 
+/* ①b 读中即时费曼：独立键 ＋ 一处重点补讲 ＋ 不写解锁状态（固定响应）
+   这是交接件 §3 L81/L85 的落点：读中那份与章末验收是两份独立状态，互不影响。 */
+console.log('\n①b 读中即时费曼（与章末验收分开，固定响应）');
+check('读完就能讲：即时费曼卡在阅读之后就出现', await ex(`document.getElementById('learn-said')!==null`), 'true');
+check('卡上明说它是读中即时反馈、不改掌握也不解锁', await ex(`(()=>{const t=document.getElementById('learn-inline').innerText;return t.includes('读中即时反馈')&&t.includes('不改正式掌握状态、也不解锁任何一章')})()`), 'true');
+check('页面上同时点明解锁下一章靠「章末验收」', await ex(`document.getElementById('learn-wrap').innerText.includes('3 · 章末验收')`), 'true');
+check('三题没走完时章末验收还没出现（不构成必须先答）', await ex(`document.getElementById('learn-final-said')===null`), 'true');
+check('要点带稳定 ID（章-序号）', await ex(`linChecks(chapterById(learnCur)).map(x=>x.id).join(',')`), 'agent-F1,agent-F2,agent-F3');
+await ex(`window.__linFix=JSON.stringify({checks:[{id:'agent-F1',status:'met',evidence:'x'},{id:'agent-F2',status:'partial',evidence:'y'},{id:'agent-F3',status:'missing',evidence:'z'}],teaching:{focusId:'agent-F2',text:'这一轮的对账补讲',question:'那工具那一步是谁执行的？'}})`);
+await ex(`window.fetch=async()=>({ok:true,json:async()=>({content:window.__linFix})})`);
+await ex(`document.getElementById('learn-said').value='Agent 是一个围绕目标持续做事的系统，但我说不太清它的行动到底是谁在执行。'; linChanged()`);
+check('即时费曼草稿存在自己的键上', await ex(`JSON.parse(localStorage.getItem('zss135.learn.inline.v1'))[learnCur].draft.length>10`), 'true');
+await ex('linSubmit()');
+await sleep(200);
+check('即时反馈只写独立键', await ex(`JSON.parse(localStorage.getItem('zss135.learn.inline.v1'))[learnCur].rounds.length`), 1);
+check('章末验收键始终没被写过（互不影响）', await ex(`localStorage.getItem('zss135.learn.v1')`), 'null');
+check('即时费曼不解锁下一章', await ex(`chapterUnlocked(1)`), 'false');
+check('只挑一处重点补讲（第一个非 met 的要点）', await ex(`(document.querySelector('#learn-inline-res .nfx-focus')||{}).dataset.cid`), 'agent-F2');
+check('补讲用对准这一处的那段，并带成立条件与常见误解', await ex(`(()=>{const t=document.querySelector('#learn-inline-res .nfx-focus').innerText;return t.includes('这一轮的对账补讲')&&t.includes('成立条件')&&t.includes('常见误解')})()`), 'true');
+check('追问只有一个', await ex(`document.querySelectorAll('#learn-inline-res .nfx-q').length`), 1);
+check('即时轮次里没有任何「正式掌握」字段', await ex(`(()=>{const r=JSON.parse(localStorage.getItem('zss135.learn.inline.v1'))[learnCur].rounds[0];return Object.keys(r).join(',')})()`),
+  'n,at,chapterId,std,inputVersion,requestId,ms,notJudged,statuses,evidence,gaps,passed,focus,raw');
+await ex(`window.__linFix=JSON.stringify({checks:[{id:'agent-F1',status:'met'},{id:'agent-F2',status:'met'},{id:'agent-F3',status:'met'}],teaching:{focusId:'',text:'',question:''}})`);
+await ex(`window.fetch=async()=>({ok:true,json:async()=>({content:window.__linFix})})`);
+await ex(`document.getElementById('learn-said').value='讲全的一版：最小构成是围绕目标持续选择下一步、借助工具行动并根据结果继续推进；行动来自模型外的系统；模型负责推理与生成，Agent 是围绕目标持续推进的系统。'; linChanged()`);
+await ex('linSubmit()');
+await sleep(200);
+check('讲全一轮也只说「不解锁任何一章」', await ex(`document.getElementById('learn-inline-res').innerText.includes('也不解锁任何一章')`), 'true');
+check('讲全了同样不写章末验收键', await ex(`localStorage.getItem('zss135.learn.v1')`), 'null');
+check('讲全了也不解锁下一章', await ex(`chapterUnlocked(1)`), 'false');
+check('即时轮次记满 2 轮', await ex(`JSON.parse(localStorage.getItem('zss135.learn.inline.v1'))[learnCur].rounds.length`), 2);
+/* 过期请求隔离：请求在途时改草稿 → 旧结果不写状态 */
+await ex(`window.__pend=null; window.fetch=()=>new Promise(r=>{window.__pend=()=>r({ok:true,json:async()=>({content:window.__linFix})})});`);
+await ex(`document.getElementById('learn-said').value='在途会被改掉的一版：Agent 就是更聪明的模型。'; linChanged(); void linSubmit(); "sent"`);
+await sleep(140);
+await ex(`document.getElementById('learn-said').disabled=false; document.getElementById('learn-said').value='改过的版本'; linChanged();`);
+await ex('window.__pend()');
+await sleep(240);
+check('即时费曼：在途结果返回后不写进状态（改草稿即作废）', await ex(`JSON.parse(localStorage.getItem('zss135.learn.inline.v1'))[learnCur].rounds.length`), 2);
+check('即时费曼：作废之后仍然没有碰章末验收键', await ex(`localStorage.getItem('zss135.learn.v1')`), 'null');
+
 /* ② 一题一判：答错留在当前题，答对才放行 */
 console.log('\n② 三道决策 · 一题一判');
 check('第一题恰好 3 个选项', await ex(`document.querySelectorAll('#learn-q .lopt').length`), 3);
@@ -105,11 +146,13 @@ check('第三题的按钮文案变成进入费曼', await ex(`document.getElemen
 check('费曼框全章只有一份（走完三题不重复渲染）', await ex(`document.querySelectorAll('#learn-wrap #learn-said').length`), 1);
 await ex(`learnChoose(chapterById(learnCur).questions[2].options.findIndex(o=>o.correct)); learnNext()`);
 check('三题全对后才出现费曼', await ex(`document.getElementById('learn-said')!==null`), 'true');
+check('这时才出现「章末验收」这张卡，并写明它才是解锁判据', await ex(`(()=>{const e=document.getElementById('learn-fey');return document.getElementById('learn-final-said')!==null && !!e && e.innerText.includes('章末验收') && e.innerText.includes('通过才解锁')})()`), 'true');
+check('两张费曼卡是两个独立的提交口（即时 / 章末）', await ex(`document.getElementById('learn-said')!==null && document.getElementById('learn-final-said')!==null && document.getElementById('lin-submit')!==document.getElementById('learn-submit')`), 'true');
 await shotOf('#learn-fey', '51-学习空间-决策与费曼.png');
 
 /* ③ 费曼状态门：固定响应，不依赖模型随机性 */
 console.log('\n③ 费曼状态门（固定响应）');
-await ex(`document.getElementById('learn-said').value='太短'`);
+await ex(`document.getElementById('learn-final-said').value='太短'`);
 await ex(`learnSaidChanged(); learnFeynman()`);
 await sleep(120);
 check('过短复述不判通过', await ex(`stOf(learnCur).feynman`), 'wait');
@@ -117,28 +160,31 @@ check('格式解析器拒绝非 JSON', await ex(`parseLearnVerdict('这不是 JS
 check('covered 缺一项就不通过', await ex(`parseLearnVerdict(JSON.stringify({covered:['a'],missing:['b'],next:''}),['a','b']).pass`), 'false');
 
 await ex(`localStorage.setItem('__probe', JSON.stringify(chapterById(learnCur).feynman.required))`);
-await ex(`document.getElementById('learn-said').value='变量是模型、任务、关键证据和评分方法；证据是分档增加无关材料后可靠性逐档变化；边界是窗口容量不等于利用可靠性，也不能超出本次测量范围，还要说明测量范围与条件。'`);
+await ex(`document.getElementById('learn-final-said').value='变量是模型、任务、关键证据和评分方法；证据是分档增加无关材料后可靠性逐档变化；边界是窗口容量不等于利用可靠性，也不能超出本次测量范围，还要说明测量范围与条件。'`);
 await ex(`window.fetch=async()=>({ok:true,json:async()=>({content:JSON.stringify({covered:JSON.parse(localStorage.getItem('__probe')),missing:[],next:'用真实任务复测'})})})`);
 await ex('learnFeynman()');
 await sleep(200);
 check('漏点为空且要点齐全才显示通过', await ex(`stOf(learnCur).feynman`), 'ok');
 check('通过后章节状态可查', await ex(`chapterCleared(learnCur)`), 'true');
 check('通过后下一章按钮立刻解锁（不用整页重渲染）', await ex(`document.querySelectorAll('#learn-wrap .lchip')[1].disabled`), 'false');
+check('章末验收通过没有碰读中那份即时费曼记录（反向也不互相影响）', await ex(`JSON.parse(localStorage.getItem('zss135.learn.inline.v1'))[learnCur].rounds.length`), 2);
 check('选项顺序是稳定打乱（正解不再固定在某个位置）', await ex(`(()=>{const p=[];for(const c of LEARN)c.questions.forEach((q,i)=>{const perm=learnPerm(c.chapterId,i);p.push(perm.indexOf(q.options.findIndex(o=>o.correct)));});return new Set(p).size;})()`), 3);
 check('页面渲染顺序 = 稳定打乱结果', await ex(`(()=>{const c=chapterById(learnCur),q=c.questions[learnQ],perm=learnPerm(c.chapterId,learnQ);learnRenderQ();const btns=Array.from(document.querySelectorAll('#learn-q .lopt')).map(b=>b.textContent.replace(/^[ABC]\\.\\s*/,''));return perm.every((src,j)=>btns[j]===q.options[src].text);})()`), 'true');
 await shotOf('#learn-fres', '52-学习空间-费曼通过.png');
 
 /* ④ 重新编辑复述 → 清除旧的通过状态 */
 console.log('\n④ 重新编辑复述 → 清掉通过状态');
-await ex(`document.getElementById('learn-said').value='我改一下：最小构成、行动来源、与模型的区别。'`);
+await ex(`document.getElementById('learn-final-said').value='我改一下：最小构成、行动来源、与模型的区别。'`);
 await ex(`learnSaidChanged()`);
 await sleep(80);
 check('编辑后旧的通过状态被清除', await ex(`stOf(learnCur).feynman===null`), 'true');
 check('提示写明了旧状态已清除', await ex(`document.getElementById('learn-fstatus').innerText.includes('已清除')`), 'true');
+check('重新编辑「章末验收」的复述不动读中那份草稿（两份状态互不影响）', await ex(`JSON.parse(localStorage.getItem('zss135.learn.inline.v1'))[learnCur].draft`), '改过的版本');
+check('清掉通过状态后下一章重新锁上', await ex(`chapterUnlocked(1)`), 'false');
 
 /* 重新判回通过，用来验证解锁门 */
 await ex(`plotAgain()`).catch(() => {});
-await ex(`document.getElementById('learn-said').value='变量是模型、任务、关键证据和评分方法；证据是分档增加无关材料后可靠性逐档变化；边界是窗口容量不等于利用可靠性，还要说明测量范围与条件，不能推广到所有模型。'`);
+await ex(`document.getElementById('learn-final-said').value='变量是模型、任务、关键证据和评分方法；证据是分档增加无关材料后可靠性逐档变化；边界是窗口容量不等于利用可靠性，还要说明测量范围与条件，不能推广到所有模型。'`);
 await ex(`window.fetch=async()=>({ok:true,json:async()=>({content:JSON.stringify({covered:JSON.parse(localStorage.getItem('__probe')),missing:[],next:'复测'})})})`);
 await ex('learnFeynman()');
 await sleep(200);
@@ -147,12 +193,12 @@ check('重新提交后可以再次通过', await ex(`stOf(learnCur).feynman`), '
 /* ④b 判定竞态 + 草稿落盘 */
 console.log('\n④b 判定竞态与草稿落盘');
 await ex(`window.__pend=null; window.fetch=()=>new Promise(r=>{window.__pend=()=>r({ok:true,json:async()=>({content:JSON.stringify({covered:JSON.parse(localStorage.getItem('__probe')),missing:[],next:''})})})});`);
-await ex(`document.getElementById('learn-said').value='这一版会被改掉：最小构成、行动来源、与模型的区别都写了，但用户马上会改。'`);
+await ex(`document.getElementById('learn-final-said').value='这一版会被改掉：最小构成、行动来源、与模型的区别都写了，但用户马上会改。'`);
 await ex('void learnFeynman(); "submitted"');   // 不 await：fetch 挂起中，eval 会等 promise
 await sleep(120);
-check('提交进行中复述框被锁住', await ex(`document.getElementById('learn-said').disabled`), 'true');
+check('提交进行中复述框被锁住', await ex(`document.getElementById('learn-final-said').disabled`), 'true');
 check('提交进行中的状态是待复核', await ex(`stOf(learnCur).feynman`), 'wait');
-await ex(`document.getElementById('learn-said').disabled=false; document.getElementById('learn-said').value='改过的版本'; learnSaidChanged();`);
+await ex(`document.getElementById('learn-final-said').disabled=false; document.getElementById('learn-final-said').value='改过的版本'; learnSaidChanged();`);
 check('草稿改动立刻落盘（刷新不丢）', await ex(`JSON.parse(localStorage.getItem('zss135.learn.v1'))[learnCur].said`), '改过的版本');
 await ex('window.__pend()');
 await sleep(220);

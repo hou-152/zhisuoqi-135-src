@@ -121,14 +121,36 @@ await step('下钻后点「← 全部主题」回二级', async () => {
 const rail = await cdp.eval(`JSON.stringify([...document.querySelectorAll('.r-item')].map(b=>b.querySelector('b').textContent+' ‖ '+b.querySelector('i').textContent))`);
 console.log('左栏：', JSON.parse(rail).join('  |  '));
 
-// 内参（第六格）：格式来自所有者给的 AI 内参与飞书两份主题精选；收藏/公开笔记按口径没做。
-await step('内参 · 三级笔记（从导航进）', async () => {
+// 内参（第六格）：**上方日期条 ＋ 中间「内参日报集合」**（2026-09-14 所有者口径：
+// 「在内参的二级页面中排一个日期选择功能，日期放在上方。中间的阅读位置替换为内参日报集合」）。
+// 单篇阅读没删——从日报集合里点进去。
+await step('内参 · 日报集合（从导航进，上方月历选日期）', async () => {
   await cdp.eval(`setView('neican')`);
-  shots.push(await shot('33-内参-三级笔记.png'));
+  shots.push(await shot('33-内参-日报集合.png'));
 });
 
-await step('内参 · 三级笔记正文', async () => {
-  await cdp.eval(`document.getElementById('reader').scrollTop=620`);
+await step('内参 · 月历点一天 → 只留那天的日报', async () => {
+  await cdp.eval(`neiPick(NEI_ALL[NEI_ALL.length-1].period)`);
+  shots.push(await shot('33b-内参-月历选到最早一期.png'));
+});
+
+await step('内参 · 分类 / 标签 / 策展 三组筛选', async () => {
+  await cdp.eval(`neiPick(''); neiSetFilt('tag', NEI_ALL[0].articles[0].tag)`);
+  shots.push(await shot('33c-内参-分类筛选.png'));
+});
+
+await step('内参 · 策展那组打开', async () => {
+  await cdp.eval(`neiClearFilt(); neiFoldToggle('star')`);
+  shots.push(await shot('33d-内参-策展组.png'));
+});
+
+await step('内参 · 收起筛选组，回到全部', async () => {
+  await cdp.eval(`neiFoldToggle('star'); neiClearFilt()`);
+  shots.push(await shot('33e-内参-筛选收起.png'));
+});
+
+await step('内参 · 单篇三级笔记', async () => {
+  await cdp.eval(`neiPick(''); openNeican(NEI_ALL[0].articles[0].slug); document.getElementById('reader').scrollTop=620`);
   shots.push(await shot('34-内参-三级笔记正文.png'));
 });
 
@@ -137,13 +159,13 @@ await step('内参 · 概念网络', async () => {
   shots.push(await shot('35-内参-概念网络.png'));
 });
 
-await step('内参 · 费曼 ×3', async () => {
+await step('内参 · 费曼', async () => {
   await cdp.eval(`neiTab('feynman'); document.getElementById('reader').scrollTop=560`);
-  shots.push(await shot('36-内参-费曼x3.png'));
+  shots.push(await shot('36-内参-费曼.png'));
 });
 
 await step('内参 · 换一篇 · 阅读原文', async () => {
-  await cdp.eval(`openNeican(NEI.articles[3].slug); neiTab('source'); document.getElementById('reader').scrollTop=330`);
+  await cdp.eval(`openNeican(NEI_ALL[1].articles[3].slug); neiTab('source'); document.getElementById('reader').scrollTop=330`);
   shots.push(await shot('37-内参-阅读原文.png'));
 });
 

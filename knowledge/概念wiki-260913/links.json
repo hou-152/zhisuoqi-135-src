@@ -1,6 +1,6 @@
 {
- "generatedAt": "2026-09-13T08:28:09.365Z",
- "pages": 936,
+ "generatedAt": "2026-09-13T20:03:38.549Z",
+ "pages": 999,
  "links": {
   "Harness": [
    "[[Agent = Model + Harness]]",
@@ -37,6 +37,7 @@
    "[[Context injection]]",
    "[[Progressive disclosure（渐进式披露）与 Skills]]",
    "[[step ID 自动索引]]",
+   "[[事件驱动编排与执行解耦]]",
    "[[普遍可触发 universally triggered]]",
    "[[子 agent 与 step.invoke()]]",
    "[[两级上下文剪枝 pruning]]",
@@ -70,8 +71,7 @@
    "[[apply patch tool]]",
    "[[harness 的过时假设]]",
    "[[任务时域 task horizon]]",
-   "[[长周期任务的基础设施压力]]",
-   "[[Environment]]"
+   "[[长周期任务的基础设施压力]]"
   ],
   "Skill": [
    "[[SKILL.md 与 YAML 前置元数据 SKILL.md YAML frontmatter]]",
@@ -199,6 +199,15 @@
    "[[Sensors 与 Actuators]]",
    "[[Harness]]"
   ],
+  "Looped Transformer Recurrent Depth looped transformer, recurrent depth": [
+   "[[Transformer Block、Stack、Block Application transformer block, stack, block applic]]",
+   "[[Weight Sharing and Effective Depth]]",
+   "[[Looping Costs：参数、计算与 KV Cache looping costs]]",
+   "[[Adaptive Halting adaptive halting, halting probability]]",
+   "[[Per-token Routing：Expert-choice vs Token-choice Mixture-of-Recursions, routing]]",
+   "[[RNN Recurrence vs Looped Transformer Depth Recurrence]]",
+   "[[Latent Reasoning inference-time looping]]"
+  ],
   "Reward Signal": [
    "[[RLHF]]",
    "[[REINFORCE]]",
@@ -266,8 +275,8 @@
    "[[harness–compute separation]]",
    "[[Guardrails]]",
    "[[Agents SDK]]",
-   "[[Agent = Model + Harness]]",
    "[[持久化执行 durable execution]]",
+   "[[Agent = Model + Harness]]",
    "[[model-native harness]]",
    "[[验证闭环 verification loop]]",
    "[[Harness 工程 Harness Engineering]]",
@@ -428,6 +437,7 @@
    "[[Git-backed state]]",
    "[[Stateful Runtime Environment (SRE)]]",
    "[[step ID 自动索引]]",
+   "[[事件驱动编排与执行解耦]]",
    "[[普遍可触发 universally triggered]]",
    "[[子 agent 与 step.invoke()]]",
    "[[两级上下文剪枝 pruning]]",
@@ -435,9 +445,7 @@
    "[[steering]]",
    "[[step]]",
    "[[think → act → observe 循环]]",
-   "[[事件驱动编排与执行解耦]]",
    "[[webhook transform 与 connect()]]",
-   "[[小函数组合]]",
    "[[压缩（compaction）与运行内外的分工]]",
    "[[基础设施问题，不是 AI 问题]]",
    "[[Sandbox]]",
@@ -841,6 +849,16 @@
    "[[基准测试的捆绑测量性]]",
    "[[Harness]]"
   ],
+  "模型吞噬": [
+   "[[应用公司的租客处境]]",
+   "[[窗口期]]",
+   "[[模型即应用]]"
+  ],
+  "推理成本锁死毛利": [
+   "[[卖 token 的生意]]",
+   "[[Scaling to bankruptcy]]",
+   "[[往下游去：卖结果]]"
+  ],
   "外包思考，但不外包理解": [
    "[[品味与「不接受够用就行」]]",
    "[[Simulated Competence]]",
@@ -867,7 +885,6 @@
    "[[Manus 收购叫停事件]]",
    "[[死亡地带]]",
    "[[机会成本]]",
-   "[[给事物命名]]",
    "[[Ghosts, Not Animals]]",
    "[[CISPO]]",
    "[[Agentic Tools]]",
@@ -877,6 +894,7 @@
    "[[Engram]]",
    "[[llms-full.txt]]",
    "[[ARC-AGI-3]]",
+   "[[开源 vs 闭源]]",
    "[[AgentCore]]",
    "[[Hyperscaler]]",
    "[[Honcho]]",
@@ -944,14 +962,10 @@
    "[[MCP 工具层]]",
    "[[原生工具与 MCP 外挂]]"
   ],
-  "Rockset 离线二级视图": [
-   "[[对象-边模型与分区]]",
-   "[[从客户端库到独立服务]]",
-   "[[Habitat]]"
-  ],
-  "可行性分析": [
-   "[[人在关键路径确认]]",
-   "[[设计师与工程师的推拉关系]]"
+  "Shaping the build": [
+   "[[AI Engineering skills]]",
+   "[[Making product decisions]]",
+   "[[High-agency ownership]]"
   ],
   "运行时限制、权限与数据保留边界 Runtime Limitations, Constraints, and Retention": [
    "[[allowed-tools]]",
@@ -989,6 +1003,10 @@
    "[[部署系统层]]",
    "[[Harness 工程 Harness Engineering]]",
    "[[Harness]]"
+  ],
+  "Prompt loop（prompt loop）／agent": [
+   "[[被启动的电话游戏 extended game of actuated telephone]]",
+   "[[交互式系统 vs. prompt loop 系统 interactive system vs. prompt loop system]]"
   ],
   "上下文腐烂 Context Rot": [
    "[[方向漂移 Direction Drift]]",
@@ -1076,7 +1094,6 @@
    "[[死亡地带]]",
    "[[DeepSeek Moment]]",
    "[[前沿实验室]]",
-   "[[政府资本 vs 产业资本]]",
    "[[外包思考，但不外包理解]]",
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
@@ -1497,6 +1514,13 @@
    "[[运行时限制、权限与数据保留边界 Runtime Limitations, Constraints, and Retention]]",
    "[[MCP servers]]"
   ],
+  "Looping Costs：参数、计算与 KV Cache looping costs": [
+   "[[Looped Transformer Recurrent Depth looped transformer, recurrent depth]]",
+   "[[Compute-Matched Looped Transformer SMELT]]"
+  ],
+  "五种图表类型 Architecture Workflow Sequence Data Flow Lifecycle": [
+   "[[类型化 JSON IR typed JSON IR]]"
+  ],
   "技能触发与自动使用 Skill Triggering Automatic Use": [
    "[[技能描述]]",
    "[[语义匹配（semantic matching）与触发短语]]"
@@ -1552,14 +1576,6 @@
    "[[AI Agent]]",
    "[[非模型架构 Non-model Architecture]]",
    "[[Harness]]"
-  ],
-  "从客户端库到独立服务": [
-   "[[Habitat]]",
-   "[[Rockset 离线二级视图]]"
-  ],
-  "对象-边模型与分区": [
-   "[[Rockset 离线二级视图]]",
-   "[[持久化代码图谱 structural map graph]]"
   ],
   "非模型架构 Non-model Architecture": [
    "[[If you're not the model, you're the harness.]]",
@@ -1631,6 +1647,18 @@
    "[[自动循环的心跳]]",
    "[[Loop Engineering]]"
   ],
+  "类型化 JSON IR typed JSON IR": [
+   "[[五种图表类型 Architecture Workflow Sequence Data Flow Lifecycle]]",
+   "[[真实交互 truthful interaction]]"
+  ],
+  "领跑节奏 pacing the frontier": [
+   "[[放缓所换来的时间的用途 operational excellence alignment interpretability testing and evalua]]",
+   "[[检查点式节奏与配料式节奏 checkpoints ingredients]]"
+  ],
+  "卖 token 的生意": [
+   "[[推理成本锁死毛利]]",
+   "[[ARR（年度经常性收入）的失真]]"
+  ],
   "名称与描述 name description": [
    "[[按需加载]]",
    "[[启动时仅加载名称和描述]]"
@@ -1656,9 +1684,33 @@
    "[[上下文工程 context engineering]]",
    "[[Harness]]"
   ],
+  "完成标准": [
+   "[[持久性 persistence]]",
+   "[[Driving the build loop]]"
+  ],
+  "修复收据与有限修复轮次 repair receipt supportedFixes": [
+   "[[原子验证与交付门 atomic validation before delivery]]",
+   "[[Reasoning Trace Faithfulness faithfulness]]"
+  ],
+  "应用公司的租客处境": [
+   "[[模型吞噬]]",
+   "[[往上游去：自己做模型]]"
+  ],
   "语义匹配（semantic matching）与触发短语": [
    "[[技能描述]]",
    "[[技能触发与自动使用 Skill Triggering Automatic Use]]"
+  ],
+  "原子验证与交付门 atomic validation before delivery": [
+   "[[确定性编译 deterministic compilation]]",
+   "[[修复收据与有限修复轮次 repair receipt supportedFixes]]"
+  ],
+  "真实交互 truthful interaction": [
+   "[[类型化 JSON IR typed JSON IR]]",
+   "[[沟通工件与非目标 communication artifact non-goals]]"
+  ],
+  "重新审视指令假设": [
+   "[[过度具体指导 overly specific guidance]]",
+   "[[仓库技能的跨模型影响]]"
   ],
   "子 Agent 分工": [
    "[[多智能体架构]]",
@@ -1755,7 +1807,6 @@
    "[[Manus 收购叫停事件]]",
    "[[死亡地带]]",
    "[[机会成本]]",
-   "[[给事物命名]]",
    "[[Ghosts, Not Animals]]",
    "[[CISPO]]",
    "[[Agentic Tools]]",
@@ -1765,6 +1816,7 @@
    "[[Engram]]",
    "[[llms-full.txt]]",
    "[[ARC-AGI-3]]",
+   "[[开源 vs 闭源]]",
    "[[Simulated Competence]]",
    "[[AgentCore]]",
    "[[Hyperscaler]]",
@@ -1816,15 +1868,15 @@
    "[[上下文工程 context engineering]]",
    "[[Harness]]"
   ],
-  "Habitat": [
-   "[[从客户端库到独立服务]]",
-   "[[Rockset 离线二级视图]]"
-  ],
   "LLM-as-CPU Harness-as-OS": [
    "[[非模型架构 Non-model Architecture]]",
    "[[脚手架化 LLM 与冯·诺依曼架构类比]]",
    "[[AI Agent]]",
    "[[Harness]]"
+  ],
+  "Making product decisions": [
+   "[[Shaping the build]]",
+   "[[Roles are blurring]]"
   ],
   "Thin Harness, Fat Skills": [
    "[[技能化 Skills]]",
@@ -1894,6 +1946,10 @@
    "[[链式 Chained]]",
    "[[skill-creator 访谈式创建]]"
   ],
+  "被启动的电话游戏 extended game of actuated telephone": [
+   "[[Prompt loop（prompt loop）／agent]]",
+   "[[交互式系统 vs. prompt loop 系统 interactive system vs. prompt loop system]]"
+  ],
   "编排循环与「dumb loop」": [
    "[[Harness 与 Loop 的配合]]",
    "[[Continuous orchestration loop]]",
@@ -1911,7 +1967,6 @@
   "不可见的劳动": [
    "[[「模型即产品」的幻觉]]",
    "[[Lights-off 软件工厂]]",
-   "[[人的手感与产品手艺]]",
    "[[非确定性 nondeterminism]]",
    "[[Harness]]"
   ],
@@ -1929,19 +1984,6 @@
    "[[外包思考，但不外包理解]]",
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
-  ],
-  "持久化代码图谱 structural map graph": [
-   "[[Artifact Schema]]",
-   "[[对象-边模型与分区]]",
-   "[[增量更新 incremental update]]",
-   "[[Token 优化的评审上下文 get_review_context_tool]]",
-   "[[MCP 工具层]]",
-   "[[语义搜索 semantic search embeddings]]",
-   "[[code-review-graphignore 排除配置]]",
-   "[[Review Quality 评分方法]]",
-   "[[Watch 模式与自动更新 hooks]]",
-   "[[code-review-graph]]",
-   "[[Tree-sitter]]"
   ],
   "触发模式谱系": [
    "[[任务时域 task horizon]]",
@@ -2045,11 +2087,11 @@
    "[[会自己重写的地基]]",
    "[[测试是绿的，产品却在退化]]",
    "[[昂贵的反馈回路与欠测试]]",
+   "[[不可见的劳动]]",
    "[[让不可见变得可见]]",
    "[[加法本能陷阱与过度约束]]",
    "[[减法带来质量跃迁]]",
    "[[提示词即行为程序]]",
-   "[[不可见的劳动]]",
    "[[难度即护城河]]",
    "[[「模型即产品」的幻觉]]",
    "[[Harness]]"
@@ -2208,6 +2250,10 @@
   "简洁规范": [
    "[[高精度原型设计]]",
    "[[描述区分度]]"
+  ],
+  "交互式系统 vs. prompt loop 系统 interactive system vs. prompt loop system": [
+   "[[Prompt loop（prompt loop）／agent]]",
+   "[[被启动的电话游戏 extended game of actuated telephone]]"
   ],
   "教会 AI Agent 如何成功": [
    "[[共享理解 shared understanding]]",
@@ -2401,10 +2447,6 @@
    "[[非确定性 nondeterminism]]",
    "[[Harness]]"
   ],
-  "人在关键路径确认": [
-   "[[可行性分析]]",
-   "[[执行主体从人变成 Agent]]"
-  ],
   "任务时域 task horizon": [
    "[[长时程自治编码 long-running autonomous coding]]",
    "[[触发模式谱系]]",
@@ -2452,13 +2494,6 @@
    "[[Context Infrastructure]]",
    "[[空间 Scalability Spatial Scalability]]",
    "[[Harness 工程 Harness Engineering]]"
-  ],
-  "事件驱动编排与执行解耦": [
-   "[[小函数组合]]",
-   "[[事件驱动的自动化 Automations]]",
-   "[[harness 与 framework 的分野]]",
-   "[[持久化执行 durable execution]]",
-   "[[Harness]]"
   ],
   "事件驱动的自动化 Automations": [
    "[[事件驱动编排与执行解耦]]",
@@ -2797,6 +2832,10 @@
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
   ],
+  "AI Engineering skills": [
+   "[[Shaping the build]]",
+   "[[Communicating and leading]]"
+  ],
   "Architecture Operator 分工": [
    "[[Creator → Curator 角色转换]]",
    "[[Software Factory]]",
@@ -3041,6 +3080,7 @@
    "[[harness 厚薄 thin vs thick]]",
    "[[Harness Thickness]]",
    "[[step ID 自动索引]]",
+   "[[事件驱动编排与执行解耦]]",
    "[[普遍可触发 universally triggered]]",
    "[[子 agent 与 step.invoke()]]",
    "[[两级上下文剪枝 pruning]]",
@@ -3048,9 +3088,7 @@
    "[[steering]]",
    "[[step]]",
    "[[think → act → observe 循环]]",
-   "[[事件驱动编排与执行解耦]]",
    "[[webhook transform 与 connect()]]",
-   "[[小函数组合]]",
    "[[压缩（compaction）与运行内外的分工]]",
    "[[基础设施问题，不是 AI 问题]]",
    "[[Runtime-harness separation]]",
@@ -3269,8 +3307,8 @@
    "[[Sandbox]]",
    "[[程序记忆（Procedural Memory Skills） progressive disclosure]]",
    "[[Agents SDK]]",
-   "[[Agent loop]]",
    "[[持久化执行 durable execution]]",
+   "[[Agent loop]]",
    "[[Harness]]"
   ],
   "multimodal Vision LLMs": [
@@ -3293,14 +3331,6 @@
   "Nerdy Personality": [
    "[[RLHF]]",
    "[[Reward Signal]]",
-   "[[外包思考，但不外包理解]]",
-   "[[Agent-Native Infrastructure]]",
-   "[[Sensors 与 Actuators]]"
-  ],
-  "OAIQ": [
-   "[[oppref]]",
-   "[[对话式广告归因闭环]]",
-   "[[正确的信息与工具，在正确的时间]]",
    "[[外包思考，但不外包理解]]",
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
@@ -3377,6 +3407,10 @@
    "[[coding agent]]",
    "[[LLM Large Language Model]]",
    "[[Harness]]"
+  ],
+  "Reasoning Trace Faithfulness faithfulness": [
+   "[[修复收据与有限修复轮次 repair receipt supportedFixes]]",
+   "[[嵌入式评估者 embedded evaluators]]"
   ],
   "Repo-local instructions": [
    "[[Instruction-file tax]]",
@@ -3637,8 +3671,17 @@
   "个人技能与项目技能": [
    "[[agent 模板的声明式持久化]]"
   ],
+  "往下游去：卖结果": [
+   "[[推理成本锁死毛利]]"
+  ],
   "description": [
    "[[SKILL.md 与 YAML 前置元数据 SKILL.md YAML frontmatter]]"
+  ],
+  "模型即应用": [
+   "[[模型吞噬]]"
+  ],
+  "窗口期": [
+   "[[模型吞噬]]"
   ],
   "废料怪兽": [
    "[[扁平化]]",
@@ -3665,11 +3708,20 @@
    "[[Sensors 与 Actuators]]",
    "[[Harness]]"
   ],
+  "沟通工件与非目标 communication artifact non-goals": [
+   "[[真实交互 truthful interaction]]"
+  ],
   "瓶颈转移到代码两侧": [
    "[[执行主体从人变成 Agent]]"
   ],
   "请求驱动与事件驱动": [
    "[[自动激活]]"
+  ],
+  "事后合理化与科幻叙事污染 post-hoc rationalizing sci-fi style narratives": [
+   "[[Reasoning model 与 chain-of-thought traces reasoning model chain-of-thought reaso]]"
+  ],
+  "往上游去：自己做模型": [
+   "[[应用公司的租客处境]]"
   ],
   "压缩 Compaction": [
    "[[上下文压缩 Context Compression Summarization]]",
@@ -3682,14 +3734,23 @@
    "[[Sensors 与 Actuators]]",
    "[[Harness]]"
   ],
-  "亚稳态故障与 LIFOFIFO 连接重用": [
-   "[[连接扇入]]"
-  ],
   "约束型 API 与成本不平衡": [
    "[[脚本执行]]"
   ],
   "运行时失败的三类原因": [
    "[[运行时限制、权限与数据保留边界 Runtime Limitations, Constraints, and Retention]]"
+  ],
+  "ARR（年度经常性收入）的失真": [
+   "[[卖 token 的生意]]"
+  ],
+  "Compute-Matched Looped Transformer SMELT": [
+   "[[Looping Costs：参数、计算与 KV Cache looping costs]]"
+  ],
+  "intelligent personal hub": [
+   "[[硬件、软件与服务的深层共振]]"
+  ],
+  "Per-token Routing：Expert-choice vs Token-choice Mixture-of-Recursions, routing": [
+   "[[Looped Transformer Recurrent Depth looped transformer, recurrent depth]]"
   ],
   "Ralph Loop": [
    "[[Agent loop]]",
@@ -3701,8 +3762,20 @@
    "[[Harness 工程 Harness Engineering]]",
    "[[Harness]]"
   ],
+  "Transformer Block、Stack、Block Application transformer block, stack, block applic": [
+   "[[Looped Transformer Recurrent Depth looped transformer, recurrent depth]]"
+  ],
+  "不做半成品": [
+   "[[克制且有意识地推进／把节奏交还给产品自己]]"
+  ],
   "插件技能缺失": [
    "[[技能优先级层级结构]]"
+  ],
+  "大画布生态资产": [
+   "[[折叠屏连续性]]"
+  ],
+  "放缓所换来的时间的用途 operational excellence alignment interpretability testing and evalua": [
+   "[[领跑节奏 pacing the frontier]]"
   ],
   "分解为小颗粒度工作": [
    "[[迁移到 Rust Python→Rust]]"
@@ -3736,8 +3809,14 @@
    "[[非模型架构 Non-model Architecture]]",
    "[[Harness]]"
   ],
+  "检查点式节奏与配料式节奏 checkpoints ingredients": [
+   "[[领跑节奏 pacing the frontier]]"
+  ],
   "脚本执行": [
    "[[约束型 API 与成本不平衡]]"
+  ],
+  "克制且有意识地推进／把节奏交还给产品自己": [
+   "[[不做半成品]]"
   ],
   "连接器": [
    "[[第三方连接器 opt-in]]",
@@ -3745,14 +3824,14 @@
    "[[自动循环的心跳]]",
    "[[Loop Engineering]]"
   ],
-  "连接扇入": [
-   "[[亚稳态故障与 LIFOFIFO 连接重用]]"
-  ],
-  "目标—项目—日常工作的连接": [
-   "[[周期 Cycle]]"
-  ],
   "内置代理与自定义子代理的技能访问边界": [
    "[[skills 字段]]"
+  ],
+  "嵌入式评估者 embedded evaluators": [
+   "[[Reasoning Trace Faithfulness faithfulness]]"
+  ],
+  "确定性编译 deterministic compilation": [
+   "[[原子验证与交付门 atomic validation before delivery]]"
   ],
   "上下文占用率与性能衰减": [
    "[[长上下文窗口]]",
@@ -3779,6 +3858,9 @@
   "预构建技能与自定义技能 Pre-built vs Custom Skills": [
    "[[跨产品面的同步与共享边界 Surface-specific Sync and Sharing]]"
   ],
+  "折叠屏连续性": [
+   "[[大画布生态资产]]"
+  ],
   "执行可靠性机制 State Error Guardrails Verification": [
    "[[反脆弱]]",
    "[[AI Agent]]",
@@ -3796,17 +3878,32 @@
    "[[过度约束与松绑 over-constraining unhobbling]]",
    "[[上下文工程 context engineering]]"
   ],
+  "Adaptive Halting adaptive halting, halting probability": [
+   "[[Looped Transformer Recurrent Depth looped transformer, recurrent depth]]"
+  ],
   "AI 原生开发 AI-native development": [
    "[[执行主体从人变成 Agent]]"
   ],
+  "Communicating and leading": [
+   "[[AI Engineering skills]]"
+  ],
   "compaction": [
    "[[上下文压缩 Context Compression Summarization]]"
+  ],
+  "Driving the build loop": [
+   "[[完成标准]]"
   ],
   "Harness 与 Loop 的配合": [
    "[[编排循环与「dumb loop」]]",
    "[[Prompt 到 Loop 的跃迁]]",
    "[[自动循环的心跳]]",
    "[[Loop Engineering]]"
+  ],
+  "High-agency ownership": [
+   "[[Shaping the build]]"
+  ],
+  "Latent Reasoning inference-time looping": [
+   "[[Looped Transformer Recurrent Depth looped transformer, recurrent depth]]"
   ],
   "Latent vs Deterministic": [
    "[[对话加确定性缝合]]",
@@ -3817,6 +3914,9 @@
    "[[Sensors 与 Actuators]]",
    "[[Harness]]"
   ],
+  "Reasoning model 与 chain-of-thought traces reasoning model chain-of-thought reaso": [
+   "[[事后合理化与科幻叙事污染 post-hoc rationalizing sci-fi style narratives]]"
+  ],
   "Resolver": [
    "[[上下文文件树 tree of files]]",
    "[[Skill Files]]",
@@ -3826,11 +3926,20 @@
    "[[Sensors 与 Actuators]]",
    "[[Harness]]"
   ],
+  "RNN Recurrence vs Looped Transformer Depth Recurrence": [
+   "[[Looped Transformer Recurrent Depth looped transformer, recurrent depth]]"
+  ],
+  "Roles are blurring": [
+   "[[Making product decisions]]"
+  ],
   "Tic Word": [
    "[[奖励攻击与多样性坍塌]]",
    "[[外包思考，但不外包理解]]",
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
+  ],
+  "Weight Sharing and Effective Depth": [
+   "[[Looped Transformer Recurrent Depth looped transformer, recurrent depth]]"
   ],
   "“SaaS 已死”叙事与护城河蒸发": [
    "[[难度即护城河]]",
@@ -3844,7 +3953,6 @@
    "[[决策慢、执行快]]",
    "[[Token 卖家的激励错配]]",
    "[[零 bug 政策与一周 SLA]]",
-   "[[人的手感与产品手艺]]",
    "[[护城河清单与插件化路线]]",
    "[[代理原生 agent-native]]",
    "[[上下文骨架]]"
@@ -3918,6 +4026,9 @@
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
   ],
+  "仓库技能的跨模型影响": [
+   "[[重新审视指令假设]]"
+  ],
   "操作系统类比": [
    "[[Harness 工程 Harness Engineering]]",
    "[[脚手架化 LLM 与冯·诺依曼架构类比]]",
@@ -3954,6 +4065,21 @@
    "[[信任机制重构]]",
    "[[Harness 工程 Harness Engineering]]"
   ],
+  "持久化代码图谱 structural map graph": [
+   "[[Artifact Schema]]",
+   "[[增量更新 incremental update]]",
+   "[[Token 优化的评审上下文 get_review_context_tool]]",
+   "[[MCP 工具层]]",
+   "[[语义搜索 semantic search embeddings]]",
+   "[[code-review-graphignore 排除配置]]",
+   "[[Review Quality 评分方法]]",
+   "[[Watch 模式与自动更新 hooks]]",
+   "[[code-review-graph]]",
+   "[[Tree-sitter]]"
+  ],
+  "持久性 persistence": [
+   "[[完成标准]]"
+  ],
   "次贷式 AI 危机（Subprime AI Crisis）": [
    "[[Hyperscaler]]",
    "[[AI 泡沫]]",
@@ -3984,7 +4110,6 @@
    "[[决策慢、执行快]]",
    "[[Token 卖家的激励错配]]",
    "[[零 bug 政策与一周 SLA]]",
-   "[[人的手感与产品手艺]]",
    "[[上下文骨架]]",
    "[[“SaaS 已死”叙事与护城河蒸发]]"
   ],
@@ -4169,6 +4294,9 @@
    "[[「少即是多」：gimmick 与真实增益的分界]]",
    "[[废料怪兽]]",
    "[[Harness]]"
+  ],
+  "过度具体指导 overly specific guidance": [
+   "[[重新审视指令假设]]"
   ],
   "过度约束与松绑 over-constraining unhobbling": [
    "[[护栏与判断力的取舍 guardrail tradeoff]]",
@@ -4385,9 +4513,6 @@
    "[[部署系统层]]",
    "[[Harness]]"
   ],
-  "可扩展性": [
-   "[[为特定用途而设计]]"
-  ],
   "可维护性 霰弹式手术": [
    "[[层级架构强约束 + 给 Agent 读的 lint 错误]]",
    "[[Lights-off 软件工厂]]",
@@ -4511,17 +4636,14 @@
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
   ],
+  "人在关键路径确认": [
+   "[[执行主体从人变成 Agent]]"
+  ],
   "任务特定工具说明": [
    "[[工具定义 Tool Definitions Tool Schema]]",
    "[[共享 harness]]",
    "[[工具—工作流适配]]",
    "[[浏览循环]]"
-  ],
-  "软件脑": [
-   "[[数字存在 Digital Presence]]",
-   "[[外包思考，但不外包理解]]",
-   "[[Agent-Native Infrastructure]]",
-   "[[Sensors 与 Actuators]]"
   ],
   "弱而模糊的评估器": [
    "[[古德哈特定律]]",
@@ -4593,9 +4715,6 @@
    "[[If you're not the model, you're the harness.]]",
    "[[Harness]]"
   ],
-  "设计师与工程师的推拉关系": [
-   "[[可行性分析]]"
-  ],
   "审批疲劳": [
    "[[Human in the loop]]",
    "[[Safe autonomy]]",
@@ -4620,6 +4739,12 @@
    "[[判定程序化写法]]",
    "[[「模型即产品」的幻觉]]",
    "[[非确定性 nondeterminism]]",
+   "[[Harness]]"
+  ],
+  "事件驱动编排与执行解耦": [
+   "[[事件驱动的自动化 Automations]]",
+   "[[harness 与 framework 的分野]]",
+   "[[持久化执行 durable execution]]",
    "[[Harness]]"
   ],
   "收敛式失败恢复": [
@@ -4647,12 +4772,6 @@
    "[[上下文均匀处理假设]]",
    "[[大海捞针（NIAH）与词面匹配]]",
    "[[上下文腐烂 Context Rot]]"
-  ],
-  "数字存在 Digital Presence": [
-   "[[软件脑]]",
-   "[[熵减 entropy reduction]]",
-   "[[上下文 context]]",
-   "[[上下文工程 context engineering]]"
   ],
   "锁竞争与乐观并发控制": [
    "[[锁竞争瓶颈 lock contention]]",
@@ -4685,9 +4804,6 @@
    "[[Agent = Model + Harness]]",
    "[[Harness 工程 Harness Engineering]]",
    "[[Harness]]"
-  ],
-  "为特定用途而设计": [
-   "[[可扩展性]]"
   ],
   "为吞吐量设计与可接受错误率": [
    "[[integrator 瓶颈]]",
@@ -4743,12 +4859,6 @@
    "[[漫谈会话 ramble session]]",
    "[[bits]]",
    "[[输入摩擦 too lazy to type]]"
-  ],
-  "小函数组合": [
-   "[[事件驱动编排与执行解耦]]",
-   "[[harness 与 framework 的分野]]",
-   "[[持久化执行 durable execution]]",
-   "[[Harness]]"
   ],
   "协同进化与紧耦合 co-evolution principle": [
    "[[Agent vs Harness]]",
@@ -4865,6 +4975,9 @@
    "[[外包思考，但不外包理解]]",
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
+  ],
+  "硬件、软件与服务的深层共振": [
+   "[[intelligent personal hub]]"
   ],
   "臃肿工具集 bloated tool sets": [
    "[[工具收窄 tool scoping]]",
@@ -4998,9 +5111,6 @@
    "[[U 型性能曲线]]",
    "[[迷失在中间 lost in the middle]]"
   ],
-  "周期 Cycle": [
-   "[[目标—项目—日常工作的连接]]"
-  ],
   "注意力之前的注意力 attention before attention": [
    "[[有限的工作记忆 limited working memory]]",
    "[[熵减 entropy reduction]]",
@@ -5123,9 +5233,9 @@
    "[[MCP Model Context Protocol]]",
    "[[Sandbox]]",
    "[[程序记忆（Procedural Memory Skills） progressive disclosure]]",
+   "[[持久化执行 durable execution]]",
    "[[model-native harness]]",
    "[[Agent loop]]",
-   "[[持久化执行 durable execution]]",
    "[[Harness]]"
   ],
   "AI 反弹潮": [
@@ -5660,10 +5770,9 @@
    "[[Continuous orchestration loop]]",
    "[[Loop Engineering]]"
   ],
-  "oppref": [
-   "[[OAIQ]]",
-   "[[single_advertiser_ad_unit]]",
-   "[[OpenAI 广告基础设施域名]]",
+  "OAIQ": [
+   "[[对话式广告归因闭环]]",
+   "[[正确的信息与工具，在正确的时间]]",
    "[[外包思考，但不外包理解]]",
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
@@ -5814,6 +5923,9 @@
    "[[Reliability-critical harness primitives]]",
    "[[Context as working memory budget]]",
    "[[Harness 工程 Harness Engineering]]"
+  ],
+  "Scaling to bankruptcy": [
+   "[[推理成本锁死毛利]]"
   ],
   "Self-Improving Context System": [
    "[[Repo-local instructions]]",
@@ -6023,13 +6135,22 @@
    "[[Harness]]"
   ],
   "两类 Skills": [],
+  "Hidden Chains of Thought Monitorability hidden reasoning traces, chain-of-though": [],
   "把自己当普通用户／黑盒测试": [],
   "仓库提交": [],
   "插件与市场 Plugin Marketplace": [],
   "反复解释同一件事": [],
   "功能组合": [],
+  "全球分级协定 Level 1–4": [],
   "设计文档": [],
   "文件系统型代码执行环境 Filesystem-based Code Execution Environment": [],
+  "Agent swarm 作为 prompt 管理策略 agent swarm prompt management strategy": [],
+  "Computer-Use Training Harness computer use, harness": [],
+  "Full-bandwidth Transformer Latent Feedback": [],
+  "Knowledge Retrieval vs Reasoning memorization vs reasoning": [],
+  "privacy-first／硬件隔离区（exclave）／无持久化录音": [],
+  "Token Usage vs Reasoning Trace Length efficiency vs interpretability": [],
+  "躲避大模型 的发心": [],
   "保留推理 retained reasoning": [
    "[[滚动截断 rolling truncation]]",
    "[[跨轮次记忆与连贯策略]]",
@@ -6069,14 +6190,19 @@
   ],
   "技能变更生效条件：编辑、删除、重启": [],
   "技能与 SKILL.md 结构 Skill SKILL.md": [],
+  "竞相超越 race to the top": [],
+  "决策边界 decision boundaries": [],
+  "可变光圈与控制权回归": [],
+  "可移植单文件与导出 portable by default": [],
+  "民主国家对专制政权的领先幅度 the lead over the CCP": [],
   "输出 token 效率": [
    "[[Token Efficiency]]",
    "[[保留推理 retained reasoning]]",
    "[[基准测试的捆绑测量性]]",
    "[[Harness]]"
   ],
-  "战略性技术债务：Python 服务": [],
-  "asyncio 调度延迟与尾部延迟": [],
+  "误诊：不是“AI”失控，而是无监督、接工具的 prompt loop 系统 “AI” going rogue vs. unsupervised prompt l": [],
+  "性能冗余与高保值": [],
   "CLAUDE.md": [
    "[[AI 工程基础设施 AI engineering infrastructure]]",
    "[[确定性工程基础设施 deterministic engineering infrastructure]]",
@@ -6093,6 +6219,7 @@
    "[[Sensors 与 Actuators]]",
    "[[Harness]]"
   ],
+  "Habitat": [],
   "hooks .claudehooks": [
    "[[架构约束的确定性执行]]",
    "[[AI 工程基础设施 AI engineering infrastructure]]",
@@ -6102,6 +6229,8 @@
    "[[Harness 工程 Harness Engineering]]",
    "[[Harness]]"
   ],
+  "Last-good live preview": [],
+  "OAI-HF 事件：能力与错位的不对称 OpenAI-Hugging Face incident": [],
   "Prompt 到 Loop 的跃迁": [
    "[[连接器]]",
    "[[可验证目标]]",
@@ -6114,6 +6243,7 @@
    "[[自动循环的心跳]]",
    "[[Loop Engineering]]"
   ],
+  "Reasoning Model and Reasoning Trace Chain of Thought reasoning model, reasoning ": [],
   "Responses API 与生产设置对齐": [
    "[[保留推理 retained reasoning]]",
    "[[基准测试的捆绑测量性]]",
@@ -6134,16 +6264,17 @@
    "[[Sensors 与 Actuators]]",
    "[[Harness]]"
   ],
+  "“AI agent civilizations” 叙事 civilizations conspiracy taking over": [],
   "「并不 agentic」的 AI Agent": [
    "[[「扔掉 DAG」的承诺]]",
    "[[agent 循环]]",
    "[[context window 即 agent 状态]]",
+   "[[80% 质量墙]]",
    "[[框架反向工程]]",
    "[[小而模块化的概念]]",
    "[[所有权原则]]",
    "[[工具即结构化输出]]",
    "[[用工具调用联系人类]]",
-   "[[80% 质量墙]]",
    "[[统一执行状态与业务状态]]",
    "[[软件即有向图]]",
    "[[12-factor agents]]"
@@ -6175,12 +6306,12 @@
    "[[「扔掉 DAG」的承诺]]",
    "[[agent 循环]]",
    "[[context window 即 agent 状态]]",
+   "[[80% 质量墙]]",
    "[[框架反向工程]]",
    "[[小而模块化的概念]]",
    "[[所有权原则]]",
    "[[工具即结构化输出]]",
    "[[用工具调用联系人类]]",
-   "[[80% 质量墙]]",
    "[[统一执行状态与业务状态]]",
    "[[Agentic Engineering]]",
    "[[「并不 agentic」的 AI Agent]]",
@@ -6193,11 +6324,11 @@
    "[[Sensors 与 Actuators]]"
   ],
   "80% 质量墙": [
-   "[[人的手感与产品手艺]]",
    "[[「并不 agentic」的 AI Agent]]",
    "[[软件即有向图]]",
    "[[12-factor agents]]"
   ],
+  "按需源证据 source evidence, only when requested": [],
   "昂贵的反馈回路与欠测试": [
    "[[「模型即产品」的幻觉]]",
    "[[非确定性 nondeterminism]]",
@@ -6227,6 +6358,7 @@
    "[[U 型性能曲线]]",
    "[[迷失在中间 lost in the middle]]"
   ],
+  "部署所有权失败关闭 deployment-ownership fails closed": [],
   "部署系统层": [
    "[[显式且可检查的并行]]",
    "[[优化对象的阶梯]]",
@@ -6411,11 +6543,7 @@
    "[[skill-creator 访谈式创建]]",
    "[[验证闭环 verification loop]]"
   ],
-  "给事物命名": [
-   "[[外包思考，但不外包理解]]",
-   "[[Agent-Native Infrastructure]]",
-   "[[Sensors 与 Actuators]]"
-  ],
+  "更新检查隐私边界 update-check boundary": [],
   "工具为你服务，而非你为工具服务": [],
   "功能与行为验证的缺口": [
    "[[无手打代码 no manually typed code at all]]",
@@ -6487,6 +6615,7 @@
    "[[skill-creator 访谈式创建]]",
    "[[验证闭环 verification loop]]"
   ],
+  "可扩展性": [],
   "可执行搜索空间": [
    "[[递归自我改进 RSI]]",
    "[[部署系统层]]",
@@ -6587,6 +6716,7 @@
    "[[skill-creator 访谈式创建]]",
    "[[验证闭环 verification loop]]"
   ],
+  "强约束与严格责任标准 strong constraints stringent liability standards": [],
   "轻量引用 lightweight references": [
    "[[熵减 entropy reduction]]",
    "[[上下文 context]]",
@@ -6612,13 +6742,6 @@
    "[[Agent = Model + Harness]]",
    "[[Harness 工程 Harness Engineering]]",
    "[[Harness]]"
-  ],
-  "人的手感与产品手艺": [
-   "[[80% 质量墙]]",
-   "[[不可见的劳动]]",
-   "[[代理原生 agent-native]]",
-   "[[上下文骨架]]",
-   "[[“SaaS 已死”叙事与护城河蒸发]]"
   ],
   "人类上移到更高抽象层": [
    "[[管理 Agent]]",
@@ -6647,16 +6770,17 @@
    "[[「扔掉 DAG」的承诺]]",
    "[[agent 循环]]",
    "[[context window 即 agent 状态]]",
+   "[[80% 质量墙]]",
    "[[框架反向工程]]",
    "[[小而模块化的概念]]",
    "[[所有权原则]]",
    "[[工具即结构化输出]]",
    "[[用工具调用联系人类]]",
-   "[[80% 质量墙]]",
    "[[统一执行状态与业务状态]]",
    "[[「并不 agentic」的 AI Agent]]",
    "[[12-factor agents]]"
   ],
+  "三步走框架 embedded evaluators → democratic coordination → global coordination": [],
   "熵减 entropy reduction": [
    "[[四阶段演化模型]]",
    "[[意图翻译者 intention translator]]",
@@ -6700,7 +6824,6 @@
    "[[决策慢、执行快]]",
    "[[Token 卖家的激励错配]]",
    "[[零 bug 政策与一周 SLA]]",
-   "[[人的手感与产品手艺]]",
    "[[代理原生 agent-native]]",
    "[[“SaaS 已死”叙事与护城河蒸发]]"
   ],
@@ -6741,6 +6864,11 @@
    "[[稳定前缀 Stable Prefix]]",
    "[[缓存断点 Cache Breakpoint]]",
    "[[提示词缓存 Prompt Caching]]"
+  ],
+  "数字存在 Digital Presence": [
+   "[[熵减 entropy reduction]]",
+   "[[上下文 context]]",
+   "[[上下文工程 context engineering]]"
   ],
   "四阶段演化模型": [
    "[[熵减 entropy reduction]]",
@@ -6942,12 +7070,6 @@
    "[[code-review-graph]]",
    "[[Tree-sitter]]"
   ],
-  "政府资本 vs 产业资本": [
-   "[[开源 vs 闭源]]",
-   "[[外包思考，但不外包理解]]",
-   "[[Agent-Native Infrastructure]]",
-   "[[Sensors 与 Actuators]]"
-  ],
   "指代表达": [
    "[[隐式指代]]",
    "[[显式指代]]",
@@ -7047,6 +7169,7 @@
    "[[model-native harness]]",
    "[[Harness]]"
   ],
+  "Architecture Delta": [],
   "Autofixing": [
    "[[零 bug 政策与一周 SLA]]",
    "[[AI-First]]",
@@ -7146,6 +7269,7 @@
    "[[If you're not the model, you're the harness.]]",
    "[[Harness]]"
   ],
+  "Context window 与 prompt 杂乱 cluttered prompt maximum allowable context window": [],
   "Custom Agent": [
    "[[Forward Deployed Engineer]]",
    "[[外包思考，但不外包理解]]",
@@ -7323,9 +7447,8 @@
    "[[Harness]]"
   ],
   "OpenAI 广告基础设施域名": [
-   "[[oppref]]",
-   "[[LLM 订阅错配（LLM Subscription Mispricing）]]",
    "[[single_advertiser_ad_unit]]",
+   "[[LLM 订阅错配（LLM Subscription Mispricing）]]",
    "[[Token 补贴缺口（Token Subsidy Gap）]]",
    "[[外包思考，但不外包理解]]",
    "[[Agent-Native Infrastructure]]",
@@ -7427,7 +7550,6 @@
    "[[Manus 收购叫停事件]]",
    "[[死亡地带]]",
    "[[机会成本]]",
-   "[[给事物命名]]",
    "[[Ghosts, Not Animals]]",
    "[[CISPO]]",
    "[[Agentic Tools]]",
@@ -7437,6 +7559,7 @@
    "[[Engram]]",
    "[[llms-full.txt]]",
    "[[ARC-AGI-3]]",
+   "[[开源 vs 闭源]]",
    "[[Simulated Competence]]",
    "[[AgentCore]]",
    "[[Hyperscaler]]",
@@ -7474,9 +7597,8 @@
    "[[Sensors 与 Actuators]]"
   ],
   "single_advertiser_ad_unit": [
-   "[[oppref]]",
-   "[[Token 补贴缺口（Token Subsidy Gap）]]",
    "[[OpenAI 广告基础设施域名]]",
+   "[[Token 补贴缺口（Token Subsidy Gap）]]",
    "[[外包思考，但不外包理解]]",
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"

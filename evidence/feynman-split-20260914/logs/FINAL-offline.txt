@@ -1,0 +1,16 @@
+### node scripts/check-learning-materials.mjs
+章节材料体检：363 项通过
+  · 六章：Agent → 工具 → Agent loop → 状态子系统与进度持久化 → Harness → 验证闭环
+  · 状态：owner-confirmed｜ready 6/6｜候选案例仍全部为「假设场景」，页面照实显示
+  · 口径裁决 1 条：Agent → 本章定义以 CON-agent 的行为口径为准：Agent 不等于 LLM。
+✅ 材料体检全过
+
+### node scripts/test-feynman-teaching-map.mjs
+费曼教学映射验收：117 项通过
+  · 概念：渐进式披露（Progressive Disclosure）（4 条判据 · 源 knowledge/内参-260912/拆解五维/agent-skills-api.json）
+  · 4 组固定答案 → 漏点 4/3/2/0 条 → 教学动作 4/3/2/0 个
+    A1-空泛：漏 C1,C2,C3,C4 → C1,C2,C3,C4
+    A2-分层对、成本与边界错：漏 C2,C3,C4 → C2,C3,C4
+    A3-机制对、脚本与边界错：漏 C3,C4 → C3,C4
+    A4-完整：漏 无 → 不倒回
+✅ 不同理解缺口 → 不同教学动作，已证明

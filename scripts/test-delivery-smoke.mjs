@@ -27,9 +27,9 @@ const t0 = Date.now();
 /* ── 1. 文件在不在（契约 §三 点名的每一个） ───────────────── */
 console.log('[1] 交付件清单');
 const REQUIRED = [
-  ['knowledge/概念地图-260913/topics.json', '概念（936）'],
-  ['knowledge/概念地图-260913/dependencies.json', '前置依赖（531）'],
-  ['knowledge/概念地图-260913/relations.json', '关联（3333）'],
+  ['knowledge/概念地图-260913/topics.json', '概念（918）'],
+  ['knowledge/概念地图-260913/dependencies.json', '前置依赖（591）'],
+  ['knowledge/概念地图-260913/relations.json', '关联（3369）'],
   ['knowledge/概念地图-260913/clusters.json', '领域（21）'],
   ['knowledge/概念地图-260913/manifest.json', '清单 + 校验和'],
   ['knowledge/概念wiki-260913/index.md', 'wiki 索引'],

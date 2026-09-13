@@ -10,7 +10,17 @@
 //   想验公网单文件版（无服务端）时，把 url 指到假域名（脚本自己带 --host-resolver-rules）：
 //   (cd /tmp/pubcopy && python3 -m http.server 5199 &) && node scripts/test-path.mjs http://zhisuoqi-135.test:5199/
 
+import fs from 'node:fs';
+import path from 'node:path';
 import { CHROME, openCDP, sleep, spawnProcess, waitForPage } from './lib/cdp.mjs';
+
+/* 概念地图的真实条数：**从源数据现读**，不写死。
+   起因（2026-09-14 实测）：这一条原本写死 918/591，当天把内参 260913 期 81 个概念并进地图
+   （918→999 / 591→632）后它就红了 —— 地图变大是**预期内的合法变更**，红的不该是它。
+   现在它守的是「页面上的条数与源数据一致」这个不变量，地图怎么长都不会假失败。 */
+const MAP = path.resolve(import.meta.dirname, '..', 'knowledge', '概念地图-260913');
+const MAP_NODES = JSON.parse(fs.readFileSync(path.join(MAP, 'topics.json'), 'utf8')).topics.length;
+const MAP_EDGES = JSON.parse(fs.readFileSync(path.join(MAP, 'dependencies.json'), 'utf8')).dependencies.length;
 
 const PORT = 9500 + (process.pid % 300), PROF = '/tmp/path-' + process.pid;
 const URL_ = process.argv[2] || 'http://127.0.0.1:5180/知所栖-壳.html';
@@ -63,7 +73,7 @@ check('路径条挂上了（#main.pathon + #pathrail.on）',
 /* ② 一条真实 6 步路线：每个 ID 都能在页面数据里解析出来 */
 console.log('\n② 真实路线');
 check('主步骤 5—7 个（展示预算）', await ex(`ROUTES[0].steps.length >= 5 && ROUTES[0].steps.length <= 7 ? 'OK' : 'NO'`), 'OK');
-check('六个 conceptId 全部能在 936 个概念里解析',
+check('六个 conceptId 全部能在 918 个概念里解析',
   await ex(`ROUTES[0].steps.every(s => byId.has(s.conceptId)) ? 'OK' : 'NO'`), 'OK');
 check('路线里的名字＝概念地图里的真实名字（不是编的展示名）',
   await ex(`ROUTES[0].steps.every(s => byId.get(s.conceptId).name === s.name) ? 'OK' : 'NO'`), 'OK');
@@ -177,7 +187,10 @@ check('原概念卡内容还在（定义 / 深看 / 前置列表）',
 
 /* ⑩ 源数据没动 */
 console.log('\n⑩ 没改概念地图源数据');
-check('936 个概念 / 604 条依赖照旧', await ex(`nodes.length + '/' + edges.length`), '936/604');
+// 2026-09-14：非 AI 复判剔除非 AI → 918/591；同日内参 260913 期并入 81 概念 → 999/632。
+// 这条现在**对着源数据现查**（见文件头的 MAP_NODES / MAP_EDGES），只守「壳里 = 地图里」。
+check(`${MAP_NODES} 个概念 / ${MAP_EDGES} 条依赖（与地图源数据一致）`,
+  await ex(`nodes.length + '/' + edges.length`), `${MAP_NODES}/${MAP_EDGES}`);
 check('节点上没有路线字段（路线不写回图谱）',
   await ex(`nodes.some(n => n.route || n.routeStep || n.order) ? '写回了' : 'OK'`), 'OK');
 check('主题筛选口径没变（matches 仍按主标签）', await ex(`typeof matches === 'function' && typeof giOf === 'function' ? 'OK' : 'NO'`), 'OK');

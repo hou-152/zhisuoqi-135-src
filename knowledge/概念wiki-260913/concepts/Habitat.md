@@ -6,7 +6,7 @@ subject: AI 内参 260912
 domain: state-persistence
 learningStage: when-needed
 verification: accept
-centrality: 0.144
+centrality: 0.035
 depth: 0
 origin: [neican]
 aliases: ["在线存储平台"]
@@ -17,7 +17,7 @@ sources: 1
 
 > OpenAI 的在线存储平台，每秒超 7000 万请求、超 500PB 数据，源自一个 Python 客户端库。
 
-**领域** state-persistence ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.144
+**领域** state-persistence ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.035
 
 ## 费曼一下
 
@@ -38,11 +38,6 @@ Habitat 是我们构建的在线存储平台，旨在让 OpenAI 产品能够快�
 
 > {{name}} 替产品工程师屏蔽掉了哪些底层工作？
 
-## 懂了它才能懂（解锁 2）
-
-- [[从客户端库到独立服务]] — 不懂 Habitat 是从一个 Python 客户端库长出来的在线存储平台，就做不了「把存储逻辑从客户端库解耦为独立服务」这条演化路径的判断
-- [[Rockset 离线二级视图]] — 不懂 Habitat 在线侧的规模（每秒超 7000 万请求、超 500PB），就做不了「复杂查询为何不能压在主库、须甩到隔离实例」的取舍
-
 ## 出场
 
 - AI 内参 260912 ｜ 《Rapidly scaling online storage to serve over 1 billion ChatGPT users（存储平台 Habitat 的扩容复盘）》 ｜ https://openai.com/index/scaling-storage-one-billion-users-part-one/
@@ -50,8 +45,3 @@ Habitat 是我们构建的在线存储平台，旨在让 OpenAI 产品能够快�
 ## 别名
 
 `在线存储平台`
-
-## 反链
-
-- [[Rockset 离线二级视图]]
-- [[从客户端库到独立服务]]

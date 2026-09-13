@@ -42,7 +42,6 @@ sources: 1
 
 ## 相关
 
-- [[政府资本 vs 产业资本]] · related-to（audit） — 开源 vs 闭源的传播/资本之别可独立理解，「政府资本 vs 产业资本」只是解释胜负的一种框架，且其定义偏向算力语境，非必要条件。
 - [[外包思考，但不外包理解]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Agent-Native Infrastructure]] · 同篇出现（co-occurrence） — 同篇出现：notion
 - [[Sensors 与 Actuators]] · 同篇出现（co-occurrence） — 同篇出现：notion
@@ -57,7 +56,9 @@ sources: 1
 
 ## 反链
 
+- [[外包思考，但不外包理解]]
 - [[死亡地带]]
+- [[Agent-Native Infrastructure]]
 - [[前沿实验室]]
 - [[DeepSeek Moment]]
-- [[政府资本 vs 产业资本]]
+- [[Sensors 与 Actuators]]

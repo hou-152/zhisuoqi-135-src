@@ -152,6 +152,23 @@ for (const ch of pairings.chapters) {
   need(!!fey && Array.isArray(fey.required) && fey.required.length === 3, `${tag}：费曼要点应为 3 条`);
   if (fey) feynmanSets.push({ chapterId: ch.chapterId, required: fey.required });
 
+  /* ── 费曼要点：稳定 ID ＋ 成立条件 ＋ 常见误解（交接件 §4.3） ──
+     加 ID 不得改动题面与既有要点措辞：这里逐条卡住 ID 形状、顺序和 point 与 required 的逐字一致。 */
+  if (fey) {
+    const ck = fey.checks;
+    need(Array.isArray(ck) && ck.length === fey.required.length,
+      `${tag}：费曼要点每条都要带 checks（稳定 ID／成立条件／常见误解），应有 ${fey.required.length} 条`);
+    const checkIds = new Set();
+    (Array.isArray(ck) ? ck : []).forEach((x, i) => {
+      const no = `${tag} 费曼要点 ${i + 1}`;
+      need(x.id === `${ch.chapterId}-F${i + 1}` && !checkIds.has(x.id), `${no}：稳定 ID 应为 ${ch.chapterId}-F${i + 1}（实得 ${x.id}）`);
+      checkIds.add(x.id);
+      need(x.point === fey.required[i], `${no}：point 必须与 required[${i}] 逐字一致（实得「${x.point}」）`);
+      need((x.condition || '').length >= 8, `${no}：缺成立条件（condition，≥8 字）`);
+      need((x.misconception || '').length >= 8, `${no}：缺常见误解（misconception，≥8 字）`);
+    });
+  }
+
   /* ── 正文流（narrative）：连线写成解释句。句子是 agent 撰写的，quote 必须逐字回源 ── */
   const nar = a && a.narrative;
   if (nar) {
@@ -231,7 +248,7 @@ for (const ch of pairings.chapters) {
       judgment: q.judgment, prompt: q.prompt,
       options: q.options.map((o) => ({ text: o.text, correct: !!o.correct, why: o.why || '', basis: o.basis || [], basisQuote: o.basisQuote || '' })),
     })),
-    feynman: { prompt: fey.prompt, required: fey.required },
+    feynman: { prompt: fey.prompt, required: fey.required, checks: fey.checks || [] },
     narrative: nar || null,
     review: {
       status: ch.status, statusNote: ch.statusNote,

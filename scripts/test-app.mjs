@@ -61,10 +61,13 @@ check('① 给出数据目录', await ex(`fetch('/api/health').then(r=>r.json())
 
 /* ② 界面认出来了 */
 check('② 角标变「桌面版」', await ex(`document.getElementById('pubtag')?.textContent || '无'`), '桌面版');
+/* 2026-09-14 按事实改准：这条原本写「减法后的两栏」（只认 知识体系 + 内参）——
+   但左栏后来又加回「实践空间」（1 / 3 / 5 那个入口），跟 check-public 的「首屏 3 格导航」冲突了。
+   现在两边对齐成同一份契约：3 格导航、内参在最上。 */
 check(
-  '② 桌面版壳也是减法后的两栏',
-  await ex(`(()=>{const labels=[...document.querySelectorAll('.r-item b')].map(b=>b.textContent); return labels.length===2 && labels.includes('知识体系') && labels.includes('内参')})()`),
-  'true',
+  '② 桌面版壳＝减法后的三格导航（内参 / 知识体系 / 实践空间）',
+  await ex(`(()=>{const labels=[...document.querySelectorAll('.r-item b')].map(b=>b.textContent); return labels.join('|')})()`),
+  '内参|知识体系|实践空间',
 );
 
 /* ③ 真写真文件 */

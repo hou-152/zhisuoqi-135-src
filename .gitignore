@@ -13,6 +13,10 @@ app/assets/
 .DS_Store
 .mimosa/
 
+# 管线改前备份（cm-add-neican / cm-drop-non-ai 等生成的 *.pre-*.bak）：
+# 改前状态在 git 历史里就有，这些只是同一次运行内的回滚点，不入库（2026-09-14）
+*.bak
+
 # 部署产物：整个 deploy/ 都是**各自独立的 git 仓库**，不属于本仓库
 # （zhisuoqi-135 = 公网 Demo ＋ 538 单元索引页；root-site = hou-152.github.io 根站；zhisuoqi = 早期的旧站）
 # 2026-09-13 仓库体检：原来按目录逐条写，漏掉了旧的 deploy/zhisuoqi/，改成整目录忽略。

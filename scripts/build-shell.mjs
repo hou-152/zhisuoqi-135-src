@@ -24,34 +24,42 @@ const ARGV = Object.fromEntries(process.argv.slice(2).map((a) => a.replace(/^--/
 const LEGACY = 'legacy' in ARGV || !fs.existsSync(NEW_PAYLOAD);
 
 // 内参一栏：由 scripts/build-neican.mjs 生成（真 LLM 元数据 + 三产物 + 配图 SVG）
+// 2026-09-14：改成**多期集合**——knowledge/内参-<期>/内参-页面数据.json 全部读进来（新 → 旧），
+// 壳的上方日期条靠它切换；一期一个目录、一份页面数据，互不覆盖。
 function loadNeican() {
-  const f = path.join(ROOT, 'knowledge', '内参-260912', '内参-页面数据.json');
-  if (!fs.existsSync(f)) {
-    console.warn('⚠ 缺 knowledge/内参-260912/内参-页面数据.json —— 先跑 node scripts/build-neican.mjs');
-    return { period: '260912', articles: [] };
+  const K = path.join(ROOT, 'knowledge');
+  const dirs = fs.existsSync(K)
+    ? fs.readdirSync(K).filter((d) => /^内参-\d{6}$/.test(d) && fs.existsSync(path.join(K, d, '内参-页面数据.json'))).sort().reverse()
+    : [];
+  if (!dirs.length) {
+    console.warn('⚠ 没有任何一期内参（knowledge/内参-YYMMDD/内参-页面数据.json）—— 先跑 pull-readwise-inbox.mjs + build-neican-daily.mjs + build-neican.mjs');
+    return { issues: [] };
   }
-  const d = JSON.parse(fs.readFileSync(f, 'utf8'));
   // 内参的概念卡要接回地图：能对上的填 nodeId，点名字直接跳到地图那张卡。
   // 归一化必须用 \p{P}\p{S} 那一套（JS 的 \W 只认 ASCII，中文会被吃光 → 假命中）。
   const topics = JSON.parse(fs.readFileSync(path.join(ROOT, 'knowledge', '概念地图-260913', 'topics.json'), 'utf8')).topics;
   const norm = (x) => String(x).toLowerCase().replace(/[\s\p{P}\p{S}]+/gu, '');
   const parts = (x) => { const m = String(x).match(/^(.+?)\s*[（(]([^()（）]+)[)）]\s*$/); return m ? [m[1].trim(), m[2].trim()] : [String(x).trim()]; };
-  const stripParen = (x) => parts(x)[0];
   const idx = new Map();
   for (const t of topics) for (const k of [t.name, t.nameEn, ...(t.aliases || [])]) if (k && !idx.has(norm(k))) idx.set(norm(k), t.id);
-  let linked = 0, total = 0;
-  for (const art of d.articles) for (const c of art.conceptCards || []) {
-    total++;
-    const full = c.name || '';
-    // 三种写法都要试：剥括号的中文名 / 括号里的英文名 / 整串（「代理技能（Agent Skills）」要能撞上「Agent Skills」）
-    const id = parts(full).map(norm).map((k) => idx.get(k)).find(Boolean) || idx.get(norm(full)) || null;
-    if (id) { c.nodeId = id; linked++; }
+  const issues = [];
+  for (const d of dirs) {
+    const data = JSON.parse(fs.readFileSync(path.join(K, d, '内参-页面数据.json'), 'utf8'));
+    let linked = 0, total = 0;
+    for (const art of data.articles || []) for (const c of art.conceptCards || []) {
+      total++;
+      const full = c.name || '';
+      // 三种写法都要试：剥括号的中文名 / 括号里的英文名 / 整串（「代理技能（Agent Skills）」要能撞上「Agent Skills」）
+      const id = parts(full).map(norm).map((k) => idx.get(k)).find(Boolean) || idx.get(norm(full)) || null;
+      if (id) { c.nodeId = id; linked++; }
+    }
+    data._link = { total, linked };
+    issues.push(data);
+    console.log(`内参 ${data.period} 期：${(data.articles || []).length} 篇 · 概念卡 ${total} 张 · 已接回地图 ${linked} 张`);
   }
-  const fail = JSON.parse(fs.readFileSync(path.join(ROOT, 'knowledge', '概念地图-260913', 'topics.json'), 'utf8')).topics
-    .filter((t) => t.origin.includes('neican')).length;
-  console.log(`内参：${d.period} 期 ${d.articles.length} 篇（LLM ${d.llmCalls} 次 / ${d.tokens} tokens）`);
-  console.log(`  概念卡 ${total} 张 · 已接回地图 ${linked} 张 · 地图里来自内参的节点 ${fail} 个`);
-  return d;
+  const fail = topics.filter((t) => t.origin.includes('neican')).length;
+  console.log(`  地图里来自内参的节点 ${fail} 个 · 共 ${issues.length} 期（新 → 旧：${issues.map((i) => i.period).join(' / ')}）`);
+  return { issues };
 }
 
 /* 独立学习空间：Agent Loop 六章（scripts/build-learning-materials.mjs 装配 → chapters.json）

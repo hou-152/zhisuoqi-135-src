@@ -1,0 +1,1865 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>知所栖 135 · AI 时代要学的每一件事</title>
+<style>
+/* ══ 知所栖 135 · Linear 式三栏外壳 ══════════════════════════════
+   参考：所有者 09-12 05:03–05:38 提供的 Linear Agent 页截图。
+   Linear 的骨架是**三栏**：导航栏 | 列表栏 | 详情栏。
+   之前那版是「全屏画布 + 滑出抽屉」——中间那一栏没有，所以没有 Linear 的味道。
+   配色也按 Linear 收：近黑、低对比边、无光晕、无渐变。 */
+:root{
+  --bg:#08090a; --panel:#0e0f10; --panel2:#0b0c0d; --line:#1b1c1e; --line2:#232426;
+  --fg:#f7f8f8; --fg2:#8a8f98; --fg3:#62666d; --fg4:#3c3f44;
+  --accent:#5e6ad2; --accent2:#7c86e8;
+  --ok:#4cb782; --bad:#eb5757; --warn:#f2c94c; --read:#9b7fe8;
+  --row:30px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--fg);
+  font-family:-apple-system,BlinkMacSystemFont,"Inter","PingFang SC","Helvetica Neue",Arial,sans-serif;
+  font-size:13px;line-height:1.5;-webkit-font-smoothing:antialiased}
+button{font-family:inherit}
+
+/* ── 三栏 ───────────────────────────────────────────── */
+#app{display:grid;grid-template-columns:224px 302px 1fr;height:100vh;overflow:hidden}
+
+/* 导航栏 */
+#rail{background:var(--panel);border-right:1px solid var(--line);display:flex;
+  flex-direction:column;padding:10px 8px 8px;min-height:0;overflow:hidden}
+.r-brand{display:flex;align-items:center;gap:7px;padding:4px 8px 12px;font-size:13.5px;
+  font-weight:600;letter-spacing:.01em}
+.r-brand span{font-size:10.5px;font-weight:500;color:var(--fg3);border:1px solid var(--line2);
+  border-radius:5px;padding:0 5px;line-height:16px}
+.r-brand .pubtag{border-color:#2b3a5c;color:#7c93c9}
+.r-search{display:flex;align-items:center;gap:6px;height:28px;padding:0 8px;margin-bottom:8px;
+  background:var(--panel2);border:1px solid var(--line);border-radius:6px;color:var(--fg3);font-size:12.5px}
+.r-search input{flex:1;background:none;border:0;outline:none;color:var(--fg);font-size:12.5px;
+  font-family:inherit;min-width:0}
+.r-search input::placeholder{color:var(--fg4)}
+.r-sec{font-size:11px;color:var(--fg4);padding:12px 8px 4px;letter-spacing:.02em}
+.r-list{display:flex;flex-direction:column;gap:1px}
+.r-item{display:flex;align-items:center;gap:8px;width:100%;height:var(--row);padding:0 8px;
+  background:none;border:0;border-radius:6px;cursor:pointer;color:var(--fg2);
+  text-align:left;font-size:13px}
+.r-item:hover{background:#161719;color:var(--fg)}
+.r-item.on{background:#1d1e21;color:var(--fg)}
+.r-item .ic{width:14px;text-align:center;font-size:12px;opacity:.75;flex:0 0 14px}
+.r-item b{font-weight:450;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.r-item i{font-style:normal;font-size:11px;color:var(--fg4);white-space:nowrap}
+.r-item.on i{color:var(--fg3)}
+.r-lines{overflow:auto;min-height:0;flex:1 1 auto;scrollbar-width:none;display:flex;
+  flex-direction:column;gap:1px}
+.r-lines::-webkit-scrollbar{display:none}
+.lrow{display:flex;align-items:center;gap:8px;height:26px;padding:0 8px;border-radius:5px;
+  cursor:pointer;color:var(--fg3);font-size:12px}
+.lrow:hover{background:#161719;color:var(--fg2)}
+.lrow.off{opacity:.32}
+.lrow .n{margin-left:auto;font-size:10.5px;color:var(--fg4);font-variant-numeric:tabular-nums}
+#myrow{font-size:11px;color:var(--fg4);display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+#myrow .n{margin-left:2px;color:var(--fg3)}
+#myrow>span{display:inline-flex;align-items:center;gap:4px}
+#myrow .dot{display:inline-block;width:6px;height:6px;border-radius:50%;flex:0 0 6px}
+.r-foot{margin-top:8px;padding-top:8px;border-top:1px solid var(--line);display:flex;
+  align-items:center;gap:6px;color:var(--fg4);font-size:11.5px}
+.r-foot .spacer{flex:1}
+
+/* 列表栏 */
+#list{background:var(--panel2);border-right:1px solid var(--line);display:flex;
+  flex-direction:column;min-height:0;min-width:0}
+.lp-head{display:flex;align-items:center;gap:8px;height:44px;padding:0 12px 0 14px;
+  border-bottom:1px solid var(--line);flex:0 0 44px}
+.lp-head b{font-size:13px;font-weight:550}
+.lp-head .cnt{font-size:11.5px;color:var(--fg4)}
+.lp-head .spacer{flex:1}
+.lp-head button{background:none;border:0;color:var(--fg4);cursor:pointer;font-size:12px;
+  padding:3px 5px;border-radius:5px}
+.lp-head button:hover{background:#1a1b1e;color:var(--fg2)}
+.lp-filter{display:flex;gap:4px;padding:8px 10px;border-bottom:1px solid var(--line);flex:0 0 auto}
+.lp-filter button{flex:1;height:24px;background:none;border:1px solid var(--line);border-radius:5px;
+  color:var(--fg4);font-size:11px;cursor:pointer}
+.lp-filter button:hover{color:var(--fg2);border-color:var(--line2)}
+.lp-filter button.on{background:#1d1e21;border-color:var(--line2);color:var(--fg)}
+.lp-body{overflow:auto;flex:1 1 auto;min-height:0;padding:4px 6px 12px;scrollbar-width:thin}
+.lp-body::-webkit-scrollbar{width:8px}
+.lp-body::-webkit-scrollbar-thumb{background:#232426;border-radius:4px}
+.row{display:flex;align-items:center;gap:8px;height:var(--row);padding:0 8px;border-radius:6px;
+  cursor:pointer;color:var(--fg2);font-size:12.5px}
+.row:hover{background:#161719;color:var(--fg)}
+.row.on{background:#1d1e21;color:var(--fg)}
+.row .rd{width:7px;height:7px;border-radius:50%;flex:0 0 7px}
+.row .rn{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .rm{font-size:11px;color:var(--fg4);white-space:nowrap;font-variant-numeric:tabular-nums}
+.row .st{width:6px;height:6px;border-radius:50%;flex:0 0 6px}
+.lp-empty{color:var(--fg4);font-size:12px;padding:22px 10px;text-align:center;line-height:1.9}
+
+/* 主区 */
+#main{position:relative;background:var(--bg);overflow:hidden;min-width:0}
+/* 详情打开时主区让出 412px，画布跟着缩——盖住图就不是 Linear 了 */
+#main.pinned #c{right:412px}
+#main.pinned .mtools{right:412px}
+#main.pinned #hero-mini{max-width:290px}
+#c{position:absolute;inset:0;display:block;cursor:grab;touch-action:none;transition:right .14s}
+#c.drag{cursor:grabbing}
+.mtools{position:absolute;top:0;left:0;right:0;height:44px;display:flex;align-items:center;
+  gap:6px;padding:0 12px 0 14px;border-bottom:1px solid var(--line);z-index:4;
+  background:linear-gradient(180deg,rgba(8,9,10,.92),rgba(8,9,10,.55));backdrop-filter:blur(6px)}
+.mtools .spacer{flex:1}
+.tab{background:none;border:1px solid var(--line);color:var(--fg3);font-size:11.5px;height:24px;
+  padding:0 11px;border-radius:5px;cursor:pointer}
+.tab:hover{color:var(--fg2);border-color:var(--line2)}
+.tab.on{background:#1d1e21;color:var(--fg);border-color:var(--line2)}
+.mtools .mm{font-size:11.5px;color:var(--fg4)}
+#hero-mini{position:absolute;left:0;top:44px;z-index:3;pointer-events:none;max-width:330px;
+  padding:12px 26px 14px 18px;
+  background:linear-gradient(100deg,rgba(8,9,10,.94) 45%,rgba(8,9,10,0))}
+#hero-mini .kicker{font-size:10.5px;color:var(--fg4);letter-spacing:.04em}
+#hero-mini .stats{font-size:11.5px;color:var(--fg3);line-height:1.75;margin-top:5px}
+#hero-mini .stats b{color:var(--fg2);font-weight:500}
+
+/* 详情栏：停靠在主区右侧，不再滑出全屏 */
+#panel{position:absolute;top:0;right:0;bottom:0;width:412px;background:var(--panel);
+  border-left:1px solid var(--line);padding:20px 20px 28px;z-index:6;overflow-y:auto;
+  transform:translateX(6px);opacity:0;pointer-events:none;transition:opacity .14s,transform .14s;
+  scrollbar-width:thin}
+#panel.on{transform:none;opacity:1;pointer-events:auto}
+#panel::-webkit-scrollbar{width:8px}
+#panel::-webkit-scrollbar-thumb{background:#232426;border-radius:4px}
+#panel .close{position:absolute;top:14px;right:14px;width:26px;height:26px;border-radius:6px;
+  background:none;border:0;color:var(--fg4);cursor:pointer;font-size:13px;line-height:1}
+#panel .close:hover{background:#1a1b1e;color:var(--fg2)}
+#panel .src{font-size:11px;color:var(--fg3);margin-bottom:9px;padding-right:32px;line-height:1.7}
+#panel h2{font-size:19px;font-weight:550;line-height:1.35;margin-bottom:12px;letter-spacing:-.01em}
+#panel .gloss{font-size:13px;line-height:1.85;color:var(--fg2);margin-bottom:20px}
+#panel .deep{border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin:0 0 18px;background:#141518}
+#panel .deep summary{cursor:pointer;font-size:11.5px;color:var(--fg4);outline:none}
+#panel .deep h5{margin-top:12px}
+#panel .deep .mut{font-size:12px;line-height:1.8;color:var(--fg3);white-space:pre-wrap}
+#panel .deep ul{margin:6px 0 0;padding-left:16px}
+#panel .deep li{font-size:12px;line-height:1.75;color:var(--fg3);margin:3px 0}
+#nei-body .nm .tomap{background:none;border:0;color:var(--fg);font:inherit;font-size:14px;font-weight:600;cursor:pointer;padding:0;text-align:left;border-bottom:1px dashed var(--line2)}
+#nei-body .nm .tomap:hover{color:var(--accent2);border-bottom-color:var(--accent2)}
+#nei-body .nm .tomap i{font-style:normal;font-size:10.5px;color:var(--fg4);margin-left:4px}
+#panel .metrics{display:flex;gap:20px;padding:12px 0;border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);margin-bottom:18px}
+#panel .m{flex:1}
+#panel .m b{display:block;font-size:17px;font-weight:500;color:var(--fg);line-height:1.2}
+#panel .m span{font-size:10.5px;color:var(--fg4)}
+#panel h5{font-size:11px;color:var(--fg4);margin:18px 0 8px;font-weight:500}
+#panel ul{list-style:none}
+#panel li{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--fg2);
+  padding:5px 7px;border-radius:5px;cursor:pointer}
+#panel li:hover{background:#161719;color:var(--fg)}
+#panel li em{margin-left:auto;font-style:normal;font-size:10.5px;color:var(--fg4)}
+.mut{color:var(--fg3);font-size:12px;line-height:1.8}
+.markrow{display:flex;gap:6px;flex-wrap:wrap}
+.mk{background:#17181b;border:1px solid var(--line2);border-radius:6px;color:var(--fg2);
+  font-size:11.5px;height:26px;padding:0 10px;cursor:pointer}
+.mk:hover{background:#1d1e21;color:var(--fg)}
+.mk.on{background:#20263f;border-color:#39406b;color:#b9c0f0}
+.mk.quiet{color:var(--fg4)}
+
+/* 列表行/卡片（insert 与策展仍用） */
+.ilist{display:flex;flex-direction:column;gap:5px;margin:12px 0}
+.irow{display:flex;flex-direction:column;align-items:stretch;gap:7px;background:#121315;
+  border:1px solid var(--line);border-radius:7px;padding:9px 10px}
+.irow.keep{border-color:#2b4a37}
+.irow.skip{opacity:.4}
+.itxt{font-size:12px;line-height:1.6}
+.itxt b{color:var(--fg);font-weight:500}
+.iact{display:flex;gap:5px;justify-content:flex-end}
+.iact button{background:#17181b;border:1px solid var(--line2);border-radius:5px;color:var(--fg2);
+  font-size:11px;height:24px;padding:0 9px;cursor:pointer}
+.iact button.on{background:#1c3025;border-color:#2f5a41;color:#a9e5c4}
+.alist{display:flex;flex-direction:column;gap:6px;margin:12px 0}
+.acard{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;
+  background:#121315;border:1px solid var(--line);border-radius:7px;padding:10px 12px;
+  cursor:pointer;color:var(--fg2)}
+.acard:hover{border-color:var(--line2);background:#17181b}
+.acard b{font-size:12.5px;color:var(--fg);font-weight:550}
+.acard span{font-size:11.5px;color:var(--fg2)}
+.acard i{font-style:normal;font-size:11px;color:var(--fg4)}
+.crow{display:flex;flex-direction:column;gap:3px;background:#121315;border:1px solid var(--line);
+  border-radius:7px;padding:10px 12px;margin-bottom:6px;cursor:pointer}
+.crow:hover{border-color:var(--line2);background:#17181b}
+.crow b{font-size:12.5px;color:var(--fg);display:flex;align-items:center;gap:7px;font-weight:550}
+.crow b .dot{width:7px;height:7px;border-radius:50%;flex:0 0 7px}
+.crow span{font-size:11.5px;color:var(--fg2);line-height:1.65}
+.crow i{font-style:normal;font-size:10.5px;color:var(--fg4)}
+.badge{display:inline-block;font-size:10px;border-radius:4px;padding:1px 6px;
+  border:1px solid var(--line2);color:var(--fg3);font-weight:400}
+.dot{width:7px;height:7px;border-radius:50%;flex:0 0 7px}
+
+/* 倒逼区 */
+.dpane{background:#101113;border:1px solid var(--line2);border-radius:8px;padding:13px 14px;margin:16px 0}
+.dpane h5{margin:0 0 7px}
+.dpane textarea{width:100%;min-height:84px;background:#0a0b0c;border:1px solid var(--line2);
+  border-radius:6px;padding:9px 10px;color:var(--fg);font-size:12.5px;line-height:1.75;
+  outline:none;font-family:inherit;resize:vertical;margin-top:8px}
+.dpane textarea:focus{border-color:#3a4058}
+.dpane.quiet{background:#131020;border-color:#2c2545}
+.jrow{display:flex;align-items:center;gap:10px;margin-top:9px;flex-wrap:wrap}
+.jbtn{background:var(--accent);border:0;border-radius:6px;color:#fff;font-size:12px;height:28px;
+  padding:0 13px;cursor:pointer;font-weight:500}
+.jbtn:hover{background:var(--accent2)}
+.jbtn.ghost{background:#17181b;border:1px solid var(--line2);color:var(--fg2);font-weight:400}
+.jbtn.ghost:hover{background:#1d1e21;color:var(--fg)}
+.jerr{font-size:11px;color:var(--warn)}
+.jverdict{border-radius:7px;padding:11px 12px;margin:12px 0;font-size:12.5px;line-height:1.75}
+.jverdict.ok{background:#0e1a14;border:1px solid #2b4a37;color:#b6e3ca}
+.jverdict.mech{background:#1c1810;border:1px solid #5c4a26;color:#e2cf9e}
+.jverdict.bad{background:#1c1110;border:1px solid #5c2f2b;color:#efc3bf}
+.jverdict.read{background:#151228;border:1px solid #3b3163;color:#c3b8ea}
+.jmiss{margin-top:6px;font-size:12px}
+.backto{margin-top:9px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.backto button{background:#241715;border:1px solid #57302a;border-radius:5px;color:#e8bdb6;
+  font-size:11.5px;height:24px;padding:0 9px;cursor:pointer}
+.backto button:hover{background:#2e1c19}
+.nexthint{margin-top:16px;padding-top:12px;border-top:1px solid var(--line);font-size:12px;
+  color:var(--fg3);line-height:2.1}
+.chainhead{background:#151a26;border:1px solid #26304a;border-radius:6px;padding:7px 10px;
+  font-size:11.5px;color:#93a6cc;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.chainhead button{margin-left:auto;background:none;border:0;color:#6b7d9f;font-size:11px;
+  cursor:pointer;text-decoration:underline}
+.stops{display:flex;flex-direction:column;margin:8px 0}
+.stop{display:flex;align-items:flex-start;gap:9px;font-size:12.5px;line-height:1.5;
+  padding:4px 7px;border-radius:5px;cursor:pointer;color:var(--fg2)}
+.stop:hover{background:#161719;color:var(--fg)}
+.stop .lv{flex:0 0 22px;font-size:10px;color:var(--fg4);font-variant-numeric:tabular-nums;padding-top:2px}
+.stop .nm{flex:1}
+.stop .ed{font-size:10px;color:var(--fg4);padding-top:2px}
+
+/* 会话 */
+.cmsg{margin:8px 0;padding:9px 11px;border-radius:7px;font-size:12.5px;line-height:1.8;
+  white-space:pre-wrap;word-break:break-word}
+.cmsg.user{background:#161a24;border:1px solid #232a38;color:#dbe3ec}
+.cmsg.assistant{background:#111214;border:1px solid var(--line);color:#c2ccd8}
+.cmsg.pend{opacity:.5}
+.cmsg.note{background:#1a1710;border:1px solid #3a3320;color:#d3c48d;font-size:11.5px}
+.orch-card{margin:12px 0 14px;padding:12px 13px;background:#111722;border:1px solid #283552;border-radius:8px}
+.orch-card.draft{border-color:#35446d}
+.orch-card.sending{border-color:#5c4a26;background:#17140f}
+.orch-card.done{border-color:#2b4a37;background:#101913}
+.orch-card.error{border-color:#5c2f2b;background:#1c1110}
+.orch-head{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.orch-head b{font-size:12.5px;color:#e5e9f3;font-weight:550}
+.orch-status{margin-left:auto;font-size:10.5px;color:#9aa8c8;border:1px solid #39476a;border-radius:4px;padding:2px 6px}
+.orch-card.sending .orch-status{color:#e2cf9e;border-color:#5c4a26}
+.orch-card.done .orch-status{color:#a9e5c4;border-color:#2f5a41}
+.orch-card.error .orch-status{color:#efc3bf;border-color:#5c2f2b}
+.orch-task{font-size:12px;line-height:1.7;color:#d7dce7;margin-bottom:9px;white-space:pre-wrap;word-break:break-word}
+.orch-flow{display:flex;gap:5px;flex-wrap:wrap;align-items:center;margin:8px 0 10px}
+.orch-pill{font-size:10.5px;color:#b9c0f0;background:#20263f;border:1px solid #39406b;border-radius:5px;padding:3px 7px}
+.orch-pill.aux{color:#aeb7c6;background:#171b25;border-color:#303949}
+.orch-arrow{font-size:10px;color:#5f6b84}
+.orch-note{font-size:11px;color:#929bad;line-height:1.7;margin:6px 0 9px}
+.orch-more{border-top:1px solid #283047;padding-top:8px;margin-top:8px}
+.orch-more summary{cursor:pointer;color:#a9b5d1;font-size:11px;outline:none}
+.orch-prompt{margin:8px 0 0;padding:9px 10px;background:#0a0d13;border:1px solid #242c41;border-radius:6px;
+  color:#cbd3e2;font:11px/1.7 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;word-break:break-word;max-height:300px;overflow:auto}
+.orch-actions{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.orch-actions button{height:27px;padding:0 10px;border-radius:5px;cursor:pointer;font:11.5px inherit}
+.orch-send{background:#5e6ad2;border:0;color:#fff}
+.orch-send:hover{background:#7c86e8}
+.orch-send:disabled{opacity:.5;cursor:default}
+.orch-reset{background:#171a21;border:1px solid #303949;color:#aeb7c6}
+.orch-reset:hover{background:#20242d;color:#e5e9f3}
+.orch-receipt{margin-top:10px;padding-top:9px;border-top:1px solid #283047;color:#aeb7c6;font-size:10.5px;line-height:1.75}
+.orch-receipt b{color:#d7dce7;font-weight:500}
+.orch-sources{margin:5px 0 0;padding-left:16px}
+.orch-sources a{color:#9fb0e2;text-decoration:none}
+.orch-sources a:hover{text-decoration:underline}
+.orch-error{color:#efc3bf;font-size:11px;line-height:1.7;margin-top:7px}
+.clist{margin-top:10px}
+.keyrow{display:flex;gap:6px;margin:8px 0 4px}
+.keyrow input{flex:1;background:#0a0b0c;border:1px solid var(--line2);border-radius:6px;
+  padding:7px 10px;color:var(--fg);font-size:11.5px;outline:none;font-family:inherit;min-width:0}
+.keyrow button{background:#17181b;border:1px solid var(--line2);border-radius:6px;color:var(--fg2);
+  font-size:11px;padding:0 11px;cursor:pointer;white-space:nowrap}
+.keyrow button:hover{background:#1d1e21;color:var(--fg)}
+code{background:#161719;border:1px solid var(--line);border-radius:4px;padding:1px 5px;
+  font-size:11.5px;font-family:ui-monospace,Menlo,monospace;color:var(--fg2)}
+
+/* 底栏：所有者定义的三个入口 */
+#bar{position:fixed;left:0;right:0;bottom:0;height:50px;z-index:8;display:flex;align-items:center;
+  gap:6px;padding:0 12px;background:var(--panel);border-top:1px solid var(--line)}
+.b-btn{display:flex;align-items:baseline;gap:7px;background:none;border:1px solid var(--line);
+  border-radius:6px;height:30px;padding:0 11px;cursor:pointer;color:var(--fg2)}
+.b-btn:hover{background:#17181b;border-color:var(--line2)}
+.b-btn.flash{background:#1a2438;border-color:#2f4272;color:#a9bbec}
+.b-btn b{font-size:11.5px;font-weight:600;color:var(--fg);font-family:ui-monospace,Menlo,monospace}
+.b-btn span{font-size:11px;color:var(--fg4)}
+.b-input{flex:1;margin-left:6px}
+.b-input input{width:100%;height:30px;background:var(--panel2);border:1px solid var(--line);
+  border-radius:6px;padding:0 11px;color:var(--fg);font-size:12.5px;outline:none;font-family:inherit}
+.b-input input:focus{border-color:#333a52}
+.b-input input::placeholder{color:var(--fg4)}
+
+#tip{position:fixed;padding:5px 9px;background:#161719;border:1px solid var(--line2);
+  border-radius:6px;font-size:11.5px;color:var(--fg);pointer-events:none;opacity:0;
+  transition:opacity .1s;z-index:9;max-width:280px;line-height:1.6}
+#load{position:fixed;inset:0;display:grid;place-items:center;background:var(--bg);
+  color:var(--fg4);font-size:12.5px;z-index:20;transition:opacity .3s}
+#load.off{opacity:0;pointer-events:none}
+#app{bottom:50px;height:calc(100vh - 50px)}
+
+@media (max-width:1100px){
+  #app{grid-template-columns:200px 1fr}
+  #list{display:none}
+  #panel{width:100%}
+}
+
+/* ── 内参（第六格）：AI 内参图文格式的阅读区 ─────────────────────────
+   主区原来只有画布。内参是「读」的界面，所以它盖在画布上，不影响图谱布局。 */
+#reader{position:absolute;inset:0;z-index:18;background:var(--bg);overflow:auto;display:none}
+#reader.on{display:block}
+.nei{max-width:768px;margin:0 auto;padding:20px 30px 90px}
+.nei-crumb{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--fg3)}
+.nei-crumb b{color:var(--fg2);font-weight:500}
+.nei-crumb .sp{flex:1}
+.nei-title{font-size:26px;line-height:1.3;font-weight:600;margin:12px 0 10px;letter-spacing:-.01em}
+.nei-meta{display:flex;align-items:center;gap:9px;flex-wrap:wrap;color:var(--fg2);font-size:12.5px}
+.nei-meta .stars{color:#f2c94c;letter-spacing:1.5px}
+.nei-meta .tag{border:1px solid var(--line2);border-radius:5px;padding:1px 7px;color:var(--fg2);font-size:11.5px}
+.nei-meta .why{color:var(--fg4)}
+.nei-hero{margin:16px 0 8px;border-radius:9px;overflow:hidden;border:1px solid var(--line);height:296px}
+.nei-hero svg{display:block;width:100%;height:100%}
+.nei-cap{color:var(--fg3);font-size:11.5px}
+.nei-card{border:1px solid var(--line);background:var(--panel2);border-radius:9px;padding:12px 14px;margin:14px 0}
+.nei-card h5{margin-bottom:6px}
+.nei-card p{color:var(--fg2);line-height:1.7}
+.nei-link{margin:14px 0 0;font-size:12.5px;color:var(--fg2)}
+.nei-link a{color:var(--accent2);text-decoration:none}
+.nei-link a:hover{text-decoration:underline}
+.nei-tabs{display:flex;gap:2px;margin:20px 0 0;border-bottom:1px solid var(--line)}
+.nei-tabs button{background:none;border:0;border-bottom:2px solid transparent;color:var(--fg2);
+  font-size:12.5px;padding:8px 11px;cursor:pointer;margin-bottom:-1px}
+.nei-tabs button:hover{color:var(--fg)}
+.nei-tabs button.on{color:var(--fg);border-bottom-color:var(--accent)}
+.nei-body{padding-top:14px;font-size:13.5px;line-height:1.78}
+.nei-body h2,.nei-body h3{font-size:15px;margin:20px 0 8px;color:var(--fg)}
+.nei-body h4,.nei-body h5,.nei-body h6{font-size:13px;margin:16px 0 6px;color:var(--fg2)}
+.nei-body p{margin:8px 0}
+.nei-body ul{margin:6px 0 10px 18px}
+.nei-body li{margin:3px 0}
+.nei-body li.s{margin-left:14px;color:var(--fg2)}
+.nei-body blockquote{border-left:2px solid var(--line2);padding:2px 0 2px 12px;margin:8px 0;color:var(--fg2)}
+.nei-body hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+.nei-body code{background:var(--panel2);border:1px solid var(--line);border-radius:4px;padding:0 4px;font-size:12px}
+.nei-body pre{background:var(--panel2);border:1px solid var(--line);border-radius:7px;padding:10px 12px;overflow:auto;margin:10px 0}
+.nei-body pre code{border:0;background:none;padding:0}
+.concept{border:1px solid var(--line);border-radius:9px;padding:12px 14px;margin:12px 0;background:var(--panel2)}
+.concept .nm{display:block;font-size:13.5px;font-weight:600;margin-bottom:7px}
+.concept .q{border-left:2px solid var(--line2);padding-left:10px;color:var(--fg2);margin:7px 0;font-size:12.5px;line-height:1.7}
+.concept .fy{margin-top:9px;font-size:13px;line-height:1.75}
+.concept .fy i{color:var(--accent2);font-style:normal;font-size:11.5px;margin-right:6px}
+.fybox{border:1px solid var(--line);border-radius:9px;padding:12px 14px;margin:10px 0;background:var(--panel2)}
+.fybox .k{font-size:11.5px;color:var(--accent2);margin-bottom:7px}
+.fybox .mut{color:var(--fg3);font-size:11.5px;margin-bottom:8px}
+.fybox ul{margin:6px 0 0 18px}
+.fybox li{margin:4px 0;line-height:1.7}
+.fybox li b{color:var(--fg)}
+.nei-foot{margin-top:26px;padding-top:12px;border-top:1px solid var(--line);color:var(--fg3);font-size:11.5px}
+</style>
+</head>
+<body>
+<div id="app">
+  <aside id="rail">
+    <div class="r-brand">知所栖<span>135</span><span class="pubtag" id="pubtag" style="display:none">公网快照</span></div>
+    <label class="r-search">⌕<input id="q-filter" placeholder="筛选…" oninput="renderList()"></label>
+    <nav class="r-list">
+      <button class="r-item on" data-view="graph" onclick="setView('graph')"><span class="ic">◧</span><b>知识体系</b><i id="r-all"></i></button>
+      <button class="r-item" data-view="curate" onclick="setView('curate')"><span class="ic">◇</span><b>策展</b><i id="r-cur"></i></button>
+      <button class="r-item" data-view="neican" onclick="setView('neican')"><span class="ic">▤</span><b>内参</b><i id="r-nei"></i></button>
+      <button class="r-item" data-view="todo" onclick="setView('todo')"><span class="ic">◑</span><b>待你看一眼</b><i id="r-todo"></i></button>
+      <button class="r-item" data-view="mine" onclick="setView('mine')"><span class="ic">●</span><b>我在学</b><i id="r-mine"></i></button>
+      <button class="r-item" data-view="chat" onclick="setView('chat')"><span class="ic">✳</span><b>对话</b><i id="r-chat">选方法论</i></button>
+    </nav>
+    <div class="r-sec" id="lhead">分组</div>
+    <div class="r-lines" id="lrows"></div>
+    <div class="r-foot">
+      <span id="myrow" style="flex:1"></span>
+      <span id="rhint"></span>
+    </div>
+  </aside>
+
+  <section id="list">
+    <header class="lp-head">
+      <b id="lp-title">知识体系</b><span class="cnt" id="lp-count"></span>
+      <span class="spacer"></span>
+      <button onclick="setView('graph')" title="回到全图">全图</button>
+    </header>
+    <div class="lp-filter" id="lp-filter"></div>
+    <div class="lp-body" id="lp-body"></div>
+  </section>
+
+  <main id="main">
+    <canvas id="c"></canvas>
+    <div class="mtools">
+      <button class="tab on" data-mode="grid">图谱</button>
+      <button class="tab" data-mode="sphere">星球</button>
+      <span class="spacer"></span>
+      <span class="mm" id="main-meta"></span>
+    </div>
+    <div id="hero-mini"><div class="kicker" id="kicker"></div><div class="stats" id="stats"></div></div>
+    <div id="reader"><div class="nei" id="nei-wrap"></div></div>
+    <aside id="panel">
+      <button class="close" onclick="closePanel()">✕</button>
+      <div id="pbody"></div>
+    </aside>
+  </main>
+</div>
+
+<div id="bar">
+  <button class="b-btn" id="b-import" onclick="doImport()"><b>import</b><span>知识体系</span></button>
+  <button class="b-btn" id="b-insert" onclick="doInsert()"><b>insert</b><span>挖掘 · 提问</span></button>
+  <button class="b-btn" id="b-agent"  onclick="doAgent()"><b>Agent</b><span>选方法论</span></button>
+  <div class="b-input"><input id="b-q" placeholder="我想学 ____  （回车走 135 闭环）"></div>
+</div>
+<div id="tip"></div>
+<div id="load">正在计算布局…</div>
+
+<script>
+const DATA = /*__DATA__*/;
+
+/* ── 常量 ───────────────────────────────────────────── */
+const PALETTE = ['#5B8FF9','#61DDAA','#F6BD16','#7262FD','#78D3F8','#9661BC',
+                 '#F6903D','#00B5A3','#F08BB4','#E8684A','#6DC8EC','#A078DB'];
+let   LEVEL_GAP = 88;      // 每层高度（boot 时按层数自适应）
+const REPULSE   = 1650;    // 斥力
+const SPRING    = 0.055;   // 边引力
+const YSPRING   = 0.15;    // 层弹簧
+const DAMP      = 0.86;
+const ITERS     = 260;
+
+const nodes = DATA.nodes, edges = DATA.edges, sources = DATA.sources, meta = DATA.meta;
+// 策展层：主题标签 + 策展集（路线）+ 机器已判的边
+const CUR = DATA.curation || { tags: [], assign: {}, collections: [], edgeAuto: [], edgeHuman: [] };
+// 内参一栏：AI 内参图文格式（主题 / 重要等级 / 地址 / 配图 / 原文子链接 / 简介 / 入选理由 / 三产物）
+const NEI = DATA.neican || { period: '', articles: [] };
+const AUTO = new Map((CUR.edgeAuto || []).map(a => [a.key, a]));
+
+/* ── 验收方式分类 ─────────────────────────────────────────────
+   不问「这讲的是什么」（那是主题，任何模型都能吐），问
+   「**这个概念该要求学习者做到什么，才算学会了**」。
+   它决定的不只是分列，而是**系统对你做什么**：
+     compute 能算的 → 复述机制
+     judge   能判的 → 说出你自己的判据与代价
+     use     能用的 → 给一个你真用过的例子
+     accept  只能认的 → **不设验收**。世界观没有机制可复述，硬考就是假学习。
+   这正是原版的真 bug：194 个概念用了同一个验收标准，把世界观也拉来考。 */
+const KIND = {
+  compute: { name: '能算的', color: '#5B8FF9',
+    ask: '遮住上面那句，用自己的话说清它的机制。',
+    rule: '判定口径：说清核心机制、不违反事实 → pass；漏机制、说错、照抄原文 → fail。' },
+  judge:   { name: '能判的', color: '#F6BD16',
+    ask: '遮住上面那句：它给的是什么判据？换成你的处境你会怎么用？代价是什么？',
+    rule: '判定口径：必须写出**你自己的判据和你愿意付的代价**。只复述原文 → fail；'
+        + '说「看情况」但不给出判据 → fail；没提代价 → fail。' },
+  use:     { name: '能用的', color: '#61DDAA',
+    ask: '遮住上面那句：它是什么？给一个你**真拿它做过**的具体例子（做了什么、结果如何）。',
+    rule: '判定口径：说清它是什么 + 给了一个具体、可核对的用例 → pass；'
+        + '只有定义没有用例 → fail；用例含糊或明显是编的 → fail。' },
+  accept:  { name: '只能认的', color: '#9661BC', ask: null,
+    rule: '这一类不设验收。' },
+};
+const KORDER = ['compute', 'judge', 'use', 'accept'];
+const kOf = n => (KIND[n.k] ? n.k : 'compute');
+const byId = new Map(nodes.map(n => [n.id, n]));
+const neighbors = new Map(nodes.map(n => [n.id, { pre: [], post: [] }]));
+
+/* ── 状态 ───────────────────────────────────────────── */
+let mode = 'grid';
+let rotX = -0.22, rotY = 0.5, zoom = 1.08, panX = 0, panY = 0;
+let selected = null, hovered = null, filter = null;
+
+/* ── 我的标记层：**不能自己标「学过」** ──────────────────────────
+   所有者 09-12 08:47 的批评：「变成了一个摆设……这样子干你没法倒逼」
+   原来自报——点一下「学过」就变绿，零证据。那就是摆设。
+   现在：只有**写过一次复述、被判过**才可能有环。判定人不是学习者自己。
+     pass = 复述过了（青环）
+     fail = 验过、没过，正在倒回（红环）
+     mech = 只过了机械覆盖检查，没经语义判定（琥珀环，不算学会）
+     无环 = 没验过
+   布局只由 nodes/edges 决定，标记不参与任何坐标计算。 */
+const MARK_KEY = 'zss135.proof.v2';   // v1 是自报的，作废不迁移
+let marks = {};   // { [id]: {state, said, missing:[], wrong:[], backTo:[], why, at} }
+try { marks = JSON.parse(localStorage.getItem(MARK_KEY) || '{}') || {}; } catch (e) { marks = {}; }
+// 老版本存的是字符串 'learned'/'gap'，直接丢掉——那是自报，不是证据
+for (const k of Object.keys(marks)) if (typeof marks[k] === 'string') delete marks[k];
+function saveMarks() { try { localStorage.setItem(MARK_KEY, JSON.stringify(marks)); } catch (e) {} }
+
+function stats() {
+  const v = Object.values(marks);
+  return {
+    pass: v.filter(x => x.state === 'pass').length,
+    fail: v.filter(x => x.state === 'fail').length,
+    mech: v.filter(x => x.state === 'mech').length,
+    read: v.filter(x => x.state === 'read').length,
+    done: v.length,
+  };
+}
+function refreshMarks() {
+  const s = stats();
+  const el = document.getElementById('myrow');
+  if (el) el.innerHTML =
+    `<span><span class="dot" style="background:#4cb782"></span><span class="n">${s.pass}</span></span>` +
+    `<span><span class="dot" style="background:#eb5757"></span><span class="n">${s.fail}</span></span>` +
+    (s.mech ? `<span><span class="dot" style="background:#f2c94c"></span><span class="n">${s.mech}</span></span>` : '') +
+    `<span><span class="dot" style="background:#9b7fe8"></span><span class="n">${s.read}</span></span>` +
+    `<span class="n" style="color:#3c3f44">／${nodes.length}</span>`;
+  if (window.refreshRail) refreshRail();
+}
+function markRead(id) {
+  if (marks[id] && marks[id].state === 'read') delete marks[id];
+  else marks[id] = { state: 'read', why: '这一类不设验收，只记读过', at: Date.now() };
+  saveMarks(); refreshMarks();
+  if (selected === id) openPanel(id);
+}
+window.markRead = markRead;
+function clearProof(id) {
+  delete marks[id]; saveMarks(); refreshMarks();
+  if (selected === id) openPanel(id);
+}
+window.clearProof = clearProof;
+
+/* ── 费曼验收：遮住原文，用自己的话说，系统挑漏，漏哪倒回哪 ────────
+   判定口径写在提示词里：照抄不算过、只写几个词不算过、
+   「意思差不多」不放过——因为判定器的工作是**挑漏**，不是发安慰分。 */
+function judgeSys(kind) {
+  const K = KIND[kind] || KIND.compute;
+  return '你是学习验收的判定器。这个概念被判为「' + K.name + '」。\n'
+    + '学习者的任务：' + K.ask + '\n'
+    + K.rule + '\n'
+    + '你的任务是**挑漏**，不是鼓励，不许给安慰分。\n'
+    + '只输出 json：\n'
+    + '{"verdict":"pass" 或 "fail",'
+    + '"missing":["他漏掉的要点，每条 6-18 字，最多 3 条"],'
+    + '"wrong":["他说错的地方，没有就空数组"],'
+    + '"backTo":["先修概念 id，只能从下面给出的前置 id 里挑；漏的根在某个前置概念上就指向它，否则空数组"],'
+    + '"why":"一句话 20-40 字，直接说他哪里没做到，不要客套"}\n'
+    + '通用口径：只写了几个词、没成句 → fail；把原句换个说法照抄 → fail；拿不准就 fail。';
+}
+
+function judgeUserMsg(nd, said) {
+  const pre = (neighbors.get(nd.id).pre || []).map(x => byId.get(x)).filter(Boolean);
+  return '概念名：' + nd.name + '\n'
+    + '验收类别：' + (KIND[kOf(nd)] || {}).name + '（' + (nd.kwhy || '') + '）\n'
+    + '它讲的是什么（唯一判据）：' + nd.gloss + '\n'
+    + '它的前置概念（backTo 只能指向这些 id）：\n'
+    + (pre.length ? pre.map(x => '  ' + x.id + ' ｜ ' + x.name + ' ｜ ' + x.gloss).join('\n') : '  （没有前置）')
+    + '\n\n学习者写的：' + said;
+}
+
+/* 机械兜底：没有模型可判时，只做**关键词覆盖检查**，并且如实标注它不是语义判定。
+   它**不会**把概念标成 pass——只标 mech（琥珀环），因为过没过机器检查不等于懂没懂。 */
+const STOP = new Set(['一个','这个','那个','的是','可以','就是','不是','或者','以及','通过','因为','所以','需要','没有','已经','什么','怎么','这样','那样','自己','我们','他们','这些','那些','但是','而且','如果','它们','也就是','指的是','一种','用来','能够','不会','会有','时候','东西','事情','问题','方式','方法','过程','情况','状态']);
+function mechJudge(nd, said) {
+  const raw = nd.gloss.match(/[A-Za-z][A-Za-z0-9+#.-]{1,}|[\u4e00-\u9fa5]{2,4}/g) || [];
+  const key = [...new Set(raw)].filter(t => !STOP.has(t)).slice(0, 16);
+  const miss = key.filter(t => !said.includes(t));
+  const cover = key.length ? (key.length - miss.length) / key.length : 0;
+  const k = kOf(nd);
+  // judge 类要的是「你自己的判据与代价」，use 类要的是「一个真用过的例子」。
+  // 关键词覆盖检查看不见这两样东西——所以这两类在没有模型时**只判 fail**，
+  // 绝不给 mech 的琥珀环，免得把「词提到了」冒充成「判据给了 / 例子举了」。
+  if (k === 'judge' || k === 'use') {
+    return { verdict: 'fail', coverage: cover, missing: miss.slice(0, 5), wrong: [], backTo: [],
+      why: '这一类要的是' + (k === 'judge' ? '你自己的判据与代价' : '一个你真用过的例子')
+         + '，机械检查看不出来。本次没经语义判定 → 按没过记。', mechanical: true };
+  }
+  return {
+    verdict: cover >= 0.5 ? 'mech' : 'fail',
+    coverage: cover, missing: miss.slice(0, 5), wrong: [], backTo: [],
+    why: '关键词覆盖 ' + Math.round(cover * 100) + '%（机械检查，不是语义判定）', mechanical: true,
+  };
+}
+
+/* ══ 桌面版能力 ══════════════════════════════════════════════
+   桌面版（app/main.js）跑的是**同一个服务**，但多了一个数据目录。
+   /api/health 会回 {app:true, dataDir:"…"}；网页版永远是 false。
+   多出来的只有一件事：**能写真文件**——
+     · 自己的那棵树落成 学习记录.json（不是浏览器 localStorage，清一次就没了）
+     · skill 产物落成 产物/<课题>.md（dbs-learning-beta 的 SKILL.md 写死的那条路径，
+       网页版只能回一句「当前会话没有文件写入能力，先直接贴出」） */
+let APP = { on: false, dir: null };
+async function detectApp() {
+  try {
+    const r = await fetch('/api/health');
+    const j = await r.json();
+    APP = { on: !!j.app, dir: j.dataDir || null };
+  } catch (e) { APP = { on: false, dir: null }; }
+  const tag = document.getElementById('pubtag');
+  if (tag && APP.on) { tag.textContent = '桌面版'; tag.title = '数据存在 ' + APP.dir; tag.style.display = ''; }
+  return APP;
+}
+const NO_FS = '网页版没有写文件权限。桌面版（cd app && npm start）才能把它写成真文件。';
+async function saveRecord() {
+  if (!APP.on) return alert(NO_FS);
+  const r = await fetch('/api/data', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ marks, insertMarks, axis, proven: Object.keys(marks).length }) });
+  const j = await r.json();
+  alert(j.ok ? '已存到\n' + j.path : '没存上：' + (j.error || '未知'));
+}
+async function saveArtifact(name, text) {
+  if (!APP.on) return alert(NO_FS);
+  const rel = '产物/' + String(name).replace(/[\\/:*?"<>|]/g, '_').slice(0, 70) + '.md';
+  const r = await fetch('/api/save', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ rel, text }) });
+  const j = await r.json();
+  alert(j.ok ? '已存到\n' + j.path : '没存上：' + (j.error || '未知'));
+}
+function saveArtifactFrom(i) {
+  const m = msgs[i]; if (!m || !m.content) return;
+  saveArtifact((activeSkill || '产物') + '-' + String(i).padStart(2, '0'), m.content);
+}
+window.saveRecord = saveRecord; window.saveArtifact = saveArtifact; window.saveArtifactFrom = saveArtifactFrom;
+
+let judging = false;
+async function judge(id) {
+  const box = document.getElementById('said');
+  const said = (box ? box.value : '').trim();
+  const nd = byId.get(id);
+  const err = document.getElementById('jerr');
+  if (!nd || judging) return;
+  if (said.length < 10) {
+    if (err) err.textContent = said.length ? '太短了——至少写成一句话（10 字以上）。几个词不算复述。' : '先写点什么。遮住上面那句，用你自己的话说。';
+    return;
+  }
+  if (kOf(nd) === 'accept') {
+    if (err) err.textContent = '这一类不设验收——只记「读过」，不判过没过。';
+    return;
+  }
+  judging = true;
+  if (err) err.textContent = '判定中…';
+  let v;
+  try {
+    v = await judgeCall(nd, said);
+  } catch (e) {
+    v = { verdict: 'fail', missing: [], wrong: [], backTo: [], why: '判定失败：' + (e.message || e) };
+  }
+  judging = false;
+  marks[id] = {
+    state: v.verdict, said, missing: v.missing || [], wrong: v.wrong || [],
+    backTo: (v.backTo || []).filter(x => byId.has(x)), why: v.why || '',
+    coverage: v.coverage, mechanical: !!v.mechanical, at: Date.now(),
+  };
+  saveMarks(); refreshMarks();
+  if (selected === id) openPanel(id);
+}
+window.judge = judge;
+
+/* 服务端/本地壳用的判定调用。公网版会把这一段换掉（见 scripts/build-public.mjs）。 */
+async function judgeCall(nd, said) {
+  const r = await fetch('/api/llm', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ messages: [{ role: 'system', content: judgeSys(kOf(nd)) },
+                                      { role: 'user', content: judgeUserMsg(nd, said) }] }),
+  });
+  const j = await r.json();
+  if (j.error) return mechJudge(nd, said);
+  const txt = j.content || '{}';
+  try { return JSON.parse(txt); } catch (e) { return mechJudge(nd, said); }
+}
+let W = 0, H = 0, CX = 0, CY = 0, DPR = 1;
+const cvs = document.getElementById('c'), ctx = cvs.getContext('2d');
+const tip = document.getElementById('tip');
+
+/* ── 建立邻接 ───────────────────────────────────────── */
+for (const [tid, pid] of edges) {
+  neighbors.get(tid).pre.push(pid);
+  neighbors.get(pid).post.push(tid);
+}
+
+/* ── 布局 ───────────────────────────────────────────── */
+// 确定性伪随机：同一概念每次抖动一致，resize / 切模式不会跳动
+function hash01(s) {
+  let h = 2166136261;
+  for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); }
+  return ((h >>> 0) % 10000) / 10000;
+}
+
+// 图谱模式：纵轴 = 依赖层级，横轴 = 主题分列（默认·策展）/ 来源分列（可切）
+let gridGap = 50, gridTop = 80, gridX0 = 0, gridColW = 60;
+function layoutGrid() {
+  const G = groups();
+  const maxLv = Math.max(...nodes.map(n => n.level));
+  const x0 = W * 0.29, x1 = W * 0.94;
+  const colW = (x1 - x0) / Math.max(1, G.length);
+  const gap = Math.min(54, (H * 0.78) / Math.max(1, maxLv));
+  const yTop = H * 0.135;
+  const buckets = G.map(() => new Map());
+  for (const n of nodes) {
+    const b = buckets[Math.min(giOf(n), G.length - 1)];
+    if (!b.has(n.level)) b.set(n.level, []);
+    b.get(n.level).push(n);
+  }
+  for (let ci = 0; ci < G.length; ci++) {
+    for (const [lv, arr] of buckets[ci]) {
+      arr.forEach((n, i) => {
+        const t = arr.length === 1 ? 0.5 : i / (arr.length - 1);
+        n.gx = x0 + ci * colW + colW * (0.17 + t * 0.66) + (hash01(n.id) - 0.5) * colW * 0.40;
+        n.gy = yTop + lv * gap + (hash01(n.id + 'y') - 0.5) * gap * 0.55;
+      });
+    }
+  }
+  gridGap = gap; gridTop = yTop; gridX0 = x0; gridColW = colW;
+}
+
+// 星球模式：球面均布（形式参考 candobear 智慧星球）
+// 不跑力导向 —— 边引力会把均匀球面拉歪；用 hash 打散顺序，颜色自然混合
+function layoutSphere() {
+  const R = 430;
+  const order = nodes.slice().sort((a, b) => hash01(a.id) - hash01(b.id));
+  const N = order.length, ga = Math.PI * (3 - Math.sqrt(5));
+  order.forEach((n, i) => {
+    const y = 1 - (i / Math.max(1, N - 1)) * 2;
+    const r = Math.sqrt(Math.max(0, 1 - y * y));
+    const th = ga * i;
+    n.x = Math.cos(th) * r * R; n.y = y * R; n.z = Math.sin(th) * r * R;
+  });
+}
+
+function computeLayout() {
+  if (mode === 'grid') layoutGrid(); else layoutSphere();
+}
+
+/* ── 分组轴：主题（策展，默认）/ 来源 ───────────────────────
+   原来横轴写死 12 个来源分列——那是权宜。策展后默认按主题分列。 */
+let axis = 'kind';   // 默认按「要你怎么处理它」分列
+const TAGI = new Map((CUR.tags || []).map((t, i) => [t.id, i]));
+function giOf(n) {
+  if (axis === 'src') return n.ci;
+  if (axis === 'kind') return KORDER.indexOf(kOf(n));
+  const t = (n.tags || [])[0];
+  return TAGI.has(t) ? TAGI.get(t) : (CUR.tags || []).length;
+}
+function groups() {
+  if (axis === 'src') return sources.map((s, i) => ({ id: s.id, label: s.label, color: PALETTE[i % PALETTE.length] }));
+  if (axis === 'kind') return KORDER.map(k => ({ id: k, label: KIND[k].name, color: KIND[k].color }));
+  const g = (CUR.tags || []).map(t => ({ id: t.id, label: t.name, color: t.color }));
+  const un = nodes.filter(x => !TAGI.has((x.tags || [])[0])).length;
+  if (un) g.push({ id: '__un', label: '未分类', color: '#4a4a55' });
+  return g;
+}
+function groupCount(g) {
+  if (axis === 'src') return nodes.filter(x => x.src === g.id).length;
+  if (axis === 'kind') return nodes.filter(x => kOf(x) === g.id).length;
+  if (g.id === '__un') return nodes.filter(x => !TAGI.has((x.tags || [])[0])).length;
+  return nodes.filter(x => (x.tags || [])[0] === g.id).length;
+}
+function matches(x) {
+  if (!filter) return true;
+  if (axis === 'src') return x.src === filter;
+  if (axis === 'kind') return kOf(x) === filter;
+  if (filter === '__un') return !TAGI.has((x.tags || [])[0]);
+  return (x.tags || []).includes(filter);
+}
+
+/* ── 投影 ───────────────────────────────────────────── */
+function project(n) {
+  if (mode === 'grid') {                    // 图谱：正交，无透视
+    const s = zoom;
+    return { sx: CX + (n.gx + panX - CX) * s, sy: CY + (n.gy + panY - CY) * s, s: s * 1.25, z: 0 };
+  }
+  const cy = Math.cos(rotY), sy = Math.sin(rotY);
+  let x = n.x * cy - n.z * sy;
+  let z = n.x * sy + n.z * cy;
+  const cx = Math.cos(rotX), sx = Math.sin(rotX);
+  const y = n.y * cx - z * sx;
+  const z2 = n.y * sx + z * cx;
+  const D = 1500;
+  const s = zoom * D / (D + z2 + 700);
+  return { sx: CX + x * s, sy: CY - y * s, s, z: z2 };
+}
+
+/* ── 渲染 ───────────────────────────────────────────── */
+let frame = 0;
+function render() {
+  frame++;
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  ctx.clearRect(0, 0, W, H);
+  // 背景微光
+  const g = ctx.createRadialGradient(CX, CY, 0, CX, CY, Math.max(W, H) * 0.62);
+  g.addColorStop(0, 'rgba(30,32,48,0.55)');
+  g.addColorStop(1, 'rgba(8,8,10,0)');
+  ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+
+  const pts = nodes.map(n => ({ n, ...project(n) }));
+  const visible = n => matches(n) && (!onlyMine || !!marks[n.id]);
+  const G = groups();
+
+  // 图谱模式：列带 + 层级参考线 + 列顶标签（形式参考 candobear 学科图谱）
+  if (mode === 'grid') {
+    const s = zoom;
+    const gx0 = CX + (gridX0 + panX - CX) * s;
+    const colW = gridColW * s;
+    const maxLv = Math.max(...nodes.map(n => n.level));
+    for (let i = 0; i < G.length; i++) {
+      ctx.globalAlpha = (!filter || filter === G[i].id) ? 0.055 : 0.012;
+      ctx.fillStyle = G[i].color;
+      ctx.fillRect(gx0 + i * colW, 0, colW - 1.5, H);
+    }
+    ctx.globalAlpha = 1;
+    ctx.font = '9px -apple-system,"PingFang SC",sans-serif';
+    ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+    ctx.lineWidth = 1;
+    for (let lv = 0; lv <= maxLv; lv++) {
+      const y = CY + (gridTop + lv * gridGap + panY - CY) * s;
+      if (y < 58 || y > H - 26) continue;
+      ctx.beginPath(); ctx.moveTo(gx0, y); ctx.lineTo(gx0 + G.length * colW, y); ctx.stroke();
+      ctx.fillStyle = 'rgba(255,255,255,0.2)'; ctx.textAlign = 'left';
+      ctx.fillText('L' + lv, gx0 + G.length * colW + 9, y + 3);
+    }
+    ctx.textAlign = 'center';
+    for (let i = 0; i < G.length; i++) {
+      ctx.globalAlpha = (!filter || filter === G[i].id) ? 0.8 : 0.2;
+      ctx.fillStyle = G[i].color;
+      ctx.fillText(G[i].label + ' ' + groupCount(G[i]), gx0 + i * colW + colW / 2, gridTop - 28);
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  // 边：票数分档 —— 骨架（≥7 票，多次投票一致）画实线，候选（1–4 票）画虚线
+  ctx.lineWidth = 1;
+  for (const [tid, pid, votes] of edges) {
+    const a = byId.get(tid), b = byId.get(pid);
+    if (!visible(a) || !visible(b)) continue;
+    const pa = project(a), pb = project(b);
+    const depth = (pa.z + pb.z) / 2;
+    const hot = selected && (tid === selected || pid === selected)
+             || hovered && (tid === hovered || pid === hovered);
+    const solid = votes >= 7;
+    const mid = votes >= 2;
+    const base = solid ? 0.26 : mid ? 0.12 : 0.06;
+    const alpha = hot ? 0.8 : Math.max(0.022, base - depth / 12000);
+    ctx.strokeStyle = hot ? 'rgba(255,255,255,' + alpha + ')'
+                          : solid ? 'rgba(178,188,225,' + alpha + ')'
+                                  : 'rgba(120,128,165,' + alpha + ')';
+    ctx.lineWidth = hot ? 1.6 : solid ? 1.05 : 0.6;
+    if (!solid && !hot) ctx.setLineDash(votes >= 2 ? [2.5, 3] : [1.5, 4]);
+    ctx.beginPath(); ctx.moveTo(pa.sx, pa.sy); ctx.lineTo(pb.sx, pb.sy); ctx.stroke();
+    if (!solid && !hot) ctx.setLineDash([]);
+  }
+
+  // 点（远的先画）
+  pts.sort((a, b) => b.z - a.z);
+  for (const p of pts) {
+    const n = p.n;
+    const on = visible(n);
+    const isSel = selected === n.id, isHov = hovered === n.id;
+    const base = (2.2 + Math.sqrt(neighbors.get(n.id).pre.length +
+                   neighbors.get(n.id).post.length) * 1.05) * p.s;
+    const r = Math.max(1.1, base * (isSel ? 2.1 : isHov ? 1.65 : 1));
+    const col = G[Math.min(giOf(n), G.length - 1)].color;
+    ctx.globalAlpha = on ? Math.min(1, 0.42 + p.s * 0.7) : 0.06;
+    // 光晕
+    if (isSel || isHov) {
+      ctx.shadowBlur = 22; ctx.shadowColor = col;
+    }
+    ctx.beginPath(); ctx.arc(p.sx, p.sy, r, 0, 6.2832);
+    ctx.fillStyle = col; ctx.fill();
+    ctx.shadowBlur = 0;
+    // 我的标记环：只加环，不改填充色，不动坐标
+    const mk = marks[n.id];
+    if (mk && on) {
+      const st = mk.state || 'fail';
+      ctx.globalAlpha = (isSel || isHov) ? 1 : 0.92;
+      ctx.strokeStyle = st === 'pass' ? '#5ee0c0' : st === 'mech' ? '#e0a94a'
+                      : st === 'read' ? '#9661BC' : '#ff4d4d';
+      ctx.lineWidth = st === 'pass' ? 2 : 1.6;
+      ctx.beginPath(); ctx.arc(p.sx, p.sy, r + 2.8, 0, 6.2832); ctx.stroke();
+    }
+    if (isSel) {
+      ctx.strokeStyle = '#fff'; ctx.lineWidth = 1.4; ctx.globalAlpha = 1;
+      ctx.beginPath(); ctx.arc(p.sx, p.sy, r + 3.5, 0, 6.2832); ctx.stroke();
+    }
+  }
+  ctx.globalAlpha = 1;
+  requestAnimationFrame(render);
+}
+
+/* ── 尺寸 ───────────────────────────────────────────── */
+function resize() {
+  DPR = Math.min(2, window.devicePixelRatio || 1);
+  // 画布现在只在主区内（左栏 224 + 列表栏 302），不再铺满窗口
+  const main = document.getElementById('main');
+  const r = main.getBoundingClientRect();
+  // 详情打开时画布被 inset 掉 412px，但 #main 本身没变宽——
+  // 所以这里要自己减掉，否则布局按 914 算、画布只有 502，右边两列被切掉。
+  const pinned = main.classList.contains('pinned');
+  W = Math.max(320, Math.round(r.width - (pinned ? 412 : 0)));
+  H = Math.max(240, Math.round(r.height));
+  cvs.width = W * DPR; cvs.height = H * DPR;
+  cvs.style.width = W + 'px'; cvs.style.height = H + 'px';
+  CX = W * (W > 820 ? 0.60 : 0.5);
+  CY = H * 0.54;
+  if (mode === 'grid' && nodes.length) layoutGrid();
+}
+window.addEventListener('resize', resize);
+
+/* ── 交互 ───────────────────────────────────────────── */
+let dragging = false, moved = 0, lastX = 0, lastY = 0;
+cvs.addEventListener('pointerdown', e => {
+  dragging = true; moved = 0; lastX = e.clientX; lastY = e.clientY;
+  cvs.classList.add('drag'); cvs.setPointerCapture(e.pointerId);
+});
+cvs.addEventListener('pointermove', e => {
+  if (dragging) {
+    const dx = e.clientX - lastX, dy = e.clientY - lastY;
+    moved += Math.abs(dx) + Math.abs(dy);
+    if (mode === 'grid') { panX += dx; panY += dy; }
+    else { rotY += dx * 0.0062; rotX = Math.max(-1.25, Math.min(1.25, rotX + dy * 0.0062)); }
+    lastX = e.clientX; lastY = e.clientY;
+  } else {
+    hovered = pick(e.clientX, e.clientY);
+    cvs.style.cursor = hovered ? 'pointer' : 'grab';
+    if (hovered) {
+      const n = byId.get(hovered);
+      tip.textContent = n.name;
+      tip.style.left = (e.clientX + 14) + 'px';
+      tip.style.top = (e.clientY - 10) + 'px';
+      tip.classList.add('on');
+    } else tip.classList.remove('on');
+  }
+});
+cvs.addEventListener('pointerup', e => {
+  dragging = false; cvs.classList.remove('drag');
+  if (moved < 5) { const hit = pick(e.clientX, e.clientY); hit ? openPanel(hit) : closePanel(); }
+});
+cvs.addEventListener('pointerleave', () => { tip.classList.remove('on'); hovered = null; });
+cvs.addEventListener('wheel', e => {
+  e.preventDefault();
+  zoom = Math.max(0.35, Math.min(3.2, zoom * (1 - e.deltaY * 0.0011)));
+}, { passive: false });
+
+function pick(mx, my) {
+  let best = null, bestD = 15;
+  for (const n of nodes) {
+    const p = project(n);
+    const d = Math.hypot(p.sx - mx, p.sy - my);
+    if (d < bestD) { bestD = d; best = n.id; }
+  }
+  return best;
+}
+
+/* ── 面板 ───────────────────────────────────────────── */
+function openPanel(id) {
+  selected = id;
+  const n = byId.get(id), nb = neighbors.get(id);
+  const src = sources.find(s => s.id === n.src);
+  const pre = nb.pre.map(x => byId.get(x)).filter(Boolean);
+  const post = nb.post.map(x => byId.get(x)).filter(Boolean);
+  const mk = marks[id];
+  const kk = kOf(n);
+  const tags = (n.tags || []).map(t => (CUR.tags.find(x => x.id === t) || {}).name).filter(Boolean);
+  const chain = CHAIN && CHAIN.ids.includes(id)
+    ? `<div class="chainhead">这条线 · ${esc(CHAIN.name)} · 第 ${CHAIN.ids.indexOf(id) + 1}/${CHAIN.ids.length} 步
+       <button onclick="CHAIN=null;openPanel('${id}')">退出这条线</button></div>` : '';
+
+  let verdict = '';
+  if (mk) {
+    const tone = mk.state === 'pass' ? 'ok' : mk.state === 'mech' ? 'mech' : mk.state === 'read' ? 'read' : 'bad';
+    const title = mk.state === 'read' ? '读过了（这一类不设验收）'
+      : mk.state === 'pass' ? '复述过了'
+      : mk.mechanical ? '没过 · 只做了机械检查（没经语义判定）'
+      : mk.state === 'mech' ? '只过了机械检查（没经语义判定，不算学会）'
+      : '没过 · 正在倒回';
+    verdict = `<div class="jverdict ${tone}">
+      <b>${title}</b>
+      ${mk.why ? `<div class="mut" style="margin-top:4px">${esc(mk.why)}</div>` : ''}
+      ${mk.missing && mk.missing.length ? `<div class="jmiss">漏了：${mk.missing.map(esc).join(' · ')}</div>` : ''}
+      ${mk.wrong && mk.wrong.length ? `<div class="jmiss">说错了：${mk.wrong.map(esc).join(' · ')}</div>` : ''}
+      ${mk.backTo && mk.backTo.length
+        ? `<div class="backto">倒回 → ${mk.backTo.map(b => `<button onclick="openPanel('${b}')">${esc(byId.get(b).name)}</button>`).join('')}</div>`
+        : ''}
+      <div class="mut" style="margin-top:6px;font-size:10.5px">你写的是：${esc((mk.said || '').slice(0, 120))}${(mk.said || '').length > 120 ? '…' : ''}</div>
+      ${mk.mechanical ? `<div class="mut" style="margin-top:5px;font-size:10.5px;color:#e0a94a">
+        这次只做了机械检查。想要真判定：本地跑 <code>node scripts/serve-135.mjs</code>，或在对话页填一个 DeepSeek key。</div>` : ''}
+      <div class="markrow" style="margin-top:8px">
+        <button class="mk quiet" onclick="clearProof('${id}')">重写一遍（清掉这次）</button>
+      </div>
+    </div>`;
+  }
+
+  document.getElementById('pbody').innerHTML = `
+    ${chain}
+    <div class="src"><span style="color:${KIND[kk].color}">■</span> ${KIND[kk].name}
+      · <span class="mut">${esc(n.kwhy || '')}</span></div>
+    <div class="src" style="margin-top:6px">${esc(tags.length ? tags.join(' · ') : (src ? src.label : n.src))} · ${n.type}</div>
+    <h2>${esc(n.name)}</h2>
+    <div class="gloss">${esc(n.gloss)}</div>
+    ${((n.evidence||[]).length || n.ap) ? `<details class="deep"${kk === "accept" ? " open" : ""}>
+      <summary>深看 · 做到这些才算会${n.ap ? " · 验收问句" : ""}</summary>
+      ${(n.evidence||[]).length ? `<h5>掌握证据（可观察的行为，不是「理解了」）</h5><ul>${n.evidence.map(e => `<li>${esc(e)}</li>`).join('')}</ul>` : ''}
+      ${n.ap ? `<h5>验收问句</h5><div class="mut">${esc(n.ap)}</div>` : ''}
+      ${n.stage ? `<h5>什么时候学</h5><div class="mut">${({now:'现在先懂——不懂就没法往下',"when-needed":'做到这里再懂——用得到时再学',"deep-dive":'深入研究再懂——要专门花时间'})[n.stage] || ''}</div>` : ''}
+    </details>` : ''}
+    ${(mk && (mk.state === 'pass' || mk.state === 'mech' || mk.state === 'read')) ? `<details class="deep">
+      <summary>过了才给 · 费曼一下 / 原文 context / 别名</summary>
+      ${n.feynman ? `<h5>费曼一下</h5><div class="mut">${esc(n.feynman)}</div>` : ''}
+      ${n.sourceContext ? `<h5>原文 context</h5><div class="mut">${esc(String(n.sourceContext).slice(0, 900))}</div>` : ''}
+      ${(n.aliases||[]).length ? `<h5>别名</h5><div class="mut">${n.aliases.map(a => esc(a)).join('、')}</div>` : ''}
+      ${n.nameEn ? `<h5>英文</h5><div class="mut">${esc(n.nameEn)}</div>` : ''}
+    </details>` : ''}
+    <div class="metrics">
+      <div class="m"><b>${pre.length}</b><span>前置</span></div>
+      <div class="m"><b>${post.length}</b><span>解锁</span></div>
+      <div class="m"><b>L${n.level}</b><span>层级</span></div>
+    </div>
+
+    ${kk === 'accept' ? `<div class="dpane quiet">
+      <h5>这一类不设验收</h5>
+      <div class="mut">它被判为「<b>只能认的</b>」——${esc(n.kwhy || '作者的世界观、立场或比喻')}。<br>
+      没有机制可复述，也没有对错。<b>硬考它就是假学习，所以我们不考。</b><br>
+      读过就够了。想反驳它，去「对话」里找 Agent 聊。</div>
+      <div class="jrow">
+        <button class="jbtn ghost" onclick="markRead('${id}')">${mk && mk.state === 'read' ? '读过了（点一下取消）' : '我读过了'}</button>
+      </div>
+    </div>` : `<div class="dpane">
+      <h5>倒逼 · 你不能自己标「学过」</h5>
+      <div class="mut"><b>${KIND[kk].name}</b> · ${esc(n.kwhy || '')}<br>
+      ${KIND[kk].ask}</div>
+      <textarea id="said" placeholder="别抄上面那句。抄了不算过。">${mk ? esc(mk.said || '') : ''}</textarea>
+      <div class="jrow">
+        <button class="jbtn" onclick="judge('${id}')">交卷，让系统挑漏</button>
+        <span id="jerr" class="jerr"></span>
+      </div>
+    </div>`}
+    ${verdict}
+
+    ${pre.length ? `<h5>要理解它，先懂这些</h5><ul>${pre.map(x =>
+      `<li onclick="openPanel('${x.id}')">${x.name}<em>L${x.level}${marks[x.id] ? (marks[x.id].state === 'pass' ? ' · 已过' : marks[x.id].state === 'mech' ? ' · 机器过' : ' · 没过') : ''}</em></li>`).join('')}</ul>` : ''}
+    ${post.length ? `<h5>懂了它，才能懂这些</h5><ul>${post.map(x =>
+      `<li onclick="openPanel('${x.id}')">${x.name}<em>L${x.level}</em></li>`).join('')}</ul>` : ''}
+
+    ${(mk && (mk.state === 'pass' || mk.state === 'mech')) ? `<div class="nexthint">${
+      CHAIN && CHAIN.ids.indexOf(id) + 1 < CHAIN.ids.length
+        ? `过了。下一步 → <button class="jbtn" onclick="chainNext()">${esc(byId.get(CHAIN.ids[CHAIN.ids.indexOf(id) + 1]).name)}</button>`
+        : (post.length ? `过了。要不要接着往上游走？<br>${post.slice(0, 3).map(x => `<button class="jbtn ghost" onclick="openPanel('${x.id}')">${esc(x.name)}</button>`).join(' ')}` : '这条线的点你都验过了。')
+    }</div>` : ''}
+  `;
+  document.getElementById('panel').classList.add('on');
+  pinMain(true);
+  if (typeof syncListSel === 'function') syncListSel();
+}
+function pinMain(on) {
+  const m = document.getElementById('main');
+  if (!m || m.classList.contains('pinned') === on) return;
+  m.classList.toggle('pinned', on);
+  // 画布宽度变了，重新投影一次（rv 每帧都在跑，不用手动 render）
+  resize(); computeLayout();
+}
+window.pinMain = pinMain;
+
+/* ── 一条线的倒逼链：从策展面板进来，一步一个概念 ── */
+let CHAIN = null;
+function startLine(tagId) {
+  const c = (CUR.collections || []).find(x => x.tagId === tagId);
+  if (!c || !c.route.length) return;
+  CHAIN = { tagId, name: c.name, ids: c.route.map(x => x.id) };
+  setView('graph'); axis = 'tag'; filter = tagId;
+  buildLegend(); computeLayout(); openPanel(CHAIN.ids[0]);
+}
+function chainNext() {
+  if (!CHAIN) return;
+  const i = CHAIN.ids.indexOf(selected);
+  if (i < 0 || i + 1 >= CHAIN.ids.length) { const t = CHAIN.tagId; CHAIN = null; openCollection(t); return; }
+  openPanel(CHAIN.ids[i + 1]);
+}
+window.startLine = startLine; window.chainNext = chainNext;
+function closePanel() {
+  selected = null;
+  document.getElementById('panel').classList.remove('on');
+  pinMain(false);
+}
+window.openPanel = openPanel; window.closePanel = closePanel;
+
+/* ── 图例：按主题（策展）/ 按来源 ─────────────────────────── */
+function buildLegend() {
+  const G = groups();
+  document.getElementById('lrows').innerHTML = G.map(g => {
+    // 按主题时数字＝**主标签**数，跟画布上那一列的点数一一对应；
+    // 「相关但主标签在别处」的点数写在策展面板里，免得两个口径打架。
+    const cnt = groupCount(g);
+    return `<div class="lrow${filter && filter !== g.id ? ' off' : ''}" data-g="${g.id}">
+      <span class="dot" style="background:${g.color}"></span>
+      ${g.label}<span class="n">${cnt}</span></div>`;
+  }).join('');
+  document.getElementById('lhead').textContent = axis === 'kind' ? '要你怎么处理它 · 点击筛选'
+    : axis === 'tag' ? '主题 · 点击筛选（数字＝主标签）' : '来源 · 点击筛选';
+  for (const a of ['kind', 'tag', 'src']) {
+    const b = document.getElementById('ax-' + a);
+    if (b) b.classList.toggle('on', axis === a);
+  }
+  document.querySelectorAll('#lrows .lrow').forEach(el => {
+    el.onclick = () => {
+      const g = el.dataset.g;
+      filter = (filter === g) ? null : g;
+      buildLegend();
+    };
+  });
+}
+function setAxis(a) {
+  axis = a; filter = null;
+  computeLayout(); buildLegend();
+}
+window.setAxis = setAxis;
+
+/* ── 启动 ───────────────────────────────────────────── */
+function setMode(m) {
+  mode = m;
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('on', t.dataset.mode === m));
+  panX = panY = 0; rotX = -0.22; rotY = 0.5; zoom = m === 'grid' ? 1 : 1.35;
+  const h = document.querySelector('.hint');   // 壳里已无 .hint，改写到左栏
+  if (h) h.innerHTML = '<b>实线</b> 骨架 · <b>虚线</b> 候选';
+  const rh = document.getElementById('rhint');
+  if (rh) rh.innerHTML = (m === 'grid'
+    ? '<b>拖拽</b> 平移 · <b>滚轮</b> 缩放'
+    : '<b>拖拽</b> 旋转 · <b>滚轮</b> 缩放') + '<br><b>点一个点</b> 看它的来路';
+  computeLayout();
+}
+
+async function boot() {
+  detectApp();
+  resize();
+  buildLegend();
+  refreshMarks();
+  renderList();
+  document.getElementById('kicker').textContent = meta.kicker;
+  document.getElementById('stats').innerHTML = meta.stats;
+  document.querySelectorAll('.tab').forEach(t => { t.onclick = () => setMode(t.dataset.mode); });
+  computeLayout();
+  render();
+  window.addEventListener('resize', () => { resize(); computeLayout(); });
+  requestAnimationFrame(() => document.getElementById('load').classList.add('off'));
+  const h = decodeURIComponent(location.hash.slice(1));
+  if (h === 'sphere' || h === 'grid') setMode(h);
+  else if (h && byId.has(h)) openPanel(h);
+}
+setTimeout(boot, 40);
+
+/* ══ 壳：三个入口 import / insert / Agent ═══════════════════════
+   所有者 05:38 的定义：
+     import = 知识体系（两个图）  insert = llm_wiki 的挖掘/提问  Agent = 选方法论
+   两棵树（05:09）：全量树 = 所有点；自己的树 = 只显示已标记的点（同一张图两个图层） */
+let onlyMine = false;
+const INSERT_KEY = 'zss135.insert.v1';
+let insertMarks = {};
+try { insertMarks = JSON.parse(localStorage.getItem(INSERT_KEY) || '{}') || {}; } catch (e) { insertMarks = {}; }
+const saveInsert = () => { try { localStorage.setItem(INSERT_KEY, JSON.stringify(insertMarks)); } catch (e) {} };
+
+const SKEL = edges.filter(e => e[2] >= 7);   // 骨架（多次一致）
+const CAND = edges.filter(e => e[2] < 7);    // 候选（机器推的、只出现一次的那批）
+
+function refreshRail() {
+  const st = stats();
+  const mine = st.done;
+  const autoN = CUR.edgeAuto ? CUR.edgeAuto.length : 0;
+  const humanKey = new Set(CUR.edgeHuman || []);
+  const pending = (CUR.edgeHuman || []).filter(k => !insertMarks[k]).length;
+  const e1 = document.getElementById('r-all');
+  const e2 = document.getElementById('r-todo');
+  const e3 = document.getElementById('r-mine');
+  const e5 = document.getElementById('r-cur');
+  // e1 知识体系 / e2 待你看一眼 / e3 我在学 / e5 策展。别搞混——
+  // 09-12 我把 e2 和 e5 都写成了 tags.length，左栏两个数字同时是 10。
+  if (e1) e1.textContent = nodes.length;
+  if (e2) e2.textContent = pending;
+  if (e3) e3.textContent = mine;
+  if (e5) e5.textContent = (CUR.tags || []).length;
+  const e6 = document.getElementById('r-nei');
+  if (e6) e6.textContent = (NEI.articles || []).length;
+  const e4 = document.getElementById('r-chat');
+  if (e4) e4.textContent = activeSkill ? activeSkill : String((typeof ALLSKILLS !== 'undefined' && ALLSKILLS ? ALLSKILLS.length : 15));
+  const mm = document.getElementById('main-meta');
+  if (mm) mm.textContent = nodes.length + ' 点 · ' + edges.length + ' 边 · ' + (CUR.tags || []).length + ' 条线';
+}
+window.refreshRail = refreshRail;
+
+/* ══ 列表栏（Linear 的中间那一栏）═════════════════════════════
+   之前没有这一栏——所以没有 Linear 的味道。
+   它是当前导航项的**可扫列表**：一行一个东西，右边是元信息，点开看详情。 */
+let currentView = 'graph';
+const VIEW_TITLE = { graph: '知识体系', curate: '策展', neican: '内参 · 260912 期', todo: '待你看一眼', mine: '我在学', chat: '对话 · 方法论' };
+const ST_COLOR = { pass: '#4cb782', fail: '#eb5757', mech: '#f2c94c', read: '#9b7fe8' };
+
+function rowHTML(inner, onclick, on) {
+  return `<div class="row${on ? ' on' : ''}" onclick="${onclick}">${inner}</div>`;
+}
+function renderList() {
+  const box = document.getElementById('lp-body');
+  if (!box) return;
+  const q = ((document.getElementById('q-filter') || {}).value || '').trim().toLowerCase();
+  const hit = t => !q || String(t).toLowerCase().includes(q);
+  document.getElementById('lp-title').textContent = VIEW_TITLE[currentView] || '';
+  const filt = document.getElementById('lp-filter');
+  const cntEl = document.getElementById('lp-count');
+  let html = '', cnt = 0, chips = '';
+
+  if (currentView === 'graph') {
+    chips = ['kind', 'tag', 'src'].map(a =>
+      `<button class="${axis === a ? 'on' : ''}" onclick="setAxis('${a}')">${
+        a === 'kind' ? '怎么验' : a === 'tag' ? '按主题' : '按来源'}</button>`).join('');
+    const list = nodes.filter(n => matches(n) && hit(n.name + n.gloss))
+      .sort((a, b) => (a.level - b.level) || a.name.localeCompare(b.name));
+    cnt = list.length;
+    // 概念地图 v2 有 1000+ 个点，列表不再切在 400：全量渲染，只在真的渲染不完时才提示。
+    const LIST_CAP = 3000;
+    const shown = list.slice(0, LIST_CAP);
+    html = shown.map(n => {
+      const st = marks[n.id];
+      return rowHTML(
+        `<span class="rd" style="background:${KIND[kOf(n)].color}"></span>`
+        + `<span class="rn">${esc(n.name)}</span>`
+        + `<span class="rm">L${n.level}</span>`
+        + (st ? `<span class="st" style="background:${ST_COLOR[st.state] || '#3c3f44'}"></span>` : ''),
+        `openPanel('${n.id}')`, selected === n.id);
+    }).join('') || '<div class="lp-empty">没有符合条件的点。<br>（左侧换个分组，或清掉筛选）</div>';
+    if (cnt > shown.length) html += `<div class="lp-empty">只渲染了前 ${shown.length} 条，共 ${cnt} 条。<br>（用上面的搜索或左侧分组缩小范围）</div>`;
+  } else if (currentView === 'curate') {
+    const C = (CUR.collections || []).filter(c => hit(c.name + c.why));
+    cnt = C.length;
+    html = C.map(c => rowHTML(
+      `<span class="rd" style="background:${c.color}"></span><span class="rn">${esc(c.name)}</span>`
+      + `<span class="rm">${c.primary ?? c.size}</span>`,
+      `openCollection('${c.tagId}')`, false)).join('');
+  } else if (currentView === 'todo') {
+    const em = new Map(edges.map(e => [e[0] + '_' + e[1], e]));
+    const keys = (CUR.edgeHuman || []).filter(k => {
+      const e = em.get(k); if (!e) return false;
+      const a = byId.get(e[0]), b = byId.get(e[1]);
+      return hit((a ? a.name : '') + (b ? b.name : ''));
+    });
+    cnt = keys.length;
+    html = keys.map(k => {
+      const e = em.get(k), a = byId.get(e[0]), b = byId.get(e[1]);
+      const st = insertMarks[k];
+      return rowHTML(
+        `<span class="rn">${esc(a.name)} <span style="color:#3c3f44">←</span> ${esc(b.name)}</span>`
+        + `<span class="rm">${st === 'keep' ? '采纳' : st === 'skip' ? '跳过' : '票' + e[2]}</span>`,
+        `openEdgeDetail('${k}')`, false);
+    }).join('') || '<div class="lp-empty">这 16 条都看过了。</div>';
+  } else if (currentView === 'mine') {
+    // 走 chips 而不是直接写 #lp-filter 的 innerHTML —— 函数结尾那句
+    // `filt.innerHTML = chips` 会把直接写进去的内容冲掉（09-12 踩过）。
+    if (APP.on) chips = '<button onclick="saveRecord()">把学习记录存成本地文件</button>';
+    const ids = Object.keys(marks).filter(id => byId.has(id)
+      && hit(byId.get(id).name + (marks[id].said || '')));
+    cnt = ids.length;
+    html = ids.map(id => {
+      const n = byId.get(id), m = marks[id];
+      return rowHTML(
+        `<span class="st" style="background:${ST_COLOR[m.state] || '#3c3f44'}"></span>`
+        + `<span class="rn">${esc(n.name)}</span>`
+        + `<span class="rm">${m.state === 'pass' ? '过了' : m.state === 'read' ? '读过' : m.state === 'mech' ? '机器过' : '没过'}</span>`,
+        `openPanel('${id}')`, selected === id);
+    }).join('') || '<div class="lp-empty">还没验过任何一条。<br>（去「知识体系」点一个点，写下你的复述）</div>';
+  } else if (currentView === 'chat') {
+    const all = (typeof ALLSKILLS !== 'undefined' && ALLSKILLS) ? ALLSKILLS : [];
+    const list = all.filter(s => hit(s.name + (s.description || '')));
+    cnt = list.length;
+    html = list.map(s => rowHTML(
+      `<span class="rd" style="background:${s.name === activeSkill ? '#5e6ad2' : '#2b2c30'}"></span>`
+      + `<span class="rn">${esc(s.name)}</span><span class="rm">${(s.bytes / 1024).toFixed(0)}K</span>`,
+      `pickAgent('${s.name}'${typeof PUB !== 'undefined' && PUB.skillMD && PUB.skillMD[s.name] ? `,'${s.name}'` : (PINNED.some(p => p.name === s.name) ? ',null' : '')})`,
+      s.name === activeSkill)).join('')
+      || '<div class="lp-empty">正读 skill 清单…</div>';
+  } else if (currentView === 'neican') {
+    const list = (NEI.articles || []).filter(a => hit(a.title + a.topic + a.author));
+    cnt = list.length;
+    html = list.map(a => rowHTML(
+      `<span class="rd" style="background:${a.paletteBg || '#5e6ad2'}"></span>`
+      + `<span class="rn" title="${esc(a.title)}">${a.no}. ${esc(a.topic || a.title)}</span>`
+      + `<span class="rm" style="color:#f2c94c">${STARS(a.stars)}</span>`,
+      `openNeican('${a.slug}')`, neiSlug === a.slug)).join('')
+      || '<div class="lp-empty">这一期还没生成。<br>（跑 node scripts/build-neican.mjs）</div>';
+  }
+  box.innerHTML = html;
+  if (cntEl) cntEl.textContent = cnt;
+  if (filt) filt.innerHTML = chips;
+  filt.style.display = chips ? '' : 'none';
+}
+window.renderList = renderList;
+
+function syncListSel() {
+  document.querySelectorAll('#lp-body .row').forEach(r => r.classList.remove('on'));
+  document.querySelectorAll('#lp-body .row').forEach(r => {
+    if (selected && r.getAttribute('onclick') === `openPanel('${selected}')`) r.classList.add('on');
+  });
+}
+
+function setView(v) {
+  currentView = v;
+  if (v !== 'neican') hideReader();
+  document.querySelectorAll('.r-item').forEach(b => b.classList.toggle('on', b.dataset.view === v));
+  if (v === 'mine') { onlyMine = true; closePanel(); }
+  else if (v === 'graph') { onlyMine = false; closePanel(); }
+  else if (v === 'curate') { onlyMine = false; openCurate(); }
+  else if (v === 'neican') { onlyMine = false; closePanel(); openNeican(neiSlug); }
+  else if (v === 'todo') { onlyMine = false; openInsert(); }
+  else if (v === 'chat') { onlyMine = false; openAgent(); }
+  refreshRail(); renderList();
+}
+window.setView = setView;
+
+/* ══ 内参：AI 内参图文格式的一栏 ═══════════════════════════════
+   格式照所有者给的《serious AI 内参》与飞书两份主题精选：
+     主题 · 重要等级 · 地址 → 配图 → 原文子链接 + 原文简介 + 入选理由
+     → 三级笔记 / 概念网络 / 费曼 ×3 / 阅读原文
+   「收藏」「公开笔记」没做——还没有账号登录（所有者口径）。
+   数据来自 knowledge/内参-260912/内参-页面数据.json（scripts/build-neican.mjs 生成）。 */
+let neiSlug = null, neiTabName = 'notes';
+const STARS = n => '★'.repeat(Math.max(0, Math.min(5, n))) + '☆'.repeat(Math.max(0, 5 - n));
+const neiOf = slug => (NEI.articles || []).find(a => a.slug === slug) || (NEI.articles || [])[0];
+function srcLabel(a) {
+  try { return new URL(a.url).host.replace(/^www\./, ''); } catch (e) { return a.author || '来源'; }
+}
+function hideReader() { const r = document.getElementById('reader'); if (r) r.classList.remove('on'); }
+window.hideReader = hideReader;
+/* 从内参的概念卡跳到地图：关掉阅读区 → 回知识体系 → 打开那张卡 */
+function mapFromNeican(id) {
+  if (!byId.has(id)) return;
+  hideReader(); setView('graph'); openPanel(id);
+}
+window.mapFromNeican = mapFromNeican;
+
+function openNeican(slug) {
+  const a = neiOf(slug); if (!a) return;
+  neiSlug = a.slug;
+  neiTabName = 'notes';
+  renderNeican(true);
+  document.getElementById('reader').classList.add('on');
+  if (document.getElementById('reader').scrollTo) document.getElementById('reader').scrollTo(0, 0);
+  renderList();
+}
+window.openNeican = openNeican;
+
+function neiTab(k) {
+  neiTabName = k;
+  document.querySelectorAll('.nei-tabs button').forEach(b => b.classList.toggle('on', b.dataset.k === k));
+  document.getElementById('nei-body').innerHTML = neiBody(neiOf(neiSlug));
+}
+window.neiTab = neiTab;
+
+function neiBody(a) {
+  if (neiTabName === 'concept') {
+    const cs = a.conceptCards || [];
+    if (!cs.length) return '<div class="mut">这一篇没有概念卡。</div>';
+    const inMap = cs.filter(c => c.nodeId).length;
+    const head = `<div class="mut" style="margin-bottom:12px">本文 <b>${cs.length}</b> 个概念 ·
+      其中 <b>${inMap}</b> 个已并进概念地图（点名字跳到地图那张卡）；
+      其余是本文特有的细粒度提取。</div>`;
+    return head + cs.map((c, i) => `<div class="concept">
+      <span class="nm">${i + 1}. ${c.nodeId
+        ? `<button class="tomap" onclick="mapFromNeican('${c.nodeId}')">${esc(c.name)} <i>↗ 地图</i></button>`
+        : esc(c.name)}</span>
+      ${(c.quotes || []).map(q => `<div class="q">${q}</div>`).join('')}
+      ${c.feynman ? `<div class="fy"><i>费曼一下</i>${c.feynman}</div>` : ''}</div>`).join('');
+  }
+  if (neiTabName === 'feynman') {
+    const f = a.feynman || {};
+    return `<div class="fybox"><div class="k">① 30 秒版 · 讲给完全不懂的人</div><div>${esc(f.short || '')}</div></div>
+      <div class="fybox"><div class="k">② 3 分钟版 · 讲清机制</div>${f.long || ''}</div>
+      <div class="fybox"><div class="k">③ 验收版 · 讲完要答得出的点</div>
+        <div class="mut">费曼不是「再讲一遍」，是讲完之后能被这几个点问住。答不出，就回到上面两版重讲。</div>
+        ${(f.rubric || []).map(r => `<div style="margin-top:10px"><b>${esc(r.concept)}</b>
+          <ul>${(r.points || []).map(p => `<li>${esc(p)}</li>`).join('')}</ul></div>`).join('')}</div>`;
+  }
+  if (neiTabName === 'source') {
+    return `<div class="fybox"><div class="k">原文</div>
+      <div style="line-height:1.85">${esc(a.title)}<br>
+      <a href="${esc(a.url)}" target="_blank" rel="noopener" style="color:var(--accent2)">${esc(a.url)} ↗</a></div>
+      <div class="mut" style="margin-top:10px">来源 ${esc(srcLabel(a))} · 作者 ${esc(a.author || '—')}
+        · 原文 ${a.words} 字 · 抓取 ${esc(a.fetched || '')}</div>
+      <div class="mut">这一栏只放子链接与元信息，不转载全文。</div></div>`;
+  }
+  return a.notes || '';
+}
+
+function renderNeican(reset) {
+  const a = neiOf(neiSlug);
+  const wrap = document.getElementById('nei-wrap');
+  if (!a) { wrap.innerHTML = '<div class="lp-empty">这一期还没生成。<br>（跑 node scripts/build-neican.mjs）</div>'; return; }
+  const tabs = [['notes', '三级笔记'], ['concept', '概念网络'], ['feynman', '费曼 ×3'], ['source', '阅读原文']];
+  wrap.innerHTML = `
+    <div class="nei-crumb"><b>AI 内参</b><span>›</span><span>${esc(NEI.period)} 期</span>
+      <span class="sp"></span><span>${esc(NEI.date || '')} ${esc(NEI.weekday || '')}</span></div>
+    <h1 class="nei-title">${esc(a.title)}</h1>
+    <div class="nei-meta">
+      <span class="stars" title="${esc(a.starReason)}">${STARS(a.stars)}</span>
+      <span>${esc(srcLabel(a))}</span><span>·</span><span>${esc(a.author || '')}</span>
+      <span>·</span><span>约 ${Math.max(1, Math.round(a.words / 500))} 分钟</span>
+      <span class="tag">${esc(a.topic)}</span>
+      <span class="why">第 ${a.no} / ${NEI.articles.length} 篇</span>
+    </div>
+    <div class="nei-hero">${a.hero || ''}</div>
+    <div class="nei-cap">配图 · Claude 官方手绘编辑插画语言（不透明色块 ＋ 不规则象牙白承载形 ＋ 黑色手势线）· 视觉隐喻「${esc(a.metaphor)}」</div>
+    <div class="nei-link">原文：<a href="${esc(a.url)}" target="_blank" rel="noopener">${esc(a.title)} ↗</a></div>
+    <div class="nei-card"><h5>原文简介</h5><p>${esc(a.summary)}</p></div>
+    <div class="nei-card"><h5>入选理由</h5><p>${esc(a.why)}</p>
+      <p style="margin-top:8px;color:var(--fg3);font-size:11.5px">重要等级 ${STARS(a.stars)} —— ${esc(a.starReason)}</p></div>
+    <div class="nei-tabs">${tabs.map(([k, t]) =>
+      `<button data-k="${k}" class="${k === neiTabName ? 'on' : ''}" onclick="neiTab('${k}')">${t}</button>`).join('')}</div>
+    <div class="nei-body" id="nei-body">${neiBody(a)}</div>
+    <div class="nei-foot">${esc(NEI.pipeline || '')}<br>${esc(NEI.source || '')}<br>生成 ${esc(NEI.generatedAt || '')}</div>`;
+  if (reset) wrap.parentElement.scrollTop = 0;
+}
+
+/* 一条候选边的详情（列表里点进来） */
+function openEdgeDetail(k) {
+  const em = new Map(edges.map(e => [e[0] + '_' + e[1], e]));
+  const e = em.get(k); if (!e) return;
+  const a = byId.get(e[0]), b = byId.get(e[1]);
+  const au = AUTO.get(k) || {};
+  const st = insertMarks[k];
+  document.getElementById('panel').classList.add('on'); pinMain(true);
+  document.getElementById('pbody').innerHTML = `
+    <div class="src">insert · 一条候选边</div>
+    <h2>${esc(a.name)}</h2>
+    <div class="mut" style="margin-bottom:14px">依赖 <b style="color:#f7f8f8">${esc(b.name)}</b>
+      <span style="color:#3c3f44"> · 出现 ${e[2]}/4 次</span></div>
+    <div class="gloss">${esc(a.gloss)}</div>
+    <h5>它要依赖的那个</h5>
+    <div class="gloss" style="margin-bottom:8px">${esc(b.gloss)}</div>
+    <div class="dpane" style="margin-top:6px">
+      <h5>我的判断</h5>
+      <div class="mut">${au.verdict ? `我猜「${au.verdict === 'keep' ? '采纳' : au.verdict === 'skip' ? '跳过' : '拿不准'}」
+        （把握 ${Math.round((au.conf || 0) * 100)}%）—— ${esc(au.why || '')}` : '（这条没有机器预判）'}</div>
+      <div class="jrow">
+        <button class="jbtn ${st === 'keep' ? '' : 'ghost'}" onclick="markInsert('${k}','keep')">采纳</button>
+        <button class="jbtn ${st === 'skip' ? '' : 'ghost'}" onclick="markInsert('${k}','skip')">跳过</button>
+        <button class="jbtn ghost" onclick="openPanel('${a.id}')">看这个概念</button>
+      </div>
+    </div>
+    <div class="mut">我判过的 250 条写在 <code>evidence/concept-edges-curated-20260912.json</code>。</div>`;
+}
+window.openEdgeDetail = openEdgeDetail;
+
+function doImport() {
+  setView('graph');
+  const b = document.getElementById('b-import');
+  b.classList.add('flash'); setTimeout(() => b.classList.remove('flash'), 520);
+}
+function doInsert() { setView('todo'); }
+function doAgent() { setView('chat'); }
+window.doImport = doImport; window.doInsert = doInsert; window.doAgent = doAgent;
+
+function openInsert() {
+  document.getElementById('panel').classList.add('on');
+  const auto = CUR.edgeAuto || [];
+  const autoKeep = auto.filter(a => a.verdict === 'keep').length;
+  const autoSkip = auto.length - autoKeep;
+  const humanKeys = CUR.edgeHuman || [];
+  const em = new Map(edges.map(e => [e[0] + '_' + e[1], e]));
+  const left = humanKeys.filter(k => !insertMarks[k]).length;
+  pinMain(true);
+  document.getElementById('pbody').innerHTML = `
+    <div class="src">insert · 机器挖出来的连接</div>
+    <h2>我自己判了 ${auto.length} 条，剩 ${left} 条要你看一眼</h2>
+    <div class="mut">候选边一共 ${CAND.length} 条（骨架那 ${SKEL.length} 条多次一致，不用管）。<br>
+    我按「先懂什么才能懂什么」逐条过了一遍：<b class="auto">采纳 ${autoKeep}</b> · <b>跳过 ${autoSkip}</b>。<br>
+    下面这些是我<b>自己也没把握</b>的——跨篇、票数又高，判错了会串线，所以留给你。
+    <b>你不看也不影响</b>，它们默认按我的判断走。</div>
+    <div class="ilist">${humanKeys.map(k => {
+      const e = em.get(k); if (!e) return '';
+      const a = byId.get(e[0]), c = byId.get(e[1]);
+      const st = insertMarks[k];
+      const au = AUTO.get(k);
+      return `<div class="irow ${st || ''}">
+        <div class="itxt"><b>${a ? a.name : e[0]}</b> 依赖 <b>${c ? c.name : e[1]}</b>
+        <span class="mut"> · 票 ${e[2]}/4</span>
+        ${au ? `<div class="mut" style="margin-top:4px">我的猜测：${au.verdict === 'keep' ? '采纳' : au.verdict === 'skip' ? '跳过' : '拿不准'}
+        （把握 ${(au.conf * 100).toFixed(0)}%）—— ${au.why}</div>` : ''}</div>
+        <div class="iact">
+          <button class="${st === 'keep' ? 'on' : ''}" onclick="markInsert('${k}','keep')">采纳</button>
+          <button class="${st === 'skip' ? 'on' : ''}" onclick="markInsert('${k}','skip')">跳过</button>
+        </div></div>`;
+    }).join('')}</div>
+    <div class="mut">已表态 ${humanKeys.length - left} / ${humanKeys.length}。<br>
+    我判过的那 ${auto.length} 条写在 <code>evidence/concept-edges-curated-20260912.json</code>，随时可查、可翻案。</div>`;
+}
+function markInsert(k, v) {
+  if (insertMarks[k] === v) delete insertMarks[k]; else insertMarks[k] = v;
+  saveInsert(); refreshRail();
+  if (currentView === 'todo') { renderList(); openEdgeDetail(k); } else openInsert();
+}
+window.markInsert = markInsert;
+
+/* 策展：10 条线，每条已经排好路线。用户不必自己找入口。 */
+function openCurate() {
+  const C = CUR.collections || [];
+  document.getElementById('panel').classList.add('on'); pinMain(true);
+  document.getElementById('pbody').innerHTML = `
+    <div class="src">策展 · ${C.length} 条线</div>
+    <h2>这 ${nodes.length} 个点，我已经分成 ${C.length} 条线</h2>
+    <div class="mut">每条线给了：<b>为什么值得走</b>、<b>从哪进</b>（门槛最低的）、<b>走到哪算完</b>（最抽象的）、
+    以及一条沿着真实依赖边的<b>路线</b>。<br>点一条线看路线，再点「只看这条线」把它单独铺开。</div>
+    ${C.map(c => `<div class="crow" onclick="openCollection('${c.tagId}')">
+      <b><span class="dot" style="background:${c.color}"></span>${c.name}
+        <span class="badge">主标签 ${c.primary ?? c.size}</span>
+        <span class="badge">相关 ${c.size}</span></b>
+      <span>${c.why}</span>
+      <i>入口 ${c.entry.map(e => e.name).join(' · ')}</i>
+    </div>`).join('')}`;
+}
+
+function openCollection(tid) {
+  const c = (CUR.collections || []).find(x => x.tagId === tid);
+  const t = (CUR.tags || []).find(x => x.id === tid);
+  if (!c) return;
+  document.getElementById('panel').classList.add('on'); pinMain(true);
+  document.getElementById('pbody').innerHTML = `
+    <div class="src">策展 · 一条线</div>
+    <h2><span class="dot" style="background:${c.color};display:inline-block;margin-right:8px"></span>${c.name}</h2>
+    <div class="gloss">${c.why}</div>
+    <div class="metrics">
+      <div class="m"><b>${c.size}</b><span>个点</span></div>
+      <div class="m"><b>${c.route.length}</b><span>跳路线</span></div>
+      <div class="m"><b>${c.primary ?? c.size}</b><span>主标签</span></div>
+      <div class="m"><b>${c.size}</b><span>相关点</span></div>
+    </div>
+    <div class="markrow">
+      <button class="mk on" onclick="startLine('${tid}')">开始倒逼 · 一步一个概念</button>
+      <button class="mk" onclick="focusTag('${tid}')">只看这条线</button>
+      <button class="mk quiet" onclick="openCurate()">回到 ${(CUR.collections || []).length} 条线</button>
+    </div>
+    <h5>从哪进 · 组内没有前置、且解锁最多的</h5>
+    <ul>${c.entry.map(e => `<li onclick="openPanel('${e.id}')">${e.name}<em>解锁 ${e.unlocks ?? '?'}</em></li>`).join('')}</ul>
+    <h5>路线 · 先懂什么再懂什么</h5>
+    <div class="stops">${c.route.map(st => `<div class="stop" onclick="openPanel('${st.id}')">
+      <span class="lv">L${st.level}</span>
+      <span class="nm">${st.name}</span>
+      <span class="ed">${st.edgeFromPrev === 'skel' ? '骨架' : st.edgeFromPrev === 'cand' ? '候选' : '起点'}</span>
+    </div>`).join('')}</div>
+    <h5>收敛点 · 这条线上被依赖最多的</h5>
+    <ul>${c.goal.map(g => `<li onclick="openPanel('${g.id}')">${g.name}<em>L${g.level}</em></li>`).join('')}</ul>
+    <h5>这条线上的全部 ${c.size} 个点</h5>
+    <ul>${nodes.filter(x => (x.tags || []).includes(tid)).map(x =>
+      `<li onclick="openPanel('${x.id}')">${x.name}<em>L${x.level}</em></li>`).join('')}</ul>`;
+}
+function focusTag(tid) {
+  axis = 'tag'; filter = tid;
+  setView('graph'); buildLegend(); computeLayout(); closePanel();
+}
+window.openCurate = openCurate; window.openCollection = openCollection; window.focusTag = focusTag;
+
+/* Agent：卡片上的 prompt 不再是我手抄的摘要 —— 直接用 .agents/skills/<name>/SKILL.md 原文。
+   （所有者问「怎么样去调用 DBS 的 skill 啊？」——这就是答案：服务端读原文件当 system prompt。）*/
+const PINNED = [
+  { name: '135 学习闭环', skill: null, span: '这个项目的闭环', note: '1 阅读器 → 3 决策场 → 5 实验台 → 费曼验收' },
+  { name: 'dbs-learning-beta', skill: 'dbs-learning-beta', span: '没有标准答案的课题', note: '判课题类型 → 判据 · 代价 · 只有你能回答的裁决点 · 最小实验' },
+  { name: 'dbs-standard-answer', skill: 'dbs-standard-answer', span: '要一个带条件的答案', note: '理论挖掘 + 历史同构（成功 / 失败 / 反例）' },
+];
+let ALLSKILLS = null;
+
+async function openAgent() {
+  document.getElementById('panel').classList.add('on'); pinMain(true);
+  renderAgent(PINNED, '载入中…');
+  try {
+    const r = await fetch('/api/skills');
+    const j = await r.json();
+    ALLSKILLS = j.skills || [];
+  } catch (e) { ALLSKILLS = []; }
+  renderAgent(PINNED, ALLSKILLS.length
+    ? `已装 ${ALLSKILLS.length} 个 skill：<code>${ALLSKILLS[0].name}</code> … <code>${ALLSKILLS[ALLSKILLS.length - 1].name}</code>`
+    : '（离线·读不到 <code>.agents/skills/</code>，只有上面三个内置的可用）');
+}
+function renderAgent(pinned, foot) {
+  const rows = pinned.map(p => `<button class="acard" onclick="pickAgent('${p.skill || p.name}', ${p.skill ? `'${p.skill}'` : 'null'})">
+      <b>${p.name}</b><span>${p.span}</span><i>${p.note}</i></button>`).join('');
+  const others = (ALLSKILLS || []).filter(x => !PINNED.some(p => p.skill === x.name));
+  document.getElementById('pbody').innerHTML = `
+    <div class="src">Agent · 用哪套方法论</div>
+    <h2>先问一句：这个课题有标准答案吗？</h2>
+    <div class="mut">输入 <code>/dbs 你的任务</code>，先生成编排提示词，再由你点击发送。<br>
+    有 → 135 闭环；没有 → dbs-learning-beta。<br>
+    <b>选中的 skill 原文</b>（不是摘要）会被当成 system prompt 发给模型。<br>${foot}</div>
+    <div class="alist"><button class="acard" onclick="startOrchestration('')">
+      <b>/dbs · 组合编排</b><span>先看主 Skill、辅助 Skill、执行顺序和完整提示词</span><i>生成后停在「待发送」</i></button></div>
+    <div class="alist">${rows}</div>
+    ${others.length ? `<h5>其余已装 skill（点一下直接用）</h5>
+    <div class="alist">${others.map(x => `<button class="acard" onclick="pickAgent('${x.name}', '${x.name}')">
+      <b>${x.name}</b><span>${(x.description || '').slice(0, 58)}${(x.description || '').length > 58 ? '…' : ''}</span>
+      <i>${(x.bytes / 1024).toFixed(1)} KB · SKILL.md 原文</i></button>`).join('')}</div>` : ''}`;
+}
+window.openAgent = openAgent;
+
+/* ══ 对话：选一个方法论，然后真的能问 ─────────────────────────
+   经 http://127.0.0.1:5180/知所栖-壳.html 打开时走 /api/llm（真 LLM）；
+   双击 file:// 打开时没有 /api，给一句诚实的离线说明并指路。 */
+const SKILLS = {
+  '135 学习闭环': {
+    tag: '有标准答案的知识型课题',
+    sys: '你是「知所栖 135」的学习编排器。固定顺序，不许跳步、不许替学习者决定：'
+       + '① 1 阅读器 = 给 3 个概念，每个给三层梯度（L1 直觉 / L2 机制 / L3 应用）；'
+       + '② 3 决策场 = 先让学习者自己选，再给真实案例与「条件 → 路线」表；'
+       + '③ 5 实验台 = 一个 5 分钟能做的最小实验，必须让他动手判断；'
+       + '④ 费曼验收 = 让他用自己的话复述，逐点查漏，漏哪倒回哪。'
+       + '用户说想学什么时，你只做第 ① 步，给完 3 个概念就停，等他反馈。不要一次给完四步。'
+  },
+  'dbs-learning-beta': {
+    tag: '没有标准答案的课题',
+    sys: '先判课题类型（伪问题／主观判断／个人决策／价值问题），然后输出：判据、代价、'
+       + '只有用户本人能回答的裁决点、一个最小实验。'
+       + '如果判定为知识型课题（有标准答案），说明并交回 135 闭环，不继续本流程。'
+       + '绝不替用户做决定，不写「你应该」。'
+  },
+  'dbs-standard-answer': {
+    tag: '要一个带条件的答案',
+    sys: '两部分：① 知识与理论挖掘——先审查命题（绝对化／因果跳跃／定义偷换／经验普遍化／反向推断），'
+       + '再找相关学科、作者、理论，核实来源，写清能解释什么、解释不了什么；'
+       + '② 历史同构——成功案例、失败案例、反例，最后给一个带条件、带因果解释、带失效边界的答案。'
+       + '找不到就写「尚无统一答案」，不许硬套名人。'
+  },
+};
+var activeSkill = null;
+var activeFile = null;   // 非空 = 用 .agents/skills/<activeFile>/SKILL.md 当 system prompt
+var msgs = [];
+var orchestration = null; // /dbs 的编排收据：draft → sending → done / error
+
+const ORCH_ROLE = {
+  'dbs-learning-beta': { label: 'dbs-learning-beta', kind: '主 Skill', note: '判题型、判据、代价和个人裁决点' },
+  'dbs-standard-answer': { label: 'dbs-standard-answer', kind: '辅助 Skill', note: '答案等级、理论、历史同构和失效边界' },
+  'zhihu': { label: 'zhihu', kind: '辅助 Skill', note: '检索知乎原始回答、作者和链接' },
+};
+
+function buildOrchestration(task) {
+  const personal = /我(要不要|是否|该不该)|要不要|是否应该|该不该|值不值得|选择|辞职|转行|做独立|怎么办/.test(task);
+  const skills = personal
+    ? ['dbs-learning-beta', 'dbs-standard-answer', 'zhihu']
+    : ['dbs-standard-answer', 'zhihu'];
+  const main = skills[0];
+  const aux = skills.slice(1);
+  const flow = personal
+    ? [
+        '1. dbs-learning-beta 先判定题型；如果是知识型，报告并交回 135 闭环。',
+        '2. zhihu 只检索与任务直接相关的回答、作者、链接和摘要，摘要不当全文。',
+        '3. dbs-standard-answer 判断答案等级，核对理论、案例、反例与证据边界。',
+        '4. beta 根据用户约束整理判据、代价和最小实验，不替用户做决定。',
+      ]
+    : [
+        '1. zhihu 检索原始材料，记录标题、作者、链接和摘要。',
+        '2. dbs-standard-answer 挖掘理论和历史同构，判断证据能支持到哪一层。',
+      ];
+  const stop = personal
+    ? '题型冲突、材料无法核验或用户约束缺失时，停止并报告缺口。'
+    : '来源无法核验、理论与案例不匹配或没有统一答案时，停止并照实标注。';
+  const prompt = [
+    '组合任务：' + task,
+    '主 Skill：/' + main,
+    '辅助 Skill：' + aux.map(x => '/' + x).join('、'),
+    '',
+    '执行顺序：', ...flow,
+    '',
+    '边界：',
+    '区分事实、推断和未知；知乎搜索只提供待核验来源；保留用户的最终决定权。',
+    '停止条件：' + stop,
+    '',
+    '最终只交付一份由主 Skill 统领的结果，附来源、证据缺口和下一步由用户决定的事项。',
+  ].join('\n');
+  return { task, skills, main, aux, prompt, status: 'draft', result: null, error: null };
+}
+
+function safeHref(url) {
+  const s = String(url || '');
+  return /^https?:\/\//i.test(s) ? esc(s) : '#';
+}
+
+function renderOrchestration() {
+  const o = orchestration;
+  if (!o) return '';
+  const labels = { draft: '待发送', sending: '执行中', done: '已完成', error: '执行失败' };
+  const role = x => ORCH_ROLE[x] || { label: x, kind: 'Skill', note: '已安装 Skill' };
+  const flow = [o.main, ...o.aux].map((x, i) =>
+    `<span class="orch-pill ${i ? 'aux' : ''}">${i ? '辅' : '主'} · /${esc(role(x).label)}</span>`).join('<span class="orch-arrow">→</span>');
+  const r = o.result;
+  const receipt = r ? `<div class="orch-receipt">
+      <b>执行收据</b>　${esc((r.model || '本地模型'))}${r.tokens ? ` · ${esc(r.tokens)} tokens` : ''}<br>
+      已加载：${r.skills.map(x => '/' + esc(x)).join('、')}<br>
+      知乎来源：${r.sources.length} 条${r.sourceError ? `（检索失败：${esc(r.sourceError)}）` : ''}
+      ${r.sources.length ? `<ol class="orch-sources">${r.sources.map(s => `<li><a href="${safeHref(s.url)}" target="_blank" rel="noreferrer">${esc(s.title || '无标题')}</a> · ${esc(s.author || '未知作者')}</li>`).join('')}</ol>` : ''}
+    </div>` : '';
+  return `<section class="orch-card ${esc(o.status)}">
+    <div class="orch-head"><b>/dbs · 编排收据</b><span class="orch-status">${labels[o.status] || '待发送'}</span></div>
+    <div class="orch-task">${esc(o.task)}</div>
+    <div class="orch-flow">${flow}</div>
+    <div class="orch-note">提示词已经生成。${o.status === 'draft' ? '点击发送后才会调用下游 Skill 和知乎 API。' : '下游执行状态和来源写在下面。'}</div>
+    <details class="orch-more" ${o.status === 'draft' ? 'open' : ''}><summary>展开完整组合提示词</summary><pre class="orch-prompt">${esc(o.prompt)}</pre></details>
+    <div class="orch-actions">
+      <button class="orch-send" onclick="sendOrchestration()" ${o.status === 'sending' || o.status === 'done' ? 'disabled' : ''}>${o.status === 'error' ? '重试发送' : '发送到下游'}</button>
+      <button class="orch-reset" onclick="clearOrchestration()">重新编排</button>
+    </div>
+    ${o.error ? `<div class="orch-error">${esc(o.error)}</div>` : ''}
+    ${receipt}
+  </section>`;
+}
+
+function renderConv() {
+  const body = document.getElementById('pbody');
+  document.getElementById('panel').classList.add('on'); pinMain(true);
+  const tagOf = activeSkill
+    ? ((SKILLS[activeSkill] && SKILLS[activeSkill].tag)
+       || (ALLSKILLS || []).find(x => x.name === activeSkill)?.description?.slice(0, 44)
+       || '已装 skill')
+    : '';
+  const head = activeSkill
+    ? `<div class="src">会话 · ${activeSkill}${activeFile ? ' · SKILL.md 原文' : ' · 内置'}</div><h2>${tagOf}</h2>`
+    : `<div class="src">会话</div><h2>先选一个方法论</h2>`;
+  const hint = (activeSkill ? '' : (orchestration ? '' :
+    `<div class="mut">点底栏的 <b>Agent</b> 选一个，再在下面的输入框里问我。<br>
+     <b>选哪个不由系统替你决定。</b></div>`)) + renderOrchestration();
+  const rows = msgs.map((m, i) => `<div class="cmsg ${m.role}${m.pending ? ' pend' : ''}">${
+    esc(m.content).replace(/\n/g, '<br>')}${
+    (APP.on && m.role === 'assistant' && !m.pending && i > 0)
+      ? `<div class="jrow" style="margin-top:9px"><button class="jbtn ghost" onclick="saveArtifactFrom(${i})">存到本地</button></div>`
+      : ''}</div>`).join('');
+  body.innerHTML = head + hint
+    + `<div class="clist" id="clist">${rows || (activeSkill ? '<div class="mut">说吧，你想学什么。</div>' : '')}</div>`;
+  const cl = document.getElementById('clist');
+  if (cl) cl.scrollTop = cl.scrollHeight;
+}
+function esc(t) { return String(t).replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c])); }
+
+function openConv() { renderConv(); }
+
+function startOrchestration(raw) {
+  const task = String(raw || '').replace(/^\/dbs\b\s*/i, '').trim();
+  const q = document.getElementById('b-q');
+  if (!task) {
+    orchestration = null;
+    msgs = [];
+    currentView = 'chat';
+    document.querySelectorAll('.r-item').forEach(b => b.classList.toggle('on', b.dataset.view === 'chat'));
+    refreshRail(); renderList(); renderConv();
+    q.placeholder = '/dbs 你的任务（先生成提示词，再点击发送）';
+    q.focus();
+    return;
+  }
+  orchestration = buildOrchestration(task);
+  activeSkill = null;
+  activeFile = null;
+  msgs = [{ role: 'assistant', content: '已生成 /dbs 组合提示词，当前停在「待发送」。' }];
+  currentView = 'chat';
+  document.querySelectorAll('.r-item').forEach(b => b.classList.toggle('on', b.dataset.view === 'chat'));
+  refreshRail(); renderList(); renderConv();
+  q.placeholder = '继续输入 /dbs 任务，或点击上面的「发送到下游」';
+}
+
+async function sendOrchestration() {
+  const o = orchestration;
+  if (!o || o.status === 'sending' || o.status === 'done') return;
+  o.status = 'sending'; o.error = null;
+  msgs = [{ role: 'user', content: o.task }, { role: 'assistant', content: '下游执行中：加载 Skill → 检索知乎 → 生成结果…', pending: true }];
+  renderConv();
+  try {
+    let j;
+    const local = /^(127\.0\.0\.1|localhost|\[::1\])$/.test(location.hostname) || location.protocol === 'file:';
+    if (local) {
+      const r = await fetch('/api/orchestrate', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ task: o.task, skills: o.skills, prompt: o.prompt }),
+      });
+      j = await r.json();
+    } else {
+      // 公网静态版没有本地知乎代理：有访客 key 时仍可运行烘焙的 Skill，来源缺口要明说。
+      if (typeof llmCall !== 'function') throw new Error('当前页面没有可用的下游运行时');
+      const baked = typeof PUB !== 'undefined' ? PUB.skillMD || {} : {};
+      const sys = o.skills.map(x => baked[x] || (SKILLS[x] || {}).sys || '').filter(Boolean).join('\n\n')
+        + '\n\n公网运行限制：无法调用本地知乎 API，不得编造知乎来源；需要来源时明确写出缺口。';
+      const res = await llmCall(sys, [{ role: 'user', content: o.task }], null);
+      if (!res.ok) throw new Error(res.why || '公网下游调用失败');
+      j = { ok: true, content: res.content, skills: o.skills, sources: [], sourceError: '公网版没有本地知乎检索代理', model: res.via || '' };
+    }
+    if (j.error) throw new Error(j.error + (j.detail ? ' — ' + String(j.detail).slice(0, 160) : ''));
+    o.status = 'done';
+    o.result = { skills: j.skills || o.skills, sources: j.sources || [], sourceError: j.sourceError || '', model: j.model || '', tokens: j.tokens || 0 };
+    const out = j.content ?? j.text ?? j.choices?.[0]?.message?.content ?? j.data?.content ?? JSON.stringify(j);
+    msgs[1] = { role: 'assistant', content: String(out || '下游没有返回内容。') };
+  } catch (e) {
+    o.status = 'error'; o.error = e.message || String(e);
+    msgs[1] = { role: 'assistant', content: '这次没有得到下游结果。看上面的执行收据和错误，可直接重试。' };
+  }
+  renderConv(); refreshRail();
+}
+
+function clearOrchestration() {
+  orchestration = null; msgs = [];
+  const q = document.getElementById('b-q');
+  q.placeholder = '我想学 ____  （回车走 135 闭环）';
+  renderConv(); q.focus();
+}
+window.startOrchestration = startOrchestration;
+window.sendOrchestration = sendOrchestration;
+window.clearOrchestration = clearOrchestration;
+
+async function send() {
+  const q = document.getElementById('b-q');
+  const text = (q.value || '').trim();
+  if (!text) return;
+  if (/^\/dbs(?:\s|$)/i.test(text)) {
+    q.value = '';
+    startOrchestration(text);
+    return;
+  }
+  q.value = '';
+  msgs.push({ role: 'user', content: text });
+  if (!activeSkill) {
+    msgs.push({ role: 'assistant', content: '先选一个方法论：点底栏的 Agent。' });
+    renderConv(); refreshRail(); return;
+  }
+  msgs.push({ role: 'assistant', content: '…', pending: true });
+  renderConv();
+  const history = msgs.filter(m => !m.pending).map(m => ({ role: m.role, content: m.content }));
+  try {
+    const payload = activeFile
+      ? { json: false, skill: activeFile, messages: history }              // 服务端读真 SKILL.md
+      : { json: false, messages: [{ role: 'system', content: (SKILLS[activeSkill] || {}).sys || '' }, ...history] };
+    const r = await fetch('/api/llm', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const j = await r.json();
+    const out = j.error
+      ? `（没跑起来：${j.error}${j.detail ? ' — ' + String(j.detail).slice(0, 160) : ''}）`
+      : (j.content ?? j.text ?? j.choices?.[0]?.message?.content
+         ?? j.data?.content ?? (typeof j === 'string' ? j : JSON.stringify(j)));
+    msgs[msgs.length - 1] = { role: 'assistant', content: out };
+  } catch (e) {
+    msgs[msgs.length - 1] = { role: 'assistant', content:
+      '（离线）没连上本地服务，所以这句不是真回答。\n'
+      + '要真对话：项目根目录跑 `node scripts/serve-135.mjs`，然后开 http://127.0.0.1:5180/知所栖-壳.html —— 同一个地址下 /api/llm 才通。' };
+  }
+  renderConv();
+}
+window.send = send;
+window.openConv = openConv;
+
+/* Agent 卡片：选中即生效，并切到会话 */
+window.pickAgent = function (label, file) {
+  orchestration = null;
+  activeSkill = label;
+  activeFile = file || null;
+  const q = document.getElementById('b-q');
+  q.placeholder = label + ' · 我想学 ____（回车发送）';
+  const desc = SKILLS[label] ? SKILLS[label].tag
+    : (ALLSKILLS || []).find(x => x.name === label)?.description || '已装 skill';
+  msgs = [{ role: 'assistant', content: '用「' + label + '」。' + desc + '\n'
+    + (activeFile ? '（system prompt = .agents/skills/' + activeFile + '/SKILL.md 原文）' : '（内置闭环）')
+    + '——说吧，你想学什么？' }];
+  setView('chat');
+  renderConv(); refreshRail();
+  q.focus();
+};
+refreshRail();
+
+/* 底栏输入框：回车发送 */
+document.getElementById('b-q').addEventListener('keydown', e => {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); }
+});
+
+</script>
+</body>
+</html>

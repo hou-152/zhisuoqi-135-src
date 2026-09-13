@@ -77,6 +77,7 @@ sources: 23
 - [[Context injection]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
 - [[Progressive disclosure（渐进式披露）与 Skills]] · 同篇出现（co-occurrence） — 同篇出现：harness-02
 - [[step ID 自动索引]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
+- [[事件驱动编排与执行解耦]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[普遍可触发 universally triggered]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[子 agent 与 step.invoke()]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
 - [[两级上下文剪枝 pruning]] · 同篇出现（co-occurrence） — 同篇出现：harness-03
@@ -111,7 +112,6 @@ sources: 23
 - [[harness 的过时假设]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
 - [[任务时域 task horizon]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
 - [[长周期任务的基础设施压力]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
-- [[Environment]] · 同篇出现（co-occurrence） — 同篇出现：harness-12
 
 ## 出场
 

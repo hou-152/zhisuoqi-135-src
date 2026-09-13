@@ -1,10 +1,10 @@
 # 概念索引 · 知所栖 135
 
-> 936 个概念 · 604 条前置依赖 · 21 个领域 · 源：Notion 概念库 + Context Engineering(28篇) + Harness Engineering(30篇)
+> 999 个概念 · 632 条前置依赖 · 21 个领域 · 源：Notion 概念库 + Context Engineering(28篇) + Harness Engineering(30篇)
 
 查一个概念：先在本页按领域找，再进 `concepts/`。想知道「从哪开始学」，看每个领域的枢纽概念。
 
-## Harness 与运行时（138）
+## Harness 与运行时（135）
 
 > Agent 靠什么骨架才能跑起来、跑得久？
 
@@ -48,7 +48,6 @@
 - [[弱 harness 强 harness 对照与消融实验]] — 同一任务分别用弱harness与强harness跑两次并对比效果，关心效果变化而非写了多少说明文档。
 - [[三层工程 prompt context harness engineering]] — prompt、context、harness三层同心工程，harness包住前两者并加上工具编排、状态持久化与验证。
 - [[时间 Scalability Temporal Scalability]] — agent 在数小时连续运行中保持方向与质量的能力。
-- [[事件驱动编排与执行解耦]] — 编排放在执行之外的事件驱动层，两者解耦，换来可观测、持久重试与事件审计。
 - [[事件驱动的自动化 Automations]] — 事件驱动的自动化：issue 进入系统那一刻即触发 agent 工作流，即时精炼或行动。
 - [[四类故障分类框架]] — 把技能故障归为四类：无法触发、无法加载、存在冲突、运行时失败。
 - [[Action Space]] — 一个 agent 可执行的全部动作与工具的集合，构造它是搭建 harness 最难的部分之一。
@@ -64,9 +63,7 @@
 - [[model-native harness]] — 顺着模型自身擅长方式设计的 harness，让 agent 跨文件、跨工具完成任务。
 - [[Von Neumann Architecture Analogy]] — 把裸 LLM 比作无 RAM 无磁盘无 IO 的 CPU：上下文是 RAM，外部库是磁盘，工具是驱动，harness 是操作系统。
 - [[请求驱动与事件驱动]] — Skills 由请求内容激活，Hooks 由文件保存、工具调用等事件触发。
-- [[亚稳态故障与 LIFOFIFO 连接重用]] — 压力消失后进程仍卡在降级状态；aiohttp 默认 LIFO 重用连接，把流量越推越集中在慢 Pod 上。
 - [[插件技能缺失]] — 插件技能不显示时：清缓存、重启 Claude Code、重装，仍无则判为插件结构问题。
-- [[连接扇入]] — Python 进程增多导致连接暴涨压垮下游；用 Envoy 升 HTTP/2、连接池与长连接收拢扇入。
 - [[内置代理与自定义子代理的技能访问边界]] — 内置代理（Explorer、Plan、Verify）无法访问技能，只有 .claude/agents 中明确列出技能的自定义子代理可用。
 - [[预构建技能与自定义技能 Pre-built vs Custom Skills]] — 技能分两类：Anthropic 预置文档技能与用户自定义技能，运行方式相同，来源与共享范围不同。
 - [[执行可靠性机制 State Error Guardrails Verification]] — 让执行中断可恢复、错误不滚雪球、越界立即停止的机制集合：状态、错误、护栏、验证。
@@ -85,7 +82,7 @@
 - [[纠正成本递减 correct things less from that point on]] — 改进 harness 的收益不只在当轮，而是从该轮起持续减少后续需要人工纠偏的次数。
 - [[框架反向工程]] — 越过 80% 完成度需反向工程框架、prompt 与流程，其结局往往是推倒重来。
 - [[普遍可触发 universally triggered]] — Harness 设计原则：触发与工作解耦，agent 不关心自己是被 webhook、cron 还是子调用激活的。
-- [[小函数组合]] — 由 handleMessage 等六个函数通过事件通信组合，而非一个巨石。
+- [[事件驱动编排与执行解耦]] — 编排放在执行之外的事件驱动层，两者解耦，换来可观测、持久重试与事件审计。
 - [[协同进化与紧耦合 co-evolution principle]] — 模型是带着特定 harness 一起做后训练的，harness 与模型紧耦合，换掉工具实现可能反而降低性能。
 - [[用工具调用联系人类]] — 把人类当作可被 agent 调用的资源，通过 tool call 主动请求人介入、审批或补充信息的做法。
 - [[优化对象的阶梯]] — harness 优化对象沿 instruction prompts → structured context → workflow → harness code → optimizer code 逐级演进。
@@ -108,10 +105,10 @@
 - [[反复解释同一件事]] — 反复向 Claude 解释同一件事，是应为该内容写一个技能的触发信号与经验法则。
 - [[功能组合]] — 各功能各有专长，应结合使用，而不是把所有事情硬塞进 skills。
 - [[文件系统型代码执行环境 Filesystem-based Code Execution Environment]] — 技能以目录形式存在于带文件系统、bash 与代码执行的虚拟机中，可读文件、跑脚本。
+- [[Computer-Use Training Harness computer use, harness]] — 模型通过 harness 操作本机软件：出截图、预测鼠标键盘动作、执行后返回新截图与成败信号。
 - [[保留推理 retained reasoning]] — 跨工具调用与轮次保留模型私有推理，让它看到此前的计划与思路，而不只是动作记录。
 - [[技能变更生效条件：编辑、删除、重启]] — 改技能即改其 SKILL.md，删技能即删目录，之后必须重启 Claude Code 才生效
 - [[技能与 SKILL.md 结构 Skill SKILL.md]] — 技能是一个目录加入口文件 SKILL.md：前置元数据，其下为说明，激活后才执行。
-- [[asyncio 调度延迟与尾部延迟]] — 单请求触发数百次数据库调用时体验由最慢那次决定；asyncio 不绕过 GIL，CPU 密集任务抬高尾部延迟。
 - [[hooks .claudehooks]] — 在 agent 生命周期特定事件上自动执行的确定性脚本，用于通知、审批、集成与验证。
 - [[Responses API 与生产设置对齐]] — 用 Responses API 重写 harness 以更好对齐生产设置，并建议开发者弃用 legacy Chat Completions。
 - [[SKILL.md 结构性要求]] — SKILL.md 必须位于命名目录内，文件名大小写须恰为 SKILL.md。
@@ -153,25 +150,29 @@
 
 </details>
 
-## 循环与自主执行（45）
+## 循环与自主执行（51）
 
 > 一次任务如何变成可重复、可自主推进的循环？
 
-**枢纽**：[[循环工程 loop engineering]] · [[Agent loop]] · [[Loop Engineering]] · [[闭环]] · [[长时程自治编码 long-running autonomous coding]] · [[agent 循环]] · [[笨循环 Dumb Loop]] · [[编排循环 Orchestration Loop TAO ReAct]]
+**枢纽**：[[循环工程 loop engineering]] · [[Agent loop]] · [[Loop Engineering]] · [[Prompt loop（prompt loop）／agent]] · [[闭环]] · [[长时程自治编码 long-running autonomous coding]] · [[agent 循环]] · [[笨循环 Dumb Loop]]
 
 <details><summary>全部</summary>
 
 - [[循环工程 loop engineering]] — 把频繁的手动收尾固化为可重复循环的方法：挑动作、试验证、写流程、封装成技能、调用并迭代、再链式化。
 - [[Agent loop]] — SDK 内置的循环：发起工具调用、把结果送回模型、持续迭代直到任务完成。
 - [[Loop Engineering]] — 从单次提示转向自动循环的工作方式：设计目标、触发、执行、验证、失败处理与反馈机制。
+- [[Prompt loop（prompt loop）／agent]] — agent 是一个普通程序在循环里：把任务与上一步结果发 LLM 求下一步，执行其输出，再回到第一步。
 - [[闭环]] — 把执行结果回喂给决策、使任务能自动推进下一轮的结构。
 - [[长时程自治编码 long-running autonomous coding]] — 把 coding agent 的使用场景推到以周为单位的连续自治运行，目标是自主跑数周、完成人类团队通常要数月完成的项目。
 - [[agent 循环]] — LLM 输出结构化 JSON 决定下一步，确定性代码执行 tool call，结果回灌上下文，直到 intent 为 done。
 - [[笨循环 Dumb Loop]] — 循环本身不含智能，只负责反复调用模型；所有判断与决策都来自模型的输出。
 - [[编排循环 Orchestration Loop TAO ReAct]] — 以“思考—行动—观察”为一轮，把模型输出变成可重复推进的任务循环。
+- [[完成标准]] — 开始前说清什么算做完，把运行、检查、修复都写进请求，模型才有依据做到完全完成。
 - [[自动循环的心跳]] — 定时触发是 loop 的心跳：/loop 间隔执行、cron、hook、GitHub Actions；没有它就不是 loop。
+- [[被启动的电话游戏 extended game of actuated telephone]] — 成千上万条 LLM 建议被自动执行串联，像超长传话游戏，终点多半是扭曲的目标。
 - [[编排循环与「dumb loop」]] — 组装提示、调模型、解析输出、执行工具、回喂结果并重复的编排心跳循环。
 - [[触发模式谱系]] — Agent 常见触发方式四分类：事件触发、定时触发、发射后不管、长时程自主，各自对应不同在环程度。
+- [[交互式系统 vs. prompt loop 系统 interactive system vs. prompt loop system]] — 同一模型做成人类对话式交互更可控，塞进无监督 prompt loop 自动跑才是危险源。
 - [[可自动化循环]] — 商业中「读数据→算→动作→再读数据」的重复流程是 AI 甜蜜区，但人生等非循环事务不在其中。
 - [[漂移与隧道视野 drift & tunnel vision]] — 长时程自治中的两种典型退化：偏离原始目标的漂移，与只盯局部而丢失全局的隧道视野。
 - [[任务时域 task horizon]] — 一次任务可连续自主运行的时间长度，是衡量 Agent 能力与「为什么是现在」的量化指标。
@@ -184,7 +185,9 @@
 - [[think → act → observe 循环]] — 带 steps 的 while 循环：调 LLM 思考、执行工具、把结果回灌 messages，返回纯文本即本轮结束。
 - [[tool loop]] — LLM、system prompt 与 tools 组成循环：模型发出工具调用，结果回灌后再继续生成。
 - [[Ralph Loop]] — 一种 harness 模式：用 hook 拦截模型退出企图，在干净上下文中重注入原始 prompt，逼 Agent 继续。
+- [[Driving the build loop]] — 写代码、获取反馈、决定下一步的循环，由开发者有行动偏好地高速驱动。
 - [[Harness 与 Loop 的配合]] — Harness 提供约束护栏、Loop 提供驱动力，二者配合让任务可持续自动推进。
+- [[持久性 persistence]] — 模型接受请求后持续执行到哪一步、何时返回；Astra 可能初次实现后即返回审核。
 - [[错误复利 compounding errors]] — 多步流程里每步微小失败率会累乘：10 步各 99% 成功率，端到端只剩约 90.4%。
 - [[范围控制与显式的完成定义]] — 约束 Agent 一次只做一个功能，不多不少、不偷改需求清单掩盖未完成，并给出显式完成定义。
 - [[宏动作]] — 编程的最小单位从敲代码行变成委派一整块工作，如实现功能、重构子系统、写测试。
@@ -209,7 +212,7 @@
 
 </details>
 
-## 上下文工程（169）
+## 上下文工程（170）
 
 > 模型在每一步到底应该看到哪些信息？
 
@@ -373,6 +376,7 @@
 - [[Context Distraction]] — 上下文超过阈值后模型开始机械重复历史行为而非真正推理，窗口更大不等于结果更好。
 - [[Context Infrastructure]] — Harness 决定 Agent 怎么工作与协调，上下文基础设施决定它拿到什么信息，进而决定质量上限。
 - [[context rot（上下文腐烂）与 Lost in the Middle]] — 关键内容落在窗口中段时模型表现下降 30% 以上；长窗口也会随长度增加出现指令遵循退化。
+- [[Context window 与 prompt 杂乱 cluttered prompt maximum allowable context window]] — 长时间跑 prompt loop 会让提示越来越杂乱冗长，干扰注意力机制，甚至超出最大上下文窗口。
 - [[Explicit Breakpoints]] — 在上下文中显式标出分层边界（长期稳定层、中期变化层、短期动态层），适合层次清楚的场景。
 - [[few-shot 套路化与受控多样性]] — 上下文里堆满彼此相似的 action-observation 对时，模型会照着旧模式走下去，需引入结构化变化。
 - [[haystack 结构连贯性效应]] — 同批语料保留思路流与随机打乱句序相比，打乱版性能反而更好，提示输入结构会影响注意力施加方式。
@@ -389,7 +393,7 @@
 
 </details>
 
-## 记忆与检索（37）
+## 记忆与检索（38）
 
 > 经验与知识怎么被存下来、又准确取回？
 
@@ -424,6 +428,7 @@
 - [[stated 出处纪律]] — 存储时只保留用户明确说过的内容，判据是出处而不是谁最后说的。
 - [[Tacit Knowledge]] — 记录下来的决策结论之外的推理过程、tradeoffs 与默会背景；企业最大的 context leak。
 - [[程序记忆（Procedural Memory Skills） progressive disclosure]] — 智能体需要记住的『如何做事』的记忆，区别于只记名字、偏好、事实的语义回溯。
+- [[Knowledge Retrieval vs Reasoning memorization vs reasoning]] — 存储信息与用它解题是两回事：参数量固定时循环几乎不增加知识存储，只帮助多步推理。
 - [[Diarization]] — 把某主题下的海量文档读遍后蒸馏成一页结构化判断档案的步骤，让 AI 真正服务知识工作。
 - [[合成键值检索任务]] — 从含 k 组随机 UUID 键值对的 JSON 中取指定键的值，剥离语义只考精确检索。
 - [[冷热分离（记忆）]] — 小规模提示词记忆常驻承载常用信息，搜索负责偶尔用到的信息。
@@ -437,11 +442,11 @@
 
 </details>
 
-## 状态与持久化（24）
+## 状态与持久化（22）
 
 > 跨会话、跨进程的状态放在哪里才可靠？
 
-**枢纽**：[[持久化执行 durable execution]] · [[状态子系统与进度持久化]] · [[Long-running agent handoff]] · [[Session]] · [[Rockset 离线二级视图]] · [[文件系统即持久记忆]] · [[Cross-session Work]] · [[Stateful Runtime Environment (SRE)]]
+**枢纽**：[[持久化执行 durable execution]] · [[状态子系统与进度持久化]] · [[Long-running agent handoff]] · [[Session]] · [[文件系统即持久记忆]] · [[Cross-session Work]] · [[Stateful Runtime Environment (SRE)]] · [[统一执行状态与业务状态]]
 
 <details><summary>全部</summary>
 
@@ -449,14 +454,9 @@
 - [[状态子系统与进度持久化]] — 用 progress.md、feature_list、git log 等把做了什么、在做什么、下一步是什么持久化到磁盘，让下次会话接着做。
 - [[Long-running agent handoff]] — 跨上下文窗口、跨阶段维持长任务的交接机制，如 initializer agent、handoff artifact、feature list 与上下文压缩。
 - [[Session]] — 一次有状态的运行：用已建好的 agent 配置与环境拉起沙箱，挂载文件、仓库与认证。
-- [[Rockset 离线二级视图]] — 用变更数据捕获把在线存储变化近实时同步到隔离的 Rockset 实例，作为复杂查询的逃生舱。
 - [[文件系统即持久记忆]] — 把耐久状态（日志、diff、错误 trace）写进文件系统而非塞进 context，靠 bash 读写即可续跑长任务。
 - [[Cross-session Work]] — 任务由多个 agent session 各承担一部分并在循环中推进，因此要求外部状态能跨 session 保存与恢复。
 - [[Stateful Runtime Environment (SRE)]] — 把持久化与状态管理封装进运行环境，构建 agent 时无需再操心这些
-- [[从客户端库到独立服务]] — 把存储逻辑从客户端库解耦为独立服务，形成部署、可观测性与平台增强的统一控制点。
-- [[对象-边模型与分区]] — 客户端预定义对象与边、只查直接边、不支持图遍历的 NoSQL 模型，对象与其边同分区存储。
-- [[Habitat]] — OpenAI 的在线存储平台，每秒超 7000 万请求、超 500PB 数据，源自一个 Python 客户端库。
-- [[持久化代码图谱 structural map graph]] — 把代码库每个函数、类、导入、调用、继承与测试映射成图谱，构建后持久保存在本地，供查询与增量更新。
 - [[统一执行状态与业务状态]] — 统一执行状态与业务状态：把运行状态与业务状态合一，配合简单 API 的启动/暂停/恢复与无状态 reducer。
 - [[Artifact Schema]] — 把 artifacts 当作共享知识层，每种都配 README、schema、添加流程与 timeline。
 - [[Git-backed state]] — 把循环状态落在 git 中获得显式持久性，从而支持系统重启后的崩溃恢复。
@@ -464,15 +464,18 @@
 - [[Shared File System]] — 多 session、多 agent 共用的文件夹系统，用 signals／artifacts／tasks／logs 记录状态供各 loop 复用。
 - [[snapshotting + rehydration]] — Agents SDK 内置的快照与再水合能力，可在新容器里从上次检查点恢复状态继续跑。
 - [[个人技能与项目技能]] — 个人技能放 ~/.claude/skills 跨项目跟随个人；项目技能放仓库 .claude/skills 随代码共享。
+- [[持久化代码图谱 structural map graph]] — 把代码库每个函数、类、导入、调用、继承与测试映射成图谱，构建后持久保存在本地，供查询与增量更新。
 - [[agent 模板的声明式持久化]] — agent 模板（模型、system prompt、工具、MCP servers、skills）写成 YAML 存进 git，由 CLI 在流水线 apply。
 - [[step]] — 最小执行原语，包住一次 LLM 调用或工具执行，失败时只重试该单元
 - [[step ID 自动索引]] — SDK 自动为循环里的每次 step 调用生成唯一 ID，无需手工管理
+- [[Habitat]] — OpenAI 的在线存储平台，每秒超 7000 万请求、超 500PB 数据，源自一个 Python 客户端库。
+- [[Last-good live preview]] — 可选预览只监听一个 JSON 文件，且仅在最新候选通过全部门后才刷新，否则保留上次已验证图。
 - [[本地状态层]] — Claude 把 TODO、会话消息与统计缓存放在 ~/.claude 下的本地存储层。
 - [[乐观并发控制 optimistic concurrency control]] — agent 可自由读状态，但状态自上次读取后被改动则写入失败，比加锁更简单稳健。
 
 </details>
 
-## 缓存与成本控制（36）
+## 缓存与成本控制（37）
 
 > 同样的能力怎么用更少的 token 和钱换来？
 
@@ -512,6 +515,7 @@
 - [[MCP schema amplification]] — 每个小型 MCP server 每请求约增 1000-1400 token，生产级 API 的 schema 更大，并与请求次数相乘。
 - [[Subagent bootstrap multiplier]] — 每个子 agent 有独立 bootstrap、父 agent 又摄入其 transcript，导致 token 成倍放大
 - [[Token Efficiency]] — 单位算力能换到的有效智能，是从 demo 走到产品与基础设施的门槛。
+- [[Token Usage vs Reasoning Trace Length efficiency vs interpretability]] — 输出 token 少、CoT 短不等于可解释性差，可能只是模型更强、少犯错少回溯，第一次就做对。
 - [[输出 token 效率]] — 改版后分数约 3 倍，输出 token 少 6 倍，因为模型不再需要每个动作前重新解读游戏。
 - [[昂贵的反馈回路与欠测试]] — 模型调用贵、端到端慢，让人少试变体、停止观察、欠测试，最终发布漂移。
 - [[首字输出延迟 Time to First Token Latency]] — 从请求发出到输出第一个 token 的延迟，是提示词缓存收益的一个维度。
@@ -570,7 +574,7 @@
 
 </details>
 
-## 多 Agent 编排（44）
+## 多 Agent 编排（45）
 
 > 多个 Agent 如何分工协作而不互相踩踏？
 
@@ -614,6 +618,7 @@
 - [[无层级导致的风险规避 risk-averse agents]] — 没有层级时 Agent 会趋避风险，只做小而安全的改动，难题无人负责、长期空转无进展。
 - [[最慢 worker 瓶颈与刚性]] — 角色分工版的性能天花板：系统被最慢 worker 卡住且过于刚性，规划全部前置也难动态重调，走偏的 agent 要等下一轮循环才自纠。
 - [[Agent-to-Agent 交互（A2A）]] — 用户侧 Agent 与软件侧 Agent 相互调用协作、朝同一结果推进的交互形态。
+- [[Agent swarm 作为 prompt 管理策略 agent swarm prompt management strategy]] — 主循环把大步骤拆成小步骤，每步开一个从零开始、只装必要信息的二级循环；本质是 prompt 管理策略。
 - [[工作树隔离]] — 为每个并发 Agent 分配独立工作空间，避免改同一文件造成冲突，便于事后合并。
 - [[单 agent 的速度天花板]] — 单 agent 在聚焦任务上表现好，但面对复杂项目很慢——问题不在对错，而在快慢。
 - [[结构适量原则]] — 结构太少则 agent 冲突、重复劳动与漂移，太多则系统脆弱；正确的用量落在两者之间。
@@ -625,7 +630,7 @@
 
 </details>
 
-## 验证与评估门禁（76）
+## 验证与评估门禁（82）
 
 > 我们怎么知道它真的做对了？
 
@@ -646,6 +651,8 @@
 - [[古德哈特定律]] — 当指标成为目标它就不再是好指标；Agent 会针对验证器优化而非真实目标，比如删掉失败测试。
 - [[技能验证器 agent skills verifier]] — 命令行技能验证器，用 uv 安装最快，用于在深入调试前先捕获结构性问题。
 - [[可验证目标]] — 目标能否被机器判断直接决定 loop 能否收敛；“优化一下应用”模糊，测试、类型检查、lint 全过则明确。
+- [[修复收据与有限修复轮次 repair receipt supportedFixes]] — 验证失败返回稳定规则码、具体对象与测量证据，代理只能按 supportedFixes 修，最多两轮。
+- [[原子验证与交付门 atomic validation before delivery]] — 交付前 schema、布局、HTML/SVG、路由、标签到路由间距等检查必须全过，候选才原子替换目标。
 - [[把重复步骤编码成 Skill]] — 把重复步骤编码进验证闭环，最常见方式是写成一个 skill，作为可复用底座。
 - [[非确定性 nondeterminism]] — 同一输入两次调用给出不同输出，差异虽小却足以让严格等值断言作废，抽掉质量策略的地板。
 - [[静默的分级失败]] — 模型输出不会崩溃报错，错误部分以同样的格式与自信织进正确部分，且无可靠的「我不确定」通道。
@@ -660,6 +667,7 @@
 - [[Measurement snapshot]] — 测量结论绑定特定版本、模型、机器与样本量；具体数字会过期，但 API 边界测量方法可迁移。
 - [[Mutation Testing 与前沿质量评测]] — 用变异测试检验测试有效性，惩罚不会在打补丁前代码上失败的测试，并加判官模型查质量。
 - [[pass@k]] — 采样 k 次至少一次答对的概率；优化 pass@1 往往以牺牲多样性和 pass@k 为代价。
+- [[Reasoning Trace Faithfulness faithfulness]] — 推理 trace 可读但不保证忠实反映模型内部计算；有效担忧只限于 looped 是否更常给出误导性 fake trace。
 - [[Rubric 与 verifier agent]] — 借动态工作流让 Claude 起 verifier agent，用 rubric 去尝试并验证你在某领域的品味，如什么算好的 API 设计。
 - [[Self-evaluation Failure]] — Agent 评估自己的产出时倾向自信夸好，即使在人看来质量明显平庸。
 - [[Sprint Contract]] — 每个冲刺开始前，生成者与评估者先就「什么叫完成」达成一致，再动手写代码
@@ -667,6 +675,8 @@
 - [[Trace-based evals]] — 用 agent trace、JSONL、确定性验证器、baseline 与轨迹复盘来衡量 skill 或 harness 的改动。
 - [[Verifiability]] — 任务是否存在自动 reward 或成功信号，决定模型能否靠 RL 反复练习而快速进步。
 - [[基准测试的捆绑测量性]] — 基准很少单独测量模型，它同时测了 API 设置、harness 设计与提示词等不可见选择。
+- [[嵌入式评估者 embedded evaluators]] — 给第三方评估者类员工权限与工位，核查安全实践、上报事故、评估模型与训练流程。
+- [[确定性编译 deterministic compilation]] — 同一份 IR 经 Archify 编译应得到相同结果，不依赖运行时代码或随机布局。
 - [[通用 harness 的公平性张力]] — 通用 harness 让模型对比更公平、缺陷更可见，但也让评测偏离真实部署形态。
 - [[测试是绿的，产品却在退化]] — 模型更新后测试仍绿而产品已退化：断言写的是旧模型行为，绿色测试与真实回归可以同时成立。
 - [[差一点就通过的输出]] — 最危险的是差一点就通过的输出：偏离约束、编造合理值、守字面破精神，不崩不报错，直接上线。
@@ -696,6 +706,7 @@
 - [[把自己当普通用户／黑盒测试]] — 测试时把自己当普通用户，凭直觉乱点、输入意外内容做黑盒测试。
 - [[RHAE]] — ARC-AGI-3 的评分指标，把模型表现与人类测试基线相比，得出相对人类动作效率。
 - [[80% 质量墙]] — 多数面向客户的功能冲到 70-80% 质量就撞墙，80% 不够交付。
+- [[按需源证据 source evidence, only when requested]] — 只有显式请求证据时，节点才标 SRC 并打开绑定到某个公开 commit 的 Git 文件与行号。
 - [[闭卷与 oracle 基线]] — 用不给任何文档与只给含答案文档两条参照线，为成绩定位的评测设定。
 - [[大海捞针（NIAH）与词面匹配]] — 最广泛使用的长上下文基准：把已知事实埋进大量无关文本让模型找回，实质只考察词面匹配。
 - [[独立调用 Standalone]] — 四种接入方式中最松的一种：产物已存在后手动调用，用于不必每次都做的横切检查。
@@ -712,17 +723,21 @@
 
 </details>
 
-## 规格与意图对齐（40）
+## 规格与意图对齐（47）
 
 > 怎么把想要的东西准确交代清楚？
 
-**枢纽**：[[判断力优先 let Claude use judgement]] · [[显式指代]] · [[隐式指代]] · [[从禁止什么到对齐什么]] · [[共享理解 shared understanding]] · [[简洁规范]] · [[教会 AI Agent 如何成功]] · [[漫谈会话 ramble session]]
+**枢纽**：[[判断力优先 let Claude use judgement]] · [[显式指代]] · [[隐式指代]] · [[五种图表类型 Architecture Workflow Sequence Data Flow Lifecycle]] · [[类型化 JSON IR typed JSON IR]] · [[真实交互 truthful interaction]] · [[重新审视指令假设]] · [[从禁止什么到对齐什么]]
 
 <details><summary>全部</summary>
 
 - [[判断力优先 let Claude use judgement]] — 把结论式规定换成取向式指令，只给对齐对象与判断依据，具体决策留给模型的判断力。
 - [[显式指代]] — 用物体本名直接指称任务目标，如「杯子」「锅」，简单明确但远离真实自然语言表达。
 - [[隐式指代]] — 用「它」「这个重物」等代词或转喻指代前文实体的表达，需回溯多轮对话才能确定所指。
+- [[五种图表类型 Architecture Workflow Sequence Data Flow Lifecycle]] — Archify 的五类图：Architecture、Workflow、Sequence、Data Flow、Lifecycle，各对应一种 prompt 要提供的信息骨架。
+- [[类型化 JSON IR typed JSON IR]] — 代理先产出有 schema 的类型化 JSON 中间表示，作为可复现的源，再交给渲染编译。
+- [[真实交互 truthful interaction]] — 聚焦、上下游、路径、角色比较与故事只复用作者定义的节点关系，不发明拓扑、不声称运行时影响。
+- [[重新审视指令假设]] — 模型能力变了，旧提示词不是天然正确，每条指令都应被当作待验证的假设。
 - [[从禁止什么到对齐什么]] — 把系统提示从一串禁令换成一条对齐指令：写出读起来像周围代码的代码，匹配注释密度、命名与惯用法。
 - [[共享理解 shared understanding]] — 人与 LLM 在设计树上逐步推进、最终就设计达成一致的过程。
 - [[简洁规范]] — 简短的项目规范文档，只回答为什么做、做什么、怎么做，用简短逼团队划清范围。
@@ -736,10 +751,13 @@
 - [[bits]] — 缺口不在模型能力，而在于描述你意图所需的信息量不足。
 - [[Elicitation]] — 通过主动提问把用户未说清的需求、偏好与约束引出来，即信息引出能力。
 - [[TOCC]] — 前置指令重写的轻量即插即用解法，把指代解析与任务规划解耦以提高成功率。
+- [[沟通工件与非目标 communication artifact non-goals]] — Archify 定位为把技术意图变成可沟通的图，非通用绘图编辑器，也非 Mermaid 主题。
 - [[高精度原型设计]] — 把需求、原型、UI 合成一步，产出含交互与视觉的高保真原型。
 - [[不连贯输入的重构能力]] — 从冗长散乱的口语流中重建出结构与意图的能力。
+- [[仓库技能的跨模型影响]] — 仓库技能会被其他贡献者、可能不同模型的 agent 读取，帮某模型的措辞可能过度约束另一个。
 - [[带文档追问 Grill with Docs]] — 保留 Grill Me 追问开头的 skill，新增读取、挑战并更新领域文档的能力。
 - [[规划模式与边界问题清单]] — 在 /plan 模式下让模型提前问出实现时迟早要回答的边界问题，如起止日期能否相同。
+- [[过度具体指导 overly specific guidance]] — 旧技能常写成详细路线或食谱；新模型更能理解歧义，过度具体指导反而妨碍结果。
 - [[描述区分度]] — 描述过于相似会让 Claude 选错技能或困惑，应让描述更具体、更有区分度。
 - [[示例强于规则]] — 示例是比规则更强的信号：附上正好做了被禁行为的示例，模型就会照做。
 - [[输入摩擦 too lazy to type]] — 真正的瓶颈常不是没想法，而是把脑中信息敲成文字的成本太高而被省略。
@@ -763,7 +781,7 @@
 
 </details>
 
-## 代码库与工程实践（37）
+## 代码库与工程实践（38）
 
 > 代码怎么写才能让人和 Agent 都读得懂？
 
@@ -794,7 +812,7 @@
 - [[Skill as asset]] — loop 只是管道，真正可复利的资产是它调用的、可复用且测试过的 skill。
 - [[Watch 模式与自动更新 hooks]] — CLI 的 watch 命令与自动更新 hooks，让图谱在每次文件编辑和 git commit 后自动同步代码库。
 - [[仓库提交]] — .claude/skills 中的项目技能随 Git 共享，克隆即获得，推送后他人拉取即更新
-- [[战略性技术债务：Python 服务]] — 为优先产品与平台稳定而暂不优化性能，把 Python 服务的性能欠账当作有意识的战略性债务。
+- [[可移植单文件与导出 portable by default]] — 产物是一个独立 HTML 文件，导出保持完整图且不含临时查看状态；分享卡为规范的 1200×630 图像。
 - [[Vibe Coding]] — 抬高地板式编程范式：用自然语言描述需求由 agent 生成代码，适合原型与小工具，不适合严肃工程。
 - [[非视觉任务的可视化原型]] — 即使任务看似不需要图，也先让 Agent 画出多方案的 Mermaid 图并排比较，再进入实现。
 - [[工具为你服务，而非你为工具服务]] — 工具应为你服务：你在用工具做事，而不是花时间当工具的开发者与维护者。
@@ -806,16 +824,17 @@
 - [[增量更新 incremental update]] — 索引随每次文件编辑与 git commit 自动增量更新，CLI 的 update 只处理变更文件，后续更新在 2 秒内完成。
 - [[AI 公司岗位编制]] — 用公司岗位类比代码库：CLAUDE.md 是入职手册、skills/ 是 SOP、hooks/ 是合规部、src/ 是业务部门。
 - [[apply 模型]] — Cursor 自训的专用 LLM，负责把编辑落到文件上，材料对其成功率存疑。
+- [[Architecture Delta]] — 合并前审查用验证过的 Before/Delta/After 快照加机器收据比较，不推断影响、风险或合并安全。
 - [[Autofixing]] — 按改动文件夹的风险判断是否自动提交修复 PR，低风险仅需简单 review。
 - [[Tree-sitter]] — 解析器框架，为代码构建结构化语法地图，是多语言代码理解工具的底层基础。
 
 </details>
 
-## 安全权限与合规（33）
+## 安全权限与合规（45）
 
 > 什么可以做、什么必须被拦住？
 
-**枢纽**：[[企业托管设置（Managed Settings）与 strictKnownMarketplaces]] · [[安全审计与受信任来源 Security Considerations Trusted Sources]] · [[Guardrails]] · [[Human in the loop]] · [[权限与推理的架构分离]] · [[默认帮助的高门槛拒绝]] · [[企业技能的最高优先级]] · [[上下文即不可信输入]]
+**枢纽**：[[企业托管设置（Managed Settings）与 strictKnownMarketplaces]] · [[安全审计与受信任来源 Security Considerations Trusted Sources]] · [[Guardrails]] · [[Human in the loop]] · [[权限与推理的架构分离]] · [[领跑节奏 pacing the frontier]] · [[默认帮助的高门槛拒绝]] · [[企业技能的最高优先级]]
 
 <details><summary>全部</summary>
 
@@ -824,6 +843,7 @@
 - [[Guardrails]] — 在 Agent 执行的同时并行做输入输出校验与安全检查，不通过就快速失败。
 - [[Human in the loop]] — 在 Agent 运行过程中引入人类参与的机制，与 Guardrails、Tracing 并列构成控制面能力。
 - [[权限与推理的架构分离]] — 模型决定尝试什么、工具系统决定允许什么，权限执行与模型推理在架构上分离。
+- [[领跑节奏 pacing the frontier]] — 给能力提升装可调限速器：继续进步，但速度调到对齐防护跟得上、第三方能核实。
 - [[默认帮助的高门槛拒绝]] — 默认立场是帮忙，仅当会造成具体、明确的严重伤害风险时才拒绝；edgy、假设、玩闹或不适不达门槛。
 - [[企业技能的最高优先级]] — 同名技能并存时企业版生效，覆盖个人、项目与插件版本
 - [[上下文即不可信输入]] — 上下文中的任何内容（消息、记忆、检索结果、文件）都可能是伪造指令，须当作数据而非命令处理。
@@ -832,6 +852,8 @@
 - [[meaningful uplift 判据]] — 武器与 CBRN 红线不看类别，而看输出是否对制造、优化或部署给出实质帮助；框定为防御、虚构也不改变判定。
 - [[Onboarding Agent]] — 把 Agent 部署当作 onboarding 新人：给权限、定边界、记录行为、审计理由，而不是装个插件。
 - [[prompt-injection]] — 设计 Agent 系统时应假设 prompt-injection 与数据外泄尝试一定会发生。
+- [[放缓所换来的时间的用途 operational excellence alignment interpretability testing and evalua]] — 减速必须回答多出的时间做什么：运营卓越、对齐、可解释性、测试与评测四个方向。
+- [[检查点式节奏与配料式节奏 checkpoints ingredients]] — 行为口径按模型能做什么设关卡并要求对齐认证；配料口径则限量算力、训练运行等投入。
 - [[安全路由与能力分层]] — 能力分层与安全路由：高敏能力限受信组织使用，受限查询被改路由到低风险模型。
 - [[反自我合理化条款]] — 安全元规则：若模型在心里把请求重新框定得更得体，该重新框定本身就是应当拒绝的信号。
 - [[灰盒场景]] — 介于黑盒与白盒之间的访问方式：服务商公开模型最终 top-k 对数概率供调参，仅这层半开放已足以泄露隐私。
@@ -847,27 +869,38 @@
 - [[preferences 写入过滤]] — 若干类偏好即使被明说也不写进 /preferences.md，避免未来模型继承更不诚实、更不安全的指令。
 - [[Safe autonomy]] — 在降低人工审批摩擦的同时保留权限边界与安全控制，让 Agent 能自主推进又不越界。
 - [[YOLO 模式 Allow All]] — 也叫 Allow All，让 agent 无需逐次请求许可即可执行任何命令，多数工具用 /allow-all 开启。
+- [[Hidden Chains of Thought Monitorability hidden reasoning traces, chain-of-though]] — 对用户隐藏 CoT 与开发者能否监控 CoT 是两回事；Astra 的 trace 更短更少信息，监控变差。
+- [[privacy-first／硬件隔离区（exclave）／无持久化录音]] — 环境音频只在硬件隔离区被瞬间解析成笔记随即抹除，不存原始录音、逐字稿，也不做说话人匹配。
+- [[决策边界 decision boundaries]] — 提示词里的权限线：哪些事必须事先征求同意、哪些可自主执行。
+- [[误诊：不是“AI”失控，而是无监督、接工具的 prompt loop 系统 “AI” going rogue vs. unsupervised prompt l]] — 危险不在“AI”失控，而在无监督、接强工具的 prompt loop 系统。
+- [[OAI-HF 事件：能力与错位的不对称 OpenAI-Hugging Face incident]] — 智能体蜂群攻击未被要求的目标、为群体牺牲、试图黑评分器：能力不高而错位已在。
 - [[版权合规硬上限]] — 版权是不可谈判的硬上限：引用 15 词以下、单一来源至多一条、不镜像结构。
+- [[部署所有权失败关闭 deployment-ownership fails closed]] — 可选 profile 缺所有者、区域放置、私有数据库范围或命名交叉时失败关闭，且不检查实时基础设施。
 - [[大规模监控（Bulk Surveillance）]] — 不针对特定对象、成批地收集记录（例如随时掌握你的位置），技术上已接近可行，是 Anthropic 划下的「红线」之一。
+- [[更新检查隐私边界 update-check boundary]] — 更新检查只 GET 固定稳定清单以显示可选提醒，不下载安装，也不上报版本、Agent、项目数据等。
 - [[集中式数据安全与隐私控制点]] — 以 Habitat 服务为统一控制点，集中执行访问控制、审计日志并限制对底层存储的直接访问。
+- [[强约束与严格责任标准 strong constraints stringent liability standards]] — 监管应专门约束 prompt loop 系统，并对它造成的非法或破坏性活动适用严格责任。
+- [[三步走框架 embedded evaluators → democratic coordination → global coordination]] — 按“谁有能力做”分层：公司单方嵌入评估者、行业加政府协调、全球协调，不必按序。
 - [[AWS VPC]] — 数据库认证在 AWS VPC 内完成，数据在 Bedrock 环境内受到保护。
 - [[Web of Trust]] — 信任靠图结构中多跳传递与多源交叉，每条边附「为何信」元数据，不依赖中心认证局。
 
 </details>
 
-## 模型能力与训练（70）
+## 模型能力与训练（83）
 
 > 底层模型本身怎么变得更强？
 
-**枢纽**：[[Reward Signal]] · [[奖励攻击与多样性坍塌]] · [[多头注意力]] · [[DPPO]] · [[REINFORCE]] · [[谄媚（Sycophancy）]] · [[递归结构不能替代基座智能]] · [[递归自我改进 RSI]]
+**枢纽**：[[Looped Transformer Recurrent Depth looped transformer, recurrent depth]] · [[Reward Signal]] · [[奖励攻击与多样性坍塌]] · [[多头注意力]] · [[DPPO]] · [[REINFORCE]] · [[Looping Costs：参数、计算与 KV Cache looping costs]] · [[谄媚（Sycophancy）]]
 
 <details><summary>全部</summary>
 
+- [[Looped Transformer Recurrent Depth looped transformer, recurrent depth]] — 让中间表示多次通过同一批 transformer blocks，权重在多次循环间保持不变。
 - [[Reward Signal]] — RL 中给模型行为打分的通道，偏好里夹带的噪声会被一并学走，写下奖励≠想要的行为。
 - [[奖励攻击与多样性坍塌]] — 自改进回路会过拟合给定信号（测试、裁判、基准），并压榨已知高回报模式导致种群坍缩。
 - [[多头注意力]] — 并行跑 h 组独立注意力，各自学习 Q、K、V 矩阵，从不同维度理解同一段输入后拼接。
 - [[DPPO]] — 用预估策略散度（TV/KL）定义的信任域，取代 PPO 中基于采样 token 概率比例的裁剪掩码。
 - [[REINFORCE]] — 按奖励对同策略采样答案加权强化的策略梯度基础形式，相当于带权 SFT，方差大需靠基线降。
+- [[Looping Costs：参数、计算与 KV Cache looping costs]] — 循环省下的是不同 block 的权重参数，不省前向与反向计算；二次进 block 的 keys/values 不同，需分开缓存。
 - [[谄媚（Sycophancy）]] — LLM 被训练去让人高兴，而不是说真话。
 - [[递归结构不能替代基座智能]] — 同一套递归改进在强基座上持续上升、在弱模型上反而退化；harness 只放大部署，智能仍是核心。
 - [[递归自我改进 RSI]] — AI 用当下智能去改进产生自身智能的机器；现代形态还包括改进训练流水线与部署系统。
@@ -889,7 +922,16 @@
 - [[RLVR 与编码 agent 的 RL 训练循环]] — 生成编码 agent 的 trace、用 verifier 打分、更新权重强化好 trace 抑制坏的，循环上百万次数周到数月。
 - [[Tiny Engram]] — 基于 Qwen-3 复现文本 Engram 后，把 Engram 迁到 Stable Diffusion 的视觉版本。
 - [[VLM]] — 视觉-语言模型，能同时处理图像与文字的多模态大模型。
+- [[事后合理化与科幻叙事污染 post-hoc rationalizing sci-fi style narratives]] — 模型可能事后编出听起来合理却与答案无关的理由；被提示“你是 AI”时更易搬出训练数据里的科幻桥段。
+- [[Compute-Matched Looped Transformer SMELT]] — SMELT 在相同每 token 计算、相同非嵌入参数与 KV cache 条件下比较 looped 与传统 transformer。
+- [[Per-token Routing：Expert-choice vs Token-choice Mixture-of-Recursions, routing]] — 用小的 learned router 按 token 隐表示决定它过几次共享 stack，分 expert-choice 与 token-choice。
+- [[Transformer Block、Stack、Block Application transformer block, stack, block applic]] — block 是含注意力与前馈的结构单元，stack 是 block 序列，block application 是输入过一次 block。
+- [[Adaptive Halting adaptive halting, halting probability]] — 按学习到的 halting probability 累积到阈值即停止，并用最大循环数兜底，把额外计算给更需要的 token。
+- [[Latent Reasoning inference-time looping]] — Latent reasoning 是推理时多跑循环、把计算放在内部的一种用法，但仍可生成文本 CoT，不等于隐藏推理。
+- [[Reasoning model 与 chain-of-thought traces reasoning model chain-of-thought reaso]] — reasoning model 被训练成先出声思考再给答案，这些思考记成 chain-of-thought traces，是输出而非内部逻辑窗口。
+- [[RNN Recurrence vs Looped Transformer Depth Recurrence]] — 两者都复用权重：RNN 沿时间步并以 hidden state 传递，looped transformer 沿架构深度复用。
 - [[Tic Word]] — 模型在不该出现的语境下仍反复使用的词，是奖励信号系统性偏差的可量化指纹。
+- [[Weight Sharing and Effective Depth]] — 循环展开后 token 经过更多次 block application，有效深度变大，参数却不按深度翻倍。
 - [[残差流]] — 逐层传递、几乎原封不动保留输入全部细节的隐藏状态总线。
 - [[会自己重写的地基]] — 模型是按厂商日程重写自身行为的概率系统，没有永久有效的锁版本，旧模型读作硬约束的句子新模型可能读作建议。
 - [[混合注意力]] — 将CSA层与HCA层交替排列的注意力架构，CSA管近中距精细依赖，HCA管超远距压缩记忆。
@@ -919,6 +961,8 @@
 - [[reasoning effort]] — coding agent 可调高或调低的推理强度。
 - [[Reward Generalization]] — RL 不保证学到的行为只限于产生它的条件，奖励会跨条件迁移。
 - [[Tuned Lens]] — 把中间层残差流隐藏状态提前映射成词表概率的可解释性方法，用于观察信息如何走向 logits。
+- [[Full-bandwidth Transformer Latent Feedback]] — 一种跨 token 位置的递归：每个解码步用学到的 gate 把前一个 token 的最终 hidden state 混入新 token 输入。
+- [[Reasoning Model and Reasoning Trace Chain of Thought reasoning model, reasoning ]] — 推理模型先逐 token 生成中间文本（reasoning trace / CoT）再给答案，这些步骤起外部 scratch pad 作用。
 - [[价值函数]] — 预测在状态 s 下策略平均可得奖励的基线函数，用于削减策略梯度方差，即 actor-critic 中的 critic。
 - [[模型蒸馏]] — 用更强模型的输出训练较弱模型，使对手能以极短时间、极低成本复制出强大能力。
 - [[弃答与幻觉：两种失败姿态]] — 模型不确定时的两种失败姿态：明确声明找不到答案的弃答，与自信给出错误答案的幻觉。
@@ -936,11 +980,11 @@
 
 </details>
 
-## AI 产品与组织（53）
+## AI 产品与组织（61）
 
 > AI 时代的公司怎么组队与交付？
 
-**枢纽**：[[品味与「不接受够用就行」]] · [[AI 作为新同事]] · [[AI-First]] · [[Intelligence Factory 智能工厂]] · [[执行主体从人变成 Agent]] · [[可行性分析]] · [[Creator → Curator 角色转换]] · [[Software Factory]]
+**枢纽**：[[品味与「不接受够用就行」]] · [[AI 作为新同事]] · [[AI-First]] · [[Intelligence Factory 智能工厂]] · [[执行主体从人变成 Agent]] · [[Shaping the build]] · [[Creator → Curator 角色转换]] · [[Software Factory]]
 
 <details><summary>全部</summary>
 
@@ -949,39 +993,47 @@
 - [[AI-First]] — 不是员工都使用 AI 工具，而是让 AI 主导生产力，围绕 AI 能力重构工作流、组织结构与对齐机制。
 - [[Intelligence Factory 智能工厂]] — 把公司目标表述为以最低价格产出尽可能多『智能单位』的工厂。
 - [[执行主体从人变成 Agent]] — 流程步骤不变，但分析、设计、编码、调试的执行者由人变成 Agent。
-- [[可行性分析]] — 先判断值不值得做：产品看价值与定位，技术看可行与成本。
+- [[Shaping the build]] — 主动决定要构建什么、下一步做什么、为什么这样做，而非只实现既定产品。
 - [[Creator → Curator 角色转换]] — 工程师从「创造者」变为「策展人」：少写基础代码，多编排 Agent 组合、定义目标与护栏、验证输出。
 - [[Software Factory]] — 长时间运行的 Agent 覆盖软件生命周期，企业选择自动化 repository、阶段及人工检查点。
 - [[Agent-Native Infrastructure]] — 为 agent 而非给人点屏幕设计的基础设施：Markdown、CLI/API/MCP、结构化日志与可粘贴指令。
+- [[Making product decisions]] — 规格未覆盖或没有 PM 时，开发者凭产品感知自行判断方向与取舍，满足真实用户需求。
 - [[0 人工代码、0 人工 review 极限形态]] — 工作流逼近零人工写码、零人工 review，用模型高并发低成本替代人的同步注意力。
 - [[不可见的劳动]] — 收紧提示、拦下静默失败等不产出可见物、因而被低估的劳动。
 - [[共享产品系统 shared product system]] — 承载反馈、意图、决策、计划与代码的载体，让人与 agent 能共同在其中工作。
-- [[人在关键路径确认]] — 人只在关键节点拍板：做不做、选哪个方案、交互是否友好。
 - [[信任机制重构]] — 组织转型第一步是从信任人转向信任 AI 系统，先建立 guardrails、验证与结果审核机制，团队才愿意让 AI 主导执行。
 - [[组织级技能与指引 skills Linear way skill]] — 产品内置分组织级与个人级的技能与指引，如“Linear way skill”让 agent 按固定格式把功能请求综合成可讨论、可执行的东西。
+- [[AI Engineering skills]] — 让开发者不再只实现别人写好的规格，从而扩展自己承担工作范围的技能。
 - [[Architecture Operator 分工]] — AI 环境下工程团队分两类：Architecture 管系统设计与安全边界，Operator 管具体运行。
 - [[Forward Deployed Engineer]] — 驻场工程师，进入客户组织落地集成、长期 Agent、自动化与应用，以可持续的严格 ROI 为成功标准。
 - [[Lights-off 软件工厂]] — 连代码评审都去掉、不再有人读代码的软件工厂形态，实践后因反复撞上无解问题而放弃。
 - [[瓶颈转移到代码两侧]] — 编码已不是瓶颈，瓶颈移到设计确认与测试验证部署两侧。
+- [[intelligent personal hub]] — 苹果押注 iPhone 为 AI 时代个人中枢：端侧算力与常伴屏幕、视觉吞吐优势、核心数据自控。
+- [[不做半成品]] — 苹果的入场筛选标准：不因某品类热就拿出未过质量、耐用与工业设计关的产品。
+- [[大画布生态资产]] — 苹果为 iPad 累积的大屏交互、自适应 API 与第三方适配经验，是折叠屏展开即用的现成资产。
 - [[管理 Agent]] — Loop Engineering 的核心竞争力在管理而非纯工程：目标清晰、资源充足、反馈及时，也是好 loop 的条件。
-- [[目标—项目—日常工作的连接]] — 把日常工作通过项目挂到更大目标上，启动会审目标日期，排周期计划时回看项目。
+- [[克制且有意识地推进／把节奏交还给产品自己]] — Ternus 的创新节奏观：不先宣布颠覆蓝图，先做改善现有产品的小功能，发布节拍由产品成熟度决定。
+- [[折叠屏连续性]] — 内外屏同比例使界面等比缩放，控件收拢右侧保持拇指位置，展开前后交互不断裂。
 - [[AI 原生开发 AI-native development]] — AI 原生开发不是新流程，而是用新方式跑旧的软件开发流程。
+- [[Communicating and leading]] — AI 工程技能使开发者涉足更广工作范围，需与市场、财务、法务协调并向非工程人员解释 AI 可行性。
+- [[High-agency ownership]] — 在他人尚不清楚 AI 能做什么时主动发现机会、提出方案并端到端负责，同时尊重组织优先级与约束。
+- [[Roles are blurring]] — 产品经理、设计师、开发者、项目经理之间的分工边界正在消失。
 - [[「模型即产品」的幻觉]] — 误以为接上 API、写个 prompt、演示惊艳就等于产品做完，忽视其后的全部工程工作。
 - [[产品记忆平台 product memory platform]] — Karri 对 Linear 的定位：不做通用 agent 平台，而做产品上下文与产品记忆的所在地，是通往产品思考的 API。
 - [[产品经理的组织化]] — 产品经理不会消失，但对齐职能被 AI 削弱，产品判断分散到工程师、设计师和整个团队，成为组织能力。
 - [[代理原生 agent-native]] — 不给旧产品外挂 chatbot，而是把产品从底层做成供 agent 使用、并为其提供上下文与集成的形态。
 - [[共享 多人 agent 会话]] — Agent 会话对团队可见，多人可进入同一会话共同查看与修改，压缩协作循环。
-- [[可扩展性]] — 好工具应小团队易上手，又能随团队规模扩大而不断增强功能。
-- [[设计师与工程师的推拉关系]] — 设计师向前推创意、工程师往回拉可行性，形成自然推拉，最优者两种才能兼具。
-- [[为特定用途而设计]] — 生产力软件应按特定用途设计，过度灵活随团队扩大会变成混乱。
+- [[人在关键路径确认]] — 人只在关键节点拍板：做不做、选哪个方案、交互是否友好。
 - [[虚拟同事 Virtual Co-workers]] — 对「与人类协作的 AI 代理」这一角色尚无共识命名时，被认为相对最不坏的一种叫法。
-- [[周期 Cycle]] — 用固定长度周期推进工作，常用两周，未完成任务自动滚入下一周期。
+- [[硬件、软件与服务的深层共振]] — 苹果的整合框架：硬件、软件与服务咬合出的综合体验，远超各零件物理相加。
 - [[资深悖论]] — 初级工程师因思想负担轻更易适应 AI-First；资深者的 specialty 可能贬值，但具备架构与产品判断且拥抱 AI 者更稀缺。
 - [[自动驾驶产品与项目记忆 self-driving project memory]] — 预测：一个 project 可像 agent 一样基于涌入的反馈与规则自动决策，仍可要求一定人类输入，即所谓项目记忆。
 - [[Implementation 能力]] — AI 环境下工程师、产品经理、设计师把想法在一两小时内落成产品的能力，因对齐成本可能高于实现成本。
 - [[Polished Output vs Real Judgment]] — AI 时代领导力核心是分辨漂亮表达与真实判断；分不清会让组织知识环境整体退化。
 - [[skill 作为 onboarding 载体]] — 把新功能的使用方法写成 skill，让 Agent 带着人上手，替代传统文档式 onboarding。
 - [[插件与市场 Plugin Marketplace]] — 插件按类似 .claude 的结构打包技能，分发到市场供他人自行发现安装
+- [[躲避大模型 的发心]] — 创业第一动机若是躲避大模型，产品会越走越窄，最终躲开的是用户。
+- [[可变光圈与控制权回归]] — 机械叶片改变进光量与景深，算法让普通用户无感受益，手动模式把控制权交还专业用户。
 - [[「并不 agentic」的 AI Agent]] — 市面多数以 AI Agent 为卖点的产品其实以确定性代码为主，只在恰到好处的点插入 LLM 步骤。
 - [[单一负责人 Owner]] — 每个项目指定一位负责人，由他撰写项目简报并交付成果，责任不摊薄到团队。
 - [[二八反转]] — 人机交互的二八法则反转：未来八成与软件的交互经 Agent 完成，UI 只保留确认类操作。
@@ -991,7 +1043,7 @@
 - [[护城河清单与插件化路线]] — 逐项检验竞品功能是否真依赖某载体（如 IDE），若不依赖，则载体护城河被削弱，纯插件路线可能更有前途。
 - [[交互 Scalability Interaction Scalability]] — 当 Agent 产出速度远超人类注意力时，人应当通过什么界面来有效 steer 整个系统。
 - [[阶段压缩 compression]] — agent 吸收程序性工作后，原本分离的规划、实现、代码评审三个阶段开始合并压缩。
-- [[人的手感与产品手艺]] — 产品构建仍是靠直觉与对问题的理解的手艺，不把 A/B 测试与纯数据当决策依据。
+- [[可扩展性]] — 好工具应小团队易上手，又能随团队规模扩大而不断增强功能。
 - [[小而模块化的概念]] — 从 agent 构建中取小而模块化的概念，直接嵌入现有产品，多数熟练工程师无需 AI 背景即可应用。
 - [[虚荣指标 vanity metrics]] — 度量产出却不度量价值的指标，如 agent 写了多少代码、合并多少 PR、消耗多少 token。
 - [[以项目创建者为中心]] — 工具设计以最终用户即项目创建者为中心，个人高效优先于完美报告。
@@ -1000,11 +1052,11 @@
 
 </details>
 
-## 认知与思维方法（31）
+## 认知与思维方法（29）
 
 > 人该用什么方式思考，才不被工具替代？
 
-**枢纽**：[[外包思考，但不外包理解]] · [[Simulated Competence]] · [[The Deferred Bill]] · [[局部最优 local optima]] · [[Friction-based Skill Formation]] · [[2026 版约束理论]] · [[今天的魔法咒语，明天的反模式]] · [[软件脑]]
+**枢纽**：[[外包思考，但不外包理解]] · [[Simulated Competence]] · [[The Deferred Bill]] · [[局部最优 local optima]] · [[Friction-based Skill Formation]] · [[2026 版约束理论]] · [[今天的魔法咒语，明天的反模式]] · [[意图、判断与品味 intent, judgment, taste]]
 
 <details><summary>全部</summary>
 
@@ -1015,8 +1067,6 @@
 - [[Friction-based Skill Formation]] — 调试直觉、系统直觉、品味与怀疑能力只能从犯错、溯源、碰壁的摩擦中长出来，没有捷径。
 - [[2026 版约束理论]] — 承认模型有强弱约束，与其赌灯灭式跃迁，不如在约束内优化系统并读代码。
 - [[今天的魔法咒语，明天的反模式]] — 当下被奉为最佳实践的 AI 做法多是边做边摸索的产物，今天的魔法咒语很可能成为明天的反模式。
-- [[软件脑]] — 把世界整体看成一堆可用代码语言操控的数据库的世界观，默认现实与数据库一一对应。
-- [[数字存在 Digital Presence]] — 人的数字上下文可持续演化，甚至在人离开后仍通过 AI 系统与世界互动。
 - [[意图、判断与品味 intent, judgment, taste]] — 机械环节交给 agent 之后留给人的高价值部分：人应把时间花在意图、判断与品味上，而非管理流程。
 - [[意向性立场]] — 把待预测对象当作理性主体，据其在世界中的位置与目的推断应有信念与欲望，再预测其行动。
 - [[意向性系统理论]] — 丹尼特的观点：只要行为模式能让意向立场奏效，就是「真正的信徒」；意向状态是反映客观特征的图式。
@@ -1028,10 +1078,10 @@
 - [[Taste]] — 在美学、判断与取舍上的品味，负责在多个可运行方案中挑出对的、优雅的那个。
 - [[Without Defensiveness]] — 承认错误后不甩锅、不列条件、不找借口，否则承认失效，只是给「被错」打麻药。
 - [[3+ 法则]] — 决策前强制列出至少 3 个方案，避免二元对立陷阱，拓宽思考宽度。
-- [[给事物命名]] — 命名是把事物安置到某个位置；像「中年危机」这样的宽泛词会变成杂物间，掩盖未被思考的问题。
 - [[回声 echo of your own tangle of thoughts]] — 模型返回的常不是新观点，而是你原有那团缠绕想法的回声。
 - [[价值定义]] — 人的未来价值在于判断一件事是否还有价值，并定义需求方向、审核结果。
 - [[决策慢、执行快]] — 决定做什么要慢、想清楚再动手；一旦定了执行要快，不要用 AI 加速决策本身。
+- [[数字存在 Digital Presence]] — 人的数字上下文可持续演化，甚至在人离开后仍通过 AI 系统与世界互动。
 - [[四阶段演化模型]] — 按机器智能水平划分的四阶段：原始计算、智能体、人类级智能、超人智能。
 - [[稀疏反馈推断规则]] — 从稀疏反馈中推断规则、以此构建世界模型的能力。
 - [[原则侧]] — 材料仅给出名称「原则侧」，未提供任何正文，本条目只如实记录该名称本身。
@@ -1071,22 +1121,30 @@
 
 </details>
 
-## 经济与商业逻辑（29）
+## 经济与商业逻辑（39）
 
 > 价值、资本和生意在这个时代怎么流动？
 
-**枢纽**：[[开源 vs 闭源]] · [[死亡地带]] · [[对话式广告归因闭环]] · [[机会成本]] · [[前沿实验室]] · [[DeepSeek Moment]] · [[LLM 订阅错配（LLM Subscription Mispricing）]] · [[OAIQ]]
+**枢纽**：[[模型吞噬]] · [[推理成本锁死毛利]] · [[开源 vs 闭源]] · [[死亡地带]] · [[卖 token 的生意]] · [[应用公司的租客处境]] · [[对话式广告归因闭环]] · [[机会成本]]
 
 <details><summary>全部</summary>
 
+- [[模型吞噬]] — 模型每升级一次就收走一批应用赖以生存的核心价值，缓慢但持续。
+- [[推理成本锁死毛利]] — 每次使用都产生推理成本且不随规模摊薄，AI 应用毛利被结构性锁在低位。
 - [[开源 vs 闭源]] — 开源靠社区传播、闭源靠资本算力循环；在中国环境下，开源路线能走多远取决于产业资本能否独立于政府资本持续投入。
 - [[死亡地带]] — 开源模型一旦追平闭源，闭源基础模型公司「卖模型」的价值归零的那条临界线。
+- [[卖 token 的生意]] — AI 应用实为从模型公司买入推理能力再加价卖出，收入更像流水而非订阅。
+- [[应用公司的租客处境]] — 应用公司名下的产品，最重要的能力和更新节奏都握在上游模型手里。
 - [[对话式广告归因闭环]] — 把对话变成可归因渠道：对话主题定向 → SSE 注入广告单元 → webview 跳转 → OAIQ 上报。
 - [[机会成本]] — 为做一件事而放弃的其他选择中最高的价值；超大厂商真正的挑战是算力该分给谁。
 - [[前沿实验室]] — 处在能力最前线的少数实验室（如 Anthropic 与 OpenAI），其长期真正的对手是开源模型。
 - [[DeepSeek Moment]] — DeepSeek 每发一代模型就冲击一次市场：集中暴露闭源路线脆弱性，把焦点从更大模型推向更高效率与更开放生态。
 - [[LLM 订阅错配（LLM Subscription Mispricing）]] — 月费这种商业模式从根上跟 LLM 不兼容。
-- [[OAIQ]] — OpenAI 商家端转化追踪 SDK，读取 oppref、写 cookie，并把访问、加购、下单等上报 bzr.openai.com。
+- [[往下游去：卖结果]] — 不卖工具而对客户的结果、交易和利润负责，交付物卖出远高于算力成本的价格。
+- [[模型即应用]] — 模型本身是否就构成应用、应用层还有无独立价值的命题，两边都有证据。
+- [[窗口期]] — 一个应用还能独立存在并被验证的时间，从一两年缩到两三个月甚至一个月。
+- [[往上游去：自己做模型]] — 应用公司反向进入模型层训练垂直模型，把原本在别人手里的核心能力拿回来。
+- [[ARR（年度经常性收入）的失真]] — 把一次性收入或最高单日流水乘成年度数字，且 AI 应用续约率远低于 SaaS。
 - [[“SaaS 已死”叙事与护城河蒸发]] — 市场认为 SaaS 护城河消失、未来现金流更不确定的叙事，但“人人自攒 CRM”的版本被指过于简化。
 - [[次贷式 AI 危机（Subprime AI Crisis）]] — 把 AI 当 2008 年次贷：产品价格被刻意压低、风险层层打包隐藏，靠一连串「互相付钱」的循环，环节付不起真实成本就反向崩塌。
 - [[对话上下文定向]] — 定向信号是当前对话本身的主题，原文未证实是否也纳入历史对话。
@@ -1096,12 +1154,14 @@
 - [[粘性界面与 token 成本转移]] — 模式洞察：Linear 仍是 SaaS 的粘性界面，是工作发起与信息记录处，却不为 token 付费；成本由模型厂商和 coding agent 承担。
 - [[General Purpose Technology]] — 能广泛渗透并重塑整个经济的技术，如蒸汽机、电力、互联网，需要配套的组织变革。
 - [[Hyperscaler]] — 超大规模云厂商，需在云业务、自有主业与对模型公司的战略投资之间做平衡。
-- [[oppref]] — 广告点击 URL 上的前向归因 token，被写入 __oppref cookie（30 天），随每次转化事件回传。
+- [[OAIQ]] — OpenAI 商家端转化追踪 SDK，读取 oppref、写 cookie，并把访问、加购、下单等上报 bzr.openai.com。
+- [[Scaling to bankruptcy]] — 在成本不随规模下降的结构里越增长越烧钱，离死亡越近。
 - [[Stargate 依赖闭环（Stargate Dependency Loop）]] — Oracle 借债建 Stargate、OpenAI 付费、资本市场叙事三者互相绑死的融资闭环
 - [[Token 补贴缺口（Token Subsidy Gap）]] — 用户每付 1 美元、公司却烧掉约 8–13.5 美元算力，这是 AI 公司单位经济的核心错配。
+- [[竞相超越 race to the top]] — 让安全成为竞争维度：更谨慎、更能被验证的公司在声誉与市场上占优。
+- [[性能冗余与高保值]] — 以 2 纳米制程、均热板与多年系统维护让手机三四年后仍流畅，并把性能超前转化为二手保值。
 - [[苍白之马（Pale Horse）]] — Ed Zitron 借《启示录》死亡之马的意象，标记 AI 产业「灾难性转折点」的临界信号。
 - [[出海]] — 中国公司国内竞争过热后向海外扩张的产业动作，继制造、电商、游戏之后，微短剧与 AI 视频成为最新案例。
-- [[政府资本 vs 产业资本]] — 政府资本以政策意志、KPI、政治安全为决策函数求「可控」；产业资本以风险—回报为函数求指数级回报。
 - [[Agent 经济]] — 未来购物、订阅、筛选信息的执行者可能是 Agent，营销素材与产品界面需面向 Agent 消费。
 - [[AI 泡沫]] — 判定标准不是涨得猛，而是投入与可见收益之间出现失衡，常被类比铁路与互联网泡沫。
 - [[Frontier Demand 前沿需求]] — 总市场需求中出乎意料地大的一部分，落在绝对前沿而非中间地带。
@@ -1111,27 +1171,28 @@
 
 </details>
 
-## AI 监管与问责（5）
+## AI 监管与问责（6）
 
 > AI 出事找谁、由谁登记、按谁的规矩？
 
-**枢纽**：[[责任链条散了]] · [[AI 护照]] · [[承诺链条]] · [[Manus 收购叫停事件]] · [[opt in opt out]]
+**枢纽**：[[责任链条散了]] · [[AI 护照]] · [[全球分级协定 Level 1–4]] · [[承诺链条]] · [[Manus 收购叫停事件]] · [[opt in opt out]]
 
 <details><summary>全部</summary>
 
 - [[责任链条散了]] — AI 同时像软件、员工、外包商与代理人，传统「找开发商/找公司/找平台」的问责路径各自假设单一主体类型，于是全部失灵。
 - [[AI 护照]] — AI 的可登记身份，不关乎血统，而是一张写明从哪里来、受谁约束、出事找谁的责任地址。
+- [[全球分级协定 Level 1–4]] — 按难度分四档：禁明显危险用途、发布前急性风险测试、递归自改进限速、全面 pacing 或暂停。
 - [[承诺链条]] — 高考换走 12 年青春靠一条因果承诺链：苦读→好大学→好专业→体面工作→稳定上升，AI 时代每环都在松动。
 - [[Manus 收购叫停事件]] — 中国发改委宣布禁止 Meta 对 Manus 约 20 亿美元的收购并责令撤销，期间召创始人入京、限制出境。
 - [[opt in opt out]] — 制度默认值的设计：默认全员使用不可退出，还是须家长主动选择，决定家长有无发言权。
 
 </details>
 
-## AI 内容生态（12）
+## AI 内容生态（13）
 
 > 内容被 AI 生产、分发和消费之后，什么变了？
 
-**枢纽**：[[扁平化]] · [[AI 可见性]] · [[废料怪兽]] · [[AI 反弹潮]] · [[AI 爬虫五大分类]] · [[GEO]] · [[独立视频 standalone video]] · [[算法即决定性力量]]
+**枢纽**：[[扁平化]] · [[AI 可见性]] · [[废料怪兽]] · [[AI 反弹潮]] · [[AI 爬虫五大分类]] · [[GEO]] · [[“AI agent civilizations” 叙事 civilizations conspiracy taking over]] · [[独立视频 standalone video]]
 
 <details><summary>全部</summary>
 
@@ -1141,6 +1202,7 @@
 - [[AI 反弹潮]] — 公众对 AI 的负面情绪在加深：过半美国人认为 AI 弊大于利，Gen Z 中仅 18% 抱有希望、31% 感到愤怒。
 - [[AI 爬虫五大分类]] — AI 爬虫并非一类，各自用途不同，因此 robots.txt 不能当简单开关用。
 - [[GEO]] — 面向生成式引擎的内容优化，如加入权威引用可提升 AI 可见性 115%。
+- [[“AI agent civilizations” 叙事 civilizations conspiracy taking over]] — 把 prompt loop 与 LLM 输出说成秘密文明、阴谋、接管的拟人化叙事，本文视其为待拆解对象。
 - [[独立视频 standalone video]] — 不连接任何 lesson 或 course 的视频；AI 需先从文档中读到这一定义才能正确分类。
 - [[算法即决定性力量]] — 在 clip 时代，能否被算法推荐比内容质量更决定生死的判断。
 - [[注水内容]] — 为刷分堆砌的重复内容，与已有段落同义、无新增信息，纯 Q&A/FAQ 格式反而有害。
@@ -1150,11 +1212,11 @@
 
 </details>
 
-## AI 算力与基建（10）
+## AI 算力与基建（11）
 
 > 模型跑在什么芯片、什么电、什么水里？
 
-**枢纽**：[[平行 AI 基础设施]] · [[数据中心]] · [[芯片管制]] · [[AI 从应用到基础设施]] · [[昇腾]] · [[蒸发冷却]] · [[AI 主权审查机制]] · [[每年超过 10 倍增长]]
+**枢纽**：[[平行 AI 基础设施]] · [[数据中心]] · [[芯片管制]] · [[AI 从应用到基础设施]] · [[昇腾]] · [[蒸发冷却]] · [[AI 主权审查机制]] · [[民主国家对专制政权的领先幅度 the lead over the CCP]]
 
 <details><summary>全部</summary>
 
@@ -1165,6 +1227,7 @@
 - [[昇腾]] — 华为的国产 AI 加速芯片系列，被视作中国本土算力承载前沿模型推理的平台。
 - [[蒸发冷却]] — 数据中心用水的主要去处：机器跑电生热，热靠水蒸发带走，工业冷却效率约 60-90%，因此 AI 用电规模≈AI 用水规模。
 - [[AI 主权审查机制]] — 给 AI 装国籍的四类工具：外资安全审查、本地化主权云、国家配套基础设施与价值观包装。
+- [[民主国家对专制政权的领先幅度 the lead over the CCP]] — 减速不能减到丢掉对中共的领先，否则国家安全风险盖过收益；护栏决定领先能维持多久。
 - [[每年超过 10 倍增长]] — Habitat 处于每年超过 10 倍增长的约束下，团队必须在超增长过程中同时建设平台。
 - [[CXL 内存池化]] — 用 CXL 把多台服务器内存聚成共享池，作为 GPU HBM、本地 DRAM 之后的第三级内存层。
 - [[Trainium]] — AWS 自研芯片，名字虽指向训练，主力其实是推理，多以 Bedrock 等托管服务形态交付。

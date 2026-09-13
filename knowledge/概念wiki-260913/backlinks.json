@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-13T08:28:09.366Z",
+ "generatedAt": "2026-09-13T20:03:38.560Z",
  "backlinks": {
   "Agent = Model + Harness": [
    "Harness",
@@ -277,6 +277,12 @@
    "harness 与 framework 的分野",
    "step"
   ],
+  "事件驱动编排与执行解耦": [
+   "Harness",
+   "持久化执行 durable execution",
+   "事件驱动的自动化 Automations",
+   "harness 与 framework 的分野"
+  ],
   "普遍可触发 universally triggered": [
    "Harness",
    "持久化执行 durable execution",
@@ -492,13 +498,6 @@
    "时间 Scalability Temporal Scalability",
    "messages API 作为直连网关"
   ],
-  "Environment": [
-   "Harness",
-   "Sandbox",
-   "Claude Managed Agents",
-   "Sandbox agents",
-   "messages API 作为直连网关"
-  ],
   "SKILL.md 与 YAML 前置元数据 SKILL.md YAML frontmatter": [
    "Skill",
    "启动时仅加载名称和描述",
@@ -701,7 +700,6 @@
    "Kappa 系数",
    "LLM 订阅错配（LLM Subscription Mispricing）",
    "Nerdy Personality",
-   "OAIQ",
    "Onboarding Agent",
    "pass@k",
    "Q、K、V",
@@ -734,7 +732,6 @@
    "桥接推理",
    "让自己对 AI 可读",
    "人机协作",
-   "软件脑",
    "上下文缺口",
    "昇腾",
    "世界模型",
@@ -783,7 +780,7 @@
    "MaxRL",
    "mHC",
    "N-gram",
-   "oppref",
+   "OAIQ",
    "Plan 模式",
    "Polished Output vs Real Judgment",
    "Rationale 参数",
@@ -810,7 +807,6 @@
    "第二意见",
    "短上下文",
    "二八反转",
-   "给事物命名",
    "价值函数",
    "冷热分离（记忆）",
    "模型蒸馏",
@@ -824,7 +820,6 @@
    "信息瓶颈原则",
    "行为提取",
    "噪声上下文",
-   "政府资本 vs 产业资本",
    "指代表达",
    "注水内容",
    "AgentCore",
@@ -923,7 +918,6 @@
    "Kappa 系数",
    "LLM 订阅错配（LLM Subscription Mispricing）",
    "Nerdy Personality",
-   "OAIQ",
    "Onboarding Agent",
    "pass@k",
    "Q、K、V",
@@ -957,7 +951,6 @@
    "桥接推理",
    "让自己对 AI 可读",
    "人机协作",
-   "软件脑",
    "上下文缺口",
    "昇腾",
    "世界模型",
@@ -1006,7 +999,7 @@
    "MaxRL",
    "mHC",
    "N-gram",
-   "oppref",
+   "OAIQ",
    "Plan 模式",
    "Polished Output vs Real Judgment",
    "Rationale 参数",
@@ -1033,7 +1026,6 @@
    "第二意见",
    "短上下文",
    "二八反转",
-   "给事物命名",
    "价值函数",
    "冷热分离（记忆）",
    "模型蒸馏",
@@ -1047,7 +1039,6 @@
    "信息瓶颈原则",
    "行为提取",
    "噪声上下文",
-   "政府资本 vs 产业资本",
    "指代表达",
    "注水内容",
    "AgentCore",
@@ -1145,7 +1136,6 @@
    "Kappa 系数",
    "LLM 订阅错配（LLM Subscription Mispricing）",
    "Nerdy Personality",
-   "OAIQ",
    "Onboarding Agent",
    "pass@k",
    "Q、K、V",
@@ -1178,7 +1168,6 @@
    "桥接推理",
    "让自己对 AI 可读",
    "人机协作",
-   "软件脑",
    "上下文缺口",
    "昇腾",
    "世界模型",
@@ -1227,7 +1216,7 @@
    "MaxRL",
    "mHC",
    "N-gram",
-   "oppref",
+   "OAIQ",
    "Plan 模式",
    "Polished Output vs Real Judgment",
    "Rationale 参数",
@@ -1254,7 +1243,6 @@
    "第二意见",
    "短上下文",
    "二八反转",
-   "给事物命名",
    "价值函数",
    "冷热分离（记忆）",
    "模型蒸馏",
@@ -1268,7 +1256,6 @@
    "信息瓶颈原则",
    "行为提取",
    "噪声上下文",
-   "政府资本 vs 产业资本",
    "指代表达",
    "注水内容",
    "AgentCore",
@@ -1388,7 +1375,6 @@
    "任务时域 task horizon",
    "三层工程 prompt context harness engineering",
    "沙箱化自主",
-   "事件驱动编排与执行解耦",
    "所有权与问责",
    "系统提示 System Prompt",
    "显式且可检查的并行",
@@ -1484,11 +1470,11 @@
    "上下文压缩与即时检索 compaction just-in-time retrieval",
    "审批疲劳",
    "示例强于规则",
+   "事件驱动编排与执行解耦",
    "锁竞争与乐观并发控制",
    "通用工具与「给模型一台计算机」",
    "为吞吐量设计与可接受错误率",
    "橡皮鸭复审",
-   "小函数组合",
    "协同进化与紧耦合 co-evolution principle",
    "新鲜度机制",
    "优化对象的阶梯",
@@ -2067,7 +2053,6 @@
    "上下文均匀处理假设",
    "上下文失败，而非模型失败 context failures, not model failures",
    "上下文协作 context-cooperative",
-   "数字存在 Digital Presence",
    "系统而非字符串 A System, Not a String",
    "押注 in-context learning",
    "延迟加载工具 deferred loading",
@@ -2110,6 +2095,7 @@
    "上下文（Context）：模型生成之前看到的一切",
    "示例的探索空间约束",
    "示例会收窄探索空间",
+   "数字存在 Digital Presence",
    "四阶段演化模型",
    "拓扑作为新抽象层",
    "文件系统即终极上下文",
@@ -2231,7 +2217,6 @@
   "数字存在 Digital Presence": [
    "上下文 context",
    "上下文工程 context engineering",
-   "软件脑",
    "熵减 entropy reduction"
   ],
   "Tacit Knowledge": [
@@ -2269,12 +2254,12 @@
    "分层记忆架构",
    "上下文隔离 context isolation",
    "上下文协作 context-cooperative",
-   "数字存在 Digital Presence",
    "语义操作系统 semantic operating system",
    "原始上下文容忍度 tolerance for raw context",
    "注意力之前的注意力 attention before attention",
    "最小充分性与语义连续性原则",
    "轻量引用 lightweight references",
+   "数字存在 Digital Presence",
    "四阶段演化模型",
    "意图翻译者 intention translator"
   ],
@@ -2292,6 +2277,28 @@
    "Personal Context",
    "合成键值检索任务",
    "Context Distraction"
+  ],
+  "Transformer Block、Stack、Block Application transformer block, stack, block applic": [
+   "Looped Transformer Recurrent Depth looped transformer, recurrent depth"
+  ],
+  "Weight Sharing and Effective Depth": [
+   "Looped Transformer Recurrent Depth looped transformer, recurrent depth"
+  ],
+  "Looping Costs：参数、计算与 KV Cache looping costs": [
+   "Looped Transformer Recurrent Depth looped transformer, recurrent depth",
+   "Compute-Matched Looped Transformer SMELT"
+  ],
+  "Adaptive Halting adaptive halting, halting probability": [
+   "Looped Transformer Recurrent Depth looped transformer, recurrent depth"
+  ],
+  "Per-token Routing：Expert-choice vs Token-choice Mixture-of-Recursions, routing": [
+   "Looped Transformer Recurrent Depth looped transformer, recurrent depth"
+  ],
+  "RNN Recurrence vs Looped Transformer Depth Recurrence": [
+   "Looped Transformer Recurrent Depth looped transformer, recurrent depth"
+  ],
+  "Latent Reasoning inference-time looping": [
+   "Looped Transformer Recurrent Depth looped transformer, recurrent depth"
   ],
   "RLHF": [
    "Reward Signal",
@@ -2541,6 +2548,12 @@
    "Environment",
    "very few abstractions"
   ],
+  "Environment": [
+   "Sandbox",
+   "Claude Managed Agents",
+   "Sandbox agents",
+   "messages API 作为直连网关"
+  ],
   "Tool Calling": [
    "Sandbox",
    "沙箱化自主",
@@ -2596,7 +2609,6 @@
    "子 agent 与 step.invoke()",
    "Agent loop",
    "Stateful Runtime Environment (SRE)",
-   "事件驱动编排与执行解耦",
    "统一执行状态与业务状态",
    "压缩（compaction）与运行内外的分工",
    "Git-backed state",
@@ -2607,7 +2619,7 @@
    "基础设施问题，不是 AI 问题",
    "两级上下文剪枝 pruning",
    "普遍可触发 universally triggered",
-   "小函数组合",
+   "事件驱动编排与执行解耦",
    "预算警告与溢出恢复",
    "Agents SDK",
    "steering",
@@ -2771,7 +2783,6 @@
    "上下文隔离 context isolation",
    "上下文失败，而非模型失败 context failures, not model failures",
    "上下文协作 context-cooperative",
-   "数字存在 Digital Presence",
    "系统而非字符串 A System, Not a String",
    "语义操作系统 semantic operating system",
    "原始上下文容忍度 tolerance for raw context",
@@ -2780,6 +2791,7 @@
    "Tacit Knowledge",
    "轻量引用 lightweight references",
    "熵减 entropy reduction",
+   "数字存在 Digital Presence",
    "四阶段演化模型",
    "意图翻译者 intention translator"
   ],
@@ -3308,21 +3320,10 @@
    "harness 与 framework 的分野",
    "ReAct loop"
   ],
-  "事件驱动编排与执行解耦": [
-   "持久化执行 durable execution",
-   "事件驱动的自动化 Automations",
-   "harness 与 framework 的分野",
-   "小函数组合"
-  ],
   "webhook transform 与 connect()": [
    "持久化执行 durable execution",
    "harness 与 framework 的分野",
    "higher-level runtime"
-  ],
-  "小函数组合": [
-   "持久化执行 durable execution",
-   "事件驱动编排与执行解耦",
-   "harness 与 framework 的分野"
   ],
   "压缩（compaction）与运行内外的分工": [
    "持久化执行 durable execution",
@@ -3341,7 +3342,6 @@
    "持久化执行 durable execution",
    "子 agent 与 step.invoke()",
    "Runtime-harness separation",
-   "事件驱动编排与执行解耦",
    "压缩（compaction）与运行内外的分工",
    "harness 厚薄 thin vs thick",
    "Harness Thickness",
@@ -3349,7 +3349,7 @@
    "基础设施问题，不是 AI 问题",
    "两级上下文剪枝 pruning",
    "普遍可触发 universally triggered",
-   "小函数组合",
+   "事件驱动编排与执行解耦",
    "预算警告与溢出恢复",
    "steering",
    "step",
@@ -3707,8 +3707,8 @@
   ],
   "正确的信息与工具，在正确的时间": [
    "有限的工作记忆 limited working memory",
-   "OAIQ",
    "知识与能力的双供给 information and tools",
+   "OAIQ",
    "上下文（Context）：模型生成之前看到的一切"
   ],
   "上下文（Context）：模型生成之前看到的一切": [
@@ -4437,10 +4437,10 @@
   "Artifact Schema": [
    "Agent loop",
    "Cross-session Work",
-   "持久化代码图谱 structural map graph",
    "Git-backed state",
    "Loop Engineer",
-   "Shared File System"
+   "Shared File System",
+   "持久化代码图谱 structural map graph"
   ],
   "Read-only Verifier Agent": [
    "Agent loop",
@@ -4475,6 +4475,26 @@
    "分层记忆架构",
    "知识端点",
    "agent 与 harness 的分工"
+  ],
+  "应用公司的租客处境": [
+   "模型吞噬",
+   "往上游去：自己做模型"
+  ],
+  "窗口期": [
+   "模型吞噬"
+  ],
+  "模型即应用": [
+   "模型吞噬"
+  ],
+  "卖 token 的生意": [
+   "推理成本锁死毛利",
+   "ARR（年度经常性收入）的失真"
+  ],
+  "Scaling to bankruptcy": [
+   "推理成本锁死毛利"
+  ],
+  "往下游去：卖结果": [
+   "推理成本锁死毛利"
   ],
   "Simulated Competence": [
    "外包思考，但不外包理解",
@@ -4620,11 +4640,6 @@
    "系统竞争",
    "Sensors 与 Actuators"
   ],
-  "给事物命名": [
-   "外包思考，但不外包理解",
-   "Agent-Native Infrastructure",
-   "Sensors 与 Actuators"
-  ],
   "Ghosts, Not Animals": [
    "外包思考，但不外包理解",
    "Simulated Competence",
@@ -4673,6 +4688,14 @@
    "外包思考，但不外包理解",
    "Agent-Native Infrastructure",
    "通关 ≠ 理解",
+   "Sensors 与 Actuators"
+  ],
+  "开源 vs 闭源": [
+   "外包思考，但不外包理解",
+   "死亡地带",
+   "Agent-Native Infrastructure",
+   "前沿实验室",
+   "DeepSeek Moment",
    "Sensors 与 Actuators"
   ],
   "AgentCore": [
@@ -4730,8 +4753,8 @@
   "对话式广告归因闭环": [
    "外包思考，但不外包理解",
    "Agent-Native Infrastructure",
-   "OAIQ",
    "对话上下文定向",
+   "OAIQ",
    "Sensors 与 Actuators"
   ],
   "对话上下文定向": [
@@ -4834,8 +4857,7 @@
    "执行主体从人变成 Agent"
   ],
   "人在关键路径确认": [
-   "执行主体从人变成 Agent",
-   "可行性分析"
+   "执行主体从人变成 Agent"
   ],
   "SKILL.md 与前置信息": [
    "自动激活",
@@ -4852,20 +4874,16 @@
    "MCP servers",
    "运行时限制、权限与数据保留边界 Runtime Limitations, Constraints, and Retention"
   ],
-  "对象-边模型与分区": [
-   "Rockset 离线二级视图",
-   "持久化代码图谱 structural map graph"
+  "AI Engineering skills": [
+   "Shaping the build",
+   "Communicating and leading"
   ],
-  "从客户端库到独立服务": [
-   "Rockset 离线二级视图",
-   "Habitat"
+  "Making product decisions": [
+   "Shaping the build",
+   "Roles are blurring"
   ],
-  "Habitat": [
-   "Rockset 离线二级视图",
-   "从客户端库到独立服务"
-  ],
-  "设计师与工程师的推拉关系": [
-   "可行性分析"
+  "High-agency ownership": [
+   "Shaping the build"
   ],
   "运行时失败的三类原因": [
    "运行时限制、权限与数据保留边界 Runtime Limitations, Constraints, and Retention"
@@ -4997,6 +5015,14 @@
    "No-progress detection",
    "Skill as asset",
    "Context discipline"
+  ],
+  "被启动的电话游戏 extended game of actuated telephone": [
+   "Prompt loop（prompt loop）／agent",
+   "交互式系统 vs. prompt loop 系统 interactive system vs. prompt loop system"
+  ],
+  "交互式系统 vs. prompt loop 系统 interactive system vs. prompt loop system": [
+   "Prompt loop（prompt loop）／agent",
+   "被启动的电话游戏 extended game of actuated telephone"
   ],
   "needle-question 语义相似度谱系": [
    "上下文腐烂 Context Rot",
@@ -5162,9 +5188,6 @@
    "死亡地带",
    "系统竞争"
   ],
-  "政府资本 vs 产业资本": [
-   "开源 vs 闭源"
-  ],
   "mind meld": [
    "判断力优先 let Claude use judgement",
    "漫谈会话 ramble session",
@@ -5256,12 +5279,6 @@
    "连接器",
    "反自我合理化条款",
    "fail-closed 默认"
-  ],
-  "开源 vs 闭源": [
-   "死亡地带",
-   "前沿实验室",
-   "DeepSeek Moment",
-   "政府资本 vs 产业资本"
   ],
   "agent 模板的声明式持久化": [
    "文件系统即持久记忆",
@@ -5649,8 +5666,8 @@
   ],
   "Review Quality 评分方法": [
    "Rubric",
-   "持久化代码图谱 structural map graph",
    "Kappa 系数",
+   "持久化代码图谱 structural map graph",
    "code-review-graph",
    "Tree-sitter"
   ],
@@ -5871,6 +5888,22 @@
    "原生工具与 MCP 外挂",
    "MCP 工具层"
   ],
+  "Looped Transformer Recurrent Depth looped transformer, recurrent depth": [
+   "Looping Costs：参数、计算与 KV Cache looping costs",
+   "Per-token Routing：Expert-choice vs Token-choice Mixture-of-Recursions, routing",
+   "Transformer Block、Stack、Block Application transformer block, stack, block applic",
+   "Adaptive Halting adaptive halting, halting probability",
+   "Latent Reasoning inference-time looping",
+   "RNN Recurrence vs Looped Transformer Depth Recurrence",
+   "Weight Sharing and Effective Depth"
+  ],
+  "Compute-Matched Looped Transformer SMELT": [
+   "Looping Costs：参数、计算与 KV Cache looping costs"
+  ],
+  "类型化 JSON IR typed JSON IR": [
+   "五种图表类型 Architecture Workflow Sequence Data Flow Lifecycle",
+   "真实交互 truthful interaction"
+  ],
   "技能描述": [
    "技能触发与自动使用 Skill Triggering Automatic Use",
    "语义匹配（semantic matching）与触发短语"
@@ -5968,24 +6001,6 @@
    "三类内容：说明、代码、资源 Instructions, Code, Resources",
    "共享上下文窗口"
   ],
-  "Rockset 离线二级视图": [
-   "从客户端库到独立服务",
-   "对象-边模型与分区",
-   "Habitat"
-  ],
-  "持久化代码图谱 structural map graph": [
-   "对象-边模型与分区",
-   "Artifact Schema",
-   "MCP 工具层",
-   "code-review-graph",
-   "code-review-graphignore 排除配置",
-   "Review Quality 评分方法",
-   "Token 优化的评审上下文 get_review_context_tool",
-   "Watch 模式与自动更新 hooks",
-   "语义搜索 semantic search embeddings",
-   "增量更新 incremental update",
-   "Tree-sitter"
-  ],
   "LLM-as-CPU Harness-as-OS": [
    "非模型架构 Non-model Architecture",
    "AI Agent",
@@ -6022,6 +6037,27 @@
   ],
   "名称冲突优先级与技能作用域": [
    "技能优先级层级结构"
+  ],
+  "五种图表类型 Architecture Workflow Sequence Data Flow Lifecycle": [
+   "类型化 JSON IR typed JSON IR"
+  ],
+  "真实交互 truthful interaction": [
+   "类型化 JSON IR typed JSON IR",
+   "沟通工件与非目标 communication artifact non-goals"
+  ],
+  "放缓所换来的时间的用途 operational excellence alignment interpretability testing and evalua": [
+   "领跑节奏 pacing the frontier"
+  ],
+  "检查点式节奏与配料式节奏 checkpoints ingredients": [
+   "领跑节奏 pacing the frontier"
+  ],
+  "推理成本锁死毛利": [
+   "卖 token 的生意",
+   "往下游去：卖结果",
+   "Scaling to bankruptcy"
+  ],
+  "ARR（年度经常性收入）的失真": [
+   "卖 token 的生意"
   ],
   "Resolver": [
    "上下文文件树 tree of files",
@@ -6076,6 +6112,44 @@
    "冲突指令的隐性成本",
    "示例会收窄探索空间",
    "指令就近原则"
+  ],
+  "持久性 persistence": [
+   "完成标准"
+  ],
+  "Driving the build loop": [
+   "完成标准"
+  ],
+  "原子验证与交付门 atomic validation before delivery": [
+   "修复收据与有限修复轮次 repair receipt supportedFixes",
+   "确定性编译 deterministic compilation"
+  ],
+  "Reasoning Trace Faithfulness faithfulness": [
+   "修复收据与有限修复轮次 repair receipt supportedFixes",
+   "嵌入式评估者 embedded evaluators"
+  ],
+  "模型吞噬": [
+   "应用公司的租客处境",
+   "模型即应用",
+   "窗口期"
+  ],
+  "往上游去：自己做模型": [
+   "应用公司的租客处境"
+  ],
+  "确定性编译 deterministic compilation": [
+   "原子验证与交付门 atomic validation before delivery"
+  ],
+  "修复收据与有限修复轮次 repair receipt supportedFixes": [
+   "原子验证与交付门 atomic validation before delivery",
+   "Reasoning Trace Faithfulness faithfulness"
+  ],
+  "沟通工件与非目标 communication artifact non-goals": [
+   "真实交互 truthful interaction"
+  ],
+  "过度具体指导 overly specific guidance": [
+   "重新审视指令假设"
+  ],
+  "仓库技能的跨模型影响": [
+   "重新审视指令假设"
   ],
   "所有权与问责": [
    "子 Agent 分工",
@@ -6138,11 +6212,18 @@
    "粘性界面与 token 成本转移",
    "自动驾驶产品与项目记忆 self-driving project memory",
    "决策慢、执行快",
-   "人的手感与产品手艺",
    "上下文骨架",
    "缩短循环 shortening the loop",
    "虚荣指标 vanity metrics",
    "Token 卖家的激励错配"
+  ],
+  "Shaping the build": [
+   "Making product decisions",
+   "AI Engineering skills",
+   "High-agency ownership"
+  ],
+  "Roles are blurring": [
+   "Making product decisions"
   ],
   "技能化 Skills": [
    "Thin Harness, Fat Skills",
@@ -6204,6 +6285,10 @@
    "代理原生 agent-native",
    "上下文骨架"
   ],
+  "Prompt loop（prompt loop）／agent": [
+   "被启动的电话游戏 extended game of actuated telephone",
+   "交互式系统 vs. prompt loop 系统 interactive system vs. prompt loop system"
+  ],
   "AI 反弹潮": [
    "扁平化",
    "废料怪兽"
@@ -6225,13 +6310,6 @@
    "昂贵的反馈回路与欠测试",
    "调试散文：一个词就是 bug",
    "提示词即行为程序"
-  ],
-  "人的手感与产品手艺": [
-   "不可见的劳动",
-   "“SaaS 已死”叙事与护城河蒸发",
-   "代理原生 agent-native",
-   "80% 质量墙",
-   "上下文骨架"
   ],
   "非确定性 nondeterminism": [
    "不可见的劳动",
@@ -6263,58 +6341,6 @@
    "Tic Word",
    "进化式搜索与适应度",
    "部署系统层"
-  ],
-  "增量更新 incremental update": [
-   "持久化代码图谱 structural map graph",
-   "code-review-graph",
-   "Tree-sitter"
-  ],
-  "Token 优化的评审上下文 get_review_context_tool": [
-   "持久化代码图谱 structural map graph",
-   "code-review-graph",
-   "just in time 上下文检索",
-   "Tree-sitter"
-  ],
-  "语义搜索 semantic search embeddings": [
-   "持久化代码图谱 structural map graph",
-   "code-review-graph",
-   "Tree-sitter"
-  ],
-  "code-review-graphignore 排除配置": [
-   "持久化代码图谱 structural map graph",
-   "code-review-graph",
-   "Tree-sitter"
-  ],
-  "Watch 模式与自动更新 hooks": [
-   "持久化代码图谱 structural map graph",
-   "Legible Codebase",
-   "code-review-graph",
-   "Skill as asset",
-   "Tree-sitter"
-  ],
-  "code-review-graph": [
-   "持久化代码图谱 structural map graph",
-   "MCP 工具层",
-   "code-review-graphignore 排除配置",
-   "just in time 上下文检索",
-   "Review Quality 评分方法",
-   "Token 优化的评审上下文 get_review_context_tool",
-   "Watch 模式与自动更新 hooks",
-   "语义搜索 semantic search embeddings",
-   "增量更新 incremental update",
-   "Tree-sitter"
-  ],
-  "Tree-sitter": [
-   "持久化代码图谱 structural map graph",
-   "Legible Codebase",
-   "MCP 工具层",
-   "code-review-graph",
-   "code-review-graphignore 排除配置",
-   "Review Quality 评分方法",
-   "Token 优化的评审上下文 get_review_context_tool",
-   "Watch 模式与自动更新 hooks",
-   "语义搜索 semantic search embeddings",
-   "增量更新 incremental update"
   ],
   "Natural language as code": [
    "从禁止什么到对齐什么",
@@ -6355,8 +6381,7 @@
   ],
   "OAIQ": [
    "对话式广告归因闭环",
-   "正确的信息与工具，在正确的时间",
-   "oppref"
+   "正确的信息与工具，在正确的时间"
   ],
   "结构断言与不变量断言": [
    "非确定性 nondeterminism",
@@ -6400,6 +6425,11 @@
    "非确定性 nondeterminism",
    "「模型即产品」的幻觉"
   ],
+  "不可见的劳动": [
+   "非确定性 nondeterminism",
+   "Lights-off 软件工厂",
+   "「模型即产品」的幻觉"
+  ],
   "让不可见变得可见": [
    "非确定性 nondeterminism",
    "卡住即信号 struggle as signal",
@@ -6421,12 +6451,6 @@
    "非确定性 nondeterminism",
    "「模型即产品」的幻觉",
    "约束优于指令"
-  ],
-  "不可见的劳动": [
-   "非确定性 nondeterminism",
-   "Lights-off 软件工厂",
-   "「模型即产品」的幻觉",
-   "人的手感与产品手艺"
   ],
   "难度即护城河": [
    "非确定性 nondeterminism",
@@ -6868,15 +6892,6 @@
    "会话级累积判断",
    "fail-closed 默认"
   ],
-  "可行性分析": [
-   "人在关键路径确认",
-   "设计师与工程师的推拉关系"
-  ],
-  "执行主体从人变成 Agent": [
-   "人在关键路径确认",
-   "瓶颈转移到代码两侧",
-   "AI 原生开发 AI-native development"
-  ],
   "自评失真 Self-evaluation Distortion": [
    "时间 Scalability Temporal Scalability",
    "验证缺口",
@@ -6888,10 +6903,6 @@
    "Personal Context",
    "Self-Improving Context System",
    "空间 Scalability Spatial Scalability"
-  ],
-  "事件驱动的自动化 Automations": [
-   "事件驱动编排与执行解耦",
-   "普遍可触发 universally triggered"
   ],
   "平行 AI 基础设施": [
    "数据中心",
@@ -7010,7 +7021,6 @@
    "粘性界面与 token 成本转移",
    "自动驾驶产品与项目记忆 self-driving project memory",
    "决策慢、执行快",
-   "人的手感与产品手艺",
    "缩短循环 shortening the loop",
    "虚荣指标 vanity metrics",
    "Token 卖家的激励错配"
@@ -7026,7 +7036,6 @@
    "自动驾驶产品与项目记忆 self-driving project memory",
    "护城河清单与插件化路线",
    "决策慢、执行快",
-   "人的手感与产品手艺",
    "上下文骨架",
    "缩短循环 shortening the loop",
    "虚荣指标 vanity metrics",
@@ -7053,10 +7062,25 @@
    "AI 可见性",
    "Human-Only Social Networks"
   ],
+  "Communicating and leading": [
+   "AI Engineering skills"
+  ],
   "Software Factory": [
    "Architecture Operator 分工",
    "Forward Deployed Engineer",
    "Lights-off 软件工厂"
+  ],
+  "持久化代码图谱 structural map graph": [
+   "Artifact Schema",
+   "MCP 工具层",
+   "code-review-graph",
+   "code-review-graphignore 排除配置",
+   "Review Quality 评分方法",
+   "Token 优化的评审上下文 get_review_context_tool",
+   "Watch 模式与自动更新 hooks",
+   "语义搜索 semantic search embeddings",
+   "增量更新 incremental update",
+   "Tree-sitter"
   ],
   "漫谈会话 ramble session": [
    "bits",
@@ -7101,6 +7125,25 @@
    "higher-level runtime",
    "model-native harness"
   ],
+  "Watch 模式与自动更新 hooks": [
+   "Legible Codebase",
+   "持久化代码图谱 structural map graph",
+   "code-review-graph",
+   "Skill as asset",
+   "Tree-sitter"
+  ],
+  "Tree-sitter": [
+   "Legible Codebase",
+   "MCP 工具层",
+   "持久化代码图谱 structural map graph",
+   "code-review-graph",
+   "code-review-graphignore 排除配置",
+   "Review Quality 评分方法",
+   "Token 优化的评审上下文 get_review_context_tool",
+   "Watch 模式与自动更新 hooks",
+   "语义搜索 semantic search embeddings",
+   "增量更新 incremental update"
+  ],
   "推理模型": [
    "LLM Large Language Model",
    "reasoning thinking",
@@ -7122,9 +7165,20 @@
   ],
   "OpenAI 广告基础设施域名": [
    "LLM 订阅错配（LLM Subscription Mispricing）",
-   "oppref",
    "Token 补贴缺口（Token Subsidy Gap）",
    "single_advertiser_ad_unit"
+  ],
+  "code-review-graph": [
+   "MCP 工具层",
+   "持久化代码图谱 structural map graph",
+   "code-review-graphignore 排除配置",
+   "just in time 上下文检索",
+   "Review Quality 评分方法",
+   "Token 优化的评审上下文 get_review_context_tool",
+   "Watch 模式与自动更新 hooks",
+   "语义搜索 semantic search embeddings",
+   "增量更新 incremental update",
+   "Tree-sitter"
   ],
   "harness over-fitting": [
    "model-native harness",
@@ -7151,11 +7205,6 @@
    "MoE",
    "Muon 优化器"
   ],
-  "oppref": [
-   "OAIQ",
-   "OpenAI 广告基础设施域名",
-   "single_advertiser_ad_unit"
-  ],
   "mHC": [
    "Q、K、V",
    "残差流"
@@ -7165,6 +7214,9 @@
   ],
   "Muon 优化器": [
    "Q、K、V"
+  ],
+  "嵌入式评估者 embedded evaluators": [
+   "Reasoning Trace Faithfulness faithfulness"
   ],
   "Self-Improving Context System": [
    "Repo-local instructions",
@@ -7224,11 +7276,29 @@
    "prompt 主导论",
    "「少即是多」：gimmick 与真实增益的分界"
   ],
-  "连接扇入": [
-   "亚稳态故障与 LIFOFIFO 连接重用"
+  "执行主体从人变成 Agent": [
+   "瓶颈转移到代码两侧",
+   "AI 原生开发 AI-native development",
+   "人在关键路径确认"
+  ],
+  "Reasoning model 与 chain-of-thought traces reasoning model chain-of-thought reaso": [
+   "事后合理化与科幻叙事污染 post-hoc rationalizing sci-fi style narratives"
   ],
   "脚本执行": [
    "约束型 API 与成本不平衡"
+  ],
+  "硬件、软件与服务的深层共振": [
+   "intelligent personal hub"
+  ],
+  "克制且有意识地推进／把节奏交还给产品自己": [
+   "不做半成品"
+  ],
+  "折叠屏连续性": [
+   "大画布生态资产"
+  ],
+  "领跑节奏 pacing the frontier": [
+   "放缓所换来的时间的用途 operational excellence alignment interpretability testing and evalua",
+   "检查点式节奏与配料式节奏 checkpoints ingredients"
   ],
   "迁移到 Rust Python→Rust": [
    "分解为小颗粒度工作"
@@ -7256,11 +7326,8 @@
   "约束型 API 与成本不平衡": [
    "脚本执行"
   ],
-  "亚稳态故障与 LIFOFIFO 连接重用": [
-   "连接扇入"
-  ],
-  "周期 Cycle": [
-   "目标—项目—日常工作的连接"
+  "不做半成品": [
+   "克制且有意识地推进／把节奏交还给产品自己"
   ],
   "skills 字段": [
    "内置代理与自定义子代理的技能访问边界"
@@ -7270,6 +7337,16 @@
   ],
   "跨产品面的同步与共享边界 Surface-specific Sync and Sharing": [
    "预构建技能与自定义技能 Pre-built vs Custom Skills"
+  ],
+  "大画布生态资产": [
+   "折叠屏连续性"
+  ],
+  "完成标准": [
+   "Driving the build loop",
+   "持久性 persistence"
+  ],
+  "事后合理化与科幻叙事污染 post-hoc rationalizing sci-fi style narratives": [
+   "Reasoning model 与 chain-of-thought traces reasoning model chain-of-thought reaso"
   ],
   "缩短循环 shortening the loop": [
    "“SaaS 已死”叙事与护城河蒸发",
@@ -7321,9 +7398,34 @@
   "探针": [
    "残差流"
   ],
+  "重新审视指令假设": [
+   "仓库技能的跨模型影响",
+   "过度具体指导 overly specific guidance"
+  ],
   "共享产品系统 shared product system": [
    "产品记忆平台 product memory platform",
    "共享 多人 agent 会话"
+  ],
+  "增量更新 incremental update": [
+   "持久化代码图谱 structural map graph",
+   "code-review-graph",
+   "Tree-sitter"
+  ],
+  "Token 优化的评审上下文 get_review_context_tool": [
+   "持久化代码图谱 structural map graph",
+   "code-review-graph",
+   "just in time 上下文检索",
+   "Tree-sitter"
+  ],
+  "语义搜索 semantic search embeddings": [
+   "持久化代码图谱 structural map graph",
+   "code-review-graph",
+   "Tree-sitter"
+  ],
+  "code-review-graphignore 排除配置": [
+   "持久化代码图谱 structural map graph",
+   "code-review-graph",
+   "Tree-sitter"
   ],
   "Plan 模式": [
    "规划模式与边界问题清单",
@@ -7354,14 +7456,15 @@
   "滑动窗口": [
    "近因偏置 recency bias"
   ],
-  "为特定用途而设计": [
-   "可扩展性"
-  ],
   "OpenClaw": [
    "跨会话记忆文件系统"
   ],
   "General Purpose Technology": [
    "平台跃迁四浪 Platform Shifts"
+  ],
+  "事件驱动的自动化 Automations": [
+   "普遍可触发 universally triggered",
+   "事件驱动编排与执行解耦"
   ],
   "分解为小颗粒度工作": [
    "迁移到 Rust Python→Rust"
@@ -7379,12 +7482,6 @@
   "字面类比": [
    "世界模型"
   ],
-  "软件脑": [
-   "数字存在 Digital Presence"
-  ],
-  "可扩展性": [
-   "为特定用途而设计"
-  ],
   "责任地址": [
    "无国籍智能体",
    "意图的延伸"
@@ -7401,15 +7498,15 @@
    "与底层模型正交 orthogonal to the underlying models",
    "Context Distraction"
   ],
+  "intelligent personal hub": [
+   "硬件、软件与服务的深层共振"
+  ],
   "AI 护照": [
    "责任链条散了"
   ],
   "Read–Think–Write–Verify Framework": [
    "整理增益 cleaner than what you started with",
    "HiFi 与 HiEx 信息原则"
-  ],
-  "目标—项目—日常工作的连接": [
-   "周期 Cycle"
   ],
   "世界模型": [
    "字面类比"
@@ -7477,11 +7574,6 @@
    "Model-relative Curriculum",
    "PPO"
   ],
-  "single_advertiser_ad_unit": [
-   "oppref",
-   "Token 补贴缺口（Token Subsidy Gap）",
-   "OpenAI 广告基础设施域名"
-  ],
   "HiFi 与 HiEx 信息原则": [
    "Read–Think–Write–Verify Framework"
   ],
@@ -7505,7 +7597,16 @@
    "Token 补贴缺口（Token Subsidy Gap）",
    "Token 卖家的激励错配"
   ],
+  "single_advertiser_ad_unit": [
+   "Token 补贴缺口（Token Subsidy Gap）",
+   "OpenAI 广告基础设施域名"
+  ],
   "「扔掉 DAG」的承诺": [
+   "「并不 agentic」的 AI Agent",
+   "12-factor agents",
+   "软件即有向图"
+  ],
+  "80% 质量墙": [
    "「并不 agentic」的 AI Agent",
    "12-factor agents",
    "软件即有向图"
@@ -7518,12 +7619,6 @@
   "所有权原则": [
    "「并不 agentic」的 AI Agent",
    "12-factor agents",
-   "软件即有向图"
-  ],
-  "80% 质量墙": [
-   "「并不 agentic」的 AI Agent",
-   "12-factor agents",
-   "人的手感与产品手艺",
    "软件即有向图"
   ],
   "噪声上下文": [

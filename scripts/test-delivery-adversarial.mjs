@@ -181,6 +181,12 @@ const shellSrc = read('scripts/shell.template.html');
     [/^ALLSKILLS\[[^\]]+\]\.name$/, '同上'],
     [/^p\.(skill|name|note|span)$/, 'PINNED 是模板里硬编码的常量（L1551-1555），不是外部内容'],
     [/^p\.skill \|\| p\.name$/, '同上'],
+    /* 2026-09-14 补 5 条：学习空间那几处。逐处核过**落点不是 HTML** ，不是「懒得管」——
+       但这条白名单按「表达式全文」匹配，所以同一表达式以后若被搬进 innerHTML，这条不再拦得住。
+       真要动它们，请连落点一起看。（扫描器不认上下文，这是它已知的粗；宁可粗，不可漏。） */
+    [/^n\.name$|^n\.gloss$/, 'L1909：落在 fetch 的 JSON body 里（发给模型的提示词），不进 DOM'],
+    [/^c\.cm\.name$|^c\.cm\.description$/, 'L2688／L3118：只进判定提示词的 material 数组，不进 DOM'],
+    [/^c\.title$/, 'L2865：赋给 textContent（浏览器自己转义），不进 innerHTML'],
   ];
   const unsafe = names.filter(r => !KNOWN_SAFE.some(([re]) => re.test(r.expr)));
   console.log(`    扣掉 ${names.length - unsafe.length} 处「来源受约束」的白名单后，**真正来自外部内容的剩 ${unsafe.length} 处**：`);

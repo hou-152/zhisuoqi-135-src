@@ -52,6 +52,7 @@ export function checkMap(map, source) {
     ids.add(c.id);
     need(!!c.criterion, `${tag}：缺 criterion（判据）`);
     need(!!c.criterionQuote, `${tag}：缺 criterionQuote（判据必须逐字取自源资产）`);
+    need(!!c.condition && c.condition.length >= 8, `${tag}：缺 condition（成立条件，§4.3）`);
     need(!!c.misconception && c.misconception.length >= 8, `${tag}：缺 misconception（误解）`);
     need(!!c.teachingAction && c.teachingAction.length >= 8, `${tag}：缺 teachingAction（教学动作）`);
     need(!/^(再讲一遍|重新讲一遍|再看看)/.test(c.teachingAction || ''), `${tag}：教学动作不能只是「再讲一遍」`);

@@ -49,6 +49,6 @@ sources: 1
 - AI 内参 260912 ｜ 《我的 AI 原生开发流程：一个真实案例的完整复盘》 ｜ https://baoyu.io/blog/2026-08-24/ai-native-dev-workflow
 ## 反链
 
-- [[人在关键路径确认]]
 - [[瓶颈转移到代码两侧]]
 - [[AI 原生开发 AI-native development]]
+- [[人在关键路径确认]]
