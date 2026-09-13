@@ -197,7 +197,11 @@ for (const ch of pairings.chapters) {
     review: {
       status: ch.status, statusNote: ch.statusNote,
       caseState: pairings.caseReview.state, caseMeaning: pairings.caseReview.meaning,
-      correspondence: ch.correspondence, needsOwnerRuling: !!(ch.correspondence && ch.correspondence.needsOwnerRuling),
+      confirmedAt: pairings.caseReview.confirmedAt || '', confirmedBy: pairings.caseReview.confirmedBy || '',
+      ownerQuote: pairings.caseReview.ownerQuote || '',
+      correspondence: ch.correspondence,
+      needsOwnerRuling: !!(ch.correspondence && ch.correspondence.needsOwnerRuling),
+      ruling: (ch.correspondence && ch.correspondence.ruling) || null,
     },
   };
   chapters.push(chapter);
@@ -241,5 +245,5 @@ console.log(`✅ 章节数据就绪：${chapters.length} 章`);
 for (const c of chapters) {
   console.log(`  第 ${c.order} 章 ${c.title}｜cm ${c.cm.id} ↔ ${c.concept.id}｜候选案例 ${c.case.candidates.length}（主案例 ${c.case.id}·${c.case.type}）｜OPI ${c.opinions.length}｜SOL ${c.solution.actionSteps.length} 步｜三题 ${c.questions.length}｜费曼要点 ${c.feynman.required.join('/')}`);
 }
-console.log(`  状态：${pairings.caseReview.state}（六章全部为候选装配稿）`);
+console.log(`  状态：${pairings.caseReview.state}（ready ${chapters.filter((c) => c.review.status === 'ready').length} 章 / 共 ${chapters.length} 章）`);
 console.log(`  ${path.relative(ROOT, OUT)}`);

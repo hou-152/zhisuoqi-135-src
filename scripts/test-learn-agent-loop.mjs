@@ -62,7 +62,8 @@ check('每章一个核心概念（cm_* ↔ CON-*）', await ex(`LEARN.every(c=>c
 check('cm_* 与 CON-* 对应关系逐章写明', await ex(`LEARN.every(c=>c.review.correspondence&&c.review.correspondence.basis.length>10)`), 'true');
 check('主案例都属于该概念的候选案例', await ex(`LEARN.every(c=>c.case.candidates.includes(c.case.primaryCaseId))`), 'true');
 check('主案例全部标明假设场景', await ex(`LEARN.every(c=>c.case.type==='假设场景')`), 'true');
-check('未确认的主案例没有被写成 ready', await ex(`LEARN_CFG.caseReview.state==='pending-owner-confirmation' && LEARN.every(c=>c.review.status!=='ready')`), 'true');
+check('负责人已确认 → 六章状态 ready', await ex(`LEARN_CFG.caseReview.state==='owner-confirmed' && LEARN.every(c=>c.review.status==='ready')`), 'true');
+check('确认后仍逐章标明场景类型是假设场景', await ex(`LEARN.every(c=>c.case.type==='假设场景' && c.review.caseState==='owner-confirmed')`), 'true');
 check('每题三选项、恰好一个正确', await ex(`LEARN.every(c=>c.questions.every(q=>q.options.length===3&&q.options.filter(o=>o.correct).length===1))`), 'true');
 check('正确答案都带 OPI/SOL 依据', await ex(`LEARN.every(c=>c.questions.every(q=>{const r=q.options.find(o=>o.correct);return r.basis.length>0&&r.basis.every(b=>b.startsWith('OPI-')||b.startsWith('SOL-'))}))`), 'true');
 check('费曼要点按章不同、且不含「变量／证据／边界」', await ex(`new Set(LEARN.map(c=>c.feynman.required.join('|'))).size===6 && !LEARN.some(c=>c.feynman.required.some(k=>['变量','证据','边界'].includes(k)))`), 'true');
@@ -81,7 +82,7 @@ check('学习时隐藏全量图谱', await ex(`getComputedStyle(document.getElem
 check('学习时隐藏主题列表', await ex(`getComputedStyle(document.getElementById('list')).display`), 'none');
 check('学习时隐藏左栏导航', await ex(`getComputedStyle(document.getElementById('rail')).display`), 'none');
 check('阅读区带出五类材料 ID', await ex(`['QST-','CON-','CAS-','SOL-'].every(p=>document.getElementById('learn-wrap').innerText.includes(p))`), 'true');
-check('页面显示主案例是候选（未经负责人确认）', await ex(`document.getElementById('learn-wrap').innerText.includes('候选') && document.getElementById('learn-wrap').innerText.includes('未经负责人确认')`), 'true');
+check('页面显示主案例已由负责人确认', await ex(`document.getElementById('learn-wrap').innerText.includes('主案例已由负责人确认')`), 'true');
 check('显示假设场景标记', await ex(`document.getElementById('learn-wrap').innerText.includes('假设场景')`), 'true');
 await shotOf('.lpair', '50-学习空间-第一章阅读.png');
 

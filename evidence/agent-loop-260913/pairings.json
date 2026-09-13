@@ -10,16 +10,33 @@
     "whyNotSame": "两套 ID 是两个独立来源：cm_* 来自 Notion／Context／Harness／内参 四源，CON-* 来自图鉴站已审计概念卡＋飞书两份主题精选。同名不等于同一条定义，所以下面每章都单独登记「对应依据」与「口径差异」。"
   },
   "caseReview": {
-    "state": "pending-owner-confirmation",
+    "state": "owner-confirmed",
     "checkedAt": "2026-09-13",
-    "meaning": "负责人尚未对这六章的主案例给出确认记录。六章一律按「候选装配稿」交付：页面照实显示主案例是候选、且是假设场景，不冒充已审核材料，也不把候选案例写成真实复盘。",
-    "checkedAgainst": [
-      "docs/方法论-01案例决策场-MVP-20260913.md 第 3 条：『本轮由负责人选定一个案例，并登记 CAS ID』——该记录只覆盖 CAS-context-rot 那一轮。",
-      "docs/企划书-135-MVP到DeepSeek执行-20260913.md 第 2 节：人工指定 primaryCaseId；找不到可靠主案例就标记待装配。",
-      "全库检索 docs/ 与 内容结构化系统/：没有 Agent Loop 六章主案例的负责人确认记录。"
+    "confirmedAt": "2026-09-14",
+    "confirmedBy": "owner",
+    "ownerQuote": "确定（回答「六章主案例确认吗？确认就改 ready」这一问）",
+    "meaning": "负责人已于 2026-09-14 确认这六章的主案例，六章状态由「候选装配稿」改为 ready。**确认的是「哪一个是本章主案例」，不是「这是真实复盘」**：六章 CAS 仍然全部是「假设场景」，页面照原样显示该标记，也不写成实际复盘。",
+    "history": [
+      {
+        "at": "2026-09-13",
+        "state": "pending-owner-confirmation",
+        "why": "全库检索 docs/ 与 内容结构化系统/ 没有 Agent Loop 六章主案例的负责人确认记录；docs/方法论-01案例决策场-MVP-20260913.md 第 3 条「本轮由负责人选定一个案例」只覆盖 CAS-context-rot 那一轮。"
+      },
+      {
+        "at": "2026-09-14",
+        "state": "owner-confirmed",
+        "why": "负责人当场确认六章主案例（原话：「确定」）。"
+      }
     ],
-    "confirmedChapters": [],
-    "pendingChapters": ["agent", "tool", "agent-loop", "state-persistence", "harness", "verification-loop"]
+    "confirmedChapters": [
+      "agent",
+      "tool",
+      "agent-loop",
+      "state-persistence",
+      "harness",
+      "verification-loop"
+    ],
+    "pendingChapters": []
   },
   "chapters": [
     {
@@ -29,16 +46,30 @@
       "cmName": "Agent",
       "conceptId": "CON-agent",
       "qstId": "QST-agent",
-      "caseIds": ["CAS-agent"],
+      "caseIds": [
+        "CAS-agent"
+      ],
       "primaryCaseId": "CAS-agent",
-      "opinionIds": ["OPI-HAR-08-01", "OPI-CTX-06-02"],
-      "solutionIds": ["SOL-agent"],
-      "status": "scaffold",
-      "statusNote": "材料齐全（QST/CON/CAS/SOL 都在、CAS 有来源依据），但主案例未经负责人确认 → 候选装配稿。",
+      "opinionIds": [
+        "OPI-HAR-08-01",
+        "OPI-CTX-06-02"
+      ],
+      "solutionIds": [
+        "SOL-agent"
+      ],
+      "status": "ready",
+      "statusNote": "材料齐全；主案例已由负责人确认（2026-09-14）。六章 CAS 仍全部是「假设场景」，页面照原样显示该标记。",
       "correspondence": {
         "basis": "名称与主题对应（人工核对）：概念地图 cm_0608c405「Agent」↔ 语义单元 CON-agent「AI Agent」，同属主题「AI 如何持续行动」。",
-        "framingDifference": "两处口径不同，已登记不合并：概念地图卡（来源 Harness Engineering／OpenAI Agents SDK）用的是**最小配置口径**——Agent 即装备了指令与工具的 LLM，Hello world 只需 name 与 instructions；CON-agent（来源图鉴站已审计概念卡）用的是**行为口径**——围绕目标持续选择下一步、借工具行动并根据结果推进，并写了「Agent 不等于 LLM」。本章两条都保留：最小构成看前者，模型外还发生了什么看后者。",
-        "needsOwnerRuling": true
+        "framingDifference": "两处口径不同：概念地图卡（来源 Harness Engineering／OpenAI Agents SDK）用的是**最小配置口径**——Agent 即装备了指令与工具的 LLM，Hello world 只需 name 与 instructions；CON-agent（来源图鉴站已审计概念卡）用的是**行为口径**——围绕目标持续选择下一步、借工具行动并根据结果推进，并写明「Agent 不等于 LLM」。",
+        "needsOwnerRuling": false,
+        "ruling": {
+          "by": "owner",
+          "at": "2026-09-14",
+          "quote": "Agent＝Agent 不等于 LLM",
+          "decision": "本章定义以 CON-agent 的行为口径为准：Agent 不等于 LLM。",
+          "effect": "概念地图卡的最小配置口径只作为该卡原文保留在阅读区，页面上标为「不作本章定义」；本章定义、三道题与费曼要点一律用 CON-agent 口径（模型负责推理与生成，工具执行、状态维护、权限和循环在模型外）。"
+        }
       }
     },
     {
@@ -48,12 +79,20 @@
       "cmName": "工具",
       "conceptId": "CON-tool",
       "qstId": "QST-tool",
-      "caseIds": ["CAS-tool"],
+      "caseIds": [
+        "CAS-tool"
+      ],
       "primaryCaseId": "CAS-tool",
-      "opinionIds": ["OPI-CTX-A1-01", "OPI-CTX-A1-02", "OPI-CTX-04-05"],
-      "solutionIds": ["SOL-tool"],
-      "status": "scaffold",
-      "statusNote": "材料齐全；主案例未经负责人确认 → 候选装配稿。",
+      "opinionIds": [
+        "OPI-CTX-A1-01",
+        "OPI-CTX-A1-02",
+        "OPI-CTX-04-05"
+      ],
+      "solutionIds": [
+        "SOL-tool"
+      ],
+      "status": "ready",
+      "statusNote": "材料齐全；主案例已由负责人确认（2026-09-14）。六章 CAS 仍全部是「假设场景」，页面照原样显示该标记。",
       "correspondence": {
         "basis": "名称与主题对应（人工核对）：cm_a72ef18d「工具 / Tools」↔ CON-tool「工具」，同属主题「AI 如何接触外部世界」；概念地图卡的 feynman 与 CON-tool 的费曼一下都把工具说成模型触达外部世界的手，口径一致。",
         "framingDifference": "",
@@ -67,12 +106,16 @@
       "cmName": "Agent loop",
       "conceptId": "CON-agent-loop",
       "qstId": "QST-agent-loop",
-      "caseIds": ["CAS-agent-loop"],
+      "caseIds": [
+        "CAS-agent-loop"
+      ],
       "primaryCaseId": "CAS-agent-loop",
       "opinionIds": [],
-      "solutionIds": ["SOL-agent-loop"],
-      "status": "scaffold",
-      "statusNote": "材料齐全（无 OPI 直连，题目依据全部落在 SOL-agent-loop 的动作路径上）；主案例未经负责人确认 → 候选装配稿。",
+      "solutionIds": [
+        "SOL-agent-loop"
+      ],
+      "status": "ready",
+      "statusNote": "材料齐全；主案例已由负责人确认（2026-09-14）。六章 CAS 仍全部是「假设场景」，页面照原样显示该标记。",
       "correspondence": {
         "basis": "名称与主题对应（人工核对）：cm_1973b1d3「Agent loop」↔ CON-agent-loop「Agent 循环」，同属主题「AI 如何持续行动 / loop-autonomy」。",
         "framingDifference": "",
@@ -86,12 +129,18 @@
       "cmName": "状态子系统与进度持久化",
       "conceptId": "CON-state-management",
       "qstId": "QST-state-management",
-      "caseIds": ["CAS-state-management"],
+      "caseIds": [
+        "CAS-state-management"
+      ],
       "primaryCaseId": "CAS-state-management",
-      "opinionIds": ["OPI-HAR-05-04"],
-      "solutionIds": ["SOL-state-management"],
-      "status": "scaffold",
-      "statusNote": "材料齐全；主案例未经负责人确认 → 候选装配稿。",
+      "opinionIds": [
+        "OPI-HAR-05-04"
+      ],
+      "solutionIds": [
+        "SOL-state-management"
+      ],
+      "status": "ready",
+      "statusNote": "材料齐全；主案例已由负责人确认（2026-09-14）。六章 CAS 仍全部是「假设场景」，页面照原样显示该标记。",
       "correspondence": {
         "basis": "名称与主题对应（人工核对）：cm_be951649「状态子系统与进度持久化」↔ CON-state-management「状态管理」，同属主题 state-persistence。",
         "framingDifference": "概念地图卡的落点是具体做法（progress.md / feature_list / git log 让下次会话接着做）；CON-state-management 的落点是 State 与 State Management 的区别、以及恢复前先核对。两条互补，不冲突。",
@@ -105,12 +154,18 @@
       "cmName": "Harness",
       "conceptId": "CON-agent-harness",
       "qstId": "QST-agent-harness",
-      "caseIds": ["CAS-agent-harness"],
+      "caseIds": [
+        "CAS-agent-harness"
+      ],
       "primaryCaseId": "CAS-agent-harness",
-      "opinionIds": ["OPI-HAR-03-05"],
-      "solutionIds": ["SOL-agent-harness"],
-      "status": "scaffold",
-      "statusNote": "材料齐全；主案例未经负责人确认 → 候选装配稿。",
+      "opinionIds": [
+        "OPI-HAR-03-05"
+      ],
+      "solutionIds": [
+        "SOL-agent-harness"
+      ],
+      "status": "ready",
+      "statusNote": "材料齐全；主案例已由负责人确认（2026-09-14）。六章 CAS 仍全部是「假设场景」，页面照原样显示该标记。",
       "correspondence": {
         "basis": "名称与别名对应（人工核对）：cm_0a4ca4ce「Harness」的别名里就有 agent harness，与 CON-agent-harness「Agent Harness」同指；同属主题 harness-runtime。",
         "framingDifference": "",
@@ -124,12 +179,16 @@
       "cmName": "验证闭环",
       "conceptId": "CON-verification-loop",
       "qstId": "QST-verification-loop",
-      "caseIds": ["CAS-verification-loop"],
+      "caseIds": [
+        "CAS-verification-loop"
+      ],
       "primaryCaseId": "CAS-verification-loop",
       "opinionIds": [],
-      "solutionIds": ["SOL-verification-loop"],
-      "status": "scaffold",
-      "statusNote": "材料齐全（无 OPI 直连，题目依据全部落在 SOL-verification-loop 的动作路径上）；主案例未经负责人确认 → 候选装配稿。",
+      "solutionIds": [
+        "SOL-verification-loop"
+      ],
+      "status": "ready",
+      "statusNote": "材料齐全；主案例已由负责人确认（2026-09-14）。六章 CAS 仍全部是「假设场景」，页面照原样显示该标记。",
       "correspondence": {
         "basis": "名称与别名对应（人工核对）：cm_7cd7335d「验证闭环 / verification loop」↔ CON-verification-loop「验证循环」，同属主题 verification-eval。",
         "framingDifference": "",
@@ -141,6 +200,6 @@
     "六章主案例全部是「假设场景」（源卡 scenario.type: hypothetical）——内容结构化系统 03-处理状态 已把这条记为已知问题：要真实案例得从 58 篇正文另抽一批。",
     "每章经 relationships.target 找到的候选 CAS 都只有 1 个，没有可对比的第二候选；「允许一个概念多个候选案例」这条规则在本批材料上没被真正用上。",
     "CON-agent-loop 与 CON-verification-loop 没有 relationships 直连的 OPI，题目依据只能落在 SOL 动作路径上。",
-    "cm_0608c405（最小配置口径）与 CON-agent（行为口径）不是同一条定义，需负责人裁决本章以哪条为准。"
+    "第 1 章两处口径已由负责人裁决（2026-09-14）：以 CON-agent 的「Agent 不等于 LLM」为准；概念地图卡的最小配置口径只作原文保留。"
   ]
 }

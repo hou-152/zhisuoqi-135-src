@@ -19,9 +19,9 @@
 | `evidence/agent-loop-260913/learn-real-llm-walk-{agent,verification-loop}.json` | 两次真模型走查的原始记录 |
 | `evidence/agent-loop-260913/mvp-real-llm-walk.json` + `walk-{1..4}-*.png` | 原 MVP 的真模型走查证据（本轮补做） |
 | `scripts/build-learning-materials.mjs` | 确定性装配器（不调模型）；ID／类型／主案例／题目结构／依据逐字可回源，任一项不成立即失败退出 |
-| `scripts/check-learning-materials.mjs` | 材料体检 241 项（只读、不需要 serve） |
+| `scripts/check-learning-materials.mjs` | 材料体检 242 项（只读、不需要 serve） |
 | `scripts/test-learn-agent-loop.mjs` | 学习空间黑盒验收 55 项（固定响应验证状态门） |
-| `scripts/walk-learn-agent-loop.mjs` | 学习空间真模型走查（不替换 fetch，真调 `/api/llm`） |
+| `scripts/walk-learn-agent-loop.mjs` | 学习空间真模型走查（不替换 fetch，真调 `/api/llm`；六章各跑一次） |
 | `scripts/walk-mvp-real-llm.mjs` | 原 MVP 真模型走查 |
 | `prototype/预览/50..57-学习空间-*.png` | 8 张截图（4 张黑盒 ＋ 4 张真模型） |
 | `docs/交付回执-AgentLoop六章-20260913.md` | 本文件 |
@@ -52,15 +52,15 @@
 
 | 章 | 状态 | 说明 |
 |---|---|---|
-| 1 Agent | `scaffold`（候选装配稿） | 材料齐全；主案例未确认。另有一条口径差异待裁决 |
-| 2 工具 | `scaffold` | 材料齐全；主案例未确认 |
-| 3 Agent loop | `scaffold` | 材料齐全；**无 OPI 直连**，依据全在 SOL |
-| 4 状态子系统与进度持久化 | `scaffold` | 材料齐全；主案例未确认 |
-| 5 Harness | `scaffold` | 材料齐全；主案例未确认 |
-| 6 验证闭环 | `scaffold` | 材料齐全；**无 OPI 直连**，依据全在 SOL |
+| 1 Agent | `ready` | 主案例已确认；口径已裁决为 `CON-agent`「Agent 不等于 LLM」 |
+| 2 工具 | `ready` | 主案例已确认 |
+| 3 Agent loop | `ready` | 主案例已确认；**无 OPI 直连**，依据全在 SOL |
+| 4 状态子系统与进度持久化 | `ready` | 主案例已确认 |
+| 5 Harness | `ready` | 主案例已确认 |
+| 6 验证闭环 | `ready` | 主案例已确认；**无 OPI 直连**，依据全在 SOL |
 
-**没有一章是 `ready`** —— 「ready」在本轮的定义是「负责人已确认主案例」，而负责人尚未确认。
-六章页面都照实显示「主案例是候选（假设场景），负责人尚未确认」。
+`ready` = 负责人已确认主案例（2026-09-14）。**六章场景类型仍是「假设场景」**，页面照实显示，不写成真实复盘。
+09-13 先按候选装配稿交付（当时无确认记录），09-14 确认后转 `ready`；两段历史都在 `pairings.json.caseReview.history`。
 
 ## 4. 可复现入口和截图路径
 
@@ -82,12 +82,11 @@
 
 | 命令 | 结果 |
 |---|---|
-| `node scripts/check-learning-materials.mjs` | ✅ **241 项通过**（材料体检） |
+| `node scripts/check-learning-materials.mjs` | ✅ **242 项通过**（材料体检；新增 1 项：状态与负责人确认双向一致） |
 | `node scripts/test-mvp-learning.mjs` | ✅ MVP 黑盒验收全过 · 0 条 JS 报错 |
 | `node scripts/walk-mvp-real-llm.mjs` | ✅ 走完阅读 → 3 题（含先错一次）→ 真费曼「未通过（列漏点）」→「通过」；真实 `/api/llm` 2 次 · 知乎请求 0 次 · 0 条 JS 报错 |
 | `node scripts/test-learn-agent-loop.mjs` | ✅ 学习空间黑盒验收全过 · 0 条 JS 报错 |
-| `node scripts/walk-learn-agent-loop.mjs agent` | ✅ 真模型：未通过（漏「最小构成」）→ 通过 → 第 2 章解锁 → 编辑后重新锁上 |
-| `node scripts/walk-learn-agent-loop.mjs verification-loop` | ✅ 真模型：未通过（漏「独立检查／通过范围」）→ 通过 |
+| `node scripts/walk-learn-agent-loop.mjs <六章各一次>` | ✅ 真模型六章全走通（共 12 次真实调用）：每章「未通过（漏点＝该章自己的费曼要点）→ 补齐 → 通过 → 下一章解锁 → 改复述后重新锁上」 |
 | `node scripts/test-path.mjs` | ✅ 断言全过（**56 项**，改动前 55 项，比改动前多 1 条）· 0 条 JS 报错 |
 | `node scripts/test-case-mvp.mjs` | ✅ 通过：3 个概念 → 3 个候选案例 → 选定 `CAS-context-rot`（产物逐字节未变） |
 | `node scripts/test-daobi.mjs` | ✅ 断言全过 · 0 条 JS 报错 |
@@ -116,7 +115,7 @@
   1. 六章主案例全是「假设场景」，没有真实复盘；
   2. 每章候选 CAS 只有 1 个，没有第二候选可比；
   3. 第 3、6 章没有 OPI 直连，依据面窄；
-  4. 第 1 章 `cm_0608c405`（最小配置口径）与 `CON-agent`（行为口径）不是同一条定义。
+  4. ~~第 1 章两条口径不是同一条定义~~ → **已裁决**（2026-09-14）：以 `CON-agent`「Agent 不等于 LLM」为准。
 
 ## 7. 未执行事项
 
@@ -124,14 +123,18 @@
 - **未做技术实验台（05）**，也未做 03 费曼演练室。
 - **未让 LLM 运行时重排路线**：章节顺序读 `routes.json`，模型只参与费曼漏点判定。
 - **未改概念地图源数据**：`knowledge/概念地图-260913/topics.json`、`dependencies.json`、`relations.json` 一字未动（`test-path.mjs` ⑩ 有断言）。
-- **未重建、未发布公网产物**：`deploy/zhisuoqi-135/index.html` 与 `prototype/知所栖-135-公网版.html` 保持仓库里的原状。我**验证过** `build-public.mjs` 的新边界（试跑一次：6 章候选装配稿被剥离、`DATA` 行仍可解析、`</` 转义保留、对**新产物**跑 `check-public` 22/23），随后把这两份产物还原成仓库里的那一份，**没有把它留在工作区**。
+- **未重建、未发布公网产物**（负责人 2026-09-14 明确「先不要建公网」）：`deploy/zhisuoqi-135/index.html` 与 `prototype/知所栖-135-公网版.html` 保持仓库里的原状。我**验证过** `build-public.mjs` 的新边界（试跑一次：6 章候选装配稿被剥离、`DATA` 行仍可解析、`</` 转义保留、对**新产物**跑 `check-public` 22/23），随后把这两份产物还原成仓库里的那一份，**没有把它留在工作区**。
 - **未 push**、未发布、未改 `.private/`、未读取或展示任何凭证。
-- **未对第 2/3/4/5 章做真模型走查**（只有黑盒 ＋ 材料体检）。
+- ~~未对第 2/3/4/5 章做真模型走查~~ → 负责人要求「MVP 跑通后再提交」，已补齐：**六章各走一次真模型**。
 - **未做 21 个主题的批量路线**（只做了这一条人工策展路线）。
 
-## 8. 需要产品负责人裁决的事项
+## 8. 负责人裁决回填（2026-09-14）
 
-1. **六章主案例要不要确认？** 现在六章都是候选（`CAS-agent` / `CAS-tool` / `CAS-agent-loop` / `CAS-state-management` / `CAS-agent-harness` / `CAS-verification-loop`），且都是图鉴站的「假设场景」。确认后我把 `status` 改成 `ready`；不确认就一直是候选装配稿。要不要先补真实案例再确认？
-2. **第 1 章的口径以哪条为准？** 概念地图 `cm_0608c405` 说「Agent = 装备了指令与工具的 LLM（最小只要 name 与 instructions）」，`CON-agent` 说「Agent 不等于 LLM」。现在两条都在页面上、并标了「口径注」。
-3. **公网产物要不要重建？** 重建会把 **实践空间** 这个导航项和「学习空间」的壳代码带进公网版（候选章节已被边界块自动剥离），并会让 `check-public.mjs` 里那条**已知过期**的「首屏 2 格导航」断言变成红 —— AGENTS.md 与工作日志第十六轮都记过这条断言已过期，我没有擅自改它，也没把重建后的产物留在工作区。
-4. **`scripts/walk-learn-agent-loop.mjs` 通过侧用的是一段「按本章材料组织的复述」**（要点逐字取自本章、正文取自 reading 原文重组），它只用来验证「通过」这条协议走得通，**不是用户复述**。如果你要求真模型走查必须用人类写的复述，我按你的稿子重跑。
+原第 8 节四个问题，负责人的答复与落地：
+
+| # | 问题 | 答复 | 落地 |
+|---|---|---|---|
+| 1 | 六章主案例确认吗 | **确定** | 六章 `scaffold` → `ready`；`caseReview.state = owner-confirmed`，记原话与日期；页面改显示「主案例已由负责人确认」。场景类型仍是「假设场景」，标记照旧 |
+| 2 | 第 1 章口径以哪条为准 | **Agent＝Agent 不等于 LLM** | 以 `CON-agent` 行为口径为准；概念地图卡的最小配置口径只作原文保留，页面标「不作本章定义」；三题与费曼要点本来就用 `CON-agent` 口径，无需改题 |
+| 3 | 公网要不要重建 | **先不要建公网，MVP 跑通后再提交** | 未跑 `build-public.mjs`；`deploy/` 与 `prototype/知所栖-135-公网版.html` 保持仓库原状；**未 push** |
+| 4 | 真模型走查要不要换人写的复述重跑 | 反问「为什么要换上稿子重跑？」 | **不需要，也没有换**。那段复述的作用只是把「通过」这条协议也在真模型下跑一次；证据里已标明它不是用户复述，也不参与任何验收断言。本次改成六章各走一次，脚本没换 |

@@ -1417,7 +1417,7 @@ function caseMvpLink(n) {
     ${ch ? `<button class="jbtn" onclick="openLearnFor('${n.id}')">学习这个 · 第 ${ch.order} 章 →</button>` : ''}
     <button class="jbtn${ch ? ' ghost' : ''}" onclick="openPractice('${n.id}')">进入学习空间 →</button>
     ${ch ? `<button class="jbtn ghost" onclick="openLearnIndex()">六章总览</button>` : ''}
-    ${hasCase ? '<div class="case-meta" style="margin-top:5px">本概念已有 01 案例决策材料。</div>' : (ch ? `<div class="case-meta" style="margin-top:5px">候选装配稿：主案例为${esc(ch.case.type)}、负责人尚未确认。</div>` : '<div class="case-meta" style="margin-top:5px">本概念的 01 / 03 / 05 材料尚在装配中。</div>')}
+    ${hasCase ? '<div class="case-meta" style="margin-top:5px">本概念已有 01 案例决策材料。</div>' : (ch ? `<div class="case-meta" style="margin-top:5px">${ch.review.caseState === 'owner-confirmed' ? `主案例已由负责人确认 · 场景类型 ${esc(ch.case.type)}` : `候选装配稿：主案例为${esc(ch.case.type)}、负责人尚未确认`}。</div>` : '<div class="case-meta" style="margin-top:5px">本概念的 01 / 03 / 05 材料尚在装配中。</div>')}
   </div>`;
 }
 function openCaseMvp() {
@@ -1682,14 +1682,14 @@ function openPractice(originId = null) {
   reader.innerHTML = `<div class="nei"><div class="nei-crumb"><b>实践空间</b><span>›</span><span>1 / 3 / 5</span></div>
     <h1 class="nei-title">从概念进入实践</h1><div class="nei-meta"><span>当前只开放 01 MVP</span></div>
     ${origin ? `<div class="practice-card"><h2>当前概念：${esc(origin.name)}</h2>
-      <div class="mut">${originStep >= 0 ? `${esc(activeRoute().title)} · 第 ${originStep + 1} / ${activeRoute().steps.length} 步。` : ''}${chapterOf(origin.id) ? `已装配独立学习空间「第 ${chapterOf(origin.id).order} 章 ${esc(chapterOf(origin.id).title)}」（候选装配稿）。` : (matched ? '已接入本轮 A 判断材料。' : '这个概念的 01 判断材料尚未装配，当前不标记完成。')}</div>
+      <div class="mut">${originStep >= 0 ? `${esc(activeRoute().title)} · 第 ${originStep + 1} / ${activeRoute().steps.length} 步。` : ''}${chapterOf(origin.id) ? `已装配独立学习空间「第 ${chapterOf(origin.id).order} 章 ${esc(chapterOf(origin.id).title)}」（主案例已由负责人确认）。` : (matched ? '已接入本轮 A 判断材料。' : '这个概念的 01 判断材料尚未装配，当前不标记完成。')}</div>
       <div class="mut" style="margin-top:7px">${esc(origin.gloss || '这张卡的学习材料正在装配。')}</div>
       ${chapterOf(origin.id) ? `<button class="jbtn" style="margin-top:8px" onclick="openLearnFor('${origin.id}')">学习这个 · 第 ${chapterOf(origin.id).order} 章 →</button>` : ''}
       <button class="jbtn" style="margin-top:8px" onclick="askConceptHelp('${origin.id}')">让 AI 解释这一步</button>
       <div id="concept-help" class="mut" style="margin-top:8px"></div>
       <button class="jbtn ghost" onclick="returnToPracticeOrigin('${origin.id}')">${originStep >= 0 ? '返回这一步的路径与概念' : '返回当前概念'}</button></div>` : ''}
     ${LEARN.length ? `<div class="practice-card"><h2>独立学习空间 · Agent Loop 六章</h2><div class="mut">${LEARN.map(c => `${c.order}. ${esc(c.title)}`).join(' → ')}</div>
-      <div class="mut">一个核心概念 → 原文 context 与解释 → 三道决策（一题一判）→ 费曼收尾。学习时隐藏全图与主题列表，返回时恢复原路线、原步骤、原概念。六章主案例均为候选（假设场景），负责人尚未确认。</div>
+      <div class="mut">一个核心概念 → 原文 context 与解释 → 三道决策（一题一判）→ 费曼收尾。学习时隐藏全图与主题列表，返回时恢复原路线、原步骤、原概念。六章主案例已由负责人确认（2026-09-14）；场景类型仍是「假设场景」，不写成实际复盘。</div>
       <button class="jbtn" onclick="openLearnIndex()">进入学习空间</button></div>` : ''}
     <div class="practice-card"><h2>01 · 案例决策场</h2><div class="mut">从当前概念匹配候选案例，再只选一个案例和一个正确方向。</div>
       ${origin && !matched ? '<div class="mut">下面是另一主题的已跑通示例，不计入当前路线进度。</div>' : ''}
@@ -1971,8 +1971,9 @@ function renderLearn(notice) {
     const un = chapterUnlocked(i), done = chapterCleared(x.chapterId);
     return `<button class="lchip ${x.chapterId === learnCur ? 'on' : ''} ${un ? '' : 'lock'}" ${un ? '' : 'disabled'} onclick="openLearn('${x.chapterId}')">${i + 1}. ${esc(x.title)}${done ? ' ✓' : ''}${un ? '' : ' 🔒'}</button>`;
   }).join('');
-  const reviewLine = c.review.caseState === 'pending-owner-confirmation'
-    ? `<div class="lgap" style="color:#e0a94a">审核状态：主案例是<b>候选</b>（${esc(c.case.type)}），负责人尚未确认 —— 本页只作候选装配稿，不当已审核材料。</div>` : '';
+  const reviewLine = c.review.caseState === 'owner-confirmed'
+    ? `<div class="lgap" style="color:#7fd0a6">审核状态：主案例已由负责人确认（${esc(c.review.confirmedAt || '')}）。场景类型照实显示：<b>${esc(c.case.type)}</b> —— 确认的是「哪一个是本章主案例」，不等于这是真实复盘。</div>`
+    : `<div class="lgap" style="color:#e0a94a">审核状态：主案例是<b>候选</b>（${esc(c.case.type)}），负责人尚未确认 —— 本页只作候选装配稿，不当已审核材料。</div>`;
 
   wrap.innerHTML = `
     <h1>${esc(c.title)}</h1>
@@ -1984,19 +1985,21 @@ function renderLearn(notice) {
       <span class="lb">1 · 阅读</span>
       <h2>概念地图打的是这张卡</h2>
       <div class="quote"><b>${esc(c.cm.name)}</b> <code>${esc(c.cm.id)}</code><br>${esc(c.cm.description)}</div>
-      ${read('原文 context', c.reading.original.text)}
+      ${read(`原文 context${c.review.ruling ? '（概念地图卡原文 · 不作本章定义）' : ''}`, c.reading.original.text)}
       ${read('定义', c.reading.explain.text, c.reading.explain.from)}
       ${read('直觉', c.reading.intuition.text, c.reading.intuition.from)}
       ${read('机制', c.reading.mechanism.text, c.reading.mechanism.from)}
       <div class="quote"><b>边界 ${c.reading.boundary.from ? `<code>${esc(c.reading.boundary.from)}</code>` : ''}</b><ul>${c.reading.boundary.items.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>
-      ${c.framingNote ? `<div class="lcase"><b>口径注（两处来源不同，已登记不合并）</b><br>${esc(c.framingNote)}</div>` : ''}
+      ${c.review.ruling
+        ? `<div class="lcase"><b>口径裁决（负责人 ${esc(c.review.ruling.at)}）</b><br>原话：「${esc(c.review.ruling.quote)}」<br>裁决：${esc(c.review.ruling.decision)}<br><span class="lgap">影响：${esc(c.review.ruling.effect)}</span></div>`
+        : (c.framingNote ? `<div class="lcase"><b>口径注（两处来源不同，已登记不合并）</b><br>${esc(c.framingNote)}</div>` : '')}
       <div class="lpair">${pair.map(([k, v, id]) => `<div><b>${k}</b><span>${esc(v)}</span><code>${esc(id)}</code></div>`).join('')}</div>
       ${reviewLine}
       <div class="lgap">迁移问题：${esc(c.concept.transferQuestion)}<br>分类问题：${esc(c.concept.categoryQuestion)}<br>来源：${esc(c.concept.sources.join(' · '))}（CON）／${esc(c.case.sources.join(' · '))}（CAS）／${esc(c.solution.sources.join(' · '))}（SOL）</div>
     </div>
 
     <div class="lcase">
-      <b>主案例 · ${esc(c.case.type)}${c.review.caseState === 'pending-owner-confirmation' ? ' · 候选（未经负责人确认）' : ''}</b><br>
+      <b>主案例 · ${esc(c.case.type)}${c.review.caseState === 'owner-confirmed' ? ' · 主案例已由负责人确认' : ' · 候选（未经负责人确认）'}</b><br>
       ${esc(c.case.summary)}
       <div class="lgap" style="margin-top:8px">${esc(c.case.id)} · 候选案例 ${c.case.candidates.length} 个（${esc(c.case.candidates.join('、'))}）· 本章主案例 ${esc(c.case.primaryCaseId)}<br>来源依据：${esc(c.case.evidence)}</div>
     </div>

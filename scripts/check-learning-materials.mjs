@@ -42,7 +42,11 @@ for (const c of data.chapters) {
   check(`${t}｜主案例属于候选`, c.case.candidates.includes(c.case.primaryCaseId), `候选 ${c.case.candidates.join(',')} / 主 ${c.case.primaryCaseId}`);
   check(`${t}｜候选案例按 relationships 复核一致`, rel.length === c.case.candidates.length && rel.every((x) => c.case.candidates.includes(x)), `现查 ${rel.join(',') || '无'}`);
   check(`${t}｜假设场景原样显示`, c.case.type === '假设场景' && /假设场景/.test(c.case.summary + c.case.evidence + c.case.type));
-  check(`${t}｜未确认的主案例没有被写成已审核`, c.review.caseState === 'pending-owner-confirmation' ? c.review.status !== 'ready' : true, c.review.caseState + '/' + c.review.status);
+  // 审核状态必须双向一致：未确认就不能 ready；确认了就必须 ready
+  check(`${t}｜状态与负责人确认一致`, c.review.caseState === 'owner-confirmed' ? c.review.status === 'ready' : c.review.status !== 'ready', c.review.caseState + '/' + c.review.status);
+  if (c.review.needsOwnerRuling === false && c.review.ruling) {
+    check(`${t}｜口径裁决有原始原话且不再挂待裁决`, !!c.review.ruling.quote && !!c.review.ruling.decision, c.review.ruling.quote);
+  }
 }
 
 /* ④ 三题：恰好 3 道、每题恰好 3 选项、恰好 1 正确、正确项有 OPI/SOL 依据且逐字可回源 */
@@ -107,5 +111,7 @@ check('payload 不含写回 topics/dependencies 的字段', !JSON.stringify(data
 console.log(`章节材料体检：${oks.length} 项通过${fails.length ? `，${fails.length} 项失败` : ''}`);
 if (fails.length) { for (const f of fails) console.log('  ⚠ ' + f); process.exit(1); }
 console.log(`  · 六章：${data.chapters.map((c) => c.title).join(' → ')}`);
-console.log(`  · 状态：${data.caseReview.state}｜候选案例全部为「假设场景」，页面照实显示`);
+console.log(`  · 状态：${data.caseReview.state}｜ready ${data.chapters.filter((c) => c.review.status === 'ready').length}/${data.chapters.length}｜候选案例仍全部为「假设场景」，页面照实显示`);
+const ruled = data.chapters.filter((c) => c.review.ruling);
+if (ruled.length) console.log(`  · 口径裁决 ${ruled.length} 条：` + ruled.map((c) => `${c.title} → ${c.review.ruling.decision}`).join(' · '));
 console.log('✅ 材料体检全过');

@@ -63,8 +63,8 @@ function loadLearning() {
     return { chapters: [], caseReview: {}, gaps: [] };
   }
   const d = JSON.parse(fs.readFileSync(f, 'utf8'));
-  const pending = d.chapters.filter((c) => c.review.status !== 'ready').length;
-  console.log(`学习空间：${d.chapters.length} 章 · 候选装配稿 ${pending} 章 · 主案例审核状态 ${d.caseReview.state}`);
+  const ready = d.chapters.filter((c) => c.review.status === 'ready').length;
+  console.log(`学习空间：${d.chapters.length} 章 · ready ${ready} 章 · 主案例审核状态 ${d.caseReview.state}（${d.caseReview.confirmedAt || '未确认'}）`);
   console.log(`  ${d.chapters.map((c) => `${c.order}.${c.title}(${c.cm.id}↔${c.concept.id})`).join(' · ')}`);
   return d;
 }

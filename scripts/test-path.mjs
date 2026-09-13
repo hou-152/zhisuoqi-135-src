@@ -189,7 +189,7 @@ check('点击概念卡入口进入实践空间', await ex(`(()=>{const b=Array.f
 check('当前概念和路径位置保留', await ex(`(()=>{const t=document.getElementById('reader').innerText; return t.includes(ROUTES[0].steps[2].name)&&t.includes('第 3 / '+ROUTES[0].steps.length+' 步')})()`), 'true');
 /* 09-13 变更（本轮 Agent Loop 六章装配）：路线第三步已有章节材料，所以这里不再显示「尚未装配」。
    断言没有删掉，而是改成断言新的产品事实——并且补一条：**没有**章节材料的概念仍然照实说没装配。 */
-check('路线第三步已装配章节材料，且标明是候选装配稿', await ex(`(()=>{const t=document.getElementById('reader').innerText; return t.includes('独立学习空间')&&t.includes('候选装配稿')})()`), 'true');
+check('路线第三步已装配章节材料，且标明主案例已由负责人确认', await ex(`(()=>{const t=document.getElementById('reader').innerText; return t.includes('独立学习空间')&&t.includes('主案例已由负责人确认')})()`), 'true');
 check('没装配的概念仍然照实说没装配（不借别的材料冒充完成）', await ex(`(()=>{openPractice('cm_a4f9a7e3'); const t=document.getElementById('reader').innerText; return t.includes('判断材料尚未装配')&&t.includes('不计入当前路线进度')})()`), 'true');
 await ex(`openPractice(ROUTES[0].steps[2].conceptId)`);
 check('实际点击返回，恢复路径第三步和原概念', await ex(`(()=>{document.querySelector('#reader .practice-card .jbtn.ghost').click(); return mode+'|'+routeStepIdx+'|'+(selected===ROUTES[0].steps[2].conceptId)+'|'+document.getElementById('reader').classList.contains('on')})()`), 'path|2|true|false');
