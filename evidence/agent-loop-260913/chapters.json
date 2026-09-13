@@ -1,0 +1,1465 @@
+{
+ "version": "v1",
+ "generatedAt": "2026-09-13",
+ "builtAt": "2026-09-13T16:11:50.758Z",
+ "source": {
+  "pairings": "evidence/agent-loop-260913/pairings.json",
+  "authored": "evidence/agent-loop-260913/authored.json",
+  "units": "内容结构化系统/模块/ai-concept-base/data/units.json",
+  "topics": "knowledge/概念地图-260913/topics.json",
+  "routes": "evidence/paths-260913/routes.json"
+ },
+ "route": {
+  "routeId": "agent-continuous-action-v1",
+  "title": "理解 AI 如何持续行动",
+  "entryQuestion": "为什么 AI 能连续做事，而不只回答一次？",
+  "target": "能解释 Agent 从目标到行动再到验证的基本循环",
+  "stopCondition": "能说清目标／工具／循环／状态／验证各自解决哪一步，以及验证为什么必须独立成环",
+  "curator": "human"
+ },
+ "caseReview": {
+  "state": "pending-owner-confirmation",
+  "checkedAt": "2026-09-13",
+  "meaning": "负责人尚未对这六章的主案例给出确认记录。六章一律按「候选装配稿」交付：页面照实显示主案例是候选、且是假设场景，不冒充已审核材料，也不把候选案例写成真实复盘。",
+  "checkedAgainst": [
+   "docs/方法论-01案例决策场-MVP-20260913.md 第 3 条：『本轮由负责人选定一个案例，并登记 CAS ID』——该记录只覆盖 CAS-context-rot 那一轮。",
+   "docs/企划书-135-MVP到DeepSeek执行-20260913.md 第 2 节：人工指定 primaryCaseId；找不到可靠主案例就标记待装配。",
+   "全库检索 docs/ 与 内容结构化系统/：没有 Agent Loop 六章主案例的负责人确认记录。"
+  ],
+  "confirmedChapters": [],
+  "pendingChapters": [
+   "agent",
+   "tool",
+   "agent-loop",
+   "state-persistence",
+   "harness",
+   "verification-loop"
+  ]
+ },
+ "gaps": [
+  "六章主案例全部是「假设场景」（源卡 scenario.type: hypothetical）——内容结构化系统 03-处理状态 已把这条记为已知问题：要真实案例得从 58 篇正文另抽一批。",
+  "每章经 relationships.target 找到的候选 CAS 都只有 1 个，没有可对比的第二候选；「允许一个概念多个候选案例」这条规则在本批材料上没被真正用上。",
+  "CON-agent-loop 与 CON-verification-loop 没有 relationships 直连的 OPI，题目依据只能落在 SOL 动作路径上。",
+  "cm_0608c405（最小配置口径）与 CON-agent（行为口径）不是同一条定义，需负责人裁决本章以哪条为准。"
+ ],
+ "chapters": [
+  {
+   "chapterId": "agent",
+   "order": 1,
+   "title": "Agent",
+   "routeId": "agent-continuous-action-v1",
+   "routeTitle": "理解 AI 如何持续行动",
+   "routeStep": 1,
+   "routeSteps": 6,
+   "why": "整条路径的承载体：不知道 Agent 的最小构成是「模型 + 指令 + 工具」，后面的工具、循环、状态都没有挂点。",
+   "cm": {
+    "id": "cm_0608c405",
+    "name": "Agent",
+    "description": "Agent 即装备了指令与工具的 LLM；最小配置只需 name 与 instructions。",
+    "feynman": "agent 不是一个神秘的智能体，而是「模型 + 一段说明它该做什么的话 + 一组它能调用的工具」的打包。去掉包装，里面就这三样。",
+    "sourceContext": "定义极简——Agents, which are LLMs equipped with instructions and tools。Hello world 中一个 Agent 只需要 name 与 instructions。",
+    "aliases": [],
+    "evidence": [
+     "能写出一个最小 Agent 配置的字段",
+     "能说明 instructions 与 tools 各自提供什么"
+    ],
+    "assessmentPrompt": "按最小定义，Agent 至少要有哪两个字段？",
+    "domain": "harness-runtime",
+    "kind": ""
+   },
+   "concept": {
+    "id": "CON-agent",
+    "title": "AI Agent",
+    "definition": "AI Agent 是围绕目标持续选择下一步、借助工具行动并根据结果继续推进的系统，不是裸模型的别名。",
+    "intuition": "模型像负责想和说的部分，Agent 则像一个朝目标前进的行动者。它每走一步都会看当前结果，再决定下一步要回答、调用工具、修正方向还是停止。你看到的这种连续行为，通常由模型与外部 Harness 共同产生。",
+    "boundary": [
+     "Agent 不等于 LLM；模型负责推理与生成，工具执行、状态维护、权限和循环来自外部系统。",
+     "“能调用一次工具”是重要分界，但生产级 Agent 通常还需要错误处理、验证、停止条件与状态管理。",
+     "Agent 与 Agent Harness 不是同义词；前者描述呈现出来的行动系统，后者强调产生和约束这种行为的运行机器。"
+    ],
+    "transferQuestion": "一个聊天机器人只回答一次，而另一个系统会查资料、执行操作并根据结果继续，二者最关键的系统差别是什么？",
+    "categoryQuestion": "为什么 AI 能连续做事，而不只回答一次？",
+    "sourceLines": [
+     "`SRC-EXT-003`：图鉴站概念卡 `concepts/agent.yaml`（name_en: AI Agent）",
+     "源证据范围（卡片自述）：Simon Willison 给出最小组成视角：LLM、system prompt、工具与工具结果回灌循环可以构成基础 Agent。本站同时保留行为视角：用户感知到的是围绕目标持续行动的系统，而不是单独的模型对象。",
+     "定义状态：evolving｜学习阶段：现在就要懂"
+    ],
+    "sources": [
+     "SRC-EXT-003"
+    ],
+    "status": "已核对（源：图鉴站已审计产物）"
+   },
+   "qst": {
+    "id": "QST-agent",
+    "title": "能不能讲清「AI Agent」",
+    "text": "一个聊天机器人只回答一次，而另一个系统会查资料、执行操作并根据结果继续，二者最关键的系统差别是什么？",
+    "type": "检验问题"
+   },
+   "case": {
+    "id": "CAS-agent",
+    "title": "AI Agent：一个具体场景",
+    "summary": "你让 Agent 修复测试失败。它先读取报错，定位文件，修改代码，运行测试，再依据新结果决定继续修还是结束；这些连续动作不是一次模型回复就能独立完成的。",
+    "type": "假设场景",
+    "evidence": "Simon Willison 给出最小组成视角：LLM、system prompt、工具与工具结果回灌循环可以构成基础 Agent。本站同时保留行为视角：用户感知到的是围绕目标持续行动的系统，而不是单独的模型对象。",
+    "candidates": [
+     "CAS-agent"
+    ],
+    "primaryCaseId": "CAS-agent",
+    "sources": [
+     "SRC-EXT-003"
+    ]
+   },
+   "opinions": [
+    {
+     "id": "OPI-HAR-08-01",
+     "title": "OpenAI Agents SDK 的自我定位只有一句话：让你在一个 lightweight、e…",
+     "claim": "OpenAI Agents SDK 的自我定位只有一句话：让你在一个 lightweight、easy-to-use 的包里构建 agentic AI 应用，而且 with very few abstractions。「抽象极少」不是谦辞，是它对外宣示的核心竞争力。",
+     "scope": "出自《OpenAI Agents SDK 官方文档：抽象极少的轻量 agent 框架》清单编号 08 的第 1 条核心观点；适用范围以原文为准，本工程未做二次判断",
+     "sources": [
+      "SRC-EXT-002"
+     ]
+    },
+    {
+     "id": "OPI-CTX-06-02",
+     "title": "他的经验结论是反直觉的：好的 agent 大多不是 agent。市面上自称 \\\"AI Agents…",
+     "claim": "他的经验结论是反直觉的：好的 agent 大多不是 agent。市面上自称 \\\"AI Agents\\\" 的产品「are not all that agentic」，多数是确定性代码，只在恰当的点上撒进几步 LLM，体验才显得神奇。",
+     "scope": "出自《12-Factor Agents：让 LLM 软件真能交付给生产用户的十二条原则》清单编号 06 的第 2 条核心观点；适用范围以原文为准，本工程未做二次判断",
+     "sources": [
+      "SRC-EXT-001"
+     ]
+    }
+   ],
+   "solution": {
+    "id": "SOL-agent",
+    "title": "AI Agent：可执行动作路径",
+    "targetProblem": "避免这个误区：Agent 不等于 LLM；模型负责推理与生成，工具执行、状态维护、权限和循环来自外部系统。",
+    "summary": "识别一个系统是否真的具有 Agent 行为时，检查它能否围绕目标根据结果选择下一步，而不只看是否使用了 Agent 名称。",
+    "actionSteps": [
+     "识别一个系统是否真的具有 Agent 行为时，检查它能否围绕目标根据结果选择下一步，而不只看是否使用了 Agent 名称。",
+     "排错时把问题拆成模型判断、工具能力、状态、权限、循环和验证，避免笼统归因于“Agent 不聪明”。"
+    ],
+    "sources": [
+     "SRC-EXT-003"
+    ]
+   },
+   "reading": {
+    "original": {
+     "label": "原文 context",
+     "text": "定义极简——Agents, which are LLMs equipped with instructions and tools。Hello world 中一个 Agent 只需要 name 与 instructions。"
+    },
+    "explain": {
+     "label": "定义",
+     "text": "AI Agent 是围绕目标持续选择下一步、借助工具行动并根据结果继续推进的系统，不是裸模型的别名。",
+     "from": "CON-agent"
+    },
+    "intuition": {
+     "label": "直觉",
+     "text": "模型像负责想和说的部分，Agent 则像一个朝目标前进的行动者。它每走一步都会看当前结果，再决定下一步要回答、调用工具、修正方向还是停止。你看到的这种连续行为，通常由模型与外部 Harness 共同产生。",
+     "from": "CON-agent"
+    },
+    "mechanism": {
+     "label": "机制",
+     "text": "识别一个系统是否真的具有 Agent 行为时，检查它能否围绕目标根据结果选择下一步，而不只看是否使用了 Agent 名称。",
+     "from": "SOL-agent"
+    },
+    "boundary": {
+     "label": "边界",
+     "items": [
+      "Agent 不等于 LLM；模型负责推理与生成，工具执行、状态维护、权限和循环来自外部系统。",
+      "“能调用一次工具”是重要分界，但生产级 Agent 通常还需要错误处理、验证、停止条件与状态管理。",
+      "Agent 与 Agent Harness 不是同义词；前者描述呈现出来的行动系统，后者强调产生和约束这种行为的运行机器。"
+     ],
+     "from": "CON-agent"
+    }
+   },
+   "framingNote": "两处口径不同，已登记不合并：概念地图卡（来源 Harness Engineering／OpenAI Agents SDK）用的是**最小配置口径**——Agent 即装备了指令与工具的 LLM，Hello world 只需 name 与 instructions；CON-agent（来源图鉴站已审计概念卡）用的是**行为口径**——围绕目标持续选择下一步、借工具行动并根据结果推进，并写了「Agent 不等于 LLM」。本章两条都保留：最小构成看前者，模型外还发生了什么看后者。",
+   "questions": [
+    {
+     "judgment": "结构判定：什么才算真的具有 Agent 行为",
+     "prompt": "两个产品都自称 Agent。要判断哪一个真的具有 Agent 行为，先看什么？",
+     "options": [
+      {
+       "text": "看它有没有用「Agent」这个名字、宣传页上有没有写。",
+       "correct": false,
+       "why": "名字不构成行为证据；SOL-agent 明确要求不只看是否使用了 Agent 名称。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "看它能否围绕目标、根据上一步的结果选择下一步，而不是只回答一次。",
+       "correct": true,
+       "why": "",
+       "basis": [
+        "SOL-agent#solution_summary"
+       ],
+       "basisQuote": "检查它能否围绕目标根据结果选择下一步，而不只看是否使用了 Agent 名称"
+      },
+      {
+       "text": "看它背后的模型参数是不是更大。",
+       "correct": false,
+       "why": "参数规模属于模型层；本章讨论的是模型外是否构成了围绕目标的行动系统。",
+       "basis": [],
+       "basisQuote": ""
+      }
+     ]
+    },
+    {
+     "judgment": "排错动作：Agent 表现差时先怎么拆",
+     "prompt": "一个 Agent 在长任务里表现很差。按本章材料，第一步该怎么拆问题？",
+     "options": [
+      {
+       "text": "直接换一个更大的模型。",
+       "correct": false,
+       "why": "换模型把变量一起改掉了，而且先把归因锁死在模型层。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "笼统归因成「这个 Agent 不聪明」。",
+       "correct": false,
+       "why": "SOL-agent 把这种归因列为要避免的做法。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "把问题拆成模型判断、工具能力、状态、权限、循环和验证，逐项检查。",
+       "correct": true,
+       "why": "",
+       "basis": [
+        "SOL-agent#action_steps[1]"
+       ],
+       "basisQuote": "排错时把问题拆成模型判断、工具能力、状态、权限、循环和验证"
+      }
+     ]
+    },
+    {
+     "judgment": "边界结论：Agent 与 LLM 的关系",
+     "prompt": "关于 Agent 与 LLM 的关系，下面哪种说法是本章材料支持的？",
+     "options": [
+      {
+       "text": "Agent 就是参数更多、上下文更长的 LLM。",
+       "correct": false,
+       "why": "这条正好踩中 SOL-agent 要避免的误区。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "模型负责推理与生成；工具执行、状态维护、权限和循环来自外部系统。",
+       "correct": true,
+       "why": "",
+       "basis": [
+        "SOL-agent#target_problem"
+       ],
+       "basisQuote": "模型负责推理与生成，工具执行、状态维护、权限和循环来自外部系统"
+      },
+      {
+       "text": "只要能成功调用一次工具，就是生产级 Agent。",
+       "correct": false,
+       "why": "CON-agent 的边界写明：能调用一次工具是重要分界，但生产级还需要错误处理、验证、停止条件与状态管理。",
+       "basis": [],
+       "basisQuote": ""
+      }
+     ]
+    }
+   ],
+   "feynman": {
+    "prompt": "为什么「AI Agent」不能直接等同于「一个更强的 LLM」？请至少说清三件事。",
+    "required": [
+     "最小构成",
+     "行动来源",
+     "与模型的区别"
+    ]
+   },
+   "review": {
+    "status": "scaffold",
+    "statusNote": "材料齐全（QST/CON/CAS/SOL 都在、CAS 有来源依据），但主案例未经负责人确认 → 候选装配稿。",
+    "caseState": "pending-owner-confirmation",
+    "caseMeaning": "负责人尚未对这六章的主案例给出确认记录。六章一律按「候选装配稿」交付：页面照实显示主案例是候选、且是假设场景，不冒充已审核材料，也不把候选案例写成真实复盘。",
+    "correspondence": {
+     "basis": "名称与主题对应（人工核对）：概念地图 cm_0608c405「Agent」↔ 语义单元 CON-agent「AI Agent」，同属主题「AI 如何持续行动」。",
+     "framingDifference": "两处口径不同，已登记不合并：概念地图卡（来源 Harness Engineering／OpenAI Agents SDK）用的是**最小配置口径**——Agent 即装备了指令与工具的 LLM，Hello world 只需 name 与 instructions；CON-agent（来源图鉴站已审计概念卡）用的是**行为口径**——围绕目标持续选择下一步、借工具行动并根据结果推进，并写了「Agent 不等于 LLM」。本章两条都保留：最小构成看前者，模型外还发生了什么看后者。",
+     "needsOwnerRuling": true
+    },
+    "needsOwnerRuling": true
+   }
+  },
+  {
+   "chapterId": "tool",
+   "order": 2,
+   "title": "工具",
+   "routeId": "agent-continuous-action-v1",
+   "routeTitle": "理解 AI 如何持续行动",
+   "routeStep": 2,
+   "routeSteps": 6,
+   "why": "Agent 的定义里就写着「一组它能调用的工具」。先弄清工具是什么、边界在哪，才看得懂循环里反复发生的那一步。",
+   "cm": {
+    "id": "cm_a72ef18d",
+    "name": "工具",
+    "description": "Agent 的『双手』：它得以对外部世界施加动作的调用能力。",
+    "feynman": "工具是模型触达外部世界的手。Harness 把工具用名称、描述和参数结构暴露给模型，并负责校验、执行、捕获结果和返回观察。",
+    "sourceContext": "“Agent 的‘双手’”",
+    "aliases": [
+     "Tools"
+    ],
+    "evidence": [
+     "能为一个 Agent 列出它必须具备的工具清单",
+     "能说明每个工具的输入输出与失败模式"
+    ],
+    "assessmentPrompt": "这个 Agent 需要哪些 工具，缺了哪个就跑不动？",
+    "domain": "tools-sandbox",
+    "kind": ""
+   },
+   "concept": {
+    "id": "CON-tool",
+    "title": "工具",
+    "definition": "Tool 是让 Agent 读取、计算或改变外部世界的结构化能力接口；模型提出调用，外层系统负责校验、执行并把结果送回来。",
+    "intuition": "模型本身只能生成内容，Tool 像装在它身边的一只机械臂。模型可以按规定格式说“用这只手做什么”，但真正伸手、检查参数、执行动作和收回结果的是 Harness。有没有这只手，和模型知不知道该怎么用这只手，是两件事。",
+    "boundary": [
+     "Tool Definition、Tool Call、Tool Execution 与 Tool Result 是连续但不同的环节；看到调用请求不等于动作已经执行成功。",
+     "Tool 是具体能力接口，MCP 是连接一组外部能力的标准协议；二者不能互作同义词。",
+     "Skill 主要沉淀“怎么做”的可复用方法，它可以指导调用 Tool，但不是 Tool 本身。",
+     "工具存在不保证 Agent 会选对工具、填对参数或获得权限；这些问题要分别检查。"
+    ],
+    "transferQuestion": "当模型能准确描述如何读取文件，却始终拿不到文件内容时，你应该先检查模型知识，还是 Tool 的注册、权限与执行链？",
+    "categoryQuestion": "AI 靠什么读取、计算或改变外部世界？",
+    "sourceLines": [
+     "`SRC-EXT-003`：图鉴站概念卡 `concepts/tool.yaml`（name_en: Tool）",
+     "源证据范围（卡片自述）：Akshay 对 Agent Harness 的拆解把工具称为 Agent 的“双手”：工具以名称、描述和参数类型暴露给模型，工具层负责注册、校验、参数提取、沙箱执行、结果捕获与观察格式化。该来源用于划清模型请求与外层执行的边界。",
+     "定义状态：industry-common｜学习阶段：现在就要懂"
+    ],
+    "sources": [
+     "SRC-EXT-003"
+    ],
+    "status": "已核对（源：图鉴站已审计产物）"
+   },
+   "qst": {
+    "id": "QST-tool",
+    "title": "能不能讲清「工具」",
+    "text": "当模型能准确描述如何读取文件，却始终拿不到文件内容时，你应该先检查模型知识，还是 Tool 的注册、权限与执行链？",
+    "type": "检验问题"
+   },
+   "case": {
+    "id": "CAS-tool",
+    "title": "工具：一个具体场景",
+    "summary": "一个代码 Agent 想读取文件，会按文件工具的名称和参数结构提出调用；工具层检查路径与权限，实际读取文件，再把内容作为结果返回给模型。",
+    "type": "假设场景",
+    "evidence": "Akshay 对 Agent Harness 的拆解把工具称为 Agent 的“双手”：工具以名称、描述和参数类型暴露给模型，工具层负责注册、校验、参数提取、沙箱执行、结果捕获与观察格式化。该来源用于划清模型请求与外层执行的边界。",
+    "candidates": [
+     "CAS-tool"
+    ],
+    "primaryCaseId": "CAS-tool",
+    "sources": [
+     "SRC-EXT-003"
+    ]
+   },
+   "opinions": [
+    {
+     "id": "OPI-CTX-A1-01",
+     "title": "GitHub 把 Copilot code review 的专用代码探索工具换成维护更好、可被多…",
+     "claim": "GitHub 把 Copilot code review 的专用代码探索工具换成维护更好、可被多个 Copilot 产品共享的 grep、glob、view 后，最初结果反而更差：平均审查成本上升，发现的有用问题减少。",
+     "scope": "出自《工具更多反而让 Copilot 代码审查变差，GitHub 如何修正》清单编号 A1 的第 1 条核心观点；适用范围以原文为准，本工程未做二次判断",
+     "sources": [
+      "SRC-EXT-001"
+     ]
+    },
+    {
+     "id": "OPI-CTX-A1-02",
+     "title": "回归并不是工具能力不足，而是工具说明把代码审查 agent 引向了通用 coding assis…",
+     "claim": "回归并不是工具能力不足，而是工具说明把代码审查 agent 引向了通用 coding assistant 的工作姿势：广泛搜索、猜路径、读取大片代码、继续扩散探索，并把无关内容留在工作上下文里。",
+     "scope": "出自《工具更多反而让 Copilot 代码审查变差，GitHub 如何修正》清单编号 A1 的第 2 条核心观点；适用范围以原文为准，本工程未做二次判断",
+     "sources": [
+      "SRC-EXT-001"
+     ]
+    },
+    {
+     "id": "OPI-CTX-04-05",
+     "title": "六条局部最优：围绕 KV-cache 设计、掩码而非移除工具、把文件系统当上下文、通过复述操纵注…",
+     "claim": "六条局部最优：围绕 KV-cache 设计、掩码而非移除工具、把文件系统当上下文、通过复述操纵注意力、把错误留在上下文里、别把自己 few-shot 进套路。",
+     "scope": "出自《Manus 的上下文工程实战：几轮重写换来的一组局部最优》清单编号 04 的第 5 条核心观点；适用范围以原文为准，本工程未做二次判断",
+     "sources": [
+      "SRC-EXT-001"
+     ]
+    }
+   ],
+   "solution": {
+    "id": "SOL-tool",
+    "title": "工具：可执行动作路径",
+    "targetProblem": "避免这个误区：Tool Definition、Tool Call、Tool Execution 与 Tool Result 是连续但不同的环节；看到调用请求不等于动作已经执行成功。",
+    "summary": "排错时依次检查工具是否注册、描述是否清楚、参数是否通过校验、权限是否允许、执行是否成功、结果是否正确回传。",
+    "actionSteps": [
+     "排错时依次检查工具是否注册、描述是否清楚、参数是否通过校验、权限是否允许、执行是否成功、结果是否正确回传。",
+     "只向当前任务暴露必要工具，避免无关能力增加选择噪声与权限面。",
+     "对高风险 Tool 把权限检查和执行日志放在模型外层，不依赖提示词自我约束。"
+    ],
+    "sources": [
+     "SRC-EXT-003"
+    ]
+   },
+   "reading": {
+    "original": {
+     "label": "原文 context",
+     "text": "“Agent 的‘双手’”"
+    },
+    "explain": {
+     "label": "定义",
+     "text": "Tool 是让 Agent 读取、计算或改变外部世界的结构化能力接口；模型提出调用，外层系统负责校验、执行并把结果送回来。",
+     "from": "CON-tool"
+    },
+    "intuition": {
+     "label": "直觉",
+     "text": "模型本身只能生成内容，Tool 像装在它身边的一只机械臂。模型可以按规定格式说“用这只手做什么”，但真正伸手、检查参数、执行动作和收回结果的是 Harness。有没有这只手，和模型知不知道该怎么用这只手，是两件事。",
+     "from": "CON-tool"
+    },
+    "mechanism": {
+     "label": "机制",
+     "text": "排错时依次检查工具是否注册、描述是否清楚、参数是否通过校验、权限是否允许、执行是否成功、结果是否正确回传。",
+     "from": "SOL-tool"
+    },
+    "boundary": {
+     "label": "边界",
+     "items": [
+      "Tool Definition、Tool Call、Tool Execution 与 Tool Result 是连续但不同的环节；看到调用请求不等于动作已经执行成功。",
+      "Tool 是具体能力接口，MCP 是连接一组外部能力的标准协议；二者不能互作同义词。",
+      "Skill 主要沉淀“怎么做”的可复用方法，它可以指导调用 Tool，但不是 Tool 本身。",
+      "工具存在不保证 Agent 会选对工具、填对参数或获得权限；这些问题要分别检查。"
+     ],
+     "from": "CON-tool"
+    }
+   },
+   "framingNote": "",
+   "questions": [
+    {
+     "judgment": "环节定位：调用请求不等于执行成功",
+     "prompt": "日志里能看到模型发出了一次读文件的调用请求，但文件内容始终没有出现在上下文里。先查哪一段？",
+     "options": [
+      {
+       "text": "先怀疑模型不知道文件怎么读，补一段提示词教它。",
+       "correct": false,
+       "why": "QST-tool 问的正是这件事：模型能准确描述怎么读，却拿不到内容时，问题不在模型知识。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "依次查工具是否注册、描述是否清楚、参数是否通过校验、权限是否允许、执行是否成功、结果是否正确回传。",
+       "correct": true,
+       "why": "",
+       "basis": [
+        "SOL-tool#action_steps[0]"
+       ],
+       "basisQuote": "排错时依次检查工具是否注册、描述是否清楚、参数是否通过校验、权限是否允许、执行是否成功、结果是否正确回传"
+      },
+      {
+       "text": "先把整个工具删掉，改成让模型直接输出文件内容。",
+       "correct": false,
+       "why": "删工具解决的是能力面，不是这条执行链断在哪一环。",
+       "basis": [],
+       "basisQuote": ""
+      }
+     ]
+    },
+    {
+     "judgment": "工具面收窄：工具不是越多越好",
+     "prompt": "有人主张「把所有能找到的工具都挂上，让 Agent 自己挑」。按本章材料，这条主张的问题在哪？",
+     "options": [
+      {
+       "text": "没有问题，工具越多能力一定越强。",
+       "correct": false,
+       "why": "GitHub 把 Copilot code review 的探索工具换成更通用的 grep／glob／view 后，最初结果反而更差（OPI-CTX-A1-01）。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "只多花一点 token，对选择没有影响。",
+       "correct": false,
+       "why": "无关能力会改变工具说明把 Agent 引向的工作姿势，不只是 token 成本。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "无关能力会增加选择噪声与权限面，只应向当前任务暴露必要工具。",
+       "correct": true,
+       "why": "",
+       "basis": [
+        "SOL-tool#action_steps[1]"
+       ],
+       "basisQuote": "只向当前任务暴露必要工具，避免无关能力增加选择噪声与权限面"
+      }
+     ]
+    },
+    {
+     "judgment": "高风险工具的权限放在哪一层",
+     "prompt": "一个能写生产库的工具，怎么防止它被误调用？",
+     "options": [
+      {
+       "text": "把权限检查和执行日志放在模型外层，不依赖提示词自我约束。",
+       "correct": true,
+       "why": "",
+       "basis": [
+        "SOL-tool#action_steps[2]"
+       ],
+       "basisQuote": "对高风险 Tool 把权限检查和执行日志放在模型外层，不依赖提示词自我约束"
+      },
+      {
+       "text": "在系统提示里写一句「不要误调用」就够了。",
+       "correct": false,
+       "why": "这条正是材料要求不要依赖的做法。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "把工具描述写得更详细，模型就不会误用。",
+       "correct": false,
+       "why": "描述只影响模型怎么选，不构成模型外的权限边界。",
+       "basis": [],
+       "basisQuote": ""
+      }
+     ]
+    }
+   ],
+   "feynman": {
+    "prompt": "为什么「模型发出了工具调用请求」不等于「动作已经执行成功」？请至少说清三件事。",
+    "required": [
+     "提出调用",
+     "外层执行",
+     "四个环节"
+    ]
+   },
+   "review": {
+    "status": "scaffold",
+    "statusNote": "材料齐全；主案例未经负责人确认 → 候选装配稿。",
+    "caseState": "pending-owner-confirmation",
+    "caseMeaning": "负责人尚未对这六章的主案例给出确认记录。六章一律按「候选装配稿」交付：页面照实显示主案例是候选、且是假设场景，不冒充已审核材料，也不把候选案例写成真实复盘。",
+    "correspondence": {
+     "basis": "名称与主题对应（人工核对）：cm_a72ef18d「工具 / Tools」↔ CON-tool「工具」，同属主题「AI 如何接触外部世界」；概念地图卡的 feynman 与 CON-tool 的费曼一下都把工具说成模型触达外部世界的手，口径一致。",
+     "framingDifference": "",
+     "needsOwnerRuling": false
+    },
+    "needsOwnerRuling": false
+   }
+  },
+  {
+   "chapterId": "agent-loop",
+   "order": 3,
+   "title": "Agent loop",
+   "routeId": "agent-continuous-action-v1",
+   "routeTitle": "理解 AI 如何持续行动",
+   "routeStep": 3,
+   "routeSteps": 6,
+   "why": "工具是单次动作，循环才把单次动作变成「持续做事」——入口问题在这一步第一次被正面回答。",
+   "cm": {
+    "id": "cm_1973b1d3",
+    "name": "Agent loop",
+    "description": "SDK 内置的循环：发起工具调用、把结果送回模型、持续迭代直到任务完成。",
+    "feynman": "模型调工具、拿到结果、再喂回模型、判断是否结束——这个来回的循环谁都要写一遍。SDK 把它内置了，你只描述 agent 是什么，不用描述它怎么转。",
+    "sourceContext": "A built-in agent loop that handles tool invocation, sends results back to the LLM, and continues until the task is complete。它是 SDK 作为 higher-level runtime 的核心承载。",
+    "aliases": [],
+    "evidence": [
+     "能说明循环的终止由谁判定",
+     "能说清没有内置循环时要自己补多少胶水代码"
+    ],
+    "assessmentPrompt": "Agent loop 的一步迭代包含哪几个动作、何时停？",
+    "domain": "loop-autonomy",
+    "kind": ""
+   },
+   "concept": {
+    "id": "CON-agent-loop",
+    "title": "Agent 循环",
+    "definition": "Agent Loop 是模型选择下一步、Harness 执行工具、观察结果回到模型，再重复或退出的运行循环。",
+    "intuition": "模型先看当前信息并选择下一步。如果它请求工具，外部系统就执行工具，把结果作为新观察交还模型；模型根据这个新结果决定继续、换一种做法，或给出最终答案。循环的关键不是绕圈，而是每次观察都会影响下一步，并且有明确的退出条件。",
+    "boundary": [
+     "Agent Loop 只描述单个 Agent 内部“选择—执行—观察—再选择”的行动心跳，不等于外层持续工作流、多 Agent 编排或 Loop Engineering。",
+     "模型生成工具调用请求，不是模型亲自执行工具；执行和结果封装由 Harness 完成。",
+     "退出不能只依赖模型随口说“完成”；真实系统还应有最大回合、预算、无进展、权限拒绝与用户中断等边界。",
+     "循环持续运行不等于任务已经正确完成，仍需独立验证结果。"
+    ],
+    "transferQuestion": "一个系统反复调用工具，却从不把结果送回模型，这还构成完整的 Agent Loop 吗？",
+    "categoryQuestion": "为什么 AI 能连续做事，而不只回答一次？",
+    "sourceLines": [
+     "`SRC-EXT-003`：图鉴站概念卡 `concepts/agent-loop.yaml`（name_en: Agent Loop）",
+     "源证据范围（卡片自述）：Simon Willison 说明 coding agent 的实际工作方式是模型提出下一步、Harness 执行工具、结果重新进入上下文，模型再决定回答、继续调用工具或调整方案。本站补充生产边界：循环还要受停止条件、预算和用户中断约束。",
+     "定义状态：industry-common｜学习阶段：现在就要懂"
+    ],
+    "sources": [
+     "SRC-EXT-003"
+    ],
+    "status": "已核对（源：图鉴站已审计产物）"
+   },
+   "qst": {
+    "id": "QST-agent-loop",
+    "title": "能不能讲清「Agent 循环」",
+    "text": "一个系统反复调用工具，却从不把结果送回模型，这还构成完整的 Agent Loop 吗？",
+    "type": "检验问题"
+   },
+   "case": {
+    "id": "CAS-agent-loop",
+    "title": "Agent 循环：一个具体场景",
+    "summary": "Agent 先搜索仓库，看到结果后打开相关文件，再修改代码并运行测试；测试失败成为下一轮观察，测试通过且任务满足条件时退出循环。",
+    "type": "假设场景",
+    "evidence": "Simon Willison 说明 coding agent 的实际工作方式是模型提出下一步、Harness 执行工具、结果重新进入上下文，模型再决定回答、继续调用工具或调整方案。本站补充生产边界：循环还要受停止条件、预算和用户中断约束。",
+    "candidates": [
+     "CAS-agent-loop"
+    ],
+    "primaryCaseId": "CAS-agent-loop",
+    "sources": [
+     "SRC-EXT-003"
+    ]
+   },
+   "opinions": [],
+   "solution": {
+    "id": "SOL-agent-loop",
+    "title": "Agent 循环：可执行动作路径",
+    "targetProblem": "避免这个误区：Agent Loop 只描述单个 Agent 内部“选择—执行—观察—再选择”的行动心跳，不等于外层持续工作流、多 Agent 编排或 Loop Engineering。",
+    "summary": "记录每一轮的输入、模型选择、工具参数、工具结果和停止原因，定位空转、早停与错误回灌。",
+    "actionSteps": [
+     "记录每一轮的输入、模型选择、工具参数、工具结果和停止原因，定位空转、早停与错误回灌。",
+     "为每个循环设置清楚的退出条件、最大回合或预算，并提供用户中断路径。",
+     "当循环重复同一动作却没有新证据时，触发无进展检测，而不是继续消耗预算。"
+    ],
+    "sources": [
+     "SRC-EXT-003"
+    ]
+   },
+   "reading": {
+    "original": {
+     "label": "原文 context",
+     "text": "A built-in agent loop that handles tool invocation, sends results back to the LLM, and continues until the task is complete。它是 SDK 作为 higher-level runtime 的核心承载。"
+    },
+    "explain": {
+     "label": "定义",
+     "text": "Agent Loop 是模型选择下一步、Harness 执行工具、观察结果回到模型，再重复或退出的运行循环。",
+     "from": "CON-agent-loop"
+    },
+    "intuition": {
+     "label": "直觉",
+     "text": "模型先看当前信息并选择下一步。如果它请求工具，外部系统就执行工具，把结果作为新观察交还模型；模型根据这个新结果决定继续、换一种做法，或给出最终答案。循环的关键不是绕圈，而是每次观察都会影响下一步，并且有明确的退出条件。",
+     "from": "CON-agent-loop"
+    },
+    "mechanism": {
+     "label": "机制",
+     "text": "记录每一轮的输入、模型选择、工具参数、工具结果和停止原因，定位空转、早停与错误回灌。",
+     "from": "SOL-agent-loop"
+    },
+    "boundary": {
+     "label": "边界",
+     "items": [
+      "Agent Loop 只描述单个 Agent 内部“选择—执行—观察—再选择”的行动心跳，不等于外层持续工作流、多 Agent 编排或 Loop Engineering。",
+      "模型生成工具调用请求，不是模型亲自执行工具；执行和结果封装由 Harness 完成。",
+      "退出不能只依赖模型随口说“完成”；真实系统还应有最大回合、预算、无进展、权限拒绝与用户中断等边界。",
+      "循环持续运行不等于任务已经正确完成，仍需独立验证结果。"
+     ],
+     "from": "CON-agent-loop"
+    }
+   },
+   "framingNote": "",
+   "questions": [
+    {
+     "judgment": "结构判定：缺了哪一步就不成循环",
+     "prompt": "一个系统反复调用工具，但从不把工具结果送回模型。这还构成完整的 Agent Loop 吗？",
+     "options": [
+      {
+       "text": "构成——只要反复调用工具就是循环。",
+       "correct": false,
+       "why": "循环的关键不是绕圈，而是每次观察都会影响下一步。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "缺的是「观察回到模型」：结果不回灌，下一步就不会受结果影响。",
+       "correct": true,
+       "why": "",
+       "basis": [
+        "SOL-agent-loop#target_problem"
+       ],
+       "basisQuote": "单个 Agent 内部“选择—执行—观察—再选择”的行动心跳"
+      },
+      {
+       "text": "缺的只是更长的上下文窗口。",
+       "correct": false,
+       "why": "窗口容量解决的是装得下多少，不解决结果有没有回到模型。",
+       "basis": [],
+       "basisQuote": ""
+      }
+     ]
+    },
+    {
+     "judgment": "排错动作：循环空转时先做什么",
+     "prompt": "Agent 连续 40 轮重复同一个命令，没有产生任何新证据。第一步做什么？",
+     "options": [
+      {
+       "text": "把最大回合数从 40 调到 200，让它接着跑。",
+       "correct": false,
+       "why": "这只是在继续消耗预算；材料把无进展检测列为触发条件。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "记录并查看每一轮的输入、模型选择、工具参数、工具结果和停止原因，并触发无进展检测。",
+       "correct": true,
+       "why": "",
+       "basis": [
+        "SOL-agent-loop#action_steps[0]",
+        "SOL-agent-loop#action_steps[2]"
+       ],
+       "basisQuote": "记录每一轮的输入、模型选择、工具参数、工具结果和停止原因"
+      },
+      {
+       "text": "直接换一个更大的模型重跑。",
+       "correct": false,
+       "why": "换了模型就没有可比的轨迹，定位不了空转发生在哪一环。",
+       "basis": [],
+       "basisQuote": ""
+      }
+     ]
+    },
+    {
+     "judgment": "退出与结论：循环停下来代表什么",
+     "prompt": "模型自己说了一句「任务完成」，循环就此退出。这样够吗？",
+     "options": [
+      {
+       "text": "够——模型说完成就是完成。",
+       "correct": false,
+       "why": "CON-agent-loop 的边界写明：退出不能只依赖模型随口说「完成」。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "不够：要设置清楚的退出条件、最大回合或预算，并提供用户中断路径；而且循环停下不等于任务已经正确完成，仍需独立验证。",
+       "correct": true,
+       "why": "",
+       "basis": [
+        "SOL-agent-loop#action_steps[1]"
+       ],
+       "basisQuote": "为每个循环设置清楚的退出条件、最大回合或预算，并提供用户中断路径"
+      },
+      {
+       "text": "够，只要在提示词里加上「请仔细检查」。",
+       "correct": false,
+       "why": "提示词不构成退出条件，也不构成独立检查。",
+       "basis": [],
+       "basisQuote": ""
+      }
+     ]
+    }
+   ],
+   "feynman": {
+    "prompt": "为什么「反复调用工具」不自动等于「一个完整的 Agent 循环」？请至少说清三件事。",
+    "required": [
+     "一步的动作",
+     "观察回灌",
+     "退出条件"
+    ]
+   },
+   "review": {
+    "status": "scaffold",
+    "statusNote": "材料齐全（无 OPI 直连，题目依据全部落在 SOL-agent-loop 的动作路径上）；主案例未经负责人确认 → 候选装配稿。",
+    "caseState": "pending-owner-confirmation",
+    "caseMeaning": "负责人尚未对这六章的主案例给出确认记录。六章一律按「候选装配稿」交付：页面照实显示主案例是候选、且是假设场景，不冒充已审核材料，也不把候选案例写成真实复盘。",
+    "correspondence": {
+     "basis": "名称与主题对应（人工核对）：cm_1973b1d3「Agent loop」↔ CON-agent-loop「Agent 循环」，同属主题「AI 如何持续行动 / loop-autonomy」。",
+     "framingDifference": "",
+     "needsOwnerRuling": false
+    },
+    "needsOwnerRuling": false
+   }
+  },
+  {
+   "chapterId": "state-persistence",
+   "order": 4,
+   "title": "状态子系统与进度持久化",
+   "routeId": "agent-continuous-action-v1",
+   "routeTitle": "理解 AI 如何持续行动",
+   "routeStep": 4,
+   "routeSteps": 6,
+   "why": "循环能跑起来，但会话一断就归零。要让任务跨会话接着做，状态必须落到磁盘上。",
+   "cm": {
+    "id": "cm_be951649",
+    "name": "状态子系统与进度持久化",
+    "description": "用 progress.md、feature_list、git log 等把做了什么、在做什么、下一步是什么持久化到磁盘，让下次会话接着做。",
+    "feynman": "agent 的记忆在会话结束时就清零了。想让它接着干，就不能指望它「记得」，只能让它「读得到」——把进度写在纸上放在桌面正中间，下次开工第一件事就是读那张纸。",
+    "sourceContext": "五个子系统之一，也是 L05「为什么长时任务会丢失上下文」的解法。状态负责跟踪做了什么、正在做什么、下一步是什么，关键动作是**持久化到磁盘**（progress.md、claude-progress.md、feature_list、git log、会话交接笔记），让下次会话「从上次停下的地方继续」而不是从头开始。",
+    "aliases": [],
+    "evidence": [
+     "能在项目里落地一份进度文件并在新会话中续接",
+     "能用 git log 与会话交接笔记还原任务状态"
+    ],
+    "assessmentPrompt": "你的 状态子系统与进度持久化 里写清了下一步是什么吗？",
+    "domain": "state-persistence",
+    "kind": ""
+   },
+   "concept": {
+    "id": "CON-state-management",
+    "title": "状态管理",
+    "definition": "状态管理负责记录任务当前阶段、变量、进度与恢复点，让系统知道做到哪里，并能追踪、暂停、恢复或回溯。",
+    "intuition": "把任务想成一列沿轨道运行的小车。状态管理不只是保存一份文件，而是持续记录小车停在哪一段、车上有哪些变量、哪些步骤已经完成，以及从哪个保存点可以继续。没有这些记录，中断后系统只知道“做过事”，却不知道该从哪里接上。",
+    "boundary": [
+     "State 是任务当前可描述的执行事实；State Management 是记录、更新、持久化和恢复这些事实的实践。",
+     "Checkpoint 只是保存某个恢复点的机制之一；有 checkpoint 不代表变量完整、恢复正确或外部副作用安全。",
+     "State Management 常偏向当前执行位置与恢复点，Memory 常偏向过去保存的知识与经历；但两者可共用文件、数据库，也会在待办、进度和依赖上重叠。"
+    ],
+    "transferQuestion": "如果进程重启后知道用户说过什么，却不知道前三步是否已经执行，缺的是 Memory，还是可恢复的执行 State？",
+    "categoryQuestion": "哪些信息会被保留，任务进度又记在哪里？",
+    "sourceLines": [
+     "`SRC-EXT-003`：图鉴站概念卡 `concepts/state-management.yaml`（name_en: State Management）",
+     "源证据范围（卡片自述）：Akshay 的 Harness 拆解把状态描述为流经节点的结构化数据，并列出 checkpoint、会话、提交和进度文件等恢复与追踪策略。本站把这些视为状态管理的不同实现，不把 checkpoint 与 State Management 当作同义词。",
+     "定义状态：industry-common｜学习阶段：需要时再学"
+    ],
+    "sources": [
+     "SRC-EXT-003"
+    ],
+    "status": "已核对（源：图鉴站已审计产物）"
+   },
+   "qst": {
+    "id": "QST-state-management",
+    "title": "能不能讲清「状态管理」",
+    "text": "如果进程重启后知道用户说过什么，却不知道前三步是否已经执行，缺的是 Memory，还是可恢复的执行 State？",
+    "type": "检验问题"
+   },
+   "case": {
+    "id": "CAS-state-management",
+    "title": "状态管理：一个具体场景",
+    "summary": "一个迁移任务完成了前三批文件并保存当前批次、验证结果和下一步；进程重启后，系统从记录的恢复点继续第四批，而不是重新处理全部文件。",
+    "type": "假设场景",
+    "evidence": "Akshay 的 Harness 拆解把状态描述为流经节点的结构化数据，并列出 checkpoint、会话、提交和进度文件等恢复与追踪策略。本站把这些视为状态管理的不同实现，不把 checkpoint 与 State Management 当作同义词。",
+    "candidates": [
+     "CAS-state-management"
+    ],
+    "primaryCaseId": "CAS-state-management",
+    "sources": [
+     "SRC-EXT-003"
+    ]
+   },
+   "opinions": [
+    {
+     "id": "OPI-HAR-05-04",
+     "title": "相比 2023 年的老公式「agent = LLM + memory + tools + pla…",
+     "claim": "相比 2023 年的老公式「agent = LLM + memory + tools + planning + action」，harness 工程额外包含 workflow 设计（如 loop engineering）、评估、权限控制、持久状态管理。它不再是 prompt 模板，而更接近运行时与软件系统设计。作者给了一个贯穿全文的类比：harness 之于模型，像操作系统——把复杂逻辑封装起来，同时保持接口简单。",
+     "scope": "出自《Lilian Weng：把 harness 工程接到「递归自我改进」这条老线索上》清单编号 05 的第 4 条核心观点；适用范围以原文为准，本工程未做二次判断",
+     "sources": [
+      "SRC-EXT-002"
+     ]
+    }
+   ],
+   "solution": {
+    "id": "SOL-state-management",
+    "title": "状态管理：可执行动作路径",
+    "targetProblem": "避免这个误区：State 是任务当前可描述的执行事实；State Management 是记录、更新、持久化和恢复这些事实的实践。",
+    "summary": "明确哪些变量决定下一步，并在每次状态转换时原子地记录当前阶段、完成证据和待处理项。",
+    "actionSteps": [
+     "明确哪些变量决定下一步，并在每次状态转换时原子地记录当前阶段、完成证据和待处理项。",
+     "为暂停、恢复和回溯分别定义入口；恢复后先核对外部世界，再继续执行。",
+     "避免把会话历史、业务状态和执行状态混成一个不可审计的大对象。"
+    ],
+    "sources": [
+     "SRC-EXT-003"
+    ]
+   },
+   "reading": {
+    "original": {
+     "label": "原文 context",
+     "text": "五个子系统之一，也是 L05「为什么长时任务会丢失上下文」的解法。状态负责跟踪做了什么、正在做什么、下一步是什么，关键动作是**持久化到磁盘**（progress.md、claude-progress.md、feature_list、git log、会话交接笔记），让下次会话「从上次停下的地方继续」而不是从头开始。"
+    },
+    "explain": {
+     "label": "定义",
+     "text": "状态管理负责记录任务当前阶段、变量、进度与恢复点，让系统知道做到哪里，并能追踪、暂停、恢复或回溯。",
+     "from": "CON-state-management"
+    },
+    "intuition": {
+     "label": "直觉",
+     "text": "把任务想成一列沿轨道运行的小车。状态管理不只是保存一份文件，而是持续记录小车停在哪一段、车上有哪些变量、哪些步骤已经完成，以及从哪个保存点可以继续。没有这些记录，中断后系统只知道“做过事”，却不知道该从哪里接上。",
+     "from": "CON-state-management"
+    },
+    "mechanism": {
+     "label": "机制",
+     "text": "明确哪些变量决定下一步，并在每次状态转换时原子地记录当前阶段、完成证据和待处理项。",
+     "from": "SOL-state-management"
+    },
+    "boundary": {
+     "label": "边界",
+     "items": [
+      "State 是任务当前可描述的执行事实；State Management 是记录、更新、持久化和恢复这些事实的实践。",
+      "Checkpoint 只是保存某个恢复点的机制之一；有 checkpoint 不代表变量完整、恢复正确或外部副作用安全。",
+      "State Management 常偏向当前执行位置与恢复点，Memory 常偏向过去保存的知识与经历；但两者可共用文件、数据库，也会在待办、进度和依赖上重叠。"
+     ],
+     "from": "CON-state-management"
+    }
+   },
+   "framingNote": "概念地图卡的落点是具体做法（progress.md / feature_list / git log 让下次会话接着做）；CON-state-management 的落点是 State 与 State Management 的区别、以及恢复前先核对。两条互补，不冲突。",
+   "questions": [
+    {
+     "judgment": "缺的是哪一类记录",
+     "prompt": "进程重启后，系统知道用户之前说过什么，却不知道前三步是否已经执行过。缺的是什么？",
+     "options": [
+      {
+       "text": "缺 Memory——把聊天记录补全就行。",
+       "correct": false,
+       "why": "聊天记录回答的是「说过什么」，回答不了「做到哪里」。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "缺可恢复的执行状态：任务当前阶段、已完成步骤与恢复点没有被记下来。",
+       "correct": true,
+       "why": "",
+       "basis": [
+        "SOL-state-management#target_problem"
+       ],
+       "basisQuote": "State 是任务当前可描述的执行事实"
+      },
+      {
+       "text": "缺更大的上下文窗口。",
+       "correct": false,
+       "why": "窗口容量与「前三步是否执行过」是两件事。",
+       "basis": [],
+       "basisQuote": ""
+      }
+     ]
+    },
+    {
+     "judgment": "状态转换时要记什么",
+     "prompt": "每次状态转换时，应该记下什么？",
+     "options": [
+      {
+       "text": "把完整会话历史整段存下来，越多越好。",
+       "correct": false,
+       "why": "SOL-state-management 要求避免把会话历史、业务状态和执行状态混成一个不可审计的大对象。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "只存一句「进行中」。",
+       "correct": false,
+       "why": "没有完成证据和待处理项，恢复时仍然不知道该从哪里接。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "明确哪些变量决定下一步，并原子地记录当前阶段、完成证据和待处理项。",
+       "correct": true,
+       "why": "",
+       "basis": [
+        "SOL-state-management#action_steps[0]"
+       ],
+       "basisQuote": "明确哪些变量决定下一步，并在每次状态转换时原子地记录当前阶段、完成证据和待处理项"
+      }
+     ]
+    },
+    {
+     "judgment": "恢复动作：接着跑之前先做什么",
+     "prompt": "从记录的恢复点继续执行之前，第一步做什么？",
+     "options": [
+      {
+       "text": "直接接着往下跑，记录里怎么写的就怎么信。",
+       "correct": false,
+       "why": "Checkpoint 只是保存恢复点的机制之一；有记录不代表变量完整、恢复正确或外部副作用安全。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "先核对外部世界的实际状态，再继续执行。",
+       "correct": true,
+       "why": "",
+       "basis": [
+        "SOL-state-management#action_steps[1]"
+       ],
+       "basisQuote": "恢复后先核对外部世界，再继续执行"
+      },
+      {
+       "text": "不管记录，从头把整个任务重跑一遍。",
+       "correct": false,
+       "why": "这等于放弃持久化的意义，重复的副作用也不安全。",
+       "basis": [],
+       "basisQuote": ""
+      }
+     ]
+    }
+   ],
+   "feynman": {
+    "prompt": "为什么「存了一份进度文件」不等于「状态管理做好了」？请至少说清三件事。",
+    "required": [
+     "执行事实",
+     "记录什么",
+     "恢复前核对"
+    ]
+   },
+   "review": {
+    "status": "scaffold",
+    "statusNote": "材料齐全；主案例未经负责人确认 → 候选装配稿。",
+    "caseState": "pending-owner-confirmation",
+    "caseMeaning": "负责人尚未对这六章的主案例给出确认记录。六章一律按「候选装配稿」交付：页面照实显示主案例是候选、且是假设场景，不冒充已审核材料，也不把候选案例写成真实复盘。",
+    "correspondence": {
+     "basis": "名称与主题对应（人工核对）：cm_be951649「状态子系统与进度持久化」↔ CON-state-management「状态管理」，同属主题 state-persistence。",
+     "framingDifference": "概念地图卡的落点是具体做法（progress.md / feature_list / git log 让下次会话接着做）；CON-state-management 的落点是 State 与 State Management 的区别、以及恢复前先核对。两条互补，不冲突。",
+     "needsOwnerRuling": false
+    },
+    "needsOwnerRuling": false
+   }
+  },
+  {
+   "chapterId": "harness",
+   "order": 5,
+   "title": "Harness",
+   "routeId": "agent-continuous-action-v1",
+   "routeTitle": "理解 AI 如何持续行动",
+   "routeStep": 5,
+   "routeSteps": 6,
+   "why": "工具、循环、状态各自成立之后，才能看清把它们组织成一个可控运行系统的那一层是什么。",
+   "cm": {
+    "id": "cm_0a4ca4ce",
+    "name": "Harness",
+    "description": "包裹在大语言模型之外的完整软件架构，负责让模型能读文件、跑命令、改代码并自主完成任务。",
+    "feynman": "模型外面那层「项目级感知」。让 AI 不是只盯一段代码，而是先理解整个项目的目录、规则、依赖，再做决定。",
+    "sourceContext": "> 它最不一样的地方是模型能力本身就很不错，加上 Claude Code 自己的代码实现也把 Harness 这一套玩到了极致——整个项目一起看：先扫一遍 [CLAUDE.md](http://CLAUDE.md) 和目录结构摸清楚上下文，然后跨文件改代码、跑命令、看报错、再改，自己全部完成。",
+    "aliases": [
+     "项目级感知",
+     "整个项目一起看",
+     "model 外壳",
+     "runtime",
+     "agent harness"
+    ],
+    "evidence": [
+     "能指出 Claude Code 里哪些组件属于 Harness、哪些属于模型自身",
+     "能解释为何同一模型换一个 Harness 表现差异巨大"
+    ],
+    "assessmentPrompt": "Harness 指什么？它和模型权重各负责哪部分？",
+    "domain": "harness-runtime",
+    "kind": ""
+   },
+   "concept": {
+    "id": "CON-agent-harness",
+    "title": "Agent Harness",
+    "definition": "Agent Harness 是包裹模型、组织循环并落实工具、状态、权限和错误处理的模型外运行系统；它让模型能够持续且受控地行动。",
+    "intuition": "模型像只负责判断下一步的核心，Harness 像围在外面的运行机器。它把任务和当前状态送给模型，执行模型请求的工具，把观察结果送回去，并在每一步检查权限、错误与停止条件。用户看到的是 Agent 在行动，背后让动作真正发生并受到约束的是 Harness。",
+    "boundary": [
+     "Agent Harness 不等于模型；模型负责生成判断或工具请求，Harness 负责执行、回灌、状态与控制。",
+     "Agent Harness 也不等于用户感知到的 Agent；本站用 Agent 描述围绕目标持续行动的系统表现，用 Harness 描述产生并治理这种表现的运行机器。",
+     "“模型外一切”是便于划界的广义口径；工程实践中也有只把循环、工具分发与状态处理称为 Harness 的薄口径，讨论时要先声明范围。",
+     "Harness 会与 Context Engineering 交叉，因为它必须在运行时装配信息；但 Context 负责“模型看到什么”，Harness 负责“系统怎样持续、受控地运行”，不能静默压成一条轴。"
+    ],
+    "transferQuestion": "如果模型完全没变，只因换了工具执行、状态和验证机制就能完成长任务，能力提升主要发生在哪一层？",
+    "categoryQuestion": "为什么 AI 能连续做事，而不只回答一次？",
+    "sourceLines": [
+     "`SRC-EXT-003`：图鉴站概念卡 `concepts/agent-harness.yaml`（name_en: Agent Harness）",
+     "源证据范围（卡片自述）：Akshay 将 Harness 描述为包裹 LLM 的完整软件基础设施，并用循环、工具、记忆、上下文管理、状态持久化、错误处理和护栏说明其广义范围。本站采用“模型外运行系统”作为主口径，同时承认不同团队会把 Harness 说得更广或更薄。",
+     "定义状态：evolving｜学习阶段：现在就要懂"
+    ],
+    "sources": [
+     "SRC-EXT-003"
+    ],
+    "status": "已核对（源：图鉴站已审计产物）"
+   },
+   "qst": {
+    "id": "QST-agent-harness",
+    "title": "能不能讲清「Agent Harness」",
+    "text": "如果模型完全没变，只因换了工具执行、状态和验证机制就能完成长任务，能力提升主要发生在哪一层？",
+    "type": "检验问题"
+   },
+   "case": {
+    "id": "CAS-agent-harness",
+    "title": "Agent Harness：一个具体场景",
+    "summary": "同一个模型接入两套代码 Agent 系统：一套只能偶尔运行命令，另一套能保存进度、限制写入范围、处理工具失败并验证结果。即使模型权重不变，最终表现也会因 Harness 不同而明显不同。",
+    "type": "假设场景",
+    "evidence": "Akshay 将 Harness 描述为包裹 LLM 的完整软件基础设施，并用循环、工具、记忆、上下文管理、状态持久化、错误处理和护栏说明其广义范围。本站采用“模型外运行系统”作为主口径，同时承认不同团队会把 Harness 说得更广或更薄。",
+    "candidates": [
+     "CAS-agent-harness"
+    ],
+    "primaryCaseId": "CAS-agent-harness",
+    "sources": [
+     "SRC-EXT-003"
+    ]
+   },
+   "opinions": [
+    {
+     "id": "OPI-HAR-03-05",
+     "title": "为了验证这一点，Inngest 造了 Utah——Universally Triggered A…",
+     "claim": "为了验证这一点，Inngest 造了 Utah——Universally Triggered Agent Harness：一个带工具、memory、子 agent 委派和完整持久性的 Telegram/Slack 对话式 agent，极简 TypeScript，没有框架，只有 Inngest 的 function、step 和 event 围绕一个标准的 think → act → observe 循环。作者的定位是「一个持久化、云就绪版的 OpenClaw」。",
+     "scope": "出自《你的 agent 需要的是 harness，不是又一个框架》清单编号 03 的第 5 条核心观点；适用范围以原文为准，本工程未做二次判断",
+     "sources": [
+      "SRC-EXT-002"
+     ]
+    }
+   ],
+   "solution": {
+    "id": "SOL-agent-harness",
+    "title": "Agent Harness：可执行动作路径",
+    "targetProblem": "避免这个误区：Agent Harness 不等于模型；模型负责生成判断或工具请求，Harness 负责执行、回灌、状态与控制。",
+    "summary": "排查 Agent 失败时，分别检查模型判断、循环、工具、状态、Context、权限、错误处理和验证，避免把所有问题都归因于模型能力。",
+    "actionSteps": [
+     "排查 Agent 失败时，分别检查模型判断、循环、工具、状态、Context、权限、错误处理和验证，避免把所有问题都归因于模型能力。",
+     "更换 Harness 组件时固定模型、任务和输入，再比较轨迹与结果，才能判断改动实际影响了什么。",
+     "先定义 Harness 在当前系统中的边界，再讨论厚薄；不要让同一个词一会儿指完整非模型架构，一会儿只指 while 循环。"
+    ],
+    "sources": [
+     "SRC-EXT-003"
+    ]
+   },
+   "reading": {
+    "original": {
+     "label": "原文 context",
+     "text": "> 它最不一样的地方是模型能力本身就很不错，加上 Claude Code 自己的代码实现也把 Harness 这一套玩到了极致——整个项目一起看：先扫一遍 [CLAUDE.md](http://CLAUDE.md) 和目录结构摸清楚上下文，然后跨文件改代码、跑命令、看报错、再改，自己全部完成。"
+    },
+    "explain": {
+     "label": "定义",
+     "text": "Agent Harness 是包裹模型、组织循环并落实工具、状态、权限和错误处理的模型外运行系统；它让模型能够持续且受控地行动。",
+     "from": "CON-agent-harness"
+    },
+    "intuition": {
+     "label": "直觉",
+     "text": "模型像只负责判断下一步的核心，Harness 像围在外面的运行机器。它把任务和当前状态送给模型，执行模型请求的工具，把观察结果送回去，并在每一步检查权限、错误与停止条件。用户看到的是 Agent 在行动，背后让动作真正发生并受到约束的是 Harness。",
+     "from": "CON-agent-harness"
+    },
+    "mechanism": {
+     "label": "机制",
+     "text": "排查 Agent 失败时，分别检查模型判断、循环、工具、状态、Context、权限、错误处理和验证，避免把所有问题都归因于模型能力。",
+     "from": "SOL-agent-harness"
+    },
+    "boundary": {
+     "label": "边界",
+     "items": [
+      "Agent Harness 不等于模型；模型负责生成判断或工具请求，Harness 负责执行、回灌、状态与控制。",
+      "Agent Harness 也不等于用户感知到的 Agent；本站用 Agent 描述围绕目标持续行动的系统表现，用 Harness 描述产生并治理这种表现的运行机器。",
+      "“模型外一切”是便于划界的广义口径；工程实践中也有只把循环、工具分发与状态处理称为 Harness 的薄口径，讨论时要先声明范围。",
+      "Harness 会与 Context Engineering 交叉，因为它必须在运行时装配信息；但 Context 负责“模型看到什么”，Harness 负责“系统怎样持续、受控地运行”，不能静默压成一条轴。"
+     ],
+     "from": "CON-agent-harness"
+    }
+   },
+   "framingNote": "",
+   "questions": [
+    {
+     "judgment": "归因层：能力提升发生在哪一层",
+     "prompt": "模型完全没变，只换了工具执行、状态与验证机制，Agent 就能完成以前做不动的长任务。提升主要发生在哪一层？",
+     "options": [
+      {
+       "text": "在模型权重那一层——一定是偷偷换了模型。",
+       "correct": false,
+       "why": "题目已固定模型不变；SOL-agent-harness 把归因指向模型外。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "在 Harness 这一层：模型外的执行、回灌、状态与控制。",
+       "correct": true,
+       "why": "",
+       "basis": [
+        "SOL-agent-harness#target_problem"
+       ],
+       "basisQuote": "Harness 负责执行、回灌、状态与控制"
+      },
+      {
+       "text": "在评测集那一层——一定是任务太简单。",
+       "correct": false,
+       "why": "这条是把结论推给测量，而不是定位能力来源。",
+       "basis": [],
+       "basisQuote": ""
+      }
+     ]
+    },
+    {
+     "judgment": "消融方法：怎么确认是哪个组件起了作用",
+     "prompt": "想确认到底是哪个 Harness 组件带来的提升，该怎么做？",
+     "options": [
+      {
+       "text": "固定模型、任务和输入，逐项更换 Harness 组件，再比较轨迹与结果。",
+       "correct": true,
+       "why": "",
+       "basis": [
+        "SOL-agent-harness#action_steps[1]"
+       ],
+       "basisQuote": "更换 Harness 组件时固定模型、任务和输入，再比较轨迹与结果"
+      },
+      {
+       "text": "一口气把所有组件都换掉，再看总分涨了多少。",
+       "correct": false,
+       "why": "多变量一起变，无法判断改动实际影响了什么。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "多跑几次取平均就行，不用固定输入。",
+       "correct": false,
+       "why": "输入不一致时，分数变化同样无法归因。",
+       "basis": [],
+       "basisQuote": ""
+      }
+     ]
+    },
+    {
+     "judgment": "口径边界：讨论厚薄之前先做什么",
+     "prompt": "有人说「Harness 就是模型外的一切」，也有人说「Harness 只指那个 while 循环」。按本章材料，先做什么？",
+     "options": [
+      {
+       "text": "先比谁的 Harness 更厚，厚的一定更强。",
+       "correct": false,
+       "why": "厚薄是结论，边界没定之前比较没有意义。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "先定义 Harness 在当前系统中的边界，再讨论厚薄。",
+       "correct": true,
+       "why": "",
+       "basis": [
+        "SOL-agent-harness#action_steps[2]"
+       ],
+       "basisQuote": "先定义 Harness 在当前系统中的边界，再讨论厚薄"
+      },
+      {
+       "text": "两个说法都行，同一个词在同一句里可以一会儿指全部、一会儿只指循环。",
+       "correct": false,
+       "why": "材料明确要求不要让同一个词在不同范围间来回切换。",
+       "basis": [],
+       "basisQuote": ""
+      }
+     ]
+    }
+   ],
+   "feynman": {
+    "prompt": "为什么同一个模型换一套 Harness 表现会差很多？请至少说清三件事。",
+    "required": [
+     "运行系统",
+     "与模型分工",
+     "边界口径"
+    ]
+   },
+   "review": {
+    "status": "scaffold",
+    "statusNote": "材料齐全；主案例未经负责人确认 → 候选装配稿。",
+    "caseState": "pending-owner-confirmation",
+    "caseMeaning": "负责人尚未对这六章的主案例给出确认记录。六章一律按「候选装配稿」交付：页面照实显示主案例是候选、且是假设场景，不冒充已审核材料，也不把候选案例写成真实复盘。",
+    "correspondence": {
+     "basis": "名称与别名对应（人工核对）：cm_0a4ca4ce「Harness」的别名里就有 agent harness，与 CON-agent-harness「Agent Harness」同指；同属主题 harness-runtime。",
+     "framingDifference": "",
+     "needsOwnerRuling": false
+    },
+    "needsOwnerRuling": false
+   }
+  },
+  {
+   "chapterId": "verification-loop",
+   "order": 6,
+   "title": "验证闭环",
+   "routeId": "agent-continuous-action-v1",
+   "routeTitle": "理解 AI 如何持续行动",
+   "routeStep": 6,
+   "routeSteps": 6,
+   "why": "一个能持续行动的系统，最后一个缺口是「谁来检查它真的做对了」。验证闭环是这条路径的收口。",
+   "cm": {
+    "id": "cm_7cd7335d",
+    "name": "验证闭环",
+    "description": "把产出后必做的检查固化成可自动执行的一环，让 Claude 自己验证自己的产物。",
+    "feynman": "就像工厂流水线末端的质检工位。以前每做完一件产品你都得亲自拿卡尺量一遍；验证闭环就是把这道质检工序标准化、装到流水线上，让它自动量、自动挑出次品，你只在它报警时才出面。",
+    "sourceContext": "全文的核心对象。指把「产出某个东西之后总要做的那个检查」固化成可自动执行的一环，让 Claude 自己去验证自己的产物，而不是靠人每次记着做。文章开篇即以「把重复步骤编码进 verification loop 最常见的方式就是写成 skill」定义它，并以「验证闭环的创建流程是一致的」收尾。",
+    "aliases": [
+     "verification loop"
+    ],
+    "evidence": [
+     "能为一个重复任务写出对应的验证步骤 skill",
+     "能说明为何验证不应依赖人每次记着做"
+    ],
+    "assessmentPrompt": "验证闭环 建成后，谁来触发这次检查？",
+    "domain": "verification-eval",
+    "kind": ""
+   },
+   "concept": {
+    "id": "CON-verification-loop",
+    "title": "验证循环",
+    "definition": "验证循环把行动结果交给独立检查；未通过就依据证据修正下一步，通过才退出当前循环，但退出不等于用户验收或真实效果已经成立。",
+    "intuition": "它像做题后把答案交给一位拿着标准的检查者，而不是自己说“应该对了”。检查者给出可复核的结果：没过，就指出差距并改变下一次行动；过了，才停止这一轮。循环负责的是把判断接回行动，不是负责收集所有日志，也不是替人决定最终是否满意。",
+    "boundary": [
+     "Observability 负责采集运行事件、轨迹、状态和时延；Verification Loop 负责消费检查结果并改变当前运行的下一步。",
+     "Trace-based Evals 用共同任务、基线和 verifier 比较多次运行；Verification Loop 通常作用于一次任务里的重试与退出。",
+     "检查器的证据强度不同：确定性测试、视觉检查和 LLM-as-judge 不能被当成等价证明。",
+     "机器检查通过只覆盖既定判据，不自动证明语义质量、用户满意、发布授权或真实业务效果。"
+    ],
+    "transferQuestion": "如果 Agent 每轮都打印“检查完成”，却没有固定判据、失败分支或退出条件，这还是验证循环吗？",
+    "categoryQuestion": "Agent 说做完之后，凭什么相信它真的完成？",
+    "sourceLines": [
+     "`SRC-EXT-003`：图鉴站概念卡 `concepts/verification-loop.yaml`（name_en: Verification Loop）",
+     "源证据范围（卡片自述）：Delba de Oliveira 展示了把测试、截图或其他检查通路封装进 Skills 的做法；来源策展同时用 guides 与 sensors 区分行动前引导和行动后反馈。本站把 Verification Loop 定义为消费检查结果并控制“修正或退出”的运行内闭环。",
+     "定义状态：industry-common｜学习阶段：需要时再学"
+    ],
+    "sources": [
+     "SRC-EXT-003"
+    ],
+    "status": "已核对（源：图鉴站已审计产物）"
+   },
+   "qst": {
+    "id": "QST-verification-loop",
+    "title": "能不能讲清「验证循环」",
+    "text": "如果 Agent 每轮都打印“检查完成”，却没有固定判据、失败分支或退出条件，这还是验证循环吗？",
+    "type": "检验问题"
+   },
+   "case": {
+    "id": "CAS-verification-loop",
+    "title": "验证循环：一个具体场景",
+    "summary": "一个代码 Agent 改完页面后，独立运行测试并用浏览器检查关键交互。测试失败时，它依据报错继续修正；全部既定检查通过时，它退出修复循环，同时仍把视觉偏好与上线决定留给人审阅。",
+    "type": "假设场景",
+    "evidence": "Delba de Oliveira 展示了把测试、截图或其他检查通路封装进 Skills 的做法；来源策展同时用 guides 与 sensors 区分行动前引导和行动后反馈。本站把 Verification Loop 定义为消费检查结果并控制“修正或退出”的运行内闭环。",
+    "candidates": [
+     "CAS-verification-loop"
+    ],
+    "primaryCaseId": "CAS-verification-loop",
+    "sources": [
+     "SRC-EXT-003"
+    ]
+   },
+   "opinions": [],
+   "solution": {
+    "id": "SOL-verification-loop",
+    "title": "验证循环：可执行动作路径",
+    "targetProblem": "避免这个误区：Observability 负责采集运行事件、轨迹、状态和时延；Verification Loop 负责消费检查结果并改变当前运行的下一步。",
+    "summary": "在行动前写清检查对象、判据、失败反馈格式和退出条件，避免由同一输出临时改标准。",
+    "actionSteps": [
+     "在行动前写清检查对象、判据、失败反馈格式和退出条件，避免由同一输出临时改标准。",
+     "尽量让检查独立于生成者，并优先采用可重复运行的确定性证据；主观任务再补视觉检查或人工复核。",
+     "把未通过结果连回一个明确可改变的下一步；若反馈不能改变行动，它只是记录，不是验证循环。",
+     "为失败重试设置预算与人工升级路径，避免无限循环或为通过而偷偷降低标准。"
+    ],
+    "sources": [
+     "SRC-EXT-003"
+    ]
+   },
+   "reading": {
+    "original": {
+     "label": "原文 context",
+     "text": "全文的核心对象。指把「产出某个东西之后总要做的那个检查」固化成可自动执行的一环，让 Claude 自己去验证自己的产物，而不是靠人每次记着做。文章开篇即以「把重复步骤编码进 verification loop 最常见的方式就是写成 skill」定义它，并以「验证闭环的创建流程是一致的」收尾。"
+    },
+    "explain": {
+     "label": "定义",
+     "text": "验证循环把行动结果交给独立检查；未通过就依据证据修正下一步，通过才退出当前循环，但退出不等于用户验收或真实效果已经成立。",
+     "from": "CON-verification-loop"
+    },
+    "intuition": {
+     "label": "直觉",
+     "text": "它像做题后把答案交给一位拿着标准的检查者，而不是自己说“应该对了”。检查者给出可复核的结果：没过，就指出差距并改变下一次行动；过了，才停止这一轮。循环负责的是把判断接回行动，不是负责收集所有日志，也不是替人决定最终是否满意。",
+     "from": "CON-verification-loop"
+    },
+    "mechanism": {
+     "label": "机制",
+     "text": "在行动前写清检查对象、判据、失败反馈格式和退出条件，避免由同一输出临时改标准。",
+     "from": "SOL-verification-loop"
+    },
+    "boundary": {
+     "label": "边界",
+     "items": [
+      "Observability 负责采集运行事件、轨迹、状态和时延；Verification Loop 负责消费检查结果并改变当前运行的下一步。",
+      "Trace-based Evals 用共同任务、基线和 verifier 比较多次运行；Verification Loop 通常作用于一次任务里的重试与退出。",
+      "检查器的证据强度不同：确定性测试、视觉检查和 LLM-as-judge 不能被当成等价证明。",
+      "机器检查通过只覆盖既定判据，不自动证明语义质量、用户满意、发布授权或真实业务效果。"
+     ],
+     "from": "CON-verification-loop"
+    }
+   },
+   "framingNote": "",
+   "questions": [
+    {
+     "judgment": "结构判定：什么才算验证循环",
+     "prompt": "Agent 每一轮都打印「检查完成」，但没有固定判据、没有失败分支，也没有退出条件。这还是验证循环吗？",
+     "options": [
+      {
+       "text": "算——只要打印了「检查完成」就算。",
+       "correct": false,
+       "why": "打印动作本身不消费检查结果，也不改变下一步。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "不算：未通过的结果必须连回一个明确可改变的下一步；若反馈不能改变行动，它只是记录。",
+       "correct": true,
+       "why": "",
+       "basis": [
+        "SOL-verification-loop#action_steps[2]"
+       ],
+       "basisQuote": "若反馈不能改变行动，它只是记录，不是验证循环"
+      },
+      {
+       "text": "算，只要有日志留下就算。",
+       "correct": false,
+       "why": "采集日志是 Observability 的事，不是验证循环。",
+       "basis": [],
+       "basisQuote": ""
+      }
+     ]
+    },
+    {
+     "judgment": "判据什么时候定",
+     "prompt": "检查的标准该在什么时候定下来？",
+     "options": [
+      {
+       "text": "做完之后看结果，再决定标准定在哪。",
+       "correct": false,
+       "why": "材料要求避免由同一输出临时改标准。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "由生成者自己在交付前临时判断。",
+       "correct": false,
+       "why": "检查应尽量独立于生成者。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "在行动之前写清检查对象、判据、失败反馈格式和退出条件。",
+       "correct": true,
+       "why": "",
+       "basis": [
+        "SOL-verification-loop#action_steps[0]"
+       ],
+       "basisQuote": "在行动前写清检查对象、判据、失败反馈格式和退出条件"
+      }
+     ]
+    },
+    {
+     "judgment": "通过覆盖到哪里",
+     "prompt": "既定自动检查全部通过之后，哪种说法最稳妥？",
+     "options": [
+      {
+       "text": "质量已经被证明，可以直接上线交付。",
+       "correct": false,
+       "why": "机器检查通过只覆盖既定判据，不自动证明用户满意或发布授权。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "只说明既定判据通过了；主观部分还要另补视觉检查或人工复核，通过不等于用户验收。",
+       "correct": true,
+       "why": "",
+       "basis": [
+        "SOL-verification-loop#action_steps[1]"
+       ],
+       "basisQuote": "尽量让检查独立于生成者，并优先采用可重复运行的确定性证据；主观任务再补视觉检查或人工复核"
+      },
+      {
+       "text": "再多打印几次「检查完成」就更可靠了。",
+       "correct": false,
+       "why": "重复打印不增加证据强度。",
+       "basis": [],
+       "basisQuote": ""
+      }
+     ]
+    }
+   ],
+   "feynman": {
+    "prompt": "为什么「Agent 说自己检查过了」不能当成验证闭环？请至少说清三件事。",
+    "required": [
+     "独立检查",
+     "改变下一步",
+     "通过范围"
+    ]
+   },
+   "review": {
+    "status": "scaffold",
+    "statusNote": "材料齐全（无 OPI 直连，题目依据全部落在 SOL-verification-loop 的动作路径上）；主案例未经负责人确认 → 候选装配稿。",
+    "caseState": "pending-owner-confirmation",
+    "caseMeaning": "负责人尚未对这六章的主案例给出确认记录。六章一律按「候选装配稿」交付：页面照实显示主案例是候选、且是假设场景，不冒充已审核材料，也不把候选案例写成真实复盘。",
+    "correspondence": {
+     "basis": "名称与别名对应（人工核对）：cm_7cd7335d「验证闭环 / verification loop」↔ CON-verification-loop「验证循环」，同属主题 verification-eval。",
+     "framingDifference": "",
+     "needsOwnerRuling": false
+    },
+    "needsOwnerRuling": false
+   }
+  }
+ ]
+}
