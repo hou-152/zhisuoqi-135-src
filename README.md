@@ -111,4 +111,7 @@ node scripts/cm-extract.mjs && node scripts/cm-merge.mjs && node scripts/cm-enri
 - 内参内容来自「做中学 · AI」《serious AI 内参》260912 期，仅作参赛演示使用。
 - 配图体系参考 **Anthropic Newsroom** 的公开视觉语言，为程序化仿绘，非官方素材。
 
-本仓库尚未选择开源许可证；上述第三方内容的版权归各自原作者，若原作者要求移除，删掉对应部分即可。
+## 七、许可
+
+本仓库**自有的代码与文档**按 **MIT** 授权（见 [`LICENSE`](LICENSE)）。
+上面那些第三方材料各有其权利人、**不适用 MIT**，逐项与移除方式见 **[`THIRD-PARTY.md`](THIRD-PARTY.md)**。
