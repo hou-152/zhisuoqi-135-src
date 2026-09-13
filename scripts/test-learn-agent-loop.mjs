@@ -201,6 +201,19 @@ await cdp.send('Page.navigate', { url: URL_.split('#')[0] + '#learn=verification
 await sleep(1200);
 check('只有 review=1（审核／复现用）才可直达该章', await ex(`document.getElementById('learn').classList.contains('on') && learnCur`), 'verification-loop');
 check('复现入口能带出该章三题', await ex(`chapterById(learnCur).questions.length`), 3);
+
+/* ⑧ 正文流页（第 5 章 Harness）：连线写成解释句 · 读完就讲 · 右栏是本次课题 */
+console.log('\n⑧ 正文流一页（Harness）');
+await cdp.send('Page.navigate', { url: 'about:blank' });
+await sleep(150);
+await cdp.send('Page.navigate', { url: URL_.split('#')[0] + '#learn=harness&review=1' });
+await sleep(1200);
+check('打开第 5 章 Harness', await ex(`learnCur`), 'harness');
+check('右栏＝本次课题的单元（六步、当前章高亮）', await ex(`(()=>{const r=document.querySelector('#learn-wrap .lrail');if(!r)return false;const on=document.querySelector('#learn-wrap .lrail-steps li.on .lchip');return r.innerText.includes('本次课题') && document.querySelectorAll('#learn-wrap .lrail-steps .lchip').length===6 && !!on && on.textContent.includes('Harness')})()`), 'true');
+check('正文有过渡句：上一单元留下了什么问题', await ex(`(()=>{const t=document.getElementById('learn-wrap').innerText;return t.includes('上一单元留下了什么问题')&&t.includes('谁组织调用、接收结果、安排下一步')})()`), 'true');
+check('关系句写成完整句、并带逐字原文', await ex(`(()=>{const t=document.getElementById('learn-wrap').innerText;return t.includes('这些概念是怎么连起来的')&&t.includes('真正执行的是 Harness')&&t.includes('逐字原文')})()`), 'true');
+check('费曼一下排在决策之前（读完就讲）', await ex(`(()=>{const t=document.getElementById('learn-wrap').innerText;const a=t.indexOf('读完就用自己的话讲一遍'),b=t.indexOf('三道决策，按顺序通过');return a>0&&b>0&&a<b})()`), 'true');
+check('这一页末尾给出下一站', await ex(`(()=>{const t=document.getElementById('learn-wrap').innerText;return t.includes('下一站')&&t.includes('谁来判断它这一趟到底做对了没有')})()`), 'true');
 const requested = cdp.events.filter((e) => e.method === 'Network.requestWillBeSent').map((e) => e.params.request.url);
 check('全程没有知乎请求', requested.some((u) => /zhihu/i.test(u)), 'false');
 check('没有把学习进度写进倒逼记录（marks 保持独立）', await ex(`Object.keys(marks).length`), 0);

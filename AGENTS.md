@@ -38,8 +38,8 @@ cd app && npm start               # 桌面版（能写真文件）→ ~/Document
 node scripts/verify-135.mjs       # 61 项：主产物 知所栖-135-基础框架.html 全流程
 node scripts/test-daobi.mjs       # 40 项：倒逼层 + 分类层 + 三栏外壳 + 减法边界 + 概念卡来源/费曼门（真 LLM）
 node scripts/test-path.mjs        # 56 项：路径视图（默认路径模式 · 真实 6 步路线 · 像素级高亮 · 卡上路径上下文 · 分支 ≤2 · 回退 · 产品 5 问 · 六章材料是否已装配）
-node scripts/check-learning-materials.mjs  # 242 项：Agent Loop 六章材料体检（不需要 serve、不调模型）
-node scripts/test-learn-agent-loop.mjs     # 65 项：独立学习空间状态门（一题一判 · 费曼门 · 未过不解锁下一章 · 改复述清状态 · 选项稳定打乱 · 判定竞态作废 · 草稿落盘 · 地址入口不再绕过解锁 · 返回恢复路线；费曼走固定响应）
+node scripts/check-learning-materials.mjs  # 257 项：Agent Loop 六章材料体检（不需要 serve、不调模型；含正文流「过渡句/关系句必须带逐字原文」）
+node scripts/test-learn-agent-loop.mjs     # 71 项：独立学习空间状态门（一题一判 · 费曼门 · 未过不解锁下一章 · 改复述清状态 · 选项稳定打乱 · 判定竞态作废 · 草稿落盘 · 地址入口不再绕过解锁 · 正文流一页 · 返回恢复路线；费曼走固定响应）
 node scripts/walk-learn-agent-loop.mjs <chapterId>  # 真模型走查一章（六章各跑过一次；真调 /api/llm；是证据不是断言；入口用 #learn=<id>&review=1）
 node scripts/walk-mvp-real-llm.mjs  # 真模型走查原 MVP 那一章（同上）
 node scripts/shot-shell.mjs       # 13 步截图 + 面板越界断言

@@ -95,6 +95,7 @@ for (const ch of pairings.chapters) {
   const sol = unit(ch.solutionIds[0], 'SOL');
   const casList = (ch.caseIds || []).map((id) => unit(id, 'CAS'));
   const opis = (ch.opinionIds || []).map((id) => unit(id, 'OPI'));
+  const body = parseConceptBody((con && con.body) || '');
 
   // 候选案例必须来自 relationships.target，不按标题猜
   const casByRelation = units.filter((u) => u.type === '案例单元' && (u.relationships || []).some((r) => r.target === ch.conceptId)).map((u) => u.id);
@@ -144,9 +145,33 @@ for (const ch of pairings.chapters) {
   need(!!fey && Array.isArray(fey.required) && fey.required.length === 3, `${tag}：费曼要点应为 3 条`);
   if (fey) feynmanSets.push({ chapterId: ch.chapterId, required: fey.required });
 
+  /* ── 正文流（narrative）：连线写成解释句。句子是 agent 撰写的，quote 必须逐字回源 ── */
+  const nar = a && a.narrative;
+  if (nar) {
+    const primaryKf = (byUnit.get(ch.primaryCaseId) || {}).key_fields || {};
+    const blocks = {
+      definition: body.definition, intuition: body.intuition, boundary: body.boundary.join('\n'),
+      mechanism: (sol.key_fields || {}).solution_summary || '', case: primaryKf.case_summary || '',
+    };
+    need(nar.authored === true, `${tag}：narrative 必须标 authored:true（agent 撰写，不得冒充原文）`);
+    need(!!nar.lead, `${tag}：narrative 缺 lead（这一页要弄明白什么）`);
+    (nar.bridges || []).forEach((b, i) => {
+      const no = `${tag} 过渡句 ${i + 1}`;
+      need(!!b.question && !!b.answer, `${no}：缺 question／answer`);
+      need(Array.isArray(b.basis) && b.basis.length > 0 && b.basis.every((id) => byUnit.has(id)), `${no}：basis 必须是存在的单元 ID`);
+      need(!!b.quote && String(blocks[b.quoteFrom] || '').includes(b.quote), `${no}：quote 在本章 ${b.quoteFrom} 里找不到逐字原文`);
+    });
+    (nar.links || []).forEach((l, i) => {
+      const no = `${tag} 关系句 ${i + 1}`;
+      need(Array.isArray(l.pair) && l.pair.length === 2 && !!l.sentence, `${no}：缺 pair／sentence`);
+      need(!!l.quote && String(blocks[l.quoteFrom] || '').includes(l.quote), `${no}：quote 在本章 ${l.quoteFrom} 里找不到逐字原文`);
+    });
+    need(nar.inlineFeynman === true, `${tag}：narrative.inlineFeynman 必须为 true（读完就讲）`);
+    if (nar.nextBridge) need(!!nar.nextBridge.question && !!nar.nextBridge.answer, `${tag}：nextBridge 缺 question／answer`);
+  }
+
   if (fail.length) continue;   // 有硬伤就不产出这一章，避免半成品混进页面
 
-  const body = parseConceptBody(con.body || '');
   const cm = {
     id: topic.id, name: topic.name, description: topic.description || '', feynman: topic.feynman || '',
     sourceContext: topic.sourceContext || '', aliases: topic.aliases || [], evidence: topic.evidence || [],
@@ -194,6 +219,7 @@ for (const ch of pairings.chapters) {
       options: q.options.map((o) => ({ text: o.text, correct: !!o.correct, why: o.why || '', basis: o.basis || [], basisQuote: o.basisQuote || '' })),
     })),
     feynman: { prompt: fey.prompt, required: fey.required },
+    narrative: nar || null,
     review: {
       status: ch.status, statusNote: ch.statusNote,
       caseState: pairings.caseReview.state, caseMeaning: pairings.caseReview.meaning,

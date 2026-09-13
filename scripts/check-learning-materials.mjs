@@ -98,6 +98,28 @@ for (const c of data.chapters) {
   check(`${t}｜来源 ID 保留`, c.concept.sources.length > 0 && c.case.sources.length > 0 && c.solution.sources.length > 0);
 }
 
+/* ⑤b 正文流（narrative）：agent 撰写的过渡句／关系句必须写成完整句、自带逐字原文、并标明作者 */
+for (const c of data.chapters) {
+  const n = c.narrative;
+  if (!n) continue;
+  const t = `第 ${c.order} 章 ${c.title}`;
+  const blocks = {
+    definition: c.concept.definition, intuition: c.concept.intuition, boundary: c.concept.boundary.join('\n'),
+    mechanism: c.reading.mechanism.text, case: c.case.summary,
+  };
+  check(`${t}｜正文流标明 agent 撰写`, n.authored === true);
+  check(`${t}｜正文流有导语（这一页要弄明白什么）`, !!n.lead);
+  (n.bridges || []).forEach((b, i) => {
+    check(`${t}｜过渡句 ${i + 1} 写成完整句`, !!b.question && !!b.answer);
+    check(`${t}｜过渡句 ${i + 1} 引文逐字回源`, !!b.quote && String(blocks[b.quoteFrom] || '').includes(b.quote), b.quoteFrom);
+  });
+  (n.links || []).forEach((l, i) => {
+    check(`${t}｜关系句 ${i + 1} 写成完整句`, Array.isArray(l.pair) && l.pair.length === 2 && !!l.sentence);
+    check(`${t}｜关系句 ${i + 1} 引文逐字回源`, !!l.quote && String(blocks[l.quoteFrom] || '').includes(l.quote), l.quoteFrom);
+  });
+  check(`${t}｜读完就讲（费曼在决策之前）`, n.inlineFeynman === true);
+}
+
 /* ⑥ 费曼要点按章制定 */
 const sets = data.chapters.map((c) => c.feynman.required.join('|'));
 check('费曼要点六章两两不同', new Set(sets).size === 6);

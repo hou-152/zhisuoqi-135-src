@@ -150,6 +150,68 @@
       }
     },
     "harness": {
+      "narrative": {
+        "authored": true,
+        "authoredBy": "DeepSeek Harness（agent 撰写，未经负责人审核）",
+        "note": "正文流装配（先做这一页）：把概念之间的连线写成正文里的解释句，并把 阅读 → 费曼一下 → 用一个场景试试 接成一段。bridges/links 里的句子是 agent 撰写的过渡句（出线文案性质），quote 才是逐字原文，build 脚本逐条校验——句子可以被改，quote 不可被改。",
+        "lead": "同一个模型，换一套 Harness，表现为什么会差很多？",
+        "bridges": [
+          {
+            "fromChapter": "tool",
+            "fromUnit": "CON-tool",
+            "question": "工具能执行具体操作；可是这一次调用之后，谁组织调用、接收结果、安排下一步？",
+            "answer": "这正是 Harness 出场的地方：它把任务和当前状态送给模型，执行模型请求的工具，再把观察结果送回去。",
+            "quote": "模型负责生成判断或工具请求，Harness 负责执行、回灌、状态与控制。",
+            "quoteFrom": "boundary",
+            "basis": ["CON-agent-harness", "CON-tool"]
+          },
+          {
+            "fromChapter": "agent-loop",
+            "fromUnit": "CON-agent-loop",
+            "question": "循环解释了「选择—执行—观察—再选择」的心跳；心跳靠什么真的跳起来？",
+            "answer": "循环本身不是一个运行系统。装着工具、状态、权限与停止条件、让心跳真的跳起来的那一层，才是 Harness。",
+            "quote": "Agent Harness 是包裹模型、组织循环并落实工具、状态、权限和错误处理的模型外运行系统；它让模型能够持续且受控地行动。",
+            "quoteFrom": "definition",
+            "basis": ["CON-agent-harness"]
+          },
+          {
+            "fromChapter": "state-persistence",
+            "fromUnit": "CON-state-management",
+            "question": "状态子系统决定「跑到一半时东西放在哪」；那么谁在每一步读写它、出错时又怎么办？",
+            "answer": "Harness 在每一步读写状态、检查权限与错误，并决定继续还是停止——状态是它管理的一部分，不是它的同义词。",
+            "quote": "它把任务和当前状态送给模型，执行模型请求的工具，把观察结果送回去，并在每一步检查权限、错误与停止条件。",
+            "quoteFrom": "intuition",
+            "basis": ["CON-agent-harness"]
+          }
+        ],
+        "links": [
+          {
+            "pair": ["Harness", "工具"],
+            "sentence": "模型只提出「要用什么工具、带什么参数」，真正执行的是 Harness；执行结果由 Harness 送回模型，模型才有下一步可判断。",
+            "quote": "模型负责生成判断或工具请求，Harness 负责执行、回灌、状态与控制。",
+            "quoteFrom": "boundary"
+          },
+          {
+            "pair": ["Harness", "Agent loop"],
+            "sentence": "循环是动作的形状（选择—执行—观察—再选择）；Harness 是让这个形状在真实机器上转起来的东西——它组织循环，并给循环装上权限、错误处理和停止条件。",
+            "quote": "Agent Harness 是包裹模型、组织循环并落实工具、状态、权限和错误处理的模型外运行系统；它让模型能够持续且受控地行动。",
+            "quoteFrom": "definition"
+          },
+          {
+            "pair": ["Harness", "状态子系统"],
+            "sentence": "状态是 Harness 每一步要读写和守护的数据：拿什么状态给模型、什么时候写回、失败时怎么恢复，都由 Harness 决定。",
+            "quote": "它把任务和当前状态送给模型，执行模型请求的工具，把观察结果送回去，并在每一步检查权限、错误与停止条件。",
+            "quoteFrom": "intuition"
+          }
+        ],
+        "inlineFeynman": true,
+        "nextBridge": {
+          "toChapter": "verification-loop",
+          "question": "Harness 让系统受控地跑起来了；可谁来判断它这一趟到底做对了没有？",
+          "answer": "下一站是验证闭环：独立检查结果是否符合目标，并把检查结论变成下一步动作。",
+          "basis": ["CON-verification-loop"]
+        }
+      },
       "questions": [
         {
           "judgment": "归因层：能力提升发生在哪一层",
