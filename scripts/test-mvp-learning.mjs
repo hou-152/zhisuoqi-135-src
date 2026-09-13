@@ -46,6 +46,7 @@ console.log('页面：' + URL_);
 check('材料包含五类语义单元', await ex(`document.querySelectorAll('.pairing > div').length`), 5);
 check('当前材料有主案例且标明假设场景', await ex(`document.querySelector('.case').innerText.includes('主案例') && document.querySelector('.case').innerText.includes('假设场景')`), 'true');
 check('来源 ID 保留在页面', await ex(`['QST-context-rot','CON-context-rot','OPI-CTX-03-03','CAS-context-rot','SOL-context-rot'].every(x=>document.body.innerText.includes(x))`), 'true');
+check('每张决策卡都有同一个明确主案例和依据 ID', await ex(`window.__MVP.decisions.every(d=>d.primaryCaseId==='CAS-context-rot' && d.opinionIds.includes('OPI-CTX-03-03') && d.solutionIds.includes('SOL-context-rot'))`), 'true');
 
 console.log('\n阅读 → 决策');
 await ex('startDecisions()');

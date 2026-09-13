@@ -59,17 +59,17 @@ const MATERIAL = Object.freeze({
   required:['变量','证据','边界']
 });
 const decisions = [
-  {prompt:'短输入稳定，加入大量无关内容后开始漏答。第一步做什么？', options:[
+  {primaryCaseId:'CAS-context-rot', opinionIds:['OPI-CTX-03-03'], solutionIds:['SOL-context-rot'], prompt:'短输入稳定，加入大量无关内容后开始漏答。第一步做什么？', options:[
     ['A','先换更大的模型。',false,'这会同时改变模型变量，无法先判断输入长度的影响。'],
     ['B','固定模型、任务、关键证据和评分方法，只分档增加无关内容。',true,'对。先隔离输入长度，才知道是否发生可靠性退化。依据：OPI-CTX-03-03；动作：SOL-context-rot。'],
     ['C','先换更大的上下文窗口。',false,'窗口容量变大不等于模型利用长输入的可靠性变高。']
   ]},
-  {prompt:'为了比较不同长度的输入，哪一组变量应该保持不变？', options:[
+  {primaryCaseId:'CAS-context-rot', opinionIds:['OPI-CTX-03-03'], solutionIds:['SOL-context-rot'], prompt:'为了比较不同长度的输入，哪一组变量应该保持不变？', options:[
     ['A','模型、任务、关键证据和评分方法。',true,'对。只有一个主要变化量，结果才有可解释性。依据：OPI-CTX-03-03。'],
     ['B','只固定模型，其他都可以一起调整。',false,'任务和评分也变了，就无法把结果归因到长度。'],
     ['C','只要最后答案看起来合理，变量是否固定都无所谓。',false,'主观印象不能替代可复核的比较条件。']
   ]},
-  {prompt:'长输入组表现下降后，哪种结论最稳妥？', options:[
+  {primaryCaseId:'CAS-context-rot', opinionIds:['OPI-CTX-03-03'], solutionIds:['SOL-context-rot'], prompt:'长输入组表现下降后，哪种结论最稳妥？', options:[
     ['A','证明所有模型都无法处理长上下文。',false,'一次设置不能推出所有模型的普遍结论。'],
     ['B','只要窗口没满，长输入就一定没有问题。',false,'容量边界和实际利用可靠性是两件事。'],
     ['C','在本次固定条件下，输入长度增加与可靠性下降同时出现；还要说明测量范围。',true,'对。结论必须带条件和证据范围。依据：CON-context-rot 的边界；动作：SOL-context-rot。']
