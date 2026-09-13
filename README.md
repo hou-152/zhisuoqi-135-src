@@ -17,7 +17,7 @@
 
 | 产物 | 是什么 | 数字 |
 |---|---|---|
-| `knowledge/概念地图-260913/` | **概念唯一真源**。四源合并：Notion 概念库 509 ＋ 飞书 Context Engineering 28 篇 ＋ Harness Engineering 30 篇 ＋ AI 内参 260912 期 10 篇；AI 相关性过滤 1156 → 856，再并入内参 80 | **936 概念 / 531 依赖 / 3333 关系 / 21 领域** |
+| `knowledge/概念地图-260913/` | **概念唯一真源**。四源合并：Notion 概念库 509 ＋ 飞书 Context Engineering 28 篇 ＋ Harness Engineering 30 篇 ＋ AI 内参 260912 期 10 篇；AI 相关性过滤 1156 → 856，再并入内参 80 | **936 概念 / 604 依赖 / 3406 关系 / 21 领域** |
 | `knowledge/概念wiki-260913/` | 概念链接层（llm_wiki 形态）：每概念一页 ＋ `[[双链]]` ＋ 反链 ＋ index/log | **936 页**，丢进 Obsidian 就能用 |
 | `内容结构化系统/` | 按 `/dbs-content-system` 建的内容工程：把「AI 概念基本盘」拆成五类语义单元 | **538 个单元**（问题 141 · 概念 76 · 观点 169 · 案例 76 · 方案 76）＋ 7 张主题地图 ＋ 2 份选题装配稿 |
 | `knowledge/内参-260912/` | AI 内参编辑流水线：原文快照 → 三级笔记 → 概念辞典 → AI 费曼示范 → 五维拆解 | **10 篇**，每篇五维资产齐全 |
@@ -40,7 +40,7 @@
 ```sh
 git clone https://github.com/hou-152/zhisuoqi-135-src.git && cd zhisuoqi-135-src
 
-# ① 概念地图体检 —— 应输出 936 概念 / 531 依赖 / 3333 关系 / 21 领域，并「全部通过」
+# ① 概念地图体检 —— 应输出 936 概念 / 604 依赖 / 3406 关系 / 21 领域，并「全部通过」
 node scripts/cm-validate.mjs
 
 # ② 538 个语义单元能查（不需要装任何东西）
@@ -80,6 +80,12 @@ node scripts/cm-extract.mjs && node scripts/cm-merge.mjs && node scripts/cm-enri
 ```
 
 
+## 三、概念图 UI
+
+壳默认打开「图谱」依赖视图，也可以切换到「关系」视图查看已接受的语义关系（`prerequisite`、`related-to`、`used-with`、`part-of`、`contrast`）。关系视图使用构建时生成的确定性坐标，边按关系类型区分；`co-article` 与 `rejected` 保留在知识库和审计记录中，但默认不绘制。
+
+画布 hover 与点击统一使用画布本地坐标，节点名称以中心 callout 显示，窗口缩放或详情面板打开后仍能准确命中。相关回归由 `shot-shell.mjs` 覆盖。
+
 ## 三、怎么读这个仓库
 
 1. **[`SOURCE_OF_TRUTH.md`](SOURCE_OF_TRUTH.md)** —— 项目级权威：找什么去哪、哪个版本为准、冲突怎么裁。
@@ -87,9 +93,9 @@ node scripts/cm-extract.mjs && node scripts/cm-merge.mjs && node scripts/cm-enri
 3. **[`docs/交接-agent版-知所栖135.md`](docs/交接-agent版-知所栖135.md)** —— 给下一个编码 agent 的入口（命令、已知坑、待办）。
 4. [`docs/README.md`](docs/README.md) 是文档索引；[`AGENTS.md`](AGENTS.md) / [`CLAUDE.md`](CLAUDE.md) 是给 agent 的项目规则。
 
-## 四、已知缺口（照实写，不粉饰）
+## 五、已知缺口（照实写，不粉饰）
 
-- 概念地图有 **289 个孤立点**（没有任何依赖连边）、wiki 有 **39 个无入链页**（`node scripts/cm-validate.mjs` 实测口径）。
+- 概念地图仍有部分低度节点；wiki 有 **34 个无入链页**（`node scripts/cm-validate.mjs` 实测口径）。
 - AI 相关性过滤丢掉 300 个概念，**没有物理删除**，逐条理由在 `evidence/cm-260913/07-ai-filter.json`。
 - `内容结构化系统/` 的**去重候选 16,025 条＝失控**（阈值未调），这层索引目前不可用。
 - 76 个案例单元**全是假设场景**（源卡 `scenario.type: hypothetical`），不是真实复盘。
@@ -98,20 +104,20 @@ node scripts/cm-extract.mjs && node scripts/cm-merge.mjs && node scripts/cm-enri
 - AB 实验（费曼验收）**缺 10 份真人复述样本**，`ab-feynman-test.mjs` 现在还出不了正式结论。
 - `deploy/zhisuoqi-135/` 是**独立 git 仓库**，本仓库的提交不会自动带上它的改动，要单独 push。
 
-## 五、凭证与隐私边界
+## 六、凭证与隐私边界
 
 - `.private/`（600 权限，gitignored）**不入库、不展示、不打印**：LLM 凭证与知乎 CLI 凭证都在那里。
 - 打包与发布产物有自检：`scripts/build-app.mjs` 扫到 key 形状即失败退出。
 - `evidence/` 是冻结的原始证据与工作留档，里面含**内部工作记录**。
 
-## 六、第三方内容与出处
+## 七、第三方内容与出处
 
 - `内容结构化系统/` 的方法来自 **dontbesilent 的 dbskill**（`/dbs-content-system`），公开项目。
 - 概念卡与语义单元的底料复用自 **「Context × Harness 图鉴」** 的已审计产物（76 张概念卡 / 169 条关系 / 7 个分类轴）。
 - 内参内容来自「做中学 · AI」《serious AI 内参》260912 期，仅作参赛演示使用。
 - 配图体系参考 **Anthropic Newsroom** 的公开视觉语言，为程序化仿绘，非官方素材。
 
-## 七、许可
+## 八、许可
 
 本仓库**自有的代码与文档**按 **MIT** 授权（见 [`LICENSE`](LICENSE)）。
 上面那些第三方材料各有其权利人、**不适用 MIT**，逐项与移除方式见 **[`THIRD-PARTY.md`](THIRD-PARTY.md)**。
