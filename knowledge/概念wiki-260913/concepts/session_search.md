@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: memory-retrieval
 learningStage: when-needed
 verification: accept
-centrality: 0.072
+centrality: 0.126
 depth: 1
 origin: [notion]
 aliases: ["会话搜索", "情景回溯", "hermes session_search"]
@@ -17,7 +17,7 @@ sources: 1
 
 > Hermes 的长尾回溯系统，负责从历史会话里把需要的那一段过去翻出来。
 
-**领域** memory-retrieval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
+**领域** memory-retrieval ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,9 +36,10 @@ sources: 1
 
 > {{name}} 和短期热记忆各管哪一段？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
 - [[记忆 Memory]] · **hard** — 不懂【记忆】的跨会话沉淀，就做不了【session_search】的长尾历史会话翻找
+- [[即时检索 Just-in-time Retrieval]] · **soft** — 不懂【即时检索】就做不了 session_search 的「只留索引、需要时再翻出那一段」
 
 ## 相关
 
@@ -58,4 +59,5 @@ sources: 1
 ## 反链
 
 - [[记忆 Memory]]
+- [[即时检索 Just-in-time Retrieval]]
 - [[跨会话记忆文件系统]]

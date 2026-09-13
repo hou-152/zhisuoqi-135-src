@@ -65,14 +65,14 @@ sources: 1
 
 ## 反链
 
-- [[0 人工代码、0 人工 review 极限形态]]
-- [[docsdecisions]]
 - [[Agent = Model + Harness]]
+- [[0 人工代码、0 人工 review 极限形态]]
 - [[层级架构强约束 + 给 Agent 读的 lint 错误]]
+- [[docsdecisions]]
+- [[1.6% vs 98.4%]]
 - [[程序记忆（Procedural Memory Skills） progressive disclosure]]
 - [[CLAUDE.md]]
 - [[hooks .claudehooks]]
-- [[1.6% vs 98.4%]]
 - [[确定性工程基础设施 deterministic engineering infrastructure]]
 - [[为 AI 设计工作环境]]
 - [[AI 公司岗位编制]]

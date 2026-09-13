@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.072
+centrality: 0.126
 depth: 0
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 不改权重时，给模型加知识的唯一通道是把内容放进上下文；记忆文件、检索、MCP 都是它的实现。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,9 +36,10 @@ sources: 1
 
 > {{name}} 为什么说加知识只能走上下文这条路？
 
-## 懂了它才能懂（解锁 1）
+## 懂了它才能懂（解锁 2）
 
 - [[知识端点]] — 知识端点集中整理内容到一个入口，依赖 Context injection 注入模型。
+- [[Personal Context]] — 不懂【Context injection】，就做不了【Personal Context】接入模型这件事，因为私有笔记只能作为上下文被放进请求
 
 ## 相关
 
@@ -53,5 +54,6 @@ sources: 1
 
 - [[Harness]]
 - [[Harness 工程 Harness Engineering]]
-- [[知识端点]]
 - [[Agent = Model + Harness]]
+- [[知识端点]]
+- [[Personal Context]]

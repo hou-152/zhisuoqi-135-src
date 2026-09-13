@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: safety-governance
 learningStage: when-needed
 verification: judge
-centrality: 0.017
-depth: 0
+centrality: 0.072
+depth: 1
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 若干类偏好即使被明说也不写进 /preferences.md，避免未来模型继承更不诚实、更不安全的指令。
 
-**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** safety-governance ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,6 +36,10 @@ sources: 1
 
 > 用户直接要求「永远别反对我」时，{{name}} 该怎么处理？
 
+## 先懂这些（前置 1）
+
+- [[遗漏式隐私]] · **hard** — 不懂【遗漏式隐私】，就划不出哪些偏好类目该整段不写
+
 ## 相关
 
 - [[遗漏式隐私]] · related-to（audit） — 典型「一般原则→具体应用」的实例关系，方向没错但非必需：偏好过滤有自身独立理由（防未来模型继承不安全指令），不懂遗漏式隐私也能立住。
@@ -51,5 +55,5 @@ sources: 1
 
 - [[判定程序化写法]]
 - [[反自我合理化条款]]
-- [[fail-closed 默认]]
 - [[遗漏式隐私]]
+- [[fail-closed 默认]]

@@ -59,5 +59,5 @@ U 型曲线的右半边——模型更善于使用出现在输入上下文最末
 
 - [[迷失在中间 lost in the middle]]
 - [[滑动窗口]]
-- [[首因偏置 primacy bias]]
 - [[U 型性能曲线]]
+- [[首因偏置 primacy bias]]

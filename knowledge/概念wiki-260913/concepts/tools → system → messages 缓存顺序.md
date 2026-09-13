@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: caching-cost
 learningStage: when-needed
 verification: use
-centrality: 0.072
-depth: 1
+centrality: 0.126
+depth: 2
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 为命中提示缓存，应把最稳定的内容放前面：工具定义在前、系统提示居中、对话消息在后。
 
-**领域** caching-cost ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** caching-cost ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,9 +36,10 @@ sources: 1
 
 > 要提升缓存命中率，{{name}} 该怎么安排你请求里的各段内容？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
 - [[前缀匹配 Prefix Matching]] · **hard** — 不懂前缀匹配，就做不了tools→system→messages缓存顺序的设计（稳定内容前置以命中缓存）。
+- [[稳定前缀 Stable Prefix]] · **hard** — 不懂【稳定前缀】，就排不出【tools → system → messages 缓存顺序】
 
 ## 相关
 
@@ -53,5 +54,5 @@ sources: 1
 
 - [[提示词缓存 Prompt Caching]]
 - [[前缀匹配 Prefix Matching]]
-- [[缓存断点 Cache Breakpoint]]
 - [[稳定前缀 Stable Prefix]]
+- [[缓存断点 Cache Breakpoint]]

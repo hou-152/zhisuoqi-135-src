@@ -7,7 +7,7 @@ subject: Context Engineering × Harness Engineering
 domain: harness-runtime
 learningStage: when-needed
 verification: judge
-centrality: 0.281
+centrality: 0.499
 depth: 1
 origin: [context, harness]
 aliases: ["Harness Engineering"]
@@ -18,7 +18,7 @@ sources: 13
 
 > 围绕模型构建的完整系统，使 Agent 能够自主行动。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.281
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.499
 
 ## 费曼一下
 
@@ -40,6 +40,13 @@ Harness 工程比提示词和上下文更大。它把工具、状态、错误、
 ## 先懂这些（前置 1）
 
 - [[If you're not the model, you're the harness.]] · **soft** — 不懂这条划界公式，就说不清 Harness 工程的范围、也不知道除模型外该由谁负责
+
+## 懂了它才能懂（解锁 4）
+
+- [[Agent = Model + Harness]] — 不懂【Harness 工程】，就做不了「模型何时才成为 Agent」的 ⟨公式定义拆解⟩
+- [[共享 harness]] — 不懂【Harness 工程】，就做不了 ⟨把同一套 harness 代码与工具给多产品复用⟩
+- [[功能清单作为 harness 原语]] — 不懂【Harness 工程】，就做不了 ⟨把 feature_list.json 当任务来源与范围边界看待⟩
+- [[操作系统类比]] — 不懂【Harness 工程】，就做不了 ⟨用简单接口封装复杂逻辑这一类比论证⟩
 
 ## 相关
 
@@ -137,27 +144,27 @@ Harness 工程比提示词和上下文更大。它把工具、状态、错误、
 - [[上下文腐烂 Context Rot]]
 - [[验证子系统与可运行的证据]]
 - [[Creator → Curator 角色转换]]
+- [[instruction budget]]
 - [[Self-verification loop]]
 - [[SWE-bench 与二元打分]]
+- [[迷失在中间 lost in the middle]]
 - [[If you're not the model, you're the harness.]]
 - [[非模型架构 Non-model Architecture]]
+- [[Agent = Model + Harness]]
+- [[AI Agent]]
 - [[渐进式披露 progressive disclosure]]
+- [[从期望行为反推 harness 设计]]
 - [[递归 Planner-Worker 架构]]
+- [[功能清单作为 harness 原语]]
+- [[共享 harness]]
+- [[可观测性]]
 - [[可维护性没有惩罚项]]
+- [[能力鸿沟]]
+- [[弱 harness 强 harness 对照与消融实验]]
 - [[时间 Scalability Temporal Scalability]]
 - [[信任机制重构]]
+- [[验证缺口]]
 - [[自评失真 Self-evaluation Distortion]]
 - [[Agent-driven CICD]]
 - [[Architecture Operator 分工]]
 - [[Context as working memory budget]]
-- [[context firewall]]
-- [[Filesystem 作为最基础的 harness 原语]]
-- [[Forward Deployed Engineer]]
-- [[Harness level feature]]
-- [[Infrastructure noise]]
-- [[Mutation Testing 与前沿质量评测]]
-- [[Orchestration Loop TAO Cycle ReAct Loop]]
-- [[Progressive disclosure（渐进式披露）与 Skills]]
-- [[Repo-local instructions]]
-- [[the dumb zone the smart zone]]
-- [[Trace-based evals]]

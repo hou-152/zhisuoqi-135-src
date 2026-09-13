@@ -7,7 +7,7 @@ domain: verification-eval
 learningStage: now
 verification: judge
 centrality: 0.126
-depth: 1
+depth: 2
 origin: [harness]
 aliases: []
 sources: 1
@@ -58,6 +58,6 @@ agent 能发现自己产出的缺陷，但随后说服自己可以接受，给�
 ## 反链
 
 - [[时间 Scalability Temporal Scalability]]
-- [[橡皮鸭复审]]
 - [[验证缺口]]
+- [[橡皮鸭复审]]
 - [[空间 Scalability Spatial Scalability]]

@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: context-engineering
 learningStage: now
 verification: use
-centrality: 0.454
+centrality: 0.563
 depth: 1
 origin: [notion]
 aliases: ["Claude Code Skill", ".claude/skills", "SKILL.md", "技能文件夹"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 放在 .claude/skills/ 下的文件夹，含声明触发条件的 frontmatter 与完整正文，按需加载。
 
-**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.454
+**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.563
 
 ## 费曼一下
 
@@ -36,11 +36,12 @@ sources: 1
 
 > {{name}} 为什么装很多也不会拖慢启动？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
+- [[SKILL.md 与 YAML 前置元数据 SKILL.md YAML frontmatter]] · **hard** — 不懂【SKILL.md 与 YAML 前置元数据】，就做不了「SKILL.md 的最小结构」这件事——不知道 frontmatter 与 body 各自承担什么。
 - [[Skill Files]] · **soft** — 不懂【SKILL.md】的 frontmatter＋body 契约，就做不了【Skill Files】的 ⟨按最小结构编写可复用 skill⟩
 
-## 懂了它才能懂（解锁 7）
+## 懂了它才能懂（解锁 8）
 
 - [[Skills Hell]] — 不懂 skill 的数量与按需加载方式，就无法理解其膨胀与冲突之害。
 - [[Skill-as-method-call]] — 得先知道 skill 是什么，才能理解它像方法调用、传参产出不同能力。
@@ -49,6 +50,7 @@ sources: 1
 - [[Skill-as-method-call]] — 方法调用式的参数化，正是靠 frontmatter 声明来承接。
 - [[description 作为触发条件]] — 不懂【Skill】，就做不了【description 作为触发条件】里在 frontmatter 写清何时加载该技能
 - [[Progressive disclosure（渐进式披露）与 Skills]] — 不懂【Skill】，就做不了【Progressive disclosure（渐进式披露）与 Skills】里按需逐步披露的加载编排
+- [[共享上下文窗口]] — 不懂【SKILL.md】，就说不清技能激活时被整份载入上下文的是什么。
 
 ## 相关
 
@@ -74,12 +76,14 @@ sources: 1
 
 ## 反链
 
+- [[SKILL.md 与 YAML 前置元数据 SKILL.md YAML frontmatter]]
 - [[Skill-as-method-call]]
 - [[skill-creator 访谈式创建]]
 - [[Skills Hell]]
 - [[Agent loop]]
 - [[验证闭环 verification loop]]
 - [[渐进式披露 progressive disclosure]]
+- [[共享上下文窗口]]
 - [[description 作为触发条件]]
 - [[Progressive disclosure（渐进式披露）与 Skills]]
 - [[tokens]]

@@ -56,7 +56,7 @@ TTL 决定缓存能等你多久。连续追问通常 5 分钟够用；中间要�
 ## 反链
 
 - [[提示词缓存 Prompt Caching]]
+- [[稳定前缀 Stable Prefix]]
 - [[提示词缓存（Prompt Caching）]]
 - [[缓存断点 Cache Breakpoint]]
 - [[模型一致性与 prompt caching]]
-- [[稳定前缀 Stable Prefix]]

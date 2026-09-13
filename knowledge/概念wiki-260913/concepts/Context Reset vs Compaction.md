@@ -68,6 +68,7 @@ This differs from compaction, where earlier parts of the conversation are summar
 - [[压缩（compaction）与运行内外的分工]]
 - [[Generator-Evaluator Loop]]
 - [[Planner-Generator-Evaluator 三 Agent 架构]]
+- [[Self-evaluation Failure]]
 - [[Session Management]]
 - [[Sprint Contract]]
 - [[废料怪兽]]
@@ -75,4 +76,3 @@ This differs from compaction, where earlier parts of the conversation are summar
 - [[Context Management 四策略]]
 - [[Handoff Artifact]]
 - [[Harness 简化原则 Harness Simplification]]
-- [[Self-evaluation Failure]]

@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: state-persistence
 learningStage: when-needed
 verification: use
-centrality: 0.017
-depth: 0
+centrality: 0.072
+depth: 1
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > agent 模板（模型、system prompt、工具、MCP servers、skills）写成 YAML 存进 git，由 CLI 在流水线 apply。
 
-**领域** state-persistence ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** state-persistence ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,6 +36,10 @@ sources: 1
 
 > {{name}}怎么做？模板里要写哪些字段？
 
+## 先懂这些（前置 1）
+
+- [[个人技能与项目技能]] · **soft** — 不懂【个人技能与项目技能】，就做不了【agent 模板的声明式持久化】的 ⟨skills 字段的声明与 apply⟩
+
 ## 相关
 
 - [[文件系统即持久记忆]] · rejected（audit） — 两者是不同层面的东西：声明式持久化是把配置存文件，不是把运行状态写文件；不懂后者完全能懂前者，不构成前置依赖
@@ -53,4 +57,5 @@ sources: 1
 - [[文件系统即持久记忆]]
 - [[Claude Managed Agents]]
 - [[Git-backed state]]
+- [[个人技能与项目技能]]
 - [[messages API 作为直连网关]]

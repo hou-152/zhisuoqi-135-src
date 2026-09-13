@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: model-training
 learningStage: deep-dive
 verification: judge
-centrality: 0.072
+centrality: 0.126
 depth: 1
 origin: [notion]
 aliases: ["基于人类反馈的强化学习", "Reinforcement Learning from Human Feedback"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 用人类偏好训练奖励模型再用 RL 优化 LLM，是 GPT-3 到 InstructGPT 的关键一跳，PPO 为默认算法。
 
-**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** model-training ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 原文 context
 
@@ -37,6 +37,10 @@ sources: 1
 ## 先懂这些（前置 1）
 
 - [[Reward Signal]] · **hard** — RLHF 用人类偏好训练奖励模型，奖励信号是它的打分通道。
+
+## 懂了它才能懂（解锁 1）
+
+- [[Nerdy Personality]] — 不懂 RLHF 的奖励口味，就判断不了 Nerdy Personality 的真实走向
 
 ## 相关
 

@@ -7,7 +7,7 @@ subject: AI 内参 260912
 domain: context-engineering
 learningStage: now
 verification: use
-centrality: 0.263
+centrality: 0.372
 depth: 0
 origin: [neican]
 aliases: ["SKILL.md / YAML frontmatter"]
@@ -18,7 +18,7 @@ sources: 1
 
 > SKILL.md 的 YAML 前置元数据以 name 与 description 为必需字段，是技能的发现层。
 
-**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.263
+**领域** context-engineering ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.372
 
 ## 费曼一下
 
@@ -59,9 +59,11 @@ Cannot contain XML tags
 
 > {{name}} 中 description 为什么必须同时写清功能与使用时机？
 
-## 懂了它才能懂（解锁 1）
+## 懂了它才能懂（解锁 3）
 
 - [[启动时仅加载名称和描述]] — 不懂 SKILL.md 与 YAML 前置元数据，就做不了启动时仅加载名称和描述里的「从技能位置只读取 YAML 元数据中的 name 与 description 作为发现层」
+- [[description]] — 不懂【SKILL.md 与 YAML 前置元数据】，就做不了 description 字段的编写——不知道它是前置元数据里的必需字段。
+- [[Skill]] — 不懂【SKILL.md 与 YAML 前置元数据】，就做不了「SKILL.md 的最小结构」这件事——不知道 frontmatter 与 body 各自承担什么。
 
 ## 出场
 
@@ -73,4 +75,6 @@ Cannot contain XML tags
 
 ## 反链
 
+- [[Skill]]
 - [[启动时仅加载名称和描述]]
+- [[description]]

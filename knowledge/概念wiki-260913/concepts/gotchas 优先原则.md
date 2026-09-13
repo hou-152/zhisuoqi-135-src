@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.072
-depth: 0
+centrality: 0.126
+depth: 1
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > token 分配原则：简要说明 repo 用途，大部分 token 留给代码库内部的反直觉约定，避免陈述显而易见的事。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,6 +36,10 @@ CLAUDE.md 一节给出的 token 分配原则：保持轻量，简要说明 repo 
 
 > 按 {{name}}，一份 CLAUDE.md 的 token 该往哪里分配？
 
+## 先懂这些（前置 1）
+
+- [[instruction budget]] · **soft** — 不懂【instruction budget】，就做不了【gotchas 优先原则】里的 token 分配决策——凭什么把额度留给 gotchas
+
 ## 懂了它才能懂（解锁 1）
 
 - [[gotchas 优先的 CLAUDE.md]] — 不懂【gotchas 优先原则】，就做不了【gotchas 优先的 CLAUDE.md】的 ⟨把 token 主要分配给反直觉 gotchas 而不是显而易见的事⟩
@@ -52,6 +56,7 @@ CLAUDE.md 一节给出的 token 分配原则：保持轻量，简要说明 repo 
 - Context Engineering ｜ 《Claude 5 世代的上下文工程，规则变了》 ｜ https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models
 ## 反链
 
-- [[护栏型指令的过期]]
 - [[判断力优先 let Claude use judgement]]
+- [[instruction budget]]
+- [[护栏型指令的过期]]
 - [[gotchas 优先的 CLAUDE.md]]

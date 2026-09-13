@@ -51,6 +51,6 @@ WebFetch 的参数除 URL 外还有一个 prompt。大号模型生成 tool call 
 
 - [[看对话 log]]
 - [[tokens]]
-- [[对话加确定性缝合]]
 - [[Tool call offloading]]
+- [[对话加确定性缝合]]
 - [[反向代理式窥探]]

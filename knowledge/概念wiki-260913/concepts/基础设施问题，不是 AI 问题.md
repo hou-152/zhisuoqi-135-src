@@ -53,6 +53,6 @@ agent 让人以为一切都是新问题，于是所有人从头造轮子。其�
 ## 反链
 
 - [[持久化执行 durable execution]]
-- [[基础设施挑战而非 harness 设计问题]]
 - [[harness 与 framework 的分野]]
+- [[基础设施挑战而非 harness 设计问题]]
 - [[单用户假设的失效]]

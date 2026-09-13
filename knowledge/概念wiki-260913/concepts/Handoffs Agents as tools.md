@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: multi-agent
 learningStage: when-needed
 verification: judge
-centrality: 0.072
+centrality: 0.181
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > Agent 把特定任务委派给其他 Agent 的机制，是与 manager 式编排并列的一种编排风格选择。
 
-**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.181
 
 ## 费曼一下
 
@@ -40,6 +40,11 @@ allow agents to delegate to other agents for specific tasks，被列为 a powerf
 
 - [[多智能体架构]] · **soft** — 委派机制只在多个 Agent 并存时才成立
 
+## 懂了它才能懂（解锁 2）
+
+- [[子 agent 与 step.invoke()]] — 不懂【Handoffs / Agents as tools】就做不了【子 agent 与 step.invoke()】的「把任务派给独立 agent run 并回摘要」
+- [[自收敛与免全局同步]] — 不懂【Handoffs / Agents as tools】就做不了【自收敛与免全局同步】的「让信息沿链上浮到 owner 而不做全局同步」
+
 ## 相关
 
 - [[very few abstractions]] · 同篇出现（co-occurrence） — 同篇出现：harness-08
@@ -51,7 +56,9 @@ allow agents to delegate to other agents for specific tasks，被列为 a powerf
 - Harness Engineering ｜ 《OpenAI Agents SDK 官方文档：抽象极少的轻量 agent 框架》 ｜ https://openai.github.io/openai-agents-python/
 ## 反链
 
+- [[子 agent 与 step.invoke()]]
 - [[多智能体架构]]
 - [[primitives]]
 - [[Agent]]
+- [[自收敛与免全局同步]]
 - [[very few abstractions]]

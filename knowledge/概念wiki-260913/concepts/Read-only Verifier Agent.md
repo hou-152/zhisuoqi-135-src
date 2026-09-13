@@ -57,6 +57,6 @@ sources: 1
 - [[Agent loop]]
 - [[Loop Engineer]]
 - [[Rubric 与 verifier agent]]
-- [[Rubrics 与验证 agent]]
 - [[Self-evaluation Failure]]
+- [[Rubrics 与验证 agent]]
 - [[Verifiable Codebase]]

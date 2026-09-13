@@ -60,7 +60,7 @@ Boris 的五条建议里最关键的是让 Claude 有端到端自验证能力。
 - [[Loop Engineering]]
 - [[Self-verification loop]]
 - [[Continuous orchestration loop]]
-- [[Verifiability]]
 - [[Model as subroutine]]
 - [[Self-evaluation Failure]]
+- [[Verifiability]]
 - [[Wrapper skill]]

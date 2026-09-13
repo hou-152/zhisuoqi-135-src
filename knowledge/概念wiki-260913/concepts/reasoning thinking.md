@@ -57,6 +57,6 @@ reasoning 让模型花更多时间和 token 推演问题。
 - [[coding agent]]
 - [[推理模型]]
 - [[LLM Large Language Model]]
+- [[RLVR 与编码 agent 的 RL 训练循环]]
 - [[Logits]]
 - [[reasoning effort]]
-- [[RLVR 与编码 agent 的 RL 训练循环]]

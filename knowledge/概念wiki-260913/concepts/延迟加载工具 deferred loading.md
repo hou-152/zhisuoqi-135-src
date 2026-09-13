@@ -59,5 +59,5 @@ sources: 1
 
 - [[上下文工程 context engineering]]
 - [[注意力预算 attention budget]]
-- [[护栏型指令的过期]]
 - [[判断力优先 let Claude use judgement]]
+- [[护栏型指令的过期]]

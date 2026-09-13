@@ -58,6 +58,6 @@ sources: 1
 
 - [[Planner–Worker 角色分离]]
 - [[子 agent 编排 Fork Teammate Worktree]]
-- [[自协调与共享协调文件]]
 - [[递归并行规划 sub-planner]]
+- [[自协调与共享协调文件]]
 - [[锁竞争与乐观并发控制]]

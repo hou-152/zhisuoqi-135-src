@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: loop-autonomy
 learningStage: when-needed
 verification: judge
-centrality: 0.072
-depth: 1
+centrality: 0.126
+depth: 2
 origin: [harness]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > loop 出现后，模型不再是对话对象，而是被 loop 在某一步调用的能力。
 
-**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** loop-autonomy ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,8 +36,9 @@ AI 不再是你正在聊天的同事，而像代码里的一个函数。你的�
 
 > 在你的循环里，{{name}} 是被哪一步调用的？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
+- [[编排循环 Orchestration Loop TAO ReAct]] · **hard** — 不懂【编排循环】，就做不了「模型降级为子程序」这件事——没有被 loop 在某一步调用的位置，模型就还是对话对象
 - [[笨循环 Dumb Loop]] · **soft** — 不懂【笨循环】，就做不了【Model as subroutine】的“让模型被 loop 在某一步调用”。
 
 ## 相关
@@ -62,6 +63,7 @@ AI 不再是你正在聊天的同事，而像代码里的一个函数。你的�
 - [[Loop Engineering]]
 - [[Self-verification]]
 - [[笨循环 Dumb Loop]]
+- [[编排循环 Orchestration Loop TAO ReAct]]
 - [[Continuous orchestration loop]]
 - [[Feedback loop]]
 - [[Git-backed state]]

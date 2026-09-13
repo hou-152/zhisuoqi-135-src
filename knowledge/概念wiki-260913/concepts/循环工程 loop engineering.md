@@ -8,7 +8,7 @@ domain: loop-autonomy
 learningStage: now
 verification: use
 centrality: 0.29
-depth: 2
+depth: 3
 origin: [context]
 aliases: ["loop engineering"]
 sources: 1
@@ -68,7 +68,7 @@ sources: 1
 - [[验证闭环 verification loop]]
 - [[闭环]]
 - [[自动循环的心跳]]
+- [[把重复步骤编码成 Skill]]
 - [[Loop Contract]]
 - [[Loop Engineer]]
-- [[把重复步骤编码成 Skill]]
 - [[Learning Loop]]

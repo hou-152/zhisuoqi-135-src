@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: caching-cost
 learningStage: now
 verification: use
-centrality: 0.072
-depth: 1
+centrality: 0.126
+depth: 2
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 把 system prompt 等前缀写成逐字稳定的内容，避开时间戳之类易变项，以命中 KV-cache。
 
-**领域** caching-cost ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** caching-cost ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,9 +36,10 @@ sources: 1
 
 > 为什么 {{name}} 里不能放精确到秒的时间戳？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
 - [[前缀匹配 Prefix Matching]] · **hard** — 不懂前缀匹配，就做不了稳定的prompt前缀的写法（system prompt等逐字稳定以命中KV-cache）。
+- [[稳定前缀 Stable Prefix]] · **hard** — 不懂【稳定前缀】，就写不出真正能命中 KV-cache 的【稳定的 prompt 前缀】
 
 ## 相关
 
@@ -53,5 +54,6 @@ sources: 1
 
 - [[上下文工程 context engineering]]
 - [[前缀匹配 Prefix Matching]]
+- [[稳定前缀 Stable Prefix]]
 - [[押注 in-context learning]]
 - [[与底层模型正交 orthogonal to the underlying models]]

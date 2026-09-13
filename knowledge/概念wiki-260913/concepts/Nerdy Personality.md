@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: model-training
 learningStage: when-needed
 verification: accept
-centrality: 0.072
-depth: 1
+centrality: 0.126
+depth: 2
 origin: [notion]
 aliases: ["Nerdy 人格", "ChatGPT Nerdy", "personality customization - Nerdy"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > ChatGPT 的一种风格人格预设，其真实走向由 RL 奖励的口味决定，而非 prompt 文本。
 
-**领域** model-training ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
+**领域** model-training ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.126
 
 ## 原文 context
 
@@ -44,8 +44,9 @@ sources: 1
 
 > {{name}} 的说话风格由 prompt 还是奖励决定？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
+- [[RLHF]] · **hard** — 不懂 RLHF 的奖励口味，就判断不了 Nerdy Personality 的真实走向
 - [[Reward Signal]] · **soft** — 人格真实走向由 RL 奖励口味决定，懂奖励信号更易理解它非 prompt 决定。
 
 ## 相关

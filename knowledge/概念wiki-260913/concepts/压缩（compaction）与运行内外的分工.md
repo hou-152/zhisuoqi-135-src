@@ -56,5 +56,5 @@ sources: 1
 - [[持久化执行 durable execution]]
 - [[Context Reset vs Compaction]]
 - [[Context-window tax]]
-- [[预算警告与溢出恢复]]
 - [[harness 与 framework 的分野]]
+- [[预算警告与溢出恢复]]

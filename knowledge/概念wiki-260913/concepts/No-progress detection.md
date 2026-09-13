@@ -55,5 +55,5 @@ sources: 1
 - [[Loop Engineering]]
 - [[漂移与隧道视野 drift & tunnel vision]]
 - [[Continuous orchestration loop]]
-- [[范围控制与显式的完成定义]]
 - [[Model as subroutine]]
+- [[范围控制与显式的完成定义]]

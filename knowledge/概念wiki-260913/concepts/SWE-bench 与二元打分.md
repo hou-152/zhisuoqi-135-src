@@ -57,7 +57,7 @@ sources: 1
 
 - [[Validation gates]]
 - [[Infrastructure noise]]
+- [[Lights-off 软件工厂]]
 - [[Mutation Testing 与前沿质量评测]]
 - [[pass@k]]
-- [[Lights-off 软件工厂]]
 - [[软件工厂 Software Factory]]

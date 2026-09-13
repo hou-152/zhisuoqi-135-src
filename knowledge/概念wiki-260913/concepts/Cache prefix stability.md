@@ -58,7 +58,7 @@ OpenCode 的 tools、system 与 message prefix 在 run 间 byte-identical；Clau
 
 - [[前缀匹配 Prefix Matching]]
 - [[Harness token floor]]
-- [[Tool-schema tax]]
 - [[缓存连续性 Cache Continuity]]
+- [[Tool-schema tax]]
 - [[API-boundary observability]]
 - [[Cache temperature]]

@@ -56,6 +56,6 @@ sources: 1
 - [[验证闭环 verification loop]]
 - [[Loop Engineering]]
 - [[Continuous orchestration loop]]
+- [[Model as subroutine]]
 - [[端到端验证]]
 - [[形成性评估]]
-- [[Model as subroutine]]

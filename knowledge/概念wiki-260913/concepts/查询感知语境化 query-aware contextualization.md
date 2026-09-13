@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: judge
-centrality: 0.017
-depth: 0
+centrality: 0.072
+depth: 1
 origin: [context]
 aliases: ["query-aware contextualization"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 把查询同时放在待处理数据的前面与后面，使 decoder-only 模型编码材料时就注意到查询。
 
-**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** context-engineering ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -37,6 +37,10 @@ sources: 1
 
 > 什么任务该用 {{name}}，什么任务不该用？
 
+## 先懂这些（前置 1）
+
+- [[迷失在中间 lost in the middle]] · **hard** — 不懂【迷失在中间】，就做不了【查询感知语境化】的「为什么把查询同时放在数据前后能避免中段被忽略」的机制设计。
+
 ## 相关
 
 - [[首因偏置 primacy bias]] · 同篇出现（co-occurrence） — 同篇出现：context-02
@@ -54,5 +58,5 @@ sources: 1
 ## 反链
 
 - [[迷失在中间 lost in the middle]]
-- [[首因偏置 primacy bias]]
 - [[U 型性能曲线]]
+- [[首因偏置 primacy bias]]

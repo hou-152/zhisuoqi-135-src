@@ -6,7 +6,7 @@ subject: AI 概念库 × Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.089
+centrality: 0.144
 depth: 1
 origin: [notion, harness]
 aliases: ["薄 harness 厚 skills", "fat skills thin harness", "薄壳厚技能", "three-layer agent architecture", "三层 agent 架构"]
@@ -17,7 +17,7 @@ sources: 2
 
 > 设计原则：harness 保持薄，把厚度与智能放进 skills（thin harness, fat skills）。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.089
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.144
 
 ## 费曼一下
 
@@ -36,9 +36,10 @@ Garry Tan 给 AI agent 架构提出的**方向性原则**，一句话写得下�
 
 > 按 {{name}} 原则，你现在该把哪部分逻辑移出 harness？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
 - [[技能化 Skills]] · **hard** — 不懂技能化，就没有 fat skills 这个构件可用，thin harness 也就无从立起
+- [[脚手架与 Harness 厚度 Scaffolding Harness Thickness]] · **hard** — 不懂【脚手架与 Harness 厚度】，就做不了 ⟨thin harness / fat skills 的取舍判断⟩
 
 ## 相关
 
@@ -66,10 +67,11 @@ Garry Tan 给 AI agent 架构提出的**方向性原则**，一句话写得下�
 ## 反链
 
 - [[Skill-as-method-call]]
+- [[脚手架与 Harness 厚度 Scaffolding Harness Thickness]]
 - [[技能化 Skills]]
+- [[Context Bloat]]
 - [[Latent vs Deterministic]]
 - [[Resolver]]
-- [[Context Bloat]]
 - [[Learning Loop]]
 - [[Skill Files]]
 - [[Diarization]]

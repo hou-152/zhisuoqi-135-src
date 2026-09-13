@@ -60,6 +60,6 @@ sources: 3
 - [[Agent vs Harness]]
 - [[Agent loop]]
 - [[Loop Engineering]]
-- [[Continuous orchestration loop]]
 - [[Agent = Model + Harness]]
+- [[Continuous orchestration loop]]
 - [[Model as subroutine]]

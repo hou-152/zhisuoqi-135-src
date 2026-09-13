@@ -63,10 +63,10 @@ sources: 1
 
 ## 反链
 
+- [[教会 AI Agent 如何成功]]
 - [[统一语言 ubiquitous language]]
 - [[追问式对齐 Grill Me]]
 - [[带文档追问 Grill with Docs]]
-- [[教会 AI Agent 如何成功]]
 - [[领域语言缺口 missing language layer]]
 - [[上下文文档 context.md]]
 - [[语言驱动的代码一致性 language-code alignment]]

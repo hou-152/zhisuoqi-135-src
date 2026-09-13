@@ -22,6 +22,10 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--fg);
   font-family:-apple-system,BlinkMacSystemFont,"Inter","PingFang SC","Helvetica Neue",Arial,sans-serif;
   font-size:13px;line-height:1.5;-webkit-font-smoothing:antialiased}
 button{font-family:inherit}
+.rel-legend{display:none;align-items:center;gap:8px;color:var(--fg4);font-size:10.5px;white-space:nowrap}
+.rel-legend.on{display:flex}
+.rel-legend span{display:inline-flex;align-items:center;gap:3px}
+.rel-legend i{display:inline-block;width:7px;height:7px;border-radius:50%}
 
 /* ── 三栏 ───────────────────────────────────────────── */
 #app{display:grid;grid-template-columns:224px 302px 1fr;height:100vh;overflow:hidden}
@@ -135,6 +139,12 @@ button{font-family:inherit}
   padding:5px 7px;border-radius:5px;cursor:pointer}
 #panel li:hover{background:#161719;color:var(--fg)}
 #panel li em{margin-left:auto;font-style:normal;font-size:10.5px;color:var(--fg4)}
+.rel-list li{display:block;padding:7px;border:1px solid var(--line);margin:4px 0;background:#101113}
+.rel-list li:hover{border-color:var(--line2)}
+.rel-list .rel-name{display:flex;align-items:center;gap:6px;color:var(--fg2)}
+.rel-list .rel-name b{font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rel-list .rel-name i{width:7px;height:7px;border-radius:50%;flex:0 0 7px}
+.rel-list .rel-note{margin-top:3px;color:var(--fg4);font-size:10.5px;line-height:1.55}
 .mut{color:var(--fg3);font-size:12px;line-height:1.8}
 .markrow{display:flex;gap:6px;flex-wrap:wrap}
 .mk{background:#17181b;border:1px solid var(--line2);border-radius:6px;color:var(--fg2);
@@ -183,9 +193,10 @@ code{background:#161719;border:1px solid var(--line);border-radius:4px;padding:1
   font-size:11.5px;font-family:ui-monospace,Menlo,monospace;color:var(--fg2)}
 
 
-#tip{position:fixed;padding:5px 9px;background:#161719;border:1px solid var(--line2);
+#tip{position:fixed;padding:6px 10px;background:#161719;border:1px solid var(--line2);
   border-radius:6px;font-size:11.5px;color:var(--fg);pointer-events:none;opacity:0;
-  transition:opacity .1s;z-index:9;max-width:280px;line-height:1.6}
+  transition:opacity .1s;z-index:9;max-width:280px;line-height:1.6;
+  box-shadow:0 8px 24px rgba(0,0,0,.32)}
 #load{position:fixed;inset:0;display:grid;place-items:center;background:var(--bg);
   color:var(--fg4);font-size:12.5px;z-index:20;transition:opacity .3s}
 #load.off{opacity:0;pointer-events:none}
@@ -273,6 +284,14 @@ code{background:#161719;border:1px solid var(--line);border-radius:4px;padding:1
     <canvas id="c"></canvas>
     <div class="mtools">
       <button class="tab on" data-mode="grid">图谱</button>
+      <button class="tab" data-mode="relation">关系</button>
+      <span class="rel-legend" id="rel-legend">
+        <span><i style="background:#a8b5ee"></i>前置</span>
+        <span><i style="background:#8b7de8"></i>相关</span>
+        <span><i style="background:#5ec9b1"></i>一起使用</span>
+        <span><i style="background:#e4a95f"></i>组成</span>
+        <span><i style="background:#e97b9b"></i>对照</span>
+      </span>
       <button class="tab" data-mode="sphere">星球</button>
       <span class="spacer"></span>
       <span class="mm" id="main-meta"></span>
@@ -300,7 +319,8 @@ const YSPRING   = 0.15;    // 层弹簧
 const DAMP      = 0.86;
 const ITERS     = 260;
 
-const nodes = DATA.nodes, edges = DATA.edges, sources = DATA.sources, meta = DATA.meta;
+const nodes = DATA.nodes, edges = DATA.edges, relations = DATA.relations || [], sources = DATA.sources, meta = DATA.meta;
+const relationStats = DATA.relationStats || { visible: relations.length, hidden: 0, byKind: {} };
 // 主题层：21 条主题线（知识体系现在只有这一个分组轴）
 const CUR = DATA.curation || { tags: [], assign: {}, collections: [] };
 // 内参一栏：AI 内参图文格式（主题 / 重要等级 / 地址 / 配图 / 原文子链接 / 简介 / 入选理由 / 三产物）
@@ -333,6 +353,15 @@ const KIND = {
 const kOf = n => (KIND[n.k] ? n.k : 'compute');
 const byId = new Map(nodes.map(n => [n.id, n]));
 const neighbors = new Map(nodes.map(n => [n.id, { pre: [], post: [] }]));
+const relationNeighbors = new Map(nodes.map(n => [n.id, []]));
+const RELATION_NAMES = {
+  prerequisite: '前置', 'related-to': '相关', 'used-with': '一起使用',
+  'part-of': '组成', contrast: '对照',
+};
+const RELATION_COLORS = {
+  prerequisite: '#a8b5ee', 'related-to': '#8b7de8', 'used-with': '#5ec9b1',
+  'part-of': '#e4a95f', contrast: '#e97b9b',
+};
 
 /* ── 状态 ───────────────────────────────────────────── */
 let mode = 'grid';
@@ -496,6 +525,11 @@ for (const [tid, pid] of edges) {
   neighbors.get(tid).pre.push(pid);
   neighbors.get(pid).post.push(tid);
 }
+for (const r of relations) {
+  if (!byId.has(r.from) || !byId.has(r.to)) continue;
+  relationNeighbors.get(r.from).push(r);
+  relationNeighbors.get(r.to).push(r);
+}
 
 /* ── 布局 ───────────────────────────────────────────── */
 // 确定性伪随机：同一概念每次抖动一致，resize / 切模式不会跳动
@@ -547,7 +581,8 @@ function layoutSphere() {
 }
 
 function computeLayout() {
-  if (mode === 'grid') layoutGrid(); else layoutSphere();
+  if (mode === 'grid') layoutGrid();
+  else if (mode === 'sphere') layoutSphere();
 }
 
 /* ── 分组轴：只按主题分列 ───────────────────────────────────
@@ -583,7 +618,12 @@ function project(n) {
     const s = zoom;
     return { sx: CX + (n.gx + panX - CX) * s, sy: CY + (n.gy + panY - CY) * s, s: s * 1.25, z: 0 };
   }
-  const cy = Math.cos(rotY), sy = Math.sin(rotY);
+  if (mode === 'relation') {               // 关系：构建时生成的确定性力导向坐标
+    const s = Math.min(W, H) * 0.42 * zoom;
+    return { sx: CX + (n.rx || 0) * s + panX, sy: CY + (n.ry || 0) * s + panY,
+      s: Math.max(.72, zoom), z: 0 };
+  }
+  const cy = Math.cos(rotY), sy = Math.sin(rotX);
   let x = n.x * cy - n.z * sy;
   let z = n.x * sy + n.z * cy;
   const cx = Math.cos(rotX), sx = Math.sin(rotX);
@@ -641,26 +681,57 @@ function render() {
     ctx.globalAlpha = 1;
   }
 
-  // 边：票数分档 —— 骨架（≥7 票，多次投票一致）画实线，候选（1–4 票）画虚线
+  // 边：依赖视图沿用 hard/soft 线型；关系视图按关系类型着色，并保留前置方向。
   ctx.lineWidth = 1;
-  for (const [tid, pid, votes] of edges) {
-    const a = byId.get(tid), b = byId.get(pid);
-    if (!visible(a) || !visible(b)) continue;
-    const pa = project(a), pb = project(b);
-    const depth = (pa.z + pb.z) / 2;
-    const hot = selected && (tid === selected || pid === selected)
-             || hovered && (tid === hovered || pid === hovered);
-    const solid = votes >= 7;
-    const mid = votes >= 2;
-    const base = solid ? 0.26 : mid ? 0.12 : 0.06;
-    const alpha = hot ? 0.8 : Math.max(0.022, base - depth / 12000);
-    ctx.strokeStyle = hot ? 'rgba(255,255,255,' + alpha + ')'
-                          : solid ? 'rgba(178,188,225,' + alpha + ')'
-                                  : 'rgba(120,128,165,' + alpha + ')';
-    ctx.lineWidth = hot ? 1.6 : solid ? 1.05 : 0.6;
-    if (!solid && !hot) ctx.setLineDash(votes >= 2 ? [2.5, 3] : [1.5, 4]);
-    ctx.beginPath(); ctx.moveTo(pa.sx, pa.sy); ctx.lineTo(pb.sx, pb.sy); ctx.stroke();
-    if (!solid && !hot) ctx.setLineDash([]);
+  if (mode === 'relation') {
+    const drawArrow = (a, b, color, alpha) => {
+      const ang = Math.atan2(b.sy - a.sy, b.sx - a.sx);
+      const size = 5.5;
+      ctx.fillStyle = color.replace('ALPHA', alpha);
+      ctx.beginPath();
+      ctx.moveTo(b.sx, b.sy);
+      ctx.lineTo(b.sx - Math.cos(ang - .45) * size, b.sy - Math.sin(ang - .45) * size);
+      ctx.lineTo(b.sx - Math.cos(ang + .45) * size, b.sy - Math.sin(ang + .45) * size);
+      ctx.closePath(); ctx.fill();
+    };
+    for (const r of relations) {
+      const a = byId.get(r.from), b = byId.get(r.to);
+      if (!a || !b || !visible(a) || !visible(b)) continue;
+      const pa = project(a), pb = project(b);
+      const hot = (selected && (r.from === selected || r.to === selected))
+               || (hovered && (r.from === hovered || r.to === hovered));
+      const rgb = RELATION_COLORS[r.kind] || '#88909c';
+      const alpha = hot ? .88 : (r.strength === 'hard' ? .36 : .18);
+      ctx.strokeStyle = hot ? 'rgba(255,255,255,' + alpha + ')' : rgb;
+      ctx.globalAlpha = hot ? 1 : alpha;
+      ctx.lineWidth = hot ? 1.8 : (r.strength === 'hard' ? 1.05 : .7);
+      if (r.strength !== 'hard' && !hot) ctx.setLineDash([3, 3]);
+      ctx.beginPath(); ctx.moveTo(pa.sx, pa.sy); ctx.lineTo(pb.sx, pb.sy); ctx.stroke();
+      ctx.setLineDash([]); ctx.globalAlpha = 1;
+      if (r.kind === 'prerequisite') {
+        drawArrow(pa, pb, hot ? 'rgba(255,255,255,ALPHA)' : 'rgba(168,181,238,ALPHA)', hot ? 1 : alpha);
+      }
+    }
+  } else {
+    for (const [tid, pid, votes] of edges) {
+      const a = byId.get(tid), b = byId.get(pid);
+      if (!visible(a) || !visible(b)) continue;
+      const pa = project(a), pb = project(b);
+      const depth = (pa.z + pb.z) / 2;
+      const hot = selected && (tid === selected || pid === selected)
+               || hovered && (tid === hovered || pid === hovered);
+      const solid = votes >= 7;
+      const mid = votes >= 2;
+      const base = solid ? 0.26 : mid ? 0.12 : 0.06;
+      const alpha = hot ? 0.8 : Math.max(0.022, base - depth / 12000);
+      ctx.strokeStyle = hot ? 'rgba(255,255,255,' + alpha + ')'
+                            : solid ? 'rgba(178,188,225,' + alpha + ')'
+                                    : 'rgba(120,128,165,' + alpha + ')';
+      ctx.lineWidth = hot ? 1.6 : solid ? 1.05 : 0.6;
+      if (!solid && !hot) ctx.setLineDash(votes >= 2 ? [2.5, 3] : [1.5, 4]);
+      ctx.beginPath(); ctx.moveTo(pa.sx, pa.sy); ctx.lineTo(pb.sx, pb.sy); ctx.stroke();
+      if (!solid && !hot) ctx.setLineDash([]);
+    }
   }
 
   // 点（远的先画）
@@ -669,8 +740,9 @@ function render() {
     const n = p.n;
     const on = visible(n);
     const isSel = selected === n.id, isHov = hovered === n.id;
-    const base = (2.2 + Math.sqrt(neighbors.get(n.id).pre.length +
-                   neighbors.get(n.id).post.length) * 1.05) * p.s;
+    const degree = mode === 'relation' ? relationNeighbors.get(n.id).length
+      : neighbors.get(n.id).pre.length + neighbors.get(n.id).post.length;
+    const base = (2.2 + Math.sqrt(degree) * 1.05) * p.s;
     const r = Math.max(1.1, base * (isSel ? 2.1 : isHov ? 1.65 : 1));
     const col = G[Math.min(giOf(n), G.length - 1)].color;
     ctx.globalAlpha = on ? Math.min(1, 0.42 + p.s * 0.7) : 0.06;
@@ -694,6 +766,10 @@ function render() {
     if (isSel) {
       ctx.strokeStyle = '#fff'; ctx.lineWidth = 1.4; ctx.globalAlpha = 1;
       ctx.beginPath(); ctx.arc(p.sx, p.sy, r + 3.5, 0, 6.2832); ctx.stroke();
+    }
+    if (isHov) {
+      ctx.strokeStyle = col; ctx.lineWidth = 1; ctx.globalAlpha = .78;
+      ctx.beginPath(); ctx.arc(p.sx, p.sy, r + 6.5, 0, 6.2832); ctx.stroke();
     }
   }
   ctx.globalAlpha = 1;
@@ -721,6 +797,30 @@ window.addEventListener('resize', resize);
 
 /* ── 交互 ───────────────────────────────────────────── */
 let dragging = false, moved = 0, lastX = 0, lastY = 0;
+function canvasPoint(e) {
+  const r = cvs.getBoundingClientRect();
+  return {
+    x: (e.clientX - r.left) * W / Math.max(1, r.width),
+    y: (e.clientY - r.top) * H / Math.max(1, r.height),
+  };
+}
+function showTip(id) {
+  const n = byId.get(id);
+  if (!n) return;
+  const p = project(n);
+  const r = cvs.getBoundingClientRect();
+  const sx = r.left + p.sx * r.width / Math.max(1, W);
+  const sy = r.top + p.sy * r.height / Math.max(1, H);
+  tip.textContent = n.name;
+  tip.classList.add('on');
+  const gap = 12, tw = tip.offsetWidth, th = tip.offsetHeight;
+  let left = sx + gap;
+  if (left + tw > window.innerWidth - 8) left = sx - tw - gap;
+  let top = sy - th - gap;
+  if (top < 8) top = sy + gap;
+  tip.style.left = Math.max(8, Math.min(window.innerWidth - tw - 8, left)) + 'px';
+  tip.style.top = Math.max(8, Math.min(window.innerHeight - th - 8, top)) + 'px';
+}
 cvs.addEventListener('pointerdown', e => {
   dragging = true; moved = 0; lastX = e.clientX; lastY = e.clientY;
   cvs.classList.add('drag'); cvs.setPointerCapture(e.pointerId);
@@ -729,24 +829,19 @@ cvs.addEventListener('pointermove', e => {
   if (dragging) {
     const dx = e.clientX - lastX, dy = e.clientY - lastY;
     moved += Math.abs(dx) + Math.abs(dy);
-    if (mode === 'grid') { panX += dx; panY += dy; }
+    if (mode === 'grid' || mode === 'relation') { panX += dx; panY += dy; }
     else { rotY += dx * 0.0062; rotX = Math.max(-1.25, Math.min(1.25, rotX + dy * 0.0062)); }
     lastX = e.clientX; lastY = e.clientY;
   } else {
-    hovered = pick(e.clientX, e.clientY);
+    const pt = canvasPoint(e);
+    hovered = pick(pt.x, pt.y);
     cvs.style.cursor = hovered ? 'pointer' : 'grab';
-    if (hovered) {
-      const n = byId.get(hovered);
-      tip.textContent = n.name;
-      tip.style.left = (e.clientX + 14) + 'px';
-      tip.style.top = (e.clientY - 10) + 'px';
-      tip.classList.add('on');
-    } else tip.classList.remove('on');
+    if (hovered) showTip(hovered); else tip.classList.remove('on');
   }
 });
 cvs.addEventListener('pointerup', e => {
   dragging = false; cvs.classList.remove('drag');
-  if (moved < 5) { const hit = pick(e.clientX, e.clientY); hit ? openPanel(hit) : closePanel(); }
+  if (moved < 5) { const pt = canvasPoint(e); const hit = pick(pt.x, pt.y); hit ? openPanel(hit) : closePanel(); }
 });
 cvs.addEventListener('pointerleave', () => { tip.classList.remove('on'); hovered = null; });
 cvs.addEventListener('wheel', e => {
@@ -755,8 +850,9 @@ cvs.addEventListener('wheel', e => {
 }, { passive: false });
 
 function pick(mx, my) {
-  let best = null, bestD = 15;
+  let best = null, bestD = 17;
   for (const n of nodes) {
+    if (!matches(n)) continue;
     const p = project(n);
     const d = Math.hypot(p.sx - mx, p.sy - my);
     if (d < bestD) { bestD = d; best = n.id; }
@@ -768,6 +864,7 @@ function pick(mx, my) {
 function openPanel(id) {
   selected = id;
   const n = byId.get(id), nb = neighbors.get(id);
+  const rnb = relationNeighbors.get(id) || [];
   const src = sources.find(s => s.id === n.src);
   const pre = nb.pre.map(x => byId.get(x)).filter(Boolean);
   const post = nb.post.map(x => byId.get(x)).filter(Boolean);
@@ -799,6 +896,27 @@ function openPanel(id) {
       </div>
     </div>`;
   }
+
+  const relationGroups = {};
+  for (const r of rnb) {
+    const kind = r.kind || 'related-to';
+    if (!relationGroups[kind]) relationGroups[kind] = [];
+    relationGroups[kind].push(r);
+  }
+  const relationHtml = Object.entries(relationGroups)
+    .sort(([a], [b]) => (RELATION_NAMES[a] || a).localeCompare(RELATION_NAMES[b] || b, 'zh-CN'))
+    .map(([kind, list]) => {
+      const rows = list.slice(0, 8).map(r => {
+        const other = byId.get(r.from === id ? r.to : r.from);
+        if (!other) return '';
+        const direction = kind === 'prerequisite' ? (r.from === id ? '先懂' : '解锁') : (RELATION_NAMES[kind] || '关系');
+        const strength = r.strength === 'hard' ? '强' : r.strength ? '弱' : '';
+        const source = r.origin || r.source || '';
+        const note = [strength, source, r.note || r.evidence || ''].filter(Boolean).join(' · ');
+        return `<li onclick="openPanel('${other.id}')"><div class="rel-name"><i style="background:${RELATION_COLORS[kind] || '#88909c'}"></i><b>${esc(other.name)}</b><em>${direction}</em></div>${note ? `<div class="rel-note">${esc(String(note).slice(0, 100))}</div>` : ''}</li>`;
+      }).join('');
+      return rows ? `<h5>${esc(RELATION_NAMES[kind] || kind)} · ${list.length}</h5><ul class="rel-list">${rows}</ul>` : '';
+    }).join('');
 
   document.getElementById('pbody').innerHTML = `
     <div class="src"><span style="color:${KIND[kk].color}">■</span> ${KIND[kk].name}
@@ -849,6 +967,7 @@ function openPanel(id) {
       `<li onclick="openPanel('${x.id}')">${x.name}<em>L${x.level}${marks[x.id] ? (marks[x.id].state === 'pass' ? ' · 已过' : marks[x.id].state === 'mech' ? ' · 机器过' : ' · 没过') : ''}</em></li>`).join('')}</ul>` : ''}
     ${post.length ? `<h5>懂了它，才能懂这些</h5><ul>${post.map(x =>
       `<li onclick="openPanel('${x.id}')">${x.name}<em>L${x.level}</em></li>`).join('')}</ul>` : ''}
+    ${relationHtml ? `<div class="relation-block"><h5>语义关系 · ${rnb.length}</h5>${relationHtml}${rnb.length > 40 ? `<div class="mut">还有 ${rnb.length - 40} 条关系，画布中已全部保留。</div>` : ''}</div>` : ''}
 
     ${(mk && (mk.state === 'pass' || mk.state === 'mech')) ? `<div class="nexthint">${
       post.length ? `过了。要不要接着往上游走？<br>${post.slice(0, 3).map(x => `<button class="jbtn ghost" onclick="openPanel('${x.id}')">${esc(x.name)}</button>`).join(' ')}` : '这张卡你已经验过了。'
@@ -886,10 +1005,14 @@ window.openPanel = openPanel; window.closePanel = closePanel;
 
 /* ── 启动 ───────────────────────────────────────────── */
 function setMode(m) {
+  if (!['grid', 'relation', 'sphere'].includes(m)) m = 'grid';
   mode = m;
   document.querySelectorAll('.tab').forEach(t => t.classList.toggle('on', t.dataset.mode === m));
+  const legend = document.getElementById('rel-legend');
+  if (legend) legend.classList.toggle('on', m === 'relation');
   panX = panY = 0; rotX = -0.22; rotY = 0.5; zoom = m === 'grid' ? 1 : 1.35;
   computeLayout();
+  refreshRail();
 }
 
 async function boot() {
@@ -906,7 +1029,7 @@ async function boot() {
   window.addEventListener('resize', () => { resize(); computeLayout(); });
   requestAnimationFrame(() => document.getElementById('load').classList.add('off'));
   const h = decodeURIComponent(location.hash.slice(1));
-  if (h === 'sphere' || h === 'grid') setMode(h);
+  if (h === 'sphere' || h === 'grid' || h === 'relation') setMode(h);
   else if (h && byId.has(h)) openPanel(h);
 }
 setTimeout(boot, 40);
@@ -922,7 +1045,9 @@ function refreshRail() {
     const t = (currentView === 'theme' && themeId) ? (CUR.tags || []).find(x => x.id === themeId) : null;
     mm.textContent = t
       ? t.name + ' · ' + groupCount(t) + ' 个概念'
-      : nodes.length + ' 概念 · ' + (CUR.tags || []).length + ' 个主题 · ' + edges.length + ' 条依赖';
+      : mode === 'relation'
+        ? nodes.length + ' 概念 · ' + (relationStats.visible || relations.length) + ' 条语义关系 · 隐藏 ' + (relationStats.hidden || 0)
+        : nodes.length + ' 概念 · ' + (CUR.tags || []).length + ' 个主题 · ' + edges.length + ' 条依赖';
   }
 }
 window.refreshRail = refreshRail;

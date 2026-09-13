@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: agent-org
 learningStage: when-needed
 verification: judge
-centrality: 0.017
+centrality: 0.072
 depth: 0
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > AI 环境下工程师、产品经理、设计师把想法在一两小时内落成产品的能力，因对齐成本可能高于实现成本。
 
-**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** agent-org ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,6 +36,10 @@ Peter 认为未来工程师、产品经理、设计师都需要把 idea 在一�
 
 > 为什么 {{name}} 在 AI 环境下变得比过去更关键？
 
+## 懂了它才能懂（解锁 1）
+
+- [[产品经理的组织化]] — 不懂【Implementation 能力】，就做不了产品经理的组织化的 ⟨职能重排⟩
+
 ## 相关
 
 - [[AI-First]] · 同篇出现（co-occurrence） — 同篇出现：harness-14
@@ -50,3 +54,4 @@ Peter 认为未来工程师、产品经理、设计师都需要把 idea 在一�
 - [[Harness 工程 Harness Engineering]]
 - [[AI-First]]
 - [[信任机制重构]]
+- [[产品经理的组织化]]

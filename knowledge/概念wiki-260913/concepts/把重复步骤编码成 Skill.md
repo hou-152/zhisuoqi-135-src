@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: verification-eval
 learningStage: now
 verification: use
-centrality: 0.072
+centrality: 0.126
 depth: 2
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 把重复步骤编码进验证闭环，最常见方式是写成一个 skill，作为可复用底座。
 
-**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** verification-eval ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,9 +36,10 @@ sources: 1
 
 > 你会把哪个重复步骤用 {{name}} 固化下来？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
 - [[验证闭环 verification loop]] · **soft** — 不懂【验证闭环】，就做不了【把重复步骤编码成 Skill】的「把重复步骤挂到产出后必做检查上」
+- [[验证循环：guides 与 sensors]] · **soft** — 不懂验证循环：guides 与 sensors，就做不了把重复步骤编码成 Skill 的「挑出哪些闭环步骤值得固化」
 
 ## 相关
 
@@ -65,6 +66,7 @@ sources: 1
 - [[循环工程 loop engineering]]
 - [[skill-creator 访谈式创建]]
 - [[验证闭环 verification loop]]
+- [[验证循环：guides 与 sensors]]
 - [[description 作为触发条件]]
 - [[PR 级门禁 On every PR]]
 - [[Wrapper skill]]

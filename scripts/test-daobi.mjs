@@ -14,11 +14,12 @@
 
 import { CHROME, openCDP, sleep, spawnProcess, waitForPage } from './lib/cdp.mjs';
 
-const PORT = 9401, PROF = '/tmp/daobi-' + Date.now();
+const PORT = 9401 + (process.pid % 400), PROF = '/tmp/daobi-' + process.pid;
 const URL_ = process.argv[2] || 'http://127.0.0.1:5180/知所栖-壳.html';
 
 const chrome = spawnProcess(CHROME, ['--headless=new', `--remote-debugging-port=${PORT}`, `--user-data-dir=${PROF}`,
   '--window-size=1440,900', '--hide-scrollbars', '--disable-gpu', '--no-first-run', 'about:blank'], { stdio: 'ignore' });
+process.on('exit', () => { try { chrome.kill('SIGKILL'); } catch {} });
 
 const page = await waitForPage(PORT);
 if (!page) { console.error('Chrome 没起来'); process.exit(2); }

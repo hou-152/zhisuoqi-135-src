@@ -57,5 +57,5 @@ allowed-tools限制克劳德在技能激活时可以使用的工具——适用�
 
 ## 反链
 
-- [[运行时限制、权限与数据保留边界 Runtime Limitations, Constraints, and Retention]]
 - [[MCP servers]]
+- [[运行时限制、权限与数据保留边界 Runtime Limitations, Constraints, and Retention]]

@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: memory-retrieval
 learningStage: when-needed
 verification: use
-centrality: 0.072
+centrality: 0.126
 depth: 1
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 把过去的项目决策、踩坑记录与稳定规则写成可被后续 agent 读取的记忆，作为开发流程的一部分。
 
-**领域** memory-retrieval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** memory-retrieval ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 原文 context
 
@@ -32,9 +32,10 @@ Memory-driven development 是把过去的项目决策、踩坑记录和稳定规
 
 > 你能按 {{name}} 为手上项目写一份 agent 可读的记忆吗？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
 - [[记忆 Memory]] · **hard** — 不懂【记忆】，就做不了【Memory-driven development】里可被后续 agent 读取的决策与踩坑留存
+- [[Memory file 与 continual learning]] · **hard** — 不懂【Memory file 与 continual learning】就做不了把决策写成后续 agent 启动即读的记忆
 
 ## 相关
 
@@ -50,5 +51,5 @@ Memory-driven development 是把过去的项目决策、踩坑记录和稳定规
 
 - [[记忆 Memory]]
 - [[Agentic primitives]]
-- [[Markdown prompt engineering]]
 - [[Memory file 与 continual learning]]
+- [[Markdown prompt engineering]]

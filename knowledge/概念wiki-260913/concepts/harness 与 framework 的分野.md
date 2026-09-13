@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.072
+centrality: 0.126
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 框架替你决定 Agent 怎么想，还重造重试、状态持久化、任务队列与事件路由；harness 只保证这些动作可靠发生。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -39,6 +39,10 @@ sources: 1
 ## 先懂这些（前置 1）
 
 - [[harness 厚薄 thin vs thick]] · **soft** — 不懂【harness 厚薄】，就画不出【harness 与 framework 的分野】里框架越界与只保证可靠发生的界线。
+
+## 懂了它才能懂（解锁 1）
+
+- [[Harness Thickness]] — 不懂【harness 与 framework 的分野】，就做不了【Harness Thickness】的 ⟨判断哪些逻辑算住在 harness 里⟩
 
 ## 相关
 
@@ -66,18 +70,18 @@ sources: 1
 ## 反链
 
 - [[持久化执行 durable execution]]
+- [[子 agent 与 step.invoke()]]
 - [[Runtime-harness separation]]
 - [[事件驱动编排与执行解耦]]
 - [[压缩（compaction）与运行内外的分工]]
 - [[harness 厚薄 thin vs thick]]
+- [[Harness Thickness]]
 - [[think → act → observe 循环]]
 - [[基础设施问题，不是 AI 问题]]
 - [[两级上下文剪枝 pruning]]
 - [[普遍可触发 universally triggered]]
 - [[小函数组合]]
 - [[预算警告与溢出恢复]]
-- [[子 agent 与 step.invoke()]]
-- [[Harness Thickness]]
 - [[steering]]
 - [[step]]
 - [[step ID 自动索引]]

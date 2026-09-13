@@ -56,6 +56,6 @@ loop 像自动化流水线，skill 像流水线上的专用工具。流水线本
 - [[Loop Engineering]]
 - [[Continuous orchestration loop]]
 - [[Legible Codebase]]
-- [[宏动作]]
 - [[Model as subroutine]]
+- [[宏动作]]
 - [[Watch 模式与自动更新 hooks]]

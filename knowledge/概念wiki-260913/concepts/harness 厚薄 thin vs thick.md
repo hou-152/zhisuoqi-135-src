@@ -60,5 +60,5 @@ sources: 1
 
 - [[If you're not the model, you're the harness.]]
 - [[agent 与 harness 的分工]]
-- [[model-native harness]]
 - [[harness 与 framework 的分野]]
+- [[model-native harness]]

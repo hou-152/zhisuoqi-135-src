@@ -1,0 +1,1355 @@
+{
+ "generatedAt": "2026-09-13T08:25:28.361Z",
+ "model": "deepseek-flash",
+ "concepts": {},
+ "edges": {
+  "cm_cb329146->cm_d78a3680": {
+   "i": 0,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": ""
+  },
+  "cm_28c258d9->cm_4b769318": {
+   "i": 1,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": ""
+  },
+  "cm_80dfaf37->cm_28c258d9": {
+   "i": 2,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": ""
+  },
+  "cm_b0946442->cm_ae03bb56": {
+   "i": 3,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": ""
+  },
+  "cm_a63808b6->cm_28c258d9": {
+   "i": 4,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": ""
+  },
+  "cm_a63808b6->cm_b3524e24": {
+   "i": 5,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "「共享上下文窗口」只是取舍的理由，不懂它照样能懂 CLAUDE.md 始终加载 vs Skills 按需加载的区分，应降为 soft 或踢出。"
+  },
+  "cm_b3524e24->cm_34b33e00": {
+   "i": 6,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": ""
+  },
+  "cm_3e69d260->cm_d854798b": {
+   "i": 7,
+   "holds": "yes",
+   "strength": "soft",
+   "issue": "卸载到文件系统这一机制本身不依赖 U 型曲线，U 曲线只解释「为何保留头尾」，属解释性而非构成性前提。"
+  },
+  "cm_f4ccedd3->cm_da1f0987": {
+   "i": 8,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "「决策者在环内」是评估该承诺成立与否的一条论据，承诺本身不靠它才立得住，宜降为 soft。"
+  },
+  "cm_0e8f0431->cm_629e8fdc": {
+   "i": 9,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": ""
+  },
+  "cm_633b4cd7->cm_a5573df7": {
+   "i": 0,
+   "holds": "yes",
+   "strength": "soft",
+   "issue": "其实只需知道「技能是一个带名称/描述、会被自动识别的持久文件」即可，SKILL.md 的具体版式（前置信息在上、任务在下）属实现细节，非理解「永久升级」所必需。"
+  },
+  "cm_ad086a79->cm_226cbc01": {
+   "i": 1,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": ""
+  },
+  "cm_226cbc01->cm_07e5e0c3": {
+   "i": 2,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "该节点按「来源与共享范围」分类，与执行环境无关；VM/文件系统只是技能的运行底座，不懂它也能理解预置与自定义的区别，应降 soft 或移出依赖图。"
+  },
+  "cm_64663de2->cm_633b4cd7": {
+   "i": 3,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "这是触发症状/动机，不懂「永久升级」也能理解「反复解释同一件事」本身的痛点；方向上更接近「永久升级」依赖它来说明价值，作为前置立不住。"
+  },
+  "cm_b8127840->cm_94dea071": {
+   "i": 4,
+   "holds": "yes",
+   "strength": "soft",
+   "issue": "厚度轴是 harness↔model，而该前置讲的是 harness↔framework；它只是帮助界定 harness 边界的辅助素材，不是判断厚度的严格前提。"
+  },
+  "cm_f174c068->cm_36c8ca5c": {
+   "i": 5,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": "前置节点含「语义连续性」与「最小充分性」两条，只有后者是本节点所必需，前者属多余捆绑。"
+  },
+  "cm_10db34e6->cm_f174c068": {
+   "i": 6,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "工具机制（Tree-sitter 图谱＋增量追踪）可独立理解，最小充分上下文只是它的设计动机/目标，不是理解该工具的必备前提。"
+  },
+  "cm_1b119e04->cm_5be4de59": {
+   "i": 7,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": ""
+  },
+  "cm_5c9cf5c5->cm_787006fe": {
+   "i": 8,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": ""
+  },
+  "cm_45bcde21->cm_a9b26989": {
+   "i": 9,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": ""
+  },
+  "cm_ba882963->cm_ebd8076f": {
+   "i": 0,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "「记忆须改变回答实质」是记忆质量的验收标准，不是理解「记忆即提示」的前提；不懂它照样能理解「写入什么、何时注入」的提示工程视角，最多算 helper。"
+  },
+  "cm_c1139916->cm_622b0b3b": {
+   "i": 1,
+   "holds": "yes",
+   "strength": "soft",
+   "issue": "「即时检索」是 session_search 采用的通用上下文模式，但 session_search 本身可独立理解为「历史会话检索系统」；索引—按需取回是帮助性视角，非定义必需。"
+  },
+  "cm_1531fbe3->cm_a72ef18d": {
+   "i": 2,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": ""
+  },
+  "cm_067b5d04->cm_a72ef18d": {
+   "i": 3,
+   "holds": "yes",
+   "strength": "soft",
+   "issue": "本条的实质洞见落在「结构化输出」一侧，工具只是被指称的对象；把「LLM 出 JSON、确定性代码执行」讲清楚并不需要先建立『工具=双手』这一概念，只是软帮助。"
+  },
+  "cm_926aa05d->cm_a72ef18d": {
+   "i": 4,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": ""
+  },
+  "cm_40c8f5ff->cm_926aa05d": {
+   "i": 5,
+   "holds": "yes",
+   "strength": "soft",
+   "issue": "执行环节可由别的执行器承担（如 code interpreter），shell tool 只是本语境下的实现；机制上高度相关但非定义必需，宜为 soft。"
+  },
+  "cm_db455b2f->cm_926aa05d": {
+   "i": 6,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "缺依赖/无执行权限/路径写法是通用的脚本排错清单，脱离 shell tool 概念也能独立理解，不构成前置。"
+  },
+  "cm_433754e0->cm_6db0527f": {
+   "i": 7,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": ""
+  },
+  "cm_7a8f6388->cm_d2b53bb8": {
+   "i": 8,
+   "holds": "yes",
+   "strength": "soft",
+   "issue": "AI 可见性更像 GEO 的目标而非其前置定义；GEO 可被直接定义为「面向生成式引擎的优化」，可见性只是目标锚点，宜为 soft。"
+  },
+  "cm_7a8f6388->cm_e0891b4f": {
+   "i": 9,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "爬虫五大分类属于 robots.txt 放行/屏蔽的执行细节，与内容优化的 GEO 是相邻主题；不懂它照样能立住 GEO，不构成前置。"
+  },
+  "cm_705ac76d->cm_668a45c5": {
+   "i": 0,
+   "holds": "weak",
+   "strength": "",
+   "issue": "Inner Loop 可独立理解为「agent 的主工作循环」，ReAct 只是其一种具体模式名，不通 ReAct 也能立住；不是定义/机制依赖。"
+  },
+  "cm_3d84afe1->cm_44d86f15": {
+   "i": 1,
+   "holds": "weak",
+   "strength": "",
+   "issue": "任务时域是「能自主跑多久」的度量，错误复利只解释其上限而非定义要件；且「估不了」是算的问题，不等于「懂不了」概念。"
+  },
+  "cm_01671cb1->cm_5d1ba3e1": {
+   "i": 2,
+   "holds": "weak",
+   "strength": "",
+   "issue": "Ralph Loop 机制可独立理解为「hook 拦退出+干净上下文重注入」，harness/loop 分工的抽象非必需，属可降 soft 或剔除。"
+  },
+  "cm_224f14d4->cm_9754bbb2": {
+   "i": 3,
+   "holds": "weak",
+   "strength": "",
+   "issue": "范围控制是实践原则，TodoWrite/TodoRead 只是可选承载工具，换别的工具或手工也能做，不构成必要构件。"
+  },
+  "cm_d5428fa4->cm_5d1ba3e1": {
+   "i": 4,
+   "holds": "weak",
+   "strength": "",
+   "issue": "四次跃迁的整体弧线可独立理解，harness-loop 配合只是第四跃迁的一种讲法，不懂它仍能懂这条跃迁。"
+  },
+  "cm_136dab9c->cm_83367caa": {
+   "i": 5,
+   "holds": "no",
+   "strength": "",
+   "issue": "通用性落差的轴是 prompt vs context（两端都在输入端），与 prompt/completion 的输入-输出划分不是同一维度，对理解该落差无实质作用。"
+  },
+  "cm_7e14e299->cm_d10f0a1e": {
+   "i": 6,
+   "holds": "weak",
+   "strength": "",
+   "issue": "JIT 检索可独立理解为「按需动态加载」，context injection 是更上位的抽象，属改进理解的背景而非必需前提。"
+  },
+  "cm_398fc084->cm_d10f0a1e": {
+   "i": 7,
+   "holds": "weak",
+   "strength": "",
+   "issue": "注入只是上下文基础设施的一个机制/子集，方向更像「基础设施内含注入」，说基础设施依赖注入概念立不住。"
+  },
+  "cm_c88b81b3->cm_24c4322f": {
+   "i": 8,
+   "holds": "weak",
+   "strength": "",
+   "issue": "组件生命周期是 evolution 的一种技法/实例，evolution 作为更上位能力可先于或独立于该洞察存在，不构成定义依赖。"
+  },
+  "cm_226cbc01->cm_a5573df7": {
+   "i": 9,
+   "holds": "no",
+   "strength": "",
+   "issue": "该概念讲的是技能来源分类（预置 vs 自定义），与 SKILL.md 的格式/前置信息不是同一维度，不构成依赖。"
+  },
+  "cm_52318cc3->cm_9249f51b": {
+   "i": 0,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "废料怪兽只是解释反弹成因的一种修辞比喻，反弹情绪由多项因素构成，不懂它也能理解 AI 反弹潮本身。"
+  },
+  "cm_16f314f0->cm_52318cc3": {
+   "i": 1,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "生物验证与 Web of Trust 回应的是 AI 内容污染，而非公众反 AI 情绪；不懂反弹潮也能理解该网络机制。"
+  },
+  "cm_7a8f6388->cm_b36e15d0": {
+   "i": 2,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "GEO 的定义与手段不依赖注水内容，注水内容只是它要规避的反例之一，宜降为 soft。"
+  },
+  "cm_f6bd0ed2->cm_7a03b65b": {
+   "i": 3,
+   "holds": "yes",
+   "strength": "soft",
+   "issue": "锁竞争瓶颈基本是该节点要解决的问题本身（同一主题的具体表现），算机制上有帮助但非定义性前提。"
+  },
+  "cm_d9636b24->cm_5c93f4e7": {
+   "i": 4,
+   "holds": "yes",
+   "strength": "soft",
+   "issue": "Handoffs 是更高层抽象，理解 step.invoke() 的具体机制只得益、非必需，宜降 soft。"
+  },
+  "cm_4bc8eb62->cm_5c93f4e7": {
+   "i": 5,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": ""
+  },
+  "cm_138a8b67->cm_d9636b24": {
+   "i": 6,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": ""
+  },
+  "cm_b8ef30e6->cm_d9636b24": {
+   "i": 7,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": "子 agent 启动机制确为前提，但前置节点写明「去掉 delegate_task 禁止递归」，与本节点的递归诉求存在张力。"
+  },
+  "cm_0d71e42c->cm_2abb5209": {
+   "i": 8,
+   "holds": "yes",
+   "strength": "soft",
+   "issue": "按复杂度分派不同模型是模型—角色适配的应用，但并非理解该编排器的定义性前提。"
+  },
+  "cm_2abb5209->cm_3b8ca49c": {
+   "i": 9,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "Custom Agent 仅是材料给出名称的产品专名，模型—角色适配可在不了解该专名的前提下成立。"
+  },
+  "cm_cbbe3f8e->cm_983f29fd": {
+   "i": 0,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "asyncio 调度延迟只是尾部延迟的一种成因/例子，亚稳态故障与 LIFO/FIFO 连接重用可独立理解；hard 过高。"
+  },
+  "cm_b747de39->cm_2ad4f942": {
+   "i": 1,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "两级上下文剪枝是 A 下的具体子技术/实现，不是理解 A 的前置；应降 soft 或移出依赖图。"
+  },
+  "cm_b747de39->cm_9b459d5c": {
+   "i": 2,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "上下文隔离是子 agent 摘要的一种实现机制，A 作为组合策略不依赖它才能成立。"
+  },
+  "cm_9f1af4c9->cm_cc5fefd6": {
+   "i": 3,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": ""
+  },
+  "cm_122b687d->cm_9f1af4c9": {
+   "i": 4,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "可观测性只支撑错误恢复这一子项，不构成整个确定性工程基础设施的定义/机制前提；hard 不成立。"
+  },
+  "cm_d6183379->cm_122b687d": {
+   "i": 5,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "长周期基础设施压力是问题/需求，确定性工程基础设施是解法之一；不懂解法仍可懂压力。"
+  },
+  "cm_75e26472->cm_d6183379": {
+   "i": 6,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "长周期基础设施压力只是 Agent 新软件的一个子问题，不是理解 A 的前置。"
+  },
+  "cm_ecf56dd0->cm_9f1af4c9": {
+   "i": 7,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "对照与消融实验可用结果指标度量，不必然依赖“可观测性”概念；有帮助但非必需。"
+  },
+  "cm_ae8fef15->cm_ecf56dd0": {
+   "i": 8,
+   "holds": "yes",
+   "strength": "soft",
+   "issue": "消融实验是归因“问题在 harness 而非模型”的关键方法，但能力鸿沟现象本身可先被理解；hard 过高。"
+  },
+  "cm_f6804f52->cm_f6aae481": {
+   "i": 9,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "把约束写成 linter/结构性测试只是“强制边界”的一种落地机制，不是理解解空间收窄的前提。"
+  },
+  "cm_253ad423->cm_e56f1e8b": {
+   "i": 0,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": ""
+  },
+  "cm_75e723cc->cm_c8c4d5c6": {
+   "i": 1,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": ""
+  },
+  "cm_7e6ba505->cm_e56f1e8b": {
+   "i": 2,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "hooks 是可迁移的自足机制，真正需要的前置是『agent 生命周期/事件』这一具体概念，而非整套 Harness 工程；不懂 Harness 工程也能立住。"
+  },
+  "cm_42f28056->cm_e56f1e8b": {
+   "i": 3,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "跨轮保留推理的关键前置是『多轮工具调用循环/消息管理』，Harness 工程只是上位背景，非理解该机制所必需。"
+  },
+  "cm_519accd8->cm_e56f1e8b": {
+   "i": 4,
+   "holds": "yes",
+   "strength": "soft",
+   "issue": "方向成立，但概念以『harness 代码/工具』直接为对象，只需 harness 概念本身即可，不必整套 Harness 工程，宜降 soft。"
+  },
+  "cm_8a295891->cm_e56f1e8b": {
+   "i": 5,
+   "holds": "yes",
+   "strength": "soft",
+   "issue": "成立，但同样只需『harness 原语』这一观念，Harness 工程仅是背景框架，宜 soft。"
+  },
+  "cm_794add76->cm_1db64a00": {
+   "i": 6,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "该角色转移是『五个子系统协同』的合力结果，单挂『执行可靠性机制』前置换之过窄、不充分。"
+  },
+  "cm_d4a0e687->cm_df8ed356": {
+   "i": 7,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "『必须位于命名目录内、文件名恰为 SKILL.md』是更细的约束，理解『技能=命名目录+SKILL.md 入口』不必需它，方向更像前置是依赖方的特例。"
+  },
+  "cm_d793c38e->cm_43781275": {
+   "i": 8,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": "依赖成立，但两概念高度重叠近乎同义，前置信息量有限，可考虑合并。"
+  },
+  "cm_af4d864f->cm_5a687800": {
+   "i": 9,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "『功能组合=各功能结合使用』是更泛的原则；请求/事件驱动只解释 skills 与 hooks 的分工，属其中一个子判断，非理解该概念本身所必需。"
+  },
+  "cm_93c0b683->cm_668cf70f": {
+   "i": 0,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": "排序规则本身就是「稳定前缀」机制的直接推论，不懂前缀复用就排不出顺序，判 hard 成立"
+  },
+  "cm_c7901d9f->cm_668cf70f": {
+   "i": 1,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": "缓存连续性即「不动稳定前缀」，机制上离不开该概念，hard 成立"
+  },
+  "cm_a378789a->cm_9bbb52e5": {
+   "i": 2,
+   "holds": "weak",
+   "strength": "",
+   "issue": "Automatic Caching 是默认开关方案，token 门槛只是启用时的注意事项，不构成理解前提，应降为 soft 或踢出"
+  },
+  "cm_085b498a->cm_cb785e57": {
+   "i": 3,
+   "holds": "weak",
+   "strength": "",
+   "issue": "Cache temperature 讲的是写入量的波动，跟「写入成本」定价是两码事；量波动不需要懂价格，理由不成立，应降级"
+  },
+  "cm_ca227b76->cm_c5c2a8cb": {
+   "i": 4,
+   "holds": "weak",
+   "strength": "",
+   "issue": "「体积×请求次数」是通识性口径，Baseline-request product 只是它的一个推广实例，非严格前置，降 soft"
+  },
+  "cm_33922d87->cm_c5c2a8cb": {
+   "i": 5,
+   "holds": "weak",
+   "strength": "",
+   "issue": "膨胀倍数只用到 baseline 概念，与「×请求次数」的乘积口径无关；且倍数相对基线是自明定义，前置偏弱"
+  },
+  "cm_457d789e->cm_ca26306b": {
+   "i": 6,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": "限制 harness 编辑范围的理由正是古德哈特，机制依赖成立"
+  },
+  "cm_d566cc19->cm_ca26306b": {
+   "i": 7,
+   "holds": "weak",
+   "strength": "",
+   "issue": "该现象讲的是断言固化旧模型行为（分布漂移），与古德哈特的「指标被博弈」并非同一机制，理由有偷换；降级"
+  },
+  "cm_e5fee124->cm_dcb78706": {
+   "i": 8,
+   "holds": "yes",
+   "strength": "soft",
+   "issue": "节点核心「把重复步骤固化复用」可独立成立，验证循环只是帮助判断固化哪些步骤，判 soft 更准"
+  },
+  "cm_fbdb3635->cm_1fe2a6e6": {
+   "i": 9,
+   "holds": "yes",
+   "strength": "soft",
+   "issue": "验证缺口（自信≠正确）本身可独立理解，静默分级失败只是补充机制解释，非定义必需，soft"
+  },
+  "cm_4b8163f5->cm_3cd29e1b": {
+   "i": 0,
+   "holds": "weak",
+   "strength": null,
+   "issue": "压缩的定义核心是凝聚的保真取舍（压太狠→自信但错误），窗口占用/衰减只是它要解决的背景问题，不懂该节点照样懂压缩是什么；理由给的『压到多狠、腾多少』是调参判断，不是理解前提，至多降 soft。"
+  },
+  "cm_31ec728d->cm_3cd29e1b": {
+   "i": 1,
+   "holds": "weak",
+   "strength": null,
+   "issue": "掩码的定义已自带『压低窗口占用』，衰减机制只回答它值不值得，属应用取舍而非立得住的要件，至多降 soft。"
+  },
+  "cm_b7424773->cm_3cd29e1b": {
+   "i": 2,
+   "holds": "weak",
+   "strength": null,
+   "issue": "约175k阈值是harness实现常量，与衰减机制之间没有可推导关系；截断机制本身自足，该边只是动机背景。"
+  },
+  "cm_6a2b80d9->cm_4b8163f5": {
+   "i": 3,
+   "holds": "weak",
+   "strength": null,
+   "issue": "compaction是『压缩』在对话上的下位实例（is-a）而非前置，其自身定义已完整；压缩节点只补一个保真度提醒，至多降 soft。"
+  },
+  "cm_b9d1dd66->cm_caf38b64": {
+   "i": 4,
+   "holds": "weak",
+   "strength": null,
+   "issue": "理由错位：CLAUDE.md被自动读取靠的是harness的会话加载机制，与『仓库即唯一事实来源』这条原则无关，后者只是同类实践原则/应用场景，不构成理解前提。"
+  },
+  "cm_f65b924e->cm_d7cd90db": {
+   "i": 5,
+   "holds": "weak",
+   "strength": null,
+   "issue": "『代码高保真』的理由（精确、模型熟悉）已在自身定义里，『格式即上下文』是更泛的平行原则/佐证，不是定义或机制前提，至多降 soft。"
+  },
+  "cm_ee2878f3->cm_00851466": {
+   "i": 6,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": ""
+  },
+  "cm_3cd29e1b->cm_2c89a6a8": {
+   "i": 7,
+   "holds": "weak",
+   "strength": null,
+   "issue": "两者是同一现象的不同粒度描述，口径还不一致（这里是『轻微拖累』，腐烂是『参差塌陷』）；占用率衰减可独立成立，腐烂不是它的定义前提。"
+  },
+  "cm_19d82c87->cm_99444a52": {
+   "i": 8,
+   "holds": "weak",
+   "strength": null,
+   "issue": "两节点高度重叠（都在讲过度约束的害处），更像同一洞见的粗细两层或应合并；『该松绑哪些互相矛盾的规则』是应用取舍而非理解前提，硬依赖不成立。"
+  },
+  "cm_34b33e00->cm_d78a3680": {
+   "i": 9,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": ""
+  },
+  "cm_d37ac913->cm_edc164c5": {
+   "i": 0,
+   "holds": "weak",
+   "strength": "",
+   "issue": "判定“并不 agentic”只需一般 agentic/自主性概念，代理原生是更严的产品架构标准，非定义前置。"
+  },
+  "cm_92c032dc->cm_29b24ddb": {
+   "i": 1,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": ""
+  },
+  "cm_46db5383->cm_f53425d9": {
+   "i": 2,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": ""
+  },
+  "cm_96db0031->cm_3a2cd7d5": {
+   "i": 3,
+   "holds": "no",
+   "strength": "",
+   "issue": "产品记忆平台是具体产品定位/实现例子，不是理解项目记忆与自动决策的前置。"
+  },
+  "cm_2be15a80->cm_f53425d9": {
+   "i": 4,
+   "holds": "weak",
+   "strength": "",
+   "issue": "资深悖论的贬值机制可由 AI 降低实现门槛解释，不必依赖“Implementation 能力”这一命名概念。"
+  },
+  "cm_ca4c9960->cm_29b24ddb": {
+   "i": 5,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": ""
+  },
+  "cm_41982abd->cm_edc164c5": {
+   "i": 6,
+   "holds": "weak",
+   "strength": "",
+   "issue": "代理原生是更严格的产品形态，skill onboarding 不必以代理原生为前提，只是相关。"
+  },
+  "cm_63e5d090->cm_668cf70f": {
+   "i": 7,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": ""
+  },
+  "cm_a87b8600->cm_63e5d090": {
+   "i": 8,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": ""
+  },
+  "cm_b87e2d6f->cm_668cf70f": {
+   "i": 9,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": ""
+  },
+  "cm_f2871b54->cm_231cf0b4": {
+   "i": 0,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": ""
+  },
+  "cm_d261b319->cm_7a436f8a": {
+   "i": 1,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "依赖的其实是「身份与访问裁决」这一能力，而非「集中式/Habitat 统一控制点」这一实现方式；能力分层可以靠别的访问控制实现，集中式控制点不是概念上的必需，宜降 soft。"
+  },
+  "cm_bfc70d0d->cm_a5ed35be": {
+   "i": 2,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": ""
+  },
+  "cm_6db6f598->cm_a62137fd": {
+   "i": 3,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "审批疲劳只是 Safe autonomy 想要缓解的动机/背景，不是理解它的前置：不懂审批疲劳仍完全能懂「自主但保留边界」是什么，应降 soft 或视为动机说明。"
+  },
+  "cm_6db6f598->cm_558fd935": {
+   "i": 4,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "fail-closed 是保留权限边界的一种常见兜底手段，非定义必需；不懂它仍能理解 Safe autonomy 的边界概念，应降 soft。"
+  },
+  "cm_daaeed70->cm_4fa6863f": {
+   "i": 5,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": ""
+  },
+  "cm_558fd935->cm_a5ed35be": {
+   "i": 6,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "fail-closed 本身是通用默认策略，可独立理解；uplift 判据只决定「严重伤害」的具体口径，属应用细化而非概念前置，宜降 soft。"
+  },
+  "cm_e243f570->cm_6a2735cf": {
+   "i": 7,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "把日常工作挂到目标、开启动会都不必依赖「单一负责人」，团队分工同样可行；单一负责人只是更好地支撑问责，宜降 soft。"
+  },
+  "cm_e056dcdf->cm_765d717a": {
+   "i": 8,
+   "holds": "no",
+   "strength": "soft",
+   "issue": "「为特定用途而设计」与「可扩展性」是张力/对立关系而非前置依赖；不懂可扩展性也能理解「过度灵活导致混乱」，不构成依赖。"
+  },
+  "cm_f65d0103->cm_6a2735cf": {
+   "i": 9,
+   "holds": "no",
+   "strength": "soft",
+   "issue": "把反馈当研究资料库与项目是否设单一负责人无因果关系，纯属两张地图相邻摆放，不构成依赖。"
+  },
+  "cm_b851c4b8->cm_5c7e3009": {
+   "i": 0,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "乐观并发控制是通用机制，不懂 ~/.claude 下的状态存储布局照样能理解「状态被改动则写入失败」的版本校验；本地状态层最多是软背景，不该是 hard 边。"
+  },
+  "cm_fc9668d6->cm_5244b02e": {
+   "i": 1,
+   "holds": "yes",
+   "strength": "soft",
+   "issue": "skills 只是模板 YAML 里可有可无的一个字段，模型/system prompt/tools/MCP 才是骨架，模板的声明式持久化概念本身不依赖技能分类；作为字段级依赖至多 soft。"
+  },
+  "cm_5244b02e->cm_5c7e3009": {
+   "i": 2,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "两者只共用 ~/.claude 这个目录，本地状态层定义的是 TODO/会话/统计缓存，与技能存放无关，硬依赖不成立。"
+  },
+  "cm_d59c122f->cm_fccba9a9": {
+   "i": 3,
+   "holds": "yes",
+   "strength": "soft",
+   "issue": "对象-边模型与分区只是其中一种存储实现，代码图谱同样能用关系表等方式持久化；「只查直接边、不支持遍历」是实现选择而非图谱概念的前提。"
+  },
+  "cm_5e26a484->cm_fc4706e8": {
+   "i": 4,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "Instructions files 只是 Natural language as code 的一个实例，不懂上位概念也能写出会驱动行为的规则文件，属实例关系而非前置。"
+  },
+  "cm_b722f6a4->cm_85804ebb": {
+   "i": 5,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": ""
+  },
+  "cm_1378dde9->cm_2f011406": {
+   "i": 6,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "指代表达讲的是指称难度分档，模糊语言打磨靠 glossary 与代码交叉引用，两者只是都涉及「模糊」这一话题，不构成前置。"
+  },
+  "cm_f6219aa0->cm_1378dde9": {
+   "i": 7,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "Spec-First 的核心是「先写 spec 再实现」的次序，模糊语言打磨只是写清 spec 的可选手段，不懂它也能理解该工作流。"
+  },
+  "cm_bf008303->cm_d22095a4": {
+   "i": 8,
+   "holds": "yes",
+   "strength": "soft",
+   "issue": "mind meld 是判断力优先能奏效的前提，但「只给取向与判断依据、决策交模型」这句定义本身可独立理解，属 soft。"
+  },
+  "cm_bf008303->cm_a4926419": {
+   "i": 9,
+   "holds": "yes",
+   "strength": "soft",
+   "issue": "「目标清楚 + 结果好验收」是可委派的适用条件，与「取向式指令 vs 结论式规定」的指令风格不是定义依赖，至多 soft。"
+  },
+  "cm_916d7db2->cm_2c89a6a8": {
+   "i": 0,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "「上下文腐烂」是渐进式披露的动机/好处，不是理解该模式本身的前提：不懂腐烂也完全能理解「逐层发现、只留必要部分」这一检索模式的定义，应降为 soft 或踢出。"
+  },
+  "cm_3e69d260->cm_b3524e24": {
+   "i": 1,
+   "holds": "no",
+   "strength": "soft",
+   "issue": "卸载阈值取决于总上下文预算，而「共享上下文窗口」讲的是技能激活时整份 SKILL.md 载入——这条假设与工具输出卸载的触发机制无关，前置选错了对象。"
+  },
+  "cm_76707ff6->cm_dadcb3e5": {
+   "i": 2,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "Software 3.0 只是让这个戏称更「有梗」，不懂它也能理解 SGD＝手工架构搜索＋prompt 摆弄＋经验猜测；属可选背景，不该作为前置。"
+  },
+  "cm_b73dd02f->cm_3d84afe1": {
+   "i": 3,
+   "holds": "yes",
+   "strength": "soft",
+   "issue": "",
+   "issue_note": ""
+  },
+  "cm_48fd3852->cm_2037dc40": {
+   "i": 4,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "「把习惯写成链条步骤」靠的是通用的流程化/自动化直觉，不依赖「Agentic workflows」这个具体术语；后者只是承接的载体，属相关而非前置。"
+  },
+  "cm_9654c780->cm_705ac76d": {
+   "i": 5,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "steering 的核心问题是「运行中途介入仍无优雅解法」，不懂内/外循环之分也能理解这个介入问题；Inner Loop 只是用来精确定位，属可选术语。"
+  },
+  "cm_01347b98->cm_d10f0a1e": {
+   "i": 6,
+   "holds": "yes",
+   "strength": "soft",
+   "issue": ""
+  },
+  "cm_da4daeff->cm_b46838eb": {
+   "i": 7,
+   "holds": "yes",
+   "strength": "soft",
+   "issue": ""
+  },
+  "cm_8b69f567->cm_b46838eb": {
+   "i": 8,
+   "holds": "yes",
+   "strength": "soft",
+   "issue": ""
+  },
+  "cm_24c4322f->cm_94448257": {
+   "i": 9,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "「每个组件都编码了『模型做不到』的假设」已写在依赖方自身定义里，决定移除与否的操作程序（移除+验证质量）也已自足，简化原则未提供额外必需信息，最多算同源平行概念。"
+  },
+  "cm_2335d9d6->cm_e56f1e8b": {
+   "i": 0,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": "不懂 Harness 工程就不知 harness 指什么，类比对象缺失，属定义依赖，当前 soft 应升 hard。"
+  },
+  "cm_43781275->cm_d4a0e687": {
+   "i": 1,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "优先级规则只需知道技能有来源层级，不依赖 SKILL.md 文件结构，应降 soft 或踢出。"
+  },
+  "cm_5a687800->cm_d4a0e687": {
+   "i": 2,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "请求驱动与事件驱动的区分不依赖 SKILL.md 具体结构，应降 soft 或踢出。"
+  },
+  "cm_9d5fc50e->cm_963c2230": {
+   "i": 3,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "Goldilocks 原则可独立理解，不依赖提示词即行为程序，应降 soft 或踢出。"
+  },
+  "cm_0e10a538->cm_fd9f7a87": {
+   "i": 4,
+   "holds": "yes",
+   "strength": "soft",
+   "issue": "机制上有助理解协作动机，但协作概念本身可独立立住，soft 合适。"
+  },
+  "cm_d8aa34b6->cm_0626f36e": {
+   "i": 5,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "轻量引用可用任何外部存储实现，不依赖文件系统即终极上下文，应降 soft 或踢出。"
+  },
+  "cm_8d443f8b->cm_71ea022e": {
+   "i": 6,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "人类上移理念不依赖具体 tool call 接入机制，应降 soft 或踢出。"
+  },
+  "cm_f24b82cc->cm_8d443f8b": {
+   "i": 7,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "度量转移可独立理解，不依赖人类上移概念，应降 soft 或踢出。"
+  },
+  "cm_2fd13e0c->cm_53822d1c": {
+   "i": 8,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": "不懂迷失在中间就无法理解为何把查询放前后能避免中段忽略，属机制依赖，应升 hard。"
+  },
+  "cm_c83244fc->cm_19d82c87": {
+   "i": 9,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "过期判断可独立理解，不依赖过度约束与松绑，应降 soft 或踢出。"
+  },
+  "cm_21a4ec33->cm_7c5152aa": {
+   "i": 0,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": ""
+  },
+  "cm_21a4ec33->cm_769e3775": {
+   "i": 1,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "域名只是上报端点/托管位置，属于 OAIQ 自身实现细节，不是理解 OAIQ 的前置概念，应降 soft 或移出。"
+  },
+  "cm_8f0cba43->cm_4a63cc27": {
+   "i": 2,
+   "holds": "reversed",
+   "strength": "soft",
+   "issue": "方向反了，AI 护照更像是对“责任链条散了”的补救/登记接口，不是理解前者的前置。"
+  },
+  "cm_933a0031->cm_8f0cba43": {
+   "i": 3,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "责任链条散了是另一条论证线，不是承诺链条成立的前置；最多辅助解释“修不回来”。"
+  },
+  "cm_6541b55e->cm_8f0cba43": {
+   "i": 4,
+   "holds": "no",
+   "strength": "soft",
+   "issue": "opt in/opt out 是同意/默认值机制，不需要先懂 AI 责任链是否散，相关但非前置。"
+  },
+  "cm_6541b55e->cm_4a63cc27": {
+   "i": 5,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "AI 护照能辅助家长判断，但不是理解 opt in/opt out 机制的前置，应降 soft。"
+  },
+  "cm_afd87770->cm_dc8d4037": {
+   "i": 6,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": ""
+  },
+  "cm_1f0a5c75->cm_afd87770": {
+   "i": 7,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "昇腾只是本地化算力基础设施的一个实例，不是理解 AI 主权审查机制的前置，应降 soft 或移出。"
+  },
+  "cm_9f288e75->cm_c8c4d5c6": {
+   "i": 8,
+   "holds": "yes",
+   "strength": "soft",
+   "issue": ""
+  },
+  "cm_80b8a64a->cm_0c98a6cf": {
+   "i": 9,
+   "holds": "yes",
+   "strength": "soft",
+   "issue": ""
+  },
+  "cm_6881bd11->cm_7d0aaf27": {
+   "i": 0,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "Watch 只是触发同步；不懂增量更新仍可理解 watch/hook 会触发更新，增量只是实现机制。"
+  },
+  "cm_7d0aaf27->cm_847c4f22": {
+   "i": 1,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "增量更新是通用索引策略，Tree-sitter 只是可选解析器实现，不构成定义/机制必需。"
+  },
+  "cm_ae250f40->cm_be8b8c24": {
+   "i": 2,
+   "holds": "no",
+   "strength": "soft",
+   "issue": "Skill as asset 是动机/理念，Git 共享 .claude/skills 的机制不依赖它。"
+  },
+  "cm_74099998->cm_e66df281": {
+   "i": 3,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "战略性技术债务是迁移的理由标签，迁移对象/动作可独立理解；真正必需的是 Python 服务存在。"
+  },
+  "cm_11d409eb->cm_13a8a97f": {
+   "i": 4,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "前置对齐是时机前移；系统架构评审是其内容方法之一，不懂也能理解『提案提前』。"
+  },
+  "cm_b226afb7->cm_1725c0a2": {
+   "i": 5,
+   "holds": "no",
+   "strength": "soft",
+   "issue": "全文覆盖是 Write 替代 Edit 的取舍，与 Cursor apply 模型无必然依赖。"
+  },
+  "cm_34451fc9->cm_786f3b46": {
+   "i": 6,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "Dr. GRPO 是动机来源之一；DAPO 可独立定义为 GRPO 上的算法改造，token 级损失不必先懂该批评。"
+  },
+  "cm_0696197e->cm_e7db9123": {
+   "i": 7,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "探针可理解为任意层激活分类器；残差流是解释框架，不是探针概念成立的前提。"
+  },
+  "cm_3db52bcb->cm_ed4c8f9f": {
+   "i": 8,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "同 loop 共训可独立理解；『会自己重写的地基』解释约束失效/过拟合来源，不是耦合定义必需。"
+  },
+  "cm_c53dcd72->cm_346dbb8c": {
+   "i": 9,
+   "holds": "no",
+   "strength": "soft",
+   "issue": "第二意见是具体角色设计，人机协作是上位趋势/类别，不懂趋势也能理解该安全网设计。"
+  },
+  "cm_16f314f0->cm_9249f51b": {
+   "i": 0,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "「废料怪兽」只是渲染动机的比喻，不是理解 Human-Only Social Networks 生物验证/WoT/文化设计这套机制的前提，顶多帮写需求背景。"
+  },
+  "cm_b36e15d0->cm_9e54f48a": {
+   "i": 1,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "「注水内容」的定义（重复、无新增信息）自足；算法决定论只是刷分动机的一种外部解释，不是该概念的构成前提。"
+  },
+  "cm_d2b53bb8->cm_b36e15d0": {
+   "i": 2,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "这属于做完内容体检要用的一个识别技能，不是理解「AI 可见性」（好内容+结构化描述）本身的定义前提；注水内容更像反例参照。"
+  },
+  "cm_b8ef30e6->cm_201c8b41": {
+   "i": 3,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "单 agent 慢是「为什么要并行」的动机，而递归并行规划的机制（子 planner 递归生成）不靠它也能立住，属动机性而非机制性依赖。"
+  },
+  "cm_cdbb0432->cm_7a03b65b": {
+   "i": 4,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "锁竞争只是导致串行的众多实例之一，可接受错误率/吞吐口径并不依赖锁竞争这个具体瓶颈。"
+  },
+  "cm_e4f63171->cm_201c8b41": {
+   "i": 5,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "与「单 agent 速度天花板」是类比对照关系（都是天花板），对照有利于定位但非理解前提，属相关而非依赖。"
+  },
+  "cm_d59c122f->cm_5c7e3009": {
+   "i": 6,
+   "holds": "no",
+   "strength": "soft",
+   "issue": "本地状态层只是「本地持久化」的一个实现实例/可选存放处，不知道 ~/.claude 也能理解并实现本地持久化图谱。"
+  },
+  "cm_bd370d1b->cm_b851c4b8": {
+   "i": 7,
+   "holds": "no",
+   "strength": "soft",
+   "issue": "step 的定义（包住一次调用、失败只重试该单元）不涉及并发写冲突，乐观并发控制与之无必然依赖，只是被硬凑。"
+  },
+  "cm_ef696870->cm_07e54adc": {
+   "i": 8,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "「原型先行」是更一般的工作流立场，与高精度原型设计属并列/上位关系，不是理解它的前提。"
+  },
+  "cm_7ab1296f->cm_59d3ad3b": {
+   "i": 9,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "输入摩擦是改造成小问答的动机之一，但从「一次性倾倒改为几轮小问答」这个做法本身不懂摩擦也能理解，属动机性依赖。"
+  },
+  "cm_c88b81b3->cm_561b8021": {
+   "i": 0,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "over-fitting 是评估 harness 改进时的风险/对照，不是理解 harness evolution 本身的定义前提；不懂也能知道 harness 可持续改进。"
+  },
+  "cm_5a9e35b6->cm_c45d61bf": {
+   "i": 1,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "Agents SDK 是对 messages API 的高层封装，不懂 messages/content blocks 也能理解 SDK 的用途与概念；只在实现细节上更顺。"
+  },
+  "cm_a105fa65->cm_65eea963": {
+   "i": 2,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "序列位置效应只是借来解释模型 U 型表现的心理学类比，指令就近原则可由经验行为直接理解。"
+  },
+  "cm_f27655ca->cm_f563e9fc": {
+   "i": 3,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "长上下文幻觉是支持“别只靠加长窗口”的一条证据，不是理解上下文选择原则的定义或机制前提。"
+  },
+  "cm_e4b6932b->cm_1b119e04": {
+   "i": 4,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "延迟加载工具是渐进披露在工具层的具体实现；不懂指令子系统的渐进展开也能理解先搜完整定义再用工具的机制。"
+  },
+  "cm_5c014074->cm_6f5b5fa0": {
+   "i": 5,
+   "holds": "no",
+   "strength": "soft",
+   "issue": "门控机制是检索后按上下文过滤，语义搜索是按向量嵌入检索代码实体的可选特性，二者不构成前置依赖。"
+  },
+  "cm_7098bed1->cm_f5056d61": {
+   "i": 6,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "stated 出处纪律是自动落盘的一种安全策略/设计选择，不是理解自动记忆概念的前提；不懂也能理解系统自动保存记忆。"
+  },
+  "cm_079fba1c->cm_ba882963": {
+   "i": 7,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "记忆即提示只是管理记忆的一种提示工程视角，项目知识体系还可从规则、文档、清理等维度理解。"
+  },
+  "cm_41176d23->cm_6db0527f": {
+   "i": 8,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": "不懂 MCP servers 就不知道“MCP 外挂”指什么，也无法判断是否用 MCP todo manager；这是定义性前置。"
+  },
+  "cm_6bd125f5->cm_264fbc7c": {
+   "i": 9,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "臃肿工具集是促使采用 ToolSearch 的一类问题/动机，不是理解延迟加载与 ToolSearch 机制的前提。"
+  },
+  "cm_572c8e76->cm_a4926419": {
+   "i": 0,
+   "holds": "yes",
+   "strength": "soft",
+   "issue": ""
+  },
+  "cm_48ea99ce->cm_c1626a4e": {
+   "i": 1,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "护城河清单只影响是否走插件路线的战略判断，不是理解插件打包/市场分发的机制前提；应降级或踢出。"
+  },
+  "cm_7e9b87ba->cm_d757d9ee": {
+   "i": 2,
+   "holds": "no",
+   "strength": "soft",
+   "issue": "虚拟同事只是命名标签，与 Vantage 用 GenAI 角色扮演测软技能无构成依赖。"
+  },
+  "cm_ca2c1a03->cm_ca227b76": {
+   "i": 3,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "依赖方自身已含“与请求次数相乘”，前置只是通用成本模型，不懂它也能理解 MCP schema 放大。"
+  },
+  "cm_8b09eec8->cm_63e5d090": {
+   "i": 4,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "cached input tokens 只在审计缓存计费时需要，不是 API 边界可观测性方法本身的前提。"
+  },
+  "cm_3fef769a->cm_a87b8600": {
+   "i": 5,
+   "holds": "no",
+   "strength": "soft",
+   "issue": "缓存命中读取成本是价格成本，不直接解释首字输出延迟；TTFT 收益应依赖缓存减少预填充计算。"
+  },
+  "cm_71ce4e8a->cm_d4fab5a8": {
+   "i": 6,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "干扰文档是相关但不含答案的干扰项，不是 NIAH 的无关填充文本；基础 NIAH 不依赖它。"
+  },
+  "cm_4221a1fc->cm_d57cf98f": {
+   "i": 7,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "行为提取是“让异族模型只报事实”的一种可选实现，橡皮鸭复审核心不依赖它。"
+  },
+  "cm_dcc44537->cm_6aeb848e": {
+   "i": 8,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "HiFi/HiEx 是 Read 环节的一种质量准则，不是理解四步框架的前提。"
+  },
+  "cm_5797325c->cm_d3be9743": {
+   "i": 9,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "3+ 法则只是把“决策慢”落地的一种方法，非理解该原则的前提。"
+  },
+  "cm_270fdbaa->cm_19ecf6b3": {
+   "i": 0,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "Friction 只解释 Taste 的来源与养成，不是理解 Taste 本身的前提；应降 soft 或踢出 hard 依赖。"
+  },
+  "cm_19ecf6b3->cm_f7b95548": {
+   "i": 1,
+   "holds": "yes",
+   "strength": "soft",
+   "issue": "不防御确是犯错吸收的机制条件，但不是理解整个 Friction-based Skill Formation 的定义前提；可降 soft。"
+  },
+  "cm_99702518->cm_d8ea2176": {
+   "i": 2,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "四阶段模型作为分类可独立理解；Step Change 只是论证阶段跳跃性的前提，不是构成前提。"
+  },
+  "cm_d26c5950->cm_d8ea2176": {
+   "i": 3,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "约束理论可独立定义，Step Change 主要作为其反对的跃迁叙事/背景，不构成 hard 前置。"
+  },
+  "cm_ca597dd5->cm_a5b4380f": {
+   "i": 4,
+   "holds": "yes",
+   "strength": "soft",
+   "issue": "Self-evaluation Failure 解释了为何需要外部 verifier，但 verifier 机制本身可独立描述；应降 soft。"
+  },
+  "cm_14dace51->cm_a5b4380f": {
+   "i": 5,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "与上条近重复，且校准品味不必须建立在 Self-evaluation Failure 上；不构成 hard 依赖。"
+  },
+  "cm_2efbcc89->cm_60fc8578": {
+   "i": 6,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "语义相似度谱系是控制难度混淆的具体方法/工具，不是理解长上下文评测协议本身的前提。"
+  },
+  "cm_4fa31dae->cm_063155cf": {
+   "i": 7,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "PR 级门禁是 CI 自动化概念，可独立理解；可验证代码库只关系结果可信度，不是定义前提。"
+  },
+  "cm_e3bf5147->cm_27e4e0df": {
+   "i": 8,
+   "holds": "no",
+   "strength": "soft",
+   "issue": "RLHF 可用其他 RL 算法甚至 DPO；PPO 只是历史默认实现，不是理解 RLHF 的必要前提。"
+  },
+  "cm_19f7de6c->cm_ed8dcd39": {
+   "i": 9,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": ""
+  },
+  "cm_abf595d3->cm_f2ba2f91": {
+   "i": 0,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "不懂“意图、判断与品味”仍可理解价值定义；前置只是背景论证，非构成依赖。"
+  },
+  "cm_ca597dd5->cm_ff09ab2a": {
+   "i": 1,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "Rubric 与 verifier agent 不要求 verifier 必须只读或按 spec，前置只是可选实现模式。"
+  },
+  "cm_2efbcc89->cm_fada3d6a": {
+   "i": 2,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "长上下文评测协议的核心是位置稳健性，不依赖具体相似度指标。"
+  },
+  "cm_cd19781c->cm_d7cb257d": {
+   "i": 3,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "REI-Bench 可用抽象的上下文干扰分级，不必懂噪声上下文这一具体测试。"
+  },
+  "cm_836f9734->cm_e3bf5147": {
+   "i": 4,
+   "holds": "yes",
+   "strength": "hard",
+   "issue": "依赖方定义直接由 RLHF 奖励口味决定，不懂 RLHF 无法理解其真实走向；当前 soft 应升级 hard。"
+  },
+  "cm_d261b319->cm_558fd935": {
+   "i": 5,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "安全路由的降级改路由可独立理解，fail-closed 只是支撑原则而非构成依赖。"
+  },
+  "cm_83155f74->cm_a5ed35be": {
+   "i": 6,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "反自我合理化条款作为元规则可独立成立，meaningful uplift 判据是支持例证而非前置。"
+  },
+  "cm_790b8f7b->cm_6db6f598": {
+   "i": 7,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "可编辑面与循环外权限控制可独立描述，Safe autonomy 是上位原则而非构成依赖。"
+  },
+  "cm_f65d0103->cm_e243f570": {
+   "i": 8,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "把反馈当研究资料库可独立理解，目标—项目连接是后续落地步骤。"
+  },
+  "cm_b4276278->cm_6a2735cf": {
+   "i": 9,
+   "holds": "no",
+   "strength": "soft",
+   "issue": "推拉关系不依赖单一负责人，两者只是相关实践；应踢出依赖图。"
+  },
+  "cm_de4b075f->cm_4a63cc27": {
+   "i": 0,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "AI 护照只是分析可追责 AI 主体的解释框架，不是理解 Manus 收购叫停事件本身的前提；不懂也能懂事件。"
+  },
+  "cm_de4b075f->cm_8f0cba43": {
+   "i": 1,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "责任链条散了是事后解释为何只能行政叫停的框架，不是理解 Manus 事件的前提；不懂也能懂事件。"
+  },
+  "cm_1f0a5c75->cm_dc8d4037": {
+   "i": 2,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "芯片管制是相关外部工具/背景，不是理解 AI 主权审查机制的定义或机制前提；设计依赖不等于理解依赖。"
+  },
+  "cm_afd87770->cm_eb2997be": {
+   "i": 3,
+   "holds": "no",
+   "strength": "soft",
+   "issue": "蒸发冷却只是数据中心耗水分析的可选参数，与昇腾芯片概念无直接依赖；不懂也能懂昇腾。"
+  },
+  "cm_a41e7117->cm_9102c409": {
+   "i": 0,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "Vibe Coding 只是 AI 编程的一种风格/子集，不是理解 AI 友好度选型的前提；不懂也能立住，应降级或踢出。"
+  },
+  "cm_26923d16->cm_4318a3dc": {
+   "i": 1,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "Autofixing 是实现一周 SLA 的可选自动化手段，不是理解零 bug 政策的定义前提；应降级或踢出。"
+  },
+  "cm_73952fe1->cm_7554a017": {
+   "i": 2,
+   "holds": "yes",
+   "strength": "soft",
+   "issue": ""
+  },
+  "cm_eb3087aa->cm_37be6149": {
+   "i": 3,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "Bitter Lesson 只是支持该路线取舍的一种论证，不是理解押注 in-context learning 的必需前提；应降级。"
+  },
+  "cm_aed663a2->cm_37be6149": {
+   "i": 4,
+   "holds": "yes",
+   "strength": "soft",
+   "issue": ""
+  },
+  "cm_1ad67d26->cm_75224b2e": {
+   "i": 5,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "信息稀缺优势是该路线定位的理由，不是理解平扫 CT+AI 多癌筛查技术范式的机制前提；不懂也能懂路线本身。"
+  },
+  "cm_7a2322bb->cm_75224b2e": {
+   "i": 6,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "信息稀缺优势是 DAMO COCA 设计取舍的论证，不是理解该系统本身的必需前提；应降级。"
+  },
+  "cm_7a2322bb->cm_1ad67d26": {
+   "i": 7,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "平扫 CT+AI 多癌筛查路线是 DAMO COCA 的上位范式/背景，不是理解该具体系统的必需前提；更像实例-类别关系。"
+  },
+  "cm_72385793->cm_769e3775": {
+   "i": 8,
+   "holds": "no",
+   "strength": "soft",
+   "issue": "OpenAI 广告基础设施域名只是素材托管/上报的实现细节或可选组件，不是理解广告单元事件结构的前提。"
+  },
+  "cm_72385793->cm_7c5152aa": {
+   "i": 9,
+   "holds": "weak",
+   "strength": "soft",
+   "issue": "oppref 是归因埋点的具体 token，不是理解广告单元结构的必需前提；地图理由讲的是埋点设计而非懂广告单元。"
+  }
+ },
+ "edgeFailed": [],
+ "tokens": 196186,
+ "candidate": "04-edges-remine.json"
+}

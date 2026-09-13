@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: use
-centrality: 0.072
+centrality: 0.126
 depth: 1
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 同一任务分别用弱harness与强harness跑两次并对比效果，关心效果变化而非写了多少说明文档。
 
-**领域** harness-runtime ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** harness-runtime ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -39,6 +39,10 @@ sources: 1
 ## 先懂这些（前置 1）
 
 - [[Agent vs Harness]] · **hard** — 不懂 Agent vs Harness，就做不了消融实验里「哪部分算 harness、哪部分算 agent」的界定
+
+## 懂了它才能懂（解锁 1）
+
+- [[能力鸿沟]] — 不懂【弱 harness / 强 harness 对照与消融实验】，就做不了【能力鸿沟】的归因，证明问题在 harness 而非模型
 
 ## 相关
 

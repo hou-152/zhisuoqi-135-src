@@ -57,8 +57,8 @@ Validation gates 是工作流中的检查点。模型完成某一步之后，必
 
 - [[SWE-bench 与二元打分]]
 - [[Sprint Contract]]
+- [[Agentic primitives]]
 - [[Harness-level benchmarks]]
 - [[PR 级门禁 On every PR]]
-- [[Agentic primitives]]
 - [[instruction following 的可靠性边界]]
 - [[Markdown prompt engineering]]

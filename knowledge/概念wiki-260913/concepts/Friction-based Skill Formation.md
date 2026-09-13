@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: thinking-method
 learningStage: when-needed
 verification: accept
-centrality: 0.072
-depth: 0
+centrality: 0.126
+depth: 1
 origin: [notion]
 aliases: ["摩擦中淬炼出技能", "摩擦塑造技能", "skills built through friction", "struggle as the forge"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 调试直觉、系统直觉、品味与怀疑能力只能从犯错、溯源、碰壁的摩擦中长出来，没有捷径。
 
-**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
+**领域** thinking-method ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.126
 
 ## 原文 context
 
@@ -35,6 +35,10 @@ debugging 直觉、系统直觉、taste、怀疑能力、问题分解能力—�
 ## 验收问句
 
 > 为什么 {{name}} 的过程不可跳过？
+
+## 先懂这些（前置 1）
+
+- [[Without Defensiveness]] · **soft** — 不懂【Without Defensiveness】，就做不了【Friction-based Skill Formation】的⟨从犯错中真正吸收教训这一步⟩
 
 ## 懂了它才能懂（解锁 1）
 
@@ -58,4 +62,5 @@ debugging 直觉、系统直觉、taste、怀疑能力、问题分解能力—�
 ## 反链
 
 - [[The Deferred Bill]]
+- [[Without Defensiveness]]
 - [[稀疏反馈推断规则]]

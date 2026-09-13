@@ -50,6 +50,6 @@ Harness engineering 的互补方向。Harness 解决「怎么干活」，context
 ## 反链
 
 - [[时间 Scalability Temporal Scalability]]
+- [[Personal Context]]
 - [[Self-Improving Context System]]
 - [[空间 Scalability Spatial Scalability]]
-- [[Personal Context]]

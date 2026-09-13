@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: tools-sandbox
 learningStage: when-needed
 verification: accept
-centrality: 0.072
+centrality: 0.126
 depth: 2
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 作者的自我反问：任务管理成为标配后，是否直接外挂一个 MCP todo manager 就够，而不必做 app 原生任务工具；他直觉外挂偏复杂。
 
-**领域** tools-sandbox ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.072
+**领域** tools-sandbox ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 只能认 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,9 +36,10 @@ sources: 1
 
 > 对{{name}}的取舍，作者的直觉判断是什么？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
 - [[MCP Model Context Protocol]] · **hard** — 不懂【MCP】，就做不了【原生工具与 MCP 外挂】的取舍讨论——这个议题本身就是「要不要外挂 MCP todo manager」
+- [[MCP servers]] · **hard** — 不懂【MCP servers】，就做不了【原生工具与 MCP 外挂】的⟨判断要不要直接外挂一个 MCP todo manager⟩
 
 ## 相关
 
@@ -52,6 +53,7 @@ sources: 1
 ## 反链
 
 - [[MCP Model Context Protocol]]
+- [[MCP servers]]
 - [[看对话 log]]
 - [[对话加确定性缝合]]
 - [[反向代理式窥探]]

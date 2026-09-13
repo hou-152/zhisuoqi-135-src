@@ -6,7 +6,7 @@ subject: AI 概念库
 domain: media-culture-education
 learningStage: when-needed
 verification: use
-centrality: 0.072
+centrality: 0.126
 depth: 1
 origin: [notion]
 aliases: ["AI Visibility"]
@@ -17,7 +17,7 @@ sources: 1
 
 > 让 AI 更好地知晓你的内容与产品：做好内容，并用结构化、机器可读的描述告诉 AI 爬虫这边有什么。
 
-**领域** media-culture-education ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** media-culture-education ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -40,6 +40,10 @@ sources: 1
 
 - [[AI 爬虫五大分类]] · **soft** — 不懂 AI 爬虫五大分类，就做不了 AI 可见性的配置——会把 robots.txt 当总开关，一把把爬虫全关掉。
 
+## 懂了它才能懂（解锁 1）
+
+- [[GEO]] — 不懂【AI 可见性】，就做不了【GEO】的目标设定——GEO 被定义成「面向生成式引擎的内容优化」，脱离可见性就下不出这个定义
+
 ## 相关
 
 - [[AI 爬虫五大分类]] · related-to（audit） — AI 爬虫五大分类是操作细节，理解 AI 可见性的目标不必须懂分类。
@@ -58,3 +62,4 @@ sources: 1
 ## 反链
 
 - [[AI 爬虫五大分类]]
+- [[GEO]]

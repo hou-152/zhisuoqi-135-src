@@ -7,8 +7,8 @@ subject: Harness Engineering
 domain: multi-agent
 learningStage: now
 verification: judge
-centrality: 0.072
-depth: 2
+centrality: 0.126
+depth: 3
 origin: [harness]
 aliases: ["sub-planner"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > planner 可为特定区域生成子 planner，使规划本身变得并行且递归。
 
-**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** multi-agent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -37,9 +37,10 @@ planner "can spawn sub-planners for specific areas, making planning itself paral
 
 > {{name}} 能解释规划为何可以并行且递归吗？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
 - [[递归 planner 与 subplanner]] · **hard** — 不懂【递归 planner 与 subplanner】，就做不了【递归并行规划】的 ⟨把规划本身拆成可递归展开的子规划层⟩
+- [[子 agent 与 step.invoke()]] · **hard** — 不懂【子 agent 与 step.invoke()】就做不了【递归并行规划】的「为特定区域启动只会做子 planner 的独立 run」
 
 ## 相关
 
@@ -57,6 +58,7 @@ planner "can spawn sub-planners for specific areas, making planning itself paral
 
 ## 反链
 
+- [[子 agent 与 step.invoke()]]
 - [[长时程自治编码 long-running autonomous coding]]
 - [[递归 planner 与 subplanner]]
 - [[动态协调 dynamic coordination]]

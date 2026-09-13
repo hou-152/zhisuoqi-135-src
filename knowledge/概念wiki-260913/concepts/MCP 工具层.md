@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: tools-sandbox
 learningStage: when-needed
 verification: use
-centrality: 0.072
+centrality: 0.126
 depth: 2
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 图谱建好后，Claude 通过 build/query/semantic search/list stats/get docs 等八个 MCP 工具自动与图谱交互。
 
-**领域** tools-sandbox ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
+**领域** tools-sandbox ｜ **类型** REPRESENTATIONAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,9 +36,10 @@ sources: 1
 
 > 你能说出 {{name}} 里 query_graph_tool 能查哪几类关系吗？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
 - [[MCP Model Context Protocol]] · **hard** — 不懂【MCP】，就做不了【MCP 工具层】的八个工具接入与调用
+- [[MCP servers]] · **hard** — 不懂【MCP servers】，就做不了【MCP 工具层】的⟨让 Claude 通过 build/query 等八个工具与图谱交互⟩
 
 ## 相关
 
@@ -52,6 +53,7 @@ sources: 1
 ## 反链
 
 - [[MCP Model Context Protocol]]
+- [[MCP servers]]
 - [[持久化代码图谱 structural map graph]]
 - [[code-review-graph]]
 - [[Tree-sitter]]

@@ -87,11 +87,11 @@ Karpathy 说：旧的"10x 工程师"概念会被极大放大——掌握 agentic
 ## 反链
 
 - [[Creator → Curator 角色转换]]
-- [[根因优先]]
 - [[层级架构强约束 + 给 Agent 读的 lint 错误]]
+- [[根因优先]]
 - [[宏动作]]
 - [[前置对齐 front-loading alignment]]
 - [[准比快重要]]
+- [[Bitter Lesson]]
 - [[Vibe Coding]]
 - [[12-factor agents]]
-- [[Bitter Lesson]]

@@ -7,7 +7,7 @@ subject: Context Engineering
 domain: spec-intent
 learningStage: when-needed
 verification: use
-centrality: 0.017
+centrality: 0.072
 depth: 0
 origin: [context]
 aliases: ["full stream of consciousness"]
@@ -18,7 +18,7 @@ sources: 1
 
 > 对漫谈内容的反向要求：允许 total mess、跑题、重复与自我否定，即 full stream of consciousness。
 
-**领域** spec-intent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** spec-intent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,6 +36,10 @@ sources: 1
 ## 验收问句
 
 > {{name}} 允许输入里出现跑题和自相矛盾吗？
+
+## 懂了它才能懂（解锁 1）
+
+- [[不连贯输入的重构能力]] — 不懂【意识流输入】，就下不出「从冗长散乱口语流重建结构」这项能力的定义
 
 ## 相关
 
@@ -55,4 +59,5 @@ sources: 1
 
 - [[漫谈会话 ramble session]]
 - [[bits]]
+- [[不连贯输入的重构能力]]
 - [[输入摩擦 too lazy to type]]

@@ -62,9 +62,9 @@ sources: 1
 ## 反链
 
 - [[提示词缓存 Prompt Caching]]
+- [[稳定前缀 Stable Prefix]]
 - [[Cache prefix stability]]
 - [[缓存断点 Cache Breakpoint]]
-- [[KV-cache 命中率]]
 - [[稳定的 prompt 前缀]]
-- [[稳定前缀 Stable Prefix]]
+- [[KV-cache 命中率]]
 - [[tools → system → messages 缓存顺序]]

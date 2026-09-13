@@ -6,8 +6,8 @@ subject: Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.089
-depth: 1
+centrality: 0.144
+depth: 2
 origin: [harness]
 aliases: []
 sources: 2
@@ -17,7 +17,7 @@ sources: 2
 
 > Agent = Model + Harness：模型只有在 harness 提供状态、工具执行、反馈回路与约束后才成为 agent。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.089
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.144
 
 ## 费曼一下
 
@@ -36,9 +36,10 @@ sources: 2
 
 > 在 {{name}} 里，缺了状态和反馈回路会怎样？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
 - [[Harness]] · **hard** — 等式右项的 Harness 不懂，等式无法成立。
+- [[Harness 工程 Harness Engineering]] · **hard** — 不懂【Harness 工程】，就做不了「模型何时才成为 Agent」的 ⟨公式定义拆解⟩
 
 ## 相关
 
@@ -71,22 +72,23 @@ sources: 2
 ## 反链
 
 - [[Harness]]
+- [[Harness 工程 Harness Engineering]]
 - [[Sandbox]]
 - [[上下文压缩 Context Compression Summarization]]
 - [[上下文腐烂 Context Rot]]
 - [[Self-verification loop]]
 - [[Agent]]
+- [[从期望行为反推 harness 设计]]
+- [[Context injection]]
 - [[Filesystem 作为最基础的 harness 原语]]
 - [[Harness level feature]]
 - [[Progressive disclosure（渐进式披露）与 Skills]]
+- [[Tool call offloading]]
 - [[Ralph Loop]]
-- [[从期望行为反推 harness 设计]]
+- [[1.6% vs 98.4%]]
 - [[模型训练与 harness 设计的耦合]]
 - [[通用工具与「给模型一台计算机」]]
-- [[Context injection]]
+- [[Memory file 与 continual learning]]
 - [[ReAct loop]]
-- [[Tool call offloading]]
-- [[1.6% vs 98.4%]]
 - [[确定性工程基础设施 deterministic engineering infrastructure]]
 - [[AI 工程基础设施 AI engineering infrastructure]]
-- [[Memory file 与 continual learning]]

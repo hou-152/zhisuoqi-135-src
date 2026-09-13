@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.072
+centrality: 0.181
 depth: 0
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 每条无关的工具描述都会消耗 agent 必须处理却毫无收益的注意力额度，这份预算是有限的。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.181
 
 ## 费曼一下
 
@@ -36,9 +36,11 @@ sources: 1
 
 > {{name}} 为什么会『还没开工就烧光』？
 
-## 懂了它才能懂（解锁 1）
+## 懂了它才能懂（解锁 3）
 
 - [[the dumb zone the smart zone]] — 不懂【instruction budget】，就做不了【the dumb zone / the smart zone】的 ⟨解释工具描述为何把模型拖进笨蛋区⟩
+- [[Context Bloat]] — 不懂【instruction budget】（无关内容吃掉有限注意力额度），就说不清【Context Bloat】为何会让注意力退化
+- [[gotchas 优先原则]] — 不懂【instruction budget】，就做不了【gotchas 优先原则】里的 token 分配决策——凭什么把额度留给 gotchas
 
 ## 相关
 
@@ -54,5 +56,7 @@ sources: 1
 
 - [[Harness 工程 Harness Engineering]]
 - [[Context as working memory budget]]
+- [[Context Bloat]]
+- [[gotchas 优先原则]]
 - [[the dumb zone the smart zone]]
 - [[configuration problem]]

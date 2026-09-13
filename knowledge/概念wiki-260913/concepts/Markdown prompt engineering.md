@@ -51,11 +51,11 @@ Markdown prompt engineering 不是把 prompt 写得更华丽，而是用清晰�
 ## 反链
 
 - [[Validation gates]]
+- [[Memory-driven development]]
+- [[Agentic primitives]]
 - [[APM]]
 - [[Instructions files]]
-- [[Memory-driven development]]
 - [[Natural language as code]]
 - [[Agent CLI runtimes]]
-- [[Agentic primitives]]
 - [[Agentic workflows]]
 - [[Chat modes]]

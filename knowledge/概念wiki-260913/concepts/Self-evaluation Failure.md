@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: verification-eval
 learningStage: now
 verification: judge
-centrality: 0.072
+centrality: 0.126
 depth: 0
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > Agent 评估自己的产出时倾向自信夸好，即使在人看来质量明显平庸。
 
-**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** verification-eval ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,9 +36,10 @@ When asked to evaluate work they’ve produced, agents tend to respond by confid
 
 > 为什么不能让 {{name}} 单独判定做得好不好？
 
-## 懂了它才能懂（解锁 1）
+## 懂了它才能懂（解锁 2）
 
 - [[Read-only Verifier Agent]] — 只读校验者存在的理由就是执行者自评会偏乐观。
+- [[Rubric 与 verifier agent]] — 不懂【Self-evaluation Failure】，就做不了【Rubric 与 verifier agent】的「为何必须另起 verifier、而不信自己的品味判断」这件事
 
 ## 相关
 
@@ -54,5 +55,6 @@ When asked to evaluate work they’ve produced, agents tend to respond by confid
 
 - [[Context Reset vs Compaction]]
 - [[Self-verification]]
+- [[Rubric 与 verifier agent]]
 - [[Context Anxiety]]
 - [[Read-only Verifier Agent]]

@@ -49,5 +49,5 @@ Models are now post-trained with specific harnesses in the loop. Claude Code's m
 - Harness Engineering ｜ 《The Anatomy of an Agent Harness》 ｜ https://x.com/akshay_pachaar/status/2041146899319971922
 ## 反链
 
-- [[模型训练与 harness 设计的耦合]]
 - [[Harness 内 RL RL inside the harness]]
+- [[模型训练与 harness 设计的耦合]]

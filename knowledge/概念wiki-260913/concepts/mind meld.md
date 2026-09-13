@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: spec-intent
 learningStage: when-needed
 verification: judge
-centrality: 0.017
+centrality: 0.072
 depth: 0
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 人与模型之间关于目标和语境的对齐程度。
 
-**领域** spec-intent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** spec-intent ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,6 +36,10 @@ sources: 1
 
 > 你能量出这次协作里 {{name}} 的高低吗？
 
+## 懂了它才能懂（解锁 1）
+
+- [[判断力优先 let Claude use judgement]] — 不懂【mind meld】，就做不了「只给对齐对象与判断依据、决策交给模型」这件事
+
 ## 相关
 
 - [[漫谈会话 ramble session]] · 同篇出现（co-occurrence） — 同篇出现：context-09
@@ -47,6 +51,7 @@ sources: 1
 - Context Engineering ｜ 《用十分钟语音漫谈，让 LLM 帮你整理真正想说的话》 ｜ https://x.com/karpathy/status/2079610838143623371/
 ## 反链
 
+- [[判断力优先 let Claude use judgement]]
 - [[漫谈会话 ramble session]]
 - [[bits]]
 - [[输入摩擦 too lazy to type]]

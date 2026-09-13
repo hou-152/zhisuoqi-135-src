@@ -6,7 +6,7 @@ subject: Harness Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: judge
-centrality: 0.072
+centrality: 0.126
 depth: 2
 origin: [harness]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 把每个怪癖、模式与经验都塞进 CLAUDE.md（如两万行），导致模型注意力退化。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.126
 
 ## 费曼一下
 
@@ -36,9 +36,10 @@ Context bloat 是向模型的上下文窗口塞入过多信息，导致注意力
 
 > {{name}} 发生后最直接的征兆是什么？
 
-## 先懂这些（前置 1）
+## 先懂这些（前置 2）
 
 - [[注意力预算 attention budget]] · **hard** — 不懂【注意力预算】，就做不了【Context Bloat】的 ⟨膨胀为何导致注意力退化的诊断⟩
+- [[instruction budget]] · **soft** — 不懂【instruction budget】（无关内容吃掉有限注意力额度），就说不清【Context Bloat】为何会让注意力退化
 
 ## 相关
 
@@ -52,5 +53,6 @@ Context bloat 是向模型的上下文窗口塞入过多信息，导致注意力
 ## 反链
 
 - [[注意力预算 attention budget]]
+- [[instruction budget]]
 - [[Thin Harness, Fat Skills]]
 - [[Skill Files]]

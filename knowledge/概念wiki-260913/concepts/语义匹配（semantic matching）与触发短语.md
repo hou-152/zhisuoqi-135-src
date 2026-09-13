@@ -6,8 +6,8 @@ subject: AI 内参 260912
 domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.089
-depth: 0
+centrality: 0.144
+depth: 1
 origin: [neican]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > Claude 靠请求与技能描述在含义上的重叠决定是否触发，重叠不足就不匹配。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.089
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.144
 
 ## 费曼一下
 
@@ -38,6 +38,10 @@ Claude 使用语义匹配，因此您的请求需要与描述的含义有所重�
 
 > {{name}} 里重叠不足会怎样？该怎么修？
 
+## 先懂这些（前置 1）
+
+- [[技能描述]] · **hard** — 不懂【技能描述】，就做不了触发短语的设计——不知道语义匹配是拿请求去比对哪一段文字。
+
 ## 懂了它才能懂（解锁 1）
 
 - [[技能触发与自动使用 Skill Triggering Automatic Use]] — 不懂语义匹配与触发短语，就做不了技能触发与自动使用里的「靠请求与技能描述在含义上的重叠决定是否触发」
@@ -48,3 +52,4 @@ Claude 使用语义匹配，因此您的请求需要与描述的含义有所重�
 ## 反链
 
 - [[技能触发与自动使用 Skill Triggering Automatic Use]]
+- [[技能描述]]

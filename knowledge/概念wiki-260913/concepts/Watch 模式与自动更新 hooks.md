@@ -53,8 +53,8 @@ CLI 中的 watch 命令对应"Auto-update on file changes"，特性表里同时�
 - Context Engineering ｜ 《用持久化代码图谱给 AI Review 精准上下文》 ｜ https://github.com/tirth8205/code-review-graph
 ## 反链
 
-- [[Legible Codebase]]
 - [[持久化代码图谱 structural map graph]]
+- [[Legible Codebase]]
 - [[code-review-graph]]
 - [[Skill as asset]]
 - [[Tree-sitter]]

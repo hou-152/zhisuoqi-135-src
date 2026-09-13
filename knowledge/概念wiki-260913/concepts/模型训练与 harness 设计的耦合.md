@@ -53,7 +53,7 @@ Claude Code、Codex 这类产品是模型与 harness 同在 loop 中做的 post-
 - Harness Engineering ｜ 《LangChain 解剖 agent harness：Agent = 模型 + harness》 ｜ https://blog.langchain.com/the-anatomy-of-an-agent-harness/
 ## 反链
 
-- [[Co-evolution Principle]]
 - [[Agent = Model + Harness]]
-- [[协同进化与紧耦合 co-evolution principle]]
+- [[Co-evolution Principle]]
 - [[Harness 内 RL RL inside the harness]]
+- [[协同进化与紧耦合 co-evolution principle]]

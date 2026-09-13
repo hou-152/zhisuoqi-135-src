@@ -7,7 +7,7 @@ subject: Context Engineering × Harness Engineering
 domain: loop-autonomy
 learningStage: now
 verification: use
-centrality: 0.089
+centrality: 0.144
 depth: 1
 origin: [context, harness]
 aliases: ["Orchestration Loop / TAO / ReAct"]
@@ -18,7 +18,7 @@ sources: 2
 
 > 以“思考—行动—观察”为一轮，把模型输出变成可重复推进的任务循环。
 
-**领域** loop-autonomy ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.089
+**领域** loop-autonomy ｜ **类型** PROCEDURAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.144
 
 ## 费曼一下
 
@@ -41,6 +41,10 @@ sources: 2
 
 - [[think → act → observe 循环]] · **hard** — 不懂【think → act → observe 循环】，就做不了【编排循环】的“以思考—行动—观察为一轮推进任务”。
 
+## 懂了它才能懂（解锁 1）
+
+- [[Model as subroutine]] — 不懂【编排循环】，就做不了「模型降级为子程序」这件事——没有被 loop 在某一步调用的位置，模型就还是对话对象
+
 ## 相关
 
 - [[AI Agent]] · 同篇出现（co-occurrence） — 同篇出现：context-13
@@ -60,5 +64,6 @@ sources: 2
 
 - [[Harness]]
 - [[非模型架构 Non-model Architecture]]
-- [[think → act → observe 循环]]
 - [[AI Agent]]
+- [[Model as subroutine]]
+- [[think → act → observe 循环]]

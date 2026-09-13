@@ -1,6 +1,6 @@
 {
  "version": "v1",
- "generatedAt": "2026-09-12T18:56:55.785Z",
+ "generatedAt": "2026-09-13T08:28:09.045Z",
  "count": 21,
  "clusters": [
   {
@@ -11,8 +11,8 @@
    "topicCount": 138,
    "subjects": {
     "AI 概念库 × Context Engineering × Harness Engineering": 1,
-    "AI 内参 260912": 23,
     "Context Engineering × Harness Engineering": 8,
+    "AI 内参 260912": 23,
     "Harness Engineering": 78,
     "Context Engineering": 19,
     "AI 概念库 × Harness Engineering": 2,
@@ -32,8 +32,8 @@
    },
    "hubTopics": [
     "cm_0a4ca4ce",
-    "cm_200893a2",
     "cm_e56f1e8b",
+    "cm_200893a2",
     "cm_44a5e9cc",
     "cm_e09e7cfa",
     "cm_a47a4e89",
@@ -42,8 +42,8 @@
    ],
    "hubNames": [
     "Harness",
-    "skills 字段",
     "Harness 工程",
+    "skills 字段",
     "Agent vs Harness",
     "coding agent",
     "Runtime-harness separation",
@@ -81,7 +81,7 @@
     "cm_b2154cb8",
     "cm_c63aeadd",
     "cm_dee9d8f3",
-    "cm_247d8cf9"
+    "cm_629e8fdc"
    ],
    "hubNames": [
     "循环工程",
@@ -91,7 +91,7 @@
     "长时程自治编码",
     "agent 循环",
     "笨循环",
-    "自动循环的心跳"
+    "编排循环"
    ]
   },
   {
@@ -124,22 +124,22 @@
    "hubTopics": [
     "cm_34b33e00",
     "cm_d9aa9fe0",
+    "cm_d78a3680",
     "cm_cc101992",
     "cm_30201f36",
     "cm_05146d91",
-    "cm_d78a3680",
-    "cm_01d6a01e",
-    "cm_f50a09c9"
+    "cm_28c258d9",
+    "cm_01d6a01e"
    ],
    "hubNames": [
     "Skill",
     "上下文",
+    "SKILL.md 与 YAML 前置元数据",
     "按需加载",
     "上下文工程",
     "注意力预算",
-    "SKILL.md 与 YAML 前置元数据",
-    "长上下文窗口",
-    "有限的工作记忆"
+    "启动时仅加载名称和描述",
+    "长上下文窗口"
    ]
   },
   {
@@ -171,9 +171,9 @@
     "cm_94fa45bf",
     "cm_4b3d0d0a",
     "cm_5973b47c",
+    "cm_622b0b3b",
     "cm_5b5b3631",
-    "cm_2733c0ea",
-    "cm_5caaad9a"
+    "cm_2733c0ea"
    ],
    "hubNames": [
     "记忆",
@@ -181,9 +181,9 @@
     "跨轮次记忆与连贯策略",
     "结构化记事 / agentic memory",
     "self-baking",
+    "即时检索",
     "分层记忆架构",
-    "检索池 vs 引用",
-    "检索器-阅读器配置"
+    "检索池 vs 引用"
    ]
   },
   {
@@ -256,21 +256,21 @@
     "cm_a500a4cb",
     "cm_691a420e",
     "cm_036f0092",
+    "cm_668cf70f",
     "cm_f5944e33",
     "cm_c684222f",
     "cm_b9c659d4",
-    "cm_e00f590e",
-    "cm_68c53198"
+    "cm_63e5d090"
    ],
    "hubNames": [
     "提示词缓存",
     "Token count",
     "前缀匹配",
+    "稳定前缀",
     "提示词缓存（Prompt Caching）",
     "缓存命中率",
     "Cache prefix stability",
-    "Harness token floor",
-    "缓存断点"
+    "cached input tokens"
    ]
   },
   {
@@ -300,21 +300,21 @@
     "cm_8089ce21",
     "cm_9ed037b8",
     "cm_51de352d",
+    "cm_a72ef18d",
     "cm_c3ecbf70",
+    "cm_6db0527f",
     "cm_a2868643",
-    "cm_53ec7c9b",
-    "cm_c3159c94",
-    "cm_5faf59f3"
+    "cm_926aa05d"
    ],
    "hubNames": [
     "工具定义",
     "Sandbox",
     "Tool Calling",
+    "工具",
     "MCP",
+    "MCP servers",
     "运行时限制、权限与数据保留边界",
-    "allowed-tools",
-    "工具接口的表达力设计",
-    "沙箱化自主"
+    "shell tool"
    ]
   },
   {
@@ -332,8 +332,8 @@
    },
    "types": {
     "CONCEPTUAL": 33,
-    "REPRESENTATIONAL": 8,
-    "PROCEDURAL": 3
+    "PROCEDURAL": 3,
+    "REPRESENTATIONAL": 8
    },
    "stages": {
     "when-needed": 31,
@@ -342,23 +342,23 @@
    },
    "hubTopics": [
     "cm_4a78d263",
+    "cm_d9636b24",
     "cm_511bf6de",
     "cm_30843ecf",
     "cm_197a049b",
     "cm_345d4b18",
-    "cm_9cc03c6d",
-    "cm_1031d6f6",
-    "cm_307d9aaf"
+    "cm_5c93f4e7",
+    "cm_9cc03c6d"
    ],
    "hubNames": [
     "Subagent",
+    "子 agent 与 step.invoke()",
     "Planner–Worker 角色分离",
     "多智能体架构",
     "子 agent 编排",
     "handoff 交接",
-    "子 Agent 分工",
-    "递归 planner 与 subplanner",
-    "递归 Planner-Worker 架构"
+    "Handoffs / Agents as tools",
+    "子 Agent 分工"
    ]
   },
   {
@@ -413,14 +413,14 @@
    "order": 10,
    "topicCount": 40,
    "subjects": {
-    "AI 概念库": 8,
     "Context Engineering": 22,
+    "AI 概念库": 8,
     "AI 内参 260912": 4,
     "Harness Engineering": 6
    },
    "types": {
-    "LANGUAGE": 1,
     "CONCEPTUAL": 20,
+    "LANGUAGE": 1,
     "REPRESENTATIONAL": 7,
     "PROCEDURAL": 12
    },
@@ -429,24 +429,24 @@
     "now": 16
    },
    "hubTopics": [
+    "cm_bf008303",
     "cm_f1e9d39c",
     "cm_4805cdf5",
     "cm_6d5da93d",
     "cm_492ee3e8",
     "cm_026f933a",
-    "cm_2efed2e0",
-    "cm_64e86aa5",
-    "cm_fa98c676"
+    "cm_572c8e76",
+    "cm_2efed2e0"
    ],
    "hubNames": [
+    "判断力优先",
     "显式指代",
     "隐式指代",
     "从\"禁止什么\"到\"对齐什么\"",
     "共享理解",
     "简洁规范",
-    "漫谈会话",
-    "判定程序化写法",
-    "意图规约与可引导性"
+    "教会 AI Agent 如何成功",
+    "漫谈会话"
    ]
   },
   {
@@ -475,22 +475,22 @@
    "hubTopics": [
     "cm_f45e5118",
     "cm_32dc32a9",
+    "cm_73952fe1",
     "cm_8ff76ff3",
     "cm_2ac17989",
     "cm_8d5752d9",
     "cm_e907a229",
-    "cm_98e85c1e",
-    "cm_ddb0ab8c"
+    "cm_98e85c1e"
    ],
    "hubNames": [
     "Agentic Engineering",
     "service template 与 golden path",
+    "层级架构强约束 + 给 Agent 读的 lint 错误",
     "根因优先",
     "统一语言",
     "Agent-driven CI/CD",
     "docs/decisions/",
-    "Executable Codebase",
-    "Legible Codebase"
+    "Executable Codebase"
    ]
   },
   {
@@ -549,8 +549,8 @@
    },
    "types": {
     "CONCEPTUAL": 57,
-    "PROCEDURAL": 1,
     "REPRESENTATIONAL": 11,
+    "PROCEDURAL": 1,
     "LANGUAGE": 1
    },
    "stages": {
@@ -565,8 +565,8 @@
     "cm_c63842fd",
     "cm_9191c944",
     "cm_3184d5ac",
-    "cm_d7b26e2a",
-    "cm_d8f80acf"
+    "cm_aed663a2",
+    "cm_d7b26e2a"
    ],
    "hubNames": [
     "Reward Signal",
@@ -575,8 +575,8 @@
     "DPPO",
     "REINFORCE",
     "谄媚（Sycophancy）",
-    "递归自我改进",
-    "推理模型"
+    "递归结构不能替代基座智能",
+    "递归自我改进"
    ]
   },
   {
@@ -652,20 +652,20 @@
     "cm_0b420d69",
     "cm_4e58443d",
     "cm_67e2a43e",
+    "cm_19ecf6b3",
     "cm_d26c5950",
     "cm_86490863",
-    "cm_803a4462",
-    "cm_cc071be2"
+    "cm_803a4462"
    ],
    "hubNames": [
     "外包思考，但不外包理解",
     "Simulated Competence",
     "The Deferred Bill",
     "局部最优",
+    "Friction-based Skill Formation",
     "2026 版约束理论",
     "今天的魔法咒语，明天的反模式",
-    "软件脑",
-    "数字存在"
+    "软件脑"
    ]
   },
   {
@@ -737,8 +737,8 @@
    "types": {
     "CONCEPTUAL": 23,
     "PROCEDURAL": 1,
-    "LANGUAGE": 1,
-    "REPRESENTATIONAL": 4
+    "REPRESENTATIONAL": 4,
+    "LANGUAGE": 1
    },
    "stages": {
     "when-needed": 27,
@@ -753,7 +753,7 @@
     "cm_fb6ae85a",
     "cm_4c4e24be",
     "cm_3bf9ffd4",
-    "cm_80fd0c67"
+    "cm_21a4ec33"
    ],
    "hubNames": [
     "开源 vs 闭源",
@@ -763,7 +763,7 @@
     "前沿实验室",
     "DeepSeek Moment",
     "LLM 订阅错配（LLM Subscription Mispricing）",
-    "“SaaS 已死”叙事与护城河蒸发"
+    "OAIQ"
    ]
   },
   {
@@ -819,23 +819,23 @@
    },
    "hubTopics": [
     "cm_16dcca78",
+    "cm_d2b53bb8",
     "cm_9249f51b",
     "cm_52318cc3",
-    "cm_d2b53bb8",
     "cm_e0891b4f",
+    "cm_7a8f6388",
     "cm_2f356845",
-    "cm_9e54f48a",
-    "cm_b36e15d0"
+    "cm_9e54f48a"
    ],
    "hubNames": [
     "扁平化",
+    "AI 可见性",
     "废料怪兽",
     "AI 反弹潮",
-    "AI 可见性",
     "AI 爬虫五大分类",
+    "GEO",
     "独立视频",
-    "算法即决定性力量",
-    "注水内容"
+    "算法即决定性力量"
    ]
   },
   {
@@ -859,22 +859,22 @@
    "hubTopics": [
     "cm_03aaef77",
     "cm_18997927",
-    "cm_7738ecbf",
     "cm_dc8d4037",
+    "cm_7738ecbf",
+    "cm_afd87770",
     "cm_eb2997be",
     "cm_1f0a5c75",
-    "cm_be0d6099",
-    "cm_afd87770"
+    "cm_be0d6099"
    ],
    "hubNames": [
     "平行 AI 基础设施",
     "数据中心",
-    "AI 从应用到基础设施",
     "芯片管制",
+    "AI 从应用到基础设施",
+    "昇腾",
     "蒸发冷却",
     "AI 主权审查机制",
-    "每年超过 10 倍增长",
-    "昇腾"
+    "每年超过 10 倍增长"
    ]
   }
  ]

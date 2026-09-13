@@ -53,6 +53,6 @@ sources: 1
 - Harness Engineering ｜ 《LangChain 解剖 agent harness：Agent = 模型 + harness》 ｜ https://blog.langchain.com/the-anatomy-of-an-agent-harness/
 ## 反链
 
+- [[Agent = Model + Harness]]
 - [[Orchestration Loop TAO Cycle ReAct Loop]]
 - [[think → act → observe 循环]]
-- [[Agent = Model + Harness]]

@@ -55,11 +55,11 @@ sources: 1
 - Context Engineering ｜ 《用持久化代码图谱给 AI Review 精准上下文》 ｜ https://github.com/tirth8205/code-review-graph
 ## 反链
 
-- [[Legible Codebase]]
 - [[持久化代码图谱 structural map graph]]
+- [[Legible Codebase]]
+- [[MCP 工具层]]
 - [[code-review-graph]]
 - [[code-review-graphignore 排除配置]]
-- [[MCP 工具层]]
 - [[Review Quality 评分方法]]
 - [[Token 优化的评审上下文 get_review_context_tool]]
 - [[Watch 模式与自动更新 hooks]]

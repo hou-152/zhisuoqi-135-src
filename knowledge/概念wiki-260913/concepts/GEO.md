@@ -6,8 +6,8 @@ subject: AI 概念库
 domain: media-culture-education
 learningStage: when-needed
 verification: use
-centrality: 0.017
-depth: 0
+centrality: 0.072
+depth: 2
 origin: [notion]
 aliases: ["Generative Engine Optimization", "生成式引擎优化"]
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 面向生成式引擎的内容优化，如加入权威引用可提升 AI 可见性 115%。
 
-**领域** media-culture-education ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** media-culture-education ｜ **类型** PROCEDURAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,6 +36,10 @@ sources: 1
 
 > 做 {{name}} 最容易踩的坑是什么？
 
+## 先懂这些（前置 1）
+
+- [[AI 可见性]] · **soft** — 不懂【AI 可见性】，就做不了【GEO】的目标设定——GEO 被定义成「面向生成式引擎的内容优化」，脱离可见性就下不出这个定义
+
 ## 相关
 
 - [[Human-Only Social Networks]] · related-to（audit） — GEO 是 AI 可见性优化的具体手段，不是理解真人网络动机的前提；防 AI 污染可由一般 AI 滥用理解。
@@ -53,4 +57,5 @@ sources: 1
 
 ## 反链
 
+- [[AI 可见性]]
 - [[Human-Only Social Networks]]

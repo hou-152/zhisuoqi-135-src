@@ -57,8 +57,8 @@ OpenAI Frontier 团队 5 个月跑出 100 万行代码、1500 个 PR 的工作�
 ## 反链
 
 - [[信任机制重构]]
-- [[管理 Agent]]
 - [[Lights-off 软件工厂]]
+- [[管理 Agent]]
 - [[1.6% vs 98.4%]]
 - [[确定性工程基础设施 deterministic engineering infrastructure]]
 - [[虚荣指标 vanity metrics]]

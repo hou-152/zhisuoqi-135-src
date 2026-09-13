@@ -7,7 +7,7 @@ subject: Context Engineering × Harness Engineering
 domain: harness-runtime
 learningStage: now
 verification: judge
-centrality: 0.035
+centrality: 0.144
 depth: 0
 origin: [context, harness]
 aliases: ["Scaffolding / Harness Thickness"]
@@ -18,7 +18,7 @@ sources: 2
 
 > 脚手架本身不盖房子；关键取舍是多大比例的逻辑写死在系统里，而不是留给模型。
 
-**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.035
+**领域** harness-runtime ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.144
 
 ## 费曼一下
 
@@ -36,6 +36,11 @@ sources: 2
 ## 验收问句
 
 > 这段逻辑该写进 harness 还是交给模型，{{name}} 的标准是什么？
+
+## 懂了它才能懂（解锁 2）
+
+- [[Thin Harness, Fat Skills]] — 不懂【脚手架与 Harness 厚度】，就做不了 ⟨thin harness / fat skills 的取舍判断⟩
+- [[1.6% vs 98.4%]] — 不懂【脚手架与 Harness 厚度】，就做不了 ⟨这个比例说明了什么的解读⟩
 
 ## 相关
 
@@ -57,3 +62,5 @@ sources: 2
 - [[Harness]]
 - [[非模型架构 Non-model Architecture]]
 - [[AI Agent]]
+- [[Thin Harness, Fat Skills]]
+- [[1.6% vs 98.4%]]

@@ -59,6 +59,6 @@ sources: 1
 
 - [[Harness]]
 - [[stateless]]
-- [[model-native harness]]
 - [[Agent = Model + Harness]]
 - [[Harness Thickness]]
+- [[model-native harness]]

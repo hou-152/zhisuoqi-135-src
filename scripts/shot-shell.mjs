@@ -11,7 +11,7 @@ import { CHROME, openCDP, spawnProcess, waitForPage, sleep } from './lib/cdp.mjs
 const ROOT = path.resolve(import.meta.dirname, '..');
 const URL_ = process.argv[2] || 'http://127.0.0.1:5180/知所栖-壳.html';
 const OUT = process.argv[3] || path.join(ROOT, 'prototype', '预览');
-const PORT = 9333;
+const PORT = 9333 + (process.pid % 400);
 const PROFILE = path.join(os.tmpdir(), 'shot-shell-profile-' + process.pid);
 
 mkdirSync(OUT, { recursive: true });
@@ -22,6 +22,7 @@ const chrome = spawnProcess(CHROME, [
   '--window-size=1440,900', '--hide-scrollbars', '--no-first-run', '--no-default-browser-check',
   '--disable-gpu', 'about:blank',
 ], { stdio: 'ignore' });
+process.on('exit', () => { try { chrome.kill('SIGKILL'); } catch {} });
 
 const target = await waitForPage(PORT);
 if (!target) throw new Error('Chrome 调试端口没起来');
@@ -74,6 +75,37 @@ await sleep(400);
 const USE0 = await cdp.eval(`(nodes.find(n=>n.k==='use')||{}).id`);
 const JUDGE0 = await cdp.eval(`(nodes.find(n=>n.k==='judge')||nodes[0]).id`);
 console.log(`  抽检：能用的 ${USE0} ｜ 能判的 ${JUDGE0}`);
+
+// 坐标回归：画布位于三栏之后，事件坐标必须先换成画布内坐标。
+await step('图谱 · 画布偏移命中回归', async () => {
+  const probe = JSON.parse(await cdp.eval(`(()=>{
+    setMode('grid'); closePanel(); filter=null; computeLayout();
+    const ps = nodes.map(n => ({n,p:project(n)})).filter(x => x.p.sx > 40 && x.p.sx < W - 40 && x.p.sy > 80 && x.p.sy < H - 40);
+    let best = ps[0]; let bestGap = -1;
+    for (const x of ps) {
+      const gap = Math.min(...ps.filter(y => y.n.id !== x.n.id).map(y => Math.hypot(x.p.sx-y.p.sx, x.p.sy-y.p.sy)));
+      if (gap > bestGap) { bestGap = gap; best = x; }
+    }
+    const r = cvs.getBoundingClientRect();
+    return JSON.stringify({id:best.n.id, clientX:r.left+best.p.sx*r.width/W, clientY:r.top+best.p.sy*r.height/H, gap:bestGap});
+  })()`));
+  if (!probe?.id) throw new Error('没有可用于命中回归的节点');
+  await cdp.send('Input.dispatchMouseEvent', { type: 'mouseMoved', x: probe.clientX, y: probe.clientY });
+  await cdp.send('Input.dispatchMouseEvent', { type: 'mousePressed', x: probe.clientX, y: probe.clientY, button: 'left', clickCount: 1 });
+  await cdp.send('Input.dispatchMouseEvent', { type: 'mouseReleased', x: probe.clientX, y: probe.clientY, button: 'left', clickCount: 1 });
+  await sleep(220);
+  const result = JSON.parse(await cdp.eval(`JSON.stringify({selected, target:'${probe.id}', title:document.querySelector('#pbody h2')?.textContent||'', pinned:document.getElementById('main').classList.contains('pinned')})`));
+  if (result.selected !== result.target || !result.pinned) throw new Error(`命中错位：${JSON.stringify(result)}`);
+  shots.push(await shot('24-命中偏移-面板.png'));
+  await cdp.eval(`closePanel(); setMode('relation')`);
+});
+
+await step('关系 · 语义边与类型图例', async () => {
+  await cdp.eval(`closePanel(); setMode('relation')`);
+  const result = JSON.parse(await cdp.eval(`JSON.stringify({mode, relations:relations.length, hidden:relationStats.hidden, legend:document.getElementById('rel-legend').classList.contains('on'), forbidden:relations.filter(r=>r.kind==='co-article'||r.kind==='rejected').length})`));
+  if (result.mode !== 'relation' || !result.relations || !result.legend || result.forbidden) throw new Error(`关系视图异常：${JSON.stringify(result)}`);
+  shots.push(await shot('29-关系-语义边.png'));
+});
 
 await step('二级 · 全部主题（左栏只剩导航，中间栏 21 条）', async () => { shots.push(await shot('25-主题-首屏.png')); });
 
@@ -138,13 +170,13 @@ await step('概念 · 倒逼输入框', async () => {
 });
 
 await step('没过 · 漏点 · 倒回先修', async () => {
-  await cdp.eval(`document.getElementById('said').value='就是一个说法吧，感觉挺有道理的，讲 AI 的一些限制。'; judge('${JUDGE0}')`);
+  await cdp.send('Runtime.evaluate', { expression: `document.getElementById('said').value='就是一个说法吧，感觉挺有道理的，讲 AI 的一些限制。'; judge('${JUDGE0}')`, awaitPromise: false, returnByValue: true });
   await sleep(15000);
   shots.push(await shot('22-倒逼-没过倒回.png'));
 });
 
 await step('说清楚了才给过', async () => {
-  await cdp.eval(`openPanel('${JUDGE0}'); document.getElementById('said').value='我判断一段代码算不算 Harness，用一条线：把它整个删掉之后模型自己的本事有没有变化。模型权重没动，但工具调用、文件读写、循环控制、权限确认、状态保存这些东西没了之后模型就干不成活，那这些就是 Harness。换成我的处境：我在做一个每天自动整理素材的 Agent，一开始把「这次失败要不要重试」也交给模型自己判，结果它在一篇反爬失败的文章上重试了 11 次，烧掉一整天的额度。后来我把重试上限和失败分诊挪进 Harness 的确定性代码里，模型的活只剩判断内容值不值得留。代价是 Harness 变厚了，每加一条规则，我都要在模型升级之后回去看它是不是过时。所以我的口径是：Harness 越薄越好，但薄不等于没有；判断哪一步该沉到确定性代码里、哪一步该留给模型，才是这门工程真正的手艺。'; judge('${JUDGE0}')`);
+  await cdp.send('Runtime.evaluate', { expression: `openPanel('${JUDGE0}'); document.getElementById('said').value='我判断一段代码算不算 Harness，用一条线：把它整个删掉之后模型自己的本事有没有变化。模型权重没动，但工具调用、文件读写、循环控制、权限确认、状态保存这些东西没了之后模型就干不成活，那这些就是 Harness。换成我的处境：我在做一个每天自动整理素材的 Agent，一开始把「这次失败要不要重试」也交给模型自己判，结果它在一篇反爬失败的文章上重试了 11 次，烧掉一整天的额度。后来我把重试上限和失败分诊挪进 Harness 的确定性代码里，模型的活只剩判断内容值不值得留。代价是 Harness 变厚了，每加一条规则，我都要在模型升级之后回去看它是不是过时。所以我的口径是：Harness 越薄越好，但薄不等于没有；判断哪一步该沉到确定性代码里、哪一步该留给模型，才是这门工程真正的手艺。'; judge('${JUDGE0}')`, awaitPromise: false, returnByValue: true });
   await sleep(16000);
   shots.push(await shot('23-倒逼-过了.png'));
 });

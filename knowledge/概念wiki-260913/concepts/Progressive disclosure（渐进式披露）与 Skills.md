@@ -55,5 +55,5 @@ Skills 被定位为 harness 级原语，解决启动时载入过多工具或 MCP
 - [[Harness]]
 - [[Skill]]
 - [[Harness 工程 Harness Engineering]]
-- [[Agent Skills]]
 - [[Agent = Model + Harness]]
+- [[Agent Skills]]

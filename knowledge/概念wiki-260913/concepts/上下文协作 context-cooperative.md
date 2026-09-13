@@ -7,8 +7,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: deep-dive
 verification: judge
-centrality: 0.017
-depth: 0
+centrality: 0.072
+depth: 1
 origin: [context]
 aliases: ["context-cooperative"]
 sources: 1
@@ -18,7 +18,7 @@ sources: 1
 
 > 从『你在哪就做什么』的条件—动作，转向主动理解用户正在做什么并协作达成共同目标。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 深入研究再懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,6 +36,10 @@ sources: 1
 ## 验收问句
 
 > 它与 context-aware 的关键差别是什么？
+
+## 先懂这些（前置 1）
+
+- [[上下文缺口]] · **soft** — 不懂【上下文缺口】，就不会主动交代自己缺用户哪半边信息，共同目标无从对齐
 
 ## 相关
 
@@ -55,4 +59,5 @@ sources: 1
 
 - [[上下文 context]]
 - [[上下文工程 context engineering]]
+- [[上下文缺口]]
 - [[熵减 entropy reduction]]

@@ -55,5 +55,5 @@ frontmatter 里最关键的一行。示例把 description 写成「…Use when t
 - [[Skill]]
 - [[skill-creator 访谈式创建]]
 - [[验证闭环 verification loop]]
-- [[Agent Skills]]
 - [[把重复步骤编码成 Skill]]
+- [[Agent Skills]]

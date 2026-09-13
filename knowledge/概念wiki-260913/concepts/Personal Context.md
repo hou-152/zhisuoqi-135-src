@@ -6,8 +6,8 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: when-needed
 verification: use
-centrality: 0.017
-depth: 0
+centrality: 0.072
+depth: 1
 origin: [context]
 aliases: []
 sources: 1
@@ -17,7 +17,7 @@ sources: 1
 
 > 个人独有、不可复制的笔记、框架与判断；模型能力共享，它私有，接入越系统 AI 越懂你。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.017
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 做到这里再懂 ｜ **怎么算会了** 能用 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -36,6 +36,10 @@ AI 的泛化能力是共享的，但 Personal Context 是私有的、不可复�
 
 > {{name}} 与共享的模型能力区别在哪、价值在哪？
 
+## 先懂这些（前置 1）
+
+- [[Context injection]] · **soft** — 不懂【Context injection】，就做不了【Personal Context】接入模型这件事，因为私有笔记只能作为上下文被放进请求
+
 ## 相关
 
 - [[Context Infrastructure]] · related-to（audit） — 「个人独有笔记」作为概念本身自足；基础设施只是让它「可被接入」，是落地条件而非理解前提，应降 soft 或移出。
@@ -49,5 +53,6 @@ AI 的泛化能力是共享的，但 Personal Context 是私有的、不可复�
 ## 反链
 
 - [[长上下文窗口]]
+- [[Context injection]]
 - [[Context Distraction]]
 - [[Context Infrastructure]]

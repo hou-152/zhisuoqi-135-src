@@ -6,7 +6,7 @@ subject: Context Engineering
 domain: context-engineering
 learningStage: now
 verification: judge
-centrality: 0.017
+centrality: 0.072
 depth: 0
 origin: [context]
 aliases: []
@@ -17,7 +17,7 @@ sources: 1
 
 > 相关信息的位置与任务准确率呈 U 形：首尾高、中间低，在多种模型与任务上反复出现。
 
-**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.017
+**领域** context-engineering ｜ **类型** CONCEPTUAL ｜ **什么时候学** 现在先懂 ｜ **怎么算会了** 能判 ｜ **中心度** 0.072
 
 ## 费曼一下
 
@@ -35,6 +35,10 @@ sources: 1
 ## 验收问句
 
 > 长上下文里关键信息放中间会怎样，{{name}} 告诉你该怎么摆放？
+
+## 懂了它才能懂（解锁 1）
+
+- [[Tool call offloading]] — 不懂【U 型性能曲线】，就判断不了工具输出超阈值时该保留头尾哪一段。
 
 ## 相关
 
@@ -59,9 +63,11 @@ sources: 1
 - Context Engineering ｜ 《经典论文《迷失在中间》：位置决定了模型能不能真的用上信息》 ｜ https://arxiv.org/pdf/2307.03172
 ## 反链
 
+- [[迷失在中间 lost in the middle]]
 - [[检索器-阅读器配置 retriever-reader]]
 - [[tokens]]
-- [[迷失在中间 lost in the middle]]
+- [[Tool call offloading]]
+- [[查询感知语境化 query-aware contextualization]]
 - [[多文档问答受控实验]]
 - [[干扰文档 distractor documents]]
 - [[近因偏置 recency bias]]
@@ -69,7 +75,6 @@ sources: 1
 - [[长上下文评测协议]]
 - [[重排序与排序列表截断]]
 - [[闭卷与 oracle 基线]]
-- [[查询感知语境化 query-aware contextualization]]
 - [[合成键值检索任务]]
 - [[扩展上下文模型 extended-context models]]
 - [[首因偏置 primacy bias]]
