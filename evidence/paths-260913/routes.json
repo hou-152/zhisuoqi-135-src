@@ -1,0 +1,112 @@
+{
+  "version": "v1",
+  "generatedAt": "2026-09-13",
+  "note": "路径视图的唯一路线配置（人工策展，独立于概念图谱）。顺序取自 docs/路径视图-PLAN-20260913.md §6；每个 conceptId 都在 knowledge/概念地图-260913/topics.json 里逐条核对过（不猜 ID）。本文件不改概念地图源数据：topicId/dependencies/relations 一律只读。校验：node scripts/paths-validate.mjs —— 出线时 cm-wire 会把真实概念名、真实 hard/soft 前置理由、真实相关关系一起解析进 payload，壳只负责渲染。",
+  "curator": "human",
+  "curatorNote": "六步顺序与分支方向由所有者在 PLAN §6 定。每条 why / prereq.reason 是**出线展示文案**（agent 写，用于解释「为什么现在学」），不是关于学习效果的事实宣称。",
+  "budget": {
+    "steps": "5—7 个主步骤（PLAN §5.3 的产品预算，不是学习科学结论）",
+    "branches": "每个分支点最多 2 个选项（HANDOFF §四.3 / §九）",
+    "fallback": "只回退一个最小前置，不铺全部祖先"
+  },
+  "routes": [
+    {
+      "routeId": "agent-continuous-action-v1",
+      "title": "理解 AI 如何持续行动",
+      "entryQuestion": "为什么 AI 能连续做事，而不只回答一次？",
+      "target": "能解释 Agent 从目标到行动再到验证的基本循环",
+      "stopCondition": "能说清目标／工具／循环／状态／验证各自解决哪一步，以及验证为什么必须独立成环",
+      "topicId": "loop-autonomy",
+      "version": "v1",
+      "steps": [
+        {
+          "conceptId": "cm_0608c405",
+          "order": 1,
+          "type": "main",
+          "why": "整条路径的承载体：不知道 Agent 的最小构成是「模型 + 指令 + 工具」，后面的工具、循环、状态都没有挂点。",
+          "prereq": null,
+          "fallback": null
+        },
+        {
+          "conceptId": "cm_a72ef18d",
+          "order": 2,
+          "type": "main",
+          "why": "Agent 的定义里就写着「一组它能调用的工具」。先弄清工具是什么、边界在哪，才看得懂循环里反复发生的那一步。",
+          "prereq": {
+            "conceptId": "cm_0608c405",
+            "basis": "route",
+            "reason": "路线前置：Agent 的最小定义里已经包含工具这一项，先有主体，再谈它的手。"
+          },
+          "fallback": { "conceptId": "cm_0608c405", "reason": "工具是 Agent 定义里的一个字段；说不清工具，先回 Agent 的最小构成。" }
+        },
+        {
+          "conceptId": "cm_1973b1d3",
+          "order": 3,
+          "type": "main",
+          "why": "工具是单次动作，循环才把单次动作变成「持续做事」——入口问题在这一步第一次被正面回答。",
+          "prereq": {
+            "conceptId": "cm_a72ef18d",
+            "basis": "route",
+            "reason": "循环里每一次迭代都在调工具；不先懂工具的调用边界，循环就只剩一句抽象的话。"
+          },
+          "fallback": { "conceptId": "cm_a72ef18d", "reason": "循环的每一步都在用工具；循环说不清，先回工具。" }
+        },
+        {
+          "conceptId": "cm_be951649",
+          "order": 4,
+          "type": "main",
+          "why": "循环能跑起来，但会话一断就归零。要让任务跨会话接着做，状态必须落到磁盘上。",
+          "prereq": {
+            "conceptId": "cm_1973b1d3",
+            "basis": "route",
+            "reason": "先有循环，才谈得上「循环跑到一半时，状态放在哪」。"
+          },
+          "fallback": { "conceptId": "cm_1973b1d3", "reason": "持久化服务的是循环的推进；说不清状态要接住什么，先回 Agent loop。" }
+        },
+        {
+          "conceptId": "cm_0a4ca4ce",
+          "order": 5,
+          "type": "main",
+          "why": "工具、循环、状态各自成立之后，才能看清把它们组织成一个可控运行系统的那一层是什么。",
+          "prereq": {
+            "conceptId": "cm_be951649",
+            "basis": "route",
+            "reason": "状态与循环都是 Harness 的组件；先各自懂一遍，再理解它们被谁组织起来。"
+          },
+          "fallback": { "conceptId": "cm_be951649", "reason": "Harness 里装着状态子系统；说不清状态放哪，先回状态与持久化。" }
+        },
+        {
+          "conceptId": "cm_7cd7335d",
+          "order": 6,
+          "type": "main",
+          "why": "一个能持续行动的系统，最后一个缺口是「谁来检查它真的做对了」。验证闭环是这条路径的收口。",
+          "prereq": {
+            "conceptId": "cm_0a4ca4ce",
+            "basis": "route",
+            "reason": "检查挂在产出之后，得先有稳定的产出系统（Harness），才谈得上把检查固化成一环。"
+          },
+          "fallback": { "conceptId": "cm_0a4ca4ce", "reason": "验证闭环是 Harness 末端的一环；说不清产出系统，先回 Harness。" }
+        }
+      ],
+      "branches": [
+        {
+          "after": "cm_1973b1d3",
+          "question": "接下来你更关心什么？",
+          "options": [
+            { "conceptId": "cm_be951649", "role": "main", "reason": "任务为什么能持续推进" },
+            { "conceptId": "cm_c1dd6faa", "role": "branch", "reason": "AI 怎样安全调用外部能力" }
+          ]
+        }
+      ],
+      "skipRules": [
+        "已有该概念的可靠证据（讲过、或做过）时可以跳过，路径只做记录，不设门槛。",
+        "当前目标用不到该能力时可以跳过；跳过后路径标记为「跳过」，不标记为「已完成」。"
+      ],
+      "fallbackRules": [
+        "强前置缺失：回到最近的 hard 前置；本路线六个步骤在概念地图里都没有 hard 前置，因此回退点取路线里的上一步（basis: route，已逐条写明理由）。",
+        "弱前置不足：只提供补充入口，不强制回退。",
+        "当前概念与目标不匹配：切换目标分支，不回到全图。"
+      ]
+    }
+  ]
+}

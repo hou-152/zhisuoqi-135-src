@@ -145,19 +145,19 @@ await ex(`markRead('${NODE.accept}')`); await sleep(400);
 check('⑦ 只能认的·只记读过，不判过没过', await ex(`marks['${NODE.accept}'].state`), 'read');
 
 /* ⑧ 三栏外壳 + 落盘 + 09-13 减法后的边界 */
-check('⑧ 导航只剩两项且内参在上', await ex(`[...document.querySelectorAll('.r-item b')].map(b => b.textContent).join('|')`), '内参|知识体系');
+check('⑧ 导航含内参、知识体系、实践空间且内参在上', await ex(`[...document.querySelectorAll('.r-item b')].map(b => b.textContent).join('|')`), '内参|知识体系|实践空间');
 check('⑧ 底部那条栏已删', await ex(`document.getElementById('bar') ? '还在' : 'OK'`), 'OK');
 check('⑧ 三栏都在（导航|列表|主区）', await ex(`['rail','list','main'].filter(i => document.getElementById(i)).length`), '3');
 check(`⑧ 中间栏 ${await ex('String(groups().length)')} 条主题（二级）`, await ex(`document.querySelectorAll('#lp-body .row').length`), await ex(`String(groups().length)`));
 // 09-13 v1-shell-ia phase 02：主题从左栏搬到中间栏，936 条概念默认不再出现（三级）
 check('⑧ 三级概念默认隐藏（中间栏不是 936 行）', await ex(`document.querySelectorAll('#lp-body .row').length === DATA.nodes.length ? '还是 936' : 'OK'`), 'OK');
-check('⑧ 左栏只剩品牌+搜索+两项导航', await ex(`document.querySelectorAll('#rail .r-item').length + '|' + (document.getElementById('lrows') ? '还有图例' : '干净')`), '2|干净');
+check('⑧ 左栏只剩品牌+搜索+三项导航', await ex(`document.querySelectorAll('#rail .r-item').length + '|' + (document.getElementById('lrows') ? '还有图例' : '干净')`), '3|干净');
 check('⑧ 主题行有圆点有数字', await ex(`(()=>{const r=document.querySelector('#lp-body .row'); return r ? (r.querySelector('.rd')?'有圆点':'缺') + (r.querySelector('.rm')?'有数字':'缺') : '无行'})()`), '有圆点有数字');
 check('⑧ 点一条主题 → 下钻到三级', await ex(`(()=>{const rows=document.querySelectorAll('#lp-body .row'); const label=rows[1].querySelector('.rn').textContent; const id=(CUR.tags.find(t=>t.name===label)||{}).id; rows[1].click(); return currentView + '|' + (themeId===id?'主题对':'主题错') + '|' + (filter===id?'画布跟上了':'画布没跟') + '|' + (document.getElementById('lp-back').style.display===''?'有返回':'没返回')})()`), 'theme|主题对|画布跟上了|有返回');
 check('⑧ 三级只列这条主题的概念', await ex(`(()=>{const want=nodes.filter(n=>(n.tags||[])[0]===themeId).length; const got=document.querySelectorAll('#lp-body .row').length; return got + '/' + want + '|' + (got===want && got < nodes.length ? 'OK' : '不对')})()`), 'OK');
 check('⑧ 点「← 全部主题」回到二级', await ex(`(()=>{setView('graph'); return currentView + '|' + String(filter) + '|' + (document.getElementById('lp-back').style.display==='none'?'返回已藏':'还露着') + '|' + document.querySelectorAll('#lp-body .row').length})()`), await ex(`'graph|null|返回已藏|' + groups().length`));
 check('⑧ 左栏没有底部状态点了', await ex(`document.querySelector('#rail .r-foot, #myrow, #rhint') ? '还在' : 'OK'`), 'OK');
-check('⑧ 左栏只剩导航两项 + 搜索框', await ex(`document.querySelectorAll('#rail .r-item').length + '|' + (document.getElementById('q-filter') ? 'OK' : 'NO')`), '2|OK');
+check('⑧ 左栏只剩导航三项 + 搜索框', await ex(`document.querySelectorAll('#rail .r-item').length + '|' + (document.getElementById('q-filter') ? 'OK' : 'NO')`), '3|OK');
 
 /* ⑨ 分类决定系统对你做什么 */
 await ex(`closePanel(); filter=null`);
@@ -167,6 +167,24 @@ check(`⑨ ${TOTAL} 条全有验收类别`, await ex(`DATA.nodes.filter(n => n.k
 check('⑨ 能算的·任务词', await ex(`openPanel(nodes.find(n => n.k === 'compute').id); document.getElementById('pbody').innerText.includes('说清它的机制') ? 'OK' : 'NO'`), 'OK');
 check('⑨ 能判的·任务词', await ex(`openPanel(nodes.find(n => n.k === 'judge').id); document.getElementById('pbody').innerText.includes('它给的是什么判据') ? 'OK' : 'NO'`), 'OK');
 check('⑨ 能用的·任务词', await ex(`openPanel(nodes.find(n => n.k === 'use').id); document.getElementById('pbody').innerText.includes('真拿它做过') ? 'OK' : 'NO'`), 'OK');
+
+/* ⑩ 概念卡：来源可点 ＋ 「费曼一下 / 原文 context」不再锁在「过了才给」后面
+   2026-09-13 追加。起因（所有者）：原文 context 与费曼一下要能直接看到、来源要能回溯，
+   但**不新开栏目**（原文/三级笔记留在隐性层，挂在概念上）。
+   数据面：payload.articles 294 条（65 篇原文 ＋ 229 个 Notion 页），每个概念用 sa 指过来。 */
+const FRESH = await ex(`(nodes.find(n => !marks[n.id] && n.feynman && n.sourceContext) || {}).id || ''`);
+check('⑩ 来源表覆盖全部概念', await ex(`DATA.nodes.filter(n => (n.sa || []).length).length + '/' + DATA.nodes.length`), `${TOTAL}/${TOTAL}`);
+await ex(`openPanel('${NODE.judge}')`); await sleep(300);
+check('⑩ 来源不是死标签（有外链）', await ex(`document.querySelectorAll('#pbody .srclist a[href^="http"]').length > 0 ? 'OK' : 'NO'`), 'OK');
+check('⑩ 同源概念能点回地图', await ex(`document.querySelectorAll('#pbody .srclist .sib button').length > 0 ? 'OK' : 'NO'`), 'OK');
+await ex(`openPanel('${FRESH}')`); await sleep(300);
+check('⑩ 没验过也能看费曼一下（门已拆）', await ex(`document.getElementById('pbody').innerText.includes('随时可看，不用先答') ? 'OK' : 'NO'`), 'OK');
+/* 这条是 2026-09-13 查出来的真 bug：sourceContext 一直在 topics.json 里（919/936），
+   却没被 cm-wire 搬进 payload —— 卡上「原文 context」和「别名」两栏一直是空的。 */
+check('⑩ 原文 context 真的有内容（不是空壳）', await ex(`(()=>{const d=[...document.querySelectorAll('#pbody details')].find(x=>x.innerText.includes('原文 context')); if(!d) return 'NO'; d.open=true; const t=d.innerText.replace(/\\s/g,''); return t.length > 80 ? 'OK' : 'NO'})()`), 'OK');
+check('⑩ 拆门不影响倒逼状态机', await ex(`marks['${FRESH}'] ? 'NO（被写了状态）' : 'OK'`), 'OK');
+/* 同一个 bug 的第二半：验收问句里 922/936 条留着没替换的 {{name}}，页面上直接显示「{{name}} 指什么？」 */
+check('⑩ 验收问句没有 {{name}} 占位符', await ex(`String(DATA.nodes.filter(n => /\\{\\{name\\}\\}/.test(String(n.ap || ''))).length)`), '0');
 
 const errs = events
   .filter(e => e.method === 'Runtime.exceptionThrown' || (e.method === 'Log.entryAdded' && e.params?.entry?.level === 'error'))

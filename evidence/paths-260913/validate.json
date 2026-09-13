@@ -1,0 +1,165 @@
+{
+ "generatedAt": "2026-09-13T11:53:05.257Z",
+ "source": "evidence/paths-260913/routes.json",
+ "routes": [
+  {
+   "routeId": "agent-continuous-action-v1",
+   "title": "理解 AI 如何持续行动",
+   "topicId": "loop-autonomy",
+   "steps": [
+    {
+     "order": 1,
+     "conceptId": "cm_0608c405",
+     "name": "Agent",
+     "nameEn": "",
+     "domain": "harness-runtime",
+     "level": 0,
+     "verification": "judge",
+     "prereqDeclared": null,
+     "prereqBasis": "none",
+     "mapHard": [],
+     "mapSoft": [],
+     "relatedCount": 19,
+     "supportCount": 2,
+     "fallback": null
+    },
+    {
+     "order": 2,
+     "conceptId": "cm_a72ef18d",
+     "name": "工具",
+     "nameEn": "Tools",
+     "domain": "tools-sandbox",
+     "level": 1,
+     "verification": "use",
+     "prereqDeclared": "cm_0608c405",
+     "prereqBasis": "route",
+     "mapHard": [],
+     "mapSoft": [
+      {
+       "id": "cm_8089ce21",
+       "name": "工具定义",
+       "reason": "不懂【工具定义】，就做不了【工具】的任何一次调用——模型没有名称与参数 schema 就无从生成合法调用"
+      }
+     ],
+     "relatedCount": 5,
+     "supportCount": 3,
+     "fallback": "cm_0608c405"
+    },
+    {
+     "order": 3,
+     "conceptId": "cm_1973b1d3",
+     "name": "Agent loop",
+     "nameEn": "",
+     "domain": "loop-autonomy",
+     "level": 1,
+     "verification": "use",
+     "prereqDeclared": "cm_a72ef18d",
+     "prereqBasis": "route",
+     "mapHard": [],
+     "mapSoft": [
+      {
+       "id": "cm_5ae9faf9",
+       "name": "Orchestration Loop / TAO Cycle / ReAct Loop",
+       "reason": "不懂【Orchestration Loop / TAO Cycle / ReAct Loop】，就做不了【Agent loop】的 ⟨调工具—回喂—再调用的迭代机制⟩"
+      }
+     ],
+     "relatedCount": 22,
+     "supportCount": 3,
+     "fallback": "cm_a72ef18d"
+    },
+    {
+     "order": 4,
+     "conceptId": "cm_be951649",
+     "name": "状态子系统与进度持久化",
+     "nameEn": "",
+     "domain": "state-persistence",
+     "level": 1,
+     "verification": "use",
+     "prereqDeclared": "cm_1973b1d3",
+     "prereqBasis": "route",
+     "mapHard": [],
+     "mapSoft": [
+      {
+       "id": "cm_03726492",
+       "name": "文件系统即持久记忆",
+       "reason": "用 progress.md、feature_list 等写磁盘，需先懂文件系统即持久记忆。"
+      },
+      {
+       "id": "cm_fcbdc4c2",
+       "name": "Session",
+       "reason": "不懂【Session】就做不了【状态子系统与进度持久化】的『让下次会话接着做』这件事"
+      }
+     ],
+     "relatedCount": 4,
+     "supportCount": 1,
+     "fallback": "cm_1973b1d3"
+    },
+    {
+     "order": 5,
+     "conceptId": "cm_0a4ca4ce",
+     "name": "Harness",
+     "nameEn": "",
+     "domain": "harness-runtime",
+     "level": 0,
+     "verification": "judge",
+     "prereqDeclared": "cm_be951649",
+     "prereqBasis": "route",
+     "mapHard": [],
+     "mapSoft": [],
+     "relatedCount": 272,
+     "supportCount": 23,
+     "fallback": "cm_be951649"
+    },
+    {
+     "order": 6,
+     "conceptId": "cm_7cd7335d",
+     "name": "验证闭环",
+     "nameEn": "verification loop",
+     "domain": "verification-eval",
+     "level": 1,
+     "verification": "use",
+     "prereqDeclared": "cm_0a4ca4ce",
+     "prereqBasis": "route",
+     "mapHard": [],
+     "mapSoft": [
+      {
+       "id": "cm_0db0f875",
+       "name": "Feedback loop",
+       "reason": "不懂【Feedback loop】，就做不了【验证闭环】的「让 Claude 自己运行、读结果、修正」"
+      }
+     ],
+     "relatedCount": 23,
+     "supportCount": 2,
+     "fallback": "cm_0a4ca4ce"
+    }
+   ],
+   "branches": [
+    {
+     "after": "cm_1973b1d3",
+     "afterName": "Agent loop",
+     "question": "接下来你更关心什么？",
+     "options": [
+      {
+       "id": "cm_be951649",
+       "name": "状态子系统与进度持久化",
+       "role": "main",
+       "reason": "任务为什么能持续推进"
+      },
+      {
+       "id": "cm_c1dd6faa",
+       "name": "权限与推理的架构分离",
+       "role": "branch",
+       "reason": "AI 怎样安全调用外部能力"
+      }
+     ]
+    }
+   ],
+   "problems": []
+  }
+ ],
+ "summary": {
+  "routes": 1,
+  "fails": 0,
+  "warns": 0
+ }
+}

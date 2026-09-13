@@ -1,0 +1,55 @@
+=== 最终验收 2026-09-13 19:42:40 ===
+--- test-path (serve) ---
+  · 936 个概念 / 604 条依赖照旧 ｜ 936/604
+  · 节点上没有路线字段（路线不写回图谱） ｜ OK
+  · 主题筛选口径没变（matches 仍按主标签） ｜ OK
+
+截图：prototype/预览/40-路径-默认视图.png · 41-路径-概念卡上下文.png · 42-路径-卡住回退.png · 43-路径-主题里的入口.png
+
+✅ 0 条 JS 报错
+✅ 断言全过
+--- test-path (公网单文件 · 假域名 · 无服务端) ---
+<anonymous_script>:1
+THREW: ReferenceError: ROUTES is not defined
+^
+
+SyntaxError: Unexpected token 'T', "THREW: Ref"... is not valid JSON
+    at JSON.parse (<anonymous>)
+    at file:///Users/housibo/Documents/%E7%9F%A5%E4%B9%8E%E9%BB%91%E5%AE%A2%E6%9D%BE/scripts/test-path.mjs:48:20
+
+Node.js v24.15.0
+--- test-daobi ---
+  · ⑩ 原文 context 真的有内容（不是空壳） ｜ OK
+  · ⑩ 拆门不影响倒逼状态机 ｜ OK
+  · ⑩ 验收问句没有 {{name}} 占位符 ｜ 0
+
+✅ 0 条 JS 报错
+✅ 断言全过
+--- shot-shell ---
+  prototype/预览/22-倒逼-没过倒回.png
+  prototype/预览/23-倒逼-过了.png
+  prototype/预览/18-壳-星球.png
+
+✅ 0 条 JS 报错
+--- check-public (未重建的公网产物) ---
+  · 内参：概念网络有卡 ｜ OK
+  · 内参：费曼 ×3 三格都在 ｜ 3
+  · 内参：换一篇 + 阅读原文只放子链接 ｜ OK
+  · 内参：退出后阅读区让位 ｜ false
+
+✅ 公网版验收全过
+--- test-app ---
+  · ⑤ 里面有刚才那条 ｜ true
+  截图 prototype/预览/32-桌面版.png
+
+✅ 0 条 JS 报错
+❌ 断言失败 1:
+② 桌面版壳也是减法后的两栏：期望含「true」，实得「false」
+=== DONE 19:45:22 ===
+--- test-path (公网单文件 · 假域名 · 无服务端) ---
+  · 主题筛选口径没变（matches 仍按主标签） ｜ OK
+
+截图：prototype/预览/40-路径-默认视图.png · 41-路径-概念卡上下文.png · 42-路径-卡住回退.png · 43-路径-主题里的入口.png
+
+✅ 0 条 JS 报错
+✅ 断言全过
