@@ -182,6 +182,15 @@ check('节点上没有路线字段（路线不写回图谱）',
   await ex(`nodes.some(n => n.route || n.routeStep || n.order) ? '写回了' : 'OK'`), 'OK');
 check('主题筛选口径没变（matches 仍按主标签）', await ex(`typeof matches === 'function' && typeof giOf === 'function' ? 'OK' : 'NO'`), 'OK');
 
+/* ⑪ 路径到实践空间：保留概念上下文，未装配不能借用别的案例冒充完成。 */
+console.log('\n⑪ 路径接入 01');
+await ex(`pickRouteStep(2); window.__proofBeforeLoop = JSON.stringify(marks);`);
+check('点击概念卡入口进入实践空间', await ex(`(()=>{const b=Array.from(document.querySelectorAll('#pbody button')).find(b=>b.textContent.includes('进入 1 / 3 / 5')); b.click(); return currentView+'|'+document.getElementById('reader').classList.contains('on')})()`), 'practice|true');
+check('当前概念和路径位置保留', await ex(`(()=>{const t=document.getElementById('reader').innerText; return t.includes(ROUTES[0].steps[2].name)&&t.includes('第 3 / '+ROUTES[0].steps.length+' 步')})()`), 'true');
+check('没有材料时明确待装配，A 只作独立示例', await ex(`(()=>{const t=document.getElementById('reader').innerText; return t.includes('判断材料尚未装配')&&t.includes('不计入当前路线进度')})()`), 'true');
+check('实际点击返回，恢复路径第三步和原概念', await ex(`(()=>{document.querySelector('#reader .practice-card .jbtn.ghost').click(); return mode+'|'+routeStepIdx+'|'+(selected===ROUTES[0].steps[2].conceptId)+'|'+document.getElementById('reader').classList.contains('on')})()`), 'path|2|true|false');
+check('进出学习闭环不伪造掌握记录', await ex(`JSON.stringify(marks)===window.__proofBeforeLoop`), 'true');
+
 await ex(`closePanel()`); await sleep(200);
 /* 截图落到 prototype/预览/（和 shot-shell 同一处），文件名用 40 段避开已有编号 */
 const OUTDIR = '/Users/housibo/Documents/知乎黑客松/prototype/预览';

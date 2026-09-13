@@ -170,7 +170,7 @@ button{font-family:inherit}
 .pctx .nav i{font-style:normal;color:#4cb782}
 .pctx .nav u{text-decoration:none;color:var(--fg4);font-size:11px}
 .pctx .acts{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
-.pctx .loop-note{margin-top:9px;padding:7px 8px;border-left:2px solid #d9a84e;background:rgba(217,168,78,.08);font-size:10.5px;line-height:1.65;color:var(--fg4)}
+.pctx .loop-note{margin-top:9px;padding:7px 8px;border-left:2px solid #d9a84e;background:rgba(217,168,78,.08);font-size:11.5px;line-height:1.65;color:var(--fg2)}
 .pctx .loop-note b{color:#e4bd72;font-weight:500}
 .pctx.off{border-color:var(--line2);background:#101113;font-size:11.5px;color:var(--fg4);line-height:1.8}
 .pctx.off button{background:#17181b;border:1px solid var(--line2);border-radius:5px;color:var(--fg2);
@@ -1178,10 +1178,10 @@ function pathBlock(id) {
     </div>
     <div class="acts">
       <button class="jbtn" onclick="focusProof()">学习这个</button>
-      <button class="jbtn ghost" onclick="openPractice()">进入 1 / 3 / 5 · 01 案例决策场</button>
+      <button class="jbtn ghost" onclick="openPractice('${id}')">进入 1 / 3 / 5 · 01 案例决策场</button>
       <button class="jbtn ghost" onclick="this.closest('.pctx').querySelector('details').open=true">查看前置理由</button>
     </div>
-    <div class="loop-note"><b>学习闭环位置：</b>当前路径负责把概念带到这里；下一段进入 01 案例决策场。03 / 05 仍按现有入口逐步补齐，不在此处自动编造案例。</div>
+    <div class="loop-note"><b>1 / 3 / 5 学习闭环：</b>从当前概念进入 01 案例决策场，再回到这条路径继续学习。03 / 05 暂未开放。</div>
     <details>
       <summary>前置理由 · 四类关系分开看（${hard.length} 强 / ${soft.length} 弱 / ${st.support.sources} 支撑 / ${st.relatedCount} 相关）</summary>
       <h5>强前置 hard · 不懂就立不住（默认进主路径）</h5>
@@ -1588,16 +1588,23 @@ function renderList() {
 }
 window.renderList = renderList;
 
-function openPractice() {
+function openPractice(originId = null) {
   currentView = 'practice'; themeId = null; filter = null;
   document.querySelectorAll('.r-item').forEach(b => b.classList.toggle('on', b.dataset.view === 'practice'));
   closePanel();
   const reader = document.getElementById('reader');
   const concept = nodes.find(n => n.name === '上下文腐烂');
+  const origin = byId.get(originId);
+  const originStep = origin ? routeIndexOf(origin.id) : -1;
+  const matched = !!origin && origin.id === concept?.id;
   reader.innerHTML = `<div class="nei"><div class="nei-crumb"><b>实践空间</b><span>›</span><span>1 / 3 / 5</span></div>
     <h1 class="nei-title">从概念进入实践</h1><div class="nei-meta"><span>当前只开放 01 MVP</span></div>
+    ${origin ? `<div class="practice-card"><h2>当前概念：${esc(origin.name)}</h2>
+      <div class="mut">${originStep >= 0 ? `${esc(activeRoute().title)} · 第 ${originStep + 1} / ${activeRoute().steps.length} 步。` : ''}${matched ? '已接入本轮 A 判断材料。' : '这个概念的 01 判断材料尚未装配，当前不标记完成。'}</div>
+      <button class="jbtn ghost" onclick="returnToPracticeOrigin('${origin.id}')">${originStep >= 0 ? '返回这一步的路径与概念' : '返回当前概念'}</button></div>` : ''}
     <div class="practice-card"><h2>01 · 案例决策场</h2><div class="mut">从一个概念匹配候选案例，再只选一个案例和一个正确方向。本轮已接入「上下文腐烂」。</div>
-      ${concept ? `<button class="jbtn" onclick="openPanel('${concept.id}')">继续：上下文腐烂 →</button>` : '<div class="mut">当前概念地图未找到测试入口。</div>'}</div>
+      ${origin && !matched ? '<div class="mut">下面是另一主题的已跑通示例，不计入当前路线进度。</div>' : ''}
+      ${concept ? `<button class="jbtn" onclick="openPanel('${concept.id}')">${origin && !matched ? '查看独立示例' : '继续'}：上下文腐烂 →</button>` : '<div class="mut">当前概念地图未找到测试入口。</div>'}</div>
     <div class="practice-card" style="opacity:.55"><h2>03 · 费曼演练室</h2><div class="mut">等 01 MVP 跑通后接入。</div></div>
     <div class="practice-card" style="opacity:.55"><h2>05 · 技术实验台</h2><div class="mut">等 01 MVP 跑通后接入。</div></div></div>`;
   reader.classList.add('on');
@@ -1606,6 +1613,15 @@ function openPractice() {
   renderList();
 }
 window.openPractice = openPractice;
+function returnToPracticeOrigin(id) {
+  const idx = routeIndexOf(id);
+  document.getElementById('reader').classList.remove('on');
+  currentView = 'graph'; themeId = null; filter = null;
+  document.querySelectorAll('.r-item').forEach(b => b.classList.toggle('on', b.dataset.view === 'graph'));
+  if (idx >= 0) { routeStepIdx = idx; setMode('path'); }
+  renderList(); openPanel(id); syncPath();
+}
+window.returnToPracticeOrigin = returnToPracticeOrigin;
 
 function syncListSel() {
   document.querySelectorAll('#lp-body .row').forEach(r => r.classList.remove('on'));
