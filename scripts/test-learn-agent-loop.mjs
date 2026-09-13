@@ -123,6 +123,9 @@ await ex('learnFeynman()');
 await sleep(200);
 check('漏点为空且要点齐全才显示通过', await ex(`stOf(learnCur).feynman`), 'ok');
 check('通过后章节状态可查', await ex(`chapterCleared(learnCur)`), 'true');
+check('通过后下一章按钮立刻解锁（不用整页重渲染）', await ex(`document.querySelectorAll('#learn-wrap .lchip')[1].disabled`), 'false');
+check('选项顺序是稳定打乱（正解不再固定在某个位置）', await ex(`(()=>{const p=[];for(const c of LEARN)c.questions.forEach((q,i)=>{const perm=learnPerm(c.chapterId,i);p.push(perm.indexOf(q.options.findIndex(o=>o.correct)));});return new Set(p).size;})()`), 3);
+check('页面渲染顺序 = 稳定打乱结果', await ex(`(()=>{const c=chapterById(learnCur),q=c.questions[learnQ],perm=learnPerm(c.chapterId,learnQ);learnRenderQ();const btns=Array.from(document.querySelectorAll('#learn-q .lopt')).map(b=>b.textContent.replace(/^[ABC]\\.\\s*/,''));return perm.every((src,j)=>btns[j]===q.options[src].text);})()`), 'true');
 await shotOf('#learn-fres', '52-学习空间-费曼通过.png');
 
 /* ④ 重新编辑复述 → 清除旧的通过状态 */
@@ -140,6 +143,21 @@ await ex(`window.fetch=async()=>({ok:true,json:async()=>({content:JSON.stringify
 await ex('learnFeynman()');
 await sleep(200);
 check('重新提交后可以再次通过', await ex(`stOf(learnCur).feynman`), 'ok');
+
+/* ④b 判定竞态 + 草稿落盘 */
+console.log('\n④b 判定竞态与草稿落盘');
+await ex(`window.__pend=null; window.fetch=()=>new Promise(r=>{window.__pend=()=>r({ok:true,json:async()=>({content:JSON.stringify({covered:JSON.parse(localStorage.getItem('__probe')),missing:[],next:''})})})});`);
+await ex(`document.getElementById('learn-said').value='这一版会被改掉：最小构成、行动来源、与模型的区别都写了，但用户马上会改。'`);
+await ex('void learnFeynman(); "submitted"');   // 不 await：fetch 挂起中，eval 会等 promise
+await sleep(120);
+check('提交进行中复述框被锁住', await ex(`document.getElementById('learn-said').disabled`), 'true');
+check('提交进行中的状态是待复核', await ex(`stOf(learnCur).feynman`), 'wait');
+await ex(`document.getElementById('learn-said').disabled=false; document.getElementById('learn-said').value='改过的版本'; learnSaidChanged();`);
+check('草稿改动立刻落盘（刷新不丢）', await ex(`JSON.parse(localStorage.getItem('zss135.learn.v1'))[learnCur].said`), '改过的版本');
+await ex('window.__pend()');
+await sleep(220);
+check('判定返回时复述已被改过 → 旧结果作废，不算通过', await ex(`stOf(learnCur).feynman`), 'null');
+check('作废后下一章重新锁上', await ex(`chapterUnlocked(1)`), 'false');
 
 /* ⑤ 解锁门：费曼未通过／待复核都不解锁下一章 */
 console.log('\n⑤ 费曼没过 → 不解锁下一章');
@@ -175,7 +193,13 @@ await cdp.send('Page.navigate', { url: 'about:blank' });
 await sleep(200);
 await cdp.send('Page.navigate', { url: URL_.split('#')[0] + '#learn=verification-loop' });
 await sleep(1200);
-check('地址 #learn=<chapterId> 可直接复现某一章', await ex(`document.getElementById('learn').classList.contains('on') && learnCur`), 'verification-loop');
+check('地址入口不绕过解锁：第 6 章未解锁 → 挡回它的上一章', await ex(`document.getElementById('learn').classList.contains('on') && learnCur`), 'harness');
+check('挡回时写明原因', await ex(`document.getElementById('learn-wrap').innerText.includes('还没解锁')`), 'true');
+await cdp.send('Page.navigate', { url: 'about:blank' });
+await sleep(150);
+await cdp.send('Page.navigate', { url: URL_.split('#')[0] + '#learn=verification-loop&review=1' });
+await sleep(1200);
+check('只有 review=1（审核／复现用）才可直达该章', await ex(`document.getElementById('learn').classList.contains('on') && learnCur`), 'verification-loop');
 check('复现入口能带出该章三题', await ex(`chapterById(learnCur).questions.length`), 3);
 const requested = cdp.events.filter((e) => e.method === 'Network.requestWillBeSent').map((e) => e.params.request.url);
 check('全程没有知乎请求', requested.some((u) => /zhihu/i.test(u)), 'false');

@@ -39,7 +39,7 @@ await cdp.send('Page.enable');
 await cdp.send('Runtime.enable');
 await cdp.send('Network.enable');
 await cdp.send('Log.enable');
-await cdp.send('Page.navigate', { url: BASE + '#learn=' + CHAPTER });
+await cdp.send('Page.navigate', { url: BASE + '#learn=' + CHAPTER + '&review=1' });
 
 const t0 = Date.now();
 while (Date.now() - t0 < 15000) {
@@ -119,7 +119,7 @@ record('JS 报错', cdp.events.filter((e) => e.method === 'Runtime.exceptionThro
 
 fs.writeFileSync(path.join(OUT_DIR, `learn-real-llm-walk-${CHAPTER}.json`), JSON.stringify({
   generatedAt: new Date().toISOString(),
-  page: BASE + '#learn=' + CHAPTER,
+  page: BASE + '#learn=' + CHAPTER + '&review=1',
   chapter: CHAPTER,
   purpose: '真实模型走查学习空间的一章（不替换 fetch）。样本 1 章，不是学习效果样本，也不替代黑盒状态门验收。',
   health, llmCalls, zhihuRequests: zhihu.length, log,

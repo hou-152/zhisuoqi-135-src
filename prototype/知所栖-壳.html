@@ -1560,10 +1560,12 @@ async function boot() {
   requestAnimationFrame(() => document.getElementById('load').classList.add('off'));
   const h = decodeURIComponent(location.hash.slice(1));
   if (h.startsWith('learn=')) {
-    // 学习空间可直接用地址复现：#learn=<chapterId>（不走解锁门，方便复现与验收）
-    const cid = h.slice(6);
+    // #learn=<chapterId> 与其它入口一样受解锁门约束。
+    // 只有显式带 review=1（审核／复现用）才走 force 直达，学生入口不再能绕过解锁。
+    const [cid, query] = h.slice(6).split('&');
+    const review = /(^|&)review=1(&|$)/.test(query || '');
     const ch = chapterById(cid);
-    if (ch) { setMode('path'); focusRoute(); openPanel(ch.cm.id); openLearn(cid, { force: true, from: ch.cm.id }); return; }
+    if (ch) { setMode('path'); focusRoute(); openPanel(ch.cm.id); openLearn(cid, { force: review, from: ch.cm.id }); return; }
   }
   if (h === 'sphere' || h === 'grid' || h === 'relation' || h === 'path') setMode(h);
   else if (h && byId.has(h)) openPanel(h);
@@ -1872,7 +1874,8 @@ const LEARN_CFG = DATA.learning || { chapters: [], caseReview: {}, gaps: [] };
 const LEARN = LEARN_CFG.chapters || [];
 const LEARN_KEY = 'zss135.learn.v1';
 const LEARN_STATUS = { ok: '费曼通过', fail: '费曼未通过', wait: '待人工复核' };
-let learnState = {}, learnCur = null, learnQ = 0, learnBusy = false, learnReturn = null;
+let learnState = {}, learnCur = null, learnQ = 0, learnReturn = null, learnReq = 0;
+const learnBusyOf = Object.create(null);   // 判定请求按章各管各的：切章不会把新章的提交吞掉
 function loadLearnState() { try { learnState = JSON.parse(localStorage.getItem(LEARN_KEY) || '{}') || {}; } catch (e) { learnState = {}; } }
 function saveLearnState() { try { localStorage.setItem(LEARN_KEY, JSON.stringify(learnState)); } catch (e) {} }
 function stOf(id) {
@@ -1953,6 +1956,15 @@ window.exitLearn = exitLearn;
 function learnEntryLabel(cmId) { const c = chapterOf(cmId); return c ? `学习这个 · 第 ${c.order} 章` : '学习这个'; }
 window.learnEntryLabel = learnEntryLabel;
 
+/* 章节 chip：单独抽出来，费曼通过后立刻刷新解锁状态（不必整页重渲染） */
+function learnChipsHtml() {
+  return LEARN.map((x, i) => {
+    const un = chapterUnlocked(i), done = chapterCleared(x.chapterId);
+    return `<button class="lchip ${x.chapterId === learnCur ? 'on' : ''} ${un ? '' : 'lock'}" ${un ? '' : 'disabled'} onclick="openLearn('${x.chapterId}')">${i + 1}. ${esc(x.title)}${done ? ' ✓' : ''}${un ? '' : ' 🔒'}</button>`;
+  }).join('');
+}
+function learnChips() { const el = document.querySelector('#learn-wrap .lchips'); if (el) el.innerHTML = learnChipsHtml(); }
+
 function renderLearn(notice) {
   const c = chapterById(learnCur);
   if (!c) return;
@@ -1967,10 +1979,7 @@ function renderLearn(notice) {
     ['SOL', '行动说明', c.solution.id],
   ];
   const decisionsDone = s.decisions.every(Boolean);
-  const chips = LEARN.map((x, i) => {
-    const un = chapterUnlocked(i), done = chapterCleared(x.chapterId);
-    return `<button class="lchip ${x.chapterId === learnCur ? 'on' : ''} ${un ? '' : 'lock'}" ${un ? '' : 'disabled'} onclick="openLearn('${x.chapterId}')">${i + 1}. ${esc(x.title)}${done ? ' ✓' : ''}${un ? '' : ' 🔒'}</button>`;
-  }).join('');
+  const chips = learnChipsHtml();
   const reviewLine = c.review.caseState === 'owner-confirmed'
     ? `<div class="lgap" style="color:#7fd0a6">审核状态：主案例已由负责人确认（${esc(c.review.confirmedAt || '')}）。场景类型照实显示：<b>${esc(c.case.type)}</b> —— 确认的是「哪一个是本章主案例」，不等于这是真实复盘。</div>`
     : `<div class="lgap" style="color:#e0a94a">审核状态：主案例是<b>候选</b>（${esc(c.case.type)}），负责人尚未确认 —— 本页只作候选装配稿，不当已审核材料。</div>`;
@@ -2031,6 +2040,23 @@ function renderLearn(notice) {
 }
 window.renderLearn = renderLearn;
 
+/* 选项顺序：按「章 + 题号」做稳定洗牌 —— 同一题每次渲染顺序一致（已选中的高亮不会错位），
+   但不再沿用 authored.json 里的数组顺序，避免「正解总在同一位置／总在最长的那个」被当线索用。
+   返回值是渲染顺序上的**源下标**；点击与判分仍用源下标。 */
+function learnPerm(chapterId, qi) {
+  let h = 2166136261;
+  const seed = chapterId + '#' + qi;
+  for (let i = 0; i < seed.length; i++) { h ^= seed.charCodeAt(i); h = Math.imul(h, 16777619); }
+  const perm = [0, 1, 2];
+  for (let i = perm.length - 1; i > 0; i--) {
+    h = Math.imul(h ^ (h >>> 15), 2246822507); h ^= h >>> 13;
+    const j = Math.abs(h) % (i + 1);
+    const t = perm[i]; perm[i] = perm[j]; perm[j] = t;
+  }
+  return perm;
+}
+window.learnPerm = learnPerm;
+
 function learnRenderQ() {
   const c = chapterById(learnCur); if (!c) return;
   const s = stOf(c.chapterId);
@@ -2038,10 +2064,12 @@ function learnRenderQ() {
   const picked = s.picked[learnQ];
   const passed = !!s.decisions[learnQ];
   document.getElementById('learn-qhint').textContent = `第 ${learnQ + 1} / ${c.questions.length} 题 · ${q.judgment}（每题 3 个选项，只有 1 个正确）`;
+  const perm = learnPerm(c.chapterId, learnQ);
   document.getElementById('learn-q').innerHTML = `<div class="lq"><h3>${learnQ + 1}. ${esc(q.prompt)}</h3>`
-    + q.options.map((o, j) => {
-      const cls = picked === j ? (o.correct ? 'ok' : 'bad') : '';
-      return `<button class="lopt ${cls}" ${passed ? 'disabled' : ''} onclick="learnChoose(${j})"><b>${'ABC'[j]}.</b> ${esc(o.text)}</button>`;
+    + perm.map((src, j) => {
+      const o = q.options[src];
+      const cls = picked === src ? (o.correct ? 'ok' : 'bad') : '';
+      return `<button class="lopt ${cls}" ${passed ? 'disabled' : ''} onclick="learnChoose(${src})"><b>${'ABC'[j]}.</b> ${esc(o.text)}</button>`;
     }).join('')
     + (picked === null || picked === undefined ? '' : `<div class="lfb">${learnFeedback(q, picked)}</div>`)
     + '</div>';
@@ -2087,6 +2115,7 @@ function learnSaidChanged() {
   const s = stOf(c.chapterId);
   const box = document.getElementById('learn-said');
   s.said = box ? box.value : '';
+  learnReq++;                       // 复述一改，进行中的那次判定立刻作废（返回了也不写状态）
   const had = s.feynman;
   if (had) {
     s.feynman = null; s.verdict = '';
@@ -2095,8 +2124,8 @@ function learnSaidChanged() {
     const st = document.getElementById('learn-fstatus');
     if (st) st.textContent = had === 'ok' ? '已修改复述 —— 旧的通过状态已清除，请重新提交判定。' : '当前状态：还没提交';
     learnDots();
-    saveLearnState();
   }
+  saveLearnState();                 // 草稿也落盘：没提交就刷新不该丢
 }
 window.learnSaidChanged = learnSaidChanged;
 
@@ -2116,22 +2145,27 @@ async function learnFeynman() {
   const c = chapterById(learnCur), out = document.getElementById('learn-fres');
   const box = document.getElementById('learn-said');
   const s = stOf(c.chapterId);
-  if (learnBusy) return;
+  if (learnBusyOf[c.chapterId]) return;             // 同一章不许并发提交；别的章不受影响
   const said = (box ? box.value : '').trim();
   s.said = said;
+  const seq = ++learnReq;                           // 本次判定的代次
+  const stale = () => seq !== learnReq;             // 复述被改过／又提过一次 → 旧结果作废
   const show = (status, title, body) => {
+    if (stale()) return;
     s.feynman = status; s.verdict = title + '\n' + body; s.at = new Date().toISOString();
     saveLearnState();
-    out.className = 'lres on ' + status; out.textContent = title + '\n' + body;
-    const st = document.getElementById('learn-fstatus'); if (st) st.textContent = '当前状态：' + LEARN_STATUS[status];
-    learnDots();
+    if (out && document.contains(out)) { out.className = 'lres on ' + status; out.textContent = title + '\n' + body; }
+    const st = document.getElementById('learn-fstatus');
+    if (st && learnCur === c.chapterId) st.textContent = '当前状态：' + LEARN_STATUS[status];
+    learnDots(); learnChips();
   };
   if (said.length < 30) { show('wait', '还不能判定', '请再具体一些：至少说清 ' + c.feynman.required.join('、') + '。'); return; }
   const local = /^(127\.0\.0\.1|localhost|\[::1\])$/.test(location.hostname);
   if (!local) { show('wait', '待人工复核', '公网静态版不调用模型，也不把提交当作通过。'); return; }
-  learnBusy = true;
+  learnBusyOf[c.chapterId] = true;
   const btn = document.getElementById('learn-submit');
   if (btn) btn.disabled = true;
+  if (box) box.disabled = true;                     // 提交中锁住复述：判定结果必须对应这一版文本
   show('wait', '复述已提交', '正在尝试本地判定（不调用知乎）。');
   try {
     const material = [
@@ -2144,8 +2178,10 @@ async function learnFeynman() {
       { role: 'system', content: '你是一个学习单元的费曼复述检查器。只根据给定材料判断，不调用外部资料，不引用知乎。必须只输出 JSON，格式为 {"covered":["要点"],"missing":[],"next":"一句下一步"}。covered 只填复述中确实说到的要点，取值必须从给定要点列表里原样挑选；missing 填漏掉的要点；两者都只能用要点列表里的原词。' },
       { role: 'user', content: `要点列表：${c.feynman.required.join('、')}\n材料：\n${material}\n复述：${said}` },
     ] }) });
+    if (stale()) return;
     if (!r.ok) throw new Error('llm-http-' + r.status);
     const j = await r.json();
+    if (stale()) return;
     const v = parseLearnVerdict(j.content, c.feynman.required);
     if (!v) { show('wait', '待人工复核', '本地模型返回的格式不符合判定协议，没有把它当作通过。\n原始返回：' + String(j.content || '').slice(0, 400)); return; }
     const body = `讲到了：${v.covered.join('、') || '无'}\n漏点：${v.missing.join('、') || '无'}\n下一步：${v.next || '无'}`;
@@ -2153,7 +2189,7 @@ async function learnFeynman() {
     else show('fail', '费曼未通过 · 判定等级：本地模型', body + '\n请补齐漏点后重新提交；下一章保持锁定。');
   } catch (e) {
     show('wait', '待人工复核', '本地模型暂不可用或请求失败，没有把它当作通过。\n' + e.message);
-  } finally { learnBusy = false; if (btn) btn.disabled = false; }
+  } finally { learnBusyOf[c.chapterId] = false; if (btn) btn.disabled = false; if (box) box.disabled = false; }
 }
 window.learnFeynman = learnFeynman;
 loadLearnState();

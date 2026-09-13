@@ -2,7 +2,7 @@
 
 日期：2026-09-13（深夜跨 09-14）
 入口：`http://127.0.0.1:5180/知所栖-壳.html`（**必须经 serve**，`/api/*` 才通）
-直达某一章：`http://127.0.0.1:5180/知所栖-壳.html#learn=agent`（也可 `#learn=verification-loop` 等）
+直达某一章（审核／复现用）：`http://127.0.0.1:5180/知所栖-壳.html#learn=agent&review=1` —— **只有带 `&review=1` 才走 force 直达**；不带时和其它入口一样受解锁门约束（未解锁会被挡回上一章）。
 实现：`scripts/shell.template.html`（学习空间）＋ `evidence/agent-loop-260913/chapters.json`（章节数据）
 材料来源：`内容结构化系统/模块/ai-concept-base/data/units.json`（五类语义单元）＋ `knowledge/概念地图-260913/topics.json`（cm_* 卡）
 
@@ -10,8 +10,8 @@
 
 | 证据 | 命令 | 它证明什么 | 它**不**证明什么 |
 |---|---|---|---|
-| 材料体检 | `node scripts/check-learning-materials.mjs` | 241 项：ID／类型／主案例属于候选／三题三选一恰好一对／正确答案有 OPI 或 SOL 逐字依据／正文逐字可回源／费曼要点按章不同 | 页面状态机、模型行为 |
-| 页面黑盒 | `node scripts/test-learn-agent-loop.mjs` | 55 项：进入学习空间隐藏图谱与主题列表、一题一判、三题按顺序全过才出费曼、费曼门（过短／非 JSON／漏点都不算过）、**重新编辑清掉通过状态**、未通过不解锁下一章、返回恢复原路线原步骤原概念、地址可复现 | 学习效果；真模型行为（费曼走**固定响应**） |
+| 材料体检 | `node scripts/check-learning-materials.mjs` | 242 项：ID／类型／主案例属于候选／三题三选一恰好一对／正确答案有 OPI 或 SOL 逐字依据／正文逐字可回源／费曼要点按章不同 | 页面状态机、模型行为 |
+| 页面黑盒 | `node scripts/test-learn-agent-loop.mjs` | 65 项：进入学习空间隐藏图谱与主题列表、一题一判、三题按顺序全过才出费曼、费曼门（过短／非 JSON／漏点都不算过）、**重新编辑清掉通过状态**、未通过不解锁下一章、**选项顺序稳定打乱（正解不再固定在某个位置）**、**提交中改复述→旧判定作废**、**草稿改动即落盘**、**地址入口不再绕过解锁**、返回恢复原路线原步骤原概念 | 学习效果；真模型行为（费曼走**固定响应**） |
 | 真模型走查 | `for ch in agent tool agent-loop state-persistence harness verification-loop; do node scripts/walk-learn-agent-loop.mjs $ch; done` | 真调本地 `/api/llm`：阅读 → 三题（含先答错一次）→ 费曼「未通过（列出**本章自己的**漏点）」→ 补齐后「通过」→ 下一章解锁 → 编辑复述后锁定恢复 | 学习效果；每章 1 次、共 6 章，不是统计实验 |
 
 MVP 那一章同样有三份：`test-mvp-learning.mjs`（黑盒）· `walk-mvp-real-llm.mjs`（真模型）· 本文件。
@@ -23,12 +23,12 @@ MVP 那一章同样有三份：`test-mvp-learning.mjs`（黑盒）· `walk-mvp-r
 
 | 章 | 概念地图卡（cm_\*） | 核心概念（CON-\*） | QST | 候选 CAS（主案例） | OPI | SOL | 状态 |
 |---|---|---|---|---|---|---|---|
-| 1 Agent | `cm_0608c405` | `CON-agent` | `QST-agent` | 1 个（`CAS-agent`，假设场景） | 2 条 | `SOL-agent`（2 步） | 候选装配稿 |
-| 2 工具 | `cm_a72ef18d` | `CON-tool` | `QST-tool` | 1 个（`CAS-tool`，假设场景） | 3 条 | `SOL-tool`（3 步） | 候选装配稿 |
-| 3 Agent loop | `cm_1973b1d3` | `CON-agent-loop` | `QST-agent-loop` | 1 个（`CAS-agent-loop`，假设场景） | **0 条** | `SOL-agent-loop`（3 步） | 候选装配稿 |
-| 4 状态子系统与进度持久化 | `cm_be951649` | `CON-state-management` | `QST-state-management` | 1 个（`CAS-state-management`，假设场景） | 1 条 | `SOL-state-management`（3 步） | 候选装配稿 |
-| 5 Harness | `cm_0a4ca4ce` | `CON-agent-harness` | `QST-agent-harness` | 1 个（`CAS-agent-harness`，假设场景） | 1 条 | `SOL-agent-harness`（3 步） | 候选装配稿 |
-| 6 验证闭环 | `cm_7cd7335d` | `CON-verification-loop` | `QST-verification-loop` | 1 个（`CAS-verification-loop`，假设场景） | **0 条** | `SOL-verification-loop`（4 步） | 候选装配稿 |
+| 1 Agent | `cm_0608c405` | `CON-agent` | `QST-agent` | 1 个（`CAS-agent`，假设场景） | 2 条 | `SOL-agent`（2 步） | ready |
+| 2 工具 | `cm_a72ef18d` | `CON-tool` | `QST-tool` | 1 个（`CAS-tool`，假设场景） | 3 条 | `SOL-tool`（3 步） | ready |
+| 3 Agent loop | `cm_1973b1d3` | `CON-agent-loop` | `QST-agent-loop` | 1 个（`CAS-agent-loop`，假设场景） | **0 条** | `SOL-agent-loop`（3 步） | ready |
+| 4 状态子系统与进度持久化 | `cm_be951649` | `CON-state-management` | `QST-state-management` | 1 个（`CAS-state-management`，假设场景） | 1 条 | `SOL-state-management`（3 步） | ready |
+| 5 Harness | `cm_0a4ca4ce` | `CON-agent-harness` | `QST-agent-harness` | 1 个（`CAS-agent-harness`，假设场景） | 1 条 | `SOL-agent-harness`（3 步） | ready |
+| 6 验证闭环 | `cm_7cd7335d` | `CON-verification-loop` | `QST-verification-loop` | 1 个（`CAS-verification-loop`，假设场景） | **0 条** | `SOL-verification-loop`（4 步） | ready |
 
 **审核状态：六章全部 `ready`（主案例已由负责人确认）** —— 2026-09-14 负责人当场确认（原话：「确定」），记录在 `pairings.json.caseReview`（`confirmedAt` / `confirmedBy` / `ownerQuote` / `history`）。
 
@@ -81,3 +81,19 @@ MVP 那一章同样有三份：`test-mvp-learning.mjs`（黑盒）· `walk-mvp-r
 - 真模型走查已覆盖六章（每章 1 次）；它不是学习效果样本，也没有跨模型对照。
 - 没有做 03 费曼演练室 / 05 实验台；没有接知乎 API；没有让模型规划路线。
 - 公网产物未重建（见回执「未执行事项」）。
+
+## 六、2026-09-14 补修：可猜题 / 可绕过 / 竞态 / 草稿（只改壳与验收脚本，不动材料）
+
+起因：一次只读审计在这六章上量出五个产品口子（数据本身没问题，全部是状态机与呈现问题）。逐条修在 `scripts/shell.template.html`，并各配一条黑盒断言。
+
+| 口子（修前实测） | 修法 | 断言 |
+|---|---|---|
+| 18 题里 12 题正解都在第 2 位；16 题正解是三个里最长的；选项按数组原序渲染 → 「永远选最长」可整章通过 6 章里的 4 章 | 按「章 + 题号」做**稳定**洗牌（`learnPerm`）：同一题每次渲染顺序一致，已选高亮不会错位；点击与判分仍用源下标 | 正解位置覆盖 3 个位置；页面渲染顺序 = 洗牌结果 |
+| `#learn=<chapterId>` 在 boot 里写死 `force:true`，未解锁的章也能直接进、并把后续解锁条件刷掉 | 只有 `#learn=<id>&review=1`（审核／复现）才 force；不带时走正常解锁门 | 未解锁直达第 6 章 → 挡回第 5 章并写明原因；带 `review=1` 才直达 |
+| 提交费曼后仍可改复述：`learnSaidChanged` 清掉状态，随后旧请求返回又把 `ok` 写回去 | 提交中锁住复述框 + 判定代次号 `learnReq`：复述一改，在途结果一律作废（不发 UI 也不落状态） | 提交中框被锁；改复述后旧判定返回 → 状态仍为空、下一章重新锁上 |
+| 草稿只在已有判定状态时才落盘 → 三题刚过、没提交就刷新会丢 | `learnSaidChanged` 无条件 `saveLearnState()` | 改动后立刻可从 localStorage 读回 |
+| `renderLearn` 是唯一渲染章节 chip 的地方，费曼通过后 chip 不刷新（第 2 章仍显示 🔒） | 抽出 `learnChipsHtml()`／`learnChips()`，判定结束后就地刷新 | 通过后第 2 章按钮立刻可点 |
+| `learnBusy` 是全局布尔：A 章提交中切到 B 章，B 章的提交被静默吞掉 | 改成按章的 `learnBusyOf[chapterId]` | （黑盒未单独断言，代码级） |
+
+复跑：材料体检 **242/242** · 学习空间黑盒 **65/65 ＋ 0 JS 报错** · 真模型走查六章各一次（每章 2 次真实 `/api/llm`、0 次知乎请求、0 JS 报错，仍是「未通过 → 补齐 → 通过 → 编辑后重新锁上」）。
+**仍未做**：题目正解位置以外的线索（措辞、长度）没改材料本身；`currentView` 之外的学生/审核视图分离仍未做；公网产物仍未重建。
