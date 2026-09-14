@@ -348,6 +348,7 @@ code{background:#161719;border:1px solid var(--line);border-radius:4px;padding:1
 .burger{display:none;align-items:center;justify-content:center;width:30px;height:30px;border:1px solid var(--line);
   border-radius:7px;background:#141518;color:var(--fg2);font-size:14px;cursor:pointer;flex:0 0 auto}
 .burger:hover{color:var(--fg)}
+@media (max-width:1100px){.starlink-explore .exo-card{width:320px;max-width:92vw}}
 @media (max-width:1100px){
   #app{grid-template-columns:1fr}
   #main{grid-column:1}
@@ -3648,46 +3649,24 @@ window.toggleUpd = toggleUpd; window.closeUpd = closeUpd;
 function openExplore() {
   const reader = document.getElementById('reader');
   let w = document.getElementById('explore-wrap');
-  if (!w && reader) {
-    reader.innerHTML = '';
-    w = document.createElement('div'); w.className = 'explore'; w.id = 'explore-wrap';
-    reader.appendChild(w);
-  }
-  let done = false;
-  try { done = localStorage.getItem('zss135.explore.v1') === 'done'; } catch (e) {}
-  w.innerHTML = (done || expStep >= 3) ? exploreHome() : exploreOnboard();
+  if (!w && reader) { reader.innerHTML = ''; w = document.createElement('div'); w.className = 'explore'; w.id = 'explore-wrap'; reader.appendChild(w); }
+  if (!w) return;
+  w.innerHTML = exploreHome();
   const r = document.getElementById('reader');
   if (r) { r.classList.add('on'); if (r.scrollTo) r.scrollTo(0, 0); }
   renderList(); refreshRail();
 }
 window.openExplore = openExplore;
-function exploreOnboard() {
-  const s = EXPLORE_STEPS[expStep];
-  return `<div class="exp-onboard">
-    <div class="exo-card">
-      <div class="exo-ico">${s.icon}</div>
-      <h3>${esc(s.name)}</h3>
-      <div class="exo-title">${esc(s.title)}</div>
-      <p>${esc(s.text)}</p>
-      <div class="exo-dots">${EXPLORE_STEPS.map((_, i) => `<i class="${i === expStep ? 'on' : ''}"></i>`).join('')}</div>
-      <div class="exo-acts">
-        ${expStep > 0 ? `<button class="exo-ghost" onclick="expMove(-1)">上一步</button>` : `<button class="exo-ghost" onclick="expDone()">跳过</button>`}
-        <button class="exo-next" onclick="${expStep >= 2 ? 'expDone()' : 'expMove(1)'}">${expStep >= 2 ? '开始用' : '下一步'}</button>
-      </div>
-    </div>
-    <div class="exo-note">AI 内嵌 · 首次引导 · 随时可跳过</div>
-  </div>`;
-}
 function exploreHome() {
-  return `<div class="exp-home">
-    <div class="exp-hero"><h2>AI 内嵌</h2>
-      <p>知所栖的三个模块是一条学习回路：<b>内参</b>给你今天要学的材料，<b>知识体系</b>把材料长成你的知识树，<b>实践空间</b>用一条路带走到会。</p></div>
-    <div class="exp-mods">${EXPLORE_STEPS.map(s => `
-      <button class="exp-mod" onclick="expGo('${s.view}')">
-        <span class="em-ico">${s.icon}</span><b>${esc(s.name)}</b><span>${esc(s.title)}</span></button>`).join('')}</div>
-    <div class="exp-note">对话能力由队友前端模块提供，合并中（iterations/v4-unify phase 07）。</div>
+  return `<div class="exp-home starlink-explore">
+    <div class="exp-hero exo-card"><div class="exo-kicker">知所栖 135 · 探索</div><h2>从一条问题，走进你的知识星链</h2>
+      <p>先看懂三件事如何连接，再进入真正可用的内参、知识体系与实践空间。</p></div>
+    <div class="exp-mods">${EXPLORE_STEPS.map((s, i) => `
+      <article class="exp-mod starlink-module"><div class="em-head"><span class="em-ico">${s.icon}</span><b>0${i + 1} ${esc(s.name)}</b></div><strong>${esc(s.title)}</strong><p>${esc(s.text)}</p><button class="exo-next" onclick="expGo('${s.view}')">${i===0?'开始阅读内参':i===1?'进入知识体系':'开始实践'} →</button></article>`).join('')}</div>
+    <div class="exp-note">介绍层负责理解，按钮负责进入真实模块。进入后可从顶栏返回探索。</div>
   </div>`;
 }
+function exploreOnboard() { return exploreHome(); }
 function expMove(d) { expStep = Math.max(0, Math.min(2, expStep + d)); openExplore(); }
 function expDone() { try { localStorage.setItem('zss135.explore.v1', 'done'); } catch (e) {} expStep = 3; openExplore(); }
 function expGo(v) { closeUpd(); closePanel(); setView(v); }
