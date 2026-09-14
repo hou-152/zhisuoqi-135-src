@@ -208,6 +208,43 @@ await ex(`openPractice(ROUTES[0].steps[2].conceptId)`);
 check('实际点击返回，恢复路径第三步和原概念', await ex(`(()=>{document.querySelector('#reader .practice-card .jbtn.ghost').click(); return mode+'|'+routeStepIdx+'|'+(selected===ROUTES[0].steps[2].conceptId)+'|'+document.getElementById('reader').classList.contains('on')})()`), 'path|2|true|false');
 check('进出学习闭环不伪造掌握记录', await ex(`JSON.stringify(marks)===window.__proofBeforeLoop`), 'true');
 
+/* ⑪b 实践空间第一版：六章阅读器 ＋ 状态看板（2026-09-14 裁决 · 决定 2 与 6）
+   要点：准入是**数据驱动的一条判断**（四段全绿），不是把六章写死在代码里；
+   19 条 ready 只显示「准备中 / 目录候选」，76 个批量单元一律不可进入；阅读器复用 #learn 同一套排版。 */
+console.log('\n⑪b 实践空间 · 六章阅读器 + 状态看板');
+check('实践空间数据来自 DATA.practice（不是页面里写死的六章）', await ex(`typeof PRACTICE==='object' && PRACTICE.units.length`), 83);
+check('准入判定在数据里：四段全绿=6（六章），批量 76 个一个都不开放',
+  await ex(`PRACTICE.units.filter(u=>u.open).length+'|'+PRACTICE.units.filter(u=>u.group==='批量').length+'|'+PRACTICE.units.filter(u=>u.group==='批量'&&u.open).length`), '6|76|0');
+check('四段都有明确取值（可走/缺材料/未装配/不可进入）',
+  await ex(`PRACTICE.units.every(u=>['reading','formative','decision','summative'].every(k=>['可走','缺材料','未装配','不可进入'].includes(u.segments[k].stateLabel)))`), 'true');
+check('批量单元缺决策题（0 道 → 链路在决策那一段断）',
+  await ex(`PRACTICE.units.filter(u=>u.group==='批量').every(u=>u.segments.decision.state==='unassembled'&&u.decisionCount===0)`), 'true');
+check('批量判据是机械派生的（照实标缺材料，不当人工判据）',
+  await ex(`PRACTICE.units.filter(u=>u.group==='批量').every(u=>u.segments.formative.state==='missing'&&u.derivedCount>=1&&u.authoredCount===0)`), 'true');
+await ex(`openPractice()`);
+check('六章逐章一行 + 单篇一行（来自数据）', await ex(`openPractice(); document.querySelectorAll('#reader .pcard .pu .nm').length`), 7);
+check('19 条 ready 只作目录候选显示，不给进入按钮',
+  await ex(`(()=>{const t=document.getElementById('reader').innerText;return t.includes('准备中 / 目录候选')&&t.includes('不开放学习')&&t.includes('决策题 0 道')})()`), 'true');
+check('空白格照实说：缺少可靠案例本轮是 0，并写明为什么',
+  await ex(`(()=>{openPracticeBoard();return document.getElementById('reader').innerText.includes('这一格本轮是 0')})()`), 'true');
+check('状态看板逐单元 83 行（不含「要全面推进」那张表）',
+  await ex(`openPracticeBoard(); document.querySelectorAll('#reader .pboard tbody tr').length`), 89);
+check('看板写着四类口径与准入规则',
+  await ex(`(()=>{const t=document.getElementById('reader').innerText;return t.includes('已装配课程：可进入')&&t.includes('材料缺口：待装配')&&t.includes('缺少决策题：不可进入')&&t.includes('缺少可靠案例：不可进入')&&t.includes('四段全绿才开放')})()`), 'true');
+check('看板有「要全面推进，还差什么」并写出补的闸门',
+  await ex(`(()=>{const t=document.getElementById('reader').innerText;return t.includes('要全面推进，还差什么')&&t.includes('缺决策题')&&t.includes('判据是机械推的')&&t.includes('无页面入口')})()`), 'true');
+check('批量单元点不进阅读器，并给出原因（不静默失败）',
+  await ex(`openPractice(); practiceEnter('unit:batch-agent')`), 'false');
+check('不能进入时写着缺什么', await ex(`(()=>{const t=document.getElementById('practice-blocked').innerText;return t.includes('现在不能进入学习')&&t.includes('缺少决策题')&&t.includes('0 道决策题')})()`), 'true');
+check('单篇照实说不在这套阅读器里', await ex(`(()=>{openPractice();const t=document.getElementById('reader').innerText;return t.includes('单篇试点')&&t.includes('不在这套阅读器里')})()`), 'true');
+check('进入第 1 章走的是同一套 #learn 阅读器',
+  await ex(`(()=>{openPractice(); practiceEnter('unit:chapter-agent'); const on=document.getElementById('learn').classList.contains('on'); const rail=!!document.querySelector('#learn-wrap .lrail'); const chips=document.querySelectorAll('#learn-wrap .lrail-steps .lchip').length; return on+'|'+rail+'|'+chips+'|'+learnCur})()`), 'true|true|6|agent');
+check('从实践空间进来，返回条写「返回实践空间」', await ex(`document.getElementById('learn-back').textContent`), '← 返回实践空间');
+check('返回后回到实践空间（不是被丢进知识体系）',
+  await ex(`exitLearn(); currentView+'|'+document.getElementById('reader').classList.contains('on')`), 'practice|true');
+check('路径条进来时的返回行为没改（这一版只多一个入口，不替换）',
+  await ex(`(()=>{exitLearn(); setMode('path'); openPanel(ROUTES[0].steps[0].conceptId); openLearnFor(ROUTES[0].steps[0].conceptId); const label=document.getElementById('learn-back').textContent; exitLearn(); return label+'|'+currentView})()`), '← 返回知识体系|graph');
+
 await ex(`closePanel()`); await sleep(200);
 /* 截图落到 prototype/预览/（和 shot-shell 同一处），文件名用 40 段避开已有编号 */
 const OUTDIR = '/Users/housibo/Documents/知乎黑客松/prototype/预览';

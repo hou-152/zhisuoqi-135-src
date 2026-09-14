@@ -70,7 +70,10 @@ ok(await ev(`document.querySelector('#main').classList.contains('graphon')`), '�
 const layerCards = await ev(`document.querySelectorAll('#gv-host .gv-card').length`);
 ok(layerCards >= 7, `七层都有卡（实际 ${layerCards}）`);
 const head = await text('#gv-host');
-ok(/全部索引\s*199[0-9]/.test(head) || /全部索引\s*2\d{3}/.test(head), '顶栏写着真实的全量节点数（不是手写的）');
+// 顶栏那个数必须等于图里真实的全量节点数（原来写死成 1990–2999 的区间，图一长就会假红；
+// 改成跟 window.GV.graph.stats.nodes 对，才是"不是手写的"这句断言真正的意思）
+const realNodes = await ev(`(window.GV && window.GV.graph && window.GV.graph.stats && window.GV.graph.stats.nodes) || (window.GV && window.GV.graph && window.GV.graph.nodes.length) || 0`);
+ok(realNodes > 0 && new RegExp('全部索引\\s*' + realNodes + '(?![0-9])').test(head), `顶栏写着真实的全量节点数（图 ${realNodes}）`);
 ok(/待装配/.test(head), '顶栏同时给出待装配数');
 ok(/材料与出处/.test(head) && /五类语义/.test(head) && /公共知识与关系/.test(head) && /问题与课程编排/.test(head)
   && /学习活动/.test(head) && /运行与记录/.test(head) && /模型与规则/.test(head), '七层名字齐');

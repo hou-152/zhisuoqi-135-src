@@ -9,6 +9,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { DRAWN_RELATION_KINDS, isRelatedRelation, dedupeRelations, relationLedger, relationLedgerOf } from './lib/relation-kinds.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const MAP = path.join(ROOT, 'knowledge', '概念地图-260913');
@@ -79,27 +80,21 @@ const nodes = topics.map((t) => {
   };
 });
 
-/* ── 关系层：只把已接受的语义关系接到壳，保留共现/拒绝边的统计 ── */
-const RELATION_KINDS = new Set(['prerequisite', 'related-to', 'used-with', 'part-of', 'contrast']);
+/* ── 关系层：只把已接受的语义关系接到壳，保留共现/拒绝边的统计 ──
+   口径统一在 scripts/lib/relation-kinds.mjs（唯一来源）：画得出来的 5 类进 relations，
+   共现/已否只进统计。`relatedCount` 一律指**画得出来里除先修之外**的那部分，
+   默认不绘制的那部分单独报 `relatedHiddenCount`，避免页面上出现两个差 13 倍的"相关 N 条"。 */
+const RELATION_KINDS = new Set(DRAWN_RELATION_KINDS);
 const nodeIds = new Set(nodes.map((n) => n.id));
-const relationScore = (r) => (r.strength === 'hard' ? 2 : 1) + (r.note ? .25 : 0) + (r.evidence ? .1 : 0);
-const relationKey = (r) => {
-  if (r.kind === 'prerequisite') return `${r.kind}:${r.from}:${r.to}`;
-  const [a, b] = [r.from, r.to].sort();
-  return `${r.kind}:${a}:${b}`;
-};
-const relationMap = new Map();
-for (const r of rawRelations) {
-  if (!RELATION_KINDS.has(r.kind) || !nodeIds.has(r.from) || !nodeIds.has(r.to) || r.from === r.to) continue;
-  const key = relationKey(r);
-  if (!relationMap.has(key) || relationScore(r) > relationScore(relationMap.get(key))) relationMap.set(key, r);
-}
-const relations = [...relationMap.values()];
+const relations = dedupeRelations(rawRelations).filter((r) => nodeIds.has(r.from) && nodeIds.has(r.to));
 const rawByKind = {};
 for (const r of rawRelations) rawByKind[r.kind] = (rawByKind[r.kind] || 0) + 1;
+const ledger = relationLedger(rawRelations);
 const relationStats = {
   visible: relations.length,
-  hidden: (rawByKind['co-article'] || 0) + (rawByKind.rejected || 0),
+  hidden: ledger.hidden.length,
+  related: ledger.related.length,
+  hiddenByKind: Object.fromEntries(Object.entries(rawByKind).filter(([k]) => !RELATION_KINDS.has(k))),
   byKind: Object.fromEntries([...new Set([...Object.keys(rawByKind), ...[...RELATION_KINDS]])]
     .map((k) => [k, rawByKind[k] || 0])),
 };
@@ -244,6 +239,9 @@ function wireRoutes() {
   const cfg = JSON.parse(fs.readFileSync(ROUTE_FILE, 'utf8'));
   const depOf = (id) => dependencies.filter((e) => e.topicId === id);
   const relOf = (id) => relations.filter((r) => r.from === id || r.to === id);
+  // 「相关」= 画得出来的语义关系里除先修之外的部分；同时把**默认不绘制**的共现/已否数出来，
+  // 页面才有资格照实说"哪些没画"。两个数同源（都用 lib/relation-kinds.mjs 的口径与去重）。
+  const relCountOf = (id) => relationLedgerOf(rawRelations, id);
   const brief = (e) => ({ id: e.prerequisiteId, name: byId.get(e.prerequisiteId).name,
     strength: e.strength, reason: e.reason || '' });
   const relBrief = (r, id) => {
@@ -255,7 +253,8 @@ function wireRoutes() {
     const steps = (rt.steps || []).map((s) => {
       const n = byId.get(s.conceptId);
       const dep = depOf(s.conceptId);
-      const rel = relOf(s.conceptId).filter((r) => r.kind !== 'prerequisite');
+      const rel = relOf(s.conceptId).filter(isRelatedRelation);
+      const rc = relCountOf(s.conceptId);
       const declared = s.prereq ? s.prereq.conceptId : null;
       const edge = declared ? dep.find((e) => e.prerequisiteId === declared) : null;
       return {
@@ -274,6 +273,8 @@ function wireRoutes() {
         mapSoft: dep.filter((e) => e.strength !== 'hard').map(brief),
         related: rel.slice(0, 8).map((r) => relBrief(r, s.conceptId)),
         relatedCount: rel.length,
+        relatedHiddenCount: rc.hidden.length,     // 共现 + 已否：默认不绘制，页面上照实说明去处
+        relatedHiddenByKind: Object.fromEntries(Object.entries(rc.byKindRaw).filter(([k]) => !RELATION_KINDS.has(k))),
         support: { sources: (n.sa || []).length, evidence: (n.evidence || []).length },
       };
     });

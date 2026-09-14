@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-13T20:03:45.776Z",
+ "generatedAt": "2026-09-14T00:14:24.254Z",
  "nodes": [
   {
    "id": "cm_0a4ca4ce",
@@ -47671,6 +47671,11 @@
  "relationStats": {
   "visible": 910,
   "hidden": 2485,
+  "related": 280,
+  "hiddenByKind": {
+   "co-article": 2419,
+   "rejected": 66
+  },
   "byKind": {
    "part-of": 16,
    "contrast": 8,
@@ -56163,6 +56168,10 @@
        }
       ],
       "relatedCount": 4,
+      "relatedHiddenCount": 15,
+      "relatedHiddenByKind": {
+       "co-article": 15
+      },
       "support": {
        "sources": 2,
        "evidence": 2
@@ -56203,6 +56212,10 @@
       ],
       "related": [],
       "relatedCount": 0,
+      "relatedHiddenCount": 5,
+      "relatedHiddenByKind": {
+       "co-article": 5
+      },
       "support": {
        "sources": 2,
        "evidence": 2
@@ -56279,6 +56292,11 @@
        }
       ],
       "relatedCount": 5,
+      "relatedHiddenCount": 16,
+      "relatedHiddenByKind": {
+       "co-article": 15,
+       "rejected": 1
+      },
       "support": {
        "sources": 3,
        "evidence": 2
@@ -56325,6 +56343,11 @@
       ],
       "related": [],
       "relatedCount": 0,
+      "relatedHiddenCount": 4,
+      "relatedHiddenByKind": {
+       "co-article": 3,
+       "rejected": 1
+      },
       "support": {
        "sources": 1,
        "evidence": 2
@@ -56415,6 +56438,11 @@
        }
       ],
       "relatedCount": 21,
+      "relatedHiddenCount": 248,
+      "relatedHiddenByKind": {
+       "co-article": 247,
+       "rejected": 1
+      },
       "support": {
        "sources": 21,
        "evidence": 2
@@ -56491,6 +56519,10 @@
        }
       ],
       "relatedCount": 5,
+      "relatedHiddenCount": 17,
+      "relatedHiddenByKind": {
+       "co-article": 17
+      },
       "support": {
        "sources": 2,
        "evidence": 2

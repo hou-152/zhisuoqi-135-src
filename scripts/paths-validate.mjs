@@ -12,6 +12,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { relationLedgerOf } from './lib/relation-kinds.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const MAP = path.join(ROOT, 'knowledge', '概念地图-260913');
@@ -30,7 +31,11 @@ const cfg = JSON.parse(fs.readFileSync(CFG, 'utf8'));
 const fails = [], warns = [], report = { generatedAt: new Date().toISOString(), source: path.relative(ROOT, CFG), routes: [] };
 
 const depOf = (id) => dependencies.filter((e) => e.topicId === id);
-const relOf = (id) => relations.filter((r) => (r.from === id || r.to === id) && r.kind !== 'prerequisite');
+// 「相关」的口径与壳**同源**（scripts/lib/relation-kinds.mjs：kind 白名单 + 同一套去重）。
+// 以前这里把 co-article（同一篇里出现过）与 rejected（已被判不成立）也算进"相关"，
+// 于是 validate.json 报 Harness 271、壳里报 21 —— 同一个名字差 13 倍。
+// 现在两个数分开写：related（画得出来、去重后）+ relatedHidden（默认不绘制），两边必然一致。
+const relOf = (id) => relationLedgerOf(relations, id).related;
 const nm = (id) => (byId.get(id) || {}).name || `（不存在）${id}`;
 
 for (const rt of cfg.routes || []) {
@@ -69,7 +74,8 @@ for (const rt of cfg.routes || []) {
       prereqDeclared: declared, prereqBasis: basis,
       mapHard: hard.map((e) => ({ id: e.prerequisiteId, name: nm(e.prerequisiteId), reason: e.reason })),
       mapSoft: soft.map((e) => ({ id: e.prerequisiteId, name: nm(e.prerequisiteId), reason: e.reason })),
-      relatedCount: rel.length, supportCount: (t.sources || []).length,
+      relatedCount: rel.length, relatedHiddenCount: relationLedgerOf(relations, s.conceptId).hidden.length,
+      supportCount: (t.sources || []).length,
       fallback: s.fallback ? s.fallback.conceptId : null,
     });
   }
@@ -95,7 +101,8 @@ for (const R of report.routes) {
   for (const s of R.steps) {
     console.log(`  ${s.order}. ${s.name} ｜ ${s.domain} · L${s.level} · ${s.verification}`);
     console.log(`     前置（路线声明）：${s.prereqDeclared ? nm(s.prereqDeclared) + ' [' + s.prereqBasis + ']' : '—'}`
-      + ` ｜ 地图 hard ${s.mapHard.length} · soft ${s.mapSoft.length} ｜ 相关 ${s.relatedCount} · 来源 ${s.supportCount}`);
+      + ` ｜ 地图 hard ${s.mapHard.length} · soft ${s.mapSoft.length} ｜ 相关 ${s.relatedCount} · 来源 ${s.supportCount}`
+      + `（另有 ${s.relatedHiddenCount} 条共现/已否，默认不绘制）`);
     for (const h of s.mapHard) console.log(`       hard ← ${h.name}：${String(h.reason).slice(0, 40)}`);
     console.log(`     卡住回退：${s.fallback ? nm(s.fallback) : '—（起点，无回退）'}`);
   }

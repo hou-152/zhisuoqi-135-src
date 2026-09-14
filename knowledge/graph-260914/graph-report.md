@@ -1,24 +1,24 @@
 # 全链路 Graph 索引报告
 
-构建时间：2026-09-13T22:58:21.764Z　版本：v1
+构建时间：2026-09-13T23:22:55.637Z　版本：v1
 
 > 本文件由 `node scripts/build-graph.mjs` 生成，**不要手改**。数字口径见文末《口径》。
 
 ## 一、总量
 
-- 节点 **2002** · 边 **7563** · 缺口条目 **45**
-- 可运行单元 **9** · 判据 **24** · 活动节点 **142** · 流程边（唯一能驱动跳转的边）**395**
-- 待装配（scaffold）**297**（14.8%）· 阻塞（blocked）**0**
+- 节点 **3974** · 边 **12644** · 缺口条目 **180**
+- 可运行单元 **85** · 判据 **288** · 活动节点 **1130** · 流程边（唯一能驱动跳转的边）**2675**
+- 待装配（scaffold）**601**（15.1%）· 阻塞（blocked）**0**
 
 ## 二、按层
 
 | 层 | 节点 | 待装配 | 阻塞 | 装什么 kind |
 |---|---|---|---|---|
-| 材料与出处 `source` | 252 | 49 | 0 | SourceDocument SourceSpan DerivedAsset FiveDimAsset |
+| 材料与出处 `source` | 896 | 49 | 0 | SourceDocument SourceSpan DerivedAsset FiveDimAsset |
 | 五类语义 `semantics` | 538 | 227 | 0 | SemanticUnit |
 | 公共知识与关系 `knowledge` | 1020 | 0 | 0 | Concept Topic |
-| 问题与课程编排 `curriculum` | 47 | 9 | 0 | LearningProblem Goal GapHypothesis Route RouteStep Unit Criterion |
-| 学习活动 `activity` | 142 | 11 | 0 | Reading Formative Support Decision DecisionReview Summative ApplicationReview ExperimentReference |
+| 问题与课程编排 `curriculum` | 387 | 66 | 0 | LearningProblem Goal GapHypothesis Route RouteStep Unit Criterion |
+| 学习活动 `activity` | 1130 | 258 | 0 | Reading Formative Support Decision DecisionReview Summative ApplicationReview ExperimentReference |
 | 运行与记录 `runtime` | 0 | 0 | 0 | Session Turn Attempt Checkpoint Evidence AssessmentRecord |
 | 模型与规则 `ai` | 3 | 1 | 0 | SkillPolicy ModelAdapter App |
 
@@ -27,22 +27,22 @@
 | kind | 数量 |
 |---|---|
 | Concept | 999 |
+| SourceSpan | 685 |
 | SemanticUnit | 538 |
+| ApplicationReview | 404 |
+| Support | 340 |
+| Criterion | 288 |
 | DerivedAsset | 130 |
+| Unit | 85 |
+| Reading | 85 |
+| Formative | 85 |
+| Summative | 85 |
+| ExperimentReference | 85 |
 | SourceDocument | 70 |
-| SourceSpan | 41 |
-| Support | 36 |
-| Criterion | 24 |
-| ApplicationReview | 24 |
 | Decision | 23 |
 | DecisionReview | 23 |
 | Topic | 21 |
 | FiveDimAsset | 11 |
-| Unit | 9 |
-| Reading | 9 |
-| Formative | 9 |
-| Summative | 9 |
-| ExperimentReference | 9 |
 | RouteStep | 8 |
 | Goal | 2 |
 | Route | 2 |
@@ -57,17 +57,17 @@
 | 边类 | 数量 | 能不能驱动跳转 |
 |---|---|---|
 | `knowledge` | 5725 | 不能 |
-| `provenance` | 1165 | 不能 |
-| `transition` | 395 | **能**（唯一） |
-| `curriculum` | 278 | 不能（课程编排，不是运行时跳转） |
+| `transition` | 2675 | **能**（唯一） |
+| `curriculum` | 2167 | 不能（课程编排，不是运行时跳转） |
+| `provenance` | 2077 | 不能 |
 
 ## 五、按审核状态（边的可信程度）
 
 | reviewState | 数量 |
 |---|---|
+| sourced | 5965 |
 | unreviewed | 3666 |
-| sourced | 3240 |
-| curated | 499 |
+| curated | 2855 |
 | authored | 140 |
 | owner-confirmed | 18 |
 
@@ -75,8 +75,8 @@
 
 | status | 数量 |
 |---|---|
-| ready | 1705 |
-| scaffold | 297 |
+| ready | 3373 |
+| scaffold | 601 |
 
 ## 七、可运行入口
 
@@ -170,6 +170,14 @@
   "criteria": 22,
   "activities": 108
  },
+ "batch": {
+  "units": 76,
+  "ready": 19,
+  "scaffold": 57,
+  "criteria": 264,
+  "activities": 760,
+  "materials": 380
+ },
  "fixture": {
   "routeId": "fixture-shared-concept-v1",
   "units": 2,
@@ -202,7 +210,7 @@
 
 ## 九、缺口清单（保留节点并写清原因，不把它变成 ready）
 
-### pending（45）
+### pending（180）
 
 - **概念依赖里有 2 条重复记录（已按稳定身份去重）** — 重复键：cm_30fb0c9b<-cm_34b33e00、cm_a0ca0f95<-cm_34b33e00　`knowledge/概念地图-260913/dependencies.json`　影响 2 个节点
 - **概念关系里有 11 条重复记录（已按稳定身份去重）** — 重复键：cm_0a4ca4ce>cm_d9aa9fe0/used-with、cm_34b33e00>cm_7cd7335d/used-with、cm_c8798fb1>cm_01d6a01e/used-with、cm_b55ff5c3>cm_916d7db2/used-with、cm_30201f36>cm_01d6a01e/used-with　`knowledge/概念地图-260913/relations.json`　影响 3 个节点
@@ -246,9 +254,25 @@
 - **验证闭环 章：材料侧已知问题** — 每章经 relationships.target 找到的候选 CAS 都只有 1 个，没有可对比的第二候选；「允许一个概念多个候选案例」这条规则在本批材料上没被真正用上。　`evidence/agent-loop-260913/chapters.json#gaps[1]`　影响 1 个节点
 - **验证闭环 章：材料侧已知问题** — CON-agent-loop 与 CON-verification-loop 没有 relationships 直连的 OPI，题目依据只能落在 SOL 动作路径上。　`evidence/agent-loop-260913/chapters.json#gaps[2]`　影响 1 个节点
 - **单篇的正式章末通过与解锁门待装配** — 单篇材料有 4 条判据与章末费曼，但没有像六章那样已确认的「正式通过标准 / 解锁规则」；本轮照实标待装配，不借用六章的门　`evidence/feynman-teaching-map/agent-skills-api.json#criteria`　影响 2 个节点
-- **夹具题没有主案例与作答依据：fixture-agent-config** — 夹具只验证运行器复用与共享概念，没有配案例与依据；正式单元必须有，缺了就得标待装配　`docs/总图视图契约-20260914.md#§7`　影响 1 个节点
-- **夹具题没有主案例与作答依据：fixture-harness-scope** — 夹具只验证运行器复用与共享概念，没有配案例与依据；正式单元必须有，缺了就得标待装配　`docs/总图视图契约-20260914.md#§7`　影响 1 个节点
-- **开发夹具不是第二条正式课程** — 本库当前只有 1 条已审核路线（routes.json）。按任务书 §11，用明确标注的夹具验证运行器复用与共享概念，实际目录仍展示真实状态　`evidence/paths-260913/routes.json`　影响 1 个节点
+- **「AI Agent」的三道决策题待装配** — 该单元的三道决策题待装配：批量装配不补造唯一正确答案（任务书 §2.3）。可用素材已经就位：CAS 情境、SOL 动作路径、该卡 boundaries 的误区清单。　`evidence/batch-units-260914/units.json#units[unitId=batch-agent].gaps[0]`　影响 1 个节点
+- **「Agent 行动空间」的三道决策题待装配** — 该单元的三道决策题待装配：批量装配不补造唯一正确答案（任务书 §2.3）。可用素材已经就位：CAS 情境、SOL 动作路径、该卡 boundaries 的误区清单。　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-action-space].gaps[0]`　影响 1 个节点
+- **「Agent 行动空间」缺 OPI：决策题依据只能落在 CAS 情境与 SOL 动作路径上** — 本单元（CON-agent-action-space）没有反向观点单元；决策题待装配时，依据只能落在 CAS 情境与 SOL 动作路径上　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-action-space].statusReason`　影响 1 个节点
+- **「Agent CLI 运行时」的三道决策题待装配** — 该单元的三道决策题待装配：批量装配不补造唯一正确答案（任务书 §2.3）。可用素材已经就位：CAS 情境、SOL 动作路径、该卡 boundaries 的误区清单。　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-cli-runtime].gaps[0]`　影响 1 个节点
+- **「Agent CLI 运行时」缺 OPI：决策题依据只能落在 CAS 情境与 SOL 动作路径上** — 本单元（CON-agent-cli-runtime）没有反向观点单元；决策题待装配时，依据只能落在 CAS 情境与 SOL 动作路径上　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-cli-runtime].statusReason`　影响 1 个节点
+- **「Agent 信息引出」的三道决策题待装配** — 该单元的三道决策题待装配：批量装配不补造唯一正确答案（任务书 §2.3）。可用素材已经就位：CAS 情境、SOL 动作路径、该卡 boundaries 的误区清单。　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-elicitation].gaps[0]`　影响 1 个节点
+- **「Agent 信息引出」缺 OPI：决策题依据只能落在 CAS 情境与 SOL 动作路径上** — 本单元（CON-agent-elicitation）没有反向观点单元；决策题待装配时，依据只能落在 CAS 情境与 SOL 动作路径上　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-elicitation].statusReason`　影响 1 个节点
+- **「Agent 交接」的三道决策题待装配** — 该单元的三道决策题待装配：批量装配不补造唯一正确答案（任务书 §2.3）。可用素材已经就位：CAS 情境、SOL 动作路径、该卡 boundaries 的误区清单。　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-handoff].gaps[0]`　影响 1 个节点
+- **「Agent 交接」缺 OPI：决策题依据只能落在 CAS 情境与 SOL 动作路径上** — 本单元（CON-agent-handoff）没有反向观点单元；决策题待装配时，依据只能落在 CAS 情境与 SOL 动作路径上　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-handoff].statusReason`　影响 1 个节点
+- **「Agent Harness」的三道决策题待装配** — 该单元的三道决策题待装配：批量装配不补造唯一正确答案（任务书 §2.3）。可用素材已经就位：CAS 情境、SOL 动作路径、该卡 boundaries 的误区清单。　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-harness].gaps[0]`　影响 1 个节点
+- **「Agent 生命周期」的三道决策题待装配** — 该单元的三道决策题待装配：批量装配不补造唯一正确答案（任务书 §2.3）。可用素材已经就位：CAS 情境、SOL 动作路径、该卡 boundaries 的误区清单。　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-lifecycle].gaps[0]`　影响 1 个节点
+- **「Agent 生命周期」缺 OPI：决策题依据只能落在 CAS 情境与 SOL 动作路径上** — 本单元（CON-agent-lifecycle）没有反向观点单元；决策题待装配时，依据只能落在 CAS 情境与 SOL 动作路径上　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-lifecycle].statusReason`　影响 1 个节点
+- **「Agent 循环」的三道决策题待装配** — 该单元的三道决策题待装配：批量装配不补造唯一正确答案（任务书 §2.3）。可用素材已经就位：CAS 情境、SOL 动作路径、该卡 boundaries 的误区清单。　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-loop].gaps[0]`　影响 1 个节点
+- **「Agent 循环」缺 OPI：决策题依据只能落在 CAS 情境与 SOL 动作路径上** — 本单元（CON-agent-loop）没有反向观点单元；决策题待装配时，依据只能落在 CAS 情境与 SOL 动作路径上　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-loop].statusReason`　影响 1 个节点
+- **「Agent 会话管理」的三道决策题待装配** — 该单元的三道决策题待装配：批量装配不补造唯一正确答案（任务书 §2.3）。可用素材已经就位：CAS 情境、SOL 动作路径、该卡 boundaries 的误区清单。　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-session-management].gaps[0]`　影响 1 个节点
+- **「Agent 会话管理」缺 OPI：决策题依据只能落在 CAS 情境与 SOL 动作路径上** — 本单元（CON-agent-session-management）没有反向观点单元；决策题待装配时，依据只能落在 CAS 情境与 SOL 动作路径上　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-session-management].statusReason`　影响 1 个节点
+- **「Agent 终止条件」的三道决策题待装配** — 该单元的三道决策题待装配：批量装配不补造唯一正确答案（任务书 §2.3）。可用素材已经就位：CAS 情境、SOL 动作路径、该卡 boundaries 的误区清单。　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-stop-conditions].gaps[0]`　影响 1 个节点
+- **「Agent 终止条件」缺 OPI：决策题依据只能落在 CAS 情境与 SOL 动作路径上** — 本单元（CON-agent-stop-conditions）没有反向观点单元；决策题待装配时，依据只能落在 CAS 情境与 SOL 动作路径上　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-stop-conditions].statusReason`　影响 1 个节点
+- …另有 120 条同类缺口，全部在 `graph.json#gaps`
 
 ## 十、构建来源（可核对基线）
 
@@ -351,11 +375,88 @@
 | `evidence/agent-loop-260913/authored.json` | `7dc25beff7bd7bb2` | 人工撰写的题目与费曼判据 |
 | `evidence/agent-loop-260913/pairings.json` | `ef6d743975e05554` | 六章 cm↔CON 配对与负责人裁决 |
 | `evidence/feynman-teaching-map/agent-skills-api.json` | `176c751da7975a13` | 单篇费曼教学映射（C1–C4） |
+| `evidence/batch-units-260914/units.json` | `203e65996373d7c8` | 76 个批量装配单元（逐字材料 + 出处 + 缺口） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/agent.yaml` | `be4cf0839d7f6fc0` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/agent-action-space.yaml` | `2660390f800f4b47` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/agent-cli-runtime.yaml` | `6ff3458c0bbf6a5d` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/agent-elicitation.yaml` | `32c544e7be69cb33` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/agent-handoff.yaml` | `0e7c2d53802bdc14` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/agent-harness.yaml` | `c5e1aebfe14580e8` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/agent-lifecycle.yaml` | `05f6b4c9dde8b896` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/agent-loop.yaml` | `8ecd9be0f8982eb5` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/agent-session-management.yaml` | `1a3a71b43220c820` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/agent-stop-conditions.yaml` | `e715b61bf2dadb32` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/agent-tool-contract.yaml` | `832f5fd3e1d3c5aa` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/attention-budget.yaml` | `46accecd8c75e055` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/bounded-context.yaml` | `af1d93e33a68e17e` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/browsing-loop.yaml` | `e8c7de02e54a44d7` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/change-impact-analysis.yaml` | `d3e766918b66afe7` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/chat-template.yaml` | `1738ca82e198fe72` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/code-execution.yaml` | `d91123a3409145dc` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/context.yaml` | `b7e5154e1d6b4cd0` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/context-compaction.yaml` | `4db9d9f9b4f63fed` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/context-engineering.yaml` | `9b953e7d27c76b41` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/context-rot.yaml` | `0c53cec46c11bd12` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/context-selection.yaml` | `48f5968eb44df08d` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/context-window.yaml` | `767782616ecc31eb` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/durable-execution.yaml` | `30a1131860a6c9dc` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/dynamic-context-assembly.yaml` | `8a6cd3a86078447c` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/error-handling.yaml` | `8c8367836200b1cb` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/event-driven-agent-automation.yaml` | `c0a76dc2d8102923` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/filesystem-workspace.yaml` | `273a128294e12bd8` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/guardrails.yaml` | `c7bd631c4c78b0aa` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/harness-compute-separation.yaml` | `2454024b437ceec8` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/harness-engineering.yaml` | `391a3df9e8dcae9c` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/harness-overfitting.yaml` | `18859e7474daa214` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/harness-token-floor.yaml` | `cc2e00fced40a226` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/human-escalation-tool-call.yaml` | `13b35e83ff002b68` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/instruction-locality.yaml` | `bc55a30fea301f30` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/just-in-time-retrieval.yaml` | `af3e3b9da27b66b0` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/large-language-model.yaml` | `22f2d6376b48c0c0` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/llm-statelessness.yaml` | `9bd31319c67ab609` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/llm-token.yaml` | `69f53b1a5390f7bc` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/lost-in-the-middle.yaml` | `2dc47288bce9e3b4` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/memory.yaml` | `215b51b377d5973c` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/minimal-sufficient-context.yaml` | `18ab78887cbc0c5b` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/model-context-protocol.yaml` | `dd57e6245e1efef8` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/multi-step-reliability-decay.yaml` | `a36f7b40d680d5f2` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/observability.yaml` | `2c6d07cff11a209b` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/observation-masking.yaml` | `f0793343c3a5655f` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/permission-boundary.yaml` | `91f6210db84dc41a` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/persistent-code-graph.yaml` | `c34b8cb8b76cbd36` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/progressive-disclosure.yaml` | `bd2996a5969592d2` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/prompt.yaml` | `6324f6905c0f842d` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/prompt-caching.yaml` | `01affabd7041c333` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/prompt-engineering.yaml` | `85ec5b4ee881502d` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/prompt-injection.yaml` | `1e6d2ffec6a15c23` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/reasoning-effort.yaml` | `004d692f30eb71d6` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/repository-source-of-truth.yaml` | `19fc5c6632c73e9b` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/restorable-compression.yaml` | `1f733fb776fe5936` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/retrieval-reasoning-dual-task-load.yaml` | `0871498c2f41ea4d` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/risk-tiered-autofixing.yaml` | `b5b2575e1b718109` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/runnable-evidence.yaml` | `c4d7bd5ced803bda` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/sandbox.yaml` | `985579a61db4d1d6` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/skill.yaml` | `bf2524d86e4168df` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/skill-chaining.yaml` | `079fdb2e5affc2d8` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/skill-trigger-condition.yaml` | `22822cedc72711ef` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/state-management.yaml` | `f1f39d4fb01fff59` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/subagent-orchestration.yaml` | `bd199e07998f2262` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/system-prompt.yaml` | `fe73124c513f4b3b` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/system-prompt-altitude.yaml` | `e79c9b0a5a1076f0` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/tacit-knowledge.yaml` | `a99be14bb06e7c48` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/tool.yaml` | `6b31942082e04015` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/tool-schema-tax.yaml` | `288a77d2f017893d` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/tool-scoping.yaml` | `00758ded9918fdcc` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/tool-workflow-fit.yaml` | `4d5e5fb1ac951dff` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/trace-based-evals.yaml` | `5055530991831166` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/ubiquitous-language.yaml` | `718eb3b82dece99c` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/verifiable-goal.yaml` | `a8fc81bb2776ac17` | 图鉴卡（只读，逐字材料来源） |
+| `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/verification-loop.yaml` | `fc59143402713210` | 图鉴卡（只读，逐字材料来源） |
 
 ## 口径
 
-- **全量索引完成**：扫到的目录：knowledge/概念地图-260913（概念/主题/依赖/关系）· 内容结构化系统/模块/ai-concept-base/data/units.json（538 语义单元）· 内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/*.yaml（76 张卡）· knowledge/内参-*（三产物 + 真五维 + 原文）· evidence/paths-260913/routes.json · evidence/agent-loop-260913（六章）· evidence/feynman-teaching-map（单篇四判据）。全量可读资产都建了节点，一个都没静默丢。
-- **全量课程可学**：能真正跑的单元：六章 4 个（同一份运行器）＋ 单篇 1 个（4 条判据全接入）＋ 明确标注的开发夹具 2 个（不是正式课程）。有材料但没有已确认正式章末门的单元按待装配显示，不借用别的单元的通过标准。
+- **全量索引完成**：扫到的目录：knowledge/概念地图-260913（概念/主题/依赖/关系）· 内容结构化系统/模块/ai-concept-base/data/units.json（538 语义单元）· 内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/*.yaml（76 张卡）· knowledge/内参-*（三产物 + 真五维 + 原文）· evidence/paths-260913/routes.json · evidence/agent-loop-260913（六章）· evidence/feynman-teaching-map（单篇四判据）· evidence/batch-units-260914（76 个批量单元）。全量可读资产都建了节点，一个都没静默丢。
+- **全量课程可学**：能真正跑的单元：六章 4 个（同一份运行器）＋ 单篇 1 个（4 条判据全接入）＋ 批量装配 76 个（同一份运行器逐个走通，但**决策题一个都没装配**、也没有页面入口：19 个四类齐的按 ready 显示、57 个缺 OPI 的按 scaffold 显示）＋ 明确标注的开发夹具 2 个（不是正式课程）。**「全量课程可学」不成立**：76 个批量单元都缺三道决策题，六章的 CAS 也仍全部是「假设场景」。有材料但没有已确认正式章末门的单元按待装配显示，不借用别的单元的通过标准。
 - `ready` 只表示**该节点所指范围内**材料齐、已审核；**不表示模型稳定、学习有效或已经上线**。
 - 五类语义之间的关系（`relationships`）落在 `knowledge` 边：它们既不是出处、不是课程编排、也不驱动跳转。
 - 图鉴卡与概念地图是**两套分类**（7 个 category_id vs 21 个主题），本轮不按名字猜映射，缺口已登记。

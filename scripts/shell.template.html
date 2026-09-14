@@ -341,6 +341,10 @@ code{background:#161719;border:1px solid var(--line);border-radius:4px;padding:1
 #main.graphon #c,#main.graphon #hero-mini,#main.graphon #pathrail{display:none}
 #reader.on{display:block}
 .nei{max-width:768px;margin:0 auto;padding:20px 30px 90px}
+/* 实践空间的状态看板是四列表格（单元｜链路就绪度｜结论｜缺什么），768px 会把「结论」挤出屏幕，
+   所以只给实践空间这一处放宽到 1100（正文流那套排版一个字没动）。 */
+.nei.practice{max-width:1100px}
+.pboard-wrap{overflow-x:auto}
 .nei-crumb{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--fg3)}
 .nei-crumb b{color:var(--fg2);font-weight:500}
 .nei-crumb .sp{flex:1}
@@ -471,6 +475,41 @@ code{background:#161719;border:1px solid var(--line);border-radius:4px;padding:1
 .case-mvp .case-option:hover{border-color:#d9a84e}.case-mvp .case-option.ok{border-color:#4cb782;background:#f0faf5}.case-mvp .case-option.bad{border-color:#d99a9a;background:#fff5f5}
 .case-mvp .case-result{margin-top:10px;line-height:1.65;font-size:12px}.case-mvp .case-back{margin-bottom:10px}
 .practice-card{border:1px solid var(--line);border-radius:10px;padding:16px;background:var(--panel2);margin:12px 0}.practice-card h2{margin:0 0 6px}.practice-card .mut{margin:6px 0 12px}
+/* ── 实践空间（第一版＝六章阅读器 ＋ 第二层状态看板）────────────────────
+   阅读器本身不新造视觉：点「进入阅读」走的就是 #learn 那套正文流排版。
+   这里只加两块自己的东西：① 单元行与四段就绪度；② 状态看板的表与筛选。 */
+.pcard{border:1px solid var(--line);border-radius:11px;background:var(--panel2);padding:14px 16px;margin:12px 0}
+.pcard h2{margin:0 0 6px;font-size:16px}
+.pcard h3{margin:14px 0 6px;font-size:13px;color:var(--fg3);font-weight:600}
+.pcard .mut{color:var(--fg2);font-size:12.5px;line-height:1.75;margin:6px 0}
+.pu{display:flex;align-items:center;gap:10px;flex-wrap:wrap;border-top:1px solid var(--line);padding:9px 0}
+.pu.first{border-top:0}
+.pu .nm{font-weight:600;font-size:13px;color:var(--fg)}
+.pu .meta{color:var(--fg3);font-size:11.5px}
+.pu .sp{flex:1}
+.pbtn{border:1px solid var(--accent);background:var(--accent);color:#fff;border-radius:7px;padding:4px 11px;font-size:12px;cursor:pointer;font-family:inherit}
+.pbtn:hover{background:var(--accent2);border-color:var(--accent2)}
+.pbtn.ghost{background:none;color:var(--fg2);border-color:var(--line2)}
+.pbtn.ghost:hover{border-color:var(--accent2);color:var(--fg)}
+.pbtn:disabled{opacity:.45;cursor:default}
+.seg{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--line2);border-radius:5px;padding:1px 6px;font-size:10.5px;color:var(--fg3);margin:1px 4px 1px 0;white-space:nowrap}
+.seg b{font-weight:500;color:var(--fg2)}
+.seg.green{border-color:#2c5a42;color:#7fd0a6}.seg.green b{color:#7fd0a6}
+.seg.missing{border-color:#5a4a24;color:#e0a94a}.seg.missing b{color:#e0a94a}
+.seg.unassembled{border-color:#5a2c2c;color:#eb5757}.seg.unassembled b{color:#eb5757}
+.seg.blocked{border-color:#3a3d42;color:var(--fg3)}
+.pboard{width:100%;border-collapse:collapse;font-size:12px}
+.pboard th{text-align:left;color:var(--fg3);font-weight:500;font-size:11px;padding:6px 8px;border-bottom:1px solid var(--line)}
+.pboard td{padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--fg2);line-height:1.6}
+.pboard td.nm{color:var(--fg);font-weight:600;white-space:nowrap}
+.pboard td.verdict{white-space:nowrap}
+.pboard td.segs .seg{margin:1px 2px 1px 0}
+.pboard tr.off td.nm{color:var(--fg2);font-weight:500}
+.pfilter{display:flex;gap:6px;flex-wrap:wrap;margin:4px 0 10px}
+.pfilter button{border:1px solid var(--line2);background:none;color:var(--fg2);border-radius:6px;padding:2px 9px;font-size:11.5px;cursor:pointer;font-family:inherit}
+.pfilter button.on{border-color:var(--accent2);color:var(--fg)}
+.pwhy{color:var(--fg3);font-size:11px;line-height:1.6}
+.pnote{border-left:2px solid var(--line2);padding-left:9px;color:var(--fg3);font-size:11.5px;line-height:1.7;margin:6px 0}
 
 /* ── 内参文章 · 阅读中的即时费曼（Issue 2 · B 层试点 agent-skills-api）──────
    位置固定在「阅读梯度」之后、「决策题」之前：读完就讲，不必先答决策题。
@@ -760,6 +799,9 @@ const RELATION_NAMES = {
   prerequisite: '前置', 'related-to': '相关', 'used-with': '一起使用',
   'part-of': '组成', contrast: '对照',
 };
+/* 默认不绘制的两类记录（口径见 scripts/lib/relation-kinds.mjs）。页面必须照实说它们没被画，
+   不能再写「画布中已全部保留」——那句话以前是假的：2485 条（co-article 2419 + rejected 66）不在画布上。 */
+const HIDDEN_RELATION_NAMES = { 'co-article': '同一篇里出现过（共现）', rejected: '已被判不成立' };
 const RELATION_COLORS = {
   prerequisite: '#a8b5ee', 'related-to': '#8b7de8', 'used-with': '#5ec9b1',
   'part-of': '#e4a95f', contrast: '#e97b9b',
@@ -1467,7 +1509,8 @@ function pathBlock(id) {
       <div class="none">这个概念有 <b>${st.support.sources}</b> 篇来源原文、<b>${st.support.evidence}</b> 条掌握证据 —— 就在下面「来源」和「深看」两块里，不在这里重复一遍。</div>
       <h5>相关概念 related · 有关，但不是这条路径的必需</h5>
       <ul>${relRows || '<li class="none">没有语义关系边。</li>'}</ul>
-      ${st.relatedCount > rel.length ? `<div class="none">还有 ${st.relatedCount - rel.length} 条相关关系，画布中已全部保留。</div>` : ''}
+      ${st.relatedCount > rel.length ? `<div class="none">相关关系共 <b>${st.relatedCount}</b> 条（口径＝关系视图里画得出来的那 ${relationStats.visible} 条语义关系，同一份数据），这里只列前 ${rel.length} 条；其余在「关系」视图。</div>` : ''}
+      ${(st.relatedHiddenCount || 0) > 0 ? `<div class="none">另有 <b>${st.relatedHiddenCount}</b> 条记录<b>默认不绘制</b>：${Object.entries(st.relatedHiddenByKind || {}).map(([k, v]) => `${HIDDEN_RELATION_NAMES[k] || k} ${v} 条`).join('、')}。它们不是知识关系，画布与这张卡都不画，也不当先修；全量口径见「关系」视图顶栏的「隐藏」与类型图例。</div>` : ''}
       <h5>路线声明的前置理由</h5>
       <div class="none">${st.prereq ? esc(st.prereq.reason) + `（依据：${st.prereq.basis === 'hard' ? '概念地图 hard 依赖边' : st.prereq.basis === 'soft' ? '概念地图 soft 依赖边' : '人工确认的路线前置'}）` : '起点，无前置。'}</div>
       ${st.fallback ? `<h5>卡住时为什么回这一步</h5><div class="none">${esc(st.fallback.reason)}</div>` : ''}
@@ -1891,7 +1934,7 @@ function refreshRail() {
       : t
         ? t.name + ' · ' + groupCount(t) + ' 个概念'
         : mode === 'relation'
-          ? nodes.length + ' 概念 · ' + (relationStats.visible || relations.length) + ' 条语义关系 · 隐藏 ' + (relationStats.hidden || 0)
+          ? nodes.length + ' 概念 · ' + (relationStats.visible || relations.length) + ' 条语义关系 · 隐藏 ' + (relationStats.hidden || 0) + ' 条（共现/已否，默认不绘制）'
           : nodes.length + ' 概念 · ' + (CUR.tags || []).length + ' 个主题 · ' + edges.length + ' 条依赖';
   }
 }
@@ -1902,7 +1945,7 @@ window.refreshRail = refreshRail;
    它是当前导航项的**可扫列表**：一行一个东西，右边是元信息，点开看详情。 */
 let currentView = 'graph';
 let themeId = null;   // theme 态（三级）当前所在的主题；graph 态恒为 null
-const VIEW_TITLE = { graph: '主题', theme: '主题', neican: '内参 · 日报集合', practice: '实践空间 · 1 / 3 / 5' };
+const VIEW_TITLE = { graph: '主题', theme: '主题', neican: '内参 · 日报集合', practice: '实践空间 · 六章阅读器 + 状态看板' };
 const ST_COLOR = { pass: '#4cb782', fail: '#eb5757', mech: '#f2c94c', read: '#9b7fe8' };
 
 function rowHTML(inner, onclick, on) {
@@ -1963,41 +2006,262 @@ function renderList() {
     cnt = neiCount();
     html = neiSidebar();
   } else if (currentView === 'practice') {
-    cnt = 1;
-    html = rowHTML('<span class="rd" style="background:#d9a84e"></span><span class="rn">01 案例决策场</span><span class="rm">MVP</span>', 'openPractice()', true);
+    /* 实践空间的中间栏：六章阅读器逐章一行 + 状态看板一行 + 两个不开放的组。
+       行不是写死的——章节来自 DATA.practice.units（同一份 gate 数据）。 */
+    const us = practiceUnits();
+    const ch = us.filter(u => u.group === '六章');
+    const batch = us.filter(u => u.group === '批量');
+    const single = us.filter(u => u.group === '单篇');
+    cnt = us.length;
+    html = ch.map(u => {
+      const ci = chapterIdx(u.reader), un = ci >= 0 && chapterUnlocked(ci), done = ci >= 0 && chapterCleared(u.reader);
+      return rowHTML(`<span class="rd" style="background:${done ? '#4cb782' : un ? '#5e6ad2' : '#3c3f44'}"></span>`
+        + `<span class="rn">${esc(u.label)}</span>`
+        + `<span class="rm">${done ? '过' : un ? '进入' : '锁'}</span>`,
+        `practiceEnter('${u.id}')`, practicePanel === 'index' && ci === chapterIdx(learnCur));
+    }).join('')
+      + rowHTML('<span class="rd" style="background:#d9a84e"></span><span class="rn">状态看板 · 链路就绪度</span>'
+        + `<span class="rm">${cnt}</span>`, 'openPracticeBoard()', practicePanel === 'board')
+      + `<div class="lp-sec">不开放学习 · 照实标</div>`
+      + rowHTML(`<span class="rd" style="background:#5a2c2c"></span><span class="rn">准备中 / 目录候选</span><span class="rm">${batch.filter(u => u.routeStatus === 'ready').length}</span>`, 'openPracticeBoard()', false)
+      + rowHTML(`<span class="rd" style="background:#5a4a24"></span><span class="rn">材料缺口 · 待装配</span><span class="rm">${batch.filter(u => u.routeStatus !== 'ready').length + single.length}</span>`, 'openPracticeBoard()', false)
+      + rowHTML('<span class="rd" style="background:#3c3f44"></span><span class="rn">01 案例决策场（前两版入口）</span><span class="rm">保留</span>', `openPractice()` , false);
   }
   box.innerHTML = html;
   if (cntEl) cntEl.textContent = cnt;
 }
 window.renderList = renderList;
 
-function openPractice(originId = null) {
-  currentView = 'practice'; themeId = null; filter = null;
-  document.querySelectorAll('.r-item').forEach(b => b.classList.toggle('on', b.dataset.view === 'practice'));
-  closePanel();
-  const reader = document.getElementById('reader');
+/* ══ 实践空间（第一版：Agent Loop 六章阅读器 ＋ 第二层状态看板）══════════════
+   三条硬规则（负责人 2026-09-14 裁决 + 补充方向）：
+     ① 入口一个都不砍：路径条 / 概念卡 / #learn= 直达都还在，实践空间是**新增的第四个入口**；
+     ② 准入不是白名单：PRACTICE.units 每个单元带四段就绪度（阅读｜形成性费曼｜决策｜章末费曼），
+        **四段全绿才开放**（gate.open，在 build-shell 时算好）；开放的走同一套 #learn 阅读器，
+        不再造第二套视觉；没开放的照实写清缺什么；
+     ③ 19 条 ready 只显示「准备中 / 目录候选」，76 个批量单元一律「不可进入（缺决策题）」：
+        0 决策题、0 页面入口、264 条判据是机械反面转述 —— 不补假题、不放行、不写成已实现。 */
+const PRACTICE = DATA.practice || null;
+let practiceFilter = 'all';
+let practicePanel = 'index';      // index = 六章列表 / board = 状态看板
+let practiceOriginId = null;     // 从路径条或概念卡点进来时带的概念，换面板不丢
+const PRACTICE_SEG_ORDER = ['reading', 'formative', 'decision', 'summative'];
+const practiceUnits = () => ((PRACTICE && PRACTICE.units) || []);
+const practiceUnit = (id) => practiceUnits().find(u => u.id === id) || null;
+function practiceSegLabel(key) {
+  return (((PRACTICE || {}).segmentLabels) || []).find(x => x.key === key)?.label || key;
+}
+function segChips(u) {
+  return PRACTICE_SEG_ORDER.map(k => {
+    const s = (u.segments || {})[k] || { state: 'blocked', stateLabel: '不可进入', why: '这份索引里没有这个单元' };
+    return `<span class="seg ${s.state}" title="${esc(s.why)}"><b>${esc(practiceSegLabel(k))}</b>${esc(s.stateLabel)}</span>`;
+  }).join('');
+}
+function practiceBucketLabel(u) {
+  const b = (((PRACTICE || {}).buckets) || []).find(x => x.key === u.bucket);
+  return b ? b.label : (u.bucket || '—');
+}
+/* 准入就这一条：数据里算好的 gate.open（四段全绿）。六章不是写死在代码里的白名单。 */
+function practiceEnter(id) {
+  const u = practiceUnit(id);
+  if (!u) return false;
+  if (u.open && u.reader) return openLearn(u.reader);   // 同一套 #learn 正文流阅读器
+  const box = document.getElementById('practice-blocked');
+  if (box) box.innerHTML = practiceBlockedHtml(u);
+  if (box && box.scrollIntoView) box.scrollIntoView({ block: 'center' });
+  return false;
+}
+window.practiceEnter = practiceEnter;
+function practiceEntry(u) {
+  if (u.open && u.reader) return practiceEnter(u.id);
+  if (u.entry && u.entry.startsWith('#neican=')) {         // 单篇：它有自己的阅读页，照实标不是这套阅读器
+    const slug = u.entry.slice(8);
+    if (typeof neiOf === 'function' && neiOf(slug)) { setView('neican'); openNeican(slug); return true; }
+  }
+  return practiceEnter(u.id);
+}
+window.practiceEntry = practiceEntry;
+function practiceBlockedHtml(u) {
+  const blocked = PRACTICE_SEG_ORDER.map(k => (u.segments || {})[k]).filter(s => s && s.state !== 'green');
+  return `<div class="pcard" style="border-color:#5a4a24">
+    <h2>「${esc(u.label)}」现在不能进入学习</h2>
+    <div class="mut">判定：${esc(practiceBucketLabel(u))}${u.routeStatus ? ` · 装配状态 ${esc(u.routeStatus)}${u.statusReason ? `（${esc(u.statusReason)}）` : ''}` : ''}。准入规则只有一条——四段全绿才开放。</div>
+    <div>${segChips(u)}</div>
+    <ul class="pwhy" style="margin:10px 0 0 16px">${blocked.map(s => `<li>${esc(practiceSegLabel(PRACTICE_SEG_ORDER.find(k => (u.segments || {})[k] === s)))}：${esc(s.why)}</li>`).join('')}</ul>
+    ${(u.gaps || []).length ? `<div class="pnote"><b>缺口原文（照实登记，本轮不补）</b><ul style="margin:6px 0 0 14px">${u.gaps.map(g => `<li>${esc(g)}</li>`).join('')}</ul></div>` : ''}
+    <div class="mut" style="margin-top:8px">${u.entry ? `它的页面入口是 <code>${esc(u.entry)}</code>（不是这套阅读器）。` : '它连页面入口都还没有（graph.entries 里没有它）。'}</div>
+  </div>`;
+}
+/* 第一层：单元列表（六章阅读器入口 + 单篇 + 19 条准备中 + 57 条待装配） */
+function practiceIndexHtml() {
+  if (!PRACTICE) return `<div class="pcard"><h2>实践空间的数据没装上</h2><div class="mut">缺 DATA.practice —— 先跑 <code>node scripts/build-shell.mjs</code>（它读 knowledge/graph-260914/graph.json 与 evidence/batch-units-260914/units.json）。</div></div>`;
+  const units = practiceUnits();
+  const ch = units.filter(u => u.group === '六章');
+  const single = units.filter(u => u.group === '单篇');
+  const batch = units.filter(u => u.group === '批量');
+  const ready = batch.filter(u => u.routeStatus === 'ready');
+  const scaffold = batch.filter(u => u.routeStatus !== 'ready');
+  const chRows = ch.map((u, i) => {
+    const ci = chapterIdx(u.reader), un = ci >= 0 && chapterUnlocked(ci), done = ci >= 0 && chapterCleared(u.reader);
+    return `<div class="pu${i === 0 ? ' first' : ''}">
+      <span class="nm">${esc(u.label)}</span>
+      <span class="meta">${esc((u.concept || {}).id || '')} ↔ ${esc((u.concept || {}).unit || '')} · ${u.questionCount} 道决策题 · 主案例：${esc(u.caseType)}（负责人已确认）</span>
+      <span class="sp"></span>${segChips(u)}
+      <button class="pbtn${un || done ? '' : ' ghost'}" onclick="practiceEnter('${u.id}')">${done ? '再读一遍' : un ? '进入阅读 →' : `第 ${u.order} 章未解锁 · 先过上一章`}</button></div>`;
+  }).join('');
+  const singleRows = single.map(u => `<div class="pu first">
+      <span class="nm">${esc(u.label)}</span><span class="meta">${esc(u.caseType)} · ${u.questionCount} 道决策题 · ${u.criterionCount} 条判据</span>
+      <span class="sp"></span>${segChips(u)}
+      <button class="pbtn ghost" onclick="practiceEntry('${u.id}')">去内参单篇阅读页 →</button>
+      <button class="pbtn ghost" onclick="practiceEnter('${u.id}')">为什么不能在这里学</button></div>`).join('');
+  const chips = (list) => list.map(u => `<span class="seg blocked" title="${esc(u.gaps[0] || '')}">${esc(u.label)}</span>`).join('');
+  return `
+    <div class="pcard">
+      <h2>Agent Loop 六章 · 阅读器（已装配 · 可进入）</h2>
+      <div class="mut">一个核心概念 → 正文流阅读（原文 context ＋ 定义／直觉／机制／边界）→ 形成性费曼（读完就讲，给一处重点补讲）→ 三道决策（一题一判）→ 章末费曼（通过才解锁下一章）。
+        点「进入阅读」打开的就是路径条那套 <code>#learn</code> 阅读器——<b>同一份排版，不是第二套视觉</b>；返回时回到你进来的地方。</div>
+      ${chRows}
+      <div class="pu"><span class="meta">不知道从哪继续？六章总览会跳到「第一个还没过的章」。</span><span class="sp"></span>
+        <button class="pbtn ghost" onclick="openLearnIndex()">继续没走完的那一章 →</button></div>
+    </div>
+    <div class="pcard">
+      <h2>单篇试点 · 1 个单元</h2>
+      <div class="mut">它是另一条链（内参单篇阅读页），不在这套阅读器里。四段里「阅读」「章末费曼」两段照实标未装配：它的正文没接进这份索引，正式章末通过与解锁门也还没确认（graph 缺口原文）。</div>
+      ${singleRows}
+    </div>
+    <div class="pcard">
+      <h2>准备中 / 目录候选 · ${ready.length} 个单元（不开放学习）</h2>
+      <div class="mut">这 ${ready.length} 个批量装配单元的材料四类齐（QST／CON／CAS／SOL），但<b>决策题 0 道</b>：链路在「决策」这一段断掉，所以只作为目录候选显示，不开放学习。判据也还是机械派生的（误概念由边界条目的否定翻转算出）。</div>
+      <div>${chips(ready)}</div>
+      <div class="mut">另有 <b>${scaffold.length}</b> 个单元连 OPI 判断依据都没有（缺材料 · 待装配），连同上面这些一起在状态看板里逐行列出。</div>
+      <button class="pbtn" onclick="openPracticeBoard()">打开状态看板 · 逐单元链路就绪度 →</button>
+    </div>
+    <div class="pcard">
+      <h2>状态看板（第二层）</h2>
+      <div class="mut">用现成数据渲染：<code>knowledge/graph-260914/graph.json</code> 的 gaps 与 coverage.playable ＋ <code>evidence/batch-units-260914/units.json</code>。
+      它只讲清「为什么现在不能学」，不承担教学。</div>
+      <div>${(((PRACTICE || {}).buckets) || []).map(b => `<span class="seg ${b.key === 'open' ? 'green' : b.key === 'material' ? 'missing' : 'unassembled'}"><b>${esc(b.label)}</b>${b.count}</span>`).join('')}</div>
+    </div>
+    <div class="pcard">
+      <h2>1 / 3 / 5 · 前两版入口（一个都不砍）</h2>
+      <div class="mut">01 案例决策场：从当前概念匹配候选案例，再只选一个案例和一个正确方向。03 费曼演练室与 05 技术实验台仍是占位——照实标「等 01 MVP 跑通后接入」，不写成已实现。</div>
+      ${originBtnHtml()}
+    </div>
+    <div id="practice-blocked"></div>`;
+}
+/* 01 入口照旧：概念卡上那张「上下文腐烂」示例（路径条/概念卡进来时另走 origin 卡）。 */
+function originBtnHtml() {
   const concept = nodes.find(n => n.name === '上下文腐烂');
-  const origin = byId.get(originId);
+  const origin = byId.get(practiceOriginId);
+  const other = !!origin && origin.id !== (concept || {}).id;
+  return concept
+    ? `<button class="jbtn" onclick="openPanel('${concept.id}')">进入 01 案例决策场：上下文腐烂 →</button>
+       ${other ? '<div class="mut" style="margin-top:6px">下面是另一主题的已跑通示例，不计入当前路线进度。</div>' : ''}
+       <div class="mut" style="margin-top:6px">03 · 费曼演练室与 05 · 技术实验台：等 01 MVP 跑通后接入（占位，未接入）。</div>`
+    : '<div class="mut">当前概念地图未找到 01 的测试入口。</div>';
+}
+/* 第二层：状态看板（四类口径 + 每个单元一行四段 + 缺什么 + 要全面推进还差什么） */
+function practiceBoardHtml() {
+  if (!PRACTICE) return practiceIndexHtml();
+  const units = practiceUnits();
+  const list = practiceFilter === 'all' ? units : units.filter(u => u.group === practiceFilter);
+  const rows = list.map(u => {
+    const blocked = PRACTICE_SEG_ORDER.map(k => [k, (u.segments || {})[k]]).filter(([, s]) => s && s.state !== 'green');
+    const first = blocked[0] || null;
+    const gaps = (u.gaps || []).map(g => `<li>${esc(g)}</li>`).join('');
+    return `<tr class="${u.open ? '' : 'off'}">
+      <td class="nm">${esc(u.label)}<div class="pwhy">${esc(u.group)}${u.entry ? ` · 入口 <code>${esc(u.entry)}</code>` : ' · 无页面入口'}</div></td>
+      <td class="segs">${segChips(u)}</td>
+      <td class="verdict">${u.open ? '<b style="color:#7fd0a6">可进入</b>' : esc(practiceBucketLabel(u))}</td>
+      <td>${first ? `<b>${esc(practiceSegLabel(first[0]))}</b>：${esc(first[1].why)}` : '四段全绿 —— 已装配课程'}
+        ${gaps ? `<details class="deep"><summary>缺口原文 ${(u.gaps || []).length} 条</summary><ul>${gaps}</ul></details>` : ''}</td>
+    </tr>`;
+  }).join('');
+  const st = ((PRACTICE.builtFrom || {}).graphStats) || {};
+  const push = (PRACTICE.fullPush || []).map(f => `<tr>
+      <td class="nm">${esc(f.type)}</td>
+      <td>${f.units} 个单元${f.criteria ? `<div class="pwhy">${f.criteria} 条判据</div>` : ''}</td>
+      <td>${esc(f.detail)}</td>
+      <td>${esc(f.who)}</td>
+      <td class="pwhy">${esc(f.gate)}</td>
+    </tr>`).join('');
+  const playable = ((PRACTICE.coverage || {}).playable) || '';
+  return `
+    <div class="pcard">
+      <h2>状态看板 · ${units.length} 个单元的链路就绪度</h2>
+      <div class="mut">准入只有一条判断：<b>${esc(PRACTICE.gate || '四段全绿才开放')}</b>。四段的取值只有四种：可走 / 缺材料 / 未装配 / 不可进入；鼠标停在段上能看到那一格的依据。</div>
+      <div>${(PRACTICE.buckets || []).map(b => `<span class="seg ${b.key === 'open' ? 'green' : b.key === 'material' ? 'missing' : 'unassembled'}"><b>${esc(b.label)}</b>${b.count}</span>`).join('')}</div>
+      <div class="pnote">「缺少可靠案例：不可进入」这一格本轮是 <b>0</b>：没有哪个单元是<b>只</b>因为案例被挡住的（六章主案例是假设场景但已由负责人确认；批量单元先卡在决策题那一段）。真实案例的缺口照实记在下面「要全面推进，还差什么」里。</div>
+      <div class="pnote">全量索引 ≠ 全量课程可学：graph 里 ${st.nodes || 0} 节点 / ${st.edges || 0} 边 / ${st.gaps || 0} 条缺口，可运行单元 ${st.units || 0} 个（含 76 个批量装配）。${playable ? `<details class="deep"><summary>coverage.playable 原文（构建时写下的口径）</summary><div class="mut">${esc(playable)}</div></details>` : ''}</div>
+      <div class="pfilter">${[['all', `全部 ${units.length}`], ['六章', `六章 ${units.filter(u => u.group === '六章').length}`], ['单篇', `单篇 ${units.filter(u => u.group === '单篇').length}`], ['批量', `批量 ${units.filter(u => u.group === '批量').length}`]]
+        .map(([k, v]) => `<button class="${practiceFilter === k ? 'on' : ''}" onclick="practiceSetFilter('${k}')">${esc(v)}</button>`).join('')}</div>
+      <div class="pboard-wrap"><table class="pboard"><colgroup><col style="width:22%"><col style="width:25%"><col style="width:15%"><col></colgroup><thead><tr><th>单元</th><th>链路就绪度</th><th>结论</th><th>缺什么</th></tr></thead><tbody>${rows}</tbody></table></div>
+    </div>
+    <div class="pcard">
+      <h2>要全面推进，还差什么（给下一轮决策用，本轮不动手补）</h2>
+      <div class="mut">按缺口类型归并，数据来自 graph.gaps 与 units.json 的声明字段；每类写清「有多少单元」「补上需要什么」。这一节不是待办清单，是决策材料。</div>
+      <div class="pboard-wrap"><table class="pboard"><colgroup><col style="width:14%"><col style="width:14%"><col><col style="width:15%"><col style="width:20%"></colgroup><thead><tr><th>缺口类型</th><th>影响面</th><th>具体是什么</th><th>谁来补</th><th>补的闸门</th></tr></thead><tbody>${push}</tbody></table></div>
+    </div>
+    <div class="pcard">
+      <h2>判定规则原文（可复算，不靠页面自述）</h2>
+      <ul class="pwhy" style="margin:6px 0 0 16px">
+        <li>阅读：Reading 活动 ready，且该单元有指向逐字原文（span.text）的出处边 → 可走；否则未装配。</li>
+        <li>形成性费曼：Formative 活动 ready，且判据不是机械派生（misconceptionSource === 'derived' 就是机械派生）→ 可走；只有机械派生判据 = 缺材料。</li>
+        <li>决策：至少 1 道 Decision 活动 → 可走；0 道 = 未装配（不编假题占位），链路在这里断。</li>
+        <li>章末费曼：Summative ready ＋ 判据非机械派生 ＋ 没有「正式章末门待装配」缺口 → 可走。</li>
+        <li>四段全绿 gate.open=true 才开放；这套判断在 <code>scripts/lib/practice-readiness.mjs</code> 里算，页面只显示结果。</li>
+      </ul>
+      <button class="pbtn ghost" onclick="openPractice()">← 回六章列表</button>
+    </div>`;
+}
+function practiceSetFilter(k) {
+  practiceFilter = k;
+  practiceRender();
+}
+window.practiceSetFilter = practiceSetFilter;
+function openPracticeBoard() { return openPractice(practiceOriginId, 'board'); }
+window.openPracticeBoard = openPracticeBoard;
+/* 换面板只重画中间那块；外层（面包屑 / 标题 / 当前概念卡）不动。 */
+function practiceRender() {
+  const reader = document.getElementById('reader');
+  if (!reader) return;
+  const origin = byId.get(practiceOriginId);
+  reader.innerHTML = practiceShellHtml(practicePanel, origin ? practiceOriginHtml(origin) : '');
+  reader.scrollTop = 0;
+}
+function practiceShellHtml(panel, originHtml = '') {
+  const title = panel === 'board' ? '状态看板 · 为什么现在不能学' : 'Agent Loop 六章阅读器';
+  const crumb = panel === 'board'
+    ? `<span onclick="openPractice()" style="cursor:pointer">六章列表</span><span>›</span><span>状态看板</span>`
+    : `<span>1 / 3 / 5 · 前两版入口保留</span>`;
+  return `<div class="nei practice"><div class="nei-crumb"><b>实践空间</b><span>›</span>${crumb}</div>
+    <h1 class="nei-title">${esc(title)}</h1>
+    <div class="nei-meta"><span>准入规则：四段全绿才开放（阅读｜形成性费曼｜决策｜章末费曼）</span></div>
+    ${originHtml}
+    ${panel === 'board' ? practiceBoardHtml() : practiceIndexHtml()}
+    <div id="practice-blocked"></div>
+  </div>`;
+}
+/* 保留原来的概念入口（路径条 / 概念卡点进来时带 originId）：一个入口都不砍。 */
+function practiceOriginHtml(origin) {
+  const concept = nodes.find(n => n.name === '上下文腐烂');
   const originStep = origin ? routeIndexOf(origin.id) : -1;
   const matched = !!origin && origin.id === concept?.id;
-  reader.innerHTML = `<div class="nei"><div class="nei-crumb"><b>实践空间</b><span>›</span><span>1 / 3 / 5</span></div>
-    <h1 class="nei-title">从概念进入实践</h1><div class="nei-meta"><span>当前只开放 01 MVP</span></div>
-    ${origin ? `<div class="practice-card"><h2>当前概念：${esc(origin.name)}</h2>
+  return `<div class="practice-card"><h2>当前概念：${esc(origin.name)}</h2>
       <div class="mut">${originStep >= 0 ? `${esc(activeRoute().title)} · 第 ${originStep + 1} / ${activeRoute().steps.length} 步。` : ''}${chapterOf(origin.id) ? `已装配独立学习空间「第 ${chapterOf(origin.id).order} 章 ${esc(chapterOf(origin.id).title)}」（主案例已由负责人确认）。` : (matched ? '已接入本轮 A 判断材料。' : '这个概念的 01 判断材料尚未装配，当前不标记完成。')}</div>
       <div class="mut" style="margin-top:7px">${esc(origin.gloss || '这张卡的学习材料正在装配。')}</div>
       ${chapterOf(origin.id) ? `<button class="jbtn" style="margin-top:8px" onclick="openLearnFor('${origin.id}')">学习这个 · 第 ${chapterOf(origin.id).order} 章 →</button>` : ''}
       <button class="jbtn" style="margin-top:8px" onclick="askConceptHelp('${origin.id}')">让 AI 解释这一步</button>
       <div id="concept-help" class="mut" style="margin-top:8px"></div>
-      <button class="jbtn ghost" onclick="returnToPracticeOrigin('${origin.id}')">${originStep >= 0 ? '返回这一步的路径与概念' : '返回当前概念'}</button></div>` : ''}
-    ${LEARN.length ? `<div class="practice-card"><h2>独立学习空间 · Agent Loop 六章</h2><div class="mut">${LEARN.map(c => `${c.order}. ${esc(c.title)}`).join(' → ')}</div>
-      <div class="mut">一个核心概念 → 原文 context 与解释 → 三道决策（一题一判）→ 费曼收尾。学习时隐藏全图与主题列表，返回时恢复原路线、原步骤、原概念。六章主案例已由负责人确认（2026-09-14）；场景类型仍是「假设场景」，不写成实际复盘。</div>
-      <button class="jbtn" onclick="openLearnIndex()">进入学习空间</button></div>` : ''}
-    <div class="practice-card"><h2>01 · 案例决策场</h2><div class="mut">从当前概念匹配候选案例，再只选一个案例和一个正确方向。</div>
-      ${origin && !matched ? '<div class="mut">下面是另一主题的已跑通示例，不计入当前路线进度。</div>' : ''}
-      ${concept ? `<button class="jbtn" onclick="openPanel('${concept.id}')">${origin && !matched ? '查看独立示例' : '继续'}：上下文腐烂 →</button>` : '<div class="mut">当前概念地图未找到测试入口。</div>'}</div>
-    <div class="practice-card" style="opacity:.55"><h2>03 · 费曼演练室</h2><div class="mut">等 01 MVP 跑通后接入。</div></div>
-    <div class="practice-card" style="opacity:.55"><h2>05 · 技术实验台</h2><div class="mut">等 01 MVP 跑通后接入。</div></div></div>`;
-  reader.classList.add('on');
+      <button class="jbtn ghost" onclick="returnToPracticeOrigin('${origin.id}')">${originStep >= 0 ? '返回这一步的路径与概念' : '返回当前概念'}</button></div>`;
+}
+function openPractice(originId = null, panel = 'index') {
+  currentView = 'practice'; themeId = null; filter = null;
+  practiceOriginId = originId || null;
+  practicePanel = panel === 'board' ? 'board' : 'index';
+  document.querySelectorAll('.r-item').forEach(b => b.classList.toggle('on', b.dataset.view === 'practice'));
+  closePanel();
+  practiceRender();
+  document.getElementById('reader').classList.add('on');
   document.getElementById('lp-title').textContent = VIEW_TITLE.practice;
   document.getElementById('lp-back').style.display = 'none';
   renderList();
@@ -2712,13 +2976,18 @@ function openLearnIndex() {
 }
 function captureLearnReturn(cmId) {
   const id = cmId || selected;
-  learnReturn = { routeId, stepIdx: id ? routeIndexOf(id) : routeStepIdx, conceptId: id && byId.has(id) ? id : null };
+  /* view：从哪儿进来的就回哪儿去。路径条 / 概念卡进来是 graph（老的返回行为一个字不改）；
+     实践空间进来记 practice，返回时回六章列表，而不是把人丢进知识体系。 */
+  learnReturn = { routeId, stepIdx: id ? routeIndexOf(id) : routeStepIdx, conceptId: id && byId.has(id) ? id : null, view: currentView };
 }
 function openLearn(chapterId, opts = {}) {
   const i = chapterIdx(chapterId);
   if (i < 0) return false;
   const entering = !document.getElementById('learn').classList.contains('on');
   if (entering) captureLearnReturn(opts.from || (byId.has(chapterId) ? chapterId : null));
+  /* 返回条照实说回哪：从实践空间进来的就写「返回实践空间」（同一套阅读器，两个入口）。 */
+  const backBtn = document.getElementById('learn-back');
+  if (backBtn) backBtn.textContent = (learnReturn && learnReturn.view === 'practice') ? '← 返回实践空间' : '← 返回知识体系';
   if (!chapterUnlocked(i) && !opts.force) {
     // 上一章没通过就不解锁：送到上一章的费曼，并说明原因
     const prev = LEARN[i - 1];
@@ -2745,15 +3014,17 @@ function exitLearn() {
   document.body.classList.remove('learning');
   document.getElementById('learn').classList.remove('on');
   const ret = learnReturn || {};
+  const fromPractice = ret.view === 'practice';
   learnCur = null;
   if (ret.routeId) routeId = ret.routeId;
   if (typeof ret.stepIdx === 'number' && ret.stepIdx >= 0) routeStepIdx = ret.stepIdx;
   currentView = 'graph'; themeId = null; filter = null;
-  document.querySelectorAll('.r-item').forEach(b => b.classList.toggle('on', b.dataset.view === 'graph'));
+  document.querySelectorAll('.r-item').forEach(b => b.classList.toggle('on', b.dataset.view === (fromPractice ? 'practice' : 'graph')));
   resize(); computeLayout();
   if (ret.conceptId) { try { location.hash = ret.conceptId; } catch (e) {} }
   setMode('path');
   renderList(); syncPath();
+  if (fromPractice) { openPractice(ret.conceptId || null); learnReturn = null; return; }   // 从实践空间进来 → 回实践空间
   if (ret.conceptId) openPanel(ret.conceptId);
   learnReturn = null;
 }
@@ -2996,7 +3267,10 @@ function renderLearn(notice) {
     ['OPI', c.opinions.length ? `${c.opinions.length} 条判断依据` : '本章没有 OPI 直连', c.opinions.map(o => o.id).join(' / ') || '—'],
     ['SOL', '行动说明', c.solution.id],
   ];
-  const decisionsDone = s.decisions.every(Boolean);
+  /* 空数组不算「决策走完」：[].every(Boolean) === true，会把没有决策题的单元直接送进章末验收卡
+     （章末验收是解锁下一章的那一次，等于白送解锁）。现在必须**至少有一道题且全过**才算走完；
+     没有决策题的单元走 else 分支，照实显示「本单元没有决策题」。 */
+  const decisionsDone = Array.isArray(s.decisions) && s.decisions.length > 0 && s.decisions.every(Boolean);
   const n = c.narrative || null;                       // 有 narrative 的章 = 「正文流」页（连线写成解释句）
   const reviewLine = c.review.caseState === 'owner-confirmed'
     ? `<div class="lgap" style="color:#7fd0a6">审核状态：主案例已由负责人确认（${esc(c.review.confirmedAt || '')}）。场景类型照实显示：<b>${esc(c.case.type)}</b> —— 确认的是「哪一个是本章主案例」，不等于这是真实复盘。</div>`
@@ -3081,7 +3355,7 @@ function renderLearn(notice) {
   const blockFeyFinal = decisionsDone
     ? feyCard(n && n.inlineFeynman ? '3 · 章末验收' : '3 · 费曼收尾（章末验收）', '用自己的话讲清楚',
       n && n.inlineFeynman ? '<br>上面那张是读中即时费曼（不解锁）；这一张是章末验收。' : '')
-    : `<div class="lcard" id="learn-fey" style="opacity:.6"><span class="lb warn">3 · 章末验收</span><h2>三题按顺序全对后才会出现</h2><div class="sub">章末验收是解锁下一章的那一次：没过就不解锁（读中那份即时费曼不算数）。</div></div>`;
+    : `<div class="lcard" id="learn-fey" style="opacity:.6"><span class="lb warn">3 · 章末验收</span><h2>${(s.decisions || []).length ? '三题按顺序全对后才会出现' : '本单元没有决策题，还不进章末验收'}</h2><div class="sub">${(s.decisions || []).length ? '章末验收是解锁下一章的那一次：没过就不解锁（读中那份即时费曼不算数）。' : '这一版只有阅读与即时费曼；决策题待装配，所以章末验收卡不出现——不拿空数组当"三题全过"。'}</div></div>`;
 
   const blockNext = n && n.nextBridge ? `<div class="lcard">
       <span class="lb">下一站</span>

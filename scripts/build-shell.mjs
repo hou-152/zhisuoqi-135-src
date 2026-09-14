@@ -16,6 +16,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { parseConceptPool } from './lib/pool.mjs';
+import { buildPractice } from './lib/practice-readiness.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const TPL = path.join(ROOT, 'scripts', 'shell.template.html');
@@ -77,9 +78,27 @@ function loadLearning() {
   return d;
 }
 
+/* 实践空间：单元链路就绪度（六章 6 + 单篇 1 + 批量 76）。
+   数据来自 graph.json（单元/活动/判据/缺口/入口）+ units.json（批量装配声明）+ chapters.json（六章）。
+   准入规则只有一条、且是数据算出来的：「四段全绿才开放」——页面不写死六章。
+   19 条 ready 只显示「准备中 / 目录候选」，76 个批量单元一律不可进入（0 决策题）。 */
+function loadPractice(learning) {
+  const g = path.join(ROOT, 'knowledge', 'graph-260914', 'graph.json');
+  const b = path.join(ROOT, 'evidence', 'batch-units-260914', 'units.json');
+  if (!fs.existsSync(g)) { console.warn('⚠ 缺 knowledge/graph-260914/graph.json —— 先跑 node scripts/build-graph.mjs（实践空间会没有状态看板）'); return null; }
+  const graph = JSON.parse(fs.readFileSync(g, 'utf8'));
+  const batch = fs.existsSync(b) ? JSON.parse(fs.readFileSync(b, 'utf8')) : { units: [] };
+  if (!fs.existsSync(b)) console.warn('⚠ 缺 evidence/batch-units-260914/units.json —— 批量 76 个单元不会出现在状态看板里');
+  const p = buildPractice({ graph, batch, learning });
+  console.log(`实践空间：单元 ${p.summary.units} 个 · 可进入 ${p.summary.open}（四段全绿）· ` +
+    p.buckets.map((x) => `${x.label} ${x.count}`).join(' · '));
+  return p;
+}
+
 const payload = LEGACY ? buildLegacy() : buildFromMap();
 payload.neican = loadNeican();
 payload.learning = loadLearning();
+payload.practice = loadPractice(payload.learning);
 
 const tpl = fs.readFileSync(TPL, 'utf8');
 const json = JSON.stringify(payload).replace(/<\//g, '<\\/');

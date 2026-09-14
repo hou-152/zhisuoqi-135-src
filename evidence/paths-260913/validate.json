@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-13T20:08:56.817Z",
+ "generatedAt": "2026-09-14T00:14:38.882Z",
  "source": "evidence/paths-260913/routes.json",
  "routes": [
   {
@@ -19,7 +19,8 @@
      "prereqBasis": "none",
      "mapHard": [],
      "mapSoft": [],
-     "relatedCount": 19,
+     "relatedCount": 4,
+     "relatedHiddenCount": 15,
      "supportCount": 2,
      "fallback": null
     },
@@ -41,7 +42,8 @@
        "reason": "不懂【工具定义】，就做不了【工具】的任何一次调用——模型没有名称与参数 schema 就无从生成合法调用"
       }
      ],
-     "relatedCount": 5,
+     "relatedCount": 0,
+     "relatedHiddenCount": 5,
      "supportCount": 3,
      "fallback": "cm_0608c405"
     },
@@ -63,7 +65,8 @@
        "reason": "不懂【Orchestration Loop / TAO Cycle / ReAct Loop】，就做不了【Agent loop】的 ⟨调工具—回喂—再调用的迭代机制⟩"
       }
      ],
-     "relatedCount": 22,
+     "relatedCount": 5,
+     "relatedHiddenCount": 16,
      "supportCount": 3,
      "fallback": "cm_a72ef18d"
     },
@@ -90,7 +93,8 @@
        "reason": "不懂【Session】就做不了【状态子系统与进度持久化】的『让下次会话接着做』这件事"
       }
      ],
-     "relatedCount": 4,
+     "relatedCount": 0,
+     "relatedHiddenCount": 4,
      "supportCount": 1,
      "fallback": "cm_1973b1d3"
     },
@@ -106,7 +110,8 @@
      "prereqBasis": "route",
      "mapHard": [],
      "mapSoft": [],
-     "relatedCount": 271,
+     "relatedCount": 21,
+     "relatedHiddenCount": 248,
      "supportCount": 23,
      "fallback": "cm_be951649"
     },
@@ -128,7 +133,8 @@
        "reason": "不懂【Feedback loop】，就做不了【验证闭环】的「让 Claude 自己运行、读结果、修正」"
       }
      ],
-     "relatedCount": 23,
+     "relatedCount": 5,
+     "relatedHiddenCount": 17,
      "supportCount": 2,
      "fallback": "cm_0a4ca4ce"
     }

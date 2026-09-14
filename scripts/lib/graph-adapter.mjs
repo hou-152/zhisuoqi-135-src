@@ -553,9 +553,15 @@ function wireUnit(b, unit, acts, opts) {
   });
   // 进阅读中费曼时先记住从阅读来，费曼过了解这一处后要回到阅读
   S(acts.reading, acts.formative, 'explain', 'always', 'openFormativeTurn', '想讲一讲或遇到困惑');
-  S(acts.reading, acts.decisions[0], 'proceed', 'always', 'openAttempt', '按既有课程继续');
+  // 没有决策题的单元（批量装配这一轮，决策题待装配）：阅读之后直接进章末独立验收，不编一道假题占位
+  S(acts.reading, acts.decisions[0] ?? acts.summative, 'proceed', 'always', 'openAttempt',
+    acts.decisions.length ? '按既有课程继续' : '本单元没有决策题（待装配），直接进章末独立验收');
   S(acts.formative, acts.support, 'evaluated', 'needSupport', 'recordGapAndReturn', '需要澄清或补充');
   S(acts.formative, acts.ret, 'evaluated', 'resolved', 'recordEvidence', '当前补讲目的完成');
+  // 没有决策题时，回到阅读中费曼之后还要有一条继续向前的路（同样不编题）
+  if (!acts.decisions.length) {
+    S(acts.formative, acts.summative, 'proceed', 'always', 'openAttempt', '本单元没有决策题（待装配），直接进章末独立验收');
+  }
   for (let i = 0; i < acts.decisions.length; i++) {
     S(acts.decisions[i], acts.reviews[i], 'answered', 'always', 'recordAttempt', '先选择再提交');
     S(acts.reviews[i], acts.support, 'reviewed', 'hasGap', 'recordGapAndReturn', '确有相关缺口');
@@ -569,7 +575,8 @@ function wireUnit(b, unit, acts, opts) {
   S(acts.support, acts.ret, 'replied', 'always', 'recordEvidence', '学生只补当前问题，讲清后回发起处');
   // 路由点
   S(acts.ret, acts.reading, 'returned', 'targetIsReading', 'popReturnStack', '回到阅读');
-  S(acts.ret, acts.decisions[0], 'returned', 'targetIsDecision', 'popReturnStack', '回到发起补讲的那道题');
+  // 从某道题发起的补讲回到**那一道题**；没有决策题的单元就没有这条出口
+  if (acts.decisions.length) S(acts.ret, acts.decisions[0], 'returned', 'targetIsDecision', 'popReturnStack', '回到发起补讲的那道题');
   S(acts.ret, acts.formative, 'returned', 'targetIsFormative', 'popReturnStack', '回到阅读中费曼');
   S(acts.ret, acts.summative, 'returned', 'targetIsSummative', 'popReturnStack', '回到章末验收（要重新提交一次，不由补讲 met 解锁）');
   S(acts.ret, acts.apply, 'returned', 'targetIsApply', 'popReturnStack', '回到正式核对');
@@ -584,7 +591,7 @@ function wireUnit(b, unit, acts, opts) {
   S(acts.resume, acts.formative, 'restored', 'resumeTargetIsFormative', 'noop', '恢复到失败前活动');
   S(acts.resume, acts.summative, 'restored', 'resumeTargetIsSummative', 'noop', '恢复到失败前活动');
   S(acts.resume, acts.reading, 'restored', 'resumeTargetIsReading', 'noop', '恢复到失败前活动');
-  S(acts.resume, acts.decisions[0], 'restored', 'resumeTargetIsDecision', 'noop', '恢复到失败前活动');
+  if (acts.decisions.length) S(acts.resume, acts.decisions[0], 'restored', 'resumeTargetIsDecision', 'noop', '恢复到失败前活动');
   // 暂停：记住原节点，不是一律从阅读重来
   for (const from of [acts.reading, ...acts.decisions, ...acts.reviews, acts.summative, acts.support, acts.formative, acts.apply]) {
     S(from, from, 'pause', 'always', 'saveCheckpoint', '暂停并保存原节点');
@@ -952,6 +959,163 @@ function adaptRoutesAndUnits(b, out) {
   out.course = routeStats;
 }
 
+// ── 5b. 批量装配的学习单元：76 个 CON，走**同一份** makeActivities / wireUnit / wireTail ──
+// 施工单：docs/批量装配学习单元-施工单-20260914.md。
+// 材料与出处逐字来自 evidence/batch-units-260914/units.json（该文件由确定性脚本装配并自校验）。
+// 这一轮**不生成决策题**：每个单元的活动骨架照建，但没有 Decision / DecisionReview 节点，
+// 阅读之后直接进章末独立验收；缺的那道题写成缺口，不编假题占位。
+function adaptBatchUnits(b, out) {
+  const rel = 'evidence/batch-units-260914/units.json';
+  if (!b.exists(rel)) { b.warn(`批量单元材料不在：${rel}（先跑 node scripts/build-batch-units.mjs）`); return; }
+  b.src(rel, '76 个批量装配单元（逐字材料 + 出处 + 缺口）');
+  const data = b.json(rel);
+  const list = data.units || [];
+  const stats = { units: 0, ready: 0, scaffold: 0, criteria: 0, activities: 0, materials: 0 };
+  const unitIds = [], critIds = [];
+
+  for (const bu of list) {
+    const uid = `unit:${bu.unitId}`;
+    const slug = bu.card.slug;
+    const title = (bu.concepts && bu.concepts[0] && bu.concepts[0].title && bu.concepts[0].title.text) || bu.unitId;
+    const cardPath = bu.card.file;
+    b.src(cardPath, '图鉴卡（只读，逐字材料来源）');
+    const unitRef = { path: rel, locator: `units[unitId=${bu.unitId}]` };
+    const checks = (bu.feynman && bu.feynman.checks) || [];
+
+    stats.units++;
+    unitIds.push(uid);
+    if (bu.status === 'ready') stats.ready++; else stats.scaffold++;
+
+    b.node({
+      id: uid, kind: 'Unit', label: title, sub: `批量单元 · 图鉴卡 ${slug}`,
+      status: bu.status, statusReason: bu.statusReason || '',
+      payloadRef: rel,
+      sourceRefs: [unitRef, { path: cardPath, locator: `remember / feynman / source_context / boundaries[0..${Math.max(checks.length - 1, 0)}] / how_to` }],
+      meta: { unitId: uid, title, routeId: '', order: 0, questionCount: 0, criterionCount: checks.length,
+        caseType: bu.case.caseType, cardSlug: slug, decisionGap: true },
+      runnable: null,   // 页面入口还没装配：给空按钮等于骗人，宁可不给（已登记缺口）
+    });
+
+    // 单元 → 五类语义（CON 是核心概念；QST / CAS / SOL / OPI 是反向关系单元）
+    b.edge({ kind: 'curriculum', relation: 'uses-concept-unit', from: uid, to: `semunit:${bu.conceptId}`, label: 'CON',
+      reviewState: 'sourced', sourceRefs: [{ path: rel, locator: `units[unitId=${bu.unitId}].concepts[0]` }] });
+    b.edge({ kind: 'provenance', relation: 'compiled-from', from: uid, to: `card:${slug}`, label: '阅读梯度来自这张图鉴卡',
+      reviewState: 'sourced', sourceRefs: [unitRef] });
+    for (const [slot, sm] of [['qst', bu.qst], ['case', bu.case], ['solution', bu.solution]]) {
+      if (!sm || !sm.id) continue;
+      b.edge({ kind: 'curriculum', relation: `uses-${slot}`, from: uid, to: `semunit:${sm.id}`, label: slot.toUpperCase(),
+        reviewState: 'sourced', sourceRefs: [{ path: rel, locator: `units[unitId=${bu.unitId}].${slot}` }] });
+    }
+    for (const o of bu.opinions || []) {
+      b.edge({ kind: 'curriculum', relation: 'uses-opi', from: uid, to: `semunit:${o.id}`, label: 'OPI',
+        reviewState: 'sourced', sourceRefs: [{ path: rel, locator: `units[unitId=${bu.unitId}].opinions` }] });
+    }
+    // 主案例照实标类型（全部是「假设场景」）：贴到 CAS 语义单元节点上，视图直接读得到
+    if (bu.case && bu.case.id) {
+      b.update(`semunit:${bu.case.id}`, { meta: { caseType: bu.case.caseType } });
+      b.edge({ kind: 'provenance', relation: 'case-honesty', from: uid, to: `semunit:${bu.case.id}`,
+        label: `主案例类型：${bu.case.caseType}（不是真实复盘）`, reviewState: 'sourced',
+        sourceRefs: [{ path: rel, locator: `units[unitId=${bu.unitId}].case.caseHonesty` }] });
+    }
+
+    // 阅读梯度：每一层一个逐字原文片段节点，出处带卡片路径 + 该卡的 sha256
+    const LADDER = ['original', 'explain', 'intuition', 'mechanism', 'boundary'];
+    for (const key of LADDER) {
+      const blk = bu.reading[key];
+      if (!blk) continue;
+      const items = Array.isArray(blk.items) ? blk.items : null;
+      const text = blk.text || (items ? items.map((x) => x.text).join('\n') : blk.text) || '';
+      if (!text) continue;
+      const locator = items ? items.map((x) => x.locator).join(' + ') : blk.locator;
+      const sha = ((items && items[0]) || blk).sourceSha256 || '';
+      const sid = `span:batch-${slug}:${key}`;
+      b.node({
+        id: sid, kind: 'SourceSpan', label: `${title} · ${blk.label || key}`, sub: '逐字原文片段 · 图鉴卡',
+        status: 'ready', payloadRef: rel,
+        sourceRefs: [{ path: cardPath, locator: `${locator}${sha ? ` @sha256:${String(sha).slice(0, 12)}` : ''}` }],
+        meta: { text, label: blk.label || key, docType: 'reading-ladder', cardSlug: slug },
+      });
+      b.edge({ kind: 'provenance', relation: 'quotes', from: uid, to: sid, label: `阅读梯度·${blk.label || key}`,
+        reviewState: 'sourced', sourceRefs: [{ path: rel, locator: `units[unitId=${bu.unitId}].reading.${key}` }] });
+      b.edge({ kind: 'provenance', relation: 'reading-from', from: sid, to: `card:${slug}`, label: '逐字来自这张卡',
+        reviewState: 'sourced', sourceRefs: [{ path: cardPath, locator }] });
+      stats.materials++;
+    }
+
+    // 判据（卡片 boundaries 一条一条当判据）+ 补讲材料（这条判据自己的那段边界原文，比六章精确）
+    const myCritIds = [];
+    for (const [i, c] of checks.entries()) {
+      const cid = `criterion:${c.id}`;
+      myCritIds.push(cid); critIds.push(cid); stats.criteria++;
+      b.node({
+        id: cid, kind: 'Criterion', label: c.point, sub: `批量单元 · 判据 ${i + 1}（卡片 boundaries[${i}]）`,
+        status: 'ready', payloadRef: rel,
+        sourceRefs: [{ path: cardPath, locator: `${c.locator} @sha256:${String(c.sourceSha256).slice(0, 12)}` }],
+        meta: { criterion: c.condition, condition: c.condition, misconception: c.misconception,
+          misconceptionSource: c.misconceptionSource, derivation: c.derivation, point: c.point,
+          unitId: uid, kind: 'summative' },
+      });
+      b.edge({ kind: 'curriculum', relation: 'targets', from: uid, to: cid, label: '本单元判据',
+        reviewState: 'sourced', sourceRefs: [{ path: rel, locator: `units[unitId=${bu.unitId}].feynman.checks[${i}]` }] });
+      const mid = `material:batch-${slug}:B${i + 1}`;
+      b.node({
+        id: mid, kind: 'SourceSpan', label: `${title} · 边界 ${i + 1}`, sub: '补讲材料 · 逐字原文',
+        status: 'ready', payloadRef: rel,
+        sourceRefs: [{ path: cardPath, locator: `${c.locator} @sha256:${String(c.sourceSha256).slice(0, 12)}` }],
+        meta: { text: c.condition, label: `边界 ${i + 1}`, kind: 'boundary', ref: `boundaries[${i}]`, cardSlug: slug },
+      });
+      for (const [to, note] of [[mid, `这条判据自己那段原文（${c.locator}）`], [`span:batch-${slug}:explain`, '定义段'], [`span:batch-${slug}:mechanism`, '动作路径段']]) {
+        if (!b.nodes.has(to)) continue;
+        b.edge({ kind: 'curriculum', relation: 'taught-by', from: cid, to, label: `补讲用哪段材料（${note}）`,
+          reviewState: 'sourced', sourceRefs: [{ path: cardPath, locator: c.locator }] });
+      }
+    }
+
+    // 活动 + transition 边：和六章、单篇、夹具共用同一套生成器（decisions=0 → 本轮没有决策题）
+    const acts = makeActivities(b, uid, {
+      title, sub: `批量单元 · ${slug}`, decisions: 0,
+      readingRef: rel, payloadRef: rel, experiments: 0,
+      experimentNote: '本单元材料里没有实验环节（真五维的 experiments 只在内参单篇）；节点保留并标未启用，不卡住本单元的学习流程',
+      sourceRefs: [unitRef],
+    });
+    wireUnit(b, uid, acts, {});
+    stats.activities += 10;   // decisions=0：reading/formative/support/summative/apply/experiment/ret/resume/error/advance
+    for (const cid of myCritIds) {
+      b.edge({ kind: 'curriculum', relation: 'assessed-by', from: acts.summative, to: cid, label: '章末独立验收核对',
+        reviewState: 'sourced', sourceRefs: [{ path: rel, locator: `units[unitId=${bu.unitId}].feynman.checks` }] });
+    }
+    if (checks.length) {
+      b.edge({ kind: 'curriculum', relation: 'assessed-by', from: acts.formative, to: `criterion:${checks[0].id}`,
+        label: '阅读中费曼只核对当前一处', reviewState: 'sourced', sourceRefs: [{ path: rel, locator: `units[unitId=${bu.unitId}].feynman.checks[0]` }] });
+    }
+    // 收尾段：这一轮没有用户个人问题，就用"这个单元要搞懂什么、还缺什么"收尾，不编用户背景
+    wireTail(b, uid, {
+      title, problem: '（批量单元没有用户个人问题，用这个单元要搞懂的问题收尾）',
+      sourceRel: rel, locator: `units[unitId=${bu.unitId}]`,
+      status: bu.status, statusReason: bu.statusReason || '',
+    });
+
+    // 缺口：照实写，不许为了"看起来完整"补造选项
+    b.gap({ kind: 'pending', layer: 'curriculum', label: `「${title}」的三道决策题待装配`,
+      why: (bu.gaps || [])[0] || '该单元的三道决策题待装配', where: `${rel}#units[unitId=${bu.unitId}].gaps[0]`, affects: [uid] });
+    if (bu.status === 'scaffold') {
+      b.gap({ kind: 'pending', layer: 'curriculum', label: `「${title}」缺 OPI：决策题依据只能落在 CAS 情境与 SOL 动作路径上`,
+        why: `本单元（${bu.conceptId}）没有反向观点单元；决策题待装配时，依据只能落在 CAS 情境与 SOL 动作路径上`,
+        where: `${rel}#units[unitId=${bu.unitId}].statusReason`, affects: [uid] });
+    }
+  }
+
+  if (stats.units) {
+    b.gap({ kind: 'pending', layer: 'curriculum', label: '76 个批量单元没有页面可运行入口',
+      why: '这些单元能走同一份 graph-runner（scripts/test-batch-walk.mjs 逐个走通），但壳的学习空间只服务六章与内参单篇；页面入口待装配，本轮不给空按钮',
+      where: rel, affects: unitIds });
+    b.gap({ kind: 'pending', layer: 'curriculum', label: '批量单元的费曼误解是机械反面转述，未经人工复核',
+      why: `misconception 由确定性规则从卡片 boundaries 原文算出（${(data.stats && data.stats.misconceptionRules) ? `否定翻转 ${data.stats.misconceptionRules.negationFlip} 条 / 整条否定 ${data.stats.misconceptionRules.boundaryDenial} 条` : '两条规则'}），不是人工撰写的教学误解；可逐条重算复核，但读起来可能生硬`,
+      where: rel, affects: critIds });
+  }
+  out.batch = stats;
+}
+
 // ── 6. 开发夹具：验证运行器复用与共享概念（不是第二条正式课程）────
 function adaptFixture(b, out) {
   const fid = 'fixture-shared-concept-v1';
@@ -1041,6 +1205,7 @@ export function buildGraph({ root }) {
   adaptSourceChain(b, out);
   adaptNeican(b, out);
   adaptRoutesAndUnits(b, out);
+  adaptBatchUnits(b, out);
   adaptFixture(b, out);
   adaptAiLayer(b, out);
 
@@ -1080,8 +1245,8 @@ export function buildGraph({ root }) {
   };
 
   const coverage = {
-    fullIndex: `扫到的目录：knowledge/概念地图-260913（概念/主题/依赖/关系）· 内容结构化系统/模块/ai-concept-base/data/units.json（538 语义单元）· 内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/*.yaml（${out.cards ? out.cards.files : 0} 张卡）· knowledge/内参-*（三产物 + 真五维 + 原文）· evidence/paths-260913/routes.json · evidence/agent-loop-260913（六章）· evidence/feynman-teaching-map（单篇四判据）。全量可读资产都建了节点，一个都没静默丢。`,
-    playable: `能真正跑的单元：六章 ${out.course ? out.course.units - ((out.single) ? 1 : 0) - ((out.fixture) ? out.fixture.units : 0) : 0} 个（同一份运行器）＋ 单篇 1 个（${out.single ? out.single.criteria : 0} 条判据全接入）＋ 明确标注的开发夹具 ${out.fixture ? out.fixture.units : 0} 个（不是正式课程）。有材料但没有已确认正式章末门的单元按待装配显示，不借用别的单元的通过标准。`,
+    fullIndex: `扫到的目录：knowledge/概念地图-260913（概念/主题/依赖/关系）· 内容结构化系统/模块/ai-concept-base/data/units.json（538 语义单元）· 内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/*.yaml（${out.cards ? out.cards.files : 0} 张卡）· knowledge/内参-*（三产物 + 真五维 + 原文）· evidence/paths-260913/routes.json · evidence/agent-loop-260913（六章）· evidence/feynman-teaching-map（单篇四判据）· evidence/batch-units-260914（76 个批量单元）。全量可读资产都建了节点，一个都没静默丢。`,
+    playable: `能真正跑的单元：六章 ${out.course ? out.course.units - ((out.single) ? 1 : 0) - ((out.fixture) ? out.fixture.units : 0) : 0} 个（同一份运行器）＋ 单篇 1 个（${out.single ? out.single.criteria : 0} 条判据全接入）＋ 批量装配 ${out.batch ? out.batch.units : 0} 个（同一份运行器逐个走通，但**决策题一个都没装配**、也没有页面入口：${out.batch ? out.batch.ready : 0} 个四类齐的按 ready 显示、${out.batch ? out.batch.scaffold : 0} 个缺 OPI 的按 scaffold 显示）＋ 明确标注的开发夹具 ${out.fixture ? out.fixture.units : 0} 个（不是正式课程）。**「全量课程可学」不成立**：76 个批量单元都缺三道决策题，六章的 CAS 也仍全部是「假设场景」。有材料但没有已确认正式章末门的单元按待装配显示，不借用别的单元的通过标准。`,
   };
 
   return {

@@ -150,6 +150,17 @@ check('这时才出现「章末验收」这张卡，并写明它才是解锁判�
 check('两张费曼卡是两个独立的提交口（即时 / 章末）', await ex(`document.getElementById('learn-said')!==null && document.getElementById('learn-final-said')!==null && document.getElementById('lin-submit')!==document.getElementById('learn-submit')`), 'true');
 await shotOf('#learn-fey', '51-学习空间-决策与费曼.png');
 
+/* ②b P0 回归：没有决策题的单元不得出现章末验收卡。
+   原来判断是 `s.decisions.every(Boolean)` —— 空数组恒真，等于"没有题"直接当成"三题全过"，
+   章末验收卡会当场出现（白送解锁）。现在必须至少有一道题且全过。 */
+console.log('\n②b 空决策题 ≠ 三题全过（章末验收卡不许出现）');
+await ex(`window.__decBackup = JSON.stringify(stOf(learnCur).decisions); stOf(learnCur).decisions = []; saveLearnState(); renderLearn();`);
+check('没有决策题的单元不出现章末验收卡', await ex(`document.getElementById('learn-final-said')===null`), 'true');
+check('卡片照实写明本单元没有决策题', await ex(`(()=>{const e=document.getElementById('learn-fey');return !!e && e.innerText.includes('本单元没有决策题')})()`), 'true');
+check('空决策题没有写任何通过/解锁状态', await ex(`(!stOf(learnCur).feynman) + '|' + chapterUnlocked(1)`), 'true|false');
+await ex(`stOf(learnCur).decisions = JSON.parse(window.__decBackup); saveLearnState(); renderLearn();`);
+check('恢复三题全过后章末验收卡回来（不是恒不出现）', await ex(`document.getElementById('learn-final-said')!==null`), 'true');
+
 /* ③ 费曼状态门：固定响应，不依赖模型随机性 */
 console.log('\n③ 费曼状态门（固定响应）');
 await ex(`document.getElementById('learn-final-said').value='太短'`);

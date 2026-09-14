@@ -89,8 +89,51 @@ const fixturePos = multi.find(([, v]) => v.some((x) => x.includes('fixture')));
 ok(!!fixturePos, '夹具证明了同一份运行器能复用在第二条路线位置上');
 const routePrereq = g.edges.filter((e) => e.relation === 'route-prerequisite');
 ok(routePrereq.length > 0 && routePrereq.every((e) => e.reviewState !== 'unreviewed'), '路线前置都有人工策展或来源依据，不是 LLM 挖出来就直接当先修');
-const relatedAsPrereq = g.edges.filter((e) => e.kind === 'knowledge' && e.relation === 'related-to' && /prerequisite/.test(e.relation));
-ok(relatedAsPrereq.length === 0, '相关关系没有被升级成先修');
+/* 「相关关系没有被升级成先修」——原来这条是恒真的：filter 同时要求 relation==='related-to'
+   与 /prerequisite/.test(relation)，两个条件不可能同时成立，所以它永远返回 0 条、永远绿。
+   现在改成**真能失败**的审计：先修边必须有一条**主张先后的来源**，只挂弱关系来源就是"升级"。
+     强来源 = dependencies.json（依赖记录）· relations.json 里 kind 本身就是 prerequisite 的记录 · routes.json（路线前置）
+     弱来源 = related-to / used-with / part-of / contrast / co-article / rejected / semantic:* —— 它们自己都不主张先后
+   最后拿一份**人工构造的反例**（把一条 related-to 边改写成先修、来源不动）跑同一段审计，必须抓得出来；
+   抓不出来（审计恒返回空）就让这一条红。 */
+const STRONG_RELATION_SOURCES = new Set(['prerequisite', 'depends-on', 'hard-prerequisite']);
+const rawRelationsFile = JSON.parse(fs.readFileSync(path.join(ROOT, 'knowledge/概念地图-260913/relations.json'), 'utf8')).relations;
+function auditPrereqPromotion(graph, sourceRelations) {
+  const audited = [];
+  const violations = [];
+  for (const e of graph.edges) {
+    if (!/prerequisite/.test(e.relation)) continue;
+    audited.push(e.id);
+    let strong = 0; const weak = [];
+    for (const r of e.sourceRefs || []) {
+      const p = r.path || '';
+      if (/dependencies\.json/.test(p) || /routes\.json/.test(p)) { strong++; continue; }
+      if (/relations\.json/.test(p)) {
+        const m = /relations\[(\d+)\]/.exec(r.locator || '');
+        const src = m ? sourceRelations[Number(m[1])] : null;
+        if (src && STRONG_RELATION_SOURCES.has(src.kind)) strong++; else weak.push(src ? src.kind : `${p}#${r.locator}`);
+        continue;
+      }
+      weak.push(`${p}#${r.locator}`);
+    }
+    if (!strong && weak.length) violations.push({ id: e.id, relation: e.relation, weak });
+  }
+  return { audited, violations };
+}
+const promo = auditPrereqPromotion(g, rawRelationsFile);
+ok(promo.audited.length > 0 && promo.audited.length === g.edges.filter((e) => /prerequisite/.test(e.relation)).length,
+  `先修审计覆盖了全部先修边（${promo.audited.length} 条，不是只挑几条看）`);
+ok(promo.violations.length === 0, `相关关系没有被升级成先修（违规 ${promo.violations.length} 条；判据＝先修边必须有 dependencies/relations.prerequisite/routes 来源）`);
+const weakProbe = g.edges.find((e) => e.kind === 'knowledge' && e.relation === 'related-to');
+const mutantGraph = { ...g, edges: g.edges.map((e) => (e.id === weakProbe.id ? { ...e, relation: 'prerequisite', label: 'hard 前置' } : e)) };
+const caught = auditPrereqPromotion(mutantGraph, rawRelationsFile);
+ok(!!weakProbe && caught.violations.length === 1 && caught.violations[0].id === weakProbe.id,
+  `反例能被抓住：把 1 条 related-to 边改成先修（来源不动）→ 审计报违规 ${caught.violations.length} 条，证明上面那条不是恒真`);
+const rejectedPairs = new Set(rawRelationsFile.filter((r) => r.kind === 'rejected').map((r) => `${r.from}|${r.to}`));
+const prereqPairs = g.edges.filter((e) => /prerequisite/.test(e.relation));
+const rejectedAsPrereq = prereqPairs.filter((e) => rejectedPairs.has(`${e.from}|${e.to}`) || rejectedPairs.has(`${e.to}|${e.from}`));
+ok(rejectedPairs.size > 0 && rejectedAsPrereq.length === 0,
+  `被判不成立（rejected ${rejectedPairs.size} 条）的概念对没有同时出现在先修位置（${rejectedAsPrereq.length} 条）`);
 const lowTrust = g.edges.filter((e) => e.reviewState === 'unreviewed');
 ok(lowTrust.every((e) => e.kind !== 'transition' || /fixture/.test(e.from)), `未核实边不参与正式运行（${lowTrust.length} 条，均在夹具/候选里）`);
 const cmFiles = fs.readFileSync(path.join(ROOT, 'evidence/paths-260913/routes.json'), 'utf8');
