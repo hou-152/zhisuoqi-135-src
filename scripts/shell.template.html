@@ -79,9 +79,9 @@ button{font-family:inherit}
 /* 详情打开时主区让出 412px，画布跟着缩——盖住图就不是 Linear 了 */
 #main.pinned #c{right:412px}
 #main.pinned .mtools{right:412px}
-#main.pinned #hero-mini{max-width:290px}
 #c{position:absolute;inset:0;display:block;cursor:grab;touch-action:none;transition:right .14s}
 #c.drag{cursor:grabbing}
+#c.nodedrag{cursor:grabbing}
 /* tab 板（图谱 / 星球）：**知识体系这个页面内的视图切换**，长在主区顶部。
    09-13 曾提到三栏之上当全局顶栏，所有者 04:0x 改口：「它不应该在顶栏，
    而是它在知识体系下面的那个 tab」——层级归位，位置回主区。 */
@@ -89,15 +89,24 @@ button{font-family:inherit}
   gap:6px;padding:0 12px 0 14px;border-bottom:1px solid var(--line);z-index:4;
   background:linear-gradient(180deg,rgba(8,9,10,.92),rgba(8,9,10,.55));backdrop-filter:blur(6px)}
 .mtools .spacer{flex:1}
+/* 按钮不许压缩换行：详情卡打开时 tab 板只剩 ~500px，「布局归位」被挤成竖排过一次 */
+.mtools>*{flex:0 0 auto}
+.mtools .spacer{flex:1 1 auto}
 .tab{background:none;border:1px solid var(--line);color:var(--fg3);font-size:11.5px;height:24px;
-  padding:0 11px;border-radius:5px;cursor:pointer}
+  padding:0 11px;border-radius:5px;cursor:pointer;white-space:nowrap}
 .tab:hover{color:var(--fg2);border-color:var(--line2)}
 .tab.on{background:#1d1e21;color:var(--fg);border-color:var(--line2)}
 .rel-legend{display:none;align-items:center;gap:8px;color:var(--fg4);font-size:10.5px;white-space:nowrap}
 .rel-legend.on{display:flex}
 .rel-legend span{display:inline-flex;align-items:center;gap:3px}
 .rel-legend i{display:inline-block;width:7px;height:7px;border-radius:50%}
-.mtools .mm{font-size:11.5px;color:var(--fg4)}
+.mtools .mm{font-size:11.5px;color:var(--fg4);flex:0 1 auto;min-width:0;overflow:hidden;
+  text-overflow:ellipsis;white-space:nowrap}
+/* 视图工具（全览 / 归位）：不是视图 tab，别给 .tab 类——验收脚本按 .tab 数视图 */
+.tbtn{background:none;border:1px solid var(--line);color:var(--fg4);font-size:11px;height:22px;
+  padding:0 9px;border-radius:5px;cursor:pointer;margin-left:2px;white-space:nowrap}
+.tbtn:hover{color:var(--fg2);border-color:var(--line2)}
+.tbtn[hidden]{display:none}
 
 /* ── 路径视图（09-13 加）──────────────────────────────────────
    路径 = 主区第四种观察方式，也是默认。它**不改图谱数据**，只在同一张画布上做取舍：
@@ -199,13 +208,8 @@ button{font-family:inherit}
 .prow .rn i{font-style:normal;display:block;font-size:10.5px;color:var(--fg4);margin-top:1px}
 .prow .rm{font-size:11px;color:var(--fg4);white-space:nowrap}
 
-#hero-mini{position:absolute;left:0;top:44px;z-index:3;pointer-events:none;max-width:330px;
-  padding:12px 26px 14px 18px;
-  background:linear-gradient(100deg,rgba(8,9,10,.94) 45%,rgba(8,9,10,0))}
-#hero-mini .kicker{font-size:10.5px;color:var(--fg4);letter-spacing:.04em}
-#hero-mini .stats{font-size:11.5px;color:var(--fg3);line-height:1.75;margin-top:5px}
-#hero-mini .stats b{color:var(--fg2);font-weight:500}
-#main.pathon #hero-mini{display:none}   /* 路径模式下左上角让给路径条，两块都在这儿会打架 */
+/* 09-15 所有者：画布左上那块元信息小字（#hero-mini）「可有可无」→ 整块拿掉。
+   同一批数字顶栏右侧那份（#main-meta）还在，信息没丢。 */
 
 /* 详情栏：停靠在主区右侧，不再滑出全屏 */
 #panel{position:absolute;top:0;right:0;bottom:0;width:412px;background:var(--panel);
@@ -338,7 +342,7 @@ code{background:#161719;border:1px solid var(--line);border-radius:4px;padding:1
 #graphview .gv-err b{color:var(--fg)}
 #graphview .gv-err code{background:#141517;border:1px solid var(--line);border-radius:4px;padding:1px 5px;color:var(--fg2)}
 #graphview .gv-note{color:var(--fg4)}
-#main.graphon #c,#main.graphon #hero-mini,#main.graphon #pathrail{display:none}
+#main.graphon #c,#main.graphon #pathrail{display:none}
 #reader.on{display:block}
 .nei{max-width:768px;margin:0 auto;padding:20px 30px 90px}
 /* 实践空间的状态看板是四列表格（单元｜链路就绪度｜结论｜缺什么），768px 会把「结论」挤出屏幕，
@@ -686,10 +690,11 @@ body.learning #rail,body.learning #list,body.learning #main{display:none}
         <span><i style="background:#e97b9b"></i>对照</span>
       </span>
       <span class="spacer"></span>
+      <button class="tbtn" id="btn-fit" onclick="fitAll()" title="把 21 条主题一次全看（默认是居中三列的可读视角）">全览</button>
+      <button class="tbtn" id="btn-unpin" onclick="resetPins()" hidden title="把所有手动拖过的点放回自动布局">↺ 布局归位</button>
       <span class="mm" id="main-meta"></span>
     </div>
     <div id="pathrail"></div>
-    <div id="hero-mini"><div class="kicker" id="kicker"></div><div class="stats" id="stats"></div></div>
     <div id="reader"><div class="nei" id="nei-wrap"></div></div>
     <section id="graphview" aria-label="全链路总图"><div class="gv-host" id="gv-host"></div></section>
     <aside id="panel">
@@ -842,7 +847,10 @@ function focusRoute() {
   const spanX = Math.max(90, Math.max(...gxs) - Math.min(...gxs));
   const spanY = Math.max(70, Math.max(...gys) - Math.min(...gys));
   const left = 282;                                  // 让开路径条
-  const s = Math.max(0.95, Math.min(1.6, Math.min((W - left) * 0.66 / spanX, (H - 60) * 0.5 / spanY)));
+  // 09-15：列宽改成固定的 264 世界像素后，一条路线是真宽——实测这条跨 8 条主题
+  // （2125 世界像素），要整条进画面得缩到 ~0.22。路线点在渲染里另有 4.2px 下限，
+  // 缩小了仍然看得见，所以下限只放到 0.16，由取景公式说话。
+  const s = Math.max(0.16, Math.min(1.6, Math.min((W - left) * 0.74 / spanX, (H - 60) * 0.62 / spanY)));
   zoom = s;
   const gcx = (Math.min(...gxs) + Math.max(...gxs)) / 2, gcy = (Math.min(...gys) + Math.max(...gys)) / 2;
   const tx = left + (W - left) * 0.5, ty = 60 + (H - 60) * 0.5;
@@ -1050,19 +1058,61 @@ function hash01(s) {
   return ((h >>> 0) % 10000) / 10000;
 }
 
+/* ── 我拖过的点（吸附落位）──────────────────────────────────
+   所有者 09-13 20:34：「这些是没法拖拽的，没法像 Obsidian 那样有一个吸附的功能」。
+   两件事分开：① 拖得动（pointerdown 命中一个点＝拖这个点，不是拖画布）；
+   ② 拖的时候吸附（先吸网格，再吸到别的点所在的横/竖线）。落位写进 localStorage，
+   刷新还在；顶栏「↺ 布局归位」一键还原自动布局（否则拖乱了回不去）。 */
+const PIN_KEY = 'zss135.pins.v1';
+let pins = { grid: {}, relation: {} };
+try {
+  const raw = JSON.parse(localStorage.getItem(PIN_KEY) || '{}') || {};
+  if (raw && typeof raw === 'object') pins = { grid: raw.grid || {}, relation: raw.relation || {} };
+} catch (e) { pins = { grid: {}, relation: {} }; }
+function savePins() { try { localStorage.setItem(PIN_KEY, JSON.stringify(pins)); } catch (e) {} }
+function pinCount() { return Object.keys(pins.grid).length + Object.keys(pins.relation).length; }
+/* 吸附把坐标量化到 18 世界像素的格子；对齐吸附（吸到别的点的那条线）优先 */
+const SNAP_GRID = 18;
+function applyPins(kind) {
+  const P = pins[kind] || {};
+  for (const id of Object.keys(P)) {
+    const n = byId.get(id);
+    if (!n) continue;
+    if (kind === 'relation') { n.rx = P[id][0]; n.ry = P[id][1]; }
+    else { n.gx = P[id][0]; n.gy = P[id][1]; }
+  }
+}
+function syncPinBtn() {
+  const b = document.getElementById('btn-unpin');
+  if (b) b.hidden = pinCount() === 0;
+}
+/* 取消固定：只放回自动布局，不改数据、不写图 */
+function unpin(id) {
+  const k = (mode === 'relation') ? 'relation' : 'grid';
+  if (pins.grid[id]) delete pins.grid[id];
+  if (pins.relation[id]) delete pins.relation[id];
+  savePins(); syncPinBtn(); computeLayout();
+  if (selected === id) openPanel(id);
+}
+function resetPins() {
+  pins = { grid: {}, relation: {} };
+  savePins(); syncPinBtn(); computeLayout(); focusGrid();
+}
+window.unpin = unpin; window.resetPins = resetPins;
+
 // 图谱模式：纵轴 = 依赖层级，横轴 = 主题分列
-let gridGap = 50, gridTop = 80, gridX0 = 0, gridColW = 60;
+/* 09-15 改法（所有者：一进图谱很拥挤、要「居中三列」而不是全览）：
+   列宽/层高改成**世界坐标里的固定尺寸**，不再按画布宽度把 21 列硬挤进来。
+   于是 zoom=1 就是可读尺寸，21 列全看＝把镜头拉远（顶栏「全览」），
+   进来时默认只把中间三列放进画面。 */
+let gridGap = 92, gridTop = 120, gridX0 = 0, gridColW = 264, gridMaxLv = 5;
 function layoutGrid() {
   const G = groups();
   const maxLv = Math.max(...nodes.map(n => n.level));
-  // 路径模式：左上角那条路径宽 262px，图谱整体右移让开它——否则最左一列的点会躲在
-  // 条下面，画布上的点击被条吃掉（命中回归测试正是这么发现的）。
-  // 详情打开时路径条自己隐藏（卡片上写着同一套上下文），这时不用让位。
-  const rail = mode === 'path' && !document.getElementById('main').classList.contains('pinned');
-  const x0 = W * (rail ? 0.37 : 0.29), x1 = W * 0.94;
-  const colW = (x1 - x0) / Math.max(1, G.length);
-  const gap = Math.min(54, (H * 0.78) / Math.max(1, maxLv));
-  const yTop = H * 0.135;
+  const x0 = 0;
+  const colW = gridColW;
+  const gap = gridGap;
+  const yTop = gridTop;
   const buckets = G.map(() => new Map());
   for (const n of nodes) {
     const b = buckets[Math.min(giOf(n), G.length - 1)];
@@ -1078,8 +1128,46 @@ function layoutGrid() {
       });
     }
   }
-  gridGap = gap; gridTop = yTop; gridX0 = x0; gridColW = colW;
+  gridMaxLv = maxLv;
+  applyPins('grid');
 }
+
+/* 镜头：把某几列放进画面中央（默认「中间三列」）。
+   anchor＝要居中那一列：有主题筛选就居中被筛的那列，否则整张图的中间那列。 */
+function gridAnchor() {
+  const G = groups();
+  if (filter) {
+    const i = G.findIndex(g => g.id === filter);
+    if (i >= 0) return i;
+  }
+  return (G.length - 1) / 2;
+}
+function focusGrid(cols) {
+  if (mode !== 'grid' && mode !== 'path') return;
+  const n = Math.max(1, cols || 3);
+  const s = Math.max(0.34, Math.min(2.2, W / (n * gridColW)));
+  zoom = s;
+  /* 居中的基准是**画布中心 W/2**，不是投影原点 CX（CX=0.6W 是老版构图留下的，
+     拿它当中心会让左右露出的列数不一样：左边 1 列、右边 2 列）。 */
+  panX = (W / 2 - CX) / s + CX - (gridX0 + (gridAnchor() + 0.5) * gridColW);
+  panY = (CY - (gridTop + (gridMaxLv / 2) * gridGap));
+  lastFit = 'grid';
+}
+/* 全览＝把 21 列一次看全（顶栏按钮）。这是「被牺牲掉的全览视角」，按需给回来。 */
+function fitAll() {
+  if (mode === 'relation') { zoom = 1; panX = W / 2 - CX; panY = 0; return; }
+  if (mode === 'sphere') { zoom = 0.9; rotX = -0.22; rotY = 0.5; return; }
+  const G = groups();
+  // 留 44px 给右边那把层级尺，别让最后一列压到它下面
+  const spanX = gridColW * G.length;
+  const s = Math.max(0.12, Math.min(2.2, ((W - 44) * 0.96) / spanX));
+  zoom = s;
+  panX = (W / 2 - CX) / s + CX - (gridX0 + spanX / 2);
+  panY = CY - (gridTop + (gridMaxLv / 2) * gridGap);
+  lastFit = 'all';
+}
+window.fitAll = fitAll; window.focusGrid = focusGrid;
+let lastFit = '';   // 'grid' | 'all'：记住镜头是谁定的，resize 时照着重算
 
 // 星球模式：球面均布（形式参考 candobear 智慧星球）
 // 不跑力导向 —— 边引力会把均匀球面拉歪；用 hash 打散顺序，颜色自然混合
@@ -1098,6 +1186,8 @@ function layoutSphere() {
 function computeLayout() {
   if (mode === 'grid' || mode === 'path') layoutGrid();   // 路径沿用图谱的分列坐标，只换渲染
   else if (mode === 'sphere') layoutSphere();
+  else if (mode === 'relation') applyPins('relation');    // 关系坐标是构建时算好的，只叠我拖过的点
+  syncPinBtn();
 }
 
 /* ── 分组轴：只按主题分列 ───────────────────────────────────
@@ -1151,6 +1241,42 @@ function project(n) {
 
 /* ── 渲染 ───────────────────────────────────────────── */
 let frame = 0;
+/* 每帧记一下「这把尺子画了几个标签」——验收脚本读它，比截图肉眼数靠谱 */
+let lblStats = { fs: 0, cols: 0, colsDrawn: 0, levels: 0, levelsDrawn: 0, relLabels: 0 };
+
+/* 关系视图的「聚焦集」：选中（或悬停）的点 + 跟它有语义关系的点。
+   有聚焦时圈子外的点/边一起降噪——959 条关系一起画就是个毛球，看不出谁连着谁。 */
+function relFocus() {
+  if (mode !== 'relation') return null;
+  const c = selected || hovered;
+  if (!c) return null;
+  const s = new Set([c]);
+  for (const r of (relationNeighbors.get(c) || [])) { s.add(r.from); s.add(r.to); }
+  return s;
+}
+/* 关系视图里的枢纽：按语义关系条数排前 16。放大到看得清时给它们写名字。 */
+let REL_HUBS = null;
+function relHubs() {
+  if (!REL_HUBS) {
+    REL_HUBS = nodes.slice().sort((a, b) =>
+      (relationNeighbors.get(b.id) || []).length - (relationNeighbors.get(a.id) || []).length
+    ).slice(0, 16);
+  }
+  return REL_HUBS;
+}
+/* 视图状态快照（只读）：验收脚本用，产品逻辑不用它 */
+function vizState() {
+  const G = groups();
+  let colsVisible = 0;
+  for (let i = 0; i < G.length; i++) {
+    const cx = CX + (gridX0 + i * gridColW + gridColW / 2 + panX - CX) * zoom;
+    if (cx >= 0 && cx <= W) colsVisible++;
+  }
+  return { mode, zoom: Math.round(zoom * 1000) / 1000, panX: Math.round(panX), panY: Math.round(panY),
+    cols: G.length, colsVisible, colW: gridColW, anchor: gridAnchor(), labels: lblStats,
+    pins: pinCount(), dragging: !!dragNode, guides: { x: guides.x, y: guides.y } };
+}
+window.vizState = vizState;
 function render() {
   frame++;
   ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
@@ -1180,27 +1306,62 @@ function render() {
       ctx.fillRect(gx0 + i * colW, 0, colW - 1.5, H);
     }
     ctx.globalAlpha = 1;
-    ctx.font = '9px -apple-system,"PingFang SC",sans-serif';
-    ctx.strokeStyle = 'rgba(255,255,255,0.05)';
-    ctx.lineWidth = 1;
+
+    /* 顶侧（列＝主题）与右侧（行＝层级）两把尺子都**随缩放变字体与间距**（所有者 09-13 20:34）。
+       字号 = 基准 × zoom^0.42：放大时字变大、间距自然拉开；缩小时字变小并**抽稀**——
+       21 条主题在最小缩放下不再互相压成一团。抽稀按「锚列」对齐：被筛的那列／画面正中那列
+       永远保得住标签，其余每隔 step 列留一个。 */
+    lblStats = { fs: 0, cols: 0, colsDrawn: 0, levels: 0, levelsDrawn: 0 };
+    const fs = Math.max(7, Math.min(13.5, 9.4 * Math.pow(s, 0.42)));
+    lblStats.fs = Math.round(fs * 10) / 10;
+    ctx.font = fs + 'px -apple-system,"PingFang SC",sans-serif';
+
+    // ① 右侧：层级尺。钉在画布右缘（不随横向平移跑掉），纵向位置照样随缩放走。
+    const lvSlot = gridGap * s;
+    const lvStep = Math.max(1, Math.ceil(26 / Math.max(1, lvSlot)));   // 行距不够就每隔 lvStep 层写一个
+    ctx.textAlign = 'left';
+    ctx.fillStyle = 'rgba(8,9,10,.62)';
+    ctx.fillRect(W - 34, 0, 34, H);
+    ctx.strokeStyle = 'rgba(255,255,255,0.06)';
     for (let lv = 0; lv <= maxLv; lv++) {
       const y = CY + (gridTop + lv * gridGap + panY - CY) * s;
       if (y < 58 || y > H - 26) continue;
-      ctx.beginPath(); ctx.moveTo(gx0, y); ctx.lineTo(gx0 + G.length * colW, y); ctx.stroke();
-      ctx.fillStyle = 'rgba(255,255,255,0.2)'; ctx.textAlign = 'left';
-      ctx.fillText('L' + lv, gx0 + G.length * colW + 9, y + 3);
+      ctx.beginPath(); ctx.moveTo(gx0, y); ctx.lineTo(W - 34, y); ctx.stroke();
+      if (lv % lvStep) continue;
+      lblStats.levelsDrawn++;
+      ctx.fillStyle = 'rgba(255,255,255,0.34)';
+      ctx.fillText('L' + lv, W - 26, y + fs * 0.35);
     }
+    lblStats.levels = maxLv + 1;
+
+    // ② 顶侧：主题尺。标签钉在画布顶上（纵向平移时不会跑掉），横向位置随缩放走。
     ctx.textAlign = 'center';
+    const anchor = gridAnchor();
+    let step = 1;
     for (let i = 0; i < G.length; i++) {
-      ctx.globalAlpha = (!filter || filter === G[i].id) ? 0.8 : 0.2;
-      ctx.fillStyle = G[i].color;
-      ctx.fillText(G[i].label + ' ' + groupCount(G[i]), gx0 + i * colW + colW / 2, gridTop - 28);
+      const w = ctx.measureText(G[i].label + ' ' + groupCount(G[i])).width;
+      step = Math.max(step, Math.ceil((w + 16) / Math.max(1, colW)));
     }
+    /* 标签行贴着画面顶上那一带（56–120），不跟着纵向平移飘到图中间去：
+       投影出来的 y 只在这个区间里动，所以「跟着缩放动」的是字号、间距和横向位置。 */
+    const topY = Math.max(56, Math.min(120, CY + (gridTop + panY - CY) * s - 10));
+    for (let i = 0; i < G.length; i++) {
+      const cx = gx0 + i * colW + colW / 2;
+      if (cx < 20 || cx > W - 40) continue;                       // 画面外的列不画
+      const isAnchor = i === anchor || (filter && G[i].id === filter);
+      if (!isAnchor && Math.abs(i - anchor) % step) continue;     // 抽稀：从锚列往两边每隔 step 列
+      lblStats.colsDrawn++;
+      ctx.globalAlpha = (!filter || filter === G[i].id) ? (isAnchor ? 0.98 : 0.82) : 0.22;
+      ctx.fillStyle = G[i].color;
+      ctx.fillText(G[i].label + ' ' + groupCount(G[i]), cx, topY);
+    }
+    lblStats.cols = G.length;
     ctx.globalAlpha = 1;
   }
 
   // 边：依赖视图沿用 hard/soft 线型；关系视图按关系类型着色，并保留前置方向。
   ctx.lineWidth = 1;
+  const focusSet = relFocus();
   if (mode === 'relation') {
     const drawArrow = (a, b, color, alpha) => {
       const ang = Math.atan2(b.sy - a.sy, b.sx - a.sx);
@@ -1219,14 +1380,17 @@ function render() {
       const hot = (selected && (r.from === selected || r.to === selected))
                || (hovered && (r.from === hovered || r.to === hovered));
       const rgb = RELATION_COLORS[r.kind] || '#88909c';
-      const alpha = hot ? .88 : (r.strength === 'hard' ? .36 : .18);
+      // 有聚焦时：跟焦点无关的边退到很淡，只留它那一圈——关系视图的读法就是这个
+      const near = !focusSet || focusSet.has(r.from) || focusSet.has(r.to);
+      let alpha = hot ? .88 : (r.strength === 'hard' ? .36 : .18);
+      if (!near) alpha *= 0.16;
       ctx.strokeStyle = hot ? 'rgba(255,255,255,' + alpha + ')' : rgb;
       ctx.globalAlpha = hot ? 1 : alpha;
-      ctx.lineWidth = hot ? 1.8 : (r.strength === 'hard' ? 1.05 : .7);
+      ctx.lineWidth = hot ? 1.8 : near ? (r.strength === 'hard' ? 1.05 : .7) : .5;
       if (r.strength !== 'hard' && !hot) ctx.setLineDash([3, 3]);
       ctx.beginPath(); ctx.moveTo(pa.sx, pa.sy); ctx.lineTo(pb.sx, pb.sy); ctx.stroke();
       ctx.setLineDash([]); ctx.globalAlpha = 1;
-      if (r.kind === 'prerequisite') {
+      if (r.kind === 'prerequisite' && near) {
         drawArrow(pa, pb, hot ? 'rgba(255,255,255,ALPHA)' : 'rgba(168,181,238,ALPHA)', hot ? 1 : alpha);
       }
     }
@@ -1282,15 +1446,19 @@ function render() {
     const degree = mode === 'relation' ? relationNeighbors.get(n.id).length
       : neighbors.get(n.id).pre.length + neighbors.get(n.id).post.length;
     const base = (2.2 + Math.sqrt(degree) * 1.05) * p.s;
-    // 路线上的点固定放大到看得见；其他概念在路径模式下**变灰 + 缩小**——
+    // 路线上的点固定放大到看得见（下限 4.2px：列宽变大后路径模式可能缩到 0.45，
+    // 不兜底当前步就只剩两个像素）；其他概念在路径模式下**变灰 + 缩小**——
     // 只压透明度是不够的：密列里几十个点叠在一起会重新叠成一片亮色（实测像素一样亮）。
     // 灰是叠不亮的，再缩一点，路线的形状才浮得出来。
-    const r = Math.max(1.1, base * (onRoute ? 1.5 : 0.8) * (isSel ? 2.1 : isHov ? 1.65 : 1));
+    const r = Math.max(onRoute ? 4.2 : 1.1, base * (onRoute ? 1.5 : 0.8) * (isSel ? 2.1 : isHov ? 1.65 : 1));
     const col = G[Math.min(giOf(n), G.length - 1)].color;
     const greyed = !!route && !onRoute && !isSel && !isHov;
+    // 关系视图有聚焦时：圈子外的点跟着边一起退下去（焦点那一圈才浮得出来）
+    const relOut = !!focusSet && !focusSet.has(n.id) && !isSel && !isHov;
     ctx.globalAlpha = route
       ? (onRoute ? (ri === routeStepIdx ? 1 : .95) : (greyed ? .5 : (on ? .9 : .25)))
       : (on ? Math.min(1, 0.42 + p.s * 0.7) : 0.06);
+    if (relOut) ctx.globalAlpha *= 0.3;
     // 光晕
     if (isSel || isHov || (route && ri === routeStepIdx)) {
       ctx.shadowBlur = 22; ctx.shadowColor = col;
@@ -1333,6 +1501,58 @@ function render() {
   if (route) for (const p of pts) if (routeIndexOf(p.n.id) < 0) drawPt(p);
   for (const p of pts) if (!route || routeIndexOf(p.n.id) >= 0) drawPt(p);
   ctx.globalAlpha = 1;
+
+  /* 关系视图的文字层（09-15）：枢纽写名字，有聚焦时写焦点那一圈的名字。
+     字号同样随缩放走——「表现力差」有一半是因为整张图一个可读的词都没有。 */
+  if (mode === 'relation') {
+    const names = focusSet
+      ? [...focusSet].map(id => byId.get(id)).filter(Boolean).slice(0, 30)
+      : relHubs();
+    const fs = Math.max(9, Math.min(14.5, 10.6 * Math.pow(zoom, 0.34)));
+    ctx.font = fs + 'px -apple-system,"PingFang SC",sans-serif';
+    ctx.textAlign = 'center';
+    const placed = [];
+    lblStats.relLabels = 0;
+    for (const n of names) {
+      if (!visible(n)) continue;
+      const p = project(n);
+      const x = p.sx, y = p.sy - 9;
+      if (x < 24 || x > W - 44 || y < 56 || y > H - 8) continue;
+      const w = ctx.measureText(n.name).width;
+      const box = [x - w / 2 - 3, y - fs, w + 6, fs + 4];
+      if (placed.some(b => !(box[0] > b[0] + b[2] || box[0] + box[2] < b[0]
+                          || box[1] > b[1] + b[3] || box[1] + box[3] < b[1]))) continue;
+      placed.push(box);
+      lblStats.relLabels++;
+      const isFocus = n.id === selected || n.id === hovered;
+      ctx.globalAlpha = isFocus ? 1 : 0.74;
+      ctx.lineWidth = 2.8; ctx.strokeStyle = 'rgba(8,9,10,.88)';
+      ctx.strokeText(n.name, x, y);
+      ctx.fillStyle = isFocus ? '#fff' : 'rgba(228,232,242,.9)';
+      ctx.fillText(n.name, x, y);
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  /* 拖拽中的吸附辅助线：吸到别人的横线/竖线时画一条虚线，让人知道「吸住了」 */
+  if (dragNode && (guides.x != null || guides.y != null)) {
+    ctx.save();
+    ctx.setLineDash([4, 4]); ctx.lineWidth = 1; ctx.strokeStyle = 'rgba(124,134,232,.75)';
+    const p = project(dragNode);
+    if (guides.x != null) {
+      const gx = CX + (guides.x + panX - CX) * zoom;
+      ctx.beginPath(); ctx.moveTo(gx, 44); ctx.lineTo(gx, H); ctx.stroke();
+    }
+    if (guides.y != null) {
+      const gy = CY + (guides.y + panY - CY) * zoom;
+      ctx.beginPath(); ctx.moveTo(0, gy); ctx.lineTo(W, gy); ctx.stroke();
+    }
+    ctx.setLineDash([]);
+    ctx.globalAlpha = .8; ctx.fillStyle = '#c3caff';
+    ctx.font = '10.5px -apple-system,"PingFang SC",sans-serif'; ctx.textAlign = 'left';
+    ctx.fillText('已吸附', p.sx + 10, p.sy - 10);
+    ctx.restore();
+  }
   requestAnimationFrame(render);
 }
 
@@ -1356,7 +1576,38 @@ function resize() {
 window.addEventListener('resize', resize);
 
 /* ── 交互 ───────────────────────────────────────────── */
+/* 09-15：拖的是**点**，不是画布。命中一个点＝拖这个点（松手落位、写 localStorage、
+   跟别的点对齐时吸附并画辅助线）；空白处拖动仍然是平移画布，和以前一样。
+   星球模式不参与点拖拽——那一层拖的是球（旋转），拖点会把球面拉歪。 */
 let dragging = false, moved = 0, lastX = 0, lastY = 0;
+let dragNode = null, dragMovedTo = null, guides = { x: null, y: null };
+const DRAG_MODES = ['grid', 'path', 'relation'];
+function canDragNode() { return DRAG_MODES.includes(mode); }
+/* 屏幕坐标 → 世界坐标（project 的逆） */
+function toWorld(mx, my) {
+  if (mode === 'relation') {
+    const s = Math.min(W, H) * 0.42 * zoom;
+    return { x: (mx - CX - panX) / s, y: (my - CY - panY) / s };
+  }
+  return { x: (mx - CX) / zoom + CX - panX, y: (my - CY) / zoom + CY - panY };
+}
+/* 吸附：先吸 18 世界像素的网格；再吸到别的点所在的横/竖线（屏幕 7px 以内就算吸上）。
+   两者都做过才写坐标——「像 Obsidian 那样有一个吸附」。 */
+function snapWorld(n, wx, wy) {
+  let x = Math.round(wx / SNAP_GRID) * SNAP_GRID;
+  let y = Math.round(wy / SNAP_GRID) * SNAP_GRID;
+  guides = { x: null, y: null };
+  const tol = 7 / Math.max(0.2, zoom);
+  for (const o of nodes) {
+    if (o === n || !matches(o)) continue;
+    const ox = (mode === 'relation') ? (o.rx || 0) : o.gx;
+    const oy = (mode === 'relation') ? (o.ry || 0) : o.gy;
+    if (guides.x == null && Math.abs(ox - wx) < tol) { x = ox; guides.x = ox; }
+    if (guides.y == null && Math.abs(oy - wy) < tol) { y = oy; guides.y = oy; }
+    if (guides.x != null && guides.y != null) break;
+  }
+  return { x, y };
+}
 function canvasPoint(e) {
   const r = cvs.getBoundingClientRect();
   return {
@@ -1382,31 +1633,74 @@ function showTip(id) {
   tip.style.top = Math.max(8, Math.min(window.innerHeight - th - 8, top)) + 'px';
 }
 cvs.addEventListener('pointerdown', e => {
+  const pt = canvasPoint(e);
+  const hit = canDragNode() ? pick(pt.x, pt.y) : null;
   dragging = true; moved = 0; lastX = e.clientX; lastY = e.clientY;
-  cvs.classList.add('drag'); cvs.setPointerCapture(e.pointerId);
+  dragNode = hit ? byId.get(hit) : null;
+  dragMovedTo = null; guides = { x: null, y: null };
+  if (dragNode) { tip.classList.remove('on'); cvs.classList.add('nodedrag'); }
+  else cvs.classList.add('drag');
+  cvs.setPointerCapture(e.pointerId);
 });
 cvs.addEventListener('pointermove', e => {
   if (dragging) {
     const dx = e.clientX - lastX, dy = e.clientY - lastY;
     moved += Math.abs(dx) + Math.abs(dy);
-    if (mode === 'grid' || mode === 'relation' || mode === 'path') { panX += dx; panY += dy; }
+    if (dragNode) {
+      const pt = canvasPoint(e);
+      const w = toWorld(pt.x, pt.y);
+      const s = snapWorld(dragNode, w.x, w.y);
+      if (mode === 'relation') { dragNode.rx = s.x; dragNode.ry = s.y; }
+      else { dragNode.gx = s.x; dragNode.gy = s.y; }
+      dragMovedTo = s;
+    } else if (mode === 'grid' || mode === 'relation' || mode === 'path') { panX += dx; panY += dy; }
     else { rotY += dx * 0.0062; rotX = Math.max(-1.25, Math.min(1.25, rotX + dy * 0.0062)); }
     lastX = e.clientX; lastY = e.clientY;
   } else {
     const pt = canvasPoint(e);
     hovered = pick(pt.x, pt.y);
-    cvs.style.cursor = hovered ? 'pointer' : 'grab';
+    cvs.style.cursor = hovered ? (canDragNode() ? 'grab' : 'pointer') : 'grab';
     if (hovered) showTip(hovered); else tip.classList.remove('on');
   }
 });
 cvs.addEventListener('pointerup', e => {
-  dragging = false; cvs.classList.remove('drag');
-  if (moved < 5) { const pt = canvasPoint(e); const hit = pick(pt.x, pt.y); hit ? openPanel(hit) : closePanel(); }
+  const wasNode = dragNode;
+  dragging = false; cvs.classList.remove('drag'); cvs.classList.remove('nodedrag');
+  if (wasNode && dragMovedTo) {
+    // 落位＝固定（写进 localStorage）。原位没动过（挪动 < 3px）就当点击，不算固定。
+    if (moved >= 3) {
+      const k = (mode === 'relation') ? 'relation' : 'grid';
+      pins[k][wasNode.id] = [mode === 'relation' ? wasNode.rx : wasNode.gx,
+                             mode === 'relation' ? wasNode.ry : wasNode.gy];
+      savePins(); syncPinBtn();
+    } else {
+      const pt = canvasPoint(e); const hit = pick(pt.x, pt.y); hit ? openPanel(hit) : closePanel();
+    }
+  } else if (moved < 5) {
+    const pt = canvasPoint(e); const hit = pick(pt.x, pt.y); hit ? openPanel(hit) : closePanel();
+  }
+  dragNode = null; dragMovedTo = null; guides = { x: null, y: null };
 });
 cvs.addEventListener('pointerleave', () => { tip.classList.remove('on'); hovered = null; });
+/* 滚轮＝以指针为锚缩放（Obsidian 同一套手感）：放大时鼠标底下的那个点不动。
+   以前是以画布中心缩放，越缩越找不到刚才在看的东西。 */
 cvs.addEventListener('wheel', e => {
   e.preventDefault();
-  zoom = Math.max(0.35, Math.min(3.2, zoom * (1 - e.deltaY * 0.0011)));
+  const z0 = zoom;
+  const z1 = Math.max(0.12, Math.min(3.4, zoom * (1 - e.deltaY * 0.0011)));
+  if (z1 === z0) return;
+  const pt = canvasPoint(e);
+  if (mode === 'relation') {
+    const base = Math.min(W, H) * 0.42;
+    const s0 = base * z0, s1 = base * z1;
+    const wx = (pt.x - CX - panX) / s0, wy = (pt.y - CY - panY) / s0;
+    panX = pt.x - CX - wx * s1; panY = pt.y - CY - wy * s1;
+  } else if (mode === 'grid' || mode === 'path') {
+    const wx = (pt.x - CX) / z0 + CX - panX, wy = (pt.y - CY) / z0 + CY - panY;
+    panX = (pt.x - CX) / z1 + CX - wx; panY = (pt.y - CY) / z1 + CY - wy;
+  }
+  zoom = z1;
+  lastFit = 'free';
 }, { passive: false });
 
 function pick(mx, my) {
@@ -1619,6 +1913,8 @@ function openPanel(id) {
       <div class="m"><b>${post.length}</b><span>解锁</span></div>
       <div class="m"><b>L${n.level}</b><span>层级</span></div>
     </div>
+    ${(pins.grid[id] || pins.relation[id]) ? `<div class="mut" style="margin:-4px 0 10px">这个点被你拖过、已经固定在这里。
+      <button class="tbtn" onclick="unpin('${id}')">↺ 取消固定</button></div>` : ''}
 
     ${kk === 'accept' ? `<div class="dpane quiet">
       <h5>这一类不设验收</h5>
@@ -1703,10 +1999,12 @@ window.pinMain = pinMain;
 
 /* ── 主题筛选：点一条＝只看这一列，再点一次＝取消 ────────────────────
    09-13 phase 02：主题列表从**左栏**搬到**中间栏**（二级），左栏只剩一级导航。
-   这个函数现在只改状态 + 重绘，列表长什么样由 renderList() 决定。 */
+   这个函数现在只改状态 + 重绘，列表长什么样由 renderList() 决定。
+   09-15：筛上之后镜头跟着走到那一列（不然「只看这一列」还得自己横着找过去）。 */
 function setFilter(g) {
   filter = (filter === g) ? null : g;
   computeLayout();
+  if (mode === 'grid') focusGrid();
   renderList();
 }
 window.setFilter = setFilter;
@@ -1804,10 +2102,15 @@ function setMode(m) {
   document.getElementById('main').classList.toggle('graphon', m === 'graph');
   document.getElementById('graphview').classList.toggle('on', m === 'graph');
   if (m === 'graph') mountGraphView();
-  panX = panY = 0; rotX = -0.22; rotY = 0.5; zoom = (m === 'sphere' || m === 'relation') ? 1.35 : 1;
+  panX = panY = 0; rotX = -0.22; rotY = 0.5; zoom = (m === 'sphere') ? 1.35 : 1.05;
   if (m === 'path' && !activeRoute() && ROUTES.length) routeId = ROUTES[0].routeId;
   computeLayout();
   if (m === 'path') focusRoute();      // 进路径就把视图对准路线
+  /* 进图谱＝居中三列的可读视角，不是把 21 列硬挤进一屏（所有者 09-13 20:34：
+     「一进入图谱很拥挤，可以牺牲掉部分内容，不用全览视角，保留中间居中，看左右三栏」）。
+     全览没被删掉，挪到顶栏「全览」按钮上，按需点。 */
+  if (m === 'grid') focusGrid(3);
+  if (m === 'sphere' || m === 'relation' || m === 'graph') lastFit = 'free';
   refreshRail();
   syncPath();
   if (mode === 'path') renderList();   // 中间栏在路径态下多一行「正在走的路径」
@@ -1873,13 +2176,19 @@ async function boot() {
   refreshMarks();
   refreshRail();
   renderList();
-  document.getElementById('kicker').textContent = meta.kicker;
-  document.getElementById('stats').innerHTML = meta.stats;
+  syncPinBtn();
   document.querySelectorAll('.tab').forEach(t => { t.onclick = () => setMode(t.dataset.mode); });
   computeLayout();
   if (mode === 'path') focusRoute();      // 默认就是路径：首屏直接对准那条路线
   render();
-  window.addEventListener('resize', () => { resize(); computeLayout(); });
+  /* 窗口/面板变了尺寸：世界坐标不动，只把镜头按上一次的取法重算一遍
+     （「全览」还全览、「居中三列」还三列；用户自己滚过轮就不动他）。 */
+  window.addEventListener('resize', () => {
+    resize(); computeLayout();
+    if (lastFit === 'all') fitAll();
+    else if (lastFit === 'grid' && mode === 'grid') focusGrid(3);
+    else if (mode === 'path') focusRoute();
+  });
   /* 地址栏里的 hash 变了（页面内跳转、总图三页切换、#learn= 直达）都要真的响应，
      不能只在首次加载时读一次。 */
   window.addEventListener('hashchange', () => { try { applyHash(); } catch (e) {} });

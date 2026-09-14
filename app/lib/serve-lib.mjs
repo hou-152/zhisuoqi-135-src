@@ -259,6 +259,22 @@ export function createZssServer(opts = {}) {
     }
     if (url.pathname === '/api/skills') return json({ dir: '.agents/skills', skills: listSkills() });
 
+    /* /api/graph —— 全链路 Graph 索引（构建产物，只读）。
+       壳在打开「总图」时按需拉一次，不把两千个节点塞进单文件页面里。
+       ?summary=1 只回统计与缺口（首屏用），默认全量；?kind= / ?layer= 做服务端过滤。 */
+    if (url.pathname === '/api/graph') {
+      const gp = join(ROOT, 'knowledge', 'graph-260914', 'graph.json');
+      if (!existsSync(gp)) return json({ ok: false, error: 'graph-missing', hint: '先跑 node scripts/build-graph.mjs' });
+      if (url.searchParams.get('summary') === '1') {
+        const g = JSON.parse(readFileSync(gp, 'utf8'));
+        return json({ ok: true, version: g.version, builtAt: g.builtAt, generatedAt: g.generatedAt,
+          layers: g.layers, stats: g.stats, coverage: g.coverage, entries: g.entries,
+          gaps: g.gaps, sources: g.sources, adapters: g.adapters, warnings: g.warnings });
+      }
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      return res.end(readFileSync(gp));
+    }
+
     if (url.pathname === '/api/search' && req.method === 'POST') {
       const body = await readBody(req);
       return json(await zhihuSearch(String(body.query || '').slice(0, 80)));
