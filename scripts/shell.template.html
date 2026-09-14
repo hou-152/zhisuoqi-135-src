@@ -2249,6 +2249,11 @@ window.focusProof = focusProof;
 function openPanel(id) {
   selected = id;
   const n = byId.get(id), nb = neighbors.get(id);
+  // 打开右侧详情时同步把概念放入主区可视范围，避免面板遮住靠右节点。
+  if (n && (mode === 'grid' || mode === 'path' || mode === 'tree') && Number.isFinite(n.gx)) {
+    const targetZoom = Math.max(0.34, Math.min(2.2, zoom || 1));
+    camApply({ zoom: targetZoom, panX: (W * 0.38 - CX) / targetZoom + CX - n.gx, panY: (CY - n.gy) / targetZoom }, {});
+  }
   const rnb = relationNeighbors.get(id) || [];
   const src = sources.find(s => s.id === n.src);
   const pre = nb.pre.map(x => byId.get(x)).filter(Boolean);
@@ -2312,12 +2317,10 @@ function openPanel(id) {
     ${((n.evidence||[]).length || n.ap) ? `<div class="proven">${(n.evidence||[]).length ? `<b>怎么算会了：</b>${esc(n.evidence[0])}${(n.evidence||[]).length > 1 ? ` 等 ${(n.evidence||[]).length} 条` : ''}` : `<b>怎么算会了：</b>${esc(n.ap)}`}
       ${((n.evidence||[]).length > 1 || (n.evidence||[]).length && n.ap) ? `<details class="deep"><summary>更多判据</summary><ul>${(n.evidence||[]).map(e => `<li>${esc(e)}</li>`).join('')}${n.ap ? `<li>${esc(n.ap)}</li>` : ''}</ul></details>` : ''}</div>` : ''}
     ${kk === 'accept' ? `<div class="dpane quiet">
-      <h5>这一类不用讲一遍</h5>
-      <div class="mut">它被判为「<b>只能认的</b>」——${esc(n.kwhy || '作者的世界观、立场或比喻')}。<br>
-      没有机制可复述，也没有对错。<b>硬考它就是假学习，所以我们不考。</b><br>
-      读过就够了。这一类的价值不在于能不能复述，而在于你认不认它。</div>
+      <h5>这一类只做已读标记</h5>
+      <div class="mut">它属于「只能认的」内容，没有机制可复述，也没有对错。标记已读只表示你看过，<b>不代表掌握，也不计入会了的统计。</b></div>
       <div class="jrow">
-        <button class="jbtn ghost" onclick="markRead('${id}')">${mk && mk.state === 'read' ? '读过了（点一下取消）' : '我读过了'}</button>
+        <button class="jbtn ghost" onclick="markRead('${id}')">${mk && mk.state === 'read' ? '已读（点一下取消）' : '标记为已读'}</button>
       </div>
     </div>` : `<div class="dpane">
       <h5>讲一遍 · 我来挑漏</h5>
@@ -2369,7 +2372,7 @@ function caseMvpLink(n) {
   return `<div class="case-mvp"><h4>实践空间 · 课程入口</h4>
     <div class="case-meta">知识体系只浏览；课程学习（主线六章 ＋ 七站路线）在左栏「实践空间」。${ch ? `本概念对应主线第 ${ch.order} 章「${esc(ch.title)}」，已在实践空间装配。` : ''}</div>
     <button class="jbtn ghost" onclick="openPractice('${n.id}')">去实践空间学习 →</button>
-    ${hasCase ? '<div class="case-meta" style="margin-top:5px">本概念已有 01 案例决策材料。</div>' : (ch ? `<div class="case-meta" style="margin-top:5px">${ch.review.caseState === 'owner-confirmed' ? `主案例已由负责人确认 · 场景类型 ${esc(ch.case.type)}` : `候选装配稿：主案例为${esc(ch.case.type)}、负责人尚未确认`}。</div>` : '<div class="case-meta" style="margin-top:5px">本概念的 01 / 03 / 05 材料尚在装配中。</div>')}
+    ${hasCase ? '<div class="case-meta" style="margin-top:5px">本概念已有 01 案例决策材料。</div>' : (ch ? `<div class="case-meta" style="margin-top:5px">${ch.review.caseState === 'owner-confirmed' ? `主案例已由负责人确认 · 场景类型 ${esc(ch.case.type)}` : `候选装配稿：主案例为${esc(ch.case.type)}、负责人尚未确认`}。</div>` : '<div class="case-meta" style="margin-top:5px">判断材料尚未装配，不计入当前路线进度。完整 135 是独立历史演示。</div>')}
   </div>`;
 }
 function openCaseMvp() {
@@ -2766,7 +2769,6 @@ function renderList() {
       + `<div class="lp-sec">不开放学习 · 照实标</div>`
       + rowHTML(`<span class="rd" style="background:#5a2c2c"></span><span class="rn">准备中 / 目录候选</span><span class="rm">${batch.filter(u => u.routeStatus === 'ready').length}</span>`, 'openPracticeBoard()', false)
       + rowHTML(`<span class="rd" style="background:#5a4a24"></span><span class="rn">材料缺口 · 待装配</span><span class="rm">${batch.filter(u => u.routeStatus !== 'ready').length + single.length}</span>`, 'openPracticeBoard()', false)
-      + rowHTML('<span class="rd" style="background:#3c3f44"></span><span class="rn">01 案例决策场（前两版入口）</span><span class="rm">保留</span>', `openPractice()` , false);
   }
   box.innerHTML = html;
   if (cntEl) cntEl.textContent = cnt;
@@ -3055,11 +3057,7 @@ function practiceIndexHtml() {
         另有 ${scaffold.length} 个连 OPI 判断依据都没有（缺材料 · 待装配），逐行理由在完整看板里。</div>
       <button class="pbtn ghost" style="margin-top:6px" onclick="openPracticeBoard()">打开状态看板 · 逐单元链路就绪度 →</button>
     </details>
-    <div class="pcard">
-      <h2>1 / 3 / 5 · 前两版入口（一个都不砍）</h2>
-      <div class="mut">01 案例决策场：从当前概念匹配候选案例，再只选一个案例和一个正确方向。03 费曼演练室与 05 技术实验台仍是占位——照实标「等 01 MVP 跑通后接入」，不写成已实现。</div>
-      ${originBtnHtml()}
-    </div>
+    <div class="pcard legacy-note"><h2>历史演示已独立保留</h2><div class="mut">完整 135 流程和 01 案例示例不属于当前实践路线，请从独立的完整主流程页面进入。</div></div>
     <div id="practice-blocked"></div>`;
 }
 /* 01 入口照旧：概念卡上那张「上下文腐烂」示例（路径条/概念卡进来时另走 origin 卡）。 */
@@ -3334,7 +3332,11 @@ function neiFoldToggle(key) { neiFold[key] = !neiFold[key]; renderList(); }
 window.neiFoldToggle = neiFoldToggle;
 
 function neiFacets() {
-  const all = NEI_ALL.flatMap(i => i.articles || []);
+  // 计数必须和当前期/搜索范围一致；旧实现用 NEI_ALL，选中单期后会显示点了却没有结果的全局数字。
+  const base = (neiPeriod ? NEI_ALL.filter(i => i.period === neiPeriod) : NEI_ALL).flatMap(i => i.articles || []);
+  const q = neiQ();
+  const inSearch = a => !q || (String(a.title || '') + String(a.topic || '') + String(a.author || '')).toLowerCase().includes(q);
+  const all = base.filter(inSearch);
   const tally = (arr) => arr.reduce((m, k) => (m[k] = (m[k] || 0) + 1, m), {});
   const kinds = Object.entries(tally(all.map(a => a.tag || '文章'))).sort((a, b) => b[1] - a[1]);
   const stars = [5, 4, 3].map(n => [n, all.filter(a => (a.stars || 0) >= n).length])
@@ -3352,7 +3354,7 @@ function neiFacets() {
     ${group('tag', '分类', chip('tag', '', '全部', !neiFilt.tag)
       + kinds.map(([k, n]) => chip('tag', k, `${k} ${n}`, neiFilt.tag === k)).join(''))}
     ${group('star', '策展 · 重要等级', chip('star', 0, '全部', !neiFilt.star)
-      + stars.map(([n, c]) => chip('star', n, `${'★'.repeat(n)} ${c}`, neiFilt.star === n)).join(''))}
+      + stars.map(([n, c]) => chip('star', n, `${'★'.repeat(n)} ${c}（至少${n}星）`, neiFilt.star === n)).join(''))}
   </div>`;
 }
 function neiClearFilt() { neiFilt = { tag: '', star: 0 }; neiRefresh(); }
@@ -3667,6 +3669,15 @@ function cnGatewayAsk() {
   try { localStorage.setItem('zss135.gateway', JSON.stringify({ base, code })); } catch (e) {}
   return cnGateway();
 }
+/* 口令打错（403）时只重问口令、不重问地址；重试上限 1 次——不把访客按进无限弹窗。
+   没填新口令就返回 null，调用方照实记「待复核」并告诉访客：学习本身不受影响。 */
+function cnGatewayAskCode() {
+  const cur = cnGateway() || { base: '', code: '' };
+  const code = (prompt('体验口令不对，请重输一次（提交页／路演材料里那个；留空跳过，学习不受影响）：', cur.code || '') || '').trim();
+  if (!code || code === cur.code) return null;
+  try { localStorage.setItem('zss135.gateway', JSON.stringify({ base: cur.base, code })); } catch (e) {}
+  return cnGateway();
+}
 
 /* ── 提示词已搬到服务端（/api/learn，scripts/serve-lib.mjs）──
    这里只保留「应用侧校验」与「渲染」：浏览器不再拼 system prompt、不再带评分标准，
@@ -3891,21 +3902,35 @@ async function nfxSubmit(slug) {
   try {
     // 窄接口：只发单元 ID ＋ 复述 ＋ 输入版本 ＋ 请求 ID。材料与五档规则由服务端装配。
     // 本机＝相对路径；公网＝网关绝对地址＋体验口令（网关侧三道闸：口令／每 IP 限速／日断路器）。
-    const r = await fetch(gw ? gw.base + '/api/learn' : '/api/learn', {
+    // 口令打错（403）：自动给一次重输口令的机会，仍不对就落「待复核」＋明确指引——不进无限弹窗循环。
+    const once = (g) => fetch(g ? g.base + '/api/learn' : '/api/learn', {
       method: 'POST',
-      headers: Object.assign({ 'Content-Type': 'application/json' }, gw ? { 'x-zss-code': gw.code || '' } : {}),
+      headers: Object.assign({ 'Content-Type': 'application/json' }, g ? { 'x-zss-code': g.code || '' } : {}),
       signal: ctl.signal,
       body: JSON.stringify({ unit: tm.unit, said, inputVersion: ver, requestId: reqId }),
     });
-    if (stale()) return;
-    const j = await r.json().catch(() => null);
-    if (stale()) return;
+    let gwCur = gw;
+    let r = await once(gwCur);
+    let j = null;
+    for (let attempt = 0; attempt < 2; attempt++) {
+      if (stale()) return;
+      j = await r.json().catch(() => null);
+      if (stale()) return;
+      if (j && j.error === 'bad-passcode' && attempt === 0) {
+        const g2 = cnGatewayAskCode();
+        if (g2) { gwCur = g2; r = await once(gwCur); continue; }
+      }
+      break;
+    }
     meta.ms = Date.now() - t0;
     // 服务端已经校验过一次；页面这一层是兜底：拿到的判据不全／有未知 ID 一样记未判定。
     // 网关侧的错误（口令不对／限额）带 note，照实展示给访客。
+    const why = (j && j.note)
+      ? j.note + (j.error === 'bad-passcode' ? '（没有口令也能继续学：阅读与决策不受影响，只影响这次的机器判定。）' : '')
+      : nfxServerWhy(j, r.status);
     const parsed = j && j.ok
       ? nfxValidate(JSON.stringify({ criteria: j.criteria, nextPrompt: j.nextPrompt }), ids)
-      : { notJudged: (j && j.note) ? j.note : nfxServerWhy(j, r.status), raw: String((j && j.raw) || '') };
+      : { notJudged: why, raw: String((j && j.raw) || '') };
     if (parsed.notJudged) land(nfxNotJudgedRound(a, { ...meta, raw: parsed.raw }, parsed.notJudged));
     else land(nfxMakeRound(a, parsed, meta));
   } catch (e) {
