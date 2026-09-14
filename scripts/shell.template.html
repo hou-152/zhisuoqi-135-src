@@ -544,6 +544,9 @@ code{background:#161719;border:1px solid var(--line);border-radius:4px;padding:1
 .concept .q{border-left:2px solid var(--line2);padding-left:10px;color:var(--fg2);margin:7px 0;font-size:12.5px;line-height:1.7}
 .concept .fy{margin-top:9px;font-size:13px;line-height:1.75}
 .concept .fy i{color:var(--accent2);font-style:normal;font-size:11.5px;margin-right:6px}
+.concept .also{margin-top:9px;font-size:11.5px;color:var(--fg3);line-height:1.9}
+.concept .also .chip{background:none;border:1px solid var(--line2);border-radius:999px;color:var(--fg3);font:inherit;font-size:11px;padding:1px 8px;margin-right:6px;cursor:pointer;max-width:190px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:middle}
+.concept .also .chip:hover{color:var(--accent2);border-color:var(--accent2)}
 /* ── 概念网络图（concept-net-view.js · 2026-09-15）──
    结构：.cn-fig > .cn-head + .cn-canvas(svg) + .cn-legend + .cn-detail。
    颜色基调跟层走（层色由渲染器内联），这里只管边/标签/文本/交互态。 */
@@ -630,6 +633,16 @@ code{background:#161719;border:1px solid var(--line);border-radius:4px;padding:1
 .rutag{font-size:10.5px;color:var(--fg3);border:1px solid var(--line2);border-radius:5px;padding:0 6px;white-space:nowrap}
 .ru-line{font-size:12px;color:var(--fg2);line-height:1.65;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;flex:1}
 .ru-act{display:flex;justify-content:flex-end}
+/* 概念全书（v5-plain-open phase 02） */
+.bk-bar{display:flex;gap:8px;margin:10px 0}
+.bk-bar input{flex:1;background:var(--panel);border:1px solid var(--line2);border-radius:8px;color:var(--fg);padding:7px 10px;font-family:inherit;font-size:12.5px}
+.bk-bar select{background:var(--panel);border:1px solid var(--line2);border-radius:8px;color:var(--fg);padding:7px 8px;font-family:inherit;font-size:12px}
+.bk-list{display:flex;flex-direction:column}
+.bk-item{display:flex;align-items:baseline;gap:10px;border-top:1px solid var(--line);padding:8px 2px;cursor:pointer}
+.bk-item:hover{background:var(--panel2)}
+.bk-item b{font-size:13px;color:var(--fg);white-space:nowrap}
+.bk-item span{flex:1;color:var(--fg3);font-size:11.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bk-item em{font-size:10.5px;color:var(--accent);font-style:normal;white-space:nowrap}
 .rstation{margin:12px 0 2px;font-size:13px;color:var(--fg)}
 .rstation .mut{margin:0 0 2px}
 .rdraft{display:inline-block;border:1px dashed #8a6d1a;color:#c9a227;border-radius:6px;padding:1px 8px;font-size:11px;vertical-align:2px;margin-left:6px}
@@ -901,7 +914,7 @@ const edgeMeta = DATA.edgeMeta || {};
 function edgeNote(fromId, toId) {
   const e = edgeMeta[fromId + '>' + toId];
   if (!e) return '';
-  const s = e.s === 'hard' ? ' · hard' : e.s === 'soft' ? ' · soft' : '';
+  const s = e.s === 'hard' ? ' · 强' : e.s === 'soft' ? ' · 弱' : '';
   const r = e.r ? ' — ' + String(e.r).slice(0, 60) + (String(e.r).length > 60 ? '…' : '') : '';
   return s + r;
 }
@@ -2585,7 +2598,11 @@ function applyHash() {
   else if (h === 'tree' || h === 'path' || h === 'graph') setMode(h);
   else if (h === 'explore') setView('explore');
   else if (h && byId.has(h)) openPanel(h);
-  else syncPath();
+  else {
+    // 浏览器从 #graph=map 后退到空 hash＝离开系统视图的第二条出口（v4.1 根修）
+    if (mode === 'graph') setMode('tree');
+    syncPath();
+  }
 }
 window.applyHash = applyHash;
 setTimeout(boot, 40);
@@ -2772,6 +2789,96 @@ function practiceBlockedHtml(u) {
     <div class="mut" style="margin-top:8px">${u.entry ? `它的页面入口是 <code>${esc(u.entry)}</code>（不是这套阅读器）。` : '它连页面入口都还没有（graph.entries 里没有它）。'}</div>
   </div>`;
 }
+/* ── 概念全书（v5-plain-open phase 02）：1070 页轻学习 ─────────
+   料＝DATA.topics 现成的 定义(gloss)＋换个讲法(feynman)＋怎么算会了(ap/evidence)，编译期 0 模型调用。
+   反馈复用 judgeCall（与概念卡同一判定口径），但状态独立落 zss135.book.v1——不写掌握标记、不解锁任何东西。
+   只保证反馈（dbskill 口径）：讲不圆就照实告诉你漏了哪，不担保内容对错。 */
+const BOOK_KEY = 'zss135.book.v1';
+let bookSel = null, bookQuery = '', bookTheme = '';
+function bookState() { try { return JSON.parse(localStorage.getItem(BOOK_KEY) || '{}') || {}; } catch (e) { return {}; } }
+function bookTopics() { return (DATA.nodes || []).filter(t => byId.has(t.id)); }
+function bookApOf(t) { return t.ap || (Array.isArray(t.evidence) && t.evidence.length ? t.evidence[0] : '') || ''; }
+function bookThemes() {
+  const m = new Map();
+  for (const t of bookTopics()) for (const tg of (t.tags || [])) m.set(tg, (m.get(tg) || 0) + 1);
+  return [...m.entries()].map(([id, n]) => ({ id, n, name: ((CUR.tags || []).find(x => x.id === id) || {}).name || id })).sort((a, b) => b.n - a.n);
+}
+function bookMatches(t) {
+  const q = (bookQuery || '').trim().toLowerCase();
+  if (bookTheme && !(t.tags || []).includes(bookTheme)) return false;
+  if (!q) return true;
+  return [t.name, t.nameEn, (t.aliases || []).join(' '), t.gloss || ''].join(' ').toLowerCase().includes(q);
+}
+function practiceBookHtml() {
+  const all = bookTopics();
+  const withAp = all.filter(t => bookApOf(t)).length;
+  const list = all.filter(bookMatches).sort((a, b) => a.name.localeCompare(b.name, 'zh-CN'));
+  const themes = bookThemes();
+  return `<div class="pcard" id="book-index">
+    <h2>概念全书 · ${all.length} 页</h2>
+    <div class="mut">每一页＝一句定义＋「怎么算会了」＋你自己的话讲一遍。${withAp} 页带了现成的「怎么算会了」，其余页讲一遍同样有反馈。随手翻，不用按顺序。</div>
+    <div class="bk-bar">
+      <input id="book-q" placeholder="搜一个概念，比如：上下文窗口" value="${esc(bookQuery)}" oninput="bookQuery=this.value;bookRerender()">
+      <select onchange="bookTheme=this.value;bookRerender()">
+        <option value="">全部主题</option>
+        ${themes.map(x => `<option value="${esc(x.id)}"${bookTheme === x.id ? ' selected' : ''}>${esc(x.name)} · ${x.n}</option>`).join('')}
+      </select>
+    </div>
+    <div class="bk-list">${list.slice(0, 60).map(t => {
+      const st = bookState()[t.id];
+      return `<div class="bk-item" onclick="bookOpen('${t.id}')">
+        <b>${esc(t.name)}</b><span>${esc((t.gloss || '').slice(0, 56))}${(t.gloss || '').length > 56 ? '…' : ''}</span>
+        ${st ? `<em>${st.verdict === 'pass' ? '讲过了' : '讲过 · 有漏'}</em>` : ''}</div>`;
+    }).join('')}</div>
+    ${list.length > 60 ? `<div class="mut">只列前 60 条——用搜索或主题再收窄。</div>` : ''}
+  </div>`;
+}
+function practiceBookPageHtml(id) {
+  const t = byId.get(id);
+  if (!t) return `<div class="pcard"><h2>概念全书</h2><div class="mut">这一页不存在。<button class="pbtn ghost" onclick="openPractice(null,'book')">回全书目录</button></div></div>`;
+  const st = bookState()[id] || null;
+  const k = kOf(t);
+  return `<div class="pcard" id="book-page" data-topic="${esc(id)}">
+    <h2>${esc(t.name)}<span class="kbadge" style="border-color:${KIND[k].color};color:${KIND[k].color}">${esc(KIND[k].name)}</span></h2>
+    <div class="gloss">${esc(t.gloss || '')}</div>
+    ${t.feynman ? `<details class="deep"><summary>换个讲法（想不通再看）</summary><div class="mut">${esc(t.feynman)}</div></details>` : ''}
+    ${bookApOf(t) ? `<div class="proven"><b>怎么算会了：</b>${esc(bookApOf(t))}</div>` : ''}
+    ${k === 'accept' ? `<div class="dpane quiet"><h5>这一类不用讲一遍</h5><div class="mut">它只能认、没法复述——读过就算。</div></div>`
+      : `<div class="dpane">
+        <h5>讲一遍 · 我来挑漏</h5>
+        <div class="mut">${esc(t.kwhy || '')}</div>
+        <textarea id="book-said" placeholder="用你自己的话讲。别抄上面的句子，抄了不算过。">${st ? esc(st.said || '') : ''}</textarea>
+        <div class="jrow"><button class="jbtn" id="book-submit" onclick="bookJudge('${id}')">讲完了，挑漏</button><span id="book-err" class="jerr"></span></div>
+        ${st && st.verdict ? `<div class="jverdict ${st.verdict === 'pass' ? 'ok' : 'bad'}">
+          <b>${st.verdict === 'pass' ? '讲到了' : '有漏 · 上一次的反馈'}</b>
+          ${(st.missing || []).length ? `<div class="jmiss">漏了：${st.missing.map(esc).join(' · ')}</div>` : ''}
+          ${(st.wrong || []).length ? `<div class="jmiss">说错了：${st.wrong.map(esc).join(' · ')}</div>` : ''}
+          ${st.why ? `<div class="mut" style="margin-top:4px">${esc(st.why)}</div>` : ''}</div>` : ''}
+      </div>`}
+    <button class="pbtn ghost" onclick="openPractice(null,'book')">← 回全书目录</button>
+  </div>`;
+}
+function bookOpen(id) { bookSel = id; openPractice(null, 'bookpage'); }
+function bookRerender() { const q = document.getElementById('book-q'); if (q) bookQuery = q.value; openPractice(null, 'book'); }
+async function bookJudge(id) {
+  const t = byId.get(id), box = document.getElementById('book-said'), err = document.getElementById('book-err');
+  if (!t || !box) return;
+  const said = box.value.trim();
+  if (said.length < 10) { if (err) err.textContent = said.length ? '太短了——至少写成一句话。' : '先写点什么。'; return; }
+  if (err) err.textContent = '判定中…';
+  const btn = document.getElementById('book-submit'); if (btn) btn.disabled = true;
+  let v;
+  try { v = await judgeCall(t, said); }
+  catch (e) { v = { verdict: 'fail', missing: [], wrong: [], why: '这一轮没判出来（' + (e.message || e) + '）。不算错也不算过，改改再讲一次。' }; }
+  if (btn) btn.disabled = false;
+  if (err) err.textContent = '';
+  const st0 = bookState();
+  st0[id] = { said, verdict: v.verdict, missing: v.missing || [], wrong: v.wrong || [], why: v.why || '', at: Date.now() };
+  try { localStorage.setItem(BOOK_KEY, JSON.stringify(st0)); } catch (e) {}
+  openPractice(null, 'bookpage');
+}
+window.bookOpen = bookOpen; window.bookRerender = bookRerender; window.bookJudge = bookJudge;
+
 /* 第一层 v2（v2-practice-space phase 02）：继续学 → 主线六章 → 七站路线 → 单篇 → 批量说明 → 折叠看板 → 1/3/5。
    路线顺序来自配置文件（DATA.practice.route），拍板前照实标「草案」；
    开放与否仍由准入门现算（practiceUnit/live.open），配置行不带也不读 open。
@@ -2889,6 +2996,11 @@ function practiceIndexHtml() {
         只有独立复核 <code>verdict=usable</code> 的那 3 道才接进来；<b>空数组 ≠ 满足</b>、<b>复核不过不进</b>这两条一个字没放宽。</div>
       </details>
     </div>
+    <div class="pcard" id="practice-book-entry">
+      <h2>概念全书 · 随便翻（${bookTopics().length} 页）</h2>
+      <div class="mut">主线和七站之外的每一页：一句定义，讲一遍，有反馈。不用按顺序，搜到哪学到哪。</div>
+      <button class="pbtn" onclick="openPractice(null,'book')">翻开概念全书 →</button>
+    </div>
     <details class="pcard pfold" id="practice-board-fold">
       <summary><b>状态看板 · 为什么有的还不能学</b></summary>
       <div style="margin:8px 0">${bucketChips}</div>
@@ -2993,15 +3105,25 @@ function practiceRender() {
   reader.scrollTop = 0;
 }
 function practiceShellHtml(panel, originHtml = '') {
-  const title = panel === 'board' ? '状态看板 · 为什么现在不能学' : 'Agent Loop 六章阅读器';
+  const title = panel === 'board' ? '状态看板 · 为什么现在不能学'
+    : panel === 'book' ? '概念全书'
+    : panel === 'bookpage' ? (bookSel ? (byId.get(bookSel) || {}).name || '' : '概念全书')
+    : 'Agent Loop 六章阅读器';
   const crumb = panel === 'board'
     ? `<span onclick="openPractice()" style="cursor:pointer">六章列表</span><span>›</span><span>状态看板</span>`
+    : panel === 'book'
+    ? `<span onclick="openPractice()" style="cursor:pointer">实践空间</span><span>›</span><span>概念全书</span>`
+    : panel === 'bookpage'
+    ? `<span onclick="openPractice()" style="cursor:pointer">实践空间</span><span>›</span><span onclick="openPractice(null,'book')" style="cursor:pointer">概念全书</span><span>›</span><span>${esc(title)}</span>`
     : `<span>1 / 3 / 5 · 前两版入口保留</span>`;
+  const meta = panel === 'book' || panel === 'bookpage'
+    ? `<span>读一句定义，用你自己的话讲一遍；讲不圆就照实告诉你漏了哪。只保证反馈，不担保内容对错。</span>`
+    : `<span>准入规则：四段全绿才开放（阅读｜形成性费曼｜决策｜章末费曼）</span>`;
   return `<div class="nei practice"><div class="nei-crumb"><b>实践空间</b><span>›</span>${crumb}</div>
     <h1 class="nei-title">${esc(title)}</h1>
-    <div class="nei-meta"><span>准入规则：四段全绿才开放（阅读｜形成性费曼｜决策｜章末费曼）</span></div>
+    <div class="nei-meta">${meta}</div>
     ${originHtml}
-    ${panel === 'board' ? practiceBoardHtml() : practiceIndexHtml()}
+    ${panel === 'board' ? practiceBoardHtml() : panel === 'book' ? practiceBookHtml() : panel === 'bookpage' ? practiceBookPageHtml(bookSel) : practiceIndexHtml()}
     <div id="practice-blocked"></div>
   </div>`;
 }
@@ -3021,7 +3143,7 @@ function practiceOriginHtml(origin) {
 function openPractice(originId = null, panel = 'index') {
   currentView = 'practice'; themeId = null; filter = null;
   practiceOriginId = originId || null;
-  practicePanel = panel === 'board' ? 'board' : 'index';
+  practicePanel = panel === 'board' ? 'board' : panel === 'book' ? 'book' : panel === 'bookpage' ? 'bookpage' : 'index';
   document.querySelectorAll('.r-item').forEach(b => b.classList.toggle('on', b.dataset.view === 'practice'));
   closePanel();
   practiceRender();
@@ -3072,6 +3194,10 @@ function syncListSel() {
 /* setView('theme', tagId) 下钻到三级；setView('graph') 回二级（全部主题）。
    「知识体系」这个导航项在 theme 态也保持高亮——它和主题态属于同一个一级页面。 */
 function setView(v, tid) {
+  /* v4.1 根修（对抗性审计发现）：系统视图（mode==='graph'）没有可见退出控件——顶栏导航
+     点击后 currentView 换了、画布却停在总图态（graphon 不解除＝「回不去」的根因）。
+     总图态的退出闭环就设在这里：任何一次回到知识体系的导航，先把画布从总图归位到我的树。 */
+  if (v === 'graph' && mode === 'graph') setMode('tree');
   currentView = v;
   themeId = (v === 'theme' && tid) ? tid : null;
   filter = themeId;                       // 画布只亮这一列；回主题态自动清掉
@@ -3111,6 +3237,18 @@ function mapFromNeican(id) {
   hideReader(); setView('graph'); openPanel(id);
 }
 window.mapFromNeican = mapFromNeican;
+
+/* 概念提取 v2：「也出现在」反链 chip → 跳到那篇（保留当前签位） */
+function neiGoAppear(period, slug) {
+  const a = neiOf(slug); if (!a) return;
+  neiPeriod = period;
+  neiSlug = slug; neiScreen = 'article';
+  renderNeican(true);
+  const r = document.getElementById('reader');
+  if (r) { r.classList.add('on'); if (r.scrollTo) r.scrollTo(0, 0); }
+  renderList(); syncPath();
+}
+window.neiGoAppear = neiGoAppear;
 
 /* 日期选择：内参二级页面**上方**那条日期条。点一期＝只看那一期；「全部」＝按期倒序全看。 */
 function neiPick(period) {
@@ -3219,7 +3357,7 @@ function neiBody(a) {
   if (neiTabName === 'concept') {
     const cs = a.conceptCards || [];
     if (!cs.length) return '<div class="mut">这一篇没有概念卡。</div>';
-    const inMap = cs.filter(c => c.nodeId).length;
+    const inMap = cs.filter(c => c.ref && c.ref.id).length;
     const head = `<div class="mut" style="margin-bottom:12px">本文 <b>${cs.length}</b> 个概念 ·
       其中 <b>${inMap}</b> 个已并进概念地图（点名字跳到地图那张卡）；
       其余是本文特有的细粒度提取。</div>`;
@@ -3230,12 +3368,17 @@ function neiBody(a) {
     const graph = CN_NETS[unitId]
       ? `<div class="cn-host" data-unit="${esc(unitId)}"></div>`
       : '';
+    /* ref / appear（「也出现在」反链）由概念提取 v2 数据层给出（build-shell 装配，
+       build-concept-cards.mjs 产出、check-concept-cards.mjs 体检），不走运行时匹配。 */
     return head + graph + cs.map((c, i) => `<div class="concept" id="nei-card-${i}">
-      <span class="nm">${i + 1}. ${c.nodeId
-        ? `<button class="tomap" onclick="mapFromNeican('${c.nodeId}')">${esc(c.name)} <i>↗ 地图</i></button>`
+      <span class="nm">${i + 1}. ${c.ref && c.ref.id
+        ? `<button class="tomap" onclick="mapFromNeican('${c.ref.id}')">${esc(c.name)} <i>↗ 地图</i></button>`
         : esc(c.name)}</span>
-      ${(c.quotes || []).map(q => `<div class="q">${q}</div>`).join('')}
-      ${c.feynman ? `<div class="fy"><i>费曼一下</i>${c.feynman}</div>` : ''}</div>`).join('');
+      ${(c.quotes || []).map(q => `<div class="q">${esc(q)}</div>`).join('')}
+      ${c.feynman ? `<div class="fy"><i>费曼一下</i>${esc(c.feynman)}</div>` : ''}
+      ${(c.appear || []).length ? `<div class="also">也出现在 ${c.appear.map(x =>
+        `<button class="chip" onclick="neiGoAppear('${x.period}','${esc(x.slug)}')">${esc(x.period)} · ${esc(x.article)}</button>`).join('')}</div>` : ''}
+      </div>`).join('');
   }
   if (neiTabName === 'feynman') {
     /* 有拆解五维的那一期：① 30 秒 ② 3 分钟 ③ 验收要点（三道）。
@@ -3462,6 +3605,21 @@ function nfxUnit(a) {
 }
 const nfxMatId = (ref) => 'nfx-mat-' + String(ref).replace(/[^a-zA-Z0-9]+/g, '-');
 
+/* ── 公网体验网关（2026-09-15）：静态版没有本机后端，即时费曼可走 PUBLIC=1 的限额网关。
+   网关地址＋体验口令存访客自己的 localStorage（zss135.gateway）——记录归用户，凭证也归用户。
+   没配网关＝照实「待复核」，不调模型、不冒充通过。网关侧有三道闸（口令／每 IP 限速／日断路器）。 */
+function cnGateway() {
+  try { const v = JSON.parse(localStorage.getItem('zss135.gateway') || 'null'); return (v && v.base) ? v : null; } catch (e) { return null; }
+}
+function cnGatewayAsk() {
+  const cur = cnGateway() || { base: '', code: '' };
+  const base = (prompt('体验网关地址（例：https://zss135-gateway.onrender.com）', cur.base || '') || '').trim().replace(/\/+$/, '');
+  if (!base) return cnGateway();
+  const code = (prompt('体验口令（提交页／路演材料里那个）', cur.code || '') || '').trim();
+  try { localStorage.setItem('zss135.gateway', JSON.stringify({ base, code })); } catch (e) {}
+  return cnGateway();
+}
+
 /* ── 提示词已搬到服务端（/api/learn，scripts/serve-lib.mjs）──
    这里只保留「应用侧校验」与「渲染」：浏览器不再拼 system prompt、不再带评分标准，
    所以即使页面被改，也拿不到一份可以自行放宽的判据口径。 */
@@ -3666,7 +3824,13 @@ async function nfxSubmit(slug) {
   };
   const note = (t) => { const s = document.getElementById('nfx-status'); if (s) s.textContent = t; };
   if (said.length < 12) { land(nfxNotJudgedRound(a, meta, '复述太短，无法判断（至少写一两句完整的话）')); return; }
-  if (!isLocalHost()) { land(nfxNotJudgedRound(a, meta, '公网静态版不调用模型，也不会把提交当作通过')); return; }
+  /* 本机后端直连；静态公网版走体验网关（访客自配，存自己 localStorage）。
+     两边都没有＝照实待复核：不调模型、不冒充通过。 */
+  let gw = null;
+  if (!isLocalHost()) {
+    gw = cnGateway() || cnGatewayAsk();
+    if (!gw) { land(nfxNotJudgedRound(a, meta, '公网静态版：未配置体验网关——本次不调用模型，也不会把提交当作通过。')); return; }
+  }
 
   nfxBusy = true;
   const btn = document.getElementById('nfx-submit'); if (btn) btn.disabled = true;
@@ -3678,8 +3842,11 @@ async function nfxSubmit(slug) {
   const t0 = Date.now();
   try {
     // 窄接口：只发单元 ID ＋ 复述 ＋ 输入版本 ＋ 请求 ID。材料与五档规则由服务端装配。
-    const r = await fetch('/api/learn', {
-      method: 'POST', headers: { 'Content-Type': 'application/json' }, signal: ctl.signal,
+    // 本机＝相对路径；公网＝网关绝对地址＋体验口令（网关侧三道闸：口令／每 IP 限速／日断路器）。
+    const r = await fetch(gw ? gw.base + '/api/learn' : '/api/learn', {
+      method: 'POST',
+      headers: Object.assign({ 'Content-Type': 'application/json' }, gw ? { 'x-zss-code': gw.code || '' } : {}),
+      signal: ctl.signal,
       body: JSON.stringify({ unit: tm.unit, said, inputVersion: ver, requestId: reqId }),
     });
     if (stale()) return;
@@ -3687,9 +3854,10 @@ async function nfxSubmit(slug) {
     if (stale()) return;
     meta.ms = Date.now() - t0;
     // 服务端已经校验过一次；页面这一层是兜底：拿到的判据不全／有未知 ID 一样记未判定。
+    // 网关侧的错误（口令不对／限额）带 note，照实展示给访客。
     const parsed = j && j.ok
       ? nfxValidate(JSON.stringify({ criteria: j.criteria, nextPrompt: j.nextPrompt }), ids)
-      : { notJudged: nfxServerWhy(j, r.status), raw: String((j && j.raw) || '') };
+      : { notJudged: (j && j.note) ? j.note : nfxServerWhy(j, r.status), raw: String((j && j.raw) || '') };
     if (parsed.notJudged) land(nfxNotJudgedRound(a, { ...meta, raw: parsed.raw }, parsed.notJudged));
     else land(nfxMakeRound(a, parsed, meta));
   } catch (e) {
@@ -3908,10 +4076,9 @@ function machineChecksHtml(c) {
   const mc = (c.feynman && c.feynman.machineChecks) || [];
   if (!mc.length) return '';
   const o = mc[0].origin || {};
-  return `<div class="lgap" style="margin-top:10px;border-top:1px dashed #3a3a3a;padding-top:8px">`
-    + `<b>机器派生补充判据 ${mc.length} 条（不参与本章通过判定）</b><br>`
-    + `来源：<code>${esc(o.artifact || '')}</code>（已 superseded 的 <code>${esc(o.unitId || '')}</code>）· 派生自 <code>${esc(o.derivedFrom || '')}</code> · 独立复核 <code>${esc(o.review || '')}</code> verdict=<b>${esc(o.verdict || '')}</b>。<br>`
-    + `原因：misconception 是卡片 boundaries 的机械反面转述（照抄边界原文即可满足），当复习提示可以，当理解判据不行 —— 所以它们只显示、不计分。`
+  return `<div class="lgap" style="margin-top:10px;border-top:1px dashed #3a3a3a;padding-top:8px" data-origin="${esc([o.artifact,o.unitId,o.derivedFrom,o.review,o.verdict].join('|'))}">`
+    + `<b>补充判据 ${mc.length} 条（只作复习提示，不计分）</b><br>`
+    + `这些判据由脚本从源材料反推生成（出处与复核记录登记在案），读起来可能生硬——当复习提示，不当理解判据。`
     + `<ul style="margin:6px 0 0 16px">${mc.map((x) => `<li>${esc(x.point)}<br><span style="opacity:.75">成立条件：${esc(x.condition)}<br>机械反面转述：${esc(x.misconception)}</span></li>`).join('')}</ul></div>`;
 }
 /* 准入改版（docs/准入门改版-区分度自证-20260914.md）：判据的三条机器条件。
@@ -3937,17 +4104,11 @@ function criteriaStatusHtml(c) {
       + `</li>`;
   };
   return `<div class="lcard" id="learn-criteria">
-      <span class="lb${pending.length ? ' warn' : ''}">判据 · 准入（区分度自证）</span>
-      <h2>${withAdm.length} 条判据：已激活 ${active.length} 条 · <span style="color:#e0a94a">待验证区分度 ${pending.length} 条</span></h2>
-      <div class="sub">准入改版（<code>docs/准入门改版-区分度自证-20260914.md</code>）：一条判据要<b>参与通过判定</b>，必须同时满足
-        ①绑了逐字原文（逐字 <code>indexOf</code> ＋ <code>sha256</code>，机器可查、零人力）②有至少一条真实轨迹证明它从
-        <code>not-met</code> 走到 <code>met</code> ③缺口在轨迹上真的下降过（第一轮就全 <code>met</code> ＝ 死判据，自动淘汰）。</div>
-      <div class="lgap">不满足三条的照实标「<b>待验证区分度</b>」：<b>可以看、不参与通过判定、也不挡这个单元进入</b>。
-        这一版和上一版最重要的区别就在这里——上一版把「判据复核没过」当成不开放的理由，于是 76 个单元永远停在「未装配」。</div>
+      <span class="lb${pending.length ? ' warn' : ''}">判据</span>
+      <h2>${withAdm.length} 条判据：<b>${active.length} 条经过了真人验证</b> · <span style="color:#e0a94a">${pending.length} 条还没有</span></h2>
+      <div class="sub">一条判据要拿来给你打分，必须满足三条：①出处逐字对得上原文（机器核对）②有真人从「没讲到」练到「讲到」的真实记录 ③按这条记录，漏的地方真的变少过。三条不齐的判据<b>照样显示、照样给你反馈</b>，只是不计分、也不拦你进来。</div>
       <ul style="margin:8px 0 0 16px">${withAdm.map(row).join('')}</ul>
-      <div class="lgap">判据来源：<code>${esc(((withAdm[0] || {}).origin || {}).artifact || '')}</code> · 独立复核
-        <code>${esc(((withAdm[0] || {}).origin || {}).review || '')}</code> verdict=<b>${esc(((withAdm[0] || {}).origin || {}).verdict || '')}</b>
-        · 单元 ${esc(src)}。三条条件与每条理由都在 <code>evidence/batch-units-260914/readers.json</code> 里，可逐条复算。</div>
+      <div class="lgap" data-origin="${esc([((withAdm[0] || {}).origin || {}).artifact, ((withAdm[0] || {}).origin || {}).review, ((withAdm[0] || {}).origin || {}).verdict].join('|'))}">判据出处、三条条件的理由与每条记录都在编译产物里，可逐条复算。</div>
     </div>`;
 }
 window.criteriaStatusHtml = criteriaStatusHtml;

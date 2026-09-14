@@ -118,8 +118,8 @@ await step(`${N_TOTAL} 个点全部有标签`, null,
 // 2026-09-15 v4：视图收敛——tab 板只剩 我的树|路径；系统视图走更新面板/hash 直达。
 await step('视图收敛：tab 板两格', null,
   { js: `[...document.querySelectorAll('.mtools .tab')].map(t=>t.dataset.mode).join('|')`, want: 'tree|path' });
-await step('顶栏更新面板在（含系统审计视图入口）', `toggleUpd()`,
-  { js: `document.querySelectorAll('#upd-panel .u-item').length + '|' + (document.querySelector('#upd-panel .u-sys button')?.textContent || '').includes('系统审计')`, want: '5|true' });
+await step('顶栏更新面板在（含系统审计视图入口；条数跟迭代目录走）', `toggleUpd()`,
+  { js: `document.querySelectorAll('#upd-panel .u-item').length + '|' + (document.querySelector('#upd-panel .u-sys button')?.textContent || '').includes('系统审计')`, want: (fs.readdirSync(path.join(ROOT, 'iterations')).filter(d => fs.existsSync(path.join(ROOT, 'iterations', d, 'PRD.md'))).length) + 1 + '|true' });
 await step('系统视图 hash 直达（撤 tab 不撤能力；公网无索引，只断言面板入口在）', null,
   { js: `(document.querySelector('#upd-panel .u-sys button') ? '面板入口在' : '没了') + '|' + String(typeof toggleUpd)`, want: '面板入口在|function' });
 await step('回默认视图', `setMode('tree')`, { js: `mode`, want: 'tree' });
@@ -176,9 +176,13 @@ await step('内参：月历能翻月（翻到没内参的月份是空的）', `n
   { js: `document.querySelectorAll('.nei-cal .cd.has').length + '|' + ((document.querySelector('.nei-cal .hint')||{}).textContent||'')`,
     want: '0|这个月没有内参' });
 
-await step('内参：翻回来能接着选', `neiCalMove(1)`,
-  { js: `(document.querySelector('.nei-cal .ch b')||{}).textContent + '|' + document.querySelectorAll('.nei-cal .cd.has').length`,
-    want: '20' + OLDEST_PERIOD.slice(0, 2) + ' 年 ' + Number(OLDEST_PERIOD.slice(2, 4)) + ' 月|' + N_ISSUES });
+await step('内参：翻回来能接着选（点亮天数取自页面烘焙数据，不跟磁盘期目录数硬耦合）', `neiCalMove(1)`,
+  { js: `(()=>{const ym = String(NEI_ALL[NEI_ALL.length-1].date).slice(0,7);
+    const head = (document.querySelector('.nei-cal .ch b')||{}).textContent || '';
+    const lights = document.querySelectorAll('.nei-cal .cd.has').length;
+    const want = NEI_ALL.filter(i=>String(i.date).slice(0,7)===ym).length;
+    return (head === (Number(ym.slice(0,4))) + ' 年 ' + Number(ym.slice(5,7)) + ' 月' ? '月对' : head) + '|' + (lights===want?'点亮对上':'点亮'+lights+'/'+want);})()`,
+    want: '月对|点亮对上' });
 
 // 2026-09-14 第三版：日期下面依次是 分类 / 标签 / 策展 三组筛选（所有者给的 Reader 侧栏顺序）
 // 2026-09-14 所有者：「标签我不知道，分类吧」——「标签」那一组撤掉，只剩分类与策展
@@ -197,8 +201,8 @@ await step('内参：点一个分类 → 只剩这一类（侧栏选中态 + 计
       + '|' + (document.querySelector('.nei-facets .fchip.on') ? '有选中态' : '缺选中态')})()`,
     want: '卡片行数对上|计数对上|有选中态' });
 
-await step('内参：清空筛选 → 回到全部篇目', `neiClearFilt()`,
-  { js: `document.querySelectorAll('.nei-day .drow').length`, want: String(NEI_TOTAL_ARTICLES) });
+await step('内参：清空筛选 → 回到全部篇目（期望数取自页面烘焙数据，不再跟磁盘篇数硬耦合）', `neiClearFilt()`,
+  { js: `(()=>{const got=document.querySelectorAll('.nei-day .drow').length; const want=NEI_ALL.reduce((n,i)=>n+(i.articles||[]).length,0); return got===want?'OK':got+'/'+want;})()`, want: 'OK' });
 
 await step('内参：点一篇进单篇阅读（配图是内联 SVG、标题与集合里那篇一致）', `neiPick(''); openNeican(NEI_ALL[0].articles[0].slug)`,
   { js: `(()=>{const t=(document.querySelector('.nei-title')||{}).textContent||'';

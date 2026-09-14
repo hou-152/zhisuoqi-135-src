@@ -36,29 +36,33 @@ function loadNeican() {
     console.warn('⚠ 没有任何一期内参（knowledge/内参-YYMMDD/内参-页面数据.json）—— 先跑 pull-readwise-inbox.mjs + build-neican-daily.mjs + build-neican.mjs');
     return { issues: [] };
   }
-  // 内参的概念卡要接回地图：能对上的填 nodeId，点名字直接跳到地图那张卡。
-  // 归一化必须用 \p{P}\p{S} 那一套（JS 的 \W 只认 ASCII，中文会被吃光 → 假命中）。
-  const topics = JSON.parse(fs.readFileSync(path.join(ROOT, 'knowledge', '概念地图-260913', 'topics.json'), 'utf8')).topics;
+  // 概念卡接回地图与「也出现在」反链：统一走**概念提取 v2 数据层**（knowledge/概念提取-260915/cards.json，
+  // build-concept-cards.mjs 产出、check-concept-cards.mjs 体检），不再在壳构建时对概念地图做运行时名字匹配。
+  // 归一化必须用 \p{P}\p{S} 那一套（JS 的 \W 只认 ASCII，中文会被吃光 → 假命中），与 v2 数据层同口径。
+  const cardsFile = path.join(ROOT, 'knowledge', '概念提取-260915', 'cards.json');
+  const cardById = new Map();
+  if (fs.existsSync(cardsFile)) {
+    for (const c of JSON.parse(fs.readFileSync(cardsFile, 'utf8'))) cardById.set(c.id, c);
+  } else {
+    console.warn('⚠ 缺 概念提取-260915/cards.json —— 概念卡不接 ref/反链（先跑 node scripts/build-concept-cards.mjs）');
+  }
   const norm = (x) => String(x).toLowerCase().replace(/[\s\p{P}\p{S}]+/gu, '');
-  const parts = (x) => { const m = String(x).match(/^(.+?)\s*[（(]([^()（）]+)[)）]\s*$/); return m ? [m[1].trim(), m[2].trim()] : [String(x).trim()]; };
-  const idx = new Map();
-  for (const t of topics) for (const k of [t.name, t.nameEn, ...(t.aliases || [])]) if (k && !idx.has(norm(k))) idx.set(norm(k), t.id);
   const issues = [];
   for (const d of dirs) {
     const data = JSON.parse(fs.readFileSync(path.join(K, d, '内参-页面数据.json'), 'utf8'));
     let linked = 0, total = 0;
     for (const art of data.articles || []) for (const c of art.conceptCards || []) {
       total++;
-      const full = c.name || '';
-      // 三种写法都要试：剥括号的中文名 / 括号里的英文名 / 整串（「代理技能（Agent Skills）」要能撞上「Agent Skills」）
-      const id = parts(full).map(norm).map((k) => idx.get(k)).find(Boolean) || idx.get(norm(full)) || null;
-      if (id) { c.nodeId = id; linked++; }
+      const card = cardById.get(norm(c.name || ''));
+      if (card && card.ref) { c.ref = card.ref; linked++; }
+      c.appear = (card && card.appearances || []).filter((a) => !(a.period === data.period && a.slug === art.slug));
     }
     data._link = { total, linked };
     issues.push(data);
     console.log(`内参 ${data.period} 期：${(data.articles || []).length} 篇 · 概念卡 ${total} 张 · 已接回地图 ${linked} 张`);
   }
-  const fail = topics.filter((t) => t.origin.includes('neican')).length;
+  const fail = JSON.parse(fs.readFileSync(path.join(ROOT, 'knowledge', '概念地图-260913', 'topics.json'), 'utf8')).topics
+    .filter((t) => t.origin.includes('neican')).length;
   console.log(`  地图里来自内参的节点 ${fail} 个 · 共 ${issues.length} 期（新 → 旧：${issues.map((i) => i.period).join(' / ')}）`);
   return { issues };
 }

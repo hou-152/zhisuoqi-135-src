@@ -1,0 +1,92 @@
+{
+ "claude-how-warp-builds-self-improving-agents-on-claude": {
+  "summary": "Warp 揭示了基于 Claude 的双技能自进化架构：内层基础技能负责具体任务，外层改进者技能定期汇总人类在 PR 中的纠错反馈并自动向基础技能提交最小修改 PR，经人工合并后生效。",
+  "topic": "Warp双技能自我进化",
+  "stars": 4,
+  "starReason": "公开了生产级代码代理从无状态反馈闭环提炼技能的实战架构与反脆弱经验",
+  "why": "展示了将 Agent 反馈闭环与标准 Git PR 流程深度融合的工程解法，清晰划定了 Skill（程序性稳定知识）与 Memory（推理期动态状态）的边界。",
+  "metaphor": "带书童校对的活页手册",
+  "palette": "heather"
+ },
+ "github-hyperresearch": {
+  "summary": "Jordan Gibbs 开源深度研究智能体系统 Hyperresearch：将 Claude Code 编排为自适应 16 步对抗审查流水线，贯彻「只打补丁不重写」与「Markdown为真源/SQLite为缓存」的持久化知识库架构，实现单次抓取 250+ 来源并自动核验引文真实性。",
+  "topic": "Hyperresearch深度研究",
+  "stars": 4,
+  "starReason": "将多智能体对抗审计、引文真实性验证与本地优先持久化知识库完整工程化",
+  "why": "展示了生产级多 Agent 长流程调度的硬核模式：分层按需加载工具、物理级权限锁死禁止推倒重写、基于 Git/Markdown 的终身知识积累。",
+  "metaphor": "带严苛陪审团的学术档案馆",
+  "palette": "heather"
+ },
+ "jacobpeake-ai-chip-architectures": {
+  "summary": "六种已实际部署的AI芯片架构（英伟达GPU、谷歌TPU、AMD、Cerebras、AWS Trainium、Groq LPU）沿同一组问题对照：数据住在哪、如何流向计算单元、计算单元什么形态、芯片如何互联。各家给出不同答案：英伟达赌可编程与硬件一致性，谷歌赌编译器与光交换环面，AMD赌封装与开放标准，Cerebras与Groq把SRAM-only推到极端，换来单用户解码延迟、付出容量与吞吐代价。",
+  "topic": "AI芯片架构六家对照",
+  "stars": 4,
+  "starReason": "一手机制拆解六家芯片，四问框架可迁移，信息新至2026",
+  "why": "把零散的芯片新闻压成一个可复用的分析框架：数据住哪、怎么流动、算什么、怎么连。每家都落到具体机制与代价，包括失败面（Groq被收编为延迟协处理器、Cerebras退守解码利基）。",
+  "metaphor": "喂不饱的磨坊",
+  "palette": "clay"
+ },
+ "learn-git-worktrees": {
+  "summary": "ChatGPT 官方文档详解 Codex 多会话并行隔离机制：利用底层 Git Worktrees 为后台并发 Agent 分配独立工作目录（detached HEAD 状态），结合 Handoff 工作流与 .worktreeinclude 配置文件，实现零冲突并行开发与前后台平滑交接。",
+  "topic": "Codex的Worktree并行隔离",
+  "stars": 3,
+  "starReason": "官方揭秘并发智能体操作文件系统与解决分支冲突的工程落地方案",
+  "why": "详细说明了 IDE Agent 如何利用操作系统与 Git 原生能力解决多对话并发写代码的冲突痛点，给多 Agent 隔离提供了工业级参考。",
+  "metaphor": "厨房的独立操作台",
+  "palette": "sky"
+ },
+ "mp-bsn57d": {
+  "summary": "Google Research 提出 WikiSkill 三层知识架构（Raw/Wiki/Skills），将不可变轨迹、跨迭代知识库与带溯源的可执行技能解耦，使技能更新具备稳定因果上下文，实现小模型加技能超越裸大模型。",
+  "topic": "WikiSkill技能自我进化",
+  "stars": 4,
+  "starReason": "三层知识解耦设计直击技能进化遗忘痛点，消融与跨模型实验扎实",
+  "why": "解决了 Agent 进化中经验用后即丢和改技能丢失上下文的顽疾，证明了中间层持久知识库对自动化技能闭环的决定性价值。",
+  "metaphor": "带活页笔记的技能工坊",
+  "palette": "olive"
+ },
+ "openai-introducing-the-agents-api": {
+  "summary": "OpenAI 推出公测版 Agents API，将驱动 Codex 的长期运行智能体执行框架全面托管化。提供自动上下文压缩、动态工具检索、程序化工具调用与多子智能体并行编排能力，支持解耦的沙箱计算环境。",
+  "topic": "OpenAI托管AgentsAPI",
+  "stars": 4,
+  "starReason": "官方定义了云端长期运行生产级智能体执行框架的工业标准与基础设施抽象",
+  "why": "将智能体编排基础设施从手写提示词链进化为标准云 API，其上下文压缩、程序化工具调用与子智能体解耦设计代表了官方范式。",
+  "metaphor": "配齐副手的项目总监",
+  "palette": "clay"
+ },
+ "pwning-llm-memory-program-analysis": {
+  "summary": "安全研究员提出基于 Datalog 的智能体声明式记忆系统 Lemmalog。将模糊语言理解交由 LLM 提取事实，确定性逻辑推导与因果状态维护交由 Datalog 引擎，实现事实撤销时的自动级联失效与因果追溯（Provenance）。",
+  "topic": "Datalog程序分析接管LLM记忆",
+  "stars": 4,
+  "starReason": "将静态程序分析中的形式化逻辑引擎引入智能体记忆，优雅解决了事实撤回与状态漂移痛点",
+  "why": "针对向量 RAG 在处理长程冲突事实时的失效，提出了形式化逻辑推理引擎接管状态维护的硬核范式，对高可靠性审计与安全 Agent 具有重要参考价值。",
+  "metaphor": "自动断链的案情线索板",
+  "palette": "heather"
+ },
+ "terrytao-deep-theorems-were-scarce-and-difficult-and-so-beca": {
+  "summary": "作者针对 AI 声称证明纳维-斯托克斯方程有限时间爆破的推导进行反驳，指出 AI 使用了时间反演技巧，但该技巧在具备粘性耗散的不可逆系统中失效，混淆了欧拉方程与真实流体。",
+  "topic": "AI数学证明的物理失效",
+  "stars": 3,
+  "starReason": "揭示AI符号推导忽略真实物理守恒与耗散边界的典型案例",
+  "why": "展示了当前前沿 AI 生成数学证明时典型的形式正确但物理荒谬陷阱：代数符号推导通畅，却在时间反演与耗散性本质上完全失效。",
+  "metaphor": "倒放的录像带",
+  "palette": "heather"
+ },
+ "thezvi-gpt-6-astra-can-do-ambitious-things": {
+  "summary": "Zvi 对 OpenAI GPT-6 Astra 的深度评测：Astra 是最擅长雄心勃勃大项目的模型，很可能是所有模型里原始智能最高的一档，3D/游戏/计算机使用/子智能体协调出色，数学显著突破（ARC-AGI-3 标准 harness 66%→连续对话 harness 近 100%、一夜推进 Seymour 猜想、素数间隔界 212→186），但编码与开放式抽象推理上并不全面胜出 Fable 5.1；官方基准有夸大（ExploitBench 100% 反证数据污染、chart crime、发布后悄悄改分数）；作者认为这是第一次「AGI 争论不荒谬」，但他不认为是 AGI；自己投票显示用户主用模型净 16% 从 Anthropic 流向 OpenAI；终极建议是双持 Astra + Fable 5.1。",
+  "topic": "GPT-6 Astra 深度评测",
+  "stars": 4,
+  "starReason": "一手实测+独家投票，AGI 争论首次不荒谬，双持判断可迁移",
+  "why": "今天最值得读的新模型长评：Astra 强在哪、官方哪里吹牛、该不该从 Claude 换过来，Zvi 用实测和投票给了答案。",
+  "metaphor": "天平",
+  "palette": "clay"
+ },
+ "x-2090252351533973768": {
+  "summary": "David 提出构建无烂代码（No-Slop）软件工厂的工程范式：放弃逐行人工审代码的过时假设，将代码库黑盒化为可解释性系统。通过切分带传感器的独立切片与维护置信度倒序的静默决策账本，使人类审查聚焦于顶层意图与架构裁决。",
+  "topic": "黑盒软件工厂与决策账本",
+  "stars": 5,
+  "starReason": "直击AI代码生成海量化与人工审查瓶颈的底层哲学矛盾，提出可落地的决策账本解法",
+  "why": "重新定义了 AI 时代软件工程的核心交付物：不是代码本身，而是约束黑盒的系统与决策账本。对打破传统 Code Review 形式主义具有颠覆性启发。",
+  "metaphor": "带传感器的无人工厂",
+  "palette": "cactus"
+ }
+}

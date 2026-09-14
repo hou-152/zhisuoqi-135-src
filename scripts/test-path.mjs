@@ -324,6 +324,31 @@ check('#pbody 里没有任何直接打开 #learn 的入口（openLearnFor 只留
   await ex(`(()=>{const bs=Array.from(document.querySelectorAll('#pbody button'));return bs.every(b=>{const oc=b.getAttribute('onclick')||'';return !oc.includes('openLearnFor')&&!oc.includes('openLearnIndex')})})()`), 'true');
 await ex(`closePanel()`);
 
+/* ⑫ 概念全书（v5-plain-open phase 02）：1070 页轻学习。
+   明面人话、反馈复用判定口径（固定响应验证）、状态独立键 zss135.book.v1——不写掌握标记、不解锁。 */
+console.log('\n⑫ 概念全书');
+check('实践空间有「概念全书」入口，页数与 DATA.nodes 一致（不是写死的数）',
+  await ex(`(()=>{openPractice();const t=document.getElementById('practice-book-entry').innerText;return t.includes('概念全书')&&t.includes(String(DATA.nodes.length))&&t.includes('随便翻')})()`), 'true');
+check('翻开全书：目录渲染、搜索「上下文窗口」比全集收窄且仍有命中',
+  await ex(`(()=>{openPractice(null,'book');const n=document.querySelectorAll('.bk-item').length;if(!n)return 'empty';document.getElementById('book-q').value='上下文窗口';bookQuery='上下文窗口';bookRerender();const m=document.querySelectorAll('.bk-item').length;return m>0&&m<n})()`), 'true');
+check('点开一页：定义＋讲一遍框＋提交按钮都在（明面不带内部 token）',
+  await ex(`(()=>{bookOpen((DATA.nodes.find(x=>x.name==='Harness')||DATA.nodes[0]).id);const p=document.getElementById('book-page');const t=p.innerText;return !!p.querySelector('#book-said')&&!!p.querySelector('#book-submit')&&t.includes('讲一遍')&&!['CON-','cm_','QST-','verdict'].some(k=>t.includes(k))})()`), 'true');
+check('轻反馈（固定响应）：判为有漏 → 「漏了」照实显示；状态写独立键、不写掌握标记、不动解锁状态',
+  await ex(`(async()=>{const id=(DATA.nodes.find(x=>x.name==='Harness')||DATA.nodes[0]).id;bookOpen(id);window.__rf=window.fetch;window.fetch=()=>Promise.resolve(new Response(JSON.stringify({content:JSON.stringify({verdict:'fail',missing:['漏了点啥'],wrong:[],why:'固定响应测试'})}),{status:200,headers:{'Content-Type':'application/json'}}));document.getElementById('book-said').value='这是我自己写的一段复述，足够长可以提交判定。';document.getElementById('book-submit').click();await new Promise(r=>setTimeout(r,500));window.fetch=window.__rf;const p=document.getElementById('book-page');let st={};try{st=JSON.parse(localStorage.getItem('zss135.book.v1')||'{}')}catch(e){}return [p.innerText.includes('漏了'),p.innerText.includes('固定响应测试'),!!st[id],marks[id]===undefined||marks[id]===null,localStorage.getItem('zss135.learn.v1')===null].join('|')})()`), 'true|true|true|true|true');
+check('回目录：目录/搜索状态还在，换一页打开也不串',
+  await ex(`(()=>{openPractice(null,'book');const n=document.querySelectorAll('.bk-item').length;return n>0})()`), 'true');
+
+/* ⑬ 明面黑话黑名单（v5-plain-open phase 03）
+   学习者会看到的面（概念卡 / 实践空间 / 全书页 / 路径上下文）可见文本不得出现内部 token；
+   台账面（状态看板、审核对账折叠、blocked 理由）是声明的例外——token 原样保留，诚实不打折。 */
+console.log('\n⑬ 明面黑话黑名单');
+await ex(`window.BL=['CON-','cm_','QST-','CAS-','OPI-','SOL-','verdict','superseded','sha256','indexOf','CONCEPTUAL','REPRESENTATIONAL','PROCEDURAL','DECLARATIVE','not-met','scaffold','gradingRules']`);
+check('概念卡明面无黑话', await ex(`(()=>{openPanel(ROUTES[0].steps[0].conceptId);const t=document.getElementById('pbody').innerText;return BL.filter(k=>t.includes(k)).join(',')||'clean'})()`), 'clean');
+check('实践空间主视图明面无黑话', await ex(`(()=>{openPractice();const t=Array.from(document.querySelectorAll('#reader .pcard')).map(x=>x.innerText).join(' ');return BL.filter(k=>t.includes(k)).join(',')||'clean'})()`), 'clean');
+check('概念全书页明面无黑话', await ex(`(()=>{openPractice(null,'book');bookOpen(DATA.nodes.find(x=>x.gloss).id);const t=document.getElementById('book-page').innerText;return BL.filter(k=>t.includes(k)).join(',')||'clean'})()`), 'clean');
+check('路径上下文明面无黑话', await ex(`(()=>{closePanel();setMode('path');openPanel(ROUTES[0].steps[0].conceptId);const t=document.querySelector('#pbody .pctx').innerText;return BL.filter(k=>t.includes(k)).join(',')||'clean'})()`), 'clean');
+await ex(`closePanel(); openPractice()`);
+
 /* ⑪c 决策题独立复核进准入（2026-09-14；同日第二轮：v3 复核通过，接入 76 单元）
    v2 的 228 道复核判定 0 道可接入；v3 确定性重做后 228/228 通过。三条必须仍然成立：
      a 依据逐字可回溯（页面带着复核数字，不是页面自述）

@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-14T15:05:26.115Z",
+ "generatedAt": "2026-09-14T21:57:15.802Z",
  "backlinks": {
   "Agent = Model + Harness": [
    "Harness",
@@ -3716,6 +3716,22 @@
    "Autopilot：内建循环",
    "one-shot 的理论极限"
   ],
+  "原始轨迹层 Raw Layer": [
+   "三层知识架构 Three-layer knowledge architecture",
+   "持久维基层"
+  ],
+  "持久维基层": [
+   "三层知识架构 Three-layer knowledge architecture",
+   "原始轨迹层 Raw Layer"
+  ],
+  "技能与记忆的本质区别 Skills vs. Memory": [
+   "三层知识架构 Three-layer knowledge architecture"
+  ],
+  "推论因果溯源图 Provenance of conclusions": [
+   "三层知识架构 Three-layer knowledge architecture",
+   "事实与推导的自动级联失效 Automatic invalidation of derived facts",
+   "声明式逻辑记忆引擎 Datalog-based memory engine"
+  ],
   "模型一致性与 prompt caching": [
    "提示词缓存（Prompt Caching）",
    "TTL",
@@ -5395,6 +5411,30 @@
    "反自我合理化条款",
    "fail-closed 默认"
   ],
+  "雄心勃勃的项目 Ambitious Projects": [
+   "软件工厂全景闭环 Software factory loop",
+   "持久执行 Never Quits"
+  ],
+  "持久执行 Never Quits": [
+   "软件工厂全景闭环 Software factory loop",
+   "雄心勃勃的项目 Ambitious Projects"
+  ],
+  "外层改进者技能 Outer Improver skill": [
+   "软件工厂全景闭环 Software factory loop"
+  ],
+  "事实与推导的自动级联失效 Automatic invalidation of derived facts": [
+   "推论因果溯源图 Provenance of conclusions",
+   "状态维护型记忆 State-maintaining memory vs. Conversational memory"
+  ],
+  "声明式逻辑记忆引擎 Datalog-based memory engine": [
+   "推论因果溯源图 Provenance of conclusions"
+  ],
+  "三层知识架构 Three-layer knowledge architecture": [
+   "推论因果溯源图 Provenance of conclusions",
+   "持久维基层",
+   "原始轨迹层 Raw Layer",
+   "技能与记忆的本质区别 Skills vs. Memory"
+  ],
   "agent 模板的声明式持久化": [
    "文件系统即持久记忆",
    "Claude Managed Agents",
@@ -5500,6 +5540,17 @@
   "意图理解、路由与升级 understand intent, route, escalate": [
    "子 agent 编排 Fork Teammate Worktree",
    "Agent-to-Agent 交互（A2A）"
+  ],
+  "Git 工作树并发隔离 Git worktree isolation": [
+   "子智能体并行委派 Subagent delegation and orchestration",
+   "会话与工作交接机制 Handoff"
+  ],
+  "子智能体编排 Multi-Agent Orchestration": [
+   "子智能体并行委派 Subagent delegation and orchestration"
+  ],
+  "独立只读审计智能体 Independent read-only auditor": [
+   "子智能体并行委派 Subagent delegation and orchestration",
+   "分层对抗式研究流水线 Hierarchical adversarial research pipeline"
   ],
   "「并不 agentic」的 AI Agent": [
    "agent 循环",
@@ -6130,6 +6181,12 @@
    "三类内容：说明、代码、资源 Instructions, Code, Resources",
    "共享上下文窗口"
   ],
+  "数据流执行 dataflow, wavelet": [
+   "编译器即调度器 the compiler is the scheduler"
+  ],
+  "功能切片": [
+   "编译器即调度器 the compiler is the scheduler"
+  ],
   "云端代理的边界测试 Cloud Agents": [
    "并行测试多种情况"
   ],
@@ -6201,10 +6258,25 @@
   "ARR（年度经常性收入）的失真": [
    "卖 token 的生意"
   ],
+  "软件管理暂存器 software-managed scratchpad，no caches": [
+   "脉动阵列与权重驻留 systolic array, weight-stationary",
+   "权重流 weight streaming"
+  ],
+  "GEMM 与 GEMV": [
+   "脉动阵列与权重驻留 systolic array, weight-stationary",
+   "内存墙 memory wall"
+  ],
   "强化学习 reinforcement learning": [
    "目标导向型系统 goal-directed system",
    "Scientist 人工智能框架",
    "预训练与人类模仿"
+  ],
+  "脉动阵列与权重驻留 systolic array, weight-stationary": [
+   "软件管理暂存器 software-managed scratchpad，no caches",
+   "GEMM 与 GEMV"
+  ],
+  "权重流 weight streaming": [
+   "软件管理暂存器 software-managed scratchpad，no caches"
   ],
   "Resolver": [
    "上下文文件树 tree of files",
@@ -6311,6 +6383,9 @@
   "仓库技能的跨模型影响": [
    "重新审视指令假设"
   ],
+  "模糊与确定性解耦范式 Fuzzy-Deterministic split": [
+   "状态维护型记忆 State-maintaining memory vs. Conversational memory"
+  ],
   "所有权与问责": [
    "子 Agent 分工",
    "自协调与共享协调文件",
@@ -6376,6 +6451,17 @@
    "缩短循环 shortening the loop",
    "虚荣指标 vanity metrics",
    "Token 卖家的激励错配"
+  ],
+  "内存墙 memory wall": [
+   "GEMM 与 GEMV"
+  ],
+  "会话与工作交接机制 Handoff": [
+   "Git 工作树并发隔离 Git worktree isolation"
+  ],
+  "子智能体并行委派 Subagent delegation and orchestration": [
+   "Git 工作树并发隔离 Git worktree isolation",
+   "独立只读审计智能体 Independent read-only auditor",
+   "子智能体编排 Multi-Agent Orchestration"
   ],
   "Shaping the build": [
    "Making product decisions",
@@ -6512,11 +6598,22 @@
    "进化式搜索与适应度",
    "部署系统层"
   ],
+  "软件工厂全景闭环 Software factory loop": [
+   "持久执行 Never Quits",
+   "雄心勃勃的项目 Ambitious Projects",
+   "外层改进者技能 Outer Improver skill"
+  ],
   "Natural language as code": [
    "从禁止什么到对齐什么",
    "Agentic primitives",
    "Instructions files",
    "Markdown prompt engineering"
+  ],
+  "单分支单一可变引用限制 Single mutable reference rule": [
+   "单分支单一权威工作副本保证 One-branch-per-worktree rule"
+  ],
+  "PR 驱动的审查合并闭环 PR-driven review and approval workflow": [
+   "单分支单一权威工作副本保证 One-branch-per-worktree rule"
   ],
   "时间 Scalability Temporal Scalability": [
    "递归 Planner-Worker 架构",
@@ -6548,6 +6645,9 @@
    "递归自我改进 RSI",
    "管理 Agent",
    "部署系统层"
+  ],
+  "分层对抗式研究流水线 Hierarchical adversarial research pipeline": [
+   "独立只读审计智能体 Independent read-only auditor"
   ],
   "OAIQ": [
    "对话式广告归因闭环",
@@ -6811,6 +6911,14 @@
    "model-native harness",
    "Agents SDK",
    "工作树隔离"
+  ],
+  "长期运行智能体执行框架 Long-running agent execution framework": [
+   "开源 Codex 执行线圈 Open-source Codex harness",
+   "线束能力内化 Harness Capabilities Shifting Into the Model"
+  ],
+  "线束能力内化 Harness Capabilities Shifting Into the Model": [
+   "开源 Codex 执行线圈 Open-source Codex harness",
+   "长期运行智能体执行框架 Long-running agent execution framework"
   ],
   "框架反向工程": [
    "看对话 log",
@@ -7088,6 +7196,10 @@
    "Self-Improving Context System",
    "空间 Scalability Spatial Scalability"
   ],
+  "状态维护型记忆 State-maintaining memory vs. Conversational memory": [
+   "事实与推导的自动级联失效 Automatic invalidation of derived facts",
+   "模糊与确定性解耦范式 Fuzzy-Deterministic split"
+  ],
   "平行 AI 基础设施": [
    "数据中心",
    "芯片管制",
@@ -7103,8 +7215,18 @@
   "claude --debug": [
    "四类故障分类框架"
   ],
+  "不带思维链的推理 Thinking Fast Without Slow No-CoT Reasoning": [
+   "填充词元推理与监控盲区 Filler-Token Reasoning"
+  ],
+  "只打补丁绝不重写 Patch, never regenerate": [
+   "填充词元推理与监控盲区 Filler-Token Reasoning"
+  ],
   "推理 vs 训练": [
    "推理模型"
+  ],
+  "开源 Codex 执行线圈 Open-source Codex harness": [
+   "线束能力内化 Harness Capabilities Shifting Into the Model",
+   "长期运行智能体执行框架 Long-running agent execution framework"
   ],
   "提交重整理 rework-commits": [
    "小而语义明确的提交"
@@ -7469,6 +7591,10 @@
    "prompt 主导论",
    "「少即是多」：gimmick 与真实增益的分界"
   ],
+  "编译器即调度器 the compiler is the scheduler": [
+   "功能切片",
+   "数据流执行 dataflow, wavelet"
+  ],
   "CLI 工具": [
    "精确字符串查找 grep grep ripgrep Instant Grep"
   ],
@@ -7539,6 +7665,9 @@
   "不做半成品": [
    "克制且有意识地推进／把节奏交还给产品自己"
   ],
+  "代码黑盒化与可解释性转向 Codebase as a black box & Interpretability": [
+   "烂代码生成陷阱 AI Slop & Verification bottleneck"
+  ],
   "调试与根因修复": [
    "理解修复与根本原因"
   ],
@@ -7547,6 +7676,9 @@
   ],
   "LLM 知识库": [
    "项目知识体系"
+  ],
+  "向上扩展与向外扩展 scale-up scale-out": [
+   "硬件一致性对消息传递 cache-coherent fabric vs message-passing"
   ],
   "跨产品面的同步与共享边界 Surface-specific Sync and Sharing": [
    "预构建技能与自定义技能 Pre-built vs Custom Skills"
@@ -7611,6 +7743,10 @@
   "修改前先探索": [
    "按字面理解请求 意图 literal interpretation intent"
   ],
+  "填充词元推理与监控盲区 Filler-Token Reasoning": [
+   "不带思维链的推理 Thinking Fast Without Slow No-CoT Reasoning",
+   "只打补丁绝不重写 Patch, never regenerate"
+  ],
   "探针": [
    "残差流"
   ],
@@ -7643,6 +7779,13 @@
    "code-review-graph",
    "Tree-sitter"
   ],
+  "烂代码生成陷阱 AI Slop & Verification bottleneck": [
+   "代码黑盒化与可解释性转向 Codebase as a black box & Interpretability"
+  ],
+  "单分支单一权威工作副本保证 One-branch-per-worktree rule": [
+   "单分支单一可变引用限制 Single mutable reference rule",
+   "PR 驱动的审查合并闭环 PR-driven review and approval workflow"
+  ],
   "Plan 模式": [
    "规划模式与边界问题清单",
    "Spec-driven agent workflow"
@@ -7669,11 +7812,26 @@
    "混合注意力",
    "开权重模型"
   ],
+  "上下文自动压缩 Context compaction": [
+   "基于文件的技能 File-based skills"
+  ],
+  "揭示偏好 Revealed Preference": [
+   "基准过度声明与数据污染 Unnecessary Overstatement"
+  ],
+  "写原则而非写死规则 Write principles, not rules": [
+   "技能溯源 PURPOSE.md"
+  ],
+  "基准过度声明与数据污染 Unnecessary Overstatement": [
+   "揭示偏好 Revealed Preference"
+  ],
   "滑动窗口": [
    "近因偏置 recency bias"
   ],
   "OpenClaw": [
    "跨会话记忆文件系统"
+  ],
+  "有限时间爆破失效 Invalidation of finite time blowup": [
+   "勒雷奇点倒计时技巧 Leray's countdown trick"
   ],
   "General Purpose Technology": [
    "平台跃迁四浪 Platform Shifts"
@@ -7695,12 +7853,21 @@
    "上下文协作 context-cooperative",
    "Agent-to-Agent 交互（A2A）"
   ],
+  "基于文件的技能 File-based skills": [
+   "上下文自动压缩 Context compaction"
+  ],
   "字面类比": [
    "世界模型"
   ],
   "责任地址": [
    "无国籍智能体",
    "意图的延伸"
+  ],
+  "硬件一致性对消息传递 cache-coherent fabric vs message-passing": [
+   "向上扩展与向外扩展 scale-up scale-out"
+  ],
+  "技能溯源 PURPOSE.md": [
+   "写原则而非写死规则 Write principles, not rules"
   ],
   "灰盒场景": [
    "泄露能力的 U 型曲线"
@@ -7716,6 +7883,9 @@
   ],
   "intelligent personal hub": [
    "硬件、软件与服务的深层共振"
+  ],
+  "勒雷奇点倒计时技巧 Leray's countdown trick": [
+   "有限时间爆破失效 Invalidation of finite time blowup"
   ],
   "AI 护照": [
    "责任链条散了"

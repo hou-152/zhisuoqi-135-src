@@ -1,0 +1,26 @@
+{
+ "schema": "concept-card-v1",
+ "generatedAt": "2026-09-14T21:57:29.078Z",
+ "periods": [
+  "260914",
+  "260913",
+  "260912",
+  "260911",
+  "260910"
+ ],
+ "rawCards": {
+  "260910": 358,
+  "260911": 422,
+  "260912": 88,
+  "260913": 86,
+  "260914": 79
+ },
+ "totalRaw": 1033,
+ "skippedEmpty": 0,
+ "mergedCards": 985,
+ "quoteCount": 1920,
+ "files": {
+  "cards.json": "1408920029949f2bf116e0eb1004a34f2dbccff8020aa217b437dbb73765187b",
+  "byConcept.json": "71d7be2108c71913a912793426d09e43762312a852de4de83697a89b29b98545"
+ }
+}

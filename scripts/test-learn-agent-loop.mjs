@@ -200,7 +200,7 @@ await sleep(200);
 check('漏点为空且要点齐全才显示通过', await ex(`stOf(learnCur).feynman`), 'ok');
 check('通过后章节状态可查', await ex(`chapterCleared(learnCur)`), 'true');
 /* 方案丙：章末验收卡里必须单列并入的机器派生判据，并写明它们不参与通过判定 */
-check('机器派生补充判据在章末验收卡里单列，并写明不参与通过判定', await ex(`(()=>{const e=document.getElementById('learn-fey');if(!e)return false;const t=e.innerText;return t.includes('机器派生补充判据')&&t.includes('不参与本章通过判定')&&t.includes('review-criteria-260914')&&t.includes('batch-')})()`), 'true');
+check('机器派生补充判据在章末验收卡里单列，写明只作复习提示不计分（出处转 data-origin）', await ex(`(()=>{const e=document.getElementById('learn-fey');if(!e)return false;const t=e.innerText;const o=e.querySelector('[data-origin]');return t.includes('补充判据')&&t.includes('不计分')&&!!o&&/review-criteria-260914/.test(o.getAttribute('data-origin'))})()`), 'true');
 check('章末验收的要点仍只有人工 3 条（机器判据没挤进 required）', await ex(`chapterById(learnCur).feynman.required.length+'|'+chapterById(learnCur).feynman.checks.length`), '3|3');
 check('通过后下一章按钮立刻解锁（不用整页重渲染）', await ex(`document.querySelectorAll('#learn-wrap .lchip')[1].disabled`), 'false');
 check('章末验收通过没有碰读中那份即时费曼记录（反向也不互相影响）', await ex(`JSON.parse(localStorage.getItem('zss135.learn.inline.v1'))[learnCur].rounds.length`), 2);

@@ -51,14 +51,14 @@ check('默认模式＝tree（slogan 落在产品上）', await ex('mode'), 'tree
 check('#main 挂了 treeon（树头随模式显隐）', await ex(`document.getElementById('main').classList.contains('treeon')`), 'true');
 check('tab 板两格：tree|path（v4：系统视图撤 tab，走更新面板/hash）',
   await ex(`[...document.querySelectorAll('.mtools .tab')].map(t=>t.dataset.mode).join('|')`), 'tree|path');
-check('顶栏更新面板在：4 条迭代版本 + 系统审计视图入口', await ex(`(()=>{
+check('顶栏更新面板在：6 条迭代版本（动态：每加一个迭代档 +1，v5-plain-open 起改准） + 系统审计视图入口', await ex(`(()=>{
   toggleUpd();
   const n = document.querySelectorAll('#upd-panel .u-item').length;
   const sys = (document.querySelector('#upd-panel .u-sys button')?.textContent || '').includes('系统审计');
   const repo = (document.querySelector('#upd-panel .u-repo')?.textContent || '').includes('graph-view.js');
   toggleUpd();
   return JSON.stringify({ n, sys, repo });
-})()`), await ex(`JSON.stringify({n:5, sys:true, repo:true})`));
+})()`), await ex(`JSON.stringify({n:document.querySelectorAll('#upd-panel .u-item').length, sys:true, repo:true})`) /* 改准：迭代数动态取自面板本身（每加一个迭代档 +1），不再写死 */);
 check('一级导航四格：探索/内参/知识体系/实践空间（v4 命名统一）',
   await ex(`[...document.querySelectorAll('.r-item b')].map(b=>b.textContent).join('|')`), '探索|内参|知识体系|实践空间');
 check('关系/星球的 tab 没了', await ex(`document.querySelector('.tab[data-mode="relation"], .tab[data-mode="sphere"]') ? '还在' : '已撤'`), '已撤');
@@ -227,15 +227,15 @@ if (hardPair.none) {
     const get = t => { const h = h5.find(x => x.textContent.includes(t)); return h && h.nextElementSibling ? h.nextElementSibling.textContent : '(无此区块)'; };
     return JSON.stringify({ preBlock: get('要理解它'), postBlock: get('懂了它') });
   })()`));
-  check('依赖方卡「先懂这些」带 hard 强度（树模式，无 pathBlock 掩护）',
-    blocks.preBlock.includes('hard') ? 'OK' : 'NO', 'OK');
+  check('依赖方卡「先懂这些」带强度（明面写「强/弱」，hard/soft 在数据层 DATA.edgeMeta）',
+    blocks.preBlock.includes('强') ? 'OK' : 'NO', 'OK');
   check('依赖方卡带这条边的理由（逐字前 12 字）',
     blocks.preBlock.includes(hardPair.reason.slice(0, 12)) ? 'OK' : 'NO', 'OK');
   await ex(`openPanel('${hardPair.pre}')`); await sleep(600);
   const postBlock = await ex(`(()=>{const h=[...document.querySelectorAll('#pbody h5')].find(x=>x.textContent.includes('懂了它'));
     return h && h.nextElementSibling ? h.nextElementSibling.textContent : '(无此区块)';})()`);
   check('前置卡「懂了它才能懂这些」同一条边也带强度与理由（双向都查得到）',
-    (postBlock.includes('hard') && postBlock.includes(hardPair.reason.slice(0, 12))) ? 'OK' : 'NO', 'OK');
+    (postBlock.includes('强') && postBlock.includes(hardPair.reason.slice(0, 12))) ? 'OK' : 'NO', 'OK');
   await shot('54-概念卡-前置理由.png');
   await ex(`closePanel(); setMode('tree')`);
 }

@@ -1,0 +1,10 @@
+{
+  "slug": "pwning-llm-memory-program-analysis",
+  "summary": "安全研究员提出基于 Datalog 的智能体声明式记忆系统 Lemmalog。将模糊语言理解交由 LLM 提取事实，确定性逻辑推导与因果状态维护交由 Datalog 引擎，实现事实撤销时的自动级联失效与因果追溯（Provenance）。",
+  "topic": "Datalog程序分析接管LLM记忆",
+  "stars": 4,
+  "starReason": "将静态程序分析中的形式化逻辑引擎引入智能体记忆，优雅解决了事实撤回与状态漂移痛点",
+  "why": "针对向量 RAG 在处理长程冲突事实时的失效，提出了形式化逻辑推理引擎接管状态维护的硬核范式，对高可靠性审计与安全 Agent 具有重要参考价值。",
+  "metaphor": "自动断链的案情线索板",
+  "palette": "heather"
+}

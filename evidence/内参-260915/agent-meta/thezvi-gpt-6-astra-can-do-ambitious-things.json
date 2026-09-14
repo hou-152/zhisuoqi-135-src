@@ -1,0 +1,10 @@
+{
+  "slug": "thezvi-gpt-6-astra-can-do-ambitious-things",
+  "summary": "Zvi 对 OpenAI GPT-6 Astra 的深度评测：Astra 是最擅长雄心勃勃大项目的模型，很可能是所有模型里原始智能最高的一档，3D/游戏/计算机使用/子智能体协调出色，数学显著突破（ARC-AGI-3 标准 harness 66%→连续对话 harness 近 100%、一夜推进 Seymour 猜想、素数间隔界 212→186），但编码与开放式抽象推理上并不全面胜出 Fable 5.1；官方基准有夸大（ExploitBench 100% 反证数据污染、chart crime、发布后悄悄改分数）；作者认为这是第一次「AGI 争论不荒谬」，但他不认为是 AGI；自己投票显示用户主用模型净 16% 从 Anthropic 流向 OpenAI；终极建议是双持 Astra + Fable 5.1。",
+  "topic": "GPT-6 Astra 深度评测",
+  "stars": 4,
+  "starReason": "一手实测+独家投票，AGI 争论首次不荒谬，双持判断可迁移",
+  "why": "今天最值得读的新模型长评：Astra 强在哪、官方哪里吹牛、该不该从 Claude 换过来，Zvi 用实测和投票给了答案。",
+  "metaphor": "天平",
+  "palette": "clay"
+}

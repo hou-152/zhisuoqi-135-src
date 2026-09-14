@@ -1,0 +1,10 @@
+{
+  "slug": "github-hyperresearch",
+  "summary": "Jordan Gibbs 开源深度研究智能体系统 Hyperresearch：将 Claude Code 编排为自适应 16 步对抗审查流水线，贯彻「只打补丁不重写」与「Markdown为真源/SQLite为缓存」的持久化知识库架构，实现单次抓取 250+ 来源并自动核验引文真实性。",
+  "topic": "Hyperresearch深度研究",
+  "stars": 4,
+  "starReason": "将多智能体对抗审计、引文真实性验证与本地优先持久化知识库完整工程化",
+  "why": "展示了生产级多 Agent 长流程调度的硬核模式：分层按需加载工具、物理级权限锁死禁止推倒重写、基于 Git/Markdown 的终身知识积累。",
+  "metaphor": "带严苛陪审团的学术档案馆",
+  "palette": "heather"
+}

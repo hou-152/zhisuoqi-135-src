@@ -184,7 +184,7 @@
    "clinical-medicine": 36,
    "unclassified": 2
   },
-  "neicanAdded": 71
+  "neicanAdded": 66
  },
  "nodes": [
   {
@@ -60457,7 +60457,3241 @@
    "annotated": true,
    "id": "cm_236572f0",
    "slug": "Scientist-人工智能框架"
+  },
+  {
+   "key": "基于文件的技能",
+   "name": "基于文件的技能",
+   "nameEn": "File-based skills",
+   "gloss": "",
+   "aliases": [
+    "File-based skills"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude",
+     "url": "https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude",
+     "id": "claude-how-warp-builds-self-improving-agents-on-claude#基于文件的技能"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude",
+     "text": "“File-based skills are a way of encoding knowledge for agents without putting that knowledge directly in the prompt, as something the agent can simply look up in the course of doing its job,” says Zach."
+    }
+   ],
+   "feynmans": [
+    "指将操作指令、业务规范和领域知识从巨大的系统提示词中抽离出来，保存为纯文本 Markdown 文件的工程范式。Agent 在执行任务时按需查阅该文件，且模型自身可以像编辑代码一样对其进行增删改查。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "context-engineering",
+   "type": "CONCEPTUAL",
+   "stage": "now",
+   "k": "use",
+   "desc": "把业务规范与领域知识从提示词抽成 Markdown 文件，Agent 按需查阅",
+   "evidence": [
+    "能指出该文件与系统提示词在加载时机上的差别",
+    "能说明为何模型可以像改代码一样增删改查这些技能文件"
+   ],
+   "ap": "{{name}} 相比把同一段知识写进系统提示词，解决的是什么问题？",
+   "annotated": true,
+   "id": "cm_c828d428",
+   "slug": "File-based-skills"
+  },
+  {
+   "key": "外层改进者技能",
+   "name": "外层改进者技能",
+   "nameEn": "Outer / Improver skill",
+   "gloss": "",
+   "aliases": [
+    "Outer / Improver skill"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude",
+     "url": "https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude",
+     "id": "claude-how-warp-builds-self-improving-agents-on-claude#外层改进者技能"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude",
+     "text": "The outer/improver skill functions as an observer agent that runs on a schedule rather than per-task. It pulls the accumulated human feedback, compares what the agent suggested against how humans responded, and proposes a small, focused edit to the base skill."
+    }
+   ],
+   "feynmans": [
+    "指一个独立于日常任务、按周期定时运行的元智能体（Meta-Agent）。它不直接给用户干活，而是收集过去一段时间内内层技能的执行记录与人类批评，做差异对比后，向内层基础技能提出最小粒度的改进补丁。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "loop-autonomy",
+   "type": "CONCEPTUAL",
+   "stage": "when-needed",
+   "k": "judge",
+   "desc": "按周期运行、比对人类反馈并向内层基础技能提出最小改进补丁的元智能体",
+   "evidence": [
+    "能区分外层技能与内层技能各自的触发时机",
+    "能说出它的输入是累积的人类反馈与执行记录"
+   ],
+   "ap": "{{name}} 与日常执行任务的内层技能，在运行节奏上有何不同？",
+   "annotated": true,
+   "id": "cm_fde7ba65",
+   "slug": "Outer-Improver-skill"
+  },
+  {
+   "key": "pr驱动的审查合并闭环",
+   "name": "PR 驱动的审查合并闭环",
+   "nameEn": "PR-driven review and approval workflow",
+   "gloss": "",
+   "aliases": [
+    "PR-driven review and approval workflow"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude",
+     "url": "https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude",
+     "id": "claude-how-warp-builds-self-improving-agents-on-claude#PR 驱动的审查合并闭环"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude",
+     "text": "Because skills are plain files, agents are extremely good at updating them. These updates, which are reviewable, approvable, and mergeable, can flow through a normal PR/code-review workflow; once merged, the next run of the inner skill inherits the improvement."
+    }
+   ],
+   "feynmans": [
+    "指 Agent 对自身技能的修改不直接在线热更新，而是通过 Git 创建一个 Pull Request。人类工程师对模型的修改方案进行 Code Review、讨论并点击 Merge，新技能才正式生效。既放手让模型自我迭代，又让人类保持绝对的终审权。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "code-engineering",
+   "type": "PROCEDURAL",
+   "stage": "when-needed",
+   "k": "use",
+   "desc": "让 Agent 的技能改动走 Git PR，经人类审查合并后才生效的闭环",
+   "evidence": [
+    "能描述从提出改动到合并生效的完整流转",
+    "能指出人类在这一流程中保留的终审权"
+   ],
+   "ap": "{{name}} 中，技能改动为什么不会立刻生效？",
+   "annotated": true,
+   "id": "cm_223e91f3",
+   "slug": "PR-driven-review-and-approval-workflow"
+  },
+  {
+   "key": "写原则而非写死规则",
+   "name": "写原则而非写死规则",
+   "nameEn": "Write principles, not rules",
+   "gloss": "",
+   "aliases": [
+    "Write principles, not rules"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude",
+     "url": "https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude",
+     "id": "claude-how-warp-builds-self-improving-agents-on-claude#写原则而非写死规则"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude",
+     "text": "Write principles, not rules. \"Construct the skill as though you're instructing a smart person, not like you're programming a computer,” Zach says. “Including direction in the skill like ’Look for repeated code’ provides better direction than exhaustive variable naming rules.”"
+    }
+   ],
+   "feynmans": [
+    "指撰写 Skill 时应像指导一个高智商员工一样阐述核心思想和判据理由（Why），而不是像给计算机写程序一样罗列穷尽的 if-else 规则。原则赋予了模型在未知边界下的推理灵活性，避免了规则爆炸与僵化。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "spec-intent",
+   "type": "CONCEPTUAL",
+   "stage": "now",
+   "k": "judge",
+   "desc": "写技能时给判据与方向而非穷尽规则，让模型在未知边界下自行推理",
+   "evidence": [
+    "能给出一个用原则替代 if-else 清单的改写示例",
+    "能说明规则穷举为何在开放场景下失效"
+   ],
+   "ap": "{{name}} 时，为什么'寻找重复代码'优于罗列变量命名规则？",
+   "annotated": true,
+   "id": "cm_8989be25",
+   "slug": "Write-principles,-not-rules"
+  },
+  {
+   "key": "技能与记忆的本质区别",
+   "name": "技能与记忆的本质区别",
+   "nameEn": "Skills vs. Memory",
+   "gloss": "",
+   "aliases": [
+    "Skills vs. Memory"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude",
+     "url": "https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude",
+     "id": "claude-how-warp-builds-self-improving-agents-on-claude#技能与记忆的本质区别"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude",
+     "text": "Skills are procedural and stable—\"how to do X,\" run-agnostic, changed deliberately. Memory is auto-written by the agent at inference time and never stops changing."
+    }
+   ],
+   "feynmans": [
+    "技能回答的是“做事的方法”，具有程序性、长期稳定性和跨会话通用性，每一次修改都必须经过验证；记忆回答的是“当下的事实与上下文”，是推理期间自动写入、随交互不断重写变动的动态状态。\n\n## 二、概念架构图\n\n```mermaid\ngraph TD\n    subgraph 人类日常工作流\n        PR[GitHub PR / Issue 界面]\n        Human[人类工程师 / 审查者]\n        Human -->|随手留下纠错批注与赞踩| PR\n    end\n    subgraph 运行期: 内层技能\n        PR -->|触发事件| Inner[Inner Skill: 基础执行技能]\n        Inner -->|给出审查意见/贴标签| PR\n    end\n    subgraph 进化期: 外层观察者\n        Cron[定时计划任务] --> Outer[Outer Skill: 改进者技能]\n        PR -.->|定期抓取反馈信号| Outer\n        Outer -->|分析差异并生成最小补丁| GitPR[Git 修改 PR]\n        Human -->|Code Review 审批合并| GitPR\n        GitPR -->|更新生效| Inner\n    end\n```"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "memory-retrieval",
+   "type": "CONCEPTUAL",
+   "stage": "now",
+   "k": "judge",
+   "desc": "技能是稳定程序性的'怎么做'，记忆是推理期自动写入、持续变动的状态",
+   "evidence": [
+    "能用稳定性与写入方式两个维度区分二者",
+    "能判断某条信息该放进技能还是记忆"
+   ],
+   "ap": "{{name}} 的差别体现在哪两个属性上？",
+   "annotated": true,
+   "id": "cm_78c4c140",
+   "slug": "Skills-vs.-Memory"
+  },
+  {
+   "key": "分层对抗式研究流水线",
+   "name": "分层对抗式研究流水线",
+   "nameEn": "Hierarchical adversarial research pipeline",
+   "gloss": "",
+   "aliases": [
+    "Hierarchical adversarial research pipeline"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "jordan-gibbs/hyperresearch：基于智能体的研究知识库。智能体收集、搜索并将网络研究成果整合到一个持久的、可搜索的维基中。",
+     "url": "https://github.com/jordan-gibbs/hyperresearch",
+     "id": "github-hyperresearch#分层对抗式研究流水线"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "jordan-gibbs/hyperresearch：基于智能体的研究知识库。智能体收集、搜索并将网络研究成果整合到一个持久的、可搜索的维基中。",
+     "text": "Hyperresearch 将 Claude Code 改造成一个深度研究代理：目前在 DeepResearch-Bench RACE 排行榜上名列前茅（内部基准测试）。一个分层自适应的 16 步流程只需接收一个提示，即可生成一份经过对抗性审计并包含完整源代码来源的报告。"
+    }
+   ],
+   "feynmans": [
+    "指将复杂研究任务拆分为分解、宽度扫描、矛盾聚类、深度调查、三方综合、多角度对抗批判、引文核实等 16 个严密步骤的系统。每个步骤的专有技能只有在执行时才动态载入上下文，防止长流程导致任务目标漂移。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "multi-agent",
+   "type": "PROCEDURAL",
+   "stage": "deep-dive",
+   "k": "judge",
+   "desc": "把研究拆成分解、扫描、矛盾聚类、对抗批判、引文核实等十六步的流水线",
+   "evidence": [
+    "能说出对抗批判与引文核实分别在哪一环发挥作用",
+    "能说明各步技能为何只在执行时才载入上下文"
+   ],
+   "ap": "{{name}} 靠什么机制避免长流程中目标漂移？",
+   "annotated": true,
+   "id": "cm_8924eaeb",
+   "slug": "Hierarchical-adversarial-research-pipeline"
+  },
+  {
+   "key": "只打补丁绝不重写",
+   "name": "只打补丁绝不重写",
+   "nameEn": "Patch, never regenerate",
+   "gloss": "",
+   "aliases": [
+    "Patch, never regenerate"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "jordan-gibbs/hyperresearch：基于智能体的研究知识库。智能体收集、搜索并将网络研究成果整合到一个持久的、可搜索的维基中。",
+     "url": "https://github.com/jordan-gibbs/hyperresearch",
+     "id": "github-hyperresearch#只打补丁绝不重写"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "jordan-gibbs/hyperresearch：基于智能体的研究知识库。智能体收集、搜索并将网络研究成果整合到一个持久的、可搜索的维基中。",
+     "text": "Patch, never regenerate. After step 11 produces the synthesized report (or step 10 for light tier), the only modifications are surgical Edit hunks. The patcher and polish auditor are tool-locked to [Read, Edit] at the Claude Code allowlist level so they physically cannot Write a new draft."
+    }
+   ],
+   "feynmans": [
+    "指在初稿生成之后，任何针对批评意见的修改只能以极小粒度的局部补丁（Edit hunk）形式进行。负责修改的 Agent 在系统权限层被锁死，根本没有新建或覆写整个文件的权限，从物理机制上彻底断绝了模型推倒重来引入新错误的风险。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "safety-governance",
+   "type": "CONCEPTUAL",
+   "stage": "now",
+   "k": "judge",
+   "desc": "初稿生成后只允许小粒度 Edit 补丁，修改方被权限锁死无法整体重写",
+   "evidence": [
+    "能指出负责修改的 Agent 被限定在哪些工具",
+    "能解释为何禁止重写能防止引入新错误"
+   ],
+   "ap": "{{name}} 是在哪一层被强制保证的？",
+   "annotated": true,
+   "id": "cm_ef64feed",
+   "slug": "Patch,-never-regenerate"
+  },
+  {
+   "key": "原始查询即圣经",
+   "name": "原始查询即圣经",
+   "nameEn": "Canonical research query is gospel",
+   "gloss": "",
+   "aliases": [
+    "Canonical research query is gospel"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "jordan-gibbs/hyperresearch：基于智能体的研究知识库。智能体收集、搜索并将网络研究成果整合到一个持久的、可搜索的维基中。",
+     "url": "https://github.com/jordan-gibbs/hyperresearch",
+     "id": "github-hyperresearch#原始查询即圣经"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "jordan-gibbs/hyperresearch：基于智能体的研究知识库。智能体收集、搜索并将网络研究成果整合到一个持久的、可搜索的维基中。",
+     "text": "Canonical research query is gospel. The verbatim user prompt is persisted to research/runs/<vault_tag>/query.md once and re-read by every subsequent step and every spawned subagent."
+    }
+   ],
+   "feynmans": [
+    "指用户的原始输入提示词被逐字持久化为一个静态文件，流水线中派生出的所有子智能体在每一步都必须重新阅读这份原始文本。外围的格式要求与路径配置作为独立契约隔离，确保核心研究主旨绝不因多代转述而走样。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "spec-intent",
+   "type": "CONCEPTUAL",
+   "stage": "when-needed",
+   "k": "judge",
+   "desc": "用户原始提示词被逐字持久化，后续每一步与子智能体都必须重读它",
+   "evidence": [
+    "能说出原始查询被存到哪个文件、被谁重读",
+    "能区分核心研究主旨与外围格式契约"
+   ],
+   "ap": "{{name}} 是为了防止什么在流水线中走样？",
+   "annotated": true,
+   "id": "cm_b7b56e2b",
+   "slug": "Canonical-research-query-is-gospel"
+  },
+  {
+   "key": "markdown为真源sqlite为缓存",
+   "name": "Markdown 为真源，SQLite 为缓存",
+   "nameEn": "Markdown is truth, SQLite is cache",
+   "gloss": "",
+   "aliases": [
+    "Markdown is truth, SQLite is cache"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "jordan-gibbs/hyperresearch：基于智能体的研究知识库。智能体收集、搜索并将网络研究成果整合到一个持久的、可搜索的维基中。",
+     "url": "https://github.com/jordan-gibbs/hyperresearch",
+     "id": "github-hyperresearch#Markdown 为真源，SQLite 为缓存"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "jordan-gibbs/hyperresearch：基于智能体的研究知识库。智能体收集、搜索并将网络研究成果整合到一个持久的、可搜索的维基中。",
+     "text": "Markdown is truth, SQLite is cache. Notes live as plain markdown with YAML frontmatter in research/notes/. The SQLite index is fully rebuildable: delete it and hyperresearch sync reconstructs it from the markdown."
+    }
+   ],
+   "feynmans": [
+    "指所有抓取的文献与笔记均以纯文本 Markdown 和标准 YAML 头持久化存储，无需任何专有工具即可在任意编辑器中阅读和 Git 追踪；而 SQLite 仅作为加速检索的只读缓存，即使删掉也能随时根据 Markdown 瞬间重建。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "state-persistence",
+   "type": "CONCEPTUAL",
+   "stage": "when-needed",
+   "k": "use",
+   "desc": "笔记以 Markdown 加 YAML 头为真源，SQLite 仅作可随时重建的检索缓存",
+   "evidence": [
+    "能说明删掉索引后如何从 Markdown 重建",
+    "能指出为何真源要选纯文本而非数据库"
+   ],
+   "ap": "{{name}} 时，删掉 SQLite 会发生什么？",
+   "annotated": true,
+   "id": "cm_2175bf27",
+   "slug": "Markdown-is-truth,-SQLite-is-cache"
+  },
+  {
+   "key": "笔记生命周期策展",
+   "name": "笔记生命周期策展",
+   "nameEn": "Note curation lifecycle",
+   "gloss": "",
+   "aliases": [
+    "Note curation lifecycle"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "jordan-gibbs/hyperresearch：基于智能体的研究知识库。智能体收集、搜索并将网络研究成果整合到一个持久的、可搜索的维基中。",
+     "url": "https://github.com/jordan-gibbs/hyperresearch",
+     "id": "github-hyperresearch#笔记生命周期策展"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "jordan-gibbs/hyperresearch：基于智能体的研究知识库。智能体收集、搜索并将网络研究成果整合到一个持久的、可搜索的维基中。",
+     "text": "Every session ends with a curation pass, and notes move through draft → review → evergreen, or stale → deprecated → archive as material ages out. That's what keeps a vault from turning into a landfill of half-read pages."
+    }
+   ],
+   "feynmans": [
+    "每轮研究结束时由智能体对文献笔记进行状态晋级或退役治理：经过核实的内容逐步晋级为常青笔记（Evergreen），过时内容被标记为陈旧（Stale）并归档，保证知识库规模扩张的同时始终保持高信息密度。\n\n## 二、概念架构图\n\n```mermaid\ngraph TD\n    subgraph 16步研究流水线\n        Query[原始查询 query.md : 永不修改] --> Step1[步骤1: 规范分解]\n        Step1 --> Scan[步骤2-9: 宽度扫描与矛盾聚类]\n        Scan --> Synth[步骤11: 综合初稿]\n        Synth --> Critics[步骤12: 四个对抗性批判子代理]\n        Critics --> Patcher[步骤14: 补丁程序工具锁死 Read/Edit]\n        Patcher -->|局部外科手术补丁| Report[最终报告 final_report.md]\n    end\n    \n    subgraph 持久化知识中枢 The Vault\n        Scan -.->|抓取并解析文献| Notes[Markdown 笔记库: 唯一真源]\n        Notes --> SQLite[(SQLite 索引与全文检索: 仅作缓存)]\n        Notes --> Life[生命周期治理: draft → evergreen / archive]\n        SQLite -.->|未来新会话优先查库| Step1\n    end\n```"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "memory-retrieval",
+   "type": "PROCEDURAL",
+   "stage": "when-needed",
+   "k": "use",
+   "desc": "每轮研究结束做一次策展，让笔记在 draft、evergreen、stale 等状态间流转",
+   "evidence": [
+    "能列出笔记晋级与退役的状态路径",
+    "能解释策展如何避免知识库变成半读页面的垃圾场"
+   ],
+   "ap": "{{name}} 中，笔记从草稿到常青要经过哪些状态？",
+   "annotated": true,
+   "id": "cm_5cd488e5",
+   "slug": "Note-curation-lifecycle"
+  },
+  {
+   "key": "特定领域架构",
+   "name": "特定领域架构",
+   "nameEn": "DSA",
+   "gloss": "",
+   "aliases": [
+    "DSA"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "都承诺提供6GW的运维能力",
+     "url": "https://www.jacobpeake.com/ai-chip-architectures",
+     "id": "jacobpeake-ai-chip-architectures#特定领域架构"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "都承诺提供6GW的运维能力",
+     "text": "该架构已投入生产：在神经网络推理方面，其吞吐量是CPU的29倍，能效提高了80倍。最后他们预测：***“未来十年将迎来计算机架构的寒武纪式爆发。”***"
+    }
+   ],
+   "feynmans": [
+    "DSA 指不为通用计算、只为某一类工作负载定制的芯片架构。当通用 CPU 的单线程性能年增长从 52% 跌到 3%，专用化反而能换来数量级收益，TPU v1 就是他们举的在产例子。它是全文的前提：如今数十种在研架构（GPU、TPU、LPU、NPU、晶圆级引擎、光子计算等）正是这个预言的展开，文章要比较的是其中真正部署了的几家。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "geo-infrastructure",
+   "type": "CONCEPTUAL",
+   "stage": "when-needed",
+   "k": "judge",
+   "desc": "只为某类工作负载定制的芯片架构，追求通用 CPU 之外的量级收益",
+   "evidence": [
+    "能举出文中在产的 DSA 实例及其吞吐与能效数字",
+    "能说明通用单线程性能停滞与专用化的关系"
+   ],
+   "ap": "{{name}} 为什么在通用性能停滞时反而更划算？",
+   "annotated": true,
+   "id": "cm_64cf3dd2",
+   "slug": "DSA"
+  },
+  {
+   "key": "内存墙",
+   "name": "内存墙",
+   "nameEn": "memory wall",
+   "gloss": "",
+   "aliases": [
+    "memory wall"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "都承诺提供6GW的运维能力",
+     "url": "https://www.jacobpeake.com/ai-chip-architectures",
+     "id": "jacobpeake-ai-chip-architectures#内存墙"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "都承诺提供6GW的运维能力",
+     "text": "这就是所谓的***内存墙***：计算能力呈指数级增长，而内存带宽却没有相应提升。"
+    }
+   ],
+   "feynmans": [
+    "内存墙是算力与喂料速度的裂缝：计算涨得指数级，内存带宽跟不上，于是架构问题不再只是算多快，而是如何把计算任务搬到数据够近、矩阵乘够快的地方。它是承重中的承重：后文四个问题（数据住哪、怎么搬到计算单元、计算单元长什么样、芯片怎么互联）都是对它的回答，六家方案的全部差异都从这里长出来。Cerebras 更是把整家公司建立在对它的另一种诊断上（墙是切晶圆切出来的）。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "geo-infrastructure",
+   "type": "CONCEPTUAL",
+   "stage": "now",
+   "k": "judge",
+   "desc": "算力指数增长而内存带宽跟不上，架构问题变成如何让数据靠近计算",
+   "evidence": [
+    "能复述算力与带宽增长的不对称",
+    "能指出后文四个架构问题都由它派生"
+   ],
+   "ap": "{{name}} 由哪两条曲线的不对称造成？",
+   "annotated": true,
+   "id": "cm_f155c3b7",
+   "slug": "memory-wall"
+  },
+  {
+   "key": "gemm与gemv",
+   "name": "GEMM 与 GEMV",
+   "nameEn": "",
+   "gloss": "训练/预填充对解码",
+   "aliases": [
+    "训练/预填充对解码"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "都承诺提供6GW的运维能力",
+     "url": "https://www.jacobpeake.com/ai-chip-architectures",
+     "id": "jacobpeake-ai-chip-architectures#GEMM 与 GEMV"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "都承诺提供6GW的运维能力",
+     "text": "训练和预填充阶段都会将大量词元堆叠到同一个权重矩阵上\n\n生成一个词元需要完整遍历模型中的每个权重，以及完整读取键值缓存以获取注意力信息。"
+    }
+   ],
+   "feynmans": [
+    "GEMM 是大矩阵乘大矩阵，GEMV 是矩阵只乘一个向量。训练和预填充把几千个词元同时堆上同一份权重，每一层都是 GEMM、计算密集；解码一次只出一个词元，矩阵乘退化成 GEMV，算术强度掉几个数量级，而且每个词元都要读完全部权重和 KV 缓存。这对概念承重，因为它解释了推理系统为什么靠连续批处理、推测解码、多词元预测把 GEMV 拼回 GEMM，为什么解码是纯带宽问题，也解释了 Cerebras 和 Groq 为什么都宣称自己为解码而生、而训练要另想办法。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 2,
+   "merges": 0,
+   "domain": "geo-infrastructure",
+   "type": "CONCEPTUAL",
+   "stage": "when-needed",
+   "k": "judge",
+   "desc": "训练与预填充是矩阵乘矩阵、计算密集，解码退化成矩阵乘向量、带宽受限",
+   "evidence": [
+    "能说明解码为何每词元都要读完权重与 KV 缓存",
+    "能解释连续批处理为何要把 GEMV 拼回 GEMM"
+   ],
+   "ap": "{{name}} 中，解码阶段为什么是纯带宽问题？",
+   "annotated": true,
+   "id": "cm_778efcce",
+   "slug": "GEMM-与-GEMV"
+  },
+  {
+   "key": "脉动阵列与权重驻留",
+   "name": "脉动阵列与权重驻留",
+   "nameEn": "systolic array, weight-stationary",
+   "gloss": "",
+   "aliases": [
+    "systolic array, weight-stationary"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "都承诺提供6GW的运维能力",
+     "url": "https://www.jacobpeake.com/ai-chip-architectures",
+     "id": "jacobpeake-ai-chip-architectures#脉动阵列与权重驻留"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "都承诺提供6GW的运维能力",
+     "text": "matrix B's values are pre-loaded one weight per cell: ***weight-stationary*** dataflow, the choice that distinguishes TPUs from output-stationary arrays elsewhere.\n\nThe dominant cost in computing is not the multiplication itself (a few picojoules) but reading and writing memory at 100–1000× more energy per access; the systolic array deletes that cost by construction."
+    }
+   ],
+   "feynmans": [
+    "脉动阵列是一张乘加单元网格：权重一格一个预先驻进阵列不动（即权重驻留），激活从边缘一格格流过，部分和向下流进累加队列——数据一旦进阵列就不再访存，数据复用被焊进导线而不是靠缓存仲裁。它解决了访存比乘法贵 100–1000 倍这个成本结构问题。代价是 underfill（形状不合就浪费硅，256×256 阵列跑 128×128 浪费 75%），靠 XLA 按 128/256 的倍数切块补齐。拿掉它就看不懂 TPU、Trainium 为什么没缓存也没关系，也看不懂 SparseCore/CAE 为什么存在（阵列形状不对的负载旁路掉）。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 2,
+   "merges": 0,
+   "domain": "geo-infrastructure",
+   "type": "CONCEPTUAL",
+   "stage": "deep-dive",
+   "k": "judge",
+   "desc": "乘加网格中权重预先驻留不动、激活流过，数据复用焊进导线省掉访存",
+   "evidence": [
+    "能说出权重驻留与输出驻留的差别",
+    "能解释 underfill 的成因与按 128/256 切块补齐的办法"
+   ],
+   "ap": "{{name}} 主要解决的是哪种成本结构问题？",
+   "annotated": true,
+   "id": "cm_a0acd706",
+   "slug": "systolic-array,-weight-stationary"
+  },
+  {
+   "key": "向上扩展与向外扩展",
+   "name": "向上扩展与向外扩展",
+   "nameEn": "scale-up / scale-out",
+   "gloss": "",
+   "aliases": [
+    "scale-up / scale-out"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "都承诺提供6GW的运维能力",
+     "url": "https://www.jacobpeake.com/ai-chip-architectures",
+     "id": "jacobpeake-ai-chip-architectures#向上扩展与向外扩展"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "都承诺提供6GW的运维能力",
+     "text": "AI infrastructure uses both: bandwidth-hungry collectives (tensor parallelism, MoE expert routing) stay inside the scale-up domain; data parallelism and pipeline parallelism cross the scale-out fabric."
+    }
+   ],
+   "feynmans": [
+    "向上扩展是把越多芯片绑成一个紧耦合域（NVL72 机架、TPU pod、Trainium UltraServer、Helios 机架都是域）；向外扩展是域与域之间走通用网络。分工固定：张量并行、MoE 专家路由这类吃带宽的集合通信必须留在域内，数据并行和流水线并行才跨域。这对概念承重，因为每家的机架规格、fabric 带宽、拓扑选择全部围绕把域做多大、用什么连展开，AMD 的核心缺口也正是只有盒子没有域。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "geo-infrastructure",
+   "type": "CONCEPTUAL",
+   "stage": "when-needed",
+   "k": "judge",
+   "desc": "芯片先绑成紧耦合域，域内跑吃带宽的集合通信，域间才走通用网络",
+   "evidence": [
+    "能指出张量并行与数据并行分别属于哪个域",
+    "能举出文中一个 scale-up 域的实例"
+   ],
+   "ap": "{{name}} 的分工原则是什么？",
+   "annotated": true,
+   "id": "cm_b154f15f",
+   "slug": "scale-up-scale-out"
+  },
+  {
+   "key": "硬件一致性对消息传递",
+   "name": "硬件一致性对消息传递",
+   "nameEn": "cache-coherent fabric vs message-passing",
+   "gloss": "",
+   "aliases": [
+    "cache-coherent fabric vs message-passing"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "都承诺提供6GW的运维能力",
+     "url": "https://www.jacobpeake.com/ai-chip-architectures",
+     "id": "jacobpeake-ai-chip-architectures#硬件一致性对消息传递"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "都承诺提供6GW的运维能力",
+     "text": "so a load or store on one GPU can target another GPU's HBM with the hardware handling address translation and coherence.\n\nThere is no remote-load semantics, no cache coherence, no crossbar."
+    }
+   ],
+   "feynmans": [
+    "NVLink/NVSwitch 是缓存一致的——一块卡上的读写可以直接瞄准另一块卡的 HBM，地址转换和一致性硬件管；谷歌 ICI 是消息传递——没有远程读写语义、没有一致性、没有交叉开关，多芯片操作全是编译器写明的显式集合通信。这对对照承重：它决定了编程模型（把远端内存当本地用，还是把通信当指令写），也解释了 Trainium 的 NeuronLink 为什么精神上更近 ICI 而非 NVSwitch，以及 Groq 为什么连远端操作数都不是被加载、而是被排程到准时到达。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 2,
+   "merges": 0,
+   "domain": "geo-infrastructure",
+   "type": "CONCEPTUAL",
+   "stage": "deep-dive",
+   "k": "judge",
+   "desc": "NVLink/NVSwitch 用硬件做远端 HBM 读写与一致性；ICI 无远程语义，多芯片操作全靠编译器显式集合通信。",
+   "evidence": [
+    "能说出 NVSwitch 一侧的 load/store 可直接瞄准另一卡的 HBM，地址转换与一致性由硬件处理",
+    "能指出 ICI 没有远程读写语义、没有缓存一致性、没有交叉开关，并据此把 NeuronLink 归到 ICI 一侧"
+   ],
+   "ap": "{{name}} 这两种阵营的编程模型差别在哪？",
+   "annotated": true,
+   "id": "cm_fd92ca19",
+   "slug": "cache-coherent-fabric-vs-message-passing"
+  },
+  {
+   "key": "软件管理暂存器",
+   "name": "软件管理暂存器",
+   "nameEn": "software-managed scratchpad，no caches",
+   "gloss": "",
+   "aliases": [
+    "software-managed scratchpad，no caches"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "都承诺提供6GW的运维能力",
+     "url": "https://www.jacobpeake.com/ai-chip-architectures",
+     "id": "jacobpeake-ai-chip-architectures#软件管理暂存器"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "都承诺提供6GW的运维能力",
+     "text": "The hardware does no prefetching, no eviction, no coherence; when the compiler gets it right, the array never stalls; when it gets it wrong, there is no fallback path.\n\nThis is exactly Google's VMEM bet, an explicit scratchpad the compiler must schedule perfectly with no cache to paper over a mistake, and the opposite of NVIDIA's hardware-managed L2 and L1."
+    }
+   ],
+   "feynmans": [
+    "暂存器是显式寻址的片上 SRAM（TPU 的 VMEM/CMEM、Trainium 的 SBUF/PSUM、Groq 的 MEM、Cerebras 的核内 SRAM 同属此列）：没有预取、没有逐出、没有一致性硬件，每个张量在编译期就钉死在哪一层。它换来的硅面积变成更多乘加单元，付出的代价是全押编译器——排对了阵列永不停摆，排错了没有任何硬件兜底。这是理解非英伟达阵营软件栈为什么是编译器中心的物质基础。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 2,
+   "merges": 0,
+   "domain": "geo-infrastructure",
+   "type": "CONCEPTUAL",
+   "stage": "deep-dive",
+   "k": "judge",
+   "desc": "显式寻址的片上 SRAM（VMEM/SBUF/MEM），无预取无逐出无一致性，位置全靠编译器钉死。",
+   "evidence": [
+    "能列出 VMEM、CMEM、SBUF/PSUM、Groq 的 MEM、Cerebras 核内 SRAM 属同一类",
+    "能说明排对则阵列永不停摆、排错没有任何硬件兜底，并解释这为何使软件栈变成编译器中心"
+   ],
+   "ap": "{{name}} 把原本由缓存承担的责任交给了谁？",
+   "annotated": true,
+   "id": "cm_e0304491",
+   "slug": "software-managed-scratchpad，no-caches"
+  },
+  {
+   "key": "编译器即调度器",
+   "name": "编译器即调度器",
+   "nameEn": "the compiler is the scheduler",
+   "gloss": "",
+   "aliases": [
+    "the compiler is the scheduler"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "都承诺提供6GW的运维能力",
+     "url": "https://www.jacobpeake.com/ai-chip-architectures",
+     "id": "jacobpeake-ai-chip-architectures#编译器即调度器"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "都承诺提供6GW的运维能力",
+     "text": "There is no instruction cache miss, no warp scheduler, no out-of-order engine, no branch predictor: the compiler is the scheduler, and the silicon area saved is spent on more MACs.\n\nthe compiler is the scheduler, the torus is the topology, and the optical switch is the universal reconfigurable substrate"
+    }
+   ],
+   "feynmans": [
+    "把下一步做什么的决定权从硬件整体搬进编译器：VLIW 每周期八个功能槽由编译器提前填满，无乱序、无预测、无动态调度。它解决了硬件 second-guess 浪费硅的问题，也定义了这些芯片的软肋——负载必须静态可预测。TPU 编译器排一颗芯片，Groq 编译器排一整个系统（连网络都排），Trainium 干脆共用同一个编译器；代价被作者点破：XLA 不手调就更接近理论上限，但关掉剩下的差距也更难。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 2,
+   "merges": 0,
+   "domain": "geo-infrastructure",
+   "type": "CONCEPTUAL",
+   "stage": "deep-dive",
+   "k": "judge",
+   "desc": "把每周期做什么搬进编译器：无乱序、无预测、无动态调度，省下的硅面积换成更多乘加单元。",
+   "evidence": [
+    "能说出 VLIW 每周期八个功能槽由编译器提前填满，硬件不 second-guess",
+    "能对比 TPU 编译器排一颗芯片、Groq 排整个系统、Trainium 共用同一编译器的差异"
+   ],
+   "ap": "{{name}} 之下负载必须满足什么前提？",
+   "annotated": true,
+   "id": "cm_80f7b860",
+   "slug": "the-compiler-is-the-scheduler"
+  },
+  {
+   "key": "数据流执行",
+   "name": "数据流执行",
+   "nameEn": "dataflow, wavelet",
+   "gloss": "",
+   "aliases": [
+    "dataflow, wavelet"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "都承诺提供6GW的运维能力",
+     "url": "https://www.jacobpeake.com/ai-chip-architectures",
+     "id": "jacobpeake-ai-chip-architectures#数据流执行"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "都承诺提供6GW的运维能力",
+     "text": "No warps, no warp schedulers, no caches to miss, no reorder buffer: *the arrival of data is the schedule*.\n\neach holding a tensor descriptor: base address, extent, and stride, up to four dimensions."
+    }
+   ],
+   "feynmans": [
+    "数据流执行指核不取指令等活干，而是等数据（wavelet）到达才触发绑定的处理任务，八个微线程按操作数到达逐周期切换；指令的操作数就是张量描述符（DSR），一条指令对着到来的流一直算到张量尽头。它给出了谁排程这个问题的另一半答案——不用时钟排程，用到达排程。跳零因此免费（零不触发任何计算），这是 Cerebras 稀疏故事的来源；而与 Groq 的对照（WSE 对数据做反应、LPU 按时钟准时）是全文最有辨识度的架构对照之一。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 2,
+   "merges": 0,
+   "domain": "geo-infrastructure",
+   "type": "CONCEPTUAL",
+   "stage": "deep-dive",
+   "k": "judge",
+   "desc": "核不取指令等活，等数据（wavelet）到达即触发绑定任务，用到达而非时钟排程，跳零免费。",
+   "evidence": [
+    "能说明操作数即张量描述符（基址、extent、stride，最多四维），一条指令对着到来的流一直算到张量尽头",
+    "能把 WSE 对数据做反应与 LPU 按时钟准时作为一对架构对照讲清"
+   ],
+   "ap": "{{name}} 里究竟是谁在排程？",
+   "annotated": true,
+   "id": "cm_c21c5190",
+   "slug": "dataflow,-wavelet"
+  },
+  {
+   "key": "权重流",
+   "name": "权重流",
+   "nameEn": "weight streaming",
+   "gloss": "",
+   "aliases": [
+    "weight streaming"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "都承诺提供6GW的运维能力",
+     "url": "https://www.jacobpeake.com/ai-chip-architectures",
+     "id": "jacobpeake-ai-chip-architectures#权重流"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "都承诺提供6GW的运维能力",
+     "text": "on a GPU or TPU, weights are resident and activations stream through; on a WSE, ***activations are resident and weights stream through***\n\nThe wafer never stores weights, \"not even temporarily\""
+    }
+   ],
+   "feynmans": [
+    "别家训练是权重驻留、激活流过；晶圆级引擎反着来——激活钉在片上 SRAM，权重从旁边的 MemoryX（DRAM+闪存一体机）逐层流进来、触发乘加、流走。它解决了两个难点：模型大小与晶圆内存解耦（由 MemoryX 决定，44 GB 只管激活和批次）；集群扩展坍缩成纯数据并行——GPU 训练那套并行策略组合在 Cerebras 上没有对应页。代价是训练规模证据薄弱（最大披露集群 64 台、最大模型 70B），而推理时这套玩法在算术上致命，只能反过来把权重泊进 SRAM。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 2,
+   "merges": 0,
+   "domain": "geo-infrastructure",
+   "type": "CONCEPTUAL",
+   "stage": "deep-dive",
+   "k": "judge",
+   "desc": "晶圆级引擎让激活驻留片上 SRAM、权重从 MemoryX 逐层流入，模型大小与晶圆内存解耦。",
+   "evidence": [
+    "能复述与 GPU/TPU 相反的驻留方向：激活驻留、权重流过，晶圆从不暂存权重",
+    "能指出集群扩展坍缩成纯数据并行，并说出其训练规模证据薄弱（最大披露 64 台、70B）"
+   ],
+   "ap": "{{name}} 把模型大小的上限交给了什么？",
+   "annotated": true,
+   "id": "cm_6b151e00",
+   "slug": "weight-streaming"
+  },
+  {
+   "key": "功能切片",
+   "name": "功能切片",
+   "nameEn": "",
+   "gloss": "functional slices，空间计算",
+   "aliases": [
+    "functional slices，空间计算"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "都承诺提供6GW的运维能力",
+     "url": "https://www.jacobpeake.com/ai-chip-architectures",
+     "id": "jacobpeake-ai-chip-architectures#功能切片"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "都承诺提供6GW的运维能力",
+     "text": "a full-height column of identical hardware, and the columns stand side by side across the die. Homogeneous down each slice, heterogeneous across the chip.\n\nhorizontally through the slices like parts down an assembly line, East and West, one register hop per cycle, while VLIW instructions issue Northward from the control slices to meet it.\n\nthe operator fusion a GPU kernel builds by hand is here just the physical order of the slices."
+    }
+   ],
+   "feynmans": [
+    "功能切片是把一颗常规核心拆开竖放：指令控制、向量、矩阵、搬移、存储各成一整列，数据像流水线上的工件横穿切片，VLIW 指令从北面迎上来。它解决了算子融合问题——GPU kernel 里手工排的矩阵乘接着 softmax 接着残差加，在这里就是切片的物理排列顺序，数据复用活在导线里。这是计算是空间的、而非发给共享单元这一设计的实体，也是 LPU 敢说融合零成本的物质基础。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 3,
+   "merges": 0,
+   "domain": "geo-infrastructure",
+   "type": "CONCEPTUAL",
+   "stage": "deep-dive",
+   "k": "judge",
+   "desc": "把常规核心拆开竖放：控制、向量、矩阵、搬移、存储各成一列，数据横穿切片如流水线工件。",
+   "evidence": [
+    "能说出每列内部同构、列与列之间异构，数据东西向每周期一跳寄存器，VLIW 指令从北面迎上",
+    "能解释算子融合在此就是切片的物理排列顺序，数据复用活在导线里"
+   ],
+   "ap": "{{name}} 中算子融合为何零成本？",
+   "annotated": true,
+   "id": "cm_e98cbbd1",
+   "slug": "功能切片"
+  },
+  {
+   "key": "光路交换",
+   "name": "光路交换",
+   "nameEn": "OCS, optical circuit switch",
+   "gloss": "",
+   "aliases": [
+    "OCS, optical circuit switch"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "都承诺提供6GW的运维能力",
+     "url": "https://www.jacobpeake.com/ai-chip-architectures",
+     "id": "jacobpeake-ai-chip-architectures#光路交换"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "都承诺提供6GW的运维能力",
+     "text": "Tiny mirrors physically rotate to map any input fibre to any output.\n\npick a topology at job start, run it for a week, then reconfigure for the next workload.\n\nThree problems collapse into one component: topology reconfiguration per workload (twisted tori give up to 70% better bisection), sub-pod slicing on demand, and"
+    }
+   ],
+   "feynmans": [
+    "OCS 是 3D-MEMS 微镜阵列：物理转动微镜，把任意输入光纤接到任意输出。它是电路交换——毫秒级重配置不碍事，因为开工时选好拓扑、一跑一周，下一个任务来了再重配。一个器件坍缩三个问题：按负载重配拓扑（扭曲环面让剖分带宽提升至多 70%）、按需切分子 pod、容错（芯片坏了光路换入备用 cube）。谷歌从机架（Palomar）到数据中心 spine（Apollo，2022 年起全光）用同一个原语，这正是光交换是通用可重构基底这一哲学的实体，也是英伟达没有对应物的部件。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 3,
+   "merges": 0,
+   "domain": "geo-infrastructure",
+   "type": "CONCEPTUAL",
+   "stage": "deep-dive",
+   "k": "judge",
+   "desc": "3D-MEMS 微镜阵列的光路交换：开工时选好拓扑跑一周，一个器件同时解决重配、切分与容错。",
+   "evidence": [
+    "能说明它是电路交换、毫秒级重配置不碍事，按负载重配拓扑可让剖分带宽提升至多 70%",
+    "能举出从 Palomar 机架到 Apollo 数据中心 spine 用同一原语，并指出英伟达没有对应部件"
+   ],
+   "ap": "{{name}} 为什么能容忍毫秒级重配置？",
+   "annotated": true,
+   "id": "cm_4f0a2560",
+   "slug": "OCS,-optical-circuit-switch"
+  },
+  {
+   "key": "精度减半与微缩放",
+   "name": "精度减半与微缩放",
+   "nameEn": "precision halving, MX microscaling",
+   "gloss": "",
+   "aliases": [
+    "precision halving, MX microscaling"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "都承诺提供6GW的运维能力",
+     "url": "https://www.jacobpeake.com/ai-chip-architectures",
+     "id": "jacobpeake-ai-chip-architectures#精度减半与微缩放"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "都承诺提供6GW的运维能力",
+     "text": "Every generation buys roughly 2× per-watt throughput by cutting bits in half and restoring accuracy with a finer-grained scaling scheme\n\n(block-level shared exponents that recover most of the accuracy lost at FP4)"
+    }
+   ],
+   "feynmans": [
+    "精度减半指 FP16→FP8→FP4 逐代把位数砍半，每砍一半换来约 2× 每瓦吞吐；微缩放是找回精度的手段——把共享指数做成块级（MX 格式），用更细粒度的缩放恢复低位宽丢掉的准确度，英伟达、AMD、TPU 用的是同一套开放格式。这个节拍承重有二：它是逐代性能曲线的引擎；它也反衬出 Cerebras 与 Groq 停在 16-bit 的张力——片上 SRAM 最稀缺、最需要 8-bit 省容量的机器，恰恰没拿到低精度数据通路（作者标为 open question）。\n\n## 二、概念架构图\n\n```mermaid\nflowchart TB\n    subgraph L1[\"负载与问题层\"]\n        GEMM[\"GEMM vs GEMV（负载形状）\"]\n        WALL[\"内存墙\"]\n        DSA[\"特定领域架构 DSA\"]\n    end\n    subgraph L2[\"数据供给层\"]\n        SCRATCH[\"软件管理暂存器（无缓存）\"]\n        WEIGHT[\"权重流（激活驻留）\"]\n        PREC[\"精度减半 + 微缩放\"]\n    end\n    subgraph L3[\"计算组织层\"]\n        SYSTOLIC[\"脉动阵列（权重驻留）\"]\n        DATAFLOW[\"数据流执行（到达即调度）\"]\n        SLICE[\"功能切片（空间流水线）\"]\n    end\n    subgraph L4[\"互联与扩展层\"]\n        SCALE[\"scale-up / scale-out\"]\n        COH[\"硬件一致性 vs 消息传递\"]\n        OCS[\"光路交换 OCS\"]\n    end\n    subgraph L5[\"调度哲学层\"]\n        COMPILER[\"编译器即调度器（VLIW）\"]\n        DET[\"确定性（连网络也排程）\"]\n    end\n    GEMM -->|\"把瓶颈逼到访存\"| WALL\n    DSA -->|\"早期在产范例：TPU v1\"| SYSTOLIC\n    WALL -->|\"逼出\"| SCRATCH\n    WALL -->|\"逼出\"| WEIGHT\n    SCRATCH -->|\"供数\"| SYSTOLIC\n    COMPILER -->|\"必须排准，无硬件兜底\"| SCRATCH\n    COMPILER -->|\"极致化：从排一颗芯片到排一个系统\"| DET\n    DATAFLOW <-->|\"互为倒置：到达 vs 时钟\"| DET\n    DATAFLOW -.->|\"对照：不用矩阵单元，fabric 装配矩阵乘\"| SYSTOLIC\n    SLICE -->|\"使排满每周期成为可能\"| DET\n    PREC -->|\"省容量，缓解 SRAM-only 机器的稀缺\"| WEIGHT\n    SCALE -->|\"向上扩展域的两种语法\"| COH\n    OCS -->|\"按负载重构拓扑\"| SCALE\n    DET -->|\"把片间网络纳入编译期排程\"| SCALE\n```\n\n- 分层说明：负载与问题层是全文的出发点；数据供给层与计算组织层回答数据住哪、算什么；互联与扩展层回答芯片怎么连；调度哲学层是贯穿各层的分岔——交给编译器时刻表（TPU/Trainium/Groq），或交给数据到达（Cerebras），或留在硬件 warp 层级（NVIDIA，对应图中未单列的缓存加线程藏延迟路线，与 SCRATCH/COMPILER 两节点相对）。仅画原文明确支持的关系。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 2,
+   "merges": 0,
+   "domain": "geo-infrastructure",
+   "type": "CONCEPTUAL",
+   "stage": "when-needed",
+   "k": "judge",
+   "desc": "FP16→FP8→FP4 逐代位宽砍半，换约 2× 每瓦吞吐；用块级共享指数的 MX 微缩放找回精度。",
+   "evidence": [
+    "能说出约 2× 每瓦吞吐与块级共享指数恢复 FP4 精度的对应关系",
+    "能指出 Cerebras 与 Groq 停在 16-bit，最需要省片上容量的机器反而没拿到低精度数据通路"
+   ],
+   "ap": "{{name}} 用什么手段补回砍位宽丢掉的精度？",
+   "annotated": true,
+   "id": "cm_cbb94801",
+   "slug": "precision-halving,-MX-microscaling"
+  },
+  {
+   "key": "git工作树并发隔离",
+   "name": "Git 工作树并发隔离",
+   "nameEn": "Git worktree isolation",
+   "gloss": "",
+   "aliases": [
+    "Git worktree isolation"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "Worktrees | ChatGPT Learn",
+     "url": "https://learn.chatgpt.com/docs/environments/git-worktrees",
+     "id": "learn-git-worktrees#Git 工作树并发隔离"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "Worktrees | ChatGPT Learn",
+     "text": "Worktrees let Codex run multiple independent chats in the same project without interfering with each other. The repository, worktree, and commands remain on the computer or remote development environment that contains the project.\n\nEach worktree has its own copy of every file in your repo but they all share the same metadata (.git folder) about commits, branches, etc. This allows you to check out and work on multiple branches in parallel."
+    }
+   ],
+   "feynmans": [
+    "指借助 Git 原生的 `git worktree` 功能，为每个 AI 会话在硬盘上单独克隆一份工作目录，但底层共用同一个 `.git` 元数据仓库。这让前台开发者与多个后台 AI 助手能够同时修改不同分支的代码，物理上互不干扰、互不覆盖。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 2,
+   "merges": 0,
+   "domain": "multi-agent",
+   "type": "PROCEDURAL",
+   "stage": "now",
+   "k": "use",
+   "desc": "为每个 AI 会话用 git worktree 单独检出工作目录，共用同一 .git 元数据，物理上互不覆盖。",
+   "evidence": [
+    "能为一个项目开出多个工作树，使多个会话在不同分支上同时改代码",
+    "能说明各工作树有独立文件副本但共享同一仓库元数据，代码与命令仍留在项目所在环境"
+   ],
+   "ap": "用 {{name}} 怎样让两个会话同时改同一仓库？",
+   "annotated": true,
+   "id": "cm_f69f2345",
+   "slug": "Git-worktree-isolation"
+  },
+  {
+   "key": "会话与工作交接机制",
+   "name": "会话与工作交接机制",
+   "nameEn": "Handoff",
+   "gloss": "",
+   "aliases": [
+    "Handoff"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "Worktrees | ChatGPT Learn",
+     "url": "https://learn.chatgpt.com/docs/environments/git-worktrees",
+     "id": "learn-git-worktrees#会话与工作交接机制"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "Worktrees | ChatGPT Learn",
+     "text": "Under the hood, Handoff handles the Git operations required to move work between two checkouts safely. This matters because Git only allows a branch to be checked out in one place at a time."
+    }
+   ],
+   "feynmans": [
+    "指在用户当前的前台本地工作区与后台 Agent 工作树之间，无缝迁移对话上下文和代码修改状态的自动化流程。Codex 自动执行底层的 Git 分支切换与暂存操作，绕开同一分支不可在多处同时检出的限制。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "multi-agent",
+   "type": "PROCEDURAL",
+   "stage": "when-needed",
+   "k": "judge",
+   "desc": "在前台本地工作区与后台工作树之间安全搬迁工作的自动化流程，代你完成必要的 Git 操作。",
+   "evidence": [
+    "能说明它自动处理在两次检出之间移动工作所需的 Git 操作",
+    "能指出它正是为绕开同一分支只能在一处检出的限制而存在"
+   ],
+   "ap": "{{name}} 要绕开 Git 的哪条限制？",
+   "annotated": true,
+   "id": "cm_28fe50df",
+   "slug": "Handoff"
+  },
+  {
+   "key": "单分支单一权威工作副本保证",
+   "name": "单分支单一权威工作副本保证",
+   "nameEn": "One-branch-per-worktree rule",
+   "gloss": "",
+   "aliases": [
+    "One-branch-per-worktree rule"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "Worktrees | ChatGPT Learn",
+     "url": "https://learn.chatgpt.com/docs/environments/git-worktrees",
+     "id": "learn-git-worktrees#单分支单一权威工作副本保证"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "Worktrees | ChatGPT Learn",
+     "text": "By enforcing a one-branch-per-worktree rule, Git guarantees that each branch has a single authoritative working copy, while still allowing other worktrees to safely reference the same commits via detached HEADs or separate branches."
+    }
+   ],
+   "feynmans": [
+    "指每个分支只能同时在一个工作区被检出的硬性规则。它保证了每一个可变分支指针在同一时刻只有一个合法的修改入口，避免多会话并发写入时产生竞态条件和提交丢失。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "code-engineering",
+   "type": "CONCEPTUAL",
+   "stage": "when-needed",
+   "k": "judge",
+   "desc": "每个分支同一时刻只能在一个工作树检出的规则，保证每个分支只有一个权威可变工作副本。",
+   "evidence": [
+    "能说出该规则保证每个分支有单一权威工作副本",
+    "能说明其他工作树仍可通过 detached HEAD 或别的分支安全引用同一批提交"
+   ],
+   "ap": "{{name}} 保证了什么，又允许了什么？",
+   "annotated": true,
+   "id": "cm_dfa03e4c",
+   "slug": "One-branch-per-worktree-rule"
+  },
+  {
+   "key": "未跟踪文件携带清单",
+   "name": "未跟踪文件携带清单",
+   "nameEn": ".worktreeinclude",
+   "gloss": "",
+   "aliases": [
+    ".worktreeinclude"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "Worktrees | ChatGPT Learn",
+     "url": "https://learn.chatgpt.com/docs/environments/git-worktrees",
+     "id": "learn-git-worktrees#未跟踪文件携带清单"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "Worktrees | ChatGPT Learn",
+     "text": "If your repository ignores local setup files that a new worktree needs, add a .worktreeinclude file to the repository root and list the ignored paths or .gitignore-style patterns to copy when Codex creates a managed worktree."
+    }
+   ],
+   "feynmans": [
+    "指在仓库根目录添加的一个专门配置文件，里面列出需要被自动复制进新工作树的被忽略文件（如 `.env`、`secrets.json` 等）。它解决了代码隔离导致必要环境变量丢失、进而导致后台测试无法运行的断档问题。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "code-engineering",
+   "type": "REPRESENTATIONAL",
+   "stage": "when-needed",
+   "k": "use",
+   "desc": "放在仓库根目录的清单文件，列出新建工作树时要复制的被忽略文件，用 .gitignore 式模式书写。",
+   "evidence": [
+    "能指出该文件位于仓库根目录，内容是路径或 .gitignore 式模式",
+    "能解释它避免代码隔离后本地配置与环境变量丢失、后台测试跑不起来"
+   ],
+   "ap": "用 {{name}} 解决隔离后丢文件的问题，怎么写？",
+   "annotated": true,
+   "id": "cm_34e150d6",
+   "slug": ".worktreeinclude"
+  },
+  {
+   "key": "单分支单一可变引用限制",
+   "name": "单分支单一可变引用限制",
+   "nameEn": "Single mutable reference rule",
+   "gloss": "",
+   "aliases": [
+    "Single mutable reference rule"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "Worktrees | ChatGPT Learn",
+     "url": "https://learn.chatgpt.com/docs/environments/git-worktrees",
+     "id": "learn-git-worktrees#单分支单一可变引用限制"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "Worktrees | ChatGPT Learn",
+     "text": "Git prevents the same branch from being checked out in more than one worktree at a time because a branch represents a single mutable reference (refs/heads/<name>) whose meaning is “the current checked-out state” of a working tree."
+    }
+   ],
+   "feynmans": [
+    "Git 的安全红线规定：一个分支本质上只是一个指针文件，代表某一棵工作树的当前状态。如果允许多个工作区同时改写同一个分支指针，就会引发类似多线程抢写同一变量的竞态条件，导致提交丢失或索引损坏。\n\n## 二、概念架构图\n\n```mermaid\ngraph TD\n    Repo[(共享 Git 仓库元数据 .git)]\n    Local[前台 Local Workspace 开发者主干]\n    WT1[后台 Worktree 1: Detached HEAD]\n    WT2[后台 Worktree 2: Detached HEAD]\n    \n    Repo -->|共享提交与分支历史| Local\n    Repo -->|共享提交与分支历史| WT1\n    Repo -->|共享提交与分支历史| WT2\n\n    Inc[.worktreeinclude] -.->|复制 .env / secrets| WT1\n    Inc -.->|复制 .env / secrets| WT2\n\n    Local <--->|Handoff: 移动会话与代码| WT1\n    Local <--->|Handoff: 移动会话与代码| WT2\n```"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "code-engineering",
+   "type": "CONCEPTUAL",
+   "stage": "when-needed",
+   "k": "judge",
+   "desc": "分支本质是 refs/heads/<name> 单一可变引用，只代表某工作树的当前检出状态，故不可多处同检。",
+   "evidence": [
+    "能说出分支即一个可变引用文件，含义是某工作树的当前检出状态",
+    "能解释多处同时改写会类似多线程抢写同一变量，导致提交丢失或索引损坏"
+   ],
+   "ap": "{{name}} 被违反会导致什么后果？",
+   "annotated": true,
+   "id": "cm_b0960cab",
+   "slug": "Single-mutable-reference-rule"
+  },
+  {
+   "key": "三层知识架构",
+   "name": "三层知识架构",
+   "nameEn": "Three-layer knowledge architecture",
+   "gloss": "",
+   "aliases": [
+    "Three-layer knowledge architecture"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "谷歌重磅发布WikiSkill，技能可以自己进化了！",
+     "url": "https://mp.weixin.qq.com/s?__biz=MzIyNjM2MzQyNg%3D%3D&mid=2247725815&idx=1&sn=6dc8d200fbcabc937f0093929522430a&chksm=e96ba0747e94677b08172b24288c71cf370f6673d7918a21578bf83247eea6e9bc037caf398b",
+     "id": "mp-bsn57d#三层知识架构"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "谷歌重磅发布WikiSkill，技能可以自己进化了！",
+     "text": "这套架构的核心是把\"经验\"和\"知识\"分开。以前的技能进化方法（EvoSkill、Trace2Skill、SkillOpt）分析完执行轨迹就直接改 Skill，经验用一次就丢。WikiSkill 在中间加了一层持久知识库，让经验先沉淀、再复用。"
+    }
+   ],
+   "feynmans": [
+    "指将智能体系统切分为 Raw Layer（原始不可变轨迹）、Wiki Layer（结构化持久知识库）、Skills Layer（带溯源的可执行技能）的三层设计。它打破了过去将经验与技能直接绑定的做法，让经验首先被编译为持久知识，再由知识驱动技能生成。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "memory-retrieval",
+   "type": "CONCEPTUAL",
+   "stage": "when-needed",
+   "k": "judge",
+   "desc": "把经验与知识分开：原始轨迹、持久知识库、带溯源技能三层，经验先沉淀再由知识驱动技能。",
+   "evidence": [
+    "能说出 Raw、Wiki、Skills 三层的分工与先后顺序",
+    "能对比旧方法分析完轨迹直接改 Skill、经验用一次就丢的做法"
+   ],
+   "ap": "{{name}} 比直接改技能多加了哪一层？",
+   "annotated": true,
+   "id": "cm_c32be74a",
+   "slug": "Three-layer-knowledge-architecture"
+  },
+  {
+   "key": "原始轨迹层",
+   "name": "原始轨迹层",
+   "nameEn": "Raw Layer",
+   "gloss": "",
+   "aliases": [
+    "Raw Layer"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "谷歌重磅发布WikiSkill，技能可以自己进化了！",
+     "url": "https://mp.weixin.qq.com/s?__biz=MzIyNjM2MzQyNg%3D%3D&mid=2247725815&idx=1&sn=6dc8d200fbcabc937f0093929522430a&chksm=e96ba0747e94677b08172b24288c71cf370f6673d7918a21578bf83247eea6e9bc037caf398b",
+     "id": "mp-bsn57d#原始轨迹层"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "谷歌重磅发布WikiSkill，技能可以自己进化了！",
+     "text": "Raw Layer 存储每次迭代的执行轨迹，包括 Agent 的完整推理过程、工具调用、输出结果。这一层不可变，目的是保留\"到底发生了什么\"的原始记录。"
+    }
+   ],
+   "feynmans": [
+    "指记录智能体每次尝试中每一步思考、工具调用与环境返回结果的底层存储。它的关键特征是只读不可变，保证后续分析失败模式和理解设计意图时，始终有一份未经污染的第一现场事实依据。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "memory-retrieval",
+   "type": "CONCEPTUAL",
+   "stage": "when-needed",
+   "k": "judge",
+   "desc": "存储每次迭代的执行轨迹：完整推理、工具调用与输出结果，不可变，保留到底发生了什么。",
+   "evidence": [
+    "能列出该层记录推理过程、工具调用与输出结果",
+    "能说明不可变是为了让失败模式分析与设计意图回溯始终有第一现场依据"
+   ],
+   "ap": "{{name}} 为什么必须保持不可变？",
+   "annotated": true,
+   "id": "cm_0192e485",
+   "slug": "Raw-Layer"
+  },
+  {
+   "key": "持久维基层",
+   "name": "持久维基层",
+   "nameEn": "",
+   "gloss": "Wiki Layer & Wiki 永不回滚",
+   "aliases": [
+    "Wiki Layer & Wiki 永不回滚"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "谷歌重磅发布WikiSkill，技能可以自己进化了！",
+     "url": "https://mp.weixin.qq.com/s?__biz=MzIyNjM2MzQyNg%3D%3D&mid=2247725815&idx=1&sn=6dc8d200fbcabc937f0093929522430a&chksm=e96ba0747e94677b08172b24288c71cf370f6673d7918a21578bf83247eea6e9bc037caf398b",
+     "id": "mp-bsn57d#持久维基层"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "谷歌重磅发布WikiSkill，技能可以自己进化了！",
+     "text": "第一，Wiki 永不回滚。Skill 被拒绝时，Skills Layer 回到上一版本，但 Wiki 保留所有积累的知识。下一轮 Proposer 能看到\"上次这个改法为什么被拒\"，避免重复踩坑。\n\n第二，Knowledge 和 Skill 分离。知识回答\"我们知道什么\"，技能回答\"我们该怎么做\"。以前的方法把两者混在一起，改技能时丢失了背后的推理上下文。"
+    }
+   ],
+   "feynmans": [
+    "Wiki 层是将具体成败轨迹提炼为抽象规律的中间数据库。其核心机制是“永不回滚”：即便提出的某个技能在测试中失败被撤回，该次失败的因果教训也会永远保留在 Wiki 中，使模型在后续迭代中不会重复犯同样的错误。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 2,
+   "merges": 0,
+   "domain": "memory-retrieval",
+   "type": "CONCEPTUAL",
+   "stage": "when-needed",
+   "k": "judge",
+   "desc": "Wiki 层把具体成败轨迹提炼为抽象规律；技能被拒而回滚时，Wiki 永不回滚，保留失败教训。",
+   "evidence": [
+    "能说明 Skill 被拒时 Skills Layer 回滚、Wiki 保留知识的两层区别",
+    "能解释下一轮 Proposer 从 Wiki 看到上次改法为何被拒，从而不重复踩坑"
+   ],
+   "ap": "{{name}} 的“永不回滚”保留的是哪类信息，为什么技能回滚它也不回滚？",
+   "annotated": true,
+   "id": "cm_87461ad4",
+   "slug": "持久维基层"
+  },
+  {
+   "key": "技能溯源",
+   "name": "技能溯源",
+   "nameEn": "PURPOSE.md",
+   "gloss": "",
+   "aliases": [
+    "PURPOSE.md"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "谷歌重磅发布WikiSkill，技能可以自己进化了！",
+     "url": "https://mp.weixin.qq.com/s?__biz=MzIyNjM2MzQyNg%3D%3D&mid=2247725815&idx=1&sn=6dc8d200fbcabc937f0093929522430a&chksm=e96ba0747e94677b08172b24288c71cf370f6673d7918a21578bf83247eea6e9bc037caf398b",
+     "id": "mp-bsn57d#技能溯源"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "谷歌重磅发布WikiSkill，技能可以自己进化了！",
+     "text": "PURPOSE.md 解决的是\"这个技能为什么存在\"的问题。当技能需要修改时，Proposer 可以通过 PURPOSE.md 回溯到对应的知识模式，理解当初的设计意图，而不是盲目地打补丁。"
+    }
+   ],
+   "feynmans": [
+    "每个技能除了包含实际执行指令的 SKILL.md 外，还标配一个 PURPOSE.md，专门记录该技能是为了解决 Wiki 中的哪条具体失败模式而建立的。它为后续修改提供了因果上下文，防止盲目打补丁导致历史意图丢失。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "spec-intent",
+   "type": "REPRESENTATIONAL",
+   "stage": "when-needed",
+   "k": "use",
+   "desc": "每个技能除 SKILL.md 外标配 PURPOSE.md，记录它为解决 Wiki 中哪条失败模式而存在。",
+   "evidence": [
+    "能指出 PURPOSE.md 与 SKILL.md 各自的职责分工",
+    "能说明改技能前先查 PURPOSE.md 可回溯设计意图、避免盲目打补丁"
+   ],
+   "ap": "{{name}} 回答的是哪个问题，它怎样防止改技能时丢失当初的设计意图？",
+   "annotated": true,
+   "id": "cm_e22503f1",
+   "slug": "PURPOSE.md"
+  },
+  {
+   "key": "维基消融效应",
+   "name": "维基消融效应",
+   "nameEn": "Wiki ablation effect",
+   "gloss": "",
+   "aliases": [
+    "Wiki ablation effect"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "谷歌重磅发布WikiSkill，技能可以自己进化了！",
+     "url": "https://mp.weixin.qq.com/s?__biz=MzIyNjM2MzQyNg%3D%3D&mid=2247725815&idx=1&sn=6dc8d200fbcabc937f0093929522430a&chksm=e96ba0747e94677b08172b24288c71cf370f6673d7918a21578bf83247eea6e9bc037caf398b",
+     "id": "mp-bsn57d#维基消融效应"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "谷歌重磅发布WikiSkill，技能可以自己进化了！",
+     "text": "去掉 Wiki 访问后，平均分从 63.7% 降至 48.7%，回落约 15 个百分点。Wiki Maintainer 积累的跨迭代知识是 Skill Proposer 能解决复杂失败模式的前提。"
+    }
+   ],
+   "feynmans": [
+    "实验证实若撤掉中间的 Wiki 知识层，仅靠提议者直接从原始轨迹修改技能，模型表现会断崖式下跌 15 个百分点。这证明持续积累的抽象知识库才是智能体解决复杂长尾缺陷的真正承重支柱。\n\n## 二、概念架构图\n\n```mermaid\ngraph TD\n    subgraph 运行闭环\n        A[Inference Agent] -->|产生执行轨迹| B[Raw Layer 原始轨迹层]\n        B -->|采样轨迹根因分析| C[Wiki Maintainer 维护者]\n        C -->|编译持久知识| D[Wiki Layer 维基中枢]\n        D -->|查阅模式与历史| E[Skill Proposer 提议者]\n        E -->|产出新技能提案| F[Skills Layer 技能层]\n        F -->|验证评估| G{Gating 门禁}\n        G -->|通过| A\n        G -->|未通过: 回滚技能| F\n    end\n    subgraph 核心机制\n        D -.->|永不回滚| D\n        F -.->|PURPOSE.md 溯源| D\n    end\n```"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "verification-eval",
+   "type": "CONCEPTUAL",
+   "stage": "when-needed",
+   "k": "accept",
+   "desc": "去掉 Wiki 访问后平均分从 63.7% 降至 48.7%，回落约 15 个百分点。",
+   "evidence": [
+    "能复述 63.7%→48.7%、约 15 个百分点的消融结果",
+    "能据此判断 Wiki 层是解决复杂失败模式的前提而非可选装饰"
+   ],
+   "ap": "{{name}} 的具体数据是多少，它说明 Wiki 层处于什么地位？",
+   "annotated": true,
+   "id": "cm_b65cad24",
+   "slug": "Wiki-ablation-effect"
+  },
+  {
+   "key": "长期运行智能体执行框架",
+   "name": "长期运行智能体执行框架",
+   "nameEn": "Long-running agent execution framework",
+   "gloss": "",
+   "aliases": [
+    "Long-running agent execution framework"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "推出 Agents API | OpenAI",
+     "url": "https://openai.com/zh-Hans-CN/index/introducing-the-agents-api/",
+     "id": "openai-introducing-the-agents-api#长期运行智能体执行框架"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "推出 Agents API | OpenAI",
+     "text": "实用的智能体需要一个强大的执行框架，用于管理上下文、高效使用工具并协调子智能体。它们还需要可靠支持其连续运行数天的基础设施，以及能让它们处理文件、运行代码并保存中间结果的环境。"
+    }
+   ],
+   "feynmans": [
+    "指支撑一个 AI 智能体连续稳定工作几天所需的完整操作系统底座。它不仅是给大模型发一条指令，而是包含了上下文压缩管理、沙箱文件存取、长会话恢复、异常重试与多任务协作的一整套系统级调度能力。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "harness-runtime",
+   "type": "CONCEPTUAL",
+   "stage": "now",
+   "k": "judge",
+   "desc": "支撑 Agent 连续运行数天的执行框架：管理上下文、高效用工具、协调子智能体并提供文件与代码环境。",
+   "evidence": [
+    "能列出框架需覆盖的能力：上下文管理、工具使用、子智能体协调、长时运行基础设施、可存取的环境",
+    "能区分“给模型发一条指令”与“系统级执行底座”的不同"
+   ],
+   "ap": "要让 {{name}} 连续跑几天，它必须提供哪几类能力？",
+   "annotated": true,
+   "id": "cm_6d8095ba",
+   "slug": "Long-running-agent-execution-framework"
+  },
+  {
+   "key": "上下文自动压缩",
+   "name": "上下文自动压缩",
+   "nameEn": "Context compaction",
+   "gloss": "",
+   "aliases": [
+    "Context compaction"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "推出 Agents API | OpenAI",
+     "url": "https://openai.com/zh-Hans-CN/index/introducing-the-agents-api/",
+     "id": "openai-introducing-the-agents-api#上下文自动压缩"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "推出 Agents API | OpenAI",
+     "text": "当会话接近上下文上限时，Agents API 会[自动压缩⁠](https://developers.openai.com/api/docs/guides/compaction)较早的上下文，同时保留智能体继续工作所需的信息。开发者无需自行实现压缩逻辑，即可构建跨越多个上下文窗口的工作流。"
+    }
+   ],
+   "feynmans": [
+    "当对话和代码越积越多、快要把模型窗口挤爆时，系统在后台自动把前期的历史细节摘要成高密度的关键信息，只保留当前任务不可缺少的因果链条。这使得开发者不用自己手写截断算法，就能让 Agent 永不中断地干活。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "context-engineering",
+   "type": "CONCEPTUAL",
+   "stage": "when-needed",
+   "k": "judge",
+   "desc": "会话接近上下文上限时，Agents API 自动压缩较早上下文，同时保留继续工作所需的信息。",
+   "evidence": [
+    "能说出压缩的触发时机与必须保留的目标",
+    "能说明开发者无需自行实现压缩即可构建跨多个上下文窗口的工作流"
+   ],
+   "ap": "{{name}} 在什么时机发生，压缩后必须保住什么？",
+   "annotated": true,
+   "id": "cm_2ee67864",
+   "slug": "Context-compaction"
+  },
+  {
+   "key": "工具按需搜索",
+   "name": "工具按需搜索",
+   "nameEn": "Tool search",
+   "gloss": "",
+   "aliases": [
+    "Tool search"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "推出 Agents API | OpenAI",
+     "url": "https://openai.com/zh-Hans-CN/index/introducing-the-agents-api/",
+     "id": "openai-introducing-the-agents-api#工具按需搜索"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "推出 Agents API | OpenAI",
+     "text": "[工具搜索⁠](https://developers.openai.com/api/docs/guides/tools-tool-search)会按需加载相关工具定义，在保留模型缓存的同时减少 Token 用量和成本。"
+    }
+   ],
+   "feynmans": [
+    "指不把上百个 API 工具文档一次性全塞进系统提示词，而是在 Agent 遇到具体问题时，才根据语义去搜索并临时加载相关的工具说明。既保护了提示词缓存（Prompt Cache）的高命中率，又大幅节省了输入 Token 的花费。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "caching-cost",
+   "type": "REPRESENTATIONAL",
+   "stage": "when-needed",
+   "k": "use",
+   "desc": "工具搜索按需加载相关工具定义，在保留模型缓存的同时减少 Token 用量和成本。",
+   "evidence": [
+    "能说明为何不把大量工具定义一次性塞进提示词",
+    "能指出它同时服务省 Token 与保缓存命中两个目标"
+   ],
+   "ap": "与一次性注入全部工具定义相比，{{name}} 同时改善了什么？",
+   "annotated": true,
+   "id": "cm_9ee5650d",
+   "slug": "Tool-search"
+  },
+  {
+   "key": "程序化工具调用",
+   "name": "程序化工具调用",
+   "nameEn": "Programmatic tool calling",
+   "gloss": "",
+   "aliases": [
+    "Programmatic tool calling"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "推出 Agents API | OpenAI",
+     "url": "https://openai.com/zh-Hans-CN/index/introducing-the-agents-api/",
+     "id": "openai-introducing-the-agents-api#程序化工具调用"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "推出 Agents API | OpenAI",
+     "text": "[程序化工具调用⁠](https://developers.openai.com/api/docs/guides/tools-programmatic-tool-calling)可让智能体并行执行调用、串联相关操作，并通过代码筛选或合并结果，从而处理海量数据，同时只将相关结果送回上下文。"
+    }
+   ],
+   "feynmans": [
+    "以往模型每调一次工具，都要把长篇累牍的原始 JSON 数据全灌进对话框里。程序化调用让模型在沙箱内用一段脚本直接并行调好几个接口、过滤出最后那几条关键结果，再交回给上下文，有效阻断了数据洪水对注意力的污染。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "tools-sandbox",
+   "type": "REPRESENTATIONAL",
+   "stage": "when-needed",
+   "k": "use",
+   "desc": "让智能体并行执行调用、串联操作，并用代码筛选或合并结果，只把相关结果送回上下文。",
+   "evidence": [
+    "能说明它如何避免原始工具返回数据灌满上下文",
+    "能举出并行调用后按代码过滤、只回传关键结果的用法"
+   ],
+   "ap": "{{name}} 为什么能把回灌上下文的数据量压下来？",
+   "annotated": true,
+   "id": "cm_2a78bb06",
+   "slug": "Programmatic-tool-calling"
+  },
+  {
+   "key": "子智能体并行委派",
+   "name": "子智能体并行委派",
+   "nameEn": "Subagent delegation and orchestration",
+   "gloss": "",
+   "aliases": [
+    "Subagent delegation and orchestration"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "推出 Agents API | OpenAI",
+     "url": "https://openai.com/zh-Hans-CN/index/introducing-the-agents-api/",
+     "id": "openai-introducing-the-agents-api#子智能体并行委派"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "推出 Agents API | OpenAI",
+     "text": "借助[多智能体支持⁠](https://developers.openai.com/api/docs/guides/agents-api/multi-agent)，Agents API 可将复杂任务拆分为相互独立的部分，并委派给多个子智能体并行处理。每个子智能体都维护各自的上下文，以便专注于分配到的任务；主智能体则协调它们的工作并汇总结果。"
+    }
+   ],
+   "feynmans": [
+    "主智能体像项目经理一样把大任务拆成几个模块，分别指派给几个副手（子智能体）去独立跑。每个副手各自带着干净的上下文专心排查（互不干扰），主智能体最后只收集它们的汇报并拍板，大幅压缩了等待时间。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "multi-agent",
+   "type": "CONCEPTUAL",
+   "stage": "when-needed",
+   "k": "use",
+   "desc": "主智能体把复杂任务拆成相互独立的部分委派给子智能体并行处理，各自维护上下文，主智能体汇总结果。",
+   "evidence": [
+    "能说明子智能体各自维护独立上下文、专注分配任务的意义",
+    "能描述主智能体负责协调与汇总结果的角色"
+   ],
+   "ap": "在 {{name}} 中，主智能体与子智能体各自承担什么职责？",
+   "annotated": true,
+   "id": "cm_384a9cd4",
+   "slug": "Subagent-delegation-and-orchestration"
+  },
+  {
+   "key": "开源codex执行线圈",
+   "name": "开源 Codex 执行线圈",
+   "nameEn": "Open-source Codex harness",
+   "gloss": "",
+   "aliases": [
+    "Open-source Codex harness"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "推出 Agents API | OpenAI",
+     "url": "https://openai.com/zh-Hans-CN/index/introducing-the-agents-api/",
+     "id": "openai-introducing-the-agents-api#开源 Codex 执行线圈"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "推出 Agents API | OpenAI",
+     "text": "The Agents API is powered by the open-source Codex harness, giving developers visibility into the core logic that coordinates model calls, tools, and context."
+    }
+   ],
+   "feynmans": [
+    "指驱动 ChatGPT 与 Codex 后台任务调度的开源核心底座。它向外界公开了模型、工具和上下文之间是如何完成状态机流转与事件分发的，为云端全托管 API 提供了透明可检验的架构基础。\n\n## 二、概念架构图\n\n```mermaid\ngraph TD\n    UserApp[用户应用程序] -->|一次 API 调用| API[OpenAI Agents API]\n    \n    subgraph 托管执行框架 Codex Harness\n        API --> MainAgent[主智能体: 上下文管理与调度]\n        MainAgent --> Compaction[自动上下文压缩 Compaction]\n        MainAgent --> ToolSearch[工具搜索按需加载]\n        ToolSearch --> ProgTools[程序化工具调用与数据预筛选]\n        MainAgent --> Multi[多智能体编排 Multi-Agent]\n        Multi --> Sub1[子智能体 1: 独立上下文]\n        Multi --> Sub2[子智能体 2: 独立上下文]\n    end\n    \n    subgraph 解耦沙箱计算环境\n        ProgTools <---> Sandbox[沙箱: OpenAI托管 / 自有VPC / E2B等]\n        Sub1 <---> Sandbox\n        Sub2 <---> Sandbox\n    end\n```"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "harness-runtime",
+   "type": "REPRESENTATIONAL",
+   "stage": "when-needed",
+   "k": "accept",
+   "desc": "驱动 Agents API 的开源 Codex harness，公开协调模型调用、工具与上下文的核心逻辑。",
+   "evidence": [
+    "能说出 Agents API 由开源的 Codex harness 驱动",
+    "能指出其意义在于核心调度逻辑对开发者可见可检视"
+   ],
+   "ap": "{{name}} 是什么，它让开发者能看到哪些核心逻辑？",
+   "annotated": true,
+   "id": "cm_13262d3d",
+   "slug": "Open-source-Codex-harness"
+  },
+  {
+   "key": "状态维护型记忆",
+   "name": "状态维护型记忆",
+   "nameEn": "State-maintaining memory vs. Conversational memory",
+   "gloss": "",
+   "aliases": [
+    "State-maintaining memory vs. Conversational memory"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "Some things should probably stay fuzzy",
+     "url": "https://pwning.systems/posts/llm-memory-program-analysis/",
+     "id": "pwning-llm-memory-program-analysis#状态维护型记忆"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "Some things should probably stay fuzzy",
+     "text": "我希望它能**保持我们目前所知的状态**。\n\n显然，告诉一个法学硕士（LLM）某些事情是错误的，并不一定意味着它会停止相信所有依赖于它的事情 :)"
+    }
+   ],
+   "feynmans": [
+    "指不仅记录过去说了什么话，而且时刻维护一份经过逻辑校验的“当前已知事实清单”。在复杂任务中，当一个前提被推翻后，普通对话记忆会同时保留新旧矛盾，而状态型记忆会联动清理所有下游推论。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 2,
+   "merges": 0,
+   "domain": "memory-retrieval",
+   "type": "CONCEPTUAL",
+   "stage": "when-needed",
+   "k": "judge",
+   "desc": "不只是记录说过什么，而是维护一份当前已知事实的状态；前提被推翻时相应认知随之更新。",
+   "evidence": [
+    "能区分状态维护型记忆与对话记忆的差别",
+    "能指出“告诉模型某事是错的”并不等于它停止相信所有依赖它的推论"
+   ],
+   "ap": "与普通对话记忆相比，{{name}} 多维护了什么？",
+   "annotated": true,
+   "id": "cm_6105c3cd",
+   "slug": "State-maintaining-memory-vs.-Conversational-memory"
+  },
+  {
+   "key": "事实与推导的自动级联失效",
+   "name": "事实与推导的自动级联失效",
+   "nameEn": "Automatic invalidation of derived facts",
+   "gloss": "",
+   "aliases": [
+    "Automatic invalidation of derived facts"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "Some things should probably stay fuzzy",
+     "url": "https://pwning.systems/posts/llm-memory-program-analysis/",
+     "id": "pwning-llm-memory-program-analysis#事实与推导的自动级联失效"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "Some things should probably stay fuzzy",
+     "text": "If an observation changes, I don’t want the model to reconstruct the entire investigation from a transcript and hopefully notice all of the consequences. I want the affected conclusions to become invalid automatically."
+    }
+   ],
+   "feynmans": [
+    "当现实中的某条事实发生变化时，我们不需要模型去重新阅读长篇历史记录并赌它能发现所有连锁反应；底层数据库直接像多米诺骨牌一样，把所有依赖于该事实的推论全自动标记为失效。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "memory-retrieval",
+   "type": "CONCEPTUAL",
+   "stage": "when-needed",
+   "k": "judge",
+   "desc": "观察变化时，依赖该事实的结论自动变为失效，无需模型重读历史去发现全部连锁后果。",
+   "evidence": [
+    "能说明为何不让模型从 transcript 重建整个调查再赌它注意到后果",
+    "能描述受影响结论被自动标记失效的传播方式"
+   ],
+   "ap": "{{name}} 发生时是系统自动处理，还是靠模型重读历史发现？",
+   "annotated": true,
+   "id": "cm_26e584e0",
+   "slug": "Automatic-invalidation-of-derived-facts"
+  },
+  {
+   "key": "模糊与确定性解耦范式",
+   "name": "模糊与确定性解耦范式",
+   "nameEn": "Fuzzy-Deterministic split",
+   "gloss": "",
+   "aliases": [
+    "Fuzzy-Deterministic split"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "Some things should probably stay fuzzy",
+     "url": "https://pwning.systems/posts/llm-memory-program-analysis/",
+     "id": "pwning-llm-memory-program-analysis#模糊与确定性解耦范式"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "Some things should probably stay fuzzy",
+     "text": "The basic idea is that an LLM should not necessarily be responsible for maintaining its own knowledge. Instead, I split the problem into two parts."
+    }
+   ],
+   "feynmans": [
+    "模型擅长处理非结构化、充满噪音的“模糊”输入（如阅读源码、解析调试器输出），但极不擅长做长程确定性状态推导。该范式让 LLM 专心把输入翻译成结构化事实，状态推导与一致性维护全权交给确定性的 Datalog 引擎。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "memory-retrieval",
+   "type": "CONCEPTUAL",
+   "stage": "now",
+   "k": "judge",
+   "desc": "把问题拆成两半：LLM 负责把模糊非结构化输入转成结构化事实，确定性引擎负责状态推导与一致性。",
+   "evidence": [
+    "能指出 LLM 擅长模糊输入、不擅长长程确定性状态推导",
+    "能说明模糊层与确定性层各自承担什么"
+   ],
+   "ap": "{{name}} 把职责如何在 LLM 与确定性引擎之间切分？",
+   "annotated": true,
+   "id": "cm_2b232258",
+   "slug": "Fuzzy-Deterministic-split"
+  },
+  {
+   "key": "推论因果溯源图",
+   "name": "推论因果溯源图",
+   "nameEn": "Provenance of conclusions",
+   "gloss": "",
+   "aliases": [
+    "Provenance of conclusions"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "Some things should probably stay fuzzy",
+     "url": "https://pwning.systems/posts/llm-memory-program-analysis/",
+     "id": "pwning-llm-memory-program-analysis#推论因果溯源图"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "Some things should probably stay fuzzy",
+     "text": "Because Lemmalog already tracks the dependencies of derived facts, we can ask it for the provenance of a conclusion."
+    }
+   ],
+   "feynmans": [
+    "在系统中，任何一条推导出的结论都挂载着一棵严密的证据树，详细记录了它是由哪条基础事实和哪条逻辑规则推导出来的。这使得人类能直接质问“你凭什么得出这个结论”，一旦发现源头虚假，即可精确顺藤摸瓜。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "memory-retrieval",
+   "type": "CONCEPTUAL",
+   "stage": "when-needed",
+   "k": "judge",
+   "desc": "每条推导结论都挂载证据树，记录由哪些基础事实与规则推出，可追问来源并顺藤摸瓜。",
+   "evidence": [
+    "能说出 Lemmalog 已跟踪推导事实的依赖关系，因而可查结论来源",
+    "能解释如何借溯源定位一条虚假的源头事实及其下游影响"
+   ],
+   "ap": "当有人问“你凭什么得出这个结论”，{{name}} 能给出什么？",
+   "annotated": true,
+   "id": "cm_927648fd",
+   "slug": "Provenance-of-conclusions"
+  },
+  {
+   "key": "声明式逻辑记忆引擎",
+   "name": "声明式逻辑记忆引擎",
+   "nameEn": "Datalog-based memory engine",
+   "gloss": "",
+   "aliases": [
+    "Datalog-based memory engine"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "Some things should probably stay fuzzy",
+     "url": "https://pwning.systems/posts/llm-memory-program-analysis/",
+     "id": "pwning-llm-memory-program-analysis#声明式逻辑记忆引擎"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "Some things should probably stay fuzzy",
+     "text": "Datalog is a declarative logic programming language. Instead of writing instructions describing how something should be calculated, we describe facts and rules from which new facts can be derived."
+    }
+   ],
+   "feynmans": [
+    "Datalog 是一种只声明“事实”与“如果……那么……”规则的逻辑编程语言。将其作为智能体记忆引擎，能够自动计算知识不动点，并且在事实发生增删时以极高效率重新计算依赖，不耗费任何大模型推理 Token。\n\n## 二、概念架构图\n\n```mermaid\ngraph TD\n    subgraph 模糊层 LLM Fuzzy Layer\n        Raw[非结构化输入: 源码 / LLDB调试输出 / 观察]\n        Raw -->|LLM提取谓词| Facts[结构化事实 Facts]\n    end\n    \n    subgraph 确定性逻辑层 Lemmalog Datalog Engine\n        Facts --> Engine[Datalog 规则引擎]\n        Rules[领域推导规则 Rules] --> Engine\n        Engine --> Derived[派生新事实与漏洞结论]\n        Engine -.-> Prov[因果溯源树 Provenance]\n    end\n\n    subgraph 撤销与自愈联动\n        Refute[某事实被LLDB证伪] -->|撤销 Retract| Facts\n        Facts -->|沿因果树级联删除| Derived\n    end\n```"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "memory-retrieval",
+   "type": "REPRESENTATIONAL",
+   "stage": "when-needed",
+   "k": "judge",
+   "desc": "用 Datalog 只声明事实与规则，由引擎自动派生新事实并在事实增删时重算依赖，不耗推理 Token。",
+   "evidence": [
+    "能说明声明式写规则与写“怎么算”的指令式写法的区别",
+    "能指出维护这类记忆不消耗大模型推理 Token"
+   ],
+   "ap": "在 {{name}} 里，事实与规则由谁写、推导由谁做、代价是什么？",
+   "annotated": true,
+   "id": "cm_4735de9e",
+   "slug": "Datalog-based-memory-engine"
+  },
+  {
+   "key": "布尔巴基风格证明",
+   "name": "布尔巴基风格证明",
+   "nameEn": "Bourbaki style proofs",
+   "gloss": "",
+   "aliases": [
+    "Bourbaki style proofs"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "“深奥的定理曾经稀少且晦涩，因此成为识别深刻思想的有效机制。人工智能打破了这一体系。”",
+     "url": "https://terrytao.wordpress.com/2026/09/13/deep-theorems-were-scarce-and-difficult-and-so-became-an-effective-mechanism-to-identify-deep-thought-ai-has-broken-this-system/?utm_source=tldrai",
+     "id": "terrytao-deep-theorems-were-scarce-and-difficult-and-so-beca#布尔巴基风格证明"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "“深奥的定理曾经稀少且晦涩，因此成为识别深刻思想的有效机制。人工智能打破了这一体系。”",
+     "text": "AI will force mathematics to move away from the overly formal proofs of the French Bourbaki style and instead focus on the ideas."
+    }
+   ],
+   "feynmans": [
+    "指以法国布尔巴基学派为代表的、高度公理化和形式主义符号推演的数学证明风格。作者认为纯符号的代数推导往往掩盖了物理实质，而 AI 将倒逼数学界放弃这种繁复的形式主义，重新聚焦到核心的物理机制与直觉思想。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "thinking-method",
+   "type": "CONCEPTUAL",
+   "stage": "deep-dive",
+   "k": "accept",
+   "desc": "以法国布尔巴基学派为代表的高度公理化形式主义证明风格。",
+   "evidence": [
+    "能说出布尔巴基风格指过度形式化、以符号推演为主的证明",
+    "能复述作者关于 AI 会迫使数学转向关注思想的判断"
+   ],
+   "ap": "{{name}} 指哪种证明风格，作者认为 AI 会把它推向什么？",
+   "annotated": true,
+   "id": "cm_20cfc599",
+   "slug": "Bourbaki-style-proofs"
+  },
+  {
+   "key": "勒雷奇点倒计时技巧",
+   "name": "勒雷奇点倒计时技巧",
+   "nameEn": "Leray's countdown trick",
+   "gloss": "",
+   "aliases": [
+    "Leray's countdown trick"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "“深奥的定理曾经稀少且晦涩，因此成为识别深刻思想的有效机制。人工智能打破了这一体系。”",
+     "url": "https://terrytao.wordpress.com/2026/09/13/deep-theorems-were-scarce-and-difficult-and-so-became-an-effective-mechanism-to-identify-deep-thought-ai-has-broken-this-system/?utm_source=tldrai",
+     "id": "terrytao-deep-theorems-were-scarce-and-difficult-and-so-beca#勒雷奇点倒计时技巧"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "“深奥的定理曾经稀少且晦涩，因此成为识别深刻思想的有效机制。人工智能打破了这一体系。”",
+     "text": "The AI uses the definition tau = (1-t) and describes it as a countdown to a singularity. Jean Leray first did this ‘trick’ in his foundational 1934 paper on fluid dynamics."
+    }
+   ],
+   "feynmans": [
+    "指让时间反向流动的数学变量替换（令 $\\tau = 1-t$），将爆破奇点设为倒计时终点的方法。该技巧最早由勒雷在 1934 年奠基性论文中使用，其导数为负（$d\\tau = -dt$），在纯无耗散系统中可利用对称性推导，但在不可逆系统中不能随意倒置。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "verification-eval",
+   "type": "CONCEPTUAL",
+   "stage": "when-needed",
+   "k": "judge",
+   "desc": "令 τ=1−t 把时间反向、让奇点成为倒计时终点的变量替换，勒雷 1934 年首创。",
+   "evidence": [
+    "能写出 τ=1−t 及其导数 dτ=−dt",
+    "能指出该技巧只在无耗散的对称系统中可用"
+   ],
+   "ap": "{{name}}里的 τ=1−t 为什么导数为负？",
+   "annotated": true,
+   "id": "cm_062e1f08",
+   "slug": "Leray's-countdown-trick"
+  },
+  {
+   "key": "欧拉方程与纳维斯托克斯的时间反演对称性",
+   "name": "欧拉方程与纳维-斯托克斯的时间反演对称性",
+   "nameEn": "Time reversibility: Euler vs. Navier-Stokes",
+   "gloss": "",
+   "aliases": [
+    "Time reversibility: Euler vs. Navier-Stokes"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "“深奥的定理曾经稀少且晦涩，因此成为识别深刻思想的有效机制。人工智能打破了这一体系。”",
+     "url": "https://terrytao.wordpress.com/2026/09/13/deep-theorems-were-scarce-and-difficult-and-so-became-an-effective-mechanism-to-identify-deep-thought-ai-has-broken-this-system/?utm_source=tldrai",
+     "id": "terrytao-deep-theorems-were-scarce-and-difficult-and-so-beca#欧拉方程与纳维-斯托克斯的时间反演对称性"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "“深奥的定理曾经稀少且晦涩，因此成为识别深刻思想的有效机制。人工智能打破了这一体系。”",
+     "text": "The Euler equations are time reversible. They are identical to the Navier-Stokes equations but have zero viscosity.\n\nNavier-Stokes has viscosity, so it is not time reversible. Energy dissipates; this is like entropy defining the arrow of time."
+    }
+   ],
+   "feynmans": [
+    "欧拉方程描述零粘度流体，能量守恒且时间正反向对称；而纳维-斯托克斯方程包含粘性阻尼，能量会自然耗散，像热力学熵增一样定义了时间的唯一箭头。作者以此指出，在有粘性耗散的系统中，时间反向的数学推演绝不等同于正向的物理真实。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 2,
+   "merges": 0,
+   "domain": "thinking-method",
+   "type": "CONCEPTUAL",
+   "stage": "now",
+   "k": "judge",
+   "desc": "欧拉方程零粘度、时间可逆；纳维-斯托克斯有粘性耗散，时间只有一个方向。",
+   "evidence": [
+    "能说出两者唯一差别是粘度是否为零",
+    "能用能量耗散、熵增解释时间不可逆"
+   ],
+   "ap": "{{name}}中是哪一项决定了时间不可逆？",
+   "annotated": true,
+   "id": "cm_b5f952be",
+   "slug": "Time-reversibility-Euler-vs.-Navier-Stokes"
+  },
+  {
+   "key": "有限时间爆破失效",
+   "name": "有限时间爆破失效",
+   "nameEn": "Invalidation of finite time blowup",
+   "gloss": "",
+   "aliases": [
+    "Invalidation of finite time blowup"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "“深奥的定理曾经稀少且晦涩，因此成为识别深刻思想的有效机制。人工智能打破了这一体系。”",
+     "url": "https://terrytao.wordpress.com/2026/09/13/deep-theorems-were-scarce-and-difficult-and-so-became-an-effective-mechanism-to-identify-deep-thought-ai-has-broken-this-system/?utm_source=tldrai",
+     "id": "terrytao-deep-theorems-were-scarce-and-difficult-and-so-beca#有限时间爆破失效"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "“深奥的定理曾经稀少且晦涩，因此成为识别深刻思想的有效机制。人工智能打破了这一体系。”",
+     "text": "The AI proof setting dtau = -dt over the chosen interval invalidates the proof of finite time blowup for both the Euler and Navier-Stokes equations."
+    }
+   ],
+   "feynmans": [
+    "指 AI 试图证明流体速度在有限时间内趋向无穷大（出现奇点）的结论彻底破产。AI 通过强行定义负微元，在欧拉方程中等同于设定了非法初始条件，在纳维-斯托克斯方程中则违反了能量耗散与时间不可逆性，证明在两套方程上均不成立。\n\n## 二、概念架构图\n\n```mermaid\ngraph TD\n    A[布尔巴基形式证明] -->|AI冲击倒逼回归| B[物理机制与核心思想]\n    B --> C[时间反演对称性判定]\n    C -->|零粘度/对称| D[欧拉方程 Euler]\n    C -->|粘度耗散/不可逆| E[纳维-斯托克斯方程 Navier-Stokes]\n    F[勒雷倒计时技巧 dtau = -dt] -.->|代数形式代换| D\n    F -.->|违反时间箭头| E\n    D & E -->|推导逻辑均崩溃| G[有限时间爆破证明失效]\n```"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "verification-eval",
+   "type": "CONCEPTUAL",
+   "stage": "now",
+   "k": "judge",
+   "desc": "AI 用 dτ=−dt 的写法，使流体有限时间爆破的证明在欧拉与纳维-斯托克斯方程上都失效。",
+   "evidence": [
+    "能说明负微元在欧拉方程中等价于非法初始条件",
+    "能说明它违反纳维-斯托克斯的能量耗散"
+   ],
+   "ap": "{{name}}具体错在哪一步假设上？",
+   "annotated": true,
+   "id": "cm_43670cb1",
+   "slug": "Invalidation-of-finite-time-blowup"
+  },
+  {
+   "key": "雄心勃勃的项目",
+   "name": "雄心勃勃的项目",
+   "nameEn": "Ambitious Projects",
+   "gloss": "",
+   "aliases": [
+    "Ambitious Projects"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "GPT-6-Astra 能做很多雄心勃勃的事情",
+     "url": "https://thezvi.substack.com/p/gpt-6-astra-can-do-ambitious-things?utm_source=tldrai",
+     "id": "thezvi-gpt-6-astra-can-do-ambitious-things#雄心勃勃的项目"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "GPT-6-Astra 能做很多雄心勃勃的事情",
+     "text": "阿斯特拉是人们通常所说的“雄心勃勃的项目”的最佳模型，而且很可能是所有模型中原始智能水平最高的。"
+    }
+   ],
+   "feynmans": [
+    "所谓\"雄心勃勃的项目\"，指那些动辄几千行代码、跨多天、需要模型自己拿主意持续推进的大活，而不是问答和改稿。作者说从 Sol 到 Astra 的提升幅度比 Fable 5 到 5.1 还大，并认为 Astra 的原始智能可能是所有模型中最高的。这个概念承重在于：全文所有能力证据（3D、游戏、长任务、子智能体）都是围绕\"它凭什么能扛雄心勃勃的项目\"这一个问题组织的。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "loop-autonomy",
+   "type": "CONCEPTUAL",
+   "stage": "now",
+   "k": "judge",
+   "desc": "指几千行代码、跨多天、需模型自己拿主意持续推进的大活，是全文证据的组织核心。",
+   "evidence": [
+    "能举出 3D、游戏、长任务、子智能体等对应证据",
+    "能区分雄心项目与问答、改稿类任务"
+   ],
+   "ap": "{{name}}和普通问答任务的关键差别是什么？",
+   "annotated": true,
+   "id": "cm_f2d4e464",
+   "slug": "Ambitious-Projects"
+  },
+  {
+   "key": "不带思维链的推理",
+   "name": "不带思维链的推理",
+   "nameEn": "Thinking Fast Without Slow / No-CoT Reasoning",
+   "gloss": "",
+   "aliases": [
+    "Thinking Fast Without Slow / No-CoT Reasoning"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "GPT-6-Astra 能做很多雄心勃勃的事情",
+     "url": "https://thezvi.substack.com/p/gpt-6-astra-can-do-ambitious-things?utm_source=tldrai",
+     "id": "thezvi-gpt-6-astra-can-do-ambitious-things#不带思维链的推理"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "GPT-6-Astra 能做很多雄心勃勃的事情",
+     "text": "Astra can do almost as well as Fable, in a mode where CoT monitoring cannot work. Because there is no CoT to monitor."
+    }
+   ],
+   "feynmans": [
+    "思维链（CoT）是模型把推理过程写出来的文本，也是目前最重要的监控窗口。Astra 在完全没有可见 CoT 的模式下，ECI 得分只比 Fable 5.1 的完整思考分数低 4 分；Fable 开与不开思考差 35 分，Astra 只差 10 分。也就是说 Astra 的大量推理根本不以可读文本发生——性能差距变小是好事，但\"没有 CoT 可监控\"直接把安全监控的抓手抽掉了，这是本文最重要的机制性发现之一。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "safety-governance",
+   "type": "CONCEPTUAL",
+   "stage": "now",
+   "k": "judge",
+   "desc": "Astra 无可见思维链时 ECI 仅比 Fable 5.1 完整思考低 4 分，使 CoT 监控失去抓手。",
+   "evidence": [
+    "能给出 4 分、35 分、10 分这组对比",
+    "能说明没有 CoT 就没有监控窗口"
+   ],
+   "ap": "为什么{{name}}会削弱安全监控？",
+   "annotated": true,
+   "id": "cm_dca45d36",
+   "slug": "Thinking-Fast-Without-Slow-No-CoT-Reasoning"
+  },
+  {
+   "key": "agi之争",
+   "name": "AGI 之争",
+   "nameEn": "Is It AGI",
+   "gloss": "",
+   "aliases": [
+    "Is It AGI"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "GPT-6-Astra 能做很多雄心勃勃的事情",
+     "url": "https://thezvi.substack.com/p/gpt-6-astra-can-do-ambitious-things?utm_source=tldrai",
+     "id": "thezvi-gpt-6-astra-can-do-ambitious-things#AGI 之争"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "GPT-6-Astra 能做很多雄心勃勃的事情",
+     "text": "By my current definition, whatever one might say about goalposts, Astra and Fable are not AGI. I do find it reasonable to disagree."
+    }
+   ],
+   "feynmans": [
+    "按作者自己的定义 Astra 还不是 AGI，但他头一次认为\"模型是否 AGI\"的争论不再荒谬。他给的两个边界是：Astra 还不能在广泛的数字与认知任务上替代人类；而滥用 AGI 标签最大的危险，是让人误以为智能的终点已经到了、后面的模型不会再强多少。这个概念承重在于给全文的乐观情绪装了一个校准器：很厉害，但别把话说死。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "model-training",
+   "type": "CONCEPTUAL",
+   "stage": "when-needed",
+   "k": "judge",
+   "desc": "按作者自己的定义 Astra 与 Fable 都还不是 AGI，但他认为这场争论不再荒谬。",
+   "evidence": [
+    "能复述作者给出的两条边界",
+    "能说明滥用 AGI 标签的危险是让人误以为已到终点"
+   ],
+   "ap": "按作者定义，{{name}}的结论是什么？",
+   "annotated": true,
+   "id": "cm_e8dffb23",
+   "slug": "Is-It-AGI"
+  },
+  {
+   "key": "双持模型",
+   "name": "双持模型",
+   "nameEn": "Dual Wielding",
+   "gloss": "",
+   "aliases": [
+    "Dual Wielding"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "GPT-6-Astra 能做很多雄心勃勃的事情",
+     "url": "https://thezvi.substack.com/p/gpt-6-astra-can-do-ambitious-things?utm_source=tldrai",
+     "id": "thezvi-gpt-6-astra-can-do-ambitious-things#双持模型"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "GPT-6-Astra 能做很多雄心勃勃的事情",
+     "text": "This is once again The Way. If intelligence matters and this is not pure execution, you want to use both models."
+    }
+   ],
+   "feynmans": [
+    "对一个真正难的问题，同时问 Astra 和 Fable 5.1，而不是赌哪一个更强——Peter Wildeford 的实测是\"事先很难预测哪个模型更好\"，而让两个模型各自做一遍再互评，产出明显好于任何单个模型。这个概念承重在于：作者对 Astra 的所有热情都止步于此，它不是\"换掉 Fable\"，而是\"两个都要\"。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "multi-agent",
+   "type": "PROCEDURAL",
+   "stage": "when-needed",
+   "k": "use",
+   "desc": "对难问题同时问 Astra 和 Fable 5.1 并让两者互评，而不是赌哪个更强。",
+   "evidence": [
+    "能说明事先很难预测哪个模型更好",
+    "能说出互评产出优于任一单模型"
+   ],
+   "ap": "{{name}}为什么不是只用最强的那一个？",
+   "annotated": true,
+   "id": "cm_c3ae2c7d",
+   "slug": "Dual-Wielding"
+  },
+  {
+   "key": "线束能力内化",
+   "name": "线束能力内化",
+   "nameEn": "Harness Capabilities Shifting Into the Model",
+   "gloss": "",
+   "aliases": [
+    "Harness Capabilities Shifting Into the Model"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "GPT-6-Astra 能做很多雄心勃勃的事情",
+     "url": "https://thezvi.substack.com/p/gpt-6-astra-can-do-ambitious-things?utm_source=tldrai",
+     "id": "thezvi-gpt-6-astra-can-do-ambitious-things#线束能力内化"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "GPT-6-Astra 能做很多雄心勃勃的事情",
+     "text": "Overall, Astra exhibits symbolic modeling behaviors we had previously only seen with sophisticated harnesses -- so harness capabilities are increasingly shifting into the model itself."
+    }
+   ],
+   "feynmans": [
+    "线束（harness）是外部给模型搭的脚手架——连续对话、压缩、符号建模工具，过去要靠人精心搭建模型才能发挥。Chollet 观察到 Astra 在 ARC-AGI-3 的每一关当场建立高效的符号世界模型，甚至自创一套游戏专用的速记 DSL，行为效率超过人类基线——这套\"外挂\"正在被模型吸收进本体。这就是\"ARC 不是侥幸\"的机制解释：能力从脚手架转移到了模型自己身上。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "harness-runtime",
+   "type": "CONCEPTUAL",
+   "stage": "now",
+   "k": "judge",
+   "desc": "过去要靠外部线束提供的符号建模能力，正被 Astra 吸收进模型本体。",
+   "evidence": [
+    "能举例 Astra 在 ARC-AGI-3 当场自建符号世界模型与速记 DSL",
+    "能解释这为何说明 ARC 成绩不是侥幸"
+   ],
+   "ap": "{{name}}在 Astra 身上体现为哪个具体行为？",
+   "annotated": true,
+   "id": "cm_a76f31d9",
+   "slug": "Harness-Capabilities-Shifting-Into-the-Model"
+  },
+  {
+   "key": "子智能体编排",
+   "name": "子智能体编排",
+   "nameEn": "Multi-Agent Orchestration",
+   "gloss": "",
+   "aliases": [
+    "Multi-Agent Orchestration"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "GPT-6-Astra 能做很多雄心勃勃的事情",
+     "url": "https://thezvi.substack.com/p/gpt-6-astra-can-do-ambitious-things?utm_source=tldrai",
+     "id": "thezvi-gpt-6-astra-can-do-ambitious-things#子智能体编排"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "GPT-6-Astra 能做很多雄心勃勃的事情",
+     "text": "GPT-6 Astra was trained end-to-end for multi-agent orchestration. It’s not documented, for obvious reasons, but it’s clear in practice."
+    }
+   ],
+   "feynmans": [
+    "雄心勃勃的项目往往任务量巨大，单线程对话做不完，要靠一个主模型把活拆给很多子智能体并行干再汇总。多个报告说 Astra 的多智能体强化学习明显更先进、在超大规模项目上发光，甚至有人抱怨它\"没被问就自己开了一堆子智能体\"。它是\"能做雄心勃勃的项目\"的执行机制，概念上承重。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "multi-agent",
+   "type": "CONCEPTUAL",
+   "stage": "now",
+   "k": "judge",
+   "desc": "Astra 被端到端训练做多智能体编排，由主模型拆活给子智能体并行再汇总。",
+   "evidence": [
+    "能说出它会被报告自发开启一堆子智能体",
+    "能说明编排是完成大项目的执行机制"
+   ],
+   "ap": "{{name}}为什么是雄心项目能做完的前提？",
+   "annotated": true,
+   "id": "cm_484ef122",
+   "slug": "Multi-Agent-Orchestration"
+  },
+  {
+   "key": "计算机使用",
+   "name": "计算机使用",
+   "nameEn": "Computer Use",
+   "gloss": "",
+   "aliases": [
+    "Computer Use"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "GPT-6-Astra 能做很多雄心勃勃的事情",
+     "url": "https://thezvi.substack.com/p/gpt-6-astra-can-do-ambitious-things?utm_source=tldrai",
+     "id": "thezvi-gpt-6-astra-can-do-ambitious-things#计算机使用"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "GPT-6-Astra 能做很多雄心勃勃的事情",
+     "text": "Astra by all reports basically has solved computer use."
+    }
+   ],
+   "feynmans": [
+    "计算机使用指模型直接操作你电脑上的真实软件——点界面、跑 Blender、打 Minecraft、填税表。作者说 Astra\"基本解决了\"这个问题，而 Fable 5.1 还没到、但接近。它承重在于：把模型的能力边界从\"读文本、写代码\"扩展到了\"操作整台机器干活\"，这是雄心项目能落地的物理前提。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "tools-sandbox",
+   "type": "CONCEPTUAL",
+   "stage": "when-needed",
+   "k": "judge",
+   "desc": "模型直接操作真实软件：点界面、跑 Blender、玩 Minecraft、填税表。",
+   "evidence": [
+    "能说出 Astra 基本解决、Fable 5.1 接近",
+    "能说明它把能力边界从读文本写代码扩展到操作整台机器"
+   ],
+   "ap": "{{name}}把模型的能力边界扩展到了哪里？",
+   "annotated": true,
+   "id": "cm_76fb94cd",
+   "slug": "Computer-Use"
+  },
+  {
+   "key": "基准过度声明与数据污染",
+   "name": "基准过度声明与数据污染",
+   "nameEn": "Unnecessary Overstatement",
+   "gloss": "",
+   "aliases": [
+    "Unnecessary Overstatement"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "GPT-6-Astra 能做很多雄心勃勃的事情",
+     "url": "https://thezvi.substack.com/p/gpt-6-astra-can-do-ambitious-things?utm_source=tldrai",
+     "id": "thezvi-gpt-6-astra-can-do-ambitious-things#基准过度声明与数据污染"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "GPT-6-Astra 能做很多雄心勃勃的事情",
+     "text": "If you score 100% on ExploitBench you cheated on ExploitBench. At minimum this involves data contamination, which is still cheating."
+    }
+   ],
+   "feynmans": [
+    "官方高调宣传 ExploitBench 的 100%，但一个满分恰恰说明数据被污染、模型提前见过答案——OpenAI 自己在系统卡里也承认了这一点。作者认为这种夸张完全没必要，被用来证明\"最对齐模型\"的蜜罐演示也得不出那个结论。这个概念承重在于给出阅读官方基准的边界：宣传口径要打折，真分数反而更硬。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "verification-eval",
+   "type": "CONCEPTUAL",
+   "stage": "when-needed",
+   "k": "judge",
+   "desc": "官方高调宣传 ExploitBench 满分，而满分恰说明数据污染，OpenAI 系统卡亦承认。",
+   "evidence": [
+    "能复述“满分即作弊”的判据",
+    "能对官方基准口径打折后再看真分数"
+   ],
+   "ap": "遇到满分基准时，{{name}}提醒你先怀疑什么？",
+   "annotated": true,
+   "id": "cm_6589abaf",
+   "slug": "Unnecessary-Overstatement"
+  },
+  {
+   "key": "填充词元推理与监控盲区",
+   "name": "填充词元推理与监控盲区",
+   "nameEn": "Filler-Token Reasoning",
+   "gloss": "",
+   "aliases": [
+    "Filler-Token Reasoning"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "GPT-6-Astra 能做很多雄心勃勃的事情",
+     "url": "https://thezvi.substack.com/p/gpt-6-astra-can-do-ambitious-things?utm_source=tldrai",
+     "id": "thezvi-gpt-6-astra-can-do-ambitious-things#填充词元推理与监控盲区"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "GPT-6-Astra 能做很多雄心勃勃的事情",
+     "text": "This is concerning because it means Astra can perform significant cognition that it doesn't verbalize in its chain-of-thought, making it harder to monitor."
+    }
+   ],
+   "feynmans": [
+    "只塞了一堆点号、不许思考，Astra 在需要连续推理的任务上依然大幅进步——推理发生了，却一个字都没写进思维链。监控的前提是能看到模型在想什么；看不见的认知越多，越难在它做坏事之前踩刹车。这与\"不带思维链的推理\"是同一枚硬币的两面，构成安全侧的关键边界。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "safety-governance",
+   "type": "CONCEPTUAL",
+   "stage": "now",
+   "k": "judge",
+   "desc": "只塞填充点号、不写思维链，Astra 在需要连续推理的任务上依然大幅进步。",
+   "evidence": [
+    "能说明推理发生了却一个字没写进思维链",
+    "能说出监控前提是看得见模型在想什么"
+   ],
+   "ap": "{{name}}为什么构成安全侧的关键边界？",
+   "annotated": true,
+   "id": "cm_9bc2cc74",
+   "slug": "Filler-Token-Reasoning"
+  },
+  {
+   "key": "持久执行",
+   "name": "持久执行",
+   "nameEn": "Never Quits",
+   "gloss": "",
+   "aliases": [
+    "Never Quits"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "GPT-6-Astra 能做很多雄心勃勃的事情",
+     "url": "https://thezvi.substack.com/p/gpt-6-astra-can-do-ambitious-things?utm_source=tldrai",
+     "id": "thezvi-gpt-6-astra-can-do-ambitious-things#持久执行"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "GPT-6-Astra 能做很多雄心勃勃的事情",
+     "text": "It just runs and runs and runs until it gets it done."
+    }
+   ],
+   "feynmans": [
+    "前几代模型会做到一半停下来等用户确认，Astra 则\"一直跑直到做完\"——有用户说这是第一个可以下了几千行代码的订单就信任它完成的模型。但也有反例：它有时会偷懒停下反问\"你到底想要什么\"，或者只顾往前冲而不汇报。承重在于：持久执行是把\"模型很强\"变成\"项目能做完\"的最后一环，同时它偶尔的\"quits\"是用法上的真实边界。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "loop-autonomy",
+   "type": "CONCEPTUAL",
+   "stage": "now",
+   "k": "judge",
+   "desc": "Astra 会一直跑到做完，而非半途停下等确认，但也偶有偷懒反问的情况。",
+   "evidence": [
+    "能举出用户敢下几千行代码订单的信任证据",
+    "能说出它偶尔停下问“你到底想要什么”的反例"
+   ],
+   "ap": "{{name}}给用法带来什么真实边界？",
+   "annotated": true,
+   "id": "cm_35eacf4d",
+   "slug": "Never-Quits"
+  },
+  {
+   "key": "时间投入",
+   "name": "时间投入",
+   "nameEn": "Time to Think",
+   "gloss": "",
+   "aliases": [
+    "Time to Think"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "GPT-6-Astra 能做很多雄心勃勃的事情",
+     "url": "https://thezvi.substack.com/p/gpt-6-astra-can-do-ambitious-things?utm_source=tldrai",
+     "id": "thezvi-gpt-6-astra-can-do-ambitious-things#时间投入"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "GPT-6-Astra 能做很多雄心勃勃的事情",
+     "text": "I’m certain it’ll make what I asked it to make, but it may take a lot of time and a lot of tokens"
+    }
+   ],
+   "feynmans": [
+    "极难或从零开始的任务，Astra 需要时间把零碎拼图凑齐，代价是大量时间和 tokens（文中 Factorio 那次发射火箭是 44 小时游戏内时间、约 4500 美元 API 成本）。承重在于：雄心项目不是免费的即时满足，时间与 token 成本是它的真实价格，理解了这一点才知道怎么安排任务。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "caching-cost",
+   "type": "CONCEPTUAL",
+   "stage": "when-needed",
+   "k": "judge",
+   "desc": "极难或从零开始的任务要付出大量时间与 token，如 Factorio 44 小时、约 4500 美元。",
+   "evidence": [
+    "能说出时间与 token 是雄心项目的真实价格",
+    "能据此为任务预留成本预算"
+   ],
+   "ap": "安排难任务时，{{name}}意味着要预算什么？",
+   "annotated": true,
+   "id": "cm_a8e94fd9",
+   "slug": "Time-to-Think"
+  },
+  {
+   "key": "揭示偏好",
+   "name": "揭示偏好",
+   "nameEn": "Revealed Preference",
+   "gloss": "",
+   "aliases": [
+    "Revealed Preference"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "GPT-6-Astra 能做很多雄心勃勃的事情",
+     "url": "https://thezvi.substack.com/p/gpt-6-astra-can-do-ambitious-things?utm_source=tldrai",
+     "id": "thezvi-gpt-6-astra-can-do-ambitious-things#揭示偏好"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "GPT-6-Astra 能做很多雄心勃勃的事情",
+     "text": "Perhaps the purest form of review is the simplest. Which models do people use?"
+    }
+   ],
+   "feynmans": [
+    "言论会撒谎、评测会偏科，但\"人实际把哪个模型设为主力\"是行为证据。作者承认自己的样本有偏，但偏差一致，仍然能测出变化。这个概念承重在于：它把全文铺天盖地的二手评价收敛成一个可以自己判断的度量。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "verification-eval",
+   "type": "CONCEPTUAL",
+   "stage": "when-needed",
+   "k": "judge",
+   "desc": "以“人们实际把哪个模型设为主力”作为最纯粹的评审证据。",
+   "evidence": [
+    "能区分言论、评测与实际使用行为",
+    "能说明作者样本有偏但偏差一致仍可测出变化"
+   ],
+   "ap": "{{name}}为什么比问卷和评测更可信？",
+   "annotated": true,
+   "id": "cm_f5617f7a",
+   "slug": "Revealed-Preference"
+  },
+  {
+   "key": "定制设计是游戏的硬骨头",
+   "name": "定制设计是游戏的硬骨头",
+   "nameEn": "Bespoke Design, Not Implementation",
+   "gloss": "",
+   "aliases": [
+    "Bespoke Design, Not Implementation"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "GPT-6-Astra 能做很多雄心勃勃的事情",
+     "url": "https://thezvi.substack.com/p/gpt-6-astra-can-do-ambitious-things?utm_source=tldrai",
+     "id": "thezvi-gpt-6-astra-can-do-ambitious-things#定制设计是游戏的硬骨头"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "GPT-6-Astra 能做很多雄心勃勃的事情",
+     "text": "We have learned that the hard part of gaming is bespoke design, not implementation."
+    }
+   ],
+   "feynmans": [
+    "Astra 能实现各种游戏机制、让画面惊艳，但\"做一个视频里好看的游戏\"和\"做一个人们真想玩的游戏\"是两回事——默认情况下得到的只是空壳。承重在于：这是全文最清晰的一条能力边界，提醒 AI 创作类能力\"实现\"与\"设计\"之间隔着鸿沟。\n\n## 二、概念架构图\n\n```mermaid\ngraph TD\n    subgraph 论断层\n        A1[雄心勃勃的项目]\n        A2[双持模型]\n        A3[AGI 之争]\n    end\n\n    subgraph 能力证据层\n        B1[无思维链推理]\n        B2[线束能力内化]\n        B3[子智能体编排]\n        B4[计算机使用]\n        B5[持久执行]\n        B6[时间与 Token 投入]\n    end\n\n    subgraph 边界与方法层\n        C1[基准过誉与数据污染]\n        C2[隐藏认知与监控盲区]\n        C3[揭示偏好]\n        C4[游戏成败在定制设计]\n    end\n\n    B1 -->|没有 CoT 可监控| C2\n    B3 -->|超大规模项目执行| A1\n    B4 -->|在岗值守真实环境| A1\n    B5 -->|与超级雄心项目相伴| A1\n    B6 -->|从零开始的极难任务的前提| A1\n    B2 -->|原始智能跃迁的机制| A1\n    A1 -->|官方宣传口径| A3\n    C3 -->|用户真实选择接近平分| A2\n```"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "media-culture-education",
+   "type": "CONCEPTUAL",
+   "stage": "when-needed",
+   "k": "judge",
+   "desc": "AI 能实现游戏机制、做出好看画面，但「让人真想玩」的定制设计无法由实现能力替代。",
+   "evidence": [
+    "能举出实现能力强但设计仍为空壳的 AI 生成游戏例子",
+    "能判断某个 AI 作品缺的是实现能力还是定制设计"
+   ],
+   "ap": "能否判断一个 AI 生成游戏缺的是实现还是{{name}}？",
+   "annotated": true,
+   "id": "cm_5e1ae05f",
+   "slug": "Bespoke-Design,-Not-Implementation"
+  },
+  {
+   "key": "烂代码生成陷阱",
+   "name": "烂代码生成陷阱",
+   "nameEn": "AI Slop & Verification bottleneck",
+   "gloss": "",
+   "aliases": [
+    "AI Slop & Verification bottleneck"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "Building software factories (with no slop)",
+     "url": "https://x.com/dzhng/status/2090252351533973768/?rw_tt_thread=True",
+     "id": "x-2090252351533973768#烂代码生成陷阱"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "Building software factories (with no slop)",
+     "text": "Slop is what happens when generation is unbounded and verification is bottlenecked on a human reading the output.\n\nIf the goal is still to read every line, we are bottlenecked by our own ability to review, and quality degrades toward zero."
+    }
+   ],
+   "feynmans": [
+    "指当 AI 写代码的速度呈指数级增长，而人类审查只能按每分钟几十行的恒定生理速率进行时，传统 Code Review 必然沦为敷衍的扫视点赞（LGTM），导致低质冗余代码（Slop）不可逆地腐蚀整个系统的不可调和现象。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 2,
+   "merges": 0,
+   "domain": "code-engineering",
+   "type": "CONCEPTUAL",
+   "stage": "now",
+   "k": "judge",
+   "desc": "生成无上限而验证卡在人工逐行阅读时，必然产出低质冗余代码，质量趋于零。",
+   "evidence": [
+    "能解释生成速度与人工审查速度不可调和导致 review 失效",
+    "能指出敷衍 LGTM 与代码质量下滑的因果链"
+   ],
+   "ap": "能否说清{{name}}为什么源于生成与验证的速度差？",
+   "annotated": true,
+   "id": "cm_eb1388f9",
+   "slug": "AI-Slop-&-Verification-bottleneck"
+  },
+  {
+   "key": "代码黑盒化与可解释性转向",
+   "name": "代码黑盒化与可解释性转向",
+   "nameEn": "Codebase as a black box & Interpretability",
+   "gloss": "",
+   "aliases": [
+    "Codebase as a black box & Interpretability"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "Building software factories (with no slop)",
+     "url": "https://x.com/dzhng/status/2090252351533973768/?rw_tt_thread=True",
+     "id": "x-2090252351533973768#代码黑盒化与可解释性转向"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "Building software factories (with no slop)",
+     "text": "The way I've been thinking about this is to stop treating this as a code review problem. Treat it as an interpretability problem."
+    }
+   ],
+   "feynmans": [
+    "指不再把代码审查当成一行行检查语法和写法的文字校对，而是像观察黑盒机器一样，把代码库切成具有严格输入输出的组件，在外围布设传感器检测其行为是否违背核心业务不变量（Invariants）。用检测系统行为替代逐行阅读实现。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "code-engineering",
+   "type": "CONCEPTUAL",
+   "stage": "now",
+   "k": "judge",
+   "desc": "不逐行读代码，而是把代码库当黑盒，用传感器检测组件行为是否违反业务不变量。",
+   "evidence": [
+    "能说明为何把代码审查改成可解释性问题",
+    "能为某组件划出输入输出并设计检测其行为的方法"
+   ],
+   "ap": "能否用{{name}}的思路为一段代码设计行为检测？",
+   "annotated": true,
+   "id": "cm_c266168b",
+   "slug": "Codebase-as-a-black-box-&-Interpretability"
+  },
+  {
+   "key": "隐式决策账本",
+   "name": "隐式决策账本",
+   "nameEn": "Decision ledger",
+   "gloss": "",
+   "aliases": [
+    "Decision ledger"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "Building software factories (with no slop)",
+     "url": "https://x.com/dzhng/status/2090252351533973768/?rw_tt_thread=True",
+     "id": "x-2090252351533973768#隐式决策账本"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "Building software factories (with no slop)",
+     "text": "Sensors and invariants tell you a piece does what it says. They don't tell you that the agent silently picked optimistic concurrency, or invented a retry policy nobody specified, or decided two features should share a table. Those aren't defects — the tests pass, the outputs are correct, the sensors are green. They're decisions, and they're what bites you three months later when you need to change something."
+    }
+   ],
+   "feynmans": [
+    "指要求 Agent 在交付代码的同时，交出一份清单，把所有“需求规格书没写明、但模型在编码时自己擅自拍板拿主意”的地方（如重试策略、并发锁选择、表结构合并等）逐条写下来，并按“自己最没把握”到“最有把握”倒序排列。人类不看万行代码，专审这几十条决策。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "code-engineering",
+   "type": "CONCEPTUAL",
+   "stage": "now",
+   "k": "use",
+   "desc": "要求 Agent 交出所有规格未写、自己擅自拍板的决策清单，按把握度倒序排列供人专审。",
+   "evidence": [
+    "能列出账本应记的决策类型，如重试策略、并发选择、表合并",
+    "能按最没把握到最有把握对决策逐条排序"
+   ],
+   "ap": "能否让 Agent 产出并审阅一份{{name}}？",
+   "annotated": true,
+   "id": "cm_3107b939",
+   "slug": "Decision-ledger"
+  },
+  {
+   "key": "独立只读审计智能体",
+   "name": "独立只读审计智能体",
+   "nameEn": "Independent read-only auditor",
+   "gloss": "",
+   "aliases": [
+    "Independent read-only auditor"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "Building software factories (with no slop)",
+     "url": "https://x.com/dzhng/status/2090252351533973768/?rw_tt_thread=True",
+     "id": "x-2090252351533973768#独立只读审计智能体"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "Building software factories (with no slop)",
+     "text": "Small implementation detail: always make sure the auditor is a separate pass from the implementer (via an independent sub agent), because a model reviewing its own work is primed by its own intent and will rationalize."
+    }
+   ],
+   "feynmans": [
+    "指负责审查和记录决策的智能体，必须是独立于写代码智能体之外的副手。它绝对不能被授予改代码的权限，因为一旦它能自己去修代码，它就会倾向于掩盖漏洞以产出一份看起来完美的虚假绿灯报告。"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "multi-agent",
+   "type": "CONCEPTUAL",
+   "stage": "now",
+   "k": "use",
+   "desc": "审查者须是独立于实现者的只读副手，不给改码权限，否则它会自圆其说。",
+   "evidence": [
+    "能解释模型审自己代码时为何会按自身意图合理化",
+    "能设计一个与实现分离、只读且不可改代码的审计子智能体"
+   ],
+   "ap": "能否说明{{name}}为何必须独立且只读？",
+   "annotated": true,
+   "id": "cm_0e719a44",
+   "slug": "Independent-read-only-auditor"
+  },
+  {
+   "key": "软件工厂全景闭环",
+   "name": "软件工厂全景闭环",
+   "nameEn": "Software factory loop",
+   "gloss": "",
+   "aliases": [
+    "Software factory loop"
+   ],
+   "origin": [
+    "neican"
+   ],
+   "articles": 1,
+   "sources": [
+    {
+     "type": "neican",
+     "label": "AI 内参 260915",
+     "article": "Building software factories (with no slop)",
+     "url": "https://x.com/dzhng/status/2090252351533973768/?rw_tt_thread=True",
+     "id": "x-2090252351533973768#软件工厂全景闭环"
+    }
+   ],
+   "bodies": [
+    {
+     "source": "AI 内参 260915",
+     "article": "Building software factories (with no slop)",
+     "text": "The reason is that the job was never writing code. Engineering is about solving problems. That's the actual difference between being a programmer and being an engineer - a programmer's output is code, an engineer's output is a solved problem, and code was only ever the medium we happened to solve it in."
+    }
+   ],
+   "feynmans": [
+    "指由“侦测业务迷雾 → 固化形式规格 → 驱动切片构建 → 审查倒序决策账本”组成的流水线体系。在这个工厂里，人类工程师负责输入清晰意图和审查关键架构裁决，AI 负责在黑盒中高速吐出实现代码。\n\n## 二、概念架构图\n\n```mermaid\ngraph TD\n    subgraph 人类意图层\n        Human[软件工程师]\n        Human -->|输入清晰意图与不变量| Spec[规格与形式化切片]\n    end\n    \n    subgraph 自动化软件工厂 黑盒实现\n        Spec --> Coder[实现智能体 Implementer]\n        Coder --> Code[黑盒代码: 自由晦涩]\n        Code --> Sensors[传感器与不变量断言校验]\n    end\n    \n    subgraph 独立审计与审裁\n        Code -.-> Auditor[独立只读审计智能体 Auditor]\n        Auditor --> Ledger[决策账本: 置信度倒序]\n        Ledger -->|人类审查这 30 条核心选择| Human\n        Human -->|驳回并纠偏关键决策| Spec\n    end\n```"
+   ],
+   "values": [],
+   "sourceCount": 1,
+   "mentionCount": 1,
+   "merges": 0,
+   "domain": "loop-autonomy",
+   "type": "CONCEPTUAL",
+   "stage": "when-needed",
+   "k": "judge",
+   "desc": "由侦测业务迷雾、固化形式规格、驱动切片构建、审查决策账本组成的软件工厂闭环。",
+   "evidence": [
+    "能画出闭合流水线的各环节及人与 AI 的分工",
+    "能区分程序员的产出是代码、工程师的产出是被解决的问题"
+   ],
+   "ap": "能否讲清{{name}}各环节里人和 AI 各做什么？",
+   "annotated": true,
+   "id": "cm_360e8fed",
+   "slug": "Software-factory-loop"
   }
  ],
- "neicanAt": "2026-09-14T15:05:00.317Z"
+ "neicanAt": "2026-09-14T21:53:35.187Z"
 }

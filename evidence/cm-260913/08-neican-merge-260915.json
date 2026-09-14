@@ -1,0 +1,481 @@
+{
+ "generatedAt": "2026-09-14T21:53:35.277Z",
+ "model": "deepseek-flash",
+ "tokens": 96010,
+ "parsed": 67,
+ "hitExisting": 1,
+ "added": 66,
+ "edges": 39,
+ "failed": [],
+ "hits": [
+  {
+   "neican": "确定性",
+   "article": "都承诺提供6GW的运维能力",
+   "node": "Latent vs Deterministic"
+  }
+ ],
+ "added_nodes": [
+  {
+   "id": "cm_c828d428",
+   "name": "基于文件的技能",
+   "domain": "上下文工程",
+   "desc": "把业务规范与领域知识从提示词抽成 Markdown 文件，Agent 按需查阅",
+   "article": "https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude"
+  },
+  {
+   "id": "cm_fde7ba65",
+   "name": "外层改进者技能",
+   "domain": "循环与自主执行",
+   "desc": "按周期运行、比对人类反馈并向内层基础技能提出最小改进补丁的元智能体",
+   "article": "https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude"
+  },
+  {
+   "id": "cm_223e91f3",
+   "name": "PR 驱动的审查合并闭环",
+   "domain": "代码库与工程实践",
+   "desc": "让 Agent 的技能改动走 Git PR，经人类审查合并后才生效的闭环",
+   "article": "https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude"
+  },
+  {
+   "id": "cm_8989be25",
+   "name": "写原则而非写死规则",
+   "domain": "规格与意图对齐",
+   "desc": "写技能时给判据与方向而非穷尽规则，让模型在未知边界下自行推理",
+   "article": "https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude"
+  },
+  {
+   "id": "cm_78c4c140",
+   "name": "技能与记忆的本质区别",
+   "domain": "记忆与检索",
+   "desc": "技能是稳定程序性的'怎么做'，记忆是推理期自动写入、持续变动的状态",
+   "article": "https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude"
+  },
+  {
+   "id": "cm_8924eaeb",
+   "name": "分层对抗式研究流水线",
+   "domain": "多 Agent 编排",
+   "desc": "把研究拆成分解、扫描、矛盾聚类、对抗批判、引文核实等十六步的流水线",
+   "article": "jordan-gibbs/hyperresearch：基于智能体的研究知识库。智能体收集、搜索并将网络研究成果整合到一个持久的、可搜索的维基中。"
+  },
+  {
+   "id": "cm_ef64feed",
+   "name": "只打补丁绝不重写",
+   "domain": "安全权限与合规",
+   "desc": "初稿生成后只允许小粒度 Edit 补丁，修改方被权限锁死无法整体重写",
+   "article": "jordan-gibbs/hyperresearch：基于智能体的研究知识库。智能体收集、搜索并将网络研究成果整合到一个持久的、可搜索的维基中。"
+  },
+  {
+   "id": "cm_b7b56e2b",
+   "name": "原始查询即圣经",
+   "domain": "规格与意图对齐",
+   "desc": "用户原始提示词被逐字持久化，后续每一步与子智能体都必须重读它",
+   "article": "jordan-gibbs/hyperresearch：基于智能体的研究知识库。智能体收集、搜索并将网络研究成果整合到一个持久的、可搜索的维基中。"
+  },
+  {
+   "id": "cm_2175bf27",
+   "name": "Markdown 为真源，SQLite 为缓存",
+   "domain": "状态与持久化",
+   "desc": "笔记以 Markdown 加 YAML 头为真源，SQLite 仅作可随时重建的检索缓存",
+   "article": "jordan-gibbs/hyperresearch：基于智能体的研究知识库。智能体收集、搜索并将网络研究成果整合到一个持久的、可搜索的维基中。"
+  },
+  {
+   "id": "cm_5cd488e5",
+   "name": "笔记生命周期策展",
+   "domain": "记忆与检索",
+   "desc": "每轮研究结束做一次策展，让笔记在 draft、evergreen、stale 等状态间流转",
+   "article": "jordan-gibbs/hyperresearch：基于智能体的研究知识库。智能体收集、搜索并将网络研究成果整合到一个持久的、可搜索的维基中。"
+  },
+  {
+   "id": "cm_64cf3dd2",
+   "name": "特定领域架构",
+   "domain": "AI 算力与基建",
+   "desc": "只为某类工作负载定制的芯片架构，追求通用 CPU 之外的量级收益",
+   "article": "都承诺提供6GW的运维能力"
+  },
+  {
+   "id": "cm_f155c3b7",
+   "name": "内存墙",
+   "domain": "AI 算力与基建",
+   "desc": "算力指数增长而内存带宽跟不上，架构问题变成如何让数据靠近计算",
+   "article": "都承诺提供6GW的运维能力"
+  },
+  {
+   "id": "cm_778efcce",
+   "name": "GEMM 与 GEMV",
+   "domain": "AI 算力与基建",
+   "desc": "训练与预填充是矩阵乘矩阵、计算密集，解码退化成矩阵乘向量、带宽受限",
+   "article": "都承诺提供6GW的运维能力"
+  },
+  {
+   "id": "cm_a0acd706",
+   "name": "脉动阵列与权重驻留",
+   "domain": "AI 算力与基建",
+   "desc": "乘加网格中权重预先驻留不动、激活流过，数据复用焊进导线省掉访存",
+   "article": "都承诺提供6GW的运维能力"
+  },
+  {
+   "id": "cm_b154f15f",
+   "name": "向上扩展与向外扩展",
+   "domain": "AI 算力与基建",
+   "desc": "芯片先绑成紧耦合域，域内跑吃带宽的集合通信，域间才走通用网络",
+   "article": "都承诺提供6GW的运维能力"
+  },
+  {
+   "id": "cm_fd92ca19",
+   "name": "硬件一致性对消息传递",
+   "domain": "AI 算力与基建",
+   "desc": "NVLink/NVSwitch 用硬件做远端 HBM 读写与一致性；ICI 无远程语义，多芯片操作全靠编译器显式集合通信。",
+   "article": "都承诺提供6GW的运维能力"
+  },
+  {
+   "id": "cm_e0304491",
+   "name": "软件管理暂存器",
+   "domain": "AI 算力与基建",
+   "desc": "显式寻址的片上 SRAM（VMEM/SBUF/MEM），无预取无逐出无一致性，位置全靠编译器钉死。",
+   "article": "都承诺提供6GW的运维能力"
+  },
+  {
+   "id": "cm_80f7b860",
+   "name": "编译器即调度器",
+   "domain": "AI 算力与基建",
+   "desc": "把每周期做什么搬进编译器：无乱序、无预测、无动态调度，省下的硅面积换成更多乘加单元。",
+   "article": "都承诺提供6GW的运维能力"
+  },
+  {
+   "id": "cm_c21c5190",
+   "name": "数据流执行",
+   "domain": "AI 算力与基建",
+   "desc": "核不取指令等活，等数据（wavelet）到达即触发绑定任务，用到达而非时钟排程，跳零免费。",
+   "article": "都承诺提供6GW的运维能力"
+  },
+  {
+   "id": "cm_6b151e00",
+   "name": "权重流",
+   "domain": "AI 算力与基建",
+   "desc": "晶圆级引擎让激活驻留片上 SRAM、权重从 MemoryX 逐层流入，模型大小与晶圆内存解耦。",
+   "article": "都承诺提供6GW的运维能力"
+  },
+  {
+   "id": "cm_e98cbbd1",
+   "name": "功能切片",
+   "domain": "AI 算力与基建",
+   "desc": "把常规核心拆开竖放：控制、向量、矩阵、搬移、存储各成一列，数据横穿切片如流水线工件。",
+   "article": "都承诺提供6GW的运维能力"
+  },
+  {
+   "id": "cm_4f0a2560",
+   "name": "光路交换",
+   "domain": "AI 算力与基建",
+   "desc": "3D-MEMS 微镜阵列的光路交换：开工时选好拓扑跑一周，一个器件同时解决重配、切分与容错。",
+   "article": "都承诺提供6GW的运维能力"
+  },
+  {
+   "id": "cm_cbb94801",
+   "name": "精度减半与微缩放",
+   "domain": "AI 算力与基建",
+   "desc": "FP16→FP8→FP4 逐代位宽砍半，换约 2× 每瓦吞吐；用块级共享指数的 MX 微缩放找回精度。",
+   "article": "都承诺提供6GW的运维能力"
+  },
+  {
+   "id": "cm_f69f2345",
+   "name": "Git 工作树并发隔离",
+   "domain": "多 Agent 编排",
+   "desc": "为每个 AI 会话用 git worktree 单独检出工作目录，共用同一 .git 元数据，物理上互不覆盖。",
+   "article": "Worktrees | ChatGPT Learn"
+  },
+  {
+   "id": "cm_28fe50df",
+   "name": "会话与工作交接机制",
+   "domain": "多 Agent 编排",
+   "desc": "在前台本地工作区与后台工作树之间安全搬迁工作的自动化流程，代你完成必要的 Git 操作。",
+   "article": "Worktrees | ChatGPT Learn"
+  },
+  {
+   "id": "cm_dfa03e4c",
+   "name": "单分支单一权威工作副本保证",
+   "domain": "代码库与工程实践",
+   "desc": "每个分支同一时刻只能在一个工作树检出的规则，保证每个分支只有一个权威可变工作副本。",
+   "article": "Worktrees | ChatGPT Learn"
+  },
+  {
+   "id": "cm_34e150d6",
+   "name": "未跟踪文件携带清单",
+   "domain": "代码库与工程实践",
+   "desc": "放在仓库根目录的清单文件，列出新建工作树时要复制的被忽略文件，用 .gitignore 式模式书写。",
+   "article": "Worktrees | ChatGPT Learn"
+  },
+  {
+   "id": "cm_b0960cab",
+   "name": "单分支单一可变引用限制",
+   "domain": "代码库与工程实践",
+   "desc": "分支本质是 refs/heads/<name> 单一可变引用，只代表某工作树的当前检出状态，故不可多处同检。",
+   "article": "Worktrees | ChatGPT Learn"
+  },
+  {
+   "id": "cm_c32be74a",
+   "name": "三层知识架构",
+   "domain": "记忆与检索",
+   "desc": "把经验与知识分开：原始轨迹、持久知识库、带溯源技能三层，经验先沉淀再由知识驱动技能。",
+   "article": "谷歌重磅发布WikiSkill，技能可以自己进化了！"
+  },
+  {
+   "id": "cm_0192e485",
+   "name": "原始轨迹层",
+   "domain": "记忆与检索",
+   "desc": "存储每次迭代的执行轨迹：完整推理、工具调用与输出结果，不可变，保留到底发生了什么。",
+   "article": "谷歌重磅发布WikiSkill，技能可以自己进化了！"
+  },
+  {
+   "id": "cm_87461ad4",
+   "name": "持久维基层",
+   "domain": "记忆与检索",
+   "desc": "Wiki 层把具体成败轨迹提炼为抽象规律；技能被拒而回滚时，Wiki 永不回滚，保留失败教训。",
+   "article": "谷歌重磅发布WikiSkill，技能可以自己进化了！"
+  },
+  {
+   "id": "cm_e22503f1",
+   "name": "技能溯源",
+   "domain": "规格与意图对齐",
+   "desc": "每个技能除 SKILL.md 外标配 PURPOSE.md，记录它为解决 Wiki 中哪条失败模式而存在。",
+   "article": "谷歌重磅发布WikiSkill，技能可以自己进化了！"
+  },
+  {
+   "id": "cm_b65cad24",
+   "name": "维基消融效应",
+   "domain": "验证与评估门禁",
+   "desc": "去掉 Wiki 访问后平均分从 63.7% 降至 48.7%，回落约 15 个百分点。",
+   "article": "谷歌重磅发布WikiSkill，技能可以自己进化了！"
+  },
+  {
+   "id": "cm_6d8095ba",
+   "name": "长期运行智能体执行框架",
+   "domain": "Harness 与运行时",
+   "desc": "支撑 Agent 连续运行数天的执行框架：管理上下文、高效用工具、协调子智能体并提供文件与代码环境。",
+   "article": "推出 Agents API | OpenAI"
+  },
+  {
+   "id": "cm_2ee67864",
+   "name": "上下文自动压缩",
+   "domain": "上下文工程",
+   "desc": "会话接近上下文上限时，Agents API 自动压缩较早上下文，同时保留继续工作所需的信息。",
+   "article": "推出 Agents API | OpenAI"
+  },
+  {
+   "id": "cm_9ee5650d",
+   "name": "工具按需搜索",
+   "domain": "缓存与成本控制",
+   "desc": "工具搜索按需加载相关工具定义，在保留模型缓存的同时减少 Token 用量和成本。",
+   "article": "推出 Agents API | OpenAI"
+  },
+  {
+   "id": "cm_2a78bb06",
+   "name": "程序化工具调用",
+   "domain": "工具调用与沙箱",
+   "desc": "让智能体并行执行调用、串联操作，并用代码筛选或合并结果，只把相关结果送回上下文。",
+   "article": "推出 Agents API | OpenAI"
+  },
+  {
+   "id": "cm_384a9cd4",
+   "name": "子智能体并行委派",
+   "domain": "多 Agent 编排",
+   "desc": "主智能体把复杂任务拆成相互独立的部分委派给子智能体并行处理，各自维护上下文，主智能体汇总结果。",
+   "article": "推出 Agents API | OpenAI"
+  },
+  {
+   "id": "cm_13262d3d",
+   "name": "开源 Codex 执行线圈",
+   "domain": "Harness 与运行时",
+   "desc": "驱动 Agents API 的开源 Codex harness，公开协调模型调用、工具与上下文的核心逻辑。",
+   "article": "推出 Agents API | OpenAI"
+  },
+  {
+   "id": "cm_6105c3cd",
+   "name": "状态维护型记忆",
+   "domain": "记忆与检索",
+   "desc": "不只是记录说过什么，而是维护一份当前已知事实的状态；前提被推翻时相应认知随之更新。",
+   "article": "Some things should probably stay fuzzy"
+  },
+  {
+   "id": "cm_26e584e0",
+   "name": "事实与推导的自动级联失效",
+   "domain": "记忆与检索",
+   "desc": "观察变化时，依赖该事实的结论自动变为失效，无需模型重读历史去发现全部连锁后果。",
+   "article": "Some things should probably stay fuzzy"
+  },
+  {
+   "id": "cm_2b232258",
+   "name": "模糊与确定性解耦范式",
+   "domain": "记忆与检索",
+   "desc": "把问题拆成两半：LLM 负责把模糊非结构化输入转成结构化事实，确定性引擎负责状态推导与一致性。",
+   "article": "Some things should probably stay fuzzy"
+  },
+  {
+   "id": "cm_927648fd",
+   "name": "推论因果溯源图",
+   "domain": "记忆与检索",
+   "desc": "每条推导结论都挂载证据树，记录由哪些基础事实与规则推出，可追问来源并顺藤摸瓜。",
+   "article": "Some things should probably stay fuzzy"
+  },
+  {
+   "id": "cm_4735de9e",
+   "name": "声明式逻辑记忆引擎",
+   "domain": "记忆与检索",
+   "desc": "用 Datalog 只声明事实与规则，由引擎自动派生新事实并在事实增删时重算依赖，不耗推理 Token。",
+   "article": "Some things should probably stay fuzzy"
+  },
+  {
+   "id": "cm_20cfc599",
+   "name": "布尔巴基风格证明",
+   "domain": "认知与思维方法",
+   "desc": "以法国布尔巴基学派为代表的高度公理化形式主义证明风格。",
+   "article": "“深奥的定理曾经稀少且晦涩，因此成为识别深刻思想的有效机制。人工智能打破了这一体系。”"
+  },
+  {
+   "id": "cm_062e1f08",
+   "name": "勒雷奇点倒计时技巧",
+   "domain": "验证与评估门禁",
+   "desc": "令 τ=1−t 把时间反向、让奇点成为倒计时终点的变量替换，勒雷 1934 年首创。",
+   "article": "“深奥的定理曾经稀少且晦涩，因此成为识别深刻思想的有效机制。人工智能打破了这一体系。”"
+  },
+  {
+   "id": "cm_b5f952be",
+   "name": "欧拉方程与纳维-斯托克斯的时间反演对称性",
+   "domain": "认知与思维方法",
+   "desc": "欧拉方程零粘度、时间可逆；纳维-斯托克斯有粘性耗散，时间只有一个方向。",
+   "article": "“深奥的定理曾经稀少且晦涩，因此成为识别深刻思想的有效机制。人工智能打破了这一体系。”"
+  },
+  {
+   "id": "cm_43670cb1",
+   "name": "有限时间爆破失效",
+   "domain": "验证与评估门禁",
+   "desc": "AI 用 dτ=−dt 的写法，使流体有限时间爆破的证明在欧拉与纳维-斯托克斯方程上都失效。",
+   "article": "“深奥的定理曾经稀少且晦涩，因此成为识别深刻思想的有效机制。人工智能打破了这一体系。”"
+  },
+  {
+   "id": "cm_f2d4e464",
+   "name": "雄心勃勃的项目",
+   "domain": "循环与自主执行",
+   "desc": "指几千行代码、跨多天、需模型自己拿主意持续推进的大活，是全文证据的组织核心。",
+   "article": "GPT-6-Astra 能做很多雄心勃勃的事情"
+  },
+  {
+   "id": "cm_dca45d36",
+   "name": "不带思维链的推理",
+   "domain": "安全权限与合规",
+   "desc": "Astra 无可见思维链时 ECI 仅比 Fable 5.1 完整思考低 4 分，使 CoT 监控失去抓手。",
+   "article": "GPT-6-Astra 能做很多雄心勃勃的事情"
+  },
+  {
+   "id": "cm_e8dffb23",
+   "name": "AGI 之争",
+   "domain": "模型能力与训练",
+   "desc": "按作者自己的定义 Astra 与 Fable 都还不是 AGI，但他认为这场争论不再荒谬。",
+   "article": "GPT-6-Astra 能做很多雄心勃勃的事情"
+  },
+  {
+   "id": "cm_c3ae2c7d",
+   "name": "双持模型",
+   "domain": "多 Agent 编排",
+   "desc": "对难问题同时问 Astra 和 Fable 5.1 并让两者互评，而不是赌哪个更强。",
+   "article": "GPT-6-Astra 能做很多雄心勃勃的事情"
+  },
+  {
+   "id": "cm_a76f31d9",
+   "name": "线束能力内化",
+   "domain": "Harness 与运行时",
+   "desc": "过去要靠外部线束提供的符号建模能力，正被 Astra 吸收进模型本体。",
+   "article": "GPT-6-Astra 能做很多雄心勃勃的事情"
+  },
+  {
+   "id": "cm_484ef122",
+   "name": "子智能体编排",
+   "domain": "多 Agent 编排",
+   "desc": "Astra 被端到端训练做多智能体编排，由主模型拆活给子智能体并行再汇总。",
+   "article": "GPT-6-Astra 能做很多雄心勃勃的事情"
+  },
+  {
+   "id": "cm_76fb94cd",
+   "name": "计算机使用",
+   "domain": "工具调用与沙箱",
+   "desc": "模型直接操作真实软件：点界面、跑 Blender、玩 Minecraft、填税表。",
+   "article": "GPT-6-Astra 能做很多雄心勃勃的事情"
+  },
+  {
+   "id": "cm_6589abaf",
+   "name": "基准过度声明与数据污染",
+   "domain": "验证与评估门禁",
+   "desc": "官方高调宣传 ExploitBench 满分，而满分恰说明数据污染，OpenAI 系统卡亦承认。",
+   "article": "GPT-6-Astra 能做很多雄心勃勃的事情"
+  },
+  {
+   "id": "cm_9bc2cc74",
+   "name": "填充词元推理与监控盲区",
+   "domain": "安全权限与合规",
+   "desc": "只塞填充点号、不写思维链，Astra 在需要连续推理的任务上依然大幅进步。",
+   "article": "GPT-6-Astra 能做很多雄心勃勃的事情"
+  },
+  {
+   "id": "cm_35eacf4d",
+   "name": "持久执行",
+   "domain": "循环与自主执行",
+   "desc": "Astra 会一直跑到做完，而非半途停下等确认，但也偶有偷懒反问的情况。",
+   "article": "GPT-6-Astra 能做很多雄心勃勃的事情"
+  },
+  {
+   "id": "cm_a8e94fd9",
+   "name": "时间投入",
+   "domain": "缓存与成本控制",
+   "desc": "极难或从零开始的任务要付出大量时间与 token，如 Factorio 44 小时、约 4500 美元。",
+   "article": "GPT-6-Astra 能做很多雄心勃勃的事情"
+  },
+  {
+   "id": "cm_f5617f7a",
+   "name": "揭示偏好",
+   "domain": "验证与评估门禁",
+   "desc": "以“人们实际把哪个模型设为主力”作为最纯粹的评审证据。",
+   "article": "GPT-6-Astra 能做很多雄心勃勃的事情"
+  },
+  {
+   "id": "cm_5e1ae05f",
+   "name": "定制设计是游戏的硬骨头",
+   "domain": "AI 内容生态",
+   "desc": "AI 能实现游戏机制、做出好看画面，但「让人真想玩」的定制设计无法由实现能力替代。",
+   "article": "GPT-6-Astra 能做很多雄心勃勃的事情"
+  },
+  {
+   "id": "cm_eb1388f9",
+   "name": "烂代码生成陷阱",
+   "domain": "代码库与工程实践",
+   "desc": "生成无上限而验证卡在人工逐行阅读时，必然产出低质冗余代码，质量趋于零。",
+   "article": "Building software factories (with no slop)"
+  },
+  {
+   "id": "cm_c266168b",
+   "name": "代码黑盒化与可解释性转向",
+   "domain": "代码库与工程实践",
+   "desc": "不逐行读代码，而是把代码库当黑盒，用传感器检测组件行为是否违反业务不变量。",
+   "article": "Building software factories (with no slop)"
+  },
+  {
+   "id": "cm_3107b939",
+   "name": "隐式决策账本",
+   "domain": "代码库与工程实践",
+   "desc": "要求 Agent 交出所有规格未写、自己擅自拍板的决策清单，按把握度倒序排列供人专审。",
+   "article": "Building software factories (with no slop)"
+  },
+  {
+   "id": "cm_0e719a44",
+   "name": "独立只读审计智能体",
+   "domain": "多 Agent 编排",
+   "desc": "审查者须是独立于实现者的只读副手，不给改码权限，否则它会自圆其说。",
+   "article": "Building software factories (with no slop)"
+  },
+  {
+   "id": "cm_360e8fed",
+   "name": "软件工厂全景闭环",
+   "domain": "循环与自主执行",
+   "desc": "由侦测业务迷雾、固化形式规格、驱动切片构建、审查决策账本组成的软件工厂闭环。",
+   "article": "Building software factories (with no slop)"
+  }
+ ]
+}

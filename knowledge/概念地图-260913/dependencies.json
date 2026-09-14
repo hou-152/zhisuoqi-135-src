@@ -1,7 +1,7 @@
 {
  "version": "v1",
- "generatedAt": "2026-09-14T15:05:05.726Z",
- "count": 681,
+ "generatedAt": "2026-09-14T21:56:47.664Z",
+ "count": 718,
  "note": "topicId depends on prerequisiteId；strength hard＝不懂就立不住，soft＝懂更好。",
  "dependencies": [
   {
@@ -7250,6 +7250,339 @@
    "strength": "hard",
    "kind": "prerequisite",
    "reason": "不懂【隐写术】，就做不了【安全论证与控制发展步伐】的评估 AI 通过隐藏消息不被察觉地协调行动的风险并纳入安全论证这件事。",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_8989be25",
+   "prerequisiteId": "cm_e22503f1",
+   "strength": "soft",
+   "kind": "prerequisite",
+   "reason": "不懂【技能溯源】就做不了【写原则而非写死规则】里的「决定这个技能该给哪几条判据、哪部分留给模型自行推理」——判据的来源正是 PURPOSE.md 记下的那条失败模式，没有它就只能退回去穷举规则。",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_f2d4e464",
+   "prerequisiteId": "cm_35eacf4d",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂【持久执行】，就做不了【雄心勃勃的项目】的 ⟨让模型自己拿主意持续推进跨多天完成数千行代码⟩",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_360e8fed",
+   "prerequisiteId": "cm_f2d4e464",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂【雄心勃勃的项目】，就做不了【软件工厂全景闭环】的 ⟨驱动切片构建以完成跨多天的大活⟩",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_fde7ba65",
+   "prerequisiteId": "cm_360e8fed",
+   "strength": "soft",
+   "kind": "prerequisite",
+   "reason": "不懂【软件工厂全景闭环】，就做不了【外层改进者技能】的 ⟨向内层基础技能提出最小改进补丁⟩",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_360e8fed",
+   "prerequisiteId": "cm_35eacf4d",
+   "strength": "soft",
+   "kind": "prerequisite",
+   "reason": "不懂【持久执行】，就做不了【软件工厂全景闭环】的 ⟨驱动切片构建持续进行直到闭环完成⟩",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_2ee67864",
+   "prerequisiteId": "cm_c828d428",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂【基于文件的技能】就做不了【上下文自动压缩】的「判断哪些早期上下文可以安全压缩掉」这件事，因为无法区分哪些业务规范与领域知识已外置到 Markdown 文件、可按需重新查阅。",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_c32be74a",
+   "prerequisiteId": "cm_0192e485",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂原始轨迹层，就做不了三层知识架构中把经验沉淀为不可变执行轨迹的第一层。",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_c32be74a",
+   "prerequisiteId": "cm_87461ad4",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂持久维基层，就做不了三层知识架构中把经验提炼为抽象规律、驱动技能的第二层。",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_87461ad4",
+   "prerequisiteId": "cm_0192e485",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂原始轨迹层，就做不了持久维基层从具体成败轨迹中提炼抽象规律这件事。",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_26e584e0",
+   "prerequisiteId": "cm_6105c3cd",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂状态维护型记忆，就做不了观察变化时前提被推翻后相应认知随之更新的级联失效。",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_26e584e0",
+   "prerequisiteId": "cm_927648fd",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂推论因果溯源图，就做不了级联失效中顺藤摸瓜找到所有依赖该事实的结论。",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_4735de9e",
+   "prerequisiteId": "cm_927648fd",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂推论因果溯源图，就做不了声明式逻辑记忆引擎在事实增删时重算依赖这件事。",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_2b232258",
+   "prerequisiteId": "cm_6105c3cd",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂状态维护型记忆，就做不了模糊与确定性解耦中确定性引擎负责的状态推导与一致性维护。",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_c32be74a",
+   "prerequisiteId": "cm_78c4c140",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂技能与记忆的本质区别，就做不了三层知识架构中把带溯源技能层与知识/经验层分开这件事。",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_c32be74a",
+   "prerequisiteId": "cm_927648fd",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂推论因果溯源图，就做不了三层知识架构中'带溯源技能'这一层的溯源追问。",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_dfa03e4c",
+   "prerequisiteId": "cm_b0960cab",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂【单分支单一可变引用限制】，就做不了【单分支单一权威工作副本保证】的“确立每个分支同一时刻只能在一个工作树检出的规则”这件事——因为不知道分支本质是 refs/heads/<name> 单一可变引用，就无法论证多处同检会破坏权威可变工作副本。",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_223e91f3",
+   "prerequisiteId": "cm_dfa03e4c",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂【单分支单一权威工作副本保证】，就做不了【PR 驱动的审查合并闭环】的“让 Agent 的技能改动基于唯一权威分支状态产生并提交人类审查合并”这件事——因为多个工作树同检同一分支会让改动互相覆盖，审查合并失去可靠基线。",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_c266168b",
+   "prerequisiteId": "cm_eb1388f9",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂【烂代码生成陷阱】，就做不了【代码黑盒化与可解释性转向】的“把验证从人工逐行阅读切换为传感器检测业务不变量”这件事——因为不知道生成无上限而验证卡在人工逐行阅读会导致质量崩溃，就不会用黑盒验证替代逐行阅读。",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_28fe50df",
+   "prerequisiteId": "cm_f69f2345",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂【Git 工作树并发隔离】，就做不了【会话与工作交接机制】的⟨在前后台工作树之间安全搬迁工作⟩——没有独立工作树，就没有可交接的「后台那一边」，交接无从谈起。",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_484ef122",
+   "prerequisiteId": "cm_384a9cd4",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂【子智能体并行委派】，就做不了【子智能体编排】的⟨主模型拆活给子智能体并行再汇总⟩——编排要编的就是这套「拆分—并行—汇总」的动作。",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_0e719a44",
+   "prerequisiteId": "cm_384a9cd4",
+   "strength": "soft",
+   "kind": "prerequisite",
+   "reason": "不懂【子智能体并行委派】，就做不了【独立只读审计智能体】的⟨把审查交给一个独立副手而非生产者自己兼审⟩——没有把活派给另一个智能体的机制，独立性就落不了地。",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_384a9cd4",
+   "prerequisiteId": "cm_f69f2345",
+   "strength": "soft",
+   "kind": "prerequisite",
+   "reason": "不懂【Git 工作树并发隔离】，就做不了【子智能体并行委派】的⟨多个子智能体同时动同一仓库而不互相覆盖⟩。",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_8924eaeb",
+   "prerequisiteId": "cm_0e719a44",
+   "strength": "soft",
+   "kind": "prerequisite",
+   "reason": "不懂【独立只读审计智能体】，就做不了【分层对抗式研究流水线】的⟨对抗批判与引文核实两步⟩——审查方不独立于产出方、还能顺手改产出，它就会替自己自圆其说。",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_a0acd706",
+   "prerequisiteId": "cm_e0304491",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂【软件管理暂存器】（显式寻址、无预取无逐出无一致性的片上 SRAM，位置由编译器钉死），就做不了【脉动阵列与权重驻留】里「权重预先驻留不动、激活流过」的那套数据复用布局——没有可被编译器钉住的 SRAM，权重驻留就无处落地",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_6b151e00",
+   "prerequisiteId": "cm_e0304491",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂【软件管理暂存器】，就做不了【权重流】里「激活常驻片上 SRAM、权重逐层从 MemoryX 流入」这件事——激活要长住不走，靠的正是无逐出、无一致性、由编译器指定位置的片上暂存器",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_c21c5190",
+   "prerequisiteId": "cm_80f7b860",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂【编译器即调度器】，就做不了【数据流执行】里「核不取指令等活、数据到达即触发绑定任务」的排程——绑定关系与触发条件必须在编译期就定死，运行时没有取指与动态调度可依靠",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_e98cbbd1",
+   "prerequisiteId": "cm_80f7b860",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂【编译器即调度器】，就做不了【功能切片】里「控制、向量、矩阵、搬移、存储各成一列、数据横穿切片如流水线工件」的跨列搬运与节拍安排——列间数据流与同步全靠编译期静态排程，运行时不替你兜底",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_b154f15f",
+   "prerequisiteId": "cm_fd92ca19",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂【硬件一致性对消息传递】（NVLink/NVSwitch 有远端 HBM 读写与一致性语义，ICI 无远程语义、多芯片操作全靠编译器显式集合通信），就做不了【向上扩展与向外扩展】里「哪些吃带宽的集合通信能放进紧耦合域、哪些只能走域间通用网络」的切分判断",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_a0acd706",
+   "prerequisiteId": "cm_778efcce",
+   "strength": "soft",
+   "kind": "prerequisite",
+   "reason": "不懂【GEMM 与 GEMV】（训练与预填充是矩阵乘矩阵、计算密集，解码退化成矩阵乘向量、带宽受限），就做不了【脉动阵列与权重驻留】里阵列形状与驻留策略的取舍——是按计算密集的 GEMM 堆乘加，还是按带宽受限的 GEMV 省访存，判据正来自这里",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_778efcce",
+   "prerequisiteId": "cm_f155c3b7",
+   "strength": "soft",
+   "kind": "prerequisite",
+   "reason": "不懂【内存墙】（算力指数增长而内存带宽跟不上、架构问题变成如何让数据靠近计算），就做不了【GEMM 与 GEMV】里「同一颗芯片上预填充计算密集、解码带宽受限」的对照判断",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_6d8095ba",
+   "prerequisiteId": "cm_13262d3d",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂【开源 Codex 执行线圈】公开的模型调用、工具与上下文协调核心逻辑，就做不了长期运行智能体执行框架里跨天续跑的上下文与工具调度回路",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_a76f31d9",
+   "prerequisiteId": "cm_13262d3d",
+   "strength": "soft",
+   "kind": "prerequisite",
+   "reason": "不懂【开源 Codex 执行线圈】暴露出来的线束核心逻辑，就做不了「线束能力内化」中对哪些符号建模能力可被模型本体吸收的界定",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_a76f31d9",
+   "prerequisiteId": "cm_6d8095ba",
+   "strength": "soft",
+   "kind": "prerequisite",
+   "reason": "不懂【长期运行智能体执行框架】对上下文、工具、子智能体协调与文件代码环境的持续要求，就做不了「线束能力内化」中判断哪些外部线束职责该由模型本体接管的取舍",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_43670cb1",
+   "prerequisiteId": "cm_062e1f08",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂【勒雷奇点倒计时技巧】里 τ=1−t 的变量替换及其时间反演含义，就做不了【有限时间爆破失效】的判断——即看不出 AI 写成 dτ=−dt 后，有限时间爆破的证明为什么在欧拉与纳维-斯托克斯方程上都不再成立",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_f5617f7a",
+   "prerequisiteId": "cm_6589abaf",
+   "strength": "soft",
+   "kind": "prerequisite",
+   "reason": "不懂【基准过度声明与数据污染】里「官方宣传的满分恰恰是污染的信号」这一层，就做不了【揭示偏好】的论证——即说不出为什么「人们实际把哪个模型设为主力」比跑分式证据更纯粹",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_9bc2cc74",
+   "prerequisiteId": "cm_dca45d36",
+   "strength": "hard",
+   "kind": "prerequisite",
+   "reason": "不懂【不带思维链的推理】，就做不了【填充词元推理与监控盲区】的「把只塞填充点号的输出判定为无可见思维链下仍可完成连续推理的监控盲区」这件事。",
+   "origin": "llm-strict",
+   "axis": "neican"
+  },
+  {
+   "topicId": "cm_ef64feed",
+   "prerequisiteId": "cm_9bc2cc74",
+   "strength": "soft",
+   "kind": "prerequisite",
+   "reason": "不懂【填充词元推理与监控盲区】，就做不了【只打补丁绝不重写】的「评估小粒度补丁是否可能被用来隐藏填充词元式推理」这件事。",
    "origin": "llm-strict",
    "axis": "neican"
   }
