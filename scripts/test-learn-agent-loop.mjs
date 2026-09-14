@@ -77,13 +77,15 @@ await ex('localStorage.removeItem("zss135.learn.v1"); loadLearnState();');
 await ex(`openPanel('${await ex('ROUTES[0].steps[0].conceptId')}')`);
 await sleep(120);
 check('路径第 1 步的按钮改成了「学习这个 · 第 1 章」', await ex(`Array.from(document.querySelectorAll('#pbody .pctx .acts button')).map(b=>b.textContent).join(' | ')`).then(s => s.includes('学习这个 · 第 1 章')), 'true');
-check('进入前图谱与主题列表是显示的', await ex(`getComputedStyle(document.getElementById('rail')).display!=='none' && getComputedStyle(document.getElementById('list')).display!=='none' && getComputedStyle(document.getElementById('main')).display!=='none'`), 'true');
+/* 2026-09-15 改准：一级导航已从左侧整条搬到顶栏（`#topbar > nav.r-list`），`#rail` 这个 id 现在不存在。
+   断言的意思一个字没变：**进学习空间之前，图谱 / 主题列表 / 导航都是显示的**。 */
+check('进入前图谱与主题列表与导航是显示的', await ex(`getComputedStyle(document.getElementById('topbar')).display!=='none' && getComputedStyle(document.getElementById('list')).display!=='none' && getComputedStyle(document.getElementById('main')).display!=='none'`), 'true');
 await ex(`Array.from(document.querySelectorAll('#pbody .pctx .acts button')).find(b=>b.textContent.includes('学习这个')).click()`);
 await sleep(150);
 check('学习空间已打开', await ex(`document.getElementById('learn').classList.contains('on')`), 'true');
 check('学习时隐藏全量图谱', await ex(`getComputedStyle(document.getElementById('main')).display`), 'none');
 check('学习时隐藏主题列表', await ex(`getComputedStyle(document.getElementById('list')).display`), 'none');
-check('学习时隐藏左栏导航', await ex(`getComputedStyle(document.getElementById('rail')).display`), 'none');
+check('学习时隐藏一级导航', await ex(`getComputedStyle(document.getElementById('topbar')).display`), 'none');
 check('阅读区带出五类材料 ID', await ex(`['QST-','CON-','CAS-','SOL-'].every(p=>document.getElementById('learn-wrap').innerText.includes(p))`), 'true');
 check('页面显示主案例已由负责人确认', await ex(`document.getElementById('learn-wrap').innerText.includes('主案例已由负责人确认')`), 'true');
 check('显示假设场景标记', await ex(`document.getElementById('learn-wrap').innerText.includes('假设场景')`), 'true');

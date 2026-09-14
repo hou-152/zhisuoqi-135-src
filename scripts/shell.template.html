@@ -23,35 +23,41 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--fg);
   font-size:13px;line-height:1.5;-webkit-font-smoothing:antialiased}
 button{font-family:inherit}
 
-/* ── 三栏 ───────────────────────────────────────────── */
-#app{display:grid;grid-template-columns:224px 302px 1fr;height:100vh;overflow:hidden}
+/* ── 顶栏 + 两栏（2026-09-15：一级导航搬到顶端）────────────────────
+   所有者：「左边的这个一级页面、一级功能栏，内参、知识体系、实践空间，应该放到顶端」。
+   左栏整条撤掉（品牌 + 搜索 + 三个一级导航都进顶栏），主区分列从
+   「224 导航 | 302 列表 | 1fr」变成「302 列表 | 1fr」——画布顺带白捡 224px。
+   二级的「视图 tab 板」（路径/图谱/关系/星球/总图）仍长在知识体系**里面**的主区顶部：
+   一级在顶栏、二级在主区，层级不混。 */
+#app{display:grid;grid-template-columns:302px 1fr;grid-template-rows:46px 1fr;height:100vh;overflow:hidden}
 
-/* 导航栏 */
-#rail{background:var(--panel);border-right:1px solid var(--line);display:flex;
-  flex-direction:column;padding:10px 8px 8px;min-height:0;overflow:hidden}
-.r-brand{display:flex;align-items:center;gap:7px;padding:4px 8px 12px;font-size:13.5px;
-  font-weight:600;letter-spacing:.01em}
+/* 顶栏（一级）：品牌 + 内参 / 知识体系 / 实践空间 + 搜索 */
+#topbar{grid-column:1/3;grid-row:1;display:flex;align-items:center;gap:18px;min-width:0;
+  padding:0 12px 0 14px;background:var(--panel);border-bottom:1px solid var(--line)}
+.r-brand{display:flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;
+  letter-spacing:.01em;flex:0 0 auto}
 .r-brand span{font-size:10.5px;font-weight:500;color:var(--fg3);border:1px solid var(--line2);
   border-radius:5px;padding:0 5px;line-height:16px}
 .r-brand .pubtag{border-color:#2b3a5c;color:#7c93c9}
-.r-search{display:flex;align-items:center;gap:6px;height:28px;padding:0 8px;margin-bottom:8px;
-  background:var(--panel2);border:1px solid var(--line);border-radius:6px;color:var(--fg3);font-size:12.5px}
+.r-search{display:flex;align-items:center;gap:6px;height:28px;padding:0 8px;width:230px;
+  flex:0 0 auto;background:var(--panel2);border:1px solid var(--line);border-radius:6px;
+  color:var(--fg3);font-size:12.5px}
 .r-search input{flex:1;background:none;border:0;outline:none;color:var(--fg);font-size:12.5px;
   font-family:inherit;min-width:0}
 .r-search input::placeholder{color:var(--fg4)}
-.r-list{display:flex;flex-direction:column;gap:1px}
-.r-item{display:flex;align-items:center;gap:8px;width:100%;height:var(--row);padding:0 8px;
+.r-list{display:flex;flex-direction:row;align-items:center;gap:2px;flex:0 0 auto}
+.r-item{display:flex;align-items:center;gap:7px;height:30px;padding:0 11px;
   background:none;border:0;border-radius:6px;cursor:pointer;color:var(--fg2);
-  text-align:left;font-size:13px}
+  text-align:left;font-size:13px;white-space:nowrap}
 .r-item:hover{background:#161719;color:var(--fg)}
 .r-item.on{background:#1d1e21;color:var(--fg)}
 .r-item .ic{width:14px;text-align:center;font-size:12px;opacity:.75;flex:0 0 14px}
-.r-item b{font-weight:450;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.r-item b{font-weight:450;white-space:nowrap}
 .r-item i{font-style:normal;font-size:11px;color:var(--fg4);white-space:nowrap}
 .r-item.on i{color:var(--fg3)}
 
 /* 列表栏 */
-#list{background:var(--panel2);border-right:1px solid var(--line);
+#list{grid-column:1;grid-row:2;background:var(--panel2);border-right:1px solid var(--line);
   display:flex;flex-direction:column;min-height:0;min-width:0}
 .lp-head{display:flex;align-items:center;gap:8px;height:44px;padding:0 12px 0 14px;
   border-bottom:1px solid var(--line);flex:0 0 44px}
@@ -75,7 +81,7 @@ button{font-family:inherit}
 .lp-empty{color:var(--fg4);font-size:12px;padding:22px 10px;text-align:center;line-height:1.9}
 
 /* 主区 */
-#main{position:relative;background:var(--bg);overflow:hidden;min-width:0}
+#main{grid-column:2;grid-row:2;position:relative;background:var(--bg);overflow:hidden;min-width:0}
 /* 详情打开时主区让出 412px，画布跟着缩——盖住图就不是 Linear 了 */
 #main.pinned #c{right:412px}
 #main.pinned .mtools{right:412px}
@@ -320,8 +326,9 @@ code{background:#161719;border:1px solid var(--line);border-radius:4px;padding:1
 #app{height:100vh}
 
 @media (max-width:1100px){
-  #app{grid-template-columns:200px 1fr}
+  #app{grid-template-columns:1fr}
   #list{display:none}
+  #main{grid-column:1}
   #panel{width:100%}
 }
 
@@ -567,7 +574,7 @@ code{background:#161719;border:1px solid var(--line);border-radius:4px;padding:1
 /* ── 独立学习空间（Agent Loop 六章）─────────────────────────────
    进入时 body 加 .learning：左栏导航、主题列表、画布全部 display:none——
    「隐藏全量图谱和主题列表」是 DOM 层面的事实，不是视觉遮挡。 */
-body.learning #rail,body.learning #list,body.learning #main{display:none}
+body.learning #topbar,body.learning #list,body.learning #main{display:none}
 #learn{position:fixed;inset:0;z-index:30;background:var(--bg);display:none;overflow:auto}
 #learn.on{display:block}
 #learn-head{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:10px;height:48px;padding:0 18px;
@@ -603,7 +610,8 @@ body.learning #rail,body.learning #list,body.learning #main{display:none}
    处理只动布局：左栏收成一条、阅读区整幅、正文少一点左右留白，内容一个字不改。 */
 @media (max-width:700px){
   #app{grid-template-columns:1fr}
-  #rail{display:none}
+  #topbar{gap:10px}
+  .r-search{display:none}          /* 窄屏只留品牌 + 三个一级导航 */
   .nei{padding:20px 15px 90px}
 }
 /* 正文流：过渡句 / 关系解释句 */
@@ -656,15 +664,17 @@ body.learning #rail,body.learning #list,body.learning #main{display:none}
 </head>
 <body>
 <div id="app">
-  <aside id="rail">
+  <!-- 顶栏＝一级导航（2026-09-15 按所有者口径从左侧整条搬上来） -->
+  <header id="topbar">
     <div class="r-brand">知所栖<span>135</span><span class="pubtag" id="pubtag" style="display:none">公网快照</span></div>
-    <label class="r-search">⌕<input id="q-filter" placeholder="筛选…" oninput="renderList()"></label>
     <nav class="r-list">
       <button class="r-item" data-view="neican" onclick="setView('neican')"><span class="ic">▤</span><b>内参</b><i id="r-nei"></i></button>
       <button class="r-item on" data-view="graph" onclick="setView('graph')"><span class="ic">◧</span><b>知识体系</b><i id="r-all"></i></button>
       <button class="r-item" data-view="practice" onclick="openPractice()"><span class="ic">▷</span><b>实践空间</b><i>1</i></button>
     </nav>
-  </aside>
+    <span class="spacer" style="flex:1"></span>
+    <label class="r-search">⌕<input id="q-filter" placeholder="筛选…" oninput="renderList()"></label>
+  </header>
 
   <section id="list">
     <header class="lp-head">
@@ -2213,6 +2223,12 @@ function applyHash() {
     const [cid, query] = h.slice(6).split('&');
     const review = /(^|&)review=1(&|$)/.test(query || '');
     const ch = chapterById(cid);
+    if (ch && ch.kind === 'batch') {
+      /* 批量单元：地址入口与「实践空间 → 进入阅读」是同一条路（同一份 gate，不另开小门）。 */
+      openPractice(null, 'index');
+      openLearn(cid, { from: null });
+      practiceRender(); return;
+    }
     if (ch) { setMode('path'); focusRoute(); openPanel(ch.cm.id); openLearn(cid, { force: review, from: ch.cm.id }); return; }
   }
   /* #neican=<slug>：内参单篇的可复现入口（Issue 2 · B 层试点用）。
@@ -2413,6 +2429,8 @@ function practiceIndexHtml() {
   const ready = batch.filter(u => u.routeStatus === 'ready');
   const scaffold = batch.filter(u => u.routeStatus !== 'ready');
   const superseded = batch.filter(u => u.superseded);
+  const openable = batch.filter(u => u.open);            // 载荷已编译 + 逐字绑定全过 + 决策题复核 usable
+  const stats = LEARN_STATS || {};
   const chRows = ch.map((u, i) => {
     const ci = chapterIdx(u.reader), un = ci >= 0 && chapterUnlocked(ci), done = ci >= 0 && chapterCleared(u.reader);
     return `<div class="pu${i === 0 ? ' first' : ''}">
@@ -2442,14 +2460,27 @@ function practiceIndexHtml() {
       ${singleRows}
     </div>
     <div class="pcard">
-      <h2>准备中 / 目录候选 · ${ready.length} 个单元（不开放学习）</h2>
-      <div class="mut"><b>${superseded.length} 个已被手工章节取代（superseded）</b>：${esc(superseded.map(u => u.label).join('、'))}。
-        这 ${superseded.length} 个 CON 与六章是同一批概念，六章仍是对外唯一入口 —— 数据保留、题与判据已并入对应章节，但它们自己不再是独立可学单元，也不会在任何情况下开门。</div>
-      <div class="mut">这 ${ready.length} 个批量装配单元的材料四类齐（QST／CON／CAS／SOL），<b>决策那一段已经接通</b>（每题 3 选项 · 1 正确 · 依据逐字可回溯 · 独立复核 verdict=usable）。现在卡住它们的是<b>形成性费曼</b>：判据的误概念仍由边界条目的否定翻转算出（机械派生），不是人写的教学误解；页面入口也还没装配。所以照实只作目录候选显示。</div>
-      <div class="mut">这批题是 <code>evidence/gen-decisions-hybrid-v3-20260914.json</code>：由脚本<b>确定性生成</b>（模型调用 0 次），正解是答句形态的改写句（不是照抄材料原句），每单元从 solution_summary / action_steps / how_to / boundaries 取三个不同动作句做三道题。上一轮 v2 的 228 道（串台事故产物）判定 <b>0 / 228 可接入</b>——228 道正解都是唯一逐字材料句、76 个单元三题同解、16 道题干与正解极性相反——整批废弃、一道没接。两轮结论都在 <code>evidence/review-decisions-260914/</code>。</div>
-      <div>${chips(ready)}</div>
-      <div class="mut">另有 <b>${scaffold.length}</b> 个单元连 OPI 判断依据都没有（缺材料 · 待装配），连同上面这些一起在状态看板里逐行列出。</div>
+      <h2>批量装配单元 · ${openable.length} 个（阅读器已装配 · 可进入）</h2>
+      <div class="mut">这 ${openable.length} 个单元的材料已编译成<b>与六章同一种</b>阅读器载荷（<code>evidence/batch-units-260914/readers.json</code>，
+        由 <code>scripts/build-batch-materials.mjs</code> 确定性编译、模型调用 0 次）：正文逐字搬自 <code>units.json</code> 与图鉴卡，
+        <b>${stats.citationsChecked || 0} 条材料逐条过 indexOf ＋ sha256 ＋ locator</b>，过不了就不写进载荷、也不开放那个单元。
+        点「进入阅读」打开的同样是 <code>#learn</code> 那套排版——<b>同一份排版，不是第二套视觉</b>。</div>
+      <div class="mut"><b>判据的诚实标注</b>：这 ${openable.length} 个单元里 ${stats.criteriaTotal || 0} 条费曼判据，
+        按准入门改版（<code>docs/准入门改版-区分度自证-20260914.md</code>）的三条机器条件算：
+        <b>已激活 ${stats.criteriaActive || 0} 条 · 待验证区分度 ${stats.criteriaPending || 0} 条</b>。
+        「待验证区分度」<b>可以看、不参与通过判定、也不挡单元进入</b>——这是和上一版最重要的区别；
+        它要变成已激活，需要一条<b>真实轨迹</b>证明它从 not-met 走到 met 且缺口真的下降过（脚本扮演的合成轨迹不算）。
+        现有真实轨迹 ${stats.realTrajectories || 0} 份（负责人本人走第 1 章 <code>agent</code> 的两轮读中反馈）里，三条缺口两轮都在 —— 所以一条都还没激活。</div>
+      <div class="mut">决策题仍是 <code>evidence/gen-decisions-hybrid-v3-20260914.json</code>（脚本确定性生成、模型调用 0 次），
+        只有独立复核 <code>verdict=usable</code> 的那 3 道才接进来；<b>空数组 ≠ 满足</b>、<b>复核不过不进</b>这两条一个字没放宽。</div>
       <button class="pbtn" onclick="openPracticeBoard()">打开状态看板 · 逐单元链路就绪度 →</button>
+    </div>
+    <div class="pcard">
+      <h2>不开放 · ${superseded.length + 1} 个单元</h2>
+      <div class="mut"><b>${superseded.length} 个已被手工章节取代（superseded）</b>：${esc(superseded.map(u => u.label).join('、'))}。
+        这 ${superseded.length} 个 CON 与六章是同一批概念，六章仍是对外唯一入口 —— 数据保留、题与判据已并入对应章节，但它们自己不再是独立可学单元，也不会在任何情况下开门（数据驱动的封条，不是白名单）。</div>
+      <div class="mut">另有 <b>${scaffold.length}</b> 个单元连 OPI 判断依据都没有（缺材料 · 待装配），与上面这些一起在状态看板里逐行列出。</div>
+      <div>${chips(ready.filter(u => u.superseded))}</div>
     </div>
     <div class="pcard">
       <h2>状态看板（第二层）</h2>
@@ -2523,11 +2554,16 @@ function practiceBoardHtml() {
       <h2>判定规则原文（可复算，不靠页面自述）</h2>
       <ul class="pwhy" style="margin:6px 0 0 16px">
         <li>阅读：Reading 活动 ready，且该单元有指向逐字原文（span.text）的出处边 → 可走；否则未装配。</li>
-        <li>形成性费曼：Formative 活动 ready，且判据不是机械派生（misconceptionSource === 'derived' 就是机械派生）；有判据复核产物时，该单元还必须 verdict === 'usable' → 才可走。只有机械派生判据 = 缺材料；复核不通过 = 缺材料。</li>
+        <li><b>阅读载荷（准入门第一条的硬条件）</b>：批量单元的正文必须已编译成阅读器载荷，且载荷里<b>每一条</b>逐字材料都同时通过
+          indexOf ＋ sha256 ＋ locator（<code>scripts/build-batch-materials.mjs</code> 编译时逐条查，
+          <code>practice-readiness.mjs</code> 在判 gate 时<b>再查一遍磁盘</b>）→ 才可走。<b>绑不到逐字原文的单元不许开放。</b></li>
+        <li>形成性费曼：Formative 活动 ready → 可走。判据按三条机器条件标「已激活 / 待验证区分度」：
+          ①绑了逐字原文 ②有真实轨迹证明它从 not-met 走到 met ③缺口在轨迹上真的下降过。
+          <b>待验证区分度不挡进入</b>（本轮改版的核心），它只是不参与通过判定；人写的判据（六章 18 条）本就带成立条件与常见误解，不需要外部复核。</li>
         <li><b>superseded（方案丙）</b>：同一个 CON 已有负责人确认过的手工章节时，批量单元标 superseded —— 数据保留、不再对外，<b>无论四段是什么状态都不可进入</b>。</li>
         <li>决策：<b>三个条件同时成立</b>才可走 —— ①该单元声明的 decisions 不是空数组（空数组 ≠ 满足）；②索引里真有 ready 的 Decision 活动；③独立复核产物里这个单元 verdict === 'usable'。有题但没复核 = 不开放；复核不通过 = 不开放。</li>
-        <li>章末费曼：Summative ready ＋ 判据非机械派生 ＋ 没有「正式章末门待装配」缺口 → 可走。</li>
-        <li>四段全绿 gate.open=true 才开放；这套判断在 <code>scripts/lib/practice-readiness.mjs</code> 里算，页面只显示结果。</li>
+        <li>章末费曼：Summative ready ＋ 没有「正式章末门待装配」缺口 → 可走；判据的激活状态照实标出来。</li>
+        <li>四段全绿 gate.open=true 才开放；这套判断在 <code>scripts/lib/practice-readiness.mjs</code> 里算，页面只显示结果，代码里没有一个写死的单元 ID。</li>
       </ul>
       <button class="pbtn ghost" onclick="openPractice()">← 回六章列表</button>
     </div>`;
@@ -2879,8 +2915,30 @@ function issueCard(iss) {
     <div class="dfoot">${esc(iss.source || '')}　·　${esc(iss.pipeline || '')}</div>
   </section>`;
 }
+/* ══ 阅读区容器：**自己把 #nei-wrap 要回来** ═══════════════════════════
+   起因（所有者 2026-09-15 报）：「内参每次打开都有点困难，每次都得再刷新一遍才能打开」。
+   实测根因不是网络也不是 LLM：`practiceRender()` 直接写 `#reader.innerHTML = …`
+   （实践空间那套壳），把同级的 `#nei-wrap` 一起删了；之后每一次点「内参」都进
+   `renderNeicanHome()` → `document.getElementById('nei-wrap')` 拿到 null →
+   抛 `Cannot read properties of null (reading 'innerHTML')`（实测 A 干净态能开、
+   B 实践空间之后 reader.on=false 且 #nei-wrap 为 null），只有刷新页面才恢复。
+   修法：容器不在就**就地重建**，谁换掉了都不怕；不动实践空间那套渲染。 */
+function neiWrap() {
+  const reader = document.getElementById('reader');
+  let w = document.getElementById('nei-wrap');
+  if (!w && reader) {
+    reader.innerHTML = '';
+    w = document.createElement('div');
+    w.className = 'nei'; w.id = 'nei-wrap';
+    reader.appendChild(w);
+  }
+  return w;
+}
+window.neiWrap = neiWrap;
+
 function renderNeicanHome() {
-  const wrap = document.getElementById('nei-wrap');
+  const wrap = neiWrap();
+  if (!wrap) return;
   if (!NEI_ALL.length) { wrap.innerHTML = '<div class="lp-empty">还没有任何一期内参。<br>（先跑 node scripts/pull-readwise-inbox.mjs --date YYYY-MM-DD）</div>'; return; }
   let list = neiPeriod ? NEI_ALL.filter(i => i.period === neiPeriod) : NEI_ALL;
   if (neiFiltOn()) list = list.filter(i => (i.articles || []).some(neiPass));
@@ -2896,7 +2954,8 @@ window.renderNeicanHome = renderNeicanHome;
 
 function renderNeican(reset) {
   const a = neiOf(neiSlug);
-  const wrap = document.getElementById('nei-wrap');
+  const wrap = neiWrap();
+  if (!wrap) return;
   if (!a) { renderNeicanHome(); return; }
   const iss = issueOfArticle(a.slug) || NEI();
   const tabs = [['notes', '三级笔记'], ['concept', '概念网络'],
@@ -3252,7 +3311,15 @@ window.neiDimBody = neiDimBody;
      · 重新编辑复述 → 立刻清掉旧的通过状态（含下一章解锁）；
      · 学习时隐藏全量图谱与主题列表，返回知识体系时恢复原路线、原步骤、原概念。 */
 const LEARN_CFG = DATA.learning || { chapters: [], caseReview: {}, gaps: [] };
-const LEARN = LEARN_CFG.chapters || [];
+const LEARN = LEARN_CFG.chapters || [];          // Agent Loop 六章：顺序课程，长度仍是 6
+/* 批量装配单元的阅读器载荷（76 份编译、除 superseded 外全部装进来）。
+   它们是**并列的独立卡片单元**，不是一条课：所以另放一张表，不混进 LEARN
+   （`LEARN.length === 6` 与六章顺序的语义一个字没动）。阅读器排版两者共用。 */
+const LEARN_BATCH = LEARN_CFG.batch || [];
+const LEARN_STATS = LEARN_CFG.batchStats || {};
+const chapterIdx = (id) => LEARN.findIndex(c => c.chapterId === id);
+/* 阅读器按 id 查单元：先查六章，再查批量。批量单元的 chapterId 是 unitId（batch-*），不会撞名。 */
+const chapterById = (id) => LEARN.find(c => c.chapterId === id) || LEARN_BATCH.find(c => c.chapterId === id) || null;
 const LEARN_KEY = 'zss135.learn.v1';
 /* 两种费曼提交＝两份独立状态（交接件 §3 L81/L85 的分工）：
      · 读中即时费曼（lin* 系列）→ LEARN_INLINE_KEY：读完就讲，只给「这一轮讲到哪几条 ＋
@@ -3272,20 +3339,28 @@ function stOf(id) {
   return learnState[id];
 }
 const chapterOf = (cmId) => LEARN.find(c => c.cm.id === cmId) || null;
-const chapterById = (id) => LEARN.find(c => c.chapterId === id) || null;
 const chapterCleared = (id) => { const s = learnState[id]; return !!(s && s.feynman === 'ok'); };
-const chapterUnlocked = (i) => i === 0 || chapterCleared(LEARN[i - 1].chapterId);
-const chapterIdx = (id) => LEARN.findIndex(c => c.chapterId === id);
+/* 解锁门分两类，**不是放宽**（六章顺序一个字没改）：
+   · kind === 'batch' 的批量单元是**独立卡片单元**，彼此没有先修顺序（76 个 CON 是并列的概念卡，
+     不是一条课），所以它自己一进去就是开的；它也不参与"解锁下一章"（下一章是六章的下一章）。
+   · 六章照旧：i === 0 或上一章章末验收通过。 */
+const chapterUnlocked = (i) => {
+  const c = LEARN[i];
+  if (c && c.kind === 'batch') return true;
+  return i === 0 || chapterCleared(LEARN[i - 1].chapterId);
+};
 function learnDots() {
   const el = document.getElementById('learn-dots');
   if (!el) return;
+  const cur = chapterById(learnCur);
+  /* 点只标六章的进度（六步课）；批量单元是并列的独立卡片，不在这条进度线上。 */
   el.innerHTML = LEARN.map((c, i) => {
     const s = learnState[c.chapterId] || {};
     const cls = s.feynman === 'ok' ? 'ok' : (chapterUnlocked(i) ? (i === chapterIdx(learnCur) ? 'on' : '') : 'lock');
     return `<i class="${cls}" title="第 ${c.order} 章 ${esc(c.title)}"></i>`;
   }).join('');
   const st = document.getElementById('learn-step');
-  if (st && learnCur) st.textContent = `第 ${chapterById(learnCur).order} / ${LEARN.length} 章`;
+  if (st && cur) st.textContent = cur.kind === 'batch' ? `单元 · ${esc(cur.title)}` : `第 ${cur.order} / ${LEARN.length} 章`;
 }
 function openLearnFor(cmId) { const c = chapterOf(cmId); return c ? openLearn(c.chapterId, { from: cmId }) : openLearnIndex(); }
 function openLearnIndex() {
@@ -3297,17 +3372,20 @@ function captureLearnReturn(cmId) {
   const id = cmId || selected;
   /* view：从哪儿进来的就回哪儿去。路径条 / 概念卡进来是 graph（老的返回行为一个字不改）；
      实践空间进来记 practice，返回时回六章列表，而不是把人丢进知识体系。 */
-  learnReturn = { routeId, stepIdx: id ? routeIndexOf(id) : routeStepIdx, conceptId: id && byId.has(id) ? id : null, view: currentView };
+  const ch = chapterById(id) || chapterById(learnCur) || null;
+  learnReturn = { routeId, stepIdx: id ? routeIndexOf(id) : routeStepIdx, conceptId: id && byId.has(id) ? id : null,
+    view: (ch && ch.kind === 'batch') ? 'practice' : currentView };
 }
 function openLearn(chapterId, opts = {}) {
   const i = chapterIdx(chapterId);
-  if (i < 0) return false;
+  const isBatch = (chapterById(chapterId) || {}).kind === 'batch';
+  if (i < 0 && !isBatch) return false;          // 既不是六章、也不是批量单元 → 真的没有
   const entering = !document.getElementById('learn').classList.contains('on');
   if (entering) captureLearnReturn(opts.from || (byId.has(chapterId) ? chapterId : null));
   /* 返回条照实说回哪：从实践空间进来的就写「返回实践空间」（同一套阅读器，两个入口）。 */
   const backBtn = document.getElementById('learn-back');
-  if (backBtn) backBtn.textContent = (learnReturn && learnReturn.view === 'practice') ? '← 返回实践空间' : '← 返回知识体系';
-  if (!chapterUnlocked(i) && !opts.force) {
+  if (backBtn) backBtn.textContent = ((learnReturn && learnReturn.view === 'practice') || isBatch) ? '← 返回实践空间' : '← 返回知识体系';
+  if (!isBatch && !chapterUnlocked(i) && !opts.force) {
     // 上一章没通过就不解锁：送到上一章的费曼，并说明原因
     const prev = LEARN[i - 1];
     learnCur = prev.chapterId;
@@ -3355,9 +3433,17 @@ window.learnEntryLabel = learnEntryLabel;
 
 /* 课题单元列表（右栏）：费曼通过后立刻刷新解锁状态（不必整页重渲染） */
 function learnChipsHtml() {
-  return LEARN.map((x, i) => {
-    const un = chapterUnlocked(i), done = chapterCleared(x.chapterId), cur = x.chapterId === learnCur;
-    return `<li class="${cur ? 'on' : ''}${un ? '' : ' lock'}"><button class="lchip ${cur ? 'on' : ''} ${un ? '' : 'lock'}" ${un ? '' : 'disabled'} onclick="openLearn('${x.chapterId}')"><b>${i + 1}</b><span>${esc(x.title)}</span>${done ? '<i>✓</i>' : (un ? '' : '<i>🔒</i>')}</button></li>`;
+  const curCh = chapterById(learnCur);
+  /* 右栏「本次课题」：读六章时列六章；读批量单元时列**它自己**（76 个并列单元全列出来是噪声，
+     它们之间本来就没有先后），号码照单元自己的 order 显示，不重排成 1..76。 */
+  const list = (curCh && curCh.kind === 'batch') ? [curCh] : LEARN;
+  return list.map((x) => {
+    const i = chapterIdx(x.chapterId);
+    /* 批量单元不在六章数组里（chapterIdx 返回 -1）：它自己就是开的，不走六章的解锁门。 */
+    const un = x.kind === 'batch' ? true : chapterUnlocked(i);
+    const done = chapterCleared(x.chapterId), cur = x.chapterId === learnCur;
+    const no = x.kind === 'batch' ? x.order : i + 1;
+    return `<li class="${cur ? 'on' : ''}${un ? '' : ' lock'}"><button class="lchip ${cur ? 'on' : ''} ${un ? '' : 'lock'}" ${un ? '' : 'disabled'} onclick="openLearn('${x.chapterId}')"><b>${no}</b><span>${esc(x.title)}</span>${done ? '<i>✓</i>' : (un ? '' : '<i>🔒</i>')}</button></li>`;
   }).join('');
 }
 function learnChips() {
@@ -3391,6 +3477,43 @@ function machineChecksHtml(c) {
     + `原因：misconception 是卡片 boundaries 的机械反面转述（照抄边界原文即可满足），当复习提示可以，当理解判据不行 —— 所以它们只显示、不计分。`
     + `<ul style="margin:6px 0 0 16px">${mc.map((x) => `<li>${esc(x.point)}<br><span style="opacity:.75">成立条件：${esc(x.condition)}<br>机械反面转述：${esc(x.misconception)}</span></li>`).join('')}</ul></div>`;
 }
+/* 准入改版（docs/准入门改版-区分度自证-20260914.md）：判据的三条机器条件。
+   每条判据要么「已激活」（三条全过、参与通过判定），要么照实标「待验证区分度」
+   （可以看、不参与通过判定、也不挡这个单元进入）。判定在 scripts/lib/criteria-activation.mjs 里现算，
+   页面只显示结论与理由——未验证的不许说成已验证。 */
+function criteriaStatusHtml(c) {
+  const ck = (c && c.feynman && c.feynman.checks) || [];
+  const withAdm = ck.filter((x) => x.admission);
+  if (!withAdm.length) return '';
+  const active = withAdm.filter((x) => x.admission.active === true);
+  const pending = withAdm.filter((x) => x.admission.active !== true);
+  const src = (c.batchOrigin || {}).unitId || c.chapterId;
+  const row = (x) => {
+    const a = x.admission || {};
+    const cond = (a.conditions || {});
+    const mark = (k) => (cond[k] ? '✓' : '✗');
+    const t = a.trajectory || {};
+    return `<li><b>${esc(x.id)}</b> ${esc(x.point)} · <b style="color:${a.active ? '#7fd0a6' : '#e0a94a'}">${esc(a.label || '')}</b><br>`
+      + `<span style="opacity:.8">${mark('verbatimQuote')} 绑了逐字原文 · ${mark('realTrajectory')} 真实轨迹走过 · ${mark('gapDeclined')} 缺口真的下降过</span><br>`
+      + `<span style="opacity:.7">${esc((a.reasons || []).slice(1).join(' '))}</span>`
+      + (t.trajectoryId ? `<br><span style="opacity:.7">轨迹：<code>${esc(t.trajectoryId)}</code>（${esc(t.from || '')} → met @第 ${t.at} 轮）</span>` : '')
+      + `</li>`;
+  };
+  return `<div class="lcard" id="learn-criteria">
+      <span class="lb${pending.length ? ' warn' : ''}">判据 · 准入（区分度自证）</span>
+      <h2>${withAdm.length} 条判据：已激活 ${active.length} 条 · <span style="color:#e0a94a">待验证区分度 ${pending.length} 条</span></h2>
+      <div class="sub">准入改版（<code>docs/准入门改版-区分度自证-20260914.md</code>）：一条判据要<b>参与通过判定</b>，必须同时满足
+        ①绑了逐字原文（逐字 <code>indexOf</code> ＋ <code>sha256</code>，机器可查、零人力）②有至少一条真实轨迹证明它从
+        <code>not-met</code> 走到 <code>met</code> ③缺口在轨迹上真的下降过（第一轮就全 <code>met</code> ＝ 死判据，自动淘汰）。</div>
+      <div class="lgap">不满足三条的照实标「<b>待验证区分度</b>」：<b>可以看、不参与通过判定、也不挡这个单元进入</b>。
+        这一版和上一版最重要的区别就在这里——上一版把「判据复核没过」当成不开放的理由，于是 76 个单元永远停在「未装配」。</div>
+      <ul style="margin:8px 0 0 16px">${withAdm.map(row).join('')}</ul>
+      <div class="lgap">判据来源：<code>${esc(((withAdm[0] || {}).origin || {}).artifact || '')}</code> · 独立复核
+        <code>${esc(((withAdm[0] || {}).origin || {}).review || '')}</code> verdict=<b>${esc(((withAdm[0] || {}).origin || {}).verdict || '')}</b>
+        · 单元 ${esc(src)}。三条条件与每条理由都在 <code>evidence/batch-units-260914/readers.json</code> 里，可逐条复算。</div>
+    </div>`;
+}
+window.criteriaStatusHtml = criteriaStatusHtml;
 function linChecks(c) {
   const ck = (c && c.feynman && c.feynman.checks) || [];
   return ck.length ? ck : c.feynman.required.map((k, i) => ({ id: c.chapterId + '-F' + (i + 1), point: k, condition: '', misconception: '' }));
@@ -3708,9 +3831,11 @@ function renderLearn(notice) {
       <div class="lgap">本页不调用知乎。装配状态：${esc(c.review.statusNote)}</div>
     </div>`;
 
+  /* 批量单元的阅读器载荷带 per-criterion 准入结论（三条机器条件）；六章没有这一层，卡片自然为空。 */
+  const blockCriteria = criteriaStatusHtml(c);
   const body = n
     ? [head, blockLead, blockBridges, blockReading, blockLinks, blockFeyInline, blockCase, blockQuestions, blockFeyFinal, blockNext, gaps].join('')
-    : [head, blockReading, blockCase, blockQuestions, blockFeyFinal, gaps].join('');
+    : [head, blockReading, blockCriteria, blockCase, blockQuestions, blockFeyFinal, gaps].join('');
 
   wrap.innerHTML = `<div class="lbody">${body}</div>${rail}`;
   learnRenderQ();

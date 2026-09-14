@@ -147,17 +147,34 @@ check('⑦ 只能认的·只记读过，不判过没过', await ex(`marks['${NOD
 /* ⑧ 三栏外壳 + 落盘 + 09-13 减法后的边界 */
 check('⑧ 导航含内参、知识体系、实践空间且内参在上', await ex(`[...document.querySelectorAll('.r-item b')].map(b => b.textContent).join('|')`), '内参|知识体系|实践空间');
 check('⑧ 底部那条栏已删', await ex(`document.getElementById('bar') ? '还在' : 'OK'`), 'OK');
-check('⑧ 三栏都在（导航|列表|主区）', await ex(`['rail','list','main'].filter(i => document.getElementById(i)).length`), '3');
+check('⑧ 两栏都在（列表|主区）', await ex(`['list','main'].filter(i => document.getElementById(i)).length`), '2');
+/* 09-15：一级导航（内参/知识体系/实践空间）从左栏搬到顶端；左栏整条撤掉 */
+check('⑧ 一级导航在顶栏（不在左栏）', await ex(`document.querySelectorAll('#topbar .r-item').length + '|' + (document.getElementById('rail') ? '左栏还在' : '左栏已撤')`), '3|左栏已撤');
+check('⑧ 顶栏横跨整页、贴在最上方', await ex(`(()=>{const t=document.getElementById('topbar').getBoundingClientRect();
+  const l=document.getElementById('list').getBoundingClientRect();
+  return [Math.round(t.top), Math.round(t.width), (t.bottom<=l.top+1?'在上':'不在上')].join('|');})()`),
+  await ex(`[0, window.innerWidth, '在上'].join('|')`));
+check('⑧ 二级视图 tab 板仍在知识体系里面（不在顶栏）', await ex(`(()=>{const t=document.getElementById('topbar');
+  const m=document.querySelector('.mtools'); return (t.contains(m)?'跑到顶栏了':(document.getElementById('main').contains(m)?'OK':'没了'));})()`), 'OK');
 check(`⑧ 中间栏 ${await ex('String(groups().length)')} 条主题（二级）`, await ex(`document.querySelectorAll('#lp-body .row').length`), await ex(`String(groups().length)`));
 // 09-13 v1-shell-ia phase 02：主题从左栏搬到中间栏，936 条概念默认不再出现（三级）
 check('⑧ 三级概念默认隐藏（中间栏不是 936 行）', await ex(`document.querySelectorAll('#lp-body .row').length === DATA.nodes.length ? '还是 936' : 'OK'`), 'OK');
-check('⑧ 左栏只剩品牌+搜索+三项导航', await ex(`document.querySelectorAll('#rail .r-item').length + '|' + (document.getElementById('lrows') ? '还有图例' : '干净')`), '3|干净');
+check('⑧ 主题图例不在任何栏里（减法后没回来）', await ex(`document.getElementById('lrows') ? '还有图例' : '干净'`), '干净');
 check('⑧ 主题行有圆点有数字', await ex(`(()=>{const r=document.querySelector('#lp-body .row'); return r ? (r.querySelector('.rd')?'有圆点':'缺') + (r.querySelector('.rm')?'有数字':'缺') : '无行'})()`), '有圆点有数字');
 check('⑧ 点一条主题 → 下钻到三级', await ex(`(()=>{const rows=document.querySelectorAll('#lp-body .row'); const label=rows[1].querySelector('.rn').textContent; const id=(CUR.tags.find(t=>t.name===label)||{}).id; rows[1].click(); return currentView + '|' + (themeId===id?'主题对':'主题错') + '|' + (filter===id?'画布跟上了':'画布没跟') + '|' + (document.getElementById('lp-back').style.display===''?'有返回':'没返回')})()`), 'theme|主题对|画布跟上了|有返回');
 check('⑧ 三级只列这条主题的概念', await ex(`(()=>{const want=nodes.filter(n=>(n.tags||[])[0]===themeId).length; const got=document.querySelectorAll('#lp-body .row').length; return got + '/' + want + '|' + (got===want && got < nodes.length ? 'OK' : '不对')})()`), 'OK');
 check('⑧ 点「← 全部主题」回到二级', await ex(`(()=>{setView('graph'); return currentView + '|' + String(filter) + '|' + (document.getElementById('lp-back').style.display==='none'?'返回已藏':'还露着') + '|' + document.querySelectorAll('#lp-body .row').length})()`), await ex(`'graph|null|返回已藏|' + groups().length`));
-check('⑧ 左栏没有底部状态点了', await ex(`document.querySelector('#rail .r-foot, #myrow, #rhint') ? '还在' : 'OK'`), 'OK');
-check('⑧ 左栏只剩导航三项 + 搜索框', await ex(`document.querySelectorAll('#rail .r-item').length + '|' + (document.getElementById('q-filter') ? 'OK' : 'NO')`), '3|OK');
+check('⑧ 顶栏没有多余的底部状态点', await ex(`document.querySelector('#topbar .r-foot, #myrow, #rhint') ? '还在' : 'OK'`), 'OK');
+check('⑧ 顶栏＝三项导航 + 搜索框', await ex(`document.querySelectorAll('#topbar .r-item').length + '|' + (document.getElementById('q-filter') ? 'OK' : 'NO')`), '3|OK');
+/* 回归（所有者 2026-09-15 报「内参每次打开都得再刷新一遍」）：
+   根因＝实践空间把 #reader 整个 innerHTML 换掉，连 #nei-wrap 一起删了，之后点内参必抛
+   Cannot read properties of null。这条断言把「实践空间 → 内参」这条路径钉住。 */
+await ex(`openPractice()`); await sleep(700);
+await ex(`setView('neican')`); await sleep(900);
+check('⑧ 从实践空间回内参能打开（#nei-wrap 会自己重建）',
+  await ex(`document.getElementById('reader').classList.contains('on') + '|' + (document.getElementById('nei-wrap') ? '有容器' : '没容器') + '|' + ((document.getElementById('nei-wrap')||{}).innerText||'').length > 200`),
+  'true|有容器|true');
+await ex(`setView('graph')`); await sleep(400);
 
 /* ⑨ 分类决定系统对你做什么 */
 await ex(`closePanel(); filter=null`);

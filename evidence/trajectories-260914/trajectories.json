@@ -1,0 +1,99 @@
+{
+ "version": "v1",
+ "builtAt": "2026-09-14",
+ "note": "准入门（docs/准入门改版-区分度自证-20260914.md）第二条与第三条的**唯一**轨迹来源。逐字转录自 evidence/真人走查-20260914.md 与 evidence/feynman-teaching-map/inline-feedback-*.json；本目录不产生新数据、不做推断。只有 learnerIs.realHuman === true 的轨迹能激活判据；脚本扮演的合成轨迹照实标 false，不参与激活。",
+ "transcribedFrom": [
+  "evidence/真人走查-20260914.md（§2.2 读中即时反馈，来源：Chrome LevelDB 的 zss135.learn.inline.v1）",
+  "evidence/feynman-teaching-map/inline-feedback-20260913203338.json",
+  "evidence/feynman-teaching-map/inline-feedback-20260913211441.json",
+  "evidence/feynman-teaching-map/inline-feedback-20260913211701.json",
+  "evidence/feynman-teaching-map/inline-feedback-20260913211814.json"
+ ],
+ "conflictNote": "本文件转录的 rounds[0].statuses 与证据文件正文的散文描述不一致：散文写「agent-F1 partial / agent-F2 missing / agent-F3 partial」，而页面的缺口记账是「3 条全在」。两处指的都是同一次提交、同一个结论（三条都不是 met），本文件按**更保守**的一侧落盘（三条 partial），并在每条轨迹上标 statusSource 说明来源；差异照实登记，不替任何一方圆场。",
+ "trajectories": [
+  {
+   "trajectoryId": "traj-20260914-agent-owner-inline",
+   "unitId": "agent",
+   "unitKind": "chapter",
+   "learnerIs": { "realHuman": true, "who": "负责人本人", "evidence": "evidence/真人走查-20260914.md §2.2（Chrome LevelDB · origin http://127.0.0.1:5180 · 键 zss135.learn.inline.v1）" },
+   "entry": "http://127.0.0.1:5180/知所栖-壳.html#learn=agent",
+   "statusSource": "evidence/真人走查-20260914.md §2.2 散文描述（两条提交的草稿一个字未改）",
+   "criterionIds": ["agent-F1", "agent-F2", "agent-F3"],
+   "rounds": [
+   {
+    "round": 1,
+    "at": "2026-09-15T01:20:13+08:00",
+    "ms": 8940,
+    "draftVer": 8,
+    "notJudged": null,
+    "statuses": { "agent-F1": "partial", "agent-F2": "missing", "agent-F3": "partial" },
+    "gaps": ["agent-F1", "agent-F2", "agent-F3"],
+    "passed": false,
+    "teaching": { "focusId": "agent-F2", "text": "（这一轮的补讲原文未逐字落盘；证据文件只逐字给了第 2 轮的补讲）", "question": "" }
+   },
+   {
+    "round": 2,
+    "at": "2026-09-15T01:29:59+08:00",
+    "ms": 6396,
+    "draftVer": 8,
+    "notJudged": null,
+    "statuses": { "agent-F1": "partial", "agent-F2": "missing", "agent-F3": "partial" },
+    "gaps": ["agent-F1", "agent-F2", "agent-F3"],
+    "passed": false,
+    "teaching": {
+     "focusId": "agent-F2",
+     "text": "你说\"Agent 可以调用工具\"，这容易让人以为行动力长在模型里。其实是反过来的：模型权重只负责推理和生成文本，它本身不会去执行任何动作。真正\"调用工具、保存状态、校验权限、决定要不要再循环一轮\"的那套东西，是模型之外的运行时系统（也就是 Agent Harness）在跑……所以\"能调用一次工具\"是重要分界，但生产级 Agent 还要在这套外部系统里加上错误处理、验证、停止条件和状态管理。",
+     "question": "那\"调用工具\"这个动作，究竟是在模型权重里发生的，还是在模型之外的运行时里发生的？"
+    }
+   }
+   ],
+   "outcome": "两轮草稿一个字未改、三条缺口两次都在 —— 这条轨迹里没有任何一条判据从 not-met 走到 met，缺口也没有下降过。照三条机器条件，这一章的三条判据全部标「待验证区分度」。",
+   "whatItSupports": "有真人打开并使用过学习空间（第 1 章），这是全库唯一一条真人读中即时反馈。",
+   "whatItDoesNotSupport": "不证明补讲有效（第 2 轮草稿未改）、不证明判定准确（一致 ≠ 对）、不证明学习效果（样本量 1、无对照）。"
+  },
+  {
+   "trajectoryId": "traj-20260913-synthetic-agent-skills-api",
+   "unitId": "agent-skills-api",
+   "unitKind": "single",
+   "learnerIs": { "realHuman": false, "who": "合成学习者（脚本扮演，不是真人，也不是学习效果实验）", "evidence": "evidence/feynman-teaching-map/inline-feedback-20260913203338.json" },
+   "entry": "http://127.0.0.1:5180/知所栖-壳.html#neican=agent-skills-api",
+   "statusSource": "inline-feedback-20260913203338.json 的 page.statuses（页面记账）",
+   "criterionIds": ["C1", "C2", "C3", "C4"],
+   "rounds": [
+   {
+    "round": 1,
+    "at": "2026-09-13T20:33:27.114Z",
+    "draftVer": null,
+    "notJudged": null,
+    "statuses": { "C1": "met", "C2": "met", "C3": "contradicted", "C4": "partial" },
+    "gaps": ["C3", "C4"],
+    "passed": false,
+    "teaching": { "focusId": "C3", "text": "（该轮补讲原文见 callLog）", "question": "" }
+   },
+   {
+    "round": 2,
+    "at": "2026-09-13T20:33:34.648Z",
+    "draftVer": null,
+    "notJudged": null,
+    "statuses": { "C1": "met", "C2": "met", "C3": "contradicted", "C4": "partial" },
+    "gaps": ["C3", "C4"],
+    "passed": false,
+    "teaching": { "focusId": "C3", "text": "（负对照轮：错误未纠正）", "question": "" }
+   },
+   {
+    "round": 3,
+    "at": "2026-09-13T20:33:37.886Z",
+    "draftVer": null,
+    "notJudged": null,
+    "statuses": { "C1": "met", "C2": "met", "C3": "met", "C4": "missing" },
+    "gaps": ["C4"],
+    "passed": false,
+    "teaching": { "focusId": "C4", "text": "（该轮补讲原文见 callLog）", "question": "" }
+   }
+   ],
+   "outcome": "C3 从 contradicted 走到 met、缺口从 2 条降到 1 条 —— 曲线形状是对的，但学习者是脚本扮演的合成学习者。",
+   "whatItSupports": "证明补讲→回原活动→再判定的连线会让缺口真的动（这是产品动作的证据，不是学习效果的证据）。",
+   "whatItDoesNotSupport": "不是真实轨迹：learnerIs.realHuman=false，按准入门第二条**不参与判据激活**。"
+  }
+ ]
+}

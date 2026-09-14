@@ -17,6 +17,7 @@ import {
   resolveDecisionRef, loadCards,
 } from './lib/batch-units-rules.mjs';
 import { buildPractice } from './lib/practice-readiness.mjs';
+import { judgeCriterion, gapDeclinedOn, progressionOn } from './lib/criteria-activation.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const UNITS_REL = '内容结构化系统/模块/ai-concept-base/data/units.json';
@@ -25,6 +26,8 @@ const DATA_REL = 'evidence/batch-units-260914/units.json';
 const GRAPH_REL = 'knowledge/graph-260914/graph.json';
 const REVIEW_REL = 'evidence/review-decisions-260914/review.json';
 const DECISIONS_REL = 'evidence/gen-decisions-hybrid-v3-20260914.json';
+const READERS_REL = 'evidence/batch-units-260914/readers.json';
+const TRAJ_REL = 'evidence/trajectories-260914/trajectories.json';
 
 const read = (rel) => JSON.parse(fs.readFileSync(path.join(ROOT, rel), 'utf8'));
 const rawOf = (rel) => fs.readFileSync(path.join(ROOT, rel), 'utf8');
@@ -310,12 +313,22 @@ if (!fs.existsSync(path.join(ROOT, DECISIONS_REL))) {
   // b / c 准入门：拿 practice-readiness 真跑一遍（不是读它自己说的话）
   const practice = buildPractice({
     graph: read(GRAPH_REL), batch: data, learning: read('evidence/agent-loop-260913/chapters.json'), review,
+    criteriaReview: read('evidence/review-criteria-260914/review.json'), batchReaders: read(READERS_REL),
   });
   const batchPractice = practice.units.filter((u) => u.group === '批量');
   ok(batchPractice.length === 76, `准入门覆盖 76 个批量单元（实际 ${batchPractice.length}）`);
   ok(batchPractice.every((u) => u.declaredDecisionCount === 3), '76 个单元声明的 decisions 都是 3 道已复核的题（空数组不再是这一段的拦路石）');
   ok(batchPractice.every((u) => u.segments.decision.state === 'green'), '决策那一段 76 个单元全部「可走」（复核 verdict=usable）');
-  ok(batchPractice.every((u) => u.open === false), '四段没有全绿：76 个批量单元一个都还没开（形成性费曼的判据仍是机械派生的）');
+  /* 准入门改版（2026-09-14）：判据「待验证区分度」**不再挡进入**。
+     现在卡住的是「绑不到逐字原文」与「复核不通过」这两条硬条件；76 个批量单元的逐字材料与决策题都过了，
+     所以除 6 个 superseded 之外全部可进入（superseded 是数据驱动的永久封条）。 */
+  ok(batchPractice.filter((u) => u.open).length === 70, `除 6 个 superseded 外全部可进入（实际可进入 ${batchPractice.filter((u) => u.open).length}，预期 70）`);
+  ok(batchPractice.filter((u) => !u.open).every((u) => !!u.superseded && u.segments.reading.state === 'blocked'),
+    '仍然不开的 6 个全部是 superseded（阅读段照实标「不可进入」，不是静默挡住）');
+  ok(batchPractice.filter((u) => u.open).every((u) => u.segments.formative.state === 'green' && u.criteriaActivation && u.criteriaActivation.pending > 0),
+    `可进入的 ${batchPractice.filter((u) => u.open).length} 个单元，形成性费曼那一段照实标着「待验证区分度」（不是当成已激活）`);
+  ok(batchPractice.filter((u) => u.open).every((u) => (u.criteriaActivation.active || 0) === 0),
+    '此时此刻没有一条判据被激活（真实轨迹里没有一条判据从 not-met 走到 met）——没把未验证说成已验证');
   const blocked = (review.units || []).filter((r) => r.verdict !== 'usable');
   ok(blocked.length === 0, `复核判定不可接入的单元 ${blocked.length} 个（预期 0）`);
   const leaked = blocked.filter((r) => {
@@ -323,8 +336,14 @@ if (!fs.existsSync(path.join(ROOT, DECISIONS_REL))) {
     return u && (u.open || u.segments.decision.state === 'green');
   });
   ok(leaked.length === 0, `未通过复核的单元仍不可进入（混进可走的 ${leaked.length} 个：${leaked.slice(0, 3).map((r) => r.unitId).join(' ')}）`);
-  ok(practice.units.filter((u) => u.open).length === 6, `六章仍是唯一四段全绿的一批（可进入 ${practice.units.filter((u) => u.open).length} 个，预期 6）`);
+  /* 本条 2026-09-14 按准入门改版改准：原来写「六章是唯一可进入的一批」，
+     现在可进入的集合是**数据算出来**的（六章 6 + 批量 70 = 76），页面里没有一个写死的单元 ID。 */
+  const openIds = practice.units.filter((u) => u.open).map((u) => u.id);
+  ok(openIds.length === 76 && openIds.filter((id) => id.startsWith('unit:chapter-')).length === 6,
+    `可进入的集合是数据算出来的：${openIds.length} 个（六章 6 + 批量 70；实际六章 ${openIds.filter((id) => id.startsWith('unit:chapter-')).length}）`);
   ok(practice.units.filter((u) => u.group === '批量' && u.bucket === 'decision').length === 0, '批量单元不再堆在「缺少决策题」桶里（桶按第一次卡住的那一段算）');
+  ok(practice.units.filter((u) => u.group === '批量' && !u.open).every((u) => u.bucket === 'material'),
+    '不开的批量单元都归在「材料缺口：待装配」（它们是 superseded，不是缺决策题）');
   ok(practice.summary.reviewedDecisions && practice.summary.reviewedDecisions.questions === 228, '状态看板读到了复核结论（228 道题）');
   ok(practice.units.filter((u) => u.group === '批量').every((u) => u.generatedDecisionCount === 3 && u.reviewVerdict === 'usable'), '每个批量单元都带着「3 道题 · 复核 usable」的标记');
   ok((review.recomputed || {}).polarityInvertedQuestions === 0, `复核发现题干与正解极性相反的题 ${(review.recomputed || {}).polarityInvertedQuestions} 道（预期 0）`);
@@ -339,7 +358,7 @@ if (!fs.existsSync(path.join(ROOT, DECISIONS_REL))) {
   for (const r of forged.units) r.verdict = 'usable';
   const batchEmpty = JSON.parse(JSON.stringify(data));
   for (const u of batchEmpty.units) u.decisions = [];
-  const pForged = buildPractice({ graph: read(GRAPH_REL), batch: batchEmpty, learning: read('evidence/agent-loop-260913/chapters.json'), review: forged });
+  const pForged = buildPractice({ graph: read(GRAPH_REL), batch: batchEmpty, learning: read('evidence/agent-loop-260913/chapters.json'), review: forged, batchReaders: read(READERS_REL) });
   const forgedBatch = pForged.units.filter((u) => u.group === '批量');
   ok(forgedBatch.every((u) => !u.open && u.segments.decision.state !== 'green'),
     '反证 A：把复核结论全改成 usable，只要 decisions 还是空数组就仍然不开（空数组 ≠ 满足）');
@@ -350,7 +369,7 @@ if (!fs.existsSync(path.join(ROOT, DECISIONS_REL))) {
   const graphProbe = JSON.parse(JSON.stringify(read(GRAPH_REL)));
   graphProbe.nodes = graphProbe.nodes.filter((n) => !(String(n.meta && n.meta.unitId) === probeUnit && (n.kind === 'Decision' || n.kind === 'DecisionReview')));
   graphProbe.edges = graphProbe.edges.filter((e) => !String(e.from).startsWith(`activity:${probeUnit}:decision`) && !String(e.from).startsWith(`activity:${probeUnit}:review`));
-  const pNoAct = buildPractice({ graph: graphProbe, batch: data, learning: read('evidence/agent-loop-260913/chapters.json'), review });
+  const pNoAct = buildPractice({ graph: graphProbe, batch: data, learning: read('evidence/agent-loop-260913/chapters.json'), review, criteriaReview: read('evidence/review-criteria-260914/review.json'), batchReaders: read(READERS_REL) });
   const noActUnit = pNoAct.units.find((u) => u.id === probeUnit);
   ok(noActUnit.segments.decision.state !== 'green',
     `反证 B1：复核 usable + decisions 非空，但索引里没有 Decision 活动 → 决策段仍不可走（实际 ${noActUnit.segments.decision.state}／${noActUnit.segments.decision.why.slice(0, 26)}）`);
@@ -364,7 +383,7 @@ if (!fs.existsSync(path.join(ROOT, DECISIONS_REL))) {
       });
     }
   }
-  const pProbe = buildPractice({ graph: graphWith, batch: data, learning: read('evidence/agent-loop-260913/chapters.json'), review });
+  const pProbe = buildPractice({ graph: graphWith, batch: data, learning: read('evidence/agent-loop-260913/chapters.json'), review, criteriaReview: read('evidence/review-criteria-260914/review.json'), batchReaders: read(READERS_REL) });
   const probed = pProbe.units.find((u) => u.id === probeUnit);
   ok(probed.segments.decision.state === 'green',
     `反证 B2：把 3 个 ready 的 Decision 活动补进索引 → 决策段自动变「可走」（实际 ${probed.segments.decision.state}）`);
@@ -373,9 +392,110 @@ if (!fs.existsSync(path.join(ROOT, DECISIONS_REL))) {
   /* 反证探针 C：把复核结论改成 blocked —— 有题有活动也必须不开 */
   const forgedC = JSON.parse(JSON.stringify(review));
   forgedC.units.find((r) => r.unitId === 'batch-agent').verdict = 'blocked';
-  const pC = buildPractice({ graph: read(GRAPH_REL), batch: data, learning: read('evidence/agent-loop-260913/chapters.json'), review: forgedC });
+  const pC = buildPractice({ graph: read(GRAPH_REL), batch: data, learning: read('evidence/agent-loop-260913/chapters.json'), review: forgedC, criteriaReview: read('evidence/review-criteria-260914/review.json'), batchReaders: read(READERS_REL) });
   ok(pC.units.find((u) => u.id === probeUnit).segments.decision.state !== 'green',
     '反证 C：把复核结论改成 blocked → 有题、有活动也不开（复核不过不进）');
+}
+
+/* ⑩ 准入门改版（docs/准入门改版-区分度自证-20260914.md）—— 三条机器条件与三条新断言
+   这是本轮与上一版最重要的区别：判据的「区分度」由三条机器条件自证，
+   不满足的照实标「待验证区分度」：**可以看、不参与通过判定、也不挡单元进入**。
+   三条新断言：
+     A. 待验证区分度的判据不参与通过判定（判据数 ≠ 通过判定条数时，页面与数据都照实说）
+     B. 绑不到逐字原文的单元不许开放（把一条引文打断 → 载荷编译失败 → 该单元不开放）
+     C. 有轨迹后判据自动激活（喂一条真实的 not-met → met 轨迹 → gate 从 false 变 true，代码不用改） */
+group('⑩ 准入改版：三条机器条件 · 待验证区分度不挡进入 · 绑不到原文不许开放 · 有轨迹自动激活');
+{
+  const READERS = read(READERS_REL);
+  const TRAJ = read(TRAJ_REL);
+  const trajectories = TRAJ.trajectories || [];
+  const real = trajectories.filter((t) => t.learnerIs && t.learnerIs.realHuman === true);
+
+  /* 载荷本身的形状：76 份、每份都带逐字材料与三条条件的现算结论 */
+  ok(READERS.readers.length === 76, `阅读器载荷 76 份（实际 ${READERS.readers.length}）`);
+  ok(READERS.readers.every((r) => (r.feynman.checks || []).length > 0 && r.feynman.checks.every((c) => c.admission && c.admission.conditions)),
+    '每份载荷的每条判据都带三条机器条件的**现算结论**（不是抄来的自述）');
+  ok(READERS.readers.every((r) => r.feynman.checks.every((c) => c.gate === (c.admission.active === true))),
+    '判据的 gate 字段严格等于 admission.active（参与通过判定 = 三条全过）');
+
+  /* A. 待验证区分度的判据不参与通过判定 */
+  const pending = READERS.readers.flatMap((r) => r.feynman.checks.filter((c) => !c.gate));
+  const active = READERS.readers.flatMap((r) => r.feynman.checks.filter((c) => c.gate));
+  ok(pending.length === 264 && active.length === 0,
+    `264 条判据照实标「待验证区分度」、一条都没有被说成已激活（实际 pending ${pending.length} / active ${active.length}）`);
+  ok(pending.every((c) => c.admission.label === '待验证区分度' && c.admission.conditions.verbatimQuote === true),
+    `待验证的 ${pending.length} 条**全部满足条件①（绑了逐字原文）**，卡在②③（缺真实轨迹 / 缺口没下降过）——这正是六章与 264 条的真正区别`);
+  ok(pending.every((c) => c.admission.conditions.realTrajectory === false || c.admission.conditions.gapDeclined === false),
+    '标「待验证」的判据都至少有一条条件确实没过（没有把过了三条的也标成待验证）');
+  /* 页面侧：可进入的单元里，章末/形成性那两段照实标着待验证，且**没有**因此把单元挡在门外 */
+  const p2 = buildPractice({ graph: read(GRAPH_REL), batch: data, learning: read('evidence/agent-loop-260913/chapters.json'), review: read(REVIEW_REL), criteriaReview: read('evidence/review-criteria-260914/review.json'), batchReaders: READERS });
+  const openBatch = p2.units.filter((u) => u.group === '批量' && u.open);
+  ok(openBatch.length === 70 && openBatch.every((u) => u.criteriaActivation.total === u.criterionCount && u.criteriaActivation.active === 0 && u.criteriaActivation.pending === u.criterionCount),
+    `可进入的 ${openBatch.length} 个批量单元里，待验证判据数照实算（每条都 pending、没有一条被说成 active），没有一个单元因为「判据待验证」被挡在门外`);
+  ok(openBatch.every((u) => u.criteriaActivation.citationsBound === u.criteriaActivation.citationsTotal && u.criteriaActivation.quoteBound === true),
+    '可进入的单元，逐字绑定是**现算**的：每条带出处的材料都通过了 indexOf ＋ sha256 ＋ locator（不是采信编译时那一份自述）');
+  /* allowRealTrajectories:false 探针：把真实轨迹抽掉 → 单元照旧可进入（待验证不挡进入），但绝不会有判据变激活 */
+  const pNoTraj = buildPractice({ graph: read(GRAPH_REL), batch: data, learning: read('evidence/agent-loop-260913/chapters.json'), review: read(REVIEW_REL), criteriaReview: read('evidence/review-criteria-260914/review.json'), batchReaders: READERS, allowRealTrajectories: false });
+  const noTrajBatch = pNoTraj.units.filter((u) => u.group === '批量');
+  ok(noTrajBatch.filter((u) => u.open).length === 70 && noTrajBatch.every((u) => (u.criteriaActivation.active || 0) === 0),
+    '探针：把真实轨迹抽掉后，70 个单元照样可进入（待验证不挡进入），且没有一条判据被算成已激活');
+
+  /* B. 绑不到逐字原文的单元不许开放 */
+  const broken = JSON.parse(JSON.stringify(READERS));
+  const victim = broken.readers.find((r) => r.isAllowedToOpen && r.feynman.checks.length);
+  const brokenCitation = victim.feynman.checks[0].sourceSha256;
+  victim.feynman.checks[0].sourceSha256 = 'f'.repeat(64);          // 打断第一处逐字绑定
+  const pBroken = buildPractice({ graph: read(GRAPH_REL), batch: data, learning: read('evidence/agent-loop-260913/chapters.json'), review: read(REVIEW_REL), criteriaReview: read('evidence/review-criteria-260914/review.json'), batchReaders: broken });
+  const victimSeg = pBroken.units.find((u) => u.id === `unit:${victim.chapterId}`);
+  ok(victimSeg.segments.reading.state === 'blocked' && victimSeg.open === false,
+    `反证 B：把 ${victim.chapterId} 第一条判据的 sha256 改坏 → 阅读段变「不可进入」、单元不开放（绑不到逐字原文就不给开）`);
+  ok(brokenCitation === victim.feynman.checks[0].admission.binding.sha256,
+    '反证 B：这条判据的 admission.binding 记的就是原来那个 sha256（准入结论确实是从逐字绑定算的，不是复制粘贴）');
+  /* 编译器本身也要硬：sha 对不上就不写产物（在临时副本上重跑一次编译器） */
+  const pAllowed = buildPractice({ graph: read(GRAPH_REL), batch: data, learning: read('evidence/agent-loop-260913/chapters.json'), review: read(REVIEW_REL), criteriaReview: read('evidence/review-criteria-260914/review.json'), batchReaders: READERS });
+  ok(pAllowed.units.find((u) => u.id === `unit:${victim.chapterId}`).open === true,
+    '对照：同一份判定跑原始载荷时这个单元是开的（上面那条红不是因为别的原因）');
+
+  /* C. 有轨迹后判据自动激活（真实轨迹里出现过的那条判据） */
+  const unit = 'agent';
+  const chapterChecks = REAL_CHAPTER_CHECKS();                 // 六章第 1 章的 3 条人工判据（逐字取自 chapters.json）
+  const realTraj = real.find((t) => t.unitId === unit) || null;
+  ok(!!realTraj, `真实轨迹存在：${realTraj ? realTraj.trajectoryId : '（无）'}`);
+  const before = chapterChecks.map((c) => judgeCriterion(c, { trajectories: real }).active);
+  ok(before.every((x) => x === false), 'C1：拿**真实**的那份轨迹（负责人本人两轮、三条缺口两次都在）跑 → 三条判据全部不激活（照实）');
+  const declined = realTraj ? gapDeclinedOn(realTraj) : { declined: false };
+  ok(declined.declined === false, `C2：真实轨迹的缺口没有下降过（${declined.why || ''}）——所以它激活不了判据，这不是代码选择，是数据事实`);
+
+  /* 造一条**标了 realHuman 的** not-met → met 轨迹喂给同一个判定：判据必须自动激活、代码一个字不改。
+     这条轨迹是探针（fixtureProbe:true），只在本断言里存在，不落任何产物、也不写进 readers.json。 */
+  const probeTraj = {
+    trajectoryId: 'probe-real-trajectory-（fixtureProbe 真人不真人在此无关，只证明判定会动）',
+    unitId: unit, fixtureProbe: true,
+    learnerIs: { realHuman: true, who: '探针（本断言内部构造，不落盘、不当证据）' },
+    rounds: [
+      { round: 1, at: 'probe', statuses: { 'agent-F1': 'missing', 'agent-F2': 'missing', 'agent-F3': 'missing' }, gaps: ['agent-F1', 'agent-F2', 'agent-F3'] },
+      { round: 2, at: 'probe', statuses: { 'agent-F1': 'met', 'agent-F2': 'missing', 'agent-F3': 'missing' }, gaps: ['agent-F2', 'agent-F3'] },
+    ],
+  };
+  const after = chapterChecks.map((c) => judgeCriterion(c, { trajectories: [probeTraj] }));
+  ok(after[0].active === true && after[0].conditions.realTrajectory === true && after[0].conditions.gapDeclined === true,
+    'C3：同一条判据喂进一条 not-met → met 且缺口下降的轨迹 → 自动激活（gate 从 false 变 true，判定里没有一个单元 ID 白名单）');
+  ok(after[1].active === false && after[2].active === false,
+    'C3：同一条轨迹里没走到 met 的那两条仍然不激活（激活是按判据逐条算的，不是整章一起开）');
+  const probeDerived = judgeCriterion({ id: 'agent:batch-agent-B1', unitId: 'batch-agent', point: 'x', condition: 'y', misconception: 'z', citation: victim.feynman.checks[0] }, { trajectories: [probeTraj] });
+  ok(probeDerived.active === false, 'C4：机器派生判据（同一个判定）在这条探针轨迹上没有它的观察记录 → 仍不激活（不因为"同单元"就跟着开）');
+  ok(real.every((t) => t.fixtureProbe !== true) && !JSON.stringify(READERS).includes('probe-real-trajectory'),
+    'C5：探针轨迹只在断言里存在，没有混进任何产物（判据要真轨迹，不是造一条就算）');
+}
+function REAL_CHAPTER_CHECKS() {
+  const ch = read('evidence/agent-loop-260913/chapters.json').chapters.find((c) => c.chapterId === 'agent');
+  const card = loadCards(ROOT, CARD_DIR_REL).get((ch.sourceChain.card || '') + '.yaml');
+  return ch.feynman.checks.map((c, i) => ({
+    id: c.id, unitId: 'agent', point: c.point, condition: c.condition, misconception: c.misconception,
+    citation: {
+      text: c.condition, sourceFile: card.rel, sourceSha256: card.sha, locator: `boundaries[${i}]`, escapeForm: 'raw',
+    },
+  }));
 }
 
 console.log(`\n批量单元体检：${pass} 项通过${fail ? `，${fail} 项失败` : ''}`);
@@ -384,4 +504,9 @@ console.log(`  · 76 个单元：ready ${ready.length}（四类齐） · scaffol
 console.log(`  · 逐字材料 ${citations} 条（其中 ${escaped} 条按 JSON 转义形态命中）· 费曼判据 ${checks} 条`);
 console.log(`  · 缺口 ${data.stats.gaps} 条：决策题待装配 ${data.units.filter((u) => !(u.decisions || []).length).length} + 缺 OPI ${scaffold.length}`);
 console.log(`  · 决策题接入 ${wired.length} 个单元 / ${wired.reduce((n, u) => n + u.decisions.length, 0)} 道（复核 verdict=usable 才接）`);
+if (fs.existsSync(path.join(ROOT, READERS_REL))) {
+  const R = read(READERS_REL);
+  console.log(`  · 阅读器载荷 ${R.stats.readers} 份编译（逐字材料 ${R.stats.citationsChecked} 条过 indexOf + sha256 + locator）· 可开放 ${R.stats.allowedToOpen} · 待装配 ${R.stats.pendingAssembly}（superseded ${R.stats.superseded}）`);
+  console.log(`  · 判据区分度自证：激活 ${R.stats.criteriaActive} 条 · 待验证区分度 ${R.stats.criteriaPending} 条（真实轨迹 ${R.stats.realTrajectories} 份 / 共 ${R.stats.trajectoryFiles} 份）`);
+}
 console.log('✅ 批量单元体检全过');

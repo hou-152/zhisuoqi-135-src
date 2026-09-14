@@ -79,27 +79,36 @@ function loadLearning() {
 }
 
 /* 实践空间：单元链路就绪度（六章 6 + 单篇 1 + 批量 76）。
-   数据来自 graph.json（单元/活动/判据/缺口/入口）+ units.json（批量装配声明）+ chapters.json（六章）
-   + review-decisions-260914/review.json（228 道批量决策题的独立复核结论）。
-   准入规则只有一条、且是数据算出来的：「四段全绿才开放」——页面不写死六章。
-   19 条 ready 只显示「准备中 / 目录候选」，76 个批量单元一律不可进入：
-   它们的决策题已生成，但独立复核判定不可接入（见 evidence/review-decisions-260914/）。 */
+   数据来自 graph.json（单元/活动/判据/缺口/入口）+ units.json（批量装配声明）
+   + readers.json（**76 份阅读器载荷**，本轮按准入门改版编译）+ chapters.json（六章）
+   + review-decisions-260914/review.json（228 道批量决策题的独立复核结论）
+   + review-criteria-260914/review.json（264 条判据的复核结论）+ trajectories-260914（真实轨迹）。
+   准入规则只有一条、且是数据算出来的：「四段全绿才开放」——页面不写死六章，也不写死批量。
+   判据按三条机器条件标「已激活 / 待验证区分度」：**待验证区分度不挡进入**（本轮改版的核心）。 */
 function loadPractice(learning) {
   const g = path.join(ROOT, 'knowledge', 'graph-260914', 'graph.json');
   const b = path.join(ROOT, 'evidence', 'batch-units-260914', 'units.json');
+  const br = path.join(ROOT, 'evidence', 'batch-units-260914', 'readers.json');
   const r = path.join(ROOT, 'evidence', 'review-decisions-260914', 'review.json');
   if (!fs.existsSync(g)) { console.warn('⚠ 缺 knowledge/graph-260914/graph.json —— 先跑 node scripts/build-graph.mjs（实践空间会没有状态看板）'); return null; }
   const graph = JSON.parse(fs.readFileSync(g, 'utf8'));
   const batch = fs.existsSync(b) ? JSON.parse(fs.readFileSync(b, 'utf8')) : { units: [] };
   if (!fs.existsSync(b)) console.warn('⚠ 缺 evidence/batch-units-260914/units.json —— 批量 76 个单元不会出现在状态看板里');
+  const batchReaders = fs.existsSync(br) ? JSON.parse(fs.readFileSync(br, 'utf8')) : null;
+  if (!batchReaders) console.warn('⚠ 缺 evidence/batch-units-260914/readers.json —— 先跑 node scripts/build-batch-materials.mjs（批量单元没有阅读器载荷）');
   const review = fs.existsSync(r) ? JSON.parse(fs.readFileSync(r, 'utf8')) : null;
   if (!review) console.warn('⚠ 缺 evidence/review-decisions-260914/review.json —— 决策题一律按未复核处理（不开放）');
   const cr = path.join(ROOT, 'evidence', 'review-criteria-260914', 'review.json');
   const criteriaReview = fs.existsSync(cr) ? JSON.parse(fs.readFileSync(cr, 'utf8')) : null;
-  if (!criteriaReview) console.warn('⚠ 缺 evidence/review-criteria-260914/review.json —— 费曼判据按未复核处理（不开放）');
-  const p = buildPractice({ graph, batch, learning, review, criteriaReview });
+  if (!criteriaReview) console.warn('⚠ 缺 evidence/review-criteria-260914/review.json —— 费曼判据照实标「待验证区分度」');
+  const p = buildPractice({ graph, batch, learning, review, criteriaReview, batchReaders });
   console.log(`实践空间：单元 ${p.summary.units} 个 · 可进入 ${p.summary.open}（四段全绿）· ` +
     p.buckets.map((x) => `${x.label} ${x.count}`).join(' · '));
+  if (p.readerStats) {
+    const s = p.readerStats;
+    console.log(`  阅读载荷：${s.readers} 份编译（逐字材料 ${s.citationsChecked} 条全过 indexOf + sha256 + locator）· 可开放 ${s.allowedToOpen} · 待装配 ${s.pendingAssembly}（superseded ${s.superseded}）`);
+    console.log(`  判据区分度自证：激活 ${s.criteriaActive} 条 · 待验证区分度 ${s.criteriaPending} 条（真实轨迹 ${s.realTrajectories} 份 / 共 ${s.trajectoryFiles} 份，脚本扮演的不算）`);
+  }
   if (p.summary.reviewedDecisions) {
     const d = p.summary.reviewedDecisions;
     console.log(`  决策题独立复核：生成 ${d.questions} 道 / 复核通过 ${d.usableQuestions} 道 · 可用单元 ${d.usableUnits}/${d.units}`);
@@ -116,6 +125,21 @@ const payload = LEGACY ? buildLegacy() : buildFromMap();
 payload.neican = loadNeican();
 payload.learning = loadLearning();
 payload.practice = loadPractice(payload.learning);
+/* 批量单元的阅读器载荷（本轮编译）装进同一份阅读器，**但不混进六章的课程数组**：
+   DATA.learning.chapters 仍然是 Agent Loop 六章（顺序课程，`LEARN.length === 6` 这条语义一个字没动），
+   批量单元另放 DATA.learning.batch，页面用 chapterById() 在两张表里查 —— 段落/右栏材料 chip 复用
+   #learn 那套排版，不另造视觉。只装 isAllowedToOpen 的那些（superseded 6 个不装 → 页面里根本没有它们的入口）。 */
+(function attachBatchReaders() {
+  const f = path.join(ROOT, 'evidence', 'batch-units-260914', 'readers.json');
+  if (!fs.existsSync(f)) return;
+  const d = JSON.parse(fs.readFileSync(f, 'utf8'));
+  const allowed = (d.readers || []).filter((r) => r.isAllowedToOpen);
+  payload.learning.batch = allowed;
+  payload.learning.batchStats = d.stats || {};
+  payload.learning.trajectories = d.trajectories || [];
+  console.log(`学习空间：六章 ${(payload.learning.chapters || []).length} 章不变；另并入批量阅读器载荷 ${allowed.length} 份（共 ${(d.readers || []).length} 份编译；superseded ${(d.readers || []).length - allowed.length} 份不装）`);
+  console.log(`  批量判据：激活 ${(d.stats || {}).criteriaActive} 条 · 待验证区分度 ${(d.stats || {}).criteriaPending} 条`);
+})();
 
 const tpl = fs.readFileSync(TPL, 'utf8');
 const json = JSON.stringify(payload).replace(/<\//g, '<\\/');
