@@ -1,22 +1,22 @@
 # 全链路 Graph 索引报告
 
-构建时间：2026-09-13T23:22:55.637Z　版本：v1
+构建时间：2026-09-14T15:07:20.389Z　版本：v1
 
 > 本文件由 `node scripts/build-graph.mjs` 生成，**不要手改**。数字口径见文末《口径》。
 
 ## 一、总量
 
-- 节点 **3974** · 边 **12644** · 缺口条目 **180**
+- 节点 **4077** · 边 **12837** · 缺口条目 **181**
 - 可运行单元 **85** · 判据 **288** · 活动节点 **1130** · 流程边（唯一能驱动跳转的边）**2675**
-- 待装配（scaffold）**601**（15.1%）· 阻塞（blocked）**0**
+- 待装配（scaffold）**601**（14.7%）· 阻塞（blocked）**0**
 
 ## 二、按层
 
 | 层 | 节点 | 待装配 | 阻塞 | 装什么 kind |
 |---|---|---|---|---|
-| 材料与出处 `source` | 896 | 49 | 0 | SourceDocument SourceSpan DerivedAsset FiveDimAsset |
+| 材料与出处 `source` | 928 | 49 | 0 | SourceDocument SourceSpan DerivedAsset FiveDimAsset |
 | 五类语义 `semantics` | 538 | 227 | 0 | SemanticUnit |
-| 公共知识与关系 `knowledge` | 1020 | 0 | 0 | Concept Topic |
+| 公共知识与关系 `knowledge` | 1091 | 0 | 0 | Concept Topic |
 | 问题与课程编排 `curriculum` | 387 | 66 | 0 | LearningProblem Goal GapHypothesis Route RouteStep Unit Criterion |
 | 学习活动 `activity` | 1130 | 258 | 0 | Reading Formative Support Decision DecisionReview Summative ApplicationReview ExperimentReference |
 | 运行与记录 `runtime` | 0 | 0 | 0 | Session Turn Attempt Checkpoint Evidence AssessmentRecord |
@@ -26,19 +26,19 @@
 
 | kind | 数量 |
 |---|---|
-| Concept | 999 |
+| Concept | 1070 |
 | SourceSpan | 685 |
 | SemanticUnit | 538 |
 | ApplicationReview | 404 |
 | Support | 340 |
 | Criterion | 288 |
-| DerivedAsset | 130 |
+| DerivedAsset | 154 |
 | Unit | 85 |
 | Reading | 85 |
 | Formative | 85 |
 | Summative | 85 |
 | ExperimentReference | 85 |
-| SourceDocument | 70 |
+| SourceDocument | 78 |
 | Decision | 23 |
 | DecisionReview | 23 |
 | Topic | 21 |
@@ -56,17 +56,17 @@
 
 | 边类 | 数量 | 能不能驱动跳转 |
 |---|---|---|
-| `knowledge` | 5725 | 不能 |
+| `knowledge` | 5894 | 不能 |
 | `transition` | 2675 | **能**（唯一） |
 | `curriculum` | 2167 | 不能（课程编排，不是运行时跳转） |
-| `provenance` | 2077 | 不能 |
+| `provenance` | 2101 | 不能 |
 
 ## 五、按审核状态（边的可信程度）
 
 | reviewState | 数量 |
 |---|---|
-| sourced | 5965 |
-| unreviewed | 3666 |
+| sourced | 6060 |
+| unreviewed | 3764 |
 | curated | 2855 |
 | authored | 140 |
 | owner-confirmed | 18 |
@@ -75,7 +75,7 @@
 
 | status | 数量 |
 |---|---|
-| ready | 3373 |
+| ready | 3476 |
 | scaffold | 601 |
 
 ## 七、可运行入口
@@ -95,16 +95,16 @@
 ```json
 {
  "conceptMap": {
-  "topics": 999,
+  "topics": 1070,
   "clusters": 21,
-  "dependencies": 632,
-  "relations": 3410,
-  "depUnreviewed": 311,
-  "relUnreviewed": 3351,
+  "dependencies": 681,
+  "relations": 3459,
+  "depUnreviewed": 360,
+  "relUnreviewed": 3400,
   "depDuplicates": 2,
   "relDuplicates": 11,
-  "depEdgesKept": 630,
-  "relEdgesKept": 3399
+  "depEdgesKept": 679,
+  "relEdgesKept": 3448
  },
  "semantic": {
   "total": 538,
@@ -146,13 +146,13 @@
   }
  },
  "neican": {
-  "issues": 2,
-  "articles": 18,
+  "issues": 3,
+  "articles": 26,
   "fivedim": 10,
-  "notes": 18,
-  "dicts": 18,
-  "feynmans": 18,
-  "raws": 18
+  "notes": 26,
+  "dicts": 26,
+  "feynmans": 26,
+  "raws": 26
  },
  "routeTail": {
   "routeId": "agent-continuous-action-v1",
@@ -210,13 +210,14 @@
 
 ## 九、缺口清单（保留节点并写清原因，不把它变成 ready）
 
-### pending（180）
+### pending（181）
 
 - **概念依赖里有 2 条重复记录（已按稳定身份去重）** — 重复键：cm_30fb0c9b<-cm_34b33e00、cm_a0ca0f95<-cm_34b33e00　`knowledge/概念地图-260913/dependencies.json`　影响 2 个节点
 - **概念关系里有 11 条重复记录（已按稳定身份去重）** — 重复键：cm_0a4ca4ce>cm_d9aa9fe0/used-with、cm_34b33e00>cm_7cd7335d/used-with、cm_c8798fb1>cm_01d6a01e/used-with、cm_b55ff5c3>cm_916d7db2/used-with、cm_30201f36>cm_01d6a01e/used-with　`knowledge/概念地图-260913/relations.json`　影响 3 个节点
 - **图鉴卡分类 ↔ 概念地图主题 未建立映射** — 图鉴站用 7 个 category_id（external-access / continuous-action / human-control / context-delivery / current-view / result-trust / information-storage），概念地图用 21 个主题，两套分类没有逐条核对过的映射；本轮不按名字猜　`内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts`　影响 3 个节点
 - **内参-260912 期资产清点** — 文章 10 篇；三级笔记 10 份；概念辞典 10 份；AI 费曼 10 份；真五维 10 份　`knowledge/内参-260912`
 - **内参-260913 期资产清点** — 文章 8 篇；三级笔记 8 份；概念辞典 8 份；AI 费曼 8 份；真五维 0 份　`knowledge/内参-260913`
+- **内参-260914 期资产清点** — 文章 8 篇；三级笔记 8 份；概念辞典 8 份；AI 费曼 8 份；真五维 0 份　`knowledge/内参-260914`
 - **Agent 章判据：补讲材料只绑到整章阅读梯度** — 单篇（agent-skills-api）有逐条指定的 material[ref]，六章目前没有这一层映射，补讲只能取本章阅读梯度；不按关键词猜段落　`evidence/agent-loop-260913/authored.json#chapters.agent.feynman.checks`　影响 1 个节点
 - **Agent 章判据：补讲材料只绑到整章阅读梯度** — 单篇（agent-skills-api）有逐条指定的 material[ref]，六章目前没有这一层映射，补讲只能取本章阅读梯度；不按关键词猜段落　`evidence/agent-loop-260913/authored.json#chapters.agent.feynman.checks`　影响 1 个节点
 - **Agent 章判据：补讲材料只绑到整章阅读梯度** — 单篇（agent-skills-api）有逐条指定的 material[ref]，六章目前没有这一层映射，补讲只能取本章阅读梯度；不按关键词猜段落　`evidence/agent-loop-260913/authored.json#chapters.agent.feynman.checks`　影响 1 个节点
@@ -271,17 +272,16 @@
 - **「Agent 会话管理」的三道决策题待装配** — 该单元的三道决策题待装配：批量装配不补造唯一正确答案（任务书 §2.3）。可用素材已经就位：CAS 情境、SOL 动作路径、该卡 boundaries 的误区清单。　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-session-management].gaps[0]`　影响 1 个节点
 - **「Agent 会话管理」缺 OPI：决策题依据只能落在 CAS 情境与 SOL 动作路径上** — 本单元（CON-agent-session-management）没有反向观点单元；决策题待装配时，依据只能落在 CAS 情境与 SOL 动作路径上　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-session-management].statusReason`　影响 1 个节点
 - **「Agent 终止条件」的三道决策题待装配** — 该单元的三道决策题待装配：批量装配不补造唯一正确答案（任务书 §2.3）。可用素材已经就位：CAS 情境、SOL 动作路径、该卡 boundaries 的误区清单。　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-stop-conditions].gaps[0]`　影响 1 个节点
-- **「Agent 终止条件」缺 OPI：决策题依据只能落在 CAS 情境与 SOL 动作路径上** — 本单元（CON-agent-stop-conditions）没有反向观点单元；决策题待装配时，依据只能落在 CAS 情境与 SOL 动作路径上　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-stop-conditions].statusReason`　影响 1 个节点
-- …另有 120 条同类缺口，全部在 `graph.json#gaps`
+- …另有 121 条同类缺口，全部在 `graph.json#gaps`
 
 ## 十、构建来源（可核对基线）
 
 | 文件 | sha256（前 16） | 说明 |
 |---|---|---|
-| `knowledge/概念地图-260913/topics.json` | `e2aa8f9af8e2bd08` | 概念唯一真源（只读） |
-| `knowledge/概念地图-260913/clusters.json` | `7791caa52d7fa75e` |  |
-| `knowledge/概念地图-260913/dependencies.json` | `5c9952d8fc0d1e0a` |  |
-| `knowledge/概念地图-260913/relations.json` | `1d838d8a1759d176` |  |
+| `knowledge/概念地图-260913/topics.json` | `d51335b21db06d47` | 概念唯一真源（只读） |
+| `knowledge/概念地图-260913/clusters.json` | `d6cd54fffc76fd3b` |  |
+| `knowledge/概念地图-260913/dependencies.json` | `a03e0dd20063e661` |  |
+| `knowledge/概念地图-260913/relations.json` | `a8d03d714b625f9c` |  |
 | `内容结构化系统/模块/ai-concept-base/data/units.json` | `4d36dedb7f51303d` | 538 个语义单元（五类） |
 | `内容结构化系统/01-原始素材区/完整副本/飞书-Context-Engineering-26+2.md` | `339f99811ad59817` |  |
 | `内容结构化系统/01-原始素材区/完整副本/飞书-Harness-Engineering-28+2.md` | `ed545831b5b8da46` |  |
@@ -370,6 +370,39 @@
 | `knowledge/内参-260913/三级笔记/ai-apps-not-a-good-business.md` | `18e80312f862a2f6` |  |
 | `knowledge/内参-260913/概念辞典/ai-apps-not-a-good-business.md` | `68d57965b217a35c` |  |
 | `knowledge/内参-260913/AI费曼/ai-apps-not-a-good-business.md` | `c54f29b9eb958c69` |  |
+| `knowledge/内参-260914/内参-页面数据.json` | `18d97387256590be` | 内参-260914 期页面数据 |
+| `knowledge/内参-260914/原文/yoshuabengio-why-are-ai-agents-lying-cheating-and-coordinati.md` | `54d1f2224f17a2cf` |  |
+| `knowledge/内参-260914/三级笔记/yoshuabengio-why-are-ai-agents-lying-cheating-and-coordinati.md` | `57494c92c7dfb1df` |  |
+| `knowledge/内参-260914/概念辞典/yoshuabengio-why-are-ai-agents-lying-cheating-and-coordinati.md` | `d02d4fce7bd87594` |  |
+| `knowledge/内参-260914/AI费曼/yoshuabengio-why-are-ai-agents-lying-cheating-and-coordinati.md` | `c1a9f3e9a1e14edc` |  |
+| `knowledge/内参-260914/原文/cursor-understanding-your-codebase.md` | `e7a834b345b38aca` |  |
+| `knowledge/内参-260914/三级笔记/cursor-understanding-your-codebase.md` | `41df2e5b67bdea14` |  |
+| `knowledge/内参-260914/概念辞典/cursor-understanding-your-codebase.md` | `52ba7116ae66e035` |  |
+| `knowledge/内参-260914/AI费曼/cursor-understanding-your-codebase.md` | `56d4c3c1bc37f69a` |  |
+| `knowledge/内参-260914/原文/cursor-working-with-agents.md` | `4b24b7e30650e3ea` |  |
+| `knowledge/内参-260914/三级笔记/cursor-working-with-agents.md` | `7b5bbbbeacd0627c` |  |
+| `knowledge/内参-260914/概念辞典/cursor-working-with-agents.md` | `615fcfc2815449ac` |  |
+| `knowledge/内参-260914/AI费曼/cursor-working-with-agents.md` | `172d17564f1d000d` |  |
+| `knowledge/内参-260914/原文/cursor-creating-features.md` | `2ca41196f32de472` |  |
+| `knowledge/内参-260914/三级笔记/cursor-creating-features.md` | `9ae73639d4b59f01` |  |
+| `knowledge/内参-260914/概念辞典/cursor-creating-features.md` | `938e9b815ed9aeb1` |  |
+| `knowledge/内参-260914/AI费曼/cursor-creating-features.md` | `32e9d6281edd4fa0` |  |
+| `knowledge/内参-260914/原文/cursor-finding-fixing-bugs.md` | `e7716bb1a2db6c0a` |  |
+| `knowledge/内参-260914/三级笔记/cursor-finding-fixing-bugs.md` | `d7ede42ede0513c4` |  |
+| `knowledge/内参-260914/概念辞典/cursor-finding-fixing-bugs.md` | `26312c3151598216` |  |
+| `knowledge/内参-260914/AI费曼/cursor-finding-fixing-bugs.md` | `a7fe4c9431c875a5` |  |
+| `knowledge/内参-260914/原文/cursor-reviewing-testing.md` | `beff2296ad8f6231` |  |
+| `knowledge/内参-260914/三级笔记/cursor-reviewing-testing.md` | `3439cd33b76c18ab` |  |
+| `knowledge/内参-260914/概念辞典/cursor-reviewing-testing.md` | `19e0a2b2bfd65c05` |  |
+| `knowledge/内参-260914/AI费曼/cursor-reviewing-testing.md` | `8d511367d3842fff` |  |
+| `knowledge/内参-260914/原文/cursor-customizing-agents.md` | `f513c667384fe0b8` |  |
+| `knowledge/内参-260914/三级笔记/cursor-customizing-agents.md` | `cec9f1e1a116b155` |  |
+| `knowledge/内参-260914/概念辞典/cursor-customizing-agents.md` | `120ade2dda77a5e2` |  |
+| `knowledge/内参-260914/AI费曼/cursor-customizing-agents.md` | `719d44e0e127d507` |  |
+| `knowledge/内参-260914/原文/cursor-putting-it-together.md` | `5927b3147755f592` |  |
+| `knowledge/内参-260914/三级笔记/cursor-putting-it-together.md` | `8fd11ddc53b906e0` |  |
+| `knowledge/内参-260914/概念辞典/cursor-putting-it-together.md` | `25bff9f8adc204e3` |  |
+| `knowledge/内参-260914/AI费曼/cursor-putting-it-together.md` | `6d904f054aa331fd` |  |
 | `evidence/paths-260913/routes.json` | `08f7eac6614d48df` | 人工策展路线（只读，不改顺序） |
 | `evidence/agent-loop-260913/chapters.json` | `eca4944e029f97b3` | 六章已装配材料 |
 | `evidence/agent-loop-260913/authored.json` | `7dc25beff7bd7bb2` | 人工撰写的题目与费曼判据 |

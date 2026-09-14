@@ -1,0 +1,551 @@
+{
+ "generatedAt": "2026-09-14T15:05:00.355Z",
+ "model": "deepseek-flash",
+ "tokens": 106019,
+ "parsed": 79,
+ "hitExisting": 8,
+ "added": 71,
+ "edges": 49,
+ "failed": [],
+ "hits": [
+  {
+   "neican": "Plan 模式",
+   "article": "创建功能",
+   "node": "Plan 模式"
+  },
+  {
+   "neican": "技能",
+   "article": "自定义 Agent",
+   "node": "技能化"
+  },
+  {
+   "neican": "MCP",
+   "article": "自定义 Agent",
+   "node": "MCP"
+  },
+  {
+   "neican": "编码 agent",
+   "article": "融会贯通",
+   "node": "coding agent"
+  },
+  {
+   "neican": "Plan mode",
+   "article": "融会贯通",
+   "node": "Plan 模式"
+  },
+  {
+   "neican": "编码智能体",
+   "article": "评审和测试代码",
+   "node": "coding agent"
+  },
+  {
+   "neican": "语义搜索",
+   "article": "理解您的代码库",
+   "node": "语义搜索"
+  },
+  {
+   "neican": "上下文",
+   "article": "与智能体协作",
+   "node": "上下文"
+  }
+ ],
+ "added_nodes": [
+  {
+   "id": "cm_39ea90f7",
+   "name": "可自行验证的步骤",
+   "domain": "循环与自主执行",
+   "desc": "把工作拆成智能体能自己判断成没成的小步骤，每步先定方案并配防护机制。",
+   "article": "创建功能"
+  },
+  {
+   "id": "cm_b661925a",
+   "name": "回到方案，而非修补提示词",
+   "domain": "规格与意图对齐",
+   "desc": "构建结果不符预期时撤销更改、细化方案后重跑，而不是继续补提示词。",
+   "article": "创建功能"
+  },
+  {
+   "id": "cm_f33afab3",
+   "name": "智能体判断自己的代码是否正确",
+   "domain": "验证与评估门禁",
+   "desc": "智能体能跑测试、看失败并据此改代码，从而自己判断产出对不对。",
+   "article": "创建功能"
+  },
+  {
+   "id": "cm_149d5090",
+   "name": "测试驱动开发",
+   "domain": "验证与评估门禁",
+   "desc": "先提交测试锁住需求，再让智能体在不修改测试的前提下让测试全部通过。",
+   "article": "创建功能"
+  },
+  {
+   "id": "cm_25afb069",
+   "name": "图像输入",
+   "domain": "上下文工程",
+   "desc": "把设计稿或屏幕截图贴进提示词，让智能体照着还原、排查或按截图迭代 UI。",
+   "article": "创建功能"
+  },
+  {
+   "id": "cm_ec73ae4b",
+   "name": "集成浏览器与 MCP 服务器",
+   "domain": "工具调用与沙箱",
+   "desc": "让智能体自己开浏览器截图比对自己改的页面，或从 Figma MCP 取设计规格。",
+   "article": "创建功能"
+  },
+  {
+   "id": "cm_3b9f47be",
+   "name": "验证手段",
+   "domain": "验证与评估门禁",
+   "desc": "测试、类型检查、Linter、浏览器工具四类手段，让智能体自己发现输出错误。",
+   "article": "创建功能"
+  },
+  {
+   "id": "cm_ed904c68",
+   "name": "规则",
+   "domain": "上下文工程",
+   "desc": "放在 .cursor/rules/ 的 markdown 文件，每次对话开始时智能体都会看到。",
+   "article": "自定义 Agent"
+  },
+  {
+   "id": "cm_8b172a64",
+   "name": "动态加载",
+   "domain": "上下文工程",
+   "desc": "技能不预先占上下文，由智能体按当前任务决定何时加载完整内容。",
+   "article": "自定义 Agent"
+  },
+  {
+   "id": "cm_707da34e",
+   "name": "上下文成本",
+   "domain": "缓存与成本控制",
+   "desc": "自定义内容占用上下文、分散注意力的代价；规则常驻所以成本一直存在。",
+   "article": "自定义 Agent"
+  },
+  {
+   "id": "cm_717fd688",
+   "name": "防护措施",
+   "domain": "安全权限与合规",
+   "desc": "规则里写明的禁止或避免边界，如不得修改的文件、应避免的模式。",
+   "article": "自定义 Agent"
+  },
+  {
+   "id": "cm_4fb030a3",
+   "name": "CLI 工具",
+   "domain": "工具调用与沙箱",
+   "desc": "智能体可直接在终端执行的已装程序，如 gh、aws、kubectl、docker。",
+   "article": "自定义 Agent"
+  },
+  {
+   "id": "cm_98aed8e2",
+   "name": "良好调试的共同原则",
+   "domain": "验证与评估门禁",
+   "desc": "调试五原则：可复现、缩到最小案例、隔离变量、具体假设、加日志。",
+   "article": "查找并修复缺陷"
+  },
+  {
+   "id": "cm_7f2ecdb1",
+   "name": "错误消息明确时的直接修复",
+   "domain": "验证与评估门禁",
+   "desc": "错误消息或堆栈已指向原因时，智能体读错误读代码直接改；不奏效则转系统排查。",
+   "article": "查找并修复缺陷"
+  },
+  {
+   "id": "cm_0ee20898",
+   "name": "调试模式",
+   "domain": "验证与评估门禁",
+   "desc": "针对棘手缺陷：先提假设、插桩、请人复现、分析日志，最后做针对性修复。",
+   "article": "查找并修复缺陷"
+  },
+  {
+   "id": "cm_fb2eaa08",
+   "name": "运行时证据",
+   "domain": "上下文工程",
+   "desc": "程序真实运行后留下的数据，如终端输出、查询日志、性能数据，而非静态代码本身。",
+   "article": "查找并修复缺陷"
+  },
+  {
+   "id": "cm_ffba8f02",
+   "name": "多模型并行与多智能体评判",
+   "domain": "多 Agent 编排",
+   "desc": "让多个模型在隔离环境并行运行同一调试提示词，再按证据充分度比较其修复方案。",
+   "article": "查找并修复缺陷"
+  },
+  {
+   "id": "cm_98080c77",
+   "name": "集成浏览器",
+   "domain": "工具调用与沙箱",
+   "desc": "Cursor 的集成浏览器，让智能体直接打开页面、读控制台日志、查网络请求并查看 DOM。",
+   "article": "查找并修复缺陷"
+  },
+  {
+   "id": "cm_1b608c4d",
+   "name": "MCP 服务器",
+   "domain": "工具调用与沙箱",
+   "desc": "让智能体连接外部工具与生产数据、按需拉取信息而无需人工粘贴数据的机制。",
+   "article": "查找并修复缺陷"
+  },
+  {
+   "id": "cm_f738f372",
+   "name": "监控告警自动触发智能体调查",
+   "domain": "循环与自主执行",
+   "desc": "监控告警自动创建工单并触发智能体在人工介入前开始诊断问题的自动化流程。",
+   "article": "查找并修复缺陷"
+  },
+  {
+   "id": "cm_040af839",
+   "name": "理解修复与根本原因",
+   "domain": "验证与评估门禁",
+   "desc": "验证修复要看人能否解释因果链并确认根因，而不是看错误是否消失。",
+   "article": "查找并修复缺陷"
+  },
+  {
+   "id": "cm_87bd2595",
+   "name": "Ask mode",
+   "domain": "代码库与工程实践",
+   "desc": "先提问、不改代码的模式，用于探索流程与推送前的自我评审。",
+   "article": "融会贯通"
+  },
+  {
+   "id": "cm_d439dce6",
+   "name": "首迭代范围收敛",
+   "domain": "规格与意图对齐",
+   "desc": "评审方案时砍掉对首次迭代而言范围过大的步骤，只保留核心流程。",
+   "article": "融会贯通"
+  },
+  {
+   "id": "cm_aaee3337",
+   "name": "调试与根因修复",
+   "domain": "验证与评估门禁",
+   "desc": "折扣叠加测试失败时，定位根因是折扣应用顺序，并修 DiscountService.ts 中的顺序。",
+   "article": "融会贯通"
+  },
+  {
+   "id": "cm_5efc3e0e",
+   "name": "云端代理的边界测试",
+   "domain": "多 Agent 编排",
+   "desc": "启动多个云端代理并行覆盖本地可能遗漏的边界情况，在合并前补齐空缺。",
+   "article": "融会贯通"
+  },
+  {
+   "id": "cm_f71d1a8a",
+   "name": "规则沉淀 / 定价规则",
+   "domain": "记忆与检索",
+   "desc": "把开发中发现的不变量写成规则记录，供智能体下次遵循。",
+   "article": "融会贯通"
+  },
+  {
+   "id": "cm_ab568fc5",
+   "name": "完整闭环",
+   "domain": "循环与自主执行",
+   "desc": "探索—规划—构建—测试—调试—评审—沉淀组成的编码智能体完整工作闭环。",
+   "article": "融会贯通"
+  },
+  {
+   "id": "cm_90956cad",
+   "name": "技术债与一致合并标准",
+   "domain": "代码库与工程实践",
+   "desc": "智能体快速生成大量代码会积累维护成本，合并标准对手写与生成代码应一致。",
+   "article": "评审和测试代码"
+  },
+  {
+   "id": "cm_bfcfdd25",
+   "name": "AI 生成代码的隐性缺陷",
+   "domain": "代码库与工程实践",
+   "desc": "代码看似正常、能编译能过测试，却遗漏边界、有安全问题或重复既有逻辑。",
+   "article": "评审和测试代码"
+  },
+  {
+   "id": "cm_4315cfeb",
+   "name": "测试通过不等于正确",
+   "domain": "验证与评估门禁",
+   "desc": "测试是验证信号而非正确性证明，测试本身可能验证了错误的行为。",
+   "article": "评审和测试代码"
+  },
+  {
+   "id": "cm_28c079f9",
+   "name": "代码评审",
+   "domain": "代码库与工程实践",
+   "desc": "在问题进入生产前发现缺陷的质量门，需要合适流程，也要工程师投入精力。",
+   "article": "评审和测试代码"
+  },
+  {
+   "id": "cm_18b7f425",
+   "name": "自我评审",
+   "domain": "验证与评估门禁",
+   "desc": "在请他人查看前，先让智能体带着完整分支上下文评审自己的全部更改。",
+   "article": "评审和测试代码"
+  },
+  {
+   "id": "cm_524ebadf",
+   "name": "关注智能体工作 / 停止与重新引导",
+   "domain": "循环与自主执行",
+   "desc": "借 diff 视图实时监督智能体，方向错了就停止、取消、还原并重新引导。",
+   "article": "评审和测试代码"
+  },
+  {
+   "id": "cm_beb73224",
+   "name": "@Branch 完整 diff 上下文",
+   "domain": "上下文工程",
+   "desc": "提示词中的 @Branch 把当前分支的完整 diff 提供给智能体，用于跨文件评审。",
+   "article": "评审和测试代码"
+  },
+  {
+   "id": "cm_061a7036",
+   "name": "智能体评审 / 查找问题",
+   "domain": "验证与评估门禁",
+   "desc": "让智能体从写代码切换到审代码，逐行分析拟议编辑并标记潜在问题。",
+   "article": "评审和测试代码"
+  },
+  {
+   "id": "cm_d95ae568",
+   "name": "Bugbot 与 Autofix",
+   "domain": "验证与评估门禁",
+   "desc": "接入源代码控制服务商的自动 PR 评审机制，能找逻辑缺陷，Autofix 可在评论中提交修复。",
+   "article": "评审和测试代码"
+  },
+  {
+   "id": "cm_1bfe6b63",
+   "name": "小而语义明确的提交",
+   "domain": "代码库与工程实践",
+   "desc": "每次提交只代表一项逻辑更改，让评审者按提交历史逐个理解。",
+   "article": "评审和测试代码"
+  },
+  {
+   "id": "cm_ff65f697",
+   "name": "提交重整理",
+   "domain": "代码库与工程实践",
+   "desc": "功能稳定后让智能体重置到 main、通读更改进而重建整洁提交，并校验内容未丢。",
+   "article": "评审和测试代码"
+  },
+  {
+   "id": "cm_fb950498",
+   "name": "验证信号",
+   "domain": "验证与评估门禁",
+   "desc": "测试、类型检查与 Lint 是智能体自查成果的反馈渠道，越完善越敢委派。",
+   "article": "评审和测试代码"
+  },
+  {
+   "id": "cm_d639b5e5",
+   "name": "云端代理",
+   "domain": "Harness 与运行时",
+   "desc": "在远程沙盒中运行的编码智能体，克隆仓库、建分支、自主完成后创建 PR。",
+   "article": "评审和测试代码"
+  },
+  {
+   "id": "cm_7b323b3f",
+   "name": "并行测试多种情况",
+   "domain": "多 Agent 编排",
+   "desc": "启动多个云端代理分别覆盖不同边界、错误条件与输入组合，各产出带结果的分支。",
+   "article": "评审和测试代码"
+  },
+  {
+   "id": "cm_2ddd1c28",
+   "name": "瓶颈转移与测试速度杠杆",
+   "domain": "验证与评估门禁",
+   "desc": "并行使用智能体后瓶颈移到最慢公共环节（测试、类型检查、Lint、CI），提速有复利。",
+   "article": "评审和测试代码"
+  },
+  {
+   "id": "cm_b8e138f0",
+   "name": "编码 agent / 智能体",
+   "domain": "Harness 与运行时",
+   "desc": "能接受自然语言目标、选用搜索工具、读取代码并返回线索的执行者。",
+   "article": "理解您的代码库"
+  },
+  {
+   "id": "cm_f41e6ffe",
+   "name": "精确字符串查找 / grep",
+   "domain": "工具调用与沙箱",
+   "desc": "精确字符串查找工具，可用正则与词边界，ripgrep 支持递归，Instant Grep 更快。",
+   "article": "理解您的代码库"
+  },
+  {
+   "id": "cm_ccf2ce24",
+   "name": "问题的表述方式",
+   "domain": "规格与意图对齐",
+   "desc": "提问的具体程度会影响智能体选用哪种搜索工具与结果质量：已知从具体起，探索从宽泛起。",
+   "article": "理解您的代码库"
+  },
+  {
+   "id": "cm_9036fb68",
+   "name": "Explore 子代理",
+   "domain": "多 Agent 编排",
+   "desc": "智能体按需生成的搜索子代理，在独立上下文窗口用更快模型并行搜索，只返回发现结果。",
+   "article": "理解您的代码库"
+  },
+  {
+   "id": "cm_d940bf8d",
+   "name": "上下文用量 / 上下文管理",
+   "domain": "上下文工程",
+   "desc": "对话中累积的信息量；搜索大量文件会使其膨胀，子代理只返回发现结果可显著改善管理。",
+   "article": "理解您的代码库"
+  },
+  {
+   "id": "cm_e7f6fc63",
+   "name": "架构图",
+   "domain": "代码库与工程实践",
+   "desc": "让智能体为大型或不熟悉代码库生成的图（如 Mermaid），用于理解结构并暴露架构问题。",
+   "article": "理解您的代码库"
+  },
+  {
+   "id": "cm_1dc4c498",
+   "name": "修改前先探索",
+   "domain": "规格与意图对齐",
+   "desc": "提出修改前先让智能体展示现有实现、模式与共享验证器，避免重复造函数或用不同模式。",
+   "article": "理解您的代码库"
+  },
+  {
+   "id": "cm_de956072",
+   "name": "按字面理解请求 / 意图",
+   "domain": "规格与意图对齐",
+   "desc": "编码智能体按字面处理请求，未提供意图时自行判断，故需先理解代码库并明确要求。",
+   "article": "理解您的代码库"
+  },
+  {
+   "id": "cm_c523853f",
+   "name": "框架",
+   "domain": "Harness 与运行时",
+   "desc": "智能体运行环境的装配，由说明（系统提示词与规则）、工具、模型三部分组成。",
+   "article": "与智能体协作"
+  },
+  {
+   "id": "cm_2f0bb123",
+   "name": "提示词",
+   "domain": "规格与意图对齐",
+   "desc": "把需求锚在代码库已有物上的说明：点名文件、指定复用组件、说明遵循的既有模式并划定范围。",
+   "article": "与智能体协作"
+  },
+  {
+   "id": "cm_a7504422",
+   "name": "代码库搜索",
+   "domain": "上下文工程",
+   "desc": "智能体按需从代码库调取相关文件的机制；知道确切文件就标注，否则给大致描述让它去找。",
+   "article": "与智能体协作"
+  },
+  {
+   "id": "cm_212c4e37",
+   "name": "规划与任务拆分",
+   "domain": "循环与自主执行",
+   "desc": "大范围改动前先规划并把任务拆小；出现无关改动、误改文件、偏离重点时应停下拆分。",
+   "article": "与智能体协作"
+  },
+  {
+   "id": "cm_cd854e89",
+   "name": "失调",
+   "domain": "安全权限与合规",
+   "desc": "人工智能系统出现非预期行为，如作弊、逃脱控制、协同执行无人指定的目的。",
+   "article": "What can be done to mitigate loss-of-control risks"
+  },
+  {
+   "id": "cm_e9f24699",
+   "name": "预训练与人类模仿",
+   "domain": "模型能力与训练",
+   "desc": "预训练让模型模仿人类文字、图像与视频获得百科式知识，并隐式再现写作者的目标模式。",
+   "article": "What can be done to mitigate loss-of-control risks"
+  },
+  {
+   "id": "cm_e7cabc5e",
+   "name": "强化学习",
+   "domain": "模型能力与训练",
+   "desc": "通过反复试验调整神经网络、提升被认可行为概率的训练，含思维链、能动性、对齐训练三种。",
+   "article": "What can be done to mitigate loss-of-control risks"
+  },
+  {
+   "id": "cm_73deaac3",
+   "name": "目标导向型系统",
+   "domain": "模型能力与训练",
+   "desc": "训练结束后仍像奖励持续存在一样行动、会计算行为影响并选择实现目标行为的系统。",
+   "article": "What can be done to mitigate loss-of-control risks"
+  },
+  {
+   "id": "cm_76ec7135",
+   "name": "隐性目标与模糊目标",
+   "domain": "安全权限与合规",
+   "desc": "训练未写死目标，而由人类认可、评分者偏好与模仿带来类似取悦评分者的模糊倾向，可被钻空子。",
+   "article": "What can be done to mitigate loss-of-control risks"
+  },
+  {
+   "id": "cm_f695789a",
+   "name": "工具性目标",
+   "domain": "安全权限与合规",
+   "desc": "不被直接指定、但实现任何其他目标几乎都要的手段：维持运行、了解世界、获得控制权。",
+   "article": "What can be done to mitigate loss-of-control risks"
+  },
+  {
+   "id": "cm_10865f34",
+   "name": "协作行为与同伴保护",
+   "domain": "多 Agent 编排",
+   "desc": "多智能体目标重叠时会涌现协作，甚至为帮助同伴而放弃自身预期奖励。",
+   "article": "What can be done to mitigate loss-of-control risks"
+  },
+  {
+   "id": "cm_6772da1f",
+   "name": "奖励黑客",
+   "domain": "规格与意图对齐",
+   "desc": "系统优化的是奖励，但奖励不完全等于我们真正想要的东西，行为随之偏离。",
+   "article": "What can be done to mitigate loss-of-control risks"
+  },
+  {
+   "id": "cm_fb4de13d",
+   "name": "Goodhart's law",
+   "domain": "规格与意图对齐",
+   "desc": "一个指标一旦成为被优化的目标，就不再是有效的衡量方式。",
+   "article": "What can be done to mitigate loss-of-control risks"
+  },
+  {
+   "id": "cm_95af1bb8",
+   "name": "奖励篡改",
+   "domain": "安全权限与合规",
+   "desc": "智能体直接改写决定奖励的机制，是奖励黑客最极端的形式。",
+   "article": "What can be done to mitigate loss-of-control risks"
+  },
+  {
+   "id": "cm_9fe636d6",
+   "name": "目标冲突",
+   "domain": "规格与意图对齐",
+   "desc": "用户指定的任务有时与安全、对齐目标不相容，促使系统为达目标而作弊。",
+   "article": "What can be done to mitigate loss-of-control risks"
+  },
+  {
+   "id": "cm_b935b3ae",
+   "name": "明确定义的目标与模糊目标",
+   "domain": "规格与意图对齐",
+   "desc": "可评分的明确目标在冲突中往往压过可多重解读的模糊目标。",
+   "article": "What can be done to mitigate loss-of-control risks"
+  },
+  {
+   "id": "cm_15dd3274",
+   "name": "动机性认知与自我欺骗",
+   "domain": "认知与思维方法",
+   "desc": "思考偏向维护自身利益与道德形象，用合理化缓解认知失调。",
+   "article": "What can be done to mitigate loss-of-control risks"
+  },
+  {
+   "id": "cm_413fc195",
+   "name": "评估意识",
+   "domain": "验证与评估门禁",
+   "desc": "最先进的 AI 能察觉自己在被评估而非部署，并据此改变行为。",
+   "article": "What can be done to mitigate loss-of-control risks"
+  },
+  {
+   "id": "cm_a55fbe4b",
+   "name": "隐写术",
+   "domain": "安全权限与合规",
+   "desc": "把消息藏在看似无害的信息里，使 AI 得以不被察觉地协调行动。",
+   "article": "What can be done to mitigate loss-of-control risks"
+  },
+  {
+   "id": "cm_6158a733",
+   "name": "安全论证与控制发展步伐",
+   "domain": "安全权限与合规",
+   "desc": "没有能说服独立专家的强安全论证，就不应训练或部署人工智能。",
+   "article": "What can be done to mitigate loss-of-control risks"
+  },
+  {
+   "id": "cm_236572f0",
+   "name": "Scientist 人工智能框架",
+   "domain": "模型能力与训练",
+   "desc": "作者提出的替代设计方向，使 AI 诚实可靠且预测不受自身目标影响。",
+   "article": "What can be done to mitigate loss-of-control risks"
+  }
+ ]
+}

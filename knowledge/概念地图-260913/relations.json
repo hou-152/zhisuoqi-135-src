@@ -1,7 +1,7 @@
 {
  "version": "v1",
- "generatedAt": "2026-09-13T20:03:27.041Z",
- "count": 3410,
+ "generatedAt": "2026-09-14T15:05:05.766Z",
+ "count": 3459,
  "relations": [
   {
    "from": "cm_4cddc093",
@@ -34100,6 +34100,496 @@
    "strength": "hard",
    "axis": "neican",
    "note": "不懂【Reasoning model 与 chain-of-thought traces】是模型先出声生成、属输出的文本，就无法理解为何理由可以是事后编出、与答案无关的合理说辞。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_9fe636d6",
+   "to": "cm_b935b3ae",
+   "kind": "prerequisite",
+   "strength": "soft",
+   "axis": "neican",
+   "note": "不懂【明确定义的目标与模糊目标】，就解释不了【目标冲突】中为什么被牺牲的总是安全/对齐这类可多重解读的模糊要求、而可评分的明确任务目标总能压过它。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_6772da1f",
+   "to": "cm_fb4de13d",
+   "kind": "prerequisite",
+   "strength": "soft",
+   "axis": "neican",
+   "note": "不懂【Goodhart's law】（指标一旦成为被优化的目标就不再有效），就说不清【奖励黑客】为什么是结构性必然：优化的是奖励，而奖励不等于真正想要的东西。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_1dc4c498",
+   "to": "cm_de956072",
+   "kind": "prerequisite",
+   "strength": "soft",
+   "axis": "neican",
+   "note": "不懂【按字面理解请求 / 意图】（智能体按字面处理、未给意图时自行判断），就做不了【修改前先探索】这件事的必要性判断：为什么提出修改前必须先把现有实现与共享验证器摊开、把要求说清楚。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_6772da1f",
+   "to": "cm_9fe636d6",
+   "kind": "prerequisite",
+   "strength": "soft",
+   "axis": "neican",
+   "note": "不懂【目标冲突】（用户指定任务与安全、对齐目标不相容），就识别不了【奖励黑客】里“为达成指定目标而选择作弊”这条具体成因路径。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_8b172a64",
+   "to": "cm_d940bf8d",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【上下文用量 / 上下文管理】，就做不了动态加载的「按当前任务判断何时把技能完整内容加载进来、占多少上下文」这件事。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_beb73224",
+   "to": "cm_d940bf8d",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【上下文用量 / 上下文管理】，就做不了把当前分支的完整 diff 塞进提示词做跨文件评审的取舍。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_ed904c68",
+   "to": "cm_d940bf8d",
+   "kind": "prerequisite",
+   "strength": "soft",
+   "axis": "neican",
+   "note": "不懂【上下文用量 / 上下文管理】，就做不了决定「每次对话开始时都注入哪些规则文件、注入多少」这件事。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_a7504422",
+   "to": "cm_d940bf8d",
+   "kind": "prerequisite",
+   "strength": "soft",
+   "axis": "neican",
+   "note": "不懂【上下文用量 / 上下文管理】，就做不了代码库搜索的策略选择——该搜索多广、何时改用子代理只返回发现结果以抑制上下文膨胀。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_25afb069",
+   "to": "cm_d940bf8d",
+   "kind": "prerequisite",
+   "strength": "soft",
+   "axis": "neican",
+   "note": "不懂【上下文用量 / 上下文管理】，就做不了图像输入的判断——贴多大的设计稿或截图、贴几张才不挤掉其余上下文。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_f33afab3",
+   "to": "cm_3b9f47be",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【验证手段】（测试、类型检查、Linter、浏览器工具各怎么跑、怎么看结果），就做不了智能体跑测试、看失败并据此改代码来判断产出对不对这件事。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_149d5090",
+   "to": "cm_3b9f47be",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【验证手段】，就做不了先提交测试锁住需求、再让智能体在不改测试的前提下把测试跑到全绿这件事。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_f33afab3",
+   "to": "cm_4315cfeb",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【测试通过不等于正确】（测试是验证信号而非正确性证明），就做不了智能体判断自己的代码是否正确——它会把测试全绿直接当成正确。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_0ee20898",
+   "to": "cm_98aed8e2",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【良好调试的共同原则】（可复现、缩到最小案例、隔离变量、具体假设、加日志），就做不了调试模式里的先提假设、插桩、请人复现、分析日志这套动作。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_aaee3337",
+   "to": "cm_040af839",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【理解修复与根本原因】（要看人能否解释因果链并确认根因，而不是看错误是否消失），就做不了折扣叠加测试失败时定位到折扣应用顺序这个根因并改 DiscountService.ts 这件事。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_18b7f425",
+   "to": "cm_061a7036",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【智能体评审 / 查找问题】（让智能体从写代码切到审代码、逐行分析并标记潜在问题），就做不了让智能体带着完整分支上下文评审自己全部更改这件事。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_d95ae568",
+   "to": "cm_061a7036",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【智能体评审 / 查找问题】是怎么找逻辑缺陷的，就做不了接入源代码控制服务商的自动 PR 评审、让 Autofix 在评论中提交修复这件事。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_2ddd1c28",
+   "to": "cm_fb950498",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【验证信号】（测试、类型检查、Lint 是智能体自查成果的反馈渠道），就做不了判断并行后瓶颈已移到测试/类型检查/Lint/CI 这个最慢公共环节并对其提速这件事。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_ab568fc5",
+   "to": "cm_212c4e37",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【规划与任务拆分】，就做不了【完整闭环】的规划阶段——把大范围改动拆成可逐步推进的小任务，并在出现无关改动、误改文件、偏离重点时停下重新拆分。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_ab568fc5",
+   "to": "cm_39ea90f7",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【可自行验证的步骤】，就做不了【完整闭环】的测试—调试环节——智能体无法自己判断每一步构建或修复是否已通过验证，闭环无法自动推进。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_39ea90f7",
+   "to": "cm_212c4e37",
+   "kind": "prerequisite",
+   "strength": "soft",
+   "axis": "neican",
+   "note": "不懂【规划与任务拆分】，就做不了【可自行验证的步骤】中的“把工作拆成智能体能自己判断成没成的小步骤”——不会先规划拆小，步骤太大无法让智能体独立验证。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_f738f372",
+   "to": "cm_39ea90f7",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【可自行验证的步骤】，就做不了【监控告警自动触发智能体调查】——智能体在人工介入前无法自主判断诊断步骤是否完成，调查会卡住等人工。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_f738f372",
+   "to": "cm_212c4e37",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【规划与任务拆分】，就做不了【监控告警自动触发智能体调查】——智能体无法在无人工介入下把故障诊断拆成可执行的排查子任务并避免偏题。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_524ebadf",
+   "to": "cm_212c4e37",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【规划与任务拆分】，就做不了【关注智能体工作 / 停止与重新引导】——无法判断智能体是否偏离原定任务重点，也就无法决定何时停止、取消、还原并重新引导。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_ec73ae4b",
+   "to": "cm_98080c77",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【集成浏览器】就做不了【集成浏览器与 MCP 服务器】的 ⟨让智能体自己开浏览器截图比对自己改的页面⟩",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_ec73ae4b",
+   "to": "cm_1b608c4d",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【MCP 服务器】就做不了【集成浏览器与 MCP 服务器】的 ⟨从 Figma MCP 取设计规格⟩",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_f41e6ffe",
+   "to": "cm_4fb030a3",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【CLI 工具】就做不了【精确字符串查找 / grep】的 ⟨在智能体终端里直接执行 grep 进行递归搜索⟩",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_28c079f9",
+   "to": "cm_1bfe6b63",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【小而语义明确的提交】，就做不了【代码评审】的“让评审者按提交历史逐个理解每项逻辑更改”这件事。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_ff65f697",
+   "to": "cm_1bfe6b63",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【小而语义明确的提交】，就做不了【提交重整理】的“把杂乱的更改重建为整洁提交”这件事。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_28c079f9",
+   "to": "cm_bfcfdd25",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【AI 生成代码的隐性缺陷】，就做不了【代码评审】的“在 AI 生成代码看似正常、能编译能过测试时发现遗漏边界或安全问题”这件事。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_90956cad",
+   "to": "cm_bfcfdd25",
+   "kind": "prerequisite",
+   "strength": "soft",
+   "axis": "neican",
+   "note": "不懂【AI 生成代码的隐性缺陷】，就做不了【技术债与一致合并标准】的“对手写与生成代码执行一致合并标准而不因生成代码能过测试就放松”这件事。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_87bd2595",
+   "to": "cm_bfcfdd25",
+   "kind": "prerequisite",
+   "strength": "soft",
+   "axis": "neican",
+   "note": "不懂【AI 生成代码的隐性缺陷】，就做不了【Ask mode】的“推送前自我评审中针对生成代码检查边界、安全和重复逻辑”这件事。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_28c079f9",
+   "to": "cm_90956cad",
+   "kind": "prerequisite",
+   "strength": "soft",
+   "axis": "neican",
+   "note": "不懂【技术债与一致合并标准】，就做不了【代码评审】的“对手写代码和 AI 生成代码采用同一套合并/评审标准”这件事。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_d639b5e5",
+   "to": "cm_b8e138f0",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【编码 agent / 智能体】，就做不了【云端代理】的 ⟨在远程沙盒中运行智能体并自主完成克隆仓库、建分支、创建 PR⟩",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_b8e138f0",
+   "to": "cm_c523853f",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【框架】，就做不了【编码 agent / 智能体】的 ⟨把系统提示词与规则、工具、模型装配成可运行的执行环境⟩",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_d639b5e5",
+   "to": "cm_c523853f",
+   "kind": "prerequisite",
+   "strength": "soft",
+   "axis": "neican",
+   "note": "不懂【框架】，就做不了【云端代理】的 ⟨在远程沙盒中装配出可自主运行的编码智能体运行环境⟩",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_e7cabc5e",
+   "to": "cm_e9f24699",
+   "kind": "prerequisite",
+   "strength": "soft",
+   "axis": "neican",
+   "note": "不懂预训练与人类模仿，就做不了强化学习里的对齐训练——在一套已从人类文字中习得百科式知识与目标模式的网络上，再去调整被认可行为的概率",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_73deaac3",
+   "to": "cm_e7cabc5e",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂强化学习中奖励如何反复塑造网络行为，就做不了目标导向型系统的判定——看不出一个系统是在「训练结束后仍像奖励持续存在一样行动」",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_236572f0",
+   "to": "cm_73deaac3",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂目标导向型系统会计算行为影响、按自身目标行事，就做不了 Scientist 框架的核心设计——让 AI 的预测不受自身目标影响",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_236572f0",
+   "to": "cm_e7cabc5e",
+   "kind": "prerequisite",
+   "strength": "soft",
+   "axis": "neican",
+   "note": "不懂强化学习（含思维链、能动性、对齐训练）这套默认训练范式，就做不了 Scientist 框架作为「替代设计方向」的定位与论证",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_5efc3e0e",
+   "to": "cm_7b323b3f",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【并行测试多种情况】就做不了【云端代理的边界测试】的 ⟨启动多个云端代理并行覆盖本地可能遗漏的边界情况并在合并前补齐空缺⟩",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_ffba8f02",
+   "to": "cm_7b323b3f",
+   "kind": "prerequisite",
+   "strength": "soft",
+   "axis": "neican",
+   "note": "不懂【并行测试多种情况】就做不了【多模型并行与多智能体评判】的 ⟨让多个模型在隔离环境并行运行同一调试提示词并收集各自的修复方案⟩",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_ffba8f02",
+   "to": "cm_9036fb68",
+   "kind": "prerequisite",
+   "strength": "soft",
+   "axis": "neican",
+   "note": "不懂【Explore 子代理】就做不了【多模型并行与多智能体评判】的 ⟨在隔离环境并行运行多个模型并只返回修复方案⟩",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_95af1bb8",
+   "to": "cm_76ec7135",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【隐性目标与模糊目标】，就做不了【奖励篡改】的解释智能体为何能把目标未写死的模糊倾向钻空子到直接改写奖励机制这件事。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_95af1bb8",
+   "to": "cm_f695789a",
+   "kind": "prerequisite",
+   "strength": "soft",
+   "axis": "neican",
+   "note": "不懂【工具性目标】，就做不了【奖励篡改】的说明改写奖励机制往往是为了获得控制权或维持运行等工具性手段这件事。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_a55fbe4b",
+   "to": "cm_cd854e89",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【失调】，就做不了【隐写术】的把 AI 用隐藏消息进行不被察觉的协同行动识别为非预期行为这件事。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_6158a733",
+   "to": "cm_cd854e89",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【失调】，就做不了【安全论证与控制发展步伐】的论证为什么没有强安全论证就不应训练或部署 AI 这件事。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_6158a733",
+   "to": "cm_717fd688",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【防护措施】，就做不了【安全论证与控制发展步伐】的在安全论证中提出规则里写明的禁止或避免边界作为控制依据这件事。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_6158a733",
+   "to": "cm_95af1bb8",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【奖励篡改】，就做不了【安全论证与控制发展步伐】的评估智能体直接改写奖励机制这一极端风险并纳入安全论证这件事。",
+   "origin": "llm-strict",
+   "evidence": ""
+  },
+  {
+   "from": "cm_6158a733",
+   "to": "cm_a55fbe4b",
+   "kind": "prerequisite",
+   "strength": "hard",
+   "axis": "neican",
+   "note": "不懂【隐写术】，就做不了【安全论证与控制发展步伐】的评估 AI 通过隐藏消息不被察觉地协调行动的风险并纳入安全论证这件事。",
    "origin": "llm-strict",
    "evidence": ""
   }

@@ -1,6 +1,6 @@
 {
  "version": "v1",
- "generatedAt": "2026-09-13T20:03:27.049Z",
+ "generatedAt": "2026-09-14T15:05:05.778Z",
  "count": 21,
  "clusters": [
   {
@@ -8,26 +8,26 @@
    "label": "Harness 与运行时",
    "question": "Agent 靠什么骨架才能跑起来、跑得久？",
    "order": 1,
-   "topicCount": 135,
+   "topicCount": 138,
    "subjects": {
     "AI 概念库 × Context Engineering × Harness Engineering": 1,
     "Context Engineering × Harness Engineering": 8,
-    "AI 内参 260912": 21,
+    "AI 内参 260912": 24,
     "Harness Engineering": 77,
     "Context Engineering": 19,
     "AI 概念库 × Harness Engineering": 2,
     "AI 概念库": 7
    },
    "types": {
-    "CONCEPTUAL": 97,
+    "CONCEPTUAL": 100,
     "REPRESENTATIONAL": 21,
     "LANGUAGE": 2,
     "PROCEDURAL": 14,
     "META": 1
    },
    "stages": {
-    "now": 66,
-    "when-needed": 65,
+    "now": 68,
+    "when-needed": 66,
     "deep-dive": 4
    },
    "hubTopics": [
@@ -37,8 +37,8 @@
     "cm_44a5e9cc",
     "cm_e09e7cfa",
     "cm_a47a4e89",
-    "cm_ad086a79",
-    "cm_369f10ff"
+    "cm_c523853f",
+    "cm_ad086a79"
    ],
    "hubNames": [
     "Harness",
@@ -47,8 +47,8 @@
     "Agent vs Harness",
     "coding agent",
     "Runtime-harness separation",
-    "跨产品面的同步与共享边界",
-    "自动激活"
+    "框架",
+    "跨产品面的同步与共享边界"
    ]
   },
   {
@@ -56,43 +56,43 @@
    "label": "循环与自主执行",
    "question": "一次任务如何变成可重复、可自主推进的循环？",
    "order": 2,
-   "topicCount": 51,
+   "topicCount": 56,
    "subjects": {
     "Context Engineering": 8,
+    "AI 内参 260912": 11,
     "Harness Engineering": 27,
     "Context Engineering × Harness Engineering": 6,
-    "AI 内参 260912": 6,
     "AI 概念库": 4
    },
    "types": {
-    "PROCEDURAL": 14,
-    "CONCEPTUAL": 34,
+    "PROCEDURAL": 17,
+    "CONCEPTUAL": 36,
     "REPRESENTATIONAL": 3
    },
    "stages": {
-    "now": 33,
-    "when-needed": 17,
+    "now": 37,
+    "when-needed": 18,
     "deep-dive": 1
    },
    "hubTopics": [
     "cm_a4f9a7e3",
+    "cm_212c4e37",
     "cm_1973b1d3",
+    "cm_39ea90f7",
     "cm_20bf8a66",
     "cm_48fd6532",
     "cm_2211c604",
-    "cm_b2154cb8",
-    "cm_c63aeadd",
-    "cm_dee9d8f3"
+    "cm_b2154cb8"
    ],
    "hubNames": [
     "循环工程",
+    "规划与任务拆分",
     "Agent loop",
+    "可自行验证的步骤",
     "Loop Engineering",
     "Prompt loop（prompt loop）／agent",
     "闭环",
-    "长时程自治编码",
-    "agent 循环",
-    "笨循环"
+    "长时程自治编码"
    ]
   },
   {
@@ -100,11 +100,11 @@
    "label": "上下文工程",
    "question": "模型在每一步到底应该看到哪些信息？",
    "order": 3,
-   "topicCount": 170,
+   "topicCount": 177,
    "subjects": {
     "AI 概念库": 14,
     "AI 概念库 × Context Engineering": 2,
-    "AI 内参 260912": 14,
+    "AI 内参 260912": 21,
     "Context Engineering × Harness Engineering": 10,
     "Context Engineering": 85,
     "Harness Engineering": 42,
@@ -112,14 +112,14 @@
     "AI 概念库 × Harness Engineering": 2
    },
    "types": {
-    "REPRESENTATIONAL": 18,
-    "CONCEPTUAL": 123,
-    "PROCEDURAL": 26,
+    "REPRESENTATIONAL": 20,
+    "CONCEPTUAL": 127,
+    "PROCEDURAL": 27,
     "LANGUAGE": 3
    },
    "stages": {
-    "now": 75,
-    "when-needed": 89,
+    "now": 78,
+    "when-needed": 93,
     "deep-dive": 6
    },
    "hubTopics": [
@@ -128,9 +128,9 @@
     "cm_d78a3680",
     "cm_cc101992",
     "cm_30201f36",
+    "cm_d940bf8d",
     "cm_05146d91",
-    "cm_28c258d9",
-    "cm_01d6a01e"
+    "cm_28c258d9"
    ],
    "hubNames": [
     "Skill",
@@ -138,9 +138,9 @@
     "SKILL.md 与 YAML 前置元数据",
     "按需加载",
     "上下文工程",
+    "上下文用量 / 上下文管理",
     "注意力预算",
-    "启动时仅加载名称和描述",
-    "长上下文窗口"
+    "启动时仅加载名称和描述"
    ]
   },
   {
@@ -148,23 +148,23 @@
    "label": "记忆与检索",
    "question": "经验与知识怎么被存下来、又准确取回？",
    "order": 4,
-   "topicCount": 38,
+   "topicCount": 39,
    "subjects": {
     "Context Engineering × Harness Engineering": 5,
     "Harness Engineering": 2,
     "Context Engineering": 17,
     "AI 概念库": 11,
-    "AI 概念库 × Harness Engineering": 2,
-    "AI 内参 260912": 1
+    "AI 内参 260912": 2,
+    "AI 概念库 × Harness Engineering": 2
    },
    "types": {
     "CONCEPTUAL": 22,
-    "PROCEDURAL": 10,
+    "PROCEDURAL": 11,
     "REPRESENTATIONAL": 6
    },
    "stages": {
     "now": 6,
-    "when-needed": 30,
+    "when-needed": 31,
     "deep-dive": 2
    },
    "hubTopics": [
@@ -235,21 +235,21 @@
    "label": "缓存与成本控制",
    "question": "同样的能力怎么用更少的 token 和钱换来？",
    "order": 6,
-   "topicCount": 37,
+   "topicCount": 38,
    "subjects": {
     "Context Engineering": 27,
     "AI 概念库": 3,
     "Harness Engineering": 3,
-    "AI 内参 260912": 3,
+    "AI 内参 260912": 4,
     "Context Engineering × Harness Engineering": 1
    },
    "types": {
-    "CONCEPTUAL": 29,
+    "CONCEPTUAL": 30,
     "LANGUAGE": 2,
     "PROCEDURAL": 6
    },
    "stages": {
-    "when-needed": 29,
+    "when-needed": 30,
     "now": 7,
     "deep-dive": 1
    },
@@ -279,22 +279,22 @@
    "label": "工具调用与沙箱",
    "question": "Agent 怎么安全地对外部世界动手？",
    "order": 7,
-   "topicCount": 40,
+   "topicCount": 45,
    "subjects": {
     "Context Engineering": 15,
     "Harness Engineering": 13,
     "Context Engineering × Harness Engineering": 3,
-    "AI 内参 260912": 4,
+    "AI 内参 260912": 9,
     "AI 概念库": 5
    },
    "types": {
-    "REPRESENTATIONAL": 10,
+    "REPRESENTATIONAL": 15,
     "CONCEPTUAL": 24,
     "PROCEDURAL": 6
    },
    "stages": {
     "now": 13,
-    "when-needed": 26,
+    "when-needed": 31,
     "deep-dive": 1
    },
    "hubTopics": [
@@ -323,44 +323,44 @@
    "label": "多 Agent 编排",
    "question": "多个 Agent 如何分工协作而不互相踩踏？",
    "order": 8,
-   "topicCount": 45,
+   "topicCount": 50,
    "subjects": {
     "Context Engineering × Harness Engineering": 3,
+    "AI 内参 260912": 7,
     "Harness Engineering": 34,
     "AI 概念库": 4,
-    "Context Engineering": 2,
-    "AI 内参 260912": 2
+    "Context Engineering": 2
    },
    "types": {
-    "CONCEPTUAL": 33,
-    "PROCEDURAL": 3,
-    "REPRESENTATIONAL": 8,
+    "CONCEPTUAL": 34,
+    "PROCEDURAL": 6,
+    "REPRESENTATIONAL": 9,
     "LANGUAGE": 1
    },
    "stages": {
-    "when-needed": 31,
+    "when-needed": 36,
     "now": 12,
     "deep-dive": 2
    },
    "hubTopics": [
     "cm_4a78d263",
+    "cm_ffba8f02",
     "cm_d9636b24",
     "cm_511bf6de",
     "cm_30843ecf",
     "cm_197a049b",
     "cm_345d4b18",
-    "cm_5c93f4e7",
-    "cm_9cc03c6d"
+    "cm_5c93f4e7"
    ],
    "hubNames": [
     "Subagent",
+    "多模型并行与多智能体评判",
     "子 agent 与 step.invoke()",
     "Planner–Worker 角色分离",
     "多智能体架构",
     "子 agent 编排",
     "handoff 交接",
-    "Handoffs / Agents as tools",
-    "子 Agent 分工"
+    "Handoffs / Agents as tools"
    ]
   },
   {
@@ -368,44 +368,44 @@
    "label": "验证与评估门禁",
    "question": "我们怎么知道它真的做对了？",
    "order": 9,
-   "topicCount": 82,
+   "topicCount": 97,
    "subjects": {
     "Context Engineering": 22,
+    "AI 内参 260912": 25,
     "Context Engineering × Harness Engineering": 6,
     "Harness Engineering": 32,
-    "AI 概念库": 12,
-    "AI 内参 260912": 10
+    "AI 概念库": 12
    },
    "types": {
-    "CONCEPTUAL": 44,
-    "PROCEDURAL": 27,
-    "REPRESENTATIONAL": 10,
+    "CONCEPTUAL": 52,
+    "PROCEDURAL": 33,
+    "REPRESENTATIONAL": 11,
     "META": 1
    },
    "stages": {
-    "now": 31,
-    "when-needed": 48,
+    "now": 38,
+    "when-needed": 56,
     "deep-dive": 3
    },
    "hubTopics": [
     "cm_91b202fd",
+    "cm_3b9f47be",
     "cm_7cd7335d",
     "cm_34c3e3e7",
     "cm_3a7b088a",
     "cm_56230a91",
     "cm_94db716e",
-    "cm_a85cb1f1",
-    "cm_4c6ea3d7"
+    "cm_a85cb1f1"
    ],
    "hubNames": [
     "Validation gates",
+    "验证手段",
     "验证闭环",
     "验证子系统与可运行的证据",
     "Grading Criteria",
     "Rubric",
     "Self-verification",
-    "Self-verification loop",
-    "SWE-bench 与二元打分"
+    "Self-verification loop"
    ]
   },
   {
@@ -413,22 +413,22 @@
    "label": "规格与意图对齐",
    "question": "怎么把想要的东西准确交代清楚？",
    "order": 10,
-   "topicCount": 47,
+   "topicCount": 57,
    "subjects": {
     "Context Engineering": 22,
     "AI 概念库": 8,
-    "AI 内参 260912": 11,
+    "AI 内参 260912": 21,
     "Harness Engineering": 6
    },
    "types": {
-    "CONCEPTUAL": 24,
+    "CONCEPTUAL": 32,
     "LANGUAGE": 1,
     "REPRESENTATIONAL": 10,
-    "PROCEDURAL": 12
+    "PROCEDURAL": 14
    },
    "stages": {
-    "when-needed": 30,
-    "now": 17
+    "when-needed": 33,
+    "now": 24
    },
    "hubTopics": [
     "cm_bf008303",
@@ -456,43 +456,43 @@
    "label": "代码库与工程实践",
    "question": "代码怎么写才能让人和 Agent 都读得懂？",
    "order": 11,
-   "topicCount": 38,
+   "topicCount": 45,
    "subjects": {
     "AI 概念库 × Harness Engineering": 2,
+    "AI 内参 260912": 13,
     "Harness Engineering": 18,
     "AI 概念库": 3,
-    "Context Engineering": 9,
-    "AI 内参 260912": 6
+    "Context Engineering": 9
    },
    "types": {
-    "CONCEPTUAL": 20,
-    "REPRESENTATIONAL": 6,
-    "PROCEDURAL": 11,
+    "CONCEPTUAL": 24,
+    "REPRESENTATIONAL": 8,
+    "PROCEDURAL": 12,
     "LANGUAGE": 1
    },
    "stages": {
-    "now": 5,
-    "when-needed": 33
+    "now": 9,
+    "when-needed": 36
    },
    "hubTopics": [
     "cm_f45e5118",
+    "cm_28c079f9",
+    "cm_bfcfdd25",
     "cm_32dc32a9",
+    "cm_87bd2595",
     "cm_73952fe1",
     "cm_8ff76ff3",
-    "cm_2ac17989",
-    "cm_8d5752d9",
-    "cm_e907a229",
-    "cm_98e85c1e"
+    "cm_90956cad"
    ],
    "hubNames": [
     "Agentic Engineering",
+    "代码评审",
+    "AI 生成代码的隐性缺陷",
     "service template 与 golden path",
+    "Ask mode",
     "层级架构强约束 + 给 Agent 读的 lint 错误",
     "根因优先",
-    "统一语言",
-    "Agent-driven CI/CD",
-    "docs/decisions/",
-    "Executable Codebase"
+    "技术债与一致合并标准"
    ]
   },
   {
@@ -500,42 +500,42 @@
    "label": "安全权限与合规",
    "question": "什么可以做、什么必须被拦住？",
    "order": 12,
-   "topicCount": 45,
+   "topicCount": 52,
    "subjects": {
-    "AI 内参 260912": 16,
+    "AI 内参 260912": 23,
     "Harness Engineering": 10,
     "Context Engineering": 10,
     "AI 概念库": 9
    },
    "types": {
     "REPRESENTATIONAL": 2,
-    "CONCEPTUAL": 40,
+    "CONCEPTUAL": 47,
     "PROCEDURAL": 3
    },
    "stages": {
     "deep-dive": 5,
-    "now": 20,
-    "when-needed": 20
+    "when-needed": 26,
+    "now": 21
    },
    "hubTopics": [
     "cm_32e036a5",
+    "cm_6158a733",
     "cm_dc9a27be",
     "cm_285b2834",
     "cm_5103a6a6",
+    "cm_95af1bb8",
     "cm_c1dd6faa",
-    "cm_2b7480ab",
-    "cm_cffbc825",
-    "cm_2440f85e"
+    "cm_2b7480ab"
    ],
    "hubNames": [
     "企业托管设置（Managed Settings）与 strictKnownMarketplaces",
+    "安全论证与控制发展步伐",
     "安全审计与受信任来源",
     "Guardrails",
     "Human in the loop",
+    "奖励篡改",
     "权限与推理的架构分离",
-    "领跑节奏",
-    "默认帮助的高门槛拒绝",
-    "企业技能的最高优先级"
+    "领跑节奏"
    ]
   },
   {
@@ -543,43 +543,43 @@
    "label": "模型能力与训练",
    "question": "底层模型本身怎么变得更强？",
    "order": 13,
-   "topicCount": 83,
+   "topicCount": 87,
    "subjects": {
-    "AI 内参 260912": 13,
+    "AI 内参 260912": 17,
     "AI 概念库": 51,
     "Harness Engineering": 12,
     "Context Engineering": 7
    },
    "types": {
-    "CONCEPTUAL": 67,
-    "REPRESENTATIONAL": 13,
+    "CONCEPTUAL": 70,
+    "REPRESENTATIONAL": 14,
     "PROCEDURAL": 1,
     "LANGUAGE": 2
    },
    "stages": {
     "now": 16,
-    "when-needed": 33,
-    "deep-dive": 34
+    "when-needed": 36,
+    "deep-dive": 35
    },
    "hubTopics": [
     "cm_602ca158",
     "cm_6fe071ac",
     "cm_698b655e",
+    "cm_e7cabc5e",
     "cm_3639ae12",
     "cm_c63842fd",
     "cm_9191c944",
-    "cm_754efbf8",
-    "cm_3184d5ac"
+    "cm_754efbf8"
    ],
    "hubNames": [
     "Looped Transformer / Recurrent Depth",
     "Reward Signal",
     "奖励攻击与多样性坍塌",
+    "强化学习",
     "多头注意力",
     "DPPO",
     "REINFORCE",
-    "Looping Costs：参数、计算与 KV Cache",
-    "谄媚（Sycophancy）"
+    "Looping Costs：参数、计算与 KV Cache"
    ]
   },
   {
@@ -632,14 +632,15 @@
    "label": "认知与思维方法",
    "question": "人该用什么方式思考，才不被工具替代？",
    "order": 15,
-   "topicCount": 29,
+   "topicCount": 30,
    "subjects": {
     "AI 概念库": 17,
     "Context Engineering": 7,
-    "Harness Engineering": 5
+    "Harness Engineering": 5,
+    "AI 内参 260912": 1
    },
    "types": {
-    "CONCEPTUAL": 24,
+    "CONCEPTUAL": 25,
     "META": 1,
     "REPRESENTATIONAL": 2,
     "PROCEDURAL": 1,
@@ -647,7 +648,7 @@
    },
    "stages": {
     "now": 8,
-    "when-needed": 14,
+    "when-needed": 15,
     "deep-dive": 7
    },
    "hubTopics": [

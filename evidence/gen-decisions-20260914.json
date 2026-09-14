@@ -1,0 +1,4137 @@
+{
+  "generatedAt": "2026-09-14T09:20:19.736Z",
+  "method": "A-structural",
+  "modelCalls": 0,
+  "decisionAuthority": "负责人 2026-09-14 裁决：A/B 对比 A 胜（8:7），预注册规则「B 不显著优于 A 就用 A」",
+  "contentStatus": "generated-unreviewed",
+  "notWiredIntoPage": true,
+  "notWiredReason": "未审的题不进学习空间 —— 回执口径「不把缺题的单元冒充可学课程」",
+  "knownCost": "干扰项是机械摘取 boundaries 里被否定的主张，读起来偏生硬；不是人工改写的教学误解。",
+  "counts": {
+    "unitsIn": 76,
+    "unitsGenerated": 41,
+    "unitsSkipped": 35,
+    "questions": 123
+  },
+  "skipped": [
+    {
+      "unitId": "batch-agent-action-space",
+      "reason": "可摘取的误区不足 2 条（实测 1）"
+    },
+    {
+      "unitId": "batch-agent-cli-runtime",
+      "reason": "可摘取的误区不足 2 条（实测 1）"
+    },
+    {
+      "unitId": "batch-agent-session-management",
+      "reason": "可摘取的误区不足 2 条（实测 0）"
+    },
+    {
+      "unitId": "batch-bounded-context",
+      "reason": "可摘取的误区不足 2 条（实测 1）"
+    },
+    {
+      "unitId": "batch-browsing-loop",
+      "reason": "可摘取的误区不足 2 条（实测 1）"
+    },
+    {
+      "unitId": "batch-change-impact-analysis",
+      "reason": "可摘取的误区不足 2 条（实测 1）"
+    },
+    {
+      "unitId": "batch-chat-template",
+      "reason": "可摘取的误区不足 2 条（实测 0）"
+    },
+    {
+      "unitId": "batch-code-execution",
+      "reason": "可摘取的误区不足 2 条（实测 1）"
+    },
+    {
+      "unitId": "batch-context",
+      "reason": "可摘取的误区不足 2 条（实测 1）"
+    },
+    {
+      "unitId": "batch-event-driven-agent-automation",
+      "reason": "可摘取的误区不足 2 条（实测 0）"
+    },
+    {
+      "unitId": "batch-harness-overfitting",
+      "reason": "可摘取的误区不足 2 条（实测 0）"
+    },
+    {
+      "unitId": "batch-harness-token-floor",
+      "reason": "可摘取的误区不足 2 条（实测 1）"
+    },
+    {
+      "unitId": "batch-human-escalation-tool-call",
+      "reason": "可摘取的误区不足 2 条（实测 1）"
+    },
+    {
+      "unitId": "batch-instruction-locality",
+      "reason": "可摘取的误区不足 2 条（实测 1）"
+    },
+    {
+      "unitId": "batch-llm-token",
+      "reason": "可摘取的误区不足 2 条（实测 0）"
+    },
+    {
+      "unitId": "batch-multi-step-reliability-decay",
+      "reason": "可摘取的误区不足 2 条（实测 1）"
+    },
+    {
+      "unitId": "batch-observability",
+      "reason": "可摘取的误区不足 2 条（实测 1）"
+    },
+    {
+      "unitId": "batch-observation-masking",
+      "reason": "可摘取的误区不足 2 条（实测 1）"
+    },
+    {
+      "unitId": "batch-persistent-code-graph",
+      "reason": "可摘取的误区不足 2 条（实测 1）"
+    },
+    {
+      "unitId": "batch-prompt",
+      "reason": "可摘取的误区不足 2 条（实测 0）"
+    },
+    {
+      "unitId": "batch-prompt-caching",
+      "reason": "可摘取的误区不足 2 条（实测 1）"
+    },
+    {
+      "unitId": "batch-prompt-injection",
+      "reason": "可摘取的误区不足 2 条（实测 0）"
+    },
+    {
+      "unitId": "batch-repository-source-of-truth",
+      "reason": "可摘取的误区不足 2 条（实测 1）"
+    },
+    {
+      "unitId": "batch-restorable-compression",
+      "reason": "可摘取的误区不足 2 条（实测 0）"
+    },
+    {
+      "unitId": "batch-retrieval-reasoning-dual-task-load",
+      "reason": "可摘取的误区不足 2 条（实测 1）"
+    },
+    {
+      "unitId": "batch-runnable-evidence",
+      "reason": "可摘取的误区不足 2 条（实测 1）"
+    },
+    {
+      "unitId": "batch-sandbox",
+      "reason": "可摘取的误区不足 2 条（实测 1）"
+    },
+    {
+      "unitId": "batch-skill-trigger-condition",
+      "reason": "可摘取的误区不足 2 条（实测 0）"
+    },
+    {
+      "unitId": "batch-state-management",
+      "reason": "可摘取的误区不足 2 条（实测 1）"
+    },
+    {
+      "unitId": "batch-subagent-orchestration",
+      "reason": "可摘取的误区不足 2 条（实测 0）"
+    },
+    {
+      "unitId": "batch-system-prompt-altitude",
+      "reason": "可摘取的误区不足 2 条（实测 1）"
+    },
+    {
+      "unitId": "batch-tacit-knowledge",
+      "reason": "可摘取的误区不足 2 条（实测 1）"
+    },
+    {
+      "unitId": "batch-tool-schema-tax",
+      "reason": "可摘取的误区不足 2 条（实测 1）"
+    },
+    {
+      "unitId": "batch-tool-workflow-fit",
+      "reason": "可摘取的误区不足 2 条（实测 1）"
+    },
+    {
+      "unitId": "batch-verification-loop",
+      "reason": "可摘取的误区不足 2 条（实测 1）"
+    }
+  ],
+  "units": [
+    {
+      "unitId": "batch-agent",
+      "status": "ready",
+      "conceptId": "CON-agent",
+      "cardSlug": "agent",
+      "boundariesTotal": 3,
+      "negatedTotal": 2,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：你让 Agent 修复测试失败。它先读取报错，定位文件，修改代码，运行测试，再依据新结果决定继续修还是结束；这些连续动作不是一次模型回复就能独立完成的。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：Agent 不等于 LLM；模型负责推理与生成，工具执行、状态维护、权限和循环来自外部系统",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent.yaml#boundaries",
+              "basisQuote": "Agent 不等于 LLM；模型负责推理与生成，工具执行、状态维护、权限和循环来自外部系统"
+            },
+            {
+              "text": "识别一个系统是否真的具有 Agent 行为时，检查它能否围绕目标根据结果选择下一步，而不只看是否使用了 Agent 名称。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-agent",
+              "basisQuote": "识别一个系统是否真的具有 Agent 行为时，检查它能否围绕目标根据结果选择下一步，而不只看是否使用了 Agent 名称。",
+              "locator": "units[id=SOL-agent].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：Agent 与 Agent Harness 不是同义词；前者描述呈现出来的行动系统，后者强调产生和约束这种行为的运行机器",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent.yaml#boundaries",
+              "basisQuote": "Agent 与 Agent Harness 不是同义词；前者描述呈现出来的行动系统，后者强调产生和约束这种行为的运行机器"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「AI Agent」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：Agent 不等于 LLM；模型负责推理与生成，工具执行、状态维护、权限和循环来自外部系统",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent.yaml#boundaries",
+              "basisQuote": "Agent 不等于 LLM；模型负责推理与生成，工具执行、状态维护、权限和循环来自外部系统"
+            },
+            {
+              "text": "识别一个系统是否真的具有 Agent 行为时，检查它能否围绕目标根据结果选择下一步，而不只看是否使用了 Agent 名称。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-agent",
+              "basisQuote": "识别一个系统是否真的具有 Agent 行为时，检查它能否围绕目标根据结果选择下一步，而不只看是否使用了 Agent 名称。",
+              "locator": "units[id=SOL-agent].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：Agent 与 Agent Harness 不是同义词；前者描述呈现出来的行动系统，后者强调产生和约束这种行为的运行机器",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent.yaml#boundaries",
+              "basisQuote": "Agent 与 Agent Harness 不是同义词；前者描述呈现出来的行动系统，后者强调产生和约束这种行为的运行机器"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：Agent 不等于 LLM；模型负责推理与生成，工具执行、状态维护、权限和循环来自外部系统",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent.yaml#boundaries",
+              "basisQuote": "Agent 不等于 LLM；模型负责推理与生成，工具执行、状态维护、权限和循环来自外部系统"
+            },
+            {
+              "text": "识别一个系统是否真的具有 Agent 行为时，检查它能否围绕目标根据结果选择下一步，而不只看是否使用了 Agent 名称。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-agent",
+              "basisQuote": "识别一个系统是否真的具有 Agent 行为时，检查它能否围绕目标根据结果选择下一步，而不只看是否使用了 Agent 名称。",
+              "locator": "units[id=SOL-agent].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：Agent 与 Agent Harness 不是同义词；前者描述呈现出来的行动系统，后者强调产生和约束这种行为的运行机器",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent.yaml#boundaries",
+              "basisQuote": "Agent 与 Agent Harness 不是同义词；前者描述呈现出来的行动系统，后者强调产生和约束这种行为的运行机器"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-agent-elicitation",
+      "status": "scaffold",
+      "conceptId": "CON-agent-elicitation",
+      "cardSlug": "agent-elicitation",
+      "boundariesTotal": 3,
+      "negatedTotal": 2,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：假设旅行 Agent 收到“订一间合适的酒店”，它发现城市和日期已知，但预算会直接改变候选，于是只追问预算范围后继续筛选。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：信息引出不是无条件多问；只有缺失信息会改变答案、风险或下一步时才值得打断用户",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-elicitation.yaml#boundaries",
+              "basisQuote": "信息引出不是无条件多问；只有缺失信息会改变答案、风险或下一步时才值得打断用户"
+            },
+            {
+              "text": "在行动前列出会改变答案、风险或权限的未知量。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-agent-elicitation",
+              "basisQuote": "在行动前列出会改变答案、风险或权限的未知量。",
+              "locator": "units[id=SOL-agent-elicitation].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：提问接口应降低回答摩擦，并把答案可靠地送回原任务，而不是另开无关对话",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-elicitation.yaml#boundaries",
+              "basisQuote": "提问接口应降低回答摩擦，并把答案可靠地送回原任务，而不是另开无关对话"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「Agent 信息引出」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：信息引出不是无条件多问；只有缺失信息会改变答案、风险或下一步时才值得打断用户",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-elicitation.yaml#boundaries",
+              "basisQuote": "信息引出不是无条件多问；只有缺失信息会改变答案、风险或下一步时才值得打断用户"
+            },
+            {
+              "text": "在行动前列出会改变答案、风险或权限的未知量。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-agent-elicitation",
+              "basisQuote": "在行动前列出会改变答案、风险或权限的未知量。",
+              "locator": "units[id=SOL-agent-elicitation].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：提问接口应降低回答摩擦，并把答案可靠地送回原任务，而不是另开无关对话",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-elicitation.yaml#boundaries",
+              "basisQuote": "提问接口应降低回答摩擦，并把答案可靠地送回原任务，而不是另开无关对话"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：信息引出不是无条件多问；只有缺失信息会改变答案、风险或下一步时才值得打断用户",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-elicitation.yaml#boundaries",
+              "basisQuote": "信息引出不是无条件多问；只有缺失信息会改变答案、风险或下一步时才值得打断用户"
+            },
+            {
+              "text": "在行动前列出会改变答案、风险或权限的未知量。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-agent-elicitation",
+              "basisQuote": "在行动前列出会改变答案、风险或权限的未知量。",
+              "locator": "units[id=SOL-agent-elicitation].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：提问接口应降低回答摩擦，并把答案可靠地送回原任务，而不是另开无关对话",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-elicitation.yaml#boundaries",
+              "basisQuote": "提问接口应降低回答摩擦，并把答案可靠地送回原任务，而不是另开无关对话"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-agent-handoff",
+      "status": "scaffold",
+      "conceptId": "CON-agent-handoff",
+      "cardSlug": "agent-handoff",
+      "boundariesTotal": 4,
+      "negatedTotal": 4,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：Agent A 的上下文即将耗尽，它把已完成范围、测试证据、当前失败、关键文件和下一步写入结构化交接包。Agent B 先核对真实仓库状态，再确认接管并从未完成处继续。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：把子 Agent 当工具调用后拿回结果，不等于把当前任务的控制权完整交给另一个 Agent",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-handoff.yaml#boundaries",
+              "basisQuote": "把子 Agent 当工具调用后拿回结果，不等于把当前任务的控制权完整交给另一个 Agent"
+            },
+            {
+              "text": "交接包至少写清目标、当前进度、已验证证据、失败与阻塞、关键位置、未完成项和明确下一步。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-agent-handoff",
+              "basisQuote": "交接包至少写清目标、当前进度、已验证证据、失败与阻塞、关键位置、未完成项和明确下一步。",
+              "locator": "units[id=SOL-agent-handoff].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：Handoff artifact 是可恢复的任务状态，不是把整段聊天或全部上下文原样倾倒给下一位 Agent",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-handoff.yaml#boundaries",
+              "basisQuote": "Handoff artifact 是可恢复的任务状态，不是把整段聊天或全部上下文原样倾倒给下一位 Agent"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「Agent 交接」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：发出交接请求不等于完成交接；接收方应核对证据、真实状态与责任范围后确认接管",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-handoff.yaml#boundaries",
+              "basisQuote": "发出交接请求不等于完成交接；接收方应核对证据、真实状态与责任范围后确认接管"
+            },
+            {
+              "text": "交接包至少写清目标、当前进度、已验证证据、失败与阻塞、关键位置、未完成项和明确下一步。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-agent-handoff",
+              "basisQuote": "交接包至少写清目标、当前进度、已验证证据、失败与阻塞、关键位置、未完成项和明确下一步。",
+              "locator": "units[id=SOL-agent-handoff].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：交接能延续工作，不保证前一位 Agent 的判断正确；关键事实仍需对真实文件、测试或外部状态复核",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-handoff.yaml#boundaries",
+              "basisQuote": "交接能延续工作，不保证前一位 Agent 的判断正确；关键事实仍需对真实文件、测试或外部状态复核"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：把子 Agent 当工具调用后拿回结果，不等于把当前任务的控制权完整交给另一个 Agent",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-handoff.yaml#boundaries",
+              "basisQuote": "把子 Agent 当工具调用后拿回结果，不等于把当前任务的控制权完整交给另一个 Agent"
+            },
+            {
+              "text": "交接包至少写清目标、当前进度、已验证证据、失败与阻塞、关键位置、未完成项和明确下一步。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-agent-handoff",
+              "basisQuote": "交接包至少写清目标、当前进度、已验证证据、失败与阻塞、关键位置、未完成项和明确下一步。",
+              "locator": "units[id=SOL-agent-handoff].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：Handoff artifact 是可恢复的任务状态，不是把整段聊天或全部上下文原样倾倒给下一位 Agent",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-handoff.yaml#boundaries",
+              "basisQuote": "Handoff artifact 是可恢复的任务状态，不是把整段聊天或全部上下文原样倾倒给下一位 Agent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-agent-harness",
+      "status": "ready",
+      "conceptId": "CON-agent-harness",
+      "cardSlug": "agent-harness",
+      "boundariesTotal": 4,
+      "negatedTotal": 3,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：同一个模型接入两套代码 Agent 系统：一套只能偶尔运行命令，另一套能保存进度、限制写入范围、处理工具失败并验证结果。即使模型权重不变，最终表现也会因 Harness 不同而明显不同。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：Agent Harness 不等于模型；模型负责生成判断或工具请求，Harness 负责执行、回灌、状态与控制",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-harness.yaml#boundaries",
+              "basisQuote": "Agent Harness 不等于模型；模型负责生成判断或工具请求，Harness 负责执行、回灌、状态与控制"
+            },
+            {
+              "text": "排查 Agent 失败时，分别检查模型判断、循环、工具、状态、Context、权限、错误处理和验证，避免把所有问题都归因于模型能力。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-agent-harness",
+              "basisQuote": "排查 Agent 失败时，分别检查模型判断、循环、工具、状态、Context、权限、错误处理和验证，避免把所有问题都归因于模型能力。",
+              "locator": "units[id=SOL-agent-harness].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：Agent Harness 也不等于用户感知到的 Agent；本站用 Agent 描述围绕目标持续行动的系统表现，用 Harness 描述产生并治理这种表现的运行机器",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-harness.yaml#boundaries",
+              "basisQuote": "Agent Harness 也不等于用户感知到的 Agent；本站用 Agent 描述围绕目标持续行动的系统表现，用 Harness 描述产生并治理这种表现的运行机器"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「Agent Harness」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：Harness 会与 Context Engineering 交叉，因为它必须在运行时装配信息；但 Context 负责“模型看到什么”，Harness 负责“系统怎样持续、受控地运行”，不能静默压成一条轴",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-harness.yaml#boundaries",
+              "basisQuote": "Harness 会与 Context Engineering 交叉，因为它必须在运行时装配信息；但 Context 负责“模型看到什么”，Harness 负责“系统怎样持续、受控地运行”，不能静默压成一条轴"
+            },
+            {
+              "text": "排查 Agent 失败时，分别检查模型判断、循环、工具、状态、Context、权限、错误处理和验证，避免把所有问题都归因于模型能力。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-agent-harness",
+              "basisQuote": "排查 Agent 失败时，分别检查模型判断、循环、工具、状态、Context、权限、错误处理和验证，避免把所有问题都归因于模型能力。",
+              "locator": "units[id=SOL-agent-harness].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：Agent Harness 不等于模型；模型负责生成判断或工具请求，Harness 负责执行、回灌、状态与控制",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-harness.yaml#boundaries",
+              "basisQuote": "Agent Harness 不等于模型；模型负责生成判断或工具请求，Harness 负责执行、回灌、状态与控制"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：Agent Harness 也不等于用户感知到的 Agent；本站用 Agent 描述围绕目标持续行动的系统表现，用 Harness 描述产生并治理这种表现的运行机器",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-harness.yaml#boundaries",
+              "basisQuote": "Agent Harness 也不等于用户感知到的 Agent；本站用 Agent 描述围绕目标持续行动的系统表现，用 Harness 描述产生并治理这种表现的运行机器"
+            },
+            {
+              "text": "排查 Agent 失败时，分别检查模型判断、循环、工具、状态、Context、权限、错误处理和验证，避免把所有问题都归因于模型能力。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-agent-harness",
+              "basisQuote": "排查 Agent 失败时，分别检查模型判断、循环、工具、状态、Context、权限、错误处理和验证，避免把所有问题都归因于模型能力。",
+              "locator": "units[id=SOL-agent-harness].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：Harness 会与 Context Engineering 交叉，因为它必须在运行时装配信息；但 Context 负责“模型看到什么”，Harness 负责“系统怎样持续、受控地运行”，不能静默压成一条轴",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-harness.yaml#boundaries",
+              "basisQuote": "Harness 会与 Context Engineering 交叉，因为它必须在运行时装配信息；但 Context 负责“模型看到什么”，Harness 负责“系统怎样持续、受控地运行”，不能静默压成一条轴"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-agent-lifecycle",
+      "status": "scaffold",
+      "conceptId": "CON-agent-lifecycle",
+      "cardSlug": "agent-lifecycle",
+      "boundariesTotal": 3,
+      "negatedTotal": 3,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：Coding Agent 开工时运行环境检查并读取进度，执行中持续验证；临时暂停前保存当前状态，恢复后核对工作区，收尾时记录未完成项并留下干净的下一次入口。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：Lifecycle 定义阶段、转换和交接责任，不等于 Agent Loop 的逐步推理与工具调用循环",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-lifecycle.yaml#boundaries",
+              "basisQuote": "Lifecycle 定义阶段、转换和交接责任，不等于 Agent Loop 的逐步推理与工具调用循环"
+            },
+            {
+              "text": "为开工、运行、暂停、恢复和收尾分别定义入口条件、必要动作、产出证据与退出条件。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-agent-lifecycle",
+              "basisQuote": "为开工、运行、暂停、恢复和收尾分别定义入口条件、必要动作、产出证据与退出条件。",
+              "locator": "units[id=SOL-agent-lifecycle].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：暂停不是结束，恢复也不是重新开始；二者需要可读状态、环境核对和明确所有权",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-lifecycle.yaml#boundaries",
+              "basisQuote": "暂停不是结束，恢复也不是重新开始；二者需要可读状态、环境核对和明确所有权"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「Agent 生命周期」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：Hook 是在生命周期事件上执行检查、通知或清理的一种实现方式，不是 Lifecycle 的同义词，也不能替代阶段设计",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-lifecycle.yaml#boundaries",
+              "basisQuote": "Hook 是在生命周期事件上执行检查、通知或清理的一种实现方式，不是 Lifecycle 的同义词，也不能替代阶段设计"
+            },
+            {
+              "text": "为开工、运行、暂停、恢复和收尾分别定义入口条件、必要动作、产出证据与退出条件。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-agent-lifecycle",
+              "basisQuote": "为开工、运行、暂停、恢复和收尾分别定义入口条件、必要动作、产出证据与退出条件。",
+              "locator": "units[id=SOL-agent-lifecycle].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：Lifecycle 定义阶段、转换和交接责任，不等于 Agent Loop 的逐步推理与工具调用循环",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-lifecycle.yaml#boundaries",
+              "basisQuote": "Lifecycle 定义阶段、转换和交接责任，不等于 Agent Loop 的逐步推理与工具调用循环"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：暂停不是结束，恢复也不是重新开始；二者需要可读状态、环境核对和明确所有权",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-lifecycle.yaml#boundaries",
+              "basisQuote": "暂停不是结束，恢复也不是重新开始；二者需要可读状态、环境核对和明确所有权"
+            },
+            {
+              "text": "为开工、运行、暂停、恢复和收尾分别定义入口条件、必要动作、产出证据与退出条件。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-agent-lifecycle",
+              "basisQuote": "为开工、运行、暂停、恢复和收尾分别定义入口条件、必要动作、产出证据与退出条件。",
+              "locator": "units[id=SOL-agent-lifecycle].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：Hook 是在生命周期事件上执行检查、通知或清理的一种实现方式，不是 Lifecycle 的同义词，也不能替代阶段设计",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-lifecycle.yaml#boundaries",
+              "basisQuote": "Hook 是在生命周期事件上执行检查、通知或清理的一种实现方式，不是 Lifecycle 的同义词，也不能替代阶段设计"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-agent-loop",
+      "status": "scaffold",
+      "conceptId": "CON-agent-loop",
+      "cardSlug": "agent-loop",
+      "boundariesTotal": 4,
+      "negatedTotal": 4,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：Agent 先搜索仓库，看到结果后打开相关文件，再修改代码并运行测试；测试失败成为下一轮观察，测试通过且任务满足条件时退出循环。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：Agent Loop 只描述单个 Agent 内部“选择—执行—观察—再选择”的行动心跳，不等于外层持续工作流、多 Agent 编排或 Loop Engineering",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-loop.yaml#boundaries",
+              "basisQuote": "Agent Loop 只描述单个 Agent 内部“选择—执行—观察—再选择”的行动心跳，不等于外层持续工作流、多 Agent 编排或 Loop Engineering"
+            },
+            {
+              "text": "记录每一轮的输入、模型选择、工具参数、工具结果和停止原因，定位空转、早停与错误回灌。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-agent-loop",
+              "basisQuote": "记录每一轮的输入、模型选择、工具参数、工具结果和停止原因，定位空转、早停与错误回灌。",
+              "locator": "units[id=SOL-agent-loop].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：模型生成工具调用请求，不是模型亲自执行工具；执行和结果封装由 Harness 完成",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-loop.yaml#boundaries",
+              "basisQuote": "模型生成工具调用请求，不是模型亲自执行工具；执行和结果封装由 Harness 完成"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「Agent 循环」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：退出不能只依赖模型随口说“完成”；真实系统还应有最大回合、预算、无进展、权限拒绝与用户中断等边界",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-loop.yaml#boundaries",
+              "basisQuote": "退出不能只依赖模型随口说“完成”；真实系统还应有最大回合、预算、无进展、权限拒绝与用户中断等边界"
+            },
+            {
+              "text": "记录每一轮的输入、模型选择、工具参数、工具结果和停止原因，定位空转、早停与错误回灌。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-agent-loop",
+              "basisQuote": "记录每一轮的输入、模型选择、工具参数、工具结果和停止原因，定位空转、早停与错误回灌。",
+              "locator": "units[id=SOL-agent-loop].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：循环持续运行不等于任务已经正确完成，仍需独立验证结果",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-loop.yaml#boundaries",
+              "basisQuote": "循环持续运行不等于任务已经正确完成，仍需独立验证结果"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：Agent Loop 只描述单个 Agent 内部“选择—执行—观察—再选择”的行动心跳，不等于外层持续工作流、多 Agent 编排或 Loop Engineering",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-loop.yaml#boundaries",
+              "basisQuote": "Agent Loop 只描述单个 Agent 内部“选择—执行—观察—再选择”的行动心跳，不等于外层持续工作流、多 Agent 编排或 Loop Engineering"
+            },
+            {
+              "text": "记录每一轮的输入、模型选择、工具参数、工具结果和停止原因，定位空转、早停与错误回灌。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-agent-loop",
+              "basisQuote": "记录每一轮的输入、模型选择、工具参数、工具结果和停止原因，定位空转、早停与错误回灌。",
+              "locator": "units[id=SOL-agent-loop].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：模型生成工具调用请求，不是模型亲自执行工具；执行和结果封装由 Harness 完成",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-loop.yaml#boundaries",
+              "basisQuote": "模型生成工具调用请求，不是模型亲自执行工具；执行和结果封装由 Harness 完成"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-agent-stop-conditions",
+      "status": "scaffold",
+      "conceptId": "CON-agent-stop-conditions",
+      "cardSlug": "agent-stop-conditions",
+      "boundariesTotal": 4,
+      "negatedTotal": 2,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：假设排障 Agent 连续三轮提出同类改动且验证没有改善；Harness 达到无进展阈值后停止自动尝试并把证据交给人。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：它不是任务成功判定的同义词；循环可能因预算、风险或无进展而在未成功时停止",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-stop-conditions.yaml#boundaries",
+              "basisQuote": "它不是任务成功判定的同义词；循环可能因预算、风险或无进展而在未成功时停止"
+            },
+            {
+              "text": "为成功、预算耗尽、风险升级、重复状态和连续无进展分别定义可观测条件。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-agent-stop-conditions",
+              "basisQuote": "为成功、预算耗尽、风险升级、重复状态和连续无进展分别定义可观测条件。",
+              "locator": "units[id=SOL-agent-stop-conditions].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：终止条件应由 Harness 执行，不能只依赖模型自行承诺停止",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-stop-conditions.yaml#boundaries",
+              "basisQuote": "终止条件应由 Harness 执行，不能只依赖模型自行承诺停止"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「Agent 终止条件」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：它不是任务成功判定的同义词；循环可能因预算、风险或无进展而在未成功时停止",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-stop-conditions.yaml#boundaries",
+              "basisQuote": "它不是任务成功判定的同义词；循环可能因预算、风险或无进展而在未成功时停止"
+            },
+            {
+              "text": "为成功、预算耗尽、风险升级、重复状态和连续无进展分别定义可观测条件。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-agent-stop-conditions",
+              "basisQuote": "为成功、预算耗尽、风险升级、重复状态和连续无进展分别定义可观测条件。",
+              "locator": "units[id=SOL-agent-stop-conditions].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：终止条件应由 Harness 执行，不能只依赖模型自行承诺停止",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-stop-conditions.yaml#boundaries",
+              "basisQuote": "终止条件应由 Harness 执行，不能只依赖模型自行承诺停止"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：它不是任务成功判定的同义词；循环可能因预算、风险或无进展而在未成功时停止",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-stop-conditions.yaml#boundaries",
+              "basisQuote": "它不是任务成功判定的同义词；循环可能因预算、风险或无进展而在未成功时停止"
+            },
+            {
+              "text": "为成功、预算耗尽、风险升级、重复状态和连续无进展分别定义可观测条件。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-agent-stop-conditions",
+              "basisQuote": "为成功、预算耗尽、风险升级、重复状态和连续无进展分别定义可观测条件。",
+              "locator": "units[id=SOL-agent-stop-conditions].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：终止条件应由 Harness 执行，不能只依赖模型自行承诺停止",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-stop-conditions.yaml#boundaries",
+              "basisQuote": "终止条件应由 Harness 执行，不能只依赖模型自行承诺停止"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-agent-tool-contract",
+      "status": "scaffold",
+      "conceptId": "CON-agent-tool-contract",
+      "cardSlug": "agent-tool-contract",
+      "boundariesTotal": 3,
+      "negatedTotal": 2,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：假设客服 Agent 要发起退款：模型只提交“退款”意图、订单号和金额，执行器先过权限门再调用接口，最后只回传状态、流水号与失败原因。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：它不是工具能力本身，而是模型如何选择、调用并接收工具结果的责任边界",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-tool-contract.yaml#boundaries",
+              "basisQuote": "它不是工具能力本身，而是模型如何选择、调用并接收工具结果的责任边界"
+            },
+            {
+              "text": "列出模型可以表达的操作意图，并为每种意图限定必填参数和可选参数。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-agent-tool-contract",
+              "basisQuote": "列出模型可以表达的操作意图，并为每种意图限定必填参数和可选参数。",
+              "locator": "units[id=SOL-agent-tool-contract].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：工具契约清晰不等于权限安全；授权、沙箱和护栏仍需独立控制",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-tool-contract.yaml#boundaries",
+              "basisQuote": "工具契约清晰不等于权限安全；授权、沙箱和护栏仍需独立控制"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「Agent 工具契约」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：它不是工具能力本身，而是模型如何选择、调用并接收工具结果的责任边界",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-tool-contract.yaml#boundaries",
+              "basisQuote": "它不是工具能力本身，而是模型如何选择、调用并接收工具结果的责任边界"
+            },
+            {
+              "text": "列出模型可以表达的操作意图，并为每种意图限定必填参数和可选参数。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-agent-tool-contract",
+              "basisQuote": "列出模型可以表达的操作意图，并为每种意图限定必填参数和可选参数。",
+              "locator": "units[id=SOL-agent-tool-contract].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：工具契约清晰不等于权限安全；授权、沙箱和护栏仍需独立控制",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-tool-contract.yaml#boundaries",
+              "basisQuote": "工具契约清晰不等于权限安全；授权、沙箱和护栏仍需独立控制"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：它不是工具能力本身，而是模型如何选择、调用并接收工具结果的责任边界",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-tool-contract.yaml#boundaries",
+              "basisQuote": "它不是工具能力本身，而是模型如何选择、调用并接收工具结果的责任边界"
+            },
+            {
+              "text": "列出模型可以表达的操作意图，并为每种意图限定必填参数和可选参数。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-agent-tool-contract",
+              "basisQuote": "列出模型可以表达的操作意图，并为每种意图限定必填参数和可选参数。",
+              "locator": "units[id=SOL-agent-tool-contract].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：工具契约清晰不等于权限安全；授权、沙箱和护栏仍需独立控制",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/agent-tool-contract.yaml#boundaries",
+              "basisQuote": "工具契约清晰不等于权限安全；授权、沙箱和护栏仍需独立控制"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-attention-budget",
+      "status": "ready",
+      "conceptId": "CON-attention-budget",
+      "cardSlug": "attention-budget",
+      "boundariesTotal": 4,
+      "negatedTotal": 4,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：代码 Agent 同时收到完整仓库树、长日志、旧讨论和当前报错；关键错误信息虽然在其中，却可能因大量竞争材料而没有被可靠利用。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：Attention Budget 不等于 Context Window；前者描述有限利用与竞争的工程直觉，后者描述一次调用的容量和处理边界",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/attention-budget.yaml#boundaries",
+              "basisQuote": "Attention Budget 不等于 Context Window；前者描述有限利用与竞争的工程直觉，后者描述一次调用的容量和处理边界"
+            },
+            {
+              "text": "每加入一段材料都问它会支持哪项当前判断；说不清用途的内容优先留在外部。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-attention-budget",
+              "basisQuote": "每加入一段材料都问它会支持哪项当前判断；说不清用途的内容优先留在外部。",
+              "locator": "units[id=SOL-attention-budget].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：它不是一个跨模型、跨任务通用且可直接读取的精确数值，也不能单独解释所有长上下文退化",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/attention-budget.yaml#boundaries",
+              "basisQuote": "它不是一个跨模型、跨任务通用且可直接读取的精确数值，也不能单独解释所有长上下文退化"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「注意力预算」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：更多 Context 不是必然更差；新增的高价值证据可能提高结果，关键在相关性、组织方式、位置和任务",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/attention-budget.yaml#boundaries",
+              "basisQuote": "更多 Context 不是必然更差；新增的高价值证据可能提高结果，关键在相关性、组织方式、位置和任务"
+            },
+            {
+              "text": "每加入一段材料都问它会支持哪项当前判断；说不清用途的内容优先留在外部。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-attention-budget",
+              "basisQuote": "每加入一段材料都问它会支持哪项当前判断；说不清用途的内容优先留在外部。",
+              "locator": "units[id=SOL-attention-budget].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：Context Rot 与 Lost in the Middle 是经验表现或位置效应，不能被写成 Attention Budget 已证实的单一因果结果",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/attention-budget.yaml#boundaries",
+              "basisQuote": "Context Rot 与 Lost in the Middle 是经验表现或位置效应，不能被写成 Attention Budget 已证实的单一因果结果"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：Attention Budget 不等于 Context Window；前者描述有限利用与竞争的工程直觉，后者描述一次调用的容量和处理边界",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/attention-budget.yaml#boundaries",
+              "basisQuote": "Attention Budget 不等于 Context Window；前者描述有限利用与竞争的工程直觉，后者描述一次调用的容量和处理边界"
+            },
+            {
+              "text": "每加入一段材料都问它会支持哪项当前判断；说不清用途的内容优先留在外部。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-attention-budget",
+              "basisQuote": "每加入一段材料都问它会支持哪项当前判断；说不清用途的内容优先留在外部。",
+              "locator": "units[id=SOL-attention-budget].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：它不是一个跨模型、跨任务通用且可直接读取的精确数值，也不能单独解释所有长上下文退化",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/attention-budget.yaml#boundaries",
+              "basisQuote": "它不是一个跨模型、跨任务通用且可直接读取的精确数值，也不能单独解释所有长上下文退化"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-context-compaction",
+      "status": "ready",
+      "conceptId": "CON-context-compaction",
+      "cardSlug": "context-compaction",
+      "boundariesTotal": 4,
+      "negatedTotal": 3,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：一个代码 Agent 的对话接近窗口上限，系统把已确认的架构决定、未解决错误和当前进度整理成摘要，保留相关文件路径，再用这份摘要开启新窗口；冗长工具输出不再整段携带。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：压缩不等于删除最旧消息；它要提炼当前仍重要的状态、决定与未决事项",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/context-compaction.yaml#boundaries",
+              "basisQuote": "压缩不等于删除最旧消息；它要提炼当前仍重要的状态、决定与未决事项"
+            },
+            {
+              "text": "先以召回率为优先，确保架构决定、当前目标、未决问题、重要约束与下一步没有被漏掉。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-context-compaction",
+              "basisQuote": "先以召回率为优先，确保架构决定、当前目标、未决问题、重要约束与下一步没有被漏掉。",
+              "locator": "units[id=SOL-context-compaction].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：压缩不等于结构化记事或完整外部记忆；摘要负责连续性，可恢复引用负责回查，两者应显式区分",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/context-compaction.yaml#boundaries",
+              "basisQuote": "压缩不等于结构化记事或完整外部记忆；摘要负责连续性，可恢复引用负责回查，两者应显式区分"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「上下文压缩」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：压缩通过释放空间缓解窗口压力，但不能自动消除 Context Rot、错误状态或错误目标",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/context-compaction.yaml#boundaries",
+              "basisQuote": "压缩通过释放空间缓解窗口压力，但不能自动消除 Context Rot、错误状态或错误目标"
+            },
+            {
+              "text": "先以召回率为优先，确保架构决定、当前目标、未决问题、重要约束与下一步没有被漏掉。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-context-compaction",
+              "basisQuote": "先以召回率为优先，确保架构决定、当前目标、未决问题、重要约束与下一步没有被漏掉。",
+              "locator": "units[id=SOL-context-compaction].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：压缩不等于删除最旧消息；它要提炼当前仍重要的状态、决定与未决事项",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/context-compaction.yaml#boundaries",
+              "basisQuote": "压缩不等于删除最旧消息；它要提炼当前仍重要的状态、决定与未决事项"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：压缩不等于结构化记事或完整外部记忆；摘要负责连续性，可恢复引用负责回查，两者应显式区分",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/context-compaction.yaml#boundaries",
+              "basisQuote": "压缩不等于结构化记事或完整外部记忆；摘要负责连续性，可恢复引用负责回查，两者应显式区分"
+            },
+            {
+              "text": "先以召回率为优先，确保架构决定、当前目标、未决问题、重要约束与下一步没有被漏掉。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-context-compaction",
+              "basisQuote": "先以召回率为优先，确保架构决定、当前目标、未决问题、重要约束与下一步没有被漏掉。",
+              "locator": "units[id=SOL-context-compaction].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：压缩通过释放空间缓解窗口压力，但不能自动消除 Context Rot、错误状态或错误目标",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/context-compaction.yaml#boundaries",
+              "basisQuote": "压缩通过释放空间缓解窗口压力，但不能自动消除 Context Rot、错误状态或错误目标"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-context-engineering",
+      "status": "ready",
+      "conceptId": "CON-context-engineering",
+      "cardSlug": "context-engineering",
+      "boundariesTotal": 4,
+      "negatedTotal": 3,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：邮件 Agent 收到“帮我安排明天的同步会”后，系统按当下任务取回日历、联系人和往来语气，选择可用工具并压缩成清楚输入，再交给模型判断下一步。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：它不等于 Prompt Engineering；提示词工程主要处理指令怎样表达，上下文工程管理每轮整体信息怎样进入模型",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/context-engineering.yaml#boundaries",
+              "basisQuote": "它不等于 Prompt Engineering；提示词工程主要处理指令怎样表达，上下文工程管理每轮整体信息怎样进入模型"
+            },
+            {
+              "text": "从任务决策倒推模型这一轮必须知道什么、可以稍后再取什么、什么应留在窗口外。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-context-engineering",
+              "basisQuote": "从任务决策倒推模型这一轮必须知道什么、可以稍后再取什么、什么应留在窗口外。",
+              "locator": "units[id=SOL-context-engineering].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：两条轴不能混成单一包含关系",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/context-engineering.yaml#boundaries",
+              "basisQuote": "两条轴不能混成单一包含关系"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「Claude 5 世代的上下文工程，规则变了」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：“提供完成任务所需的一切”不表示把所有可用资料一次性塞入窗口，也不保证模型输出必然正确",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/context-engineering.yaml#boundaries",
+              "basisQuote": "“提供完成任务所需的一切”不表示把所有可用资料一次性塞入窗口，也不保证模型输出必然正确"
+            },
+            {
+              "text": "从任务决策倒推模型这一轮必须知道什么、可以稍后再取什么、什么应留在窗口外。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-context-engineering",
+              "basisQuote": "从任务决策倒推模型这一轮必须知道什么、可以稍后再取什么、什么应留在窗口外。",
+              "locator": "units[id=SOL-context-engineering].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：它不等于 Prompt Engineering；提示词工程主要处理指令怎样表达，上下文工程管理每轮整体信息怎样进入模型",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/context-engineering.yaml#boundaries",
+              "basisQuote": "它不等于 Prompt Engineering；提示词工程主要处理指令怎样表达，上下文工程管理每轮整体信息怎样进入模型"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：两条轴不能混成单一包含关系",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/context-engineering.yaml#boundaries",
+              "basisQuote": "两条轴不能混成单一包含关系"
+            },
+            {
+              "text": "从任务决策倒推模型这一轮必须知道什么、可以稍后再取什么、什么应留在窗口外。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-context-engineering",
+              "basisQuote": "从任务决策倒推模型这一轮必须知道什么、可以稍后再取什么、什么应留在窗口外。",
+              "locator": "units[id=SOL-context-engineering].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：“提供完成任务所需的一切”不表示把所有可用资料一次性塞入窗口，也不保证模型输出必然正确",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/context-engineering.yaml#boundaries",
+              "basisQuote": "“提供完成任务所需的一切”不表示把所有可用资料一次性塞入窗口，也不保证模型输出必然正确"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-context-rot",
+      "status": "scaffold",
+      "conceptId": "CON-context-rot",
+      "cardSlug": "context-rot",
+      "boundariesTotal": 5,
+      "negatedTotal": 2,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：先确认模型在短输入条件下能稳定完成同一项问答，再保持问题、关键证据和评分方法不变，只分档增加无关材料；若表现随长度下降，才有依据把输入长度列为退化变量。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：Context Rot 不等于 Context Window；前者谈实际利用可靠性，后者谈一次调用可承载的容量边界",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/context-rot.yaml#boundaries",
+              "basisQuote": "Context Rot 不等于 Context Window；前者谈实际利用可靠性，后者谈一次调用可承载的容量边界"
+            },
+            {
+              "text": "先证明模型在短输入条件下能完成任务，再固定任务难度、相关证据与评分方法，只改变输入长度。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-context-rot",
+              "basisQuote": "先证明模型在短输入条件下能完成任务，再固定任务难度、相关证据与评分方法，只改变输入长度。",
+              "locator": "units[id=SOL-context-rot].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：它不等于 Lost in the Middle；后者专指位置效应，而 Chroma 的语义相似度实验跨 11 个 needle 位置没有观察到显著位置影响",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/context-rot.yaml#boundaries",
+              "basisQuote": "它不等于 Lost in the Middle；后者专指位置效应，而 Chroma 的语义相似度实验跨 11 个 needle 位置没有观察到显著位置影响"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「上下文腐烂」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：Context Rot 不等于 Context Window；前者谈实际利用可靠性，后者谈一次调用可承载的容量边界",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/context-rot.yaml#boundaries",
+              "basisQuote": "Context Rot 不等于 Context Window；前者谈实际利用可靠性，后者谈一次调用可承载的容量边界"
+            },
+            {
+              "text": "先证明模型在短输入条件下能完成任务，再固定任务难度、相关证据与评分方法，只改变输入长度。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-context-rot",
+              "basisQuote": "先证明模型在短输入条件下能完成任务，再固定任务难度、相关证据与评分方法，只改变输入长度。",
+              "locator": "units[id=SOL-context-rot].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：它不等于 Lost in the Middle；后者专指位置效应，而 Chroma 的语义相似度实验跨 11 个 needle 位置没有观察到显著位置影响",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/context-rot.yaml#boundaries",
+              "basisQuote": "它不等于 Lost in the Middle；后者专指位置效应，而 Chroma 的语义相似度实验跨 11 个 needle 位置没有观察到显著位置影响"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：Context Rot 不等于 Context Window；前者谈实际利用可靠性，后者谈一次调用可承载的容量边界",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/context-rot.yaml#boundaries",
+              "basisQuote": "Context Rot 不等于 Context Window；前者谈实际利用可靠性，后者谈一次调用可承载的容量边界"
+            },
+            {
+              "text": "先证明模型在短输入条件下能完成任务，再固定任务难度、相关证据与评分方法，只改变输入长度。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-context-rot",
+              "basisQuote": "先证明模型在短输入条件下能完成任务，再固定任务难度、相关证据与评分方法，只改变输入长度。",
+              "locator": "units[id=SOL-context-rot].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：它不等于 Lost in the Middle；后者专指位置效应，而 Chroma 的语义相似度实验跨 11 个 needle 位置没有观察到显著位置影响",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/context-rot.yaml#boundaries",
+              "basisQuote": "它不等于 Lost in the Middle；后者专指位置效应，而 Chroma 的语义相似度实验跨 11 个 needle 位置没有观察到显著位置影响"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-context-selection",
+      "status": "scaffold",
+      "conceptId": "CON-context-selection",
+      "cardSlug": "context-selection",
+      "boundariesTotal": 4,
+      "negatedTotal": 4,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：Agent 准备修复支付错误时，先列出长期记忆、代码检索结果和工具定义等候选来源，再只纳入相关模块、最近失败记录与必要工具；旧项目笔记和无关工具留在窗口之外。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：Context Selection 回答选什么；Dynamic Context Assembly 回答选中内容怎样排序、格式化和组合，二者不是 Alias",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/context-selection.yaml#boundaries",
+              "basisQuote": "Context Selection 回答选什么；Dynamic Context Assembly 回答选中内容怎样排序、格式化和组合，二者不是 Alias"
+            },
+            {
+              "text": "先列候选来源与纳入标准，再说明每项材料支持哪个当前决策、依赖或验证步骤。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-context-selection",
+              "basisQuote": "先列候选来源与纳入标准，再说明每项材料支持哪个当前决策、依赖或验证步骤。",
+              "locator": "units[id=SOL-context-selection].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：它也不等于 JIT Retrieval；后者强调何时取回，Selection 仍需判断取回结果是否值得进入当前 Context",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/context-selection.yaml#boundaries",
+              "basisQuote": "它也不等于 JIT Retrieval；后者强调何时取回，Selection 仍需判断取回结果是否值得进入当前 Context"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「上下文选择」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：语义相似度只是候选信号之一；论文同时讨论逻辑依赖、新近性与频率、信息重叠及用户反馈，不能把 embedding 排名直接当成纳入结论",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/context-selection.yaml#boundaries",
+              "basisQuote": "语义相似度只是候选信号之一；论文同时讨论逻辑依赖、新近性与频率、信息重叠及用户反馈，不能把 embedding 排名直接当成纳入结论"
+            },
+            {
+              "text": "先列候选来源与纳入标准，再说明每项材料支持哪个当前决策、依赖或验证步骤。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-context-selection",
+              "basisQuote": "先列候选来源与纳入标准，再说明每项材料支持哪个当前决策、依赖或验证步骤。",
+              "locator": "units[id=SOL-context-selection].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：选择通过也不保证材料正确或完整",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/context-selection.yaml#boundaries",
+              "basisQuote": "选择通过也不保证材料正确或完整"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：Context Selection 回答选什么；Dynamic Context Assembly 回答选中内容怎样排序、格式化和组合，二者不是 Alias",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/context-selection.yaml#boundaries",
+              "basisQuote": "Context Selection 回答选什么；Dynamic Context Assembly 回答选中内容怎样排序、格式化和组合，二者不是 Alias"
+            },
+            {
+              "text": "先列候选来源与纳入标准，再说明每项材料支持哪个当前决策、依赖或验证步骤。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-context-selection",
+              "basisQuote": "先列候选来源与纳入标准，再说明每项材料支持哪个当前决策、依赖或验证步骤。",
+              "locator": "units[id=SOL-context-selection].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：它也不等于 JIT Retrieval；后者强调何时取回，Selection 仍需判断取回结果是否值得进入当前 Context",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/context-selection.yaml#boundaries",
+              "basisQuote": "它也不等于 JIT Retrieval；后者强调何时取回，Selection 仍需判断取回结果是否值得进入当前 Context"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-context-window",
+      "status": "ready",
+      "conceptId": "CON-context-window",
+      "cardSlug": "context-window",
+      "boundariesTotal": 3,
+      "negatedTotal": 2,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：系统把几十份文档全部塞进一个大窗口，关键规则确实装得下，却仍被模型漏用。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：容量边界不等于实际 Context 内容",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/context-window.yaml#boundaries",
+              "basisQuote": "容量边界不等于实际 Context 内容"
+            },
+            {
+              "text": "同时检查窗口上限与当前实际占用。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-context-window",
+              "basisQuote": "同时检查窗口上限与当前实际占用。",
+              "locator": "units[id=SOL-context-window].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：上下文窗口不等于跨会话长期记忆",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/context-window.yaml#boundaries",
+              "basisQuote": "上下文窗口不等于跨会话长期记忆"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「上下文窗口」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：容量边界不等于实际 Context 内容",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/context-window.yaml#boundaries",
+              "basisQuote": "容量边界不等于实际 Context 内容"
+            },
+            {
+              "text": "同时检查窗口上限与当前实际占用。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-context-window",
+              "basisQuote": "同时检查窗口上限与当前实际占用。",
+              "locator": "units[id=SOL-context-window].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：上下文窗口不等于跨会话长期记忆",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/context-window.yaml#boundaries",
+              "basisQuote": "上下文窗口不等于跨会话长期记忆"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：容量边界不等于实际 Context 内容",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/context-window.yaml#boundaries",
+              "basisQuote": "容量边界不等于实际 Context 内容"
+            },
+            {
+              "text": "同时检查窗口上限与当前实际占用。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-context-window",
+              "basisQuote": "同时检查窗口上限与当前实际占用。",
+              "locator": "units[id=SOL-context-window].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：上下文窗口不等于跨会话长期记忆",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/context-window.yaml#boundaries",
+              "basisQuote": "上下文窗口不等于跨会话长期记忆"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-durable-execution",
+      "status": "scaffold",
+      "conceptId": "CON-durable-execution",
+      "cardSlug": "durable-execution",
+      "boundariesTotal": 3,
+      "negatedTotal": 3,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：Agent 在创建工单后容器崩溃。新容器读取外置状态，确认工单已经创建，只重放尚未完成的后续步骤，并用幂等键避免再创建一张重复工单。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：Durable Execution 不等于 checkpoint；保存恢复点是必要部件之一，却不能单独保证续跑正确",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/durable-execution.yaml#boundaries",
+              "basisQuote": "Durable Execution 不等于 checkpoint；保存恢复点是必要部件之一，却不能单独保证续跑正确"
+            },
+            {
+              "text": "把长任务拆成有明确输入、输出和提交边界的步骤，并把运行状态存到短命计算环境之外。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-durable-execution",
+              "basisQuote": "把长任务拆成有明确输入、输出和提交边界的步骤，并把运行状态存到短命计算环境之外。",
+              "locator": "units[id=SOL-durable-execution].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：重放必须区分纯计算、可幂等调用和不可安全重复的外部副作用；不能假设所有步骤都能再跑一次",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/durable-execution.yaml#boundaries",
+              "basisQuote": "重放必须区分纯计算、可幂等调用和不可安全重复的外部副作用；不能假设所有步骤都能再跑一次"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「持久化执行」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：“状态已恢复”不代表外部世界回到旧状态；工单、付款、邮件、文件写入等副作用要靠幂等键、事务、补偿或人工确认处理",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/durable-execution.yaml#boundaries",
+              "basisQuote": "“状态已恢复”不代表外部世界回到旧状态；工单、付款、邮件、文件写入等副作用要靠幂等键、事务、补偿或人工确认处理"
+            },
+            {
+              "text": "把长任务拆成有明确输入、输出和提交边界的步骤，并把运行状态存到短命计算环境之外。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-durable-execution",
+              "basisQuote": "把长任务拆成有明确输入、输出和提交边界的步骤，并把运行状态存到短命计算环境之外。",
+              "locator": "units[id=SOL-durable-execution].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：Durable Execution 不等于 checkpoint；保存恢复点是必要部件之一，却不能单独保证续跑正确",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/durable-execution.yaml#boundaries",
+              "basisQuote": "Durable Execution 不等于 checkpoint；保存恢复点是必要部件之一，却不能单独保证续跑正确"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：重放必须区分纯计算、可幂等调用和不可安全重复的外部副作用；不能假设所有步骤都能再跑一次",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/durable-execution.yaml#boundaries",
+              "basisQuote": "重放必须区分纯计算、可幂等调用和不可安全重复的外部副作用；不能假设所有步骤都能再跑一次"
+            },
+            {
+              "text": "把长任务拆成有明确输入、输出和提交边界的步骤，并把运行状态存到短命计算环境之外。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-durable-execution",
+              "basisQuote": "把长任务拆成有明确输入、输出和提交边界的步骤，并把运行状态存到短命计算环境之外。",
+              "locator": "units[id=SOL-durable-execution].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：“状态已恢复”不代表外部世界回到旧状态；工单、付款、邮件、文件写入等副作用要靠幂等键、事务、补偿或人工确认处理",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/durable-execution.yaml#boundaries",
+              "basisQuote": "“状态已恢复”不代表外部世界回到旧状态；工单、付款、邮件、文件写入等副作用要靠幂等键、事务、补偿或人工确认处理"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-dynamic-context-assembly",
+      "status": "scaffold",
+      "conceptId": "CON-dynamic-context-assembly",
+      "cardSlug": "dynamic-context-assembly",
+      "boundariesTotal": 3,
+      "negatedTotal": 3,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：一个助理收到“帮我约下周的同步会”后，系统先识别当前任务，再取得日历、联系人、往来语气和发邀请工具，把这些内容按合适格式组成这一次模型输入；下一项任务会得到另一套组合。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：动态装配不等于 Context Selection；选择回答“取什么”，装配还要处理来源、时机、格式、顺序与本轮输入的组合",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/dynamic-context-assembly.yaml#boundaries",
+              "basisQuote": "动态装配不等于 Context Selection；选择回答“取什么”，装配还要处理来源、时机、格式、顺序与本轮输入的组合"
+            },
+            {
+              "text": "先列出当前任务真正需要的信息与能力，再为每项明确来源、触发时机和呈现格式。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-dynamic-context-assembly",
+              "basisQuote": "先列出当前任务真正需要的信息与能力，再为每项明确来源、触发时机和呈现格式。",
+              "locator": "units[id=SOL-dynamic-context-assembly].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：动态装配不等于一次写死的 Prompt 模板；同一任务在状态、权限或外部数据变化后，装配结果也可能变化",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/dynamic-context-assembly.yaml#boundaries",
+              "basisQuote": "动态装配不等于一次写死的 Prompt 模板；同一任务在状态、权限或外部数据变化后，装配结果也可能变化"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「动态上下文装配」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：它不保证输出正确；来源质量、冲突、权限、工具失败和模型能力仍需独立验证",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/dynamic-context-assembly.yaml#boundaries",
+              "basisQuote": "它不保证输出正确；来源质量、冲突、权限、工具失败和模型能力仍需独立验证"
+            },
+            {
+              "text": "先列出当前任务真正需要的信息与能力，再为每项明确来源、触发时机和呈现格式。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-dynamic-context-assembly",
+              "basisQuote": "先列出当前任务真正需要的信息与能力，再为每项明确来源、触发时机和呈现格式。",
+              "locator": "units[id=SOL-dynamic-context-assembly].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：动态装配不等于 Context Selection；选择回答“取什么”，装配还要处理来源、时机、格式、顺序与本轮输入的组合",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/dynamic-context-assembly.yaml#boundaries",
+              "basisQuote": "动态装配不等于 Context Selection；选择回答“取什么”，装配还要处理来源、时机、格式、顺序与本轮输入的组合"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：动态装配不等于一次写死的 Prompt 模板；同一任务在状态、权限或外部数据变化后，装配结果也可能变化",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/dynamic-context-assembly.yaml#boundaries",
+              "basisQuote": "动态装配不等于一次写死的 Prompt 模板；同一任务在状态、权限或外部数据变化后，装配结果也可能变化"
+            },
+            {
+              "text": "先列出当前任务真正需要的信息与能力，再为每项明确来源、触发时机和呈现格式。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-dynamic-context-assembly",
+              "basisQuote": "先列出当前任务真正需要的信息与能力，再为每项明确来源、触发时机和呈现格式。",
+              "locator": "units[id=SOL-dynamic-context-assembly].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：它不保证输出正确；来源质量、冲突、权限、工具失败和模型能力仍需独立验证",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/dynamic-context-assembly.yaml#boundaries",
+              "basisQuote": "它不保证输出正确；来源质量、冲突、权限、工具失败和模型能力仍需独立验证"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-error-handling",
+      "status": "ready",
+      "conceptId": "CON-error-handling",
+      "cardSlug": "error-handling",
+      "boundariesTotal": 3,
+      "negatedTotal": 2,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：Agent 调用支付接口超时后，Harness 先查询请求是否已成功，再按幂等策略有限重试；如果仍无法确认，就暂停并上报，而不是无限重放付款。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：Error Handling 不等于 retry；对权限拒绝、无效输入或不可重复副作用盲目重试，可能扩大损失",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/error-handling.yaml#boundaries",
+              "basisQuote": "Error Handling 不等于 retry；对权限拒绝、无效输入或不可重复副作用盲目重试，可能扩大损失"
+            },
+            {
+              "text": "至少区分瞬时、模型可恢复、用户可修复、意外和安全类错误，并为每类规定次数、退避、超时与退出条件。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-error-handling",
+              "basisQuote": "至少区分瞬时、模型可恢复、用户可修复、意外和安全类错误，并为每类规定次数、退避、超时与退出条件。",
+              "locator": "units[id=SOL-error-handling].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：处理完成不等于结果正确；错误恢复后仍需要验证循环确认任务产物",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/error-handling.yaml#boundaries",
+              "basisQuote": "处理完成不等于结果正确；错误恢复后仍需要验证循环确认任务产物"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「错误处理」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：Error Handling 不等于 retry；对权限拒绝、无效输入或不可重复副作用盲目重试，可能扩大损失",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/error-handling.yaml#boundaries",
+              "basisQuote": "Error Handling 不等于 retry；对权限拒绝、无效输入或不可重复副作用盲目重试，可能扩大损失"
+            },
+            {
+              "text": "至少区分瞬时、模型可恢复、用户可修复、意外和安全类错误，并为每类规定次数、退避、超时与退出条件。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-error-handling",
+              "basisQuote": "至少区分瞬时、模型可恢复、用户可修复、意外和安全类错误，并为每类规定次数、退避、超时与退出条件。",
+              "locator": "units[id=SOL-error-handling].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：处理完成不等于结果正确；错误恢复后仍需要验证循环确认任务产物",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/error-handling.yaml#boundaries",
+              "basisQuote": "处理完成不等于结果正确；错误恢复后仍需要验证循环确认任务产物"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：Error Handling 不等于 retry；对权限拒绝、无效输入或不可重复副作用盲目重试，可能扩大损失",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/error-handling.yaml#boundaries",
+              "basisQuote": "Error Handling 不等于 retry；对权限拒绝、无效输入或不可重复副作用盲目重试，可能扩大损失"
+            },
+            {
+              "text": "至少区分瞬时、模型可恢复、用户可修复、意外和安全类错误，并为每类规定次数、退避、超时与退出条件。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-error-handling",
+              "basisQuote": "至少区分瞬时、模型可恢复、用户可修复、意外和安全类错误，并为每类规定次数、退避、超时与退出条件。",
+              "locator": "units[id=SOL-error-handling].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：处理完成不等于结果正确；错误恢复后仍需要验证循环确认任务产物",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/error-handling.yaml#boundaries",
+              "basisQuote": "处理完成不等于结果正确；错误恢复后仍需要验证循环确认任务产物"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-filesystem-workspace",
+      "status": "scaffold",
+      "conceptId": "CON-filesystem-workspace",
+      "cardSlug": "filesystem-workspace",
+      "boundariesTotal": 3,
+      "negatedTotal": 2,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：假设 Agent 把分析数据、脚本和进度回执写入项目目录；会话结束后，另一个 Agent 通过这些文件恢复工作，而不是依赖聊天历史。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：文件系统是稳定载体，不等于 Memory 或 State Management；后两者描述保存与恢复哪些信息的职责",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/filesystem-workspace.yaml#boundaries",
+              "basisQuote": "文件系统是稳定载体，不等于 Memory 或 State Management；后两者描述保存与恢复哪些信息的职责"
+            },
+            {
+              "text": "规划输入、生成物、临时文件和回执的目录边界与命名规则。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-filesystem-workspace",
+              "basisQuote": "规划输入、生成物、临时文件和回执的目录边界与命名规则。",
+              "locator": "units[id=SOL-filesystem-workspace].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：工作区可持久不等于安全隔离；Sandbox 还要限定执行环境和影响范围",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/filesystem-workspace.yaml#boundaries",
+              "basisQuote": "工作区可持久不等于安全隔离；Sandbox 还要限定执行环境和影响范围"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「文件系统工作区」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：文件系统是稳定载体，不等于 Memory 或 State Management；后两者描述保存与恢复哪些信息的职责",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/filesystem-workspace.yaml#boundaries",
+              "basisQuote": "文件系统是稳定载体，不等于 Memory 或 State Management；后两者描述保存与恢复哪些信息的职责"
+            },
+            {
+              "text": "规划输入、生成物、临时文件和回执的目录边界与命名规则。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-filesystem-workspace",
+              "basisQuote": "规划输入、生成物、临时文件和回执的目录边界与命名规则。",
+              "locator": "units[id=SOL-filesystem-workspace].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：工作区可持久不等于安全隔离；Sandbox 还要限定执行环境和影响范围",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/filesystem-workspace.yaml#boundaries",
+              "basisQuote": "工作区可持久不等于安全隔离；Sandbox 还要限定执行环境和影响范围"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：文件系统是稳定载体，不等于 Memory 或 State Management；后两者描述保存与恢复哪些信息的职责",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/filesystem-workspace.yaml#boundaries",
+              "basisQuote": "文件系统是稳定载体，不等于 Memory 或 State Management；后两者描述保存与恢复哪些信息的职责"
+            },
+            {
+              "text": "规划输入、生成物、临时文件和回执的目录边界与命名规则。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-filesystem-workspace",
+              "basisQuote": "规划输入、生成物、临时文件和回执的目录边界与命名规则。",
+              "locator": "units[id=SOL-filesystem-workspace].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：工作区可持久不等于安全隔离；Sandbox 还要限定执行环境和影响范围",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/filesystem-workspace.yaml#boundaries",
+              "basisQuote": "工作区可持久不等于安全隔离；Sandbox 还要限定执行环境和影响范围"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-guardrails",
+      "status": "ready",
+      "conceptId": "CON-guardrails",
+      "cardSlug": "guardrails",
+      "boundariesTotal": 4,
+      "negatedTotal": 4,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：一个客服 Agent 收到包含敏感信息的请求，输入护栏先标记风险；如果运行中又准备调用退款工具，工具护栏会检查金额和授权；最终回复还要经过输出护栏再交付。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：Guardrails 不等于 Permission Boundary；权限边界回答“这个主体是否被授权”，护栏还可检查内容、参数、结果和运行条件",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/guardrails.yaml#boundaries",
+              "basisQuote": "Guardrails 不等于 Permission Boundary；权限边界回答“这个主体是否被授权”，护栏还可检查内容、参数、结果和运行条件"
+            },
+            {
+              "text": "先明确每条护栏检查什么对象、依据什么规则、在何时运行，以及触发后是阻断单次调用还是停止整个 Agent。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-guardrails",
+              "basisQuote": "先明确每条护栏检查什么对象、依据什么规则、在何时运行，以及触发后是阻断单次调用还是停止整个 Agent。",
+              "locator": "units[id=SOL-guardrails].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：Guardrails 不等于 Sandbox；前者尝试检测和阻断不合规路径，后者限制即使动作发生后最坏影响能扩散到哪里",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/guardrails.yaml#boundaries",
+              "basisQuote": "Guardrails 不等于 Sandbox；前者尝试检测和阻断不合规路径，后者限制即使动作发生后最坏影响能扩散到哪里"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「护栏」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：护栏会误报或漏报，不能替代最小权限、沙箱、验证和人工确认",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/guardrails.yaml#boundaries",
+              "basisQuote": "护栏会误报或漏报，不能替代最小权限、沙箱、验证和人工确认"
+            },
+            {
+              "text": "先明确每条护栏检查什么对象、依据什么规则、在何时运行，以及触发后是阻断单次调用还是停止整个 Agent。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-guardrails",
+              "basisQuote": "先明确每条护栏检查什么对象、依据什么规则、在何时运行，以及触发后是阻断单次调用还是停止整个 Agent。",
+              "locator": "units[id=SOL-guardrails].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：输入、输出与工具护栏不是同一个检查点；讨论或排错时要说明检查对象、执行时机和触发后的动作",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/guardrails.yaml#boundaries",
+              "basisQuote": "输入、输出与工具护栏不是同一个检查点；讨论或排错时要说明检查对象、执行时机和触发后的动作"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：Guardrails 不等于 Permission Boundary；权限边界回答“这个主体是否被授权”，护栏还可检查内容、参数、结果和运行条件",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/guardrails.yaml#boundaries",
+              "basisQuote": "Guardrails 不等于 Permission Boundary；权限边界回答“这个主体是否被授权”，护栏还可检查内容、参数、结果和运行条件"
+            },
+            {
+              "text": "先明确每条护栏检查什么对象、依据什么规则、在何时运行，以及触发后是阻断单次调用还是停止整个 Agent。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-guardrails",
+              "basisQuote": "先明确每条护栏检查什么对象、依据什么规则、在何时运行，以及触发后是阻断单次调用还是停止整个 Agent。",
+              "locator": "units[id=SOL-guardrails].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：Guardrails 不等于 Sandbox；前者尝试检测和阻断不合规路径，后者限制即使动作发生后最坏影响能扩散到哪里",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/guardrails.yaml#boundaries",
+              "basisQuote": "Guardrails 不等于 Sandbox；前者尝试检测和阻断不合规路径，后者限制即使动作发生后最坏影响能扩散到哪里"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-harness-compute-separation",
+      "status": "scaffold",
+      "conceptId": "CON-harness-compute-separation",
+      "cardSlug": "harness-compute-separation",
+      "boundariesTotal": 4,
+      "negatedTotal": 2,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：假设控制层保存任务状态和云端凭据，模型生成的代码只在可销毁沙箱中运行；沙箱崩溃后重建，任务仍能从控制层恢复。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：它是运行架构分层，不是把 Harness 或沙箱从 Agent 系统中移除",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/harness-compute-separation.yaml#boundaries",
+              "basisQuote": "它是运行架构分层，不是把 Harness 或沙箱从 Agent 系统中移除"
+            },
+            {
+              "text": "列出状态、凭据、控制决策与不可信计算，分别指定所属层和通信接口。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-harness-compute-separation",
+              "basisQuote": "列出状态、凭据、控制决策与不可信计算，分别指定所属层和通信接口。",
+              "locator": "units[id=SOL-harness-compute-separation].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：分离能降低执行环境接触凭据的机会，但不能单独消除提示注入或数据外泄风险",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/harness-compute-separation.yaml#boundaries",
+              "basisQuote": "分离能降低执行环境接触凭据的机会，但不能单独消除提示注入或数据外泄风险"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「Harness 与计算分离」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：它是运行架构分层，不是把 Harness 或沙箱从 Agent 系统中移除",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/harness-compute-separation.yaml#boundaries",
+              "basisQuote": "它是运行架构分层，不是把 Harness 或沙箱从 Agent 系统中移除"
+            },
+            {
+              "text": "列出状态、凭据、控制决策与不可信计算，分别指定所属层和通信接口。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-harness-compute-separation",
+              "basisQuote": "列出状态、凭据、控制决策与不可信计算，分别指定所属层和通信接口。",
+              "locator": "units[id=SOL-harness-compute-separation].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：分离能降低执行环境接触凭据的机会，但不能单独消除提示注入或数据外泄风险",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/harness-compute-separation.yaml#boundaries",
+              "basisQuote": "分离能降低执行环境接触凭据的机会，但不能单独消除提示注入或数据外泄风险"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：它是运行架构分层，不是把 Harness 或沙箱从 Agent 系统中移除",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/harness-compute-separation.yaml#boundaries",
+              "basisQuote": "它是运行架构分层，不是把 Harness 或沙箱从 Agent 系统中移除"
+            },
+            {
+              "text": "列出状态、凭据、控制决策与不可信计算，分别指定所属层和通信接口。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-harness-compute-separation",
+              "basisQuote": "列出状态、凭据、控制决策与不可信计算，分别指定所属层和通信接口。",
+              "locator": "units[id=SOL-harness-compute-separation].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：分离能降低执行环境接触凭据的机会，但不能单独消除提示注入或数据外泄风险",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/harness-compute-separation.yaml#boundaries",
+              "basisQuote": "分离能降低执行环境接触凭据的机会，但不能单独消除提示注入或数据外泄风险"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-harness-engineering",
+      "status": "scaffold",
+      "conceptId": "CON-harness-engineering",
+      "cardSlug": "harness-engineering",
+      "boundariesTotal": 4,
+      "negatedTotal": 2,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：一个代码 Agent 经常在工具报错后空转。团队不换模型，而是让错误以结构化观察回到循环、增加无进展停止条件，并在结束前运行测试；这属于 Harness Engineering。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：HumanLayer 来源曾提出 Harness Engineering 是 Context Engineering 的子集，与本站工程范围轴方向相反；该来源观点仍保留为 HOLD，不能被本站口径改写成行业共识",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/harness-engineering.yaml#boundaries",
+              "basisQuote": "HumanLayer 来源曾提出 Harness Engineering 是 Context Engineering 的子集，与本站工程范围轴方向相反；该来源观点仍保留为 HOLD，不能被本站口径改写成行业共识"
+            },
+            {
+              "text": "先固定模型、任务与评测条件，再逐项改变循环、工具、状态、权限、错误恢复或验证，避免多变量一起变化后无法归因。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-harness-engineering",
+              "basisQuote": "先固定模型、任务与评测条件，再逐项改变循环、工具、状态、权限、错误恢复或验证，避免多变量一起变化后无法归因。",
+              "locator": "units[id=SOL-harness-engineering].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：Harness Engineering 是工程实践，Agent Harness 是被设计和改进的运行对象；二者不是 Alias",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/harness-engineering.yaml#boundaries",
+              "basisQuote": "Harness Engineering 是工程实践，Agent Harness 是被设计和改进的运行对象；二者不是 Alias"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「Harness 工程」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：HumanLayer 来源曾提出 Harness Engineering 是 Context Engineering 的子集，与本站工程范围轴方向相反；该来源观点仍保留为 HOLD，不能被本站口径改写成行业共识",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/harness-engineering.yaml#boundaries",
+              "basisQuote": "HumanLayer 来源曾提出 Harness Engineering 是 Context Engineering 的子集，与本站工程范围轴方向相反；该来源观点仍保留为 HOLD，不能被本站口径改写成行业共识"
+            },
+            {
+              "text": "先固定模型、任务与评测条件，再逐项改变循环、工具、状态、权限、错误恢复或验证，避免多变量一起变化后无法归因。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-harness-engineering",
+              "basisQuote": "先固定模型、任务与评测条件，再逐项改变循环、工具、状态、权限、错误恢复或验证，避免多变量一起变化后无法归因。",
+              "locator": "units[id=SOL-harness-engineering].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：Harness Engineering 是工程实践，Agent Harness 是被设计和改进的运行对象；二者不是 Alias",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/harness-engineering.yaml#boundaries",
+              "basisQuote": "Harness Engineering 是工程实践，Agent Harness 是被设计和改进的运行对象；二者不是 Alias"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：HumanLayer 来源曾提出 Harness Engineering 是 Context Engineering 的子集，与本站工程范围轴方向相反；该来源观点仍保留为 HOLD，不能被本站口径改写成行业共识",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/harness-engineering.yaml#boundaries",
+              "basisQuote": "HumanLayer 来源曾提出 Harness Engineering 是 Context Engineering 的子集，与本站工程范围轴方向相反；该来源观点仍保留为 HOLD，不能被本站口径改写成行业共识"
+            },
+            {
+              "text": "先固定模型、任务与评测条件，再逐项改变循环、工具、状态、权限、错误恢复或验证，避免多变量一起变化后无法归因。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-harness-engineering",
+              "basisQuote": "先固定模型、任务与评测条件，再逐项改变循环、工具、状态、权限、错误恢复或验证，避免多变量一起变化后无法归因。",
+              "locator": "units[id=SOL-harness-engineering].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：Harness Engineering 是工程实践，Agent Harness 是被设计和改进的运行对象；二者不是 Alias",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/harness-engineering.yaml#boundaries",
+              "basisQuote": "Harness Engineering 是工程实践，Agent Harness 是被设计和改进的运行对象；二者不是 Alias"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-just-in-time-retrieval",
+      "status": "scaffold",
+      "conceptId": "CON-just-in-time-retrieval",
+      "cardSlug": "just-in-time-retrieval",
+      "boundariesTotal": 4,
+      "negatedTotal": 3,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：一个代码 Agent 先看到文件路径和目录结构，只有当报错指向某个模块时才用搜索与局部读取取得相关函数，把命中的片段放进当前 Context，而不是启动时加载整个仓库。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：即时检索不等于把所有可能相关资料预先塞进 Context；关键差别是按任务进展触发取回",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/just-in-time-retrieval.yaml#boundaries",
+              "basisQuote": "即时检索不等于把所有可能相关资料预先塞进 Context；关键差别是按任务进展触发取回"
+            },
+            {
+              "text": "在 Context 中保留稳定且轻量的文件路径、查询、网页链接或记录 ID，而不是完整对象。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-just-in-time-retrieval",
+              "basisQuote": "在 Context 中保留稳定且轻量的文件路径、查询、网页链接或记录 ID，而不是完整对象。",
+              "locator": "units[id=SOL-just-in-time-retrieval].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：它不等于 Progressive Disclosure；即时检索是取数时机策略，渐进式披露是逐层发现信息的更广组织模式",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/just-in-time-retrieval.yaml#boundaries",
+              "basisQuote": "它不等于 Progressive Disclosure；即时检索是取数时机策略，渐进式披露是逐层发现信息的更广组织模式"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「即时检索」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：它也不等于普通 RAG 的唯一实现；预检索、即时探索与混合策略应按任务动态程度和延迟要求选择",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/just-in-time-retrieval.yaml#boundaries",
+              "basisQuote": "它也不等于普通 RAG 的唯一实现；预检索、即时探索与混合策略应按任务动态程度和延迟要求选择"
+            },
+            {
+              "text": "在 Context 中保留稳定且轻量的文件路径、查询、网页链接或记录 ID，而不是完整对象。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-just-in-time-retrieval",
+              "basisQuote": "在 Context 中保留稳定且轻量的文件路径、查询、网页链接或记录 ID，而不是完整对象。",
+              "locator": "units[id=SOL-just-in-time-retrieval].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：即时检索不等于把所有可能相关资料预先塞进 Context；关键差别是按任务进展触发取回",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/just-in-time-retrieval.yaml#boundaries",
+              "basisQuote": "即时检索不等于把所有可能相关资料预先塞进 Context；关键差别是按任务进展触发取回"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：它不等于 Progressive Disclosure；即时检索是取数时机策略，渐进式披露是逐层发现信息的更广组织模式",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/just-in-time-retrieval.yaml#boundaries",
+              "basisQuote": "它不等于 Progressive Disclosure；即时检索是取数时机策略，渐进式披露是逐层发现信息的更广组织模式"
+            },
+            {
+              "text": "在 Context 中保留稳定且轻量的文件路径、查询、网页链接或记录 ID，而不是完整对象。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-just-in-time-retrieval",
+              "basisQuote": "在 Context 中保留稳定且轻量的文件路径、查询、网页链接或记录 ID，而不是完整对象。",
+              "locator": "units[id=SOL-just-in-time-retrieval].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：它也不等于普通 RAG 的唯一实现；预检索、即时探索与混合策略应按任务动态程度和延迟要求选择",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/just-in-time-retrieval.yaml#boundaries",
+              "basisQuote": "它也不等于普通 RAG 的唯一实现；预检索、即时探索与混合策略应按任务动态程度和延迟要求选择"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-large-language-model",
+      "status": "ready",
+      "conceptId": "CON-large-language-model",
+      "cardSlug": "large-language-model",
+      "boundariesTotal": 3,
+      "negatedTotal": 3,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：你让模型补全一段函数，它能生成代码；如果还要读取仓库、运行测试并根据结果继续修改，就需要模型外的 Agent 系统来执行这些动作。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：“续写机”是帮助理解生成机制的比喻，不表示模型只会逐字机械复制，也不概括训练、推理与多模态能力的全部细节",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/large-language-model.yaml#boundaries",
+              "basisQuote": "“续写机”是帮助理解生成机制的比喻，不表示模型只会逐字机械复制，也不概括训练、推理与多模态能力的全部细节"
+            },
+            {
+              "text": "判断一次能力来自哪里时，先问“这是模型生成的内容，还是外部系统执行并反馈的动作？”",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-large-language-model",
+              "basisQuote": "判断一次能力来自哪里时，先问“这是模型生成的内容，还是外部系统执行并反馈的动作？”",
+              "locator": "units[id=SOL-large-language-model].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：模型生成工具调用请求，不等于模型亲自执行了工具；执行、权限与结果回灌由外部软件负责",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/large-language-model.yaml#boundaries",
+              "basisQuote": "模型生成工具调用请求，不等于模型亲自执行了工具；执行、权限与结果回灌由外部软件负责"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「大语言模型」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：Claude、Codex 等产品的整体表现同时受模型、提示、工具、状态、权限和循环设计影响，不能全部归因为裸模型能力",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/large-language-model.yaml#boundaries",
+              "basisQuote": "Claude、Codex 等产品的整体表现同时受模型、提示、工具、状态、权限和循环设计影响，不能全部归因为裸模型能力"
+            },
+            {
+              "text": "判断一次能力来自哪里时，先问“这是模型生成的内容，还是外部系统执行并反馈的动作？”",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-large-language-model",
+              "basisQuote": "判断一次能力来自哪里时，先问“这是模型生成的内容，还是外部系统执行并反馈的动作？”",
+              "locator": "units[id=SOL-large-language-model].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：“续写机”是帮助理解生成机制的比喻，不表示模型只会逐字机械复制，也不概括训练、推理与多模态能力的全部细节",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/large-language-model.yaml#boundaries",
+              "basisQuote": "“续写机”是帮助理解生成机制的比喻，不表示模型只会逐字机械复制，也不概括训练、推理与多模态能力的全部细节"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：模型生成工具调用请求，不等于模型亲自执行了工具；执行、权限与结果回灌由外部软件负责",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/large-language-model.yaml#boundaries",
+              "basisQuote": "模型生成工具调用请求，不等于模型亲自执行了工具；执行、权限与结果回灌由外部软件负责"
+            },
+            {
+              "text": "判断一次能力来自哪里时，先问“这是模型生成的内容，还是外部系统执行并反馈的动作？”",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-large-language-model",
+              "basisQuote": "判断一次能力来自哪里时，先问“这是模型生成的内容，还是外部系统执行并反馈的动作？”",
+              "locator": "units[id=SOL-large-language-model].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：Claude、Codex 等产品的整体表现同时受模型、提示、工具、状态、权限和循环设计影响，不能全部归因为裸模型能力",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/large-language-model.yaml#boundaries",
+              "basisQuote": "Claude、Codex 等产品的整体表现同时受模型、提示、工具、状态、权限和循环设计影响，不能全部归因为裸模型能力"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-llm-statelessness",
+      "status": "scaffold",
+      "conceptId": "CON-llm-statelessness",
+      "cardSlug": "llm-statelessness",
+      "boundariesTotal": 3,
+      "negatedTotal": 2,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：假设第一轮让模型记住订单号，第二轮请求只写“查一下状态”；如果应用没有重送订单号或历史，模型无法知道“它”指什么。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：无状态性描述调用接口的连续性边界，不表示模型没有训练所得知识",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/llm-statelessness.yaml#boundaries",
+              "basisQuote": "无状态性描述调用接口的连续性边界，不表示模型没有训练所得知识"
+            },
+            {
+              "text": "在客户端显式保存任务状态、消息和必要工具结果，不依赖模型自行记住。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-llm-statelessness",
+              "basisQuote": "在客户端显式保存任务状态、消息和必要工具结果，不依赖模型自行记住。",
+              "locator": "units[id=SOL-llm-statelessness].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：外部系统保存了历史也不等于模型本轮已看见；相关内容仍需重新进入当前上下文",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/llm-statelessness.yaml#boundaries",
+              "basisQuote": "外部系统保存了历史也不等于模型本轮已看见；相关内容仍需重新进入当前上下文"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「LLM 无状态性」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：无状态性描述调用接口的连续性边界，不表示模型没有训练所得知识",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/llm-statelessness.yaml#boundaries",
+              "basisQuote": "无状态性描述调用接口的连续性边界，不表示模型没有训练所得知识"
+            },
+            {
+              "text": "在客户端显式保存任务状态、消息和必要工具结果，不依赖模型自行记住。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-llm-statelessness",
+              "basisQuote": "在客户端显式保存任务状态、消息和必要工具结果，不依赖模型自行记住。",
+              "locator": "units[id=SOL-llm-statelessness].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：外部系统保存了历史也不等于模型本轮已看见；相关内容仍需重新进入当前上下文",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/llm-statelessness.yaml#boundaries",
+              "basisQuote": "外部系统保存了历史也不等于模型本轮已看见；相关内容仍需重新进入当前上下文"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：无状态性描述调用接口的连续性边界，不表示模型没有训练所得知识",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/llm-statelessness.yaml#boundaries",
+              "basisQuote": "无状态性描述调用接口的连续性边界，不表示模型没有训练所得知识"
+            },
+            {
+              "text": "在客户端显式保存任务状态、消息和必要工具结果，不依赖模型自行记住。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-llm-statelessness",
+              "basisQuote": "在客户端显式保存任务状态、消息和必要工具结果，不依赖模型自行记住。",
+              "locator": "units[id=SOL-llm-statelessness].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：外部系统保存了历史也不等于模型本轮已看见；相关内容仍需重新进入当前上下文",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/llm-statelessness.yaml#boundaries",
+              "basisQuote": "外部系统保存了历史也不等于模型本轮已看见；相关内容仍需重新进入当前上下文"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-lost-in-the-middle",
+      "status": "scaffold",
+      "conceptId": "CON-lost-in-the-middle",
+      "cardSlug": "lost-in-the-middle",
+      "boundariesTotal": 4,
+      "negatedTotal": 3,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：评测时固定问题、文档内容和评分方法，只改变含答案文档的位置，分别放在首部、中部与尾部；若中部条件持续更差，才把差异归入位置相关的利用问题。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：它描述的是相关信息位置变化带来的表现差异，不等于所有长输入都会整体变差，也不表示每个模型都出现同样深的 U 型曲线",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/lost-in-the-middle.yaml#boundaries",
+              "basisQuote": "它描述的是相关信息位置变化带来的表现差异，不等于所有长输入都会整体变差，也不表示每个模型都出现同样深的 U 型曲线"
+            },
+            {
+              "text": "评测时固定问题、文档集合和评分方法，只移动关键证据位置，分别比较首、中、尾条件。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-lost-in-the-middle",
+              "basisQuote": "评测时固定问题、文档集合和评分方法，只移动关键证据位置，分别比较首、中、尾条件。",
+              "locator": "units[id=SOL-lost-in-the-middle].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：它不等于 Context Rot；后者是输入增长后利用可靠性变差的更广经验现象，可能受噪声、干扰、结构和任务类型共同影响",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/lost-in-the-middle.yaml#boundaries",
+              "basisQuote": "它不等于 Context Rot；后者是输入增长后利用可靠性变差的更广经验现象，可能受噪声、干扰、结构和任务类型共同影响"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「迷失在中间」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：查询前置在合成键值检索中显著改善结果，却未在多文档问答中复现同等收益；不能把单一缓解手段外推到所有长文本任务",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/lost-in-the-middle.yaml#boundaries",
+              "basisQuote": "查询前置在合成键值检索中显著改善结果，却未在多文档问答中复现同等收益；不能把单一缓解手段外推到所有长文本任务"
+            },
+            {
+              "text": "评测时固定问题、文档集合和评分方法，只移动关键证据位置，分别比较首、中、尾条件。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-lost-in-the-middle",
+              "basisQuote": "评测时固定问题、文档集合和评分方法，只移动关键证据位置，分别比较首、中、尾条件。",
+              "locator": "units[id=SOL-lost-in-the-middle].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：它描述的是相关信息位置变化带来的表现差异，不等于所有长输入都会整体变差，也不表示每个模型都出现同样深的 U 型曲线",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/lost-in-the-middle.yaml#boundaries",
+              "basisQuote": "它描述的是相关信息位置变化带来的表现差异，不等于所有长输入都会整体变差，也不表示每个模型都出现同样深的 U 型曲线"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：它不等于 Context Rot；后者是输入增长后利用可靠性变差的更广经验现象，可能受噪声、干扰、结构和任务类型共同影响",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/lost-in-the-middle.yaml#boundaries",
+              "basisQuote": "它不等于 Context Rot；后者是输入增长后利用可靠性变差的更广经验现象，可能受噪声、干扰、结构和任务类型共同影响"
+            },
+            {
+              "text": "评测时固定问题、文档集合和评分方法，只移动关键证据位置，分别比较首、中、尾条件。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-lost-in-the-middle",
+              "basisQuote": "评测时固定问题、文档集合和评分方法，只移动关键证据位置，分别比较首、中、尾条件。",
+              "locator": "units[id=SOL-lost-in-the-middle].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：查询前置在合成键值检索中显著改善结果，却未在多文档问答中复现同等收益；不能把单一缓解手段外推到所有长文本任务",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/lost-in-the-middle.yaml#boundaries",
+              "basisQuote": "查询前置在合成键值检索中显著改善结果，却未在多文档问答中复现同等收益；不能把单一缓解手段外推到所有长文本任务"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-memory",
+      "status": "ready",
+      "conceptId": "CON-memory",
+      "cardSlug": "memory",
+      "boundariesTotal": 3,
+      "negatedTotal": 2,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：一个研究 Agent 上周把来源线索写进项目记忆；今天继续任务时，它先取回相关笔记，再打开原链接核对现状，而不是把旧笔记直接当成最新事实。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：Memory 被存储在外部，不代表它已进入当前 Context；只有取回并装配后，模型本轮才可见",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/memory.yaml#boundaries",
+              "basisQuote": "Memory 被存储在外部，不代表它已进入当前 Context；只有取回并装配后，模型本轮才可见"
+            },
+            {
+              "text": "先区分“已经保存”“已经取回”“已经进入当前 Context”和“已经核实”四个状态。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-memory",
+              "basisQuote": "先区分“已经保存”“已经取回”“已经进入当前 Context”和“已经核实”四个状态。",
+              "locator": "units[id=SOL-memory].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：Memory 常偏向保存知识与经历，State Management 常偏向追踪当前执行位置与恢复点；但待办、进度、依赖、文件和数据库都可能同时承载两类内容，不能只按介质或字段名硬分",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/memory.yaml#boundaries",
+              "basisQuote": "Memory 常偏向保存知识与经历，State Management 常偏向追踪当前执行位置与恢复点；但待办、进度、依赖、文件和数据库都可能同时承载两类内容，不能只按介质或字段名硬分"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「记忆」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：Memory 被存储在外部，不代表它已进入当前 Context；只有取回并装配后，模型本轮才可见",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/memory.yaml#boundaries",
+              "basisQuote": "Memory 被存储在外部，不代表它已进入当前 Context；只有取回并装配后，模型本轮才可见"
+            },
+            {
+              "text": "先区分“已经保存”“已经取回”“已经进入当前 Context”和“已经核实”四个状态。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-memory",
+              "basisQuote": "先区分“已经保存”“已经取回”“已经进入当前 Context”和“已经核实”四个状态。",
+              "locator": "units[id=SOL-memory].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：Memory 常偏向保存知识与经历，State Management 常偏向追踪当前执行位置与恢复点；但待办、进度、依赖、文件和数据库都可能同时承载两类内容，不能只按介质或字段名硬分",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/memory.yaml#boundaries",
+              "basisQuote": "Memory 常偏向保存知识与经历，State Management 常偏向追踪当前执行位置与恢复点；但待办、进度、依赖、文件和数据库都可能同时承载两类内容，不能只按介质或字段名硬分"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：Memory 被存储在外部，不代表它已进入当前 Context；只有取回并装配后，模型本轮才可见",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/memory.yaml#boundaries",
+              "basisQuote": "Memory 被存储在外部，不代表它已进入当前 Context；只有取回并装配后，模型本轮才可见"
+            },
+            {
+              "text": "先区分“已经保存”“已经取回”“已经进入当前 Context”和“已经核实”四个状态。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-memory",
+              "basisQuote": "先区分“已经保存”“已经取回”“已经进入当前 Context”和“已经核实”四个状态。",
+              "locator": "units[id=SOL-memory].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：Memory 常偏向保存知识与经历，State Management 常偏向追踪当前执行位置与恢复点；但待办、进度、依赖、文件和数据库都可能同时承载两类内容，不能只按介质或字段名硬分",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/memory.yaml#boundaries",
+              "basisQuote": "Memory 常偏向保存知识与经历，State Management 常偏向追踪当前执行位置与恢复点；但待办、进度、依赖、文件和数据库都可能同时承载两类内容，不能只按介质或字段名硬分"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-minimal-sufficient-context",
+      "status": "scaffold",
+      "conceptId": "CON-minimal-sufficient-context",
+      "cardSlug": "minimal-sufficient-context",
+      "boundariesTotal": 4,
+      "negatedTotal": 2,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：修一个登录故障时，Agent 收到报错、相关配置、认证流程和目标测试，而不是整个公司文档库；若缺少关键环境差异，就必须补入，不能为了短而删掉。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：“最小”不等于字符最少、摘要最短或固定 token 配额；任何缺失后会破坏任务的关键信息都不该被删",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/minimal-sufficient-context.yaml#boundaries",
+              "basisQuote": "“最小”不等于字符最少、摘要最短或固定 token 配额；任何缺失后会破坏任务的关键信息都不该被删"
+            },
+            {
+              "text": "先写出完成当前决策必需的证据、约束、工具说明和输出要求，再删除无法说明用途的材料。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-minimal-sufficient-context",
+              "basisQuote": "先写出完成当前决策必需的证据、约束、工具说明和输出要求，再删除无法说明用途的材料。",
+              "locator": "units[id=SOL-minimal-sufficient-context].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：它是一条选择准则，不等于 Context Selection、Dynamic Context Assembly、JIT Retrieval 或 Progressive Disclosure 等具体机制",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/minimal-sufficient-context.yaml#boundaries",
+              "basisQuote": "它是一条选择准则，不等于 Context Selection、Dynamic Context Assembly、JIT Retrieval 或 Progressive Disclosure 等具体机制"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「最小充分上下文」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：“最小”不等于字符最少、摘要最短或固定 token 配额；任何缺失后会破坏任务的关键信息都不该被删",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/minimal-sufficient-context.yaml#boundaries",
+              "basisQuote": "“最小”不等于字符最少、摘要最短或固定 token 配额；任何缺失后会破坏任务的关键信息都不该被删"
+            },
+            {
+              "text": "先写出完成当前决策必需的证据、约束、工具说明和输出要求，再删除无法说明用途的材料。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-minimal-sufficient-context",
+              "basisQuote": "先写出完成当前决策必需的证据、约束、工具说明和输出要求，再删除无法说明用途的材料。",
+              "locator": "units[id=SOL-minimal-sufficient-context].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：它是一条选择准则，不等于 Context Selection、Dynamic Context Assembly、JIT Retrieval 或 Progressive Disclosure 等具体机制",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/minimal-sufficient-context.yaml#boundaries",
+              "basisQuote": "它是一条选择准则，不等于 Context Selection、Dynamic Context Assembly、JIT Retrieval 或 Progressive Disclosure 等具体机制"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：“最小”不等于字符最少、摘要最短或固定 token 配额；任何缺失后会破坏任务的关键信息都不该被删",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/minimal-sufficient-context.yaml#boundaries",
+              "basisQuote": "“最小”不等于字符最少、摘要最短或固定 token 配额；任何缺失后会破坏任务的关键信息都不该被删"
+            },
+            {
+              "text": "先写出完成当前决策必需的证据、约束、工具说明和输出要求，再删除无法说明用途的材料。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-minimal-sufficient-context",
+              "basisQuote": "先写出完成当前决策必需的证据、约束、工具说明和输出要求，再删除无法说明用途的材料。",
+              "locator": "units[id=SOL-minimal-sufficient-context].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：它是一条选择准则，不等于 Context Selection、Dynamic Context Assembly、JIT Retrieval 或 Progressive Disclosure 等具体机制",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/minimal-sufficient-context.yaml#boundaries",
+              "basisQuote": "它是一条选择准则，不等于 Context Selection、Dynamic Context Assembly、JIT Retrieval 或 Progressive Disclosure 等具体机制"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-model-context-protocol",
+      "status": "scaffold",
+      "conceptId": "CON-model-context-protocol",
+      "cardSlug": "model-context-protocol",
+      "boundariesTotal": 4,
+      "negatedTotal": 2,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：一个 AI 应用连接某个 MCP server 后，可以通过同一协议发现可调用工具、可读取资源和可取得的提示模板，再把请求送出并接收结果或内容。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：MCP 是通信与接入协议，不是某个具体 Tool，也不保证已连接能力一定可用",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/model-context-protocol.yaml#boundaries",
+              "basisQuote": "MCP 是通信与接入协议，不是某个具体 Tool，也不保证已连接能力一定可用"
+            },
+            {
+              "text": "集成时分别验证 server 可连接、能力可发现、授权有效、当前会话实际可见，以及一次真实调用或读取能返回预期结果。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-model-context-protocol",
+              "basisQuote": "集成时分别验证 server 可连接、能力可发现、授权有效、当前会话实际可见，以及一次真实调用或读取能返回预期结果。",
+              "locator": "units[id=SOL-model-context-protocol].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：连接成功不等于能力已经投影到当前 Agent 会话；还要检查客户端、server、授权、会话工具面与运行策略",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/model-context-protocol.yaml#boundaries",
+              "basisQuote": "连接成功不等于能力已经投影到当前 Agent 会话；还要检查客户端、server、授权、会话工具面与运行策略"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「模型上下文协议」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：MCP 是通信与接入协议，不是某个具体 Tool，也不保证已连接能力一定可用",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/model-context-protocol.yaml#boundaries",
+              "basisQuote": "MCP 是通信与接入协议，不是某个具体 Tool，也不保证已连接能力一定可用"
+            },
+            {
+              "text": "集成时分别验证 server 可连接、能力可发现、授权有效、当前会话实际可见，以及一次真实调用或读取能返回预期结果。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-model-context-protocol",
+              "basisQuote": "集成时分别验证 server 可连接、能力可发现、授权有效、当前会话实际可见，以及一次真实调用或读取能返回预期结果。",
+              "locator": "units[id=SOL-model-context-protocol].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：连接成功不等于能力已经投影到当前 Agent 会话；还要检查客户端、server、授权、会话工具面与运行策略",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/model-context-protocol.yaml#boundaries",
+              "basisQuote": "连接成功不等于能力已经投影到当前 Agent 会话；还要检查客户端、server、授权、会话工具面与运行策略"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：MCP 是通信与接入协议，不是某个具体 Tool，也不保证已连接能力一定可用",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/model-context-protocol.yaml#boundaries",
+              "basisQuote": "MCP 是通信与接入协议，不是某个具体 Tool，也不保证已连接能力一定可用"
+            },
+            {
+              "text": "集成时分别验证 server 可连接、能力可发现、授权有效、当前会话实际可见，以及一次真实调用或读取能返回预期结果。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-model-context-protocol",
+              "basisQuote": "集成时分别验证 server 可连接、能力可发现、授权有效、当前会话实际可见，以及一次真实调用或读取能返回预期结果。",
+              "locator": "units[id=SOL-model-context-protocol].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：连接成功不等于能力已经投影到当前 Agent 会话；还要检查客户端、server、授权、会话工具面与运行策略",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/model-context-protocol.yaml#boundaries",
+              "basisQuote": "连接成功不等于能力已经投影到当前 Agent 会话；还要检查客户端、server、授权、会话工具面与运行策略"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-permission-boundary",
+      "status": "scaffold",
+      "conceptId": "CON-permission-boundary",
+      "cardSlug": "permission-boundary",
+      "boundariesTotal": 4,
+      "negatedTotal": 3,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：Agent 提议运行只读检查时，权限层可以直接允许；提议删除文件时暂停并要求用户确认；触碰明确禁止的路径时则直接拒绝。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：Permission Boundary 决定动作是否获准；Sandbox 限制获准动作在哪里执行、影响能扩散到哪里，二者不能互相替代",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/permission-boundary.yaml#boundaries",
+              "basisQuote": "Permission Boundary 决定动作是否获准；Sandbox 限制获准动作在哪里执行、影响能扩散到哪里，二者不能互相替代"
+            },
+            {
+              "text": "按工具、参数、路径、网络目标与副作用划分授权规则，并对高风险动作设置明确的人类确认点。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-permission-boundary",
+              "basisQuote": "按工具、参数、路径、网络目标与副作用划分授权规则，并对高风险动作设置明确的人类确认点。",
+              "locator": "units[id=SOL-permission-boundary].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：用户批准一次具体动作，不等于永久放开同类工具、所有参数或未来会话",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/permission-boundary.yaml#boundaries",
+              "basisQuote": "用户批准一次具体动作，不等于永久放开同类工具、所有参数或未来会话"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「权限边界」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：允许、人工确认与拒绝应绑定实际动作参数和当前运行状态，不能只看模型对动作的自然语言描述",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/permission-boundary.yaml#boundaries",
+              "basisQuote": "允许、人工确认与拒绝应绑定实际动作参数和当前运行状态，不能只看模型对动作的自然语言描述"
+            },
+            {
+              "text": "按工具、参数、路径、网络目标与副作用划分授权规则，并对高风险动作设置明确的人类确认点。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-permission-boundary",
+              "basisQuote": "按工具、参数、路径、网络目标与副作用划分授权规则，并对高风险动作设置明确的人类确认点。",
+              "locator": "units[id=SOL-permission-boundary].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：Permission Boundary 决定动作是否获准；Sandbox 限制获准动作在哪里执行、影响能扩散到哪里，二者不能互相替代",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/permission-boundary.yaml#boundaries",
+              "basisQuote": "Permission Boundary 决定动作是否获准；Sandbox 限制获准动作在哪里执行、影响能扩散到哪里，二者不能互相替代"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：用户批准一次具体动作，不等于永久放开同类工具、所有参数或未来会话",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/permission-boundary.yaml#boundaries",
+              "basisQuote": "用户批准一次具体动作，不等于永久放开同类工具、所有参数或未来会话"
+            },
+            {
+              "text": "按工具、参数、路径、网络目标与副作用划分授权规则，并对高风险动作设置明确的人类确认点。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-permission-boundary",
+              "basisQuote": "按工具、参数、路径、网络目标与副作用划分授权规则，并对高风险动作设置明确的人类确认点。",
+              "locator": "units[id=SOL-permission-boundary].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：允许、人工确认与拒绝应绑定实际动作参数和当前运行状态，不能只看模型对动作的自然语言描述",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/permission-boundary.yaml#boundaries",
+              "basisQuote": "允许、人工确认与拒绝应绑定实际动作参数和当前运行状态，不能只看模型对动作的自然语言描述"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-progressive-disclosure",
+      "status": "scaffold",
+      "conceptId": "CON-progressive-disclosure",
+      "cardSlug": "progressive-disclosure",
+      "boundariesTotal": 4,
+      "negatedTotal": 2,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：项目的 AGENTS.md 只列出当前任务该读的真源与目录；Agent 先打开相关文档索引，遇到实现问题再进入对应架构章节，需要精确细节时才读取具体文件，而不是一开始加载全部资料。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：它不是隐藏重要规则；安全边界、当前目标和必须遵守的约束应在正确入口直接可见",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/progressive-disclosure.yaml#boundaries",
+              "basisQuote": "它不是隐藏重要规则；安全边界、当前目标和必须遵守的约束应在正确入口直接可见"
+            },
+            {
+              "text": "在入口文件只放稳定地图、当前必读项和下一层链接，把详细规则交给明确命名的专题文档。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-progressive-disclosure",
+              "basisQuote": "在入口文件只放稳定地图、当前必读项和下一层链接，把详细规则交给明确命名的专题文档。",
+              "locator": "units[id=SOL-progressive-disclosure].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：渐进式披露不等于上下文压缩；前者保留可导航的层级，后者把已有内容蒸馏成更短表示",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/progressive-disclosure.yaml#boundaries",
+              "basisQuote": "渐进式披露不等于上下文压缩；前者保留可导航的层级，后者把已有内容蒸馏成更短表示"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「渐进式披露」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：它不是隐藏重要规则；安全边界、当前目标和必须遵守的约束应在正确入口直接可见",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/progressive-disclosure.yaml#boundaries",
+              "basisQuote": "它不是隐藏重要规则；安全边界、当前目标和必须遵守的约束应在正确入口直接可见"
+            },
+            {
+              "text": "在入口文件只放稳定地图、当前必读项和下一层链接，把详细规则交给明确命名的专题文档。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-progressive-disclosure",
+              "basisQuote": "在入口文件只放稳定地图、当前必读项和下一层链接，把详细规则交给明确命名的专题文档。",
+              "locator": "units[id=SOL-progressive-disclosure].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：渐进式披露不等于上下文压缩；前者保留可导航的层级，后者把已有内容蒸馏成更短表示",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/progressive-disclosure.yaml#boundaries",
+              "basisQuote": "渐进式披露不等于上下文压缩；前者保留可导航的层级，后者把已有内容蒸馏成更短表示"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：它不是隐藏重要规则；安全边界、当前目标和必须遵守的约束应在正确入口直接可见",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/progressive-disclosure.yaml#boundaries",
+              "basisQuote": "它不是隐藏重要规则；安全边界、当前目标和必须遵守的约束应在正确入口直接可见"
+            },
+            {
+              "text": "在入口文件只放稳定地图、当前必读项和下一层链接，把详细规则交给明确命名的专题文档。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-progressive-disclosure",
+              "basisQuote": "在入口文件只放稳定地图、当前必读项和下一层链接，把详细规则交给明确命名的专题文档。",
+              "locator": "units[id=SOL-progressive-disclosure].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：渐进式披露不等于上下文压缩；前者保留可导航的层级，后者把已有内容蒸馏成更短表示",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/progressive-disclosure.yaml#boundaries",
+              "basisQuote": "渐进式披露不等于上下文压缩；前者保留可导航的层级，后者把已有内容蒸馏成更短表示"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-prompt-engineering",
+      "status": "ready",
+      "conceptId": "CON-prompt-engineering",
+      "cardSlug": "prompt-engineering",
+      "boundariesTotal": 3,
+      "negatedTotal": 3,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：你要模型把客服记录分类，于是明确类别定义、提供少量示例、规定输出格式，并用一组未见样本检查结果；这属于提示词工程。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：提示词工程不等于 Context Engineering；前者主要处理指令表达，后者管理模型在每轮能看到的整体信息",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/prompt-engineering.yaml#boundaries",
+              "basisQuote": "提示词工程不等于 Context Engineering；前者主要处理指令表达，后者管理模型在每轮能看到的整体信息"
+            },
+            {
+              "text": "先写清目标、必要背景、约束与期望输出，再删除与当前任务无关的内容。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-prompt-engineering",
+              "basisQuote": "先写清目标、必要背景、约束与期望输出，再删除与当前任务无关的内容。",
+              "locator": "units[id=SOL-prompt-engineering].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：它也不等于 Harness Engineering；工具执行、状态、权限、错误处理和生命周期属于更外层的运行系统",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/prompt-engineering.yaml#boundaries",
+              "basisQuote": "它也不等于 Harness Engineering；工具执行、状态、权限、错误处理和生命周期属于更外层的运行系统"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「提示词工程」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：好措辞能提高期望结果的概率，但不能保证模型每次正确，也不能替代验证",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/prompt-engineering.yaml#boundaries",
+              "basisQuote": "好措辞能提高期望结果的概率，但不能保证模型每次正确，也不能替代验证"
+            },
+            {
+              "text": "先写清目标、必要背景、约束与期望输出，再删除与当前任务无关的内容。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-prompt-engineering",
+              "basisQuote": "先写清目标、必要背景、约束与期望输出，再删除与当前任务无关的内容。",
+              "locator": "units[id=SOL-prompt-engineering].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：提示词工程不等于 Context Engineering；前者主要处理指令表达，后者管理模型在每轮能看到的整体信息",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/prompt-engineering.yaml#boundaries",
+              "basisQuote": "提示词工程不等于 Context Engineering；前者主要处理指令表达，后者管理模型在每轮能看到的整体信息"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：它也不等于 Harness Engineering；工具执行、状态、权限、错误处理和生命周期属于更外层的运行系统",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/prompt-engineering.yaml#boundaries",
+              "basisQuote": "它也不等于 Harness Engineering；工具执行、状态、权限、错误处理和生命周期属于更外层的运行系统"
+            },
+            {
+              "text": "先写清目标、必要背景、约束与期望输出，再删除与当前任务无关的内容。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-prompt-engineering",
+              "basisQuote": "先写清目标、必要背景、约束与期望输出，再删除与当前任务无关的内容。",
+              "locator": "units[id=SOL-prompt-engineering].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：好措辞能提高期望结果的概率，但不能保证模型每次正确，也不能替代验证",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/prompt-engineering.yaml#boundaries",
+              "basisQuote": "好措辞能提高期望结果的概率，但不能保证模型每次正确，也不能替代验证"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-reasoning-effort",
+      "status": "scaffold",
+      "conceptId": "CON-reasoning-effort",
+      "cardSlug": "reasoning-effort",
+      "boundariesTotal": 3,
+      "negatedTotal": 2,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：假设分类任务用高推理强度只增加等待，而复杂排障在低档位频繁漏掉条件；同一默认值同时浪费成本并损失质量。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：更高推理强度通常意味着更多计算预算，但不保证每个任务都更正确",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/reasoning-effort.yaml#boundaries",
+              "basisQuote": "更高推理强度通常意味着更多计算预算，但不保证每个任务都更正确"
+            },
+            {
+              "text": "按任务难度、错误代价和时延要求建立几档代表样本。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-reasoning-effort",
+              "basisQuote": "按任务难度、错误代价和时延要求建立几档代表样本。",
+              "locator": "units[id=SOL-reasoning-effort].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：它不是上下文长度，也不同于注意力预算；前者控制额外推理投入，后者关注输入信息之间的有限处理能力",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/reasoning-effort.yaml#boundaries",
+              "basisQuote": "它不是上下文长度，也不同于注意力预算；前者控制额外推理投入，后者关注输入信息之间的有限处理能力"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「推理强度」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：更高推理强度通常意味着更多计算预算，但不保证每个任务都更正确",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/reasoning-effort.yaml#boundaries",
+              "basisQuote": "更高推理强度通常意味着更多计算预算，但不保证每个任务都更正确"
+            },
+            {
+              "text": "按任务难度、错误代价和时延要求建立几档代表样本。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-reasoning-effort",
+              "basisQuote": "按任务难度、错误代价和时延要求建立几档代表样本。",
+              "locator": "units[id=SOL-reasoning-effort].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：它不是上下文长度，也不同于注意力预算；前者控制额外推理投入，后者关注输入信息之间的有限处理能力",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/reasoning-effort.yaml#boundaries",
+              "basisQuote": "它不是上下文长度，也不同于注意力预算；前者控制额外推理投入，后者关注输入信息之间的有限处理能力"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：更高推理强度通常意味着更多计算预算，但不保证每个任务都更正确",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/reasoning-effort.yaml#boundaries",
+              "basisQuote": "更高推理强度通常意味着更多计算预算，但不保证每个任务都更正确"
+            },
+            {
+              "text": "按任务难度、错误代价和时延要求建立几档代表样本。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-reasoning-effort",
+              "basisQuote": "按任务难度、错误代价和时延要求建立几档代表样本。",
+              "locator": "units[id=SOL-reasoning-effort].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：它不是上下文长度，也不同于注意力预算；前者控制额外推理投入，后者关注输入信息之间的有限处理能力",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/reasoning-effort.yaml#boundaries",
+              "basisQuote": "它不是上下文长度，也不同于注意力预算；前者控制额外推理投入，后者关注输入信息之间的有限处理能力"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-risk-tiered-autofixing",
+      "status": "scaffold",
+      "conceptId": "CON-risk-tiered-autofixing",
+      "cardSlug": "risk-tiered-autofixing",
+      "boundariesTotal": 4,
+      "negatedTotal": 2,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：假设检查器发现文档错别字和数据库迁移问题；前者自动修复后轻量复核，后者只生成候选补丁并停止在人工审查门前。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：它不是让 Agent 无条件修复并上线；风险分级决定自动化可以推进到哪一层门禁",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/risk-tiered-autofixing.yaml#boundaries",
+              "basisQuote": "它不是让 Agent 无条件修复并上线；风险分级决定自动化可以推进到哪一层门禁"
+            },
+            {
+              "text": "按可逆性、影响范围、权限、数据敏感度和验证强度定义风险等级。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-risk-tiered-autofixing",
+              "basisQuote": "按可逆性、影响范围、权限、数据敏感度和验证强度定义风险等级。",
+              "locator": "units[id=SOL-risk-tiered-autofixing].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：自动提交修复候选不等于修复正确、获准合并或已经部署，仍需独立验证与发布授权",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/risk-tiered-autofixing.yaml#boundaries",
+              "basisQuote": "自动提交修复候选不等于修复正确、获准合并或已经部署，仍需独立验证与发布授权"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「风险分级自动修复」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：它不是让 Agent 无条件修复并上线；风险分级决定自动化可以推进到哪一层门禁",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/risk-tiered-autofixing.yaml#boundaries",
+              "basisQuote": "它不是让 Agent 无条件修复并上线；风险分级决定自动化可以推进到哪一层门禁"
+            },
+            {
+              "text": "按可逆性、影响范围、权限、数据敏感度和验证强度定义风险等级。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-risk-tiered-autofixing",
+              "basisQuote": "按可逆性、影响范围、权限、数据敏感度和验证强度定义风险等级。",
+              "locator": "units[id=SOL-risk-tiered-autofixing].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：自动提交修复候选不等于修复正确、获准合并或已经部署，仍需独立验证与发布授权",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/risk-tiered-autofixing.yaml#boundaries",
+              "basisQuote": "自动提交修复候选不等于修复正确、获准合并或已经部署，仍需独立验证与发布授权"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：它不是让 Agent 无条件修复并上线；风险分级决定自动化可以推进到哪一层门禁",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/risk-tiered-autofixing.yaml#boundaries",
+              "basisQuote": "它不是让 Agent 无条件修复并上线；风险分级决定自动化可以推进到哪一层门禁"
+            },
+            {
+              "text": "按可逆性、影响范围、权限、数据敏感度和验证强度定义风险等级。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-risk-tiered-autofixing",
+              "basisQuote": "按可逆性、影响范围、权限、数据敏感度和验证强度定义风险等级。",
+              "locator": "units[id=SOL-risk-tiered-autofixing].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：自动提交修复候选不等于修复正确、获准合并或已经部署，仍需独立验证与发布授权",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/risk-tiered-autofixing.yaml#boundaries",
+              "basisQuote": "自动提交修复候选不等于修复正确、获准合并或已经部署，仍需独立验证与发布授权"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-skill",
+      "status": "scaffold",
+      "conceptId": "CON-skill",
+      "cardSlug": "skill",
+      "boundariesTotal": 4,
+      "negatedTotal": 2,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：团队把“修改前端后如何跑端到端检查、发现问题后怎样修复并复验”写成一个 Skill。以后 Agent 遇到对应任务时可以加载这套方法，并调用浏览器和测试 Tool 执行检查。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：Skill 沉淀的是可复用方法与任务上下文，不是可直接执行外部动作的 Tool",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/skill.yaml#boundaries",
+              "basisQuote": "Skill 沉淀的是可复用方法与任务上下文，不是可直接执行外部动作的 Tool"
+            },
+            {
+              "text": "把稳定、重复、可检查的做法写进 Skill，并明确什么时候用、输入是什么、步骤怎样走、什么算完成。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-skill",
+              "basisQuote": "把稳定、重复、可检查的做法写进 Skill，并明确什么时候用、输入是什么、步骤怎样走、什么算完成。",
+              "locator": "units[id=SOL-skill].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：Skill 也不是 MCP；前者是方法载体，后者是外部能力接入协议",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/skill.yaml#boundaries",
+              "basisQuote": "Skill 也不是 MCP；前者是方法载体，后者是外部能力接入协议"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「Agent Skill」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：Skill 沉淀的是可复用方法与任务上下文，不是可直接执行外部动作的 Tool",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/skill.yaml#boundaries",
+              "basisQuote": "Skill 沉淀的是可复用方法与任务上下文，不是可直接执行外部动作的 Tool"
+            },
+            {
+              "text": "把稳定、重复、可检查的做法写进 Skill，并明确什么时候用、输入是什么、步骤怎样走、什么算完成。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-skill",
+              "basisQuote": "把稳定、重复、可检查的做法写进 Skill，并明确什么时候用、输入是什么、步骤怎样走、什么算完成。",
+              "locator": "units[id=SOL-skill].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：Skill 也不是 MCP；前者是方法载体，后者是外部能力接入协议",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/skill.yaml#boundaries",
+              "basisQuote": "Skill 也不是 MCP；前者是方法载体，后者是外部能力接入协议"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：Skill 沉淀的是可复用方法与任务上下文，不是可直接执行外部动作的 Tool",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/skill.yaml#boundaries",
+              "basisQuote": "Skill 沉淀的是可复用方法与任务上下文，不是可直接执行外部动作的 Tool"
+            },
+            {
+              "text": "把稳定、重复、可检查的做法写进 Skill，并明确什么时候用、输入是什么、步骤怎样走、什么算完成。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-skill",
+              "basisQuote": "把稳定、重复、可检查的做法写进 Skill，并明确什么时候用、输入是什么、步骤怎样走、什么算完成。",
+              "locator": "units[id=SOL-skill].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：Skill 也不是 MCP；前者是方法载体，后者是外部能力接入协议",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/skill.yaml#boundaries",
+              "basisQuote": "Skill 也不是 MCP；前者是方法载体，后者是外部能力接入协议"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-skill-chaining",
+      "status": "scaffold",
+      "conceptId": "CON-skill-chaining",
+      "cardSlug": "skill-chaining",
+      "boundariesTotal": 3,
+      "negatedTotal": 2,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：假设文章整理 Skill 完成后自动把结构化稿件交给排版 Skill，再交给检查 Skill；第二步失败时链条保留中间稿等待重试。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：链式调用把灵活性换成自动化；步骤需要独立使用时不应强制串联",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/skill-chaining.yaml#boundaries",
+              "basisQuote": "链式调用把灵活性换成自动化；步骤需要独立使用时不应强制串联"
+            },
+            {
+              "text": "为每个 Skill 写清输入、输出、成功条件和可以独立停止的位置。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-skill-chaining",
+              "basisQuote": "为每个 Skill 写清输入、输出、成功条件和可以独立停止的位置。",
+              "locator": "units[id=SOL-skill-chaining].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：调用链本身不保证每一步正确，仍需验证、失败处理与升级路径",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/skill-chaining.yaml#boundaries",
+              "basisQuote": "调用链本身不保证每一步正确，仍需验证、失败处理与升级路径"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「Skill 链式调用」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：链式调用把灵活性换成自动化；步骤需要独立使用时不应强制串联",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/skill-chaining.yaml#boundaries",
+              "basisQuote": "链式调用把灵活性换成自动化；步骤需要独立使用时不应强制串联"
+            },
+            {
+              "text": "为每个 Skill 写清输入、输出、成功条件和可以独立停止的位置。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-skill-chaining",
+              "basisQuote": "为每个 Skill 写清输入、输出、成功条件和可以独立停止的位置。",
+              "locator": "units[id=SOL-skill-chaining].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：调用链本身不保证每一步正确，仍需验证、失败处理与升级路径",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/skill-chaining.yaml#boundaries",
+              "basisQuote": "调用链本身不保证每一步正确，仍需验证、失败处理与升级路径"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：链式调用把灵活性换成自动化；步骤需要独立使用时不应强制串联",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/skill-chaining.yaml#boundaries",
+              "basisQuote": "链式调用把灵活性换成自动化；步骤需要独立使用时不应强制串联"
+            },
+            {
+              "text": "为每个 Skill 写清输入、输出、成功条件和可以独立停止的位置。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-skill-chaining",
+              "basisQuote": "为每个 Skill 写清输入、输出、成功条件和可以独立停止的位置。",
+              "locator": "units[id=SOL-skill-chaining].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：调用链本身不保证每一步正确，仍需验证、失败处理与升级路径",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/skill-chaining.yaml#boundaries",
+              "basisQuote": "调用链本身不保证每一步正确，仍需验证、失败处理与升级路径"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-system-prompt",
+      "status": "ready",
+      "conceptId": "CON-system-prompt",
+      "cardSlug": "system-prompt",
+      "boundariesTotal": 4,
+      "negatedTotal": 3,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：一个代码助手的系统提示要求它先检查仓库规则、按约定格式请求工具并避免越权修改；用户随后要求改文件。模型会同时接收这些分层输入，而真正是否允许写入仍由工具权限决定。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：System Prompt 是输入层约束，不是模型权重、长期记忆或不可违抗的内部人格",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/system-prompt.yaml#boundaries",
+              "basisQuote": "System Prompt 是输入层约束，不是模型权重、长期记忆或不可违抗的内部人格"
+            },
+            {
+              "text": "在系统层写稳定的角色、边界、工具规则和成功标准，避免塞入容易过时的长篇资料。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-system-prompt",
+              "basisQuote": "在系统层写稳定的角色、边界、工具规则和成功标准，避免塞入容易过时的长篇资料。",
+              "locator": "units[id=SOL-system-prompt].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：高优先级不等于绝对保证；冲突、提示注入、模型误解或实现差异仍可能导致偏离",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/system-prompt.yaml#boundaries",
+              "basisQuote": "高优先级不等于绝对保证；冲突、提示注入、模型误解或实现差异仍可能导致偏离"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「Opus 5 系统提示词全文流出：一份近两万字的 agent 行为说明书」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：安全与授权不能只靠 System Prompt；高风险动作还需要工具权限、沙箱、护栏和人工确认",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/system-prompt.yaml#boundaries",
+              "basisQuote": "安全与授权不能只靠 System Prompt；高风险动作还需要工具权限、沙箱、护栏和人工确认"
+            },
+            {
+              "text": "在系统层写稳定的角色、边界、工具规则和成功标准，避免塞入容易过时的长篇资料。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-system-prompt",
+              "basisQuote": "在系统层写稳定的角色、边界、工具规则和成功标准，避免塞入容易过时的长篇资料。",
+              "locator": "units[id=SOL-system-prompt].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：System Prompt 是输入层约束，不是模型权重、长期记忆或不可违抗的内部人格",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/system-prompt.yaml#boundaries",
+              "basisQuote": "System Prompt 是输入层约束，不是模型权重、长期记忆或不可违抗的内部人格"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：高优先级不等于绝对保证；冲突、提示注入、模型误解或实现差异仍可能导致偏离",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/system-prompt.yaml#boundaries",
+              "basisQuote": "高优先级不等于绝对保证；冲突、提示注入、模型误解或实现差异仍可能导致偏离"
+            },
+            {
+              "text": "在系统层写稳定的角色、边界、工具规则和成功标准，避免塞入容易过时的长篇资料。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-system-prompt",
+              "basisQuote": "在系统层写稳定的角色、边界、工具规则和成功标准，避免塞入容易过时的长篇资料。",
+              "locator": "units[id=SOL-system-prompt].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：安全与授权不能只靠 System Prompt；高风险动作还需要工具权限、沙箱、护栏和人工确认",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/system-prompt.yaml#boundaries",
+              "basisQuote": "安全与授权不能只靠 System Prompt；高风险动作还需要工具权限、沙箱、护栏和人工确认"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-tool",
+      "status": "ready",
+      "conceptId": "CON-tool",
+      "cardSlug": "tool",
+      "boundariesTotal": 4,
+      "negatedTotal": 4,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：一个代码 Agent 想读取文件，会按文件工具的名称和参数结构提出调用；工具层检查路径与权限，实际读取文件，再把内容作为结果返回给模型。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：Tool Definition、Tool Call、Tool Execution 与 Tool Result 是连续但不同的环节；看到调用请求不等于动作已经执行成功",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/tool.yaml#boundaries",
+              "basisQuote": "Tool Definition、Tool Call、Tool Execution 与 Tool Result 是连续但不同的环节；看到调用请求不等于动作已经执行成功"
+            },
+            {
+              "text": "排错时依次检查工具是否注册、描述是否清楚、参数是否通过校验、权限是否允许、执行是否成功、结果是否正确回传。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-tool",
+              "basisQuote": "排错时依次检查工具是否注册、描述是否清楚、参数是否通过校验、权限是否允许、执行是否成功、结果是否正确回传。",
+              "locator": "units[id=SOL-tool].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：Tool 是具体能力接口，MCP 是连接一组外部能力的标准协议；二者不能互作同义词",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/tool.yaml#boundaries",
+              "basisQuote": "Tool 是具体能力接口，MCP 是连接一组外部能力的标准协议；二者不能互作同义词"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「OpenAI Agents SDK 下一代演进：原生沙箱 + 模型原生 harness」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：Skill 主要沉淀“怎么做”的可复用方法，它可以指导调用 Tool，但不是 Tool 本身",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/tool.yaml#boundaries",
+              "basisQuote": "Skill 主要沉淀“怎么做”的可复用方法，它可以指导调用 Tool，但不是 Tool 本身"
+            },
+            {
+              "text": "排错时依次检查工具是否注册、描述是否清楚、参数是否通过校验、权限是否允许、执行是否成功、结果是否正确回传。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-tool",
+              "basisQuote": "排错时依次检查工具是否注册、描述是否清楚、参数是否通过校验、权限是否允许、执行是否成功、结果是否正确回传。",
+              "locator": "units[id=SOL-tool].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：工具存在不保证 Agent 会选对工具、填对参数或获得权限；这些问题要分别检查",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/tool.yaml#boundaries",
+              "basisQuote": "工具存在不保证 Agent 会选对工具、填对参数或获得权限；这些问题要分别检查"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：Tool Definition、Tool Call、Tool Execution 与 Tool Result 是连续但不同的环节；看到调用请求不等于动作已经执行成功",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/tool.yaml#boundaries",
+              "basisQuote": "Tool Definition、Tool Call、Tool Execution 与 Tool Result 是连续但不同的环节；看到调用请求不等于动作已经执行成功"
+            },
+            {
+              "text": "排错时依次检查工具是否注册、描述是否清楚、参数是否通过校验、权限是否允许、执行是否成功、结果是否正确回传。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-tool",
+              "basisQuote": "排错时依次检查工具是否注册、描述是否清楚、参数是否通过校验、权限是否允许、执行是否成功、结果是否正确回传。",
+              "locator": "units[id=SOL-tool].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：Tool 是具体能力接口，MCP 是连接一组外部能力的标准协议；二者不能互作同义词",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/tool.yaml#boundaries",
+              "basisQuote": "Tool 是具体能力接口，MCP 是连接一组外部能力的标准协议；二者不能互作同义词"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-tool-scoping",
+      "status": "scaffold",
+      "conceptId": "CON-tool-scoping",
+      "cardSlug": "tool-scoping",
+      "boundariesTotal": 4,
+      "negatedTotal": 4,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：一个 Agent 先做资料检索时只看到搜索与读取工具，进入代码修改阶段后才看到编辑和测试工具；部署工具在没有进入发布步骤前始终不暴露。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：Tool Scoping 不是 Tool 本体，也不是设计工具 schema 的全部工作；它只决定某个步骤向模型暴露哪些已有工具",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/tool-scoping.yaml#boundaries",
+              "basisQuote": "Tool Scoping 不是 Tool 本体，也不是设计工具 schema 的全部工作；它只决定某个步骤向模型暴露哪些已有工具"
+            },
+            {
+              "text": "按任务阶段列出“这一步必须用”“可能需要”“当前不应暴露”三组工具，并默认只开放第一组。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-tool-scoping",
+              "basisQuote": "按任务阶段列出“这一步必须用”“可能需要”“当前不应暴露”三组工具，并默认只开放第一组。",
+              "locator": "units[id=SOL-tool-scoping].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：收窄工具可以减少选择与权限面，但不自动证明模型会选对工具，也不能替代每次调用的权限检查",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/tool-scoping.yaml#boundaries",
+              "basisQuote": "收窄工具可以减少选择与权限面，但不自动证明模型会选对工具，也不能替代每次调用的权限检查"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「工具收窄」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：最小工具集不是固定越少越好；过度收窄会让任务缺少必要能力，应按步骤、角色与真实失败记录动态调整",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/tool-scoping.yaml#boundaries",
+              "basisQuote": "最小工具集不是固定越少越好；过度收窄会让任务缺少必要能力，应按步骤、角色与真实失败记录动态调整"
+            },
+            {
+              "text": "按任务阶段列出“这一步必须用”“可能需要”“当前不应暴露”三组工具，并默认只开放第一组。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-tool-scoping",
+              "basisQuote": "按任务阶段列出“这一步必须用”“可能需要”“当前不应暴露”三组工具，并默认只开放第一组。",
+              "locator": "units[id=SOL-tool-scoping].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：多 Agent 拆分可以形成不同工具范围，但 Tool Scoping 不要求一定采用多 Agent",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/tool-scoping.yaml#boundaries",
+              "basisQuote": "多 Agent 拆分可以形成不同工具范围，但 Tool Scoping 不要求一定采用多 Agent"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：Tool Scoping 不是 Tool 本体，也不是设计工具 schema 的全部工作；它只决定某个步骤向模型暴露哪些已有工具",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/tool-scoping.yaml#boundaries",
+              "basisQuote": "Tool Scoping 不是 Tool 本体，也不是设计工具 schema 的全部工作；它只决定某个步骤向模型暴露哪些已有工具"
+            },
+            {
+              "text": "按任务阶段列出“这一步必须用”“可能需要”“当前不应暴露”三组工具，并默认只开放第一组。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-tool-scoping",
+              "basisQuote": "按任务阶段列出“这一步必须用”“可能需要”“当前不应暴露”三组工具，并默认只开放第一组。",
+              "locator": "units[id=SOL-tool-scoping].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：收窄工具可以减少选择与权限面，但不自动证明模型会选对工具，也不能替代每次调用的权限检查",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/tool-scoping.yaml#boundaries",
+              "basisQuote": "收窄工具可以减少选择与权限面，但不自动证明模型会选对工具，也不能替代每次调用的权限检查"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-trace-based-evals",
+      "status": "scaffold",
+      "conceptId": "CON-trace-based-evals",
+      "cardSlug": "trace-based-evals",
+      "boundariesTotal": 4,
+      "negatedTotal": 2,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：团队想知道新版 Skill 是否更可靠，于是让旧版与新版分别完成同一批有边界的任务，保留每次工具轨迹，用相同的确定性 verifier 与人工抽查比较成功率、无效步骤和失败类型，而不是凭一次成功下结论。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：Agent 可能有多条合理成功路径，评测不能把“不同于示范轨迹”直接判为失败",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/trace-based-evals.yaml#boundaries",
+              "basisQuote": "Agent 可能有多条合理成功路径，评测不能把“不同于示范轨迹”直接判为失败"
+            },
+            {
+              "text": "先固定有边界的任务集、成功条件、对照基线、运行配置与 verifier，再开始采样轨迹。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-trace-based-evals",
+              "basisQuote": "先固定有边界的任务集、成功条件、对照基线、运行配置与 verifier，再开始采样轨迹。",
+              "locator": "units[id=SOL-trace-based-evals].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：分数会受工具版本、网络、沙箱、依赖和其他基础设施噪声影响；未经控制不能全归因于模型或 Harness 改动",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/trace-based-evals.yaml#boundaries",
+              "basisQuote": "分数会受工具版本、网络、沙箱、依赖和其他基础设施噪声影响；未经控制不能全归因于模型或 Harness 改动"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「基于轨迹的评测」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：Agent 可能有多条合理成功路径，评测不能把“不同于示范轨迹”直接判为失败",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/trace-based-evals.yaml#boundaries",
+              "basisQuote": "Agent 可能有多条合理成功路径，评测不能把“不同于示范轨迹”直接判为失败"
+            },
+            {
+              "text": "先固定有边界的任务集、成功条件、对照基线、运行配置与 verifier，再开始采样轨迹。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-trace-based-evals",
+              "basisQuote": "先固定有边界的任务集、成功条件、对照基线、运行配置与 verifier，再开始采样轨迹。",
+              "locator": "units[id=SOL-trace-based-evals].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：分数会受工具版本、网络、沙箱、依赖和其他基础设施噪声影响；未经控制不能全归因于模型或 Harness 改动",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/trace-based-evals.yaml#boundaries",
+              "basisQuote": "分数会受工具版本、网络、沙箱、依赖和其他基础设施噪声影响；未经控制不能全归因于模型或 Harness 改动"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：Agent 可能有多条合理成功路径，评测不能把“不同于示范轨迹”直接判为失败",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/trace-based-evals.yaml#boundaries",
+              "basisQuote": "Agent 可能有多条合理成功路径，评测不能把“不同于示范轨迹”直接判为失败"
+            },
+            {
+              "text": "先固定有边界的任务集、成功条件、对照基线、运行配置与 verifier，再开始采样轨迹。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-trace-based-evals",
+              "basisQuote": "先固定有边界的任务集、成功条件、对照基线、运行配置与 verifier，再开始采样轨迹。",
+              "locator": "units[id=SOL-trace-based-evals].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：分数会受工具版本、网络、沙箱、依赖和其他基础设施噪声影响；未经控制不能全归因于模型或 Harness 改动",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/trace-based-evals.yaml#boundaries",
+              "basisQuote": "分数会受工具版本、网络、沙箱、依赖和其他基础设施噪声影响；未经控制不能全归因于模型或 Harness 改动"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-ubiquitous-language",
+      "status": "scaffold",
+      "conceptId": "CON-ubiquitous-language",
+      "cardSlug": "ubiquitous-language",
+      "boundariesTotal": 3,
+      "negatedTotal": 2,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：假设运营说“激活用户”指完成首单，数据团队却指登录过一次；同一指标进入看板和推荐代码后，两边都以为自己理解一致。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：它不是全局通用词典；同一词在不同限界上下文中可以有不同含义",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/ubiquitous-language.yaml#boundaries",
+              "basisQuote": "它不是全局通用词典；同一词在不同限界上下文中可以有不同含义"
+            },
+            {
+              "text": "从争议频繁的业务动作中收集术语及各角色的实际定义。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-ubiquitous-language",
+              "basisQuote": "从争议频繁的业务动作中收集术语及各角色的实际定义。",
+              "locator": "units[id=SOL-ubiquitous-language].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：它不要求一次性达到完美，而要让命名、代码和讨论中的差异可被发现并更新",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/ubiquitous-language.yaml#boundaries",
+              "basisQuote": "它不要求一次性达到完美，而要让命名、代码和讨论中的差异可被发现并更新"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「统一语言」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：它不是全局通用词典；同一词在不同限界上下文中可以有不同含义",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/ubiquitous-language.yaml#boundaries",
+              "basisQuote": "它不是全局通用词典；同一词在不同限界上下文中可以有不同含义"
+            },
+            {
+              "text": "从争议频繁的业务动作中收集术语及各角色的实际定义。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-ubiquitous-language",
+              "basisQuote": "从争议频繁的业务动作中收集术语及各角色的实际定义。",
+              "locator": "units[id=SOL-ubiquitous-language].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：它不要求一次性达到完美，而要让命名、代码和讨论中的差异可被发现并更新",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/ubiquitous-language.yaml#boundaries",
+              "basisQuote": "它不要求一次性达到完美，而要让命名、代码和讨论中的差异可被发现并更新"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：它不是全局通用词典；同一词在不同限界上下文中可以有不同含义",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/ubiquitous-language.yaml#boundaries",
+              "basisQuote": "它不是全局通用词典；同一词在不同限界上下文中可以有不同含义"
+            },
+            {
+              "text": "从争议频繁的业务动作中收集术语及各角色的实际定义。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-ubiquitous-language",
+              "basisQuote": "从争议频繁的业务动作中收集术语及各角色的实际定义。",
+              "locator": "units[id=SOL-ubiquitous-language].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：它不要求一次性达到完美，而要让命名、代码和讨论中的差异可被发现并更新",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/ubiquitous-language.yaml#boundaries",
+              "basisQuote": "它不要求一次性达到完美，而要让命名、代码和讨论中的差异可被发现并更新"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "batch-verifiable-goal",
+      "status": "scaffold",
+      "conceptId": "CON-verifiable-goal",
+      "cardSlug": "verifiable-goal",
+      "boundariesTotal": 4,
+      "negatedTotal": 2,
+      "contentStatus": "generated-unreviewed",
+      "reviewed": false,
+      "playable": false,
+      "decisions": [
+        {
+          "id": "decisions[0]",
+          "prompt": "情境：假设任务目标从“把搜索做好”改成“给定十个查询，正确结果进入前三且无内部路径泄漏”；Agent 可据测试继续或停止。\n这一轮该怎么做？",
+          "options": [
+            {
+              "text": "按这条来做：可机器判断不等于真实价值已被完整表达，仍需同时规定禁止路径与质量边界",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/verifiable-goal.yaml#boundaries",
+              "basisQuote": "可机器判断不等于真实价值已被完整表达，仍需同时规定禁止路径与质量边界"
+            },
+            {
+              "text": "把成功写成可重复输入、明确判定和允许误差，并列出不可接受路径。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-verifiable-goal",
+              "basisQuote": "把成功写成可重复输入、明确判定和允许误差，并列出不可接受路径。",
+              "locator": "units[id=SOL-verifiable-goal].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：目标无法满足时应触发失败或升级，不应诱导 Agent 无限重试",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/verifiable-goal.yaml#boundaries",
+              "basisQuote": "目标无法满足时应触发失败或升级，不应诱导 Agent 无限重试"
+            }
+          ]
+        },
+        {
+          "id": "decisions[1]",
+          "prompt": "还是同一个场景。若把「能不能讲清「可验证目标」」当成要解决的问题，下面哪种做法是对的？",
+          "options": [
+            {
+              "text": "按这条来做：可机器判断不等于真实价值已被完整表达，仍需同时规定禁止路径与质量边界",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/verifiable-goal.yaml#boundaries",
+              "basisQuote": "可机器判断不等于真实价值已被完整表达，仍需同时规定禁止路径与质量边界"
+            },
+            {
+              "text": "把成功写成可重复输入、明确判定和允许误差，并列出不可接受路径。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-verifiable-goal",
+              "basisQuote": "把成功写成可重复输入、明确判定和允许误差，并列出不可接受路径。",
+              "locator": "units[id=SOL-verifiable-goal].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：目标无法满足时应触发失败或升级，不应诱导 Agent 无限重试",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/verifiable-goal.yaml#boundaries",
+              "basisQuote": "目标无法满足时应触发失败或升级，不应诱导 Agent 无限重试"
+            }
+          ]
+        },
+        {
+          "id": "decisions[2]",
+          "prompt": "换个问法：这个单元主张的做事方式是哪一种？",
+          "options": [
+            {
+              "text": "按这条来做：可机器判断不等于真实价值已被完整表达，仍需同时规定禁止路径与质量边界",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/verifiable-goal.yaml#boundaries",
+              "basisQuote": "可机器判断不等于真实价值已被完整表达，仍需同时规定禁止路径与质量边界"
+            },
+            {
+              "text": "把成功写成可重复输入、明确判定和允许误差，并列出不可接受路径。",
+              "correct": true,
+              "why": "",
+              "basis": "SOL-verifiable-goal",
+              "basisQuote": "把成功写成可重复输入、明确判定和允许误差，并列出不可接受路径。",
+              "locator": "units[id=SOL-verifiable-goal].key_fields.solution_summary"
+            },
+            {
+              "text": "按这条来做：目标无法满足时应触发失败或升级，不应诱导 Agent 无限重试",
+              "correct": false,
+              "why": "这一条正是卡片 boundaries 里被否定的主张（逐字摘取）。",
+              "basis": "concepts/verifiable-goal.yaml#boundaries",
+              "basisQuote": "目标无法满足时应触发失败或升级，不应诱导 Agent 无限重试"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

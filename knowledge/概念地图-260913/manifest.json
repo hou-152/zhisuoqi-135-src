@@ -1,6 +1,6 @@
 {
  "version": "v1",
- "generatedAt": "2026-09-13T20:03:27.053Z",
+ "generatedAt": "2026-09-14T15:05:05.783Z",
  "name": "知所栖 135 · AI 时代怎么做事 概念地图",
  "sources": {
   "notion-概念库": {
@@ -20,44 +20,44 @@
   },
   "neican-260912": {
    "raw": 88,
-   "nodes": 149,
+   "nodes": 220,
    "note": "AI 内参 260912 期 · 10 篇概念辞典（88 条；撞已有 8 条、新增 80 条，见 08-neican-merge.json）"
   }
  },
- "topics": 999,
- "dependencies": 632,
- "relations": 3410,
+ "topics": 1070,
+ "dependencies": 681,
+ "relations": 3459,
  "clusters": 21,
  "byType": {
-  "CONCEPTUAL": 715,
-  "REPRESENTATIONAL": 124,
+  "CONCEPTUAL": 757,
+  "REPRESENTATIONAL": 136,
   "LANGUAGE": 16,
-  "PROCEDURAL": 141,
+  "PROCEDURAL": 158,
   "META": 3
  },
  "byStage": {
-  "now": 331,
-  "when-needed": 595,
-  "deep-dive": 73
+  "now": 359,
+  "when-needed": 637,
+  "deep-dive": 74
  },
  "byVerification": {
-  "judge": 576,
-  "use": 287,
+  "judge": 619,
+  "use": 313,
   "compute": 26,
-  "accept": 110
+  "accept": 112
  },
  "byOrigin": {
   "contextOnly": 267,
   "harnessOnly": 318,
-  "neicanOnly": 149,
+  "neicanOnly": 220,
   "notionOnly": 209,
   "multi": 56
  },
  "checksums": {
-  "topics.json": "sha256:e2aa8f9af8e2bd088ff38690d702434e2a5e3bd234fffcf73d7636c6553b51d2",
-  "dependencies.json": "sha256:5c9952d8fc0d1e0a406e3ae1b14aec0c3c63f3dab5eec883d3b135b2dd88cf4a",
-  "relations.json": "sha256:1d838d8a1759d176ff5c7439ad50574e3a00f03aecb5f31a0871ea5aefed111c",
-  "clusters.json": "sha256:7791caa52d7fa75eaabf8177424c9d8f13137085f3ca8c5b9c7bfd3761d6bf41"
+  "topics.json": "sha256:d51335b21db06d47f00555925fc49f21307dd299455ea454e8ff65b209545631",
+  "dependencies.json": "sha256:a03e0dd20063e661ff42bc8db04c09247f61f7d2c95def6b98ced6cb234ec8eb",
+  "relations.json": "sha256:a8d03d714b625f9c9993feaf0195a0cef6e9a71b9d72e26e76907285d006fe27",
+  "clusters.json": "sha256:d6cd54fffc76fd3b7c36a35ad9a202b07bc597273f45ba84ac1c6a68556c421b"
  },
  "license": "源材料为用户私人收藏（Notion 概念库 / AI 内参），本图仅供本项目内部使用，不对外再分发。"
 }

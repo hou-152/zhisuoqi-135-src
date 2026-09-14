@@ -204,9 +204,15 @@ await step('内参：点概念名能跳到地图那张卡', null,
     want: 'OK|已回地图' });
 await step('内参：概念网络有卡', `closePanel(); setView('neican'); openNeican(NEI_ALL[1].articles[0].slug); neiTab('concept')`,
   { js: `document.querySelectorAll('#nei-body .concept').length > 3 ? 'OK' : 'NO'`, want: 'OK' });
-await step('内参：费曼分页在（有拆解五维的那期是 ×3，只有三产物的是示范一段）',
-  `openNeican(NEI_ALL[1].articles[0].slug); neiTab('feynman')`,
+// 2026-09-14：内参到第三期，期数只会继续长。这条原先写死 NEI_ALL[1]（当时那一期正好是五维期 260912），
+// 加了 260914 期之后 [1] 变成三产物期，就假红了。改成按**内容特征**现查：
+// dim 非空 ＝ 有拆解五维（费曼 ×3）；dim 空 ＝ 只有三产物（示范一段）。
+const FIVE_SLUG = await ev(`(()=>{const p=(NEI_ALL.flatMap(i=>i.articles||[]).find(a=>a.dim&&Object.keys(a.dim).length))||null; return p?p.slug:''})()`);
+const PLAIN_SLUG = await ev(`(()=>{const p=(NEI_ALL.flatMap(i=>i.articles||[]).find(a=>!(a.dim&&Object.keys(a.dim).length)))||null; return p?p.slug:''})()`);
+await step('内参：有拆解五维的那期，费曼分页 ×3', FIVE_SLUG ? `openNeican('${FIVE_SLUG}'); neiTab('feynman')` : null,
   { js: `document.querySelectorAll('#nei-body .fybox').length`, want: '3' });
+await step('内参：只有三产物的一期，费曼是示范一段', PLAIN_SLUG ? `openNeican('${PLAIN_SLUG}'); neiTab('feynman')` : null,
+  { js: `document.querySelectorAll('#nei-body .fybox').length`, want: '1' });
 await step('内参：换一篇 + 阅读原文只放子链接', `openNeican(NEI_ALL[1].articles[3].slug); neiTab('source')`,
   { js: `document.querySelectorAll('#nei-body a[href^="http"]').length === 1 ? 'OK' : 'NO'`, want: 'OK' });
 await step('内参：回到日报集合（点返回）', `openNeicanHome()`,

@@ -58,11 +58,30 @@ const TAG = {                                  // 条目类型：只有这几种
   '01m2djdx3pd0a8y67x73vm22hg': '技术拆解',
   '01m2dje2j5mwtrg022f2c88z29': '观点文',
   '01m2djgk9a5ea5jq6fhhygwg8y': '商业观察',
+  /* 260914 期：1 篇 Bengio 的失控风险文章 ＋ 7 篇 cursor.com/cn/learn 官方文档 */
+  '01m2g6bb9f98fzrxmbx37cq923': '观点文',
+  '01m2g6bw8cyex43dttmm89kmh2': '官方文档',
+  '01m2g6c1h1a8w9wn6fgge7nwts': '官方文档',
+  '01m2g6c6crvhtzr0axxj8k6etz': '官方文档',
+  '01m2g6can9av6rfabpd34ebjyr': '官方文档',
+  '01m2g6cedbakyxf5q9wtnv4n8x': '官方文档',
+  '01m2g6cgxe5g1139beqjhfw65p': '官方文档',
+  '01m2g6cjya4tr8pg00vm98t2ce': '官方文档',
+};
+/* 标题覆盖：Reader 抓到的 page title 有时是页面的结算文案（Cursor learn 页会返回「你已完成本节」），
+   与正文主题不符。这里按 URL slug 给可读标题 —— 只改展示标题，正文一个字没动；
+   被覆盖的原始 page title 照实写进原文快照的「原始 page title」一行。 */
+const TITLE = {
+  '01m2g6c6crvhtzr0axxj8k6etz': '创建功能',
+  '01m2g6cjya4tr8pg00vm98t2ce': '融会贯通',
 };
 
 function readwise(args) {
   const out = execFileSync('readwise', ['--json', ...args], { maxBuffer: 64 * 1024 * 1024 });
   return JSON.parse(out.toString('utf8'));
+}
+function titleOf(d) {                          // 展示标题：有覆盖用覆盖，否则用 Reader 给的 title
+  return TITLE[d.id] || d.title;
 }
 function slugOf(d) {
   if (SLUG[d.id]) return SLUG[d.id];
@@ -111,9 +130,10 @@ for (const d of inbox) {
   const slug = slugOf(d);
   const body = String(det.content || '').trim();
   const meta = [
-    `# ${d.title}`,
+    `# ${titleOf(d)}`,
     '',
-    `- 标题：${d.title}`,
+    `- 标题：${titleOf(d)}`,
+    ...(TITLE[d.id] ? [`- 原始 page title：${d.title}（页面结算文案，与正文主题不符，仅改展示标题）`] : []),
     `- 来源：${d.site_name || ''}`,
     `- 原文：${d.source_url || d.url || ''}`,
     `- 作者：${d.author || '未署名'}`,
@@ -127,7 +147,7 @@ for (const d of inbox) {
     '',
   ].join('\n');
   fs.writeFileSync(path.join(OUT, '原文', slug + '.md'), meta + body + '\n');
-  console.log(`  · ${slug}（${body.length} 字）${d.title.slice(0, 40)}`);
+  console.log(`  · ${slug}（${body.length} 字）${titleOf(d).slice(0, 40)}`);
 }
 
 // ── 3. 快照与清单 ────────────────────────────────────────────────────────
@@ -139,7 +159,7 @@ fs.writeFileSync(path.join(EVID, 'readwise-原始返回.json'), JSON.stringify({
 
 const weekday = '日一二三四五六'[hi.getDay() === 0 ? 0 : new Date(`${DATE}T12:00:00+08:00`).getDay()];
 const items = inbox.map((d, i) => ({
-  slug: slugOf(d), no: i + 1, id: d.id, title: d.title, tag: TAG[d.id] || '文章',
+  slug: slugOf(d), no: i + 1, id: d.id, title: titleOf(d), tag: TAG[d.id] || '文章',
   source: d.site_name || '', author: d.author || '', url: d.source_url || d.url || '',
   savedAt: d.saved_at, category: d.category,
   words: fs.readFileSync(path.join(OUT, '原文', slugOf(d) + '.md'), 'utf8').split('\n---\n').slice(1).join('\n---\n').trim().length,

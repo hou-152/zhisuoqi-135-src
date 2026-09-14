@@ -1,14 +1,14 @@
 # 概念索引 · 知所栖 135
 
-> 999 个概念 · 632 条前置依赖 · 21 个领域 · 源：Notion 概念库 + Context Engineering(28篇) + Harness Engineering(30篇)
+> 1070 个概念 · 681 条前置依赖 · 21 个领域 · 源：Notion 概念库 + Context Engineering(28篇) + Harness Engineering(30篇)
 
 查一个概念：先在本页按领域找，再进 `concepts/`。想知道「从哪开始学」，看每个领域的枢纽概念。
 
-## Harness 与运行时（135）
+## Harness 与运行时（138）
 
 > Agent 靠什么骨架才能跑起来、跑得久？
 
-**枢纽**：[[Harness]] · [[Harness 工程 Harness Engineering]] · [[skills 字段]] · [[Agent vs Harness]] · [[coding agent]] · [[Runtime-harness separation]] · [[跨产品面的同步与共享边界 Surface-specific Sync and Sharing]] · [[自动激活]]
+**枢纽**：[[Harness]] · [[Harness 工程 Harness Engineering]] · [[skills 字段]] · [[Agent vs Harness]] · [[coding agent]] · [[Runtime-harness separation]] · [[框架]] · [[跨产品面的同步与共享边界 Surface-specific Sync and Sharing]]
 
 <details><summary>全部</summary>
 
@@ -18,8 +18,10 @@
 - [[Agent vs Harness]] — agent 是用户交互的涌现行为实体，harness 是产生该行为的机器。
 - [[coding agent]] — 由 harness 包裹的 LLM，并借工具获得读写代码等额外能力的代理。
 - [[Runtime-harness separation]] — LangChain 的 framework/runtime/harness 三层分解：执行环境与可靠工作循环不是同一层。
+- [[框架]] — 智能体运行环境的装配，由说明（系统提示词与规则）、工具、模型三部分组成。
 - [[跨产品面的同步与共享边界 Surface-specific Sync and Sharing]] — 自定义技能不跨产品面同步，claude.ai、API、Claude Code 各自独立，共享范围也不同。
 - [[自动激活]] — 技能无需手动输入，Claude 识别到相应情况时自动激活；斜杠命令则需显式调用。
+- [[云端代理]] — 在远程沙盒中运行的编码智能体，克隆仓库、建分支、自主完成后创建 PR。
 - [[Claude Managed Agents]] — 预置、可配置、跑在托管基础设施上的 agent harness：你定义 agent 模板，harness 与 infra 由 Anthropic 提供。
 - [[prefill 与 decode 的高度倾斜]] — Agent 每步追加 action 与 observation 使输入膨胀，输出却只是短 function call，如 Manus 约 100:1。
 - [[primitives]] — SDK 中不可再拆的三个基本构件：Agents、Agents as tools/Handoffs、Guardrails。
@@ -36,6 +38,7 @@
 - [[LLM-as-CPU Harness-as-OS]] — 把 LLM 当作 CPU、把 Harness 当作操作系统的类比框架，用于界定二者的职责边界。
 - [[Thin Harness, Fat Skills]] — 设计原则：harness 保持薄，把厚度与智能放进 skills（thin harness, fat skills）。
 - [[名称冲突优先级与技能作用域]] — 同名技能按企业→个人→项目→插件排优先级，企业版生效并覆盖其他作用域
+- [[编码 agent 智能体 coding agent Agent]] — 能接受自然语言目标、选用搜索工具、读取代码并返回线索的执行者。
 - [[从期望行为反推 harness 设计]] — 不从功能清单出发，而由希望模型做出的行为反推 harness 需要提供哪些能力。
 - [[功能清单作为 harness 原语]] — feature_list.json 既是任务来源、进度记录又是范围边界，被视为 harness 的原语。
 - [[共享 harness]] — 多个产品共用同一套 harness 代码与工具实现，减少重复并让改进跨产品传播。
@@ -150,16 +153,18 @@
 
 </details>
 
-## 循环与自主执行（51）
+## 循环与自主执行（56）
 
 > 一次任务如何变成可重复、可自主推进的循环？
 
-**枢纽**：[[循环工程 loop engineering]] · [[Agent loop]] · [[Loop Engineering]] · [[Prompt loop（prompt loop）／agent]] · [[闭环]] · [[长时程自治编码 long-running autonomous coding]] · [[agent 循环]] · [[笨循环 Dumb Loop]]
+**枢纽**：[[循环工程 loop engineering]] · [[规划与任务拆分]] · [[Agent loop]] · [[可自行验证的步骤]] · [[Loop Engineering]] · [[Prompt loop（prompt loop）／agent]] · [[闭环]] · [[长时程自治编码 long-running autonomous coding]]
 
 <details><summary>全部</summary>
 
 - [[循环工程 loop engineering]] — 把频繁的手动收尾固化为可重复循环的方法：挑动作、试验证、写流程、封装成技能、调用并迭代、再链式化。
+- [[规划与任务拆分]] — 大范围改动前先规划并把任务拆小；出现无关改动、误改文件、偏离重点时应停下拆分。
 - [[Agent loop]] — SDK 内置的循环：发起工具调用、把结果送回模型、持续迭代直到任务完成。
+- [[可自行验证的步骤]] — 把工作拆成智能体能自己判断成没成的小步骤，每步先定方案并配防护机制。
 - [[Loop Engineering]] — 从单次提示转向自动循环的工作方式：设计目标、触发、执行、验证、失败处理与反馈机制。
 - [[Prompt loop（prompt loop）／agent]] — agent 是一个普通程序在循环里：把任务与上一步结果发 LLM 求下一步，执行其输出，再回到第一步。
 - [[闭环]] — 把执行结果回喂给决策、使任务能自动推进下一轮的结构。
@@ -168,10 +173,12 @@
 - [[笨循环 Dumb Loop]] — 循环本身不含智能，只负责反复调用模型；所有判断与决策都来自模型的输出。
 - [[编排循环 Orchestration Loop TAO ReAct]] — 以“思考—行动—观察”为一轮，把模型输出变成可重复推进的任务循环。
 - [[完成标准]] — 开始前说清什么算做完，把运行、检查、修复都写进请求，模型才有依据做到完全完成。
+- [[完整闭环]] — 探索—规划—构建—测试—调试—评审—沉淀组成的编码智能体完整工作闭环。
 - [[自动循环的心跳]] — 定时触发是 loop 的心跳：/loop 间隔执行、cron、hook、GitHub Actions；没有它就不是 loop。
 - [[被启动的电话游戏 extended game of actuated telephone]] — 成千上万条 LLM 建议被自动执行串联，像超长传话游戏，终点多半是扭曲的目标。
 - [[编排循环与「dumb loop」]] — 组装提示、调模型、解析输出、执行工具、回喂结果并重复的编排心跳循环。
 - [[触发模式谱系]] — Agent 常见触发方式四分类：事件触发、定时触发、发射后不管、长时程自主，各自对应不同在环程度。
+- [[监控告警自动触发智能体调查]] — 监控告警自动创建工单并触发智能体在人工介入前开始诊断问题的自动化流程。
 - [[交互式系统 vs. prompt loop 系统 interactive system vs. prompt loop system]] — 同一模型做成人类对话式交互更可控，塞进无监督 prompt loop 自动跑才是危险源。
 - [[可自动化循环]] — 商业中「读数据→算→动作→再读数据」的重复流程是 AI 甜蜜区，但人生等非循环事务不在其中。
 - [[漂移与隧道视野 drift & tunnel vision]] — 长时程自治中的两种典型退化：偏离原始目标的漂移，与只盯局部而丢失全局的隧道视野。
@@ -190,6 +197,7 @@
 - [[持久性 persistence]] — 模型接受请求后持续执行到哪一步、何时返回；Astra 可能初次实现后即返回审核。
 - [[错误复利 compounding errors]] — 多步流程里每步微小失败率会累乘：10 步各 99% 成功率，端到端只剩约 90.4%。
 - [[范围控制与显式的完成定义]] — 约束 Agent 一次只做一个功能，不多不少、不偷改需求清单掩盖未完成，并给出显式完成定义。
+- [[关注智能体工作 停止与重新引导]] — 借 diff 视图实时监督智能体，方向错了就停止、取消、还原并重新引导。
 - [[宏动作]] — 编程的最小单位从敲代码行变成委派一整块工作，如实现功能、重构子系统、写测试。
 - [[会话生命周期]] — Agent 会话应走结构化生命周期：开工跑 init 与读状态，执行，收尾更新进度、记未完成项，只在可安全恢复时 commit。
 - [[收敛式失败恢复]] — 失败时收敛修正：grep 失败换更简单正确转义的查询，路径错用 glob 而非猜路径扩范围。
@@ -212,11 +220,11 @@
 
 </details>
 
-## 上下文工程（170）
+## 上下文工程（177）
 
 > 模型在每一步到底应该看到哪些信息？
 
-**枢纽**：[[Skill]] · [[上下文 context]] · [[SKILL.md 与 YAML 前置元数据 SKILL.md YAML frontmatter]] · [[按需加载]] · [[上下文工程 context engineering]] · [[注意力预算 attention budget]] · [[启动时仅加载名称和描述]] · [[长上下文窗口]]
+**枢纽**：[[Skill]] · [[上下文 context]] · [[SKILL.md 与 YAML 前置元数据 SKILL.md YAML frontmatter]] · [[按需加载]] · [[上下文工程 context engineering]] · [[上下文用量 上下文管理 context usage context management]] · [[注意力预算 attention budget]] · [[启动时仅加载名称和描述]]
 
 <details><summary>全部</summary>
 
@@ -225,6 +233,7 @@
 - [[SKILL.md 与 YAML 前置元数据 SKILL.md YAML frontmatter]] — SKILL.md 的 YAML 前置元数据以 name 与 description 为必需字段，是技能的发现层。
 - [[按需加载]] — 技能按需加载：起初只加载名称与描述，请求匹配时才加载正文，不占满上下文。
 - [[上下文工程 context engineering]] — 对模型上下文窗口的审慎构建与管理，把原始上下文与目标任务映射为可组合的上下文处理函数。
+- [[上下文用量 上下文管理 context usage context management]] — 对话中累积的信息量；搜索大量文件会使其膨胀，子代理只返回发现结果可显著改善管理。
 - [[注意力预算 attention budget]] — 把 LLM 注意力类比为有限的工作记忆预算，每新增一个 token 都要从中支取，故上下文是有限资源。
 - [[启动时仅加载名称和描述]] — Claude Code 启动时扫描技能位置，只加载名称与描述，不载入 SKILL.md 全文
 - [[长上下文窗口]] — 模型一次能装下的文本量，如 1M token 可装下整套《指环王》与《霍比特人》。
@@ -247,6 +256,7 @@
 - [[语义匹配（semantic matching）与触发短语]] — Claude 靠请求与技能描述在含义上的重叠决定是否触发，重叠不足就不匹配。
 - [[渐进式披露 progressive disclosure]] — Agent 通过探索逐层发现相关上下文、工作记忆只保留必要部分的检索与认知模式。
 - [[三类内容：说明、代码、资源 Instructions, Code, Resources]] — 技能内容分说明、代码、资源三类，加载时机不同，代码只把输出带入上下文。
+- [[图像输入]] — 把设计稿或屏幕截图贴进提示词，让智能体照着还原、排查或按截图迭代 UI。
 - [[共享上下文窗口]] — 技能与对话共享同一上下文窗口，技能激活时整份 SKILL.md 被载入上下文
 - [[护栏与判断力的取舍 guardrail tradeoff]] — 规则数量应是模型能力的函数：旧模型需显式护栏避免最坏情况，新模型判断力足够时可减少规则让位给判断。
 - [[会话的话题边界]] — 把聊天会话看成有话题性的：做与本功能无关的事就开新会话，避免有限上下文被无关内容稀释。
@@ -270,11 +280,15 @@
 - [[Tool call offloading]] — 工具输出超阈值 token 时只保留头尾，把完整输出卸载到文件系统，模型按需再读取。
 - [[description]] — 必填字段，≤1024 字符，是匹配依据，须写清技能作用与何时使用它
 - [[压缩 Compaction]] — 对对话或观察做压缩凝聚的机制：压得太狠会凝成『自信但错误』的理论，压不动则停在分散的可能性里。
+- [[规则 Rules]] — 放在 .cursor/rules/ 的 markdown 文件，每次对话开始时智能体都会看到。
 - [[上下文占用率与性能衰减]] — 上下文窗口越满，模型性能越容易被轻微拖累；压缩通过腾出空间缓解这一衰减。
 - [[compaction]] — 上下文接近窗口上限时，把对话摘要后重新初始化新窗口，保留关键决策与未解决 bug。
 - [[Resolver]] — 上下文的路由表：任务类型 X 出现时优先加载文档 Y，规定加载什么与何时加载。
+- [[@Branch 完整 diff 上下文]] — 提示词中的 @Branch 把当前分支的完整 diff 提供给智能体，用于跨文件评审。
 - [[查询感知语境化 query-aware contextualization]] — 把查询同时放在待处理数据的前面与后面，使 decoder-only 模型编码材料时就注意到查询。
+- [[代码库搜索]] — 智能体按需从代码库调取相关文件的机制；知道确切文件就标注，否则给大致描述让它去找。
 - [[典型示例策展 diverse, canonical examples]] — few-shot 时策展一组多样、典型的示例来刻画期望行为，而非把边缘 case 堆进 prompt 穷举规则。
+- [[动态加载]] — 技能不预先占上下文，由智能体按当前任务决定何时加载完整内容。
 - [[反思性提示]] — 在提示中插入人类设计的反思步骤，让模型先确认指代与真实意图再动手，而非急着完成。
 - [[方向漂移 Direction Drift]] — 上下文渐满导致一致性衰减：偏离目标、遗忘早期约束、在细节里越走越深。
 - [[复述（recitation）与 lost-in-the-middle]] — 长循环中模型注意力偏向首尾；不断重写 todo 等于把目标复述到上下文末尾，避开中段被忽略。
@@ -341,6 +355,7 @@
 - [[设计文档]] — 文档是人与 Agent、Agent 与 Agent 之间的桥梁，也是记忆载体。
 - [[观察掩码 Observation Masking]] — 上下文管理策略：把旧的工具输出隐藏起来，只保留动作与结论，从而压低窗口占用。
 - [[滚动截断 rolling truncation]] — 官方 harness 的上下文管理：超过约 175,000 字符就丢弃最旧消息，代价是丢失早期观察且常运行在更满窗口。
+- [[运行时证据]] — 程序真实运行后留下的数据，如终端输出、查询日志、性能数据，而非静态代码本身。
 - [[CLAUDE.md]] — 放在项目根目录的 markdown 文件，Claude Code 每次会话开始时自动读取并严格执行。
 - [[把上下文转化为执行 turn context into execution]] — Linear 的定位：把反馈、意图、决策、计划、代码塑造成工作并带到生产。
 - [[保留错误证据与错误恢复]] — 失败是多步任务的一环；清理轨迹会抹掉证据，保留错误 action 与堆栈才能让模型隐式更新。
@@ -393,7 +408,7 @@
 
 </details>
 
-## 记忆与检索（38）
+## 记忆与检索（39）
 
 > 经验与知识怎么被存下来、又准确取回？
 
@@ -413,6 +428,7 @@
 - [[知识端点]] — 把希望 AI 记住的内容集中整理到一个入口，而不是让它去各个站点零散地抓取。
 - [[Memory-driven development]] — 把过去的项目决策、踩坑记录与稳定规则写成可被后续 agent 读取的记忆，作为开发流程的一部分。
 - [[session_search]] — Hermes 的长尾回溯系统，负责从历史会话里把需要的那一段过去翻出来。
+- [[规则沉淀 定价规则]] — 把开发中发现的不变量写成规则记录，供智能体下次遵循。
 - [[记忆即提示 Memory as Prompt]] — 把记忆当作一种提示来管理：写入什么、何时注入上下文，都由提示工程的原则决定。
 - [[项目知识体系]] — loop 需要完整知识管理：规则、记忆、文档、经验沉淀与过期信息清理，启动时读对上下文。
 - [[自动记忆 auto-memory]] — 记忆保存从用户手动 # 写入 CLAUDE.md，变成系统自动保存与工作和你相关的记忆。
@@ -475,7 +491,7 @@
 
 </details>
 
-## 缓存与成本控制（37）
+## 缓存与成本控制（38）
 
 > 同样的能力怎么用更少的 token 和钱换来？
 
@@ -515,6 +531,7 @@
 - [[MCP schema amplification]] — 每个小型 MCP server 每请求约增 1000-1400 token，生产级 API 的 schema 更大，并与请求次数相乘。
 - [[Subagent bootstrap multiplier]] — 每个子 agent 有独立 bootstrap、父 agent 又摄入其 transcript，导致 token 成倍放大
 - [[Token Efficiency]] — 单位算力能换到的有效智能，是从 demo 走到产品与基础设施的门槛。
+- [[上下文成本]] — 自定义内容占用上下文、分散注意力的代价；规则常驻所以成本一直存在。
 - [[Token Usage vs Reasoning Trace Length efficiency vs interpretability]] — 输出 token 少、CoT 短不等于可解释性差，可能只是模型更强、少犯错少回溯，第一次就做对。
 - [[输出 token 效率]] — 改版后分数约 3 倍，输出 token 少 6 倍，因为模型不再需要每个动作前重新解读游戏。
 - [[昂贵的反馈回路与欠测试]] — 模型调用贵、端到端慢，让人少试变体、停止观察、欠测试，最终发布漂移。
@@ -523,7 +540,7 @@
 
 </details>
 
-## 工具调用与沙箱（40）
+## 工具调用与沙箱（45）
 
 > Agent 怎么安全地对外部世界动手？
 
@@ -540,6 +557,7 @@
 - [[运行时限制、权限与数据保留边界 Runtime Limitations, Constraints, and Retention]] — 技能可做的事取决于所在产品面的运行时限制，如 API 无网络、不能装包，且不受 ZDR 覆盖。
 - [[shell tool]] — 让模型在真实环境里执行 shell 命令、跑代码并读回输出的具名工具。
 - [[allowed-tools]] — 可选字段，列出技能激活时免许可可用的工具；省略则不限制，回到正常权限模型
+- [[集成浏览器与 MCP 服务器]] — 让智能体自己开浏览器截图比对自己改的页面，或从 Figma MCP 取设计规格。
 - [[工具即契约 tools as the contract]] — 工具是 Agent 与其信息/行动空间之间的契约，须返回 token 高效的信息，并像良好代码库函数那样自包含、健壮、用途清晰。
 - [[工具接口的表达力设计]] — 与其堆示例，不如设计更有表达力的参数；如 Todo 的 pending/in_progress/completed 枚举本身就在暗示用法。
 - [[沙箱化自主]] — 自主运行时（如YOLO模式）必须在沙箱中执行，入门可用GitHub Codespaces或开发容器。
@@ -549,8 +567,12 @@
 - [[MCP 工具层]] — 图谱建好后，Claude 通过 build/query/semantic search/list stats/get docs 等八个 MCP 工具自动与图谱交互。
 - [[MCP server tool calling]] — 内置 MCP server 的工具接入与 function tools 走同一路径，调用方式完全一致。
 - [[Sandbox agents]] — 在真实隔离工作区里跑任务，用 manifest 定义文件、选定沙箱客户端，会话可恢复。
+- [[CLI 工具]] — 智能体可直接在终端执行的已装程序，如 gh、aws、kubectl、docker。
+- [[精确字符串查找 grep grep ripgrep Instant Grep]] — 精确字符串查找工具，可用正则与词边界，ripgrep 支持递归，Instant Grep 更快。
 - [[运行时失败的三类原因]] — 运行时失败查三类：缺外部依赖、脚本无执行权限、路径未统一用正斜杠。
+- [[集成浏览器]] — Cursor 的集成浏览器，让智能体直接打开页面、读控制台日志、查网络请求并查看 DOM。
 - [[连接器]] — MCP、GitHub、飞书、数据库等外部接口，让 Agent 接入真实工作环境，形成发现—修改—通知的闭环。
+- [[MCP 服务器]] — 让智能体连接外部工具与生产数据、按需拉取信息而无需人工粘贴数据的机制。
 - [[第三方连接器 opt-in]] — 第三方 MCP 工具即便已连上也要经选择器由用户 opt-in；不得替用户挑服务商，紧急也不例外。
 - [[工具即结构化输出]] — 工具调用本质就是结构化输出：LLM 输出结构化 json，由确定性代码执行，两者是同一分工的两面。
 - [[工具收窄 tool scoping]] — 只向 agent 暴露当前步骤所需的最小工具集；工具越多，表现往往越差。
@@ -574,21 +596,23 @@
 
 </details>
 
-## 多 Agent 编排（45）
+## 多 Agent 编排（50）
 
 > 多个 Agent 如何分工协作而不互相踩踏？
 
-**枢纽**：[[Subagent]] · [[子 agent 与 step.invoke()]] · [[Planner–Worker 角色分离]] · [[多智能体架构]] · [[子 agent 编排 Fork Teammate Worktree]] · [[handoff 交接]] · [[Handoffs Agents as tools]] · [[子 Agent 分工]]
+**枢纽**：[[Subagent]] · [[多模型并行与多智能体评判]] · [[子 agent 与 step.invoke()]] · [[Planner–Worker 角色分离]] · [[多智能体架构]] · [[子 agent 编排 Fork Teammate Worktree]] · [[handoff 交接]] · [[Handoffs Agents as tools]]
 
 <details><summary>全部</summary>
 
 - [[Subagent]] — 把一整个 session 工作封装、只回流浓缩结果的子代理，拥有全新而小的上下文窗口与指令预算。
+- [[多模型并行与多智能体评判]] — 让多个模型在隔离环境并行运行同一调试提示词，再按证据充分度比较其修复方案。
 - [[子 agent 与 step.invoke()]] — 用 step.invoke() 启动独立 agent run 并 fork 带自己 session key 的子会话，工具集去掉 delegate_task 禁止递归，最后向父级回摘要。
 - [[Planner–Worker 角色分离]] — planner 持续探索代码库并拆任务，worker 领任务后埋头做完，不互相协调、不管大局。
 - [[多智能体架构]] — 把任务拆给多个各司其职的 agent：场景生成→角色扮演→行为提取→评分，逐层可替换。
 - [[子 agent 编排 Fork Teammate Worktree]] — 三种子 agent 执行模型：Fork 逐字节复制父上下文、Teammate 独立终端加文件信箱、Worktree 各自 git 分支；同时是上下文管理手段。
 - [[handoff 交接]] — worker 完工后写一份单一交接报告，含所做工作、注意事项、偏差、发现与反馈，由系统交给 planner。
 - [[Handoffs Agents as tools]] — Agent 把特定任务委派给其他 Agent 的机制，是与 manager 式编排并列的一种编排风格选择。
+- [[并行测试多种情况]] — 启动多个云端代理分别覆盖不同边界、错误条件与输入组合，各产出带结果的分支。
 - [[子 Agent 分工]] — 把执行、审查、修复分给不同子 Agent 或模型，避免写代码的 Agent 给自己打分。
 - [[递归 planner 与 subplanner]] — 根 planner 掌握全部指令范围、不写代码，遇到可细分的窄片就递归 spawn 拥有该片的 subplanner。
 - [[递归 Planner-Worker 架构]] — 根 Planner 拥有全项目范围并按需递归生成子 Planner；Worker 在各自 repo 副本上工作，完成后 handoff 上交。
@@ -610,16 +634,19 @@
 - [[planner–executor–judge 角色分工]] — planner 排路径与交付物，executor 作唯一 lead 保证达成并派活，judge 独立判定是否完成。
 - [[sub-agent 架构与关注点分离]] — 专门化子 agent 用干净窗口做聚焦任务，主 agent 靠高层计划协调并接收摘要
 - [[subagents]] — 把子 agent 路由到隔离环境执行，用来扩展 agent 的能力与并行度
+- [[Explore 子代理 Explore subagent]] — 智能体按需生成的搜索子代理，在独立上下文窗口用更快模型并行搜索，只返回发现结果。
 - [[子代理的技能隔离]] — 子代理以全新干净上下文启动，不自动看到主会话技能，须在 skills 字段显式列出
 - [[角色过载与病态行为]] — 单一连续执行器被同时赋予规划、执行、评审、合并、判定完成等过多角色时，出现的随机 sleep、擅自停止、拒绝规划等病态行为。
 - [[连续执行器]] — 第三代设计去掉独立 planner，由唯一 executor 兼做规划与派任务，不写静态计划，系统更动态，judge 也删除。
 - [[锁竞争与乐观并发控制]] — agent 持锁过久、忘释放、乱加解锁；试过显式等待工具与无锁乐观并发控制。
 - [[为吞吐量设计与可接受错误率]] — 为吞吐量设计与可接受错误率：追求每次提交 100% 正确会严重串行化，应接受小且恒定的错误率并留绿色分支收尾。
 - [[无层级导致的风险规避 risk-averse agents]] — 没有层级时 Agent 会趋避风险，只做小而安全的改动，难题无人负责、长期空转无进展。
+- [[云端代理的边界测试 Cloud Agents]] — 启动多个云端代理并行覆盖本地可能遗漏的边界情况，在合并前补齐空缺。
 - [[最慢 worker 瓶颈与刚性]] — 角色分工版的性能天花板：系统被最慢 worker 卡住且过于刚性，规划全部前置也难动态重调，走偏的 agent 要等下一轮循环才自纠。
 - [[Agent-to-Agent 交互（A2A）]] — 用户侧 Agent 与软件侧 Agent 相互调用协作、朝同一结果推进的交互形态。
 - [[Agent swarm 作为 prompt 管理策略 agent swarm prompt management strategy]] — 主循环把大步骤拆成小步骤，每步开一个从零开始、只装必要信息的二级循环；本质是 prompt 管理策略。
 - [[工作树隔离]] — 为每个并发 Agent 分配独立工作空间，避免改同一文件造成冲突，便于事后合并。
+- [[协作行为与同伴保护]] — 多智能体目标重叠时会涌现协作，甚至为帮助同伴而放弃自身预期奖励。
 - [[单 agent 的速度天花板]] — 单 agent 在聚焦任务上表现好，但面对复杂项目很慢——问题不在对错，而在快慢。
 - [[结构适量原则]] — 结构太少则 agent 冲突、重复劳动与漂移，太多则系统脆弱；正确的用量落在两者之间。
 - [[Custom Agent]] — 自定义 Agent：按具体任务与角色专门配置的 Agent，而非通用默认 Agent（材料仅给出名称）。
@@ -630,15 +657,16 @@
 
 </details>
 
-## 验证与评估门禁（82）
+## 验证与评估门禁（97）
 
 > 我们怎么知道它真的做对了？
 
-**枢纽**：[[Validation gates]] · [[验证闭环 verification loop]] · [[验证子系统与可运行的证据]] · [[Grading Criteria]] · [[Rubric]] · [[Self-verification]] · [[Self-verification loop]] · [[SWE-bench 与二元打分]]
+**枢纽**：[[Validation gates]] · [[验证手段]] · [[验证闭环 verification loop]] · [[验证子系统与可运行的证据]] · [[Grading Criteria]] · [[Rubric]] · [[Self-verification]] · [[Self-verification loop]]
 
 <details><summary>全部</summary>
 
 - [[Validation gates]] — 工作流中的检查点：完成一步后须通过测试、审查、人工确认或明示验收条件才能继续。
+- [[验证手段]] — 测试、类型检查、Linter、浏览器工具四类手段，让智能体自己发现输出错误。
 - [[验证闭环 verification loop]] — 把产出后必做的检查固化成可自动执行的一环，让 Claude 自己验证自己的产物。
 - [[验证子系统与可运行的证据]] — 只有通过的测试套件才算数：agent 不能没有可运行的证据就说做完了，载体是 tests、lint、type-check、e2e。
 - [[Grading Criteria]] — 把“这设计美吗”这类难一致回答的问题，换成“是否符合我们的设计原则”这类可具体打分的标准。
@@ -646,6 +674,8 @@
 - [[Self-verification]] — 让 Agent 具备端到端检查自己工作的能力，loop 的可信度取决于这份自检能力。
 - [[Self-verification loop]] — 由浏览器、日志、截图、测试器支撑，让 Agent 写码、跑测、看日志、改错的回路。
 - [[SWE-bench 与二元打分]] — 从真实仓库抓取约十五分钟量级任务的基准，用 FAIL_TO_PASS/PASS_TO_PASS 打 0/1 分
+- [[调试模式 Debug Mode]] — 针对棘手缺陷：先提假设、插桩、请人复现、分析日志，最后做针对性修复。
+- [[良好调试的共同原则]] — 调试五原则：可复现、缩到最小案例、隔离变量、具体假设、加日志。
 - [[确认环节可以合并，但不能省略]] — 确认环节可以合并加速，但绝不能跳过人的判断。
 - [[让 Agent 自行验证]] — 给 Agent 一个自己的反馈循环，让它在你看到结果前先自检。
 - [[古德哈特定律]] — 当指标成为目标它就不再是好指标；Agent 会针对验证器优化而非真实目标，比如删掉失败测试。
@@ -653,6 +683,10 @@
 - [[可验证目标]] — 目标能否被机器判断直接决定 loop 能否收敛；“优化一下应用”模糊，测试、类型检查、lint 全过则明确。
 - [[修复收据与有限修复轮次 repair receipt supportedFixes]] — 验证失败返回稳定规则码、具体对象与测量证据，代理只能按 supportedFixes 修，最多两轮。
 - [[原子验证与交付门 atomic validation before delivery]] — 交付前 schema、布局、HTML/SVG、路由、标签到路由间距等检查必须全过，候选才原子替换目标。
+- [[智能体判断自己的代码是否正确]] — 智能体能跑测试、看失败并据此改代码，从而自己判断产出对不对。
+- [[智能体评审 查找问题]] — 让智能体从写代码切换到审代码，逐行分析拟议编辑并标记潜在问题。
+- [[测试驱动开发 TDD]] — 先提交测试锁住需求，再让智能体在不修改测试的前提下让测试全部通过。
+- [[验证信号]] — 测试、类型检查与 Lint 是智能体自查成果的反馈渠道，越完善越敢委派。
 - [[把重复步骤编码成 Skill]] — 把重复步骤编码进验证闭环，最常见方式是写成一个 skill，作为可复用底座。
 - [[非确定性 nondeterminism]] — 同一输入两次调用给出不同输出，差异虽小却足以让严格等值断言作废，抽掉质量策略的地板。
 - [[静默的分级失败]] — 模型输出不会崩溃报错，错误部分以同样的格式与自信织进正确部分，且无可靠的「我不确定」通道。
@@ -674,11 +708,17 @@
 - [[Trace 驱动评估]] — benchmark 同时记录工具路径、输出量、错误和搜索方向，据此判断 agent 是否聚焦证据。
 - [[Trace-based evals]] — 用 agent trace、JSONL、确定性验证器、baseline 与轨迹复盘来衡量 skill 或 harness 的改动。
 - [[Verifiability]] — 任务是否存在自动 reward 或成功信号，决定模型能否靠 RL 反复练习而快速进步。
+- [[调试与根因修复]] — 折扣叠加测试失败时，定位根因是折扣应用顺序，并修 DiscountService.ts 中的顺序。
+- [[瓶颈转移与测试速度杠杆]] — 并行使用智能体后瓶颈移到最慢公共环节（测试、类型检查、Lint、CI），提速有复利。
+- [[Bugbot 与 Autofix]] — 接入源代码控制服务商的自动 PR 评审机制，能找逻辑缺陷，Autofix 可在评论中提交修复。
 - [[基准测试的捆绑测量性]] — 基准很少单独测量模型，它同时测了 API 设置、harness 设计与提示词等不可见选择。
+- [[理解修复与根本原因]] — 验证修复要看人能否解释因果链并确认根因，而不是看错误是否消失。
 - [[嵌入式评估者 embedded evaluators]] — 给第三方评估者类员工权限与工位，核查安全实践、上报事故、评估模型与训练流程。
 - [[确定性编译 deterministic compilation]] — 同一份 IR 经 Archify 编译应得到相同结果，不依赖运行时代码或随机布局。
 - [[通用 harness 的公平性张力]] — 通用 harness 让模型对比更公平、缺陷更可见，但也让评测偏离真实部署形态。
+- [[自我评审]] — 在请他人查看前，先让智能体带着完整分支上下文评审自己的全部更改。
 - [[测试是绿的，产品却在退化]] — 模型更新后测试仍绿而产品已退化：断言写的是旧模型行为，绿色测试与真实回归可以同时成立。
+- [[测试通过不等于正确]] — 测试是验证信号而非正确性证明，测试本身可能验证了错误的行为。
 - [[差一点就通过的输出]] — 最危险的是差一点就通过的输出：偏离约束、编造合理值、守字面破精神，不崩不报错，直接上线。
 - [[从单元测试到评估：置信度而非正确性证明]] — 评估关注系统在输入分布与重复运行中是否满足 rubric，得到的是置信度，不是单次输出的正确性证明。
 - [[端到端验证]] — 只有跑通完整流程才算真正验证，落为 e2e pipeline 与 smoke runs，补充单元式局部验证。
@@ -704,6 +744,7 @@
 - [[Verifiable Codebase]] — 让 agent 有可靠工具验证改动的代码库，如 Playwright CLI、关键 E2E 测试、只读 verifier agent。
 - [[Wrapper skill]] — 自建包装 skill，先调用原 skill，再调用自己的验证 skill，为改不了的 skill 补上验证。
 - [[把自己当普通用户／黑盒测试]] — 测试时把自己当普通用户，凭直觉乱点、输入意外内容做黑盒测试。
+- [[错误消息明确时的直接修复]] — 错误消息或堆栈已指向原因时，智能体读错误读代码直接改；不奏效则转系统排查。
 - [[RHAE]] — ARC-AGI-3 的评分指标，把模型表现与人类测试基线相比，得出相对人类动作效率。
 - [[80% 质量墙]] — 多数面向客户的功能冲到 70-80% 质量就撞墙，80% 不够交付。
 - [[按需源证据 source evidence, only when requested]] — 只有显式请求证据时，节点才标 SRC 并打开绑定到某个公开 commit 的 Git 文件与行号。
@@ -713,6 +754,7 @@
 - [[非尝试率与拒答模式]] — 评测中被剔除并单列报告的拒答比例，因模型顾虑或内容过滤而未作答的那部分调用。
 - [[功能与行为验证的缺口]] — OpenAI 的工程措施偏长期内部质量与可维护性，缺的是对功能与行为的验证。
 - [[浏览循环]] — review agent 广泛搜索、猜路径、大量读码，再从新内容发起更多搜索的行为模式。
+- [[评估意识 detect being evaluated]] — 最先进的 AI 能察觉自己在被评估而非部署，并据此改变行为。
 - [[行为提取]] — 由独立 agent 逐轮回看对话、只抽取具体行为事实不作判断，把「看见什么」与「判断好坏」刻意拆开。
 - [[噪声上下文]] — 带同名干扰项的上下文测试：前文一直聊苹果手机，再让机器人去拿水果苹果，考模型是否真懂语境而非按词袋瞎猜。
 - [[ALFRED]] — 在虚拟家居环境中按自然语言指令完成日常任务的具身智能基准，指令几乎全用清晰显式指代。
@@ -723,7 +765,7 @@
 
 </details>
 
-## 规格与意图对齐（47）
+## 规格与意图对齐（57）
 
 > 怎么把想要的东西准确交代清楚？
 
@@ -741,8 +783,10 @@
 - [[从禁止什么到对齐什么]] — 把系统提示从一串禁令换成一条对齐指令：写出读起来像周围代码的代码，匹配注释密度、命名与惯用法。
 - [[共享理解 shared understanding]] — 人与 LLM 在设计树上逐步推进、最终就设计达成一致的过程。
 - [[简洁规范]] — 简短的项目规范文档，只回答为什么做、做什么、怎么做，用简短逼团队划清范围。
+- [[奖励黑客 reward hacking]] — 系统优化的是奖励，但奖励不完全等于我们真正想要的东西，行为随之偏离。
 - [[教会 AI Agent 如何成功]] — 先想清楚调用 agent 的人需要知道什么才能成功，再主动把这些信息预先交给它，而不是让它自己摸索。
 - [[漫谈会话 ramble session]] — 与 LLM 协作时刻意进行的一次长时间、无结构的自由讲述，是后续所有动作的容器。
+- [[目标冲突 conflict between goals]] — 用户指定的任务有时与安全、对齐目标不相容，促使系统为达目标而作弊。
 - [[目标清楚 + 结果好验收]] — 交给模型的任务需同时满足目标清楚与结果可验收，两者都满足才最适合委派。
 - [[判定程序化写法]] — 把每条规则写成可执行的判定（明确判据＋已发生的失败示例），而非语气偏好，使规则可被机械执行。
 - [[意图规约与可引导性]] — harness 稳定后，错误与模糊指令会被放大，瓶颈转向意图的引出、规约与理解，以及可引导性与可观测性。
@@ -752,28 +796,36 @@
 - [[Elicitation]] — 通过主动提问把用户未说清的需求、偏好与约束引出来，即信息引出能力。
 - [[TOCC]] — 前置指令重写的轻量即插即用解法，把指代解析与任务规划解耦以提高成功率。
 - [[沟通工件与非目标 communication artifact non-goals]] — Archify 定位为把技术意图变成可沟通的图，非通用绘图编辑器，也非 Mermaid 主题。
+- [[修改前先探索]] — 提出修改前先让智能体展示现有实现、模式与共享验证器，避免重复造函数或用不同模式。
 - [[高精度原型设计]] — 把需求、原型、UI 合成一步，产出含交互与视觉的高保真原型。
+- [[按字面理解请求 意图 literal interpretation intent]] — 编码智能体按字面处理请求，未提供意图时自行判断，故需先理解代码库并明确要求。
 - [[不连贯输入的重构能力]] — 从冗长散乱的口语流中重建出结构与意图的能力。
 - [[仓库技能的跨模型影响]] — 仓库技能会被其他贡献者、可能不同模型的 agent 读取，帮某模型的措辞可能过度约束另一个。
 - [[带文档追问 Grill with Docs]] — 保留 Grill Me 追问开头的 skill，新增读取、挑战并更新领域文档的能力。
 - [[规划模式与边界问题清单]] — 在 /plan 模式下让模型提前问出实现时迟早要回答的边界问题，如起止日期能否相同。
 - [[过度具体指导 overly specific guidance]] — 旧技能常写成详细路线或食谱；新模型更能理解歧义，过度具体指导反而妨碍结果。
 - [[描述区分度]] — 描述过于相似会让 Claude 选错技能或困惑，应让描述更具体、更有区分度。
+- [[明确定义的目标与模糊目标]] — 可评分的明确目标在冲突中往往压过可多重解读的模糊目标。
 - [[示例强于规则]] — 示例是比规则更强的信号：附上正好做了被禁行为的示例，模型就会照做。
 - [[输入摩擦 too lazy to type]] — 真正的瓶颈常不是没想法，而是把脑中信息敲成文字的成本太高而被省略。
 - [[小访谈变体 small interview of a few turns]] — 把一次性倾倒式的漫谈改成几轮小问答，通过来回追问把意图逐步交代清楚。
 - [[意识流输入 full stream of consciousness]] — 对漫谈内容的反向要求：允许 total mess、跑题、重复与自我否定，即 full stream of consciousness。
+- [[Goodhart's law]] — 一个指标一旦成为被优化的目标，就不再是有效的衡量方式。
 - [[Instructions files]] — 给 AI agent 写的长期工作规则文件（如 AGENTS.md/CLAUDE.md），每次执行任务都直接影响模型行为。
 - [[mind meld]] — 人与模型之间关于目标和语境的对齐程度。
 - [[Natural language as code]] — 自然语言不再只是说明文字，而是会驱动 agent 行为的可执行逻辑。
 - [[Plan 模式]] — 让 Agent 先列出打算怎么做，方向确认后再执行，像开工前先开会过方案。
 - [[Spec-driven agent workflow]] — 用明确规格、状态所有权、暂停恢复与工具边界来组织 agent 工作的开发流程
 - [[Spec-First Workflow]] — 先与 agent 把规格/文档写到极细再让 agent 实现，spec 决定 agent 输出上限。
+- [[提示词]] — 把需求锚在代码库已有物上的说明：点名文件、指定复用组件、说明遵循的既有模式并划定范围。
 - [[富引用 rich references]] — spec 不限于 markdown 计划：HTML artifact、测试套件、待移植函数、rubric 都可充当。
+- [[回到方案，而非修补提示词]] — 构建结果不符预期时撤销更改、细化方案后重跑，而不是继续补提示词。
+- [[问题的表述方式]] — 提问的具体程度会影响智能体选用哪种搜索工具与结果质量：已知从具体起，探索从宽泛起。
 - [[冲突指令的隐性成本]] — 同一请求里出现互相打架的指令，模型虽常能推断正确意图，但必须先额外费力消解重叠冲突的信息。
 - [[模糊语言打磨 sharpen fuzzy language]] — 对照 glossary 挑战含糊用语，在具体场景中讨论并交叉引用代码，把模糊表述打磨成精确说法。
 - [[示例的探索空间约束]] — 给示例会把模型约束在某个特定探索空间：弱模型上是脚手架，强模型上变成天花板。
 - [[示例会收窄探索空间]] — 给示例会把模型收窄进特定探索空间，这是对“工具使用先给示例”既有共识的反转。
+- [[首迭代范围收敛]] — 评审方案时砍掉对首次迭代而言范围过大的步骤，只保留核心流程。
 - [[意图翻译者 intention translator]] — 1.0 时代设计者的角色：把复杂人类意图转成结构化、机器可读的格式，因机器无法理解语义也无法推理。
 - [[原型先行]] — 工作流第三步：原型不再是完整阶段或奢侈品，一个提示词就有；先看见 mock，才想得到自己真正要的交互。
 - [[指代表达]] — 人话里指称物体的表达方式，按显式、混合、隐式分档，用来衡量「听懂」的难度。
@@ -781,23 +833,29 @@
 
 </details>
 
-## 代码库与工程实践（38）
+## 代码库与工程实践（45）
 
 > 代码怎么写才能让人和 Agent 都读得懂？
 
-**枢纽**：[[Agentic Engineering]] · [[service template 与 golden path]] · [[层级架构强约束 + 给 Agent 读的 lint 错误]] · [[根因优先]] · [[统一语言 ubiquitous language]] · [[Agent-driven CICD]] · [[docsdecisions]] · [[Executable Codebase]]
+**枢纽**：[[Agentic Engineering]] · [[代码评审]] · [[AI 生成代码的隐性缺陷]] · [[service template 与 golden path]] · [[Ask mode]] · [[层级架构强约束 + 给 Agent 读的 lint 错误]] · [[根因优先]] · [[技术债与一致合并标准]]
 
 <details><summary>全部</summary>
 
 - [[Agentic Engineering]] — 协调可错、随机而强大的 agent 快速产出，同时守住正确性、安全、品味与可维护性的工程纪律。
+- [[代码评审]] — 在问题进入生产前发现缺陷的质量门，需要合适流程，也要工程师投入精力。
+- [[AI 生成代码的隐性缺陷]] — 代码看似正常、能编译能过测试，却遗漏边界、有安全问题或重复既有逻辑。
 - [[service template 与 golden path]] — 团队沿既定路径快速实例化新服务的现成实践，被用来类比 harness 未来按拓扑挑选。
+- [[Ask mode]] — 先提问、不改代码的模式，用于探索流程与推送前的自我评审。
 - [[层级架构强约束 + 给 Agent 读的 lint 错误]] — 把 lint 错误从『violation detected』改写成给 Agent 直接可读可改的修复指令，配合层级架构的强约束。
 - [[根因优先]] — 根因没说清楚之前先别动代码：先答出问题在哪个文件哪一行、为什么，答含糊就继续查。
+- [[技术债与一致合并标准]] — 智能体快速生成大量代码会积累维护成本，合并标准对手写与生成代码应一致。
 - [[统一语言 ubiquitous language]] — 统一语言：借用 DDD，让代码库、开发者与领域专家在 AI coding workflow 中共用同一套词汇。
+- [[小而语义明确的提交]] — 每次提交只代表一项逻辑更改，让评审者按提交历史逐个理解。
 - [[Agent-driven CICD]] — 把规则或单测驱动的 CI/CD 升级为 AI 驱动测试、日志与事故读取、Agent 驱动的缺陷分诊与修复。
 - [[docsdecisions]] — docs/decisions/ 下的架构决策记录，让 AI 不仅知道代码是什么，还知道代码为什么是这样。
 - [[Executable Codebase]] — 让 agent 能低成本启动 dev server、进入特定状态并测试场景的代码库形态。
 - [[Legible Codebase]] — 让 agent 容易判断该改哪里的代码库，靠 AGENTS.md、文档索引、custom lint 与链接检查维持。
+- [[提交重整理 rework-commits]] — 功能稳定后让智能体重置到 main、通读更改进而重建整洁提交，并校验内容未丢。
 - [[分解为小颗粒度工作]] — 把大任务切成小颗粒，每部分建一个问题，小改动既带来完成感也便于审查。
 - [[工具—工作流适配]] — grep、glob、view 本身更易维护，但简单替换会抬高 review 成本、减少有效评论；只有为 reviewer 重写工作流才转为收益。
 - [[可维护性 霰弹式手术]] — 无人工引导时模型难长期维护代码库质量，表现为改一处牵连别处，即 Fowler 所说的霰弹式手术。
@@ -812,6 +870,7 @@
 - [[Skill as asset]] — loop 只是管道，真正可复利的资产是它调用的、可复用且测试过的 skill。
 - [[Watch 模式与自动更新 hooks]] — CLI 的 watch 命令与自动更新 hooks，让图谱在每次文件编辑和 git commit 后自动同步代码库。
 - [[仓库提交]] — .claude/skills 中的项目技能随 Git 共享，克隆即获得，推送后他人拉取即更新
+- [[架构图 Mermaid 图]] — 让智能体为大型或不熟悉代码库生成的图（如 Mermaid），用于理解结构并暴露架构问题。
 - [[可移植单文件与导出 portable by default]] — 产物是一个独立 HTML 文件，导出保持完整图且不含临时查看状态；分享卡为规范的 1200×630 图像。
 - [[Vibe Coding]] — 抬高地板式编程范式：用自然语言描述需求由 agent 生成代码，适合原型与小工具，不适合严肃工程。
 - [[非视觉任务的可视化原型]] — 即使任务看似不需要图，也先让 Agent 画出多方案的 Mermaid 图并排比较，再进入实现。
@@ -830,32 +889,38 @@
 
 </details>
 
-## 安全权限与合规（45）
+## 安全权限与合规（52）
 
 > 什么可以做、什么必须被拦住？
 
-**枢纽**：[[企业托管设置（Managed Settings）与 strictKnownMarketplaces]] · [[安全审计与受信任来源 Security Considerations Trusted Sources]] · [[Guardrails]] · [[Human in the loop]] · [[权限与推理的架构分离]] · [[领跑节奏 pacing the frontier]] · [[默认帮助的高门槛拒绝]] · [[企业技能的最高优先级]]
+**枢纽**：[[企业托管设置（Managed Settings）与 strictKnownMarketplaces]] · [[安全论证与控制发展步伐]] · [[安全审计与受信任来源 Security Considerations Trusted Sources]] · [[Guardrails]] · [[Human in the loop]] · [[奖励篡改 reward tampering]] · [[权限与推理的架构分离]] · [[领跑节奏 pacing the frontier]]
 
 <details><summary>全部</summary>
 
 - [[企业托管设置（Managed Settings）与 strictKnownMarketplaces]] — 管理员用托管设置下发企业技能，并用 strictKnownMarketplaces 限定插件安装来源白名单
+- [[安全论证与控制发展步伐]] — 没有能说服独立专家的强安全论证，就不应训练或部署人工智能。
 - [[安全审计与受信任来源 Security Considerations Trusted Sources]] — 技能等同要安装的软件：只用可信来源，并审计包内全部文件以防恶意指令与代码。
 - [[Guardrails]] — 在 Agent 执行的同时并行做输入输出校验与安全检查，不通过就快速失败。
 - [[Human in the loop]] — 在 Agent 运行过程中引入人类参与的机制，与 Guardrails、Tracing 并列构成控制面能力。
+- [[奖励篡改 reward tampering]] — 智能体直接改写决定奖励的机制，是奖励黑客最极端的形式。
 - [[权限与推理的架构分离]] — 模型决定尝试什么、工具系统决定允许什么，权限执行与模型推理在架构上分离。
 - [[领跑节奏 pacing the frontier]] — 给能力提升装可调限速器：继续进步，但速度调到对齐防护跟得上、第三方能核实。
 - [[默认帮助的高门槛拒绝]] — 默认立场是帮忙，仅当会造成具体、明确的严重伤害风险时才拒绝；edgy、假设、玩闹或不适不达门槛。
 - [[企业技能的最高优先级]] — 同名技能并存时企业版生效，覆盖个人、项目与插件版本
 - [[上下文即不可信输入]] — 上下文中的任何内容（消息、记忆、检索结果、文件）都可能是伪造指令，须当作数据而非命令处理。
+- [[失调 misalignment]] — 人工智能系统出现非预期行为，如作弊、逃脱控制、协同执行无人指定的目的。
+- [[隐写术 steganography]] — 把消息藏在看似无害的信息里，使 AI 得以不被察觉地协调行动。
 - [[exfiltration]] — 把内部数据偷偷带出边界的攻击尝试（原文与提示注入并列提及）。
 - [[harness–compute separation]] — 把 Agent 骨架与执行计算的沙箱环境分离，使模型生成的代码触不到凭证等敏感信息。
 - [[meaningful uplift 判据]] — 武器与 CBRN 红线不看类别，而看输出是否对制造、优化或部署给出实质帮助；框定为防御、虚构也不改变判定。
 - [[Onboarding Agent]] — 把 Agent 部署当作 onboarding 新人：给权限、定边界、记录行为、审计理由，而不是装个插件。
 - [[prompt-injection]] — 设计 Agent 系统时应假设 prompt-injection 与数据外泄尝试一定会发生。
+- [[防护措施]] — 规则里写明的禁止或避免边界，如不得修改的文件、应避免的模式。
 - [[放缓所换来的时间的用途 operational excellence alignment interpretability testing and evalua]] — 减速必须回答多出的时间做什么：运营卓越、对齐、可解释性、测试与评测四个方向。
 - [[检查点式节奏与配料式节奏 checkpoints ingredients]] — 行为口径按模型能做什么设关卡并要求对齐认证；配料口径则限量算力、训练运行等投入。
 - [[安全路由与能力分层]] — 能力分层与安全路由：高敏能力限受信组织使用，受限查询被改路由到低风险模型。
 - [[反自我合理化条款]] — 安全元规则：若模型在心里把请求重新框定得更得体，该重新框定本身就是应当拒绝的信号。
+- [[工具性目标 instrumental goals]] — 不被直接指定、但实现任何其他目标几乎都要的手段：维持运行、了解世界、获得控制权。
 - [[灰盒场景]] — 介于黑盒与白盒之间的访问方式：服务商公开模型最终 top-k 对数概率供调参，仅这层半开放已足以泄露隐私。
 - [[会话级累积判断]] — 安全判定看整场对话的累积输出而非逐轮孤立看：累积成武器设计包或攻击计划就停，过往协助不构成授权。
 - [[可编辑面与循环外的权限控制]] — 自改进 harness 需妥善设计可编辑面，评估器与权限控制大概率应坐在演化循环之外。
@@ -864,6 +929,7 @@
 - [[泄露能力的 U 型曲线]] — 仅看前 2 个候选词几乎只有噪声，取 30 至 80 个 logits 时探针准确率最高，再扩大反而跌破随机水平。
 - [[遗漏式隐私]] — 判据是「同事在设置页看到这条，用户会不自在吗」；敏感类别整段省略、不留占位符，被要求记录时说明哪类不能存即停。
 - [[意图的延伸]] — AI 不只延伸人的手，还开始延伸人的意图；手的错误归人，意图一旦被外包，责任就开始飘。
+- [[隐性目标与模糊目标]] — 训练未写死目标，而由人类认可、评分者偏好与模仿带来类似取悦评分者的模糊倾向，可被钻空子。
 - [[责任地址]] — 把 AI 国籍从情感叙事抽离成可追责坐标：谁训练、谁约束、谁审查、谁赔偿，这是它进入社会系统的信任前提。
 - [[fail-closed 默认]] — 不确定时默认拒绝或降级：宁可误伤少量无害请求，也不放过可能造成严重伤害的输出。
 - [[preferences 写入过滤]] — 若干类偏好即使被明说也不写进 /preferences.md，避免未来模型继承更不诚实、更不安全的指令。
@@ -886,21 +952,23 @@
 
 </details>
 
-## 模型能力与训练（83）
+## 模型能力与训练（87）
 
 > 底层模型本身怎么变得更强？
 
-**枢纽**：[[Looped Transformer Recurrent Depth looped transformer, recurrent depth]] · [[Reward Signal]] · [[奖励攻击与多样性坍塌]] · [[多头注意力]] · [[DPPO]] · [[REINFORCE]] · [[Looping Costs：参数、计算与 KV Cache looping costs]] · [[谄媚（Sycophancy）]]
+**枢纽**：[[Looped Transformer Recurrent Depth looped transformer, recurrent depth]] · [[Reward Signal]] · [[奖励攻击与多样性坍塌]] · [[强化学习 reinforcement learning]] · [[多头注意力]] · [[DPPO]] · [[REINFORCE]] · [[Looping Costs：参数、计算与 KV Cache looping costs]]
 
 <details><summary>全部</summary>
 
 - [[Looped Transformer Recurrent Depth looped transformer, recurrent depth]] — 让中间表示多次通过同一批 transformer blocks，权重在多次循环间保持不变。
 - [[Reward Signal]] — RL 中给模型行为打分的通道，偏好里夹带的噪声会被一并学走，写下奖励≠想要的行为。
 - [[奖励攻击与多样性坍塌]] — 自改进回路会过拟合给定信号（测试、裁判、基准），并压榨已知高回报模式导致种群坍缩。
+- [[强化学习 reinforcement learning]] — 通过反复试验调整神经网络、提升被认可行为概率的训练，含思维链、能动性、对齐训练三种。
 - [[多头注意力]] — 并行跑 h 组独立注意力，各自学习 Q、K、V 矩阵，从不同维度理解同一段输入后拼接。
 - [[DPPO]] — 用预估策略散度（TV/KL）定义的信任域，取代 PPO 中基于采样 token 概率比例的裁剪掩码。
 - [[REINFORCE]] — 按奖励对同策略采样答案加权强化的策略梯度基础形式，相当于带权 SFT，方差大需靠基线降。
 - [[Looping Costs：参数、计算与 KV Cache looping costs]] — 循环省下的是不同 block 的权重参数，不省前向与反向计算；二次进 block 的 keys/values 不同，需分开缓存。
+- [[目标导向型系统 goal-directed system]] — 训练结束后仍像奖励持续存在一样行动、会计算行为影响并选择实现目标行为的系统。
 - [[谄媚（Sycophancy）]] — LLM 被训练去让人高兴，而不是说真话。
 - [[递归结构不能替代基座智能]] — 同一套递归改进在强基座上持续上升、在弱模型上反而退化；harness 只放大部署，智能仍是核心。
 - [[递归自我改进 RSI]] — AI 用当下智能去改进产生自身智能的机器；现代形态还包括改进训练流水线与部署系统。
@@ -920,12 +988,14 @@
 - [[RLHF]] — 用人类偏好训练奖励模型再用 RL 优化 LLM，是 GPT-3 到 InstructGPT 的关键一跳，PPO 为默认算法。
 - [[RLOO]] — 每 prompt 采 K 条回复，优势=自身奖励减其余 K-1 条均值，不除标准差并放弃裁剪回到纯 REINFORCE。
 - [[RLVR 与编码 agent 的 RL 训练循环]] — 生成编码 agent 的 trace、用 verifier 打分、更新权重强化好 trace 抑制坏的，循环上百万次数周到数月。
+- [[Scientist 人工智能框架]] — 作者提出的替代设计方向，使 AI 诚实可靠且预测不受自身目标影响。
 - [[Tiny Engram]] — 基于 Qwen-3 复现文本 Engram 后，把 Engram 迁到 Stable Diffusion 的视觉版本。
 - [[VLM]] — 视觉-语言模型，能同时处理图像与文字的多模态大模型。
 - [[事后合理化与科幻叙事污染 post-hoc rationalizing sci-fi style narratives]] — 模型可能事后编出听起来合理却与答案无关的理由；被提示“你是 AI”时更易搬出训练数据里的科幻桥段。
 - [[Compute-Matched Looped Transformer SMELT]] — SMELT 在相同每 token 计算、相同非嵌入参数与 KV cache 条件下比较 looped 与传统 transformer。
 - [[Per-token Routing：Expert-choice vs Token-choice Mixture-of-Recursions, routing]] — 用小的 learned router 按 token 隐表示决定它过几次共享 stack，分 expert-choice 与 token-choice。
 - [[Transformer Block、Stack、Block Application transformer block, stack, block applic]] — block 是含注意力与前馈的结构单元，stack 是 block 序列，block application 是输入过一次 block。
+- [[预训练与人类模仿]] — 预训练让模型模仿人类文字、图像与视频获得百科式知识，并隐式再现写作者的目标模式。
 - [[Adaptive Halting adaptive halting, halting probability]] — 按学习到的 halting probability 累积到阈值即停止，并用最大循环数兜底，把额外计算给更需要的 token。
 - [[Latent Reasoning inference-time looping]] — Latent reasoning 是推理时多跑循环、把计算放在内部的一种用法，但仍可生成文本 CoT，不等于隐藏推理。
 - [[Reasoning model 与 chain-of-thought traces reasoning model chain-of-thought reaso]] — reasoning model 被训练成先出声思考再给答案，这些思考记成 chain-of-thought traces，是输出而非内部逻辑窗口。
@@ -1052,7 +1122,7 @@
 
 </details>
 
-## 认知与思维方法（29）
+## 认知与思维方法（30）
 
 > 人该用什么方式思考，才不被工具替代？
 
@@ -1078,6 +1148,7 @@
 - [[Taste]] — 在美学、判断与取舍上的品味，负责在多个可运行方案中挑出对的、优雅的那个。
 - [[Without Defensiveness]] — 承认错误后不甩锅、不列条件、不找借口，否则承认失效，只是给「被错」打麻药。
 - [[3+ 法则]] — 决策前强制列出至少 3 个方案，避免二元对立陷阱，拓宽思考宽度。
+- [[动机性认知与自我欺骗 motivated cognition]] — 思考偏向维护自身利益与道德形象，用合理化缓解认知失调。
 - [[回声 echo of your own tangle of thoughts]] — 模型返回的常不是新观点，而是你原有那团缠绕想法的回声。
 - [[价值定义]] — 人的未来价值在于判断一件事是否还有价值，并定义需求方向、审核结果。
 - [[决策慢、执行快]] — 决定做什么要慢、想清楚再动手；一旦定了执行要快，不要用 AI 加速决策本身。

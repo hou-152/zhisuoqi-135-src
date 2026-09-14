@@ -1,6 +1,6 @@
 {
- "generatedAt": "2026-09-13T20:03:38.549Z",
- "pages": 999,
+ "generatedAt": "2026-09-14T15:05:26.112Z",
+ "pages": 1070,
  "links": {
   "Harness": [
    "[[Agent = Model + Harness]]",
@@ -357,6 +357,13 @@
    "[[稳定前缀 Stable Prefix]]",
    "[[缓存断点 Cache Breakpoint]]"
   ],
+  "上下文用量 上下文管理 context usage context management": [
+   "[[动态加载]]",
+   "[[@Branch 完整 diff 上下文]]",
+   "[[规则 Rules]]",
+   "[[代码库搜索]]",
+   "[[图像输入]]"
+  ],
   "稳定前缀 Stable Prefix": [
    "[[缓存断点 Cache Breakpoint]]",
    "[[tools → system → messages 缓存顺序]]",
@@ -420,6 +427,12 @@
    "[[See Like an Agent]]",
    "[[Elicitation]]"
   ],
+  "安全论证与控制发展步伐": [
+   "[[失调 misalignment]]",
+   "[[防护措施]]",
+   "[[奖励篡改 reward tampering]]",
+   "[[隐写术 steganography]]"
+  ],
   "工具 Tools": [
    "[[工具定义 Tool Definitions Tool Schema]]",
    "[[工具即契约 tools as the contract]]",
@@ -430,6 +443,12 @@
    "[[AI Agent]]",
    "[[非模型架构 Non-model Architecture]]",
    "[[Harness]]"
+  ],
+  "规划与任务拆分": [
+   "[[完整闭环]]",
+   "[[可自行验证的步骤]]",
+   "[[监控告警自动触发智能体调查]]",
+   "[[关注智能体工作 停止与重新引导]]"
   ],
   "持久化执行 durable execution": [
    "[[snapshotting + rehydration]]",
@@ -523,6 +542,10 @@
   "安全审计与受信任来源 Security Considerations Trusted Sources": [
    "[[企业托管设置（Managed Settings）与 strictKnownMarketplaces]]",
    "[[企业技能的最高优先级]]"
+  ],
+  "多模型并行与多智能体评判": [
+   "[[并行测试多种情况]]",
+   "[[Explore 子代理 Explore subagent]]"
   ],
   "多时间尺度记忆与「记忆只是 hint」": [
    "[[跨轮次记忆与连贯策略]]",
@@ -784,6 +807,15 @@
    "[[Agentic primitives]]",
    "[[上下文工程 context engineering]]"
   ],
+  "强化学习 reinforcement learning": [
+   "[[预训练与人类模仿]]",
+   "[[目标导向型系统 goal-directed system]]",
+   "[[Scientist 人工智能框架]]"
+  ],
+  "验证手段": [
+   "[[智能体判断自己的代码是否正确]]",
+   "[[测试驱动开发 TDD]]"
+  ],
   "上下文压缩 Context Compression Summarization": [
    "[[上下文 context]]",
    "[[压缩 Compaction]]",
@@ -838,8 +870,17 @@
    "[[model-native harness]]",
    "[[Harness]]"
   ],
+  "框架": [
+   "[[编码 agent 智能体 coding agent Agent]]",
+   "[[云端代理]]"
+  ],
   "跨产品面的同步与共享边界 Surface-specific Sync and Sharing": [
    "[[预构建技能与自定义技能 Pre-built vs Custom Skills]]"
+  ],
+  "可自行验证的步骤": [
+   "[[规划与任务拆分]]",
+   "[[完整闭环]]",
+   "[[监控告警自动触发智能体调查]]"
   ],
   "跨轮次记忆与连贯策略": [
    "[[多时间尺度记忆与「记忆只是 hint」]]",
@@ -967,6 +1008,10 @@
    "[[Making product decisions]]",
    "[[High-agency ownership]]"
   ],
+  "云端代理": [
+   "[[编码 agent 智能体 coding agent Agent]]",
+   "[[框架]]"
+  ],
   "运行时限制、权限与数据保留边界 Runtime Limitations, Constraints, and Retention": [
    "[[allowed-tools]]",
    "[[运行时失败的三类原因]]"
@@ -1057,6 +1102,11 @@
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
   ],
+  "代码评审": [
+   "[[小而语义明确的提交]]",
+   "[[AI 生成代码的隐性缺陷]]",
+   "[[技术债与一致合并标准]]"
+  ],
   "多头注意力": [
    "[[注意力机制]]",
    "[[自注意力]]",
@@ -1081,6 +1131,11 @@
    "[[提示词缓存 Prompt Caching]]",
    "[[稳定前缀 Stable Prefix]]",
    "[[缓存断点 Cache Breakpoint]]"
+  ],
+  "奖励篡改 reward tampering": [
+   "[[隐性目标与模糊目标]]",
+   "[[工具性目标 instrumental goals]]",
+   "[[安全论证与控制发展步伐]]"
   ],
   "结构化记事 agentic memory": [
    "[[多时间尺度记忆与「记忆只是 hint」]]",
@@ -1210,6 +1265,11 @@
    "[[「并不 agentic」的 AI Agent]]",
    "[[软件即有向图]]",
    "[[12-factor agents]]"
+  ],
+  "AI 生成代码的隐性缺陷": [
+   "[[代码评审]]",
+   "[[技术债与一致合并标准]]",
+   "[[Ask mode]]"
   ],
   "Cache prefix stability": [
    "[[前缀匹配 Prefix Matching]]",
@@ -1518,6 +1578,12 @@
    "[[Looped Transformer Recurrent Depth looped transformer, recurrent depth]]",
    "[[Compute-Matched Looped Transformer SMELT]]"
   ],
+  "调试模式 Debug Mode": [
+   "[[良好调试的共同原则]]"
+  ],
+  "良好调试的共同原则": [
+   "[[调试模式 Debug Mode]]"
+  ],
   "五种图表类型 Architecture Workflow Sequence Data Flow Lifecycle": [
    "[[类型化 JSON IR typed JSON IR]]"
   ],
@@ -1577,6 +1643,10 @@
    "[[非模型架构 Non-model Architecture]]",
    "[[Harness]]"
   ],
+  "并行测试多种情况": [
+   "[[云端代理的边界测试 Cloud Agents]]",
+   "[[多模型并行与多智能体评判]]"
+  ],
   "非模型架构 Non-model Architecture": [
    "[[If you're not the model, you're the harness.]]",
    "[[LLM-as-CPU Harness-as-OS]]",
@@ -1621,6 +1691,10 @@
    "[[上下文工程 context engineering]]",
    "[[Harness]]"
   ],
+  "集成浏览器与 MCP 服务器": [
+   "[[集成浏览器]]",
+   "[[MCP 服务器]]"
+  ],
   "技能描述": [
    "[[技能触发与自动使用 Skill Triggering Automatic Use]]",
    "[[语义匹配（semantic matching）与触发短语]]"
@@ -1663,6 +1737,10 @@
    "[[按需加载]]",
    "[[启动时仅加载名称和描述]]"
   ],
+  "目标导向型系统 goal-directed system": [
+   "[[强化学习 reinforcement learning]]",
+   "[[Scientist 人工智能框架]]"
+  ],
   "匹配后的确认与完整加载": [
    "[[按需加载]]",
    "[[启动时仅加载名称和描述]]"
@@ -1688,6 +1766,10 @@
    "[[持久性 persistence]]",
    "[[Driving the build loop]]"
   ],
+  "完整闭环": [
+   "[[规划与任务拆分]]",
+   "[[可自行验证的步骤]]"
+  ],
   "修复收据与有限修复轮次 repair receipt supportedFixes": [
    "[[原子验证与交付门 atomic validation before delivery]]",
    "[[Reasoning Trace Faithfulness faithfulness]]"
@@ -1707,6 +1789,14 @@
   "真实交互 truthful interaction": [
    "[[类型化 JSON IR typed JSON IR]]",
    "[[沟通工件与非目标 communication artifact non-goals]]"
+  ],
+  "智能体判断自己的代码是否正确": [
+   "[[验证手段]]",
+   "[[测试通过不等于正确]]"
+  ],
+  "智能体评审 查找问题": [
+   "[[自我评审]]",
+   "[[Bugbot 与 Autofix]]"
   ],
   "重新审视指令假设": [
    "[[过度具体指导 overly specific guidance]]",
@@ -1893,6 +1983,9 @@
    "[[Sensors 与 Actuators]]",
    "[[Harness]]"
   ],
+  "测试驱动开发 TDD": [
+   "[[验证手段]]"
+  ],
   "渐进式披露 progressive disclosure": [
    "[[上下文文件树 tree of files]]",
    "[[Agent Skills]]",
@@ -1919,6 +2012,15 @@
   ],
   "三类内容：说明、代码、资源 Instructions, Code, Resources": [
    "[[按需加载]]"
+  ],
+  "图像输入": [
+   "[[上下文用量 上下文管理 context usage context management]]"
+  ],
+  "验证信号": [
+   "[[瓶颈转移与测试速度杠杆]]"
+  ],
+  "Ask mode": [
+   "[[AI 生成代码的隐性缺陷]]"
   ],
   "0 人工代码、0 人工 review 极限形态": [
    "[[信任机制重构]]",
@@ -1949,6 +2051,10 @@
   "被启动的电话游戏 extended game of actuated telephone": [
    "[[Prompt loop（prompt loop）／agent]]",
    "[[交互式系统 vs. prompt loop 系统 interactive system vs. prompt loop system]]"
+  ],
+  "编码 agent 智能体 coding agent Agent": [
+   "[[框架]]",
+   "[[云端代理]]"
   ],
   "编排循环与「dumb loop」": [
    "[[Harness 与 Loop 的配合]]",
@@ -2233,6 +2339,14 @@
    "[[Thin Harness, Fat Skills]]",
    "[[纠正成本递减 correct things less from that point on]]"
   ],
+  "技术债与一致合并标准": [
+   "[[AI 生成代码的隐性缺陷]]",
+   "[[代码评审]]"
+  ],
+  "监控告警自动触发智能体调查": [
+   "[[可自行验证的步骤]]",
+   "[[规划与任务拆分]]"
+  ],
   "检索池 vs 引用": [
    "[[检索器-阅读器配置 retriever-reader]]",
    "[[记忆须改变回答实质]]",
@@ -2250,6 +2364,10 @@
   "简洁规范": [
    "[[高精度原型设计]]",
    "[[描述区分度]]"
+  ],
+  "奖励黑客 reward hacking": [
+   "[[Goodhart's law]]",
+   "[[目标冲突 conflict between goals]]"
   ],
   "交互式系统 vs. prompt loop 系统 interactive system vs. prompt loop system": [
    "[[Prompt loop（prompt loop）／agent]]",
@@ -2375,6 +2493,10 @@
    "[[判定程序化写法]]",
    "[[fail-closed 默认]]"
   ],
+  "目标冲突 conflict between goals": [
+   "[[明确定义的目标与模糊目标]]",
+   "[[奖励黑客 reward hacking]]"
+  ],
   "目标清楚 + 结果好验收": [
    "[[判断力优先 let Claude use judgement]]",
    "[[教会 AI Agent 如何成功]]",
@@ -2481,6 +2603,10 @@
    "[[反自我合理化条款]]",
    "[[fail-closed 默认]]"
   ],
+  "失调 misalignment": [
+   "[[隐写术 steganography]]",
+   "[[安全论证与控制发展步伐]]"
+  ],
   "时间 Scalability Temporal Scalability": [
    "[[context window 即 agent 状态]]",
    "[[长周期任务的基础设施压力]]",
@@ -2579,6 +2705,10 @@
    "[[部署系统层]]",
    "[[Harness]]"
   ],
+  "小而语义明确的提交": [
+   "[[代码评审]]",
+   "[[提交重整理 rework-commits]]"
+  ],
   "芯片管制": [
    "[[平行 AI 基础设施]]",
    "[[昇腾]]",
@@ -2641,6 +2771,10 @@
   "意图理解、路由与升级 understand intent, route, escalate": [
    "[[子 agent 编排 Fork Teammate Worktree]]",
    "[[Agent-to-Agent 交互（A2A）]]"
+  ],
+  "隐写术 steganography": [
+   "[[失调 misalignment]]",
+   "[[安全论证与控制发展步伐]]"
   ],
   "优势函数": [
    "[[Dr. GRPO]]",
@@ -3462,6 +3596,10 @@
    "[[primitives]]",
    "[[Agent]]"
   ],
+  "Scientist 人工智能框架": [
+   "[[目标导向型系统 goal-directed system]]",
+   "[[强化学习 reinforcement learning]]"
+  ],
   "Self-evaluation Failure": [
    "[[Read-only Verifier Agent]]",
    "[[Rubric 与 verifier agent]]",
@@ -3668,15 +3806,25 @@
    "[[Harness 工程 Harness Engineering]]",
    "[[Harness]]"
   ],
+  "调试与根因修复": [
+   "[[理解修复与根本原因]]"
+  ],
   "个人技能与项目技能": [
    "[[agent 模板的声明式持久化]]"
+  ],
+  "提交重整理 rework-commits": [
+   "[[小而语义明确的提交]]"
   ],
   "往下游去：卖结果": [
    "[[推理成本锁死毛利]]"
   ],
+  "CLI 工具": [
+   "[[精确字符串查找 grep grep ripgrep Instant Grep]]"
+  ],
   "description": [
    "[[SKILL.md 与 YAML 前置元数据 SKILL.md YAML frontmatter]]"
   ],
+  "规则沉淀 定价规则": [],
   "模型即应用": [
    "[[模型吞噬]]"
   ],
@@ -3711,8 +3859,14 @@
   "沟通工件与非目标 communication artifact non-goals": [
    "[[真实交互 truthful interaction]]"
   ],
+  "精确字符串查找 grep grep ripgrep Instant Grep": [
+   "[[CLI 工具]]"
+  ],
   "瓶颈转移到代码两侧": [
    "[[执行主体从人变成 Agent]]"
+  ],
+  "瓶颈转移与测试速度杠杆": [
+   "[[验证信号]]"
   ],
   "请求驱动与事件驱动": [
    "[[自动激活]]"
@@ -3722,6 +3876,9 @@
   ],
   "往上游去：自己做模型": [
    "[[应用公司的租客处境]]"
+  ],
+  "修改前先探索": [
+   "[[按字面理解请求 意图 literal interpretation intent]]"
   ],
   "压缩 Compaction": [
    "[[上下文压缩 Context Compression Summarization]]",
@@ -3743,8 +3900,14 @@
   "ARR（年度经常性收入）的失真": [
    "[[卖 token 的生意]]"
   ],
+  "Bugbot 与 Autofix": [
+   "[[智能体评审 查找问题]]"
+  ],
   "Compute-Matched Looped Transformer SMELT": [
    "[[Looping Costs：参数、计算与 KV Cache looping costs]]"
+  ],
+  "Explore 子代理 Explore subagent": [
+   "[[多模型并行与多智能体评判]]"
   ],
   "intelligent personal hub": [
    "[[硬件、软件与服务的深层共振]]"
@@ -3774,6 +3937,9 @@
   "大画布生态资产": [
    "[[折叠屏连续性]]"
   ],
+  "防护措施": [
+   "[[安全论证与控制发展步伐]]"
+  ],
   "放缓所换来的时间的用途 operational excellence alignment interpretability testing and evalua": [
    "[[领跑节奏 pacing the frontier]]"
   ],
@@ -3790,6 +3956,9 @@
    "[[自动循环的心跳]]",
    "[[Loop Engineering]]"
   ],
+  "规则 Rules": [
+   "[[上下文用量 上下文管理 context usage context management]]"
+  ],
   "基准测试的捆绑测量性": [
    "[[通用 harness 的公平性张力]]",
    "[[滚动截断 rolling truncation]]",
@@ -3802,6 +3971,9 @@
    "[[保留推理 retained reasoning]]",
    "[[上下文压缩 Context Compression Summarization]]",
    "[[Harness]]"
+  ],
+  "集成浏览器": [
+   "[[集成浏览器与 MCP 服务器]]"
   ],
   "记忆即提示 Memory as Prompt": [
    "[[自动记忆 auto-memory]]",
@@ -3817,6 +3989,9 @@
   ],
   "克制且有意识地推进／把节奏交还给产品自己": [
    "[[不做半成品]]"
+  ],
+  "理解修复与根本原因": [
+   "[[调试与根因修复]]"
   ],
   "连接器": [
    "[[第三方连接器 opt-in]]",
@@ -3858,6 +4033,9 @@
   "预构建技能与自定义技能 Pre-built vs Custom Skills": [
    "[[跨产品面的同步与共享边界 Surface-specific Sync and Sharing]]"
   ],
+  "预训练与人类模仿": [
+   "[[强化学习 reinforcement learning]]"
+  ],
   "折叠屏连续性": [
    "[[大画布生态资产]]"
   ],
@@ -3877,6 +4055,9 @@
    "[[prompt 与 context 的通用性落差]]",
    "[[过度约束与松绑 over-constraining unhobbling]]",
    "[[上下文工程 context engineering]]"
+  ],
+  "自我评审": [
+   "[[智能体评审 查找问题]]"
   ],
   "Adaptive Halting adaptive halting, halting probability": [
    "[[Looped Transformer Recurrent Depth looped transformer, recurrent depth]]"
@@ -3913,6 +4094,9 @@
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]",
    "[[Harness]]"
+  ],
+  "MCP 服务器": [
+   "[[集成浏览器与 MCP 服务器]]"
   ],
   "Reasoning model 与 chain-of-thought traces reasoning model chain-of-thought reaso": [
    "[[事后合理化与科幻叙事污染 post-hoc rationalizing sci-fi style narratives]]"
@@ -3982,6 +4166,9 @@
    "[[非确定性 nondeterminism]]",
    "[[Harness]]"
   ],
+  "@Branch 完整 diff 上下文": [
+   "[[上下文用量 上下文管理 context usage context management]]"
+  ],
   "1.6% vs 98.4%": [
    "[[脚手架与 Harness 厚度 Scaffolding Harness Thickness]]",
    "[[AI 公司岗位编制]]",
@@ -4013,6 +4200,9 @@
    "[[反自我合理化条款]]",
    "[[fail-closed 默认]]"
   ],
+  "按字面理解请求 意图 literal interpretation intent": [
+   "[[修改前先探索]]"
+  ],
   "不连贯输入的重构能力": [
    "[[意识流输入 full stream of consciousness]]",
    "[[漫谈会话 ramble session]]",
@@ -4041,6 +4231,9 @@
    "[[「模型即产品」的幻觉]]",
    "[[非确定性 nondeterminism]]",
    "[[Harness]]"
+  ],
+  "测试通过不等于正确": [
+   "[[智能体判断自己的代码是否正确]]"
   ],
   "查询感知语境化 query-aware contextualization": [
    "[[迷失在中间 lost in the middle]]",
@@ -4113,6 +4306,9 @@
    "[[上下文骨架]]",
    "[[“SaaS 已死”叙事与护城河蒸发]]"
   ],
+  "代码库搜索": [
+   "[[上下文用量 上下文管理 context usage context management]]"
+  ],
   "带文档追问 Grill with Docs": [
    "[[追问式对齐 Grill Me]]",
    "[[共享理解 shared understanding]]"
@@ -4129,6 +4325,9 @@
    "[[注意力预算 attention budget]]",
    "[[上下文腐烂 Context Rot]]",
    "[[上下文工程 context engineering]]"
+  ],
+  "动态加载": [
+   "[[上下文用量 上下文管理 context usage context management]]"
   ],
   "动态系统": [
    "[[Harness]]",
@@ -4283,11 +4482,17 @@
    "[[If you're not the model, you're the harness.]]",
    "[[Harness]]"
   ],
+  "工具性目标 instrumental goals": [
+   "[[奖励篡改 reward tampering]]"
+  ],
   "共享 多人 agent 会话": [
    "[[共享产品系统 shared product system]]",
    "[[代理原生 agent-native]]",
    "[[上下文骨架]]",
    "[[“SaaS 已死”叙事与护城河蒸发]]"
+  ],
+  "关注智能体工作 停止与重新引导": [
+   "[[规划与任务拆分]]"
   ],
   "规划模式与边界问题清单": [
    "[[Plan 模式]]",
@@ -4579,6 +4784,9 @@
   ],
   "描述区分度": [
    "[[简洁规范]]"
+  ],
+  "明确定义的目标与模糊目标": [
+   "[[目标冲突 conflict between goals]]"
   ],
   "模型训练与 harness 设计的耦合": [
    "[[Co-evolution Principle]]",
@@ -4976,6 +5184,9 @@
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
   ],
+  "隐性目标与模糊目标": [
+   "[[奖励篡改 reward tampering]]"
+  ],
   "硬件、软件与服务的深层共振": [
    "[[intelligent personal hub]]"
   ],
@@ -5025,6 +5236,9 @@
    "[[熵减 entropy reduction]]",
    "[[上下文 context]]",
    "[[上下文工程 context engineering]]"
+  ],
+  "云端代理的边界测试 Cloud Agents": [
+   "[[并行测试多种情况]]"
   ],
   "责任地址": [
    "[[无国籍智能体]]",
@@ -5528,6 +5742,9 @@
    "[[外包思考，但不外包理解]]",
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
+  ],
+  "Goodhart's law": [
+   "[[奖励黑客 reward hacking]]"
   ],
   "gotchas 优先的 CLAUDE.md": [
    "[[gotchas 优先原则]]",
@@ -6135,6 +6352,7 @@
    "[[Harness]]"
   ],
   "两类 Skills": [],
+  "提示词": [],
   "Hidden Chains of Thought Monitorability hidden reasoning traces, chain-of-though": [],
   "把自己当普通用户／黑盒测试": [],
   "仓库提交": [],
@@ -6142,6 +6360,7 @@
   "反复解释同一件事": [],
   "功能组合": [],
   "全球分级协定 Level 1–4": [],
+  "上下文成本": [],
   "设计文档": [],
   "文件系统型代码执行环境 Filesystem-based Code Execution Environment": [],
   "Agent swarm 作为 prompt 管理策略 agent swarm prompt management strategy": [],
@@ -6163,6 +6382,7 @@
    "[[上下文压缩 Context Compression Summarization]]",
    "[[Harness]]"
   ],
+  "错误消息明确时的直接修复": [],
   "富引用 rich references": [
    "[[护栏型指令的过期]]",
    "[[判断力优先 let Claude use judgement]]",
@@ -6188,8 +6408,10 @@
    "[[基准测试的捆绑测量性]]",
    "[[Harness]]"
   ],
+  "回到方案，而非修补提示词": [],
   "技能变更生效条件：编辑、删除、重启": [],
   "技能与 SKILL.md 结构 Skill SKILL.md": [],
+  "架构图 Mermaid 图": [],
   "竞相超越 race to the top": [],
   "决策边界 decision boundaries": [],
   "可变光圈与控制权回归": [],
@@ -6201,8 +6423,11 @@
    "[[基准测试的捆绑测量性]]",
    "[[Harness]]"
   ],
+  "问题的表述方式": [],
   "误诊：不是“AI”失控，而是无监督、接工具的 prompt loop 系统 “AI” going rogue vs. unsupervised prompt l": [],
+  "协作行为与同伴保护": [],
   "性能冗余与高保值": [],
+  "运行时证据": [],
   "CLAUDE.md": [
    "[[AI 工程基础设施 AI engineering infrastructure]]",
    "[[确定性工程基础设施 deterministic engineering infrastructure]]",
@@ -6479,6 +6704,7 @@
    "[[非确定性 nondeterminism]]",
    "[[Harness]]"
   ],
+  "动机性认知与自我欺骗 motivated cognition": [],
   "动态装配 Dynamic": [
    "[[上下文（Context）：模型生成之前看到的一切]]",
    "[[有限的工作记忆 limited working memory]]",
@@ -6700,6 +6926,7 @@
    "[[Agent-Native Infrastructure]]",
    "[[Sensors 与 Actuators]]"
   ],
+  "评估意识 detect being evaluated": [],
   "弃答与幻觉：两种失败姿态": [
    "[[上下文均匀处理假设]]",
    "[[大海捞针（NIAH）与词面匹配]]",
@@ -6844,6 +7071,7 @@
    "[[反自我合理化条款]]",
    "[[fail-closed 默认]]"
   ],
+  "首迭代范围收敛": [],
   "首因偏置 primacy bias": [
    "[[近因偏置 recency bias]]",
    "[[干扰文档 distractor documents]]",
