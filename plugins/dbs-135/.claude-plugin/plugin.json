@@ -1,0 +1,18 @@
+{
+  "name": "dbs-135",
+  "version": "0.1.0",
+  "description": "知所栖 135 的方法论本体：dbs-learning（三层内容梯度 L1直觉/L2机制/L3应用 + 反馈实时切层）与 dbs-standard-answer（先决策 → 真实案例同构比较 → 带条件的标准答案表 → 修订）。这两个自有 skill 就是知乎黑客松产品「知所栖 135」写进编排层的学习方法论——先有 skill，后有 web 产品。",
+  "author": {
+    "name": "hou-152"
+  },
+  "keywords": [
+    "知所栖",
+    "dbs-learning",
+    "dbs-standard-answer",
+    "费曼",
+    "提取练习",
+    "学习方法论",
+    "知乎黑客松"
+  ],
+  "skills": "./skills/"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "zhisuoqi-135",
+  "owner": {
+    "name": "hou-152",
+    "url": "https://github.com/hou-152"
+  },
+  "metadata": {
+    "description": "知所栖 135（知乎黑客松参赛作品）的方法论插件：产品写进编排层的两个自有学习 skill，可装进 Claude Code / Codex 当场验证。"
+  },
+  "plugins": [
+    {
+      "name": "dbs-135",
+      "description": "知所栖 135 的方法论本体：dbs-learning（三层内容梯度 + 反馈实时切层）与 dbs-standard-answer（先决策 → 同构比较 → 条件答案表 → 修订）。产品是这两个 skill 的 web 工程化。",
+      "version": "0.1.0",
+      "source": "./plugins/dbs-135",
+      "category": "Learning"
+    }
+  ]
+}
