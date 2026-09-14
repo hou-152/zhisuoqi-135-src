@@ -111,8 +111,8 @@ await step('09-13 减法：底部那条栏已删', null,
   { js: `document.getElementById('bar') ? '还在' : 'OK'`, want: 'OK' });
 await step('09-13 减法：已删的四个入口不再是导航项，旧轴函数也没了', null,
   { js: `['curate','todo','mine','chat'].filter(v => document.querySelector('.r-item[data-view="'+v+'"]')).length + '|' + typeof window.setAxis`, want: '0|undefined' });
-await step('三栏都在（列表栏现在列的是主题，不是 936 条概念）', null,
-  { js: `['rail','list','main'].filter(i=>document.getElementById(i)).length + '|' + document.querySelectorAll('#lp-body .row').length`, want: '3|' + N_TAGS });
+await step('顶栏 + 两栏都在（一级导航在顶栏；列表栏列的是主题，不是 936 条概念）', null,
+  { js: `['topbar','list','main'].filter(i=>document.getElementById(i)).length + '|' + document.querySelectorAll('#topbar .r-item').length + '|' + document.querySelectorAll('#lp-body .row').length`, want: '3|3|' + N_TAGS });
 await step(`${N_TOTAL} 个点全部有标签`, null,
   { js: `const n=DATA.nodes.filter(x=>(x.tags||[]).length).length; n+'/'+DATA.nodes.length`, want: N_TOTAL + '/' + N_TOTAL });
 await step('关系视图：语义边与图例可切换', `setMode('relation')`,

@@ -172,8 +172,8 @@ check('⑧ 顶栏＝三项导航 + 搜索框', await ex(`document.querySelectorA
 await ex(`openPractice()`); await sleep(700);
 await ex(`setView('neican')`); await sleep(900);
 check('⑧ 从实践空间回内参能打开（#nei-wrap 会自己重建）',
-  await ex(`document.getElementById('reader').classList.contains('on') + '|' + (document.getElementById('nei-wrap') ? '有容器' : '没容器') + '|' + ((document.getElementById('nei-wrap')||{}).innerText||'').length > 200`),
-  'true|有容器|true');
+  await ex(`document.getElementById('reader').classList.contains('on') + '|' + (document.getElementById('nei-wrap') ? '有容器' : '没容器') + '|' + (((document.getElementById('nei-wrap')||{}).innerText||'').length > 200 ? '正文在' : '正文空')`),
+  'true|有容器|正文在');
 await ex(`setView('graph')`); await sleep(400);
 
 /* ⑨ 分类决定系统对你做什么 */
