@@ -1,0 +1,1606 @@
+{
+  "generatedAt": "2026-09-14T16:49:52.675Z",
+  "reviewer": "scripts/review-batch-criteria.mjs（独立复算；不采信产物自述与 derivation.note）",
+  "file": "evidence/batch-units-260914/units.json",
+  "verdict": "unusable",
+  "rules": {
+    "perCriterion": [
+      "① 出处可回溯：condition 逐字 = 图鉴卡同一条 boundaries[locator] · point = 前 12 字 · sha256 一致 · derivation.from 指向同一条",
+      "② 机械反面转述：②a FLIP 表重算逐字相同 · ②b 整条否定（前缀＋原文）· ②c 误解句逐字含完整正确条件",
+      "③ 误解信息增量 ≥ 20 字（novelChars：抠掉与 condition 的最长公共片段后的新增字符数）",
+      "④ 不得\"照抄边界原文即满足\"：condition 逐字在可见材料里且 required 全是它的连续子串",
+      "⑤ 同单元判据不得重复（逐字撞或两两覆盖率 ≥ 50%）",
+      "⑥ 极性一致：同一出处 · 误解句不含完整正确条件 · 不得部分翻转（≥2 个否定短语只翻一个）"
+    ]
+  },
+  "thresholds": {
+    "MIN_NOVEL": 20,
+    "DUP_RATIO": 0.5,
+    "MIN_QUOTE": 20
+  },
+  "recomputed": {
+    "total": 264,
+    "units": 76,
+    "tierA_provenanceClean": 264,
+    "tierB_hasMisconceptionGain": 0,
+    "tierC_usableAsUnderstandingCheck": 0,
+    "mechanicalRestatement": 264,
+    "mechanicalForms": {
+      "redriveFlip": 152,
+      "wholeDenial": 112,
+      "containsFullCondition": 111
+    },
+    "insufficientGain": 264,
+    "recitableFromBoundaries": 264,
+    "duplicatedWithinUnit": 4,
+    "unitsWithDuplicatedCriteria": 2,
+    "polarityInconsistent": 0,
+    "unitsWithPartialFlip": 0,
+    "provenanceFailures": 0,
+    "novelChars": {
+      "min": 0,
+      "max": 11,
+      "avg": 5.3,
+      "lcsRatioMax": 1
+    },
+    "humanControl": {
+      "total": 18,
+      "mechanicalRestatement": 0,
+      "insufficientGain": 0,
+      "recitable": 0,
+      "duplicated": 0,
+      "polarityInconsistent": 0,
+      "novelChars": {
+        "min": 22,
+        "max": 49,
+        "avg": 32.3,
+        "lcsRatioMax": 0.256
+      }
+    },
+    "usableUnits": 0,
+    "blockedUnits": 76
+  },
+  "examples": {
+    "mechanicalRedriveFlip": [
+      {
+        "id": "batch-agent-B1",
+        "novel": 6,
+        "flipped": "不等于"
+      },
+      {
+        "id": "batch-agent-B3",
+        "novel": 1,
+        "flipped": "不是"
+      },
+      {
+        "id": "batch-agent-action-space-B1",
+        "novel": 4,
+        "flipped": "不等于"
+      },
+      {
+        "id": "batch-agent-action-space-B2",
+        "novel": 0,
+        "flipped": "不必然"
+      },
+      {
+        "id": "batch-agent-action-space-B3",
+        "novel": 2,
+        "flipped": "未给出"
+      }
+    ],
+    "wholeDenial": [
+      {
+        "id": "batch-agent-B2",
+        "novel": 11
+      },
+      {
+        "id": "batch-agent-cli-runtime-B3",
+        "novel": 11
+      },
+      {
+        "id": "batch-agent-harness-B3",
+        "novel": 11
+      },
+      {
+        "id": "batch-agent-session-management-B1",
+        "novel": 11
+      },
+      {
+        "id": "batch-agent-session-management-B3",
+        "novel": 11
+      }
+    ],
+    "partialFlip": [],
+    "duplicated": [
+      {
+        "id": "batch-agent-harness-B1",
+        "flag": "⑤ 与同单元 batch-agent-harness-B2 的 point 一字不差（要点撞车）"
+      },
+      {
+        "id": "batch-agent-harness-B2",
+        "flag": "⑤ 与同单元 batch-agent-harness-B1 的 point 一字不差（要点撞车）"
+      },
+      {
+        "id": "batch-guardrails-B1",
+        "flag": "⑤ 与同单元 batch-guardrails-B2 的 point 一字不差（要点撞车）"
+      },
+      {
+        "id": "batch-guardrails-B2",
+        "flag": "⑤ 与同单元 batch-guardrails-B1 的 point 一字不差（要点撞车）"
+      }
+    ],
+    "bestOfBatch": [
+      {
+        "id": "batch-agent-B2",
+        "novel": 11,
+        "lcsRatio": 1
+      },
+      {
+        "id": "batch-agent-cli-runtime-B3",
+        "novel": 11,
+        "lcsRatio": 1
+      },
+      {
+        "id": "batch-agent-harness-B3",
+        "novel": 11,
+        "lcsRatio": 1
+      },
+      {
+        "id": "batch-agent-session-management-B1",
+        "novel": 11,
+        "lcsRatio": 1
+      },
+      {
+        "id": "batch-agent-session-management-B3",
+        "novel": 11,
+        "lcsRatio": 1
+      }
+    ]
+  },
+  "units": [
+    {
+      "unitId": "batch-agent",
+      "conceptId": "CON-agent",
+      "card": "agent",
+      "checkCount": 3,
+      "status": "ready",
+      "superseded": true,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不等于」））",
+        "③ 误解信息增量不足（新增 6 字 < 20；与条件共享 39/46 字，覆盖率 0.848）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）"
+      ]
+    },
+    {
+      "unitId": "batch-agent-action-space",
+      "conceptId": "CON-agent-action-space",
+      "card": "agent-action-space",
+      "checkCount": 3,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不等于」））",
+        "③ 误解信息增量不足（新增 4 字 < 20；与条件共享 34/39 字，覆盖率 0.872）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不必然」））"
+      ]
+    },
+    {
+      "unitId": "batch-agent-cli-runtime",
+      "conceptId": "CON-agent-cli-runtime",
+      "card": "agent-cli-runtime",
+      "checkCount": 3,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不是」））",
+        "③ 误解信息增量不足（新增 0 字 < 20；与条件共享 14/24 字，覆盖率 0.583）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不等同于」））"
+      ]
+    },
+    {
+      "unitId": "batch-agent-elicitation",
+      "conceptId": "CON-agent-elicitation",
+      "card": "agent-elicitation",
+      "checkCount": 3,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不是」））",
+        "③ 误解信息增量不足（新增 4 字 < 20；与条件共享 34/39 字，覆盖率 0.872）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "③ 误解信息增量不足（新增 0 字 < 20；与条件共享 26/35 字，覆盖率 0.743）"
+      ]
+    },
+    {
+      "unitId": "batch-agent-handoff",
+      "conceptId": "CON-agent-handoff",
+      "card": "agent-handoff",
+      "checkCount": 4,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 4,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不等于」））",
+        "③ 误解信息增量不足（新增 0 字 < 20；与条件共享 25/46 字，覆盖率 0.543）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不是」））"
+      ]
+    },
+    {
+      "unitId": "batch-agent-harness",
+      "conceptId": "CON-agent-harness",
+      "card": "agent-harness",
+      "checkCount": 4,
+      "status": "ready",
+      "superseded": true,
+      "tierA": 4,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不等于」））",
+        "③ 误解信息增量不足（新增 1 字 < 20；与条件共享 41/56 字，覆盖率 0.732）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "⑤ 与同单元 batch-agent-harness-B2 的 point 一字不差（要点撞车）"
+      ]
+    },
+    {
+      "unitId": "batch-agent-lifecycle",
+      "conceptId": "CON-agent-lifecycle",
+      "card": "agent-lifecycle",
+      "checkCount": 3,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不等于」））",
+        "③ 误解信息增量不足（新增 0 字 < 20；与条件共享 27/51 字，覆盖率 0.529）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不是」））"
+      ]
+    },
+    {
+      "unitId": "batch-agent-loop",
+      "conceptId": "CON-agent-loop",
+      "card": "agent-loop",
+      "checkCount": 4,
+      "status": "scaffold",
+      "superseded": true,
+      "tierA": 4,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不等于」））",
+        "③ 误解信息增量不足（新增 0 字 < 20；与条件共享 45/85 字，覆盖率 0.529）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不是」））"
+      ]
+    },
+    {
+      "unitId": "batch-agent-session-management",
+      "conceptId": "CON-agent-session-management",
+      "card": "agent-session-management",
+      "checkCount": 3,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）",
+        "③ 误解信息增量不足（新增 11 字 < 20；与条件共享 47/47 字，覆盖率 1）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不会」））"
+      ]
+    },
+    {
+      "unitId": "batch-agent-stop-conditions",
+      "conceptId": "CON-agent-stop-conditions",
+      "card": "agent-stop-conditions",
+      "checkCount": 4,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 4,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不是」））",
+        "③ 误解信息增量不足（新增 1 字 < 20；与条件共享 35/37 字，覆盖率 0.946）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不能」））"
+      ]
+    },
+    {
+      "unitId": "batch-agent-tool-contract",
+      "conceptId": "CON-agent-tool-contract",
+      "card": "agent-tool-contract",
+      "checkCount": 3,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不是」））",
+        "③ 误解信息增量不足（新增 1 字 < 20；与条件共享 32/34 字，覆盖率 0.941）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不等于」））"
+      ]
+    },
+    {
+      "unitId": "batch-attention-budget",
+      "conceptId": "CON-attention-budget",
+      "card": "attention-budget",
+      "checkCount": 4,
+      "status": "ready",
+      "superseded": false,
+      "tierA": 4,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不等于」））",
+        "③ 误解信息增量不足（新增 1 字 < 20；与条件共享 52/70 字，覆盖率 0.743）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不是」））"
+      ]
+    },
+    {
+      "unitId": "batch-bounded-context",
+      "conceptId": "CON-bounded-context",
+      "card": "bounded-context",
+      "checkCount": 3,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不等于」））",
+        "③ 误解信息增量不足（新增 0 字 < 20；与条件共享 34/45 字，覆盖率 0.756）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不会」））"
+      ]
+    },
+    {
+      "unitId": "batch-browsing-loop",
+      "conceptId": "CON-browsing-loop",
+      "card": "browsing-loop",
+      "checkCount": 3,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不是」））",
+        "③ 误解信息增量不足（新增 1 字 < 20；与条件共享 32/34 字，覆盖率 0.941）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不确定」））"
+      ]
+    },
+    {
+      "unitId": "batch-change-impact-analysis",
+      "conceptId": "CON-change-impact-analysis",
+      "card": "change-impact-analysis",
+      "checkCount": 3,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不等于」））",
+        "③ 误解信息增量不足（新增 0 字 < 20；与条件共享 15/29 字，覆盖率 0.517）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）"
+      ]
+    },
+    {
+      "unitId": "batch-chat-template",
+      "conceptId": "CON-chat-template",
+      "card": "chat-template",
+      "checkCount": 3,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不会」））",
+        "③ 误解信息增量不足（新增 0 字 < 20；与条件共享 16/33 字，覆盖率 0.485）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）"
+      ]
+    },
+    {
+      "unitId": "batch-code-execution",
+      "conceptId": "CON-code-execution",
+      "card": "code-execution",
+      "checkCount": 3,
+      "status": "ready",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不等于」））",
+        "③ 误解信息增量不足（新增 0 字 < 20；与条件共享 20/33 字，覆盖率 0.606）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不会」））"
+      ]
+    },
+    {
+      "unitId": "batch-context",
+      "conceptId": "CON-context",
+      "card": "context",
+      "checkCount": 4,
+      "status": "ready",
+      "superseded": false,
+      "tierA": 4,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不等于」））",
+        "③ 误解信息增量不足（新增 0 字 < 20；与条件共享 46/66 字，覆盖率 0.697）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不属于」））"
+      ]
+    },
+    {
+      "unitId": "batch-context-compaction",
+      "conceptId": "CON-context-compaction",
+      "card": "context-compaction",
+      "checkCount": 4,
+      "status": "ready",
+      "superseded": false,
+      "tierA": 4,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不等于」））",
+        "③ 误解信息增量不足（新增 2 字 < 20；与条件共享 30/33 字，覆盖率 0.909）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "③ 误解信息增量不足（新增 2 字 < 20；与条件共享 41/44 字，覆盖率 0.932）"
+      ]
+    },
+    {
+      "unitId": "batch-context-engineering",
+      "conceptId": "CON-context-engineering",
+      "card": "context-engineering",
+      "checkCount": 4,
+      "status": "ready",
+      "superseded": false,
+      "tierA": 4,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不等于」））",
+        "③ 误解信息增量不足（新增 1 字 < 20；与条件共享 58/60 字，覆盖率 0.967）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）"
+      ]
+    },
+    {
+      "unitId": "batch-context-rot",
+      "conceptId": "CON-context-rot",
+      "card": "context-rot",
+      "checkCount": 5,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 5,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不等于」））",
+        "③ 误解信息增量不足（新增 1 字 < 20；与条件共享 45/58 字，覆盖率 0.776）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "③ 误解信息增量不足（新增 1 字 < 20；与条件共享 76/78 字，覆盖率 0.974）"
+      ]
+    },
+    {
+      "unitId": "batch-context-selection",
+      "conceptId": "CON-context-selection",
+      "card": "context-selection",
+      "checkCount": 4,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 4,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不是」））",
+        "③ 误解信息增量不足（新增 0 字 < 20；与条件共享 69/78 字，覆盖率 0.885）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不等于」））"
+      ]
+    },
+    {
+      "unitId": "batch-context-window",
+      "conceptId": "CON-context-window",
+      "card": "context-window",
+      "checkCount": 3,
+      "status": "ready",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不等于」））",
+        "③ 误解信息增量不足（新增 4 字 < 20；与条件共享 16/21 字，覆盖率 0.762）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）"
+      ]
+    },
+    {
+      "unitId": "batch-durable-execution",
+      "conceptId": "CON-durable-execution",
+      "card": "durable-execution",
+      "checkCount": 3,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不等于」））",
+        "③ 误解信息增量不足（新增 1 字 < 20；与条件共享 39/58 字，覆盖率 0.672）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不能」））"
+      ]
+    },
+    {
+      "unitId": "batch-dynamic-context-assembly",
+      "conceptId": "CON-dynamic-context-assembly",
+      "card": "dynamic-context-assembly",
+      "checkCount": 3,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不等于」））",
+        "③ 误解信息增量不足（新增 4 字 < 20；与条件共享 57/62 字，覆盖率 0.919）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "③ 误解信息增量不足（新增 4 字 < 20；与条件共享 47/52 字，覆盖率 0.904）"
+      ]
+    },
+    {
+      "unitId": "batch-error-handling",
+      "conceptId": "CON-error-handling",
+      "card": "error-handling",
+      "checkCount": 3,
+      "status": "ready",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不等于」））",
+        "③ 误解信息增量不足（新增 1 字 < 20；与条件共享 39/55 字，覆盖率 0.709）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）"
+      ]
+    },
+    {
+      "unitId": "batch-event-driven-agent-automation",
+      "conceptId": "CON-event-driven-agent-automation",
+      "card": "event-driven-agent-automation",
+      "checkCount": 3,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）",
+        "③ 误解信息增量不足（新增 11 字 < 20；与条件共享 30/30 字，覆盖率 1）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "③ 误解信息增量不足（新增 11 字 < 20；与条件共享 31/31 字，覆盖率 1）"
+      ]
+    },
+    {
+      "unitId": "batch-filesystem-workspace",
+      "conceptId": "CON-filesystem-workspace",
+      "card": "filesystem-workspace",
+      "checkCount": 3,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不等于」））",
+        "③ 误解信息增量不足（新增 0 字 < 20；与条件共享 47/58 字，覆盖率 0.81）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "③ 误解信息增量不足（新增 0 字 < 20；与条件共享 29/36 字，覆盖率 0.806）"
+      ]
+    },
+    {
+      "unitId": "batch-guardrails",
+      "conceptId": "CON-guardrails",
+      "card": "guardrails",
+      "checkCount": 4,
+      "status": "ready",
+      "superseded": false,
+      "tierA": 4,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不等于」））",
+        "③ 误解信息增量不足（新增 1 字 < 20；与条件共享 61/73 字，覆盖率 0.836）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "⑤ 与同单元 batch-guardrails-B2 的 point 一字不差（要点撞车）"
+      ]
+    },
+    {
+      "unitId": "batch-harness-compute-separation",
+      "conceptId": "CON-harness-compute-separation",
+      "card": "harness-compute-separation",
+      "checkCount": 4,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 4,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不是」））",
+        "③ 误解信息增量不足（新增 0 字 < 20；与条件共享 28/38 字，覆盖率 0.737）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不能」））"
+      ]
+    },
+    {
+      "unitId": "batch-harness-engineering",
+      "conceptId": "CON-harness-engineering",
+      "card": "harness-engineering",
+      "checkCount": 4,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 4,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）",
+        "③ 误解信息增量不足（新增 11 字 < 20；与条件共享 111/111 字，覆盖率 1）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "③ 误解信息增量不足（新增 11 字 < 20；与条件共享 97/97 字，覆盖率 1）"
+      ]
+    },
+    {
+      "unitId": "batch-harness-overfitting",
+      "conceptId": "CON-harness-overfitting",
+      "card": "harness-overfitting",
+      "checkCount": 3,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）",
+        "③ 误解信息增量不足（新增 11 字 < 20；与条件共享 44/44 字，覆盖率 1）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不必然」））"
+      ]
+    },
+    {
+      "unitId": "batch-harness-token-floor",
+      "conceptId": "CON-harness-token-floor",
+      "card": "harness-token-floor",
+      "checkCount": 5,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 5,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不是」））",
+        "③ 误解信息增量不足（新增 0 字 < 20；与条件共享 35/44 字，覆盖率 0.795）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不会」））"
+      ]
+    },
+    {
+      "unitId": "batch-human-escalation-tool-call",
+      "conceptId": "CON-human-escalation-tool-call",
+      "card": "human-escalation-tool-call",
+      "checkCount": 3,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不是」））",
+        "③ 误解信息增量不足（新增 1 字 < 20；与条件共享 32/34 字，覆盖率 0.941）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）"
+      ]
+    },
+    {
+      "unitId": "batch-instruction-locality",
+      "conceptId": "CON-instruction-locality",
+      "card": "instruction-locality",
+      "checkCount": 3,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不等同于」））",
+        "③ 误解信息增量不足（新增 0 字 < 20；与条件共享 25/35 字，覆盖率 0.714）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不保证」））"
+      ]
+    },
+    {
+      "unitId": "batch-just-in-time-retrieval",
+      "conceptId": "CON-just-in-time-retrieval",
+      "card": "just-in-time-retrieval",
+      "checkCount": 4,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 4,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不等于」））",
+        "③ 误解信息增量不足（新增 4 字 < 20；与条件共享 39/44 字，覆盖率 0.886）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "③ 误解信息增量不足（新增 1 字 < 20；与条件共享 58/60 字，覆盖率 0.967）"
+      ]
+    },
+    {
+      "unitId": "batch-large-language-model",
+      "conceptId": "CON-large-language-model",
+      "card": "large-language-model",
+      "checkCount": 3,
+      "status": "ready",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）",
+        "③ 误解信息增量不足（新增 11 字 < 20；与条件共享 53/53 字，覆盖率 1）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不等于」））"
+      ]
+    },
+    {
+      "unitId": "batch-llm-statelessness",
+      "conceptId": "CON-llm-statelessness",
+      "card": "llm-statelessness",
+      "checkCount": 3,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「没有」））",
+        "③ 误解信息增量不足（新增 0 字 < 20；与条件共享 22/31 字，覆盖率 0.71）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不等于」））"
+      ]
+    },
+    {
+      "unitId": "batch-llm-token",
+      "conceptId": "CON-llm-token",
+      "card": "llm-token",
+      "checkCount": 3,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不等同于」））",
+        "③ 误解信息增量不足（新增 6 字 < 20；与条件共享 33/40 字，覆盖率 0.825）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）"
+      ]
+    },
+    {
+      "unitId": "batch-lost-in-the-middle",
+      "conceptId": "CON-lost-in-the-middle",
+      "card": "lost-in-the-middle",
+      "checkCount": 4,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 4,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不等于」））",
+        "③ 误解信息增量不足（新增 0 字 < 20；与条件共享 36/58 字，覆盖率 0.621）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "③ 误解信息增量不足（新增 1 字 < 20；与条件共享 59/61 字，覆盖率 0.967）"
+      ]
+    },
+    {
+      "unitId": "batch-memory",
+      "conceptId": "CON-memory",
+      "card": "memory",
+      "checkCount": 3,
+      "status": "ready",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）",
+        "③ 误解信息增量不足（新增 11 字 < 20；与条件共享 49/49 字，覆盖率 1）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "③ 误解信息增量不足（新增 11 字 < 20；与条件共享 35/35 字，覆盖率 1）"
+      ]
+    },
+    {
+      "unitId": "batch-minimal-sufficient-context",
+      "conceptId": "CON-minimal-sufficient-context",
+      "card": "minimal-sufficient-context",
+      "checkCount": 4,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 4,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不等于」））",
+        "③ 误解信息增量不足（新增 4 字 < 20；与条件共享 45/50 字，覆盖率 0.9）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "③ 误解信息增量不足（新增 0 字 < 20；与条件共享 91/101 字，覆盖率 0.901）"
+      ]
+    },
+    {
+      "unitId": "batch-model-context-protocol",
+      "conceptId": "CON-model-context-protocol",
+      "card": "model-context-protocol",
+      "checkCount": 4,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 4,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不是」））",
+        "③ 误解信息增量不足（新增 0 字 < 20；与条件共享 25/39 字，覆盖率 0.641）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）"
+      ]
+    },
+    {
+      "unitId": "batch-multi-step-reliability-decay",
+      "conceptId": "CON-multi-step-reliability-decay",
+      "card": "multi-step-reliability-decay",
+      "checkCount": 3,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）",
+        "③ 误解信息增量不足（新增 11 字 < 20；与条件共享 49/49 字，覆盖率 1）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不是」））"
+      ]
+    },
+    {
+      "unitId": "batch-observability",
+      "conceptId": "CON-observability",
+      "card": "observability",
+      "checkCount": 4,
+      "status": "ready",
+      "superseded": false,
+      "tierA": 4,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）",
+        "③ 误解信息增量不足（新增 11 字 < 20；与条件共享 38/38 字，覆盖率 1）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不等于」））"
+      ]
+    },
+    {
+      "unitId": "batch-observation-masking",
+      "conceptId": "CON-observation-masking",
+      "card": "observation-masking",
+      "checkCount": 3,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不是」））",
+        "③ 误解信息增量不足（新增 2 字 < 20；与条件共享 37/40 字，覆盖率 0.925）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）"
+      ]
+    },
+    {
+      "unitId": "batch-permission-boundary",
+      "conceptId": "CON-permission-boundary",
+      "card": "permission-boundary",
+      "checkCount": 4,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 4,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不能」））",
+        "③ 误解信息增量不足（新增 0 字 < 20；与条件共享 60/67 字，覆盖率 0.896）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）"
+      ]
+    },
+    {
+      "unitId": "batch-persistent-code-graph",
+      "conceptId": "CON-persistent-code-graph",
+      "card": "persistent-code-graph",
+      "checkCount": 3,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不是」））",
+        "③ 误解信息增量不足（新增 1 字 < 20；与条件共享 34/36 字，覆盖率 0.944）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）"
+      ]
+    },
+    {
+      "unitId": "batch-progressive-disclosure",
+      "conceptId": "CON-progressive-disclosure",
+      "card": "progressive-disclosure",
+      "checkCount": 4,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 4,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）",
+        "③ 误解信息增量不足（新增 11 字 < 20；与条件共享 84/84 字，覆盖率 1）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不是」））"
+      ]
+    },
+    {
+      "unitId": "batch-prompt",
+      "conceptId": "CON-prompt",
+      "card": "prompt",
+      "checkCount": 3,
+      "status": "ready",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）",
+        "③ 误解信息增量不足（新增 11 字 < 20；与条件共享 49/49 字，覆盖率 1）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "③ 误解信息增量不足（新增 11 字 < 20；与条件共享 47/47 字，覆盖率 1）"
+      ]
+    },
+    {
+      "unitId": "batch-prompt-caching",
+      "conceptId": "CON-prompt-caching",
+      "card": "prompt-caching",
+      "checkCount": 3,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不是」））",
+        "③ 误解信息增量不足（新增 0 字 < 20；与条件共享 22/39 字，覆盖率 0.564）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）"
+      ]
+    },
+    {
+      "unitId": "batch-prompt-engineering",
+      "conceptId": "CON-prompt-engineering",
+      "card": "prompt-engineering",
+      "checkCount": 3,
+      "status": "ready",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不等于」））",
+        "③ 误解信息增量不足（新增 5 字 < 20；与条件共享 52/58 字，覆盖率 0.897）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "③ 误解信息增量不足（新增 2 字 < 20；与条件共享 54/57 字，覆盖率 0.947）"
+      ]
+    },
+    {
+      "unitId": "batch-prompt-injection",
+      "conceptId": "CON-prompt-injection",
+      "card": "prompt-injection",
+      "checkCount": 4,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 4,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）",
+        "③ 误解信息增量不足（新增 11 字 < 20；与条件共享 39/39 字，覆盖率 1）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「没有」））"
+      ]
+    },
+    {
+      "unitId": "batch-reasoning-effort",
+      "conceptId": "CON-reasoning-effort",
+      "card": "reasoning-effort",
+      "checkCount": 3,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不保证」））",
+        "③ 误解信息增量不足（新增 0 字 < 20；与条件共享 19/31 字，覆盖率 0.613）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不是」））"
+      ]
+    },
+    {
+      "unitId": "batch-repository-source-of-truth",
+      "conceptId": "CON-repository-source-of-truth",
+      "card": "repository-source-of-truth",
+      "checkCount": 4,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 4,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不能」））",
+        "③ 误解信息增量不足（新增 0 字 < 20；与条件共享 29/53 字，覆盖率 0.547）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）"
+      ]
+    },
+    {
+      "unitId": "batch-restorable-compression",
+      "conceptId": "CON-restorable-compression",
+      "card": "restorable-compression",
+      "checkCount": 3,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）",
+        "③ 误解信息增量不足（新增 11 字 < 20；与条件共享 32/32 字，覆盖率 1）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "③ 误解信息增量不足（新增 11 字 < 20；与条件共享 31/31 字，覆盖率 1）"
+      ]
+    },
+    {
+      "unitId": "batch-retrieval-reasoning-dual-task-load",
+      "conceptId": "CON-retrieval-reasoning-dual-task-load",
+      "card": "retrieval-reasoning-dual-task-load",
+      "checkCount": 3,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）",
+        "③ 误解信息增量不足（新增 11 字 < 20；与条件共享 38/38 字，覆盖率 1）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "③ 误解信息增量不足（新增 11 字 < 20；与条件共享 37/37 字，覆盖率 1）"
+      ]
+    },
+    {
+      "unitId": "batch-risk-tiered-autofixing",
+      "conceptId": "CON-risk-tiered-autofixing",
+      "card": "risk-tiered-autofixing",
+      "checkCount": 4,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 4,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不是」））",
+        "③ 误解信息增量不足（新增 1 字 < 20；与条件共享 38/40 字，覆盖率 0.95）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）"
+      ]
+    },
+    {
+      "unitId": "batch-runnable-evidence",
+      "conceptId": "CON-runnable-evidence",
+      "card": "runnable-evidence",
+      "checkCount": 4,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 4,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）",
+        "③ 误解信息增量不足（新增 11 字 < 20；与条件共享 25/25 字，覆盖率 1）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不能」））"
+      ]
+    },
+    {
+      "unitId": "batch-sandbox",
+      "conceptId": "CON-sandbox",
+      "card": "sandbox",
+      "checkCount": 4,
+      "status": "ready",
+      "superseded": false,
+      "tierA": 4,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）",
+        "③ 误解信息增量不足（新增 11 字 < 20；与条件共享 47/47 字，覆盖率 1）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不是」））"
+      ]
+    },
+    {
+      "unitId": "batch-skill",
+      "conceptId": "CON-skill",
+      "card": "skill",
+      "checkCount": 4,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 4,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不是」））",
+        "③ 误解信息增量不足（新增 0 字 < 20；与条件共享 22/40 字，覆盖率 0.55）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）"
+      ]
+    },
+    {
+      "unitId": "batch-skill-chaining",
+      "conceptId": "CON-skill-chaining",
+      "card": "skill-chaining",
+      "checkCount": 3,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不应」））",
+        "③ 误解信息增量不足（新增 0 字 < 20；与条件共享 23/30 字，覆盖率 0.767）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不保证」））"
+      ]
+    },
+    {
+      "unitId": "batch-skill-trigger-condition",
+      "conceptId": "CON-skill-trigger-condition",
+      "card": "skill-trigger-condition",
+      "checkCount": 3,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不等同于」））",
+        "③ 误解信息增量不足（新增 0 字 < 20；与条件共享 21/34 字，覆盖率 0.618）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「无法」））"
+      ]
+    },
+    {
+      "unitId": "batch-state-management",
+      "conceptId": "CON-state-management",
+      "card": "state-management",
+      "checkCount": 3,
+      "status": "ready",
+      "superseded": true,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）",
+        "③ 误解信息增量不足（新增 11 字 < 20；与条件共享 58/58 字，覆盖率 1）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "③ 误解信息增量不足（新增 11 字 < 20；与条件共享 60/60 字，覆盖率 1）"
+      ]
+    },
+    {
+      "unitId": "batch-subagent-orchestration",
+      "conceptId": "CON-subagent-orchestration",
+      "card": "subagent-orchestration",
+      "checkCount": 4,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 4,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不等同于」））",
+        "③ 误解信息增量不足（新增 1 字 < 20；与条件共享 41/43 字，覆盖率 0.953）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）"
+      ]
+    },
+    {
+      "unitId": "batch-system-prompt",
+      "conceptId": "CON-system-prompt",
+      "card": "system-prompt",
+      "checkCount": 4,
+      "status": "ready",
+      "superseded": false,
+      "tierA": 4,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不是」））",
+        "③ 误解信息增量不足（新增 0 字 < 20；与条件共享 21/43 字，覆盖率 0.488）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不等于」））"
+      ]
+    },
+    {
+      "unitId": "batch-system-prompt-altitude",
+      "conceptId": "CON-system-prompt-altitude",
+      "card": "system-prompt-altitude",
+      "checkCount": 3,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不是」））",
+        "③ 误解信息增量不足（新增 1 字 < 20；与条件共享 32/34 字，覆盖率 0.941）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）"
+      ]
+    },
+    {
+      "unitId": "batch-tacit-knowledge",
+      "conceptId": "CON-tacit-knowledge",
+      "card": "tacit-knowledge",
+      "checkCount": 3,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不是」））",
+        "③ 误解信息增量不足（新增 4 字 < 20；与条件共享 32/37 字，覆盖率 0.865）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）"
+      ]
+    },
+    {
+      "unitId": "batch-tool",
+      "conceptId": "CON-tool",
+      "card": "tool",
+      "checkCount": 4,
+      "status": "ready",
+      "superseded": true,
+      "tierA": 4,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不等于」））",
+        "③ 误解信息增量不足（新增 0 字 < 20；与条件共享 71/83 字，覆盖率 0.855）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不能」））"
+      ]
+    },
+    {
+      "unitId": "batch-tool-schema-tax",
+      "conceptId": "CON-tool-schema-tax",
+      "card": "tool-schema-tax",
+      "checkCount": 3,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不是」））",
+        "③ 误解信息增量不足（新增 0 字 < 20；与条件共享 27/40 字，覆盖率 0.675）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）"
+      ]
+    },
+    {
+      "unitId": "batch-tool-scoping",
+      "conceptId": "CON-tool-scoping",
+      "card": "tool-scoping",
+      "checkCount": 4,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 4,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不是」））",
+        "③ 误解信息增量不足（新增 1 字 < 20；与条件共享 51/65 字，覆盖率 0.785）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不能」））"
+      ]
+    },
+    {
+      "unitId": "batch-tool-workflow-fit",
+      "conceptId": "CON-tool-workflow-fit",
+      "card": "tool-workflow-fit",
+      "checkCount": 3,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）",
+        "③ 误解信息增量不足（新增 11 字 < 20；与条件共享 33/33 字，覆盖率 1）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "③ 误解信息增量不足（新增 11 字 < 20；与条件共享 34/34 字，覆盖率 1）"
+      ]
+    },
+    {
+      "unitId": "batch-trace-based-evals",
+      "conceptId": "CON-trace-based-evals",
+      "card": "trace-based-evals",
+      "checkCount": 4,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 4,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）",
+        "③ 误解信息增量不足（新增 11 字 < 20；与条件共享 74/74 字，覆盖率 1）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "③ 误解信息增量不足（新增 11 字 < 20；与条件共享 64/64 字，覆盖率 1）"
+      ]
+    },
+    {
+      "unitId": "batch-ubiquitous-language",
+      "conceptId": "CON-ubiquitous-language",
+      "card": "ubiquitous-language",
+      "checkCount": 3,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 3,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不是」））",
+        "③ 误解信息增量不足（新增 1 字 < 20；与条件共享 28/30 字，覆盖率 0.933）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）"
+      ]
+    },
+    {
+      "unitId": "batch-verifiable-goal",
+      "conceptId": "CON-verifiable-goal",
+      "card": "verifiable-goal",
+      "checkCount": 4,
+      "status": "scaffold",
+      "superseded": false,
+      "tierA": 4,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）",
+        "③ 误解信息增量不足（新增 11 字 < 20；与条件共享 30/30 字，覆盖率 1）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "② 机械反面转述（②a 与 FLIP 重算逐字相同（翻转「不等于」））"
+      ]
+    },
+    {
+      "unitId": "batch-verification-loop",
+      "conceptId": "CON-verification-loop",
+      "card": "verification-loop",
+      "checkCount": 4,
+      "status": "scaffold",
+      "superseded": true,
+      "tierA": 4,
+      "tierB": 0,
+      "tierC": 0,
+      "usableCriteria": 0,
+      "verdict": "blocked",
+      "blockedBy": [
+        "② 机械反面转述（②b 整条否定（前缀＋原文） + ②c 误解句里逐字含完整正确条件）",
+        "③ 误解信息增量不足（新增 11 字 < 20；与条件共享 70/70 字，覆盖率 1）",
+        "④ 照抄这条边界原文即可满足（condition 逐字在可见材料里，required 每条都能在 boundaries 里逐字找到）",
+        "③ 误解信息增量不足（新增 11 字 < 20；与条件共享 79/79 字，覆盖率 1）"
+      ]
+    }
+  ]
+}

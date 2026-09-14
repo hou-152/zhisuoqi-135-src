@@ -15,6 +15,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import crypto from 'node:crypto';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DIR = path.join(ROOT, 'evidence', 'agent-loop-260913');
@@ -70,6 +71,29 @@ function parseConceptBody(body) {
 /* ── basis 解析与逐字校验 ── */
 function resolveBasis(ref) {
   const [id, field] = ref.split('#');
+  /* 方案丙并入的机器题里，有一条正解依据落在图鉴卡上（concepts/agent.yaml#boundaries[0]）：
+     卡片依据照样要逐字回源，所以这里一起解，不因为它不是 SOL/OPI 就跳过。 */
+  if (/^concepts\/[a-z0-9-]+\.yaml$/.test(id)) {
+    const slug = id.replace(/^concepts\//, '').replace(/\.yaml$/, '');
+    const card = chainCard.get(slug);
+    if (!card) return { ok: false, why: `basis 卡片不在来源链里：${id}` };
+    const raw = fs.readFileSync(path.join(ROOT, '内容结构化系统', '01-原始素材区', '完整副本', '图鉴站产物', 'concepts', `${slug}.yaml`), 'utf8');
+    const m = /^([a-z_]+)\[(\d+)]$/.exec(field || '');
+    if (m) {
+      const lines = raw.split('\n');
+      const items = [];
+      let inBlock = false;
+      for (const line of lines) {
+        if (new RegExp(`^${m[1]}:`).test(line)) { inBlock = true; continue; }
+        if (inBlock && /^[a-z_]+:/.test(line)) break;
+        if (inBlock) { const t = line.replace(/^\s*-\s?/, '').trim(); if (t) items.push(t); }
+      }
+      const text = items[Number(m[2])];
+      if (typeof text !== 'string' || !text.trim()) return { ok: false, why: `basis 卡片字段为空：${ref}` };
+      return { ok: true, text, card: id };
+    }
+    return { ok: false, why: `basis 卡片字段名不认：${ref}` };
+  }
   const u = byUnit.get(id);
   if (!u) return { ok: false, why: `basis 单元不存在：${id}` };
   const kf = u.key_fields || {};
@@ -83,6 +107,83 @@ function resolveBasis(ref) {
   else return { ok: false, why: `basis 字段名不认：${ref}` };
   if (typeof text !== 'string' || !text.trim()) return { ok: false, why: `basis 指向的字段为空：${ref}` };
   return { ok: true, text };
+}
+
+/* ══ 方案丙（负责人 2026-09-14 拍板）：把 6 个重复批量单元的产出反向补进对应章节 ══
+   六章仍是对外唯一入口；同一个 CON 的机器版本标 superseded、不再作为独立可学单元
+   （标记在 evidence/batch-units-260914/units.json，准入门读它）。丙的价值在这里：
+     · 机器题：只并入 evidence/review-decisions-260914/review.json 判定 verdict=usable 的那 3 道
+       （引用复核产物，不重新生成一套），排在人工三题之后，逐条标 origin；
+     · 机器判据：卡片 boundaries 派生（未通过理解判据复核 verdict=unusable），
+       放进 feynman.machineChecks 并标 gate:false —— 显示为「机器派生补充判据」，**不参与本章通过判定**；
+     · 人工内容优先：人工三题与三条判据一个字不改，机器内容一律带 kind='machine' 的来源标签。 */
+const BATCH_ARTIFACT_REL = 'evidence/batch-units-260914/units.json';
+const DECISIONS_ARTIFACT_REL = 'evidence/gen-decisions-hybrid-v3-20260914.json';
+const DECISIONS_REVIEW_REL = 'evidence/review-decisions-260914/review.json';
+const CRITERIA_REVIEW_REL = 'evidence/review-criteria-260914/review.json';
+const batchArtifact = fs.existsSync(path.join(ROOT, BATCH_ARTIFACT_REL)) ? read(path.join(ROOT, BATCH_ARTIFACT_REL)) : null;
+const decisionsReview = fs.existsSync(path.join(ROOT, DECISIONS_REVIEW_REL)) ? read(path.join(ROOT, DECISIONS_REVIEW_REL)) : null;
+const criteriaReview = fs.existsSync(path.join(ROOT, CRITERIA_REVIEW_REL)) ? read(path.join(ROOT, CRITERIA_REVIEW_REL)) : null;
+const batchByConcept = new Map(((batchArtifact || {}).units || []).filter((u) => u.superseded).map((u) => [u.conceptId, u]));
+const decisionVerdict = new Map(((decisionsReview || {}).units || []).map((r) => [r.unitId, r.verdict]));
+const criteriaVerdict = new Map(((criteriaReview || {}).units || []).map((r) => [r.unitId, r.verdict]));
+
+/** 机器题（v3 形态）→ 章节题形态。只做字段搬运，不改一个字；错项的理由用干扰项自带的 why。 */
+function machineQuestionsOf(bu) {
+  const out = [];
+  if (!bu) return out;
+  if (decisionVerdict.get(bu.unitId) !== 'usable') return out;
+  for (const [i, q] of (bu.decisions || []).entries()) {
+    const co = q.correctOption || {};
+    const field = String(co.locator || '').replace(/^units\[id=[^\]]+]\.key_fields\./, '');
+    const basisRef = co.basis && field ? `${co.basis}#${field}` : '';
+    const options = [
+      { text: co.text, correct: true, why: '', basis: basisRef ? [basisRef] : [], basisQuote: co.basisQuote || '' },
+      ...(q.distractors || []).map((d) => ({
+        text: d.text, correct: false, why: d.why || '与材料里那一条动作不一致。',
+        basis: [], basisQuote: '',
+      })),
+    ];
+    need(!!basisRef, `${bu.unitId} 第 ${i + 1} 道机器题没有可搬运的依据引用`);
+    need(options.length === 3 && options.filter((o) => o.correct).length === 1, `${bu.unitId} 第 ${i + 1} 道机器题不是三选一恰好一对`);
+    out.push({
+      judgment: `机器复核题 ${i + 1}｜来自 ${bu.unitId} 第 ${i + 1} 道（已独立复核 verdict=usable）`,
+      prompt: q.prompt,
+      options,
+      origin: {
+        kind: 'machine', unitId: bu.unitId, questionId: q.id,
+        artifact: `${BATCH_ARTIFACT_REL}#units[unitId=${bu.unitId}].decisions[${i}]`,
+        generatedFrom: `${DECISIONS_ARTIFACT_REL}#units[unitId=${bu.unitId}].questions[${i}]`,
+        review: `${DECISIONS_REVIEW_REL}#units[unitId=${bu.unitId}]`,
+        verdict: 'usable',
+        note: '脚本确定性生成（模型调用 0 次）＋独立复核通过；人工三题排在本章最前，机器题不覆盖人工内容',
+      },
+    });
+  }
+  return out;
+}
+
+/** 卡片 boundaries 派生判据（原样搬运，标 derived 与复核结论；gate=false 表示不参与本章通过判定）。 */
+function machineChecksOf(bu) {
+  const out = [];
+  if (!bu) return out;
+  for (const [i, c] of ((bu.feynman || {}).checks || []).entries()) {
+    out.push({
+      id: c.id, point: c.point, condition: c.condition, misconception: c.misconception,
+      misconceptionSource: c.misconceptionSource, derivation: c.derivation,
+      sourceFile: c.sourceFile, sourceSha256: c.sourceSha256, locator: c.locator, escapeForm: c.escapeForm,
+      gate: false,
+      origin: {
+        kind: 'machine', unitId: bu.unitId, checkId: c.id,
+        artifact: `${BATCH_ARTIFACT_REL}#units[unitId=${bu.unitId}].feynman.checks[${i}]`,
+        derivedFrom: `${bu.card.file}#${c.locator}`,
+        review: `${CRITERIA_REVIEW_REL}#units[unitId=${bu.unitId}]`,
+        verdict: criteriaVerdict.get(bu.unitId) || 'unreviewed',
+        note: 'misconception 是卡片 boundaries 的机械反面转述，独立复核 verdict=unusable：可当复习提示，不作为本章通过判据',
+      },
+    });
+  }
+  return out;
 }
 
 /* ══ 逐章装配 ═════════════════════════════════════════════ */
@@ -244,11 +345,37 @@ for (const ch of pairings.chapters) {
       boundary: { label: '边界', items: body.boundary, from: con.id },
     },
     framingNote: (ch.correspondence && ch.correspondence.framingDifference) || '',
-    questions: questions.map((q) => ({
-      judgment: q.judgment, prompt: q.prompt,
-      options: q.options.map((o) => ({ text: o.text, correct: !!o.correct, why: o.why || '', basis: o.basis || [], basisQuote: o.basisQuote || '' })),
-    })),
-    feynman: { prompt: fey.prompt, required: fey.required, checks: fey.checks || [] },
+    questions: [
+      ...questions.map((q, qi) => ({
+        judgment: q.judgment, prompt: q.prompt,
+        options: q.options.map((o) => ({ text: o.text, correct: !!o.correct, why: o.why || '', basis: o.basis || [], basisQuote: o.basisQuote || '' })),
+        origin: { kind: 'hand', file: `evidence/agent-loop-260913/authored.json#chapters.${ch.chapterId}.questions[${qi}]`, note: '人工撰写；本章通过判定只用这三道' },
+      })),
+      ...machineQuestionsOf(batchByConcept.get(ch.conceptId)),
+    ],
+    feynman: {
+      prompt: fey.prompt, required: fey.required,
+      checks: (fey.checks || []).map((x, xi) => ({ ...x, origin: { kind: 'hand', file: `evidence/agent-loop-260913/authored.json#chapters.${ch.chapterId}.feynman.checks[${xi}]`, note: '人工撰写；本章通过判定只用这三条' } })),
+      machineChecks: machineChecksOf(batchByConcept.get(ch.conceptId)),
+    },
+    schemeC: (() => {
+      const bu = batchByConcept.get(ch.conceptId);
+      if (!bu) return null;
+      return {
+        decidedBy: 'owner', at: '2026-09-14', ruling: '方案丙',
+        supersededUnit: bu.unitId,
+        supersededReason: (bu.superseded || {}).reason || '',
+        merged: {
+          machineQuestions: machineQuestionsOf(bu).length,
+          machineChecks: machineChecksOf(bu).length,
+          decisionsReview: DECISIONS_REVIEW_REL,
+          criteriaReview: CRITERIA_REVIEW_REL,
+          criteriaVerdict: criteriaVerdict.get(bu.unitId) || 'unreviewed',
+        },
+        note: '六章仍是对外唯一入口：机器版本不再作为独立可学单元（标 superseded、写进缺口清单），'
+          + '它已复核的决策题与卡片 boundaries 派生判据并入本章，逐条标了来源。',
+      };
+    })(),
     narrative: nar || null,
     review: {
       status: ch.status, statusNote: ch.statusNote,
@@ -267,6 +394,41 @@ for (const ch of pairings.chapters) {
       note: '58 篇（Context 28 ＋ Harness 30）→ 图鉴站卡片 → 本单元的 CON/CAS/SOL；卡片 source_ids 指向的原始来源见 originalSources。',
     },
   };
+  /* ── 方案丙并入内容的自校验：题量、依据逐字、判据出处 sha 一致、人工内容没被覆盖 ──
+     对不上就不产出这一章（下面的 fail 检查会直接失败退出，不写半成品）。 */
+  {
+    const supBu = batchByConcept.get(ch.conceptId);
+    if (supBu) {
+      need(supBu.card.slug === cardSlug, `${tag}：batch 单元的卡片 ${supBu.card.slug} 与本章卡片 ${cardSlug} 不是同一张`);
+      const mq = chapter.questions.filter((q) => (q.origin || {}).kind === 'machine');
+      const mc = (chapter.feynman.machineChecks || []);
+      need(questions.length === 3 && chapter.questions.length === 6, `${tag}：并入后应为人工 3 题 + 机器 3 题（实为 ${chapter.questions.length}）`);
+      need(mq.length === 3, `${tag}：并入的机器题应为 3 道（实为 ${mq.length}）`);
+      need(mc.length === (supBu.feynman.checks || []).length, `${tag}：并入的机器判据数应等于 batch 单元的判据数`);
+      need(decisionVerdict.get(supBu.unitId) === 'usable', `${tag}：并入的机器题必须来自复核 verdict=usable 那一批（实为 ${decisionVerdict.get(supBu.unitId)}）`);
+      need(criteriaVerdict.get(supBu.unitId) !== 'usable', `${tag}：机器判据复核 verdict 变了——它现在是 ${criteriaVerdict.get(supBu.unitId)}，要重新决定能不能进通过判定`);
+      mq.forEach((q, qi) => {
+        const r = q.options.find((o) => o.correct);
+        const got = resolveBasis((r.basis || [])[0] || '');
+        need(got.ok && got.text.includes(r.basisQuote), `${tag} 机器题 ${qi + 1}：basisQuote 在依据字段里找不到逐字原文（${(r.basis || [])[0]}）`);
+        need(new Set(q.options.map((o) => o.text)).size === 3, `${tag} 机器题 ${qi + 1}：选项有重复`);
+        need(q.options.filter((o) => !o.correct).every((o) => !!o.why), `${tag} 机器题 ${qi + 1}：错误选项缺 why`);
+      });
+      const sha = (rel) => crypto.createHash('sha256').update(fs.readFileSync(path.join(ROOT, rel), 'utf8')).digest('hex');
+      mc.forEach((c, ci) => {
+        need(c.sourceFile === `concepts/${cardSlug}.yaml` || c.sourceFile.endsWith(`concepts/${cardSlug}.yaml`), `${tag} 机器判据 ${ci + 1}：出处不是本章卡片`);
+        need(sha(c.sourceFile) === c.sourceSha256, `${tag} 机器判据 ${ci + 1}：卡片 sha256 与磁盘不一致`);
+        need(c.gate === false && c.misconceptionSource === 'derived', `${tag} 机器判据 ${ci + 1}：必须标 derived 且 gate=false`);
+        need(c.origin && c.origin.verdict !== 'usable', `${tag} 机器判据 ${ci + 1}：必须带上复核结论（不能冒充已通过）`);
+      });
+      need((chapter.feynman.checks || []).length === 3 && chapter.feynman.required.length === 3,
+        `${tag}：人工判据必须仍是 3 条、required 仍是 3 条（机器判据另放 machineChecks，不进通过判定）`);
+    } else {
+      need(!(chapter.questions || []).some((q) => (q.origin || {}).kind === 'machine'),
+        `${tag}：这一章没有对应的 superseded 批量单元，不该有机器题`);
+    }
+  }
+
   chapters.push(chapter);
 }
 
@@ -306,7 +468,7 @@ fs.writeFileSync(OUT, JSON.stringify(out, null, 1));
 
 console.log(`✅ 章节数据就绪：${chapters.length} 章`);
 for (const c of chapters) {
-  console.log(`  第 ${c.order} 章 ${c.title}｜cm ${c.cm.id} ↔ ${c.concept.id}｜候选案例 ${c.case.candidates.length}（主案例 ${c.case.id}·${c.case.type}）｜OPI ${c.opinions.length}｜SOL ${c.solution.actionSteps.length} 步｜三题 ${c.questions.length}｜费曼要点 ${c.feynman.required.join('/')}`);
+  console.log(`  第 ${c.order} 章 ${c.title}｜cm ${c.cm.id} ↔ ${c.concept.id}｜候选案例 ${c.case.candidates.length}（主案例 ${c.case.id}·${c.case.type}）｜OPI ${c.opinions.length}｜SOL ${c.solution.actionSteps.length} 步｜题 ${c.questions.length}（人工 ${c.questions.filter((q) => (q.origin || {}).kind === 'hand').length} + 机器 ${c.questions.filter((q) => (q.origin || {}).kind === 'machine').length}）｜费曼判据 ${(c.feynman.checks || []).length} 人工 + ${(c.feynman.machineChecks || []).length} 机器派生（不进通过判定）｜费曼要点 ${c.feynman.required.join('/')}`);
 }
 console.log(`  状态：${pairings.caseReview.state}（ready ${chapters.filter((c) => c.review.status === 'ready').length} 章 / 共 ${chapters.length} 章）`);
 console.log(`  ${path.relative(ROOT, OUT)}`);

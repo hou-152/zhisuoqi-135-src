@@ -120,9 +120,23 @@ ok(noGap.length === 0, `没接入决策题的单元都写了「三道决策题�
 ok(wired.length === 76 && wired.every((u) => !u.gaps.includes(DECISION_GAP)), `已接入的 ${wired.length} 个单元都撤掉了「待装配」缺口（缺口与事实一致）`);
 const ready = data.units.filter((u) => u.status === 'ready');
 const scaffold = data.units.filter((u) => u.status === 'scaffold');
-ok(ready.length === 19 && ready.every((u) => u.opinions.length > 0 && u.statusReason === ''), `ready 19 个且都有 OPI（实际 ${ready.length}）`);
+ok(ready.length === 19 && ready.every((u) => u.opinions.length > 0 && (u.superseded ? new RegExp(`同一个概念（${u.conceptId}）已有负责人确认过的手工章节 unit:chapter-`).test(u.statusReason) : u.statusReason === '')),
+  `ready 19 个且都有 OPI；未被取代的 statusReason 为空、被取代的写清取代关系（实际 ${ready.length}）`);
 ok(scaffold.length === 57 && scaffold.every((u) => u.opinions.length === 0), `scaffold 57 个且都没有 OPI（实际 ${scaffold.length}）`);
-ok(scaffold.every((u) => u.statusReason === '缺 OPI：决策题依据只能落在 CAS 情境与 SOL 动作路径上'), '57 个 scaffold 的 statusReason 都是施工单规定的口径');
+ok(scaffold.filter((u) => !u.superseded).every((u) => u.statusReason === '缺 OPI：决策题依据只能落在 CAS 情境与 SOL 动作路径上'),
+  `未取代的 scaffold（${scaffold.filter((u) => !u.superseded).length} 个）statusReason 都是施工单规定的口径`);
+/* 方案丙：6 个与六章同概念的单元标 superseded —— 保留数据、写清被谁取代、进缺口清单，且不再可进入 */
+const superseded = data.units.filter((u) => u.superseded);
+ok(superseded.length === 6, `6 个批量单元标了 superseded（实际 ${superseded.length}：${superseded.map((u) => u.unitId).join(',')}）`);
+ok(superseded.every((u) => /^unit:chapter-/.test(u.superseded.by) && u.superseded.at && u.superseded.decidedBy === 'owner（方案丙）'),
+  'superseded 都写清了被哪个手工章节取代、什么时候、谁拍的板');
+ok(superseded.every((u) => (u.feynman.checks || []).length === (cards.get(u.card.slug).raw.match(/^boundaries:/m) ? u.feynman.checks.length : 0) && (u.decisions || []).length === 3 && u.reading && u.solution && u.case),
+  'superseded 只是加标记：数据（阅读/判据/三道已复核题）一条没删');
+ok(superseded.every((u) => u.gaps.some((g) => /已被手工章节取代/.test(g))), '每个 superseded 单元各登记了一条缺口');
+ok(data.stats.supersededUnits.length === 6 && Object.keys(data.stats.supersededBy).length === 6, 'stats 里登记了 superseded 单元与取代关系');
+ok(new Set(superseded.map((u) => u.conceptId)).size === 6
+  && ['CON-agent', 'CON-tool', 'CON-agent-loop', 'CON-state-management', 'CON-agent-harness', 'CON-verification-loop'].every((id) => superseded.some((u) => u.conceptId === id)),
+  '被取代的正是六章那 6 个 CON（不是别的单元）');
 ok(scaffold.every((u) => u.gaps.some((g) => /缺 OPI/.test(g))), '57 个 scaffold 各有一条「缺 OPI」缺口');
 ok(data.units.every((u) => u.gaps.every((g) => g.trim().length > 0)), '没有空缺口（理由都写在缺口里）');
 ok(data.stats.gaps === data.units.reduce((n, u) => n + u.gaps.length, 0), `缺口条数与登记一致（${data.stats.gaps}）`);
@@ -216,7 +230,16 @@ if (fs.existsSync(path.join(ROOT, GRAPH_REL))) {
   ok(badCrit.length === 0, `264 条判据节点都在且条件一致（不符 ${badCrit.length}：${badCrit.slice(0, 3).join(' ')}）`);
   ok(badActs.length === 0, `每个单元的活动骨架都在（≥14：骨架 + 每题两个活动；不符 ${badActs.length}）`);
   ok(fakeDecision.length === 0, `76 个单元各带 3 个 ready 的 Decision + 3 个 DecisionReview 活动（不符 ${fakeDecision.length}：${fakeDecision.slice(0, 3).join(' ')}）`);
-  ok(g.stats.byKind.Decision === 251, `全图决策题 251 道（六章 18 + 单篇 3 + 夹具 2 + 批量 228；实际 ${g.stats.byKind.Decision}）`);
+  ok(g.stats.byKind.Decision === 269, `全图决策题 269 道（六章人工 18 + 方案丙并入 18 + 单篇 3 + 夹具 2 + 批量 228；实际 ${g.stats.byKind.Decision}）`);
+  /* 方案丙：并入六章的机器判据必须是 supplements 边、gate=false —— 不进本章通过判定 */
+  const chapterMerged = g.edges.filter((e) => e.relation === 'supplements');
+  const chapterTargets = g.edges.filter((e) => e.relation === 'targets' && /^criterion:(agent|tool|agent-loop|state-persistence|harness|verification-loop):/.test(e.to));
+  ok(chapterMerged.length === 22, `六章各带并入的机器派生判据（supplements 边 ${chapterMerged.length} 条，预期 22）`);
+  ok(chapterTargets.length === 0, '机器派生判据没有混进 targets（不进本章通过判定）');
+  const supersededNodes = g.nodes.filter((n) => n.kind === 'Unit' && (n.meta || {}).superseded);
+  ok(supersededNodes.length === 6 && supersededNodes.every((n) => /^unit:chapter-/.test((n.meta || {}).supersededBy || '') && n.runnable === null),
+    `图里 6 个 superseded 单元标了取代关系且没有可运行入口（实际 ${supersededNodes.length}）`);
+  ok(g.gaps.some((x) => /已被手工章节取代/.test(x.label)), 'superseded 在图缺口清单里有条目');
 } else {
   group('⑧ 图侧对照');
   console.log('  （graph.json 还没构建，跳过；跑 node scripts/build-graph.mjs 后再来）');

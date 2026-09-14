@@ -13,11 +13,15 @@
 //   · evidence/batch-units-260914/units.json —— 76 个批量装配单元的声明状态与缺口
 //   · evidence/agent-loop-260913/chapters.json —— 六章的章级材料（判据、审核状态、题目）
 //   · evidence/review-decisions-260914/review.json —— 228 道批量决策题的**独立复核结论**
+//   · evidence/review-criteria-260914/review.json —— 264 条批量费曼判据的**独立复核结论**
+//     （verdict=unusable：misconception 是机械反面转述、照抄 boundaries 即可满足 —— 形成性费曼段照实不开放）
 //
 // 判定规则（逐段，全部可从上面四份数据复算；页面把每条规则原文一起显示）：
 //   阅读       活动 Reading 存在且 ready，且该单元有指向逐字原文（span.text）的 quotes 边 → 可走
 //   形成性费曼 活动 Formative 存在且 ready，且该单元的判据不是「机械派生」
-//              （criterion.meta.misconceptionSource === 'derived' 表示 misconception 由确定性规则算出、未人工复核）→ 可走
+//              （criterion.meta.misconceptionSource === 'derived' 表示 misconception 由确定性规则算出、未人工复核），
+//              并且（有判据复核产物时）该单元的判据复核 verdict === 'usable' → 可走
+//              「判据复核通过才开放」同样不是白名单：读的是 review-criteria 的 verdict 字段
 //   决策       三个条件同时成立才可走：①该单元声明的 decisions 不是空数组；②索引里真有 ≥1 个 ready 的
 //              Decision 活动；③独立复核产物里这个单元的 verdict === 'usable'（= 3 道题逐题过出处/极性/捷径，
 //              且三题正解互不相同）。**空数组 ≠ 满足**；**有题但没有复核记录 = 不开放**；
@@ -53,7 +57,7 @@ export const BUCKETS = [
 
 const has = (arr, x) => (arr || []).includes(x);
 
-export function buildPractice({ graph, batch, learning, review }) {
+export function buildPractice({ graph, batch, learning, review, criteriaReview }) {
   const nodes = graph.nodes || [];
   const edges = graph.edges || [];
   const gaps = graph.gaps || [];
@@ -64,6 +68,8 @@ export function buildPractice({ graph, batch, learning, review }) {
   const batchByUnit = new Map(batchUnits.map((bu) => [`unit:${bu.unitId}`, bu]));
   // 单元 → 独立复核结论（verdict === 'usable' 才允许开决策那一段）
   const reviewByUnit = new Map(((review && review.units) || []).map((r) => [`unit:${r.unitId}`, r]));
+  // 单元 → 费曼判据的独立复核结论（verdict === 'usable' 才允许开形成性费曼那一段）
+  const critReviewByUnit = new Map(((criteriaReview && criteriaReview.units) || []).map((r) => [`unit:${r.unitId}`, r]));
 
   const actsOf = (unitId) => nodes.filter((n) => n.id.startsWith(`activity:${unitId}:`));
   const gapsOf = (unitId) => gaps.filter((g) => has(g.affects, unitId));
@@ -94,13 +100,17 @@ export function buildPractice({ graph, batch, learning, review }) {
 
     // ② 形成性费曼
     const formative = act('Formative');
+    const critRv = critReviewByUnit.get(unitId) || null;
+    const critGateFail = critRv && critRv.verdict !== 'usable';
     const formativeSeg = !formative || formative.status !== 'ready'
       ? seg('unassembled', '形成性费曼活动不存在或未就绪')
-      : (authored.length
+      : (authored.length && !critGateFail
         ? seg('green', `${authored.length} 条人工判据（带成立条件与常见误解）`)
-        : seg('missing', crits.length
-          ? `只有 ${derived.length} 条机械派生判据：misconception 由「边界条目的否定翻转」规则算出，未人工复核`
-          : '没有判据'));
+        : (derived.length || critGateFail
+          ? seg('missing', critGateFail
+            ? `判据独立复核 verdict=${critRv.verdict}（${(critRv.blockedBy || []).slice(0, 2).join('；') || '机械反面转述、照抄边界原文即可满足'}）——未通过复核不开放`
+            : `只有 ${derived.length} 条机械派生判据：misconception 由「边界条目的否定翻转」规则算出，未人工复核`)
+          : seg('missing', '没有判据')));
 
     // ③ 决策：空数组 ≠ 满足；有题没复核 ≠ 满足；复核不通过 ≠ 满足 —— 链路在这里断
     const bu = batchByUnit.get(unitId) || null;
@@ -136,7 +146,10 @@ export function buildPractice({ graph, batch, learning, review }) {
     const segments = {
       reading: readingSeg, formative: formativeSeg, decision: decisionSeg, summative: summativeSeg,
     };
-    const open = SEGMENTS.every((s) => segments[s.key].state === 'green');
+    /* 方案丙：被手工章节取代（superseded）的机器版本**永远不可进入** —— 就算哪天判据补齐了也不开门。
+       这是数据驱动的封条（读 units.json 的 superseded 字段），不是白名单也不是临时开关。 */
+    const superseded = (opts.superseded) || null;
+    const open = !superseded && SEGMENTS.every((s) => segments[s.key].state === 'green');
     return {
       segments, open, gaps: gapsText, derivedCount: derived.length, authoredCount: authored.length,
       decisionCount: decisions.length,
@@ -144,6 +157,11 @@ export function buildPractice({ graph, batch, learning, review }) {
       reviewVerdict: rv ? rv.verdict : null,
       reviewBlockedBy: rv ? rv.blockedBy : [],
       reviewUsableQuestions: rv ? rv.usableQuestions : 0,
+      criteriaReviewVerdict: critRv ? critRv.verdict : null,
+      criteriaReviewUsable: critRv ? critRv.usableCriteria : null,
+      criteriaReviewTotal: critRv ? critRv.checkCount : null,
+      superseded: superseded ? superseded.by : null,
+      supersededReason: superseded ? superseded.reason : '',
     };
   }
 
@@ -181,12 +199,13 @@ export function buildPractice({ graph, batch, learning, review }) {
   // ③ 批量装配 76 个：材料在、页面入口 0；决策题有生成稿但独立复核不通过（照实标未装配）
   for (const bu of batchUnits) {
     const unitId = `unit:${bu.unitId}`;
-    const j = judge(unitId);
+    const j = judge(unitId, { superseded: bu.superseded || null });
     const rv = reviewByUnit.get(unitId) || null;
     units.push({
       id: unitId, label: bu.card ? `${bu.conceptId} · ${bu.card.slug}` : bu.conceptId, group: '批量', order: bu.order,
       routeStatus: bu.status, statusReason: bu.statusReason || '',
       caseType: ((bu.case || {}).caseType) || '', concept: null,
+      superseded: j.superseded, supersededReason: j.supersededReason,
       questionCount: (bu.decisions || []).length,
       generatedDecisionCount: rv ? rv.questionCount : 0,      // 生成稿有几道；不等于准入
       criterionCount: ((bu.feynman || {}).checks || []).length,
@@ -207,6 +226,8 @@ export function buildPractice({ graph, batch, learning, review }) {
     if (fb && fb.key === 'decision') u.bucket = 'decision';
     else u.bucket = 'material';
   }
+  /* superseded 的机器版本一律留在「材料缺口」桶里（它们材料齐、只是不对外），
+     计数照实进 summary.superseded，页面把它单独显示成「已被六章取代」。 */
 
   /* 四段全绿但还没绑阅读器载荷：现在不会发生（只有六章全绿，它们都有 reader），
      但准入是数据算的，哪天某个单元补齐了就会走到这条分支——照实说还差哪一步，不静默失败。 */
@@ -216,6 +237,22 @@ export function buildPractice({ graph, batch, learning, review }) {
         + '这一版只把 gate 做成数据驱动，阅读载荷仍要逐单元装配——差的正是这一步。';
     }
   }
+
+  const reviewedCriteria = (criteriaReview && criteriaReview.recomputed) ? {
+    file: 'evidence/review-criteria-260914/review.json',
+    reviewedArtifact: criteriaReview.file,
+    total: criteriaReview.recomputed.total,
+    units: criteriaReview.recomputed.units,
+    verdict: criteriaReview.verdict,
+    mechanicalRestatement: criteriaReview.recomputed.mechanicalRestatement,
+    insufficientGain: criteriaReview.recomputed.insufficientGain,
+    recitableFromBoundaries: criteriaReview.recomputed.recitableFromBoundaries,
+    usableAsUnderstandingCheck: criteriaReview.recomputed.tierC_usableAsUnderstandingCheck,
+    novelChars: criteriaReview.recomputed.novelChars,
+    humanControl: criteriaReview.recomputed.humanControl,
+    duplicatedWithinUnit: criteriaReview.recomputed.duplicatedWithinUnit,
+    polarityInconsistent: criteriaReview.recomputed.polarityInconsistent,
+  } : null;
 
   const byBucket = Object.fromEntries(BUCKETS.map((b) => [b.key, units.filter((u) => u.bucket === b.key).length]));
   const count = (fn) => units.filter(fn).length;
@@ -257,10 +294,15 @@ export function buildPractice({ graph, batch, learning, review }) {
       gate: '所选 OPI 必须能回溯到 units.json / 图鉴卡的逐字字段',
     },
     {
-      type: '判据是机械推的', units: count((u) => u.group === '批量'), criteria: derivedCriteria,
-      detail: `批量的 ${derivedCriteria} 条费曼判据里，misconception 一律由「边界条目的否定翻转」算出（negationFlip 152 + boundaryDenial 112）；point 只是边界条目的前 12 字。它可以当复习提示，不能当教学误解。`,
-      who: '人写误解（模型只许起草，不许定稿）',
-      gate: 'check-batch-units.mjs 逐条重算复核；改成人写后仍要重算比对，防止又被脚本覆盖回去',
+      type: '判据是机械推的（已独立复核：verdict=unusable）', units: count((u) => u.group === '批量'), criteria: derivedCriteria,
+      detail: reviewedCriteria
+        ? `批量的 ${reviewedCriteria.total} 条费曼判据全部是机械反面转述（否定翻转 152 + 整条否定 112，重叠 ②c 111）：`
+          + `误解相对成立条件的**信息增量只有 ${reviewedCriteria.novelChars.min}–${reviewedCriteria.novelChars.max} 字**（人写的六章 ${reviewedCriteria.humanControl.total} 条是 ${reviewedCriteria.humanControl.novelChars.min}–${reviewedCriteria.humanControl.novelChars.max} 字，两组不重叠）；`
+          + `${reviewedCriteria.recitableFromBoundaries}/${reviewedCriteria.total} 条「照抄卡片 boundaries 原文即可满足」；另有 ${reviewedCriteria.duplicatedWithinUnit} 条同单元要点撞车、${reviewedCriteria.polarityInconsistent} 条翻转翻错位置（后两类已在生成器里修）。`
+          + `可当复习提示，不能当教学误解 —— 复核产物 evidence/review-criteria-260914/review.json（判据自检：正控 264 条全咬住、负控六章 18 条一条没误杀）。`
+        : `批量的 ${derivedCriteria} 条费曼判据里，misconception 一律由「边界条目的否定翻转」算出（negationFlip 152 + boundaryDenial 112）。`,
+      who: '人写误解（模型只许起草，不许定稿）—— 语料里没有一条独立的误解内容：76 个反向 SOL 单元的 target_problem 逐条等于「避免这个误区：」＋该卡 boundaries[0]，换不出新信息',
+      gate: 'node scripts/review-batch-criteria.mjs --selftest（正控＋负控）· --write 退出码 0 才算过；改成人写后仍要重算比对',
     },
     {
       type: '无页面入口', units: noEntry, criteria: null,
@@ -288,6 +330,7 @@ export function buildPractice({ graph, batch, learning, review }) {
       batch: 'evidence/batch-units-260914/units.json',
       learning: 'evidence/agent-loop-260913/chapters.json',
       review: reviewedDecisions ? 'evidence/review-decisions-260914/review.json' : null,
+      criteriaReview: reviewedCriteria ? 'evidence/review-criteria-260914/review.json' : null,
       graphStats: graph.stats,
       graphGeneratedAt: graph.generatedAt || graph.builtAt || '',
     },
@@ -296,9 +339,13 @@ export function buildPractice({ graph, batch, learning, review }) {
     buckets: BUCKETS.map((b) => ({ ...b, count: byBucket[b.key] })),
     coverage: graph.coverage || {},
     reviewedDecisions,
+    reviewedCriteria,
     summary: {
       units: units.length, open: units.filter((u) => u.open).length, byBucket,
       batchReady, batchScaffold, derivedCriteria, noEntry, reviewedDecisions,
+      reviewedCriteria,
+      superseded: units.filter((u) => u.superseded).length,
+      supersededIds: units.filter((u) => u.superseded).map((u) => u.id),
     },
     fullPush,
     units,

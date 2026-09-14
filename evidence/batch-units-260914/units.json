@@ -1,7 +1,7 @@
 {
  "version": "v1",
  "generatedAt": "2026-09-14",
- "builtAt": "2026-09-14T16:19:56.766Z",
+ "builtAt": "2026-09-14T16:49:48.268Z",
  "source": {
   "units": "内容结构化系统/模块/ai-concept-base/data/units.json",
   "cards": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/*.yaml",
@@ -400,7 +400,9 @@
   "verbatim": "所有正文逐字来自 units.json 与图鉴卡；唯一派生的字段是费曼判据的 point（前 12 字）与 misconception（机械反面转述），两者都标 derived 并由 check-batch-units.mjs 重算复核。",
   "noDecisions": "决策题不再由本脚本生成：228 道题来自 scripts/gen-decisions-hybrid-v3.mjs（确定性生成、模型调用 0 次），只有 evidence/review-decisions-260914/review.json 判定 verdict='usable' 的单元才接进来（本次 76 个单元 / 228 道题）；没通过复核的照实留空数组 —— 空数组 ≠ 满足。",
   "caseHonesty": "主案例一律来自反向 CAS 语义单元，全部自述为「假设场景」，本产物照原样保留该标记，不写成真实复盘。",
-  "cardFieldsUnused": "卡片字段 scenario 本轮未被任何单元字段取用（施工单 §1 的材料表没有把它指派给任何字段）；它留在卡里，供下一轮装配决策题时使用。"
+  "cardFieldsUnused": "卡片字段 scenario 本轮未被任何单元字段取用（施工单 §1 的材料表没有把它指派给任何字段）；它留在卡里，供下一轮装配决策题时使用。",
+  "schemeC": "方案丙（负责人 2026-09-14 拍板）：六章仍是对外唯一入口，6 个与六章同概念的批量单元标 superseded（保留数据、写清被 unit:chapter-* 取代、各登记一条缺口），不再作为独立可学单元；它们的已复核决策题与卡片 boundaries 派生判据已并入对应章节。",
+  "criteriaReview": "费曼判据的 misconception 仍是机械反面转述（negation-flip / boundary-denial 两条确定性规则）；独立复核见 evidence/review-criteria-260914/review.json（verdict=unusable）——本产物照实标 derived，不冒充教学误解。"
  },
  "stats": {
   "units": 76,
@@ -409,7 +411,7 @@
   "criteria": 264,
   "boundaryItems": 264,
   "citations": 2043,
-  "gaps": 57,
+  "gaps": 63,
   "readyUnits": [
    "batch-agent",
    "batch-agent-harness",
@@ -490,6 +492,22 @@
    "batch-verifiable-goal",
    "batch-verification-loop"
   ],
+  "supersededUnits": [
+   "batch-agent",
+   "batch-agent-harness",
+   "batch-agent-loop",
+   "batch-state-management",
+   "batch-tool",
+   "batch-verification-loop"
+  ],
+  "supersededBy": {
+   "batch-agent": "unit:chapter-agent",
+   "batch-agent-harness": "unit:chapter-harness",
+   "batch-agent-loop": "unit:chapter-agent-loop",
+   "batch-state-management": "unit:chapter-state-persistence",
+   "batch-tool": "unit:chapter-tool",
+   "batch-verification-loop": "unit:chapter-verification-loop"
+  },
   "misconceptionRules": {
    "negationFlip": 152,
    "boundaryDenial": 112
@@ -506,7 +524,14 @@
    "unitId": "batch-agent",
    "order": 1,
    "status": "ready",
-   "statusReason": "",
+   "statusReason": "同一个概念（CON-agent）已有负责人确认过的手工章节 unit:chapter-agent「Agent」，机器版本（本单元）不对外：保留数据与出处，不再作为独立可学单元，也不给页面入口。它的三道已复核决策题与卡片 boundaries 派生判据已并入该章节（人工内容优先 · 机器内容逐条标来源）。",
+   "superseded": {
+    "by": "unit:chapter-agent",
+    "byTitle": "Agent",
+    "at": "2026-09-14",
+    "decidedBy": "owner（方案丙）",
+    "reason": "同一个概念（CON-agent）已有负责人确认过的手工章节 unit:chapter-agent「Agent」，机器版本（本单元）不对外：保留数据与出处，不再作为独立可学单元，也不给页面入口。它的三道已复核决策题与卡片 boundaries 派生判据已并入该章节（人工内容优先 · 机器内容逐条标来源）。"
+   },
    "conceptId": "CON-agent",
    "card": {
     "slug": "agent",
@@ -990,7 +1015,9 @@
     }
    ],
    "decisionPolicy": "3 道决策题已接入：脚本确定性生成（模型调用 0 次），并经独立复核 verdict=usable（依据逐字可回溯 + 正解是与依据句共享 ≥8 字连续原文的改写句 + 题干与正解同极性 + 三题三个正解）。",
-   "gaps": []
+   "gaps": [
+    "已被手工章节取代（superseded）：同一个概念（CON-agent）已有负责人确认过的手工章节 unit:chapter-agent「Agent」，机器版本（本单元）不对外：保留数据与出处，不再作为独立可学单元，也不给页面入口。它的三道已复核决策题与卡片 boundaries 派生判据已并入该章节（人工内容优先 · 机器内容逐条标来源）。"
+   ]
   },
   {
    "unitId": "batch-agent-action-space",
@@ -2841,7 +2868,14 @@
    "unitId": "batch-agent-harness",
    "order": 6,
    "status": "ready",
-   "statusReason": "",
+   "statusReason": "同一个概念（CON-agent-harness）已有负责人确认过的手工章节 unit:chapter-harness「Harness」，机器版本（本单元）不对外：保留数据与出处，不再作为独立可学单元，也不给页面入口。它的三道已复核决策题与卡片 boundaries 派生判据已并入该章节（人工内容优先 · 机器内容逐条标来源）。",
+   "superseded": {
+    "by": "unit:chapter-harness",
+    "byTitle": "Harness",
+    "at": "2026-09-14",
+    "decidedBy": "owner（方案丙）",
+    "reason": "同一个概念（CON-agent-harness）已有负责人确认过的手工章节 unit:chapter-harness「Harness」，机器版本（本单元）不对外：保留数据与出处，不再作为独立可学单元，也不给页面入口。它的三道已复核决策题与卡片 boundaries 派生判据已并入该章节（人工内容优先 · 机器内容逐条标来源）。"
+   },
    "conceptId": "CON-agent-harness",
    "card": {
     "slug": "agent-harness",
@@ -3339,7 +3373,9 @@
     }
    ],
    "decisionPolicy": "3 道决策题已接入：脚本确定性生成（模型调用 0 次），并经独立复核 verdict=usable（依据逐字可回溯 + 正解是与依据句共享 ≥8 字连续原文的改写句 + 题干与正解同极性 + 三题三个正解）。",
-   "gaps": []
+   "gaps": [
+    "已被手工章节取代（superseded）：同一个概念（CON-agent-harness）已有负责人确认过的手工章节 unit:chapter-harness「Harness」，机器版本（本单元）不对外：保留数据与出处，不再作为独立可学单元，也不给页面入口。它的三道已复核决策题与卡片 boundaries 派生判据已并入该章节（人工内容优先 · 机器内容逐条标来源）。"
+   ]
   },
   {
    "unitId": "batch-agent-lifecycle",
@@ -3800,7 +3836,14 @@
    "unitId": "batch-agent-loop",
    "order": 8,
    "status": "scaffold",
-   "statusReason": "缺 OPI：决策题依据只能落在 CAS 情境与 SOL 动作路径上",
+   "statusReason": "同一个概念（CON-agent-loop）已有负责人确认过的手工章节 unit:chapter-agent-loop「Agent loop」，机器版本（本单元）不对外：保留数据与出处，不再作为独立可学单元，也不给页面入口。它的三道已复核决策题与卡片 boundaries 派生判据已并入该章节（人工内容优先 · 机器内容逐条标来源）。",
+   "superseded": {
+    "by": "unit:chapter-agent-loop",
+    "byTitle": "Agent loop",
+    "at": "2026-09-14",
+    "decidedBy": "owner（方案丙）",
+    "reason": "同一个概念（CON-agent-loop）已有负责人确认过的手工章节 unit:chapter-agent-loop「Agent loop」，机器版本（本单元）不对外：保留数据与出处，不再作为独立可学单元，也不给页面入口。它的三道已复核决策题与卡片 boundaries 派生判据已并入该章节（人工内容优先 · 机器内容逐条标来源）。"
+   },
    "conceptId": "CON-agent-loop",
    "card": {
     "slug": "agent-loop",
@@ -4273,7 +4316,8 @@
    ],
    "decisionPolicy": "3 道决策题已接入：脚本确定性生成（模型调用 0 次），并经独立复核 verdict=usable（依据逐字可回溯 + 正解是与依据句共享 ≥8 字连续原文的改写句 + 题干与正解同极性 + 三题三个正解）。",
    "gaps": [
-    "缺 OPI：本单元（CON-agent-loop）没有反向观点单元，决策题依据只能落在 CAS 情境与 SOL 动作路径上。"
+    "缺 OPI：本单元（CON-agent-loop）没有反向观点单元，决策题依据只能落在 CAS 情境与 SOL 动作路径上。",
+    "已被手工章节取代（superseded）：同一个概念（CON-agent-loop）已有负责人确认过的手工章节 unit:chapter-agent-loop「Agent loop」，机器版本（本单元）不对外：保留数据与出处，不再作为独立可学单元，也不给页面入口。它的三道已复核决策题与卡片 boundaries 派生判据已并入该章节（人工内容优先 · 机器内容逐条标来源）。"
    ]
   },
   {
@@ -21963,11 +22007,11 @@
       "id": "batch-model-context-protocol-B1",
       "point": "MCP 是通信与接入协议",
       "condition": "MCP 是通信与接入协议，不是某个具体 Tool，也不保证已连接能力一定可用。",
-      "misconception": "MCP 是通信与接入协议，不是某个具体 Tool，也保证已连接能力一定可用。",
+      "misconception": "MCP 是通信与接入协议，是某个具体 Tool，也不保证已连接能力一定可用。",
       "misconceptionSource": "derived",
       "derivation": {
        "rule": "negation-flip",
-       "flipped": "不保证",
+       "flipped": "不是",
        "from": "boundaries[0]",
        "note": "按确定性规则从同一条边界算出，不是 agent 撰写的教学误解"
       },
@@ -24329,11 +24373,11 @@
       "id": "batch-persistent-code-graph-B1",
       "point": "它不是一次任务临时生成的",
       "condition": "它不是一次任务临时生成的代码摘要，也不等同于只按文本相似度检索代码片段。",
-      "misconception": "它不是一次任务临时生成的代码摘要，也等同于只按文本相似度检索代码片段。",
+      "misconception": "它是一次任务临时生成的代码摘要，也不等同于只按文本相似度检索代码片段。",
       "misconceptionSource": "derived",
       "derivation": {
        "rule": "negation-flip",
-       "flipped": "不等同于",
+       "flipped": "不是",
        "from": "boundaries[0]",
        "note": "按确定性规则从同一条边界算出，不是 agent 撰写的教学误解"
       },
@@ -31949,7 +31993,14 @@
    "unitId": "batch-state-management",
    "order": 64,
    "status": "ready",
-   "statusReason": "",
+   "statusReason": "同一个概念（CON-state-management）已有负责人确认过的手工章节 unit:chapter-state-persistence「状态子系统与进度持久化」，机器版本（本单元）不对外：保留数据与出处，不再作为独立可学单元，也不给页面入口。它的三道已复核决策题与卡片 boundaries 派生判据已并入该章节（人工内容优先 · 机器内容逐条标来源）。",
+   "superseded": {
+    "by": "unit:chapter-state-persistence",
+    "byTitle": "状态子系统与进度持久化",
+    "at": "2026-09-14",
+    "decidedBy": "owner（方案丙）",
+    "reason": "同一个概念（CON-state-management）已有负责人确认过的手工章节 unit:chapter-state-persistence「状态子系统与进度持久化」，机器版本（本单元）不对外：保留数据与出处，不再作为独立可学单元，也不给页面入口。它的三道已复核决策题与卡片 boundaries 派生判据已并入该章节（人工内容优先 · 机器内容逐条标来源）。"
+   },
    "conceptId": "CON-state-management",
    "card": {
     "slug": "state-management",
@@ -32422,7 +32473,9 @@
     }
    ],
    "decisionPolicy": "3 道决策题已接入：脚本确定性生成（模型调用 0 次），并经独立复核 verdict=usable（依据逐字可回溯 + 正解是与依据句共享 ≥8 字连续原文的改写句 + 题干与正解同极性 + 三题三个正解）。",
-   "gaps": []
+   "gaps": [
+    "已被手工章节取代（superseded）：同一个概念（CON-state-management）已有负责人确认过的手工章节 unit:chapter-state-persistence「状态子系统与进度持久化」，机器版本（本单元）不对外：保留数据与出处，不再作为独立可学单元，也不给页面入口。它的三道已复核决策题与卡片 boundaries 派生判据已并入该章节（人工内容优先 · 机器内容逐条标来源）。"
+   ]
   },
   {
    "unitId": "batch-subagent-orchestration",
@@ -34422,7 +34475,14 @@
    "unitId": "batch-tool",
    "order": 69,
    "status": "ready",
-   "statusReason": "",
+   "statusReason": "同一个概念（CON-tool）已有负责人确认过的手工章节 unit:chapter-tool「工具」，机器版本（本单元）不对外：保留数据与出处，不再作为独立可学单元，也不给页面入口。它的三道已复核决策题与卡片 boundaries 派生判据已并入该章节（人工内容优先 · 机器内容逐条标来源）。",
+   "superseded": {
+    "by": "unit:chapter-tool",
+    "byTitle": "工具",
+    "at": "2026-09-14",
+    "decidedBy": "owner（方案丙）",
+    "reason": "同一个概念（CON-tool）已有负责人确认过的手工章节 unit:chapter-tool「工具」，机器版本（本单元）不对外：保留数据与出处，不再作为独立可学单元，也不给页面入口。它的三道已复核决策题与卡片 boundaries 派生判据已并入该章节（人工内容优先 · 机器内容逐条标来源）。"
+   },
    "conceptId": "CON-tool",
    "card": {
     "slug": "tool",
@@ -35445,7 +35505,9 @@
     }
    ],
    "decisionPolicy": "3 道决策题已接入：脚本确定性生成（模型调用 0 次），并经独立复核 verdict=usable（依据逐字可回溯 + 正解是与依据句共享 ≥8 字连续原文的改写句 + 题干与正解同极性 + 三题三个正解）。",
-   "gaps": []
+   "gaps": [
+    "已被手工章节取代（superseded）：同一个概念（CON-tool）已有负责人确认过的手工章节 unit:chapter-tool「工具」，机器版本（本单元）不对外：保留数据与出处，不再作为独立可学单元，也不给页面入口。它的三道已复核决策题与卡片 boundaries 派生判据已并入该章节（人工内容优先 · 机器内容逐条标来源）。"
+   ]
   },
   {
    "unitId": "batch-tool-schema-tax",
@@ -38050,11 +38112,11 @@
       "id": "batch-verifiable-goal-B3",
       "point": "目标无法满足时应触发失败",
       "condition": "目标无法满足时应触发失败或升级，不应诱导 Agent 无限重试。",
-      "misconception": "目标无法满足时应触发失败或升级，应诱导 Agent 无限重试。",
+      "misconception": "目标可以满足时应触发失败或升级，不应诱导 Agent 无限重试。",
       "misconceptionSource": "derived",
       "derivation": {
        "rule": "negation-flip",
-       "flipped": "不应",
+       "flipped": "无法",
        "from": "boundaries[2]",
        "note": "按确定性规则从同一条边界算出，不是 agent 撰写的教学误解"
       },
@@ -38270,7 +38332,14 @@
    "unitId": "batch-verification-loop",
    "order": 76,
    "status": "scaffold",
-   "statusReason": "缺 OPI：决策题依据只能落在 CAS 情境与 SOL 动作路径上",
+   "statusReason": "同一个概念（CON-verification-loop）已有负责人确认过的手工章节 unit:chapter-verification-loop「验证闭环」，机器版本（本单元）不对外：保留数据与出处，不再作为独立可学单元，也不给页面入口。它的三道已复核决策题与卡片 boundaries 派生判据已并入该章节（人工内容优先 · 机器内容逐条标来源）。",
+   "superseded": {
+    "by": "unit:chapter-verification-loop",
+    "byTitle": "验证闭环",
+    "at": "2026-09-14",
+    "decidedBy": "owner（方案丙）",
+    "reason": "同一个概念（CON-verification-loop）已有负责人确认过的手工章节 unit:chapter-verification-loop「验证闭环」，机器版本（本单元）不对外：保留数据与出处，不再作为独立可学单元，也不给页面入口。它的三道已复核决策题与卡片 boundaries 派生判据已并入该章节（人工内容优先 · 机器内容逐条标来源）。"
+   },
    "conceptId": "CON-verification-loop",
    "card": {
     "slug": "verification-loop",
@@ -38757,7 +38826,8 @@
    ],
    "decisionPolicy": "3 道决策题已接入：脚本确定性生成（模型调用 0 次），并经独立复核 verdict=usable（依据逐字可回溯 + 正解是与依据句共享 ≥8 字连续原文的改写句 + 题干与正解同极性 + 三题三个正解）。",
    "gaps": [
-    "缺 OPI：本单元（CON-verification-loop）没有反向观点单元，决策题依据只能落在 CAS 情境与 SOL 动作路径上。"
+    "缺 OPI：本单元（CON-verification-loop）没有反向观点单元，决策题依据只能落在 CAS 情境与 SOL 动作路径上。",
+    "已被手工章节取代（superseded）：同一个概念（CON-verification-loop）已有负责人确认过的手工章节 unit:chapter-verification-loop「验证闭环」，机器版本（本单元）不对外：保留数据与出处，不再作为独立可学单元，也不给页面入口。它的三道已复核决策题与卡片 boundaries 派生判据已并入该章节（人工内容优先 · 机器内容逐条标来源）。"
    ]
   }
  ]

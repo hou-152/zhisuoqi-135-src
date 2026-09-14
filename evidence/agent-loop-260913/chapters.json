@@ -1,7 +1,7 @@
 {
  "version": "v1",
  "generatedAt": "2026-09-13",
- "builtAt": "2026-09-13T20:58:02.942Z",
+ "builtAt": "2026-09-14T16:50:28.699Z",
  "source": {
   "pairings": "evidence/agent-loop-260913/pairings.json",
   "authored": "evidence/agent-loop-260913/authored.json",
@@ -211,7 +211,12 @@
        "basis": [],
        "basisQuote": ""
       }
-     ]
+     ],
+     "origin": {
+      "kind": "hand",
+      "file": "evidence/agent-loop-260913/authored.json#chapters.agent.questions[0]",
+      "note": "人工撰写；本章通过判定只用这三道"
+     }
     },
     {
      "judgment": "排错动作：Agent 表现差时先怎么拆",
@@ -240,7 +245,12 @@
        ],
        "basisQuote": "排错时把问题拆成模型判断、工具能力、状态、权限、循环和验证"
       }
-     ]
+     ],
+     "origin": {
+      "kind": "hand",
+      "file": "evidence/agent-loop-260913/authored.json#chapters.agent.questions[1]",
+      "note": "人工撰写；本章通过判定只用这三道"
+     }
     },
     {
      "judgment": "边界结论：Agent 与 LLM 的关系",
@@ -269,7 +279,129 @@
        "basis": [],
        "basisQuote": ""
       }
-     ]
+     ],
+     "origin": {
+      "kind": "hand",
+      "file": "evidence/agent-loop-260913/authored.json#chapters.agent.questions[2]",
+      "note": "人工撰写；本章通过判定只用这三道"
+     }
+    },
+    {
+     "judgment": "机器复核题 1｜来自 batch-agent 第 1 道（已独立复核 verdict=usable）",
+     "prompt": "情境：你让 Agent 修复测试失败。按这段材料给的动作路径，第 1 条这一步你会怎么做？",
+     "options": [
+      {
+       "text": "先核对它能否围绕目标依据结果选择下一步；而不只看是不是用了 Agent 名称（用在识别一个系统是不是真的具有 Agent 行为时）",
+       "correct": true,
+       "why": "",
+       "basis": [
+        "SOL-agent#solution_summary"
+       ],
+       "basisQuote": "识别一个系统是否真的具有 Agent 行为时，检查它能否围绕目标根据结果选择下一步，而不只看是否使用了 Agent 名称。"
+      },
+      {
+       "text": "先按「LLM就是Agent」来判断，模型负责推理与生成，工具执行、状态维护、权限和循环来自外部系统，这层先不单独看。",
+       "correct": false,
+       "why": "来源这条边界写的是「Agent 不等于 LLM」，这一项把边界反过来当做法用。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "先排错时将问题拆成模型判断，工具能力，状态，权限，循环和验证；不要笼统归因于“Agent 不聪明”",
+       "correct": false,
+       "why": "这是材料里另一条动作（units[id=SOL-agent].key_fields.action_steps[1]）要你做的事，不是题干问的这一条；照它做就跳步了。",
+       "basis": [],
+       "basisQuote": ""
+      }
+     ],
+     "origin": {
+      "kind": "machine",
+      "unitId": "batch-agent",
+      "questionId": "decisions[0]",
+      "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-agent].decisions[0]",
+      "generatedFrom": "evidence/gen-decisions-hybrid-v3-20260914.json#units[unitId=batch-agent].questions[0]",
+      "review": "evidence/review-decisions-260914/review.json#units[unitId=batch-agent]",
+      "verdict": "usable",
+      "note": "脚本确定性生成（模型调用 0 次）＋独立复核通过；人工三题排在本章最前，机器题不覆盖人工内容"
+     }
+    },
+    {
+     "judgment": "机器复核题 2｜来自 batch-agent 第 2 道（已独立复核 verdict=usable）",
+     "prompt": "情境：你让 Agent 修复测试失败。按这段材料给的动作路径，第 2 条这一步你会怎么做？",
+     "options": [
+      {
+       "text": "先排错时将问题拆成模型判断，工具能力，状态，权限，循环和验证；不要笼统归因于“Agent 不聪明”",
+       "correct": true,
+       "why": "",
+       "basis": [
+        "SOL-agent#action_steps[1]"
+       ],
+       "basisQuote": "排错时把问题拆成模型判断、工具能力、状态、权限、循环和验证，避免笼统归因于“Agent 不聪明”。"
+      },
+      {
+       "text": "先核对它能否围绕目标依据结果选择下一步；而不只看是不是用了 Agent 名称（用在识别一个系统是不是真的具有 Agent 行为时）",
+       "correct": false,
+       "why": "这是材料里另一条动作（units[id=SOL-agent].key_fields.solution_summary）要你做的事，不是题干问的这一条；照它做就跳步了。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "先排错时将问题拆成模型判断，工具能力，状态，权限，循环和验证，其余（避免笼统归因于“Agent 不聪明”）等有需要再补",
+       "correct": false,
+       "why": "来源把「避免笼统归因于“Agent 不聪明”」和前面的要件并列写成同一条路径，漏掉它只做了半条。",
+       "basis": [],
+       "basisQuote": ""
+      }
+     ],
+     "origin": {
+      "kind": "machine",
+      "unitId": "batch-agent",
+      "questionId": "decisions[1]",
+      "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-agent].decisions[1]",
+      "generatedFrom": "evidence/gen-decisions-hybrid-v3-20260914.json#units[unitId=batch-agent].questions[1]",
+      "review": "evidence/review-decisions-260914/review.json#units[unitId=batch-agent]",
+      "verdict": "usable",
+      "note": "脚本确定性生成（模型调用 0 次）＋独立复核通过；人工三题排在本章最前，机器题不覆盖人工内容"
+     }
+    },
+    {
+     "judgment": "机器复核题 3｜来自 batch-agent 第 3 道（已独立复核 verdict=usable）",
+     "prompt": "情境：你让 Agent 修复测试失败。前面两条都做完之后，收尾这一步你会怎么做？",
+     "options": [
+      {
+       "text": "最后拿「Agent 不等于 LLM」对一遍，越界就回头改。",
+       "correct": true,
+       "why": "",
+       "basis": [
+        "concepts/agent.yaml#boundaries[0]"
+       ],
+       "basisQuote": "Agent 不等于 LLM；模型负责推理与生成，工具执行、状态维护、权限和循环来自外部系统。"
+      },
+      {
+       "text": "先最后拿这条边界对一遍：Agent 不等于 LLM，其余（越界就回头改）等有需要再补",
+       "correct": false,
+       "why": "来源把「越界就回头改」和前面的要件并列写成同一条路径，漏掉它只做了半条。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "先照现在的做法往下走，等出了问题再回头补最后拿这条边界对一遍：Agent 不等于 LLM。",
+       "correct": false,
+       "why": "来源把它写成动手时就要走的动作，推到出问题之后再做，触发条件被改掉了（这一步不是事后补救）。",
+       "basis": [],
+       "basisQuote": ""
+      }
+     ],
+     "origin": {
+      "kind": "machine",
+      "unitId": "batch-agent",
+      "questionId": "decisions[2]",
+      "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-agent].decisions[2]",
+      "generatedFrom": "evidence/gen-decisions-hybrid-v3-20260914.json#units[unitId=batch-agent].questions[2]",
+      "review": "evidence/review-decisions-260914/review.json#units[unitId=batch-agent]",
+      "verdict": "usable",
+      "note": "脚本确定性生成（模型调用 0 次）＋独立复核通过；人工三题排在本章最前，机器题不覆盖人工内容"
+     }
     }
    ],
    "feynman": {
@@ -284,21 +416,137 @@
       "id": "agent-F1",
       "point": "最小构成",
       "condition": "说到「围绕目标持续选择下一步、借助工具行动并根据结果继续推进」这几件事，才算说清最小构成；只说「会调用工具」不够。",
-      "misconception": "把最小构成当成模型规模或参数量——以为换一个更大的模型就更像 Agent。"
+      "misconception": "把最小构成当成模型规模或参数量——以为换一个更大的模型就更像 Agent。",
+      "origin": {
+       "kind": "hand",
+       "file": "evidence/agent-loop-260913/authored.json#chapters.agent.feynman.checks[0]",
+       "note": "人工撰写；本章通过判定只用这三条"
+      }
      },
      {
       "id": "agent-F2",
       "point": "行动来源",
       "condition": "说清工具执行、状态维护、权限与循环来自模型之外的系统，而不是模型权重自带的动作能力。",
-      "misconception": "以为行动能力长在模型里（「模型自己会执行工具」），说不清执行发生在模型外。"
+      "misconception": "以为行动能力长在模型里（「模型自己会执行工具」），说不清执行发生在模型外。",
+      "origin": {
+       "kind": "hand",
+       "file": "evidence/agent-loop-260913/authored.json#chapters.agent.feynman.checks[1]",
+       "note": "人工撰写；本章通过判定只用这三条"
+      }
      },
      {
       "id": "agent-F3",
       "point": "与模型的区别",
       "condition": "点明模型负责推理与生成，Agent 是围绕目标持续推进的系统，并至少说出一条具体差别。",
-      "misconception": "把 Agent 与 Agent Harness 当同义词，或用「更强的 LLM」解释全部差别。"
+      "misconception": "把 Agent 与 Agent Harness 当同义词，或用「更强的 LLM」解释全部差别。",
+      "origin": {
+       "kind": "hand",
+       "file": "evidence/agent-loop-260913/authored.json#chapters.agent.feynman.checks[2]",
+       "note": "人工撰写；本章通过判定只用这三条"
+      }
+     }
+    ],
+    "machineChecks": [
+     {
+      "id": "batch-agent-B1",
+      "point": "Agent 不等于 LL",
+      "condition": "Agent 不等于 LLM；模型负责推理与生成，工具执行、状态维护、权限和循环来自外部系统。",
+      "misconception": "Agent 等于 LLM；模型负责推理与生成，工具执行、状态维护、权限和循环来自外部系统。",
+      "misconceptionSource": "derived",
+      "derivation": {
+       "rule": "negation-flip",
+       "flipped": "不等于",
+       "from": "boundaries[0]",
+       "note": "按确定性规则从同一条边界算出，不是 agent 撰写的教学误解"
+      },
+      "sourceFile": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/agent.yaml",
+      "sourceSha256": "be4cf0839d7f6fc042ba5f17e4cb2e03b41326624c57ff552113d25d52e8f4e7",
+      "locator": "boundaries[0]",
+      "escapeForm": "raw",
+      "gate": false,
+      "origin": {
+       "kind": "machine",
+       "unitId": "batch-agent",
+       "checkId": "batch-agent-B1",
+       "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-agent].feynman.checks[0]",
+       "derivedFrom": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/agent.yaml#boundaries[0]",
+       "review": "evidence/review-criteria-260914/review.json#units[unitId=batch-agent]",
+       "verdict": "blocked",
+       "note": "misconception 是卡片 boundaries 的机械反面转述，独立复核 verdict=unusable：可当复习提示，不作为本章通过判据"
+      }
+     },
+     {
+      "id": "batch-agent-B2",
+      "point": "“能调用一次工具”是重要",
+      "condition": "“能调用一次工具”是重要分界，但生产级 Agent 通常还需要错误处理、验证、停止条件与状态管理。",
+      "misconception": "误以为这条边界不成立：“能调用一次工具”是重要分界，但生产级 Agent 通常还需要错误处理、验证、停止条件与状态管理。",
+      "misconceptionSource": "derived",
+      "derivation": {
+       "rule": "boundary-denial",
+       "flipped": "",
+       "from": "boundaries[1]",
+       "note": "按确定性规则从同一条边界算出，不是 agent 撰写的教学误解"
+      },
+      "sourceFile": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/agent.yaml",
+      "sourceSha256": "be4cf0839d7f6fc042ba5f17e4cb2e03b41326624c57ff552113d25d52e8f4e7",
+      "locator": "boundaries[1]",
+      "escapeForm": "raw",
+      "gate": false,
+      "origin": {
+       "kind": "machine",
+       "unitId": "batch-agent",
+       "checkId": "batch-agent-B2",
+       "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-agent].feynman.checks[1]",
+       "derivedFrom": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/agent.yaml#boundaries[1]",
+       "review": "evidence/review-criteria-260914/review.json#units[unitId=batch-agent]",
+       "verdict": "blocked",
+       "note": "misconception 是卡片 boundaries 的机械反面转述，独立复核 verdict=unusable：可当复习提示，不作为本章通过判据"
+      }
+     },
+     {
+      "id": "batch-agent-B3",
+      "point": "Agent 与 Agen",
+      "condition": "Agent 与 Agent Harness 不是同义词；前者描述呈现出来的行动系统，后者强调产生和约束这种行为的运行机器。",
+      "misconception": "Agent 与 Agent Harness 是同义词；前者描述呈现出来的行动系统，后者强调产生和约束这种行为的运行机器。",
+      "misconceptionSource": "derived",
+      "derivation": {
+       "rule": "negation-flip",
+       "flipped": "不是",
+       "from": "boundaries[2]",
+       "note": "按确定性规则从同一条边界算出，不是 agent 撰写的教学误解"
+      },
+      "sourceFile": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/agent.yaml",
+      "sourceSha256": "be4cf0839d7f6fc042ba5f17e4cb2e03b41326624c57ff552113d25d52e8f4e7",
+      "locator": "boundaries[2]",
+      "escapeForm": "raw",
+      "gate": false,
+      "origin": {
+       "kind": "machine",
+       "unitId": "batch-agent",
+       "checkId": "batch-agent-B3",
+       "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-agent].feynman.checks[2]",
+       "derivedFrom": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/agent.yaml#boundaries[2]",
+       "review": "evidence/review-criteria-260914/review.json#units[unitId=batch-agent]",
+       "verdict": "blocked",
+       "note": "misconception 是卡片 boundaries 的机械反面转述，独立复核 verdict=unusable：可当复习提示，不作为本章通过判据"
+      }
      }
     ]
+   },
+   "schemeC": {
+    "decidedBy": "owner",
+    "at": "2026-09-14",
+    "ruling": "方案丙",
+    "supersededUnit": "batch-agent",
+    "supersededReason": "同一个概念（CON-agent）已有负责人确认过的手工章节 unit:chapter-agent「Agent」，机器版本（本单元）不对外：保留数据与出处，不再作为独立可学单元，也不给页面入口。它的三道已复核决策题与卡片 boundaries 派生判据已并入该章节（人工内容优先 · 机器内容逐条标来源）。",
+    "merged": {
+     "machineQuestions": 3,
+     "machineChecks": 3,
+     "decisionsReview": "evidence/review-decisions-260914/review.json",
+     "criteriaReview": "evidence/review-criteria-260914/review.json",
+     "criteriaVerdict": "blocked"
+    },
+    "note": "六章仍是对外唯一入口：机器版本不再作为独立可学单元（标 superseded、写进缺口清单），它已复核的决策题与卡片 boundaries 派生判据并入本章，逐条标了来源。"
    },
    "narrative": {
     "authored": true,
@@ -590,7 +838,12 @@
        "basis": [],
        "basisQuote": ""
       }
-     ]
+     ],
+     "origin": {
+      "kind": "hand",
+      "file": "evidence/agent-loop-260913/authored.json#chapters.tool.questions[0]",
+      "note": "人工撰写；本章通过判定只用这三道"
+     }
     },
     {
      "judgment": "工具面收窄：工具不是越多越好",
@@ -619,7 +872,12 @@
        ],
        "basisQuote": "只向当前任务暴露必要工具，避免无关能力增加选择噪声与权限面"
       }
-     ]
+     ],
+     "origin": {
+      "kind": "hand",
+      "file": "evidence/agent-loop-260913/authored.json#chapters.tool.questions[1]",
+      "note": "人工撰写；本章通过判定只用这三道"
+     }
     },
     {
      "judgment": "高风险工具的权限放在哪一层",
@@ -648,7 +906,129 @@
        "basis": [],
        "basisQuote": ""
       }
-     ]
+     ],
+     "origin": {
+      "kind": "hand",
+      "file": "evidence/agent-loop-260913/authored.json#chapters.tool.questions[2]",
+      "note": "人工撰写；本章通过判定只用这三道"
+     }
+    },
+    {
+     "judgment": "机器复核题 1｜来自 batch-tool 第 1 道（已独立复核 verdict=usable）",
+     "prompt": "情境：一个代码 Agent 想读取文件，会按文件工具的名称和参数结构提出调用。按这段材料给的动作路径，第 1 条这一步你会怎么做？",
+     "options": [
+      {
+       "text": "先排错时依次核对工具是否注册、描述是否清楚、参数是否通过校验、权限是否允许、执行是否成功、结果是否正确回传",
+       "correct": true,
+       "why": "",
+       "basis": [
+        "SOL-tool#solution_summary"
+       ],
+       "basisQuote": "排错时依次检查工具是否注册、描述是否清楚、参数是否通过校验、权限是否允许、执行是否成功、结果是否正确回传。"
+      },
+      {
+       "text": "先排错时依次核对工具是否注册、描述是否清楚、参数是否通过校验、权限是否允许、执行是否成功、结果是否正确回传，等有需要再补",
+       "correct": false,
+       "why": "来源把「结果是否正确回传」和前面的要件并列写成同一条路径，漏掉它只做了半条。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "先按「动作已经执行成功就是看到调用请求」来判断，这层先不单独看。",
+       "correct": false,
+       "why": "来源这条边界写的是「看到调用请求不等于动作已经执行成功」，这一项把边界反过来当做法用。",
+       "basis": [],
+       "basisQuote": ""
+      }
+     ],
+     "origin": {
+      "kind": "machine",
+      "unitId": "batch-tool",
+      "questionId": "decisions[0]",
+      "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-tool].decisions[0]",
+      "generatedFrom": "evidence/gen-decisions-hybrid-v3-20260914.json#units[unitId=batch-tool].questions[0]",
+      "review": "evidence/review-decisions-260914/review.json#units[unitId=batch-tool]",
+      "verdict": "usable",
+      "note": "脚本确定性生成（模型调用 0 次）＋独立复核通过；人工三题排在本章最前，机器题不覆盖人工内容"
+     }
+    },
+    {
+     "judgment": "机器复核题 2｜来自 batch-tool 第 2 道（已独立复核 verdict=usable）",
+     "prompt": "情境：一个代码 Agent 想读取文件，会按文件工具的名称和参数结构提出调用。按这段材料给的动作路径，第 2 条这一步你会怎么做？",
+     "options": [
+      {
+       "text": "先只向当前任务暴露必要工具；不要无关能力增加选择噪声与权限面",
+       "correct": true,
+       "why": "",
+       "basis": [
+        "SOL-tool#action_steps[1]"
+       ],
+       "basisQuote": "只向当前任务暴露必要工具，避免无关能力增加选择噪声与权限面。"
+      },
+      {
+       "text": "先对高风险 Tool 将权限核对和执行日志放在模型外层；不依赖提示词自我约束",
+       "correct": false,
+       "why": "这是材料里另一条动作（units[id=SOL-tool].key_fields.action_steps[2]）要你做的事，不是题干问的这一条；照它做就跳步了。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "先只向当前任务暴露必要工具，其余（避免无关能力增加选择噪声与权限面）等有需要再补",
+       "correct": false,
+       "why": "来源把「避免无关能力增加选择噪声与权限面」和前面的要件并列写成同一条路径，漏掉它只做了半条。",
+       "basis": [],
+       "basisQuote": ""
+      }
+     ],
+     "origin": {
+      "kind": "machine",
+      "unitId": "batch-tool",
+      "questionId": "decisions[1]",
+      "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-tool].decisions[1]",
+      "generatedFrom": "evidence/gen-decisions-hybrid-v3-20260914.json#units[unitId=batch-tool].questions[1]",
+      "review": "evidence/review-decisions-260914/review.json#units[unitId=batch-tool]",
+      "verdict": "usable",
+      "note": "脚本确定性生成（模型调用 0 次）＋独立复核通过；人工三题排在本章最前，机器题不覆盖人工内容"
+     }
+    },
+    {
+     "judgment": "机器复核题 3｜来自 batch-tool 第 3 道（已独立复核 verdict=usable）",
+     "prompt": "情境：一个代码 Agent 想读取文件，会按文件工具的名称和参数结构提出调用。按这段材料给的动作路径，第 3 条这一步你会怎么做？",
+     "options": [
+      {
+       "text": "先对高风险 Tool 将权限核对和执行日志放在模型外层；不依赖提示词自我约束",
+       "correct": true,
+       "why": "",
+       "basis": [
+        "SOL-tool#action_steps[2]"
+       ],
+       "basisQuote": "对高风险 Tool 把权限检查和执行日志放在模型外层，不依赖提示词自我约束。"
+      },
+      {
+       "text": "先按「互作同义词就是二者」来判断，这层先不单独看。",
+       "correct": false,
+       "why": "来源这条边界写的是「二者不能互作同义词」，这一项把边界反过来当做法用。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "先只向当前任务暴露必要工具；不要无关能力增加选择噪声与权限面",
+       "correct": false,
+       "why": "这是材料里另一条动作（units[id=SOL-tool].key_fields.action_steps[1]）要你做的事，不是题干问的这一条；照它做就跳步了。",
+       "basis": [],
+       "basisQuote": ""
+      }
+     ],
+     "origin": {
+      "kind": "machine",
+      "unitId": "batch-tool",
+      "questionId": "decisions[2]",
+      "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-tool].decisions[2]",
+      "generatedFrom": "evidence/gen-decisions-hybrid-v3-20260914.json#units[unitId=batch-tool].questions[2]",
+      "review": "evidence/review-decisions-260914/review.json#units[unitId=batch-tool]",
+      "verdict": "usable",
+      "note": "脚本确定性生成（模型调用 0 次）＋独立复核通过；人工三题排在本章最前，机器题不覆盖人工内容"
+     }
     }
    ],
    "feynman": {
@@ -663,21 +1043,165 @@
       "id": "tool-F1",
       "point": "提出调用",
       "condition": "说清模型产出的是结构化的调用请求（Tool Call），请求本身不是执行。",
-      "misconception": "看到模型输出「我要读这个文件」，就当成文件已经读到了。"
+      "misconception": "看到模型输出「我要读这个文件」，就当成文件已经读到了。",
+      "origin": {
+       "kind": "hand",
+       "file": "evidence/agent-loop-260913/authored.json#chapters.tool.feynman.checks[0]",
+       "note": "人工撰写；本章通过判定只用这三条"
+      }
      },
      {
       "id": "tool-F2",
       "point": "外层执行",
       "condition": "说清校验、执行与结果回传发生在外层系统（Harness），不在模型里；工具存在不等于会被选对、填对参数、拿到权限。",
-      "misconception": "以为模型亲自执行工具，或者以为「工具已注册」就等于这次调用会成功。"
+      "misconception": "以为模型亲自执行工具，或者以为「工具已注册」就等于这次调用会成功。",
+      "origin": {
+       "kind": "hand",
+       "file": "evidence/agent-loop-260913/authored.json#chapters.tool.feynman.checks[1]",
+       "note": "人工撰写；本章通过判定只用这三条"
+      }
      },
      {
       "id": "tool-F3",
       "point": "四个环节",
       "condition": "按 Tool Definition → Tool Call → Tool Execution → Tool Result 的顺序点出至少三个环节，并说清它们连续但不同。",
-      "misconception": "把定义、调用、执行、结果压成一件事——「注册了就等于能跑通」。"
+      "misconception": "把定义、调用、执行、结果压成一件事——「注册了就等于能跑通」。",
+      "origin": {
+       "kind": "hand",
+       "file": "evidence/agent-loop-260913/authored.json#chapters.tool.feynman.checks[2]",
+       "note": "人工撰写；本章通过判定只用这三条"
+      }
+     }
+    ],
+    "machineChecks": [
+     {
+      "id": "batch-tool-B1",
+      "point": "Tool Definit",
+      "condition": "Tool Definition、Tool Call、Tool Execution 与 Tool Result 是连续但不同的环节；看到调用请求不等于动作已经执行成功。",
+      "misconception": "Tool Definition、Tool Call、Tool Execution 与 Tool Result 是连续但不同的环节；看到调用请求等于动作已经执行成功。",
+      "misconceptionSource": "derived",
+      "derivation": {
+       "rule": "negation-flip",
+       "flipped": "不等于",
+       "from": "boundaries[0]",
+       "note": "按确定性规则从同一条边界算出，不是 agent 撰写的教学误解"
+      },
+      "sourceFile": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/tool.yaml",
+      "sourceSha256": "6b31942082e0401569fef2c5adfc81ac3452fcc3e7c19b4a745285dcbcbcd361",
+      "locator": "boundaries[0]",
+      "escapeForm": "raw",
+      "gate": false,
+      "origin": {
+       "kind": "machine",
+       "unitId": "batch-tool",
+       "checkId": "batch-tool-B1",
+       "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-tool].feynman.checks[0]",
+       "derivedFrom": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/tool.yaml#boundaries[0]",
+       "review": "evidence/review-criteria-260914/review.json#units[unitId=batch-tool]",
+       "verdict": "blocked",
+       "note": "misconception 是卡片 boundaries 的机械反面转述，独立复核 verdict=unusable：可当复习提示，不作为本章通过判据"
+      }
+     },
+     {
+      "id": "batch-tool-B2",
+      "point": "Tool 是具体能力接口",
+      "condition": "Tool 是具体能力接口，MCP 是连接一组外部能力的标准协议；二者不能互作同义词。",
+      "misconception": "Tool 是具体能力接口，MCP 是连接一组外部能力的标准协议；二者能互作同义词。",
+      "misconceptionSource": "derived",
+      "derivation": {
+       "rule": "negation-flip",
+       "flipped": "不能",
+       "from": "boundaries[1]",
+       "note": "按确定性规则从同一条边界算出，不是 agent 撰写的教学误解"
+      },
+      "sourceFile": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/tool.yaml",
+      "sourceSha256": "6b31942082e0401569fef2c5adfc81ac3452fcc3e7c19b4a745285dcbcbcd361",
+      "locator": "boundaries[1]",
+      "escapeForm": "raw",
+      "gate": false,
+      "origin": {
+       "kind": "machine",
+       "unitId": "batch-tool",
+       "checkId": "batch-tool-B2",
+       "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-tool].feynman.checks[1]",
+       "derivedFrom": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/tool.yaml#boundaries[1]",
+       "review": "evidence/review-criteria-260914/review.json#units[unitId=batch-tool]",
+       "verdict": "blocked",
+       "note": "misconception 是卡片 boundaries 的机械反面转述，独立复核 verdict=unusable：可当复习提示，不作为本章通过判据"
+      }
+     },
+     {
+      "id": "batch-tool-B3",
+      "point": "Skill 主要沉淀“怎",
+      "condition": "Skill 主要沉淀“怎么做”的可复用方法，它可以指导调用 Tool，但不是 Tool 本身。",
+      "misconception": "Skill 主要沉淀“怎么做”的可复用方法，它可以指导调用 Tool，但是 Tool 本身。",
+      "misconceptionSource": "derived",
+      "derivation": {
+       "rule": "negation-flip",
+       "flipped": "不是",
+       "from": "boundaries[2]",
+       "note": "按确定性规则从同一条边界算出，不是 agent 撰写的教学误解"
+      },
+      "sourceFile": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/tool.yaml",
+      "sourceSha256": "6b31942082e0401569fef2c5adfc81ac3452fcc3e7c19b4a745285dcbcbcd361",
+      "locator": "boundaries[2]",
+      "escapeForm": "raw",
+      "gate": false,
+      "origin": {
+       "kind": "machine",
+       "unitId": "batch-tool",
+       "checkId": "batch-tool-B3",
+       "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-tool].feynman.checks[2]",
+       "derivedFrom": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/tool.yaml#boundaries[2]",
+       "review": "evidence/review-criteria-260914/review.json#units[unitId=batch-tool]",
+       "verdict": "blocked",
+       "note": "misconception 是卡片 boundaries 的机械反面转述，独立复核 verdict=unusable：可当复习提示，不作为本章通过判据"
+      }
+     },
+     {
+      "id": "batch-tool-B4",
+      "point": "工具存在不保证 Agen",
+      "condition": "工具存在不保证 Agent 会选对工具、填对参数或获得权限；这些问题要分别检查。",
+      "misconception": "工具存在保证 Agent 会选对工具、填对参数或获得权限；这些问题要分别检查。",
+      "misconceptionSource": "derived",
+      "derivation": {
+       "rule": "negation-flip",
+       "flipped": "不保证",
+       "from": "boundaries[3]",
+       "note": "按确定性规则从同一条边界算出，不是 agent 撰写的教学误解"
+      },
+      "sourceFile": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/tool.yaml",
+      "sourceSha256": "6b31942082e0401569fef2c5adfc81ac3452fcc3e7c19b4a745285dcbcbcd361",
+      "locator": "boundaries[3]",
+      "escapeForm": "raw",
+      "gate": false,
+      "origin": {
+       "kind": "machine",
+       "unitId": "batch-tool",
+       "checkId": "batch-tool-B4",
+       "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-tool].feynman.checks[3]",
+       "derivedFrom": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/tool.yaml#boundaries[3]",
+       "review": "evidence/review-criteria-260914/review.json#units[unitId=batch-tool]",
+       "verdict": "blocked",
+       "note": "misconception 是卡片 boundaries 的机械反面转述，独立复核 verdict=unusable：可当复习提示，不作为本章通过判据"
+      }
      }
     ]
+   },
+   "schemeC": {
+    "decidedBy": "owner",
+    "at": "2026-09-14",
+    "ruling": "方案丙",
+    "supersededUnit": "batch-tool",
+    "supersededReason": "同一个概念（CON-tool）已有负责人确认过的手工章节 unit:chapter-tool「工具」，机器版本（本单元）不对外：保留数据与出处，不再作为独立可学单元，也不给页面入口。它的三道已复核决策题与卡片 boundaries 派生判据已并入该章节（人工内容优先 · 机器内容逐条标来源）。",
+    "merged": {
+     "machineQuestions": 3,
+     "machineChecks": 4,
+     "decisionsReview": "evidence/review-decisions-260914/review.json",
+     "criteriaReview": "evidence/review-criteria-260914/review.json",
+     "criteriaVerdict": "blocked"
+    },
+    "note": "六章仍是对外唯一入口：机器版本不再作为独立可学单元（标 superseded、写进缺口清单），它已复核的决策题与卡片 boundaries 派生判据并入本章，逐条标了来源。"
    },
    "narrative": {
     "authored": true,
@@ -937,7 +1461,12 @@
        "basis": [],
        "basisQuote": ""
       }
-     ]
+     ],
+     "origin": {
+      "kind": "hand",
+      "file": "evidence/agent-loop-260913/authored.json#chapters.agent-loop.questions[0]",
+      "note": "人工撰写；本章通过判定只用这三道"
+     }
     },
     {
      "judgment": "排错动作：循环空转时先做什么",
@@ -967,7 +1496,12 @@
        "basis": [],
        "basisQuote": ""
       }
-     ]
+     ],
+     "origin": {
+      "kind": "hand",
+      "file": "evidence/agent-loop-260913/authored.json#chapters.agent-loop.questions[1]",
+      "note": "人工撰写；本章通过判定只用这三道"
+     }
     },
     {
      "judgment": "退出与结论：循环停下来代表什么",
@@ -996,7 +1530,129 @@
        "basis": [],
        "basisQuote": ""
       }
-     ]
+     ],
+     "origin": {
+      "kind": "hand",
+      "file": "evidence/agent-loop-260913/authored.json#chapters.agent-loop.questions[2]",
+      "note": "人工撰写；本章通过判定只用这三道"
+     }
+    },
+    {
+     "judgment": "机器复核题 1｜来自 batch-agent-loop 第 1 道（已独立复核 verdict=usable）",
+     "prompt": "情境：Agent 先搜索仓库，看到结果后打开相关文件，再修改代码并运行测试。按这段材料给的动作路径，第 1 条这一步你会怎么做？",
+     "options": [
+      {
+       "text": "先记下每一轮的输入，模型选择，工具参数，工具结果和停止原因；定位空转，早停与错误回灌",
+       "correct": true,
+       "why": "",
+       "basis": [
+        "SOL-agent-loop#solution_summary"
+       ],
+       "basisQuote": "记录每一轮的输入、模型选择、工具参数、工具结果和停止原因，定位空转、早停与错误回灌。"
+      },
+      {
+       "text": "先按「模型亲自执行工具就是模型生成工具调用请求」来判断，执行和结果封装由 Harness 完成，这层先不单独看。",
+       "correct": false,
+       "why": "来源这条边界写的是「模型生成工具调用请求，不是模型亲自执行工具」，这一项把边界反过来当做法用。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "先触发无进展检测；而不是继续消耗预算（用在当循环重复同一动作却没有新证据时）",
+       "correct": false,
+       "why": "这是材料里另一条动作（units[id=SOL-agent-loop].key_fields.action_steps[2]）要你做的事，不是题干问的这一条；照它做就跳步了。",
+       "basis": [],
+       "basisQuote": ""
+      }
+     ],
+     "origin": {
+      "kind": "machine",
+      "unitId": "batch-agent-loop",
+      "questionId": "decisions[0]",
+      "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-agent-loop].decisions[0]",
+      "generatedFrom": "evidence/gen-decisions-hybrid-v3-20260914.json#units[unitId=batch-agent-loop].questions[0]",
+      "review": "evidence/review-decisions-260914/review.json#units[unitId=batch-agent-loop]",
+      "verdict": "usable",
+      "note": "脚本确定性生成（模型调用 0 次）＋独立复核通过；人工三题排在本章最前，机器题不覆盖人工内容"
+     }
+    },
+    {
+     "judgment": "机器复核题 2｜来自 batch-agent-loop 第 2 道（已独立复核 verdict=usable）",
+     "prompt": "情境：Agent 先搜索仓库，看到结果后打开相关文件，再修改代码并运行测试。按这段材料给的动作路径，第 2 条这一步你会怎么做？",
+     "options": [
+      {
+       "text": "先为每个循环设置清楚的退出条件，最大回合或预算；并提供用户中断路径",
+       "correct": true,
+       "why": "",
+       "basis": [
+        "SOL-agent-loop#action_steps[1]"
+       ],
+       "basisQuote": "为每个循环设置清楚的退出条件、最大回合或预算，并提供用户中断路径。"
+      },
+      {
+       "text": "先按「任务已经正确完成就是循环持续运行」来判断，仍需独立验证结果，这层先不单独看。",
+       "correct": false,
+       "why": "来源这条边界写的是「循环持续运行不等于任务已经正确完成」，这一项把边界反过来当做法用。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "先记下每一轮的输入，模型选择，工具参数，工具结果和停止原因；定位空转，早停与错误回灌",
+       "correct": false,
+       "why": "这是材料里另一条动作（units[id=SOL-agent-loop].key_fields.solution_summary）要你做的事，不是题干问的这一条；照它做就跳步了。",
+       "basis": [],
+       "basisQuote": ""
+      }
+     ],
+     "origin": {
+      "kind": "machine",
+      "unitId": "batch-agent-loop",
+      "questionId": "decisions[1]",
+      "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-agent-loop].decisions[1]",
+      "generatedFrom": "evidence/gen-decisions-hybrid-v3-20260914.json#units[unitId=batch-agent-loop].questions[1]",
+      "review": "evidence/review-decisions-260914/review.json#units[unitId=batch-agent-loop]",
+      "verdict": "usable",
+      "note": "脚本确定性生成（模型调用 0 次）＋独立复核通过；人工三题排在本章最前，机器题不覆盖人工内容"
+     }
+    },
+    {
+     "judgment": "机器复核题 3｜来自 batch-agent-loop 第 3 道（已独立复核 verdict=usable）",
+     "prompt": "情境：Agent 先搜索仓库，看到结果后打开相关文件，再修改代码并运行测试。按这段材料给的动作路径，第 3 条这一步你会怎么做？",
+     "options": [
+      {
+       "text": "先触发无进展检测；而不是继续消耗预算（用在当循环重复同一动作却没有新证据时）",
+       "correct": true,
+       "why": "",
+       "basis": [
+        "SOL-agent-loop#action_steps[2]"
+       ],
+       "basisQuote": "当循环重复同一动作却没有新证据时，触发无进展检测，而不是继续消耗预算。"
+      },
+      {
+       "text": "先为每个循环设置清楚的退出条件，最大回合或预算；并提供用户中断路径",
+       "correct": false,
+       "why": "这是材料里另一条动作（units[id=SOL-agent-loop].key_fields.action_steps[1]）要你做的事，不是题干问的这一条；照它做就跳步了。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "先当循环重复同一动作却没有新证据时；触发无进展检测，其余（而不是继续消耗预算）等有需要再补",
+       "correct": false,
+       "why": "来源把「而不是继续消耗预算」和前面的要件并列写成同一条路径，漏掉它只做了半条。",
+       "basis": [],
+       "basisQuote": ""
+      }
+     ],
+     "origin": {
+      "kind": "machine",
+      "unitId": "batch-agent-loop",
+      "questionId": "decisions[2]",
+      "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-agent-loop].decisions[2]",
+      "generatedFrom": "evidence/gen-decisions-hybrid-v3-20260914.json#units[unitId=batch-agent-loop].questions[2]",
+      "review": "evidence/review-decisions-260914/review.json#units[unitId=batch-agent-loop]",
+      "verdict": "usable",
+      "note": "脚本确定性生成（模型调用 0 次）＋独立复核通过；人工三题排在本章最前，机器题不覆盖人工内容"
+     }
     }
    ],
    "feynman": {
@@ -1011,21 +1667,165 @@
       "id": "agent-loop-F1",
       "point": "一步的动作",
       "condition": "说清一轮里模型只负责选下一步（生成工具调用请求），执行由 Harness 完成。",
-      "misconception": "把「反复调用工具」当成完整的循环——只数轮次，不说每一轮里谁做了什么。"
+      "misconception": "把「反复调用工具」当成完整的循环——只数轮次，不说每一轮里谁做了什么。",
+      "origin": {
+       "kind": "hand",
+       "file": "evidence/agent-loop-260913/authored.json#chapters.agent-loop.feynman.checks[0]",
+       "note": "人工撰写；本章通过判定只用这三条"
+      }
      },
      {
       "id": "agent-loop-F2",
       "point": "观察回灌",
       "condition": "说清工具结果要作为观察回到模型，才构成下一轮选择的依据。",
-      "misconception": "以为工具跑完这一轮就结束了，忽略结果必须回灌进上下文。"
+      "misconception": "以为工具跑完这一轮就结束了，忽略结果必须回灌进上下文。",
+      "origin": {
+       "kind": "hand",
+       "file": "evidence/agent-loop-260913/authored.json#chapters.agent-loop.feynman.checks[1]",
+       "note": "人工撰写；本章通过判定只用这三条"
+      }
      },
      {
       "id": "agent-loop-F3",
       "point": "退出条件",
       "condition": "说清退出不能只靠模型说「完成」，还要有最大回合、预算、无进展、权限拒绝或用户中断这类边界。",
-      "misconception": "把「循环还在跑」或「模型说完成了」当成任务已经正确完成。"
+      "misconception": "把「循环还在跑」或「模型说完成了」当成任务已经正确完成。",
+      "origin": {
+       "kind": "hand",
+       "file": "evidence/agent-loop-260913/authored.json#chapters.agent-loop.feynman.checks[2]",
+       "note": "人工撰写；本章通过判定只用这三条"
+      }
+     }
+    ],
+    "machineChecks": [
+     {
+      "id": "batch-agent-loop-B1",
+      "point": "Agent Loop 只",
+      "condition": "Agent Loop 只描述单个 Agent 内部“选择—执行—观察—再选择”的行动心跳，不等于外层持续工作流、多 Agent 编排或 Loop Engineering。",
+      "misconception": "Agent Loop 只描述单个 Agent 内部“选择—执行—观察—再选择”的行动心跳，等于外层持续工作流、多 Agent 编排或 Loop Engineering。",
+      "misconceptionSource": "derived",
+      "derivation": {
+       "rule": "negation-flip",
+       "flipped": "不等于",
+       "from": "boundaries[0]",
+       "note": "按确定性规则从同一条边界算出，不是 agent 撰写的教学误解"
+      },
+      "sourceFile": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/agent-loop.yaml",
+      "sourceSha256": "8ecd9be0f8982eb545d3a18ebba50926c0ceba53f27d228b3a84e6312e2b6357",
+      "locator": "boundaries[0]",
+      "escapeForm": "raw",
+      "gate": false,
+      "origin": {
+       "kind": "machine",
+       "unitId": "batch-agent-loop",
+       "checkId": "batch-agent-loop-B1",
+       "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-agent-loop].feynman.checks[0]",
+       "derivedFrom": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/agent-loop.yaml#boundaries[0]",
+       "review": "evidence/review-criteria-260914/review.json#units[unitId=batch-agent-loop]",
+       "verdict": "blocked",
+       "note": "misconception 是卡片 boundaries 的机械反面转述，独立复核 verdict=unusable：可当复习提示，不作为本章通过判据"
+      }
+     },
+     {
+      "id": "batch-agent-loop-B2",
+      "point": "模型生成工具调用请求，不",
+      "condition": "模型生成工具调用请求，不是模型亲自执行工具；执行和结果封装由 Harness 完成。",
+      "misconception": "模型生成工具调用请求，是模型亲自执行工具；执行和结果封装由 Harness 完成。",
+      "misconceptionSource": "derived",
+      "derivation": {
+       "rule": "negation-flip",
+       "flipped": "不是",
+       "from": "boundaries[1]",
+       "note": "按确定性规则从同一条边界算出，不是 agent 撰写的教学误解"
+      },
+      "sourceFile": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/agent-loop.yaml",
+      "sourceSha256": "8ecd9be0f8982eb545d3a18ebba50926c0ceba53f27d228b3a84e6312e2b6357",
+      "locator": "boundaries[1]",
+      "escapeForm": "raw",
+      "gate": false,
+      "origin": {
+       "kind": "machine",
+       "unitId": "batch-agent-loop",
+       "checkId": "batch-agent-loop-B2",
+       "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-agent-loop].feynman.checks[1]",
+       "derivedFrom": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/agent-loop.yaml#boundaries[1]",
+       "review": "evidence/review-criteria-260914/review.json#units[unitId=batch-agent-loop]",
+       "verdict": "blocked",
+       "note": "misconception 是卡片 boundaries 的机械反面转述，独立复核 verdict=unusable：可当复习提示，不作为本章通过判据"
+      }
+     },
+     {
+      "id": "batch-agent-loop-B3",
+      "point": "退出不能只依赖模型随口说",
+      "condition": "退出不能只依赖模型随口说“完成”；真实系统还应有最大回合、预算、无进展、权限拒绝与用户中断等边界。",
+      "misconception": "退出能只依赖模型随口说“完成”；真实系统还应有最大回合、预算、无进展、权限拒绝与用户中断等边界。",
+      "misconceptionSource": "derived",
+      "derivation": {
+       "rule": "negation-flip",
+       "flipped": "不能",
+       "from": "boundaries[2]",
+       "note": "按确定性规则从同一条边界算出，不是 agent 撰写的教学误解"
+      },
+      "sourceFile": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/agent-loop.yaml",
+      "sourceSha256": "8ecd9be0f8982eb545d3a18ebba50926c0ceba53f27d228b3a84e6312e2b6357",
+      "locator": "boundaries[2]",
+      "escapeForm": "raw",
+      "gate": false,
+      "origin": {
+       "kind": "machine",
+       "unitId": "batch-agent-loop",
+       "checkId": "batch-agent-loop-B3",
+       "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-agent-loop].feynman.checks[2]",
+       "derivedFrom": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/agent-loop.yaml#boundaries[2]",
+       "review": "evidence/review-criteria-260914/review.json#units[unitId=batch-agent-loop]",
+       "verdict": "blocked",
+       "note": "misconception 是卡片 boundaries 的机械反面转述，独立复核 verdict=unusable：可当复习提示，不作为本章通过判据"
+      }
+     },
+     {
+      "id": "batch-agent-loop-B4",
+      "point": "循环持续运行不等于任务已",
+      "condition": "循环持续运行不等于任务已经正确完成，仍需独立验证结果。",
+      "misconception": "循环持续运行等于任务已经正确完成，仍需独立验证结果。",
+      "misconceptionSource": "derived",
+      "derivation": {
+       "rule": "negation-flip",
+       "flipped": "不等于",
+       "from": "boundaries[3]",
+       "note": "按确定性规则从同一条边界算出，不是 agent 撰写的教学误解"
+      },
+      "sourceFile": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/agent-loop.yaml",
+      "sourceSha256": "8ecd9be0f8982eb545d3a18ebba50926c0ceba53f27d228b3a84e6312e2b6357",
+      "locator": "boundaries[3]",
+      "escapeForm": "raw",
+      "gate": false,
+      "origin": {
+       "kind": "machine",
+       "unitId": "batch-agent-loop",
+       "checkId": "batch-agent-loop-B4",
+       "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-agent-loop].feynman.checks[3]",
+       "derivedFrom": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/agent-loop.yaml#boundaries[3]",
+       "review": "evidence/review-criteria-260914/review.json#units[unitId=batch-agent-loop]",
+       "verdict": "blocked",
+       "note": "misconception 是卡片 boundaries 的机械反面转述，独立复核 verdict=unusable：可当复习提示，不作为本章通过判据"
+      }
      }
     ]
+   },
+   "schemeC": {
+    "decidedBy": "owner",
+    "at": "2026-09-14",
+    "ruling": "方案丙",
+    "supersededUnit": "batch-agent-loop",
+    "supersededReason": "同一个概念（CON-agent-loop）已有负责人确认过的手工章节 unit:chapter-agent-loop「Agent loop」，机器版本（本单元）不对外：保留数据与出处，不再作为独立可学单元，也不给页面入口。它的三道已复核决策题与卡片 boundaries 派生判据已并入该章节（人工内容优先 · 机器内容逐条标来源）。",
+    "merged": {
+     "machineQuestions": 3,
+     "machineChecks": 4,
+     "decisionsReview": "evidence/review-decisions-260914/review.json",
+     "criteriaReview": "evidence/review-criteria-260914/review.json",
+     "criteriaVerdict": "blocked"
+    },
+    "note": "六章仍是对外唯一入口：机器版本不再作为独立可学单元（标 superseded、写进缺口清单），它已复核的决策题与卡片 boundaries 派生判据并入本章，逐条标了来源。"
    },
    "narrative": {
     "authored": true,
@@ -1283,7 +2083,12 @@
        "basis": [],
        "basisQuote": ""
       }
-     ]
+     ],
+     "origin": {
+      "kind": "hand",
+      "file": "evidence/agent-loop-260913/authored.json#chapters.state-persistence.questions[0]",
+      "note": "人工撰写；本章通过判定只用这三道"
+     }
     },
     {
      "judgment": "状态转换时要记什么",
@@ -1312,7 +2117,12 @@
        ],
        "basisQuote": "明确哪些变量决定下一步，并在每次状态转换时原子地记录当前阶段、完成证据和待处理项"
       }
-     ]
+     ],
+     "origin": {
+      "kind": "hand",
+      "file": "evidence/agent-loop-260913/authored.json#chapters.state-persistence.questions[1]",
+      "note": "人工撰写；本章通过判定只用这三道"
+     }
     },
     {
      "judgment": "恢复动作：接着跑之前先做什么",
@@ -1341,7 +2151,129 @@
        "basis": [],
        "basisQuote": ""
       }
-     ]
+     ],
+     "origin": {
+      "kind": "hand",
+      "file": "evidence/agent-loop-260913/authored.json#chapters.state-persistence.questions[2]",
+      "note": "人工撰写；本章通过判定只用这三道"
+     }
+    },
+    {
+     "judgment": "机器复核题 1｜来自 batch-state-management 第 1 道（已独立复核 verdict=usable）",
+     "prompt": "情境：一个迁移任务完成了前三批文件并保存当前批次、验证结果和下一步。按这段材料给的动作路径，第 1 条这一步你会怎么做？",
+     "options": [
+      {
+       "text": "先写清哪些变量决定下一步；并在每次状态转换时原子地记下当前阶段，完成证据和待处理项",
+       "correct": true,
+       "why": "",
+       "basis": [
+        "SOL-state-management#solution_summary"
+       ],
+       "basisQuote": "明确哪些变量决定下一步，并在每次状态转换时原子地记录当前阶段、完成证据和待处理项。"
+      },
+      {
+       "text": "先不要将会话历史，业务状态和执行状态混成一个不可审计的大对象",
+       "correct": false,
+       "why": "这是材料里另一条动作（units[id=SOL-state-management].key_fields.action_steps[2]）要你做的事，不是题干问的这一条；照它做就跳步了。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "先写清哪些变量决定下一步；并在每次状态转换时原子地记下当前阶段，其余（完成证据和待处理项）等有需要再补",
+       "correct": false,
+       "why": "来源把「完成证据和待处理项」和前面的要件并列写成同一条路径，漏掉它只做了半条。",
+       "basis": [],
+       "basisQuote": ""
+      }
+     ],
+     "origin": {
+      "kind": "machine",
+      "unitId": "batch-state-management",
+      "questionId": "decisions[0]",
+      "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-state-management].decisions[0]",
+      "generatedFrom": "evidence/gen-decisions-hybrid-v3-20260914.json#units[unitId=batch-state-management].questions[0]",
+      "review": "evidence/review-decisions-260914/review.json#units[unitId=batch-state-management]",
+      "verdict": "usable",
+      "note": "脚本确定性生成（模型调用 0 次）＋独立复核通过；人工三题排在本章最前，机器题不覆盖人工内容"
+     }
+    },
+    {
+     "judgment": "机器复核题 2｜来自 batch-state-management 第 2 道（已独立复核 verdict=usable）",
+     "prompt": "情境：一个迁移任务完成了前三批文件并保存当前批次、验证结果和下一步。按这段材料给的动作路径，第 2 条这一步你会怎么做？",
+     "options": [
+      {
+       "text": "先为暂停，恢复和回溯分别定义入口，恢复后先核对外部世界；再继续执行",
+       "correct": true,
+       "why": "",
+       "basis": [
+        "SOL-state-management#action_steps[1]"
+       ],
+       "basisQuote": "为暂停、恢复和回溯分别定义入口；恢复后先核对外部世界，再继续执行。"
+      },
+      {
+       "text": "先写清哪些变量决定下一步；并在每次状态转换时原子地记下当前阶段，完成证据和待处理项",
+       "correct": false,
+       "why": "这是材料里另一条动作（units[id=SOL-state-management].key_fields.solution_summary）要你做的事，不是题干问的这一条；照它做就跳步了。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "先为暂停，恢复和回溯分别定义入口，恢复后先核对外部世界，其余（再继续执行）等有需要再补",
+       "correct": false,
+       "why": "来源把「再继续执行」和前面的要件并列写成同一条路径，漏掉它只做了半条。",
+       "basis": [],
+       "basisQuote": ""
+      }
+     ],
+     "origin": {
+      "kind": "machine",
+      "unitId": "batch-state-management",
+      "questionId": "decisions[1]",
+      "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-state-management].decisions[1]",
+      "generatedFrom": "evidence/gen-decisions-hybrid-v3-20260914.json#units[unitId=batch-state-management].questions[1]",
+      "review": "evidence/review-decisions-260914/review.json#units[unitId=batch-state-management]",
+      "verdict": "usable",
+      "note": "脚本确定性生成（模型调用 0 次）＋独立复核通过；人工三题排在本章最前，机器题不覆盖人工内容"
+     }
+    },
+    {
+     "judgment": "机器复核题 3｜来自 batch-state-management 第 3 道（已独立复核 verdict=usable）",
+     "prompt": "情境：一个迁移任务完成了前三批文件并保存当前批次、验证结果和下一步。按这段材料给的动作路径，第 3 条这一步你会怎么做？",
+     "options": [
+      {
+       "text": "先不要将会话历史，业务状态和执行状态混成一个不可审计的大对象",
+       "correct": true,
+       "why": "",
+       "basis": [
+        "SOL-state-management#action_steps[2]"
+       ],
+       "basisQuote": "避免把会话历史、业务状态和执行状态混成一个不可审计的大对象。"
+      },
+      {
+       "text": "先不要将会话历史，其余（业务状态和执行状态混成一个不可审计的大对象）等有需要再补",
+       "correct": false,
+       "why": "来源把「业务状态和执行状态混成一个不可审计的大对象」和前面的要件并列写成同一条路径，漏掉它只做了半条。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "避免把会话历史、业务状态和执，行状态混成一个不可审计的大对象这段按经验估一下就行。",
+       "correct": false,
+       "why": "来源把「行状态混成一个不可审计的大对象」和前半句写在同一句里，按经验估过去等于没做这一项。",
+       "basis": [],
+       "basisQuote": ""
+      }
+     ],
+     "origin": {
+      "kind": "machine",
+      "unitId": "batch-state-management",
+      "questionId": "decisions[2]",
+      "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-state-management].decisions[2]",
+      "generatedFrom": "evidence/gen-decisions-hybrid-v3-20260914.json#units[unitId=batch-state-management].questions[2]",
+      "review": "evidence/review-decisions-260914/review.json#units[unitId=batch-state-management]",
+      "verdict": "usable",
+      "note": "脚本确定性生成（模型调用 0 次）＋独立复核通过；人工三题排在本章最前，机器题不覆盖人工内容"
+     }
     }
    ],
    "feynman": {
@@ -1356,21 +2288,137 @@
       "id": "state-persistence-F1",
       "point": "执行事实",
       "condition": "说清 State 是任务当前可描述的执行事实（当前阶段、变量、进度、恢复点），既不是模型权重，也不只是聊天记录。",
-      "misconception": "把状态理解成「把对话存下来」，或把 State 与 Memory 当同一件事。"
+      "misconception": "把状态理解成「把对话存下来」，或把 State 与 Memory 当同一件事。",
+      "origin": {
+       "kind": "hand",
+       "file": "evidence/agent-loop-260913/authored.json#chapters.state-persistence.feynman.checks[0]",
+       "note": "人工撰写；本章通过判定只用这三条"
+      }
      },
      {
       "id": "state-persistence-F2",
       "point": "记录什么",
       "condition": "说清要记的是决定下一步的那些变量，并在每次状态转换时记下当前阶段、完成证据与待处理项。",
-      "misconception": "以为存了一份进度文件（或打了 checkpoint）就等于状态管理做好了。"
+      "misconception": "以为存了一份进度文件（或打了 checkpoint）就等于状态管理做好了。",
+      "origin": {
+       "kind": "hand",
+       "file": "evidence/agent-loop-260913/authored.json#chapters.state-persistence.feynman.checks[1]",
+       "note": "人工撰写；本章通过判定只用这三条"
+      }
      },
      {
       "id": "state-persistence-F3",
       "point": "恢复前核对",
       "condition": "说清恢复前要核对状态与外部副作用；checkpoint 存在不代表变量完整、恢复正确。",
-      "misconception": "以为有 checkpoint 就能原样续跑——忽略变量不全、外部副作用已发生或结果已过期。"
+      "misconception": "以为有 checkpoint 就能原样续跑——忽略变量不全、外部副作用已发生或结果已过期。",
+      "origin": {
+       "kind": "hand",
+       "file": "evidence/agent-loop-260913/authored.json#chapters.state-persistence.feynman.checks[2]",
+       "note": "人工撰写；本章通过判定只用这三条"
+      }
+     }
+    ],
+    "machineChecks": [
+     {
+      "id": "batch-state-management-B1",
+      "point": "State 是任务当前可",
+      "condition": "State 是任务当前可描述的执行事实；State Management 是记录、更新、持久化和恢复这些事实的实践。",
+      "misconception": "误以为这条边界不成立：State 是任务当前可描述的执行事实；State Management 是记录、更新、持久化和恢复这些事实的实践。",
+      "misconceptionSource": "derived",
+      "derivation": {
+       "rule": "boundary-denial",
+       "flipped": "",
+       "from": "boundaries[0]",
+       "note": "按确定性规则从同一条边界算出，不是 agent 撰写的教学误解"
+      },
+      "sourceFile": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/state-management.yaml",
+      "sourceSha256": "f1f39d4fb01fff59a4ed0856df5919dbbc4d933faad5d6e2139562b1ea1c3c74",
+      "locator": "boundaries[0]",
+      "escapeForm": "raw",
+      "gate": false,
+      "origin": {
+       "kind": "machine",
+       "unitId": "batch-state-management",
+       "checkId": "batch-state-management-B1",
+       "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-state-management].feynman.checks[0]",
+       "derivedFrom": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/state-management.yaml#boundaries[0]",
+       "review": "evidence/review-criteria-260914/review.json#units[unitId=batch-state-management]",
+       "verdict": "blocked",
+       "note": "misconception 是卡片 boundaries 的机械反面转述，独立复核 verdict=unusable：可当复习提示，不作为本章通过判据"
+      }
+     },
+     {
+      "id": "batch-state-management-B2",
+      "point": "Checkpoint 只",
+      "condition": "Checkpoint 只是保存某个恢复点的机制之一；有 checkpoint 不代表变量完整、恢复正确或外部副作用安全。",
+      "misconception": "误以为这条边界不成立：Checkpoint 只是保存某个恢复点的机制之一；有 checkpoint 不代表变量完整、恢复正确或外部副作用安全。",
+      "misconceptionSource": "derived",
+      "derivation": {
+       "rule": "boundary-denial",
+       "flipped": "",
+       "from": "boundaries[1]",
+       "note": "按确定性规则从同一条边界算出，不是 agent 撰写的教学误解"
+      },
+      "sourceFile": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/state-management.yaml",
+      "sourceSha256": "f1f39d4fb01fff59a4ed0856df5919dbbc4d933faad5d6e2139562b1ea1c3c74",
+      "locator": "boundaries[1]",
+      "escapeForm": "raw",
+      "gate": false,
+      "origin": {
+       "kind": "machine",
+       "unitId": "batch-state-management",
+       "checkId": "batch-state-management-B2",
+       "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-state-management].feynman.checks[1]",
+       "derivedFrom": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/state-management.yaml#boundaries[1]",
+       "review": "evidence/review-criteria-260914/review.json#units[unitId=batch-state-management]",
+       "verdict": "blocked",
+       "note": "misconception 是卡片 boundaries 的机械反面转述，独立复核 verdict=unusable：可当复习提示，不作为本章通过判据"
+      }
+     },
+     {
+      "id": "batch-state-management-B3",
+      "point": "State Manage",
+      "condition": "State Management 常偏向当前执行位置与恢复点，Memory 常偏向过去保存的知识与经历；但两者可共用文件、数据库，也会在待办、进度和依赖上重叠。",
+      "misconception": "误以为这条边界不成立：State Management 常偏向当前执行位置与恢复点，Memory 常偏向过去保存的知识与经历；但两者可共用文件、数据库，也会在待办、进度和依赖上重叠。",
+      "misconceptionSource": "derived",
+      "derivation": {
+       "rule": "boundary-denial",
+       "flipped": "",
+       "from": "boundaries[2]",
+       "note": "按确定性规则从同一条边界算出，不是 agent 撰写的教学误解"
+      },
+      "sourceFile": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/state-management.yaml",
+      "sourceSha256": "f1f39d4fb01fff59a4ed0856df5919dbbc4d933faad5d6e2139562b1ea1c3c74",
+      "locator": "boundaries[2]",
+      "escapeForm": "raw",
+      "gate": false,
+      "origin": {
+       "kind": "machine",
+       "unitId": "batch-state-management",
+       "checkId": "batch-state-management-B3",
+       "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-state-management].feynman.checks[2]",
+       "derivedFrom": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/state-management.yaml#boundaries[2]",
+       "review": "evidence/review-criteria-260914/review.json#units[unitId=batch-state-management]",
+       "verdict": "blocked",
+       "note": "misconception 是卡片 boundaries 的机械反面转述，独立复核 verdict=unusable：可当复习提示，不作为本章通过判据"
+      }
      }
     ]
+   },
+   "schemeC": {
+    "decidedBy": "owner",
+    "at": "2026-09-14",
+    "ruling": "方案丙",
+    "supersededUnit": "batch-state-management",
+    "supersededReason": "同一个概念（CON-state-management）已有负责人确认过的手工章节 unit:chapter-state-persistence「状态子系统与进度持久化」，机器版本（本单元）不对外：保留数据与出处，不再作为独立可学单元，也不给页面入口。它的三道已复核决策题与卡片 boundaries 派生判据已并入该章节（人工内容优先 · 机器内容逐条标来源）。",
+    "merged": {
+     "machineQuestions": 3,
+     "machineChecks": 3,
+     "decisionsReview": "evidence/review-decisions-260914/review.json",
+     "criteriaReview": "evidence/review-criteria-260914/review.json",
+     "criteriaVerdict": "blocked"
+    },
+    "note": "六章仍是对外唯一入口：机器版本不再作为独立可学单元（标 superseded、写进缺口清单），它已复核的决策题与卡片 boundaries 派生判据并入本章，逐条标了来源。"
    },
    "narrative": {
     "authored": true,
@@ -1635,7 +2683,12 @@
        "basis": [],
        "basisQuote": ""
       }
-     ]
+     ],
+     "origin": {
+      "kind": "hand",
+      "file": "evidence/agent-loop-260913/authored.json#chapters.harness.questions[0]",
+      "note": "人工撰写；本章通过判定只用这三道"
+     }
     },
     {
      "judgment": "消融方法：怎么确认是哪个组件起了作用",
@@ -1664,7 +2717,12 @@
        "basis": [],
        "basisQuote": ""
       }
-     ]
+     ],
+     "origin": {
+      "kind": "hand",
+      "file": "evidence/agent-loop-260913/authored.json#chapters.harness.questions[1]",
+      "note": "人工撰写；本章通过判定只用这三道"
+     }
     },
     {
      "judgment": "口径边界：讨论厚薄之前先做什么",
@@ -1693,7 +2751,129 @@
        "basis": [],
        "basisQuote": ""
       }
-     ]
+     ],
+     "origin": {
+      "kind": "hand",
+      "file": "evidence/agent-loop-260913/authored.json#chapters.harness.questions[2]",
+      "note": "人工撰写；本章通过判定只用这三道"
+     }
+    },
+    {
+     "judgment": "机器复核题 1｜来自 batch-agent-harness 第 1 道（已独立复核 verdict=usable）",
+     "prompt": "情境：同一个模型接入两套代码 Agent 系统：一套只能偶尔运行命令，另一套能保存进度、限制写入范围、处理工具失败并验证结果。按这段材料给的动作路径，第 1 条这一步你会怎么做？",
+     "options": [
+      {
+       "text": "先分别核对模型判断，循环，工具，状态，Context，权限，错误处理和验证；不要将所有问题都归因于模型能力（用在排查 Agent 失败时）",
+       "correct": true,
+       "why": "",
+       "basis": [
+        "SOL-agent-harness#solution_summary"
+       ],
+       "basisQuote": "排查 Agent 失败时，分别检查模型判断、循环、工具、状态、Context、权限、错误处理和验证，避免把所有问题都归因于模型能力。"
+      },
+      {
+       "text": "先按「模型就是Agent Harness」来判断，模型负责生成判断或工具请求，Harness 负责执行、回灌、状态与控制，这层先不单独看。",
+       "correct": false,
+       "why": "来源这条边界写的是「Agent Harness 不等于模型」，这一项把边界反过来当做法用。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "先定义 Harness 在当前系统中的边界；再讨论厚薄，不要让同一个词一会儿指完整非模型架构；一会儿只指 while 循环",
+       "correct": false,
+       "why": "这是材料里另一条动作（units[id=SOL-agent-harness].key_fields.action_steps[2]）要你做的事，不是题干问的这一条；照它做就跳步了。",
+       "basis": [],
+       "basisQuote": ""
+      }
+     ],
+     "origin": {
+      "kind": "machine",
+      "unitId": "batch-agent-harness",
+      "questionId": "decisions[0]",
+      "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-agent-harness].decisions[0]",
+      "generatedFrom": "evidence/gen-decisions-hybrid-v3-20260914.json#units[unitId=batch-agent-harness].questions[0]",
+      "review": "evidence/review-decisions-260914/review.json#units[unitId=batch-agent-harness]",
+      "verdict": "usable",
+      "note": "脚本确定性生成（模型调用 0 次）＋独立复核通过；人工三题排在本章最前，机器题不覆盖人工内容"
+     }
+    },
+    {
+     "judgment": "机器复核题 2｜来自 batch-agent-harness 第 2 道（已独立复核 verdict=usable）",
+     "prompt": "情境：同一个模型接入两套代码 Agent 系统：一套只能偶尔运行命令，另一套能保存进度、限制写入范围、处理工具失败并验证结果。按这段材料给的动作路径，第 2 条这一步你会怎么做？",
+     "options": [
+      {
+       "text": "先更换 Harness 组件时固定模型，任务和输入；再对比轨迹与结果；才能判断改动实际影响了什么",
+       "correct": true,
+       "why": "",
+       "basis": [
+        "SOL-agent-harness#action_steps[1]"
+       ],
+       "basisQuote": "更换 Harness 组件时固定模型、任务和输入，再比较轨迹与结果，才能判断改动实际影响了什么。"
+      },
+      {
+       "text": "先分别核对模型判断，循环，工具，状态，Context，权限，错误处理和验证；不要将所有问题都归因于模型能力（用在排查 Agent 失败时）",
+       "correct": false,
+       "why": "这是材料里另一条动作（units[id=SOL-agent-harness].key_fields.solution_summary）要你做的事，不是题干问的这一条；照它做就跳步了。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "先更换 Harness 组件时固定模型，任务和输入；再对比轨迹与结果，其余（才能判断改动实际影响了什么）等有需要再补",
+       "correct": false,
+       "why": "来源把「才能判断改动实际影响了什么」和前面的要件并列写成同一条路径，漏掉它只做了半条。",
+       "basis": [],
+       "basisQuote": ""
+      }
+     ],
+     "origin": {
+      "kind": "machine",
+      "unitId": "batch-agent-harness",
+      "questionId": "decisions[1]",
+      "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-agent-harness].decisions[1]",
+      "generatedFrom": "evidence/gen-decisions-hybrid-v3-20260914.json#units[unitId=batch-agent-harness].questions[1]",
+      "review": "evidence/review-decisions-260914/review.json#units[unitId=batch-agent-harness]",
+      "verdict": "usable",
+      "note": "脚本确定性生成（模型调用 0 次）＋独立复核通过；人工三题排在本章最前，机器题不覆盖人工内容"
+     }
+    },
+    {
+     "judgment": "机器复核题 3｜来自 batch-agent-harness 第 3 道（已独立复核 verdict=usable）",
+     "prompt": "情境：同一个模型接入两套代码 Agent 系统：一套只能偶尔运行命令，另一套能保存进度、限制写入范围、处理工具失败并验证结果。按这段材料给的动作路径，第 3 条这一步你会怎么做？",
+     "options": [
+      {
+       "text": "先定义 Harness 在当前系统中的边界；再讨论厚薄，不要让同一个词一会儿指完整非模型架构；一会儿只指 while 循环",
+       "correct": true,
+       "why": "",
+       "basis": [
+        "SOL-agent-harness#action_steps[2]"
+       ],
+       "basisQuote": "先定义 Harness 在当前系统中的边界，再讨论厚薄；不要让同一个词一会儿指完整非模型架构，一会儿只指 while 循环。"
+      },
+      {
+       "text": "先更换 Harness 组件时固定模型，任务和输入；再对比轨迹与结果；才能判断改动实际影响了什么",
+       "correct": false,
+       "why": "这是材料里另一条动作（units[id=SOL-agent-harness].key_fields.action_steps[1]）要你做的事，不是题干问的这一条；照它做就跳步了。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "先定义 Harness 在当前系统中的边界；再讨论厚薄，不要让同一个词一会儿指完整非模型架构，其余（一会儿只指 while 循环）等有需要再补",
+       "correct": false,
+       "why": "来源把「一会儿只指 while 循环」和前面的要件并列写成同一条路径，漏掉它只做了半条。",
+       "basis": [],
+       "basisQuote": ""
+      }
+     ],
+     "origin": {
+      "kind": "machine",
+      "unitId": "batch-agent-harness",
+      "questionId": "decisions[2]",
+      "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-agent-harness].decisions[2]",
+      "generatedFrom": "evidence/gen-decisions-hybrid-v3-20260914.json#units[unitId=batch-agent-harness].questions[2]",
+      "review": "evidence/review-decisions-260914/review.json#units[unitId=batch-agent-harness]",
+      "verdict": "usable",
+      "note": "脚本确定性生成（模型调用 0 次）＋独立复核通过；人工三题排在本章最前，机器题不覆盖人工内容"
+     }
     }
    ],
    "feynman": {
@@ -1708,21 +2888,165 @@
       "id": "harness-F1",
       "point": "运行系统",
       "condition": "说清 Harness 是模型之外的运行系统：组织循环，并落实工具、状态、权限与错误处理。",
-      "misconception": "把 Harness 当成模型的一部分，或当成提示词／框架的别名。"
+      "misconception": "把 Harness 当成模型的一部分，或当成提示词／框架的别名。",
+      "origin": {
+       "kind": "hand",
+       "file": "evidence/agent-loop-260913/authored.json#chapters.harness.feynman.checks[0]",
+       "note": "人工撰写；本章通过判定只用这三条"
+      }
      },
      {
       "id": "harness-F2",
       "point": "与模型分工",
       "condition": "说清模型负责生成判断或工具请求，Harness 负责执行、回灌、状态与控制，两边分工不同。",
-      "misconception": "把表现差异全归给模型能力，忽略循环、工具、状态、权限与验证这些外部环节。"
+      "misconception": "把表现差异全归给模型能力，忽略循环、工具、状态、权限与验证这些外部环节。",
+      "origin": {
+       "kind": "hand",
+       "file": "evidence/agent-loop-260913/authored.json#chapters.harness.feynman.checks[1]",
+       "note": "人工撰写；本章通过判定只用这三条"
+      }
      },
      {
       "id": "harness-F3",
       "point": "边界口径",
       "condition": "至少声明一种口径（广义「模型外一切」，或只含循环／工具分发／状态处理的薄口径），并区分 Agent 与 Harness、Context 与 Harness。",
-      "misconception": "不声明口径就混用「模型外一切」，把用户感知到的 Agent 与产生它的 Harness 说成同一件东西。"
+      "misconception": "不声明口径就混用「模型外一切」，把用户感知到的 Agent 与产生它的 Harness 说成同一件东西。",
+      "origin": {
+       "kind": "hand",
+       "file": "evidence/agent-loop-260913/authored.json#chapters.harness.feynman.checks[2]",
+       "note": "人工撰写；本章通过判定只用这三条"
+      }
+     }
+    ],
+    "machineChecks": [
+     {
+      "id": "batch-agent-harness-B1",
+      "point": "Agent Harnes",
+      "condition": "Agent Harness 不等于模型；模型负责生成判断或工具请求，Harness 负责执行、回灌、状态与控制。",
+      "misconception": "Agent Harness 等于模型；模型负责生成判断或工具请求，Harness 负责执行、回灌、状态与控制。",
+      "misconceptionSource": "derived",
+      "derivation": {
+       "rule": "negation-flip",
+       "flipped": "不等于",
+       "from": "boundaries[0]",
+       "note": "按确定性规则从同一条边界算出，不是 agent 撰写的教学误解"
+      },
+      "sourceFile": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/agent-harness.yaml",
+      "sourceSha256": "c5e1aebfe14580e86c64c8a02d4c8e093b0b01f971512250616c0e2d64dc8c36",
+      "locator": "boundaries[0]",
+      "escapeForm": "raw",
+      "gate": false,
+      "origin": {
+       "kind": "machine",
+       "unitId": "batch-agent-harness",
+       "checkId": "batch-agent-harness-B1",
+       "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-agent-harness].feynman.checks[0]",
+       "derivedFrom": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/agent-harness.yaml#boundaries[0]",
+       "review": "evidence/review-criteria-260914/review.json#units[unitId=batch-agent-harness]",
+       "verdict": "blocked",
+       "note": "misconception 是卡片 boundaries 的机械反面转述，独立复核 verdict=unusable：可当复习提示，不作为本章通过判据"
+      }
+     },
+     {
+      "id": "batch-agent-harness-B2",
+      "point": "Agent Harnes",
+      "condition": "Agent Harness 也不等于用户感知到的 Agent；本站用 Agent 描述围绕目标持续行动的系统表现，用 Harness 描述产生并治理这种表现的运行机器。",
+      "misconception": "Agent Harness 也等于用户感知到的 Agent；本站用 Agent 描述围绕目标持续行动的系统表现，用 Harness 描述产生并治理这种表现的运行机器。",
+      "misconceptionSource": "derived",
+      "derivation": {
+       "rule": "negation-flip",
+       "flipped": "不等于",
+       "from": "boundaries[1]",
+       "note": "按确定性规则从同一条边界算出，不是 agent 撰写的教学误解"
+      },
+      "sourceFile": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/agent-harness.yaml",
+      "sourceSha256": "c5e1aebfe14580e86c64c8a02d4c8e093b0b01f971512250616c0e2d64dc8c36",
+      "locator": "boundaries[1]",
+      "escapeForm": "raw",
+      "gate": false,
+      "origin": {
+       "kind": "machine",
+       "unitId": "batch-agent-harness",
+       "checkId": "batch-agent-harness-B2",
+       "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-agent-harness].feynman.checks[1]",
+       "derivedFrom": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/agent-harness.yaml#boundaries[1]",
+       "review": "evidence/review-criteria-260914/review.json#units[unitId=batch-agent-harness]",
+       "verdict": "blocked",
+       "note": "misconception 是卡片 boundaries 的机械反面转述，独立复核 verdict=unusable：可当复习提示，不作为本章通过判据"
+      }
+     },
+     {
+      "id": "batch-agent-harness-B3",
+      "point": "“模型外一切”是便于划界",
+      "condition": "“模型外一切”是便于划界的广义口径；工程实践中也有只把循环、工具分发与状态处理称为 Harness 的薄口径，讨论时要先声明范围。",
+      "misconception": "误以为这条边界不成立：“模型外一切”是便于划界的广义口径；工程实践中也有只把循环、工具分发与状态处理称为 Harness 的薄口径，讨论时要先声明范围。",
+      "misconceptionSource": "derived",
+      "derivation": {
+       "rule": "boundary-denial",
+       "flipped": "",
+       "from": "boundaries[2]",
+       "note": "按确定性规则从同一条边界算出，不是 agent 撰写的教学误解"
+      },
+      "sourceFile": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/agent-harness.yaml",
+      "sourceSha256": "c5e1aebfe14580e86c64c8a02d4c8e093b0b01f971512250616c0e2d64dc8c36",
+      "locator": "boundaries[2]",
+      "escapeForm": "raw",
+      "gate": false,
+      "origin": {
+       "kind": "machine",
+       "unitId": "batch-agent-harness",
+       "checkId": "batch-agent-harness-B3",
+       "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-agent-harness].feynman.checks[2]",
+       "derivedFrom": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/agent-harness.yaml#boundaries[2]",
+       "review": "evidence/review-criteria-260914/review.json#units[unitId=batch-agent-harness]",
+       "verdict": "blocked",
+       "note": "misconception 是卡片 boundaries 的机械反面转述，独立复核 verdict=unusable：可当复习提示，不作为本章通过判据"
+      }
+     },
+     {
+      "id": "batch-agent-harness-B4",
+      "point": "Harness 会与 C",
+      "condition": "Harness 会与 Context Engineering 交叉，因为它必须在运行时装配信息；但 Context 负责“模型看到什么”，Harness 负责“系统怎样持续、受控地运行”，不能静默压成一条轴。",
+      "misconception": "Harness 会与 Context Engineering 交叉，因为它必须在运行时装配信息；但 Context 负责“模型看到什么”，Harness 负责“系统怎样持续、受控地运行”，能静默压成一条轴。",
+      "misconceptionSource": "derived",
+      "derivation": {
+       "rule": "negation-flip",
+       "flipped": "不能",
+       "from": "boundaries[3]",
+       "note": "按确定性规则从同一条边界算出，不是 agent 撰写的教学误解"
+      },
+      "sourceFile": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/agent-harness.yaml",
+      "sourceSha256": "c5e1aebfe14580e86c64c8a02d4c8e093b0b01f971512250616c0e2d64dc8c36",
+      "locator": "boundaries[3]",
+      "escapeForm": "raw",
+      "gate": false,
+      "origin": {
+       "kind": "machine",
+       "unitId": "batch-agent-harness",
+       "checkId": "batch-agent-harness-B4",
+       "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-agent-harness].feynman.checks[3]",
+       "derivedFrom": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/agent-harness.yaml#boundaries[3]",
+       "review": "evidence/review-criteria-260914/review.json#units[unitId=batch-agent-harness]",
+       "verdict": "blocked",
+       "note": "misconception 是卡片 boundaries 的机械反面转述，独立复核 verdict=unusable：可当复习提示，不作为本章通过判据"
+      }
      }
     ]
+   },
+   "schemeC": {
+    "decidedBy": "owner",
+    "at": "2026-09-14",
+    "ruling": "方案丙",
+    "supersededUnit": "batch-agent-harness",
+    "supersededReason": "同一个概念（CON-agent-harness）已有负责人确认过的手工章节 unit:chapter-harness「Harness」，机器版本（本单元）不对外：保留数据与出处，不再作为独立可学单元，也不给页面入口。它的三道已复核决策题与卡片 boundaries 派生判据已并入该章节（人工内容优先 · 机器内容逐条标来源）。",
+    "merged": {
+     "machineQuestions": 3,
+     "machineChecks": 4,
+     "decisionsReview": "evidence/review-decisions-260914/review.json",
+     "criteriaReview": "evidence/review-criteria-260914/review.json",
+     "criteriaVerdict": "blocked"
+    },
+    "note": "六章仍是对外唯一入口：机器版本不再作为独立可学单元（标 superseded、写进缺口清单），它已复核的决策题与卡片 boundaries 派生判据并入本章，逐条标了来源。"
    },
    "narrative": {
     "authored": true,
@@ -1986,7 +3310,12 @@
        "basis": [],
        "basisQuote": ""
       }
-     ]
+     ],
+     "origin": {
+      "kind": "hand",
+      "file": "evidence/agent-loop-260913/authored.json#chapters.verification-loop.questions[0]",
+      "note": "人工撰写；本章通过判定只用这三道"
+     }
     },
     {
      "judgment": "判据什么时候定",
@@ -2015,7 +3344,12 @@
        ],
        "basisQuote": "在行动前写清检查对象、判据、失败反馈格式和退出条件"
       }
-     ]
+     ],
+     "origin": {
+      "kind": "hand",
+      "file": "evidence/agent-loop-260913/authored.json#chapters.verification-loop.questions[1]",
+      "note": "人工撰写；本章通过判定只用这三道"
+     }
     },
     {
      "judgment": "通过覆盖到哪里",
@@ -2044,7 +3378,129 @@
        "basis": [],
        "basisQuote": ""
       }
-     ]
+     ],
+     "origin": {
+      "kind": "hand",
+      "file": "evidence/agent-loop-260913/authored.json#chapters.verification-loop.questions[2]",
+      "note": "人工撰写；本章通过判定只用这三道"
+     }
+    },
+    {
+     "judgment": "机器复核题 1｜来自 batch-verification-loop 第 1 道（已独立复核 verdict=usable）",
+     "prompt": "情境：一个代码 Agent 改完页面后，独立运行测试并用浏览器检查关键交互。按这段材料给的动作路径，第 1 条这一步你会怎么做？",
+     "options": [
+      {
+       "text": "先判据，失败反馈格式和退出条件；不要由同一输出临时改标准（用在在行动前写清核对对象）",
+       "correct": true,
+       "why": "",
+       "basis": [
+        "SOL-verification-loop#solution_summary"
+       ],
+       "basisQuote": "在行动前写清检查对象、判据、失败反馈格式和退出条件，避免由同一输出临时改标准。"
+      },
+      {
+       "text": "先尽量让核对独立于生成者；并优先采用可重复运行的确定性证据，主观任务再补视觉核对或人工复核",
+       "correct": false,
+       "why": "这是材料里另一条动作（units[id=SOL-verification-loop].key_fields.action_steps[1]）要你做的事，不是题干问的这一条；照它做就跳步了。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "先判据，失败反馈格式和退出条件（用在在行动前写清核对对象），其余（避免由同一输出临时改标准）等有需要再补",
+       "correct": false,
+       "why": "来源把「避免由同一输出临时改标准」和前面的要件并列写成同一条路径，漏掉它只做了半条。",
+       "basis": [],
+       "basisQuote": ""
+      }
+     ],
+     "origin": {
+      "kind": "machine",
+      "unitId": "batch-verification-loop",
+      "questionId": "decisions[0]",
+      "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-verification-loop].decisions[0]",
+      "generatedFrom": "evidence/gen-decisions-hybrid-v3-20260914.json#units[unitId=batch-verification-loop].questions[0]",
+      "review": "evidence/review-decisions-260914/review.json#units[unitId=batch-verification-loop]",
+      "verdict": "usable",
+      "note": "脚本确定性生成（模型调用 0 次）＋独立复核通过；人工三题排在本章最前，机器题不覆盖人工内容"
+     }
+    },
+    {
+     "judgment": "机器复核题 2｜来自 batch-verification-loop 第 2 道（已独立复核 verdict=usable）",
+     "prompt": "情境：一个代码 Agent 改完页面后，独立运行测试并用浏览器检查关键交互。按这段材料给的动作路径，第 2 条这一步你会怎么做？",
+     "options": [
+      {
+       "text": "先尽量让核对独立于生成者；并优先采用可重复运行的确定性证据，主观任务再补视觉核对或人工复核",
+       "correct": true,
+       "why": "",
+       "basis": [
+        "SOL-verification-loop#action_steps[1]"
+       ],
+       "basisQuote": "尽量让检查独立于生成者，并优先采用可重复运行的确定性证据；主观任务再补视觉检查或人工复核。"
+      },
+      {
+       "text": "先判据，失败反馈格式和退出条件；不要由同一输出临时改标准（用在在行动前写清核对对象）",
+       "correct": false,
+       "why": "这是材料里另一条动作（units[id=SOL-verification-loop].key_fields.solution_summary）要你做的事，不是题干问的这一条；照它做就跳步了。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "先尽量让核对独立于生成者；并优先采用可重复运行的确定性证据，其余（主观任务再补视觉检查或人工复核）等有需要再补",
+       "correct": false,
+       "why": "来源把「主观任务再补视觉检查或人工复核」和前面的要件并列写成同一条路径，漏掉它只做了半条。",
+       "basis": [],
+       "basisQuote": ""
+      }
+     ],
+     "origin": {
+      "kind": "machine",
+      "unitId": "batch-verification-loop",
+      "questionId": "decisions[1]",
+      "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-verification-loop].decisions[1]",
+      "generatedFrom": "evidence/gen-decisions-hybrid-v3-20260914.json#units[unitId=batch-verification-loop].questions[1]",
+      "review": "evidence/review-decisions-260914/review.json#units[unitId=batch-verification-loop]",
+      "verdict": "usable",
+      "note": "脚本确定性生成（模型调用 0 次）＋独立复核通过；人工三题排在本章最前，机器题不覆盖人工内容"
+     }
+    },
+    {
+     "judgment": "机器复核题 3｜来自 batch-verification-loop 第 3 道（已独立复核 verdict=usable）",
+     "prompt": "情境：一个代码 Agent 改完页面后，独立运行测试并用浏览器检查关键交互。按这段材料给的动作路径，第 3 条这一步你会怎么做？",
+     "options": [
+      {
+       "text": "先将未通过结果连回一个写清可改变的下一步，若反馈不能改变行动；它只是记下；不是验证循环",
+       "correct": true,
+       "why": "",
+       "basis": [
+        "SOL-verification-loop#action_steps[2]"
+       ],
+       "basisQuote": "把未通过结果连回一个明确可改变的下一步；若反馈不能改变行动，它只是记录，不是验证循环。"
+      },
+      {
+       "text": "先将未通过结果连回一个写清可改变的下一步，若反馈不能改变行动；它只是记下，其余（不是验证循环）等有需要再补",
+       "correct": false,
+       "why": "来源把「不是验证循环」和前面的要件并列写成同一条路径，漏掉它只做了半条。",
+       "basis": [],
+       "basisQuote": ""
+      },
+      {
+       "text": "先照现在的做法往下走，等出了问题再回头补把未通过结果连回一个明确可改变的下一步，若反馈不能改变行动。",
+       "correct": false,
+       "why": "来源把它写成动手时就要走的动作，推到出问题之后再做，触发条件被改掉了（这一步不是事后补救）。",
+       "basis": [],
+       "basisQuote": ""
+      }
+     ],
+     "origin": {
+      "kind": "machine",
+      "unitId": "batch-verification-loop",
+      "questionId": "decisions[2]",
+      "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-verification-loop].decisions[2]",
+      "generatedFrom": "evidence/gen-decisions-hybrid-v3-20260914.json#units[unitId=batch-verification-loop].questions[2]",
+      "review": "evidence/review-decisions-260914/review.json#units[unitId=batch-verification-loop]",
+      "verdict": "usable",
+      "note": "脚本确定性生成（模型调用 0 次）＋独立复核通过；人工三题排在本章最前，机器题不覆盖人工内容"
+     }
     }
    ],
    "feynman": {
@@ -2059,21 +3515,165 @@
       "id": "verification-loop-F1",
       "point": "独立检查",
       "condition": "说清检查由行动之外的东西完成（确定性测试／视觉检查／LLM-as-judge 等），并知道这些证据的强度不同。",
-      "misconception": "把「Agent 说自己检查过了」或同一个模型自评当成独立检查。"
+      "misconception": "把「Agent 说自己检查过了」或同一个模型自评当成独立检查。",
+      "origin": {
+       "kind": "hand",
+       "file": "evidence/agent-loop-260913/authored.json#chapters.verification-loop.feynman.checks[0]",
+       "note": "人工撰写；本章通过判定只用这三条"
+      }
      },
      {
       "id": "verification-loop-F2",
       "point": "改变下一步",
       "condition": "说清未通过要依据证据修正下一步、通过才退出当前循环；检查结果要真的改变运行。",
-      "misconception": "把 Observability（采集事件、轨迹、时延）当成验证闭环——只看了日志，没有改变下一步。"
+      "misconception": "把 Observability（采集事件、轨迹、时延）当成验证闭环——只看了日志，没有改变下一步。",
+      "origin": {
+       "kind": "hand",
+       "file": "evidence/agent-loop-260913/authored.json#chapters.verification-loop.feynman.checks[1]",
+       "note": "人工撰写；本章通过判定只用这三条"
+      }
      },
      {
       "id": "verification-loop-F3",
       "point": "通过范围",
       "condition": "说清机器检查只覆盖既定判据，退出不等于用户验收、发布授权或真实业务效果成立。",
-      "misconception": "把一次机器检查通过扩张成「整件事已经成功」。"
+      "misconception": "把一次机器检查通过扩张成「整件事已经成功」。",
+      "origin": {
+       "kind": "hand",
+       "file": "evidence/agent-loop-260913/authored.json#chapters.verification-loop.feynman.checks[2]",
+       "note": "人工撰写；本章通过判定只用这三条"
+      }
+     }
+    ],
+    "machineChecks": [
+     {
+      "id": "batch-verification-loop-B1",
+      "point": "Observabilit",
+      "condition": "Observability 负责采集运行事件、轨迹、状态和时延；Verification Loop 负责消费检查结果并改变当前运行的下一步。",
+      "misconception": "误以为这条边界不成立：Observability 负责采集运行事件、轨迹、状态和时延；Verification Loop 负责消费检查结果并改变当前运行的下一步。",
+      "misconceptionSource": "derived",
+      "derivation": {
+       "rule": "boundary-denial",
+       "flipped": "",
+       "from": "boundaries[0]",
+       "note": "按确定性规则从同一条边界算出，不是 agent 撰写的教学误解"
+      },
+      "sourceFile": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/verification-loop.yaml",
+      "sourceSha256": "fc591434027132107d9053e31b0d8e622de89655709cf52d5570ec512efa842f",
+      "locator": "boundaries[0]",
+      "escapeForm": "raw",
+      "gate": false,
+      "origin": {
+       "kind": "machine",
+       "unitId": "batch-verification-loop",
+       "checkId": "batch-verification-loop-B1",
+       "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-verification-loop].feynman.checks[0]",
+       "derivedFrom": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/verification-loop.yaml#boundaries[0]",
+       "review": "evidence/review-criteria-260914/review.json#units[unitId=batch-verification-loop]",
+       "verdict": "blocked",
+       "note": "misconception 是卡片 boundaries 的机械反面转述，独立复核 verdict=unusable：可当复习提示，不作为本章通过判据"
+      }
+     },
+     {
+      "id": "batch-verification-loop-B2",
+      "point": "Trace-based ",
+      "condition": "Trace-based Evals 用共同任务、基线和 verifier 比较多次运行；Verification Loop 通常作用于一次任务里的重试与退出。",
+      "misconception": "误以为这条边界不成立：Trace-based Evals 用共同任务、基线和 verifier 比较多次运行；Verification Loop 通常作用于一次任务里的重试与退出。",
+      "misconceptionSource": "derived",
+      "derivation": {
+       "rule": "boundary-denial",
+       "flipped": "",
+       "from": "boundaries[1]",
+       "note": "按确定性规则从同一条边界算出，不是 agent 撰写的教学误解"
+      },
+      "sourceFile": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/verification-loop.yaml",
+      "sourceSha256": "fc591434027132107d9053e31b0d8e622de89655709cf52d5570ec512efa842f",
+      "locator": "boundaries[1]",
+      "escapeForm": "raw",
+      "gate": false,
+      "origin": {
+       "kind": "machine",
+       "unitId": "batch-verification-loop",
+       "checkId": "batch-verification-loop-B2",
+       "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-verification-loop].feynman.checks[1]",
+       "derivedFrom": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/verification-loop.yaml#boundaries[1]",
+       "review": "evidence/review-criteria-260914/review.json#units[unitId=batch-verification-loop]",
+       "verdict": "blocked",
+       "note": "misconception 是卡片 boundaries 的机械反面转述，独立复核 verdict=unusable：可当复习提示，不作为本章通过判据"
+      }
+     },
+     {
+      "id": "batch-verification-loop-B3",
+      "point": "检查器的证据强度不同：确",
+      "condition": "检查器的证据强度不同：确定性测试、视觉检查和 LLM-as-judge 不能被当成等价证明。",
+      "misconception": "检查器的证据强度不同：确定性测试、视觉检查和 LLM-as-judge 能被当成等价证明。",
+      "misconceptionSource": "derived",
+      "derivation": {
+       "rule": "negation-flip",
+       "flipped": "不能",
+       "from": "boundaries[2]",
+       "note": "按确定性规则从同一条边界算出，不是 agent 撰写的教学误解"
+      },
+      "sourceFile": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/verification-loop.yaml",
+      "sourceSha256": "fc591434027132107d9053e31b0d8e622de89655709cf52d5570ec512efa842f",
+      "locator": "boundaries[2]",
+      "escapeForm": "raw",
+      "gate": false,
+      "origin": {
+       "kind": "machine",
+       "unitId": "batch-verification-loop",
+       "checkId": "batch-verification-loop-B3",
+       "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-verification-loop].feynman.checks[2]",
+       "derivedFrom": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/verification-loop.yaml#boundaries[2]",
+       "review": "evidence/review-criteria-260914/review.json#units[unitId=batch-verification-loop]",
+       "verdict": "blocked",
+       "note": "misconception 是卡片 boundaries 的机械反面转述，独立复核 verdict=unusable：可当复习提示，不作为本章通过判据"
+      }
+     },
+     {
+      "id": "batch-verification-loop-B4",
+      "point": "机器检查通过只覆盖既定判",
+      "condition": "机器检查通过只覆盖既定判据，不自动证明语义质量、用户满意、发布授权或真实业务效果。",
+      "misconception": "误以为这条边界不成立：机器检查通过只覆盖既定判据，不自动证明语义质量、用户满意、发布授权或真实业务效果。",
+      "misconceptionSource": "derived",
+      "derivation": {
+       "rule": "boundary-denial",
+       "flipped": "",
+       "from": "boundaries[3]",
+       "note": "按确定性规则从同一条边界算出，不是 agent 撰写的教学误解"
+      },
+      "sourceFile": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/verification-loop.yaml",
+      "sourceSha256": "fc591434027132107d9053e31b0d8e622de89655709cf52d5570ec512efa842f",
+      "locator": "boundaries[3]",
+      "escapeForm": "raw",
+      "gate": false,
+      "origin": {
+       "kind": "machine",
+       "unitId": "batch-verification-loop",
+       "checkId": "batch-verification-loop-B4",
+       "artifact": "evidence/batch-units-260914/units.json#units[unitId=batch-verification-loop].feynman.checks[3]",
+       "derivedFrom": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/verification-loop.yaml#boundaries[3]",
+       "review": "evidence/review-criteria-260914/review.json#units[unitId=batch-verification-loop]",
+       "verdict": "blocked",
+       "note": "misconception 是卡片 boundaries 的机械反面转述，独立复核 verdict=unusable：可当复习提示，不作为本章通过判据"
+      }
      }
     ]
+   },
+   "schemeC": {
+    "decidedBy": "owner",
+    "at": "2026-09-14",
+    "ruling": "方案丙",
+    "supersededUnit": "batch-verification-loop",
+    "supersededReason": "同一个概念（CON-verification-loop）已有负责人确认过的手工章节 unit:chapter-verification-loop「验证闭环」，机器版本（本单元）不对外：保留数据与出处，不再作为独立可学单元，也不给页面入口。它的三道已复核决策题与卡片 boundaries 派生判据已并入该章节（人工内容优先 · 机器内容逐条标来源）。",
+    "merged": {
+     "machineQuestions": 3,
+     "machineChecks": 4,
+     "decisionsReview": "evidence/review-decisions-260914/review.json",
+     "criteriaReview": "evidence/review-criteria-260914/review.json",
+     "criteriaVerdict": "blocked"
+    },
+    "note": "六章仍是对外唯一入口：机器版本不再作为独立可学单元（标 superseded、写进缺口清单），它已复核的决策题与卡片 boundaries 派生判据并入本章，逐条标了来源。"
    },
    "narrative": {
     "authored": true,

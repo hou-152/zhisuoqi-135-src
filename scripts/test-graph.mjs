@@ -24,6 +24,15 @@ const start = (unitId, at) => R.createSession({ graph: g, entry: { ref: `activit
 const UNIT = 'unit:chapter-agent';
 const SINGLE = 'unit:agent-skills-api';
 const CRIT = { agent: ['agent-F1', 'agent-F2', 'agent-F3'], single: ['C1', 'C2', 'C3', 'C4'] };
+/* 方案丙：六章现在各有 6 道决策活动（人工 3 + 并入的机器 3）。走查要按**索引里真实的活动**逐个答，
+   不能拿写死的 3 条判据名去循环——否则会在第 4 题前面停下，看不到章末验收。 */
+const decisionCritIds = (unitId) => g.nodes
+  .filter((n) => n.kind === 'Decision' && (n.meta || {}).unitId === unitId)
+  .sort((a, b) => Number(String(a.id).split(':').pop()) - Number(String(b.id).split(':').pop()))
+  .map((d) => {
+    const e = g.edges.find((x) => x.kind === 'curriculum' && x.relation === 'checks' && x.from === d.id);
+    return e ? e.to.replace('criterion:', '') : 'x';
+  });
 
 // ── ① 全量索引与完整类型 ────────────────────────────────
 group('① 全量索引与完整类型（任务书 §11.1）');
@@ -52,7 +61,7 @@ ok(spans.length >= 3 && spans.every((e) => (byId.get(e.to).meta || {}).text), '�
 const decisions = g.nodes.filter((n) => n.kind === 'Decision');
 const courseDecisions = decisions.filter((n) => !/^activity:unit:batch-/.test(n.id));   // 六章 + 单篇 + 夹具
 const batchDecisions = decisions.filter((n) => /^activity:unit:batch-/.test(n.id));     // 76 个批量单元（索引节点）
-ok(courseDecisions.length === 23, `正式课程的决策题节点 ${courseDecisions.length} 个（六章 18 + 单篇 3 + 夹具 2）`);
+ok(courseDecisions.length === 41, `正式课程的决策题节点 ${courseDecisions.length} 个（六章人工 18 + 方案丙并入 18 + 单篇 3 + 夹具 2）`);
 ok(batchDecisions.length === 228, `批量单元的决策题节点 ${batchDecisions.length} 个（76 单元 × 3 题）`);
 ok(batchDecisions.every((n) => n.status === 'ready' && (n.meta || {}).prompt && (n.sourceRefs || []).length >= 2),
   '批量决策题节点都是 ready、都带题干、都指向决策题产物 + 复核产物（索引节点，不带作答入口）');
@@ -165,9 +174,14 @@ function walkUnit(unitId, critIds, opts = {}) {
 }
 for (const ch of g.nodes.filter((n) => n.kind === 'Unit' && /^unit:chapter-/.test(n.id))) {
   const ids = g.edges.filter((e) => e.kind === 'curriculum' && e.relation === 'targets' && e.from === ch.id).map((e) => e.to.replace('criterion:', ''));
-  const { s, trace, atSum } = walkUnit(ch.id, ids);
-  ok(/summative/.test(atSum), `${ch.label}：三道题走完进章末验收`);
-  ok(s.state.summativePassed === true, `${ch.label}：章末独立验收通过（判据 ${ids.length} 条）`);
+  const decIds = decisionCritIds(ch.id);
+  const { s, trace, atSum } = walkUnit(ch.id, decIds);
+  ok(/summative/.test(atSum), `${ch.label}：${decIds.length} 道题走完进章末验收`);
+  ok(s.state.summativePassed === true, `${ch.label}：章末独立验收通过（人工判据 ${ids.length} 条 · 决策活动 ${decIds.length} 道）`);
+  ok(decIds.length === 3 + ((ch.meta || {}).machineQuestionCount || 0),
+    `${ch.label}：决策活动 = 人工 3 + 并入 ${(ch.meta || {}).machineQuestionCount || 0}（实际 ${decIds.length}）`);
+  ok(ids.length === 3 && !ids.some((x) => x.includes(':')),
+    `${ch.label}：章末通过判定只认人工那 3 条判据（机器派生判据没有混进 targets：${ids.join(',')}）`);
   ok(s.current().kind === 'ApplicationReview' && (s.current().node || {}).meta.role === 'advance', `${ch.label}：应用核对后到前进节点`);
   ok(!trace.some((t) => t.includes('FAIL')), `${ch.label}：全程没有走不通的边`);
 }
@@ -264,7 +278,7 @@ group('⑥ 决策与两种费曼（§11.6）');
 {
   const s = start(UNIT);
   s.fire('proceed', {});
-  for (const cid of CRIT.agent) {
+  for (const cid of decisionCritIds(UNIT)) {
     s.fire('answered', { activityId: s.current().nodeId, choice: 1, correct: true, criterionId: cid, status: 'met', recorded: [{ id: cid, status: 'met', evidence: `${cid} 说清` }] });
     s.fire('reviewed', { status: 'met', gap: false });
   }
@@ -308,7 +322,8 @@ group('⑦b 一条会话走完整条路线（§11.4 / §11.7）');
   const s = start(first.id);
   const route = 'agent-continuous-action-v1';
   let unitsDone = 0, guard = 0;
-  while (guard++ < 60) {
+  /* 方案丙：六章各 6 道决策 + 6 次反馈，一条会话走完整条路线的步数翻倍 —— 只是把安全上界调够，不是放宽断言 */
+  while (guard++ < 220) {
     const cur = s.current().nodeId;
     if (/reading$/.test(cur)) { s.fire('proceed', {}); continue; }
     if (/decision:\d+$/.test(cur)) {

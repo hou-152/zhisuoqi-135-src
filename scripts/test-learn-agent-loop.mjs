@@ -65,7 +65,10 @@ check('主案例全部标明假设场景', await ex(`LEARN.every(c=>c.case.type=
 check('负责人已确认 → 六章状态 ready', await ex(`LEARN_CFG.caseReview.state==='owner-confirmed' && LEARN.every(c=>c.review.status==='ready')`), 'true');
 check('确认后仍逐章标明场景类型是假设场景', await ex(`LEARN.every(c=>c.case.type==='假设场景' && c.review.caseState==='owner-confirmed')`), 'true');
 check('每题三选项、恰好一个正确', await ex(`LEARN.every(c=>c.questions.every(q=>q.options.length===3&&q.options.filter(o=>o.correct).length===1))`), 'true');
-check('正确答案都带 OPI/SOL 依据', await ex(`LEARN.every(c=>c.questions.every(q=>{const r=q.options.find(o=>o.correct);return r.basis.length>0&&r.basis.every(b=>b.startsWith('OPI-')||b.startsWith('SOL-'))}))`), 'true');
+check('正确答案都带 OPI/SOL（或本章图鉴卡）依据', await ex(`LEARN.every(c=>c.questions.every(q=>{const r=q.options.find(o=>o.correct);return r.basis.length>0&&r.basis.every(b=>b.startsWith('OPI-')||b.startsWith('SOL-')||b.startsWith('concepts/'))}))`), 'true');
+check('六章题量 = 人工 3 + 并入的机器题；人工排在最前', await ex(`LEARN.every(c=>{const h=c.questions.slice(0,3),m=c.questions.slice(3);return h.every(q=>q.origin&&q.origin.kind==='hand')&&m.every(q=>q.origin&&q.origin.kind==='machine'&&q.origin.verdict==='usable'&&q.origin.unitId.startsWith('batch-'))})`), 'true');
+check('并入的机器题逐条标了来源（产物 + 生成器 + 复核）', await ex(`LEARN.every(c=>c.questions.filter(q=>q.origin.kind==='machine').every(q=>q.origin.artifact.includes('batch-units-260914')&&q.origin.generatedFrom.includes('gen-decisions-hybrid-v3-20260914')&&q.origin.review.includes('review-decisions-260914')))`), 'true');
+check('六章人工判据仍是 3 条、机器派生判据另放且不进通过判定', await ex(`LEARN.every(c=>c.feynman.checks.length===3&&c.feynman.required.length===3&&c.feynman.machineChecks.length>=3&&c.feynman.machineChecks.every(x=>x.gate===false&&x.misconceptionSource==='derived'))`), 'true');
 check('费曼要点按章不同、且不含「变量／证据／边界」', await ex(`new Set(LEARN.map(c=>c.feynman.required.join('|'))).size===6 && !LEARN.some(c=>c.feynman.required.some(k=>['变量','证据','边界'].includes(k)))`), 'true');
 
 /* ① 从路径条上的「学习这个」进入 */
@@ -141,11 +144,22 @@ check('答对才允许下一题', await ex(`!document.getElementById('learn-next
 await ex('learnNext()');
 check('进入第二题', await ex(`learnQ`), 1);
 await ex(`learnChoose(chapterById(learnCur).questions[1].options.findIndex(o=>o.correct)); learnNext()`);
-check('进入第三题', await ex(`learnQ`), 2);
-check('第三题的按钮文案变成进入费曼', await ex(`document.getElementById('learn-next').textContent`), '三题通过，进入费曼');
-check('费曼框全章只有一份（走完三题不重复渲染）', await ex(`document.querySelectorAll('#learn-wrap #learn-said').length`), 1);
+check('进入第三题（人工题最后一题）', await ex(`learnQ`), 2);
+check('第三题仍是人工题（人工内容优先、排在最前）', await ex(`chapterById(learnCur).questions[2].origin.kind`), 'hand');
+check('第三题的按钮还不进费曼（后面还有并入的机器题）', await ex(`document.getElementById('learn-next').textContent`), '选对后进入下一题');
+check('费曼框全章只有一份（走题过程不重复渲染）', await ex(`document.querySelectorAll('#learn-wrap #learn-said').length`), 1);
+/* 第四题起是方案丙并入的机器题：页面必须标出来源，走完最后一道才进费曼 */
 await ex(`learnChoose(chapterById(learnCur).questions[2].options.findIndex(o=>o.correct)); learnNext()`);
-check('三题全对后才出现费曼', await ex(`document.getElementById('learn-said')!==null`), 'true');
+check('进入第四题', await ex(`learnQ`), 3);
+check('第四题是并入的机器题', await ex(`chapterById(learnCur).questions[3].origin.kind`), 'machine');
+check('机器题在页面上标出来源与复核结论', await ex(`(()=>{const t=document.querySelector('#learn-q .lgap').innerText;return t.includes('机器并入题')&&t.includes('batch-')&&t.includes('verdict=usable')})()`), 'true');
+for (let qi = 3; qi < 5; qi++) {
+  await ex(`learnChoose(chapterById(learnCur).questions[${qi}].options.findIndex(o=>o.correct)); learnNext()`);
+}
+check('进入第六题（最后一道）', await ex(`learnQ`), 5);
+check('最后一道的按钮文案变成进入费曼（按实际题量）', await ex(`document.getElementById('learn-next').textContent`), '6 题通过，进入费曼');
+await ex(`learnChoose(chapterById(learnCur).questions[5].options.findIndex(o=>o.correct)); learnNext()`);
+check('六题全对后才出现费曼', await ex(`document.getElementById('learn-said')!==null`), 'true');
 check('这时才出现「章末验收」这张卡，并写明它才是解锁判据', await ex(`(()=>{const e=document.getElementById('learn-fey');return document.getElementById('learn-final-said')!==null && !!e && e.innerText.includes('章末验收') && e.innerText.includes('通过才解锁')})()`), 'true');
 check('两张费曼卡是两个独立的提交口（即时 / 章末）', await ex(`document.getElementById('learn-said')!==null && document.getElementById('learn-final-said')!==null && document.getElementById('lin-submit')!==document.getElementById('learn-submit')`), 'true');
 await shotOf('#learn-fey', '51-学习空间-决策与费曼.png');
@@ -157,6 +171,7 @@ console.log('\n②b 空决策题 ≠ 三题全过（章末验收卡不许出现�
 await ex(`window.__decBackup = JSON.stringify(stOf(learnCur).decisions); stOf(learnCur).decisions = []; saveLearnState(); renderLearn();`);
 check('没有决策题的单元不出现章末验收卡', await ex(`document.getElementById('learn-final-said')===null`), 'true');
 check('卡片照实写明本单元没有决策题', await ex(`(()=>{const e=document.getElementById('learn-fey');return !!e && e.innerText.includes('本单元没有决策题')})()`), 'true');
+check('空决策题时文案不再写「三题全过」（按实际题量渲染）', await ex(`(()=>{const e=document.getElementById('learn-fey');return !e.innerText.includes('三题')})()`), 'true');
 check('空决策题没有写任何通过/解锁状态', await ex(`(!stOf(learnCur).feynman) + '|' + chapterUnlocked(1)`), 'true|false');
 await ex(`stOf(learnCur).decisions = JSON.parse(window.__decBackup); saveLearnState(); renderLearn();`);
 check('恢复三题全过后章末验收卡回来（不是恒不出现）', await ex(`document.getElementById('learn-final-said')!==null`), 'true');
@@ -177,6 +192,9 @@ await ex('learnFeynman()');
 await sleep(200);
 check('漏点为空且要点齐全才显示通过', await ex(`stOf(learnCur).feynman`), 'ok');
 check('通过后章节状态可查', await ex(`chapterCleared(learnCur)`), 'true');
+/* 方案丙：章末验收卡里必须单列并入的机器派生判据，并写明它们不参与通过判定 */
+check('机器派生补充判据在章末验收卡里单列，并写明不参与通过判定', await ex(`(()=>{const e=document.getElementById('learn-fey');if(!e)return false;const t=e.innerText;return t.includes('机器派生补充判据')&&t.includes('不参与本章通过判定')&&t.includes('review-criteria-260914')&&t.includes('batch-')})()`), 'true');
+check('章末验收的要点仍只有人工 3 条（机器判据没挤进 required）', await ex(`chapterById(learnCur).feynman.required.length+'|'+chapterById(learnCur).feynman.checks.length`), '3|3');
 check('通过后下一章按钮立刻解锁（不用整页重渲染）', await ex(`document.querySelectorAll('#learn-wrap .lchip')[1].disabled`), 'false');
 check('章末验收通过没有碰读中那份即时费曼记录（反向也不互相影响）', await ex(`JSON.parse(localStorage.getItem('zss135.learn.inline.v1'))[learnCur].rounds.length`), 2);
 check('选项顺序是稳定打乱（正解不再固定在某个位置）', await ex(`(()=>{const p=[];for(const c of LEARN)c.questions.forEach((q,i)=>{const perm=learnPerm(c.chapterId,i);p.push(perm.indexOf(q.options.findIndex(o=>o.correct)));});return new Set(p).size;})()`), 3);
@@ -257,7 +275,7 @@ await sleep(150);
 await cdp.send('Page.navigate', { url: URL_.split('#')[0] + '#learn=verification-loop&review=1' });
 await sleep(1200);
 check('只有 review=1（审核／复现用）才可直达该章', await ex(`document.getElementById('learn').classList.contains('on') && learnCur`), 'verification-loop');
-check('复现入口能带出该章三题', await ex(`chapterById(learnCur).questions.length`), 3);
+check('复现入口能带出该章全部题（人工 3 + 并入 3）', await ex(`chapterById(learnCur).questions.length`), 6);
 
 /* ⑧ 正文流页（第 5 章 Harness）：连线写成解释句 · 读完就讲 · 右栏是本次课题 */
 console.log('\n⑧ 正文流一页（Harness）');
@@ -269,7 +287,7 @@ check('打开第 5 章 Harness', await ex(`learnCur`), 'harness');
 check('右栏＝本次课题的单元（六步、当前章高亮）', await ex(`(()=>{const r=document.querySelector('#learn-wrap .lrail');if(!r)return false;const on=document.querySelector('#learn-wrap .lrail-steps li.on .lchip');return r.innerText.includes('本次课题') && document.querySelectorAll('#learn-wrap .lrail-steps .lchip').length===6 && !!on && on.textContent.includes('Harness')})()`), 'true');
 check('正文有过渡句：上一单元留下了什么问题', await ex(`(()=>{const t=document.getElementById('learn-wrap').innerText;return t.includes('上一单元留下了什么问题')&&t.includes('谁组织调用、接收结果、安排下一步')})()`), 'true');
 check('关系句写成完整句、并带逐字原文', await ex(`(()=>{const t=document.getElementById('learn-wrap').innerText;return t.includes('这些概念是怎么连起来的')&&t.includes('真正执行的是 Harness')&&t.includes('逐字原文')})()`), 'true');
-check('费曼一下排在决策之前（读完就讲）', await ex(`(()=>{const t=document.getElementById('learn-wrap').innerText;const a=t.indexOf('读完就用自己的话讲一遍'),b=t.indexOf('三道决策，按顺序通过');return a>0&&b>0&&a<b})()`), 'true');
+check('费曼一下排在决策之前（读完就讲）', await ex(`(()=>{const t=document.getElementById('learn-wrap').innerText;const a=t.indexOf('读完就用自己的话讲一遍'),b=t.indexOf('道决策，按顺序通过');return a>0&&b>0&&a<b})()`), 'true');
 check('这一页末尾给出下一站', await ex(`(()=>{const t=document.getElementById('learn-wrap').innerText;return t.includes('下一站')&&t.includes('谁来判断它这一趟到底做对了没有')})()`), 'true');
 check('页面显示知识根（58 篇 → 卡片 → 单元）与原始来源链接', await ex(`(()=>{const t=document.getElementById('learn-wrap').innerText;const a=document.querySelector('#learn-wrap a[href^="http"]');return t.includes('知识根')&&t.includes('SRC-EXT-001')&&t.includes('concepts/agent-harness.yaml')&&!!a&&a.textContent.length>4})()`), 'true');
 const requested = cdp.events.filter((e) => e.method === 'Network.requestWillBeSent').map((e) => e.params.request.url);

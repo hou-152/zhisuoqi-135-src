@@ -714,6 +714,10 @@ function adaptRoutesAndUnits(b, out) {
     const a = authored[ch.chapterId] || {};
     const qs = ch.questions || [];
     const fxC = (ch.feynman && ch.feynman.checks) || [];
+    /* 方案丙：机器并入内容（来自已 superseded 的 batch-* 单元）——人工 3 题/3 判据仍是本章通过判定，
+       机器 3 题进决策活动（一道一活动），机器派生判据只挂 supplements 边、不进 targets。 */
+    const mxC = (ch.feynman && ch.feynman.machineChecks) || [];
+    const handQs = qs.filter((q) => ((q.origin || {}).kind || 'hand') === 'hand');
     routeStats.units++;
     b.node({
       id: uid, kind: 'Unit', label: ch.title, sub: `第 ${ch.order} 章 · ${ch.routeTitle}`,
@@ -723,8 +727,10 @@ function adaptRoutesAndUnits(b, out) {
       payloadRef: chaptersRel,
       sourceRefs: [{ path: chaptersRel, locator: `chapters[chapterId=${ch.chapterId}]` }, { path: authoredRel, locator: `chapters.${ch.chapterId}` }],
       meta: { unitId: ch.chapterId, title: ch.title, routeId: ch.routeId, order: ch.order, why: ch.why || '',
-        questionCount: qs.length, criterionCount: fxC.length, caseType: (ch.case && ch.case.type) || '',
-        caseState: (ch.review && ch.review.caseState) || '' },
+        questionCount: qs.length, handQuestionCount: handQs.length, machineQuestionCount: qs.length - handQs.length,
+        criterionCount: fxC.length, machineCheckCount: mxC.length, caseType: (ch.case && ch.case.type) || '',
+        caseState: (ch.review && ch.review.caseState) || '',
+        schemeC: ch.schemeC ? { supersededUnit: ch.schemeC.supersededUnit, merged: ch.schemeC.merged } : null },
       runnable: { kind: 'unit', ref: uid, entry: `#learn=${ch.chapterId}` },
     });
     b.entry({ id: uid, label: `${ch.order}. ${ch.title}`, kind: 'unit', entry: `#learn=${ch.chapterId}`, status: (ch.review && ch.review.status) || 'scaffold' });
@@ -802,6 +808,32 @@ function adaptRoutesAndUnits(b, out) {
         where: `${authoredRel}#chapters.${ch.chapterId}.feynman.checks`, affects: [cid] });
     }
 
+    // 方案丙并入的机器派生判据：**另挂 supplements 边**，不进 targets —— 不参与本章通过判定。
+    const machineCritIds = [];
+    for (const [i, c] of mxC.entries()) {
+      /* 节点 ID 必须与 batch 单元自己那条判据区分开（否则会覆盖同一个节点、把归属改成章节）：
+         章节这一条是「并入版」，原判据 ID 记在 meta.mergedCheckId 里。 */
+      const cid = `criterion:${ch.chapterId}:${c.id}`;
+      machineCritIds.push(cid); routeStats.machineCriteria = (routeStats.machineCriteria || 0) + 1;
+      b.node({
+        id: cid, kind: 'Criterion', label: c.point || c.id, sub: `第 ${ch.order} 章 · 机器派生补充判据 ${i + 1}（不参与通过判定）`,
+        status: 'ready', statusReason: '机器派生（卡片 boundaries 的机械反面转述，独立复核 verdict=unusable）—— 只作复习提示，不作为本章通过判据',
+        payloadRef: (c.origin || {}).artifact ? String(c.origin.artifact).split('#')[0] : chaptersRel,
+        sourceRefs: [{ path: String(((c.origin || {}).artifact || chaptersRel)).split('#')[0], locator: String((c.origin || {}).artifact || '').split('#')[1] || '' }],
+        meta: { criterion: c.condition || '', condition: c.condition || '', misconception: c.misconception || '',
+          misconceptionSource: c.misconceptionSource || 'derived', point: c.point || '', unitId: ch.chapterId,
+          kind: 'supplement', gate: false, origin: c.origin || null, mergedCheckId: c.id,
+          mergedFrom: (ch.schemeC || {}).supersededUnit || '' },
+      });
+      b.edge({ kind: 'curriculum', relation: 'supplements', from: uid, to: cid, label: '机器派生补充判据（不参与本章通过判定）',
+        reviewState: 'sourced', sourceRefs: [{ path: String(((c.origin || {}).artifact || chaptersRel)).split('#')[0], locator: String((c.origin || {}).artifact || '').split('#')[1] || '' }] });
+      const bspan = `span:${ch.chapterId}:boundary`;
+      if (b.nodes.has(bspan)) {
+        b.edge({ kind: 'curriculum', relation: 'taught-by', from: cid, to: bspan, label: '补讲用哪段材料（本章·边界）',
+          reviewState: 'sourced', sourceRefs: [{ path: chaptersRel, locator: `chapters[chapterId=${ch.chapterId}].reading.boundary` }] });
+      }
+    }
+
     // 活动 + transition 边
     const acts = makeActivities(b, uid, {
       title: ch.title, sub: `第 ${ch.order} 章 · ${ch.routeTitle}`, decisions: qs.length,
@@ -812,24 +844,37 @@ function adaptRoutesAndUnits(b, out) {
     routeStats.activities += 1 + 1 + 1 + acts.decisions.length * 2 + 1 + 1 + 1 + 1 + 1 + 1 + 1;
     // 活动 → 判据：每道题与章末验收各自关联哪些理解（不把全章细节变成每道题的门槛）
     for (const [i, q] of qs.entries()) {
-      const target = critIds[i] || critIds[critIds.length - 1];
+      const isMachine = ((q.origin || {}).kind === 'machine');
+      /* 人工题对着人工判据；机器题对着它自己那条机器派生判据（supplements 那一组） */
+      const target = isMachine
+        ? (machineCritIds[i - handQs.length] || machineCritIds[machineCritIds.length - 1])
+        : (critIds[i] || critIds[critIds.length - 1]);
+      const qRel = isMachine ? String(((q.origin || {}).artifact || chaptersRel)).split('#')[0] : authoredRel;
+      const qLoc = isMachine ? String(((q.origin || {}).artifact || '')).split('#')[1] || '' : `chapters.${ch.chapterId}.questions[${i}]`;
+      const qState = isMachine ? 'sourced' : 'authored';
       if (q && q.judgment) {
         b.update(`activity:${uid}:decision:${i + 1}`, {
           sub: q.judgment,
-          label: `${ch.title} · 决策 ${i + 1}`,
-          payloadRef: authoredRel,
-          sourceRefs: [{ path: authoredRel, locator: `chapters.${ch.chapterId}.questions[${i}]` }],
+          label: `${ch.title} · 决策 ${i + 1}${isMachine ? '（机器并入）' : ''}`,
+          payloadRef: qRel,
+          sourceRefs: [{ path: qRel, locator: qLoc }],
           meta: { judgment: q.judgment, prompt: q.prompt || '', optionCount: (q.options || []).length,
-            correctIndex: (q.options || []).findIndex((o) => o.correct) },
+            correctIndex: (q.options || []).findIndex((o) => o.correct),
+            origin: isMachine ? (q.origin || null) : { kind: 'hand' } },
         });
       }
-      if (target) b.edge({ kind: 'curriculum', relation: 'checks', from: `activity:${uid}:decision:${i + 1}`, to: target, label: '这道题对着哪项理解', reviewState: 'authored', sourceRefs: [{ path: authoredRel, locator: `chapters.${ch.chapterId}.questions[${i}]` }] });
+      if (target) b.edge({ kind: 'curriculum', relation: 'checks', from: `activity:${uid}:decision:${i + 1}`, to: target, label: '这道题对着哪项理解', reviewState: qState, sourceRefs: [{ path: qRel, locator: qLoc }] });
       // 题目 → 主案例与依据
       if (ch.case && ch.case.id) b.update(`semunit:${ch.case.id}`, { meta: { caseType: ch.case.type || '' } });
       if (ch.case && ch.case.id) b.edge({ kind: 'curriculum', relation: 'uses-case', from: `activity:${uid}:decision:${i + 1}`, to: `semunit:${ch.case.id}`, label: `主案例（${ch.case.type || '未标类型'}）`, reviewState: 'owner-confirmed', sourceRefs: [{ path: chaptersRel, locator: `chapters[chapterId=${ch.chapterId}].case` }] });
       for (const o of (q.options || [])) for (const bs of (o.basis || [])) {
         const [sym] = String(bs).split('#');
-        b.edge({ kind: 'provenance', relation: 'answer-basis', from: `activity:${uid}:decision:${i + 1}`, to: `semunit:${sym}`, label: '作答依据', reviewState: 'authored', sourceRefs: [{ path: authoredRel, locator: `chapters.${ch.chapterId}.questions[${i}].options` }] });
+        /* 方案丙并入的机器题里有一条依据落在图鉴卡上（concepts/<slug>.yaml#boundaries[0]）：
+           卡片节点是 DerivedAsset，不是语义单元，接 card:<slug>；接不到的照实不接。 */
+        const isCard = /^concepts\/[a-z0-9-]+\.yaml$/.test(sym);
+        const to = isCard ? `card:${sym.replace(/^concepts\//, '').replace(/\.yaml$/, '')}` : `semunit:${sym}`;
+        if (!b.nodes.has(to)) { b.warn(`作答依据接不到节点：${bs}（chapter-${ch.chapterId}）`); continue; }
+        b.edge({ kind: 'provenance', relation: 'answer-basis', from: `activity:${uid}:decision:${i + 1}`, to, label: isCard ? '作答依据（图鉴卡原文）' : '作答依据', reviewState: qState, sourceRefs: [{ path: qRel, locator: qLoc }] });
       }
     }
     for (const cid of critIds) {
@@ -978,7 +1023,7 @@ function adaptBatchUnits(b, out) {
   b.src(rel, '76 个批量装配单元（逐字材料 + 出处 + 缺口）');
   const data = b.json(rel);
   const list = data.units || [];
-  const stats = { units: 0, ready: 0, scaffold: 0, criteria: 0, activities: 0, materials: 0, decisionUnits: 0, decisionQuestions: 0 };
+  const stats = { units: 0, ready: 0, scaffold: 0, superseded: 0, criteria: 0, activities: 0, materials: 0, decisionUnits: 0, decisionQuestions: 0 };
   const unitIds = [], critIds = [];
 
   for (const bu of list) {
@@ -993,6 +1038,7 @@ function adaptBatchUnits(b, out) {
     stats.units++;
     unitIds.push(uid);
     if (bu.status === 'ready') stats.ready++; else stats.scaffold++;
+    if (bu.superseded) stats.superseded++;
 
     b.node({
       id: uid, kind: 'Unit', label: title, sub: `批量单元 · 图鉴卡 ${slug}`,
@@ -1000,7 +1046,8 @@ function adaptBatchUnits(b, out) {
       payloadRef: rel,
       sourceRefs: [unitRef, { path: cardPath, locator: `remember / feynman / source_context / boundaries[0..${Math.max(checks.length - 1, 0)}] / how_to` }],
       meta: { unitId: uid, title, routeId: '', order: 0, questionCount: (bu.decisions || []).length, criterionCount: checks.length,
-        caseType: bu.case.caseType, cardSlug: slug, decisionGap: (bu.decisions || []).length === 0 },
+        caseType: bu.case.caseType, cardSlug: slug, decisionGap: (bu.decisions || []).length === 0,
+        superseded: !!bu.superseded, supersededBy: (bu.superseded || {}).by || '', supersededReason: (bu.superseded || {}).reason || '' },
       runnable: null,   // 页面入口还没装配：给空按钮等于骗人，宁可不给（已登记缺口）
     });
 
@@ -1120,6 +1167,10 @@ function adaptBatchUnits(b, out) {
       b.gap({ kind: 'pending', layer: 'curriculum', label: `「${title}」的三道决策题待装配`,
         why: (bu.gaps || [])[0] || '该单元的三道决策题待装配', where: `${rel}#units[unitId=${bu.unitId}].gaps[0]`, affects: [uid] });
     }
+    if (bu.superseded) {
+      b.gap({ kind: 'pending', layer: 'curriculum', label: `「${title}」已被手工章节取代（superseded）`,
+        why: bu.superseded.reason, where: `${rel}#units[unitId=${bu.unitId}].superseded`, affects: [uid] });
+    }
     if (bu.status === 'scaffold') {
       b.gap({ kind: 'pending', layer: 'curriculum', label: `「${title}」缺 OPI：决策题依据只能落在 CAS 情境与 SOL 动作路径上`,
         why: `本单元（${bu.conceptId}）没有反向观点单元；决策题待装配时，依据只能落在 CAS 情境与 SOL 动作路径上`,
@@ -1131,9 +1182,17 @@ function adaptBatchUnits(b, out) {
     b.gap({ kind: 'pending', layer: 'curriculum', label: '76 个批量单元没有页面可运行入口',
       why: '这些单元能走同一份 graph-runner（scripts/test-batch-walk.mjs 逐个走通），但壳的学习空间只服务六章与内参单篇；页面入口待装配，本轮不给空按钮',
       where: rel, affects: unitIds });
-    b.gap({ kind: 'pending', layer: 'curriculum', label: '批量单元的费曼误解是机械反面转述，未经人工复核',
-      why: `misconception 由确定性规则从卡片 boundaries 原文算出（${(data.stats && data.stats.misconceptionRules) ? `否定翻转 ${data.stats.misconceptionRules.negationFlip} 条 / 整条否定 ${data.stats.misconceptionRules.boundaryDenial} 条` : '两条规则'}），不是人工撰写的教学误解；可逐条重算复核，但读起来可能生硬`,
-      where: rel, affects: critIds });
+    b.gap({ kind: 'pending', layer: 'curriculum', label: '批量单元的费曼误解是机械反面转述，独立复核 verdict=unusable',
+      why: `misconception 由确定性规则从卡片 boundaries 原文算出（${(data.stats && data.stats.misconceptionRules) ? `否定翻转 ${data.stats.misconceptionRules.negationFlip} 条 / 整条否定 ${data.stats.misconceptionRules.boundaryDenial} 条` : '两条规则'}），不是人工撰写的教学误解。`
+        + '独立复核（scripts/review-batch-criteria.mjs → evidence/review-criteria-260914/review.json）：264/264 是机械反面转述（信息增量 0–11 字，人写的 18 条是 22–49 字）· 264/264 照抄卡片 boundaries 原文即可满足 —— verdict=unusable，因此这些单元的形成性费曼段一律不可走。',
+      where: 'evidence/review-criteria-260914/review.json', affects: critIds });
+    const supersededIds = list.filter((u) => u.superseded).map((u) => `unit:${u.unitId}`);
+    if (supersededIds.length) {
+      b.gap({ kind: 'pending', layer: 'curriculum', label: `${supersededIds.length} 个批量单元已被手工章节取代（superseded）`,
+        why: '六章仍是对外唯一入口（负责人 2026-09-14 方案丙）：同一个 CON 已有负责人确认过的手工章节时，机器版本保留数据但不再作为独立可学单元；'
+          + '已复核的决策题与卡片 boundaries 派生判据并入对应章节（人工内容优先、机器内容逐条标来源）。',
+        where: rel, affects: supersededIds });
+    }
   }
   out.batch = stats;
 }

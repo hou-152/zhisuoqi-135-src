@@ -180,7 +180,7 @@ const fake = g.nodes.filter((n) => /^unit:batch-/.test((n.meta || {}).unitId || 
 ok(fake.length === 456, `批量单元下 456 个决策活动（76 × 3 题 × 答/反馈；实际 ${fake.length}）`);
 const wiredBad = data.units.filter((u) => JSON.stringify(u.decisions || []) !== JSON.stringify(qsOf.get(u.unitId) || []) || verdictOf.get(u.unitId) !== 'usable');
 ok(wiredBad.length === 0, `76 个单元接的都是复核 verdict=usable 的那 3 道（不符 ${wiredBad.length}）`);
-ok(g.stats.byKind.Decision === 251, `全图决策题 251 道（六章 18 + 单篇 3 + 夹具 2 + 批量 228；实际 ${g.stats.byKind.Decision}）`);
+ok(g.stats.byKind.Decision === 269, `全图决策题 269 道（六章人工 18 + 方案丙并入 18 + 单篇 3 + 夹具 2 + 批量 228；实际 ${g.stats.byKind.Decision}）`);
 ok(review.verdict === 'usable' && (review.recomputed || {}).usableQuestions === 228, '复核总判定 usable，228 道全过');
 
 console.log(`\n批量走：${allPassed} 个通过 · ${failures.length} 个失败 · 走不通的边 ${broken.length} 条`);

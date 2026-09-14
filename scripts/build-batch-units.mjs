@@ -99,6 +99,22 @@ for (const u of units) {
 const DECISION_GAP = '该单元的三道决策题待装配：批量装配不补造唯一正确答案（任务书 §2.3）。可用素材已经就位：CAS 情境、SOL 动作路径、该卡 boundaries 的误区清单。';
 const OPI_STATUS_REASON = '缺 OPI：决策题依据只能落在 CAS 情境与 SOL 动作路径上';
 
+/* ── 方案丙（负责人 2026-09-14 拍板）：六章仍是对外唯一入口 ──
+   这 6 个 CON 已经有负责人确认过的手工章节（unit:chapter-*），同一个概念两个版本时，
+   机器版不再作为独立可学单元对外。**保留全部数据**（阅读梯度 / 判据 / 引用 / 已复核的题一条不删），
+   只加 superseded 标记 + 写清被谁取代 + 各登记一条缺口；准入门读这个标记，永远不把它算成可进入。 */
+const SUPERSEDED_BY = {
+  'CON-agent': { chapterId: 'agent', title: 'Agent' },
+  'CON-tool': { chapterId: 'tool', title: '工具' },
+  'CON-agent-loop': { chapterId: 'agent-loop', title: 'Agent loop' },
+  'CON-state-management': { chapterId: 'state-persistence', title: '状态子系统与进度持久化' },
+  'CON-agent-harness': { chapterId: 'harness', title: 'Harness' },
+  'CON-verification-loop': { chapterId: 'verification-loop', title: '验证闭环' },
+};
+const supersedeReason = (conId, sup) => `同一个概念（${conId}）已有负责人确认过的手工章节 unit:chapter-${sup.chapterId}「${sup.title}」`
+  + '，机器版本（本单元）不对外：保留数据与出处，不再作为独立可学单元，也不给页面入口。'
+  + '它的三道已复核决策题与卡片 boundaries 派生判据已并入该章节（人工内容优先 · 机器内容逐条标来源）。';
+
 /* ── 逐个 CON 装配 ── */
 const outUnits = [];
 let checkCount = 0, boundaryItemCount = 0, derivedFlip = 0, derivedDenial = 0;
@@ -220,12 +236,15 @@ for (const con of [...cons].sort((a, b) => a.id.localeCompare(b.id))) {
   const status = opinions.length > 0 ? 'ready' : 'scaffold';
   const gaps = [DECISION_GAP];
   if (status === 'scaffold') gaps.push(`缺 OPI：本单元（${con.id}）没有反向观点单元，决策题依据只能落在 CAS 情境与 SOL 动作路径上。`);
+  const sup = SUPERSEDED_BY[con.id] || null;
+  if (sup) gaps.push(`已被手工章节取代（superseded）：${supersedeReason(con.id, sup)}`);
 
   outUnits.push({
     unitId: `batch-${slug}`,
     order: outUnits.length + 1,
     status,
-    statusReason: status === 'ready' ? '' : OPI_STATUS_REASON,
+    statusReason: sup ? supersedeReason(con.id, sup) : (status === 'ready' ? '' : OPI_STATUS_REASON),
+    ...(sup ? { superseded: { by: `unit:chapter-${sup.chapterId}`, byTitle: sup.title, at: '2026-09-14', decidedBy: 'owner（方案丙）', reason: supersedeReason(con.id, sup) } } : {}),
     conceptId: con.id,
     card: { slug, file: card.rel, sha256: card.sha },
     concepts: [concept],
@@ -316,6 +335,10 @@ const out = {
       + `没通过复核的照实留空数组 —— 空数组 ≠ 满足。`,
     caseHonesty: '主案例一律来自反向 CAS 语义单元，全部自述为「假设场景」，本产物照原样保留该标记，不写成真实复盘。',
     cardFieldsUnused: '卡片字段 scenario 本轮未被任何单元字段取用（施工单 §1 的材料表没有把它指派给任何字段）；它留在卡里，供下一轮装配决策题时使用。',
+    schemeC: `方案丙（负责人 2026-09-14 拍板）：六章仍是对外唯一入口，${outUnits.filter((u) => u.superseded).length} 个与六章同概念的批量单元标 superseded`
+      + '（保留数据、写清被 unit:chapter-* 取代、各登记一条缺口），不再作为独立可学单元；它们的已复核决策题与卡片 boundaries 派生判据已并入对应章节。',
+    criteriaReview: '费曼判据的 misconception 仍是机械反面转述（negation-flip / boundary-denial 两条确定性规则）；'
+      + '独立复核见 evidence/review-criteria-260914/review.json（verdict=unusable）——本产物照实标 derived，不冒充教学误解。',
   },
   stats: {
     units: outUnits.length,
@@ -326,6 +349,8 @@ const out = {
     gaps: gapCount,
     readyUnits: outUnits.filter((u) => u.status === 'ready').map((u) => u.unitId),
     scaffoldUnits: outUnits.filter((u) => u.status === 'scaffold').map((u) => u.unitId),
+    supersededUnits: outUnits.filter((u) => u.superseded).map((u) => u.unitId),
+    supersededBy: Object.fromEntries(outUnits.filter((u) => u.superseded).map((u) => [u.unitId, u.superseded.by])),
     misconceptionRules: { negationFlip: derivedFlip, boundaryDenial: derivedDenial },
     decisionsWired: { units: wiredUnits.length, questions: wiredQuestions.length, source: DECISIONS_REL, review: REVIEW_REL },
   },

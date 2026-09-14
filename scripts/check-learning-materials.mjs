@@ -17,6 +17,13 @@ const byUnit = new Map(units.map((u) => [u.id, u]));
 const topics = read(path.join(ROOT, 'knowledge', '概念地图-260913', 'topics.json')).topics;
 const byTopic = new Map(topics.map((t) => [t.id, t]));
 const routes = read(path.join(ROOT, 'evidence', 'paths-260913', 'routes.json'));
+/* 图鉴卡（方案丙并入的机器题/判据要回源到卡片原文） */
+const { readYamlFields } = await import('./lib/graph-adapter.mjs');
+const CARD_DIR = path.join(ROOT, '内容结构化系统', '01-原始素材区', '完整副本', '图鉴站产物', 'concepts');
+const cards = new Map();
+for (const f of fs.readdirSync(CARD_DIR).filter((x) => x.endsWith('.yaml'))) {
+  cards.set(f.replace(/\.yaml$/, ''), { rel: `concepts/${f}`, raw: fs.readFileSync(path.join(CARD_DIR, f), 'utf8'), fields: readYamlFields(fs.readFileSync(path.join(CARD_DIR, f), 'utf8')) });
+}
 const route = routes.routes.find((r) => r.routeId === 'agent-continuous-action-v1');
 
 const fails = [];
@@ -49,10 +56,33 @@ for (const c of data.chapters) {
   }
 }
 
-/* ④ 三题：恰好 3 道、每题恰好 3 选项、恰好 1 正确、正确项有 OPI/SOL 依据且逐字可回源 */
+/* ④ 题：**人工 3 道（优先、排在最前）+ 方案丙并入的机器 3 道**，每题恰好 3 选项、恰好 1 正确、
+      正确项有 OPI/SOL（或图鉴卡）依据且逐字可回源。机器题逐条标来源，人工内容一个字不改。 */
+const isCardRef = (ref) => /^concepts\/[a-z0-9-]+\.yaml$/.test(String(ref).split('#')[0]);
+const cardTextOf = (ref) => {
+  const [id, field] = ref.split('#');
+  const slug = id.replace(/^concepts\//, '').replace(/\.yaml$/, '');
+  const card = cards.get(slug);
+  if (!card) return '';
+  const m = /^([a-z_]+)\[(\d+)]$/.exec(field || '');
+  if (m) return (card.fields[m[1]] || [])[Number(m[2])] || '';
+  return card.fields[field] || '';
+};
 for (const c of data.chapters) {
   const t = `第 ${c.order} 章 ${c.title}`;
-  check(`${t}｜恰好 3 道题`, c.questions.length === 3);
+  const hand = c.questions.filter((q) => ((q.origin || {}).kind || 'hand') === 'hand');
+  const machine = c.questions.filter((q) => (q.origin || {}).kind === 'machine');
+  check(`${t}｜题量 = 人工 3 + 机器并入 ${machine.length}`, hand.length === 3 && c.questions.length === 3 + machine.length,
+    `${hand.length} + ${machine.length} = ${c.questions.length}`);
+  check(`${t}｜人工题排在最前（机器内容不覆盖人工）`, c.questions.slice(0, 3).every((q) => ((q.origin || {}).kind || 'hand') === 'hand'));
+  check(`${t}｜每道题都标了来源（人工／机器）`, c.questions.every((q) => !!q.origin && ['hand', 'machine'].includes(q.origin.kind)));
+  machine.forEach((q, mi) => {
+    const o = q.origin || {};
+    check(`${t}｜机器题 ${mi + 1} 带 superseded 单元 ID 与依据位置`, !!o.unitId && !!o.artifact && !!o.generatedFrom,
+      `${o.unitId || '缺'} / ${o.artifact || '缺'}`);
+    check(`${t}｜机器题 ${mi + 1} 引用的是复核 verdict=usable 那一批`, o.review === 'evidence/review-decisions-260914/review.json#units[unitId=' + o.unitId + ']' && o.verdict === 'usable',
+      `${o.review || '缺'} → ${o.verdict || '缺'}`);
+  });
   const seen = new Set();
   c.questions.forEach((q, i) => {
     const qq = `${t} 第 ${i + 1} 题`;
@@ -65,9 +95,15 @@ for (const c of data.chapters) {
     const r = right[0];
     const basisIds = (r.basis || []).map((x) => x.split('#')[0]);
     const allowed = [c.solution.id, ...c.opinions.map((o) => o.id)];
-    check(`${qq}｜正确答案有 OPI 或 SOL 依据`, basisIds.length > 0 && basisIds.every((id) => allowed.includes(id)), basisIds.join(',') || '无');
+    check(`${qq}｜正确答案的依据落在本章 OPI/SOL 或本章图鉴卡上`,
+      basisIds.length > 0 && basisIds.every((id) => allowed.includes(id) || isCardRef(id)), basisIds.join(',') || '无');
     let quoted = false;
     for (const ref of r.basis || []) {
+      if (isCardRef(ref)) {
+        const text = cardTextOf(ref);
+        if (typeof text === 'string' && typeof r.basisQuote === 'string' && text.includes(r.basisQuote)) quoted = true;
+        continue;
+      }
       const [id, field] = ref.split('#');
       const kf = (byUnit.get(id) || {}).key_fields || {};
       const m = field && field.match(/^action_steps\[(\d+)]$/);
@@ -79,6 +115,28 @@ for (const c of data.chapters) {
       if (!o.correct) check(`${qq}｜错误选项给了理由 #${j + 1}`, !!o.why);
     });
   });
+}
+
+/* ④b 方案丙：并入的机器派生判据 —— 只作补充，**不进本章通过判定**（required 与 checks 仍是人工 3 条） */
+for (const c of data.chapters) {
+  const t = `第 ${c.order} 章 ${c.title}`;
+  const mc = (c.feynman && c.feynman.machineChecks) || [];
+  check(`${t}｜人工判据仍是 3 条、required 仍是人工那 3 条`, (c.feynman.checks || []).length === 3 && c.feynman.required.length === 3);
+  check(`${t}｜人工判据都标了 hand 来源`, (c.feynman.checks || []).every((x) => (x.origin || {}).kind === 'hand'));
+  check(`${t}｜required 与人工判据的 point 逐字一致（机器判据没挤进要点）`,
+    (c.feynman.checks || []).every((x, i) => x.point === c.feynman.required[i]));
+  check(`${t}｜机器派生判据 ${mc.length} 条都标了 gate=false`, mc.every((x) => x.gate === false),
+    mc.map((x) => x.id).join(',') || '无');
+  check(`${t}｜机器派生判据都标 derived 且带复核结论`,
+    mc.every((x) => x.misconceptionSource === 'derived' && x.origin && x.origin.verdict && x.origin.review === 'evidence/review-criteria-260914/review.json#units[unitId=' + x.origin.unitId + ']'));
+  check(`${t}｜机器派生判据的 ID 不与人工判据撞`, mc.every((x) => !(c.feynman.checks || []).some((y) => y.id === x.id)));
+  check(`${t}｜机器派生判据的 condition 逐字等于该卡 boundaries[locator]`,
+    mc.every((x) => {
+      const slug = (c.sourceChain || {}).card;
+      const card = cards.get(slug);
+      const m = /^boundaries\[(\d+)]$/.exec(x.locator || '');
+      return !!card && !!m && (card.fields.boundaries || [])[Number(m[1])] === x.condition;
+    }));
 }
 
 /* ⑤ 正文不得编造：阅读/案例/方案文本必须逐字出现在来源单元里 */
@@ -147,7 +205,12 @@ for (const c of data.chapters) {
   check(`${t}｜ID 绑定要点原文（逐字一致，未改题面）`, ck.length > 0 && ck.every((x, i) => x.point === c.feynman.required[i]));
   check(`${t}｜每条要点都有成立条件与常见误解`, ck.length > 0 && ck.every((x) => (x.condition || '').length >= 8 && (x.misconception || '').length >= 8));
 }
-check('费曼要点稳定 ID 共 18 条且不重复', new Set(data.chapters.flatMap((c) => (c.feynman.checks || []).map((x) => x.id))).size === 18);
+check('费曼要点稳定 ID 共 18 条且不重复（人工）', new Set(data.chapters.flatMap((c) => (c.feynman.checks || []).map((x) => x.id))).size === 18);
+check('方案丙并入的机器派生判据共 22 条且 ID 不重复',
+  new Set(data.chapters.flatMap((c) => (c.feynman.machineChecks || []).map((x) => x.id))).size
+  === data.chapters.reduce((n, c) => n + (c.feynman.machineChecks || []).length, 0));
+check('机器派生判据全部来自已 superseded 的批量单元（6 章 × 3–4 条）',
+  data.chapters.filter((c) => (c.feynman.machineChecks || []).length > 0).length === 6);
 
 /* ⑦ 不改概念地图源数据 */
 check('payload 不含写回 topics/dependencies 的字段', !JSON.stringify(data).match(/dependencies\s*:/));

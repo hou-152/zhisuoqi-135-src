@@ -268,6 +268,23 @@ check('准入不是写死的六章：别的单元只要 gate 全绿，同一套�
   await ex(`(()=>{const src=PRACTICE.units.find(u=>u.group==='批量');const probe={...src,id:'unit:probe-green',open:true,reader:'agent',segments:Object.fromEntries(['reading','formative','decision','summative'].map(k=>[k,{state:'green',stateLabel:'可走',why:'探针'}]))};PRACTICE.units.push(probe);const r=practiceEnter('unit:probe-green');const on=document.getElementById('learn').classList.contains('on')+'|'+learnCur;exitLearn();PRACTICE.units.pop();return r+'|'+on})()`), 'true|true|agent');
 check('全绿但没绑阅读器：照实说差哪一步，不静默打开别的单元',
   await ex(`(()=>{openPractice();const src=PRACTICE.units.find(u=>u.group==='批量');const probe={...src,id:'unit:probe-noreader',open:true,reader:null,segments:Object.fromEntries(['reading','formative','decision','summative'].map(k=>[k,{state:'green',stateLabel:'可走',why:'探针'}]))};PRACTICE.units.push(probe);const r=practiceEnter('unit:probe-noreader');const t=document.getElementById('practice-blocked').innerText;PRACTICE.units.pop();return r+'|'+(t.includes('没有它的阅读器绑定')||t.includes('还没有把它的材料编译成阅读器载荷'))})()`), 'false|true');
+console.log('\n⑪d 方案丙：6 个重复批量单元已 superseded · 数据保留、永不对外开放');
+check('看板读到 superseded 标记与取代关系',
+  await ex(`(()=>{const s=PRACTICE.units.filter(u=>u.superseded);return s.length+'|'+s.every(u=>/^unit:chapter-/.test(u.superseded))+'|'+PRACTICE.summary.superseded})()`), '6|true|6');
+check('6 个 superseded 单元正是六章那 6 个 CON（同一批概念）',
+  await ex(`(()=>{const ids=PRACTICE.units.filter(u=>u.superseded).map(u=>u.label.split(' · ')[0]).sort().join(',');return ids})()`),
+  'CON-agent,CON-agent-harness,CON-agent-loop,CON-state-management,CON-tool,CON-verification-loop');
+check('费曼判据独立复核结论进了 DATA.practice（264 条 / 可当理解判据 0 条 / verdict=unusable）',
+  await ex(`(()=>{const c=PRACTICE.reviewedCriteria;return !!c && c.total+'|'+c.usableAsUnderstandingCheck+'|'+c.verdict+'|'+c.recitableFromBoundaries+'|'+c.mechanicalRestatement})()`),
+  '264|0|unusable|264|264');
+check('看板写着判据复核的实测数字（信息增量 vs 人写、照抄边界即可满足）',
+  await ex(`(()=>{openPracticeBoard();const t=document.getElementById('reader').innerText;return t.includes('费曼判据独立复核')&&t.includes('可当理解判据 0 条')&&t.includes('verdict=unusable')&&t.includes('照抄卡片 boundaries 即可满足 264 条')&&t.includes('人写的六章')})()`), 'true');
+check('点击 superseded 单元进不去，且理由写明「已被六章取代」',
+  await ex(`(()=>{openPractice();const r=practiceEnter('unit:batch-agent');const t=document.getElementById('practice-blocked').innerText;return r+'|'+(t.includes('现在不能进入学习')&&t.includes('已被手工章节取代'))})()`), 'false|true');
+/* 反证：就算把 superseded 单元的四段全改成绿、再塞进 PRACTICE，也必须进不去 ——
+   封条读的是数据里的 superseded，不是"当前恰好没绿"。 */
+check('反证：把 superseded 单元四段伪造成全绿 → 仍然进不去（封条是数据驱动的）',
+  await ex(`(()=>{openPractice();const src=PRACTICE.units.find(u=>u.id==='unit:batch-agent');const probe={...src,open:true,reader:'agent',segments:Object.fromEntries(['reading','formative','decision','summative'].map(k=>[k,{state:'green',stateLabel:'可走',why:'探针'}]))};PRACTICE.units.push(probe);const r=practiceEnter('unit:probe-superseded');const on=document.getElementById('learn').classList.contains('on')+'|'+learnCur;exitLearn();PRACTICE.units.pop();return r+'|'+on})()`), 'false|false');
 check('路径条进来时的返回行为没改（这一版只多一个入口，不替换）',
   await ex(`(()=>{exitLearn(); setMode('path'); openPanel(ROUTES[0].steps[0].conceptId); openLearnFor(ROUTES[0].steps[0].conceptId); const label=document.getElementById('learn-back').textContent; exitLearn(); return label+'|'+currentView})()`), '← 返回知识体系|graph');
 

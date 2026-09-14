@@ -11,9 +11,12 @@ import { readYamlFields } from './graph-adapter.mjs';
 
 export const TYPE_OF = { 概念单元: 'CON', 问题单元: 'QST', 案例单元: 'CAS', 观点单元: 'OPI', 方案单元: 'SOL' };
 
-/* 反面转述的确定性规则表（按短语长度降序，取**第一处**命中）。规则只有两条：
-     negation-flip   ：把边界里第一处否定短语机械换成肯定短语（命中的短语记进 flipped）
-     boundary-denial ：边界里没有登记过的否定短语时，写成"把这条边界当成不成立"，不换词 */
+/* 反面转述的确定性规则表（规则只有两条：
+     negation-flip   ：把边界里**第一处**否定短语机械换成肯定短语（命中的短语记进 flipped）
+     boundary-denial ：边界里没有登记过的否定短语时，写成"把这条边界当成不成立"，不换词
+   2026-09-14 修正：原来按 FLIP 表序（短语长度降序）取"第一个命中"，于是「不保证」会先于句子里更靠前的
+   「不是」被翻掉 —— 规则表自己也写着"第一处"。改成**按句中位置取最靠前的一处**（同位置取更长短语）。
+   这条修正不改变判据质量（264 条仍是机械反面转述，复核结论不变），只让误解句翻在主语那一句上。） */
 export const FLIP = [
   ['不等同于', '等同于'], ['不等于', '等于'], ['不必然', '必然'], ['不属于', '属于'], ['不保证', '保证'],
   ['未给出', '已经给出'], ['不是', '是'], ['不能', '能'], ['不会', '会'], ['不应', '应'], ['不再', '再'],
@@ -24,11 +27,16 @@ export const DENIAL_PREFIX = '误以为这条边界不成立：';
 /** 逐字原文的机械反面转述：纯函数，输入同一条边界永远得到同一个结果。 */
 export function deriveMisconception(condition) {
   const s = String(condition || '');
+  let best = null;
   for (const [neg, pos] of FLIP) {
     const i = s.indexOf(neg);
-    if (i >= 0) return { rule: 'negation-flip', flipped: neg, text: s.slice(0, i) + pos + s.slice(i + neg.length) };
+    if (i < 0) continue;
+    if (!best || i < best.i || (i === best.i && neg.length > best.neg.length)) best = { neg, pos, i };
   }
-  return { rule: 'boundary-denial', flipped: '', text: DENIAL_PREFIX + s };
+  if (best) {
+    return { rule: 'negation-flip', flipped: best.neg, at: best.i, text: s.slice(0, best.i) + best.pos + s.slice(best.i + best.neg.length) };
+  }
+  return { rule: 'boundary-denial', flipped: '', at: -1, text: DENIAL_PREFIX + s };
 }
 
 export const firstChars = (t, n) => Array.from(String(t)).slice(0, n).join('');

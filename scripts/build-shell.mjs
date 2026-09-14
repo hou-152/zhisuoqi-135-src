@@ -94,13 +94,21 @@ function loadPractice(learning) {
   if (!fs.existsSync(b)) console.warn('⚠ 缺 evidence/batch-units-260914/units.json —— 批量 76 个单元不会出现在状态看板里');
   const review = fs.existsSync(r) ? JSON.parse(fs.readFileSync(r, 'utf8')) : null;
   if (!review) console.warn('⚠ 缺 evidence/review-decisions-260914/review.json —— 决策题一律按未复核处理（不开放）');
-  const p = buildPractice({ graph, batch, learning, review });
+  const cr = path.join(ROOT, 'evidence', 'review-criteria-260914', 'review.json');
+  const criteriaReview = fs.existsSync(cr) ? JSON.parse(fs.readFileSync(cr, 'utf8')) : null;
+  if (!criteriaReview) console.warn('⚠ 缺 evidence/review-criteria-260914/review.json —— 费曼判据按未复核处理（不开放）');
+  const p = buildPractice({ graph, batch, learning, review, criteriaReview });
   console.log(`实践空间：单元 ${p.summary.units} 个 · 可进入 ${p.summary.open}（四段全绿）· ` +
     p.buckets.map((x) => `${x.label} ${x.count}`).join(' · '));
   if (p.summary.reviewedDecisions) {
     const d = p.summary.reviewedDecisions;
     console.log(`  决策题独立复核：生成 ${d.questions} 道 / 复核通过 ${d.usableQuestions} 道 · 可用单元 ${d.usableUnits}/${d.units}`);
   }
+  if (p.summary.reviewedCriteria) {
+    const c = p.summary.reviewedCriteria;
+    console.log(`  费曼判据独立复核：${c.total} 条 / 可当理解判据 ${c.usableAsUnderstandingCheck} 条 · verdict=${c.verdict}`);
+  }
+  if (p.summary.superseded) console.log(`  已被手工章节取代（superseded）：${p.summary.superseded} 个（数据保留、不再对外）`);
   return p;
 }
 

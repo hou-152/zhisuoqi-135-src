@@ -2103,6 +2103,7 @@ function practiceIndexHtml() {
   const batch = units.filter(u => u.group === '批量');
   const ready = batch.filter(u => u.routeStatus === 'ready');
   const scaffold = batch.filter(u => u.routeStatus !== 'ready');
+  const superseded = batch.filter(u => u.superseded);
   const chRows = ch.map((u, i) => {
     const ci = chapterIdx(u.reader), un = ci >= 0 && chapterUnlocked(ci), done = ci >= 0 && chapterCleared(u.reader);
     return `<div class="pu${i === 0 ? ' first' : ''}">
@@ -2133,6 +2134,8 @@ function practiceIndexHtml() {
     </div>
     <div class="pcard">
       <h2>准备中 / 目录候选 · ${ready.length} 个单元（不开放学习）</h2>
+      <div class="mut"><b>${superseded.length} 个已被手工章节取代（superseded）</b>：${esc(superseded.map(u => u.label).join('、'))}。
+        这 ${superseded.length} 个 CON 与六章是同一批概念，六章仍是对外唯一入口 —— 数据保留、题与判据已并入对应章节，但它们自己不再是独立可学单元，也不会在任何情况下开门。</div>
       <div class="mut">这 ${ready.length} 个批量装配单元的材料四类齐（QST／CON／CAS／SOL），<b>决策那一段已经接通</b>（每题 3 选项 · 1 正确 · 依据逐字可回溯 · 独立复核 verdict=usable）。现在卡住它们的是<b>形成性费曼</b>：判据的误概念仍由边界条目的否定翻转算出（机械派生），不是人写的教学误解；页面入口也还没装配。所以照实只作目录候选显示。</div>
       <div class="mut">这批题是 <code>evidence/gen-decisions-hybrid-v3-20260914.json</code>：由脚本<b>确定性生成</b>（模型调用 0 次），正解是答句形态的改写句（不是照抄材料原句），每单元从 solution_summary / action_steps / how_to / boundaries 取三个不同动作句做三道题。上一轮 v2 的 228 道（串台事故产物）判定 <b>0 / 228 可接入</b>——228 道正解都是唯一逐字材料句、76 个单元三题同解、16 道题干与正解极性相反——整批废弃、一道没接。两轮结论都在 <code>evidence/review-decisions-260914/</code>。</div>
       <div>${chips(ready)}</div>
@@ -2175,7 +2178,7 @@ function practiceBoardHtml() {
     return `<tr class="${u.open ? '' : 'off'}">
       <td class="nm">${esc(u.label)}<div class="pwhy">${esc(u.group)}${u.entry ? ` · 入口 <code>${esc(u.entry)}</code>` : ' · 无页面入口'}</div></td>
       <td class="segs">${segChips(u)}</td>
-      <td class="verdict">${u.open ? '<b style="color:#7fd0a6">可进入</b>' : esc(practiceBucketLabel(u))}</td>
+      <td class="verdict">${u.open ? '<b style="color:#7fd0a6">可进入</b>' : u.superseded ? `<b style="color:#e0a94a">已被六章取代</b><div class="pwhy">superseded → <code>${esc(u.superseded)}</code></div>` : esc(practiceBucketLabel(u))}</td>
       <td>${first ? `<b>${esc(practiceSegLabel(first[0]))}</b>：${esc(first[1].why)}` : '四段全绿 —— 已装配课程'}
         ${gaps ? `<details class="deep"><summary>缺口原文 ${(u.gaps || []).length} 条</summary><ul>${gaps}</ul></details>` : ''}</td>
     </tr>`;
@@ -2196,6 +2199,7 @@ function practiceBoardHtml() {
       <div>${(PRACTICE.buckets || []).map(b => `<span class="seg ${b.key === 'open' ? 'green' : b.key === 'material' ? 'missing' : 'unassembled'}"><b>${esc(b.label)}</b>${b.count}</span>`).join('')}</div>
       <div class="pnote">「缺少可靠案例：不可进入」这一格本轮是 <b>0</b>：没有哪个单元是<b>只</b>因为案例被挡住的（六章主案例是假设场景但已由负责人确认；批量单元先卡在决策题那一段）。真实案例的缺口照实记在下面「要全面推进，还差什么」里。</div>
       ${PRACTICE.reviewedDecisions ? `<div class="pnote">决策题独立复核（<code>${esc(PRACTICE.reviewedDecisions.file)}</code>）：生成 ${PRACTICE.reviewedDecisions.questions} 道 / <b>复核通过 ${PRACTICE.reviewedDecisions.usableQuestions} 道</b> · 可用单元 ${PRACTICE.reviewedDecisions.usableUnits}/${PRACTICE.reviewedDecisions.units}（verdict=${esc(PRACTICE.reviewedDecisions.verdict || '')}）。basisRefs 逐字命中 ${esc(PRACTICE.reviewedDecisions.refHitRate)}；正解整句照抄材料 ${PRACTICE.reviewedDecisions.correctVerbatimCopy} 道（上一轮是 228）；题干与正解极性相反 ${PRACTICE.reviewedDecisions.polarityInvertedQuestions} 道（上一轮 16）；可被「挑唯一逐字项」猜中 ${PRACTICE.reviewedDecisions.zeroComprehensionShortcutExploitable} 道（上一轮 228）；三题共用一个正解的单元 ${PRACTICE.reviewedDecisions.unitsWhereAllThreeCorrectAnswersAreIdentical} 个（上一轮 76）；正解逐字片段比干扰项更像材料的题 ${PRACTICE.reviewedDecisions.correctRunAdvantageQuestions} 道。<b>有题不等于可进入</b>——四段全绿才开放，复核不通过的单元照实停在「未装配」。</div>` : ''}
+      ${PRACTICE.reviewedCriteria ? `<div class="pnote">费曼判据独立复核（<code>${esc(PRACTICE.reviewedCriteria.file)}</code>）：${PRACTICE.reviewedCriteria.total} 条 / <b>可当理解判据 ${PRACTICE.reviewedCriteria.usableAsUnderstandingCheck} 条</b>（verdict=${esc(PRACTICE.reviewedCriteria.verdict || '')}）。机械反面转述 ${PRACTICE.reviewedCriteria.mechanicalRestatement} 条 · 误解信息增量不足 ${PRACTICE.reviewedCriteria.insufficientGain} 条（新增 ${PRACTICE.reviewedCriteria.novelChars.min}–${PRACTICE.reviewedCriteria.novelChars.max} 字，人写的六章 ${PRACTICE.reviewedCriteria.humanControl.total} 条是 ${PRACTICE.reviewedCriteria.humanControl.novelChars.min}–${PRACTICE.reviewedCriteria.humanControl.novelChars.max} 字）· 照抄卡片 boundaries 即可满足 ${PRACTICE.reviewedCriteria.recitableFromBoundaries} 条 · 同单元要点撞车 ${PRACTICE.reviewedCriteria.duplicatedWithinUnit} 条 · 翻转翻错位置 ${PRACTICE.reviewedCriteria.polarityInconsistent} 条。<b>判据没通过复核，形成性费曼这一段就不开放</b>——不拿"有判据"当"能判"。</div>` : ''}
       <div class="pnote">全量索引 ≠ 全量课程可学：graph 里 ${st.nodes || 0} 节点 / ${st.edges || 0} 边 / ${st.gaps || 0} 条缺口，可运行单元 ${st.units || 0} 个（含 76 个批量装配）。${playable ? `<details class="deep"><summary>coverage.playable 原文（构建时写下的口径）</summary><div class="mut">${esc(playable)}</div></details>` : ''}</div>
       <div class="pfilter">${[['all', `全部 ${units.length}`], ['六章', `六章 ${units.filter(u => u.group === '六章').length}`], ['单篇', `单篇 ${units.filter(u => u.group === '单篇').length}`], ['批量', `批量 ${units.filter(u => u.group === '批量').length}`]]
         .map(([k, v]) => `<button class="${practiceFilter === k ? 'on' : ''}" onclick="practiceSetFilter('${k}')">${esc(v)}</button>`).join('')}</div>
@@ -2210,7 +2214,8 @@ function practiceBoardHtml() {
       <h2>判定规则原文（可复算，不靠页面自述）</h2>
       <ul class="pwhy" style="margin:6px 0 0 16px">
         <li>阅读：Reading 活动 ready，且该单元有指向逐字原文（span.text）的出处边 → 可走；否则未装配。</li>
-        <li>形成性费曼：Formative 活动 ready，且判据不是机械派生（misconceptionSource === 'derived' 就是机械派生）→ 可走；只有机械派生判据 = 缺材料。</li>
+        <li>形成性费曼：Formative 活动 ready，且判据不是机械派生（misconceptionSource === 'derived' 就是机械派生）；有判据复核产物时，该单元还必须 verdict === 'usable' → 才可走。只有机械派生判据 = 缺材料；复核不通过 = 缺材料。</li>
+        <li><b>superseded（方案丙）</b>：同一个 CON 已有负责人确认过的手工章节时，批量单元标 superseded —— 数据保留、不再对外，<b>无论四段是什么状态都不可进入</b>。</li>
         <li>决策：<b>三个条件同时成立</b>才可走 —— ①该单元声明的 decisions 不是空数组（空数组 ≠ 满足）；②索引里真有 ready 的 Decision 活动；③独立复核产物里这个单元 verdict === 'usable'。有题但没复核 = 不开放；复核不通过 = 不开放。</li>
         <li>章末费曼：Summative ready ＋ 判据非机械派生 ＋ 没有「正式章末门待装配」缺口 → 可走。</li>
         <li>四段全绿 gate.open=true 才开放；这套判断在 <code>scripts/lib/practice-readiness.mjs</code> 里算，页面只显示结果。</li>
@@ -3065,6 +3070,18 @@ function linState(id) {
   return (s && Array.isArray(s.rounds)) ? s : { draft: '', draftVer: 0, rounds: [] };
 }
 function linPut(id, st) { const all = linAll(); all[id] = st; linSave(all); }
+/* 方案丙：并入本章的机器派生补充判据。它们**不参与通过判定**（不是本章要点、不进 parseLearnVerdict 的 required），
+   页面照实标出来源与复核结论，让"哪些是人写的、哪些是机器转述的"一眼分得开。 */
+function machineChecksHtml(c) {
+  const mc = (c.feynman && c.feynman.machineChecks) || [];
+  if (!mc.length) return '';
+  const o = mc[0].origin || {};
+  return `<div class="lgap" style="margin-top:10px;border-top:1px dashed #3a3a3a;padding-top:8px">`
+    + `<b>机器派生补充判据 ${mc.length} 条（不参与本章通过判定）</b><br>`
+    + `来源：<code>${esc(o.artifact || '')}</code>（已 superseded 的 <code>${esc(o.unitId || '')}</code>）· 派生自 <code>${esc(o.derivedFrom || '')}</code> · 独立复核 <code>${esc(o.review || '')}</code> verdict=<b>${esc(o.verdict || '')}</b>。<br>`
+    + `原因：misconception 是卡片 boundaries 的机械反面转述（照抄边界原文即可满足），当复习提示可以，当理解判据不行 —— 所以它们只显示、不计分。`
+    + `<ul style="margin:6px 0 0 16px">${mc.map((x) => `<li>${esc(x.point)}<br><span style="opacity:.75">成立条件：${esc(x.condition)}<br>机械反面转述：${esc(x.misconception)}</span></li>`).join('')}</ul></div>`;
+}
 function linChecks(c) {
   const ck = (c && c.feynman && c.feynman.checks) || [];
   return ck.length ? ck : c.feynman.required.map((k, i) => ({ id: c.chapterId + '-F' + (i + 1), point: k, condition: '', misconception: '' }));
@@ -3337,9 +3354,12 @@ function renderLearn(notice) {
       <div class="lgap" style="margin-top:8px">${esc(c.case.id)} · 候选案例 ${c.case.candidates.length} 个（${esc(c.case.candidates.join('、'))}）· 本章主案例 ${esc(c.case.primaryCaseId)}<br>来源依据：${esc(c.case.evidence)}</div>
     </div>`;
 
+  const handQ = c.questions.filter((q) => ((q.origin || {}).kind || 'hand') === 'hand').length;
+  const machQ = c.questions.length - handQ;
   const blockQuestions = `<div class="lcard">
       <span class="lb">${n ? '3 · 用一个场景试试' : '2 · 一题一判'}</span>
-      <h2>三道决策，按顺序通过</h2>
+      <h2>${c.questions.length} 道决策，按顺序通过</h2>
+      <div class="sub">${machQ ? `${c.questions.length} 道 = 人工 ${handQ} 道（排在最前，本章通过判定以它们为准）＋ 机器并入 ${machQ} 道（来自 <code>${esc((c.schemeC || {}).supersededUnit || '')}</code> 已通过独立复核的决策题，逐条标了来源）。` : '一题一判：答错留在当前题，答对才放下一题。'}</div>
       <div class="sub" id="learn-qhint"></div>
       <div id="learn-q"></div>
       <div class="lrow"><button class="lbtn" id="learn-next" onclick="learnNext()" disabled>选对后进入下一题</button><span class="lgap" id="learn-qstatus"></span></div>
@@ -3350,7 +3370,8 @@ function renderLearn(notice) {
       <span class="lb">${label}</span>
       <h2>${title}</h2>
       <div class="sub">${esc(c.feynman.prompt)}<br>要点：${c.feynman.required.map(esc).join(' · ')}${hint || ''}</div>
-      <div class="lgap"><b>章末验收</b>：这一份才决定下一章解不解锁（通过才解锁，未通过／待复核都锁着，改复述立刻清状态）。读中那份即时费曼只给补讲，不算数、也不写这份状态。</div>
+      <div class="lgap"><b>章末验收</b>：这一份才决定下一章解不解锁（通过才解锁，未通过／待复核都锁着，改复述立刻清状态）。读中那份即时费曼只给补讲，不算数、也不写这份状态。判定只用上面那 <b>${c.feynman.required.length} 条人工要点</b>。</div>
+      ${machineChecksHtml(c)}
       <textarea id="learn-final-said" placeholder="我会这样解释……" oninput="learnSaidChanged()">${esc(s.said || '')}</textarea>
       <div class="lrow"><button class="lbtn" id="learn-submit" onclick="learnFeynman()">提交章末验收</button><button class="lbtn ghost" onclick="learnQ=0;renderLearn()">回看决策</button><span class="lgap" id="learn-fstatus">${s.feynman ? '当前状态：' + LEARN_STATUS[s.feynman] : ''}</span></div>
       <div class="lres ${s.feynman || ''} ${s.feynman ? 'on' : ''}" id="learn-fres">${s.feynman ? esc(s.verdict || '') : ''}</div>
@@ -3360,7 +3381,7 @@ function renderLearn(notice) {
   const blockFeyFinal = decisionsDone
     ? feyCard(n && n.inlineFeynman ? '3 · 章末验收' : '3 · 费曼收尾（章末验收）', '用自己的话讲清楚',
       n && n.inlineFeynman ? '<br>上面那张是读中即时费曼（不解锁）；这一张是章末验收。' : '')
-    : `<div class="lcard" id="learn-fey" style="opacity:.6"><span class="lb warn">3 · 章末验收</span><h2>${(s.decisions || []).length ? '三题按顺序全对后才会出现' : '本单元没有决策题，还不进章末验收'}</h2><div class="sub">${(s.decisions || []).length ? '章末验收是解锁下一章的那一次：没过就不解锁（读中那份即时费曼不算数）。' : '这一版只有阅读与即时费曼；决策题待装配，所以章末验收卡不出现——不拿空数组当"三题全过"。'}</div></div>`;
+    : `<div class="lcard" id="learn-fey" style="opacity:.6"><span class="lb warn">3 · 章末验收</span><h2>${(s.decisions || []).length ? `${c.questions.length} 题按顺序全对后才会出现` : '本单元没有决策题，还不进章末验收'}</h2><div class="sub">${(s.decisions || []).length ? '章末验收是解锁下一章的那一次：没过就不解锁（读中那份即时费曼不算数）。' : '这一版只有阅读与即时费曼；决策题待装配，所以章末验收卡不出现——不拿空数组当"全部题都过了"。'}</div></div>`;
 
   const blockNext = n && n.nextBridge ? `<div class="lcard">
       <span class="lb">下一站</span>
@@ -3413,7 +3434,11 @@ function learnRenderQ() {
   const passed = !!s.decisions[learnQ];
   document.getElementById('learn-qhint').textContent = `第 ${learnQ + 1} / ${c.questions.length} 题 · ${q.judgment}（每题 3 个选项，只有 1 个正确）`;
   const perm = learnPerm(c.chapterId, learnQ);
-  document.getElementById('learn-q').innerHTML = `<div class="lq"><h3>${learnQ + 1}. ${esc(q.prompt)}</h3>`
+  const qOrigin = q.origin || {};
+  const qTag = qOrigin.kind === 'machine'
+    ? `<div class="lgap" style="margin:2px 0 8px">机器并入题 · 来自 <code>${esc(qOrigin.unitId || '')}</code> · 独立复核 verdict=${esc(qOrigin.verdict || '')}（<code>${esc(qOrigin.review || '')}</code>）—— 人工三题排在本章最前，这一道不覆盖人工内容。</div>`
+    : `<div class="lgap" style="margin:2px 0 8px">人工撰写题（<code>evidence/agent-loop-260913/authored.json</code>）。</div>`;
+  document.getElementById('learn-q').innerHTML = `<div class="lq">${qTag}<h3>${learnQ + 1}. ${esc(q.prompt)}</h3>`
     + perm.map((src, j) => {
       const o = q.options[src];
       const cls = picked === src ? (o.correct ? 'ok' : 'bad') : '';
@@ -3423,7 +3448,7 @@ function learnRenderQ() {
     + '</div>';
   const btn = document.getElementById('learn-next');
   btn.disabled = !passed;
-  btn.textContent = learnQ === c.questions.length - 1 ? '三题通过，进入费曼' : '选对后进入下一题';
+  btn.textContent = learnQ === c.questions.length - 1 ? `${c.questions.length} 题通过，进入费曼` : '选对后进入下一题';
   document.getElementById('learn-qstatus').textContent = passed ? `${learnQ + 1} / ${c.questions.length} 题通过` : '本题尚未通过；可以重选';
 }
 function learnFeedback(q, j) {
