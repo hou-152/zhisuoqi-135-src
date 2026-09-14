@@ -246,18 +246,23 @@ export function createZssServer(opts = {}) {
   }
 
   /* ══ 公网模式（PUBLIC=1）：黑客松评委体验用的限额网关 ════════════════
-     不是账号系统（所有者 09-15 裁决：比赛场景口令＋限额即可）：
+     不是账号系统（所有者 09-15 裁决：比赛场景口令＋限额即可）。限额按「一次学习 ≈ 1 小时」校准
+     （09-15 实测机器下限 7.3s/章、真人轨迹费曼两轮间隔 9.8 分钟，见 evidence/learn-fastest-260915.json）：
      · PUBLIC=1 时 /api/llm、/api/orchestrate、/api/search、/api/save 一律 404 ——
        通用口挂公网等于把免费 LLM 代理送给刷子；
-     · /api/learn 保留，但过三道闸：口令（header x-zss-code，PUBLIC_PASSCODE，默认 zss135）
-       → 每 IP 每小时 PUBLIC_IP_HOURLY 次（默认 5）→ 全日 PUBLIC_DAILY_MAX 次（默认 300）；
+     · /api/learn 保留，但过四道闸：口令（header x-zss-code，PUBLIC_PASSCODE，默认 zss135）
+       → 每 IP 每小时 PUBLIC_IP_HOURLY（默认 3＝一场学习的判定余量：首判＋2 次返工）
+       → 每 IP 每天 PUBLIC_IP_DAILY（默认 12＝约 4 场学习，防小时窗重置被刷）
+       → 全日全局 PUBLIC_DAILY_MAX（默认 300）次断路器；
      · 计数在内存：进程重启清零。断路器要的是「最坏损失有上限」，不是精确记账——照实说，不冒充精确；
      · 一次费曼判定 ≈ 2–3k tokens（DeepSeek 价位 ≈ 几厘钱），日断路器把最坏损失锁在几块钱量级。 */
   const PUBLIC_MODE = /^(1|true|yes|on)$/i.test(String(process.env.PUBLIC || '').trim());
   const PUBLIC_PASSCODE = String(process.env.PUBLIC_PASSCODE || 'zss135');
-  const PUBLIC_IP_HOURLY = Number(process.env.PUBLIC_IP_HOURLY) || 5;
+  const PUBLIC_IP_HOURLY = Number(process.env.PUBLIC_IP_HOURLY) || 3;
+  const PUBLIC_IP_DAILY = Number(process.env.PUBLIC_IP_DAILY) || 12;
   const PUBLIC_DAILY_MAX = Number(process.env.PUBLIC_DAILY_MAX) || 300;
   const publicIpHits = new Map();                       // ip -> [时间戳,…]（只留最近一小时）
+  const publicIpDay = new Map();                        // ip -> { day, used }
   let publicDaily = { day: new Date().toISOString().slice(0, 10), used: 0 };
   function publicGate(req) {
     if (String(req.headers['x-zss-code'] || '') !== PUBLIC_PASSCODE) {
@@ -272,9 +277,15 @@ export function createZssServer(opts = {}) {
     const now = Date.now();
     const hits = (publicIpHits.get(ip) || []).filter((t) => now - t < 3600e3);
     if (hits.length >= PUBLIC_IP_HOURLY) {
-      return { code: 429, body: { ok: false, error: 'ip-rate-limited', note: `这个地址一小时内已体验 ${PUBLIC_IP_HOURLY} 次，稍后再来。` } };
+      return { code: 429, body: { ok: false, error: 'ip-rate-limited', note: `这个地址一小时内已判定 ${hits.length} 次——一场学习（约 1 小时）的判定余量是 ${PUBLIC_IP_HOURLY} 次（首判＋2 次返工），下一个整点恢复。` } };
+    }
+    const dayRec = publicIpDay.get(ip);
+    const ipDay = dayRec && dayRec.day === today ? dayRec : { day: today, used: 0 };
+    if (ipDay.used >= PUBLIC_IP_DAILY) {
+      return { code: 429, body: { ok: false, error: 'ip-daily-limited', note: `这个地址今天已判定 ${ipDay.used} 次（约 ${PUBLIC_IP_DAILY / 3} 场学习），明天再来。` } };
     }
     hits.push(now); publicIpHits.set(ip, hits);
+    ipDay.used += 1; publicIpDay.set(ip, ipDay);
     publicDaily.used += 1;
     return null;
   }

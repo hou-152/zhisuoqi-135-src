@@ -345,11 +345,25 @@ code{background:#161719;border:1px solid var(--line);border-radius:4px;padding:1
 #load.off{opacity:0;pointer-events:none}
 #app{height:100vh}
 
+.burger{display:none;align-items:center;justify-content:center;width:30px;height:30px;border:1px solid var(--line);
+  border-radius:7px;background:#141518;color:var(--fg2);font-size:14px;cursor:pointer;flex:0 0 auto}
+.burger:hover{color:var(--fg)}
 @media (max-width:1100px){
   #app{grid-template-columns:1fr}
-  #list{display:none}
   #main{grid-column:1}
   #panel{width:100%}
+  /* 左栏＝抽屉（v6-responsive）：旧写法直接 #list{display:none}，把主题列表/内参月历整块吞掉
+     （审计实锤：375 下已选行宽 0、700–1100 的桌面小窗同样丢列表）。抽屉是唯一下档形态。 */
+  #list{position:fixed;left:0;top:46px;bottom:0;width:min(320px,86vw);z-index:70;
+    transform:translateX(-105%);transition:transform .26s ease}
+  body.list-open #list{transform:none;box-shadow:14px 0 44px rgba(0,0,0,.5)}
+  #list-backdrop{position:fixed;inset:46px 0 0 0;z-index:69;background:rgba(4,5,6,.55);
+    opacity:0;pointer-events:none;transition:opacity .26s ease}
+  body.list-open #list-backdrop{opacity:1;pointer-events:auto}
+  .burger{display:flex}
+  #topbar{gap:10px}
+  .r-list{overflow-x:auto;scrollbar-width:none;flex:1 1 auto;min-width:0;-webkit-overflow-scrolling:touch}
+  .r-list::-webkit-scrollbar{display:none}
 }
 
 /* ── 内参（第六格）：AI 内参图文格式的阅读区 ─────────────────────────
@@ -433,6 +447,7 @@ code{background:#161719;border:1px solid var(--line);border-radius:4px;padding:1
 .nei-cal .hint{color:var(--fg4);font-size:10.5px;text-align:left;line-height:1.45;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .nei-day .ih-nav{border:0;background:none;color:var(--fg3);font-size:14px;line-height:1;cursor:pointer;border-radius:5px;padding:1px 6px}
 .nei-day .ih-nav:hover{background:#1b1d22;color:var(--fg)}
+.nei-day .ih-nav:disabled{opacity:.28;cursor:default;background:none;color:var(--fg4)}
 .pr-fit{float:right;border:1px solid var(--line);background:#141518;color:var(--fg3);font-size:10.5px;
   border-radius:6px;padding:1px 8px;cursor:pointer}
 .pr-fit:hover{color:var(--fg);border-color:#5e6ad2}
@@ -755,13 +770,9 @@ body.learning #topbar,body.learning #list,body.learning #main{display:none}
 .lrail-m code{font-size:10.5px;color:var(--fg4)}
 .lrail-n{font-size:10.5px;color:var(--fg4);line-height:1.7;border-top:1px solid var(--line);padding-top:8px}
 @media (max-width:980px){#learn-wrap{grid-template-columns:minmax(0,1fr)}.lrail{position:static}}
-/* 窄屏（手机／窄窗口）：阅读区盖在画布上，主区这一列只有两百来像素，
-   「阅读中的即时费曼」在这种宽度下会被右侧裁掉（2026-09-14 窄屏截图发现）。
-   处理只动布局：左栏收成一条、阅读区整幅、正文少一点左右留白，内容一个字不改。 */
+/* 窄屏（手机／窄窗口）：阅读区盖在画布上。搜索框收起（v6：左栏已是抽屉，见 ≤1100 块）。 */
 @media (max-width:700px){
-  #app{grid-template-columns:1fr}
-  #topbar{gap:10px}
-  .r-search{display:none}          /* 窄屏只留品牌 + 三个一级导航 */
+  .r-search{display:none}
   .nei{padding:20px 15px 90px}
 }
 /* 正文流：过渡句 / 关系解释句 */
@@ -817,6 +828,7 @@ body.learning #topbar,body.learning #list,body.learning #main{display:none}
   <!-- 顶栏＝一级导航（2026-09-15 按所有者口径从左侧整条搬上来） -->
   <header id="topbar">
     <div class="r-brand">知所栖<span>135</span><span class="pubtag" id="pubtag" style="display:none">公网快照</span></div>
+    <button class="burger" id="btn-burger" onclick="toggleList()" title="主题 / 日历列表">☰</button>
     <nav class="r-list">
       <button class="r-item" data-view="explore" onclick="setView('explore')" title="AI 内嵌首页"><span class="ic">✦</span><b>探索</b></button>
       <button class="r-item" data-view="neican" onclick="setView('neican')"><span class="ic">▤</span><b>内参</b><i id="r-nei"></i></button>
@@ -829,6 +841,7 @@ body.learning #topbar,body.learning #list,body.learning #main{display:none}
   </header>
   <div id="upd-panel" hidden></div>
 
+  <div id="list-backdrop" onclick="closeList()"></div>
   <section id="list">
     <header class="lp-head">
       <button id="lp-back" onclick="setView('graph')" title="回到全部主题" style="display:none">← 全部主题</button>
@@ -1148,6 +1161,37 @@ function renderTreeStat() {
     : `你的树还是一棵苗——去内参读一篇，或进实践空间学一章，<b>叶子会长出来</b>`;
 }
 window.renderTreeStat = renderTreeStat; window.treeStats = treeStats;
+
+/* ══ 抽屉式左栏 + 更新面板关闭（v6-responsive）════════════════ */
+function toggleList() { document.body.classList.toggle('list-open'); }
+function closeList() { document.body.classList.remove('list-open'); }
+window.toggleList = toggleList; window.closeList = closeList;
+/* 列表内「会发生导航的点击」＝选完了就收抽屉（事件委托，不在各业务函数里散布 close）。
+   策展折叠头、日历翻月这类原地操作不收。 */
+function wireDrawerAutoClose() {
+  const body = document.getElementById('lp-body');
+  if (!body) return;
+  body.addEventListener('click', (e) => {
+    if (innerWidth > 1100) return;
+    if (e.target.closest('.row, .drow, .cd.has, .allbtn, .prow')) closeList();
+  });
+  const bd = document.getElementById('list-backdrop');
+  if (bd) bd.addEventListener('click', closeList);
+}
+/* 更新面板：点外部 / Esc 关闭（审计低级项） */
+function wireUpdDismiss() {
+  document.addEventListener('click', (e) => {
+    const p = document.getElementById('upd-panel');
+    if (!p || p.hidden) return;
+    if (e.target.closest('#upd-panel') || e.target.closest('#btn-upd')) return;
+    closeUpd();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    closeUpd();
+    if (innerWidth <= 1100) closeList();
+  });
+}
 
 /* ══ 顶栏「更新」面板 + 探索 / AI 内嵌首页（v4-unify）════════════
    更新面板＝隐性 changelog：数据 build-shell 从 iterations 各档的 PRD.md 烘焙（DATA.changelog），
@@ -2542,6 +2586,8 @@ async function boot() {
   renderList();
   syncPinBtn();
   document.querySelectorAll('.tab').forEach(t => { t.onclick = () => setMode(t.dataset.mode); });
+  wireDrawerAutoClose();   // v6：抽屉自动收起 + 更新面板点外/Esc 关闭
+  wireUpdDismiss();
   document.getElementById('main').classList.toggle('treeon', mode === 'tree');
   computeLayout();
   if (mode === 'tree') focusGrid(3, { instant: true });   // 默认就是我的树：首屏居中三列 + 树头（boot 不动画）
@@ -3483,9 +3529,11 @@ function neiWhenBar() {
 /* 日报集合：按期倒序，一期一张日报卡（日期 · 篇数 · 目录），点一篇进单篇阅读 */
 function issueCard(iss, nav) {
   const arts = (iss.articles || []).filter(neiPass);
+  const ix = NEI_ALL.findIndex(x => x.period === iss.period);
+  const canPrev = ix > 0, canNext = ix >= 0 && ix < NEI_ALL.length - 1;
   return `<section class="nei-day">
     <div class="dh"><b>第 ${esc(iss.period)} 期</b><span>${esc(iss.date || '')} ${esc(iss.weekday || '')}</span>
-      ${nav ? `<button class="ih-nav" onclick="neiStep(-1)" title="更新一期">‹</button><button class="ih-nav" onclick="neiStep(1)" title="更早一期">›</button>` : ''}
+      ${nav ? `<button class="ih-nav" onclick="neiStep(-1)" ${canPrev ? '' : 'disabled title="已是最新一期"'}>‹</button><button class="ih-nav" onclick="neiStep(1)" ${canNext ? '' : 'disabled title="已是最早一期"'}>›</button>` : ''}
       <span class="sp"></span><span>${arts.length} 篇</span></div>
     <div class="dl">${arts.map(a => `<button class="drow" onclick="openNeican('${a.slug}')">
       <span class="no">${String(a.no || 0).padStart(2, '0')}</span>

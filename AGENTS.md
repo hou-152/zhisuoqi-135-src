@@ -77,6 +77,8 @@ node scripts/pull-readwise-inbox.mjs --date 2026-09-13 --issue 260913   # Readwi
 node scripts/build-neican-daily.mjs --issue 260913   # 三产物：三级笔记 / 概念辞典 / AI 费曼（真 LLM，带缓存）
 node scripts/build-neican.mjs --issue 260913        # → knowledge/内参-260913/内参-页面数据.json（不给 --issue 取最新一期）
 node scripts/build-neican-special.mjs --write   # 主题特刊切分（零 LLM）：飞书主题精选 → 内参-260910（Context 28 篇）/ 内参-260911（Harness 30 篇）＋ issue.json；已落盘，重跑会因目录已存在拒绝
+node scripts/build-concept-cards.mjs            # 概念提取 v2 数据层（零 LLM，P1）：页面数据＋概念辞典 md＋概念地图 → knowledge/概念提取-260915/{cards,byConcept,manifest}.json（1033 原始卡 → 985 合并；ref 口径与 build-shell 同）
+node scripts/check-concept-cards.mjs            # 概念提取 v2 体检（零 LLM）：A 类硬断言（校验和/id 唯一/ref 轮转/对账/md 交叉核对/byConcept 一致）＋ B 类如实报引文保真度（L1 逐字≈54%、FAIL≈6.7% 系 LLM 改写/截断/语言不一致，重烧由验收方裁决）
 node scripts/cm-add-neican.mjs --issue=260913       # 该期内参概念并进概念地图（改前自动备份 .pre-neican-<期>.bak）
 node scripts/build-shell.mjs        # → prototype/知所栖-壳.html（全部内参期装成 DATA.neican.issues；--legacy 回退旧 194 池）
 node scripts/build-public.mjs       # → deploy/zhisuoqi-135/index.html（公网版；**改文件 ≠ 发布，线上要 git push**）

@@ -245,15 +245,68 @@ export function createZssServer(opts = {}) {
     return { criteria, nextPrompt, raw: String(raw || '') };
   }
 
+  /* ══ 公网模式（PUBLIC=1）：黑客松评委体验用的限额网关 ════════════════
+     不是账号系统（所有者 09-15 裁决：比赛场景口令＋限额即可）。限额按「一次学习 ≈ 1 小时」校准
+     （09-15 实测机器下限 7.3s/章、真人轨迹费曼两轮间隔 9.8 分钟，见 evidence/learn-fastest-260915.json）：
+     · PUBLIC=1 时 /api/llm、/api/orchestrate、/api/search、/api/save 一律 404 ——
+       通用口挂公网等于把免费 LLM 代理送给刷子；
+     · /api/learn 保留，但过四道闸：口令（header x-zss-code，PUBLIC_PASSCODE，默认 zss135）
+       → 每 IP 每小时 PUBLIC_IP_HOURLY（默认 3＝一场学习的判定余量：首判＋2 次返工）
+       → 每 IP 每天 PUBLIC_IP_DAILY（默认 12＝约 4 场学习，防小时窗重置被刷）
+       → 全日全局 PUBLIC_DAILY_MAX（默认 300）次断路器；
+     · 计数在内存：进程重启清零。断路器要的是「最坏损失有上限」，不是精确记账——照实说，不冒充精确；
+     · 一次费曼判定 ≈ 2–3k tokens（DeepSeek 价位 ≈ 几厘钱），日断路器把最坏损失锁在几块钱量级。 */
+  const PUBLIC_MODE = /^(1|true|yes|on)$/i.test(String(process.env.PUBLIC || '').trim());
+  const PUBLIC_PASSCODE = String(process.env.PUBLIC_PASSCODE || 'zss135');
+  const PUBLIC_IP_HOURLY = Number(process.env.PUBLIC_IP_HOURLY) || 3;
+  const PUBLIC_IP_DAILY = Number(process.env.PUBLIC_IP_DAILY) || 12;
+  const PUBLIC_DAILY_MAX = Number(process.env.PUBLIC_DAILY_MAX) || 300;
+  const publicIpHits = new Map();                       // ip -> [时间戳,…]（只留最近一小时）
+  const publicIpDay = new Map();                        // ip -> { day, used }
+  let publicDaily = { day: new Date().toISOString().slice(0, 10), used: 0 };
+  function publicGate(req) {
+    if (String(req.headers['x-zss-code'] || '') !== PUBLIC_PASSCODE) {
+      return { code: 403, body: { ok: false, error: 'bad-passcode', note: '体验口令不对（提交页／路演材料里有）。口令不对不消耗任何额度。' } };
+    }
+    const today = new Date().toISOString().slice(0, 10);
+    if (publicDaily.day !== today) publicDaily = { day: today, used: 0 };
+    if (publicDaily.used >= PUBLIC_DAILY_MAX) {
+      return { code: 503, body: { ok: false, error: 'daily-budget-exhausted', note: `今天的体验额度（${PUBLIC_DAILY_MAX} 次判定）已用完，明天再来。` } };
+    }
+    const ip = String(req.headers['x-forwarded-for'] || '').split(',')[0].trim() || req.socket.remoteAddress || 'unknown';
+    const now = Date.now();
+    const hits = (publicIpHits.get(ip) || []).filter((t) => now - t < 3600e3);
+    if (hits.length >= PUBLIC_IP_HOURLY) {
+      return { code: 429, body: { ok: false, error: 'ip-rate-limited', note: `这个地址一小时内已判定 ${hits.length} 次——一场学习（约 1 小时）的判定余量是 ${PUBLIC_IP_HOURLY} 次（首判＋2 次返工），下一个整点恢复。` } };
+    }
+    const dayRec = publicIpDay.get(ip);
+    const ipDay = dayRec && dayRec.day === today ? dayRec : { day: today, used: 0 };
+    if (ipDay.used >= PUBLIC_IP_DAILY) {
+      return { code: 429, body: { ok: false, error: 'ip-daily-limited', note: `这个地址今天已判定 ${ipDay.used} 次（约 ${PUBLIC_IP_DAILY / 3} 场学习），明天再来。` } };
+    }
+    hits.push(now); publicIpHits.set(ip, hits);
+    ipDay.used += 1; publicIpDay.set(ip, ipDay);
+    publicDaily.used += 1;
+    return null;
+  }
+
   const server = http.createServer(async (req, res) => {
     const url = new URL(req.url, 'http://127.0.0.1');
     const json = (o) => res.writeHead(200, { 'Content-Type': 'application/json' }).end(JSON.stringify(o));
+
+    /* 公网模式：会花钱的通用口与写入口直接 404（在 readBody 之前挡，失败请求不耗任何东西） */
+    if (PUBLIC_MODE && ['/api/llm', '/api/orchestrate', '/api/search', '/api/save'].includes(url.pathname)) {
+      res.writeHead(404, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({ ok: false, error: 'public-disabled', note: '公网模式不开放这个接口（费曼判定走 /api/learn，带口令与限额）。' }));
+    }
 
     if (url.pathname === '/api/health') {
       const st = llmRateState();
       return json({ ok: true, llm: !LLM_DISABLED() && !!(process.env.LLM_API_BASE && process.env.LLM_API_KEY && process.env.LLM_MODEL),
                     llmDisabled: LLM_DISABLED(),
                     llmRate: { max: st.max, windowMs: st.windowMs, used: st.used },
+                    public: PUBLIC_MODE,
+                    publicDaily: PUBLIC_MODE ? { day: publicDaily.day, used: publicDaily.used, max: PUBLIC_DAILY_MAX } : null,
                     app: !!DATA_DIR, dataDir: DATA_DIR || null, version: opts.version || null,
                     packaged: !!opts.packaged, root: ROOT });
     }
@@ -282,6 +335,11 @@ export function createZssServer(opts = {}) {
 
     // 窄接口：单元 ID ＋ 复述 ＋ 输入版本 ＋ 请求 ID。其余一律不信（交接件 §6.1／§6.2）。
     if (url.pathname === '/api/learn' && req.method === 'POST') {
+      /* 公网模式三道闸（口令 → 日断路器 → 每 IP 限速）；口令不对不消耗任何额度 */
+      if (PUBLIC_MODE) {
+        const g = publicGate(req);
+        if (g) { res.writeHead(g.code, { 'Content-Type': 'application/json' }); return res.end(JSON.stringify(g.body)); }
+      }
       let body;
       try { body = await readBody(req, 64 * 1024); } catch (e) { return json({ ok: false, error: 'bad-request', detail: String(e.message || e).slice(0, 120) }); }
       const unit = String(body.unit || '').trim();

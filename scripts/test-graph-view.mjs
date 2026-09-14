@@ -209,6 +209,23 @@ console.log('\n⑦ 收敛与双链');
 check('旧模式名 relation 落到树（撤入口不删代码，不白屏）', await ex(`setMode('relation'); mode`), 'tree');
 check('旧模式名 sphere 落到树', await ex(`setMode('sphere'); mode`), 'tree');
 check('旧 hash 名 grid 也落树', await ex(`setMode('grid'); mode`), 'tree');
+/* v4.1 退出闭环（对抗性审计的阻塞项）：系统视图两条出口都必须归位到树 */
+const exitLoop = JSON.parse(await ex(`(async()=>{
+  toggleUpd(); document.querySelector('#upd-panel .u-sys button').click();
+  await new Promise(r=>setTimeout(r,800)); toggleUpd();
+  [...document.querySelectorAll('.r-item')].find(b=>b.dataset.view==='graph').click();
+  await new Promise(r=>setTimeout(r,700));
+  const viaTopbar = { mode, graphon: document.getElementById('main').classList.contains('graphon'),
+    treeHead: getComputedStyle(document.getElementById('tree-head')).display !== 'none' };
+  location.hash = 'graph=map'; await new Promise(r=>setTimeout(r,1000));
+  history.back(); await new Promise(r=>setTimeout(r,800));
+  const viaBack = { mode, graphon: document.getElementById('main').classList.contains('graphon') };
+  return JSON.stringify({ viaTopbar, viaBack });
+})()`));
+check('退出①：系统视图 → 顶栏知识体系归位到树（graphon 解除＋树头回来）',
+  (exitLoop.viaTopbar.mode === 'tree' && !exitLoop.viaTopbar.graphon && exitLoop.viaTopbar.treeHead) ? 'OK' : 'NO', 'OK');
+check('退出②：#graph=map 后退到空 hash 同样归位',
+  (exitLoop.viaBack.mode === 'tree' && !exitLoop.viaBack.graphon) ? 'OK' : 'NO', 'OK');
 await ex(`setMode('tree')`); await sleep(500);
 const hardPair = JSON.parse(await ex(`(()=>{
   const k = Object.keys(DATA.edgeMeta || {}).find(k => DATA.edgeMeta[k].s === 'hard');

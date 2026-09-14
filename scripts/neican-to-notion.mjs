@@ -48,7 +48,7 @@ const ntn = (args, label) => {
   const t = (out || '').trim();
   return t.startsWith('{') || t.startsWith('[') ? out : '{}';
 };
-const api = (method, p, body, label) => JSON.parse(ntn(['api', '-X', method, p, '-d', JSON.stringify(body), '--json'], label || `${method} ${p}`));
+const api = (method, p, body, label) => JSON.parse(ntn(['api', '-X', method, p, '-d', JSON.stringify(body)], label || `${method} ${p}`));
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 // 信息源映射（按域名；未命中回落 blog）

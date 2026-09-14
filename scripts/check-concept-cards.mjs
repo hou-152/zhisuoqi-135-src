@@ -69,6 +69,21 @@ for (const [period, n] of Object.entries(manifest.rawCards || {})) {
 }
 ok(rawBad.length === 0 && rawTotal === manifest.totalRaw, `对账：原始卡数不丢（实测 ${rawTotal} = 记录 ${manifest.totalRaw}${rawBad[0] ? '；' + rawBad.join(',') : ''}）`);
 
+// 交叉核对：每张原始卡的名字在对应期 概念辞典 md 里同源出现
+let mdChecked = 0; const mdBad = [];
+for (const [period, n] of Object.entries(manifest.rawCards || {})) {
+  const pd = JSON.parse(readFileSync(path.join(ROOT, 'knowledge', `内参-${period}`, '内参-页面数据.json'), 'utf8'));
+  for (const a of pd.articles || []) {
+    const mdFile = path.join(ROOT, 'knowledge', `内参-${period}`, '概念辞典', `${a.slug}.md`);
+    const md = existsSync(mdFile) ? readFileSync(mdFile, 'utf8') : '';
+    for (const c of a.conceptCards || []) {
+      mdChecked++;
+      if (!md.includes(String(c.name || ''))) mdBad.push(`${period}/${a.slug}「${c.name}」`);
+    }
+  }
+}
+ok(mdBad.length === 0, `概念辞典 md 交叉核对：${mdChecked} 张卡名全部同源（${mdBad.length} 处不符${mdBad[0] ? '：' + mdBad[0] : ''}）`);
+
 // byConcept 与 cards 一一对应
 const cidSet = new Set(cards.map(c => c.id));
 const kidIds = Object.keys(concepts);
