@@ -483,6 +483,10 @@ export function createZssServer(opts = {}) {
 
     // 静态页。url.pathname 是百分号编码的，中文文件名不解码就永远 404（踩过）。
     let decoded; try { decoded = decodeURIComponent(url.pathname); } catch { decoded = url.pathname; }
+    // 公网网关只负责 API；误打开根地址时跳到正式演示页，避免展示早期 Demo。
+    if (PUBLIC_MODE && decoded === '/') {
+      return res.writeHead(302, { Location: 'https://hou-152.github.io/zhisuoqi-135/' }).end();
+    }
     const p = decoded === '/' ? DEFAULT_PAGE : decoded;
     const file = join(STATIC_ROOT, p);
     if (file.startsWith(STATIC_ROOT) && existsSync(file)) {
