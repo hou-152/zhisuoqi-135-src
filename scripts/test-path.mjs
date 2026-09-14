@@ -217,14 +217,14 @@ check('准入判定在数据里：四段全绿=6（六章），批量 76 个一�
   await ex(`PRACTICE.units.filter(u=>u.open).length+'|'+PRACTICE.units.filter(u=>u.group==='批量').length+'|'+PRACTICE.units.filter(u=>u.group==='批量'&&u.open).length`), '6|76|0');
 check('四段都有明确取值（可走/缺材料/未装配/不可进入）',
   await ex(`PRACTICE.units.every(u=>['reading','formative','decision','summative'].every(k=>['可走','缺材料','未装配','不可进入'].includes(u.segments[k].stateLabel)))`), 'true');
-check('批量单元缺决策题（0 道 → 链路在决策那一段断）',
-  await ex(`PRACTICE.units.filter(u=>u.group==='批量').every(u=>u.segments.decision.state==='unassembled'&&u.decisionCount===0)`), 'true');
+check('批量单元决策段已接通（3 道/单元 → 那一段可走）',
+  await ex(`PRACTICE.units.filter(u=>u.group==='批量').every(u=>u.segments.decision.state==='green'&&u.decisionCount===3)`), 'true');
 check('批量判据是机械派生的（照实标缺材料，不当人工判据）',
   await ex(`PRACTICE.units.filter(u=>u.group==='批量').every(u=>u.segments.formative.state==='missing'&&u.derivedCount>=1&&u.authoredCount===0)`), 'true');
 await ex(`openPractice()`);
 check('六章逐章一行 + 单篇一行（来自数据）', await ex(`openPractice(); document.querySelectorAll('#reader .pcard .pu .nm').length`), 7);
-check('19 条 ready 只作目录候选显示，不给进入按钮',
-  await ex(`(()=>{const t=document.getElementById('reader').innerText;return t.includes('准备中 / 目录候选')&&t.includes('不开放学习')&&t.includes('决策题 0 道')})()`), 'true');
+check('19 条 ready 只作目录候选显示，不给进入按钮（照实说卡在形成性费曼）',
+  await ex(`(()=>{const t=document.getElementById('reader').innerText;return t.includes('准备中 / 目录候选')&&t.includes('不开放学习')&&t.includes('形成性费曼')&&t.includes('决策那一段已经接通')})()`), 'true');
 check('空白格照实说：缺少可靠案例本轮是 0，并写明为什么',
   await ex(`(()=>{openPracticeBoard();return document.getElementById('reader').innerText.includes('这一格本轮是 0')})()`), 'true');
 check('状态看板逐单元 83 行（不含「要全面推进」那张表）',
@@ -232,10 +232,10 @@ check('状态看板逐单元 83 行（不含「要全面推进」那张表）',
 check('看板写着四类口径与准入规则',
   await ex(`(()=>{const t=document.getElementById('reader').innerText;return t.includes('已装配课程：可进入')&&t.includes('材料缺口：待装配')&&t.includes('缺少决策题：不可进入')&&t.includes('缺少可靠案例：不可进入')&&t.includes('四段全绿才开放')})()`), 'true');
 check('看板有「要全面推进，还差什么」并写出补的闸门',
-  await ex(`(()=>{const t=document.getElementById('reader').innerText;return t.includes('要全面推进，还差什么')&&t.includes('缺决策题')&&t.includes('判据是机械推的')&&t.includes('无页面入口')})()`), 'true');
+  await ex(`(()=>{const t=document.getElementById('reader').innerText;return t.includes('要全面推进，还差什么')&&t.includes('决策段已接通')&&t.includes('判据是机械推的')&&t.includes('无页面入口')})()`), 'true');
 check('批量单元点不进阅读器，并给出原因（不静默失败）',
   await ex(`openPractice(); practiceEnter('unit:batch-agent')`), 'false');
-check('不能进入时写着缺什么', await ex(`(()=>{const t=document.getElementById('practice-blocked').innerText;return t.includes('现在不能进入学习')&&t.includes('缺少决策题')&&t.includes('0 道决策题')})()`), 'true');
+check('不能进入时写着缺什么', await ex(`(()=>{const t=document.getElementById('practice-blocked').innerText;return t.includes('现在不能进入学习')&&t.includes('形成性费曼')&&t.includes('机械派生')})()`), 'true');
 check('单篇照实说不在这套阅读器里', await ex(`(()=>{openPractice();const t=document.getElementById('reader').innerText;return t.includes('单篇试点')&&t.includes('不在这套阅读器里')})()`), 'true');
 check('进入第 1 章走的是同一套 #learn 阅读器',
   await ex(`(()=>{openPractice(); practiceEnter('unit:chapter-agent'); const on=document.getElementById('learn').classList.contains('on'); const rail=!!document.querySelector('#learn-wrap .lrail'); const chips=document.querySelectorAll('#learn-wrap .lrail-steps .lchip').length; return on+'|'+rail+'|'+chips+'|'+learnCur})()`), 'true|true|6|agent');
@@ -243,22 +243,22 @@ check('从实践空间进来，返回条写「返回实践空间」', await ex(`
 check('返回后回到实践空间（不是被丢进知识体系）',
   await ex(`exitLearn(); currentView+'|'+document.getElementById('reader').classList.contains('on')`), 'practice|true');
 
-/* ⑪c 决策题独立复核进准入（2026-09-14 新增）
-   串台事故生成过 228 道批量决策题，独立复核判定 0 道可接入。三条必须有：
+/* ⑪c 决策题独立复核进准入（2026-09-14；同日第二轮：v3 复核通过，接入 76 单元）
+   v2 的 228 道复核判定 0 道可接入；v3 确定性重做后 228/228 通过。三条必须仍然成立：
      a 依据逐字可回溯（页面带着复核数字，不是页面自述）
-     b 空决策数组不等于可进入（有 3 道生成稿也不许开）
-     c 未通过复核的单元仍不可进入（一个都不许漏） */
+     b 复核驱动的接入：接入的题数 = 复核 verdict=usable 的单元数
+     c 四段不全绿仍然不可进入（决策段绿了，形成性费曼还是机械判据） */
 console.log('\n⑪c 决策题独立复核 · 有题不等于可进入');
 check('复核结论进了 DATA.practice（来自 evidence/review-decisions-260914/review.json）',
-  await ex(`(()=>{const r=PRACTICE.reviewedDecisions;return !!r && r.questions+'|'+r.usableQuestions+'|'+r.usableUnits+'|'+r.refHitRate})()`), '228|0|0|100.00%');
-check('看板写着「生成 228 道 / 复核通过 0 道」与三条挡下原因',
-  await ex(`(()=>{openPracticeBoard();const t=document.getElementById('reader').innerText;return t.includes('生成 228 道')&&t.includes('复核通过 0 道')&&t.includes('逐字命中 100.00%')&&t.includes('题干与正解极性相反 16 道')&&t.includes('猜中 228 道')&&t.includes('有题不等于可进入')})()`), 'true');
-check('空决策数组不等于可进入：76 个批量单元声明的题数是 0、生成稿是 3，一个都没开',
-  await ex(`(()=>{const b=PRACTICE.units.filter(u=>u.group==='批量');return b.length+'|'+b.every(u=>u.declaredDecisionCount===0&&u.questionCount===0)+'|'+b.every(u=>u.generatedDecisionCount===3)+'|'+b.filter(u=>u.open).length})()`), '76|true|true|0');
-check('未通过复核的单元仍不可进入：reviewVerdict=blocked 的一律不是可走',
-  await ex(`(()=>{const b=PRACTICE.units.filter(u=>u.group==='批量'&&u.reviewVerdict==='blocked');return b.length+'|'+b.every(u=>u.segments.decision.state!=='green'&&u.open===false)})()`), '76|true');
-check('点击批量单元仍进不去，且理由写的是空数组/复核（不静默失败）',
-  await ex(`(()=>{openPractice(); const r=practiceEnter('unit:batch-agent'); const t=document.getElementById('practice-blocked').innerText; return r+'|'+(t.includes('现在不能进入学习')&&t.includes('0 道决策题')&&t.includes('空数组不等于满足'))})()`), 'false|true');
+  await ex(`(()=>{const r=PRACTICE.reviewedDecisions;return !!r && r.questions+'|'+r.usableQuestions+'|'+r.usableUnits+'|'+r.refHitRate+'|'+r.verdict})()`), '228|228|76|100.00%|usable');
+check('看板写着「生成 228 道 / 复核通过 228 道」与两轮对比数字',
+  await ex(`(()=>{openPracticeBoard();const t=document.getElementById('reader').innerText;return t.includes('生成 228 道')&&t.includes('复核通过 228 道')&&t.includes('逐字命中 100.00%')&&t.includes('正解整句照抄材料 0 道')&&t.includes('极性相反 0 道')&&t.includes('猜中 0 道')&&t.includes('有题不等于可进入')})()`), 'true');
+check('决策题接入是复核驱动的：76 个单元声明的题数、生成稿数、复核判定三者一致',
+  await ex(`(()=>{const b=PRACTICE.units.filter(u=>u.group==='批量');return b.length+'|'+b.every(u=>u.declaredDecisionCount===3&&u.questionCount===3)+'|'+b.every(u=>u.generatedDecisionCount===3&&u.reviewVerdict==='usable')+'|'+b.filter(u=>u.open).length})()`), '76|true|true|0');
+check('决策那一段 76 个单元全部可走，但四段没全绿所以仍不开放',
+  await ex(`(()=>{const b=PRACTICE.units.filter(u=>u.group==='批量');return b.filter(u=>u.segments.decision.state==='green').length+'|'+b.every(u=>u.segments.formative.state!=='green')+'|'+b.filter(u=>u.bucket==='decision').length})()`), '76|true|0');
+check('点击批量单元仍进不去，理由写的是形成性费曼（判据机械派生）而不是决策题',
+  await ex(`(()=>{openPractice(); const r=practiceEnter('unit:batch-agent'); const t=document.getElementById('practice-blocked').innerText; return r+'|'+(t.includes('现在不能进入学习')&&t.includes('形成性费曼')&&t.includes('机械派生'))})()`), 'false|true');
 check('六章仍是唯一四段全绿的一批（复核没误伤已装配课程）',
   await ex(`PRACTICE.units.filter(u=>u.open).length+'|'+PRACTICE.units.filter(u=>u.open&&u.group==='六章').length`), '6|6');
 /* 「不要把它堵死」：准入不是写死的六章 ID 白名单。

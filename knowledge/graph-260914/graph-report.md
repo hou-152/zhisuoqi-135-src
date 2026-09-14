@@ -1,14 +1,14 @@
 # 全链路 Graph 索引报告
 
-构建时间：2026-09-14T15:07:20.389Z　版本：v1
+构建时间：2026-09-14T16:19:57.114Z　版本：v1
 
 > 本文件由 `node scripts/build-graph.mjs` 生成，**不要手改**。数字口径见文末《口径》。
 
 ## 一、总量
 
-- 节点 **4077** · 边 **12837** · 缺口条目 **181**
-- 可运行单元 **85** · 判据 **288** · 活动节点 **1130** · 流程边（唯一能驱动跳转的边）**2675**
-- 待装配（scaffold）**601**（14.7%）· 阻塞（blocked）**0**
+- 节点 **4533** · 边 **14281** · 缺口条目 **105**
+- 可运行单元 **85** · 判据 **288** · 活动节点 **1586** · 流程边（唯一能驱动跳转的边）**4119**
+- 待装配（scaffold）**601**（13.3%）· 阻塞（blocked）**0**
 
 ## 二、按层
 
@@ -18,7 +18,7 @@
 | 五类语义 `semantics` | 538 | 227 | 0 | SemanticUnit |
 | 公共知识与关系 `knowledge` | 1091 | 0 | 0 | Concept Topic |
 | 问题与课程编排 `curriculum` | 387 | 66 | 0 | LearningProblem Goal GapHypothesis Route RouteStep Unit Criterion |
-| 学习活动 `activity` | 1130 | 258 | 0 | Reading Formative Support Decision DecisionReview Summative ApplicationReview ExperimentReference |
+| 学习活动 `activity` | 1586 | 258 | 0 | Reading Formative Support Decision DecisionReview Summative ApplicationReview ExperimentReference |
 | 运行与记录 `runtime` | 0 | 0 | 0 | Session Turn Attempt Checkpoint Evidence AssessmentRecord |
 | 模型与规则 `ai` | 3 | 1 | 0 | SkillPolicy ModelAdapter App |
 
@@ -32,6 +32,8 @@
 | ApplicationReview | 404 |
 | Support | 340 |
 | Criterion | 288 |
+| Decision | 251 |
+| DecisionReview | 251 |
 | DerivedAsset | 154 |
 | Unit | 85 |
 | Reading | 85 |
@@ -39,8 +41,6 @@
 | Summative | 85 |
 | ExperimentReference | 85 |
 | SourceDocument | 78 |
-| Decision | 23 |
-| DecisionReview | 23 |
 | Topic | 21 |
 | FiveDimAsset | 11 |
 | RouteStep | 8 |
@@ -57,7 +57,7 @@
 | 边类 | 数量 | 能不能驱动跳转 |
 |---|---|---|
 | `knowledge` | 5894 | 不能 |
-| `transition` | 2675 | **能**（唯一） |
+| `transition` | 4119 | **能**（唯一） |
 | `curriculum` | 2167 | 不能（课程编排，不是运行时跳转） |
 | `provenance` | 2101 | 不能 |
 
@@ -66,8 +66,8 @@
 | reviewState | 数量 |
 |---|---|
 | sourced | 6060 |
+| curated | 4299 |
 | unreviewed | 3764 |
-| curated | 2855 |
 | authored | 140 |
 | owner-confirmed | 18 |
 
@@ -75,7 +75,7 @@
 
 | status | 数量 |
 |---|---|
-| ready | 3476 |
+| ready | 3932 |
 | scaffold | 601 |
 
 ## 七、可运行入口
@@ -175,8 +175,10 @@
   "ready": 19,
   "scaffold": 57,
   "criteria": 264,
-  "activities": 760,
-  "materials": 380
+  "activities": 1216,
+  "materials": 380,
+  "decisionUnits": 76,
+  "decisionQuestions": 228
  },
  "fixture": {
   "routeId": "fixture-shared-concept-v1",
@@ -210,7 +212,7 @@
 
 ## 九、缺口清单（保留节点并写清原因，不把它变成 ready）
 
-### pending（181）
+### pending（105）
 
 - **概念依赖里有 2 条重复记录（已按稳定身份去重）** — 重复键：cm_30fb0c9b<-cm_34b33e00、cm_a0ca0f95<-cm_34b33e00　`knowledge/概念地图-260913/dependencies.json`　影响 2 个节点
 - **概念关系里有 11 条重复记录（已按稳定身份去重）** — 重复键：cm_0a4ca4ce>cm_d9aa9fe0/used-with、cm_34b33e00>cm_7cd7335d/used-with、cm_c8798fb1>cm_01d6a01e/used-with、cm_b55ff5c3>cm_916d7db2/used-with、cm_30201f36>cm_01d6a01e/used-with　`knowledge/概念地图-260913/relations.json`　影响 3 个节点
@@ -255,24 +257,24 @@
 - **验证闭环 章：材料侧已知问题** — 每章经 relationships.target 找到的候选 CAS 都只有 1 个，没有可对比的第二候选；「允许一个概念多个候选案例」这条规则在本批材料上没被真正用上。　`evidence/agent-loop-260913/chapters.json#gaps[1]`　影响 1 个节点
 - **验证闭环 章：材料侧已知问题** — CON-agent-loop 与 CON-verification-loop 没有 relationships 直连的 OPI，题目依据只能落在 SOL 动作路径上。　`evidence/agent-loop-260913/chapters.json#gaps[2]`　影响 1 个节点
 - **单篇的正式章末通过与解锁门待装配** — 单篇材料有 4 条判据与章末费曼，但没有像六章那样已确认的「正式通过标准 / 解锁规则」；本轮照实标待装配，不借用六章的门　`evidence/feynman-teaching-map/agent-skills-api.json#criteria`　影响 2 个节点
-- **「AI Agent」的三道决策题待装配** — 该单元的三道决策题待装配：批量装配不补造唯一正确答案（任务书 §2.3）。可用素材已经就位：CAS 情境、SOL 动作路径、该卡 boundaries 的误区清单。　`evidence/batch-units-260914/units.json#units[unitId=batch-agent].gaps[0]`　影响 1 个节点
-- **「Agent 行动空间」的三道决策题待装配** — 该单元的三道决策题待装配：批量装配不补造唯一正确答案（任务书 §2.3）。可用素材已经就位：CAS 情境、SOL 动作路径、该卡 boundaries 的误区清单。　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-action-space].gaps[0]`　影响 1 个节点
 - **「Agent 行动空间」缺 OPI：决策题依据只能落在 CAS 情境与 SOL 动作路径上** — 本单元（CON-agent-action-space）没有反向观点单元；决策题待装配时，依据只能落在 CAS 情境与 SOL 动作路径上　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-action-space].statusReason`　影响 1 个节点
-- **「Agent CLI 运行时」的三道决策题待装配** — 该单元的三道决策题待装配：批量装配不补造唯一正确答案（任务书 §2.3）。可用素材已经就位：CAS 情境、SOL 动作路径、该卡 boundaries 的误区清单。　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-cli-runtime].gaps[0]`　影响 1 个节点
 - **「Agent CLI 运行时」缺 OPI：决策题依据只能落在 CAS 情境与 SOL 动作路径上** — 本单元（CON-agent-cli-runtime）没有反向观点单元；决策题待装配时，依据只能落在 CAS 情境与 SOL 动作路径上　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-cli-runtime].statusReason`　影响 1 个节点
-- **「Agent 信息引出」的三道决策题待装配** — 该单元的三道决策题待装配：批量装配不补造唯一正确答案（任务书 §2.3）。可用素材已经就位：CAS 情境、SOL 动作路径、该卡 boundaries 的误区清单。　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-elicitation].gaps[0]`　影响 1 个节点
 - **「Agent 信息引出」缺 OPI：决策题依据只能落在 CAS 情境与 SOL 动作路径上** — 本单元（CON-agent-elicitation）没有反向观点单元；决策题待装配时，依据只能落在 CAS 情境与 SOL 动作路径上　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-elicitation].statusReason`　影响 1 个节点
-- **「Agent 交接」的三道决策题待装配** — 该单元的三道决策题待装配：批量装配不补造唯一正确答案（任务书 §2.3）。可用素材已经就位：CAS 情境、SOL 动作路径、该卡 boundaries 的误区清单。　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-handoff].gaps[0]`　影响 1 个节点
 - **「Agent 交接」缺 OPI：决策题依据只能落在 CAS 情境与 SOL 动作路径上** — 本单元（CON-agent-handoff）没有反向观点单元；决策题待装配时，依据只能落在 CAS 情境与 SOL 动作路径上　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-handoff].statusReason`　影响 1 个节点
-- **「Agent Harness」的三道决策题待装配** — 该单元的三道决策题待装配：批量装配不补造唯一正确答案（任务书 §2.3）。可用素材已经就位：CAS 情境、SOL 动作路径、该卡 boundaries 的误区清单。　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-harness].gaps[0]`　影响 1 个节点
-- **「Agent 生命周期」的三道决策题待装配** — 该单元的三道决策题待装配：批量装配不补造唯一正确答案（任务书 §2.3）。可用素材已经就位：CAS 情境、SOL 动作路径、该卡 boundaries 的误区清单。　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-lifecycle].gaps[0]`　影响 1 个节点
 - **「Agent 生命周期」缺 OPI：决策题依据只能落在 CAS 情境与 SOL 动作路径上** — 本单元（CON-agent-lifecycle）没有反向观点单元；决策题待装配时，依据只能落在 CAS 情境与 SOL 动作路径上　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-lifecycle].statusReason`　影响 1 个节点
-- **「Agent 循环」的三道决策题待装配** — 该单元的三道决策题待装配：批量装配不补造唯一正确答案（任务书 §2.3）。可用素材已经就位：CAS 情境、SOL 动作路径、该卡 boundaries 的误区清单。　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-loop].gaps[0]`　影响 1 个节点
 - **「Agent 循环」缺 OPI：决策题依据只能落在 CAS 情境与 SOL 动作路径上** — 本单元（CON-agent-loop）没有反向观点单元；决策题待装配时，依据只能落在 CAS 情境与 SOL 动作路径上　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-loop].statusReason`　影响 1 个节点
-- **「Agent 会话管理」的三道决策题待装配** — 该单元的三道决策题待装配：批量装配不补造唯一正确答案（任务书 §2.3）。可用素材已经就位：CAS 情境、SOL 动作路径、该卡 boundaries 的误区清单。　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-session-management].gaps[0]`　影响 1 个节点
 - **「Agent 会话管理」缺 OPI：决策题依据只能落在 CAS 情境与 SOL 动作路径上** — 本单元（CON-agent-session-management）没有反向观点单元；决策题待装配时，依据只能落在 CAS 情境与 SOL 动作路径上　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-session-management].statusReason`　影响 1 个节点
-- **「Agent 终止条件」的三道决策题待装配** — 该单元的三道决策题待装配：批量装配不补造唯一正确答案（任务书 §2.3）。可用素材已经就位：CAS 情境、SOL 动作路径、该卡 boundaries 的误区清单。　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-stop-conditions].gaps[0]`　影响 1 个节点
-- …另有 121 条同类缺口，全部在 `graph.json#gaps`
+- **「Agent 终止条件」缺 OPI：决策题依据只能落在 CAS 情境与 SOL 动作路径上** — 本单元（CON-agent-stop-conditions）没有反向观点单元；决策题待装配时，依据只能落在 CAS 情境与 SOL 动作路径上　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-stop-conditions].statusReason`　影响 1 个节点
+- **「Agent 工具契约」缺 OPI：决策题依据只能落在 CAS 情境与 SOL 动作路径上** — 本单元（CON-agent-tool-contract）没有反向观点单元；决策题待装配时，依据只能落在 CAS 情境与 SOL 动作路径上　`evidence/batch-units-260914/units.json#units[unitId=batch-agent-tool-contract].statusReason`　影响 1 个节点
+- **「限界上下文」缺 OPI：决策题依据只能落在 CAS 情境与 SOL 动作路径上** — 本单元（CON-bounded-context）没有反向观点单元；决策题待装配时，依据只能落在 CAS 情境与 SOL 动作路径上　`evidence/batch-units-260914/units.json#units[unitId=batch-bounded-context].statusReason`　影响 1 个节点
+- **「浏览循环」缺 OPI：决策题依据只能落在 CAS 情境与 SOL 动作路径上** — 本单元（CON-browsing-loop）没有反向观点单元；决策题待装配时，依据只能落在 CAS 情境与 SOL 动作路径上　`evidence/batch-units-260914/units.json#units[unitId=batch-browsing-loop].statusReason`　影响 1 个节点
+- **「变更影响分析」缺 OPI：决策题依据只能落在 CAS 情境与 SOL 动作路径上** — 本单元（CON-change-impact-analysis）没有反向观点单元；决策题待装配时，依据只能落在 CAS 情境与 SOL 动作路径上　`evidence/batch-units-260914/units.json#units[unitId=batch-change-impact-analysis].statusReason`　影响 1 个节点
+- **「聊天模板」缺 OPI：决策题依据只能落在 CAS 情境与 SOL 动作路径上** — 本单元（CON-chat-template）没有反向观点单元；决策题待装配时，依据只能落在 CAS 情境与 SOL 动作路径上　`evidence/batch-units-260914/units.json#units[unitId=batch-chat-template].statusReason`　影响 1 个节点
+- **「上下文腐烂」缺 OPI：决策题依据只能落在 CAS 情境与 SOL 动作路径上** — 本单元（CON-context-rot）没有反向观点单元；决策题待装配时，依据只能落在 CAS 情境与 SOL 动作路径上　`evidence/batch-units-260914/units.json#units[unitId=batch-context-rot].statusReason`　影响 1 个节点
+- **「上下文选择」缺 OPI：决策题依据只能落在 CAS 情境与 SOL 动作路径上** — 本单元（CON-context-selection）没有反向观点单元；决策题待装配时，依据只能落在 CAS 情境与 SOL 动作路径上　`evidence/batch-units-260914/units.json#units[unitId=batch-context-selection].statusReason`　影响 1 个节点
+- **「持久化执行」缺 OPI：决策题依据只能落在 CAS 情境与 SOL 动作路径上** — 本单元（CON-durable-execution）没有反向观点单元；决策题待装配时，依据只能落在 CAS 情境与 SOL 动作路径上　`evidence/batch-units-260914/units.json#units[unitId=batch-durable-execution].statusReason`　影响 1 个节点
+- **「动态上下文装配」缺 OPI：决策题依据只能落在 CAS 情境与 SOL 动作路径上** — 本单元（CON-dynamic-context-assembly）没有反向观点单元；决策题待装配时，依据只能落在 CAS 情境与 SOL 动作路径上　`evidence/batch-units-260914/units.json#units[unitId=batch-dynamic-context-assembly].statusReason`　影响 1 个节点
+- …另有 45 条同类缺口，全部在 `graph.json#gaps`
 
 ## 十、构建来源（可核对基线）
 
@@ -408,8 +410,9 @@
 | `evidence/agent-loop-260913/authored.json` | `7dc25beff7bd7bb2` | 人工撰写的题目与费曼判据 |
 | `evidence/agent-loop-260913/pairings.json` | `ef6d743975e05554` | 六章 cm↔CON 配对与负责人裁决 |
 | `evidence/feynman-teaching-map/agent-skills-api.json` | `176c751da7975a13` | 单篇费曼教学映射（C1–C4） |
-| `evidence/batch-units-260914/units.json` | `203e65996373d7c8` | 76 个批量装配单元（逐字材料 + 出处 + 缺口） |
+| `evidence/batch-units-260914/units.json` | `e84d4d2911362a1a` | 76 个批量装配单元（逐字材料 + 出处 + 缺口） |
 | `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/agent.yaml` | `be4cf0839d7f6fc0` | 图鉴卡（只读，逐字材料来源） |
+| `evidence/gen-decisions-hybrid-v3-20260914.json` | `e2f0985c54220c10` | 决策题（确定性生成 v3 · 经独立复核 verdict=usable） |
 | `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/agent-action-space.yaml` | `2660390f800f4b47` | 图鉴卡（只读，逐字材料来源） |
 | `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/agent-cli-runtime.yaml` | `6ff3458c0bbf6a5d` | 图鉴卡（只读，逐字材料来源） |
 | `内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts/agent-elicitation.yaml` | `32c544e7be69cb33` | 图鉴卡（只读，逐字材料来源） |

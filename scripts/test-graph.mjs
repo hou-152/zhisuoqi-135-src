@@ -50,9 +50,14 @@ ok(readingProvenance.every((e) => e.sourceRefs.length && e.sourceRefs[0].locator
 const spans = readingProvenance.filter((e) => e.to.startsWith('span:'));
 ok(spans.length >= 3 && spans.every((e) => (byId.get(e.to).meta || {}).text), '原文片段节点真的带逐字原文');
 const decisions = g.nodes.filter((n) => n.kind === 'Decision');
-ok(decisions.length === 23, `决策题节点 ${decisions.length} 个（六章 18 + 单篇 3 + 夹具 2）`);
+const courseDecisions = decisions.filter((n) => !/^activity:unit:batch-/.test(n.id));   // 六章 + 单篇 + 夹具
+const batchDecisions = decisions.filter((n) => /^activity:unit:batch-/.test(n.id));     // 76 个批量单元（索引节点）
+ok(courseDecisions.length === 23, `正式课程的决策题节点 ${courseDecisions.length} 个（六章 18 + 单篇 3 + 夹具 2）`);
+ok(batchDecisions.length === 228, `批量单元的决策题节点 ${batchDecisions.length} 个（76 单元 × 3 题）`);
+ok(batchDecisions.every((n) => n.status === 'ready' && (n.meta || {}).prompt && (n.sourceRefs || []).length >= 2),
+  '批量决策题节点都是 ready、都带题干、都指向决策题产物 + 复核产物（索引节点，不带作答入口）');
 let noCase = [], noBasis = [];
-for (const d of decisions) {
+for (const d of courseDecisions) {
   const isFixture = /fixture/.test(d.id);
   const caseE = g.edges.filter((e) => e.from === d.id && e.relation === 'uses-case');
   const basisE = g.edges.filter((e) => e.from === d.id && e.relation === 'answer-basis');

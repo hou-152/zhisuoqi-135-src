@@ -197,12 +197,14 @@ export function buildPractice({ graph, batch, learning, review }) {
   }
 
   // 桶：按「第一次卡住的那一段」+ 声明的装配状态分（负责人给的四类口径）
+  /* 桶 = 「第一次卡住的那一段」决定的（四类口径）。批量单元不再特判：
+     2026-09-14 决策题接入后，76 个批量单元的「决策」段已全部变绿，它们现在卡在
+     形成性费曼（判据是机械派生的）——照 实 归到「材料缺口」，不留在「缺少决策题」里。 */
   const firstBroken = (u) => SEGMENTS.find((s) => u.segments[s.key].state !== 'green');
   for (const u of units) {
     if (u.open) { u.bucket = 'open'; continue; }
     const fb = firstBroken(u);
-    if (u.group === '批量') u.bucket = u.routeStatus === 'ready' ? 'decision' : 'material';
-    else if (fb && fb.key === 'decision') u.bucket = 'decision';
+    if (fb && fb.key === 'decision') u.bucket = 'decision';
     else u.bucket = 'material';
   }
 
@@ -227,6 +229,10 @@ export function buildPractice({ graph, batch, learning, review }) {
     polarityInvertedQuestions: review.recomputed.polarityInvertedQuestions,
     zeroComprehensionShortcutExploitable: review.recomputed.zeroComprehensionShortcutExploitable,
     unitsWhereAllThreeCorrectAnswersAreIdentical: review.recomputed.unitsWhereAllThreeCorrectAnswersAreIdentical,
+    correctVerbatimCopy: review.recomputed.correctVerbatimCopy,
+    correctRunAdvantageQuestions: review.recomputed.correctRunAdvantageQuestions,
+    verdict: review.verdict,
+    shortcutStrategyAccuracy: review.recomputed.shortcutStrategyAccuracy,
   } : null;
 
   // ── 「要全面推进，还差什么」：按缺口类型归并（给负责人做下一轮决策用；本轮不动手补） ──
@@ -236,14 +242,13 @@ export function buildPractice({ graph, batch, learning, review }) {
   const noEntry = units.filter((u) => !u.entry).length;
   const fullPush = [
     {
-      type: '缺决策题（有生成稿，独立复核不通过）', units: count((u) => u.group === '批量'), criteria: null,
-      detail: `批量 76 个单元已有 228 道生成稿决策题（串台事故产物，evidence/gen-decisions-hybrid-v2-20260914.json），`
-        + `出处逐字可回溯 754/754 = 100%；但独立复核判定 0/228 可接入：三处它没自检的问题——`
-        + `① 228/228 题的正解是三个选项里唯一的逐字材料句（零理解的人只挑「像教材原文的那句」就能全对；六章基线只有 1/18）；`
-        + `② 76/76 单元的 3 道题共用一个正解（「3 决策」实际是 1 决策问 3 遍）；`
-        + `③ 16/228 题题干与正解极性相反（问「哪个不合适」却把「正确做法」标成正解）。见 evidence/review-decisions-260914/。`,
-      who: '改生成器，不是改数据：正解改成改写句；每单元从 solution_summary / action_steps[] / how_to[] / boundaries[] 取 3 个不同动作句；题干与正解同极性加机器校验',
-      gate: 'node scripts/review-gen-decisions.mjs 退出码 0 且 review.json 里该单元 verdict=usable —— gate 读的就是这个字段，不用改代码',
+      type: '决策段已接通（这一轮做完的）· 链路改在形成性费曼这一段断', units: count((u) => u.group === '批量'), criteria: null,
+      detail: `228 道决策题由 scripts/gen-decisions-hybrid-v3.mjs 确定性生成（模型调用 0 次），经 scripts/review-gen-decisions.mjs `
+        + `逐题独立复核 228/228 通过、verdict=usable：76 个单元的「决策」段全部变成「可走」。上一轮 v2 的 228 道题判定 0/228 可接入 `
+        + `（228/228 正解是唯一逐字材料句 · 76/76 单元三题同解 · 16 道题干与正解极性相反），整批废弃、一道没接。`
+        + `现在卡住这 76 个单元的是「形成性费曼」：判据的 misconception 仍是机械反面转述（negationFlip 152 + boundaryDenial 112），不是人写的教学误解。`,
+      who: '已完成：改生成器（正解改写句 / 三动作句 / 同极性）＋ 把 ⑧⑨⑩ 变成复核脚本里能失败的断言（--selftest 在旧产物上复现 228/76/16）',
+      gate: 'node scripts/review-gen-decisions.mjs --write（退出码 0）· node scripts/review-gen-decisions.mjs --selftest',
     },
     {
       type: '缺 OPI 判断依据', units: batchScaffold, criteria: null,

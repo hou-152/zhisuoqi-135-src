@@ -31,6 +31,8 @@ const ROOT = path.resolve(import.meta.dirname, '..');
 const UNITS_REL = '内容结构化系统/模块/ai-concept-base/data/units.json';
 const CARD_DIR_REL = '内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts';
 const OUT_REL = 'evidence/batch-units-260914/units.json';
+const DECISIONS_REL = 'evidence/gen-decisions-hybrid-v3-20260914.json';        // 决策题产物（确定性生成 v3）
+const REVIEW_REL = 'evidence/review-decisions-260914/review.json';            // 它的独立复核结论（接入只看这里）
 
 const read = (rel) => JSON.parse(fs.readFileSync(path.join(ROOT, rel), 'utf8'));
 const rawOf = (rel) => fs.readFileSync(path.join(ROOT, rel), 'utf8');
@@ -240,6 +242,41 @@ for (const con of [...cons].sort((a, b) => a.id.localeCompare(b.id))) {
   });
 }
 
+/* ── 决策题接入：**复核驱动**，不是白名单 ──
+   228 道决策题由 scripts/gen-decisions-hybrid-v3.mjs 确定性生成（模型调用 0 次）；
+   只有 evidence/review-decisions-260914/review.json 里该单元 verdict === 'usable' 才接进单元，
+   没通过 / 没复核记录就照实留空数组（空数组 ≠ 满足，闸门那一段不开）。 */
+const wiredUnits = [], wiredQuestions = [];
+{
+  const decAbs = path.join(ROOT, DECISIONS_REL);
+  const revAbs = path.join(ROOT, REVIEW_REL);
+  if (!fs.existsSync(decAbs)) {
+    console.warn(`⚠ 缺 ${DECISIONS_REL}（决策题产物不在）—— 76 个单元的 decisions 照实留空`);
+  } else if (!fs.existsSync(revAbs)) {
+    console.warn(`⚠ 缺 ${REVIEW_REL}（没有独立复核结论）—— 有题但不接入，76 个单元的 decisions 照实留空`);
+  } else {
+    const dec = JSON.parse(fs.readFileSync(decAbs, 'utf8'));
+    const rev = JSON.parse(fs.readFileSync(revAbs, 'utf8'));
+    need(rev.file === DECISIONS_REL, `复核产物指向的 ${rev.file} 与接入的 ${DECISIONS_REL} 不是同一份`);
+    const verdictOf = new Map((rev.units || []).map((r) => [r.unitId, r.verdict]));
+    const qsOf = new Map((dec.units || []).map((u) => [u.unitId, u.questions || []]));
+    for (const u of outUnits) {
+      if (verdictOf.get(u.unitId) !== 'usable') continue;
+      const qs = qsOf.get(u.unitId) || [];
+      need(qs.length === 3, `${u.unitId} 复核 usable 但只有 ${qs.length} 道题`);
+      if (qs.length !== 3) continue;
+      u.decisions = qs;
+      u.decisionPolicy = '3 道决策题已接入：脚本确定性生成（模型调用 0 次），并经独立复核 verdict=usable'
+        + '（依据逐字可回溯 + 正解是与依据句共享 ≥8 字连续原文的改写句 + 题干与正解同极性 + 三题三个正解）。';
+      u.gaps = u.gaps.filter((g) => !/三道决策题待装配/.test(g));
+      wiredUnits.push(u.unitId);
+      wiredQuestions.push(...qs.map((q) => `${u.unitId}#${q.id}`));
+    }
+    need(wiredUnits.length === (rev.recomputed || {}).usableUnits,
+      `接入了 ${wiredUnits.length} 个单元，复核说可用 ${(rev.recomputed || {}).usableUnits} 个`);
+  }
+}
+
 /* ── 汇总与产物 ── */
 const ready = outUnits.filter((u) => u.status === 'ready').length;
 const scaffold = outUnits.filter((u) => u.status === 'scaffold').length;
@@ -274,7 +311,9 @@ const out = {
   policy: {
     noModel: '本产物由一个模型调用都没打的确定性脚本生成（scripts/build-batch-units.mjs）。',
     verbatim: '所有正文逐字来自 units.json 与图鉴卡；唯一派生的字段是费曼判据的 point（前 12 字）与 misconception（机械反面转述），两者都标 derived 并由 check-batch-units.mjs 重算复核。',
-    noDecisions: '决策题一个都没生成：批量装配不补造唯一正确答案（施工单 §1）。每个单元写一条待装配缺口，并写明可用素材已就位。',
+    noDecisions: `决策题不再由本脚本生成：228 道题来自 scripts/gen-decisions-hybrid-v3.mjs（确定性生成、模型调用 0 次），`
+      + `只有 evidence/review-decisions-260914/review.json 判定 verdict='usable' 的单元才接进来（本次 ${wiredUnits.length} 个单元 / ${wiredQuestions.length} 道题）；`
+      + `没通过复核的照实留空数组 —— 空数组 ≠ 满足。`,
     caseHonesty: '主案例一律来自反向 CAS 语义单元，全部自述为「假设场景」，本产物照原样保留该标记，不写成真实复盘。',
     cardFieldsUnused: '卡片字段 scenario 本轮未被任何单元字段取用（施工单 §1 的材料表没有把它指派给任何字段）；它留在卡里，供下一轮装配决策题时使用。',
   },
@@ -288,6 +327,7 @@ const out = {
     readyUnits: outUnits.filter((u) => u.status === 'ready').map((u) => u.unitId),
     scaffoldUnits: outUnits.filter((u) => u.status === 'scaffold').map((u) => u.unitId),
     misconceptionRules: { negationFlip: derivedFlip, boundaryDenial: derivedDenial },
+    decisionsWired: { units: wiredUnits.length, questions: wiredQuestions.length, source: DECISIONS_REL, review: REVIEW_REL },
   },
   units: outUnits,
 };
@@ -298,5 +338,6 @@ fs.writeFileSync(path.join(ROOT, OUT_REL), JSON.stringify(out, null, 1));
 console.log(`✅ 批量单元已装配：${outUnits.length} 个（ready ${ready} · scaffold ${scaffold}）`);
 console.log(`  逐字材料 ${citeCount} 条 · 费曼判据 ${checkCount} 条（边界 ${boundaryItemCount} 条）· 缺口 ${gapCount} 条`);
 console.log(`  反面转述规则：否定翻转 ${derivedFlip} · 整条否定 ${derivedDenial}`);
+console.log(`  决策题接入：${wiredUnits.length} 个单元 / ${wiredQuestions.length} 道题（复核驱动 · ${REVIEW_REL}）`);
 console.log(`  卡：${cardFiles.length} 张，用到 ${seenSlugs.size} 张`);
 console.log(`  ${OUT_REL}`);

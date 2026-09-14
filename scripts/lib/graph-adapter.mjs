@@ -521,13 +521,20 @@ function makeActivities(b, unit, opts) {
     return id;
   };
   const n = opts.decisions;
+  const dMeta = opts.decisionMeta || (() => ({}));
+  const dRefs = opts.decisionRefs || null;
+  const dStatus = opts.decisionStatus || 'ready';
   const reading = a(':reading', 'Reading', `${opts.title} · 阅读`, { sub: opts.sub, payloadRef: opts.readingRef, meta: { index: 0 } });
   const formative = a(':formative', 'Formative', `${opts.title} · 阅读中费曼`, { sub: opts.sub, meta: { kind: 'formative' } });
   const support = a(':support', 'Support', `${opts.title} · 补讲`, { sub: opts.sub, meta: { kind: 'support' } });
   const decisions = [], reviews = [];
   for (let i = 0; i < n; i++) {
-    decisions.push(a(`:decision:${i + 1}`, 'Decision', `${opts.title} · 决策 ${i + 1}`, { sub: opts.sub, meta: { index: i + 1 } }));
-    reviews.push(a(`:review:${i + 1}`, 'DecisionReview', `${opts.title} · 决策 ${i + 1} 反馈`, { sub: opts.sub, meta: { index: i + 1 } }));
+    decisions.push(a(`:decision:${i + 1}`, 'Decision', `${opts.title} · 决策 ${i + 1}`, {
+      sub: opts.sub, status: dStatus, payloadRef: opts.payloadRef,
+      sourceRefs: dRefs || baseRefs, meta: { index: i + 1, ...dMeta(i) } }));
+    reviews.push(a(`:review:${i + 1}`, 'DecisionReview', `${opts.title} · 决策 ${i + 1} 反馈`, {
+      sub: opts.sub, status: dStatus, payloadRef: opts.payloadRef,
+      sourceRefs: dRefs || baseRefs, meta: { index: i + 1, ...dMeta(i) } }));
   }
   const summative = a(':summative', 'Summative', `${opts.title} · 章末费曼验收`, { sub: opts.sub, meta: { kind: 'summative' } });
   const apply = a(':apply', 'ApplicationReview', `${opts.title} · 正式通过核对`, { sub: opts.sub, meta: { kind: 'application' } });
@@ -962,15 +969,16 @@ function adaptRoutesAndUnits(b, out) {
 // ── 5b. 批量装配的学习单元：76 个 CON，走**同一份** makeActivities / wireUnit / wireTail ──
 // 施工单：docs/批量装配学习单元-施工单-20260914.md。
 // 材料与出处逐字来自 evidence/batch-units-260914/units.json（该文件由确定性脚本装配并自校验）。
-// 这一轮**不生成决策题**：每个单元的活动骨架照建，但没有 Decision / DecisionReview 节点，
-// 阅读之后直接进章末独立验收；缺的那道题写成缺口，不编假题占位。
+// 决策题：**复核驱动**。evidence/batch-units-260914/units.json 里 decisions 非空（= 该单元已通过
+// scripts/review-gen-decisions.mjs 的独立复核）才建 Decision / DecisionReview 节点；空数组照实不建，
+// 缺口照写，不编假题占位。
 function adaptBatchUnits(b, out) {
   const rel = 'evidence/batch-units-260914/units.json';
   if (!b.exists(rel)) { b.warn(`批量单元材料不在：${rel}（先跑 node scripts/build-batch-units.mjs）`); return; }
   b.src(rel, '76 个批量装配单元（逐字材料 + 出处 + 缺口）');
   const data = b.json(rel);
   const list = data.units || [];
-  const stats = { units: 0, ready: 0, scaffold: 0, criteria: 0, activities: 0, materials: 0 };
+  const stats = { units: 0, ready: 0, scaffold: 0, criteria: 0, activities: 0, materials: 0, decisionUnits: 0, decisionQuestions: 0 };
   const unitIds = [], critIds = [];
 
   for (const bu of list) {
@@ -991,8 +999,8 @@ function adaptBatchUnits(b, out) {
       status: bu.status, statusReason: bu.statusReason || '',
       payloadRef: rel,
       sourceRefs: [unitRef, { path: cardPath, locator: `remember / feynman / source_context / boundaries[0..${Math.max(checks.length - 1, 0)}] / how_to` }],
-      meta: { unitId: uid, title, routeId: '', order: 0, questionCount: 0, criterionCount: checks.length,
-        caseType: bu.case.caseType, cardSlug: slug, decisionGap: true },
+      meta: { unitId: uid, title, routeId: '', order: 0, questionCount: (bu.decisions || []).length, criterionCount: checks.length,
+        caseType: bu.case.caseType, cardSlug: slug, decisionGap: (bu.decisions || []).length === 0 },
       runnable: null,   // 页面入口还没装配：给空按钮等于骗人，宁可不给（已登记缺口）
     });
 
@@ -1071,15 +1079,27 @@ function adaptBatchUnits(b, out) {
       }
     }
 
-    // 活动 + transition 边：和六章、单篇、夹具共用同一套生成器（decisions=0 → 本轮没有决策题）
+    // 活动 + transition 边：和六章、单篇、夹具共用同一套生成器
+    const myDecisions = bu.decisions || [];
+    const decRel = 'evidence/gen-decisions-hybrid-v3-20260914.json';
+    const revRel = 'evidence/review-decisions-260914/review.json';
+    if (myDecisions.length) b.src(decRel, '决策题（确定性生成 v3 · 经独立复核 verdict=usable）');
     const acts = makeActivities(b, uid, {
-      title, sub: `批量单元 · ${slug}`, decisions: 0,
+      title, sub: `批量单元 · ${slug}`, decisions: myDecisions.length,
+      decisionRefs: myDecisions.length ? [{ path: decRel, locator: `units[unitId=${bu.unitId}].questions` },
+        { path: revRel, locator: `units[unitId=${bu.unitId}]` }] : null,
+      decisionMeta: (i) => ({
+        questionId: (myDecisions[i] || {}).id || '', prompt: ((myDecisions[i] || {}).prompt || '').slice(0, 120),
+        optionCount: 1 + (((myDecisions[i] || {}).distractors || []).length || 0),
+        reviewVerdict: myDecisions.length ? 'usable' : 'unreviewed',
+      }),
       readingRef: rel, payloadRef: rel, experiments: 0,
       experimentNote: '本单元材料里没有实验环节（真五维的 experiments 只在内参单篇）；节点保留并标未启用，不卡住本单元的学习流程',
       sourceRefs: [unitRef],
     });
     wireUnit(b, uid, acts, {});
-    stats.activities += 10;   // decisions=0：reading/formative/support/summative/apply/experiment/ret/resume/error/advance
+    stats.activities += 10 + myDecisions.length * 2;   // 活动骨架 10 + 每题 Decision/DecisionReview 各一
+    if (myDecisions.length) { stats.decisionUnits++; stats.decisionQuestions += myDecisions.length; }
     for (const cid of myCritIds) {
       b.edge({ kind: 'curriculum', relation: 'assessed-by', from: acts.summative, to: cid, label: '章末独立验收核对',
         reviewState: 'sourced', sourceRefs: [{ path: rel, locator: `units[unitId=${bu.unitId}].feynman.checks` }] });
@@ -1096,8 +1116,10 @@ function adaptBatchUnits(b, out) {
     });
 
     // 缺口：照实写，不许为了"看起来完整"补造选项
-    b.gap({ kind: 'pending', layer: 'curriculum', label: `「${title}」的三道决策题待装配`,
-      why: (bu.gaps || [])[0] || '该单元的三道决策题待装配', where: `${rel}#units[unitId=${bu.unitId}].gaps[0]`, affects: [uid] });
+    if (!myDecisions.length) {
+      b.gap({ kind: 'pending', layer: 'curriculum', label: `「${title}」的三道决策题待装配`,
+        why: (bu.gaps || [])[0] || '该单元的三道决策题待装配', where: `${rel}#units[unitId=${bu.unitId}].gaps[0]`, affects: [uid] });
+    }
     if (bu.status === 'scaffold') {
       b.gap({ kind: 'pending', layer: 'curriculum', label: `「${title}」缺 OPI：决策题依据只能落在 CAS 情境与 SOL 动作路径上`,
         why: `本单元（${bu.conceptId}）没有反向观点单元；决策题待装配时，依据只能落在 CAS 情境与 SOL 动作路径上`,

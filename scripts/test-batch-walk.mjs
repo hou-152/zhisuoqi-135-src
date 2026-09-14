@@ -4,10 +4,12 @@
 //
 // 每一步都是固定响应（modelMode: 'fixed'），**不调模型、不需要 serve**。
 // 走的就是施工单 §2.4 那一条：
-//   阅读 → 读中费曼（缺口）→ 补讲 → 只补那一处 → 回原活动 → 章末独立验收 → 应用核对 → 前进
+//   阅读 → 读中费曼（缺口）→ 补讲 → 只补那一处 → 回原活动 → 回阅读 → 三道决策（先答后反馈）
+//   → 章末独立验收 → 应用核对 → 前进
 //
 // 它证明的是**连线与状态**：76 个单元都真的连成了一条能走通的路，且没有一个单元跳过流程边。
-// 它**不**证明模型理解力，也**不**证明决策题可用——决策题这一轮一个都没有（每单元一条缺口）。
+// 它**不**证明模型理解力，也**不**证明决策题的质量——题的质量由 scripts/review-gen-decisions.mjs
+// 逐题独立复核（依据逐字 / 改写不照抄 / 同极性 / 三题三解 / 无捷径），这里只证明连线与状态。
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -29,12 +31,13 @@ const edgeById = new Map(g.edges.map((e) => [e.id, e]));
 let pass = 0, fail = 0;
 const ok = (cond, label) => { if (cond) pass++; else { fail++; console.log(`  ✗ ${label}`); } };
 const group = (t) => console.log(`\n${t}`);
-const step = (id) => String(id).split(':').pop();
+const step = (id) => String(id).replace(/^activity:unit:[^:]+:/, '').replace(/^activity:/, '');
 const short = (id) => String(id).replace('activity:unit:', '').replace('activity:', '');
 
 const broken = [];    // 走不通的边：{ unit, at, event, reason }
 const runs = [];      // 每个单元一次真实走查：{ bu, s, hops, problems, crit }
-const KEY_STEPS = ['formative', 'support', 'return', 'formative', 'summative', 'apply', 'advance'];
+const KEY_STEPS = ['formative', 'support', 'return', 'formative', 'return', 'reading',
+  'decision:1', 'review:1', 'decision:2', 'review:2', 'decision:3', 'review:3', 'summative', 'apply', 'advance'];
 
 group('① 前置：76 个单元的材料、单元节点与活动骨架都在');
 ok(data.units.length === 76, `批量单元 76 个（实际 ${data.units.length}）`);
@@ -46,9 +49,12 @@ for (const bu of data.units) {
     if (!byNode.has(`activity:${uid}:${suffix}`)) missing.push(`activity:${uid}:${suffix}`);
   }
   const acts = g.nodes.filter((n) => (n.meta || {}).unitId === uid);
-  if (acts.some((a) => a.kind === 'Decision' || a.kind === 'DecisionReview')) missing.push(`${uid} 有决策题活动（本轮不该有）`);
+  const dec = acts.filter((a) => a.kind === 'Decision');
+  const rev = acts.filter((a) => a.kind === 'DecisionReview');
+  if (dec.length !== 3 || rev.length !== 3) missing.push(`${uid} 决策活动 ${dec.length}/${rev.length}`);
+  if (dec.some((a) => a.status !== 'ready')) missing.push(`${uid} 有未就绪的决策活动`);
 }
-ok(missing.length === 0, `76 个单元的活动骨架齐全、且都没有决策题活动（缺 ${missing.length}：${missing.slice(0, 3).join(' ')}）`);
+ok(missing.length === 0, `76 个单元的活动骨架齐全、各带 3 个 ready 的决策活动（缺 ${missing.length}：${missing.slice(0, 3).join(' ')}）`);
 
 /* ── 固定响应走查一个单元：预期路径逐跳写死 ── */
 /* 任何一跳落到别处、走了别的守卫、或走的不是流程边，都记成问题；走不通则记进 broken。 */
@@ -63,7 +69,15 @@ function walkOne(bu) {
     ['evaluated', { status: 'missing', criterionId: crit[0], criteria: [{ id: crit[0], status: 'missing', evidence: '这一处没讲清' }] }, A('support'), 'needSupport'],
     ['replied', { text: '只补这一处：它成立的条件是……不成立的情形是……', criteria: [{ id: crit[0], status: 'met', evidence: '把这一处补对了' }] }, A('return'), 'always'],
     ['returned', {}, A('formative'), 'targetIsFormative'],
-    ['proceed', {}, A('summative'), 'always'],
+    ['evaluated', { status: 'met', criteria: [{ id: crit[0], status: 'met', evidence: '这一处讲清了' }] }, A('return'), 'resolved'],
+    ['returned', {}, A('reading'), 'targetIsReading'],
+    ['proceed', {}, A('decision:1'), 'always'],
+    ['answered', { choice: 0, correct: true }, A('review:1'), 'always'],
+    ['reviewed', { status: 'met', gap: false }, A('decision:2'), 'hasNextDecision'],
+    ['answered', { choice: 0, correct: true }, A('review:2'), 'always'],
+    ['reviewed', { status: 'met', gap: false }, A('decision:3'), 'hasNextDecision'],
+    ['answered', { choice: 0, correct: true }, A('review:3'), 'always'],
+    ['reviewed', { status: 'met', gap: false }, A('summative'), 'practiceComplete'],
     ['assessed', { status: 'met', verdicts, quotes, attempt: { passed: true } }, A('apply'), 'summativePass'],
     ['applied', {}, A('advance'), 'formallyPassed'],
   ];
@@ -84,7 +98,7 @@ function walkOne(bu) {
     // 只补那一处之后：学生原话必须已经进了证据账本（此时还没到章末验收）
     if (event === 'replied') evAfterReply = JSON.parse(JSON.stringify(s.state.evidenceByCriterion[crit[0]] || null));
     // 回原活动：补讲那一层必须被弹掉，栈里剩下的正是"发起补讲的那个活动"（这里是阅读中费曼）
-    if (event === 'returned') stackAfterReturn = s.state.returnStack.map((x) => x.returnTo);
+    if (event === 'returned' && stackAfterReturn === null) stackAfterReturn = s.state.returnStack.map((x) => x.returnTo);
   }
   return { bu, s, hops, problems, crit, evAfterReply, stackAfterReturn };
 }
@@ -95,7 +109,7 @@ const failures = [];
 let allPassed = 0;
 for (const run of runs) {
   const { bu, s, hops, problems, crit } = run;
-  if (hops.length === 7) {
+  if (hops.length === KEY_STEPS.length) {
     if (s.state.summativePassed !== true) problems.push('章末独立验收没有通过');
     const adv = byNode.get(hops[hops.length - 1].to);
     if (!adv || (adv.meta || {}).role !== 'advance') problems.push(`没有停在"前进"节点（${hops[hops.length - 1].to}）`);
@@ -119,7 +133,7 @@ const seqBad = [], hopMissing = [], notTransition = [];
 for (const run of runs) {
   const seq = run.hops.map((h) => step(h.to));
   if (seq.join('>') !== KEY_STEPS.join('>')) seqBad.push(`${run.bu.unitId}：${seq.join('>')}`);
-  for (const k of ['formative', 'support', 'return', 'summative', 'apply', 'advance']) {
+  for (const k of ['formative', 'support', 'return', 'reading', 'decision:1', 'review:1', 'decision:2', 'review:2', 'decision:3', 'review:3', 'summative', 'apply', 'advance']) {
     if (!seq.includes(k)) hopMissing.push(`${run.bu.unitId} 少走了 ${k}`);
   }
   for (const h of run.hops) {
@@ -127,9 +141,9 @@ for (const run of runs) {
     if (!e || e.kind !== 'transition') notTransition.push(`${run.bu.unitId} ${short(h.from)} ${h.event}`);
   }
 }
-ok(runs.every((r) => r.hops.length === 7), `每个单元都是 7 跳（实际跳数集合：${[...new Set(runs.map((r) => r.hops.length))].sort((a, b) => a - b).join('/')}）`);
+ok(runs.every((r) => r.hops.length === KEY_STEPS.length), `每个单元都是 ${KEY_STEPS.length} 跳（实际跳数集合：${[...new Set(runs.map((r) => r.hops.length))].sort((a, b) => a - b).join('/')}）`);
 ok(seqBad.length === 0, `76 个单元的逐跳序列完全一致（不一致 ${seqBad.length}：${seqBad.slice(0, 2).join(' / ')}）`);
-ok(hopMissing.length === 0, `每个单元都真的走过那 6 个关键活动（缺 ${hopMissing.length}）`);
+ok(hopMissing.length === 0, `每个单元都真的走过那 13 个关键活动（缺 ${hopMissing.length}）`);
 ok(notTransition.length === 0, `每一跳都能在图里找到对应的流程边（找不到 ${notTransition.length} 跳：${notTransition.slice(0, 2).join(' ')}）`);
 
 group('④ 走完之后的状态：通过记录、证据与日志都落在真实状态里');
@@ -146,7 +160,7 @@ for (const run of runs) {
   const finalEv = s.state.evidenceByCriterion[first];
   if (finalEv && finalEv.source === 'summative' && finalEv.attemptId) independentSummative++;
   const good = s.state.unitPassed[uid] === true && s.state.summativePassed === true
-    && s.log.length === 7 && s.log.every((l, i) => l.seq === i + 1)
+    && s.log.length === KEY_STEPS.length && s.log.every((l, i) => l.seq === i + 1)
     && s.log.every((l) => edgeById.get(l.edgeId) && edgeById.get(l.edgeId).kind === 'transition');
   if (good) okState++;
 }
@@ -155,11 +169,19 @@ ok(independentSummative === 76, `76 个单元的最终判定都来自独立章�
 ok(popped === 76, `76 个单元补讲结束后都弹回"发起补讲的那个活动"（合格 ${popped}）`);
 ok(okState === 76, `76 个单元走完后都留了通过记录与连续日志，且全程只走流程边（合格 ${okState}）`);
 
-group('⑤ 决策题：一个都没生成，也没有拿别的单元顶替');
+group('⑤ 决策题：接的是复核通过的那一份，不是补造的');
+const REVIEW_REL = 'evidence/review-decisions-260914/review.json';
+const DECISIONS_REL = 'evidence/gen-decisions-hybrid-v3-20260914.json';
+const review = JSON.parse(fs.readFileSync(path.join(ROOT, REVIEW_REL), 'utf8'));
+const decArt = JSON.parse(fs.readFileSync(path.join(ROOT, DECISIONS_REL), 'utf8'));
+const verdictOf = new Map((review.units || []).map((r) => [r.unitId, r.verdict]));
+const qsOf = new Map((decArt.units || []).map((u) => [u.unitId, u.questions || []]));
 const fake = g.nodes.filter((n) => /^unit:batch-/.test((n.meta || {}).unitId || '') && (n.kind === 'Decision' || n.kind === 'DecisionReview'));
-ok(fake.length === 0, `批量单元下没有 Decision / DecisionReview 活动（实际 ${fake.length} 个）`);
-ok(data.units.every((u) => (u.decisions || []).length === 0), '76 个单元的材料里 decisions 都是空的（缺口已登记，不补造）');
-ok(g.stats.byKind.Decision === 23, `全图决策题仍是 23 道（六章 18 + 单篇 3 + 夹具 2；实际 ${g.stats.byKind.Decision}）`);
+ok(fake.length === 456, `批量单元下 456 个决策活动（76 × 3 题 × 答/反馈；实际 ${fake.length}）`);
+const wiredBad = data.units.filter((u) => JSON.stringify(u.decisions || []) !== JSON.stringify(qsOf.get(u.unitId) || []) || verdictOf.get(u.unitId) !== 'usable');
+ok(wiredBad.length === 0, `76 个单元接的都是复核 verdict=usable 的那 3 道（不符 ${wiredBad.length}）`);
+ok(g.stats.byKind.Decision === 251, `全图决策题 251 道（六章 18 + 单篇 3 + 夹具 2 + 批量 228；实际 ${g.stats.byKind.Decision}）`);
+ok(review.verdict === 'usable' && (review.recomputed || {}).usableQuestions === 228, '复核总判定 usable，228 道全过');
 
 console.log(`\n批量走：${allPassed} 个通过 · ${failures.length} 个失败 · 走不通的边 ${broken.length} 条`);
 console.log(`  · 逐跳序列（76 个单元一致）：阅读 → ${runs[0].hops.map((h) => step(h.to)).join(' → ')}`);

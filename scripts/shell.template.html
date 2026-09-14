@@ -2038,9 +2038,9 @@ window.renderList = renderList;
      ② 准入不是白名单：PRACTICE.units 每个单元带四段就绪度（阅读｜形成性费曼｜决策｜章末费曼），
         **四段全绿才开放**（gate.open，在 build-shell 时算好）；开放的走同一套 #learn 阅读器，
         不再造第二套视觉；没开放的照实写清缺什么；
-     ③ 19 条 ready 只显示「准备中 / 目录候选」，76 个批量单元一律「不可进入（缺决策题）」：
-        0 道可用决策题（228 道生成稿经独立复核 0 道可接入，见 evidence/review-decisions-260914/）、
-        0 页面入口、264 条判据是机械反面转述 —— 不补假题、不放行、不写成已实现。 */
+     ③ 76 个批量单元的「决策」段已接通（228 道题经独立复核 verdict=usable，见 evidence/review-decisions-260914/）：
+        它们现在卡在「形成性费曼」——264 条判据仍是机械反面转述，不是人写的教学误解；
+        页面入口也还没装配。所以照实不开放，也不写成已实现。 */
 const PRACTICE = DATA.practice || null;
 let practiceFilter = 'all';
 let practicePanel = 'index';      // index = 六章列表 / board = 状态看板
@@ -2133,8 +2133,8 @@ function practiceIndexHtml() {
     </div>
     <div class="pcard">
       <h2>准备中 / 目录候选 · ${ready.length} 个单元（不开放学习）</h2>
-      <div class="mut">这 ${ready.length} 个批量装配单元的材料四类齐（QST／CON／CAS／SOL），但<b>可用的决策题 0 道</b>：链路在「决策」这一段断掉，所以只作为目录候选显示，不开放学习。判据也还是机械派生的（误概念由边界条目的否定翻转算出）。</div>
-      <div class="mut">串台事故另外生成过 228 道决策题（<code>evidence/gen-decisions-hybrid-v2-20260914.json</code>）。独立复核结论：<b>可用 0 / 228</b>——出处是干净的（basisRefs 逐字命中 754/754 = 100%），但它没自检的三条过不去：228 道题的正解都是三个选项里唯一的逐字材料句（不读材料、只挑「像教材原文的那句」就能全对；六章人工写的 18 道里只有 1 道成立这条捷径）、76 个单元的 3 道题共用一个正解、16 道题干与正解极性相反。所以一个都没接进来，理由写在 <code>evidence/review-decisions-260914/</code>。</div>
+      <div class="mut">这 ${ready.length} 个批量装配单元的材料四类齐（QST／CON／CAS／SOL），<b>决策那一段已经接通</b>（每题 3 选项 · 1 正确 · 依据逐字可回溯 · 独立复核 verdict=usable）。现在卡住它们的是<b>形成性费曼</b>：判据的误概念仍由边界条目的否定翻转算出（机械派生），不是人写的教学误解；页面入口也还没装配。所以照实只作目录候选显示。</div>
+      <div class="mut">这批题是 <code>evidence/gen-decisions-hybrid-v3-20260914.json</code>：由脚本<b>确定性生成</b>（模型调用 0 次），正解是答句形态的改写句（不是照抄材料原句），每单元从 solution_summary / action_steps / how_to / boundaries 取三个不同动作句做三道题。上一轮 v2 的 228 道（串台事故产物）判定 <b>0 / 228 可接入</b>——228 道正解都是唯一逐字材料句、76 个单元三题同解、16 道题干与正解极性相反——整批废弃、一道没接。两轮结论都在 <code>evidence/review-decisions-260914/</code>。</div>
       <div>${chips(ready)}</div>
       <div class="mut">另有 <b>${scaffold.length}</b> 个单元连 OPI 判断依据都没有（缺材料 · 待装配），连同上面这些一起在状态看板里逐行列出。</div>
       <button class="pbtn" onclick="openPracticeBoard()">打开状态看板 · 逐单元链路就绪度 →</button>
@@ -2195,7 +2195,7 @@ function practiceBoardHtml() {
       <div class="mut">准入只有一条判断：<b>${esc(PRACTICE.gate || '四段全绿才开放')}</b>。四段的取值只有四种：可走 / 缺材料 / 未装配 / 不可进入；鼠标停在段上能看到那一格的依据。</div>
       <div>${(PRACTICE.buckets || []).map(b => `<span class="seg ${b.key === 'open' ? 'green' : b.key === 'material' ? 'missing' : 'unassembled'}"><b>${esc(b.label)}</b>${b.count}</span>`).join('')}</div>
       <div class="pnote">「缺少可靠案例：不可进入」这一格本轮是 <b>0</b>：没有哪个单元是<b>只</b>因为案例被挡住的（六章主案例是假设场景但已由负责人确认；批量单元先卡在决策题那一段）。真实案例的缺口照实记在下面「要全面推进，还差什么」里。</div>
-      ${PRACTICE.reviewedDecisions ? `<div class="pnote">决策题独立复核（<code>${esc(PRACTICE.reviewedDecisions.file)}</code>）：生成 ${PRACTICE.reviewedDecisions.questions} 道 / <b>复核通过 ${PRACTICE.reviewedDecisions.usableQuestions} 道</b> · 可用单元 ${PRACTICE.reviewedDecisions.usableUnits}/${PRACTICE.reviewedDecisions.units}。basisRefs 逐字命中 ${esc(PRACTICE.reviewedDecisions.refHitRate)}；题干与正解极性相反 ${PRACTICE.reviewedDecisions.polarityInvertedQuestions} 道；可被「挑唯一逐字项」猜中 ${PRACTICE.reviewedDecisions.zeroComprehensionShortcutExploitable} 道；三题共用一个正解的单元 ${PRACTICE.reviewedDecisions.unitsWhereAllThreeCorrectAnswersAreIdentical} 个。<b>有题不等于可进入</b>——复核不通过的单元照实停在「未装配」。</div>` : ''}
+      ${PRACTICE.reviewedDecisions ? `<div class="pnote">决策题独立复核（<code>${esc(PRACTICE.reviewedDecisions.file)}</code>）：生成 ${PRACTICE.reviewedDecisions.questions} 道 / <b>复核通过 ${PRACTICE.reviewedDecisions.usableQuestions} 道</b> · 可用单元 ${PRACTICE.reviewedDecisions.usableUnits}/${PRACTICE.reviewedDecisions.units}（verdict=${esc(PRACTICE.reviewedDecisions.verdict || '')}）。basisRefs 逐字命中 ${esc(PRACTICE.reviewedDecisions.refHitRate)}；正解整句照抄材料 ${PRACTICE.reviewedDecisions.correctVerbatimCopy} 道（上一轮是 228）；题干与正解极性相反 ${PRACTICE.reviewedDecisions.polarityInvertedQuestions} 道（上一轮 16）；可被「挑唯一逐字项」猜中 ${PRACTICE.reviewedDecisions.zeroComprehensionShortcutExploitable} 道（上一轮 228）；三题共用一个正解的单元 ${PRACTICE.reviewedDecisions.unitsWhereAllThreeCorrectAnswersAreIdentical} 个（上一轮 76）；正解逐字片段比干扰项更像材料的题 ${PRACTICE.reviewedDecisions.correctRunAdvantageQuestions} 道。<b>有题不等于可进入</b>——四段全绿才开放，复核不通过的单元照实停在「未装配」。</div>` : ''}
       <div class="pnote">全量索引 ≠ 全量课程可学：graph 里 ${st.nodes || 0} 节点 / ${st.edges || 0} 边 / ${st.gaps || 0} 条缺口，可运行单元 ${st.units || 0} 个（含 76 个批量装配）。${playable ? `<details class="deep"><summary>coverage.playable 原文（构建时写下的口径）</summary><div class="mut">${esc(playable)}</div></details>` : ''}</div>
       <div class="pfilter">${[['all', `全部 ${units.length}`], ['六章', `六章 ${units.filter(u => u.group === '六章').length}`], ['单篇', `单篇 ${units.filter(u => u.group === '单篇').length}`], ['批量', `批量 ${units.filter(u => u.group === '批量').length}`]]
         .map(([k, v]) => `<button class="${practiceFilter === k ? 'on' : ''}" onclick="practiceSetFilter('${k}')">${esc(v)}</button>`).join('')}</div>

@@ -1,7 +1,8 @@
 {
-  "generatedAt": "2026-09-14T15:18:22.599Z",
+  "generatedAt": "2026-09-14T16:19:49.423Z",
   "reviewer": "scripts/review-gen-decisions.mjs（独立复算；不采信产物自述）",
-  "file": "evidence/gen-decisions-hybrid-v2-20260914.json",
+  "file": "evidence/gen-decisions-hybrid-v3-20260914.json",
+  "verdict": "usable",
   "declaredCounts": {
     "units": 76,
     "questions": 228,
@@ -11,47 +12,61 @@
   },
   "rules": {
     "perQuestion": [
-      "basisRefs 逐字可回溯（quote 在 sourceId@locator 里逐字存在，sha256 与磁盘一致）",
-      "正解逐字可回溯到 SOL/CAS 并带 locator",
-      "干扰项不得逐字等于材料原句",
-      "干扰项两两可区分、不得与正解一字不差",
-      "题干极性必须与正解一致（问「哪个不合适」时正解必须是不合适的那一个）",
-      "正解不得是「唯一逐字项」（否则存在零理解捷径）"
+      "依据逐字可回溯（basisQuote / quote 在 sourceId@locator 里逐字存在，sourceSha256 与磁盘一致）",
+      "正解与依据句共享 ≥8 字连续原文（改写了也留得住锚点）",
+      "正解不得逐字等于材料原句",
+      "干扰项：非空 · 不与材料原句逐字相同 · 两两可区分 · 不与正解一字不差",
+      "题干极性对称一致（问「不合适」时正解必须是不合适的那条；问「怎么做」时正解必须是该做的做法）",
+      "正解不得是「唯一逐字项」；正解最长逐字片段不得比干扰项长出 8 字以上"
     ],
     "perUnit": [
       "3 道题",
       "3 道题的正解互不相同（1 阅读 → 3 决策）",
+      "同单元两道题的选项集合不得互为置换",
       "全部题逐题通过"
     ]
   },
   "recomputed": {
     "units": 76,
     "questions": 228,
-    "refs": 754,
+    "refs": 456,
     "refHitRate": "100.00%",
     "refBad": 0,
     "refShaBad": 0,
     "correctVerified": 228,
     "correctBad": 0,
+    "correctVerbatimCopy": 0,
+    "correctAnchorBelow8": 0,
+    "correctShaBad": 0,
     "distractorVerbatim": 0,
     "distractorEmpty": 0,
     "distractorDupWithin": 0,
     "distractorDupCross": 0,
     "correctLeak": 0,
-    "unitsWhereAllThreeCorrectAnswersAreIdentical": 76,
+    "unitsWhereAllThreeCorrectAnswersAreIdentical": 0,
+    "unitsWithPermutedOptionSets": 0,
     "unitsFakingOpi": 0,
     "unitsCitingUnregisteredOpi": 0,
     "questionsWhoseCorrectAnswerIsNotInThatUnitsReading": 0,
-    "polarityInvertedQuestions": 16,
-    "zeroComprehensionShortcutExploitable": 228,
-    "zeroComprehensionShortcutAmbiguous": 0,
+    "polarityInvertedQuestions": 0,
+    "polarityNegatedPrescriptionQuestions": 7,
+    "zeroComprehensionShortcutExploitable": 0,
+    "zeroComprehensionShortcutAmbiguous": 228,
+    "correctRunAdvantageQuestions": 0,
     "tierA_provenanceCleanQuestions": 228,
-    "tierB_polarityConsistentQuestions": 212,
-    "tierC_usableQuestions": 0,
-    "usableUnits": 0,
-    "blockedUnits": 76,
-    "usableQuestions": 0,
-    "blockedQuestions": 228
+    "tierB_polarityConsistentQuestions": 228,
+    "tierC_usableQuestions": 228,
+    "usableUnits": 76,
+    "blockedUnits": 0,
+    "usableQuestions": 228,
+    "blockedQuestions": 0,
+    "shortcutStrategyAccuracy": {
+      "verbatimPick": "0.00%",
+      "longestVerbatimRun": "26.32%",
+      "longestText": "3.95%",
+      "firstOption": "n/a（运行时按 shell 的 learnPerm() 确定性打乱，产物里的顺序不是呈现顺序）",
+      "note": "不读材料、只按表面特征选的命中率；三选一随机基线 33.33%"
+    }
   },
   "samples": {
     "badRefs": [],
@@ -61,36 +76,9 @@
     "fakeOpi": [],
     "strayOpi": [],
     "readingMiss": [],
-    "polarityInverted": [
-      "batch-context-window#decisions[2] 题干问「关键规则装得下却被模型漏用，哪种处理最跑偏？…」，正解却是「正确做法」：同时检查窗口上限与当前实际占用。…",
-      "batch-harness-overfitting#decisions[1] 题干问「准备两套能力尽量等价的 Harness 接口时，哪种设置会破…」，正解却是「正确做法」：固定模型、任务、权限和评分，准备两套能力尽量等价的 Harness …",
-      "batch-harness-overfitting#decisions[2] 题干问「跨 Harness 后完成率下降，以下哪种归因做法不成立？…」，正解却是「正确做法」：固定模型、任务、权限和评分，准备两套能力尽量等价的 Harness …",
-      "batch-lost-in-the-middle#decisions[2] 题干问「面对位置利用问题选用缓解手段时，应避免哪种做法？…」，正解却是「正确做法」：评测时固定问题、文档集合和评分方法，只移动关键证据位置，分别比较首、…",
-      "batch-prompt-caching#decisions[1] 题干问「想让客服 Agent 复用缓存，前缀里应避免放入什么？…」，正解却是「正确做法」：把稳定规则和工具说明排在前缀，把会话状态与本轮输入放在后部。…",
-      "batch-subagent-orchestration#decisions[1] 题干问「子 Agent 完成依赖调查后，主流程要继续修改，哪种回传方…」，正解却是「正确做法」：切出边界清晰、可独立验证且不会争用同一写入面的子任务。…",
-      "batch-subagent-orchestration#decisions[2] 题干问「主 Agent 编排子 Agent 做依赖调查，以下哪种安排…」，正解却是「正确做法」：切出边界清晰、可独立验证且不会争用同一写入面的子任务。…",
-      "batch-tool#decisions[2] 题干问「给 Agent 接入多个文件工具后排错，首先该避免哪种做法？…」，正解却是「正确做法」：排错时依次检查工具是否注册、描述是否清楚、参数是否通过校验、权限是否…",
-      "batch-trace-based-evals#decisions[0] 题干问「比较新旧版 Skill 前，哪种采样安排会破坏结论？…」，正解却是「正确做法」：先固定有边界的任务集、成功条件、对照基线、运行配置与 verifie…",
-      "batch-trace-based-evals#decisions[1] 题干问「要判断新版是否更可靠，哪种比较方式偏离基于轨迹的评测？…」，正解却是「正确做法」：先固定有边界的任务集、成功条件、对照基线、运行配置与 verifie…",
-      "batch-trace-based-evals#decisions[2] 题干问「轨迹评测中，哪种判断会引入错误归因？…」，正解却是「正确做法」：先固定有边界的任务集、成功条件、对照基线、运行配置与 verifie…",
-      "batch-verifiable-goal#decisions[1] 题干问「给定十个查询进前三且无内部路径泄漏，Agent 可据测试继续…」，正解却是「正确做法」：把成功写成可重复输入、明确判定和允许误差，并列出不可接受路径。…",
-      "batch-verification-loop#decisions[1] 题干问「代码 Agent 运行测试和浏览器检查时，对检查判据和证据的…」，正解却是「正确做法」：在行动前写清检查对象、判据、失败反馈格式和退出条件，避免由同一输出临…",
-      "batch-verification-loop#decisions[2] 题干问「在区分 Observability、Trace-based …」，正解却是「正确做法」：在行动前写清检查对象、判据、失败反馈格式和退出条件，避免由同一输出临…",
-      "batch-agent-tool-contract#decisions[1] 题干问「客服 Agent 退款时，执行器先过权限门，定义工具契约参数…」，正解却是「正确做法」：列出模型可以表达的操作意图，并为每种意图限定必填参数和可选参数。…",
-      "batch-agent-tool-contract#decisions[2] 题干问「客服 Agent 退款，回传只含状态、流水号与失败原因，定义…」，正解却是「正确做法」：列出模型可以表达的操作意图，并为每种意图限定必填参数和可选参数。…"
-    ],
-    "shortcutQuestions": [
-      "batch-agent#decisions[0]",
-      "batch-agent#decisions[1]",
-      "batch-agent#decisions[2]",
-      "batch-agent-action-space#decisions[0]",
-      "batch-agent-action-space#decisions[1]",
-      "batch-agent-action-space#decisions[2]",
-      "batch-agent-cli-runtime#decisions[0]",
-      "batch-agent-cli-runtime#decisions[1]",
-      "batch-agent-cli-runtime#decisions[2]",
-      "batch-agent-elicitation#decisions[0]"
-    ]
+    "polarityInverted": [],
+    "shortcutQuestions": [],
+    "runAdvantage": []
   },
   "units": [
     {
@@ -98,2524 +86,836 @@
       "conceptId": "CON-agent",
       "batchStatus": "ready",
       "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
     },
     {
       "unitId": "batch-agent-action-space",
       "conceptId": "CON-agent-action-space",
       "batchStatus": "scaffold",
       "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
     },
     {
       "unitId": "batch-agent-cli-runtime",
       "conceptId": "CON-agent-cli-runtime",
       "batchStatus": "scaffold",
       "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
     },
     {
       "unitId": "batch-agent-elicitation",
       "conceptId": "CON-agent-elicitation",
       "batchStatus": "scaffold",
       "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
     },
     {
       "unitId": "batch-agent-handoff",
       "conceptId": "CON-agent-handoff",
       "batchStatus": "scaffold",
       "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
     },
     {
       "unitId": "batch-agent-harness",
       "conceptId": "CON-agent-harness",
       "batchStatus": "ready",
       "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
     },
     {
       "unitId": "batch-agent-lifecycle",
       "conceptId": "CON-agent-lifecycle",
       "batchStatus": "scaffold",
       "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
     },
     {
       "unitId": "batch-agent-loop",
       "conceptId": "CON-agent-loop",
       "batchStatus": "scaffold",
       "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
     },
     {
       "unitId": "batch-agent-session-management",
       "conceptId": "CON-agent-session-management",
       "batchStatus": "scaffold",
       "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
     },
     {
       "unitId": "batch-agent-stop-conditions",
       "conceptId": "CON-agent-stop-conditions",
       "batchStatus": "scaffold",
       "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-attention-budget",
-      "conceptId": "CON-attention-budget",
-      "batchStatus": "ready",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-bounded-context",
-      "conceptId": "CON-bounded-context",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-browsing-loop",
-      "conceptId": "CON-browsing-loop",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-change-impact-analysis",
-      "conceptId": "CON-change-impact-analysis",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-chat-template",
-      "conceptId": "CON-chat-template",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-code-execution",
-      "conceptId": "CON-code-execution",
-      "batchStatus": "ready",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-context",
-      "conceptId": "CON-context",
-      "batchStatus": "ready",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-context-compaction",
-      "conceptId": "CON-context-compaction",
-      "batchStatus": "ready",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-context-selection",
-      "conceptId": "CON-context-selection",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-context-window",
-      "conceptId": "CON-context-window",
-      "batchStatus": "ready",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "题干与正解极性相反",
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-durable-execution",
-      "conceptId": "CON-durable-execution",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-dynamic-context-assembly",
-      "conceptId": "CON-dynamic-context-assembly",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-event-driven-agent-automation",
-      "conceptId": "CON-event-driven-agent-automation",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-filesystem-workspace",
-      "conceptId": "CON-filesystem-workspace",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-harness-compute-separation",
-      "conceptId": "CON-harness-compute-separation",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-harness-engineering",
-      "conceptId": "CON-harness-engineering",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-harness-overfitting",
-      "conceptId": "CON-harness-overfitting",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "题干与正解极性相反",
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "题干与正解极性相反",
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-harness-token-floor",
-      "conceptId": "CON-harness-token-floor",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-human-escalation-tool-call",
-      "conceptId": "CON-human-escalation-tool-call",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-instruction-locality",
-      "conceptId": "CON-instruction-locality",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-large-language-model",
-      "conceptId": "CON-large-language-model",
-      "batchStatus": "ready",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-llm-statelessness",
-      "conceptId": "CON-llm-statelessness",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-llm-token",
-      "conceptId": "CON-llm-token",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-lost-in-the-middle",
-      "conceptId": "CON-lost-in-the-middle",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "题干与正解极性相反",
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-memory",
-      "conceptId": "CON-memory",
-      "batchStatus": "ready",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-minimal-sufficient-context",
-      "conceptId": "CON-minimal-sufficient-context",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-model-context-protocol",
-      "conceptId": "CON-model-context-protocol",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-observability",
-      "conceptId": "CON-observability",
-      "batchStatus": "ready",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-observation-masking",
-      "conceptId": "CON-observation-masking",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-progressive-disclosure",
-      "conceptId": "CON-progressive-disclosure",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-prompt",
-      "conceptId": "CON-prompt",
-      "batchStatus": "ready",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-prompt-caching",
-      "conceptId": "CON-prompt-caching",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "题干与正解极性相反",
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-prompt-engineering",
-      "conceptId": "CON-prompt-engineering",
-      "batchStatus": "ready",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-prompt-injection",
-      "conceptId": "CON-prompt-injection",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-reasoning-effort",
-      "conceptId": "CON-reasoning-effort",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-repository-source-of-truth",
-      "conceptId": "CON-repository-source-of-truth",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-restorable-compression",
-      "conceptId": "CON-restorable-compression",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-retrieval-reasoning-dual-task-load",
-      "conceptId": "CON-retrieval-reasoning-dual-task-load",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-risk-tiered-autofixing",
-      "conceptId": "CON-risk-tiered-autofixing",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-runnable-evidence",
-      "conceptId": "CON-runnable-evidence",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-sandbox",
-      "conceptId": "CON-sandbox",
-      "batchStatus": "ready",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-skill",
-      "conceptId": "CON-skill",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-skill-trigger-condition",
-      "conceptId": "CON-skill-trigger-condition",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-state-management",
-      "conceptId": "CON-state-management",
-      "batchStatus": "ready",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-subagent-orchestration",
-      "conceptId": "CON-subagent-orchestration",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "题干与正解极性相反",
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "题干与正解极性相反",
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-system-prompt",
-      "conceptId": "CON-system-prompt",
-      "batchStatus": "ready",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-tacit-knowledge",
-      "conceptId": "CON-tacit-knowledge",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-tool",
-      "conceptId": "CON-tool",
-      "batchStatus": "ready",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "题干与正解极性相反",
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-tool-schema-tax",
-      "conceptId": "CON-tool-schema-tax",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-tool-scoping",
-      "conceptId": "CON-tool-scoping",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-tool-workflow-fit",
-      "conceptId": "CON-tool-workflow-fit",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-trace-based-evals",
-      "conceptId": "CON-trace-based-evals",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "题干与正解极性相反",
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "题干与正解极性相反",
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "题干与正解极性相反",
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-ubiquitous-language",
-      "conceptId": "CON-ubiquitous-language",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-verifiable-goal",
-      "conceptId": "CON-verifiable-goal",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "题干与正解极性相反",
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-verification-loop",
-      "conceptId": "CON-verification-loop",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "题干与正解极性相反",
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "题干与正解极性相反",
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-context-engineering",
-      "conceptId": "CON-context-engineering",
-      "batchStatus": "ready",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-context-rot",
-      "conceptId": "CON-context-rot",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-error-handling",
-      "conceptId": "CON-error-handling",
-      "batchStatus": "ready",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-guardrails",
-      "conceptId": "CON-guardrails",
-      "batchStatus": "ready",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-just-in-time-retrieval",
-      "conceptId": "CON-just-in-time-retrieval",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-multi-step-reliability-decay",
-      "conceptId": "CON-multi-step-reliability-decay",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-permission-boundary",
-      "conceptId": "CON-permission-boundary",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-persistent-code-graph",
-      "conceptId": "CON-persistent-code-graph",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-skill-chaining",
-      "conceptId": "CON-skill-chaining",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
-    },
-    {
-      "unitId": "batch-system-prompt-altitude",
-      "conceptId": "CON-system-prompt-altitude",
-      "batchStatus": "scaffold",
-      "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
     },
     {
       "unitId": "batch-agent-tool-contract",
       "conceptId": "CON-agent-tool-contract",
       "batchStatus": "scaffold",
       "questionCount": 3,
-      "distinctCorrectAnswers": 1,
-      "usableQuestions": 0,
-      "blockedQuestions": [
-        {
-          "id": "decisions[0]",
-          "blockedBy": [
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[1]",
-          "blockedBy": [
-            "题干与正解极性相反",
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        },
-        {
-          "id": "decisions[2]",
-          "blockedBy": [
-            "题干与正解极性相反",
-            "正解是唯一逐字项（可被表面规则 100% 猜中）"
-          ]
-        }
-      ],
-      "verdict": "blocked",
-      "blockedBy": [
-        "三题共用 1 个正解（要求 3 个互不相同：1 阅读 → 3 决策）",
-        "3 道题被逐题复核挡下"
-      ]
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-attention-budget",
+      "conceptId": "CON-attention-budget",
+      "batchStatus": "ready",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-bounded-context",
+      "conceptId": "CON-bounded-context",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-browsing-loop",
+      "conceptId": "CON-browsing-loop",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-change-impact-analysis",
+      "conceptId": "CON-change-impact-analysis",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-chat-template",
+      "conceptId": "CON-chat-template",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-code-execution",
+      "conceptId": "CON-code-execution",
+      "batchStatus": "ready",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-context",
+      "conceptId": "CON-context",
+      "batchStatus": "ready",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-context-compaction",
+      "conceptId": "CON-context-compaction",
+      "batchStatus": "ready",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-context-engineering",
+      "conceptId": "CON-context-engineering",
+      "batchStatus": "ready",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-context-rot",
+      "conceptId": "CON-context-rot",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-context-selection",
+      "conceptId": "CON-context-selection",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-context-window",
+      "conceptId": "CON-context-window",
+      "batchStatus": "ready",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-durable-execution",
+      "conceptId": "CON-durable-execution",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-dynamic-context-assembly",
+      "conceptId": "CON-dynamic-context-assembly",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-error-handling",
+      "conceptId": "CON-error-handling",
+      "batchStatus": "ready",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-event-driven-agent-automation",
+      "conceptId": "CON-event-driven-agent-automation",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-filesystem-workspace",
+      "conceptId": "CON-filesystem-workspace",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-guardrails",
+      "conceptId": "CON-guardrails",
+      "batchStatus": "ready",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-harness-compute-separation",
+      "conceptId": "CON-harness-compute-separation",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-harness-engineering",
+      "conceptId": "CON-harness-engineering",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-harness-overfitting",
+      "conceptId": "CON-harness-overfitting",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-harness-token-floor",
+      "conceptId": "CON-harness-token-floor",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-human-escalation-tool-call",
+      "conceptId": "CON-human-escalation-tool-call",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-instruction-locality",
+      "conceptId": "CON-instruction-locality",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-just-in-time-retrieval",
+      "conceptId": "CON-just-in-time-retrieval",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-large-language-model",
+      "conceptId": "CON-large-language-model",
+      "batchStatus": "ready",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-llm-statelessness",
+      "conceptId": "CON-llm-statelessness",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-llm-token",
+      "conceptId": "CON-llm-token",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-lost-in-the-middle",
+      "conceptId": "CON-lost-in-the-middle",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-memory",
+      "conceptId": "CON-memory",
+      "batchStatus": "ready",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-minimal-sufficient-context",
+      "conceptId": "CON-minimal-sufficient-context",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-model-context-protocol",
+      "conceptId": "CON-model-context-protocol",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-multi-step-reliability-decay",
+      "conceptId": "CON-multi-step-reliability-decay",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-observability",
+      "conceptId": "CON-observability",
+      "batchStatus": "ready",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-observation-masking",
+      "conceptId": "CON-observation-masking",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-permission-boundary",
+      "conceptId": "CON-permission-boundary",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-persistent-code-graph",
+      "conceptId": "CON-persistent-code-graph",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-progressive-disclosure",
+      "conceptId": "CON-progressive-disclosure",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-prompt",
+      "conceptId": "CON-prompt",
+      "batchStatus": "ready",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-prompt-caching",
+      "conceptId": "CON-prompt-caching",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-prompt-engineering",
+      "conceptId": "CON-prompt-engineering",
+      "batchStatus": "ready",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-prompt-injection",
+      "conceptId": "CON-prompt-injection",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-reasoning-effort",
+      "conceptId": "CON-reasoning-effort",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-repository-source-of-truth",
+      "conceptId": "CON-repository-source-of-truth",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-restorable-compression",
+      "conceptId": "CON-restorable-compression",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-retrieval-reasoning-dual-task-load",
+      "conceptId": "CON-retrieval-reasoning-dual-task-load",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-risk-tiered-autofixing",
+      "conceptId": "CON-risk-tiered-autofixing",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-runnable-evidence",
+      "conceptId": "CON-runnable-evidence",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-sandbox",
+      "conceptId": "CON-sandbox",
+      "batchStatus": "ready",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-skill",
+      "conceptId": "CON-skill",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-skill-chaining",
+      "conceptId": "CON-skill-chaining",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-skill-trigger-condition",
+      "conceptId": "CON-skill-trigger-condition",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-state-management",
+      "conceptId": "CON-state-management",
+      "batchStatus": "ready",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-subagent-orchestration",
+      "conceptId": "CON-subagent-orchestration",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-system-prompt",
+      "conceptId": "CON-system-prompt",
+      "batchStatus": "ready",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-system-prompt-altitude",
+      "conceptId": "CON-system-prompt-altitude",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-tacit-knowledge",
+      "conceptId": "CON-tacit-knowledge",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-tool",
+      "conceptId": "CON-tool",
+      "batchStatus": "ready",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-tool-schema-tax",
+      "conceptId": "CON-tool-schema-tax",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-tool-scoping",
+      "conceptId": "CON-tool-scoping",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-tool-workflow-fit",
+      "conceptId": "CON-tool-workflow-fit",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-trace-based-evals",
+      "conceptId": "CON-trace-based-evals",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-ubiquitous-language",
+      "conceptId": "CON-ubiquitous-language",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-verifiable-goal",
+      "conceptId": "CON-verifiable-goal",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
+    },
+    {
+      "unitId": "batch-verification-loop",
+      "conceptId": "CON-verification-loop",
+      "batchStatus": "scaffold",
+      "questionCount": 3,
+      "distinctCorrectAnswers": 3,
+      "usableQuestions": 3,
+      "blockedQuestions": [],
+      "verdict": "usable",
+      "blockedBy": []
     }
   ]
 }
