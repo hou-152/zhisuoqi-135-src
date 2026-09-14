@@ -12,14 +12,22 @@
 //   · knowledge/graph-260914/graph.json      —— 单元 / 活动 / 判据 / 缺口 / 入口
 //   · evidence/batch-units-260914/units.json —— 76 个批量装配单元的声明状态与缺口
 //   · evidence/agent-loop-260913/chapters.json —— 六章的章级材料（判据、审核状态、题目）
+//   · evidence/review-decisions-260914/review.json —— 228 道批量决策题的**独立复核结论**
 //
-// 判定规则（逐段，全部可从上面三份数据复算；页面把每条规则原文一起显示）：
+// 判定规则（逐段，全部可从上面四份数据复算；页面把每条规则原文一起显示）：
 //   阅读       活动 Reading 存在且 ready，且该单元有指向逐字原文（span.text）的 quotes 边 → 可走
 //   形成性费曼 活动 Formative 存在且 ready，且该单元的判据不是「机械派生」
 //              （criterion.meta.misconceptionSource === 'derived' 表示 misconception 由确定性规则算出、未人工复核）→ 可走
-//   决策       该单元至少 1 个 Decision 活动 → 可走；0 个 = 未装配（不编假题占位）→ 链路在决策这一段断掉
+//   决策       三个条件同时成立才可走：①该单元声明的 decisions 不是空数组；②索引里真有 ≥1 个 ready 的
+//              Decision 活动；③独立复核产物里这个单元的 verdict === 'usable'（= 3 道题逐题过出处/极性/捷径，
+//              且三题正解互不相同）。**空数组 ≠ 满足**；**有题但没有复核记录 = 不开放**；
+//              **复核不通过 = 不开放**，理由照实写出来。→ 否则未装配，链路在决策这一段断掉
 //   章末费曼   活动 Summative 存在且 ready，判据非机械派生，且该单元没有「正式章末门待装配」缺口 → 可走
 //   四段全绿 gate.open=true；否则照实写清缺什么，页面只显示这一条判断的结果。
+//
+// 「复核通过才开放」不是白名单：判定读的是复核产物的 verdict 字段，不是写死的单元 ID。
+// 哪天重做出的题在 `node scripts/review-gen-decisions.mjs` 下过到 verdict='usable'，
+// 同一套排版就会自动开门——代码不用改。
 
 export const SEGMENTS = [
   { key: 'reading', label: '阅读' },
@@ -45,13 +53,17 @@ export const BUCKETS = [
 
 const has = (arr, x) => (arr || []).includes(x);
 
-export function buildPractice({ graph, batch, learning }) {
+export function buildPractice({ graph, batch, learning, review }) {
   const nodes = graph.nodes || [];
   const edges = graph.edges || [];
   const gaps = graph.gaps || [];
   const chapters = (learning && learning.chapters) || [];
   const batchUnits = (batch && batch.units) || [];
   const byId = new Map(nodes.map((n) => [n.id, n]));
+  // 单元 → 批量装配声明（decisions 空数组那条 P0 修复就是从这里读的）
+  const batchByUnit = new Map(batchUnits.map((bu) => [`unit:${bu.unitId}`, bu]));
+  // 单元 → 独立复核结论（verdict === 'usable' 才允许开决策那一段）
+  const reviewByUnit = new Map(((review && review.units) || []).map((r) => [`unit:${r.unitId}`, r]));
 
   const actsOf = (unitId) => nodes.filter((n) => n.id.startsWith(`activity:${unitId}:`));
   const gapsOf = (unitId) => gaps.filter((g) => has(g.affects, unitId));
@@ -90,11 +102,25 @@ export function buildPractice({ graph, batch, learning }) {
           ? `只有 ${derived.length} 条机械派生判据：misconception 由「边界条目的否定翻转」规则算出，未人工复核`
           : '没有判据'));
 
-    // ③ 决策：0 道题就是 0 道题，不编假题占位 —— 链路在这里断
+    // ③ 决策：空数组 ≠ 满足；有题没复核 ≠ 满足；复核不通过 ≠ 满足 —— 链路在这里断
+    const bu = batchByUnit.get(unitId) || null;
+    const declaredDecisions = bu ? (bu.decisions || null) : null;   // null = 本单元没有批量装配声明，这条不适用（六章/单篇）
+    const rv = reviewByUnit.get(unitId) || null;
     const decisions = acts.filter((a) => a.kind === 'Decision' && a.status === 'ready');
-    const decisionSeg = decisions.length
-      ? seg('green', `${decisions.length} 道决策题（每题 3 选项 · 1 正确 · 带 OPI/SOL 依据）`)
-      : seg('unassembled', '0 道决策题（不补造唯一正确答案）；链路在「决策」这一段断掉');
+    let decisionSeg;
+    if (Array.isArray(declaredDecisions) && declaredDecisions.length === 0) {
+      decisionSeg = seg('unassembled', '0 道决策题（本单元声明的 decisions 是空数组；空数组不等于满足，不补造唯一正确答案）——链路在「决策」这一段断掉');
+    } else if (!decisions.length) {
+      decisionSeg = seg('unassembled', declaredDecisions
+        ? `本单元声明了 ${declaredDecisions.length} 道决策题，但索引里没有 ready 的 Decision 活动——题还没接进链路`
+        : '0 道决策题（不补造唯一正确答案）；链路在「决策」这一段断掉');
+    } else if (rv && rv.verdict !== 'usable') {
+      decisionSeg = seg('unassembled', `独立复核不通过（${rv.blockedBy.join('；')}）——有题不等于可进入`);
+    } else {
+      decisionSeg = seg('green', rv
+        ? `${decisions.length} 道决策题（每题 3 选项 · 1 正确 · 带 OPI/SOL 依据；已独立复核 verdict=usable）`
+        : `${decisions.length} 道决策题（每题 3 选项 · 1 正确 · 带 OPI/SOL 依据）`);
+    }
 
     // ④ 章末费曼
     const summative = act('Summative');
@@ -111,7 +137,14 @@ export function buildPractice({ graph, batch, learning }) {
       reading: readingSeg, formative: formativeSeg, decision: decisionSeg, summative: summativeSeg,
     };
     const open = SEGMENTS.every((s) => segments[s.key].state === 'green');
-    return { segments, open, gaps: gapsText, derivedCount: derived.length, authoredCount: authored.length, decisionCount: decisions.length };
+    return {
+      segments, open, gaps: gapsText, derivedCount: derived.length, authoredCount: authored.length,
+      decisionCount: decisions.length,
+      declaredDecisionCount: Array.isArray(declaredDecisions) ? declaredDecisions.length : null,
+      reviewVerdict: rv ? rv.verdict : null,
+      reviewBlockedBy: rv ? rv.blockedBy : [],
+      reviewUsableQuestions: rv ? rv.usableQuestions : 0,
+    };
   }
 
   const units = [];
@@ -145,15 +178,17 @@ export function buildPractice({ graph, batch, learning }) {
     });
   }
 
-  // ③ 批量装配 76 个：材料在、页面入口 0、决策题 0
+  // ③ 批量装配 76 个：材料在、页面入口 0；决策题有生成稿但独立复核不通过（照实标未装配）
   for (const bu of batchUnits) {
     const unitId = `unit:${bu.unitId}`;
     const j = judge(unitId);
+    const rv = reviewByUnit.get(unitId) || null;
     units.push({
       id: unitId, label: bu.card ? `${bu.conceptId} · ${bu.card.slug}` : bu.conceptId, group: '批量', order: bu.order,
       routeStatus: bu.status, statusReason: bu.statusReason || '',
       caseType: ((bu.case || {}).caseType) || '', concept: null,
       questionCount: (bu.decisions || []).length,
+      generatedDecisionCount: rv ? rv.questionCount : 0,      // 生成稿有几道；不等于准入
       criterionCount: ((bu.feynman || {}).checks || []).length,
       reader: null, entry: '',
       ...j,
@@ -182,6 +217,17 @@ export function buildPractice({ graph, batch, learning }) {
 
   const byBucket = Object.fromEntries(BUCKETS.map((b) => [b.key, units.filter((u) => u.bucket === b.key).length]));
   const count = (fn) => units.filter(fn).length;
+  const reviewedDecisions = (review && review.recomputed) ? {
+    file: review.file,
+    units: review.recomputed.units,
+    questions: review.recomputed.questions,
+    usableUnits: review.recomputed.usableUnits,
+    usableQuestions: review.recomputed.usableQuestions,
+    refHitRate: review.recomputed.refHitRate,
+    polarityInvertedQuestions: review.recomputed.polarityInvertedQuestions,
+    zeroComprehensionShortcutExploitable: review.recomputed.zeroComprehensionShortcutExploitable,
+    unitsWhereAllThreeCorrectAnswersAreIdentical: review.recomputed.unitsWhereAllThreeCorrectAnswersAreIdentical,
+  } : null;
 
   // ── 「要全面推进，还差什么」：按缺口类型归并（给负责人做下一轮决策用；本轮不动手补） ──
   const batchReady = batchUnits.filter((u) => u.status === 'ready').length;
@@ -190,10 +236,14 @@ export function buildPractice({ graph, batch, learning }) {
   const noEntry = units.filter((u) => !u.entry).length;
   const fullPush = [
     {
-      type: '缺决策题', units: count((u) => u.segments.decision.state !== 'green'), criteria: null,
-      detail: `批量 76 个单元 0 道决策题（ready ${batchReady} + scaffold ${batchScaffold}）；单篇与六章各 3 道。链路断在「决策」这一段：没有题就没有「一题一判」，也没有可回的那道题。`,
-      who: '模型可起草选项，但唯一正确答案必须人工认定',
-      gate: '每题 3 选项、恰好 1 个正确、正解必须带 OPI/SOL 依据（现有 test-graph 已有这条断言）；起草稿不得直接进页面',
+      type: '缺决策题（有生成稿，独立复核不通过）', units: count((u) => u.group === '批量'), criteria: null,
+      detail: `批量 76 个单元已有 228 道生成稿决策题（串台事故产物，evidence/gen-decisions-hybrid-v2-20260914.json），`
+        + `出处逐字可回溯 754/754 = 100%；但独立复核判定 0/228 可接入：三处它没自检的问题——`
+        + `① 228/228 题的正解是三个选项里唯一的逐字材料句（零理解的人只挑「像教材原文的那句」就能全对；六章基线只有 1/18）；`
+        + `② 76/76 单元的 3 道题共用一个正解（「3 决策」实际是 1 决策问 3 遍）；`
+        + `③ 16/228 题题干与正解极性相反（问「哪个不合适」却把「正确做法」标成正解）。见 evidence/review-decisions-260914/。`,
+      who: '改生成器，不是改数据：正解改成改写句；每单元从 solution_summary / action_steps[] / how_to[] / boundaries[] 取 3 个不同动作句；题干与正解同极性加机器校验',
+      gate: 'node scripts/review-gen-decisions.mjs 退出码 0 且 review.json 里该单元 verdict=usable —— gate 读的就是这个字段，不用改代码',
     },
     {
       type: '缺 OPI 判断依据', units: batchScaffold, criteria: null,
@@ -232,6 +282,7 @@ export function buildPractice({ graph, batch, learning }) {
       graph: 'knowledge/graph-260914/graph.json',
       batch: 'evidence/batch-units-260914/units.json',
       learning: 'evidence/agent-loop-260913/chapters.json',
+      review: reviewedDecisions ? 'evidence/review-decisions-260914/review.json' : null,
       graphStats: graph.stats,
       graphGeneratedAt: graph.generatedAt || graph.builtAt || '',
     },
@@ -239,9 +290,10 @@ export function buildPractice({ graph, batch, learning }) {
     segmentLabels: SEGMENTS,
     buckets: BUCKETS.map((b) => ({ ...b, count: byBucket[b.key] })),
     coverage: graph.coverage || {},
+    reviewedDecisions,
     summary: {
       units: units.length, open: units.filter((u) => u.open).length, byBucket,
-      batchReady, batchScaffold, derivedCriteria, noEntry,
+      batchReady, batchScaffold, derivedCriteria, noEntry, reviewedDecisions,
     },
     fullPush,
     units,

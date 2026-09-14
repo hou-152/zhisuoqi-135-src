@@ -86,3 +86,74 @@ export function sha256File(abs) {
   return crypto.createHash('sha256').update(fs.readFileSync(abs)).digest('hex');
 }
 export const abs = (root, rel) => path.join(root, rel);
+
+/* ── 决策题依据的定位解析（复核脚本与体检脚本共用这一份，避免两边口径漂移） ──
+   sourceId 两种形态：
+     · 'SOL-x' / 'CAS-x' / 'OPI-x' / 'QST-x' → units.json，locator 形如 `units[id=SOL-x].key_fields.solution_summary`
+     · 'concepts/foo.yaml'                    → 图鉴卡，locator 支持三种：顶层字段名 · `field[N]` · `boundaries:Lnn`（行号）
+   返回 { ok, value, why, kind }。value 是该 locator 指到的原文。 */
+export function resolveDecisionRef(ref, ctx) {
+  const sid = String((ref && ref.sourceId) || '');
+  const loc = String((ref && ref.locator) || '');
+  const out = { ok: false, why: '', value: undefined, kind: '' };
+
+  if (sid.startsWith('concepts/')) {
+    out.kind = 'card';
+    const file = sid.slice('concepts/'.length);
+    const c = ctx.cards.get(file);
+    if (!c) { out.why = `图鉴卡目录里没有 ${file}`; return out; }
+    if (ref.sourceFile && ref.sourceFile !== c.rel) { out.why = `sourceFile 与 sourceId 不是同一张卡（${ref.sourceFile}）`; return out; }
+    const lm = /^boundaries:L(\d+)$/.exec(loc);
+    if (lm) {
+      const line = c.raw.split('\n')[Number(lm[1]) - 1];
+      if (line === undefined) { out.why = `行号越界 ${loc}`; return out; }
+      out.value = line.replace(/^\s*-\s?/, '').trim();
+      out.ok = true;
+      return out;
+    }
+    if (!c.fields) c.fields = readYamlFields(c.raw);
+    const m = /^([a-z_]+)\[(\d+)]$/.exec(loc);
+    if (m) {
+      const arr = c.fields[m[1]];
+      if (!Array.isArray(arr)) { out.why = `${loc} 不是列表`; return out; }
+      if (arr[Number(m[2])] === undefined) { out.why = `${loc} 越界`; return out; }
+      out.value = arr[Number(m[2])];
+      out.ok = true;
+      return out;
+    }
+    if (!Object.prototype.hasOwnProperty.call(c.fields, loc)) { out.why = `卡里没有字段 ${loc}`; return out; }
+    out.value = c.fields[loc];
+    out.ok = true;
+    return out;
+  }
+
+  out.kind = 'unit';
+  const m = /^units\[id=([^\]]+)]\.(.+)$/.exec(loc);
+  if (!m) { out.why = `locator 形状不认：${loc}`; return out; }
+  if (m[1] !== sid) { out.why = `sourceId ${sid} 与 locator 里的 ${m[1]} 不一致`; return out; }
+  const u = ctx.byId.get(sid);
+  if (!u) { out.why = `units.json 里没有单元 ${sid}`; return out; }
+  let cur = u;
+  for (const seg of m[2].split('.')) {
+    const mm = /^(.+)\[(\d+)]$/.exec(seg);
+    if (mm) {
+      cur = cur[mm[1]];
+      if (!Array.isArray(cur)) { out.why = `${loc} 里 ${seg} 不是数组`; return out; }
+      cur = cur[Number(mm[2])];
+    } else cur = cur[seg];
+    if (cur === undefined) { out.why = `${loc} 里 ${seg} 取不到`; return out; }
+  }
+  out.value = cur;
+  out.ok = true;
+  return out;
+}
+
+/** 载入图鉴卡目录（文件名 → { rel, raw, sha, fields }），两个脚本共用。 */
+export function loadCards(root, cardDirRel) {
+  const map = new Map();
+  for (const f of fs.readdirSync(path.join(root, cardDirRel)).filter((x) => x.endsWith('.yaml'))) {
+    const rel = `${cardDirRel}/${f}`;
+    map.set(f, { rel, raw: fs.readFileSync(path.join(root, rel), 'utf8'), sha: sha256File(path.join(root, rel)), fields: null });
+  }
+  return map;
+}

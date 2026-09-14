@@ -242,6 +242,25 @@ check('进入第 1 章走的是同一套 #learn 阅读器',
 check('从实践空间进来，返回条写「返回实践空间」', await ex(`document.getElementById('learn-back').textContent`), '← 返回实践空间');
 check('返回后回到实践空间（不是被丢进知识体系）',
   await ex(`exitLearn(); currentView+'|'+document.getElementById('reader').classList.contains('on')`), 'practice|true');
+
+/* ⑪c 决策题独立复核进准入（2026-09-14 新增）
+   串台事故生成过 228 道批量决策题，独立复核判定 0 道可接入。三条必须有：
+     a 依据逐字可回溯（页面带着复核数字，不是页面自述）
+     b 空决策数组不等于可进入（有 3 道生成稿也不许开）
+     c 未通过复核的单元仍不可进入（一个都不许漏） */
+console.log('\n⑪c 决策题独立复核 · 有题不等于可进入');
+check('复核结论进了 DATA.practice（来自 evidence/review-decisions-260914/review.json）',
+  await ex(`(()=>{const r=PRACTICE.reviewedDecisions;return !!r && r.questions+'|'+r.usableQuestions+'|'+r.usableUnits+'|'+r.refHitRate})()`), '228|0|0|100.00%');
+check('看板写着「生成 228 道 / 复核通过 0 道」与三条挡下原因',
+  await ex(`(()=>{openPracticeBoard();const t=document.getElementById('reader').innerText;return t.includes('生成 228 道')&&t.includes('复核通过 0 道')&&t.includes('逐字命中 100.00%')&&t.includes('题干与正解极性相反 16 道')&&t.includes('猜中 228 道')&&t.includes('有题不等于可进入')})()`), 'true');
+check('空决策数组不等于可进入：76 个批量单元声明的题数是 0、生成稿是 3，一个都没开',
+  await ex(`(()=>{const b=PRACTICE.units.filter(u=>u.group==='批量');return b.length+'|'+b.every(u=>u.declaredDecisionCount===0&&u.questionCount===0)+'|'+b.every(u=>u.generatedDecisionCount===3)+'|'+b.filter(u=>u.open).length})()`), '76|true|true|0');
+check('未通过复核的单元仍不可进入：reviewVerdict=blocked 的一律不是可走',
+  await ex(`(()=>{const b=PRACTICE.units.filter(u=>u.group==='批量'&&u.reviewVerdict==='blocked');return b.length+'|'+b.every(u=>u.segments.decision.state!=='green'&&u.open===false)})()`), '76|true');
+check('点击批量单元仍进不去，且理由写的是空数组/复核（不静默失败）',
+  await ex(`(()=>{openPractice(); const r=practiceEnter('unit:batch-agent'); const t=document.getElementById('practice-blocked').innerText; return r+'|'+(t.includes('现在不能进入学习')&&t.includes('0 道决策题')&&t.includes('空数组不等于满足'))})()`), 'false|true');
+check('六章仍是唯一四段全绿的一批（复核没误伤已装配课程）',
+  await ex(`PRACTICE.units.filter(u=>u.open).length+'|'+PRACTICE.units.filter(u=>u.open&&u.group==='六章').length`), '6|6');
 /* 「不要把它堵死」：准入不是写死的六章 ID 白名单。
    运行时往 PRACTICE.units 里塞一个**另一个单元**（批量单元改造成全绿、reader 指向已有章节），
    同一套 #learn 阅读器必须能进去；再塞一个全绿但没绑 reader 的，必须照实说差哪一步。 */

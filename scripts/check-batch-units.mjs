@@ -14,7 +14,9 @@ import { readYamlFields } from './lib/graph-adapter.mjs';
 import {
   TYPE_OF, deriveMisconception, firstChars, verbatimForm,
   resolveUnitsLocator, resolveCardLocator, sha256File,
+  resolveDecisionRef, loadCards,
 } from './lib/batch-units-rules.mjs';
+import { buildPractice } from './lib/practice-readiness.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const UNITS_REL = '内容结构化系统/模块/ai-concept-base/data/units.json';
@@ -196,6 +198,123 @@ if (fs.existsSync(path.join(ROOT, GRAPH_REL))) {
 } else {
   group('⑧ 图侧对照');
   console.log('  （graph.json 还没构建，跳过；跑 node scripts/build-graph.mjs 后再来）');
+}
+
+/* ⑨ 决策题独立复核 + 准入门（本轮新增）
+   背景：串台事故产出了 228 道批量决策题（evidence/gen-decisions-hybrid-v2-20260914.json）。
+   负责人决定采用，但要求先独立复核。这里**自己重算一遍**，不看产物自述；再断言
+   没有一道题靠「有题」就混进可进入状态。三条必须有：
+     a 决策题依据逐字可回溯
+     b 空决策数组不等于可进入
+     c 未通过复核的单元仍不可进入 */
+group('⑨ 决策题独立复核：依据逐字可回溯 · 空数组不等于满足 · 复核不过不进');
+const REVIEW_REL = 'evidence/review-decisions-260914/review.json';
+const DECISIONS_REL = 'evidence/gen-decisions-hybrid-v2-20260914.json';
+if (!fs.existsSync(path.join(ROOT, DECISIONS_REL))) {
+  ok(false, `缺 ${DECISIONS_REL}（决策题产物不在，复核无从谈起）`);
+} else {
+  const dec = read(DECISIONS_REL);
+  const review = fs.existsSync(path.join(ROOT, REVIEW_REL)) ? read(REVIEW_REL) : null;
+  ok(!!review, `独立复核产物存在（${REVIEW_REL}）`);
+  ok(review && review.file === DECISIONS_REL, '复核产物指向的就是这份决策题产物');
+
+  // a 依据逐字可回溯：**在体检里重算**，不读 review.json 的自述
+  const refCtx = { byId, cards: loadCards(ROOT, CARD_DIR_REL) };
+  const MATERIAL2 = (() => {
+    const chunks = [];
+    for (const u of units) {
+      for (const v of Object.values(u.key_fields || {})) {
+        if (typeof v === 'string') chunks.push(v);
+        else if (Array.isArray(v)) v.forEach((x) => typeof x === 'string' && chunks.push(x));
+      }
+    }
+    for (const c of refCtx.cards.values()) chunks.push(c.raw);
+    return chunks;
+  })();
+  let decRefs = 0, decRefOk = 0, decRefBadSha = 0, decCorrect = 0, decCorrectBad = 0;
+  const decBad = [];
+  for (const du of dec.units || []) {
+    for (const q of du.questions || []) {
+      const co = q.correctOption || {};
+      const cres = resolveDecisionRef({ sourceId: co.basis, locator: co.locator, sourceFile: co.sourceFile }, refCtx);
+      if (cres.ok && verbatimForm(String(cres.value), co.text, false)) decCorrect++;
+      else { decCorrectBad++; decBad.push(`${du.unitId}#${q.id} 正解`); }
+      for (const d of q.distractors || []) {
+        for (const r of d.basisRefs || []) {
+          decRefs++;
+          const res = resolveDecisionRef(r, refCtx);
+          if (!res.ok || !verbatimForm(String(res.value), r.quote, false)) { decBad.push(`${du.unitId}#${q.id} ${r.refId || ''}`); continue; }
+          const abs2 = path.join(ROOT, r.sourceFile || '');
+          if (!r.sourceFile || !fs.existsSync(abs2) || sha256File(abs2) !== r.sourceSha256) { decRefBadSha++; decBad.push(`${du.unitId}#${q.id} sha`); continue; }
+          decRefOk++;
+        }
+      }
+    }
+  }
+  ok(decRefs === 754, `决策题 basisRefs 共 754 条（实际 ${decRefs}；228 题 × 2 干扰项，每条至少 1 个引用）`);
+  ok(decRefOk === decRefs, `每条 basisRefs 都能在它声称的来源里逐字找到、sha256 一致（${decRefOk}/${decRefs}；不符 ${decRefs - decRefOk}：${decBad.slice(0, 3).join(' ')}）`);
+  ok(decRefBadSha === 0, `basisRefs 的 sourceSha256 全部与磁盘一致（不符 ${decRefBadSha}）`);
+  ok(decCorrect === (dec.counts || {}).questions, `每道题的正解都逐字可回溯到 SOL/CAS（${decCorrect}/${(dec.counts || {}).questions}；不符 ${decCorrectBad}）`);
+  const copiedDistractors = [];
+  for (const u of dec.units) for (const q of u.questions) for (const d of q.distractors || []) {
+    if (MATERIAL2.some((m) => m.includes(d.text))) copiedDistractors.push(`${u.unitId}#${q.id}`);
+  }
+  ok(copiedDistractors.length === 0, `456 个干扰项没有一条逐字照抄材料原句（逐条重算；照抄 ${copiedDistractors.length}：${copiedDistractors.slice(0, 3).join(' ')}）`);
+
+  // b / c 准入门：拿 practice-readiness 真跑一遍（不是读它自己说的话）
+  const practice = buildPractice({
+    graph: read(GRAPH_REL), batch: data, learning: read('evidence/agent-loop-260913/chapters.json'), review,
+  });
+  const batchPractice = practice.units.filter((u) => u.group === '批量');
+  ok(batchPractice.length === 76, `准入门覆盖 76 个批量单元（实际 ${batchPractice.length}）`);
+  ok(batchPractice.every((u) => u.declaredDecisionCount === 0), '76 个单元声明的 decisions 仍是空数组（P0 修复没被绕过）');
+  ok(batchPractice.every((u) => u.open === false), '空决策数组不等于可进入：76 个批量单元一个都没开（open=false）');
+  ok(batchPractice.every((u) => u.segments.decision.state !== 'green'), '决策那一段一个都不是「可走」');
+  const blocked = (review.units || []).filter((r) => r.verdict !== 'usable');
+  ok(blocked.length === 76, `复核判定不可接入的单元 ${blocked.length} 个（预期 76）`);
+  const leaked = blocked.filter((r) => {
+    const u = practice.units.find((x) => x.id === `unit:${r.unitId}`);
+    return u && (u.open || u.segments.decision.state === 'green');
+  });
+  ok(leaked.length === 0, `未通过复核的单元仍不可进入（混进可走的 ${leaked.length} 个：${leaked.slice(0, 3).map((r) => r.unitId).join(' ')}）`);
+  ok(practice.units.filter((u) => u.open).length === 6, `六章仍是唯一四段全绿的一批（可进入 ${practice.units.filter((u) => u.open).length} 个，预期 6）`);
+  ok(practice.summary.reviewedDecisions && practice.summary.reviewedDecisions.questions === 228, '状态看板读到了复核结论（228 道题）');
+  ok(practice.units.filter((u) => u.group === '批量').every((u) => u.generatedDecisionCount === 3 && u.reviewVerdict === 'blocked'), '每个批量单元都带着「有 3 道生成稿但复核 blocked」的照实标记');
+  ok((review.recomputed || {}).polarityInvertedQuestions === 16, `复核发现题干与正解极性相反的题 ${(review.recomputed || {}).polarityInvertedQuestions} 道（预期 16）`);
+  ok((review.recomputed || {}).unitsWhereAllThreeCorrectAnswersAreIdentical === 76, '复核发现 76 个单元三题共用一个正解');
+
+  /* 反证探针 A：把复核结论全改成 usable，decisions 仍是空数组 —— 必须依然不开。
+     这条直接证明「空决策数组不等于满足」是判定里的硬条件，不是巧合。 */
+  const forged = JSON.parse(JSON.stringify(review));
+  for (const r of forged.units) r.verdict = 'usable';
+  const pForged = buildPractice({ graph: read(GRAPH_REL), batch: data, learning: read('evidence/agent-loop-260913/chapters.json'), review: forged });
+  const forgedBatch = pForged.units.filter((u) => u.group === '批量');
+  ok(forgedBatch.every((u) => !u.open && u.segments.decision.state !== 'green'),
+    '反证 A：把复核结论全改成 usable，只要 decisions 还是空数组就仍然不开（空数组 ≠ 满足）');
+
+  /* 反证探针 B：给批量单元补上「声明的题 + 索引里 3 个 ready 的 Decision 活动 + 复核 usable」，
+     决策那一段必须**自动**变绿 —— 证明准入是数据算的，不是写死的六章白名单。 */
+  const probeUnit = 'unit:batch-agent';
+  const graphProbe = JSON.parse(JSON.stringify(read(GRAPH_REL)));
+  for (let i = 1; i <= 3; i++) {
+    for (const kind of ['Decision', 'DecisionReview']) {
+      graphProbe.nodes.push({
+        id: `activity:${probeUnit}:${kind === 'Decision' ? 'decision' : 'review'}:${i}`,
+        kind, layer: 'activity', label: `探针 ${kind} ${i}`, sub: '探针', scope: 'curriculum',
+        status: 'ready', statusReason: '', version: '', sourceRefs: [], payloadRef: '', meta: { unitId: probeUnit, index: i }, runnable: null,
+      });
+    }
+  }
+  const batchProbe = JSON.parse(JSON.stringify(data));
+  batchProbe.units.find((u) => u.unitId === 'batch-agent').decisions = [{ probe: 1 }, { probe: 2 }, { probe: 3 }];
+  const reviewProbe = JSON.parse(JSON.stringify(review));
+  reviewProbe.units.find((r) => r.unitId === 'batch-agent').verdict = 'usable';
+  const pProbe = buildPractice({ graph: graphProbe, batch: batchProbe, learning: read('evidence/agent-loop-260913/chapters.json'), review: reviewProbe });
+  const probed = pProbe.units.find((u) => u.id === probeUnit);
+  ok(probed.segments.decision.state === 'green',
+    `反证 B：补齐题 + 索引活动 + 复核 usable 之后，决策那一段自动变「可走」（实际 ${probed.segments.decision.state}／${probed.segments.decision.why.slice(0, 30)}）`);
+  ok(pProbe.units.find((u) => u.id === probeUnit).reviewVerdict === 'usable' && pProbe.units.find((u) => u.id === probeUnit).decisionCount === 3,
+    '反证 B：探针走的是同一份 buildPractice，没有为它开小灶');
 }
 
 console.log(`\n批量单元体检：${pass} 项通过${fail ? `，${fail} 项失败` : ''}`);

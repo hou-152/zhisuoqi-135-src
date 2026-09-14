@@ -79,19 +79,28 @@ function loadLearning() {
 }
 
 /* 实践空间：单元链路就绪度（六章 6 + 单篇 1 + 批量 76）。
-   数据来自 graph.json（单元/活动/判据/缺口/入口）+ units.json（批量装配声明）+ chapters.json（六章）。
+   数据来自 graph.json（单元/活动/判据/缺口/入口）+ units.json（批量装配声明）+ chapters.json（六章）
+   + review-decisions-260914/review.json（228 道批量决策题的独立复核结论）。
    准入规则只有一条、且是数据算出来的：「四段全绿才开放」——页面不写死六章。
-   19 条 ready 只显示「准备中 / 目录候选」，76 个批量单元一律不可进入（0 决策题）。 */
+   19 条 ready 只显示「准备中 / 目录候选」，76 个批量单元一律不可进入：
+   它们的决策题已生成，但独立复核判定不可接入（见 evidence/review-decisions-260914/）。 */
 function loadPractice(learning) {
   const g = path.join(ROOT, 'knowledge', 'graph-260914', 'graph.json');
   const b = path.join(ROOT, 'evidence', 'batch-units-260914', 'units.json');
+  const r = path.join(ROOT, 'evidence', 'review-decisions-260914', 'review.json');
   if (!fs.existsSync(g)) { console.warn('⚠ 缺 knowledge/graph-260914/graph.json —— 先跑 node scripts/build-graph.mjs（实践空间会没有状态看板）'); return null; }
   const graph = JSON.parse(fs.readFileSync(g, 'utf8'));
   const batch = fs.existsSync(b) ? JSON.parse(fs.readFileSync(b, 'utf8')) : { units: [] };
   if (!fs.existsSync(b)) console.warn('⚠ 缺 evidence/batch-units-260914/units.json —— 批量 76 个单元不会出现在状态看板里');
-  const p = buildPractice({ graph, batch, learning });
+  const review = fs.existsSync(r) ? JSON.parse(fs.readFileSync(r, 'utf8')) : null;
+  if (!review) console.warn('⚠ 缺 evidence/review-decisions-260914/review.json —— 决策题一律按未复核处理（不开放）');
+  const p = buildPractice({ graph, batch, learning, review });
   console.log(`实践空间：单元 ${p.summary.units} 个 · 可进入 ${p.summary.open}（四段全绿）· ` +
     p.buckets.map((x) => `${x.label} ${x.count}`).join(' · '));
+  if (p.summary.reviewedDecisions) {
+    const d = p.summary.reviewedDecisions;
+    console.log(`  决策题独立复核：生成 ${d.questions} 道 / 复核通过 ${d.usableQuestions} 道 · 可用单元 ${d.usableUnits}/${d.units}`);
+  }
   return p;
 }
 
