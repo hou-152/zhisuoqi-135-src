@@ -2086,7 +2086,9 @@ function practiceBlockedHtml(u) {
     <h2>「${esc(u.label)}」现在不能进入学习</h2>
     <div class="mut">判定：${esc(practiceBucketLabel(u))}${u.routeStatus ? ` · 装配状态 ${esc(u.routeStatus)}${u.statusReason ? `（${esc(u.statusReason)}）` : ''}` : ''}。准入规则只有一条——四段全绿才开放。</div>
     <div>${segChips(u)}</div>
-    <ul class="pwhy" style="margin:10px 0 0 16px">${blocked.map(s => `<li>${esc(practiceSegLabel(PRACTICE_SEG_ORDER.find(k => (u.segments || {})[k] === s)))}：${esc(s.why)}</li>`).join('')}</ul>
+    ${blocked.length
+      ? `<ul class="pwhy" style="margin:10px 0 0 16px">${blocked.map(s => `<li>${esc(practiceSegLabel(PRACTICE_SEG_ORDER.find(k => (u.segments || {})[k] === s)))}：${esc(s.why)}</li>`).join('')}</ul>`
+      : `<div class="pnote">${esc(u.readerMissing || '四段全绿，但这份数据里没有它的阅读器绑定——照实说，不静默打开别的单元。')}</div>`}
     ${(u.gaps || []).length ? `<div class="pnote"><b>缺口原文（照实登记，本轮不补）</b><ul style="margin:6px 0 0 14px">${u.gaps.map(g => `<li>${esc(g)}</li>`).join('')}</ul></div>` : ''}
     <div class="mut" style="margin-top:8px">${u.entry ? `它的页面入口是 <code>${esc(u.entry)}</code>（不是这套阅读器）。` : '它连页面入口都还没有（graph.entries 里没有它）。'}</div>
   </div>`;

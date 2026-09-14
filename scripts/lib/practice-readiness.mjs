@@ -171,6 +171,15 @@ export function buildPractice({ graph, batch, learning }) {
     else u.bucket = 'material';
   }
 
+  /* 四段全绿但还没绑阅读器载荷：现在不会发生（只有六章全绿，它们都有 reader），
+     但准入是数据算的，哪天某个单元补齐了就会走到这条分支——照实说还差哪一步，不静默失败。 */
+  for (const u of units) {
+    if (u.open && !u.reader) {
+      u.readerMissing = '四段已经全绿，但还没有把它的材料编译成阅读器载荷（evidence/agent-loop-260913/chapters.json 那种）；'
+        + '这一版只把 gate 做成数据驱动，阅读载荷仍要逐单元装配——差的正是这一步。';
+    }
+  }
+
   const byBucket = Object.fromEntries(BUCKETS.map((b) => [b.key, units.filter((u) => u.bucket === b.key).length]));
   const count = (fn) => units.filter(fn).length;
 

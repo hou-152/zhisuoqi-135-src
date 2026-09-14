@@ -242,6 +242,13 @@ check('进入第 1 章走的是同一套 #learn 阅读器',
 check('从实践空间进来，返回条写「返回实践空间」', await ex(`document.getElementById('learn-back').textContent`), '← 返回实践空间');
 check('返回后回到实践空间（不是被丢进知识体系）',
   await ex(`exitLearn(); currentView+'|'+document.getElementById('reader').classList.contains('on')`), 'practice|true');
+/* 「不要把它堵死」：准入不是写死的六章 ID 白名单。
+   运行时往 PRACTICE.units 里塞一个**另一个单元**（批量单元改造成全绿、reader 指向已有章节），
+   同一套 #learn 阅读器必须能进去；再塞一个全绿但没绑 reader 的，必须照实说差哪一步。 */
+check('准入不是写死的六章：别的单元只要 gate 全绿，同一套阅读器就能进',
+  await ex(`(()=>{const src=PRACTICE.units.find(u=>u.group==='批量');const probe={...src,id:'unit:probe-green',open:true,reader:'agent',segments:Object.fromEntries(['reading','formative','decision','summative'].map(k=>[k,{state:'green',stateLabel:'可走',why:'探针'}]))};PRACTICE.units.push(probe);const r=practiceEnter('unit:probe-green');const on=document.getElementById('learn').classList.contains('on')+'|'+learnCur;exitLearn();PRACTICE.units.pop();return r+'|'+on})()`), 'true|true|agent');
+check('全绿但没绑阅读器：照实说差哪一步，不静默打开别的单元',
+  await ex(`(()=>{openPractice();const src=PRACTICE.units.find(u=>u.group==='批量');const probe={...src,id:'unit:probe-noreader',open:true,reader:null,segments:Object.fromEntries(['reading','formative','decision','summative'].map(k=>[k,{state:'green',stateLabel:'可走',why:'探针'}]))};PRACTICE.units.push(probe);const r=practiceEnter('unit:probe-noreader');const t=document.getElementById('practice-blocked').innerText;PRACTICE.units.pop();return r+'|'+(t.includes('没有它的阅读器绑定')||t.includes('还没有把它的材料编译成阅读器载荷'))})()`), 'false|true');
 check('路径条进来时的返回行为没改（这一版只多一个入口，不替换）',
   await ex(`(()=>{exitLearn(); setMode('path'); openPanel(ROUTES[0].steps[0].conceptId); openLearnFor(ROUTES[0].steps[0].conceptId); const label=document.getElementById('learn-back').textContent; exitLearn(); return label+'|'+currentView})()`), '← 返回知识体系|graph');
 
