@@ -1,0 +1,230 @@
+{
+ "version": "v1",
+ "unitId": "neican-260912-agent-skills-lesson-1",
+ "unitKind": "article",
+ "period": "260912",
+ "slug": "agent-skills-lesson-1",
+ "title": "Claude 官方课程 · 第 1 课：什么是 Agent Skills",
+ "source": "https://academy.claude.com/courses/introduction-to-agent-skills/what-are-skills",
+ "generatedAt": "2026-09-14T20:33:00.836Z",
+ "generator": "deterministic+llm",
+ "reviewStatus": "generated-unreviewed",
+ "layers": [
+  {
+   "id": "L1",
+   "name": "基础构成"
+  },
+  {
+   "id": "L2",
+   "name": "工作机制"
+  },
+  {
+   "id": "L3",
+   "name": "分类与触发"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "n1",
+   "name": "技能",
+   "full": "技能（Agent Skills）",
+   "layer": "L1",
+   "role": "core",
+   "card": 0,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_094c89da"
+   }
+  },
+  {
+   "id": "n2",
+   "name": "SKILL.md 与前置信息",
+   "full": "SKILL.md 与前置信息",
+   "layer": "L1",
+   "role": "linked",
+   "card": 1,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_a5573df7"
+   }
+  },
+  {
+   "id": "n3",
+   "name": "技能描述",
+   "full": "技能描述",
+   "layer": "L1",
+   "role": "linked",
+   "card": 2,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_ae03bb56"
+   }
+  },
+  {
+   "id": "n4",
+   "name": "按需加载",
+   "full": "按需加载",
+   "layer": "L2",
+   "role": "linked",
+   "card": 3,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_cc101992"
+   }
+  },
+  {
+   "id": "n5",
+   "name": "自动激活",
+   "full": "自动激活",
+   "layer": "L2",
+   "role": "linked",
+   "card": 4,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_369f10ff"
+   }
+  },
+  {
+   "id": "n6",
+   "name": "个人技能与项目技能",
+   "full": "个人技能与项目技能",
+   "layer": "L3",
+   "role": "linked",
+   "card": 5,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_5244b02e"
+   }
+  },
+  {
+   "id": "n7",
+   "name": "反复解释同一件事",
+   "full": "反复解释同一件事",
+   "layer": "L3",
+   "role": "linked",
+   "card": 6,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_64663de2"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "id": "e1",
+   "from": "n2",
+   "to": "n1",
+   "label": "提供技能文件载体",
+   "basis": "quote",
+   "quote": "每个技能都存在于一个SKILL.md文件中，其前端包含名称和描述。",
+   "quoteId": "Q7",
+   "quoteFrom": "原文 · Q7",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e2",
+   "from": "n3",
+   "to": "n1",
+   "label": "作为技能匹配依据",
+   "basis": "quote",
+   "quote": "当你请求克劳德做某事时，他会将你的请求与可用的技能描述进行比较，并激活匹配的技能。",
+   "quoteId": "Q9",
+   "quoteFrom": "原文 · Q9",
+   "citedBy": "llm",
+   "evidenceStrength": "direct",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e3",
+   "from": "n1",
+   "to": "n4",
+   "label": "技能按需加载",
+   "basis": "quote",
+   "quote": "技能按需加载——与CLAUDE.md（每次对话都会加载）或斜杠命令（需要显式调用）不同，当克劳德识别到相应情况时，技能会自动激活。",
+   "quoteId": "Q12",
+   "quoteFrom": "原文 · Q12",
+   "citedBy": "llm",
+   "evidenceStrength": "direct",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e4",
+   "from": "n1",
+   "to": "n5",
+   "label": "技能自动激活",
+   "basis": "quote",
+   "quote": "技能按需加载——与CLAUDE.md（每次对话都会加载）或斜杠命令（需要显式调用）不同，当克劳德识别到相应情况时，技能会自动激活。",
+   "quoteId": "Q12",
+   "quoteFrom": "原文 · Q12",
+   "citedBy": "llm",
+   "evidenceStrength": "direct",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e5",
+   "from": "n4",
+   "to": "n5",
+   "label": "按需加载促成自动激活",
+   "basis": "quote",
+   "quote": "技能按需加载——与CLAUDE.md（每次对话都会加载）或斜杠命令（需要显式调用）不同，当克劳德识别到相应情况时，技能会自动激活。",
+   "quoteId": "Q12",
+   "quoteFrom": "原文 · Q12",
+   "citedBy": "llm",
+   "evidenceStrength": "direct",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e6",
+   "from": "n1",
+   "to": "n6",
+   "label": "技能分为个人与项目",
+   "basis": "quote",
+   "quote": "项目技能则会存储.claude/skills在代码仓库中，并与所有克隆该仓库的用户共享。",
+   "quoteId": "Q11",
+   "quoteFrom": "原文 · Q11",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e7",
+   "from": "n7",
+   "to": "n1",
+   "label": "反复解释促使创建技能",
+   "basis": "quote",
+   "quote": "当 Claude 将技能匹配到你的请求时，你会在终端中看到它加载出来： 技能最适用于将专业知识应用于特定任务的情况： 经验法则很简单：如果你发现自己反复向克劳德解释同一件事，那么这项技能就需要写出来。",
+   "quoteId": "Q39",
+   "quoteFrom": "原文 · Q39",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e8",
+   "from": "n3",
+   "to": "n5",
+   "label": "描述匹配触发激活",
+   "basis": "quote",
+   "quote": "当你请求克劳德做某事时，他会将你的请求与可用的技能描述进行比较，并激活匹配的技能。",
+   "quoteId": "Q9",
+   "quoteFrom": "原文 · Q9",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  }
+ ],
+ "gaps": [
+  "边 SKILL.md 与前置信息 → 技能描述（前置信息包含描述）找不到支撑原句 → 按 R1/R2 不进图"
+ ],
+ "llm": {
+  "model": "deepseek-v4-pro",
+  "tokens": 3970,
+  "cached": true
+ },
+ "citedByStats": {
+  "llm": 8,
+  "retrieval": 0
+ }
+}

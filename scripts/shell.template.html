@@ -27,11 +27,11 @@ button{font-family:inherit}
    所有者：「左边的这个一级页面、一级功能栏，内参、知识体系、实践空间，应该放到顶端」。
    左栏整条撤掉（品牌 + 搜索 + 三个一级导航都进顶栏），主区分列从
    「224 导航 | 302 列表 | 1fr」变成「302 列表 | 1fr」——画布顺带白捡 224px。
-   二级的「视图 tab 板」（路径/图谱/关系/星球/总图）仍长在知识体系**里面**的主区顶部：
-   一级在顶栏、二级在主区，层级不混。 */
+   二级的「视图 tab 板」（09-15 v3 起＝我的树｜路径＋右侧「系统视图」小入口；
+   关系/星球撤入口）仍长在知识树**里面**的主区顶部：一级在顶栏、二级在主区，层级不混。 */
 #app{display:grid;grid-template-columns:302px 1fr;grid-template-rows:46px 1fr;height:100vh;overflow:hidden}
 
-/* 顶栏（一级）：品牌 + 内参 / 知识体系 / 实践空间 + 搜索 */
+/* 顶栏（一级）：品牌 + 内参 / 知识树 / 实践空间 + 搜索 */
 #topbar{grid-column:1/3;grid-row:1;display:flex;align-items:center;gap:18px;min-width:0;
   padding:0 12px 0 14px;background:var(--panel);border-bottom:1px solid var(--line)}
 .r-brand{display:flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;
@@ -129,6 +129,22 @@ button{font-family:inherit}
 #main.pinned #pathrail{display:none}   /* 卡片已经写着同一套上下文，不再占画布 */
 #pathrail::-webkit-scrollbar{width:8px}
 #pathrail::-webkit-scrollbar-thumb{background:#232426;border-radius:4px}
+/* ── 树头（v3-knowledge-tree）：slogan + 绝对数统计 + 四态图例 ─────
+   只在「我的树」模式出现（#main.treeon）。统计只报绝对数——
+   09-12 路演红线：不报「占全树百分比」（目录越长比例越误导）。
+   不挡点击：pointer-events:none，图例也只是说明，不是控件。 */
+#tree-head{position:absolute;left:14px;top:54px;z-index:4;pointer-events:none;display:none;max-width:430px}
+#main.treeon #tree-head{display:block}
+#main.pinned #tree-head{display:none}      /* 卡片打开时让位（卡片里写着同一批数字的来源） */
+#tree-head .th-slogan{font-size:16.5px;font-weight:650;letter-spacing:.4px;color:var(--fg);
+  text-shadow:0 1px 10px rgba(8,9,10,.9)}
+#tree-head .th-slogan span{color:#5ee0c0}
+#tree-head .th-stat{margin-top:5px;font-size:11.5px;color:var(--fg3);line-height:1.7;
+  text-shadow:0 1px 8px rgba(8,9,10,.9)}
+#tree-head .th-stat b{color:var(--fg)}
+#tree-head .th-legend{margin-top:6px;display:flex;gap:10px;font-size:10.5px;color:var(--fg4)}
+#tree-head .th-legend i{display:inline-block;width:9px;height:9px;border-radius:50%;
+  border:1.6px solid #fff;margin-right:4px;vertical-align:-1px;background:transparent}
 .pr-kicker{font-size:10.5px;color:var(--fg4);letter-spacing:.04em}
 .pr-title{font-size:15px;font-weight:550;margin:5px 0 4px;letter-spacing:-.01em;line-height:1.35}
 .pr-q{font-size:11.5px;color:var(--fg3);line-height:1.7;margin-bottom:8px}
@@ -230,7 +246,11 @@ button{font-family:inherit}
 #panel .close:hover{background:#1a1b1e;color:var(--fg2)}
 #panel .src{font-size:11px;color:var(--fg3);margin-bottom:9px;padding-right:32px;line-height:1.7}
 #panel h2{font-size:19px;font-weight:550;line-height:1.35;margin-bottom:12px;letter-spacing:-.01em}
-#panel .gloss{font-size:13px;line-height:1.85;color:var(--fg2);margin-bottom:20px}
+#panel .kbadge{display:inline-block;margin-left:8px;border:1px solid var(--line2);border-radius:5px;padding:1px 8px;font-size:10.5px;vertical-align:3px;font-weight:500}
+.pbody-meta{display:none}
+.proven{border:1px solid var(--line2);border-radius:9px;background:var(--panel);padding:9px 12px;font-size:12.5px;color:var(--fg2);margin:10px 0}
+.proven b{color:var(--fg)}
+.gloss{font-size:13px;line-height:1.85;color:var(--fg2);margin-bottom:20px}
 #panel .deep{border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin:0 0 18px;background:#141518}
 #panel .deep summary{cursor:pointer;font-size:11.5px;color:var(--fg4);outline:none}
 #panel .deep h5{margin-top:12px}
@@ -405,12 +425,63 @@ code{background:#161719;border:1px solid var(--line);border-radius:4px;padding:1
 .nei-cal .cd.has:hover{border-color:var(--accent2);color:#fff}
 .nei-cal .cd.has.on{background:var(--accent2);border-color:var(--accent2);color:#1a1310}
 .nei-cal .cd.today{box-shadow:0 0 0 1px #6d5c3c inset}
-.nei-cal .cf{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:9px;
+.nei-cal .cf{display:flex;flex-direction:column;align-items:stretch;gap:3px;margin-top:9px;
   padding-top:8px;border-top:1px solid var(--line)}
 .nei-cal .allbtn{border:1px solid var(--line);background:none;color:var(--fg2);border-radius:7px;
   font-size:11px;padding:3px 8px;cursor:pointer}
 .nei-cal .allbtn.on{border-color:var(--accent2);color:var(--accent2)}
-.nei-cal .hint{color:var(--fg4);font-size:10.5px;text-align:right;line-height:1.45}
+.nei-cal .hint{color:var(--fg4);font-size:10.5px;text-align:left;line-height:1.45;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nei-day .ih-nav{border:0;background:none;color:var(--fg3);font-size:14px;line-height:1;cursor:pointer;border-radius:5px;padding:1px 6px}
+.nei-day .ih-nav:hover{background:#1b1d22;color:var(--fg)}
+.pr-fit{float:right;border:1px solid var(--line);background:#141518;color:var(--fg3);font-size:10.5px;
+  border-radius:6px;padding:1px 8px;cursor:pointer}
+.pr-fit:hover{color:var(--fg);border-color:#5e6ad2}
+/* ── 顶栏「更新」面板（v4-unify）：隐性 changelog ── */
+.upd-btn{border:0;background:none;color:var(--fg4);font-size:11px;cursor:pointer;white-space:nowrap;padding:2px 4px}
+.upd-btn:hover{color:var(--fg)}
+#upd-panel{position:fixed;top:46px;right:10px;width:340px;max-height:70vh;overflow:auto;z-index:80;
+  background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px;
+  box-shadow:0 12px 40px rgba(0,0,0,.5);font-size:12px}
+#upd-panel h4{margin:0 0 8px;font-size:12.5px;color:var(--fg)}
+#upd-panel .u-item{margin:0 0 10px}
+#upd-panel .u-item b{color:var(--fg)}
+#upd-panel .u-item .u-date{color:var(--fg4);font-size:10.5px;margin-left:6px}
+#upd-panel .u-item p{margin:2px 0 0;color:var(--fg3);font-size:11.5px;line-height:1.6}
+#upd-panel .u-sys{border-top:1px solid var(--line);padding-top:8px;margin-top:4px}
+#upd-panel .u-sys a,#upd-panel .u-sys button{background:none;border:0;color:var(--fg4);font-size:11px;cursor:pointer;padding:0}
+#upd-panel .u-sys .u-repo{color:var(--fg4);font-size:10.5px;display:block;margin-top:2px}
+/* ── 探索 / AI 内嵌首页（v4-unify）：三步引导 + 模块卡 ── */
+.explore{min-height:100%;padding:46px 40px 60px;max-width:880px;margin:0 auto}
+.exp-onboard{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:78vh;gap:16px}
+.exo-card{width:460px;max-width:92vw;background:var(--panel2);border:1px solid var(--line);border-radius:16px;
+  padding:34px 36px 26px;text-align:center}
+.exo-ico{width:54px;height:54px;margin:0 auto 14px;border-radius:14px;background:#17181d;border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;font-size:26px;color:#c3caff}
+.exo-card h3{margin:0 0 4px;font-size:19px;color:var(--fg)}
+.exo-title{font-size:13px;color:#c3caff;margin-bottom:12px}
+.exo-card p{margin:0 0 18px;font-size:12.5px;color:var(--fg3);line-height:1.9}
+.exo-dots{display:flex;gap:7px;justify-content:center;margin-bottom:18px}
+.exo-dots i{width:7px;height:7px;border-radius:50%;background:#2a2c33}
+.exo-dots i.on{background:#c3caff}
+.exo-acts{display:flex;justify-content:center;gap:10px}
+.exo-acts button{border-radius:8px;padding:7px 20px;font-size:12.5px;cursor:pointer}
+.exo-ghost{border:0;background:none;color:var(--fg4)}
+.exo-ghost:hover{color:var(--fg)}
+.exo-next{border:0;background:#5e6ad2;color:#fff;font-weight:600}
+.exo-next:hover{background:#6f7be0}
+.exo-note{font-size:11px;color:var(--fg4)}
+.exp-home .exp-hero{margin:8px 0 22px}
+.exp-hero h2{margin:0 0 8px;font-size:24px;color:var(--fg)}
+.exp-hero p{margin:0;font-size:13px;color:var(--fg3);line-height:1.9;max-width:640px}
+.exp-mods{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.exp-mod{background:var(--panel2);border:1px solid var(--line);border-radius:13px;padding:20px 18px;
+  text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:6px}
+.exp-mod:hover{border-color:#5e6ad2}
+.exp-mod .em-ico{width:38px;height:38px;border-radius:10px;background:#17181d;border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;font-size:19px;color:#c3caff;margin-bottom:4px}
+.exp-mod b{color:var(--fg);font-size:14px}
+.exp-mod span{color:var(--fg3);font-size:11.5px;line-height:1.6}
+.exp-note{margin-top:18px;font-size:11px;color:var(--fg4)}
 .nei-topside{flex:1;min-width:220px;padding-top:2px}
 .nei-topside-n{color:var(--fg3);font-size:12px;margin-top:10px}
 .nei-back{display:flex;align-items:center;gap:10px;margin:0 0 10px}
@@ -473,6 +544,42 @@ code{background:#161719;border:1px solid var(--line);border-radius:4px;padding:1
 .concept .q{border-left:2px solid var(--line2);padding-left:10px;color:var(--fg2);margin:7px 0;font-size:12.5px;line-height:1.7}
 .concept .fy{margin-top:9px;font-size:13px;line-height:1.75}
 .concept .fy i{color:var(--accent2);font-style:normal;font-size:11.5px;margin-right:6px}
+/* ── 概念网络图（concept-net-view.js · 2026-09-15）──
+   结构：.cn-fig > .cn-head + .cn-canvas(svg) + .cn-legend + .cn-detail。
+   颜色基调跟层走（层色由渲染器内联），这里只管边/标签/文本/交互态。 */
+.cn-fig{border:1px solid var(--line);border-radius:12px;background:var(--panel2);padding:14px 16px 10px;margin:14px 0}
+.cn-head{font-size:13px;font-weight:600;margin-bottom:6px}
+.cn-head .cn-eq{margin-left:10px;color:var(--fg3);font-weight:400;font-size:11.5px}
+.cn-canvas{overflow:auto;border-radius:8px}
+.cn-svg{display:block;min-width:100%}
+.cn-layer{font-size:11px;font-weight:700;fill:var(--fg2)}
+.cn-edge{stroke:#3a3d44;stroke-width:1.4}
+.cn-elabel rect{fill:#0b0c0d;stroke:var(--line)}
+.cn-elabel text{font-size:10.5px;fill:var(--fg2)}
+.cn-elabel-warn text{fill:#e0a94a}
+.cn-node{cursor:pointer}
+.cn-node text{font-size:12px;fill:var(--fg);pointer-events:none}
+.cn-node.cn-core text{font-weight:700}
+.cn-fig.cn-focusing .cn-edge,.cn-fig.cn-focusing .cn-elabel{opacity:.16}
+.cn-fig.cn-focusing .cn-edge.cn-hot,.cn-fig.cn-focusing .cn-elabel.cn-hot{opacity:1}
+.cn-edge.cn-hot{stroke:#e07a2f;stroke-width:2}
+.cn-elabel.cn-hot rect{stroke:#e07a2f}
+.cn-node.cn-dim{opacity:.22}
+.cn-legend{font-size:11.5px;color:var(--fg3);margin-top:8px}
+.cn-legend b{color:var(--fg2)}
+.cn-sep{margin:0 6px}
+.cn-warn{color:#e0a94a}
+.cn-detail{border-top:1px dashed var(--line);margin-top:10px;padding-top:10px}
+.cn-dt-h{font-weight:700;font-size:13px;margin-bottom:6px}
+.cn-dt-e{margin:8px 0;font-size:12.5px;line-height:1.7}
+.cn-dt-e b{color:var(--fg)}
+.cn-q{color:var(--fg2);border-left:2px solid var(--line2);padding-left:10px;margin-top:4px}
+.cn-src{color:var(--fg3);font-size:11px;margin-left:8px}
+.cn-sent{color:var(--fg3);font-size:11.5px;margin-top:3px}
+.cn-jump{margin-top:8px;border:1px solid var(--line2);border-radius:7px;background:none;color:var(--accent2);font-size:12px;padding:4px 10px;cursor:pointer}
+.cn-mut{color:var(--fg3);font-size:12px}
+.cn-empty{color:var(--fg3);font-size:12.5px;padding:8px 0}
+.concept.cn-card-hit{border-color:#e07a2f}
 .fybox{border:1px solid var(--line);border-radius:9px;padding:12px 14px;margin:10px 0;background:var(--panel2)}
 .fybox .k{font-size:11.5px;color:var(--accent2);margin-bottom:7px}
 .fybox .mut{color:var(--fg3);font-size:11.5px;margin-bottom:8px}
@@ -498,6 +605,36 @@ code{background:#161719;border:1px solid var(--line);border-radius:4px;padding:1
 .pu .nm{font-weight:600;font-size:13px;color:var(--fg)}
 .pu .meta{color:var(--fg3);font-size:11.5px}
 .pu .sp{flex:1}
+/* 七站路线行（v2-practice-space）：独立 .ru 类，不用 .pu——「.pu 一行=六章/单篇」的断言口径保持成立 */
+.ru{display:flex;align-items:center;gap:10px;flex-wrap:wrap;border-top:1px solid var(--line);padding:7px 0 7px 12px}
+.ru .nm{font-weight:600;font-size:12.5px;color:var(--fg)}
+.ru .meta{color:var(--fg3);font-size:11px}
+.ru .sp{flex:1}
+.ru.anchor{opacity:.72}
+.ru.cur,.pu.cur{outline:2px solid var(--accent);outline-offset:2px;border-radius:8px}
+.cur-tag{display:inline-block;margin-left:6px;border:1px solid var(--accent);color:var(--accent);border-radius:5px;padding:0 6px;font-size:10.5px;vertical-align:1px}
+/* 七站铺开（phase 05）：每站一节，步骤卡片网格 */
+.proute{padding:16px 18px}
+.rstation-head{display:flex;align-items:baseline;gap:12px;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:12px}
+.rs-no{font-size:34px;font-weight:700;color:var(--accent);line-height:1;min-width:46px}
+.rs-main{flex:1}
+.rs-title{font-size:17px;font-weight:700;color:var(--fg)}
+.rs-q{font-size:13px;color:var(--fg2);margin-top:3px}
+.rs-n{font-size:12px;color:var(--fg3);white-space:nowrap}
+.rugrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:10px}
+.rucard{border:1px solid var(--line);border-radius:10px;background:var(--panel);padding:10px 12px;display:flex;flex-direction:column;gap:6px}
+.rucard.cur{outline:2px solid var(--accent);outline-offset:1px}
+.rucard.rsup{border-style:dashed;opacity:.75}
+.ru-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.ru-top b{font-size:13px;color:var(--fg)}
+.rutag{font-size:10.5px;color:var(--fg3);border:1px solid var(--line2);border-radius:5px;padding:0 6px;white-space:nowrap}
+.ru-line{font-size:12px;color:var(--fg2);line-height:1.65;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;flex:1}
+.ru-act{display:flex;justify-content:flex-end}
+.rstation{margin:12px 0 2px;font-size:13px;color:var(--fg)}
+.rstation .mut{margin:0 0 2px}
+.rdraft{display:inline-block;border:1px dashed #8a6d1a;color:#c9a227;border-radius:6px;padding:1px 8px;font-size:11px;vertical-align:2px;margin-left:6px}
+details.pfold{padding:10px 16px}
+details.pfold summary{cursor:pointer;font-size:14px;color:var(--fg)}
 .pbtn{border:1px solid var(--accent);background:var(--accent);color:#fff;border-radius:7px;padding:4px 11px;font-size:12px;cursor:pointer;font-family:inherit}
 .pbtn:hover{background:var(--accent2);border-color:var(--accent2)}
 .pbtn.ghost{background:none;color:var(--fg2);border-color:var(--line2)}
@@ -668,13 +805,16 @@ body.learning #topbar,body.learning #list,body.learning #main{display:none}
   <header id="topbar">
     <div class="r-brand">知所栖<span>135</span><span class="pubtag" id="pubtag" style="display:none">公网快照</span></div>
     <nav class="r-list">
+      <button class="r-item" data-view="explore" onclick="setView('explore')" title="AI 内嵌首页"><span class="ic">✦</span><b>探索</b></button>
       <button class="r-item" data-view="neican" onclick="setView('neican')"><span class="ic">▤</span><b>内参</b><i id="r-nei"></i></button>
       <button class="r-item on" data-view="graph" onclick="setView('graph')"><span class="ic">◧</span><b>知识体系</b><i id="r-all"></i></button>
       <button class="r-item" data-view="practice" onclick="openPractice()"><span class="ic">▷</span><b>实践空间</b><i>1</i></button>
     </nav>
     <span class="spacer" style="flex:1"></span>
+    <button class="upd-btn" id="btn-upd" onclick="toggleUpd()" title="版本更新记录">更新 <span id="upd-ver"></span></button>
     <label class="r-search">⌕<input id="q-filter" placeholder="筛选…" oninput="renderList()"></label>
   </header>
+  <div id="upd-panel" hidden></div>
 
   <section id="list">
     <header class="lp-head">
@@ -687,11 +827,8 @@ body.learning #topbar,body.learning #list,body.learning #main{display:none}
   <main id="main">
     <canvas id="c"></canvas>
     <div class="mtools">
-      <button class="tab on" data-mode="path">路径</button>
-      <button class="tab" data-mode="grid">图谱</button>
-      <button class="tab" data-mode="relation">关系</button>
-      <button class="tab" data-mode="sphere">星球</button>
-      <button class="tab" data-mode="graph" title="全链路 Graph：材料→语义→知识→课程→活动→记录">总图</button>
+      <button class="tab on" data-mode="tree" title="我的知识树：学过（有判定证据）的叶子才亮">我的树</button>
+      <button class="tab" data-mode="path">路径</button>
       <span class="rel-legend" id="rel-legend">
         <span><i style="background:#a8b5ee"></i>前置</span>
         <span><i style="background:#8b7de8"></i>相关</span>
@@ -703,6 +840,16 @@ body.learning #topbar,body.learning #list,body.learning #main{display:none}
       <button class="tbtn" id="btn-fit" onclick="fitAll()" title="把 21 条主题一次全看（默认是居中三列的可读视角）">全览</button>
       <button class="tbtn" id="btn-unpin" onclick="resetPins()" hidden title="把所有手动拖过的点放回自动布局">↺ 布局归位</button>
       <span class="mm" id="main-meta"></span>
+    </div>
+    <div id="tree-head">
+      <div class="th-slogan">将知识转化为<span>属于你的知识树</span></div>
+      <div class="th-stat" id="tree-stat"></div>
+      <div class="th-legend">
+        <span><i style="border-color:#5ee0c0"></i>费曼过</span>
+        <span><i style="border-color:#e0a94a"></i>机器过</span>
+        <span><i style="border-color:#ff4d4d"></i>倒回中</span>
+        <span><i style="border-color:#9661BC"></i>读过</span>
+      </div>
     </div>
     <div id="pathrail"></div>
     <div id="reader"><div class="nei" id="nei-wrap"></div></div>
@@ -731,6 +878,7 @@ body.learning #topbar,body.learning #list,body.learning #main{display:none}
 
 <script>/*__GRAPH_RUNNER__*/</script>
 <script>/*__GRAPH_VIEW__*/</script>
+<script>/*__CONCEPT_NET__*/</script>
 <script>
 const DATA = /*__DATA__*/;
 
@@ -745,6 +893,18 @@ const ITERS     = 260;
 const nodes = DATA.nodes, edges = DATA.edges, relations = DATA.relations || [], sources = DATA.sources, meta = DATA.meta;
 const articles = DATA.articles || [];   // 来源索引：65 篇原文 ＋ 229 个 Notion 页（cm-wire 生成，节点用 n.sa 指过来）
 const relationStats = DATA.relationStats || { visible: relations.length, hidden: 0, byKind: {} };
+/* 依赖边的强度与理由（v3-knowledge-tree）：build-shell 从概念地图 dependencies.json 装进来，
+   键＝"topicId>prerequisiteId"（**依赖方>前置**：谁依赖它，谁是前置）。概念卡「先懂这些」
+   （当前卡是依赖方：查 id>x）与「懂了它才能懂这些」（对方是依赖方：查 x>id）用它给每条双链
+   带 hard/soft＋理由（os-taxonomy 边口径；与路径视图 mapHard/mapSoft 同源）。 */
+const edgeMeta = DATA.edgeMeta || {};
+function edgeNote(fromId, toId) {
+  const e = edgeMeta[fromId + '>' + toId];
+  if (!e) return '';
+  const s = e.s === 'hard' ? ' · hard' : e.s === 'soft' ? ' · soft' : '';
+  const r = e.r ? ' — ' + String(e.r).slice(0, 60) + (String(e.r).length > 60 ? '…' : '') : '';
+  return s + r;
+}
 // 主题层：21 条主题线（知识体系现在只有这一个分组轴）
 const CUR = DATA.curation || { tags: [], assign: {}, collections: [] };
 // 内参一栏：AI 内参图文格式（主题 / 重要等级 / 地址 / 配图 / 原文子链接 / 简介 / 入选理由 / 三产物）
@@ -756,6 +916,23 @@ const NEI_ALL = (() => {
   return list.sort((a, b) => String(b.period).localeCompare(String(a.period)));
 })();
 const NEI_TOTAL = NEI_ALL.reduce((s, i) => s + ((i.articles || []).length), 0);
+/* 概念网络图（2026-09-15）：DATA.conceptNet.nets[<unitId>]。
+   unitId：route-agent-loop（六章路线一张图）· neican-<期>-<slug>（内参单篇）。
+   数据由 build-concept-net.mjs 产出、check-concept-net.mjs 体检（R1—R8：只有带逐字原文的边才进图），
+   视图是 scripts/lib/concept-net-view.js（build-shell 内联 → window.CONCEPT_NET）。
+   找不到数据的单元不硬造图，照实显示「还没有生成」。 */
+const CN_NETS = (DATA.conceptNet || {}).nets || {};
+function mountConceptNet(root) {
+  if (!window.CONCEPT_NET) return;
+  (root || document).querySelectorAll('.cn-host[data-unit]').forEach((h) => {
+    if (h.dataset.cnMounted === '1') return;          // 重渲染会重建节点，防的是同一节点挂两次
+    const net = CN_NETS[h.getAttribute('data-unit')];
+    if (!net) { h.innerHTML = '<div class="cn-empty">这张概念网络图还没有生成（跑 node scripts/build-concept-net.mjs）。</div>'; return; }
+    h.dataset.cnMounted = '1';
+    const hi = h.getAttribute('data-hi');
+    window.CONCEPT_NET.mount(h, net, hi ? { highlightLayer: hi } : {});
+  });
+}
 /* 默认 = 「全部」：中间那一栏是**日报集合**（按期倒序的每日日报），日期条用来收窄到某一天。
    起因（2026-09-14 所有者口径）：「中间的阅读位置替换为内参日报集合」——落地时中间必须是集合本身。 */
 let neiPeriod = '';
@@ -823,8 +1000,9 @@ const RELATION_COLORS = {
 };
 
 /* ── 状态 ───────────────────────────────────────────── */
-// 09-13：路径是默认的学习观察方式（HANDOFF §四.1），图谱 / 关系 / 星球继续保留。
-let mode = 'path';
+// 09-15 v3-knowledge-tree：**我的树**是默认（slogan「将知识转化为属于你的知识树」落在产品上，
+// 所有者拍板方案甲）。树＝分列坐标的渲染变体（路径同款做法）；图谱/关系/星球撤入口不删代码。
+let mode = 'tree';
 let rotX = -0.22, rotY = 0.5, zoom = 1.08, panX = 0, panY = 0;
 let selected = null, hovered = null, filter = null;
 // 当前路线与「走到第几步」：routeStepIdx 是 0 基下标；进路径时停在第一个没验过的步骤上
@@ -848,26 +1026,44 @@ function firstUnseenStep(r) {
 /* 把视图对准路线（09-13 加）：路径默认打开时整张图是缩到 1.0 的，六个点挤在 L0/L1 那两行里，
    截图一看「当前节点高亮」其实埋在灰点堆里。这里按路线的包围盒定一次 zoom/pan，
    让路线占画布中间那块；之后用户自己拖/缩放不再动它。 */
-function focusRoute() {
+/* v4-unify：路径默认「**当前步视角**」——整条路线横跨 8 列，整条入画必须缩到 ~0.3，
+   看起来只有细细一条（所有者 09-15「路径只显示一点点」）。默认以当前步为中心的可读取景，
+   「看整条」按钮切 full。routeFit：step（默认）| full。 */
+let routeFit = 'step';
+function focusRoute(opts) {
   const r = activeRoute();
   if (!r || !r.steps.length || mode !== 'path') return;
+  const o = (opts && typeof opts === 'object') ? opts : {};
+  if (o.fit) routeFit = o.fit;
   const ns = r.steps.map(s => byId.get(s.conceptId)).filter(Boolean);
   if (ns.length < 2) return;
-  const gxs = ns.map(n => n.gx), gys = ns.map(n => n.gy);
-  const spanX = Math.max(90, Math.max(...gxs) - Math.min(...gxs));
-  const spanY = Math.max(70, Math.max(...gys) - Math.min(...gys));
   const left = 282;                                  // 让开路径条
-  // 09-15：列宽改成固定的 264 世界像素后，一条路线是真宽——实测这条跨 8 条主题
-  // （2125 世界像素），要整条进画面得缩到 ~0.22。路线点在渲染里另有 4.2px 下限，
-  // 缩小了仍然看得见，所以下限只放到 0.16，由取景公式说话。
-  const s = Math.max(0.16, Math.min(1.6, Math.min((W - left) * 0.74 / spanX, (H - 60) * 0.62 / spanY)));
-  zoom = s;
-  const gcx = (Math.min(...gxs) + Math.max(...gxs)) / 2, gcy = (Math.min(...gys) + Math.max(...gys)) / 2;
-  const tx = left + (W - left) * 0.5, ty = 60 + (H - 60) * 0.5;
-  panX = (tx - CX) / s - gcx + CX;
-  panY = (ty - CY) / s - gcy + CY;
+  let t;
+  if (routeFit === 'full') {
+    const gxs = ns.map(n => n.gx), gys = ns.map(n => n.gy);
+    const spanX = Math.max(90, Math.max(...gxs) - Math.min(...gxs));
+    const spanY = Math.max(70, Math.max(...gys) - Math.min(...gys));
+    // 09-15：列宽改成固定的 264 世界像素后，一条路线是真宽——实测这条跨 8 条主题
+    // （2125 世界像素），整条进画面得缩到 ~0.22。渲染里路线点有 4.2px 下限，下限放到 0.16。
+    const s = Math.max(0.16, Math.min(1.6, Math.min((W - left) * 0.74 / spanX, (H - 60) * 0.62 / spanY)));
+    const gcx = (Math.min(...gxs) + Math.max(...gxs)) / 2, gcy = (Math.min(...gys) + Math.max(...gys)) / 2;
+    const tx = left + (W - left) * 0.5, ty = 60 + (H - 60) * 0.5;
+    t = { zoom: s, panX: (tx - CX) / s - gcx + CX, panY: (ty - CY) / s - gcy + CY };
+  } else {
+    const cur = byId.get(r.steps[Math.min(routeStepIdx, r.steps.length - 1)].conceptId);
+    if (!cur) return;
+    const s = Math.max(0.55, Math.min(1.2, (W - left) / 860));
+    const tx = left + (W - left) * 0.5, ty = 60 + (H - 60) * 0.48;
+    t = { zoom: s, panX: (tx - CX) / s - cur.gx + CX, panY: (ty - CY) / s - cur.gy + CY };
+  }
+  camApply(t, o.instant ? { instant: true } : null);
 }
 window.focusRoute = focusRoute;
+function routeFitToggle() {
+  focusRoute({ fit: routeFit === 'step' ? 'full' : 'step' });
+  renderPathRail();
+}
+window.routeFitToggle = routeFitToggle;
 function openRoute(id, keepStep) {
   const r = ROUTES.find(x => x.routeId === id);
   if (!r) return;
@@ -885,6 +1081,7 @@ function gotoRouteStep(i) {
   const r = activeRoute(); if (!r) return;
   routeStepIdx = Math.max(0, Math.min(r.steps.length - 1, i));
   openPanel(r.steps[routeStepIdx].conceptId);
+  focusRoute({ instant: true });   // 当前步视角跟着走（v4）
   syncPath();
 }
 window.gotoRouteStep = gotoRouteStep;
@@ -893,6 +1090,7 @@ function pickRouteStep(i) {
   routeStepIdx = i;
   const r = activeRoute();
   openPanel(r.steps[i].conceptId);
+  focusRoute({ instant: true });   // 当前步视角跟着走（v4）
   syncPath();
 }
 window.pickRouteStep = pickRouteStep;
@@ -915,6 +1113,105 @@ function saveMarks() { try { localStorage.setItem(MARK_KEY, JSON.stringify(marks
 
 function refreshMarks() {
   if (window.refreshRail) refreshRail();
+  if (window.renderTreeStat) renderTreeStat();
+}
+/* ── 树头统计（v3-knowledge-tree）────────────────────────
+   只报绝对数：N 片叶子有判定（pass+mech+fail）· M 片过了费曼（pass）· K 片倒回中（fail）。
+   read（读过）不算「有判定」——那一类不设验收（09-12 红线：不许自报；09-12 路演红线：不报占全树百分比）。 */
+function treeStats() {
+  let pass = 0, mech = 0, fail = 0;
+  for (const k of Object.keys(marks)) {
+    const s = marks[k] && marks[k].state;
+    if (s === 'pass') pass++; else if (s === 'mech') mech++; else if (s === 'fail') fail++;
+  }
+  return { pass, mech, fail, judged: pass + mech + fail };
+}
+function renderTreeStat() {
+  const el = document.getElementById('tree-stat');
+  if (!el) return;
+  const t = treeStats();
+  el.innerHTML = t.judged
+    ? `你的树 · <b>${t.judged}</b> 片叶子有判定 · <b>${t.pass}</b> 片过了费曼 · <b>${t.fail}</b> 片倒回中`
+    : `你的树还是一棵苗——去内参读一篇，或进实践空间学一章，<b>叶子会长出来</b>`;
+}
+window.renderTreeStat = renderTreeStat; window.treeStats = treeStats;
+
+/* ══ 顶栏「更新」面板 + 探索 / AI 内嵌首页（v4-unify）════════════
+   更新面板＝隐性 changelog：数据 build-shell 从 iterations 各档的 PRD.md 烘焙（DATA.changelog），
+   面板底部给「系统审计视图」入口并标注 repo 路径（所有者：总图撤出主界面后要知道它在哪）。
+   探索＝第一模块，进 AI 内嵌首页；首次给三步引导（内参 / 知识体系 / 实践空间，
+   每步配图位+小字——所有者口径），完成态记 localStorage，随时可跳过。 */
+const CHANGELOG = DATA.changelog || [];
+let expStep = 0;
+const EXPLORE_STEPS = [
+  { icon: '▤', name: '内参', view: 'neican', title: '每天几篇，三分钟看懂今天',
+    text: 'AI 圈每天在发生什么，选重要的给你。每篇带三级笔记、概念网络、费曼示范和阅读原文——读完就有反馈，不是收藏吃灰。' },
+  { icon: '◧', name: '知识体系', view: 'graph', title: '1070 个概念长成一棵知识树',
+    text: '每个概念讲清定义、来源和「怎么算会了」，前置关系带强度与理由。你学过的叶子会亮——这棵树随你的判定证据生长。' },
+  { icon: '▷', name: '实践空间', view: 'practice', title: '一条向前的路',
+    text: '六章主线＋七站路线：阅读 → 即时费曼 → 决策 → 章末验收。未过不解锁下一章；改复述清状态。' },
+];
+function toggleUpd() {
+  const p = document.getElementById('upd-panel');
+  if (!p.hidden) { p.hidden = true; return; }
+  p.innerHTML = `<h4>更新记录</h4>`
+    + CHANGELOG.map(c => `<div class="u-item"><b>${esc(c.ver)}</b><span class="u-date">${esc(c.date)}</span><p>${esc(c.title)}</p></div>`).join('')
+    + `<div class="u-sys"><button onclick="closeUpd();location.hash='graph=map'">系统审计视图（全链路 Graph）→</button>
+       <span class="u-repo">视图 scripts/lib/graph-view.js · 数据 knowledge/graph-260914/graph.json · 学习空间门控共用，主界面已撤入口</span></div>`;
+  p.hidden = false;
+}
+function closeUpd() { const p = document.getElementById('upd-panel'); if (p) p.hidden = true; }
+window.toggleUpd = toggleUpd; window.closeUpd = closeUpd;
+
+function openExplore() {
+  const reader = document.getElementById('reader');
+  let w = document.getElementById('explore-wrap');
+  if (!w && reader) {
+    reader.innerHTML = '';
+    w = document.createElement('div'); w.className = 'explore'; w.id = 'explore-wrap';
+    reader.appendChild(w);
+  }
+  let done = false;
+  try { done = localStorage.getItem('zss135.explore.v1') === 'done'; } catch (e) {}
+  w.innerHTML = (done || expStep >= 3) ? exploreHome() : exploreOnboard();
+  const r = document.getElementById('reader');
+  if (r) { r.classList.add('on'); if (r.scrollTo) r.scrollTo(0, 0); }
+  renderList(); refreshRail();
+}
+window.openExplore = openExplore;
+function exploreOnboard() {
+  const s = EXPLORE_STEPS[expStep];
+  return `<div class="exp-onboard">
+    <div class="exo-card">
+      <div class="exo-ico">${s.icon}</div>
+      <h3>${esc(s.name)}</h3>
+      <div class="exo-title">${esc(s.title)}</div>
+      <p>${esc(s.text)}</p>
+      <div class="exo-dots">${EXPLORE_STEPS.map((_, i) => `<i class="${i === expStep ? 'on' : ''}"></i>`).join('')}</div>
+      <div class="exo-acts">
+        ${expStep > 0 ? `<button class="exo-ghost" onclick="expMove(-1)">上一步</button>` : `<button class="exo-ghost" onclick="expDone()">跳过</button>`}
+        <button class="exo-next" onclick="${expStep >= 2 ? 'expDone()' : 'expMove(1)'}">${expStep >= 2 ? '开始用' : '下一步'}</button>
+      </div>
+    </div>
+    <div class="exo-note">AI 内嵌 · 首次引导 · 随时可跳过</div>
+  </div>`;
+}
+function exploreHome() {
+  return `<div class="exp-home">
+    <div class="exp-hero"><h2>AI 内嵌</h2>
+      <p>知所栖的三个模块是一条学习回路：<b>内参</b>给你今天要学的材料，<b>知识体系</b>把材料长成你的知识树，<b>实践空间</b>用一条路带走到会。</p></div>
+    <div class="exp-mods">${EXPLORE_STEPS.map(s => `
+      <button class="exp-mod" onclick="expGo('${s.view}')">
+        <span class="em-ico">${s.icon}</span><b>${esc(s.name)}</b><span>${esc(s.title)}</span></button>`).join('')}</div>
+    <div class="exp-note">对话能力由队友前端模块提供，合并中（iterations/v4-unify phase 07）。</div>
+  </div>`;
+}
+function expMove(d) { expStep = Math.max(0, Math.min(2, expStep + d)); openExplore(); }
+function expDone() { try { localStorage.setItem('zss135.explore.v1', 'done'); } catch (e) {} expStep = 3; openExplore(); }
+function expGo(v) { closeUpd(); closePanel(); setView(v); }
+window.expMove = expMove; window.expDone = expDone; window.expGo = expGo;
+function renderExploreList() {
+  return EXPLORE_STEPS.map(s => `<div class="row"><span class="rn">${esc(s.name)}</span><span class="rm">${esc(s.title)}</span></div>`).join('');
 }
 function markRead(id) {
   if (marks[id] && marks[id].state === 'read') delete marks[id];
@@ -1152,29 +1449,58 @@ function gridAnchor() {
   }
   return (G.length - 1) / 2;
 }
-function focusGrid(cols) {
-  if (mode !== 'grid' && mode !== 'path') return;
+/* ── 镜头缓动（v4-unify）：zoom/panX/panY 三值 ease-out 补间 ──
+   所有者 09-15：点主题跳转/切视图「直接瞬移，能不能平滑过去」。
+   规则：camApply(t)＝默认缓动 420ms；{instant:true}＝立即落位（boot/resize/断言路径）；
+   用户滚轮或按下画布即打断（camStop），停在当前中间值。 */
+let camAnim = null;
+function camTo(t, ms) {
+  const d = Math.abs(t.zoom - zoom) + Math.abs(t.panX - panX) / 1000 + Math.abs(t.panY - panY) / 1000;
+  if (d < 0.002) { zoom = t.zoom; panX = t.panX; panY = t.panY; camAnim = null; return; }
+  camAnim = { t0: performance.now(), ms: ms || 420, from: { zoom, panX, panY }, to: { zoom: t.zoom, panX: t.panX, panY: t.panY } };
+}
+function camStop() { camAnim = null; }
+function camApply(t, opts) {
+  if (opts && opts.instant) { camStop(); zoom = t.zoom; panX = t.panX; panY = t.panY; return; }
+  camTo(t);
+}
+function camTick(now) {
+  if (!camAnim) return;
+  const k = Math.min(1, (now - camAnim.t0) / camAnim.ms);
+  const e = 1 - Math.pow(1 - k, 3);   // easeOutCubic
+  zoom = camAnim.from.zoom + (camAnim.to.zoom - camAnim.from.zoom) * e;
+  panX = camAnim.from.panX + (camAnim.to.panX - camAnim.from.panX) * e;
+  panY = camAnim.from.panY + (camAnim.to.panY - camAnim.from.panY) * e;
+  if (k >= 1) camAnim = null;
+}
+window.camStop = camStop;
+function focusGrid(cols, opts) {
+  if (mode !== 'grid' && mode !== 'path' && mode !== 'tree') return;
   const n = Math.max(1, cols || 3);
   const s = Math.max(0.34, Math.min(2.2, W / (n * gridColW)));
-  zoom = s;
-  /* 居中的基准是**画布中心 W/2**，不是投影原点 CX（CX=0.6W 是老版构图留下的，
-     拿它当中心会让左右露出的列数不一样：左边 1 列、右边 2 列）。 */
-  panX = (W / 2 - CX) / s + CX - (gridX0 + (gridAnchor() + 0.5) * gridColW);
-  panY = (CY - (gridTop + (gridMaxLv / 2) * gridGap));
+  const t = {
+    zoom: s,
+    panX: (W / 2 - CX) / s + CX - (gridX0 + (gridAnchor() + 0.5) * gridColW),
+    panY: (CY - (gridTop + (gridMaxLv / 2) * gridGap)),
+  };
   lastFit = 'grid';
+  camApply(t, opts);
 }
 /* 全览＝把 21 列一次看全（顶栏按钮）。这是「被牺牲掉的全览视角」，按需给回来。 */
-function fitAll() {
+function fitAll(opts) {
   if (mode === 'relation') { zoom = 1; panX = W / 2 - CX; panY = 0; return; }
   if (mode === 'sphere') { zoom = 0.9; rotX = -0.22; rotY = 0.5; return; }
   const G = groups();
   // 留 44px 给右边那把层级尺，别让最后一列压到它下面
   const spanX = gridColW * G.length;
   const s = Math.max(0.12, Math.min(2.2, ((W - 44) * 0.96) / spanX));
-  zoom = s;
-  panX = (W / 2 - CX) / s + CX - (gridX0 + spanX / 2);
-  panY = CY - (gridTop + (gridMaxLv / 2) * gridGap);
+  const t = {
+    zoom: s,
+    panX: (W / 2 - CX) / s + CX - (gridX0 + spanX / 2),
+    panY: CY - (gridTop + (gridMaxLv / 2) * gridGap),
+  };
   lastFit = 'all';
+  camApply(t, opts);
 }
 window.fitAll = fitAll; window.focusGrid = focusGrid;
 let lastFit = '';   // 'grid' | 'all'：记住镜头是谁定的，resize 时照着重算
@@ -1194,7 +1520,7 @@ function layoutSphere() {
 }
 
 function computeLayout() {
-  if (mode === 'grid' || mode === 'path') layoutGrid();   // 路径沿用图谱的分列坐标，只换渲染
+  if (mode === 'grid' || mode === 'path' || mode === 'tree') layoutGrid();   // 路径/树沿用图谱的分列坐标，只换渲染
   else if (mode === 'sphere') layoutSphere();
   else if (mode === 'relation') applyPins('relation');    // 关系坐标是构建时算好的，只叠我拖过的点
   syncPinBtn();
@@ -1229,7 +1555,7 @@ function matches(x) {
 
 /* ── 投影 ───────────────────────────────────────────── */
 function project(n) {
-  if (mode === 'grid' || mode === 'path') { // 图谱与路径：同一套正交坐标（路径只改渲染）
+  if (mode === 'grid' || mode === 'path' || mode === 'tree') { // 图谱/路径/树：同一套正交坐标（只换渲染）
     const s = zoom;
     return { sx: CX + (n.gx + panX - CX) * s, sy: CY + (n.gy + panY - CY) * s, s: s * 1.25, z: 0 };
   }
@@ -1289,6 +1615,7 @@ function vizState() {
 window.vizState = vizState;
 function render() {
   frame++;
+  if (camAnim) camTick(performance.now());   // 镜头缓动推进（v4）
   ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
   ctx.clearRect(0, 0, W, H);
   // 背景微光
@@ -1304,8 +1631,8 @@ function render() {
   const visible = n => matches(n) || (!!route && routeHas(n.id));
   const G = groups();
 
-  // 图谱模式：列带 + 层级参考线 + 列顶标签（形式参考 candobear 学科图谱）
-  if (mode === 'grid' || mode === 'path') {
+  // 图谱/树模式：列带 + 层级参考线 + 列顶标签（形式参考 candobear 学科图谱）
+  if (mode === 'grid' || mode === 'path' || mode === 'tree') {
     const s = zoom;
     const gx0 = CX + (gridX0 + panX - CX) * s;
     const colW = gridColW * s;
@@ -1316,6 +1643,24 @@ function render() {
       ctx.fillRect(gx0 + i * colW, 0, colW - 1.5, H);
     }
     ctx.globalAlpha = 1;
+
+    /* 树化渲染（v3-knowledge-tree）：每主题一条**主枝脊线**（列中心竖线）。
+       树＝分列坐标的投影（所有者 09-15 拍板）：枝＝主题列 · 叶＝概念点 · 生长＝带判定证据的叶点亮。
+       依赖边在树模式不画全局线（DAG 不是树，全局线是上一版「关系/图谱」乱象的一部分），
+       关系走概念卡上的「先懂这些 / 懂了它才能懂这些」局部双链。 */
+    if (mode === 'tree') {
+      ctx.lineWidth = 2;
+      for (let i = 0; i < G.length; i++) {
+        const x = gx0 + i * colW + colW / 2;
+        ctx.globalAlpha = (!filter || filter === G[i].id) ? 0.28 : 0.06;
+        ctx.strokeStyle = G[i].color;
+        ctx.beginPath();
+        ctx.moveTo(x, CY + (gridTop + panY - CY) * s);
+        ctx.lineTo(x, CY + (gridTop + gridMaxLv * gridGap + panY - CY) * s);
+        ctx.stroke();
+      }
+      ctx.globalAlpha = 1;
+    }
 
     /* 顶侧（列＝主题）与右侧（行＝层级）两把尺子都**随缩放变字体与间距**（所有者 09-13 20:34）。
        字号 = 基准 × zoom^0.42：放大时字变大、间距自然拉开；缩小时字变小并**抽稀**——
@@ -1370,6 +1715,7 @@ function render() {
   }
 
   // 边：依赖视图沿用 hard/soft 线型；关系视图按关系类型着色，并保留前置方向。
+  // 树模式不画全局依赖线（v3 裁决：681 条全局线就是上一版乱象的一部分；关系走卡上局部双链）。
   ctx.lineWidth = 1;
   const focusSet = relFocus();
   if (mode === 'relation') {
@@ -1404,7 +1750,7 @@ function render() {
         drawArrow(pa, pb, hot ? 'rgba(255,255,255,ALPHA)' : 'rgba(168,181,238,ALPHA)', hot ? 1 : alpha);
       }
     }
-  } else {
+  } else if (mode !== 'tree') {
     for (const [tid, pid, votes] of edges) {
       const a = byId.get(tid), b = byId.get(pid);
       if (!visible(a) || !visible(b)) continue;
@@ -1465,10 +1811,13 @@ function render() {
     const greyed = !!route && !onRoute && !isSel && !isHov;
     // 关系视图有聚焦时：圈子外的点跟着边一起退下去（焦点那一圈才浮得出来）
     const relOut = !!focusSet && !focusSet.has(n.id) && !isSel && !isHov;
+    // 树模式：**没有判定记录的叶子降噪**——「你的」先亮出来（PRD：叶子只长在有证据的状态上）
+    const treeDim = mode === 'tree' && !marks[n.id] && !isSel && !isHov;
     ctx.globalAlpha = route
       ? (onRoute ? (ri === routeStepIdx ? 1 : .95) : (greyed ? .5 : (on ? .9 : .25)))
       : (on ? Math.min(1, 0.42 + p.s * 0.7) : 0.06);
     if (relOut) ctx.globalAlpha *= 0.3;
+    if (treeDim) ctx.globalAlpha *= 0.26;
     // 光晕
     if (isSel || isHov || (route && ri === routeStepIdx)) {
       ctx.shadowBlur = 22; ctx.shadowColor = col;
@@ -1581,7 +1930,7 @@ function resize() {
   cvs.style.width = W + 'px'; cvs.style.height = H + 'px';
   CX = W * (W > 820 ? 0.60 : 0.5);
   CY = H * 0.54;
-  if ((mode === 'grid' || mode === 'path') && nodes.length) layoutGrid();
+  if ((mode === 'grid' || mode === 'path' || mode === 'tree') && nodes.length) layoutGrid();
 }
 window.addEventListener('resize', resize);
 
@@ -1591,7 +1940,7 @@ window.addEventListener('resize', resize);
    星球模式不参与点拖拽——那一层拖的是球（旋转），拖点会把球面拉歪。 */
 let dragging = false, moved = 0, lastX = 0, lastY = 0;
 let dragNode = null, dragMovedTo = null, guides = { x: null, y: null };
-const DRAG_MODES = ['grid', 'path', 'relation'];
+const DRAG_MODES = ['grid', 'path', 'tree', 'relation'];
 function canDragNode() { return DRAG_MODES.includes(mode); }
 /* 屏幕坐标 → 世界坐标（project 的逆） */
 function toWorld(mx, my) {
@@ -1643,6 +1992,7 @@ function showTip(id) {
   tip.style.top = Math.max(8, Math.min(window.innerHeight - th - 8, top)) + 'px';
 }
 cvs.addEventListener('pointerdown', e => {
+  camStop();   // 用户按下＝接管镜头，缓动即断
   const pt = canvasPoint(e);
   const hit = canDragNode() ? pick(pt.x, pt.y) : null;
   dragging = true; moved = 0; lastX = e.clientX; lastY = e.clientY;
@@ -1663,7 +2013,7 @@ cvs.addEventListener('pointermove', e => {
       if (mode === 'relation') { dragNode.rx = s.x; dragNode.ry = s.y; }
       else { dragNode.gx = s.x; dragNode.gy = s.y; }
       dragMovedTo = s;
-    } else if (mode === 'grid' || mode === 'relation' || mode === 'path') { panX += dx; panY += dy; }
+    } else if (mode === 'grid' || mode === 'relation' || mode === 'path' || mode === 'tree') { panX += dx; panY += dy; }
     else { rotY += dx * 0.0062; rotX = Math.max(-1.25, Math.min(1.25, rotX + dy * 0.0062)); }
     lastX = e.clientX; lastY = e.clientY;
   } else {
@@ -1696,6 +2046,7 @@ cvs.addEventListener('pointerleave', () => { tip.classList.remove('on'); hovered
    以前是以画布中心缩放，越缩越找不到刚才在看的东西。 */
 cvs.addEventListener('wheel', e => {
   e.preventDefault();
+  camStop();   // 用户滚轮＝接管镜头，缓动即断
   const z0 = zoom;
   const z1 = Math.max(0.12, Math.min(3.4, zoom * (1 - e.deltaY * 0.0011)));
   if (z1 === z0) return;
@@ -1705,7 +2056,7 @@ cvs.addEventListener('wheel', e => {
     const s0 = base * z0, s1 = base * z1;
     const wx = (pt.x - CX - panX) / s0, wy = (pt.y - CY - panY) / s0;
     panX = pt.x - CX - wx * s1; panY = pt.y - CY - wy * s1;
-  } else if (mode === 'grid' || mode === 'path') {
+  } else if (mode === 'grid' || mode === 'path' || mode === 'tree') {
     const wx = (pt.x - CX) / z0 + CX - panX, wy = (pt.y - CY) / z0 + CY - panY;
     panX = (pt.x - CX) / z1 + CX - wx; panY = (pt.y - CY) / z1 + CY - wy;
   }
@@ -1797,12 +2148,11 @@ function pathBlock(id) {
       ${st.fallback ? `卡住时回退：<button onclick="openPanel('${st.fallback.id}')">${esc(st.fallback.name)}</button>` : ''}
     </div>
     <div class="acts">
-      <button class="jbtn" onclick="${chapterOf(id) ? `openLearnFor('${id}')` : 'focusProof()'}">${learnEntryLabel(id)}</button>
-      ${chapterOf(id) ? `<button class="jbtn ghost" onclick="openLearnIndex()">学习空间 · Agent Loop 六章</button>` : ''}
+      <button class="jbtn" onclick="focusProof()">学习这个</button>
       <button class="jbtn ghost" onclick="openPractice('${id}')">进入 1 / 3 / 5 · 01 案例决策场</button>
       <button class="jbtn ghost" onclick="this.closest('.pctx').querySelector('details').open=true">查看前置理由</button>
     </div>
-    <div class="loop-note"><b>1 / 3 / 5 学习闭环：</b>${chapterOf(id) ? `这一步已装配「${esc(chapterOf(id).title)}」章节材料，点「${learnEntryLabel(id)}」进独立学习空间（隐藏全图与主题列表，返回时回到这一步）。` : '从当前概念进入 01 案例决策场，再回到这条路径继续学习。03 / 05 暂未开放。'}</div>
+    <div class="loop-note"><b>1 / 3 / 5 学习闭环：</b>从当前概念进入 01 案例决策场，再回到这条路径继续学习。03 / 05 暂未开放。课程学习（主线六章 ＋ 七站）在左栏「实践空间」——知识体系只浏览，不发起学习（2026-09-15 负责人口径，见 <code>CONTEXT.md</code>）。</div>
     <details>
       <summary>前置理由 · 四类关系分开看（${hard.length} 强 / ${soft.length} 弱 / ${st.support.sources} 支撑 / ${st.relatedCount} 相关）</summary>
       <h5>强前置 hard · 不懂就立不住（默认进主路径）</h5>
@@ -1825,7 +2175,7 @@ function pathBlock(id) {
     </div>` : ''}
     <div class="pr-foot">
       <button onclick="gotoRouteStep(${idx + 1 < r.steps.length ? idx + 1 : idx})">${idx + 1 < r.steps.length ? '走到下一步 →' : '这是最后一步'}</button>
-      <button onclick="setMode('grid')">回到全图</button>
+      <button onclick="setMode('tree')">回到全图</button>
     </div>
   </div>`;
 }
@@ -1848,7 +2198,6 @@ function openPanel(id) {
   const post = nb.post.map(x => byId.get(x)).filter(Boolean);
   const mk = marks[id];
   const kk = kOf(n);
-  const tags = (n.tags || []).map(t => (CUR.tags.find(x => x.id === t) || {}).name).filter(Boolean);
 
   let verdict = '';
   if (mk) {
@@ -1896,38 +2245,17 @@ function openPanel(id) {
       return rows ? `<h5>${esc(RELATION_NAMES[kind] || kind)} · ${list.length}</h5><ul class="rel-list">${rows}</ul>` : '';
     }).join('');
 
+  /* 概念卡 v5-plain-open：标题 → 一句定义 → 怎么算会了 → 讲一遍 → 关系 → 背景与出处（折叠）→ 台账（data-*）。
+     明面说人话：类型枚举（n.type）、层级（L0–L5）、ID 转进 data-*；同一句解释只出现一次。 */
   document.getElementById('pbody').innerHTML = `
     ${pathBlock(id)}
-    <div class="src"><span style="color:${KIND[kk].color}">■</span> ${KIND[kk].name}
-      · <span class="mut">${esc(n.kwhy || '')}</span></div>
-    <div class="src" style="margin-top:6px">${esc(tags.length ? tags.join(' · ') : (src ? src.label : n.src))} · ${esc(n.type)}</div>
-    <h2>${esc(n.name)}</h2>
+    <h2>${esc(n.name)}<span class="kbadge" style="border-color:${KIND[kk].color};color:${KIND[kk].color}">${esc(KIND[kk].name)}</span></h2>
     <div class="gloss">${esc(n.gloss)}</div>
-    ${caseMvpLink(n)}
-    ${srcBlockOf(n)}
-    ${((n.evidence||[]).length || n.ap) ? `<details class="deep"${kk === "accept" ? " open" : ""}>
-      <summary>深看 · 做到这些才算会${n.ap ? " · 验收问句" : ""}</summary>
-      ${(n.evidence||[]).length ? `<h5>掌握证据（可观察的行为，不是「理解了」）</h5><ul>${n.evidence.map(e => `<li>${esc(e)}</li>`).join('')}</ul>` : ''}
-      ${n.ap ? `<h5>验收问句</h5><div class="mut">${esc(n.ap)}</div>` : ''}
-      ${n.stage ? `<h5>什么时候学</h5><div class="mut">${({now:'现在先懂——不懂就没法往下',"when-needed":'做到这里再懂——用得到时再学',"deep-dive":'深入研究再懂——要专门花时间'})[n.stage] || ''}</div>` : ''}
-    </details>` : ''}
-    ${(n.feynman || n.sourceContext || (n.aliases || []).length || n.nameEn) ? `<details class="deep">
-      <summary>费曼一下 · 原文 context · 别名${(mk && (mk.state === 'pass' || mk.state === 'mech' || mk.state === 'read')) ? '' : '（随时可看，不用先答）'}</summary>
-      ${n.feynman ? `<h5>费曼一下</h5><div class="mut">${esc(n.feynman)}</div>` : ''}
-      ${n.sourceContext ? `<h5>原文 context</h5><div class="mut">${esc(String(n.sourceContext).slice(0, 900))}</div>` : ''}
-      ${(n.aliases||[]).length ? `<h5>别名</h5><div class="mut">${n.aliases.map(a => esc(a)).join('、')}</div>` : ''}
-      ${n.nameEn ? `<h5>英文</h5><div class="mut">${esc(n.nameEn)}</div>` : ''}
-    </details>` : ''}
-    <div class="metrics">
-      <div class="m"><b>${pre.length}</b><span>前置</span></div>
-      <div class="m"><b>${post.length}</b><span>解锁</span></div>
-      <div class="m"><b>L${n.level}</b><span>层级</span></div>
-    </div>
-    ${(pins.grid[id] || pins.relation[id]) ? `<div class="mut" style="margin:-4px 0 10px">这个点被你拖过、已经固定在这里。
-      <button class="tbtn" onclick="unpin('${id}')">↺ 取消固定</button></div>` : ''}
-
+    <div class="pbody-meta" data-type="${esc(n.type || '')}" data-level="${n.level ?? ''}" data-pre="${pre.length}" data-post="${post.length}" data-src="${esc(n.src || '')}"></div>
+    ${((n.evidence||[]).length || n.ap) ? `<div class="proven">${(n.evidence||[]).length ? `<b>怎么算会了：</b>${esc(n.evidence[0])}${(n.evidence||[]).length > 1 ? ` 等 ${(n.evidence||[]).length} 条` : ''}` : `<b>怎么算会了：</b>${esc(n.ap)}`}
+      ${((n.evidence||[]).length > 1 || (n.evidence||[]).length && n.ap) ? `<details class="deep"><summary>更多判据</summary><ul>${(n.evidence||[]).map(e => `<li>${esc(e)}</li>`).join('')}${n.ap ? `<li>${esc(n.ap)}</li>` : ''}</ul></details>` : ''}</div>` : ''}
     ${kk === 'accept' ? `<div class="dpane quiet">
-      <h5>这一类不设验收</h5>
+      <h5>这一类不用讲一遍</h5>
       <div class="mut">它被判为「<b>只能认的</b>」——${esc(n.kwhy || '作者的世界观、立场或比喻')}。<br>
       没有机制可复述，也没有对错。<b>硬考它就是假学习，所以我们不考。</b><br>
       读过就够了。这一类的价值不在于能不能复述，而在于你认不认它。</div>
@@ -1935,23 +2263,38 @@ function openPanel(id) {
         <button class="jbtn ghost" onclick="markRead('${id}')">${mk && mk.state === 'read' ? '读过了（点一下取消）' : '我读过了'}</button>
       </div>
     </div>` : `<div class="dpane">
-      <h5>倒逼 · 你不能自己标「学过」</h5>
-      <div class="mut"><b>${KIND[kk].name}</b> · ${esc(n.kwhy || '')}<br>
+      <h5>讲一遍 · 我来挑漏</h5>
+      <div class="mut">${esc(n.kwhy || '')}<br>
       ${KIND[kk].ask}</div>
-      <textarea id="said" placeholder="别抄上面那句。抄了不算过。">${mk ? esc(mk.said || '') : ''}</textarea>
+      <textarea id="said" placeholder="用你自己的话讲。别抄上面的句子，抄了不算过。">${mk ? esc(mk.said || '') : ''}</textarea>
       <div class="jrow">
-        <button class="jbtn" onclick="judge('${id}')">交卷，让系统挑漏</button>
+        <button class="jbtn" onclick="judge('${id}')">讲完了，挑漏</button>
         <span id="jerr" class="jerr"></span>
       </div>
     </div>`}
     ${verdict}
 
     ${pre.length ? `<h5>要理解它，先懂这些</h5><ul>${pre.map(x =>
-      `<li onclick="openPanel('${x.id}')">${x.name}<em>L${x.level}${marks[x.id] ? (marks[x.id].state === 'pass' ? ' · 已过' : marks[x.id].state === 'mech' ? ' · 机器过' : ' · 没过') : ''}</em></li>`).join('')}</ul>` : ''}
-    ${post.length ? `<h5>懂了它，才能懂这些</h5><ul>${post.map(x =>
-      `<li onclick="openPanel('${x.id}')">${x.name}<em>L${x.level}</em></li>`).join('')}</ul>` : ''}
-    ${relationHtml ? `<div class="relation-block"><h5>语义关系 · ${rnb.length}</h5>${relationHtml}${rnb.length > 40 ? `<div class="mut">还有 ${rnb.length - 40} 条关系，画布中已全部保留。</div>` : ''}</div>` : ''}
-
+      `<li onclick="openPanel('${x.id}')">${x.name}${esc(edgeNote(id, x.id))}${marks[x.id] ? (marks[x.id].state === 'pass' ? ' · 讲过了' : marks[x.id].state === 'mech' ? ' · 机器过了' : ' · 还没过') : ''}</li>`).join('')}</ul>` : ''}
+    ${post.length ? `<h5>懂了它，才好懂这些</h5><ul>${post.map(x =>
+      `<li onclick="openPanel('${x.id}')">${x.name}${esc(edgeNote(x.id, id))}</li>`).join('')}</ul>` : ''}
+    ${pre.length || post.length ? '' : '<div class="mut" style="margin:8px 0">它不是别的前置，也不踩在别人头上——独立概念。</div>'}
+    ${relationHtml ? `<div class="relation-block"><h5>相关概念 · ${rnb.length}</h5>${relationHtml}${rnb.length > 40 ? `<div class="mut">还有 ${rnb.length - 40} 条相关，没有全列。</div>` : ''}</div>` : ''}
+    ${caseMvpLink(n)}
+    ${srcBlockOf(n)}
+    ${(n.evidence||[]).length || n.ap ? `<details class="deep">
+      <summary>什么时候学</summary>
+      ${n.stage ? `<div class="mut">${({now:'现在先懂——不懂就没法往下',"when-needed":'做到这里再懂——用得到时再学',"deep-dive":'深入研究再懂——要专门花时间'})[n.stage] || ''}</div>` : ''}
+    </details>` : ''}
+    ${(n.feynman || n.sourceContext || (n.aliases || []).length || n.nameEn) ? `<details class="deep">
+      <summary>背景 · 原文里的说法 · 别名${(mk && (mk.state === 'pass' || mk.state === 'mech' || mk.state === 'read')) ? '' : '（随时可看，不用先答）'}</summary>
+      ${n.feynman ? `<h5>换个讲法</h5><div class="mut">${esc(n.feynman)}</div>` : ''}
+      ${n.sourceContext ? `<h5>原文里的说法</h5><div class="mut">${esc(String(n.sourceContext).slice(0, 900))}</div>` : ''}
+      ${(n.aliases||[]).length ? `<h5>别名</h5><div class="mut">${n.aliases.map(a => esc(a)).join('、')}</div>` : ''}
+      ${n.nameEn ? `<h5>英文</h5><div class="mut">${esc(n.nameEn)}</div>` : ''}
+    </details>` : ''}
+    ${(pins.grid[id] || pins.relation[id]) ? `<div class="mut" style="margin:-4px 0 10px">这个点被你拖过、已经固定在这里。
+      <button class="tbtn" onclick="unpin('${id}')">↺ 取消固定</button></div>` : ''}
     ${(mk && (mk.state === 'pass' || mk.state === 'mech')) ? `<div class="nexthint">${
       post.length ? `过了。要不要接着往上游走？<br>${post.slice(0, 3).map(x => `<button class="jbtn ghost" onclick="openPanel('${x.id}')">${esc(x.name)}</button>`).join(' ')}` : '这张卡你已经验过了。'
     }</div>` : ''}
@@ -1966,11 +2309,9 @@ function openPanel(id) {
 function caseMvpLink(n) {
   const ch = chapterOf(n.id);
   const hasCase = n.name === '上下文腐烂';
-  return `<div class="case-mvp"><h4>学习空间</h4>
-    <div class="case-meta">从这张概念卡进入学习，不丢失当前概念和路径位置。${ch ? `本概念是 Agent Loop 第 ${ch.order} 章，已装配：一个核心概念 → 原文 context → 三道决策 → 费曼收尾。` : ''}</div>
-    ${ch ? `<button class="jbtn" onclick="openLearnFor('${n.id}')">学习这个 · 第 ${ch.order} 章 →</button>` : ''}
-    <button class="jbtn${ch ? ' ghost' : ''}" onclick="openPractice('${n.id}')">进入学习空间 →</button>
-    ${ch ? `<button class="jbtn ghost" onclick="openLearnIndex()">六章总览</button>` : ''}
+  return `<div class="case-mvp"><h4>实践空间 · 课程入口</h4>
+    <div class="case-meta">知识体系只浏览；课程学习（主线六章 ＋ 七站路线）在左栏「实践空间」。${ch ? `本概念对应主线第 ${ch.order} 章「${esc(ch.title)}」，已在实践空间装配。` : ''}</div>
+    <button class="jbtn ghost" onclick="openPractice('${n.id}')">去实践空间学习 →</button>
     ${hasCase ? '<div class="case-meta" style="margin-top:5px">本概念已有 01 案例决策材料。</div>' : (ch ? `<div class="case-meta" style="margin-top:5px">${ch.review.caseState === 'owner-confirmed' ? `主案例已由负责人确认 · 场景类型 ${esc(ch.case.type)}` : `候选装配稿：主案例为${esc(ch.case.type)}、负责人尚未确认`}。</div>` : '<div class="case-meta" style="margin-top:5px">本概念的 01 / 03 / 05 材料尚在装配中。</div>')}
   </div>`;
 }
@@ -2014,7 +2355,7 @@ window.pinMain = pinMain;
 function setFilter(g) {
   filter = (filter === g) ? null : g;
   computeLayout();
-  if (mode === 'grid') focusGrid();
+  if (mode === 'grid' || mode === 'tree') focusGrid();
   renderList();
 }
 window.setFilter = setFilter;
@@ -2027,7 +2368,7 @@ function closePanel() {
 window.openPanel = openPanel; window.closePanel = closePanel;
 
 /* ── 启动 ───────────────────────────────────────────── */
-const MODES = ['path', 'grid', 'relation', 'sphere', 'graph'];
+const MODES = ['tree', 'path', 'graph'];   // tab 板上的三个；grid/relation/sphere 代码保留但撤了入口
 function syncTabs() {
   document.querySelectorAll('.tab').forEach(t => t.classList.toggle('on', t.dataset.mode === mode));
   const legend = document.getElementById('rel-legend');
@@ -2099,27 +2440,26 @@ function gvOpenEntry(node) {
 }
 function gvSelectNode(node) {
   const cid = node && node.id && node.id.startsWith('concept:') ? node.id.slice(8) : null;
-  if (cid && byId.has(cid)) { setMode('grid'); openPanel(cid); }
+  if (cid && byId.has(cid)) { setMode('tree'); openPanel(cid); }
 }
 window.mountGraphView = mountGraphView;
 window.GV = GV;
 
 function setMode(m) {
-  if (!MODES.includes(m)) m = 'path';
+  if (!MODES.includes(m)) m = 'tree';   // 旧模式名（grid/relation/sphere）从 hash 进来也落到树，不白屏
   mode = m;
   syncTabs();
-  // 总图是主区第五个视图：进来才挂载、才去拉真实索引（不把两千个节点塞进单文件页面）
-  document.getElementById('main').classList.toggle('graphon', m === 'graph');
+  // 总图是「系统视图」小入口：进来才挂载、才去拉真实索引（不把两千个节点塞进单文件页面）
+  const main = document.getElementById('main');
+  main.classList.toggle('graphon', m === 'graph');
+  main.classList.toggle('treeon', m === 'tree');
   document.getElementById('graphview').classList.toggle('on', m === 'graph');
   if (m === 'graph') mountGraphView();
   panX = panY = 0; rotX = -0.22; rotY = 0.5; zoom = (m === 'sphere') ? 1.35 : 1.05;
   if (m === 'path' && !activeRoute() && ROUTES.length) routeId = ROUTES[0].routeId;
   computeLayout();
   if (m === 'path') focusRoute();      // 进路径就把视图对准路线
-  /* 进图谱＝居中三列的可读视角，不是把 21 列硬挤进一屏（所有者 09-13 20:34：
-     「一进入图谱很拥挤，可以牺牲掉部分内容，不用全览视角，保留中间居中，看左右三栏」）。
-     全览没被删掉，挪到顶栏「全览」按钮上，按需点。 */
-  if (m === 'grid') focusGrid(3);
+  if (m === 'tree' || m === 'grid') focusGrid(3);
   if (m === 'sphere' || m === 'relation' || m === 'graph') lastFit = 'free';
   refreshRail();
   syncPath();
@@ -2156,7 +2496,8 @@ function renderPathRail() {
       <span class="st">${esc(stepStateOf(s.conceptId))}</span></button></li>`;
   }).join('');
   box.innerHTML = `
-    <div class="pr-kicker">路径 · 第 ${routeStepIdx + 1} 步 / 共 ${r.steps.length} 步</div>
+    <div class="pr-kicker">路径 · 第 ${routeStepIdx + 1} 步 / 共 ${r.steps.length} 步
+      <button class="pr-fit" onclick="routeFitToggle()" title="在「当前步」与「整条路线」两种取景间切换">${routeFit === 'step' ? '看整条' : '回当前步'}</button></div>
     <div class="pr-title">${esc(r.title)}</div>
     <div class="pr-q">${esc(r.entryQuestion)}</div>
     <div class="pr-target">目标：${esc(r.target)}</div>
@@ -2176,7 +2517,7 @@ function renderPathRail() {
     </div>` : ''}
     <div class="pr-foot">
       <button onclick="openPanel('${cur.conceptId}')">看这一步的概念卡</button>
-      <button onclick="setMode('grid')">回到全图</button>
+      <button onclick="setMode('tree')">回到全图</button>
     </div>`;
 }
 
@@ -2188,16 +2529,18 @@ async function boot() {
   renderList();
   syncPinBtn();
   document.querySelectorAll('.tab').forEach(t => { t.onclick = () => setMode(t.dataset.mode); });
+  document.getElementById('main').classList.toggle('treeon', mode === 'tree');
   computeLayout();
-  if (mode === 'path') focusRoute();      // 默认就是路径：首屏直接对准那条路线
+  if (mode === 'tree') focusGrid(3, { instant: true });   // 默认就是我的树：首屏居中三列 + 树头（boot 不动画）
+  if (mode === 'path') focusRoute({ instant: true });     // 兜底：万一默认改回路径，首屏对准路线
   render();
   /* 窗口/面板变了尺寸：世界坐标不动，只把镜头按上一次的取法重算一遍
      （「全览」还全览、「居中三列」还三列；用户自己滚过轮就不动他）。 */
   window.addEventListener('resize', () => {
     resize(); computeLayout();
-    if (lastFit === 'all') fitAll();
-    else if (lastFit === 'grid' && mode === 'grid') focusGrid(3);
-    else if (mode === 'path') focusRoute();
+    if (lastFit === 'all') fitAll({ instant: true });
+    else if (lastFit === 'grid' && (mode === 'grid' || mode === 'tree')) focusGrid(3, { instant: true });
+    else if (mode === 'path') focusRoute({ instant: true });
   });
   /* 地址栏里的 hash 变了（页面内跳转、总图三页切换、#learn= 直达）都要真的响应，
      不能只在首次加载时读一次。 */
@@ -2237,7 +2580,10 @@ function applyHash() {
     const slug = h.slice(7).split('&')[0];
     if (neiOf(slug)) { setView('neican'); openNeican(slug); return; }
   }
-  if (h === 'sphere' || h === 'grid' || h === 'relation' || h === 'path' || h === 'graph') setMode(h);
+  /* 旧视图名（sphere/grid/relation）的地址入口落到**我的树**——入口撤了，别让旧链接白屏 */
+  if (h === 'sphere' || h === 'grid' || h === 'relation') setMode('tree');
+  else if (h === 'tree' || h === 'path' || h === 'graph') setMode(h);
+  else if (h === 'explore') setView('explore');
   else if (h && byId.has(h)) openPanel(h);
   else syncPath();
 }
@@ -2254,7 +2600,9 @@ function refreshRail() {
   if (mm) {
     const r = mode === 'path' ? activeRoute() : null;
     const t = (currentView === 'theme' && themeId) ? (CUR.tags || []).find(x => x.id === themeId) : null;
-    mm.textContent = r
+    mm.textContent = currentView === 'explore'
+      ? 'AI 内嵌 · 三个模块一条学习回路'
+      : r
       ? '路径 · ' + r.steps.length + ' 步 · ' + r.title
       : t
         ? t.name + ' · ' + groupCount(t) + ' 个概念'
@@ -2270,7 +2618,7 @@ window.refreshRail = refreshRail;
    它是当前导航项的**可扫列表**：一行一个东西，右边是元信息，点开看详情。 */
 let currentView = 'graph';
 let themeId = null;   // theme 态（三级）当前所在的主题；graph 态恒为 null
-const VIEW_TITLE = { graph: '主题', theme: '主题', neican: '内参 · 日报集合', practice: '实践空间 · 六章阅读器 + 状态看板' };
+const VIEW_TITLE = { explore: '探索 · AI 内嵌', graph: '主题', theme: '主题', neican: '内参 · 日报集合', practice: '实践空间 · 六章阅读器 + 状态看板' };
 const ST_COLOR = { pass: '#4cb782', fail: '#eb5757', mech: '#f2c94c', read: '#9b7fe8' };
 
 function rowHTML(inner, onclick, on) {
@@ -2288,6 +2636,11 @@ function renderList() {
   const back = document.getElementById('lp-back');
   if (back) back.style.display = inTheme ? '' : 'none';
   const cntEl = document.getElementById('lp-count');
+  if (currentView === 'explore') {          // 探索：左栏列三个模块（v4-unify）
+    box.innerHTML = renderExploreList();
+    cntEl.textContent = '3';
+    return;
+  }
   let html = '', cnt = 0;
 
   if (currentView === 'graph') {
@@ -2419,7 +2772,37 @@ function practiceBlockedHtml(u) {
     <div class="mut" style="margin-top:8px">${u.entry ? `它的页面入口是 <code>${esc(u.entry)}</code>（不是这套阅读器）。` : '它连页面入口都还没有（graph.entries 里没有它）。'}</div>
   </div>`;
 }
-/* 第一层：单元列表（六章阅读器入口 + 单篇 + 19 条准备中 + 57 条待装配） */
+/* 第一层 v2（v2-practice-space phase 02）：继续学 → 主线六章 → 七站路线 → 单篇 → 批量说明 → 折叠看板 → 1/3/5。
+   路线顺序来自配置文件（DATA.practice.route），拍板前照实标「草案」；
+   开放与否仍由准入门现算（practiceUnit/live.open），配置行不带也不读 open。
+   路线行用独立类 .ru（不用 .pu）——「.pu 一行 = 六章/单篇」的既有断言口径保持成立。 */
+function practiceRouteStageZh(stage) {
+  return { now: '打底', 'when-needed': '用到再学', 'deep-dive': '深挖' }[stage] || stage || '';
+}
+function practiceRouteRow(ru, i, first) {
+  const live = practiceUnit(ru.unitId);
+  if (!live) return '';
+  const cp = practiceContinuePoint();
+  const cur = cp && cp.unitId === ru.unitId;
+  const doneTag = !ru.superseded && chapterCleared(live.reader) ? ' ✓' : '';
+  if (ru.superseded) {
+    return `<div class="rucard rsup${first ? ' first' : ''}">
+      <div class="ru-top"><b>${esc(ru.name)}</b><span class="rutag">在主线六章里</span></div>
+      <div class="ru-line">这一讲和主线六章是同一主题，不重复排两遍。</div>
+      <div class="ru-act"><button class="pbtn ghost" onclick="practiceEnter('${esc(ru.replacedBy)}')">去学六章这一章 →</button></div></div>`;
+  }
+  return `<div class="rucard${cur ? ' cur' : ''}${first ? ' first' : ''}" data-unit="${esc(ru.unitId)}">
+    <div class="ru-top"><b>${i + 1}. ${esc(ru.name)}${doneTag}${cur ? '<span class="cur-tag">当前</span>' : ''}</b><span class="rutag">${esc(practiceRouteStageZh(ru.stage))}</span></div>
+    <div class="ru-line">${esc(ru.remember || '')}</div>
+    <div class="ru-act"><button class="pbtn${live.open ? '' : ' ghost'}" onclick="practiceEnter('${esc(ru.unitId)}')">${live.open ? '进入阅读 →' : '为什么不能学'}</button></div></div>`;
+}
+/* 继续学落点：只认 realHuman === true 的轨迹（build-shell 从 trajectories.json 算好 continuePoint）。
+   页面侧再挡一道：字段缺失 / realHuman 不为 true / 落点单元解析不到 → 照实走兜底，脚本轨迹驱动不了页面。 */
+function practiceContinuePoint() {
+  const cp = (PRACTICE || {}).continuePoint;
+  if (!cp || cp.realHuman !== true) return null;
+  return practiceUnit(cp.unitId) ? cp : null;
+}
 function practiceIndexHtml() {
   if (!PRACTICE) return `<div class="pcard"><h2>实践空间的数据没装上</h2><div class="mut">缺 DATA.practice —— 先跑 <code>node scripts/build-shell.mjs</code>（它读 knowledge/graph-260914/graph.json 与 evidence/batch-units-260914/units.json）。</div></div>`;
   const units = practiceUnits();
@@ -2431,11 +2814,14 @@ function practiceIndexHtml() {
   const superseded = batch.filter(u => u.superseded);
   const openable = batch.filter(u => u.open);            // 载荷已编译 + 逐字绑定全过 + 决策题复核 usable
   const stats = LEARN_STATS || {};
+  const route = PRACTICE.route || null;
+  const cp = practiceContinuePoint();
   const chRows = ch.map((u, i) => {
     const ci = chapterIdx(u.reader), un = ci >= 0 && chapterUnlocked(ci), done = ci >= 0 && chapterCleared(u.reader);
-    return `<div class="pu${i === 0 ? ' first' : ''}">
-      <span class="nm">${esc(u.label)}</span>
-      <span class="meta">${esc((u.concept || {}).id || '')} ↔ ${esc((u.concept || {}).unit || '')} · ${u.questionCount} 道决策题 · 主案例：${esc(u.caseType)}（负责人已确认）</span>
+    const cur = cp && cp.unitId === u.id;
+    return `<div class="pu${i === 0 ? ' first' : ''}${cur ? ' cur' : ''}">
+      <span class="nm">${esc(u.label)}${cur ? '<span class="cur-tag">当前</span>' : ''}</span>
+      <span class="meta">${u.questionCount} 道决策题 · 一段假设场景 · 学完过一小测，再开下一章</span>
       <span class="sp"></span>${segChips(u)}
       <button class="pbtn${un || done ? '' : ' ghost'}" onclick="practiceEnter('${u.id}')">${done ? '再读一遍' : un ? '进入阅读 →' : `第 ${u.order} 章未解锁 · 先过上一章`}</button></div>`;
   }).join('');
@@ -2444,50 +2830,73 @@ function practiceIndexHtml() {
       <span class="sp"></span>${segChips(u)}
       <button class="pbtn ghost" onclick="practiceEntry('${u.id}')">去内参单篇阅读页 →</button>
       <button class="pbtn ghost" onclick="practiceEnter('${u.id}')">为什么不能在这里学</button></div>`).join('');
-  const chips = (list) => list.map(u => `<span class="seg blocked" title="${esc(u.gaps[0] || '')}">${esc(u.label)}</span>`).join('');
+  const routeHtml = route ? (() => {
+    const draft = /^draft/.test(route.status || '');
+    /* 七站铺开（v2-practice-space phase 05）：每站独立一节——大站号＋站名＋那一问当标题，
+       步骤卡片化（名称＋一句人话简介＋进入按钮）。内部口径（配置路径/对账）不上明面。 */
+    const head = `<div class="pcard" id="practice-route-card">
+      <h2>七站路线 · ${route.stats.units} 步 ${draft ? '<span class="rdraft">顺序草案 · 待课程组长拍板</span>' : ''}</h2>
+      <div class="mut">七站是七个问题，学完一站再下一站——像必修一过完再上必修二。每一步都来自一篇读得懂的原文：点开读，读完用自己的话讲一遍，系统告诉你漏了哪、补哪一处。</div>
+    </div>`;
+    const stations = route.stations.map(s => `
+      <div class="pcard proute" id="practice-route-s${s.order}">
+        <div class="rstation-head">
+          <span class="rs-no">${s.order}</span>
+          <div class="rs-main"><div class="rs-title">第 ${s.order} 站 · ${esc(s.label)}</div><div class="rs-q">${esc(s.question)}</div></div>
+          <span class="rs-n">${s.units.length} 步</span>
+        </div>
+        <div class="rugrid">${s.units.map((ru, i) => practiceRouteRow(ru, i, i === 0)).join('')}</div>
+      </div>`).join('');
+    return head + stations;
+  })() : `<div class="pcard"><h2>七站路线</h2><div class="mut">路线数据没装上 —— 先跑 <code>node scripts/draft-practice-route.mjs && node scripts/build-shell.mjs</code>。</div></div>`;
+  const bucketChips = (((PRACTICE || {}).buckets) || []).map(b => `<span class="seg ${b.key === 'open' ? 'green' : b.key === 'material' ? 'missing' : 'unassembled'}"><b>${esc(b.label)}</b>${b.count}</span>`).join('');
   return `
+    <div class="pcard" id="practice-continue">
+      <h2>继续学</h2>
+      ${cp
+        ? `<div class="mut" id="continue-hint">上次学到「<b>${esc(practiceUnit(cp.unitId).label)}</b>」· 最近真实反馈 ${esc(String(cp.lastAt).slice(0, 10))} · ${cp.rounds} 轮（只认你本人的真实轨迹，脚本扮演的不算；来源 <code>${esc(cp.source)}</code>）。</div>
+           <button class="pbtn" id="continue-btn" onclick="practiceEnter('${esc(cp.unitId)}')">继续学 · ${esc(practiceUnit(cp.unitId).label)} →</button>`
+        : `<div class="mut" id="continue-hint">还没有你的真实学习记录——从主线第 1 章开始（学习进度只认你本人的真实轨迹，脚本扮演的不算）。</div>
+           <button class="pbtn" id="continue-btn" onclick="practiceEnter('unit:chapter-agent')">从主线第 1 章 · Agent 开始 →</button>`}
+    </div>
     <div class="pcard">
-      <h2>Agent Loop 六章 · 阅读器（已装配 · 可进入）</h2>
+      <h2>主线 · Agent Loop 六章（人工策展 · 已装配）</h2>
       <div class="mut">一个核心概念 → 正文流阅读（原文 context ＋ 定义／直觉／机制／边界）→ 形成性费曼（读完就讲，给一处重点补讲）→ 三道决策（一题一判）→ 章末费曼（通过才解锁下一章）。
         点「进入阅读」打开的就是路径条那套 <code>#learn</code> 阅读器——<b>同一份排版，不是第二套视觉</b>；返回时回到你进来的地方。</div>
       ${chRows}
       <div class="pu"><span class="meta">不知道从哪继续？六章总览会跳到「第一个还没过的章」。</span><span class="sp"></span>
         <button class="pbtn ghost" onclick="openLearnIndex()">继续没走完的那一章 →</button></div>
     </div>
+    ${routeHtml}
     <div class="pcard">
       <h2>单篇试点 · 1 个单元</h2>
-      <div class="mut">它是另一条链（内参单篇阅读页），不在这套阅读器里。四段里「阅读」「章末费曼」两段照实标未装配：它的正文没接进这份索引，正式章末通过与解锁门也还没确认（graph 缺口原文）。</div>
+      <div class="mut">它走内参阅读页那一条链，材料还没接进这套课程，所以在这里只能看说明、去内参读。</div>
       ${singleRows}
     </div>
     <div class="pcard">
-      <h2>批量装配单元 · ${openable.length} 个（阅读器已装配 · 可进入）</h2>
-      <div class="mut">这 ${openable.length} 个单元的材料已编译成<b>与六章同一种</b>阅读器载荷（<code>evidence/batch-units-260914/readers.json</code>，
-        由 <code>scripts/build-batch-materials.mjs</code> 确定性编译、模型调用 0 次）：正文逐字搬自 <code>units.json</code> 与图鉴卡，
-        <b>${stats.citationsChecked || 0} 条材料逐条过 indexOf ＋ sha256 ＋ locator</b>，过不了就不写进载荷、也不开放那个单元。
-        点「进入阅读」打开的同样是 <code>#learn</code> 那套排版——<b>同一份排版，不是第二套视觉</b>。</div>
-      <div class="mut"><b>判据的诚实标注</b>：这 ${openable.length} 个单元里 ${stats.criteriaTotal || 0} 条费曼判据，
-        按准入门改版（<code>docs/准入门改版-区分度自证-20260914.md</code>）的三条机器条件算：
+      <h2>这些内容从哪来（七站里能点开的就来自这批）</h2>
+      <div class="mut">每一篇的正文<b>逐字来自真实的源文章</b>，出处由独立脚本逐条核对过；学习反馈不担保内容对错——<b>你说了就有反馈，反馈告诉你漏了哪、补哪一处</b>。审核与对账的细节收在下面，感兴趣再展开。</div>
+      <details class="pfold" id="practice-qa-fold">
+        <summary>审核与对账记录（内部口径）</summary>
+        <div class="mut" style="margin-top:6px">阅读载荷 <code>evidence/batch-units-260914/readers.json</code>（<code>scripts/build-batch-materials.mjs</code> 确定性编译、模型调用 0 次）：
+        <b>${stats.citationsChecked || 0} 条材料逐条过 indexOf ＋ sha256 ＋ locator</b>，过不了就不写进载荷、也不开放那个单元。</div>
+        <div class="mut">费曼判据 ${stats.criteriaTotal || 0} 条，按准入门改版（<code>docs/准入门改版-区分度自证-20260914.md</code>）的三条机器条件算：
         <b>已激活 ${stats.criteriaActive || 0} 条 · 待验证区分度 ${stats.criteriaPending || 0} 条</b>。
-        「待验证区分度」<b>可以看、不参与通过判定、也不挡单元进入</b>——这是和上一版最重要的区别；
+        「待验证区分度」<b>可以看、不参与通过判定、也不挡单元进入</b>；
         它要变成已激活，需要一条<b>真实轨迹</b>证明它从 not-met 走到 met 且缺口真的下降过（脚本扮演的合成轨迹不算）。
         现有真实轨迹 ${stats.realTrajectories || 0} 份（负责人本人走第 1 章 <code>agent</code> 的两轮读中反馈）里，三条缺口两轮都在 —— 所以一条都还没激活。</div>
-      <div class="mut">决策题仍是 <code>evidence/gen-decisions-hybrid-v3-20260914.json</code>（脚本确定性生成、模型调用 0 次），
+        <div class="mut">决策题来自 <code>evidence/gen-decisions-hybrid-v3-20260914.json</code>（脚本确定性生成、模型调用 0 次），
         只有独立复核 <code>verdict=usable</code> 的那 3 道才接进来；<b>空数组 ≠ 满足</b>、<b>复核不过不进</b>这两条一个字没放宽。</div>
-      <button class="pbtn" onclick="openPracticeBoard()">打开状态看板 · 逐单元链路就绪度 →</button>
+      </details>
     </div>
-    <div class="pcard">
-      <h2>不开放 · ${superseded.length + 1} 个单元</h2>
-      <div class="mut"><b>${superseded.length} 个已被手工章节取代（superseded）</b>：${esc(superseded.map(u => u.label).join('、'))}。
-        这 ${superseded.length} 个 CON 与六章是同一批概念，六章仍是对外唯一入口 —— 数据保留、题与判据已并入对应章节，但它们自己不再是独立可学单元，也不会在任何情况下开门（数据驱动的封条，不是白名单）。</div>
-      <div class="mut">另有 <b>${scaffold.length}</b> 个单元连 OPI 判断依据都没有（缺材料 · 待装配），与上面这些一起在状态看板里逐行列出。</div>
-      <div>${chips(ready.filter(u => u.superseded))}</div>
-    </div>
-    <div class="pcard">
-      <h2>状态看板（第二层）</h2>
-      <div class="mut">用现成数据渲染：<code>knowledge/graph-260914/graph.json</code> 的 gaps 与 coverage.playable ＋ <code>evidence/batch-units-260914/units.json</code>。
-      它只讲清「为什么现在不能学」，不承担教学。</div>
-      <div>${(((PRACTICE || {}).buckets) || []).map(b => `<span class="seg ${b.key === 'open' ? 'green' : b.key === 'material' ? 'missing' : 'unassembled'}"><b>${esc(b.label)}</b>${b.count}</span>`).join('')}</div>
-    </div>
+    <details class="pcard pfold" id="practice-board-fold">
+      <summary><b>状态看板 · 为什么有的还不能学</b></summary>
+      <div style="margin:8px 0">${bucketChips}</div>
+      <div class="mut">准入规则只有一条——<b>四段全绿才开放</b>。看板用现成数据渲染：<code>knowledge/graph-260914/graph.json</code> 的 gaps 与 coverage.playable ＋ <code>evidence/batch-units-260914/units.json</code>，它只讲清「为什么现在不能学」，不承担教学。</div>
+      <div class="mut"><b>不开放 · ${superseded.length + scaffold.length} 个</b>：${superseded.length} 个已被手工章节取代（${esc(superseded.map(u => u.label).join('、'))}，七站里它们是主线锚点位，指回六章）；
+        另有 ${scaffold.length} 个连 OPI 判断依据都没有（缺材料 · 待装配），逐行理由在完整看板里。</div>
+      <button class="pbtn ghost" style="margin-top:6px" onclick="openPracticeBoard()">打开状态看板 · 逐单元链路就绪度 →</button>
+    </details>
     <div class="pcard">
       <h2>1 / 3 / 5 · 前两版入口（一个都不砍）</h2>
       <div class="mut">01 案例决策场：从当前概念匹配候选案例，再只选一个案例和一个正确方向。03 费曼演练室与 05 技术实验台仍是占位——照实标「等 01 MVP 跑通后接入」，不写成已实现。</div>
@@ -2666,12 +3075,13 @@ function setView(v, tid) {
   currentView = v;
   themeId = (v === 'theme' && tid) ? tid : null;
   filter = themeId;                       // 画布只亮这一列；回主题态自动清掉
-  if (v !== 'neican') hideReader();
+  if (v !== 'neican' && v !== 'explore') hideReader();
   const nav = v === 'theme' ? 'graph' : v;
   document.querySelectorAll('.r-item').forEach(b => b.classList.toggle('on', b.dataset.view === nav));
   /* 进内参＝先进**日报集合**（上方日期条选期）；单篇阅读从集合里点进去。
      不从上次读的那篇续起——二级页面的默认面是集合，不是某一篇。 */
   if (v === 'neican') { closePanel(); neiSlug = null; openNeicanHome(); }
+  else if (v === 'explore') { closePanel(); openExplore(); }
   else closePanel();
   computeLayout();
   refreshRail(); renderList(); syncPath();
@@ -2767,6 +3177,9 @@ window.neiClearFilt = neiClearFilt;
 /* 内参二级页面 · 默认屏：日报集合 */
 function openNeicanHome() {
   neiScreen = 'home'; neiSlug = null;
+  /* v4-unify：进内参默认**选中最新一期**（单期视图）——默认「全部」堆叠态会让人从一期
+   滚进另一期（所有者 09-15 报「选了日期还滑到别的日期」的根因）；「全部」降级为按钮。 */
+  if (!neiPeriod) neiPeriod = NEI_ALL.length ? NEI_ALL[0].period : '';
   renderNeicanHome();
   const r = document.getElementById('reader');
   if (r) { r.classList.add('on'); if (r.scrollTo) r.scrollTo(0, 0); }
@@ -2794,6 +3207,7 @@ function neiTab(k) {
   neiTabName = k;
   document.querySelectorAll('.nei-tabs button').forEach(b => b.classList.toggle('on', b.dataset.k === k));
   document.getElementById('nei-body').innerHTML = neiBody(neiOf(neiSlug));
+  mountConceptNet(document.getElementById('nei-body'));
 }
 window.neiTab = neiTab;
 
@@ -2809,7 +3223,14 @@ function neiBody(a) {
     const head = `<div class="mut" style="margin-bottom:12px">本文 <b>${cs.length}</b> 个概念 ·
       其中 <b>${inMap}</b> 个已并进概念地图（点名字跳到地图那张卡）；
       其余是本文特有的细粒度提取。</div>`;
-    return head + cs.map((c, i) => `<div class="concept">
+    /* 概念网络图（2026-09-15）：图在上，概念卡列表在下（原有内容一个不删）。
+       unitId 与 build-concept-net.mjs 的产出对齐；没有图的篇目照实不摆。 */
+    const iss = issueOfArticle(a.slug);
+    const unitId = 'neican-' + (iss ? iss.period : '') + '-' + a.slug;
+    const graph = CN_NETS[unitId]
+      ? `<div class="cn-host" data-unit="${esc(unitId)}"></div>`
+      : '';
+    return head + graph + cs.map((c, i) => `<div class="concept" id="nei-card-${i}">
       <span class="nm">${i + 1}. ${c.nodeId
         ? `<button class="tomap" onclick="mapFromNeican('${c.nodeId}')">${esc(c.name)} <i>↗ 地图</i></button>`
         : esc(c.name)}</span>
@@ -2887,11 +3308,26 @@ function neiCalendar() {
     <div class="cg">${cells.join('')}</div>
     <div class="cf">
       <button class="allbtn${neiPeriod === '' ? ' on' : ''}" onclick="neiPick('')">全部 ${NEI_ALL.length} 期 · ${NEI_TOTAL} 篇</button>
-      <span class="hint">${sel ? `已选 ${esc(sel.date)}${esc(sel.weekday)} · ${(sel.articles || []).length} 篇`
+      <span class="hint">${sel ? `已选 ${neiShort(sel)} · ${(sel.articles || []).length} 篇`
         : (inMonth ? `这个月 ${inMonth} 天有内参` : '这个月没有内参')}</span>
     </div>
   </div>`;
 }
+/* 窄列短日期格式（v4-unify）：日历脚部只有 ~100px 宽，全格式「2026-09-14星期一」必然折行
+   （所有者 09-15 报）；页头/单篇页保持全格式。三处口径由此统一。 */
+function neiShort(iss) {
+  const p = String(iss.date || '').split('-');
+  if (p.length < 3) return iss.date || '';
+  const wk = String(iss.weekday || '').replace('星期', '周');
+  return `${+p[1]}月${+p[2]}日 ${wk}`;
+}
+/* 期与期翻页（v4-unify）：单期视图的期头 ‹ ›，按 NEI_ALL 的倒序走（‹＝更新一期） */
+function neiStep(delta) {
+  const i = NEI_ALL.findIndex(x => x.period === neiPeriod);
+  const j = Math.max(0, Math.min(NEI_ALL.length - 1, (i < 0 ? 0 : i) + delta));
+  neiPick(NEI_ALL[j].period);
+}
+window.neiStep = neiStep;
 /* 单篇阅读用窄栏：返回键 ＋ 现在读的是哪一天哪一篇（读的时候不摆整张日历） */
 function neiWhenBar() {
   const a = neiOf(neiSlug);
@@ -2902,10 +3338,11 @@ function neiWhenBar() {
   </div>`;
 }
 /* 日报集合：按期倒序，一期一张日报卡（日期 · 篇数 · 目录），点一篇进单篇阅读 */
-function issueCard(iss) {
+function issueCard(iss, nav) {
   const arts = (iss.articles || []).filter(neiPass);
   return `<section class="nei-day">
     <div class="dh"><b>第 ${esc(iss.period)} 期</b><span>${esc(iss.date || '')} ${esc(iss.weekday || '')}</span>
+      ${nav ? `<button class="ih-nav" onclick="neiStep(-1)" title="更新一期">‹</button><button class="ih-nav" onclick="neiStep(1)" title="更早一期">›</button>` : ''}
       <span class="sp"></span><span>${arts.length} 篇</span></div>
     <div class="dl">${arts.map(a => `<button class="drow" onclick="openNeican('${a.slug}')">
       <span class="no">${String(a.no || 0).padStart(2, '0')}</span>
@@ -2948,7 +3385,7 @@ function renderNeicanHome() {
       <span class="sp"></span><span>${list.length} 期 · ${shown} 篇${neiPeriod ? '' : ' · 全部日期'}${neiFiltOn() ? ' · 已筛选' : ''}</span></div>
     <div class="nei-homehint">左边一栏先<b>月历</b>选日期（点亮的那些天有内参），再按<b>分类 / 策展</b>收窄；
       点下面任意一篇进单篇阅读（三级笔记 / 概念网络 / 费曼 / 阅读原文）。</div>
-    ${list.length ? list.map(issueCard).join('') : '<div class="lp-empty">这一天／这组筛选下没有篇目。</div>'}`;
+    ${list.length ? list.map((i, ix) => issueCard(i, neiPeriod && ix === 0)).join('') : '<div class="lp-empty">这一天／这组筛选下没有篇目。</div>'}`;
 }
 window.renderNeicanHome = renderNeicanHome;
 
@@ -2985,6 +3422,7 @@ function renderNeican(reset) {
     <div class="nei-body" id="nei-body">${neiBody(a)}</div>
     <div class="nei-foot">${esc(iss.pipeline || '')}<br>${esc(iss.source || '')}<br>生成 ${esc(iss.generatedAt || '')}</div>`;
   if (reset) wrap.parentElement.scrollTop = 0;
+  mountConceptNet(document.getElementById('nei-body'));
 }
 
 /* ══ 内参文章 · 阅读中的即时费曼（Issue 2 · B 层试点：agent-skills-api）════════
@@ -3427,9 +3865,8 @@ function exitLearn() {
 }
 window.exitLearn = exitLearn;
 
-/* 「学习这个」在路径条上的落点：有章节就进独立学习空间，没有章节才回落到原来的交卷框 */
-function learnEntryLabel(cmId) { const c = chapterOf(cmId); return c ? `学习这个 · 第 ${c.order} 章` : '学习这个'; }
-window.learnEntryLabel = learnEntryLabel;
+/* 「学习这个」在路径条上的落点已撤（2026-09-15：知识体系只浏览，学习入口收敛到实践空间——CONTEXT.md 口径）；
+   openLearnFor 保留给实践空间 origin 卡使用。 */
 
 /* 课题单元列表（右栏）：费曼通过后立刻刷新解锁状态（不必整页重渲染） */
 function learnChipsHtml() {
@@ -3611,11 +4048,10 @@ function linResultHtml(c) {
       <div class="mut">这是阅读中的即时反馈：<b>不改正式掌握状态，也不解锁任何一章</b>（解锁下一章的是下面那张「章末验收」）。</div>${stamp}`;
   } else {
     const f = r.focus || {};
-    const stamps = Object.keys(r.statuses).map((id) => `<span class="nfx-st ${r.statuses[id]}">${esc(id)} ${NFX_LABEL[r.statuses[id]] || r.statuses[id]}</span>`).join('');
     inner = `<div class="nfx-k">这一次先补一处（共记下 ${r.gaps.length} 处缺口，其余留到后面几轮）</div>
-      <div class="nfx-status">${stamps}</div>
+      <div class="nfx-status">${Object.keys(r.statuses).map((id) => `<span class="nfx-st ${r.statuses[id]}" data-id="${esc(id)}">${NFX_LABEL[r.statuses[id]] || r.statuses[id]}</span>`).join('')}</div>
       <div class="nfx-focus" data-cid="${esc(f.id)}">
-        <div class="nfx-fh"><b>重点补讲 · ${esc(f.id)}</b><span>${esc(f.point || '')}</span></div>
+        <div class="nfx-fh"><b>重点补讲</b><span>${esc(f.point || '')}</span></div>
         ${f.misconception ? `<div class="nfx-mi"><b>常见误解</b>${esc(f.misconception)}</div>` : ''}
         ${f.condition ? `<div class="nfx-act"><b>成立条件</b>${esc(f.condition)}</div>` : ''}
         <div class="nfx-act"><b>补讲</b>${esc(f.text || '（这一轮模型没给出对准这一处的补讲；按上面的成立条件自查，再讲一次。）')}</div>
@@ -3635,7 +4071,7 @@ function linCardHtml(c) {
       <div class="lrow"><button class="lbtn" id="lin-submit" onclick="linSubmit()">提交复述（即时反馈）</button>
         <span class="lgap" id="learn-inline-status">${(st.rounds || []).length ? `已提交 ${st.rounds.length} 轮 · 草稿第 ${st.draftVer || 0} 版` : '还没有提交过'}</span></div>
       ${linResultHtml(c)}
-      <div class="lgap">要点 ID：${linChecks(c).map((x) => `<code>${esc(x.id)}</code>`).join('、')}（稳定 ID ＋ 成立条件 ＋ 常见误解见 <code>evidence/agent-loop-260913/authored.json</code>）</div>
+      <div class="lgap" data-checks="${esc(linChecks(c).map(x => x.id).join(','))}">每个要点都有成立条件与常见误解，出处登记在案（内部记录，不上明面）。</div>
     </div>`;
 }
 window.linCardHtml = linCardHtml;
@@ -3714,12 +4150,13 @@ function renderLearn(notice) {
   const s = stOf(c.chapterId);
   const wrap = document.getElementById('learn-wrap');
   document.getElementById('learn-title').textContent = `学习空间 · ${c.title}`;
-  const read = (label, text, from) => text ? `<div class="quote"><b>${esc(label)}${from ? ` <code>${esc(from)}</code>` : ''}</b><br>${esc(text)}</div>` : '';
+  /* 明面说人话（09-15 负责人口径）：材料标签用白话，出处 ID 转进 data-src（审核与对账仍在数据层）。 */
+  const read = (label, text, from) => text ? `<div class="quote" ${from ? `data-src="${esc(from)}"` : ''}><b>${esc(label)}</b><br>${esc(text)}</div>` : '';
   const pair = [
-    ['QST', c.qst.title, c.qst.id], ['CON', c.concept.title, c.concept.id],
-    ['CAS', c.case.type || '案例', c.case.id],
-    ['OPI', c.opinions.length ? `${c.opinions.length} 条判断依据` : '本章没有 OPI 直连', c.opinions.map(o => o.id).join(' / ') || '—'],
-    ['SOL', '行动说明', c.solution.id],
+    ['这一章的问题', c.qst.title, c.qst.id], ['核心概念', c.concept.title, c.concept.id],
+    ['场景', c.case.type || '案例', c.case.id],
+    ['判断依据', c.opinions.length ? `${c.opinions.length} 条判断依据` : '本章没有直连的判断依据', c.opinions.map(o => o.id).join(' / ') || '—'],
+    ['怎么做', '行动说明', c.solution.id],
   ];
   /* 空数组不算「决策走完」：[].every(Boolean) === true，会把没有决策题的单元直接送进章末验收卡
      （章末验收是解锁下一章的那一次，等于白送解锁）。现在必须**至少有一道题且全过**才算走完；
@@ -3735,7 +4172,7 @@ function renderLearn(notice) {
     <div class="lrail-h">本次课题<span>${esc(c.routeTitle)}</span></div>
     <ol class="lrail-steps">${learnChipsHtml()}</ol>
     <div class="lrail-h">本页材料</div>
-    <div class="lrail-m">${pair.map(([k, v, id]) => `<div><b>${k}</b><code>${esc(id)}</code></div>`).join('')}</div>
+    <div class="lrail-m">${pair.map(([k, v, id]) => `<div data-src="${esc(id)}"><b>${esc(k)}</b></div>`).join('')}</div>
     <div class="lrail-n">正文解释「为什么这一步接着上一步」；本页判定不调用知乎。</div>
   </aside>`;
 
@@ -3750,7 +4187,7 @@ function renderLearn(notice) {
       <span class="lb">为什么这一页现在出现</span>
       <h2>上一单元留下了什么问题</h2>
       ${n.bridges.map((b) => `<div class="lstep"><div class="lq2">${esc(b.question)}</div><div class="la">${esc(b.answer)}</div>
-        <div class="lquote">逐字原文 <code>${esc((b.basis || []).join(' · '))}</code>：${esc(b.quote)}</div></div>`).join('')}
+        <div class="lquote" data-src="${esc((b.basis || []).join(' · '))}">逐字原文：${esc(b.quote)}</div></div>`).join('')}
       <div class="lgap">过渡句由 agent 撰写（出线文案性质），不是原文摘录；引文才是逐字来源。</div>
     </div>` : '';
 
@@ -3762,11 +4199,11 @@ function renderLearn(notice) {
       ${read('定义', c.reading.explain.text, c.reading.explain.from)}
       ${read('直觉', c.reading.intuition.text, c.reading.intuition.from)}
       ${read('机制', c.reading.mechanism.text, c.reading.mechanism.from)}
-      <div class="quote"><b>边界 ${c.reading.boundary.from ? `<code>${esc(c.reading.boundary.from)}</code>` : ''}</b><ul>${c.reading.boundary.items.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>
+      <div class="quote" ${c.reading.boundary.from ? `data-src="${esc(c.reading.boundary.from)}"` : ''}><b>边界</b><ul>${c.reading.boundary.items.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>
       ${c.review.ruling
         ? `<div class="lcase"><b>口径裁决（负责人 ${esc(c.review.ruling.at)}）</b><br>原话：「${esc(c.review.ruling.quote)}」<br>裁决：${esc(c.review.ruling.decision)}<br><span class="lgap">影响：${esc(c.review.ruling.effect)}</span></div>`
         : (c.framingNote ? `<div class="lcase"><b>口径注（两处来源不同，已登记不合并）</b><br>${esc(c.framingNote)}</div>` : '')}
-      <div class="lpair">${pair.map(([k, v, id]) => `<div><b>${k}</b><span>${esc(v)}</span><code>${esc(id)}</code></div>`).join('')}</div>
+      <div class="lpair">${pair.map(([k, v, id]) => `<div data-src="${esc(id)}"><b>${k}</b><span>${esc(v)}</span></div>`).join('')}</div>
       ${reviewLine}
       <div class="lgap">迁移问题：${esc(c.concept.transferQuestion)}<br>分类问题：${esc(c.concept.categoryQuestion)}<br>来源：${esc(c.concept.sources.join(' · '))}（CON）／${esc(c.case.sources.join(' · '))}（CAS）／${esc(c.solution.sources.join(' · '))}（SOL）</div>
       ${c.sourceChain ? `<div class="lgap">知识根：${esc(c.sourceChain.docs.join(' ＋ '))}（58 篇）→ 图鉴站卡片 <code>${esc(c.sourceChain.cardFile)}</code> → 本页单元<br>原始来源：${c.sourceChain.originalSources.map((s) => `<a href="${esc(s.url)}" target="_blank" rel="noreferrer">${esc(s.title)}</a>${s.author ? `（${esc(s.author)}${s.primary ? ' · 一手' : ''}）` : ''}`).join(' · ')}</div>` : ''}
@@ -3783,7 +4220,7 @@ function renderLearn(notice) {
   const blockCase = `<div class="lcase">
       <b>${n ? '用一个场景试试 · ' : ''}主案例 · ${esc(c.case.type)}${c.review.caseState === 'owner-confirmed' ? ' · 主案例已由负责人确认' : ' · 候选（未经负责人确认）'}</b><br>
       ${esc(c.case.summary)}
-      <div class="lgap" style="margin-top:8px">${esc(c.case.id)} · 候选案例 ${c.case.candidates.length} 个（${esc(c.case.candidates.join('、'))}）· 本章主案例 ${esc(c.case.primaryCaseId)}<br>来源依据：${esc(c.case.evidence)}</div>
+      <div class="lgap" style="margin-top:8px" data-case="${esc([c.case.id, ...c.case.candidates, c.case.primaryCaseId].join(','))}">候选案例 ${c.case.candidates.length} 个，本章用其中一个当主案例；来源依据已登记在案。</div>
     </div>`;
 
   const handQ = c.questions.filter((q) => ((q.origin || {}).kind || 'hand') === 'hand').length;
@@ -3833,11 +4270,21 @@ function renderLearn(notice) {
 
   /* 批量单元的阅读器载荷带 per-criterion 准入结论（三条机器条件）；六章没有这一层，卡片自然为空。 */
   const blockCriteria = criteriaStatusHtml(c);
+  /* 概念网络图（2026-09-15）：六章共用 route-agent-loop 一张路线图，本章高亮自己的那一层（规格 §三）。
+     图在上、正文流在下；数据没生成就不摆，不硬造。批量单元不接这张图（它们不在六步路线上）。 */
+  const blockNet = (() => {
+    if (!n) return '';
+    const net = CN_NETS['route-agent-loop'];
+    if (!net) return '';
+    const lay = (net.layers || []).find((l) => l.chapter === c.chapterId);
+    return `<div class="cn-host" data-unit="route-agent-loop"${lay ? ` data-hi="${esc(lay.id)}"` : ''}></div>`;
+  })();
   const body = n
-    ? [head, blockLead, blockBridges, blockReading, blockLinks, blockFeyInline, blockCase, blockQuestions, blockFeyFinal, blockNext, gaps].join('')
+    ? [head, blockNet, blockLead, blockBridges, blockReading, blockLinks, blockFeyInline, blockCase, blockQuestions, blockFeyFinal, blockNext, gaps].join('')
     : [head, blockReading, blockCriteria, blockCase, blockQuestions, blockFeyFinal, gaps].join('');
 
   wrap.innerHTML = `<div class="lbody">${body}</div>${rail}`;
+  mountConceptNet(wrap);
   learnRenderQ();
   learnDots();
 }
@@ -3888,7 +4335,7 @@ function learnRenderQ() {
 function learnFeedback(q, j) {
   const o = q.options[j];
   if (o.correct) {
-    const basis = (o.basis || []).length ? `依据：${o.basis.join('、')}` : '';
+    const basis = (o.basis || []).length ? `依据：<span data-basis="${esc(o.basis.join('、'))}">源材料（登记在案）</span>` : '';
     const quote = o.basisQuote ? `<br>原文：${esc(o.basisQuote)}` : '';
     return `<b>对。</b>${esc(o.why || '')}${o.why ? '<br>' : ''}${esc(basis)}${quote}`;
   }

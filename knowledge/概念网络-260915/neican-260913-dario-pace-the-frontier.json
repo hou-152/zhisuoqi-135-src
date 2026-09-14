@@ -1,0 +1,213 @@
+{
+ "version": "v1",
+ "unitId": "neican-260913-dario-pace-the-frontier",
+ "unitKind": "article",
+ "period": "260913",
+ "slug": "dario-pace-the-frontier",
+ "title": "我们必须加快开拓步伐",
+ "source": "https://darioamodei.com/post/we-must-pace-the-frontier",
+ "generatedAt": "2026-09-14T20:33:00.889Z",
+ "generator": "deterministic+llm",
+ "reviewStatus": "generated-unreviewed",
+ "layers": [
+  {
+   "id": "L1",
+   "name": "驱动与约束"
+  },
+  {
+   "id": "L2",
+   "name": "目标与思路"
+  },
+  {
+   "id": "L3",
+   "name": "总体框架"
+  },
+  {
+   "id": "L4",
+   "name": "具体措施"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "n1",
+   "name": "领跑节奏",
+   "full": "领跑节奏（pacing the frontier）",
+   "layer": "L2",
+   "role": "core",
+   "card": 0,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_2b7480ab"
+   }
+  },
+  {
+   "id": "n2",
+   "name": "递归自我改进",
+   "full": "递归自我改进（recursive self-improvement, RSI）",
+   "layer": "L1",
+   "role": "linked",
+   "card": 1,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_d7b26e2a"
+   }
+  },
+  {
+   "id": "n3",
+   "name": "OAI-HF 事件：能力与错…",
+   "full": "OAI-HF 事件：能力与错位的不对称（OpenAI-Hugging Face incident）",
+   "layer": "L1",
+   "role": "linked",
+   "card": 2,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_cb5d57a6"
+   }
+  },
+  {
+   "id": "n4",
+   "name": "竞相超越",
+   "full": "竞相超越（race to the top）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 3,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_a2b35c50"
+   }
+  },
+  {
+   "id": "n5",
+   "name": "三步走框架",
+   "full": "三步走框架（embedded evaluators → democratic coordination → global coordination）",
+   "layer": "L3",
+   "role": "linked",
+   "card": 4,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_145249a6"
+   }
+  },
+  {
+   "id": "n6",
+   "name": "嵌入式评估者",
+   "full": "嵌入式评估者（embedded evaluators）",
+   "layer": "L4",
+   "role": "linked",
+   "card": 5,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_75dfab95"
+   }
+  },
+  {
+   "id": "n7",
+   "name": "检查点式节奏与\"配料\"式节奏",
+   "full": "检查点式节奏与\"配料\"式节奏（checkpoints / ingredients）",
+   "layer": "L3",
+   "role": "linked",
+   "card": 6,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_76be18e9"
+   }
+  },
+  {
+   "id": "n8",
+   "name": "放缓所换来的时间的用途",
+   "full": "放缓所换来的时间的用途（operational excellence / alignment / interpretability / testing and evaluation）",
+   "layer": "L3",
+   "role": "linked",
+   "card": 7,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_e87125d3"
+   }
+  },
+  {
+   "id": "n9",
+   "name": "民主国家对专制政权的领先幅度",
+   "full": "民主国家对专制政权的领先幅度（the lead over the CCP）",
+   "layer": "L1",
+   "role": "linked",
+   "card": 8,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_9410eef8"
+   }
+  },
+  {
+   "id": "n10",
+   "name": "全球分级协定",
+   "full": "全球分级协定（Level 1–4）",
+   "layer": "L4",
+   "role": "linked",
+   "card": 9,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_13f72ceb"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "id": "e1",
+   "from": "n2",
+   "to": "n1",
+   "label": "促使领跑节奏",
+   "basis": "quote",
+   "quote": "Progress will still be relatively fast, and we can use this time to advance the science of interpretability, improve operational security and rigor at the frontier AI companies, and build models whose alignment we have much more confidence in.",
+   "quoteId": "Q150",
+   "quoteFrom": "原文 · Q150",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e2",
+   "from": "n3",
+   "to": "n4",
+   "label": "凸显安全竞争需求",
+   "basis": "quote",
+   "quote": "Rare and unexpected examples of undesirable behavior still sometimes emerge; extra time from a paced frontier would help our researchers improve our understanding of what causes these issues and develop better techniques to prevent them.",
+   "quoteId": "Q62",
+   "quoteFrom": "原文 · Q62",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e3",
+   "from": "n1",
+   "to": "n4",
+   "label": "通过安全竞争实现",
+   "basis": "quote",
+   "quote": "I’m therefore proposing a three-step plan with the goal of pacing the frontier: building AI at a balanced rate that aims to ensure its safety while still achieving its benefits and grappling with important geopolitical dilemmas.",
+   "quoteId": "Q27",
+   "quoteFrom": "原文 · Q27",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  }
+ ],
+ "gaps": [
+  "边 领跑节奏 → 三步走框架（需要三步走框架）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 竞相超越 → 三步走框架（需要协调框架）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 三步走框架 → 嵌入式评估者（第一步）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 三步走框架 → 全球分级协定（第三步）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 嵌入式评估者 → 检查点式节奏与\"配料\"式节奏（评估触发检查点）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 检查点式节奏与\"配料\"式节奏 → 放缓所换来的时间的用途（提供时间用于）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 民主国家对专制政权的领先幅度 → 领跑节奏（限制领跑幅度）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 民主国家对专制政权的领先幅度 → 全球分级协定（决定协调可行性）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 递归自我改进 → OAI-HF 事件：能力与错（加速催生事件）找不到支撑原句 → 按 R1/R2 不进图"
+ ],
+ "llm": {
+  "model": "deepseek-v4-pro",
+  "tokens": 5561,
+  "cached": true
+ },
+ "citedByStats": {
+  "llm": 3,
+  "retrieval": 0
+ }
+}

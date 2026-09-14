@@ -1,0 +1,229 @@
+{
+ "version": "v1",
+ "unitId": "neican-260912-openai-habitat-storage",
+ "unitKind": "article",
+ "period": "260912",
+ "slug": "openai-habitat-storage",
+ "title": "Rapidly scaling online storage to serve over 1 billion ChatGPT users（存储平台 Habitat 的扩容复盘）",
+ "source": "https://openai.com/index/scaling-storage-one-billion-users-part-one/",
+ "generatedAt": "2026-09-14T20:33:00.818Z",
+ "generator": "deterministic+llm",
+ "reviewStatus": "generated-unreviewed",
+ "layers": [
+  {
+   "id": "L1",
+   "name": "背景与平台"
+  },
+  {
+   "id": "L2",
+   "name": "架构与技术债"
+  },
+  {
+   "id": "L3",
+   "name": "规模化挑战"
+  },
+  {
+   "id": "L4",
+   "name": "Rust重写"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "n1",
+   "name": "每年超过 10 倍增长",
+   "full": "每年超过 10 倍增长",
+   "layer": "L1",
+   "role": "core",
+   "card": 0,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_be0d6099"
+   }
+  },
+  {
+   "id": "n2",
+   "name": "Habitat",
+   "full": "Habitat（在线存储平台）",
+   "layer": "L1",
+   "role": "linked",
+   "card": 1,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_1da0e9a6"
+   }
+  },
+  {
+   "id": "n3",
+   "name": "从客户端库到独立服务",
+   "full": "从客户端库到独立服务（统一控制点）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 2,
+   "ref": null
+  },
+  {
+   "id": "n4",
+   "name": "集中式数据安全与隐私控制点",
+   "full": "集中式数据安全与隐私控制点",
+   "layer": "L2",
+   "role": "linked",
+   "card": 3,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_7a436f8a"
+   }
+  },
+  {
+   "id": "n5",
+   "name": "约束型 API 与成本不平衡",
+   "full": "约束型 API 与成本不平衡",
+   "layer": "L2",
+   "role": "linked",
+   "card": 4,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_6c8463ad"
+   }
+  },
+  {
+   "id": "n6",
+   "name": "对象-边模型与分区",
+   "full": "对象-边模型与分区",
+   "layer": "L2",
+   "role": "linked",
+   "card": 5,
+   "ref": null
+  },
+  {
+   "id": "n7",
+   "name": "Rockset 离线二级视图",
+   "full": "Rockset 离线二级视图（CDC 逃生舱）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 6,
+   "ref": null
+  },
+  {
+   "id": "n8",
+   "name": "战略性技术债务：Python…",
+   "full": "战略性技术债务：Python 服务",
+   "layer": "L2",
+   "role": "linked",
+   "card": 7,
+   "ref": null
+  },
+  {
+   "id": "n9",
+   "name": "asyncio 调度延迟与尾…",
+   "full": "asyncio 调度延迟与尾部延迟",
+   "layer": "L3",
+   "role": "linked",
+   "card": 8,
+   "ref": null
+  },
+  {
+   "id": "n10",
+   "name": "亚稳态故障与 LIFO/…",
+   "full": "亚稳态故障与 LIFO/FIFO 连接重用",
+   "layer": "L3",
+   "role": "linked",
+   "card": 9,
+   "ref": null
+  },
+  {
+   "id": "n11",
+   "name": "连接扇入",
+   "full": "连接扇入（Envoy / 雷霆之群）",
+   "layer": "L3",
+   "role": "linked",
+   "card": 10,
+   "ref": null
+  },
+  {
+   "id": "n12",
+   "name": "迁移到 Rust",
+   "full": "迁移到 Rust（Python→Rust）",
+   "layer": "L4",
+   "role": "linked",
+   "card": 11,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_74099998"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "id": "e1",
+   "from": "n3",
+   "to": "n4",
+   "label": "提供集中控制点",
+   "basis": "quote",
+   "quote": "通过 Habitat 服务，我们可以集中执行访问控制策略、执行审计日志记录，并限制对底层存储资源（例如 Azure Cosmos DB）的访问。",
+   "quoteId": "Q54",
+   "quoteFrom": "原文 · Q54",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e2",
+   "from": "n8",
+   "to": "n9",
+   "label": "引入调度延迟",
+   "basis": "quote",
+   "quote": "由于我们的服务中包含大量 CPU 密集型工作负载和后台任务，asyncio 调度延迟很容易导致尾部请求延迟过高。",
+   "quoteId": "Q71",
+   "quoteFrom": "原文 · Q71",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e3",
+   "from": "n8",
+   "to": "n10",
+   "label": "引发亚稳态故障",
+   "basis": "quote",
+   "quote": "进一步调查发现，Python 的 aiohttp TCPConnector 默认采用后进先出 (LIFO) 的连接重用机制：即选择最近返回的连接用于下一个请求。",
+   "quoteId": "Q95",
+   "quoteFrom": "原文 · Q95",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e4",
+   "from": "n9",
+   "to": "n11",
+   "label": "降延迟调整致扇入",
+   "basis": "quote",
+   "quote": "避免下游资源遭受洪水侵袭 调整为降低 asyncio 延迟并拥有如此多的 Python 进程的一个副作用是，很容易使下游依赖项被大量的连接压垮（被称为“雷霆之群”）。",
+   "quoteId": "Q107",
+   "quoteFrom": "原文 · Q107",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  }
+ ],
+ "gaps": [
+  "边 每年超过 10 倍增长 → 战略性技术债务：Python（驱动快速开发选择）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 每年超过 10 倍增长 → 从客户端库到独立服务（增长触达客户端极限）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 Habitat → 从客户端库到独立服务（Habitat架构演进）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 对象-边模型与分区 → 约束型 API 与成本不平衡（形成约束型API）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 约束型 API 与成本不平衡 → Rockset 离线二级视图（复杂查询需逃生舱）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 约束型 API 与成本不平衡 → 战略性技术债务：Python（使Python可扩展）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 asyncio 调度延迟与尾 → 迁移到 Rust（问题驱动Rust重写）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 亚稳态故障与 LIFO/FI → 迁移到 Rust（问题驱动Rust重写）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 连接扇入 → 迁移到 Rust（问题驱动Rust重写）找不到支撑原句 → 按 R1/R2 不进图"
+ ],
+ "llm": {
+  "model": "deepseek-v4-pro",
+  "tokens": 7978,
+  "cached": true
+ },
+ "citedByStats": {
+  "llm": 4,
+  "retrieval": 0
+ }
+}

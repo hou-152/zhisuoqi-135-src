@@ -1,0 +1,271 @@
+{
+ "version": "v1",
+ "unitId": "neican-260912-linear-principles",
+ "unitKind": "article",
+ "period": "260912",
+ "slug": "linear-principles",
+ "title": "原则与实践（Linear 的产品原则）",
+ "source": "https://linear.app/method/introduction",
+ "generatedAt": "2026-09-14T20:33:00.833Z",
+ "generator": "deterministic+llm",
+ "reviewStatus": "generated-unreviewed",
+ "layers": [
+  {
+   "id": "L1",
+   "name": "核心理念"
+  },
+  {
+   "id": "L2",
+   "name": "执行流程"
+  },
+  {
+   "id": "L3",
+   "name": "协作反馈"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "n1",
+   "name": "以项目创建者为中心",
+   "full": "以项目创建者为中心（最终用户）",
+   "layer": "L1",
+   "role": "core",
+   "card": 0,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_e4fb81cb"
+   }
+  },
+  {
+   "id": "n2",
+   "name": "为特定用途而设计",
+   "full": "为特定用途而设计（反对过度灵活）",
+   "layer": "L1",
+   "role": "linked",
+   "card": 1,
+   "ref": null
+  },
+  {
+   "id": "n3",
+   "name": "周期",
+   "full": "周期（Cycle）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 2,
+   "ref": null
+  },
+  {
+   "id": "n4",
+   "name": "目标—项目—日常工作的连接",
+   "full": "目标—项目—日常工作的连接",
+   "layer": "L1",
+   "role": "linked",
+   "card": 3,
+   "ref": null
+  },
+  {
+   "id": "n5",
+   "name": "工具为你服务，而非你为工具服…",
+   "full": "工具为你服务，而非你为工具服务",
+   "layer": "L1",
+   "role": "linked",
+   "card": 4,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_65b2c79c"
+   }
+  },
+  {
+   "id": "n6",
+   "name": "单一负责人",
+   "full": "单一负责人（Owner）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 5,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_6a2735cf"
+   }
+  },
+  {
+   "id": "n7",
+   "name": "简洁规范",
+   "full": "简洁规范（项目简报）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 6,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_026f933a"
+   }
+  },
+  {
+   "id": "n8",
+   "name": "分解为小颗粒度工作",
+   "full": "分解为小颗粒度工作",
+   "layer": "L2",
+   "role": "linked",
+   "card": 7,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_857d56ba"
+   }
+  },
+  {
+   "id": "n9",
+   "name": "反馈作为研究资料库",
+   "full": "反馈作为研究资料库",
+   "layer": "L3",
+   "role": "linked",
+   "card": 8,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_f65d0103"
+   }
+  },
+  {
+   "id": "n10",
+   "name": "可扩展性",
+   "full": "可扩展性",
+   "layer": "L3",
+   "role": "linked",
+   "card": 9,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_765d717a"
+   }
+  },
+  {
+   "id": "n11",
+   "name": "设计师与工程师的推拉关系",
+   "full": "设计师与工程师的推拉关系",
+   "layer": "L3",
+   "role": "linked",
+   "card": 10,
+   "ref": null
+  }
+ ],
+ "edges": [
+  {
+   "id": "e1",
+   "from": "n1",
+   "to": "n9",
+   "label": "以用户为中心重视反馈",
+   "basis": "quote",
+   "quote": "将请求和反馈附加到相关问题中，让客户的声音直接融入产品开发。",
+   "quoteId": "Q46",
+   "quoteFrom": "原文 · Q46",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e2",
+   "from": "n2",
+   "to": "n10",
+   "label": "特定用途需可扩展",
+   "basis": "quote",
+   "quote": "一款好的工具应该易于上手，并能随着团队规模的扩大而不断增强功能。",
+   "quoteId": "Q20",
+   "quoteFrom": "原文 · Q20",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e3",
+   "from": "n4",
+   "to": "n3",
+   "label": "目标连接需要周期",
+   "basis": "quote",
+   "quote": "在项目启动会议上审查项目及其目标日期，并在制定周期计划时参考项目内容。",
+   "quoteId": "Q27",
+   "quoteFrom": "原文 · Q27",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e4",
+   "from": "n5",
+   "to": "n10",
+   "label": "工具服务支持扩展",
+   "basis": "quote",
+   "quote": "一款好的工具应该易于上手，并能随着团队规模的扩大而不断增强功能。",
+   "quoteId": "Q20",
+   "quoteFrom": "原文 · Q20",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e5",
+   "from": "n6",
+   "to": "n7",
+   "label": "负责人撰写简洁规范",
+   "basis": "quote",
+   "quote": "每个项目都应该指定一位负责人，负责撰写项目简报并交付成果。",
+   "quoteId": "Q38",
+   "quoteFrom": "原文 · Q38",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e6",
+   "from": "n7",
+   "to": "n8",
+   "label": "规范明确范围助分解",
+   "basis": "quote",
+   "quote": "理想情况下，这些简短的文档能够促使团队明确工作范围，从而清晰地划分优先级，避免团队开发错误的东西。",
+   "quoteId": "Q42",
+   "quoteFrom": "原文 · Q42",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e7",
+   "from": "n3",
+   "to": "n8",
+   "label": "周期要求小颗粒度",
+   "basis": "quote",
+   "quote": "周期性的工作安排能够建立健康的日常流程，并让团队专注于下一步需要完成的工作。",
+   "quoteId": "Q28",
+   "quoteFrom": "原文 · Q28",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e8",
+   "from": "n8",
+   "to": "n9",
+   "label": "小颗粒度附加反馈",
+   "basis": "quote",
+   "quote": "将请求和反馈附加到相关问题中，让客户的声音直接融入产品开发。",
+   "quoteId": "Q46",
+   "quoteFrom": "原文 · Q46",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  }
+ ],
+ "gaps": [
+  "边 以项目创建者为中心 → 为特定用途而设计（以用户为中心要求特定用途）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 以项目创建者为中心 → 目标—项目—日常工作的连接（用户中心连接目标）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 为特定用途而设计 → 周期（特定用途设计采用周期）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 目标—项目—日常工作的连接 → 单一负责人（目标连接需单一负责人）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 单一负责人 → 设计师与工程师的推拉关系（负责人协调团队协作）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 简洁规范 → 设计师与工程师的推拉关系（简报促进设计师工程师协作）找不到支撑原句 → 按 R1/R2 不进图"
+ ],
+ "llm": {
+  "model": "deepseek-v4-pro",
+  "tokens": 7326,
+  "cached": true
+ },
+ "citedByStats": {
+  "llm": 8,
+  "retrieval": 0
+ }
+}

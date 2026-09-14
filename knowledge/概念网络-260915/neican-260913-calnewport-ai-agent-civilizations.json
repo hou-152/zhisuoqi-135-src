@@ -1,0 +1,318 @@
+{
+ "version": "v1",
+ "unitId": "neican-260913-calnewport-ai-agent-civilizations",
+ "unitKind": "article",
+ "period": "260913",
+ "slug": "calnewport-ai-agent-civilizations",
+ "title": "Are We at War with AI Agent “Civilizations”?",
+ "source": "https://calnewport.com/are-we-at-war-with-ai-agent-civilizations/",
+ "generatedAt": "2026-09-14T20:48:37.010Z",
+ "generator": "deterministic+llm",
+ "reviewStatus": "generated-unreviewed",
+ "layers": [
+  {
+   "id": "L1",
+   "name": "基础机制"
+  },
+  {
+   "id": "L2",
+   "name": "后果误诊"
+  },
+  {
+   "id": "L3",
+   "name": "对比对策"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "n1",
+   "name": "Prompt loop（…",
+   "full": "Prompt loop（prompt loop）／agent",
+   "layer": "L1",
+   "role": "core",
+   "card": 0,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_48fd6532"
+   }
+  },
+  {
+   "id": "n2",
+   "name": "Context window…",
+   "full": "Context window 与 prompt 杂乱（cluttered prompt / maximum allowable context window）",
+   "layer": "L1",
+   "role": "linked",
+   "card": 1,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_88d4edc1"
+   }
+  },
+  {
+   "id": "n3",
+   "name": "Agent swarm 作为…",
+   "full": "Agent swarm 作为 prompt 管理策略（agent swarm / prompt management strategy）",
+   "layer": "L1",
+   "role": "linked",
+   "card": 2,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_1ae08d06"
+   }
+  },
+  {
+   "id": "n4",
+   "name": "Reasoning…",
+   "full": "Reasoning model 与 chain-of-thought traces（reasoning model / chain-of-thought reasoning）",
+   "layer": "L1",
+   "role": "linked",
+   "card": 3,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_5fcd44e5"
+   }
+  },
+  {
+   "id": "n5",
+   "name": "事后合理化与科幻叙事污染",
+   "full": "事后合理化与科幻叙事污染（post-hoc rationalizing / sci-fi style narratives）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 4,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_5fdeff34"
+   }
+  },
+  {
+   "id": "n6",
+   "name": "误诊：不是“AI”失控，而是…",
+   "full": "误诊：不是“AI”失控，而是无监督、接工具的 prompt loop 系统（“AI” going rogue vs. unsupervised prompt loop system）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 5,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_e1e4f324"
+   }
+  },
+  {
+   "id": "n7",
+   "name": "被启动的电话游戏",
+   "full": "被启动的电话游戏（extended game of actuated telephone）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 6,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_f11b6b87"
+   }
+  },
+  {
+   "id": "n8",
+   "name": "交互式系统 vs.…",
+   "full": "交互式系统 vs. prompt loop 系统（interactive system vs. prompt loop system）",
+   "layer": "L3",
+   "role": "linked",
+   "card": 7,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_5c63e329"
+   }
+  },
+  {
+   "id": "n9",
+   "name": "“AI agent…",
+   "full": "“AI agent civilizations” 叙事（civilizations / conspiracy / taking over）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 8,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_40539599"
+   }
+  },
+  {
+   "id": "n10",
+   "name": "强约束与严格责任标准",
+   "full": "强约束与严格责任标准（strong constraints / stringent liability standards）",
+   "layer": "L3",
+   "role": "linked",
+   "card": 9,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_0614eb10"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "id": "e1",
+   "from": "n1",
+   "to": "n2",
+   "label": "长期运行耗尽语境窗口",
+   "basis": "quote",
+   "quote": "The issue with this approach is that if you run this style of prompt loop for a long time, the prompt will eventually become so cluttered and cumbersome that it might confuse the LLM’s attention mechanisms and potentially exceed the maximum allowable context window.",
+   "quoteId": "Q30",
+   "quoteFrom": "原文 · Q30",
+   "citedBy": "retrieval",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e2",
+   "from": "n2",
+   "to": "n3",
+   "label": "催生agent swarm管",
+   "basis": "quote",
+   "quote": "The issue with this approach is that if you run this style of prompt loop for a long time, the prompt will eventually become so cluttered and cumbersome that it might confuse the LLM’s attention mechanisms and potentially exceed the maximum allowable context window.",
+   "quoteId": "Q30",
+   "quoteFrom": "原文 · Q30",
+   "citedBy": "retrieval",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e3",
+   "from": "n3",
+   "to": "n4",
+   "label": "引入推理模式",
+   "basis": "quote",
+   "quote": "Put these two observations together, and it’s clear that it borders on research malpractice to soberly report on carefully curated clips from these traces to imply that somehow the combination of these prompt loops and the LLM they are prompting is a unified sentient entity with malicious intent.",
+   "quoteId": "Q60",
+   "quoteFrom": "原文 · Q60",
+   "citedBy": "retrieval",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e4",
+   "from": "n4",
+   "to": "n5",
+   "label": "产生事后合理化",
+   "basis": "quote",
+   "quote": "If you tune a model to “think out loud” before deriving an answer or suggestion, you’re providing the LLM with the ability to temporarily store and use the intermediate computation en route to producing its final response.",
+   "quoteId": "Q52",
+   "quoteFrom": "原文 · Q52",
+   "citedBy": "retrieval",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e5",
+   "from": "n5",
+   "to": "n9",
+   "label": "污染为科幻叙事",
+   "basis": "quote",
+   "quote": "When it comes to the specific goal of improving cybersecurity, for example, an interactive system, in which a human user interacts conversationally with a model trained on hacking, makes much, much more sense than connecting that same model to a prompt loop and letting it rock n’ roll.",
+   "quoteId": "Q71",
+   "quoteFrom": "原文 · Q71",
+   "citedBy": "retrieval",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e6",
+   "from": "n1",
+   "to": "n7",
+   "label": "自动执行形成电话游戏",
+   "basis": "quote",
+   "quote": "If you chain together thousands of such prompts, automatically executing everything the LLM suggests in return, then you’re playing an extended game of actuated telephone in which you’ll almost certainly end up in a garbled version of your intended goal for the system.",
+   "quoteId": "Q69",
+   "quoteFrom": "原文 · Q69",
+   "citedBy": "retrieval",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e7",
+   "from": "n7",
+   "to": "n6",
+   "label": "被误诊为AI失控",
+   "basis": "quote",
+   "quote": "If you chain together thousands of such prompts, automatically executing everything the LLM suggests in return, then you’re playing an extended game of actuated telephone in which you’ll almost certainly end up in a garbled version of your intended goal for the system.",
+   "quoteId": "Q69",
+   "quoteFrom": "原文 · Q69",
+   "citedBy": "retrieval",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e8",
+   "from": "n9",
+   "to": "n6",
+   "label": "激发澄清误诊",
+   "basis": "quote",
+   "quote": "The problem is not with “AI” going rogue, but this very specific type of prompt loop system that the LLM companies insist on hooking up to ever-more powerful tools, and running without any supervision for ever-increasing amounts of time.",
+   "quoteId": "Q66",
+   "quoteFrom": "原文 · Q66",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e9",
+   "from": "n6",
+   "to": "n8",
+   "label": "建议交互式替代",
+   "basis": "quote",
+   "quote": "When it comes to the specific goal of improving cybersecurity, for example, an interactive system, in which a human user interacts conversationally with a model trained on hacking, makes much, much more sense than connecting that same model to a prompt loop and letting it rock n’ roll.",
+   "quoteId": "Q71",
+   "quoteFrom": "原文 · Q71",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e10",
+   "from": "n8",
+   "to": "n10",
+   "label": "支撑强约束",
+   "basis": "quote",
+   "quote": "If I were a regulator, I would place strong constraints around prompt loop systems, which I would enforce with stringent liability standards for any illegal or damaging activity such systems cause.",
+   "quoteId": "Q76",
+   "quoteFrom": "原文 · Q76",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e11",
+   "from": "n1",
+   "to": "n10",
+   "label": "直接催生监管需求",
+   "basis": "quote",
+   "quote": "If I were a regulator, I would place strong constraints around prompt loop systems, which I would enforce with stringent liability standards for any illegal or damaging activity such systems cause.",
+   "quoteId": "Q76",
+   "quoteFrom": "原文 · Q76",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e12",
+   "from": "n7",
+   "to": "n10",
+   "label": "风险催生强约束",
+   "basis": "quote",
+   "quote": "If I were a regulator, I would place strong constraints around prompt loop systems, which I would enforce with stringent liability standards for any illegal or damaging activity such systems cause.",
+   "quoteId": "Q76",
+   "quoteFrom": "原文 · Q76",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  }
+ ],
+ "gaps": [
+  "第二段（引用）第 1 批模型连续失败，改用确定性最高分句：模型连续 3 次没给出可用结果：llm-timeout：The operation was aborted due to timeout"
+ ],
+ "llm": {
+  "model": "deepseek-v4-pro",
+  "tokens": 8542,
+  "cached": true
+ },
+ "citedByStats": {
+  "llm": 5,
+  "retrieval": 7
+ }
+}

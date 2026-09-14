@@ -1,0 +1,711 @@
+{
+  "version": "practice-route-draft-v1",
+  "builtAt": "2026-09-14T20:50:35.381Z",
+  "status": "draft-待负责人拍板",
+  "source": {
+    "categories": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/categories.yaml",
+    "cards": "内容结构化系统/01-原始素材区/完整副本/图鉴站产物/concepts",
+    "units": "evidence/batch-units-260914/units.json"
+  },
+  "rules": [
+    "站序 = 图鉴站方 categories.yaml 的 order 1-7（七问递进）",
+    "站内 = 主线锚点(superseded，置顶指回六章) → now(打底) → when-needed(用到再学) → deep-dive(深挖)",
+    "组内先后是课程组建议序：负责人拍板时直接改本文件各站 units 数组顺序即可",
+    "开放与否不由本文件决定：仍由 practice-readiness 准入门现算，本文件只定路线顺序"
+  ],
+  "stats": {
+    "stations": 7,
+    "units": 76,
+    "superseded": 6
+  },
+  "stations": [
+    {
+      "order": 1,
+      "id": "current-view",
+      "label": "眼前真正有什么",
+      "question": "模型此刻到底看见了什么，又能处理多少？",
+      "units": [
+        {
+          "order": 1,
+          "unitId": "unit:batch-large-language-model",
+          "slug": "large-language-model",
+          "name": "大语言模型",
+          "stage": "now",
+          "remember": "大语言模型负责根据当前输入生成后续内容；它本身不等于一个会持续行动的 Agent。"
+        },
+        {
+          "order": 2,
+          "unitId": "unit:batch-llm-token",
+          "slug": "llm-token",
+          "name": "模型词元",
+          "stage": "now",
+          "remember": "大语言模型实际接收和生成的离散编码单位；输入长度、输出长度、上下文容量与常见计费都以它而非自然语言词数衡量。"
+        },
+        {
+          "order": 3,
+          "unitId": "unit:batch-context-window",
+          "slug": "context-window",
+          "name": "上下文窗口",
+          "stage": "now",
+          "remember": "上下文窗口是一次推理能承载和处理 Context 的有限边界；它不是 Context，也不是长期记忆。"
+        },
+        {
+          "order": 4,
+          "unitId": "unit:batch-attention-budget",
+          "slug": "attention-budget",
+          "name": "注意力预算",
+          "stage": "now",
+          "remember": "注意力预算是一种工程解释：模型处理 Context 的有效注意能力有限，加入更多信息会争夺而不只增加可用证据。"
+        },
+        {
+          "order": 5,
+          "unitId": "unit:batch-context",
+          "slug": "context",
+          "name": "上下文",
+          "stage": "now",
+          "remember": "上下文是模型在当前一次推理中实际能看到并用来生成结果的信息、状态与工具描述。"
+        },
+        {
+          "order": 6,
+          "unitId": "unit:batch-llm-statelessness",
+          "slug": "llm-statelessness",
+          "name": "LLM 无状态性",
+          "stage": "now",
+          "remember": "模型单次调用不会自行保留上一轮会话状态；连续对话与任务进度必须由外部系统保存并在后续调用中重新提供。"
+        },
+        {
+          "order": 7,
+          "unitId": "unit:batch-harness-token-floor",
+          "slug": "harness-token-floor",
+          "name": "Harness Token 底座",
+          "stage": "when-needed",
+          "remember": "在具体用户任务进入前，Harness 每次模型请求已经携带的系统提示、工具定义与运行脚手架所形成的基础 Token 负担及固定窗口占用。"
+        },
+        {
+          "order": 8,
+          "unitId": "unit:batch-retrieval-reasoning-dual-task-load",
+          "slug": "retrieval-reasoning-dual-task-load",
+          "name": "检索—推理双任务负担",
+          "stage": "when-needed",
+          "remember": "当模型在一次调用中既要从长输入定位相关证据、又要基于证据推理时，检索步骤会额外消耗可靠性，使其表现低于已提供聚焦证据的同等推理任务。"
+        }
+      ]
+    },
+    {
+      "order": 2,
+      "id": "information-storage",
+      "label": "信息平时放在哪里",
+      "question": "哪些信息会被保留，任务进度又记在哪里？",
+      "units": [
+        {
+          "order": 1,
+          "unitId": "unit:batch-memory",
+          "slug": "memory",
+          "name": "记忆",
+          "stage": "now",
+          "remember": "Memory 是为跨步骤、跨窗口或跨会话保持连续性而保存、并可在需要时取回的信息；保存过不等于当前看得见，也不等于仍然正确。"
+        },
+        {
+          "order": 2,
+          "unitId": "unit:batch-filesystem-workspace",
+          "slug": "filesystem-workspace",
+          "name": "文件系统工作区",
+          "stage": "now",
+          "remember": "为 Agent 提供可读写的数据、代码与中间产物空间，使工作能够外置、跨会话延续，并为人和多个 Agent 提供共同协作面。"
+        },
+        {
+          "order": 3,
+          "unitId": "unit:batch-repository-source-of-truth",
+          "slug": "repository-source-of-truth",
+          "name": "仓库事实真源",
+          "stage": "now",
+          "remember": "将 Agent 执行所需的项目规则、任务范围、状态与验收入口保存在版本化仓库中，使不同会话和执行者从同一可读取基线开始工作。"
+        },
+        {
+          "order": 4,
+          "unitId": "unit:batch-tacit-knowledge",
+          "slug": "tacit-knowledge",
+          "name": "隐性知识",
+          "stage": "now",
+          "remember": "尚未被外化的推理过程、权衡与默会前提；决策结果可能已记录，但这些决定为何成立仍只存在于人的经验中。"
+        },
+        {
+          "order": 5,
+          "unitId": "unit:batch-restorable-compression",
+          "slug": "restorable-compression",
+          "name": "可恢复压缩",
+          "stage": "when-needed",
+          "remember": "从当前窗口省略大块内容时保留稳定的回取引用，使上下文得以缩短，同时让被移除的信息仍可在需要时恢复。"
+        },
+        {
+          "order": 6,
+          "unitId": "unit:batch-persistent-code-graph",
+          "slug": "persistent-code-graph",
+          "name": "持久化代码图谱",
+          "stage": "when-needed",
+          "remember": "跨任务保存并持续更新代码实体及其调用、导入、继承与测试关系的结构化图谱，可供 Agent 按需查询代码库结构。"
+        },
+        {
+          "order": 7,
+          "unitId": "unit:batch-state-management",
+          "slug": "state-management",
+          "name": "状态管理",
+          "stage": "when-needed",
+          "remember": "状态管理负责记录任务当前阶段、变量、进度与恢复点，让系统知道做到哪里，并能追踪、暂停、恢复或回溯。",
+          "superseded": true,
+          "replacedBy": "unit:chapter-state-persistence",
+          "replacedByTitle": "状态子系统与进度持久化",
+          "supersedeNote": "与主线六章同概念，点进去引导去学六章对应章（方案丙封条）"
+        }
+      ]
+    },
+    {
+      "order": 3,
+      "id": "continuous-action",
+      "label": "AI 如何持续行动",
+      "question": "为什么 AI 能连续做事，而不只回答一次？",
+      "units": [
+        {
+          "order": 1,
+          "unitId": "unit:batch-agent",
+          "slug": "agent",
+          "name": "AI Agent",
+          "stage": "now",
+          "remember": "AI Agent 是围绕目标持续选择下一步、借助工具行动并根据结果继续推进的系统，不是裸模型的别名。",
+          "superseded": true,
+          "replacedBy": "unit:chapter-agent",
+          "replacedByTitle": "Agent",
+          "supersedeNote": "与主线六章同概念，点进去引导去学六章对应章（方案丙封条）"
+        },
+        {
+          "order": 2,
+          "unitId": "unit:batch-agent-loop",
+          "slug": "agent-loop",
+          "name": "Agent 循环",
+          "stage": "now",
+          "remember": "Agent Loop 是模型选择下一步、Harness 执行工具、观察结果回到模型，再重复或退出的运行循环。",
+          "superseded": true,
+          "replacedBy": "unit:chapter-agent-loop",
+          "replacedByTitle": "Agent loop",
+          "supersedeNote": "与主线六章同概念，点进去引导去学六章对应章（方案丙封条）"
+        },
+        {
+          "order": 3,
+          "unitId": "unit:batch-agent-harness",
+          "slug": "agent-harness",
+          "name": "Agent Harness",
+          "stage": "now",
+          "remember": "Agent Harness 是包裹模型、组织循环并落实工具、状态、权限和错误处理的模型外运行系统；它让模型能够持续且受控地行动。",
+          "superseded": true,
+          "replacedBy": "unit:chapter-harness",
+          "replacedByTitle": "Harness",
+          "supersedeNote": "与主线六章同概念，点进去引导去学六章对应章（方案丙封条）"
+        },
+        {
+          "order": 4,
+          "unitId": "unit:batch-harness-engineering",
+          "slug": "harness-engineering",
+          "name": "Harness 工程",
+          "stage": "now",
+          "remember": "Harness Engineering 是设计、测试和改进模型外运行系统的实践，让 Agent 在真实任务中更持续、可控、可恢复且可验证。"
+        },
+        {
+          "order": 5,
+          "unitId": "unit:batch-agent-cli-runtime",
+          "slug": "agent-cli-runtime",
+          "name": "Agent CLI 运行时",
+          "stage": "when-needed",
+          "remember": "在命令行环境中承载 Agent 工作流，使同一套自然语言流程能够从 IDE 延伸到终端、脚本和 CI/CD 自动化。"
+        },
+        {
+          "order": 6,
+          "unitId": "unit:batch-agent-lifecycle",
+          "slug": "agent-lifecycle",
+          "name": "Agent 生命周期",
+          "stage": "when-needed",
+          "remember": "Agent 生命周期把一次运行组织成有边界的开工、运行、暂停／恢复与收尾，让每次状态转换都可检查、可交接。"
+        },
+        {
+          "order": 7,
+          "unitId": "unit:batch-error-handling",
+          "slug": "error-handling",
+          "name": "错误处理",
+          "stage": "when-needed",
+          "remember": "错误处理不是一律重试，而是先判断错误类型，再选择重试、把反馈交给模型、暂停等人、上报或终止。"
+        },
+        {
+          "order": 8,
+          "unitId": "unit:batch-agent-handoff",
+          "slug": "agent-handoff",
+          "name": "Agent 交接",
+          "stage": "when-needed",
+          "remember": "Agent Handoff 是把任务控制权连同可恢复的进度、证据、失败和下一步从 Agent A 移交给 Agent B，并由 B 确认接管。"
+        },
+        {
+          "order": 9,
+          "unitId": "unit:batch-skill-chaining",
+          "slug": "skill-chaining",
+          "name": "Skill 链式调用",
+          "stage": "when-needed",
+          "remember": "让一个 Skill 完成后显式调用下一个 Skill，把多个独立步骤串成可自动推进的端到端工作流。"
+        },
+        {
+          "order": 10,
+          "unitId": "unit:batch-subagent-orchestration",
+          "slug": "subagent-orchestration",
+          "name": "子 Agent 编排",
+          "stage": "when-needed",
+          "remember": "把边界明确的探索或执行任务分派给子 Agent，再将其压缩结果、证据或状态带回主流程的组织机制。"
+        },
+        {
+          "order": 11,
+          "unitId": "unit:batch-browsing-loop",
+          "slug": "browsing-loop",
+          "name": "浏览循环",
+          "stage": "when-needed",
+          "remember": "Agent 从一次广泛搜索或读取中不断发现新线索并继续扩张探索范围，却没有围绕具体问题收窄证据或形成停止判断的循环性反模式。"
+        },
+        {
+          "order": 12,
+          "unitId": "unit:batch-durable-execution",
+          "slug": "durable-execution",
+          "name": "持久化执行",
+          "stage": "when-needed",
+          "remember": "持久化执行让长任务在进程或计算环境中断后，能依据外置状态重放并继续，同时避免已经发生的外部副作用被无意重复。"
+        },
+        {
+          "order": 13,
+          "unitId": "unit:batch-event-driven-agent-automation",
+          "slug": "event-driven-agent-automation",
+          "name": "事件驱动的 Agent 自动化",
+          "stage": "when-needed",
+          "remember": "由新事件进入系统自动触发 Agent 工作流，使其立即处理新增上下文并执行预设动作的运行机制。"
+        },
+        {
+          "order": 14,
+          "unitId": "unit:batch-prompt-caching",
+          "slug": "prompt-caching",
+          "name": "提示词缓存",
+          "stage": "when-needed",
+          "remember": "复用多次模型请求中未变化输入前缀的已处理计算，以降低重复输入的成本和首字延迟的机制。"
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "id": "external-access",
+      "label": "AI 如何接触外部世界",
+      "question": "AI 靠什么读取、计算或改变外部世界？",
+      "units": [
+        {
+          "order": 1,
+          "unitId": "unit:batch-tool",
+          "slug": "tool",
+          "name": "工具",
+          "stage": "now",
+          "remember": "Tool 是让 Agent 读取、计算或改变外部世界的结构化能力接口；模型提出调用，外层系统负责校验、执行并把结果送回来。",
+          "superseded": true,
+          "replacedBy": "unit:chapter-tool",
+          "replacedByTitle": "工具",
+          "supersedeNote": "与主线六章同概念，点进去引导去学六章对应章（方案丙封条）"
+        },
+        {
+          "order": 2,
+          "unitId": "unit:batch-tool-workflow-fit",
+          "slug": "tool-workflow-fit",
+          "name": "工具—工作流适配",
+          "stage": "now",
+          "remember": "Agent 的工具能力、说明和调用节奏必须与当前任务的锚点、证据标准和停止条件相匹配；工具更强或更通用不会自动改善任务结果。"
+        },
+        {
+          "order": 3,
+          "unitId": "unit:batch-code-execution",
+          "slug": "code-execution",
+          "name": "代码执行",
+          "stage": "now",
+          "remember": "让 Agent 通过 shell 或运行时编写并执行代码，把未被预先枚举的计算与操作组合成一种通用外部能力。"
+        },
+        {
+          "order": 4,
+          "unitId": "unit:batch-agent-action-space",
+          "slug": "agent-action-space",
+          "name": "Agent 行动空间",
+          "stage": "when-needed",
+          "remember": "Agent 在当前运行环境中可选择的动作集合，以及这些动作向模型呈现的名称、参数、反馈和组合方式。"
+        },
+        {
+          "order": 5,
+          "unitId": "unit:batch-agent-tool-contract",
+          "slug": "agent-tool-contract",
+          "name": "Agent 工具契约",
+          "stage": "when-needed",
+          "remember": "Agent 与信息／行动空间之间的接口约定：模型用清晰、结构化的输出表达操作意图，确定性代码负责执行，并以紧凑、健壮、可解释的结果回传。"
+        },
+        {
+          "order": 6,
+          "unitId": "unit:batch-model-context-protocol",
+          "slug": "model-context-protocol",
+          "name": "模型上下文协议",
+          "stage": "when-needed",
+          "remember": "MCP 是让 AI 应用以标准方式连接外部能力的协议；这些能力不只包括工具，也包括资源和提示。"
+        },
+        {
+          "order": 7,
+          "unitId": "unit:batch-tool-scoping",
+          "slug": "tool-scoping",
+          "name": "工具收窄",
+          "stage": "when-needed",
+          "remember": "Tool Scoping 是按当前步骤只向模型暴露最小必要工具集的策略，用更少选择降低误选、权限面和 Context 噪声。"
+        },
+        {
+          "order": 8,
+          "unitId": "unit:batch-tool-schema-tax",
+          "slug": "tool-schema-tax",
+          "name": "工具 Schema 税",
+          "stage": "when-needed",
+          "remember": "为让模型知道工具名称、参数与调用格式，而在每次请求中携带工具 Schema 所产生的固定 Token 与上下文占用。"
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "id": "human-control",
+      "label": "人如何控制 AI",
+      "question": "人怎样说明目标、复用方法并限制行动？",
+      "units": [
+        {
+          "order": 1,
+          "unitId": "unit:batch-prompt",
+          "slug": "prompt",
+          "name": "提示",
+          "stage": "now",
+          "remember": "Prompt 是一次递交给模型的输入；日常语境常指用户提示，技术语境也可能指模型实际接收的完整输入。"
+        },
+        {
+          "order": 2,
+          "unitId": "unit:batch-prompt-engineering",
+          "slug": "prompt-engineering",
+          "name": "提示词工程",
+          "stage": "now",
+          "remember": "提示词工程是设计、组织和测试模型指令，让当前任务更容易被正确理解和完成的实践。"
+        },
+        {
+          "order": 3,
+          "unitId": "unit:batch-system-prompt",
+          "slug": "system-prompt",
+          "name": "系统提示",
+          "stage": "now",
+          "remember": "System Prompt 是应用在系统层放入模型输入的高优先级约束，用来设定角色、边界和工具规则，但不是能绝对支配模型的意志。"
+        },
+        {
+          "order": 4,
+          "unitId": "unit:batch-system-prompt-altitude",
+          "slug": "system-prompt-altitude",
+          "name": "系统提示抽象高度",
+          "stage": "when-needed",
+          "remember": "系统提示在具体行为规则与高层启发式之间选择的抽象层级；有效高度应足以稳定引导行为，又给模型保留处理新情况的判断空间。"
+        },
+        {
+          "order": 5,
+          "unitId": "unit:batch-instruction-locality",
+          "slug": "instruction-locality",
+          "name": "指令就近原则",
+          "stage": "when-needed",
+          "remember": "将对象的使用说明保存在它直接作用的接口或描述旁，而不是在系统提示等上层位置重复同一指令。"
+        },
+        {
+          "order": 6,
+          "unitId": "unit:batch-agent-elicitation",
+          "slug": "agent-elicitation",
+          "name": "Agent 信息引出",
+          "stage": "when-needed",
+          "remember": "Agent 在缺少目标、约束或偏好时，主动向用户提出结构化问题以取得继续判断所需信息的交互能力。"
+        },
+        {
+          "order": 7,
+          "unitId": "unit:batch-reasoning-effort",
+          "slug": "reasoning-effort",
+          "name": "推理强度",
+          "stage": "when-needed",
+          "remember": "控制模型在生成最终结果前投入多少推理计算的运行参数，用于在任务质量、响应时间与成本之间取舍。"
+        },
+        {
+          "order": 8,
+          "unitId": "unit:batch-agent-stop-conditions",
+          "slug": "agent-stop-conditions",
+          "name": "Agent 终止条件",
+          "stage": "when-needed",
+          "remember": "为持续运行的 Agent 或循环预先定义必须停止、转交或重新规划的条件，例如达到迭代上限、连续无进展或耗尽 token 与费用预算。"
+        },
+        {
+          "order": 9,
+          "unitId": "unit:batch-permission-boundary",
+          "slug": "permission-boundary",
+          "name": "权限边界",
+          "stage": "when-needed",
+          "remember": "权限边界把模型提出的动作与系统实际允许执行的动作分开，由模型外的确定性权限层决定允许、要求人工确认或拒绝。"
+        },
+        {
+          "order": 10,
+          "unitId": "unit:batch-sandbox",
+          "slug": "sandbox",
+          "name": "沙箱",
+          "stage": "when-needed",
+          "remember": "Sandbox 是受隔离与资源限制的执行环境，让 Agent 能在一个被圈定的工作区内行动，并把出错时的影响范围控制在边界内。"
+        },
+        {
+          "order": 11,
+          "unitId": "unit:batch-guardrails",
+          "slug": "guardrails",
+          "name": "护栏",
+          "stage": "when-needed",
+          "remember": "Guardrails 是在 Agent 运行中检查输入、输出或工具调用，并在规则触发时阻断相应路径的控制机制。"
+        },
+        {
+          "order": 12,
+          "unitId": "unit:batch-human-escalation-tool-call",
+          "slug": "human-escalation-tool-call",
+          "name": "人类升级工具调用",
+          "stage": "when-needed",
+          "remember": "把请求人类授权、判断或承担责任设计成 Agent 可调用并等待结果的显式工具，使人工介入成为可恢复工作流的一部分。"
+        },
+        {
+          "order": 13,
+          "unitId": "unit:batch-skill",
+          "slug": "skill",
+          "name": "Agent Skill",
+          "stage": "when-needed",
+          "remember": "Agent Skill 是把可复用做法、说明与必要资源组织起来，让 Agent 在合适任务中按同一方法工作的载体。"
+        },
+        {
+          "order": 14,
+          "unitId": "unit:batch-harness-compute-separation",
+          "slug": "harness-compute-separation",
+          "name": "Harness 与计算分离",
+          "stage": "when-needed",
+          "remember": "将负责 Agent 控制、状态与凭据的 Harness 层，同运行模型生成代码的计算环境分开，使两层可以分别隔离、恢复和扩展。"
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "id": "context-delivery",
+      "label": "信息如何进入工作台",
+      "question": "什么信息应在什么时候、以什么形式进入？",
+      "units": [
+        {
+          "order": 1,
+          "unitId": "unit:batch-context-engineering",
+          "slug": "context-engineering",
+          "name": "上下文工程",
+          "stage": "now",
+          "remember": "上下文工程是设计动态系统，在正确时机以合适格式选择、装配并更新模型所需的信息与工具描述。"
+        },
+        {
+          "order": 2,
+          "unitId": "unit:batch-context-selection",
+          "slug": "context-selection",
+          "name": "上下文选择",
+          "stage": "now",
+          "remember": "Hua 等人把上下文选择称为“注意力之前的注意力”：模型开始处理输入前，系统先判断哪些候选信息值得进入当前任务 Context。"
+        },
+        {
+          "order": 3,
+          "unitId": "unit:batch-minimal-sufficient-context",
+          "slug": "minimal-sufficient-context",
+          "name": "最小充分上下文",
+          "stage": "now",
+          "remember": "最小充分上下文是足以支持当前任务、又尽量不带入无关噪声的高信号信息集合；最小不等于越短越好。"
+        },
+        {
+          "order": 4,
+          "unitId": "unit:batch-dynamic-context-assembly",
+          "slug": "dynamic-context-assembly",
+          "name": "动态上下文装配",
+          "stage": "now",
+          "remember": "动态上下文装配是在每次模型调用前，按当前任务与时机把所需信息、工具和历史组合成这一次的模型输入。"
+        },
+        {
+          "order": 5,
+          "unitId": "unit:batch-context-rot",
+          "slug": "context-rot",
+          "name": "上下文腐烂",
+          "stage": "now",
+          "remember": "Chroma 用“上下文腐烂”概括一组受控观察：在任务难度不变时，仅增加输入长度，也会使受测模型的表现更不可靠，而且退化并不均匀。"
+        },
+        {
+          "order": 6,
+          "unitId": "unit:batch-lost-in-the-middle",
+          "slug": "lost-in-the-middle",
+          "name": "迷失在中间",
+          "stage": "when-needed",
+          "remember": "Liu 等人在多文档问答与合成键值检索中观察到一种位置效应：不少受测模型更善用输入首尾的信息，相关信息移到中部时表现会下降。"
+        },
+        {
+          "order": 7,
+          "unitId": "unit:batch-progressive-disclosure",
+          "slug": "progressive-disclosure",
+          "name": "渐进式披露",
+          "stage": "when-needed",
+          "remember": "渐进式披露先给地图与索引，只按当前需要展开一层；仍缺细节时再深入，让工作记忆不必一次背下整本百科。"
+        },
+        {
+          "order": 8,
+          "unitId": "unit:batch-just-in-time-retrieval",
+          "slug": "just-in-time-retrieval",
+          "name": "即时检索",
+          "stage": "when-needed",
+          "remember": "即时检索让 Agent 平时只保留轻量引用，在任务需要时再查询外部信息，把相关部分送进当前 Context。"
+        },
+        {
+          "order": 9,
+          "unitId": "unit:batch-observation-masking",
+          "slug": "observation-masking",
+          "name": "观察掩码",
+          "stage": "when-needed",
+          "remember": "在保留工具调用发生记录的同时，隐藏或移出旧工具输出细节，以减少其对当前推理的干扰和上下文占用。"
+        },
+        {
+          "order": 10,
+          "unitId": "unit:batch-context-compaction",
+          "slug": "context-compaction",
+          "name": "上下文压缩",
+          "stage": "when-needed",
+          "remember": "上下文压缩是在长任务接近窗口限制时，把旧轨迹蒸馏成高信号摘要，并用摘要与可恢复引用开启新的上下文窗口。"
+        },
+        {
+          "order": 11,
+          "unitId": "unit:batch-bounded-context",
+          "slug": "bounded-context",
+          "name": "限界上下文",
+          "stage": "when-needed",
+          "remember": "一个领域模型和统一语言保持同一含义的明确适用范围；跨出该范围后，相同术语、实体或规则可以采用另一套定义。"
+        },
+        {
+          "order": 12,
+          "unitId": "unit:batch-chat-template",
+          "slug": "chat-template",
+          "name": "聊天模板",
+          "stage": "when-needed",
+          "remember": "把不同角色的消息与历史记录按模型约定格式序列化为一次补全输入的接口模板。"
+        },
+        {
+          "order": 13,
+          "unitId": "unit:batch-skill-trigger-condition",
+          "slug": "skill-trigger-condition",
+          "name": "Skill 触发条件",
+          "stage": "when-needed",
+          "remember": "写在 Skill 元数据中的适用场景声明，用来帮助运行环境判断何时自动加载或调用该 Skill。"
+        },
+        {
+          "order": 14,
+          "unitId": "unit:batch-agent-session-management",
+          "slug": "agent-session-management",
+          "name": "Agent 会话管理",
+          "stage": "when-needed",
+          "remember": "围绕任务边界和上下文质量，决定何时继续、回退、压缩、清空或分派当前 Agent 会话的治理实践。"
+        },
+        {
+          "order": 15,
+          "unitId": "unit:batch-ubiquitous-language",
+          "slug": "ubiquitous-language",
+          "name": "统一语言",
+          "stage": "now",
+          "remember": "在一个领域范围内，由领域专家、开发者、代码、文档与 AI 共同使用并持续校准的词汇体系，使同一个词稳定指向同一个业务对象或规则。"
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "id": "result-trust",
+      "label": "做完后凭什么相信",
+      "question": "Agent 说做完之后，凭什么相信它真的完成？",
+      "units": [
+        {
+          "order": 1,
+          "unitId": "unit:batch-verifiable-goal",
+          "slug": "verifiable-goal",
+          "name": "可验证目标",
+          "stage": "now",
+          "remember": "用可重复执行或明确判定的条件描述任务成功，使 Agent 循环能够据此决定继续、修正、停止或报告失败。"
+        },
+        {
+          "order": 2,
+          "unitId": "unit:batch-runnable-evidence",
+          "slug": "runnable-evidence",
+          "name": "可运行证据",
+          "stage": "now",
+          "remember": "能由独立执行者重新运行并得到明确结果的验证材料，例如测试、静态检查、冒烟运行或端到端流程回执。"
+        },
+        {
+          "order": 3,
+          "unitId": "unit:batch-multi-step-reliability-decay",
+          "slug": "multi-step-reliability-decay",
+          "name": "多步可靠性衰减",
+          "stage": "now",
+          "remember": "多步 Agent 流程的端到端成功率受每一步条件成功率共同约束，单步的小概率失败会随步骤增加累积成显著的整体可靠性损失。"
+        },
+        {
+          "order": 4,
+          "unitId": "unit:batch-prompt-injection",
+          "slug": "prompt-injection",
+          "name": "提示注入",
+          "stage": "now",
+          "remember": "攻击者把指令嵌入 Agent 会读取的数据或内容中，诱使模型偏离原任务、越过控制边界或触发不应执行的动作。"
+        },
+        {
+          "order": 5,
+          "unitId": "unit:batch-verification-loop",
+          "slug": "verification-loop",
+          "name": "验证循环",
+          "stage": "when-needed",
+          "remember": "验证循环把行动结果交给独立检查；未通过就依据证据修正下一步，通过才退出当前循环，但退出不等于用户验收或真实效果已经成立。",
+          "superseded": true,
+          "replacedBy": "unit:chapter-verification-loop",
+          "replacedByTitle": "验证闭环",
+          "supersedeNote": "与主线六章同概念，点进去引导去学六章对应章（方案丙封条）"
+        },
+        {
+          "order": 6,
+          "unitId": "unit:batch-observability",
+          "slug": "observability",
+          "name": "可观测性",
+          "stage": "when-needed",
+          "remember": "可观测性把运行事件变成可查询的轨迹、状态与时延证据，让人看见系统发生了什么；看得见不等于做得对。"
+        },
+        {
+          "order": 7,
+          "unitId": "unit:batch-change-impact-analysis",
+          "slug": "change-impact-analysis",
+          "name": "变更影响分析",
+          "stage": "when-needed",
+          "remember": "沿代码依赖和测试关系计算一次变更可能影响到的函数、类、文件与验证范围的方法。"
+        },
+        {
+          "order": 8,
+          "unitId": "unit:batch-risk-tiered-autofixing",
+          "slug": "risk-tiered-autofixing",
+          "name": "风险分级自动修复",
+          "stage": "when-needed",
+          "remember": "系统在检测到问题后自动生成修复，并依据改动范围与风险等级决定轻量复核、深度人工审查或停止自动推进的修复机制。"
+        },
+        {
+          "order": 9,
+          "unitId": "unit:batch-trace-based-evals",
+          "slug": "trace-based-evals",
+          "name": "基于轨迹的评测",
+          "stage": "deep-dive",
+          "remember": "基于轨迹的评测让多次 Agent 运行面对同一任务、基线与 verifier，再比较它们怎样行动及结果如何；只有轨迹而没有统一判据，不算评测。"
+        },
+        {
+          "order": 10,
+          "unitId": "unit:batch-harness-overfitting",
+          "slug": "harness-overfitting",
+          "name": "Harness 过拟合",
+          "stage": "deep-dive",
+          "remember": "模型因在特定 Harness 的工具与交互协议中后训练而过度依赖其实现细节，换用等价但不同的运行接口时表现反而下降。"
+        }
+      ]
+    }
+  ]
+}

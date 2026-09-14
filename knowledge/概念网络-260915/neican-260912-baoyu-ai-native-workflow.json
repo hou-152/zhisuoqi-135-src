@@ -1,0 +1,277 @@
+{
+ "version": "v1",
+ "unitId": "neican-260912-baoyu-ai-native-workflow",
+ "unitKind": "article",
+ "period": "260912",
+ "slug": "baoyu-ai-native-workflow",
+ "title": "我的 AI 原生开发流程：一个真实案例的完整复盘",
+ "source": "https://baoyu.io/blog/2026-08-24/ai-native-dev-workflow",
+ "generatedAt": "2026-09-14T20:33:00.819Z",
+ "generator": "deterministic+llm",
+ "reviewStatus": "generated-unreviewed",
+ "layers": [
+  {
+   "id": "L1",
+   "name": "总览与变化"
+  },
+  {
+   "id": "L2",
+   "name": "开发流程"
+  },
+  {
+   "id": "L3",
+   "name": "心态与技能"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "n1",
+   "name": "AI 原生开发",
+   "full": "AI 原生开发（AI-native development）",
+   "layer": "L1",
+   "role": "core",
+   "card": 0,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_2b63a21c"
+   }
+  },
+  {
+   "id": "n2",
+   "name": "执行主体从人变成 Agent",
+   "full": "执行主体从人变成 Agent",
+   "layer": "L1",
+   "role": "linked",
+   "card": 1,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_b6da7e6e"
+   }
+  },
+  {
+   "id": "n3",
+   "name": "人在关键路径确认",
+   "full": "人在关键路径确认",
+   "layer": "L1",
+   "role": "linked",
+   "card": 2,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_8bb611ea"
+   }
+  },
+  {
+   "id": "n4",
+   "name": "可行性分析",
+   "full": "可行性分析",
+   "layer": "L2",
+   "role": "linked",
+   "card": 3,
+   "ref": null
+  },
+  {
+   "id": "n5",
+   "name": "设计文档",
+   "full": "设计文档（桥梁与记忆载体）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 4,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_fb4c75d6"
+   }
+  },
+  {
+   "id": "n6",
+   "name": "Agent Session",
+   "full": "Agent Session",
+   "layer": "L2",
+   "role": "linked",
+   "card": 5,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_f47cd4ad"
+   }
+  },
+  {
+   "id": "n7",
+   "name": "高精度原型设计",
+   "full": "高精度原型设计",
+   "layer": "L2",
+   "role": "linked",
+   "card": 6,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_ef696870"
+   }
+  },
+  {
+   "id": "n8",
+   "name": "让 Agent 自行验证",
+   "full": "让 Agent 自行验证",
+   "layer": "L2",
+   "role": "linked",
+   "card": 7,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_78356595"
+   }
+  },
+  {
+   "id": "n9",
+   "name": "确认环节可以合并，但不能省略",
+   "full": "确认环节可以合并，但不能省略",
+   "layer": "L2",
+   "role": "linked",
+   "card": 8,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_f986a343"
+   }
+  },
+  {
+   "id": "n10",
+   "name": "瓶颈转移到代码两侧",
+   "full": "瓶颈转移到代码两侧",
+   "layer": "L3",
+   "role": "linked",
+   "card": 9,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_ac2e95b3"
+   }
+  },
+  {
+   "id": "n11",
+   "name": "把自己当普通用户／黑盒测试",
+   "full": "把自己当普通用户／黑盒测试",
+   "layer": "L3",
+   "role": "linked",
+   "card": 10,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_f282148c"
+   }
+  },
+  {
+   "id": "n12",
+   "name": "两类 Skills",
+   "full": "两类 Skills（辅助设计确认／自动化减少体力劳动）",
+   "layer": "L3",
+   "role": "linked",
+   "card": 11,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_5bff7310"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "id": "e1",
+   "from": "n1",
+   "to": "n2",
+   "label": "核心变化",
+   "basis": "quote",
+   "quote": "人只在关键路径上做确认和决策，但具体的分析、设计、编码、调试，全部交给 Agent 去执行。",
+   "quoteId": "Q12",
+   "quoteFrom": "原文 · Q12",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e2",
+   "from": "n2",
+   "to": "n3",
+   "label": "导致人在关键点确认",
+   "basis": "quote",
+   "quote": "人只在关键路径上做确认和决策，但具体的分析、设计、编码、调试，全部交给 Agent 去执行。",
+   "quoteId": "Q12",
+   "quoteFrom": "原文 · Q12",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e3",
+   "from": "n5",
+   "to": "n6",
+   "label": "传递上下文给Session",
+   "basis": "quote",
+   "quote": "它承担两个关键职能： 给人类做确认和修改的载体，你可以审查设计文档、批注原型设计、修改技术方案，这些动作都发生在文档层面 给 Agent 的 Session 之间传递上下文，你的设计文档会被传递给开发 Session，你的原型会被传递给实现 Session，每一个 Session 不再是孤立的 如果你用过 Claude Code，你会对这一点深有体会。",
+   "quoteId": "Q128",
+   "quoteFrom": "原文 · Q128",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e4",
+   "from": "n7",
+   "to": "n8",
+   "label": "驱动自行验证",
+   "basis": "quote",
+   "quote": "这也是为什么合并一些确认环节（比如跳过 Code Review 直接黑盒测试）相对是安全的，Agent 自身能力足够，加上在开发过程中做了自验证，产出质量就会很高。",
+   "quoteId": "Q90",
+   "quoteFrom": "原文 · Q90",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e5",
+   "from": "n8",
+   "to": "n9",
+   "label": "体现确认原则",
+   "basis": "quote",
+   "quote": "这也是为什么合并一些确认环节（比如跳过 Code Review 直接黑盒测试）相对是安全的，Agent 自身能力足够，加上在开发过程中做了自验证，产出质量就会很高。",
+   "quoteId": "Q90",
+   "quoteFrom": "原文 · Q90",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e6",
+   "from": "n2",
+   "to": "n10",
+   "label": "引发瓶颈转移",
+   "basis": "quote",
+   "quote": "这些环节仍然在以人类速度运行，它们才是现在需要优化的地方。",
+   "quoteId": "Q96",
+   "quoteFrom": "原文 · Q96",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e7",
+   "from": "n11",
+   "to": "n12",
+   "label": "决定Skills需求",
+   "basis": "quote",
+   "quote": "我一般只用两类 Skills，恰好对应这两个瓶颈： 第一类是辅助设计确认的——解决左侧瓶颈。",
+   "quoteId": "Q140",
+   "quoteFrom": "原文 · Q140",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  }
+ ],
+ "gaps": [
+  "边 人在关键路径确认 → 设计文档（人拍板形成文档）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 可行性分析 → 设计文档（产出设计文档）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 设计文档 → 高精度原型设计（合并为高精度原型）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 瓶颈转移到代码两侧 → 把自己当普通用户／黑盒测试（需要黑盒测试心态）找不到支撑原句 → 按 R1/R2 不进图"
+ ],
+ "llm": {
+  "model": "deepseek-v4-pro",
+  "tokens": 5762,
+  "cached": true
+ },
+ "citedByStats": {
+  "llm": 7,
+  "retrieval": 0
+ }
+}

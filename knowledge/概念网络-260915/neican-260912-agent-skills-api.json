@@ -1,0 +1,245 @@
+{
+ "version": "v1",
+ "unitId": "neican-260912-agent-skills-api",
+ "unitKind": "article",
+ "period": "260912",
+ "slug": "agent-skills-api",
+ "title": "Using Agent Skills with the API（用 API 使用 Agent Skills）",
+ "source": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview",
+ "generatedAt": "2026-09-14T20:33:00.817Z",
+ "generator": "deterministic+llm",
+ "reviewStatus": "generated-unreviewed",
+ "layers": [
+  {
+   "id": "L1",
+   "name": "基础与环境"
+  },
+  {
+   "id": "L2",
+   "name": "机制与特性"
+  },
+  {
+   "id": "L3",
+   "name": "限制与对策"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "n1",
+   "name": "代理技能",
+   "full": "代理技能（Agent Skills）",
+   "layer": "L1",
+   "role": "core",
+   "card": 0,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_094c89da"
+   }
+  },
+  {
+   "id": "n2",
+   "name": "预构建技能与自定义技能",
+   "full": "预构建技能与自定义技能（Pre-built vs Custom Skills）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 1,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_226cbc01"
+   }
+  },
+  {
+   "id": "n3",
+   "name": "SKILL.md 与…",
+   "full": "SKILL.md 与 YAML 前置元数据（SKILL.md / YAML frontmatter）",
+   "layer": "L1",
+   "role": "linked",
+   "card": 2,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_d78a3680"
+   }
+  },
+  {
+   "id": "n4",
+   "name": "技能触发与自动使用",
+   "full": "技能触发与自动使用（Skill Triggering / Automatic Use）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 3,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_dc4f803b"
+   }
+  },
+  {
+   "id": "n5",
+   "name": "渐进式披露",
+   "full": "渐进式披露（Progressive Disclosure）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 4,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_916d7db2"
+   }
+  },
+  {
+   "id": "n6",
+   "name": "三类内容：说明、代码、资源",
+   "full": "三类内容：说明、代码、资源（Instructions, Code, Resources）",
+   "layer": "L1",
+   "role": "linked",
+   "card": 5,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_5face436"
+   }
+  },
+  {
+   "id": "n7",
+   "name": "文件系统型代码执行环境",
+   "full": "文件系统型代码执行环境（Filesystem-based Code Execution Environment）",
+   "layer": "L1",
+   "role": "linked",
+   "card": 6,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_07e5e0c3"
+   }
+  },
+  {
+   "id": "n8",
+   "name": "跨产品面的同步与共享边界",
+   "full": "跨产品面的同步与共享边界（Surface-specific Sync and Sharing）",
+   "layer": "L3",
+   "role": "linked",
+   "card": 7,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_ad086a79"
+   }
+  },
+  {
+   "id": "n9",
+   "name": "运行时限制、权限与数据保留边…",
+   "full": "运行时限制、权限与数据保留边界（Runtime Limitations, Constraints, and Retention）",
+   "layer": "L3",
+   "role": "linked",
+   "card": 8,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_a2868643"
+   }
+  },
+  {
+   "id": "n10",
+   "name": "安全审计与受信任来源",
+   "full": "安全审计与受信任来源（Security Considerations / Trusted Sources）",
+   "layer": "L3",
+   "role": "linked",
+   "card": 9,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_dc9a27be"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "id": "e1",
+   "from": "n7",
+   "to": "n1",
+   "label": "提供执行环境",
+   "basis": "quote",
+   "quote": "Claude 在具有文件系统访问权限的虚拟机中运行，使得 Skills 可以以目录的形式存在，其中包含指令、可执行代码和参考资料，其组织方式类似于您为新团队成员创建的入职指南。",
+   "quoteId": "Q19",
+   "quoteFrom": "原文 · Q19",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e2",
+   "from": "n3",
+   "to": "n4",
+   "label": "元数据判断触发",
+   "basis": "quote",
+   "quote": "How Claude accesses Skill content: When a Skill is triggered, Claude uses bash to read SKILL.md from the filesystem, bringing its instructions into the context window.",
+   "quoteId": "Q36",
+   "quoteFrom": "原文 · Q36",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e3",
+   "from": "n6",
+   "to": "n5",
+   "label": "分阶段加载",
+   "basis": "quote",
+   "quote": "技能可以捆绑其他材料： pdf-processing/ SKILL.md（主要说明） FORMS.md（表格填写指南） REFERENCE.md（详细 API 参考） scripts/ fill_form.py（实用脚本） 说明：包含专门指导和工作流程的附加 Markdown 文件（FORMS.md、REFERENCE.md） 代码： Claude 使用 bash 运行的可执行脚本（fill_form.py、validate.py），无需将代码加载到上下文中即可提供确定性操作。",
+   "quoteId": "Q28",
+   "quoteFrom": "原文 · Q28",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e4",
+   "from": "n1",
+   "to": "n4",
+   "label": "技能需触发机制",
+   "basis": "quote",
+   "quote": "Claudedescription会根据此元数据来判断是否触发技能，因此它必须同时说明技能的功能和使用时机。",
+   "quoteId": "Q22",
+   "quoteFrom": "原文 · Q22",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e5",
+   "from": "n4",
+   "to": "n2",
+   "label": "自动使用机制",
+   "basis": "quote",
+   "quote": "两者的工作方式相同：一旦技能在您的环境中可用，Claude 就会在与您的请求相关时自动使用它。",
+   "quoteId": "Q11",
+   "quoteFrom": "原文 · Q11",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e6",
+   "from": "n1",
+   "to": "n5",
+   "label": "具备渐进披露特性",
+   "basis": "quote",
+   "quote": "How Claude accesses Skill content: When a Skill is triggered, Claude uses bash to read SKILL.md from the filesystem, bringing its instructions into the context window.",
+   "quoteId": "Q36",
+   "quoteFrom": "原文 · Q36",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  }
+ ],
+ "gaps": [
+  "边 SKILL.md 与 YAM → 代理技能（必需文件）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 三类内容：说明、代码、资源 → 代理技能（构成技能内容）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 文件系统型代码执行环境 → 渐进式披露（实现渐进披露）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 预构建技能与自定义技能 → 跨产品面的同步与共享边界（自定义技能不同步）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 跨产品面的同步与共享边界 → 运行时限制、权限与数据保留边（表面决定运行环境）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 运行时限制、权限与数据保留边 → 安全审计与受信任来源（权限风险要求审计）找不到支撑原句 → 按 R1/R2 不进图"
+ ],
+ "llm": {
+  "model": "deepseek-v4-pro",
+  "tokens": 6856,
+  "cached": true
+ },
+ "citedByStats": {
+  "llm": 6,
+  "retrieval": 0
+ }
+}

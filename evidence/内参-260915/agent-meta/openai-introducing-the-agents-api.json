@@ -1,0 +1,10 @@
+{
+  "slug": "openai-introducing-the-agents-api",
+  "summary": "OpenAI 推出公测版 Agents API，将驱动 Codex 的长期运行智能体执行框架全面托管化。提供自动上下文压缩、动态工具检索、程序化工具调用与多子智能体并行编排能力，支持解耦的沙箱计算环境。",
+  "topic": "OpenAI托管AgentsAPI",
+  "stars": 4,
+  "starReason": "官方定义了云端长期运行生产级智能体执行框架的工业标准与基础设施抽象",
+  "why": "将智能体编排基础设施从手写提示词链进化为标准云 API，其上下文压缩、程序化工具调用与子智能体解耦设计代表了官方范式。",
+  "metaphor": "配齐副手的项目总监",
+  "palette": "clay"
+}

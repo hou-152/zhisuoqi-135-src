@@ -121,10 +121,111 @@ function loadPractice(learning) {
   return p;
 }
 
+/* 概念网络图（2026-09-15）：knowledge/概念网络-260915/<unitId>.json 全量装进 DATA.conceptNet.nets。
+   unitId 规则：route-agent-loop（六章路线一张图，章内高亮当前层）· neican-<期>-<slug>（内参单篇）。
+   规格与硬规则 R1—R8 见 docs/概念网络图-产出规格-20260915.md；体检 scripts/check-concept-net.mjs。 */
+function loadConceptNet() {
+  const d = path.join(ROOT, 'knowledge', '概念网络-260915');
+  if (!fs.existsSync(d)) {
+    console.warn('⚠ 缺 knowledge/概念网络-260915/ —— 先跑 node scripts/build-concept-net.mjs --all（内参「概念网络」签与六章路线图会没有图）');
+    return { nets: {} };
+  }
+  const nets = {};
+  let bad = 0;
+  for (const f of fs.readdirSync(d).filter((f) => f.endsWith('.json'))) {
+    try {
+      const n = JSON.parse(fs.readFileSync(path.join(d, f), 'utf8'));
+      if (n && n.unitId) nets[n.unitId] = n; else bad++;
+    } catch (e) { bad++; console.warn('⚠ 概念网络 JSON 解析失败（跳过）：' + f); }
+  }
+  const neicanCount = Object.keys(nets).filter((k) => k.startsWith('neican-')).length;
+  console.log(`概念网络图：${Object.keys(nets).length} 张装进壳（route ${nets['route-agent-loop'] ? 1 : 0} · 内参 ${neicanCount}）${bad ? ` · 坏文件 ${bad} 个` : ''}`);
+  return { nets };
+}
+
 const payload = LEGACY ? buildLegacy() : buildFromMap();
+/* 依赖边的强度与理由（v3-knowledge-tree phase 01）：knowledge/概念地图-260913/dependencies.json
+   681 条 prerequisite 全带 strength(hard/soft)＋一句 reason（os-taxonomy 边口径，与路径视图
+   mapHard/mapSoft 同源）。键＝"topicId>prerequisiteId"（前置>后学），概念卡「先懂这些/解锁」
+   与树视图用它。附加字段，不改 edges 三元组本身。 */
+function loadEdgeMeta() {
+  const f = path.join(ROOT, 'knowledge', '概念地图-260913', 'dependencies.json');
+  if (!fs.existsSync(f)) { console.warn('⚠ 缺 概念地图-260913/dependencies.json —— 概念卡前置不带强度理由'); return {}; }
+  const d = JSON.parse(fs.readFileSync(f, 'utf8'));
+  const arr = Array.isArray(d) ? d : (d.dependencies || d.edges || []);
+  const meta = {};
+  let n = 0;
+  for (const e of arr) {
+    if (e.kind && e.kind !== 'prerequisite') continue;
+    if (!e.topicId || !e.prerequisiteId || !(e.strength || e.reason)) continue;
+    meta[e.topicId + '>' + e.prerequisiteId] = { s: e.strength || '', r: e.reason || '' };
+    n++;
+  }
+  console.log(`依赖边强度/理由：${n} 条装进 DATA.edgeMeta`);
+  return meta;
+}
+payload.edgeMeta = loadEdgeMeta();
+/* 版本更新记录（v4-unify）：扫 iterations 各版本目录里 PRD.md 的标题行烘焙，交卷版人工补一条。
+   顶栏「更新」面板用它；不手工维护第二份 changelog。 */
+function loadChangelog() {
+  const dir = path.join(ROOT, 'iterations');
+  const meta = {
+    'v1-shell-ia': { ver: 'v1 · 壳信息架构', date: '2026-09-14' },
+    'v2-practice-space': { ver: 'v2 · 实践空间', date: '2026-09-15' },
+    'v3-knowledge-tree': { ver: 'v3 · 知识树改版', date: '2026-09-15' },
+    'v4-unify': { ver: 'v4 · 命名统一与体验收口', date: '2026-09-15' },
+  };
+  const out = [];
+  if (fs.existsSync(dir)) {
+    for (const d of fs.readdirSync(dir).sort().reverse()) {
+      const f = path.join(dir, d, 'PRD.md');
+      if (!fs.existsSync(f)) continue;
+      const title = (fs.readFileSync(f, 'utf8').split('\n').find((l) => l.startsWith('# ')) || '')
+        .replace(/^#\s*/, '').replace(/^知所栖 135 · PRD · /, '').trim();
+      const m = meta[d] || { ver: d, date: '' };
+      out.push({ ver: m.ver, date: m.date, title });
+    }
+  }
+  out.push({ ver: '交卷版', date: '2026-09-15', title: '产品说明计划书 v0 · dbs-135 插件市场 · 135.html 完整主流程上公网' });
+  console.log(`更新面板：${out.length} 条版本记录烘焙`);
+  return out;
+}
+payload.changelog = loadChangelog();
 payload.neican = loadNeican();
 payload.learning = loadLearning();
 payload.practice = loadPractice(payload.learning);
+/* 实践空间路线（v2-practice-space phase 01）：七站顺序来自配置文件，拍板前 status=draft 照实进壳。
+   这里只装数据、不改准入门；开放与否仍由 loadPractice 现算，配置里没有也不允许有 open 字段。 */
+(function attachPracticeRoute() {
+  const f = path.join(ROOT, 'evidence', 'practice-route-260915', 'route-draft.json');
+  if (!fs.existsSync(f)) { console.warn('⚠ 缺 evidence/practice-route-260915/route-draft.json —— 先跑 node scripts/draft-practice-route.mjs（实践空间没有七站路线数据）'); return; }
+  const d = JSON.parse(fs.readFileSync(f, 'utf8'));
+  payload.practice.route = { version: d.version, status: d.status, rules: d.rules, stats: d.stats, stations: d.stations };
+  const st = d.stats || {};
+  console.log(`实践空间路线：${st.stations} 站 · ${st.units} 单元（主线锚点 ${st.superseded}）· status=${d.status}`);
+})();
+/* 继续学（v2-practice-space phase 03）：落点只认 realHuman 轨迹（与 criteria-activation 同口径），
+   取最近活动的单元；多条取 lastAt 最新的那条。脚本扮演的合成轨迹照实排除。 */
+(function attachPracticeTrajectory() {
+  const f = path.join(ROOT, 'evidence', 'trajectories-260914', 'trajectories.json');
+  if (!fs.existsSync(f)) { console.warn('⚠ 缺 evidence/trajectories-260914/trajectories.json —— 「继续学」没有真实轨迹，页面走兜底'); return; }
+  const d = JSON.parse(fs.readFileSync(f, 'utf8'));
+  const reals = (d.trajectories || [])
+    .filter((t) => t.learnerIs && t.learnerIs.realHuman === true)
+    .map((t) => ({ ...t, lastAt: (t.rounds || []).map((r) => r.at || '').sort().slice(-1)[0] || '' }))
+    .sort((a, b) => String(b.lastAt).localeCompare(String(a.lastAt)));
+  if (!reals.length) { console.log('实践空间继续学：暂无 realHuman 轨迹，页面走兜底'); return; }
+  const t0 = reals[0];
+  const prefixed = t0.unitKind === 'chapter' ? 'unit:chapter-' + t0.unitId
+    : t0.unitKind === 'batch' ? 'unit:batch-' + t0.unitId : String(t0.unitId);
+  payload.practice.continuePoint = {
+    realHuman: true, unitId: prefixed, rawUnitId: t0.unitId, unitKind: t0.unitKind,
+    lastAt: t0.lastAt, rounds: (t0.rounds || []).length,
+    source: 'evidence/trajectories-260914/trajectories.json',
+  };
+  console.log(`实践空间继续学：真实轨迹 → ${prefixed}（${t0.lastAt} · ${(t0.rounds || []).length} 轮）`);
+})();
+payload.conceptNet = loadConceptNet();
 /* 批量单元的阅读器载荷（本轮编译）装进同一份阅读器，**但不混进六章的课程数组**：
    DATA.learning.chapters 仍然是 Agent Loop 六章（顺序课程，`LEARN.length === 6` 这条语义一个字没动），
    批量单元另放 DATA.learning.batch，页面用 chapterById() 在两张表里查 —— 段落/右栏材料 chip 复用
@@ -147,9 +248,11 @@ const json = JSON.stringify(payload).replace(/<\//g, '<\\/');
 // 页面与 Node 验收脚本用的是**同一份文件**，所以「图驱动实际学习」不是旁边另画的一张图。
 const RUNNER_SRC = fs.readFileSync(path.join(ROOT, 'scripts', 'lib', 'graph-runner.js'), 'utf8');
 const VIEW_SRC = fs.readFileSync(path.join(ROOT, 'scripts', 'lib', 'graph-view.js'), 'utf8');
+const CN_VIEW_SRC = fs.readFileSync(path.join(ROOT, 'scripts', 'lib', 'concept-net-view.js'), 'utf8');
 const html = tpl.replace('/*__DATA__*/', json)
   .replace('/*__GRAPH_RUNNER__*/', () => RUNNER_SRC)
-  .replace('/*__GRAPH_VIEW__*/', () => VIEW_SRC);
+  .replace('/*__GRAPH_VIEW__*/', () => VIEW_SRC)
+  .replace('/*__CONCEPT_NET__*/', () => CN_VIEW_SRC);
 
 const OUT = path.join(ROOT, 'prototype', '知所栖-壳.html');
 fs.mkdirSync(path.dirname(OUT), { recursive: true });

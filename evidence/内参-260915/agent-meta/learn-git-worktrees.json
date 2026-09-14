@@ -1,0 +1,10 @@
+{
+  "slug": "learn-git-worktrees",
+  "summary": "ChatGPT 官方文档详解 Codex 多会话并行隔离机制：利用底层 Git Worktrees 为后台并发 Agent 分配独立工作目录（detached HEAD 状态），结合 Handoff 工作流与 .worktreeinclude 配置文件，实现零冲突并行开发与前后台平滑交接。",
+  "topic": "Codex的Worktree并行隔离",
+  "stars": 3,
+  "starReason": "官方揭秘并发智能体操作文件系统与解决分支冲突的工程落地方案",
+  "why": "详细说明了 IDE Agent 如何利用操作系统与 Git 原生能力解决多对话并发写代码的冲突痛点，给多 Agent 隔离提供了工业级参考。",
+  "metaphor": "厨房的独立操作台",
+  "palette": "sky"
+}

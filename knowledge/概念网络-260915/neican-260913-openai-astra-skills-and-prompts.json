@@ -1,0 +1,210 @@
+{
+ "version": "v1",
+ "unitId": "neican-260913-openai-astra-skills-and-prompts",
+ "unitKind": "article",
+ "period": "260913",
+ "slug": "openai-astra-skills-and-prompts",
+ "title": "Rethinking skills and prompts for GPT-6 Astra | OpenAI Developers",
+ "source": "https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra",
+ "generatedAt": "2026-09-14T20:33:00.889Z",
+ "generator": "deterministic+llm",
+ "reviewStatus": "generated-unreviewed",
+ "layers": [
+  {
+   "id": "L1",
+   "name": "前提与模型变化"
+  },
+  {
+   "id": "L2",
+   "name": "技能设计原则"
+  },
+  {
+   "id": "L3",
+   "name": "仓库层指导"
+  },
+  {
+   "id": "L4",
+   "name": "行为边界与完成"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "n1",
+   "name": "重新审视指令假设",
+   "full": "重新审视指令假设",
+   "layer": "L1",
+   "role": "core",
+   "card": 0,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_c2ad902b"
+   }
+  },
+  {
+   "id": "n2",
+   "name": "技能",
+   "full": "技能（skills）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 1,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_92cb645b"
+   }
+  },
+  {
+   "id": "n3",
+   "name": "技能描述",
+   "full": "技能描述（skill descriptions）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 2,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_ae03bb56"
+   }
+  },
+  {
+   "id": "n4",
+   "name": "渐进式披露",
+   "full": "渐进式披露（progressive disclosure）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 3,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_916d7db2"
+   }
+  },
+  {
+   "id": "n5",
+   "name": "过度具体指导",
+   "full": "过度具体指导（overly specific guidance）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 4,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_ecb62df3"
+   }
+  },
+  {
+   "id": "n6",
+   "name": "仓库技能的跨模型影响",
+   "full": "仓库技能的跨模型影响",
+   "layer": "L3",
+   "role": "linked",
+   "card": 5,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_3df52d72"
+   }
+  },
+  {
+   "id": "n7",
+   "name": "AGENTS.md",
+   "full": "AGENTS.md",
+   "layer": "L3",
+   "role": "linked",
+   "card": 6,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_a84f8f6d"
+   }
+  },
+  {
+   "id": "n8",
+   "name": "决策边界",
+   "full": "决策边界（decision boundaries）",
+   "layer": "L4",
+   "role": "linked",
+   "card": 7,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_477781a9"
+   }
+  },
+  {
+   "id": "n9",
+   "name": "持久性",
+   "full": "持久性（persistence）",
+   "layer": "L4",
+   "role": "linked",
+   "card": 8,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_f6dede97"
+   }
+  },
+  {
+   "id": "n10",
+   "name": "完成标准",
+   "full": "完成标准",
+   "layer": "L4",
+   "role": "linked",
+   "card": 9,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_3f38fe5e"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "id": "e1",
+   "from": "n1",
+   "to": "n2",
+   "label": "技能作为新形式",
+   "basis": "quote",
+   "quote": "这些指令可以以技能的形式呈现，本质上是存储为 Markdown 文件的提示，还可以与资源和捆绑脚本一起打包。",
+   "quoteId": "Q10",
+   "quoteFrom": "原文 · Q10",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e2",
+   "from": "n1",
+   "to": "n8",
+   "label": "判断力增强",
+   "basis": "quote",
+   "quote": "这固然有用，但作为我们最契合的模型，GPT-6 Astra 的判断力要强得多，它只会在确信安全的情况下才会执行任务——因此，您应该以对待安全模型的方式来对待它。",
+   "quoteId": "Q48",
+   "quoteFrom": "原文 · Q48",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e3",
+   "from": "n9",
+   "to": "n10",
+   "label": "需定义完成标准",
+   "basis": "quote",
+   "quote": "如果您习惯了 GPT-5.6 Sol 接受请求后长时间持续运行，那么 GPT-6 Astra 在何时停止方面可能会显得更加犹豫。",
+   "quoteId": "Q50",
+   "quoteFrom": "原文 · Q50",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  }
+ ],
+ "gaps": [
+  "边 重新审视指令假设 → AGENTS.md（促使审查AGENTS.md）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 技能 → 技能描述（描述需简短）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 技能 → 渐进式披露（渐进式披露）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 技能 → 过度具体指导（避免过度具体）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 技能 → 仓库技能的跨模型影响（仓库应用）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 仓库技能的跨模型影响 → AGENTS.md（需要AGENTS.md）找不到支撑原句 → 按 R1/R2 不进图"
+ ],
+ "llm": {
+  "model": "deepseek-v4-pro",
+  "tokens": 5001,
+  "cached": true
+ },
+ "citedByStats": {
+  "llm": 3,
+  "retrieval": 0
+ }
+}

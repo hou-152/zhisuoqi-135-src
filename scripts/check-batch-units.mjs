@@ -487,6 +487,36 @@ group('⑩ 准入改版：三条机器条件 · 待验证区分度不挡进入 �
   ok(real.every((t) => t.fixtureProbe !== true) && !JSON.stringify(READERS).includes('probe-real-trajectory'),
     'C5：探针轨迹只在断言里存在，没有混进任何产物（判据要真轨迹，不是造一条就算）');
 }
+
+/* ⑩ 实践空间路线配置对照（v2-practice-space phase 01）
+   route-draft.json 由 draft-practice-route.mjs 生成（生成器自带覆盖/归类/阶段校验）；
+   这里独立复查它与 units.json 的一致性：无重无漏 · 站序 · 主线锚点集合与取代关系逐条一致。
+   另有一条红线：配置里不允许出现 open 字段——开放与否只能由准入门现算，顺序配置不越权。 */
+group('⑩ 实践空间路线：route-draft.json 与 units.json 一一对应（无重无漏 · 站序 · 锚点一致 · 不越权）');
+let routeLine = null;
+const ROUTE_REL = 'evidence/practice-route-260915/route-draft.json';
+if (fs.existsSync(path.join(ROOT, ROUTE_REL))) {
+  const route = read(ROUTE_REL);
+  const routeUnits = (route.stations || []).flatMap((s) => s.units || []);
+  // 路线配置用页面口径（unit:batch-*），这里补上同一前缀再与 units.json 对账
+  const byUnitId = new Map(data.units.map((u) => ['unit:' + u.unitId, u]));
+  ok(route.stations && route.stations.length === 7, 'C1：7 站');
+  ok(route.stations.map((s) => s.order).join(',') === '1,2,3,4,5,6,7', 'C2：站序 = 站方 order 1-7');
+  ok(routeUnits.length === 76, 'C3：76 个单元全在路线里');
+  ok(new Set(routeUnits.map((u) => u.unitId)).size === 76, 'C4：unitId 无重复');
+  ok(routeUnits.every((u) => byUnitId.has(u.unitId)), 'C5：每个 unitId 都存在于 units.json');
+  const draftSup = routeUnits.filter((u) => u.superseded).map((u) => u.unitId).sort();
+  const realSup = data.units.filter((u) => u.superseded).map((u) => 'unit:' + u.unitId).sort();
+  ok(JSON.stringify(draftSup) === JSON.stringify(realSup), 'C6：主线锚点集合 = units.json 的 superseded 集合');
+  ok(routeUnits.filter((u) => u.superseded).every((u) => u.replacedBy === (byUnitId.get(u.unitId).superseded || {}).by),
+    'C7：replacedBy 与 units.json 的取代关系逐条一致');
+  ok(routeUnits.every((u) => !('open' in u)), 'C8：配置不带 open 字段（开放与否只由准入门现算，顺序配置不越权）');
+  ok(routeUnits.every((u) => typeof u.remember === 'string' && u.remember.length > 10), 'C9：每步带卡上 remember 一句话（学习者明面的人话简介，纯搬运不改写）');
+  ok(route.status && String(route.status).startsWith('draft'), 'C10：状态照实是 draft（负责人拍板后才转 final）');
+  routeLine = `  · 实践空间路线 ${route.stations.length} 站 ${routeUnits.length} 单元（主线锚点 ${draftSup.length} · status=${route.status}）`;
+} else {
+  ok(false, 'route-draft.json 不存在（先跑 node scripts/draft-practice-route.mjs）');
+}
 function REAL_CHAPTER_CHECKS() {
   const ch = read('evidence/agent-loop-260913/chapters.json').chapters.find((c) => c.chapterId === 'agent');
   const card = loadCards(ROOT, CARD_DIR_REL).get((ch.sourceChain.card || '') + '.yaml');
@@ -509,4 +539,5 @@ if (fs.existsSync(path.join(ROOT, READERS_REL))) {
   console.log(`  · 阅读器载荷 ${R.stats.readers} 份编译（逐字材料 ${R.stats.citationsChecked} 条过 indexOf + sha256 + locator）· 可开放 ${R.stats.allowedToOpen} · 待装配 ${R.stats.pendingAssembly}（superseded ${R.stats.superseded}）`);
   console.log(`  · 判据区分度自证：激活 ${R.stats.criteriaActive} 条 · 待验证区分度 ${R.stats.criteriaPending} 条（真实轨迹 ${R.stats.realTrajectories} 份 / 共 ${R.stats.trajectoryFiles} 份）`);
 }
+if (routeLine) console.log(routeLine);
 console.log('✅ 批量单元体检全过');

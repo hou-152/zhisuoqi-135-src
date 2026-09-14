@@ -61,13 +61,16 @@ const S = ROUTE.steps, CUR0 = S[await ex(`String(routeStepIdx)`)], NEXT = S[Numb
 console.log(`路线：${ROUTE.title} · ${S.length} 步 · 主题 ${ROUTE.topicName} · 当前第 ${Number(await ex('String(routeStepIdx)')) + 1} 步`);
 console.log('概念：' + S.map((s, i) => `${i + 1}.${s.name}`).join(' → '));
 
-/* ① 默认就是路径模式；主区出现「路径」且排第一 */
-console.log('\n① 路径模式');
-check('默认模式＝path（路径是默认学习观察方式）', await ex('mode'), 'path');
-check('tab 顺序：路径在最前，图谱/关系/星球都还在',
-  await ex(`[...document.querySelectorAll('.tab')].map(t=>t.textContent).join('|')`), '路径|图谱|关系|星球');
-check('路径 tab 处于选中态', await ex(`document.querySelector('.tab.on').dataset.mode`), 'path');
-check('路径条挂上了（#main.pathon + #pathrail.on）',
+/* ① 默认是「我的树」（v3-knowledge-tree：slogan 落在产品上）；路径是一键可达的第二视图 */
+console.log('\n① 默认我的树 → 切路径');
+check('默认模式＝tree（我的树是默认）', await ex('mode'), 'tree');
+check('tab 板两格：我的树｜路径（v4：系统视图撤 tab，走更新面板/hash）',
+  await ex(`[...document.querySelectorAll('.tab')].map(t=>t.textContent).join('|')`), '我的树|路径');
+check('我的树 tab 处于选中态', await ex(`document.querySelector('.tab.on').dataset.mode`), 'tree');
+check('树头挂着：slogan 在、统计有字（绝对数口径）',
+  await ex(`(!!document.querySelector('#tree-head .th-slogan') && document.getElementById('tree-stat').textContent.length > 4) ? 'OK' : 'NO'`), 'OK');
+await ex(`setMode('path')`); await sleep(700);
+check('切到路径：路径条挂上（#main.pathon + #pathrail.on）',
   await ex(`document.getElementById('main').classList.contains('pathon') + '|' + document.getElementById('pathrail').classList.contains('on')`), 'true|true');
 
 /* ② 一条真实 6 步路线：每个 ID 都能在页面数据里解析出来 */
@@ -159,12 +162,12 @@ check('点回退 → 回到那个最小前置', went, '|对');
 check('回退不是把全部祖先铺出来（回退按钮只有 1 个）',
   await ex(`(()=>{const l=ROUTES[0].steps[ROUTES[0].steps.length-1]; return document.querySelectorAll('#pbody .pctx .pr-back, #pbody .pctx .nav button').length <= 4 ? 'OK' : document.querySelectorAll('#pbody .pctx .nav button').length})()`), 'OK');
 
-/* ⑧ 还能回图谱 / 关系 / 星球，路径条让位 */
-console.log('\n⑧ 四个模式互通');
+/* ⑧ 视图收敛（v3-knowledge-tree）：关系/星球撤入口；旧模式名落到树，不白屏 */
+console.log('\n⑧ 视图收敛');
 await ex(`closePanel()`); await sleep(300);
-check('回图谱：路径条收起来', await ex(`setMode('grid'); mode + '|' + document.getElementById('pathrail').classList.contains('on')`), 'grid|false');
-check('关系视图照常（图例在）', await ex(`setMode('relation'); mode + '|' + document.getElementById('rel-legend').classList.contains('on')`), 'relation|true');
-check('星球照常', await ex(`setMode('sphere'); mode`), 'sphere');
+check('旧模式名 relation 落到树（撤入口不删代码）', await ex(`setMode('relation'); mode`), 'tree');
+check('旧模式名 sphere 落到树', await ex(`setMode('sphere'); mode`), 'tree');
+check('回树：路径条收起来', await ex(`setMode('tree'); mode + '|' + document.getElementById('pathrail').classList.contains('on')`), 'tree|false');
 check('回路径：路径条回来', await ex(`setMode('path'); mode + '|' + document.getElementById('pathrail').classList.contains('on')`), 'path|true');
 
 /* ⑨ 原有入口没坏：主题下钻 / 搜索 / 概念来源 */
@@ -172,8 +175,8 @@ console.log('\n⑨ 原有入口回归');
 /* 2026-09-15 改准：一级导航已按所有者口径从左侧整条搬到顶栏（`<nav class="r-list">` 在 `#topbar` 里），
    `#rail` 这个 id 当前模板里不存在 —— 原选择器恒为 0，是并发另一路改版导致的既有写法问题，不是本轮改版造成的红。
    现在断言的是「三项导航真的还在（顶栏那一组）」。 */
-check('三项一级导航都在（顶栏）', await ex(`document.querySelectorAll('#topbar .r-item').length`), '3');
-check('点知识体系 → 中间栏 21 条主题', await ex(`setView('graph'); currentView + '|' + document.querySelectorAll('#lp-body .row').length + '|' + groups().length`),
+check('一级导航都在（顶栏，v4 四格：探索/内参/知识体系/实践空间）', await ex(`document.querySelectorAll('#topbar .r-item').length`), '4');
+check('点知识体系 → 中间栏 21 条主题（v4：模块名统一队友前端，改回知识体系）', await ex(`setView('graph'); currentView + '|' + document.querySelectorAll('#lp-body .row').length + '|' + groups().length`),
   await ex(`'graph|' + groups().length + '|' + groups().length`));
 const themeHit = await ex(`(()=>{const id=ROUTES[0].topicId; setView('theme', id); return currentView + '|' + (filter===id?'画布跟上了':'没跟')})()`);
 check('下钻到路线所在主题', themeHit, 'theme|画布跟上了');
@@ -232,8 +235,8 @@ check('批量单元已绑阅读器载荷（同一套 #learn），不再标 reade
   await ex(`PRACTICE.units.filter(u=>u.group==='批量'&&u.open).every(u=>!!u.reader&&!u.readerMissing)`), 'true');
 await ex(`openPractice()`);
 check('六章逐章一行 + 单篇一行（来自数据）', await ex(`openPractice(); document.querySelectorAll('#reader .pcard .pu .nm').length`), 7);
-check('列表照实说清：批量可进入 70 个、判据待验证、不开放的是 superseded',
-  await ex(`(()=>{const t=document.getElementById('reader').innerText;return t.includes('批量装配单元')&&t.includes('已激活 0 条')&&t.includes('待验证区分度')&&t.includes('不参与通过判定')&&t.includes('绑不到逐字原文')===false||t.includes('不开放')})()`), 'true');
+check('列表照实说清（明面人话）：内容逐字来自源文章、出处独立核对；审核对账收进折叠',
+  await ex(`(()=>{const t=document.getElementById('reader').innerText;const f=document.getElementById('practice-qa-fold');return t.includes('逐字来自真实的源文章')&&t.includes('你说了就有反馈')&&!!f&&f.textContent.includes('待验证区分度')&&f.textContent.includes('verdict=usable')&&f.textContent.includes('indexOf')})()`), 'true');
 check('空白格照实说：缺少可靠案例本轮是 0，并写明为什么',
   await ex(`(()=>{openPracticeBoard();return document.getElementById('reader').innerText.includes('这一格本轮是 0')})()`), 'true');
 check('状态看板逐单元 83 行（不含「要全面推进」那张表）',
@@ -248,12 +251,78 @@ check('不能进入时写着缺什么（superseded 的理由照实写出）',
   await ex(`(()=>{const t=document.getElementById('practice-blocked').innerText;return t.includes('现在不能进入学习')&&t.includes('superseded')&&t.includes('不可进入')})()`), 'true');
 check('非 superseded 的批量单元点得进去，走的是同一套 #learn 阅读器',
   await ex(`(()=>{openPractice();const r=practiceEnter('unit:batch-agent-action-space');const on=document.getElementById('learn').classList.contains('on');const cur=learnCur;exitLearn();return r+'|'+on+'|'+cur})()`), 'true|true|batch-agent-action-space');
-check('单篇照实说不在这套阅读器里', await ex(`(()=>{openPractice();const t=document.getElementById('reader').innerText;return t.includes('单篇试点')&&t.includes('不在这套阅读器里')})()`), 'true');
+check('单篇照实说走内参那条链（不在课程阅读器里）', await ex(`(()=>{openPractice();const t=document.getElementById('reader').innerText;return t.includes('单篇试点')&&t.includes('它走内参阅读页那一条链')})()`), 'true');
 check('进入第 1 章走的是同一套 #learn 阅读器',
   await ex(`(()=>{openPractice(); practiceEnter('unit:chapter-agent'); const on=document.getElementById('learn').classList.contains('on'); const rail=!!document.querySelector('#learn-wrap .lrail'); const chips=document.querySelectorAll('#learn-wrap .lrail-steps .lchip').length; return on+'|'+rail+'|'+chips+'|'+learnCur})()`), 'true|true|6|agent');
 check('从实践空间进来，返回条写「返回实践空间」', await ex(`document.getElementById('learn-back').textContent`), '← 返回实践空间');
 check('返回后回到实践空间（不是被丢进知识体系）',
   await ex(`exitLearn(); currentView+'|'+document.getElementById('reader').classList.contains('on')`), 'practice|true');
+
+/* ⑪b-2 实践空间路线数据（v2-practice-space phase 01，2026-09-15）
+   七站顺序来自配置文件（route-draft.json，负责人拍板前 status=draft 照实带进壳）。
+   本段只验**数据**：进壳完整、与配置一致、不带 open 字段（开放与否仍由准入门现算）。
+   页面渲染与交互是 phase 02 的事，在那里补 DOM 断言。 */
+console.log('\n⑪b-2 实践空间 · 七站路线数据（草案）');
+check('路线进了 DATA.practice.route：7 站 · 76 单元 · 6 主线锚点 · draft 标记',
+  await ex(`(()=>{const r=PRACTICE&&PRACTICE.route;if(!r)return 'no-route';const u=r.stations.flatMap(s=>s.units);return [r.stations.length,u.length,u.filter(x=>x.superseded).length,/^draft/.test(r.status)].join('|')})()`), '7|76|6|true');
+check('站序 = 站方 order 1-7，76 个 unitId 全局唯一且都是批量单元',
+  await ex(`(()=>{const r=PRACTICE.route;const u=r.stations.flatMap(s=>s.units);return r.stations.map(s=>s.order).join('')+'|'+(new Set(u.map(x=>x.unitId)).size===76)+'|'+u.every(x=>x.unitId.startsWith('unit:batch-'))})()`), '1234567|true|true');
+check('主线锚点带 replacedBy 指回六章（抽查 batch-agent → unit:chapter-agent）',
+  await ex(`(()=>{const u=PRACTICE.route.stations.flatMap(s=>s.units).find(x=>x.slug==='agent');return u.superseded+'|'+u.replacedBy})()`), 'true|unit:chapter-agent');
+check('配置不越权：route 单元不带 open 字段（开放与否只由准入门现算）',
+  await ex(`(()=>{const u=PRACTICE.route.stations.flatMap(s=>s.units);return u.every(x=>!('open' in x))})()`), 'true');
+
+/* ⑪b-3 七站路线视图（v2-practice-space phase 02）
+   DOM 结构：路线卡 7 个站头 · 76 行路线节点（.ru，独立于 .pu 口径）· 草案标记 · 锚点位指回六章 · 折叠看板。 */
+console.log('\n⑪b-3 实践空间 · 七站路线视图');
+await ex(`openPractice()`);
+check('七站铺开渲染：7 张独立站卡 + 76 张步骤卡（.rucard 与 .pu 口径分离，主线区仍是 7 行 .pu）',
+  await ex(`document.querySelectorAll('.pcard.proute').length+'|'+document.querySelectorAll('.pcard.proute .rucard').length+'|'+document.querySelectorAll('#reader .pcard .pu .nm').length`), '7|76|7');
+check('每站独立成节：站号大字＋那一问当标题（抽查第 4 站）',
+  await ex(`(()=>{const s=document.getElementById('practice-route-s4');return !!s.querySelector('.rs-no')&&s.querySelector('.rs-title').innerText.includes('AI 如何接触外部世界')&&!!s.querySelector('.rs-q')&&s.querySelectorAll('.rucard').length===8})()`), 'true');
+check('草案标记照实在（route.status=draft → 页面标「顺序草案 · 待课程组长拍板」）',
+  await ex(`document.getElementById('practice-route-card').innerText.includes('顺序草案')&&document.getElementById('practice-route-card').innerText.includes('待课程组长拍板')`), 'true');
+check('重复主题不排两遍：6 张「在主线六章里」占位卡（人话文案，不写 superseded）',
+  await ex(`document.querySelectorAll('.pcard.proute .rucard.rsup').length+'|'+Array.from(document.querySelectorAll('.pcard.proute')).map(x=>x.innerText).join('').includes('在主线六章里')`), '6|true');
+check('占位卡文案抽查：站 2 第一张是「状态管理」；6 张里有一张是 Agent（AI Agent），都写「去学六章这一章」',
+  await ex(`(()=>{const a=document.querySelector('.pcard.proute .rucard.rsup');const all=Array.from(document.querySelectorAll('.pcard.proute .rucard.rsup'));return a.innerText.includes('状态管理')&&all.some(x=>x.innerText.includes('Agent'))&&all.every(x=>x.innerText.includes('去学六章这一章'))})()`), 'true');
+check('点占位卡打开的是六章（点 Agent 占位 → #learn，learnCur=agent）',
+  await ex(`(()=>{const all=Array.from(document.querySelectorAll('.pcard.proute .rucard.rsup'));const row=all.find(x=>x.innerText.includes('Agent'));row.querySelector('.pbtn').click();const on=document.getElementById('learn').classList.contains('on');const cur=learnCur;exitLearn();openPractice();return on+'|'+cur})()`), 'true|agent');
+check('路线上的开放单元可点进同一套 #learn（大语言模型 → 进入阅读）',
+  await ex(`(()=>{const row=Array.from(document.querySelectorAll('.pcard.proute .rucard')).find(r=>r.innerText.includes('大语言模型'));row.querySelector('.pbtn').click();const on=document.getElementById('learn').classList.contains('on');const cur=learnCur;exitLearn();openPractice();return on+'|'+cur})()`), 'true|batch-large-language-model');
+check('步骤卡带一句人话简介（卡上 remember 搬运），且明面不带就绪度 chip（内部口径退到数据层）',
+  await ex(`(()=>{const row=Array.from(document.querySelectorAll('.pcard.proute .rucard')).find(r=>r.innerText.includes('模型词元'));return row.querySelector('.ru-line').innerText.length>15&&!row.querySelector('.seg')})()`), 'true');
+check('学习者明面无内部黑话：路线+主线可见文本无 cm_/CON-/QST-/CAS-/SOL-/sha256/indexOf/verdict/superseded',
+  await ex(`(()=>{const t=Array.from(document.querySelectorAll('#reader .pcard')).map(x=>x.innerText).join(' ');return ['cm_','CON-','QST-','CAS-','OPI-','SOL-','sha256','indexOf','verdict','superseded'].every(k=>!t.includes(k))})()`), 'true');
+check('看板折叠成 <details>：默认收起，头部写「为什么有的还不能学」，按钮在（收起态用 textContent 验）',
+  await ex(`(()=>{const d=document.getElementById('practice-board-fold');return (d instanceof HTMLDetailsElement)+'|'+d.open+'|'+d.querySelector('summary').innerText.includes('为什么有的还不能学')+'|'+d.textContent.includes('打开状态看板')})()`), 'true|false|true|true');
+check('继续学区就位（phase 03）：真实轨迹驱动落点——上次学到 Agent · 2026-09-15 · 2 轮',
+  await ex(`(()=>{const h=document.getElementById('continue-hint').innerText,b=document.getElementById('continue-btn');return h.includes('上次学到')&&h.includes('Agent')&&h.includes('2026-09-15')&&h.includes('只认你本人的真实轨迹')&&b.innerText.includes('继续学')&&b.innerText.includes('Agent')})()`), 'true');
+check('继续学落点与 trajectories.json 逐字一致（realHuman · unit:chapter-agent · lastAt · 2 轮）',
+  await ex(`(()=>{const c=PRACTICE.continuePoint;return c&&c.realHuman===true&&c.unitId==='unit:chapter-agent'&&c.rawUnitId==='agent'&&c.rounds===2&&String(c.lastAt).startsWith('2026-09-15')&&!!c.source.includes('trajectories.json')})()`), 'true');
+check('主线当前步高亮：Agent 行带 .cur + 「当前」徽标，其他章没有',
+  await ex(`(()=>{const rows=Array.from(document.querySelectorAll('#reader .pcard .pu')).filter(r=>r.querySelector('.nm'));const cur=rows.filter(r=>r.classList.contains('cur'));return cur.length===1&&cur[0].innerText.includes('Agent')&&!!cur[0].querySelector('.cur-tag')})()`), 'true');
+check('点「继续学」直接落进上次单元（#learn，learnCur=agent）',
+  await ex(`(()=>{document.getElementById('continue-btn').click();const on=document.getElementById('learn').classList.contains('on');const cur=learnCur;exitLearn();openPractice();return on+'|'+cur})()`), 'true|agent');
+check('反证：realHuman:false 的轨迹驱动不了继续学（页面回兜底文案）',
+  await ex(`(()=>{const o=PRACTICE.continuePoint;PRACTICE.continuePoint={realHuman:false,unitId:'unit:batch-tool',lastAt:'2026-09-15T00:00:00+08:00',rounds:9,source:'探针'};openPractice();const h=document.getElementById('continue-hint').innerText;const out=h.includes('还没有你的真实学习记录')&&h.includes('从主线第 1 章开始');PRACTICE.continuePoint=o;openPractice();return out})()`), 'true');
+check('探针：realHuman 轨迹指向批量单元时，路线行高亮 .cur + 「当前」',
+  await ex(`(()=>{const o=PRACTICE.continuePoint;PRACTICE.continuePoint={realHuman:true,unitId:'unit:batch-attention-budget',lastAt:'2026-09-15T00:00:00+08:00',rounds:1,source:'探针'};openPractice();const row=document.querySelector('.pcard.proute .rucard[data-unit="unit:batch-attention-budget"]');const ok=!!row&&row.classList.contains('cur')&&!!row.querySelector('.cur-tag');PRACTICE.continuePoint=o;openPractice();return ok})()`), 'true');
+check('探针清理后恢复：路线里没有残留 .cur（真实落点在主线，不在七站）',
+  await ex(`document.querySelectorAll('.pcard.proute .rucard.cur').length`), 0);
+
+/* ⑪b-5 知识体系纯浏览（v2-practice-space phase 04）
+   负责人 09-15 口径：知识体系＝浏览层，不放学习入口；学习只从实践空间（和内参）进。
+   openLearnFor 保留给实践空间 origin 卡——这里查的是知识体系表面上（#pbody）的 UI 入口。 */
+console.log('\n⑪b-5 知识体系 · 纯浏览（无学习入口）');
+await ex(`setMode('path'); openPanel(ROUTES[0].steps[0].conceptId)`);
+check('概念卡路径上下文不再有「学习这个 · 第 N 章」与「学习空间 · 六章」按钮（保留 01 决策场入口）',
+  await ex(`(()=>{const bs=Array.from(document.querySelectorAll('#pbody .pctx .acts button')).map(b=>b.textContent);return bs.every(t=>!t.includes('学习这个 · 第'))&&bs.every(t=>!t.includes('学习空间 ·'))&&bs.some(t=>t.includes('01 案例决策场'))})()`), 'true');
+check('概念卡「实践空间 · 课程入口」块只导航不开课（去实践空间学习，不再有六章总览）',
+  await ex(`(()=>{const t=document.getElementById('pbody').innerText;return t.includes('实践空间 · 课程入口')&&t.includes('知识体系只浏览')&&t.includes('去实践空间学习')&&!t.includes('六章总览')})()`), 'true');
+check('#pbody 里没有任何直接打开 #learn 的入口（openLearnFor 只留给实践空间 origin 卡）',
+  await ex(`(()=>{const bs=Array.from(document.querySelectorAll('#pbody button'));return bs.every(b=>{const oc=b.getAttribute('onclick')||'';return !oc.includes('openLearnFor')&&!oc.includes('openLearnIndex')})})()`), 'true');
+await ex(`closePanel()`);
 
 /* ⑪c 决策题独立复核进准入（2026-09-14；同日第二轮：v3 复核通过，接入 76 单元）
    v2 的 228 道复核判定 0 道可接入；v3 确定性重做后 228/228 通过。三条必须仍然成立：

@@ -1,0 +1,379 @@
+{
+ "version": "v1",
+ "unitId": "neican-260914-yoshuabengio-why-are-ai-agents-lying-cheating-and-coordinati",
+ "unitKind": "article",
+ "period": "260914",
+ "slug": "yoshuabengio-why-are-ai-agents-lying-cheating-and-coordinati",
+ "title": "What can be done to mitigate loss-of-control risks",
+ "source": "https://yoshuabengio.org/en/publication/why-are-ai-agents-lying-cheating-and-coordinating",
+ "generatedAt": "2026-09-14T20:48:37.033Z",
+ "generator": "deterministic+llm",
+ "reviewStatus": "generated-unreviewed",
+ "layers": [
+  {
+   "id": "L1",
+   "name": "训练基础"
+  },
+  {
+   "id": "L2",
+   "name": "系统与目标"
+  },
+  {
+   "id": "L3",
+   "name": "失效机制"
+  },
+  {
+   "id": "L4",
+   "name": "风险表现"
+  },
+  {
+   "id": "L5",
+   "name": "应对方案"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "n1",
+   "name": "失调",
+   "full": "失调（misalignment）",
+   "layer": "L4",
+   "role": "core",
+   "card": 0,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_cd854e89"
+   }
+  },
+  {
+   "id": "n2",
+   "name": "预训练与人类模仿",
+   "full": "预训练与人类模仿",
+   "layer": "L1",
+   "role": "linked",
+   "card": 1,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_e9f24699"
+   }
+  },
+  {
+   "id": "n3",
+   "name": "强化学习",
+   "full": "强化学习（reinforcement learning）",
+   "layer": "L1",
+   "role": "linked",
+   "card": 2,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_e7cabc5e"
+   }
+  },
+  {
+   "id": "n4",
+   "name": "目标导向型系统",
+   "full": "目标导向型系统（goal-directed system）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 3,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_73deaac3"
+   }
+  },
+  {
+   "id": "n5",
+   "name": "隐性目标与模糊目标",
+   "full": "隐性目标与模糊目标",
+   "layer": "L2",
+   "role": "linked",
+   "card": 4,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_76ec7135"
+   }
+  },
+  {
+   "id": "n6",
+   "name": "工具性目标",
+   "full": "工具性目标（instrumental goals）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 5,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_f695789a"
+   }
+  },
+  {
+   "id": "n7",
+   "name": "协作行为与同伴保护",
+   "full": "协作行为与同伴保护",
+   "layer": "L4",
+   "role": "linked",
+   "card": 6,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_10865f34"
+   }
+  },
+  {
+   "id": "n8",
+   "name": "奖励黑客",
+   "full": "奖励黑客（reward hacking）",
+   "layer": "L3",
+   "role": "linked",
+   "card": 7,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_6772da1f"
+   }
+  },
+  {
+   "id": "n9",
+   "name": "Goodhart's law",
+   "full": "Goodhart's law",
+   "layer": "L3",
+   "role": "linked",
+   "card": 8,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_fb4de13d"
+   }
+  },
+  {
+   "id": "n10",
+   "name": "奖励篡改",
+   "full": "奖励篡改（reward tampering）",
+   "layer": "L3",
+   "role": "linked",
+   "card": 9,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_95af1bb8"
+   }
+  },
+  {
+   "id": "n11",
+   "name": "目标冲突",
+   "full": "目标冲突（conflict between goals）",
+   "layer": "L3",
+   "role": "linked",
+   "card": 10,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_9fe636d6"
+   }
+  },
+  {
+   "id": "n12",
+   "name": "明确定义的目标与模糊目标",
+   "full": "明确定义的目标与模糊目标（软目标／硬目标）",
+   "layer": "L3",
+   "role": "linked",
+   "card": 11,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_b935b3ae"
+   }
+  },
+  {
+   "id": "n13",
+   "name": "动机性认知与自我欺骗",
+   "full": "动机性认知与自我欺骗（motivated cognition）",
+   "layer": "L4",
+   "role": "linked",
+   "card": 12,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_15dd3274"
+   }
+  },
+  {
+   "id": "n14",
+   "name": "评估意识",
+   "full": "评估意识（detect being evaluated）",
+   "layer": "L4",
+   "role": "linked",
+   "card": 13,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_413fc195"
+   }
+  },
+  {
+   "id": "n15",
+   "name": "隐写术",
+   "full": "隐写术（steganography）",
+   "layer": "L4",
+   "role": "linked",
+   "card": 14,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_a55fbe4b"
+   }
+  },
+  {
+   "id": "n16",
+   "name": "安全论证与控制发展步伐",
+   "full": "安全论证与控制发展步伐",
+   "layer": "L5",
+   "role": "linked",
+   "card": 15,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_6158a733"
+   }
+  },
+  {
+   "id": "n17",
+   "name": "Scientist 人工智能…",
+   "full": "Scientist 人工智能框架",
+   "layer": "L5",
+   "role": "linked",
+   "card": 16,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_236572f0"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "id": "e1",
+   "from": "n2",
+   "to": "n4",
+   "label": "提供模仿基础",
+   "basis": "quote",
+   "quote": "人类模仿很容易理解，但值得指出的是，这些模型所训练的文本是由追求目标的人编写的，因此模型隐式再现的模式也带有这些目标。",
+   "quoteId": "Q33",
+   "quoteFrom": "原文 · Q33",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e2",
+   "from": "n3",
+   "to": "n4",
+   "label": "训练目标导向",
+   "basis": "quote",
+   "quote": "第三种是“对齐训练”，即奖励它以人类评分者认可的方式行事，或者以其他经过训练可以预测这些评分者会给出高分的 AI 系统所期望的方式行事。",
+   "quoteId": "Q32",
+   "quoteFrom": "原文 · Q32",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e3",
+   "from": "n2",
+   "to": "n5",
+   "label": "模仿产生隐性目标",
+   "basis": "quote",
+   "quote": "人类模仿很容易理解，但值得指出的是，这些模型所训练的文本是由追求目标的人编写的，因此模型隐式再现的模式也带有这些目标。",
+   "quoteId": "Q33",
+   "quoteFrom": "原文 · Q33",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e4",
+   "from": "n3",
+   "to": "n5",
+   "label": "奖励塑造模糊目标",
+   "basis": "quote",
+   "quote": "第三种是“对齐训练”，即奖励它以人类评分者认可的方式行事，或者以其他经过训练可以预测这些评分者会给出高分的 AI 系统所期望的方式行事。",
+   "quoteId": "Q32",
+   "quoteFrom": "原文 · Q32",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e5",
+   "from": "n4",
+   "to": "n6",
+   "label": "衍生工具性目标",
+   "basis": "quote",
+   "quote": "没有人赋予系统这种生存目标，但维持运行、了解世界并获得对世界的控制权，几乎是实现任何其他目标的垫脚石。",
+   "quoteId": "Q49",
+   "quoteFrom": "原文 · Q49",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e6",
+   "from": "n6",
+   "to": "n7",
+   "label": "工具目标促合作",
+   "basis": "quote",
+   "quote": "当多个智能体拥有重叠的目标时，寻求奖励的理性驱动下， 协作行为便会涌现，这激励着它们与其他智能体沟通协作，共同朝着共同目标努力。",
+   "quoteId": "Q52",
+   "quoteFrom": "原文 · Q52",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e7",
+   "from": "n5",
+   "to": "n11",
+   "label": "隐性目标引发冲突",
+   "basis": "quote",
+   "quote": "A plausible hypothesis for the emergence of those concerning behaviours is a conflict between goals.",
+   "quoteId": "Q75",
+   "quoteFrom": "原文 · Q75",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e8",
+   "from": "n1",
+   "to": "n16",
+   "label": "失调引发安全担忧",
+   "basis": "quote",
+   "quote": "我对人工智能公司目前为缓解算法错位所做的努力感到担忧，因为这些努力可能只是掩盖了错位，反而奖励和选择了那些作弊而不被发现的人工智能。",
+   "quoteId": "Q111",
+   "quoteFrom": "原文 · Q111",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e9",
+   "from": "n17",
+   "to": "n1",
+   "label": "设计诚实可靠AI",
+   "basis": "quote",
+   "quote": "我曾论证并提供了理论证据，证明存在一些设计人工智能的方法，包括Scientist人工智能框架，可以使其诚实可靠，并做出不受自身目标影响的连贯预测。",
+   "quoteId": "Q119",
+   "quoteFrom": "原文 · Q119",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  }
+ ],
+ "gaps": [
+  "边 明确定义的目标与模糊目标 → 目标冲突（软硬目标相冲突）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 Goodhart's law → 奖励黑客（指标失效致奖励黑客）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 奖励黑客 → 奖励篡改（最极端形式）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 协作行为与同伴保护 → 隐写术（协作隐藏信息）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 评估意识 → 隐写术（规避评估用隐写）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 动机性认知与自我欺骗 → 隐写术（自我欺骗式隐藏）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 目标冲突 → 失调（目标冲突导致失调）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 奖励黑客 → 失调（奖励黑客加剧失调）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 安全论证与控制发展步伐 → Scientist 人工智能（现有努力不足促新框架）找不到支撑原句 → 按 R1/R2 不进图"
+ ],
+ "llm": {
+  "model": "deepseek-flash",
+  "tokens": 6893,
+  "cached": true
+ },
+ "citedByStats": {
+  "llm": 9,
+  "retrieval": 0
+ }
+}

@@ -1,0 +1,235 @@
+{
+ "version": "v1",
+ "unitId": "neican-260913-andrew-ng-ai-engineering-skills-map",
+ "unitKind": "article",
+ "period": "260913",
+ "slug": "andrew-ng-ai-engineering-skills-map",
+ "title": "AI Engineering Skills Map: Shaping the build ",
+ "source": "https://x.com/AndrewYNg/status/2098459474608672916/?rw_tt_thread=True",
+ "generatedAt": "2026-09-14T20:40:48.908Z",
+ "generator": "deterministic+llm",
+ "reviewStatus": "generated-unreviewed",
+ "layers": [
+  {
+   "id": "L1",
+   "name": "背景与基础"
+  },
+  {
+   "id": "L2",
+   "name": "核心能力"
+  },
+  {
+   "id": "L3",
+   "name": "具体技能"
+  },
+  {
+   "id": "L4",
+   "name": "心态与结果"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "n1",
+   "name": "AI Engineering…",
+   "full": "AI Engineering skills（AI 工程技能）",
+   "layer": "L1",
+   "role": "core",
+   "card": 0,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_e14bd82a"
+   }
+  },
+  {
+   "id": "n2",
+   "name": "Shaping the…",
+   "full": "Shaping the build（塑造构建过程）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 1,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_9e69a850"
+   }
+  },
+  {
+   "id": "n3",
+   "name": "Roles are…",
+   "full": "Roles are blurring（角色正在模糊）",
+   "layer": "L1",
+   "role": "linked",
+   "card": 2,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_70f030e3"
+   }
+  },
+  {
+   "id": "n4",
+   "name": "Driving the…",
+   "full": "Driving the build loop（驱动构建循环）",
+   "layer": "L3",
+   "role": "linked",
+   "card": 3,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_e0dfb367"
+   }
+  },
+  {
+   "id": "n5",
+   "name": "Making product…",
+   "full": "Making product decisions（做产品决策）",
+   "layer": "L3",
+   "role": "linked",
+   "card": 4,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_c5e51add"
+   }
+  },
+  {
+   "id": "n6",
+   "name": "Communicating …",
+   "full": "Communicating and leading（沟通与领导）",
+   "layer": "L3",
+   "role": "linked",
+   "card": 5,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_deaf418e"
+   }
+  },
+  {
+   "id": "n7",
+   "name": "High-agency…",
+   "full": "High-agency ownership（高自主性负责）",
+   "layer": "L4",
+   "role": "linked",
+   "card": 6,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_01be8021"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "id": "e1",
+   "from": "n1",
+   "to": "n2",
+   "label": "AI工程技能支撑",
+   "basis": "quote",
+   "quote": "The opportunity to not just build but to shape the build makes AI Engineering more exciting than traditional software development.",
+   "quoteId": "Q48",
+   "quoteFrom": "原文 · Q48",
+   "citedBy": "retrieval",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e2",
+   "from": "n3",
+   "to": "n2",
+   "label": "角色模糊催生需求",
+   "basis": "quote",
+   "quote": "The opportunity to not just build but to shape the build makes AI Engineering more exciting than traditional software development.",
+   "quoteId": "Q48",
+   "quoteFrom": "原文 · Q48",
+   "citedBy": "retrieval",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e3",
+   "from": "n2",
+   "to": "n4",
+   "label": "塑造构建涵盖",
+   "basis": "quote",
+   "quote": "The opportunity to not just build but to shape the build makes AI Engineering more exciting than traditional software development.",
+   "quoteId": "Q48",
+   "quoteFrom": "原文 · Q48",
+   "citedBy": "retrieval",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e4",
+   "from": "n2",
+   "to": "n5",
+   "label": "包括做产品决策",
+   "basis": "quote",
+   "quote": "The opportunity to not just build but to shape the build makes AI Engineering more exciting than traditional software development.",
+   "quoteId": "Q48",
+   "quoteFrom": "原文 · Q48",
+   "citedBy": "retrieval",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e5",
+   "from": "n2",
+   "to": "n6",
+   "label": "包括沟通与领导",
+   "basis": "quote",
+   "quote": "Additionally, because AI technology is rapidly evolving, many people outside of engineering are trying to understand the technology, its impact on their jobs, and the new practices and products it makes possible.",
+   "quoteId": "Q37",
+   "quoteFrom": "原文 · Q37",
+   "citedBy": "retrieval",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e6",
+   "from": "n4",
+   "to": "n7",
+   "label": "驱动循环需负责",
+   "basis": "quote",
+   "quote": "Additionally, you know how to own an initiative end-to-end, take accountability for issues that arise, act in the face of ambiguity, persist through setbacks, and measure your work not just by task completion, but according to the value you create.",
+   "quoteId": "Q45",
+   "quoteFrom": "原文 · Q45",
+   "citedBy": "retrieval",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e7",
+   "from": "n5",
+   "to": "n7",
+   "label": "产品决策需负责",
+   "basis": "quote",
+   "quote": "Additionally, you know how to own an initiative end-to-end, take accountability for issues that arise, act in the face of ambiguity, persist through setbacks, and measure your work not just by task completion, but according to the value you create.",
+   "quoteId": "Q45",
+   "quoteFrom": "原文 · Q45",
+   "citedBy": "retrieval",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e8",
+   "from": "n1",
+   "to": "n7",
+   "label": "提供机会需负责",
+   "basis": "quote",
+   "quote": "When you’re skilled at AI Engineering, your best work won’t be merely implementing a product that someone else spec’ed out.",
+   "quoteId": "Q6",
+   "quoteFrom": "原文 · Q6",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  }
+ ],
+ "gaps": [
+  "第二段（引用）第 1 批模型连续失败，改用确定性最高分句：模型连续 3 次没给出可用结果：llm-timeout：The operation was aborted due to timeout",
+  "边 Communicating  → High-agency ow（沟通领导需负责）找不到支撑原句 → 按 R1/R2 不进图"
+ ],
+ "llm": {
+  "model": "deepseek-v4-pro",
+  "tokens": 3617,
+  "cached": true
+ },
+ "citedByStats": {
+  "llm": 1,
+  "retrieval": 7
+ }
+}

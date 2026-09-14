@@ -1,0 +1,171 @@
+{
+ "version": "v1",
+ "unitId": "neican-260914-cursor-working-with-agents",
+ "unitKind": "article",
+ "period": "260914",
+ "slug": "cursor-working-with-agents",
+ "title": "与智能体协作",
+ "source": "https://cursor.com/cn/learn/working-with-agents",
+ "generatedAt": "2026-09-14T20:48:37.032Z",
+ "generator": "deterministic+llm",
+ "reviewStatus": "generated-unreviewed",
+ "layers": [
+  {
+   "id": "L1",
+   "name": "框架环境"
+  },
+  {
+   "id": "L2",
+   "name": "框架组成"
+  },
+  {
+   "id": "L3",
+   "name": "协作策略"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "n1",
+   "name": "框架",
+   "full": "框架",
+   "layer": "L1",
+   "role": "core",
+   "card": 0,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_c523853f"
+   }
+  },
+  {
+   "id": "n2",
+   "name": "提示词",
+   "full": "提示词",
+   "layer": "L2",
+   "role": "linked",
+   "card": 1,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_2f0bb123"
+   }
+  },
+  {
+   "id": "n3",
+   "name": "上下文",
+   "full": "上下文",
+   "layer": "L2",
+   "role": "linked",
+   "card": 2,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_d9aa9fe0"
+   }
+  },
+  {
+   "id": "n4",
+   "name": "代码库搜索",
+   "full": "代码库搜索",
+   "layer": "L2",
+   "role": "linked",
+   "card": 3,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_a7504422"
+   }
+  },
+  {
+   "id": "n5",
+   "name": "规划与任务拆分",
+   "full": "规划与任务拆分",
+   "layer": "L3",
+   "role": "linked",
+   "card": 4,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_212c4e37"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "id": "e1",
+   "from": "n1",
+   "to": "n2",
+   "label": "框架包含提示词",
+   "basis": "quote",
+   "quote": "第二个提示词好得多，因为它为智能体提供了基于代码库的具体指引：现有文件、组件和清晰的范围。",
+   "quoteId": "Q27",
+   "quoteFrom": "原文 · Q27",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e2",
+   "from": "n1",
+   "to": "n4",
+   "label": "框架包含代码库搜索",
+   "basis": "quote",
+   "quote": "Cursor 的目标是支持所有前沿模型，并尽可能优化框架，包括智能体可访问的工具。",
+   "quoteId": "Q17",
+   "quoteFrom": "原文 · Q17",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e3",
+   "from": "n2",
+   "to": "n3",
+   "label": "作为上下文输入",
+   "basis": "quote",
+   "quote": "第二个提示词好得多，因为它为智能体提供了基于代码库的具体指引：现有文件、组件和清晰的范围。",
+   "quoteId": "Q27",
+   "quoteFrom": "原文 · Q27",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e4",
+   "from": "n2",
+   "to": "n4",
+   "label": "指导搜索线索",
+   "basis": "quote",
+   "quote": "查看 src/app/profile/page.tsx 中现有的配置文件页面，参考我们的布局模式。",
+   "quoteId": "Q23",
+   "quoteFrom": "原文 · Q23",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e5",
+   "from": "n5",
+   "to": "n3",
+   "label": "避免上下文浪费",
+   "basis": "quote",
+   "quote": "如果你仍在处理同一功能，且智能体保留了早先消息中的有用上下文，继续当前对话会更合适。",
+   "quoteId": "Q37",
+   "quoteFrom": "原文 · Q37",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  }
+ ],
+ "gaps": [
+  "边 框架 → 上下文（框架包含上下文）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 代码库搜索 → 上下文（补充上下文）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 规划与任务拆分 → 提示词（规划明确提示）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 规划与任务拆分 → 代码库搜索（规划搜索范围）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 上下文 → 规划与任务拆分（容量限制需要规划）找不到支撑原句 → 按 R1/R2 不进图"
+ ],
+ "llm": {
+  "model": "deepseek-v4-pro",
+  "tokens": 4798,
+  "cached": true
+ },
+ "citedByStats": {
+  "llm": 5,
+  "retrieval": 0
+ }
+}

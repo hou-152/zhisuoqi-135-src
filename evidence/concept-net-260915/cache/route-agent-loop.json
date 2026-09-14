@@ -1,0 +1,202 @@
+{
+ "at": "2026-09-14T18:05:14.028Z",
+ "model": "deepseek-flash",
+ "tokens": 6361,
+ "parsed": {
+  "type": "json_object",
+  "edges": [
+   {
+    "i": 0,
+    "from": "Agent",
+    "to": "工具",
+    "label": "定义里就写着"
+   },
+   {
+    "i": 1,
+    "from": "Agent",
+    "to": "Harness",
+    "label": "不是同义词"
+   },
+   {
+    "i": 2,
+    "from": "一次工具调用",
+    "to": "Agent",
+    "label": "只是起点不是终点"
+   },
+   {
+    "i": 3,
+    "from": "CON-large-language-model",
+    "to": "Agent",
+    "label": "之上加一层行动结构"
+   },
+   {
+    "i": 4,
+    "from": "Agent",
+    "to": "问题：Agent",
+    "label": "先立住才能作答"
+   },
+   {
+    "i": 5,
+    "from": "Agent",
+    "to": "工具",
+    "label": "先有主体再谈手"
+   },
+   {
+    "i": 6,
+    "from": "Agent",
+    "to": "工具",
+    "label": "先有主体才有它的手"
+   },
+   {
+    "i": 7,
+    "from": "工具",
+    "to": "Harness",
+    "label": "注册执行归它管"
+   },
+   {
+    "i": 8,
+    "from": "工具",
+    "to": "MCP",
+    "label": "接口不等于协议"
+   },
+   {
+    "i": 9,
+    "from": "Agent",
+    "to": "工具",
+    "label": "主体先于它的手"
+   },
+   {
+    "i": 10,
+    "from": "工具",
+    "to": "Harness",
+    "label": "真正伸手的是它"
+   },
+   {
+    "i": 11,
+    "from": "工具",
+    "to": "Agent loop",
+    "label": "循环每步都要调它"
+   },
+   {
+    "i": 12,
+    "from": "工具",
+    "to": "Agent loop",
+    "label": "没它循环是抽象话"
+   },
+   {
+    "i": 13,
+    "from": "退出条件",
+    "to": "Agent loop",
+    "label": "有它才停得下来"
+   },
+   {
+    "i": 14,
+    "from": "Agent loop",
+    "to": "外层工作流",
+    "label": "不等于外层工作流"
+   },
+   {
+    "i": 15,
+    "from": "Agent loop",
+    "to": "工具",
+    "label": "由循环决定何时调"
+   },
+   {
+    "i": 16,
+    "from": "Harness",
+    "to": "Agent loop",
+    "label": "循环靠它才跑起来"
+   },
+   {
+    "i": 17,
+    "from": "Agent loop",
+    "to": "状态子系统与进度持久化",
+    "label": "下一站是存进度"
+   },
+   {
+    "i": 18,
+    "from": "状态",
+    "to": "Agent loop",
+    "label": "让推进可接续"
+   },
+   {
+    "i": 19,
+    "from": "状态",
+    "to": "Checkpoint",
+    "label": "只是一种保存机制"
+   },
+   {
+    "i": 20,
+    "from": "状态",
+    "to": "Harness",
+    "label": "它每步读写的数据"
+   },
+   {
+    "i": 21,
+    "from": "状态子系统与进度持久化",
+    "to": "Agent loop",
+    "label": "缺它中断接不上"
+   },
+   {
+    "i": 22,
+    "from": "状态子系统与进度持久化",
+    "to": "Harness",
+    "label": "下一站到运行系统"
+   },
+   {
+    "i": 23,
+    "from": "Harness",
+    "to": "工具",
+    "label": "真正执行的是它"
+   },
+   {
+    "i": 24,
+    "from": "Harness",
+    "to": "Agent loop",
+    "label": "给循环装上约束"
+   },
+   {
+    "i": 25,
+    "from": "Harness",
+    "to": "状态子系统",
+    "label": "决定读写与恢复"
+   },
+   {
+    "i": 26,
+    "from": "Harness",
+    "to": "工具",
+    "label": "代模型执行工具"
+   },
+   {
+    "i": 27,
+    "from": "Harness",
+    "to": "验证闭环",
+    "label": "下一站验证结果"
+   },
+   {
+    "i": 28,
+    "from": "Harness",
+    "to": "验证闭环",
+    "label": "先有产出再谈检查"
+   },
+   {
+    "i": 29,
+    "from": "可观测性",
+    "to": "验证闭环",
+    "label": "采集给验证消费"
+   },
+   {
+    "i": 30,
+    "from": "验证闭环",
+    "to": "一次运行",
+    "label": "作用于单次任务"
+   },
+   {
+    "i": 31,
+    "from": "Harness",
+    "to": "验证闭环",
+    "label": "独立检查另立一环"
+   }
+  ]
+ }
+}

@@ -1,0 +1,414 @@
+{
+ "version": "v1",
+ "unitId": "neican-260914-cursor-reviewing-testing",
+ "unitKind": "article",
+ "period": "260914",
+ "slug": "cursor-reviewing-testing",
+ "title": "评审和测试代码",
+ "source": "https://cursor.com/cn/learn/reviewing-testing",
+ "generatedAt": "2026-09-14T20:48:37.046Z",
+ "generator": "deterministic+llm",
+ "reviewStatus": "generated-unreviewed",
+ "layers": [
+  {
+   "id": "L1",
+   "name": "编码智能体"
+  },
+  {
+   "id": "L2",
+   "name": "问题与风险"
+  },
+  {
+   "id": "L3",
+   "name": "代码评审"
+  },
+  {
+   "id": "L4",
+   "name": "评审方法"
+  },
+  {
+   "id": "L5",
+   "name": "验证与扩展"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "n1",
+   "name": "编码智能体",
+   "full": "编码智能体（Coding Agent）",
+   "layer": "L1",
+   "role": "core",
+   "card": 0,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_e09e7cfa"
+   }
+  },
+  {
+   "id": "n2",
+   "name": "技术债与一致合并标准",
+   "full": "技术债与一致合并标准",
+   "layer": "L2",
+   "role": "linked",
+   "card": 1,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_90956cad"
+   }
+  },
+  {
+   "id": "n3",
+   "name": "AI 生成代码的隐性缺陷",
+   "full": "AI 生成代码的隐性缺陷",
+   "layer": "L2",
+   "role": "linked",
+   "card": 2,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_bfcfdd25"
+   }
+  },
+  {
+   "id": "n4",
+   "name": "测试通过不等于正确",
+   "full": "测试通过不等于正确",
+   "layer": "L2",
+   "role": "linked",
+   "card": 3,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_4315cfeb"
+   }
+  },
+  {
+   "id": "n5",
+   "name": "代码评审",
+   "full": "代码评审",
+   "layer": "L3",
+   "role": "linked",
+   "card": 4,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_28c079f9"
+   }
+  },
+  {
+   "id": "n6",
+   "name": "自我评审",
+   "full": "自我评审（让智能体评审自己的工作）",
+   "layer": "L4",
+   "role": "linked",
+   "card": 5,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_18b7f425"
+   }
+  },
+  {
+   "id": "n7",
+   "name": "关注智能体工作 / 停止与重…",
+   "full": "关注智能体工作 / 停止与重新引导",
+   "layer": "L4",
+   "role": "linked",
+   "card": 6,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_524ebadf"
+   }
+  },
+  {
+   "id": "n8",
+   "name": "@Branch 完整…",
+   "full": "@Branch 完整 diff 上下文",
+   "layer": "L4",
+   "role": "linked",
+   "card": 7,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_beb73224"
+   }
+  },
+  {
+   "id": "n9",
+   "name": "智能体评审 / 查找问题",
+   "full": "智能体评审 / 查找问题",
+   "layer": "L4",
+   "role": "linked",
+   "card": 8,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_061a7036"
+   }
+  },
+  {
+   "id": "n10",
+   "name": "Bugbot 与…",
+   "full": "Bugbot 与 Autofix",
+   "layer": "L4",
+   "role": "linked",
+   "card": 9,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_d95ae568"
+   }
+  },
+  {
+   "id": "n11",
+   "name": "小而语义明确的提交",
+   "full": "小而语义明确的提交",
+   "layer": "L4",
+   "role": "linked",
+   "card": 10,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_1bfe6b63"
+   }
+  },
+  {
+   "id": "n12",
+   "name": "提交重整理",
+   "full": "提交重整理（/rework-commits）",
+   "layer": "L4",
+   "role": "linked",
+   "card": 11,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_ff65f697"
+   }
+  },
+  {
+   "id": "n13",
+   "name": "验证信号",
+   "full": "验证信号（测试、类型检查、Lint）",
+   "layer": "L5",
+   "role": "linked",
+   "card": 12,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_fb950498"
+   }
+  },
+  {
+   "id": "n14",
+   "name": "云端代理",
+   "full": "云端代理",
+   "layer": "L5",
+   "role": "linked",
+   "card": 13,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_d639b5e5"
+   }
+  },
+  {
+   "id": "n15",
+   "name": "并行测试多种情况",
+   "full": "并行测试多种情况",
+   "layer": "L5",
+   "role": "linked",
+   "card": 14,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_7b323b3f"
+   }
+  },
+  {
+   "id": "n16",
+   "name": "瓶颈转移与测试速度杠杆",
+   "full": "瓶颈转移与测试速度杠杆",
+   "layer": "L5",
+   "role": "linked",
+   "card": 15,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_2ddd1c28"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "id": "e1",
+   "from": "n1",
+   "to": "n2",
+   "label": "生成代码引入技术债",
+   "basis": "quote",
+   "quote": "编码智能体可以生成大量代码，这也意味着可能引入技术债。",
+   "quoteId": "Q5",
+   "quoteFrom": "原文 · Q5",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e2",
+   "from": "n1",
+   "to": "n3",
+   "label": "AI生成代码存在隐性缺陷",
+   "basis": "quote",
+   "quote": "AI 生成的代码看起来可能没问题，但实际上可能存在不易察觉的错误。",
+   "quoteId": "Q8",
+   "quoteFrom": "原文 · Q8",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e3",
+   "from": "n3",
+   "to": "n4",
+   "label": "隐性缺陷使测试通过不等于正确",
+   "basis": "quote",
+   "quote": "它可能遵循现有模式、能够编译并通过您编写的测试，但仍可能遗漏边界情况、存在安全问题，或重复代码库其他位置已有的逻辑。",
+   "quoteId": "Q9",
+   "quoteFrom": "原文 · Q9",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e4",
+   "from": "n5",
+   "to": "n7",
+   "label": "实时关注智能体工作",
+   "basis": "quote",
+   "quote": "如果发现智能体正朝错误的方向推进，请点击 停止 或按 Cmd Shift BackspaceCtrl Shift Backspace 取消并重新引导。",
+   "quoteId": "Q15",
+   "quoteFrom": "原文 · Q15",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e5",
+   "from": "n5",
+   "to": "n8",
+   "label": "提供完整diff上下文",
+   "basis": "quote",
+   "quote": "在提示词中添加 @Branch，即可将当前分支的完整 diff 提供给智能体。",
+   "quoteId": "Q17",
+   "quoteFrom": "原文 · Q17",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e6",
+   "from": "n5",
+   "to": "n9",
+   "label": "使用智能体查找问题",
+   "basis": "quote",
+   "quote": "如需评审所有本地更改，请打开源代码控制标签页并运行 智能体评审，将其与主分支进行比较。",
+   "quoteId": "Q52",
+   "quoteFrom": "原文 · Q52",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e7",
+   "from": "n5",
+   "to": "n10",
+   "label": "自动化评审PR",
+   "basis": "quote",
+   "quote": "它会读取变更的完整上下文，包括修改后的代码与代码库其余部分的关联，并查找可能流入生产环境的缺陷。",
+   "quoteId": "Q58",
+   "quoteFrom": "原文 · Q58",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e8",
+   "from": "n5",
+   "to": "n11",
+   "label": "小而明确提交便于评审",
+   "basis": "quote",
+   "quote": "人工审阅人可以逐个查看提交历史，而无需面对成片的代码改动。",
+   "quoteId": "Q27",
+   "quoteFrom": "原文 · Q27",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e9",
+   "from": "n5",
+   "to": "n12",
+   "label": "整理提交历史",
+   "basis": "quote",
+   "quote": "智能体会重置到 main，通读所有更改，并规划合理的顺序，创建整洁且提交信息清晰的提交。",
+   "quoteId": "Q31",
+   "quoteFrom": "原文 · Q31",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e10",
+   "from": "n5",
+   "to": "n13",
+   "label": "提供验证信号确保正确",
+   "basis": "quote",
+   "quote": "为了帮助确保您的代码正确无误，您需要向智能体提供明确的验证信号，让它能够自行检查工作成果：",
+   "quoteId": "Q63",
+   "quoteFrom": "原文 · Q63",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e11",
+   "from": "n5",
+   "to": "n14",
+   "label": "使用云端代理执行任务",
+   "basis": "quote",
+   "quote": "您需要建立合适的流程，以确保代码库质量，并在问题进入生产环境前发现它们。",
+   "quoteId": "Q11",
+   "quoteFrom": "原文 · Q11",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e12",
+   "from": "n14",
+   "to": "n15",
+   "label": "云端代理支持并行测试",
+   "basis": "quote",
+   "quote": "云端代理 在远程沙盒中运行，因此你可以合上笔记本电脑，稍后再查看结果。",
+   "quoteId": "Q81",
+   "quoteFrom": "原文 · Q81",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e13",
+   "from": "n15",
+   "to": "n16",
+   "label": "并行测试导致瓶颈转移",
+   "basis": "quote",
+   "quote": "这往往是等待测试套件完成、在整个代码库中运行类型检查和 Lint 检查，或 CI 流水线中的其他步骤。",
+   "quoteId": "Q93",
+   "quoteFrom": "原文 · Q93",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  }
+ ],
+ "gaps": [
+  "边 技术债与一致合并标准 → 代码评审（技术债需要代码评审）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 AI 生成代码的隐性缺陷 → 代码评审（隐性缺陷需要代码评审）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 测试通过不等于正确 → 代码评审（测试通过不等于正确需要评审）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 代码评审 → 自我评审（评审首先自我评审）找不到支撑原句 → 按 R1/R2 不进图"
+ ],
+ "llm": {
+  "model": "deepseek-v4-pro",
+  "tokens": 7750,
+  "cached": true
+ },
+ "citedByStats": {
+  "llm": 13,
+  "retrieval": 0
+ }
+}

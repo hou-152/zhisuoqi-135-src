@@ -1,0 +1,205 @@
+{
+ "version": "v1",
+ "unitId": "neican-260914-cursor-customizing-agents",
+ "unitKind": "article",
+ "period": "260914",
+ "slug": "cursor-customizing-agents",
+ "title": "自定义 Agent",
+ "source": "https://cursor.com/cn/learn/customizing-agents",
+ "generatedAt": "2026-09-14T20:48:37.053Z",
+ "generator": "deterministic+llm",
+ "reviewStatus": "generated-unreviewed",
+ "layers": [
+  {
+   "id": "L1",
+   "name": "配置方式"
+  },
+  {
+   "id": "L2",
+   "name": "特性对比"
+  },
+  {
+   "id": "L3",
+   "name": "应用场景"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "n1",
+   "name": "规则",
+   "full": "规则（Rules）",
+   "layer": "L1",
+   "role": "core",
+   "card": 0,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_ed904c68"
+   }
+  },
+  {
+   "id": "n2",
+   "name": "技能",
+   "full": "技能（Skills）",
+   "layer": "L1",
+   "role": "linked",
+   "card": 1,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_92cb645b"
+   }
+  },
+  {
+   "id": "n3",
+   "name": "动态加载",
+   "full": "动态加载",
+   "layer": "L2",
+   "role": "linked",
+   "card": 2,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_8b172a64"
+   }
+  },
+  {
+   "id": "n4",
+   "name": "上下文成本",
+   "full": "上下文成本",
+   "layer": "L2",
+   "role": "linked",
+   "card": 3,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_707da34e"
+   }
+  },
+  {
+   "id": "n5",
+   "name": "防护措施",
+   "full": "防护措施",
+   "layer": "L3",
+   "role": "linked",
+   "card": 4,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_717fd688"
+   }
+  },
+  {
+   "id": "n6",
+   "name": "MCP",
+   "full": "MCP（模型上下文协议）",
+   "layer": "L1",
+   "role": "linked",
+   "card": 5,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_c3ecbf70"
+   }
+  },
+  {
+   "id": "n7",
+   "name": "CLI 工具",
+   "full": "CLI 工具",
+   "layer": "L1",
+   "role": "linked",
+   "card": 6,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_4fb030a3"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "id": "e1",
+   "from": "n1",
+   "to": "n4",
+   "label": "始终占用上下文空间",
+   "basis": "quote",
+   "quote": "您可以将其视为始终包含的指令，用于指导智能体如何处理您的代码。",
+   "quoteId": "Q11",
+   "quoteFrom": "原文 · Q11",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e2",
+   "from": "n2",
+   "to": "n4",
+   "label": "仅在调用时使用完整上下文",
+   "basis": "quote",
+   "quote": "| | 规则 | 技能 | | --- | --- | --- | | 用途 | 始终生效的约定 | 专门的工作流 | | 上下文成本 | 始终占用上下文空间 | 仅在调用时使用完整上下文 | | 最适合用于 | 智能体应始终了解的内容 | 智能体在被要求时可以执行的操作 |",
+   "quoteId": "Q31",
+   "quoteFrom": "原文 · Q31",
+   "citedBy": "llm",
+   "evidenceStrength": "direct",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e3",
+   "from": "n2",
+   "to": "n3",
+   "label": "采用动态加载",
+   "basis": "quote",
+   "quote": "| | 规则 | 技能 | | --- | --- | --- | | 用途 | 始终生效的约定 | 专门的工作流 | | 上下文成本 | 始终占用上下文空间 | 仅在调用时使用完整上下文 | | 最适合用于 | 智能体应始终了解的内容 | 智能体在被要求时可以执行的操作 |",
+   "quoteId": "Q31",
+   "quoteFrom": "原文 · Q31",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e4",
+   "from": "n6",
+   "to": "n4",
+   "label": "提供相关上下文",
+   "basis": "quote",
+   "quote": "Slack，读取消息和发布更新 Datadog，排查生产环境日志 Sentry，查找错误详情和堆栈跟踪 数据库，直接查询数据 Figma，获取设计 token 和组件规格",
+   "quoteId": "Q35",
+   "quoteFrom": "原文 · Q35",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e5",
+   "from": "n6",
+   "to": "n3",
+   "label": "按需提供上下文和操作",
+   "basis": "quote",
+   "quote": "MCP (模型上下文协议) 可让智能体连接外部工具，并获取相关上下文。",
+   "quoteId": "Q32",
+   "quoteFrom": "原文 · Q32",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e6",
+   "from": "n3",
+   "to": "n4",
+   "label": "导致上下文成本差异",
+   "basis": "quote",
+   "quote": "| | 规则 | 技能 | | --- | --- | --- | | 用途 | 始终生效的约定 | 专门的工作流 | | 上下文成本 | 始终占用上下文空间 | 仅在调用时使用完整上下文 | | 最适合用于 | 智能体应始终了解的内容 | 智能体在被要求时可以执行的操作 |",
+   "quoteId": "Q31",
+   "quoteFrom": "原文 · Q31",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  }
+ ],
+ "gaps": [
+  "边 规则 → 防护措施（最适合用于）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 CLI 工具 → 上下文成本（执行结果提供上下文）找不到支撑原句 → 按 R1/R2 不进图"
+ ],
+ "llm": {
+  "model": "deepseek-v4-pro",
+  "tokens": 5437,
+  "cached": true
+ },
+ "citedByStats": {
+  "llm": 6,
+  "retrieval": 0
+ }
+}

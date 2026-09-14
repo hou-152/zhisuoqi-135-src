@@ -1,0 +1,384 @@
+{
+ "version": "v1",
+ "unitId": "neican-260913-raschka-gpt6-astra-looped-transformers",
+ "unitKind": "article",
+ "period": "260913",
+ "slug": "raschka-gpt6-astra-looped-transformers",
+ "title": "GPT-6 Astra, Looped Transformers, and Hidden Reasoning",
+ "source": "https://magazine.sebastianraschka.com/p/gpt-6-astra-looped-transformers-and",
+ "generatedAt": "2026-09-14T20:40:48.981Z",
+ "generator": "deterministic+llm",
+ "reviewStatus": "generated-unreviewed",
+ "layers": [
+  {
+   "id": "L1",
+   "name": "基础架构"
+  },
+  {
+   "id": "L2",
+   "name": "变体与对比"
+  },
+  {
+   "id": "L3",
+   "name": "推理与思维链"
+  },
+  {
+   "id": "L4",
+   "name": "潜在与应用"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "n1",
+   "name": "Transformer…",
+   "full": "Transformer Block、Stack、Block Application（transformer block, stack, block application）",
+   "layer": "L1",
+   "role": "core",
+   "card": 0,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_533406a4"
+   }
+  },
+  {
+   "id": "n2",
+   "name": "Looped…",
+   "full": "Looped Transformer / Recurrent Depth（looped transformer, recurrent depth）",
+   "layer": "L1",
+   "role": "linked",
+   "card": 1,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_602ca158"
+   }
+  },
+  {
+   "id": "n3",
+   "name": "Weight Sharing…",
+   "full": "Weight Sharing and Effective Depth（权重共享、有效深度）",
+   "layer": "L1",
+   "role": "linked",
+   "card": 2,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_66fcff60"
+   }
+  },
+  {
+   "id": "n4",
+   "name": "Looping Costs：…",
+   "full": "Looping Costs：参数、计算与 KV Cache（looping costs）",
+   "layer": "L1",
+   "role": "linked",
+   "card": 3,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_754efbf8"
+   }
+  },
+  {
+   "id": "n5",
+   "name": "Adaptive…",
+   "full": "Adaptive Halting（adaptive halting, halting probability）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 4,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_2ca4e836"
+   }
+  },
+  {
+   "id": "n6",
+   "name": "Per-token…",
+   "full": "Per-token Routing：Expert-choice vs Token-choice（Mixture-of-Recursions, routing）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 5,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_eb2850df"
+   }
+  },
+  {
+   "id": "n7",
+   "name": "RNN Recurrence…",
+   "full": "RNN Recurrence vs Looped Transformer Depth Recurrence（RNN 对比）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 6,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_fa24d6ae"
+   }
+  },
+  {
+   "id": "n8",
+   "name": "Computer-Use…",
+   "full": "Computer-Use Training / Harness（computer use, harness）",
+   "layer": "L4",
+   "role": "linked",
+   "card": 7,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_ec485c61"
+   }
+  },
+  {
+   "id": "n9",
+   "name": "Reasoning…",
+   "full": "Reasoning Model and Reasoning Trace / Chain of Thought（reasoning model, reasoning trace, chain of thought）",
+   "layer": "L3",
+   "role": "linked",
+   "card": 8,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_acaf5e0a"
+   }
+  },
+  {
+   "id": "n10",
+   "name": "Hidden Chains …",
+   "full": "Hidden Chains of Thought / Monitorability（hidden reasoning traces, chain-of-thought monitoring）",
+   "layer": "L3",
+   "role": "linked",
+   "card": 9,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_9657e384"
+   }
+  },
+  {
+   "id": "n11",
+   "name": "Reasoning…",
+   "full": "Reasoning Trace Faithfulness（faithfulness）",
+   "layer": "L3",
+   "role": "linked",
+   "card": 10,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_2a6f7367"
+   }
+  },
+  {
+   "id": "n12",
+   "name": "Token Usage vs…",
+   "full": "Token Usage vs Reasoning Trace Length（efficiency vs interpretability）",
+   "layer": "L3",
+   "role": "linked",
+   "card": 11,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_d9cdf3c5"
+   }
+  },
+  {
+   "id": "n13",
+   "name": "Latent…",
+   "full": "Latent Reasoning（inference-time looping）",
+   "layer": "L4",
+   "role": "linked",
+   "card": 12,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_68fd0bbe"
+   }
+  },
+  {
+   "id": "n14",
+   "name": "Knowledge…",
+   "full": "Knowledge Retrieval vs Reasoning（memorization vs reasoning）",
+   "layer": "L3",
+   "role": "linked",
+   "card": 13,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_bc76d880"
+   }
+  },
+  {
+   "id": "n15",
+   "name": "Compute-…",
+   "full": "Compute-Matched Looped Transformer（SMELT）",
+   "layer": "L4",
+   "role": "linked",
+   "card": 14,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_963f0df3"
+   }
+  },
+  {
+   "id": "n16",
+   "name": "Full-bandwidth…",
+   "full": "Full-bandwidth Transformer / Latent Feedback",
+   "layer": "L4",
+   "role": "linked",
+   "card": 15,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_f00be3c3"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "id": "e1",
+   "from": "n1",
+   "to": "n2",
+   "label": "组成单元",
+   "basis": "quote",
+   "quote": "A Looped Transformer is essentially an architectural tweak, with the main idea being to pass the intermediate representations through the same transformer blocks multiple times (instead of just once).",
+   "quoteId": "Q75",
+   "quoteFrom": "原文 · Q75",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e2",
+   "from": "n2",
+   "to": "n3",
+   "label": "依赖权重共享",
+   "basis": "quote",
+   "quote": "So, the whole idea here is that we increase the effective depth from 22 to 44 block applications without adding another set of transformer weights.",
+   "quoteId": "Q99",
+   "quoteFrom": "原文 · Q99",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e3",
+   "from": "n3",
+   "to": "n4",
+   "label": "影响参数成本",
+   "basis": "quote",
+   "quote": "So, the whole idea here is that we increase the effective depth from 22 to 44 block applications without adding another set of transformer weights.",
+   "quoteId": "Q99",
+   "quoteFrom": "原文 · Q99",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e4",
+   "from": "n2",
+   "to": "n13",
+   "label": "支持潜在推理",
+   "basis": "quote",
+   "quote": "Related to the Universal Transformer, the 2025 Scaling up Test-Time Compute with Latent Reasoning: A Recurrent Depth Approach paper studies how a model can use additional loops at inference time.",
+   "quoteId": "Q268",
+   "quoteFrom": "原文 · Q268",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e5",
+   "from": "n10",
+   "to": "n11",
+   "label": "难以监控",
+   "basis": "quote",
+   "quote": "(The looped transformer explanation may seem a bit long, but I really think that it helps with establishing a foundational understanding of the technique, which is then useful to judging the claim that it obscures the reasoning traces or chains of thought.)",
+   "quoteId": "Q74",
+   "quoteFrom": "原文 · Q74",
+   "citedBy": "retrieval",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e6",
+   "from": "n9",
+   "to": "n12",
+   "label": "效率与可解释性",
+   "basis": "quote",
+   "quote": "(The looped transformer explanation may seem a bit long, but I really think that it helps with establishing a foundational understanding of the technique, which is then useful to judging the claim that it obscures the reasoning traces or chains of thought.)",
+   "quoteId": "Q74",
+   "quoteFrom": "原文 · Q74",
+   "citedBy": "retrieval",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e7",
+   "from": "n12",
+   "to": "n13",
+   "label": "效率需求",
+   "basis": "quote",
+   "quote": "Related to the Universal Transformer, the 2025 Scaling up Test-Time Compute with Latent Reasoning: A Recurrent Depth Approach paper studies how a model can use additional loops at inference time.",
+   "quoteId": "Q268",
+   "quoteFrom": "原文 · Q268",
+   "citedBy": "retrieval",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e8",
+   "from": "n2",
+   "to": "n15",
+   "label": "计算匹配分析",
+   "basis": "quote",
+   "quote": "A Looped Transformer is essentially an architectural tweak, with the main idea being to pass the intermediate representations through the same transformer blocks multiple times (instead of just once).",
+   "quoteId": "Q75",
+   "quoteFrom": "原文 · Q75",
+   "citedBy": "retrieval",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e9",
+   "from": "n15",
+   "to": "n4",
+   "label": "分析成本",
+   "basis": "quote",
+   "quote": "A Looped Transformer is essentially an architectural tweak, with the main idea being to pass the intermediate representations through the same transformer blocks multiple times (instead of just once).",
+   "quoteId": "Q75",
+   "quoteFrom": "原文 · Q75",
+   "citedBy": "retrieval",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e10",
+   "from": "n16",
+   "to": "n13",
+   "label": "潜在反馈",
+   "basis": "quote",
+   "quote": "Related to the Universal Transformer, the 2025 Scaling up Test-Time Compute with Latent Reasoning: A Recurrent Depth Approach paper studies how a model can use additional loops at inference time.",
+   "quoteId": "Q268",
+   "quoteFrom": "原文 · Q268",
+   "citedBy": "retrieval",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e11",
+   "from": "n9",
+   "to": "n8",
+   "label": "支撑计算机使用",
+   "basis": "quote",
+   "quote": "At the same time, there are many tools and software that don’t expose CLIs (yet), and instead of waiting until someone designs that interface, why not improve models to use graphical user interfaces (and, as mentioned before, this makes for pretty and impressive demos, anyway)?",
+   "quoteId": "Q46",
+   "quoteFrom": "原文 · Q46",
+   "citedBy": "retrieval",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  }
+ ],
+ "gaps": [
+  "第二段（引用）第 2 批模型连续失败，改用确定性最高分句：模型连续 3 次没给出可用结果：llm-timeout：The operation was aborted due to timeout",
+  "边 Looped Transfo → Adaptive Halti（自适应停止）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 Looped Transfo → Per-token Rout（路由变体）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 Reasoning Mode → Hidden Chains （隐藏推理链）找不到支撑原句 → 按 R1/R2 不进图"
+ ],
+ "llm": {
+  "model": "deepseek-v4-pro",
+  "tokens": 5284,
+  "cached": true
+ },
+ "citedByStats": {
+  "llm": 4,
+  "retrieval": 7
+ }
+}

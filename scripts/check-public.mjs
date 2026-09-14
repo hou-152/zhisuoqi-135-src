@@ -99,10 +99,10 @@ async function step(label, action, expect, waitMs = 900) {
 
 console.log('公网版验收 ' + URL_ + (ONLINE ? '（线上）' : '（本地静态服务·假域名）'));
 
-// 2026-09-14 改准：左栏现在是 3 格导航（内参 · 知识体系 · 实践空间），
-// 此前写死 2 格（少了 09-13 深夜加的「实践空间」），一直是过期断言。
-await step('首屏：左栏 3 格导航（内参在上）+ 中间栏就是那 21 条主题', null,
-  { js: `[...document.querySelectorAll('.r-item b')].map(b=>b.textContent).join('|') + '｜' + document.querySelectorAll('#lp-body .row').length + '｜' + groups().length`, want: '内参|知识体系|实践空间｜' + N_TAGS + '｜' + N_TAGS });
+// 2026-09-15 v4 改准：4 格导航（探索 · 内参 · 知识体系 · 实践空间）——探索置顶第一，
+// 模块名按队友前端口径改回「知识体系」（v3 一度叫知识树）。
+await step('首屏：4 格导航（探索在上）+ 中间栏就是那 21 条主题', null,
+  { js: `[...document.querySelectorAll('.r-item b')].map(b=>b.textContent).join('|') + '｜' + document.querySelectorAll('#lp-body .row').length + '｜' + groups().length`, want: '探索|内参|知识体系|实践空间｜' + N_TAGS + '｜' + N_TAGS });
 await step('点一条主题 → 下钻到三级', `document.querySelectorAll('#lp-body .row')[0].click()`,
   { js: `currentView + '|' + (filter === DATA.curation.tags[0].id ? '画布跟上了' : '画布没跟') + '|' + (document.getElementById('lp-back').style.display === '' ? '有返回' : '没返回')`, want: 'theme|画布跟上了|有返回' });
 await step('「← 全部主题」回到二级', `setView('graph')`,
@@ -112,20 +112,31 @@ await step('09-13 减法：底部那条栏已删', null,
 await step('09-13 减法：已删的四个入口不再是导航项，旧轴函数也没了', null,
   { js: `['curate','todo','mine','chat'].filter(v => document.querySelector('.r-item[data-view="'+v+'"]')).length + '|' + typeof window.setAxis`, want: '0|undefined' });
 await step('顶栏 + 两栏都在（一级导航在顶栏；列表栏列的是主题，不是 936 条概念）', null,
-  { js: `['topbar','list','main'].filter(i=>document.getElementById(i)).length + '|' + document.querySelectorAll('#topbar .r-item').length + '|' + document.querySelectorAll('#lp-body .row').length`, want: '3|3|' + N_TAGS });
+  { js: `['topbar','list','main'].filter(i=>document.getElementById(i)).length + '|' + document.querySelectorAll('#topbar .r-item').length + '|' + document.querySelectorAll('#lp-body .row').length`, want: '3|4|' + N_TAGS });
 await step(`${N_TOTAL} 个点全部有标签`, null,
   { js: `const n=DATA.nodes.filter(x=>(x.tags||[]).length).length; n+'/'+DATA.nodes.length`, want: N_TOTAL + '/' + N_TOTAL });
-await step('关系视图：语义边与图例可切换', `setMode('relation')`,
-  { js: `mode+'|'+relations.length+'|'+(document.getElementById('rel-legend').classList.contains('on')?'图例':'无图例')+'|'+relations.filter(r=>r.kind==='co-article'||r.kind==='rejected').length`, want: 'relation|' });
-await step('关系视图：默认不含共现与拒绝边', null,
-  { js: `relations.filter(r=>r.kind==='co-article'||r.kind==='rejected').length`, want: '0' });
-await step('回到默认依赖视图', `setMode('grid')`, { js: `mode`, want: 'grid' });
+// 2026-09-15 v4：视图收敛——tab 板只剩 我的树|路径；系统视图走更新面板/hash 直达。
+await step('视图收敛：tab 板两格', null,
+  { js: `[...document.querySelectorAll('.mtools .tab')].map(t=>t.dataset.mode).join('|')`, want: 'tree|path' });
+await step('顶栏更新面板在（含系统审计视图入口）', `toggleUpd()`,
+  { js: `document.querySelectorAll('#upd-panel .u-item').length + '|' + (document.querySelector('#upd-panel .u-sys button')?.textContent || '').includes('系统审计')`, want: '5|true' });
+await step('系统视图 hash 直达（撤 tab 不撤能力；公网无索引，只断言面板入口在）', null,
+  { js: `(document.querySelector('#upd-panel .u-sys button') ? '面板入口在' : '没了') + '|' + String(typeof toggleUpd)`, want: '面板入口在|function' });
+await step('回默认视图', `setMode('tree')`, { js: `mode`, want: 'tree' });
+await step('默认就是我的树（树头 slogan + 统计在）', null,
+  { js: `(mode === 'tree' && !!document.querySelector('#tree-head .th-slogan') && document.getElementById('tree-stat').textContent.length > 4) ? 'OK' : 'NO'`, want: 'OK' });
+await step('语义关系数据还在（卡上双链用它；画布不再画全局线）', null,
+  { js: `'有 ' + relations.length + ' 条（禁绘 ' + relations.filter(r=>r.kind==='co-article'||r.kind==='rejected').length + '）'`, want: '有 ' });
+await step('共现/已否边仍然默认不绘制（口径没松）', null,
+  { js: `String(relations.filter(r=>r.kind==='co-article'||r.kind==='rejected').length)`, want: '0' });
+await step('旧模式名 relation 落到树（不白屏）', `setMode('relation')`, { js: `mode`, want: 'tree' });
+await step('回到默认视图', `setMode('tree')`, { js: `mode`, want: 'tree' });
 await step('公网地址下不去探 /api（无 404 噪音）', null, { js: `String(LOCAL)`, want: 'false' });
-await step('星球', `closePanel(); setMode('sphere')`, { js: `mode`, want: 'sphere' });
+await step('星球同样落树', `closePanel(); setMode('sphere')`, { js: `mode`, want: 'tree' });
 
 // 倒逼层：公网无模型时必须走机械兜底，并且**不能**给出「过了」
 await step('「只能认的」不设验收', `openPanel(nodes.find(n=>n.k==='accept').id)`,
-  { js: `document.getElementById('pbody').innerText.includes('这一类不设验收') ? 'OK' : 'NO'`, want: 'OK' });
+  { js: `document.getElementById('pbody').innerText.includes('这一类不用讲一遍') ? 'OK' : 'NO'`, want: 'OK' });
 await step('概念面板有复述输入框', `openPanel('${COMPUTE0}')`,
   { js: `document.getElementById('said') ? 'OK' : 'NO'`, want: 'OK' });
 await step('无自报通道', `document.getElementById('pbody').innerHTML.includes('setMark') ? '还在' : 'OK'`,
@@ -143,13 +154,17 @@ await step('内参：中间栏换成 日期/分类/标签/策展（不再是篇�
     + '|' + (document.querySelector('#lp-body .nei-cal') ? '月历在中间栏' : '月历不在中间栏')
     + '|' + document.querySelectorAll('#lp-body .nei-facets .fg').length`, want: '0|月历在中间栏|2' });
 
-await step('内参：日报集合能开（每期一张日报卡）', null,
+// v4：公网单文件版**有意不含**全量 graph 索引（/api/graph 会 404），所以这里不导航到系统视图——
+// 能力保留在 hash 直达 + 更新面板入口（上面已断言面板存在）；本地版由 test-graph-page 覆盖。
+await step('内参：日报集合能开（v4 默认选中最新一期＝单期视图）', null,
   { js: `(()=>{const ym=String(NEI_ALL[0].date).slice(0,7);
     const k=NEI_ALL.filter(i=>String(i.date).slice(0,7)===ym).length;
     return (document.getElementById('reader').classList.contains('on') ? 'ON' : 'OFF')
       + '|' + (document.querySelector('.nei-cal') ? '有月历' : '缺月历')
       + '|' + (document.querySelectorAll('.nei-cal .cd.has').length === k ? '点亮对上' : '点亮对不上')
-      + '|' + document.querySelectorAll('.nei-day').length})()`, want: 'ON|有月历|点亮对上|' + N_ISSUES });
+      + '|' + document.querySelectorAll('.nei-day').length
+      + '|' + (document.querySelector('.nei-cal .hint')||{}).textContent})()`,
+    want: 'ON|有月历|点亮对上|1|已选 ' });
 
 await step('内参：月历点一天 → 只留那一天的日报', `neiPick(NEI_ALL[NEI_ALL.length-1].period)`,
   { js: `(()=>{const d=document.querySelector('.nei-day .dh b');
@@ -215,8 +230,8 @@ await step('内参：只有三产物的一期，费曼是示范一段', PLAIN_SL
   { js: `document.querySelectorAll('#nei-body .fybox').length`, want: '1' });
 await step('内参：换一篇 + 阅读原文只放子链接', `openNeican(NEI_ALL[1].articles[3].slug); neiTab('source')`,
   { js: `document.querySelectorAll('#nei-body a[href^="http"]').length === 1 ? 'OK' : 'NO'`, want: 'OK' });
-await step('内参：回到日报集合（点返回）', `openNeicanHome()`,
-  { js: `document.querySelectorAll('.nei-day').length`, want: String(N_ISSUES) });
+await step('内参：回到日报集合（点返回；v4 默认回到最新一期单期视图）', `openNeicanHome()`,
+  { js: `document.querySelectorAll('.nei-day').length + '|' + ((document.querySelector('.nei-cal .hint')||{}).textContent||'').includes('已选')`, want: '1|true' });
 await step('内参：退出后阅读区让位', `setView('graph')`,
   { js: `document.getElementById('reader').classList.contains('on')`, want: 'false' });
 

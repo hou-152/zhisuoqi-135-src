@@ -1,0 +1,261 @@
+{
+ "version": "v1",
+ "unitId": "neican-260913-apple-ceo-ternus",
+ "unitKind": "article",
+ "period": "260913",
+ "slug": "apple-ceo-ternus",
+ "title": "特努斯回答一切，那个懂技术的苹果 CEO 回来了",
+ "source": "https://www.ifanr.com/1679848",
+ "generatedAt": "2026-09-14T20:33:00.889Z",
+ "generator": "deterministic+llm",
+ "reviewStatus": "generated-unreviewed",
+ "layers": [
+  {
+   "id": "L1",
+   "name": "产品理念根基"
+  },
+  {
+   "id": "L2",
+   "name": "平台产品前提"
+  },
+  {
+   "id": "L3",
+   "name": "具体技术实现"
+  },
+  {
+   "id": "L4",
+   "name": "综合体验共振"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "n1",
+   "name": "不做半成品",
+   "full": "不做半成品",
+   "layer": "L1",
+   "role": "core",
+   "card": 0,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_846ea075"
+   }
+  },
+  {
+   "id": "n2",
+   "name": "折叠屏连续性",
+   "full": "折叠屏连续性（continuity／内外屏同比例等比缩放）",
+   "layer": "L3",
+   "role": "linked",
+   "card": 1,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_3ba46971"
+   }
+  },
+  {
+   "id": "n3",
+   "name": "大画布生态资产",
+   "full": "大画布生态资产",
+   "layer": "L2",
+   "role": "linked",
+   "card": 2,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_e3e6b958"
+   }
+  },
+  {
+   "id": "n4",
+   "name": "可变光圈与控制权回归",
+   "full": "可变光圈与控制权回归",
+   "layer": "L3",
+   "role": "linked",
+   "card": 3,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_5fbb41af"
+   }
+  },
+  {
+   "id": "n5",
+   "name": "性能冗余与高保值",
+   "full": "性能冗余与高保值",
+   "layer": "L3",
+   "role": "linked",
+   "card": 4,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_60b03c1b"
+   }
+  },
+  {
+   "id": "n6",
+   "name": "intelligent…",
+   "full": "intelligent personal hub（智能个人中枢）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 5,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_12b4b314"
+   }
+  },
+  {
+   "id": "n7",
+   "name": "privacy-first／…",
+   "full": "privacy-first／硬件隔离区（exclave）／无持久化录音",
+   "layer": "L3",
+   "role": "linked",
+   "card": 6,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_5cae48bb"
+   }
+  },
+  {
+   "id": "n8",
+   "name": "硬件、软件与服务的深层共振",
+   "full": "硬件、软件与服务的深层共振",
+   "layer": "L4",
+   "role": "linked",
+   "card": 7,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_f3e1b053"
+   }
+  },
+  {
+   "id": "n9",
+   "name": "克制且有意识地推进／把节奏交…",
+   "full": "克制且有意识地推进／把节奏交还给产品自己",
+   "layer": "L1",
+   "role": "linked",
+   "card": 8,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_9f11ab05"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "id": "e1",
+   "from": "n1",
+   "to": "n6",
+   "label": "坚持标准催生中枢",
+   "basis": "quote",
+   "quote": "!Image Apple Watch 和 AirPods 是极佳的感官延伸，但 iPhone 才是那个不可动摇的中枢。",
+   "quoteId": "Q66",
+   "quoteFrom": "原文 · Q66",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e2",
+   "from": "n1",
+   "to": "n3",
+   "label": "严格标准守护生态",
+   "basis": "quote",
+   "quote": "市面上很多安卓平板说到底更像是等比放大的大屏手机，而 iPad 从诞生起就拥有一套专为大画布定制的生态体系。",
+   "quoteId": "Q143",
+   "quoteFrom": "原文 · Q143",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e3",
+   "from": "n1",
+   "to": "n5",
+   "label": "标准要求性能冗余",
+   "basis": "quote",
+   "quote": "高保值率的底层基石，靠的就是过硬的可靠性、持久的系统维护以及超前的芯片性能。",
+   "quoteId": "Q242",
+   "quoteFrom": "原文 · Q242",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e4",
+   "from": "n1",
+   "to": "n4",
+   "label": "品质门槛催生光圈",
+   "basis": "quote",
+   "quote": "而对于摄影爱好者和专业用户们，苹果这次终于把过去被计算摄影在后台承包的控制权重新交了回来，光圈、快门乃至焦点都支持手动深度调节。",
+   "quoteId": "Q51",
+   "quoteFrom": "原文 · Q51",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e5",
+   "from": "n6",
+   "to": "n7",
+   "label": "中枢需要隐私隔离",
+   "basis": "quote",
+   "quote": "为了实现这一目标，我们专门为 Apple Watch 设计了集成硬件隔离区（exclave）的全新芯片，确保拾取的声音信号仅在被算法解析提炼、生成高维日程笔记的那一瞬间短暂驻留，随即便从内存中彻底覆写抹除。",
+   "quoteId": "Q282",
+   "quoteFrom": "原文 · Q282",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e6",
+   "from": "n3",
+   "to": "n2",
+   "label": "生态支撑折叠体验",
+   "basis": "quote",
+   "quote": "这样一来，不仅把宝贵的纵向阅读空间彻底腾了出来，还创造出了一套极其符合人体工学的盲操逻辑——合上机身单手握持时，按键落在右手拇指下方；",
+   "quoteId": "Q134",
+   "quoteFrom": "原文 · Q134",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e7",
+   "from": "n2",
+   "to": "n8",
+   "label": "折叠交互融入共振",
+   "basis": "quote",
+   "quote": "我最痴迷的瞬间，就是当硬件构件、底层算法与生态服务紧密咬合在一起时，它们所迸发出的综合体验远远超越了各个孤立零件的简单物理相加。",
+   "quoteId": "Q308",
+   "quoteFrom": "原文 · Q308",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e8",
+   "from": "n7",
+   "to": "n8",
+   "label": "隐私隔离支撑整合",
+   "basis": "quote",
+   "quote": "为了实现这一目标，我们专门为 Apple Watch 设计了集成硬件隔离区（exclave）的全新芯片，确保拾取的声音信号仅在被算法解析提炼、生成高维日程笔记的那一瞬间短暂驻留，随即便从内存中彻底覆写抹除。",
+   "quoteId": "Q282",
+   "quoteFrom": "原文 · Q282",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  }
+ ],
+ "gaps": [
+  "边 可变光圈与控制权回归 → 硬件、软件与服务的深层共振（相机控制增强共振）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 性能冗余与高保值 → 硬件、软件与服务的深层共振（性能冗余保障体验）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 intelligent pe → 硬件、软件与服务的深层共振（中枢定位引导共振）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 大画布生态资产 → 硬件、软件与服务的深层共振（生态资产汇聚体验）找不到支撑原句 → 按 R1/R2 不进图"
+ ],
+ "llm": {
+  "model": "deepseek-v4-pro",
+  "tokens": 8424,
+  "cached": true
+ },
+ "citedByStats": {
+  "llm": 8,
+  "retrieval": 0
+ }
+}

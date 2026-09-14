@@ -65,9 +65,9 @@ check('② 角标变「桌面版」', await ex(`document.getElementById('pubtag'
    但左栏后来又加回「实践空间」（1 / 3 / 5 那个入口），跟 check-public 的「首屏 3 格导航」冲突了。
    现在两边对齐成同一份契约：3 格导航、内参在最上。 */
 check(
-  '② 桌面版壳＝减法后的三格导航（内参 / 知识体系 / 实践空间）',
+  '② 桌面版壳＝v4 四格导航（探索 / 内参 / 知识体系 / 实践空间）',
   await ex(`(()=>{const labels=[...document.querySelectorAll('.r-item b')].map(b=>b.textContent); return labels.join('|')})()`),
-  '内参|知识体系|实践空间',
+  '探索|内参|知识体系|实践空间',
 );
 
 /* ③ 真写真文件 */

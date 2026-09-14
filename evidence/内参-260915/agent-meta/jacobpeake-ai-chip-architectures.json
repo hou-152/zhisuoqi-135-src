@@ -1,0 +1,10 @@
+{
+  "slug": "jacobpeake-ai-chip-architectures",
+  "summary": "六种已实际部署的AI芯片架构（英伟达GPU、谷歌TPU、AMD、Cerebras、AWS Trainium、Groq LPU）沿同一组问题对照：数据住在哪、如何流向计算单元、计算单元什么形态、芯片如何互联。各家给出不同答案：英伟达赌可编程与硬件一致性，谷歌赌编译器与光交换环面，AMD赌封装与开放标准，Cerebras与Groq把SRAM-only推到极端，换来单用户解码延迟、付出容量与吞吐代价。",
+  "topic": "AI芯片架构六家对照",
+  "stars": 4,
+  "starReason": "一手机制拆解六家芯片，四问框架可迁移，信息新至2026",
+  "why": "把零散的芯片新闻压成一个可复用的分析框架：数据住哪、怎么流动、算什么、怎么连。每家都落到具体机制与代价，包括失败面（Groq被收编为延迟协处理器、Cerebras退守解码利基）。",
+  "metaphor": "喂不饱的磨坊",
+  "palette": "clay"
+}

@@ -1,0 +1,10 @@
+{
+  "slug": "mp-bsn57d",
+  "summary": "Google Research 提出 WikiSkill 三层知识架构（Raw/Wiki/Skills），将不可变轨迹、跨迭代知识库与带溯源的可执行技能解耦，使技能更新具备稳定因果上下文，实现小模型加技能超越裸大模型。",
+  "topic": "WikiSkill技能自我进化",
+  "stars": 4,
+  "starReason": "三层知识解耦设计直击技能进化遗忘痛点，消融与跨模型实验扎实",
+  "why": "解决了 Agent 进化中经验用后即丢和改技能丢失上下文的顽疾，证明了中间层持久知识库对自动化技能闭环的决定性价值。",
+  "metaphor": "带活页笔记的技能工坊",
+  "palette": "olive"
+}

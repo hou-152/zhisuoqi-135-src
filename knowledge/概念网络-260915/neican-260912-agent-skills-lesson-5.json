@@ -1,0 +1,213 @@
+{
+ "version": "v1",
+ "unitId": "neican-260912-agent-skills-lesson-5",
+ "unitKind": "article",
+ "period": "260912",
+ "slug": "agent-skills-lesson-5",
+ "title": "Claude 官方课程 · 第 5 课：技能的分发与共享",
+ "source": "https://academy.claude.com/zh-CN/courses/introduction-to-agent-skills/sharing-skills",
+ "generatedAt": "2026-09-14T20:33:00.845Z",
+ "generator": "deterministic+llm",
+ "reviewStatus": "generated-unreviewed",
+ "layers": [
+  {
+   "id": "L1",
+   "name": "技能共享渠道"
+  },
+  {
+   "id": "L2",
+   "name": "企业优先级"
+  },
+  {
+   "id": "L3",
+   "name": "子代理隔离"
+  },
+  {
+   "id": "L4",
+   "name": "代理边界"
+  },
+  {
+   "id": "L5",
+   "name": "显式授权"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "n1",
+   "name": "仓库提交",
+   "full": "仓库提交（.claude/skills 中的项目技能）",
+   "layer": "L1",
+   "role": "core",
+   "card": 0,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_ae250f40"
+   }
+  },
+  {
+   "id": "n2",
+   "name": "插件与市场",
+   "full": "插件与市场（Plugin / Marketplace）",
+   "layer": "L1",
+   "role": "linked",
+   "card": 1,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_48ea99ce"
+   }
+  },
+  {
+   "id": "n3",
+   "name": "企业托管设置（Managed…",
+   "full": "企业托管设置（Managed Settings）与 strictKnownMarketplaces",
+   "layer": "L1",
+   "role": "linked",
+   "card": 2,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_32e036a5"
+   }
+  },
+  {
+   "id": "n4",
+   "name": "企业技能的最高优先级",
+   "full": "企业技能的最高优先级（同名覆盖）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 3,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_2440f85e"
+   }
+  },
+  {
+   "id": "n5",
+   "name": "子代理的技能隔离",
+   "full": "子代理的技能隔离（子代理不自动继承技能）",
+   "layer": "L3",
+   "role": "linked",
+   "card": 4,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_138a8b67"
+   }
+  },
+  {
+   "id": "n6",
+   "name": "内置代理与自定义子代理的技能",
+   "full": "内置代理与自定义子代理的技能访问边界",
+   "layer": "L4",
+   "role": "linked",
+   "card": 5,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_4eb02f12"
+   }
+  },
+  {
+   "id": "n7",
+   "name": "skills 字段",
+   "full": "skills 字段（前置元数据中的显式授权）",
+   "layer": "L5",
+   "role": "linked",
+   "card": 6,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_200893a2"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "id": "e1",
+   "from": "n1",
+   "to": "n2",
+   "label": "提供目录结构模式",
+   "basis": "quote",
+   "quote": "Watch on YouTube(opens in new tab) .claude/skills 中的项目技能会通过 Git 自动共享——任何克隆该仓库的人都会获得这些技能 插件让您可以通过市场在各个仓库间分发技能，以供更广泛的社区使用 企业托管设置以最高优先级在整个组织范围内部署技能，非常适合强制性标准和合规要求 子代理不会自动看到您的技能——您必须在自定义代理的前置元数据 skills 字段中明确列出技能 内置代理（Explorer、Plan、Verify）完全无法访问技能——只有在 .claude/agents 中定义的自定义子代理才可以 当技能被共享时，它们会变得更有价值。",
+   "quoteId": "Q9",
+   "quoteFrom": "原文 · Q9",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e2",
+   "from": "n3",
+   "to": "n4",
+   "label": "赋予最高优先级",
+   "basis": "quote",
+   "quote": "托管设置文件支持诸如 strictKnownMarketplaces 之类的功能，用于控制可以从哪里安装插件： \"strictKnownMarketplaces\": [ { \"source\": \"github\", \"repo\": \"acme-corp/approved-plugins\" }, { \"source\": \"npm\", \"package\": \"@acme-corp/compliance-plugins\" } ] 对于必须在整个组织中保持一致的强制性标准、安全要求、合规工作流程和编码实践，这是正确的选择。",
+   "quoteId": "Q22",
+   "quoteFrom": "原文 · Q22",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e3",
+   "from": "n4",
+   "to": "n1",
+   "label": "覆盖项目技能",
+   "basis": "quote",
+   "quote": "将它们放在 .claude/skills 中，任何克隆该仓库的人都会自动获得这些技能——无需额外安装。",
+   "quoteId": "Q13",
+   "quoteFrom": "原文 · Q13",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e4",
+   "from": "n5",
+   "to": "n6",
+   "label": "细分子代理边界",
+   "basis": "quote",
+   "quote": "Watch on YouTube(opens in new tab) .claude/skills 中的项目技能会通过 Git 自动共享——任何克隆该仓库的人都会获得这些技能 插件让您可以通过市场在各个仓库间分发技能，以供更广泛的社区使用 企业托管设置以最高优先级在整个组织范围内部署技能，非常适合强制性标准和合规要求 子代理不会自动看到您的技能——您必须在自定义代理的前置元数据 skills 字段中明确列出技能 内置代理（Explorer、Plan、Verify）完全无法访问技能——只有在 .claude/agents 中定义的自定义子代理才可以 当技能被共享时，它们会变得更有价值。",
+   "quoteId": "Q9",
+   "quoteFrom": "原文 · Q9",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e5",
+   "from": "n6",
+   "to": "n7",
+   "label": "需要skills字段授权",
+   "basis": "quote",
+   "quote": "Watch on YouTube(opens in new tab) .claude/skills 中的项目技能会通过 Git 自动共享——任何克隆该仓库的人都会获得这些技能 插件让您可以通过市场在各个仓库间分发技能，以供更广泛的社区使用 企业托管设置以最高优先级在整个组织范围内部署技能，非常适合强制性标准和合规要求 子代理不会自动看到您的技能——您必须在自定义代理的前置元数据 skills 字段中明确列出技能 内置代理（Explorer、Plan、Verify）完全无法访问技能——只有在 .claude/agents 中定义的自定义子代理才可以 当技能被共享时，它们会变得更有价值。",
+   "quoteId": "Q9",
+   "quoteFrom": "原文 · Q9",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e6",
+   "from": "n5",
+   "to": "n7",
+   "label": "隔离促使显式授权",
+   "basis": "quote",
+   "quote": "Watch on YouTube(opens in new tab) .claude/skills 中的项目技能会通过 Git 自动共享——任何克隆该仓库的人都会获得这些技能 插件让您可以通过市场在各个仓库间分发技能，以供更广泛的社区使用 企业托管设置以最高优先级在整个组织范围内部署技能，非常适合强制性标准和合规要求 子代理不会自动看到您的技能——您必须在自定义代理的前置元数据 skills 字段中明确列出技能 内置代理（Explorer、Plan、Verify）完全无法访问技能——只有在 .claude/agents 中定义的自定义子代理才可以 当技能被共享时，它们会变得更有价值。",
+   "quoteId": "Q9",
+   "quoteFrom": "原文 · Q9",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  }
+ ],
+ "gaps": [
+  "边 插件与市场 → 企业托管设置（Managed（扩展至组织级共享）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 企业技能的最高优先级 → 插件与市场（覆盖插件技能）找不到支撑原句 → 按 R1/R2 不进图"
+ ],
+ "llm": {
+  "model": "deepseek-v4-pro",
+  "tokens": 7752,
+  "cached": true
+ },
+ "citedByStats": {
+  "llm": 6,
+  "retrieval": 0
+ }
+}

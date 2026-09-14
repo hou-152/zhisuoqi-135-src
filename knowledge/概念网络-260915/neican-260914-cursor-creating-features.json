@@ -1,0 +1,273 @@
+{
+ "version": "v1",
+ "unitId": "neican-260914-cursor-creating-features",
+ "unitKind": "article",
+ "period": "260914",
+ "slug": "cursor-creating-features",
+ "title": "创建功能",
+ "source": "https://cursor.com/cn/learn/creating-features",
+ "generatedAt": "2026-09-14T20:48:37.045Z",
+ "generator": "deterministic+llm",
+ "reviewStatus": "generated-unreviewed",
+ "layers": [
+  {
+   "id": "L1",
+   "name": "核心原则"
+  },
+  {
+   "id": "L2",
+   "name": "方案制定"
+  },
+  {
+   "id": "L3",
+   "name": "验证与输入"
+  },
+  {
+   "id": "L4",
+   "name": "防护机制"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "n1",
+   "name": "可自行验证的步骤",
+   "full": "可自行验证的步骤",
+   "layer": "L1",
+   "role": "core",
+   "card": 0,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_39ea90f7"
+   }
+  },
+  {
+   "id": "n2",
+   "name": "Plan 模式",
+   "full": "Plan 模式",
+   "layer": "L2",
+   "role": "linked",
+   "card": 1,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_46c26da4"
+   }
+  },
+  {
+   "id": "n3",
+   "name": "回到方案，而非修补提示词",
+   "full": "回到方案，而非修补提示词",
+   "layer": "L2",
+   "role": "linked",
+   "card": 2,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_b661925a"
+   }
+  },
+  {
+   "id": "n4",
+   "name": "智能体判断自己的代码是否正确",
+   "full": "智能体判断自己的代码是否正确（自我验证）",
+   "layer": "L3",
+   "role": "linked",
+   "card": 3,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_f33afab3"
+   }
+  },
+  {
+   "id": "n5",
+   "name": "测试驱动开发",
+   "full": "测试驱动开发（TDD）",
+   "layer": "L3",
+   "role": "linked",
+   "card": 4,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_149d5090"
+   }
+  },
+  {
+   "id": "n6",
+   "name": "图像输入",
+   "full": "图像输入（设计稿／截图／视觉调试）",
+   "layer": "L3",
+   "role": "linked",
+   "card": 5,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_25afb069"
+   }
+  },
+  {
+   "id": "n7",
+   "name": "集成浏览器与 MCP 服务器",
+   "full": "集成浏览器与 MCP 服务器",
+   "layer": "L3",
+   "role": "linked",
+   "card": 6,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_ec73ae4b"
+   }
+  },
+  {
+   "id": "n8",
+   "name": "验证手段",
+   "full": "验证手段（防护机制）",
+   "layer": "L4",
+   "role": "linked",
+   "card": 7,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_3b9f47be"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "id": "e1",
+   "from": "n1",
+   "to": "n2",
+   "label": "要求制定方案",
+   "basis": "quote",
+   "quote": "使用 Cursor 的 Plan 模式，智能体会研究您的代码库、向您提出澄清性问题，并生成一份可供您编辑和调整的分步方案。",
+   "quoteId": "Q13",
+   "quoteFrom": "原文 · Q13",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e2",
+   "from": "n1",
+   "to": "n4",
+   "label": "需要自我验证",
+   "basis": "quote",
+   "quote": "在每一步中，智能体都可以衡量进度、确认步骤是否已成功完成，然后继续下一步。",
+   "quoteId": "Q25",
+   "quoteFrom": "原文 · Q25",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e3",
+   "from": "n1",
+   "to": "n6",
+   "label": "需要图像输入",
+   "basis": "quote",
+   "quote": "设计稿：粘贴线框图或 Figma 导出内容，让智能体构建组件 视觉调试：截取非预期的 UI 状态，让智能体进行排查 迭代：截取当前结果的屏幕截图，并说明需要更改的内容",
+   "quoteId": "Q54",
+   "quoteFrom": "原文 · Q54",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e4",
+   "from": "n1",
+   "to": "n7",
+   "label": "需要设计规格",
+   "basis": "quote",
+   "quote": "你还可以连接 Figma MCP 服务器，让智能体直接从你的 Figma 文件中提取设计 token、变量和组件规格。",
+   "quoteId": "Q55",
+   "quoteFrom": "原文 · Q55",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e5",
+   "from": "n1",
+   "to": "n8",
+   "label": "要求防护机制",
+   "basis": "quote",
+   "quote": "验证逻辑和行为的测试 验证结构正确性的类型检查 强制执行代码风格和模式的 Linter 获取 UI 更改反馈的浏览器工具或 MCP 服务器",
+   "quoteId": "Q62",
+   "quoteFrom": "原文 · Q62",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e6",
+   "from": "n3",
+   "to": "n2",
+   "label": "细化方案",
+   "basis": "quote",
+   "quote": "使用 Cursor 的 Plan 模式，智能体会研究您的代码库、向您提出澄清性问题，并生成一份可供您编辑和调整的分步方案。",
+   "quoteId": "Q13",
+   "quoteFrom": "原文 · Q13",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e7",
+   "from": "n5",
+   "to": "n4",
+   "label": "提供测试验证",
+   "basis": "quote",
+   "quote": "因为智能体可以运行测试、查看失败情况、调整代码，然后再次尝试。",
+   "quoteId": "Q48",
+   "quoteFrom": "原文 · Q48",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e8",
+   "from": "n6",
+   "to": "n7",
+   "label": "可升级为MCP",
+   "basis": "quote",
+   "quote": "你还可以连接 Figma MCP 服务器，让智能体直接从你的 Figma 文件中提取设计 token、变量和组件规格。",
+   "quoteId": "Q55",
+   "quoteFrom": "原文 · Q55",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e9",
+   "from": "n5",
+   "to": "n8",
+   "label": "作为防护机制",
+   "basis": "quote",
+   "quote": "验证逻辑和行为的测试 验证结构正确性的类型检查 强制执行代码风格和模式的 Linter 获取 UI 更改反馈的浏览器工具或 MCP 服务器",
+   "quoteId": "Q62",
+   "quoteFrom": "原文 · Q62",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e10",
+   "from": "n4",
+   "to": "n8",
+   "label": "作为防护机制",
+   "basis": "quote",
+   "quote": "验证逻辑和行为的测试 验证结构正确性的类型检查 强制执行代码风格和模式的 Linter 获取 UI 更改反馈的浏览器工具或 MCP 服务器",
+   "quoteId": "Q62",
+   "quoteFrom": "原文 · Q62",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  }
+ ],
+ "gaps": [
+  "边 可自行验证的步骤 → 测试驱动开发（需要测试驱动）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 Plan 模式 → 回到方案，而非修补提示词（不符预期时回退）找不到支撑原句 → 按 R1/R2 不进图"
+ ],
+ "llm": {
+  "model": "deepseek-v4-pro",
+  "tokens": 7179,
+  "cached": true
+ },
+ "citedByStats": {
+  "llm": 10,
+  "retrieval": 0
+ }
+}

@@ -1,0 +1,265 @@
+{
+ "version": "v1",
+ "unitId": "neican-260914-cursor-putting-it-together",
+ "unitKind": "article",
+ "period": "260914",
+ "slug": "cursor-putting-it-together",
+ "title": "融会贯通",
+ "source": "https://cursor.com/cn/learn/putting-it-together",
+ "generatedAt": "2026-09-14T20:24:43.197Z",
+ "generator": "deterministic+llm",
+ "reviewStatus": "generated-unreviewed",
+ "layers": [
+  {
+   "id": "L1",
+   "name": "基础"
+  },
+  {
+   "id": "L2",
+   "name": "探索规划"
+  },
+  {
+   "id": "L3",
+   "name": "构建调试"
+  },
+  {
+   "id": "L4",
+   "name": "测试沉淀"
+  },
+  {
+   "id": "L5",
+   "name": "闭环总结"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "n1",
+   "name": "编码 agent",
+   "full": "编码 agent（coding agent）",
+   "layer": "L1",
+   "role": "core",
+   "card": 0,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_e09e7cfa"
+   }
+  },
+  {
+   "id": "n2",
+   "name": "Ask mode",
+   "full": "Ask mode（Ask 模式）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 1,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_87bd2595"
+   }
+  },
+  {
+   "id": "n3",
+   "name": "Plan mode",
+   "full": "Plan mode（Plan 模式）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 2,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_46c26da4"
+   }
+  },
+  {
+   "id": "n4",
+   "name": "首迭代范围收敛",
+   "full": "首迭代范围收敛",
+   "layer": "L2",
+   "role": "linked",
+   "card": 3,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_d439dce6"
+   }
+  },
+  {
+   "id": "n5",
+   "name": "调试与根因修复",
+   "full": "调试与根因修复",
+   "layer": "L3",
+   "role": "linked",
+   "card": 4,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_aaee3337"
+   }
+  },
+  {
+   "id": "n6",
+   "name": "云端代理的边界测试",
+   "full": "云端代理的边界测试（Cloud Agents）",
+   "layer": "L4",
+   "role": "linked",
+   "card": 5,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_5efc3e0e"
+   }
+  },
+  {
+   "id": "n7",
+   "name": "规则沉淀 / 定价规则",
+   "full": "规则沉淀 / 定价规则",
+   "layer": "L4",
+   "role": "linked",
+   "card": 6,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_f71d1a8a"
+   }
+  },
+  {
+   "id": "n8",
+   "name": "完整闭环",
+   "full": "完整闭环（探索—规划—构建—测试—调试—评审—沉淀）",
+   "layer": "L5",
+   "role": "linked",
+   "card": 7,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_ab568fc5"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "id": "e1",
+   "from": "n1",
+   "to": "n2",
+   "label": "提供协作基础",
+   "basis": "quote",
+   "quote": "现在，您已经知道如何利用 agents 理解代码库、快速开发功能、搜索代码并查找缺陷、更高效地评审代码，以及按需自定义 agents。",
+   "quoteId": "Q6",
+   "quoteFrom": "原文 · Q6",
+   "citedBy": "retrieval",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e2",
+   "from": "n1",
+   "to": "n3",
+   "label": "提供规划模式",
+   "basis": "quote",
+   "quote": "现在，您已经知道如何利用 agents 理解代码库、快速开发功能、搜索代码并查找缺陷、更高效地评审代码，以及按需自定义 agents。",
+   "quoteId": "Q6",
+   "quoteFrom": "原文 · Q6",
+   "citedBy": "retrieval",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e3",
+   "from": "n1",
+   "to": "n8",
+   "label": "整体闭环基础",
+   "basis": "quote",
+   "quote": "现在，您已经知道如何利用 agents 理解代码库、快速开发功能、搜索代码并查找缺陷、更高效地评审代码，以及按需自定义 agents。",
+   "quoteId": "Q6",
+   "quoteFrom": "原文 · Q6",
+   "citedBy": "retrieval",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e4",
+   "from": "n2",
+   "to": "n3",
+   "label": "建立认知后规划",
+   "basis": "quote",
+   "quote": "修改 PricingService.calculateTotal()，使其接受可选的折扣",
+   "quoteId": "Q26",
+   "quoteFrom": "原文 · Q26",
+   "citedBy": "retrieval",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e5",
+   "from": "n2",
+   "to": "n4",
+   "label": "认知帮助评审",
+   "basis": "quote",
+   "quote": "在进行任何更改之前，请带我了解结账流程的运作方式。",
+   "quoteId": "Q15",
+   "quoteFrom": "原文 · Q15",
+   "citedBy": "retrieval",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e6",
+   "from": "n3",
+   "to": "n4",
+   "label": "提供方案供评审",
+   "basis": "quote",
+   "quote": "用户输入折扣码后，系统会进行验证，并在计算税费前将折扣应用到订单总额中。",
+   "quoteId": "Q24",
+   "quoteFrom": "原文 · Q24",
+   "citedBy": "retrieval",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e7",
+   "from": "n4",
+   "to": "n5",
+   "label": "构建后调试",
+   "basis": "quote",
+   "quote": "构建后，有一个测试始终失败：将百分比折扣与固定金额折扣叠加时，计算出的总额不正确。",
+   "quoteId": "Q34",
+   "quoteFrom": "原文 · Q34",
+   "citedBy": "retrieval",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e8",
+   "from": "n5",
+   "to": "n6",
+   "label": "修复后补测边界",
+   "basis": "quote",
+   "quote": "如果你已配置云端代理，可以启动几个来测试可能遗漏的边界情况：折扣码中的 Unicode 字符、大额折扣值或折扣码的并发使用。",
+   "quoteId": "Q43",
+   "quoteFrom": "原文 · Q43",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e9",
+   "from": "n5",
+   "to": "n7",
+   "label": "调试发现定价规则",
+   "basis": "quote",
+   "quote": "你在开发此功能时发现：为确保结果不受输入顺序影响，折扣计算应始终先应用百分比折扣，再应用固定金额折扣。",
+   "quoteId": "Q45",
+   "quoteFrom": "原文 · Q45",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  }
+ ],
+ "gaps": [
+  "第二段（引用）第 1 批模型连续失败，改用确定性最高分句：模型连续 3 次没给出可用结果：空回复（finish=length）",
+  "边 云端代理的边界测试 → 规则沉淀 / 定价规则（测试反馈沉淀规则）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 规则沉淀 / 定价规则 → 完整闭环（沉淀完善闭环）找不到支撑原句 → 按 R1/R2 不进图"
+ ],
+ "llm": {
+  "model": "deepseek-v4-pro",
+  "tokens": 5649,
+  "cached": true
+ },
+ "citedByStats": {
+  "llm": 2,
+  "retrieval": 7
+ }
+}

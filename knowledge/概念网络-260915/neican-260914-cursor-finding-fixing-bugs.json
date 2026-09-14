@@ -1,0 +1,308 @@
+{
+ "version": "v1",
+ "unitId": "neican-260914-cursor-finding-fixing-bugs",
+ "unitKind": "article",
+ "period": "260914",
+ "slug": "cursor-finding-fixing-bugs",
+ "title": "查找并修复缺陷",
+ "source": "https://cursor.com/cn/learn/finding-fixing-bugs",
+ "generatedAt": "2026-09-14T20:48:37.046Z",
+ "generator": "deterministic+llm",
+ "reviewStatus": "generated-unreviewed",
+ "layers": [
+  {
+   "id": "L1",
+   "name": "共同原则"
+  },
+  {
+   "id": "L2",
+   "name": "证据与工具"
+  },
+  {
+   "id": "L3",
+   "name": "调试策略"
+  },
+  {
+   "id": "L4",
+   "name": "根本原因验证"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "n1",
+   "name": "良好调试的共同原则",
+   "full": "良好调试的共同原则",
+   "layer": "L1",
+   "role": "core",
+   "card": 0,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_98aed8e2"
+   }
+  },
+  {
+   "id": "n2",
+   "name": "错误消息明确时的直接修复",
+   "full": "错误消息明确时的直接修复",
+   "layer": "L3",
+   "role": "linked",
+   "card": 1,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_7f2ecdb1"
+   }
+  },
+  {
+   "id": "n3",
+   "name": "调试模式",
+   "full": "调试模式（Debug Mode）",
+   "layer": "L3",
+   "role": "linked",
+   "card": 2,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_0ee20898"
+   }
+  },
+  {
+   "id": "n4",
+   "name": "运行时证据",
+   "full": "运行时证据",
+   "layer": "L2",
+   "role": "linked",
+   "card": 3,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_fb2eaa08"
+   }
+  },
+  {
+   "id": "n5",
+   "name": "多模型并行与多智能体评判",
+   "full": "多模型并行与多智能体评判",
+   "layer": "L3",
+   "role": "linked",
+   "card": 4,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_ffba8f02"
+   }
+  },
+  {
+   "id": "n6",
+   "name": "集成浏览器",
+   "full": "集成浏览器",
+   "layer": "L2",
+   "role": "linked",
+   "card": 5,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_98080c77"
+   }
+  },
+  {
+   "id": "n7",
+   "name": "MCP 服务器",
+   "full": "MCP 服务器",
+   "layer": "L2",
+   "role": "linked",
+   "card": 6,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_1b608c4d"
+   }
+  },
+  {
+   "id": "n8",
+   "name": "监控告警自动触发智能体调查",
+   "full": "监控告警自动触发智能体调查",
+   "layer": "L3",
+   "role": "linked",
+   "card": 7,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_f738f372"
+   }
+  },
+  {
+   "id": "n9",
+   "name": "理解修复与根本原因",
+   "full": "理解修复与根本原因",
+   "layer": "L4",
+   "role": "linked",
+   "card": 8,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_040af839"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "id": "e1",
+   "from": "n1",
+   "to": "n2",
+   "label": "提供通用准则",
+   "basis": "quote",
+   "quote": "对于错误消息明确或原因显而易见的缺陷，智能体通常可以直接定位并修复问题。",
+   "quoteId": "Q19",
+   "quoteFrom": "原文 · Q19",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e2",
+   "from": "n1",
+   "to": "n3",
+   "label": "遵循共同原则",
+   "basis": "quote",
+   "quote": "“缺陷发生是因为 calculateTotal() 未考虑负折扣”则足够具体，可以进行验证。",
+   "quoteId": "Q14",
+   "quoteFrom": "原文 · Q14",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e3",
+   "from": "n4",
+   "to": "n3",
+   "label": "提供运行时证据",
+   "basis": "quote",
+   "quote": "智能体可以利用这些数据更高效地找出根本原因。",
+   "quoteId": "Q58",
+   "quoteFrom": "原文 · Q58",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e4",
+   "from": "n6",
+   "to": "n4",
+   "label": "提供前端运行时证据",
+   "basis": "quote",
+   "quote": "让智能体打开页面、复现问题，并检查控制台中的错误或网络标签页中的慢请求。",
+   "quoteId": "Q63",
+   "quoteFrom": "原文 · Q63",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e5",
+   "from": "n7",
+   "to": "n4",
+   "label": "提供可观测性数据",
+   "basis": "quote",
+   "quote": "MCP 服务器 可为智能体提供新能力，并将其连接到生产环境的可观测性工具。",
+   "quoteId": "Q65",
+   "quoteFrom": "原文 · Q65",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e6",
+   "from": "n3",
+   "to": "n5",
+   "label": "支持多智能体并行",
+   "basis": "quote",
+   "quote": "要进一步确认修复是否准确，可以要求模型验证其工作，并确保该方案正确。",
+   "quoteId": "Q49",
+   "quoteFrom": "原文 · Q49",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e7",
+   "from": "n3",
+   "to": "n8",
+   "label": "自动化调试调查",
+   "basis": "quote",
+   "quote": "这可以缩短解决客户报告的错误所需的时间，甚至在客户察觉前修复问题。",
+   "quoteId": "Q73",
+   "quoteFrom": "原文 · Q73",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e8",
+   "from": "n7",
+   "to": "n8",
+   "label": "连接可观测性工具",
+   "basis": "quote",
+   "quote": "如果错误率激增，Linear 会创建一个工单，智能体会在人工介入前开始诊断问题。",
+   "quoteId": "Q72",
+   "quoteFrom": "原文 · Q72",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e9",
+   "from": "n1",
+   "to": "n9",
+   "label": "要求理解根本原因",
+   "basis": "quote",
+   "quote": "智能体可能会添加空值检查，让错误消失，但底层的数据不一致问题依然存在。",
+   "quoteId": "Q75",
+   "quoteFrom": "原文 · Q75",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e10",
+   "from": "n2",
+   "to": "n9",
+   "label": "避免掩盖问题",
+   "basis": "quote",
+   "quote": "智能体可能会添加空值检查，让错误消失，但底层的数据不一致问题依然存在。",
+   "quoteId": "Q75",
+   "quoteFrom": "原文 · Q75",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e11",
+   "from": "n3",
+   "to": "n9",
+   "label": "验证修复正确性",
+   "basis": "quote",
+   "quote": "当智能体提出修复方案时，要不断追问，直到完全理解。",
+   "quoteId": "Q76",
+   "quoteFrom": "原文 · Q76",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e12",
+   "from": "n4",
+   "to": "n9",
+   "label": "辅助理解根本原因",
+   "basis": "quote",
+   "quote": "智能体可以利用这些数据更高效地找出根本原因。",
+   "quoteId": "Q58",
+   "quoteFrom": "原文 · Q58",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  }
+ ],
+ "gaps": [],
+ "llm": {
+  "model": "deepseek-v4-pro",
+  "tokens": 7214,
+  "cached": true
+ },
+ "citedByStats": {
+  "llm": 12,
+  "retrieval": 0
+ }
+}

@@ -1,0 +1,161 @@
+{
+ "version": "v1",
+ "unitId": "neican-260912-agent-skills-lesson-3",
+ "unitKind": "article",
+ "period": "260912",
+ "slug": "agent-skills-lesson-3",
+ "title": "Claude 官方课程 · 第 3 课：写好 name 与 description",
+ "source": "https://academy.claude.com/courses/introduction-to-agent-skills/configuration-and-multi-file-skills",
+ "generatedAt": "2026-09-14T20:33:00.845Z",
+ "generator": "deterministic+llm",
+ "reviewStatus": "generated-unreviewed",
+ "layers": [
+  {
+   "id": "L1",
+   "name": "核心字段"
+  },
+  {
+   "id": "L2",
+   "name": "可选限制"
+  },
+  {
+   "id": "L3",
+   "name": "上下文机制"
+  },
+  {
+   "id": "L4",
+   "name": "优化策略"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "n1",
+   "name": "name",
+   "full": "name（必填字段）",
+   "layer": "L1",
+   "role": "core",
+   "card": 0,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_6ae99955"
+   }
+  },
+  {
+   "id": "n2",
+   "name": "description",
+   "full": "description（必填字段）",
+   "layer": "L1",
+   "role": "linked",
+   "card": 1,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_cb329146"
+   }
+  },
+  {
+   "id": "n3",
+   "name": "allowed-tools",
+   "full": "allowed-tools（可选字段）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 2,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_53ec7c9b"
+   }
+  },
+  {
+   "id": "n4",
+   "name": "共享上下文窗口",
+   "full": "共享上下文窗口（技能激活即载入 SKILL.md）",
+   "layer": "L3",
+   "role": "linked",
+   "card": 3,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_b3524e24"
+   }
+  },
+  {
+   "id": "n5",
+   "name": "逐步披露",
+   "full": "逐步披露（progressive disclosure）",
+   "layer": "L4",
+   "role": "linked",
+   "card": 4,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_916d7db2"
+   }
+  },
+  {
+   "id": "n6",
+   "name": "脚本执行",
+   "full": "脚本执行（不入上下文）",
+   "layer": "L4",
+   "role": "linked",
+   "card": 5,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_40b450ca"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "id": "e1",
+   "from": "n4",
+   "to": "n5",
+   "label": "上下文有限需控制行数",
+   "basis": "quote",
+   "quote": "将所有内容塞进一个 2000 行的文件中有两个问题：它会占用大量的上下文窗口空间，而且维护起来很麻烦。",
+   "quoteId": "Q33",
+   "quoteFrom": "原文 · Q33",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e2",
+   "from": "n4",
+   "to": "n6",
+   "label": "上下文有限执行不入上下文",
+   "basis": "quote",
+   "quote": "脚本执行时无需将其内容加载到上下文中——只有输出会消耗令牌，从而保持上下文的高效性。",
+   "quoteId": "Q10",
+   "quoteFrom": "原文 · Q10",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e3",
+   "from": "n1",
+   "to": "n3",
+   "label": "激活后工具限制生效",
+   "basis": "quote",
+   "quote": "allowed-tools限制克劳德在技能激活时可以使用的工具——适用于只读或对安全性要求较高的工作流程。",
+   "quoteId": "Q8",
+   "quoteFrom": "原文 · Q8",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  }
+ ],
+ "gaps": [
+  "边 description → 共享上下文窗口（匹配成功后激活加载）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 name → 共享上下文窗口（标识正确触发加载）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 逐步披露 → 脚本执行（链接脚本仅执行输出）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 description → allowed-tools（匹配成功后限制工具）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 allowed-tools → 脚本执行（允许Bash执行脚本）找不到支撑原句 → 按 R1/R2 不进图"
+ ],
+ "llm": {
+  "model": "deepseek-v4-pro",
+  "tokens": 7525,
+  "cached": true
+ },
+ "citedByStats": {
+  "llm": 3,
+  "retrieval": 0
+ }
+}

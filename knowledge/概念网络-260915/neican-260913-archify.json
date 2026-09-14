@@ -1,0 +1,262 @@
+{
+ "version": "v1",
+ "unitId": "neican-260913-archify",
+ "unitKind": "article",
+ "period": "260913",
+ "slug": "archify",
+ "title": "Archify",
+ "source": "https://github.com/tt-a1i/archify",
+ "generatedAt": "2026-09-14T20:33:00.973Z",
+ "generator": "deterministic+llm",
+ "reviewStatus": "generated-unreviewed",
+ "layers": [
+  {
+   "id": "L1",
+   "name": "定位与编译核心"
+  },
+  {
+   "id": "L2",
+   "name": "类型与交付门"
+  },
+  {
+   "id": "L3",
+   "name": "预览与交互"
+  },
+  {
+   "id": "L4",
+   "name": "高级特性与治理"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "n1",
+   "name": "沟通工件与非目标",
+   "full": "沟通工件与非目标（communication artifact / non-goals）",
+   "layer": "L1",
+   "role": "core",
+   "card": 0,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_a9aea49f"
+   }
+  },
+  {
+   "id": "n2",
+   "name": "类型化 JSON IR",
+   "full": "类型化 JSON IR（typed JSON IR）",
+   "layer": "L1",
+   "role": "linked",
+   "card": 1,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_01363896"
+   }
+  },
+  {
+   "id": "n3",
+   "name": "确定性编译",
+   "full": "确定性编译（deterministic compilation）",
+   "layer": "L1",
+   "role": "linked",
+   "card": 2,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_3c7b40a0"
+   }
+  },
+  {
+   "id": "n4",
+   "name": "五种图表类型",
+   "full": "五种图表类型（Architecture / Workflow / Sequence / Data Flow / Lifecycle）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 3,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_d3ec66a4"
+   }
+  },
+  {
+   "id": "n5",
+   "name": "原子验证与交付门",
+   "full": "原子验证与交付门（atomic validation before delivery）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 4,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_a786850e"
+   }
+  },
+  {
+   "id": "n6",
+   "name": "修复收据与有限修复轮次",
+   "full": "修复收据与有限修复轮次（repair receipt / supportedFixes）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 5,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_2bd22aed"
+   }
+  },
+  {
+   "id": "n7",
+   "name": "Last-good live…",
+   "full": "Last-good live preview",
+   "layer": "L3",
+   "role": "linked",
+   "card": 6,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_b17b604d"
+   }
+  },
+  {
+   "id": "n8",
+   "name": "真实交互",
+   "full": "真实交互（truthful interaction）",
+   "layer": "L3",
+   "role": "linked",
+   "card": 7,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_94bf8880"
+   }
+  },
+  {
+   "id": "n9",
+   "name": "按需源证据",
+   "full": "按需源证据（source evidence, only when requested）",
+   "layer": "L4",
+   "role": "linked",
+   "card": 8,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_e6156f75"
+   }
+  },
+  {
+   "id": "n10",
+   "name": "可移植单文件与导出",
+   "full": "可移植单文件与导出（portable by default）",
+   "layer": "L4",
+   "role": "linked",
+   "card": 9,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_c607ceb8"
+   }
+  },
+  {
+   "id": "n11",
+   "name": "Architecture…",
+   "full": "Architecture Delta",
+   "layer": "L4",
+   "role": "linked",
+   "card": 10,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_c55e33bd"
+   }
+  },
+  {
+   "id": "n12",
+   "name": "部署所有权失败关闭",
+   "full": "部署所有权失败关闭（deployment-ownership fails closed）",
+   "layer": "L4",
+   "role": "linked",
+   "card": 11,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_04b2c792"
+   }
+  },
+  {
+   "id": "n13",
+   "name": "更新检查隐私边界",
+   "full": "更新检查隐私边界（update-check boundary）",
+   "layer": "L4",
+   "role": "linked",
+   "card": 12,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_41403e79"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "id": "e1",
+   "from": "n2",
+   "to": "n3",
+   "label": "编译HTML/SVG",
+   "basis": "quote",
+   "quote": "Typed JSON IR — every renderer-backed mode has a schema and reproducible source.",
+   "quoteId": "Q70",
+   "quoteFrom": "原文 · Q70",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e2",
+   "from": "n3",
+   "to": "n5",
+   "label": "产出待验证HTML/SVG",
+   "basis": "quote",
+   "quote": "Atomic validation before delivery — schema, layout, HTML/SVG, route, and label-to-route clearance checks must all pass before a showcase artifact replaces the last known good output.",
+   "quoteId": "Q71",
+   "quoteFrom": "原文 · Q71",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e3",
+   "from": "n5",
+   "to": "n6",
+   "label": "失败返回修复收据",
+   "basis": "quote",
+   "quote": "Atomic validation before delivery — schema, layout, HTML/SVG, route, and label-to-route clearance checks must all pass before a showcase artifact replaces the last known good output.",
+   "quoteId": "Q71",
+   "quoteFrom": "原文 · Q71",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e4",
+   "from": "n3",
+   "to": "n10",
+   "label": "产出单文件HTML",
+   "basis": "quote",
+   "quote": "Architecture's optional deployment-ownership profile fails closed when authored owners, region placement, private database scope, or named crossings are missing; it is never implicit and does not inspect live infrastructure.",
+   "quoteId": "Q57",
+   "quoteFrom": "原文 · Q57",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  }
+ ],
+ "gaps": [
+  "边 沟通工件与非目标 → 类型化 JSON IR（驱动类型化IR设计）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 类型化 JSON IR → 五种图表类型（IR包含图表类型）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 五种图表类型 → 原子验证与交付门（类型定义验证规则）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 原子验证与交付门 → Last-good live（验证通过后刷新）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 确定性编译 → 真实交互（编译交互功能）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 真实交互 → 按需源证据（按需展示源证据）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 原子验证与交付门 → Architecture D（提供机器收据）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 原子验证与交付门 → 部署所有权失败关闭（扩展部署所有权检查）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 沟通工件与非目标 → 更新检查隐私边界（隐私更新策略）找不到支撑原句 → 按 R1/R2 不进图"
+ ],
+ "llm": {
+  "model": "deepseek-v4-pro",
+  "tokens": 7116,
+  "cached": true
+ },
+ "citedByStats": {
+  "llm": 4,
+  "retrieval": 0
+ }
+}

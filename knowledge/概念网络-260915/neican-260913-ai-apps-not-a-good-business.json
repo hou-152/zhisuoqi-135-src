@@ -1,0 +1,300 @@
+{
+ "version": "v1",
+ "unitId": "neican-260913-ai-apps-not-a-good-business",
+ "unitKind": "article",
+ "period": "260913",
+ "slug": "ai-apps-not-a-good-business",
+ "title": "有用户，有收入，AI 应用却不是好生意",
+ "source": "https://mp.weixin.qq.com/s?__biz=MzU3Mjk1OTQ0Ng%3D%3D&mid=2247538479&idx=1&sn=2857e8f2282601d9884cebbc5cdd2d28&chksm=fd194da9a22e375152b6cd91ed4293518e8eb5cb28123f9dbe778266994b4d4dff8a4dda6211",
+ "generatedAt": "2026-09-14T20:40:49.012Z",
+ "generator": "deterministic+llm",
+ "reviewStatus": "generated-unreviewed",
+ "layers": [
+  {
+   "id": "L1",
+   "name": "卖token本质"
+  },
+  {
+   "id": "L2",
+   "name": "直接困境"
+  },
+  {
+   "id": "L3",
+   "name": "外部冲击"
+  },
+  {
+   "id": "L4",
+   "name": "出路探索"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "n1",
+   "name": "卖 token 的生意",
+   "full": "卖 token 的生意",
+   "layer": "L1",
+   "role": "core",
+   "card": 0,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_1bc9fd34"
+   }
+  },
+  {
+   "id": "n2",
+   "name": "ARR（年度经常性收入）的失…",
+   "full": "ARR（年度经常性收入）的失真",
+   "layer": "L2",
+   "role": "linked",
+   "card": 1,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_e23c30a8"
+   }
+  },
+  {
+   "id": "n3",
+   "name": "推理成本锁死毛利",
+   "full": "推理成本锁死毛利",
+   "layer": "L2",
+   "role": "linked",
+   "card": 2,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_d65b4094"
+   }
+  },
+  {
+   "id": "n4",
+   "name": "Scaling to…",
+   "full": "Scaling to bankruptcy",
+   "layer": "L2",
+   "role": "linked",
+   "card": 3,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_efc3a316"
+   }
+  },
+  {
+   "id": "n5",
+   "name": "模型吞噬",
+   "full": "模型吞噬",
+   "layer": "L3",
+   "role": "linked",
+   "card": 4,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_a1325dbd"
+   }
+  },
+  {
+   "id": "n6",
+   "name": "窗口期",
+   "full": "窗口期",
+   "layer": "L3",
+   "role": "linked",
+   "card": 5,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_59ead63a"
+   }
+  },
+  {
+   "id": "n7",
+   "name": "\"模型即应用\"",
+   "full": "\"模型即应用\"",
+   "layer": "L3",
+   "role": "linked",
+   "card": 6,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_773134ff"
+   }
+  },
+  {
+   "id": "n8",
+   "name": "\"躲避大模型\" 的\"发心\"",
+   "full": "\"躲避大模型\" 的\"发心\"",
+   "layer": "L3",
+   "role": "linked",
+   "card": 7,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_8e4b26cb"
+   }
+  },
+  {
+   "id": "n9",
+   "name": "应用公司的\"租客\"处境",
+   "full": "应用公司的\"租客\"处境",
+   "layer": "L3",
+   "role": "linked",
+   "card": 8,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_29e30984"
+   }
+  },
+  {
+   "id": "n10",
+   "name": "往下游去：卖结果",
+   "full": "往下游去：卖结果",
+   "layer": "L4",
+   "role": "linked",
+   "card": 9,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_0b9dd702"
+   }
+  },
+  {
+   "id": "n11",
+   "name": "往上游去：自己做模型",
+   "full": "往上游去：自己做模型",
+   "layer": "L4",
+   "role": "linked",
+   "card": 10,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_a3568a50"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "id": "e1",
+   "from": "n1",
+   "to": "n3",
+   "label": "每次使用都产生成本",
+   "basis": "quote",
+   "quote": "到了 AI 时代，被验证和成为一门可持续的生意成了两件事：用户可能愿意用、愿意付费，但每次使用都会产生推理成本，这笔成本不会随增长下降，毛利始终压在低位。",
+   "quoteId": "Q42",
+   "quoteFrom": "原文 · Q42",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e2",
+   "from": "n5",
+   "to": "n6",
+   "label": "新能力压缩窗口期",
+   "basis": "quote",
+   "quote": "模型每释放一种新能力，都会催生一批产品，也会在下一次升级时拿走其中一批的核心价值。",
+   "quoteId": "Q99",
+   "quoteFrom": "原文 · Q99",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e3",
+   "from": "n5",
+   "to": "n9",
+   "label": "模型吞噬使应用被动",
+   "basis": "quote",
+   "quote": "模型每释放一种新能力，都会催生一批产品，也会在下一次升级时拿走其中一批的核心价值。",
+   "quoteId": "Q99",
+   "quoteFrom": "原文 · Q99",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e4",
+   "from": "n6",
+   "to": "n9",
+   "label": "窗口期短导致频繁适配",
+   "basis": "quote",
+   "quote": "杨博麟说，应用公司某种程度上成了 “模型评测博主”，谁发新模型就立刻测一遍，刚适配完一轮，上游又更新了，而且不会提前通知。",
+   "quoteId": "Q198",
+   "quoteFrom": "原文 · Q198",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e5",
+   "from": "n8",
+   "to": "n9",
+   "label": "复杂化难逃租客处境",
+   "basis": "quote",
+   "quote": "团队以为找到了模型公司不会进入的位置，最后可能只是进入了一个没有多少用户的位置。",
+   "quoteId": "Q144",
+   "quoteFrom": "原文 · Q144",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e6",
+   "from": "n7",
+   "to": "n9",
+   "label": "模型即应用使应用无价值",
+   "basis": "quote",
+   "quote": "美国华盛顿的公共政策智库布鲁金斯学会（Brookings）分析，训练和运营模型要巨额投入，模型能力逐渐趋同后，单卖模型 API 撑不起这些投入，做应用反而成了模型公司回收利润的一种方式。",
+   "quoteId": "Q114",
+   "quoteFrom": "原文 · Q114",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e7",
+   "from": "n9",
+   "to": "n10",
+   "label": "应对租客处境",
+   "basis": "quote",
+   "quote": "闹闹对比，给客户的交付物如果靠工具做，两分钟，成本可能也就 200 块钱，但把符合需求的视频交给他们，两分钟可能卖 1 万块钱，“你想，这是多少倍？",
+   "quoteId": "Q170",
+   "quoteFrom": "原文 · Q170",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e8",
+   "from": "n9",
+   "to": "n11",
+   "label": "应对租客处境",
+   "basis": "quote",
+   "quote": "Cursor、Krea、Captions、Perplexity、HeyGen、LiblibAI 都从应用进入模型层，大多沿着已验证的编程、搜索、设计、图像、视频和虚拟人场景，训练更垂直的模型。",
+   "quoteId": "Q190",
+   "quoteFrom": "原文 · Q190",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e9",
+   "from": "n4",
+   "to": "n11",
+   "label": "破产式增长推动做模型",
+   "basis": "quote",
+   "quote": "Cursor、Krea、Captions、Perplexity、HeyGen、LiblibAI 都从应用进入模型层，大多沿着已验证的编程、搜索、设计、图像、视频和虚拟人场景，训练更垂直的模型。",
+   "quoteId": "Q190",
+   "quoteFrom": "原文 · Q190",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  }
+ ],
+ "gaps": [
+  "边 推理成本锁死毛利 → ARR（年度经常性收入）的失（毛利锁死使ARR失真）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 推理成本锁死毛利 → Scaling to ban（越增长离死亡越近）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 ARR（年度经常性收入）的失 → Scaling to ban（ARR失真误导扩张）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 模型吞噬 → \"躲避大模型\" 的\"发心\"（催生躲避大模型心态）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 \"模型即应用\" → \"躲避大模型\" 的\"发心\"（对模型即应用的怀疑）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 Scaling to ban → 往下游去：卖结果（破产式增长推动卖结果）找不到支撑原句 → 按 R1/R2 不进图"
+ ],
+ "llm": {
+  "model": "deepseek-v4-pro",
+  "tokens": 6352,
+  "cached": true
+ },
+ "citedByStats": {
+  "llm": 9,
+  "retrieval": 0
+ }
+}

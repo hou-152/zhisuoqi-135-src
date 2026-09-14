@@ -76,10 +76,11 @@ const USE0 = await cdp.eval(`(nodes.find(n=>n.k==='use')||{}).id`);
 const JUDGE0 = await cdp.eval(`(nodes.find(n=>n.k==='judge')||nodes[0]).id`);
 console.log(`  抽检：能用的 ${USE0} ｜ 能判的 ${JUDGE0}`);
 
-// 坐标回归：画布位于三栏之后，事件坐标必须先换成画布内坐标。
-await step('图谱 · 画布偏移命中回归', async () => {
+// 坐标回归：画布位于两栏之后，事件坐标必须先换成画布内坐标。
+// （09-15 v3 改准：这套分列坐标现在是「我的树」在用——图谱/关系/星球已撤入口，setMode 旧名落树）
+await step('我的树 · 画布偏移命中回归', async () => {
   const probe = JSON.parse(await cdp.eval(`(()=>{
-    setMode('grid'); closePanel(); filter=null; computeLayout();
+    setMode('tree'); closePanel(); filter=null; computeLayout(); camStop();   // v4：冻结缓动再取坐标，否则镜头还在动、点击落空
     const ps = nodes.map(n => ({n,p:project(n)})).filter(x => x.p.sx > 40 && x.p.sx < W - 40 && x.p.sy > 80 && x.p.sy < H - 40);
     let best = ps[0]; let bestGap = -1;
     for (const x of ps) {
@@ -97,14 +98,16 @@ await step('图谱 · 画布偏移命中回归', async () => {
   const result = JSON.parse(await cdp.eval(`JSON.stringify({selected, target:'${probe.id}', title:document.querySelector('#pbody h2')?.textContent||'', pinned:document.getElementById('main').classList.contains('pinned')})`));
   if (result.selected !== result.target || !result.pinned) throw new Error(`命中错位：${JSON.stringify(result)}`);
   shots.push(await shot('24-命中偏移-面板.png'));
-  await cdp.eval(`closePanel(); setMode('relation')`);
+  await cdp.eval(`closePanel(); setMode('tree')`);
 });
 
-await step('关系 · 语义边与类型图例', async () => {
-  await cdp.eval(`closePanel(); setMode('relation')`);
-  const result = JSON.parse(await cdp.eval(`JSON.stringify({mode, relations:relations.length, hidden:relationStats.hidden, legend:document.getElementById('rel-legend').classList.contains('on'), forbidden:relations.filter(r=>r.kind==='co-article'||r.kind==='rejected').length})`));
-  if (result.mode !== 'relation' || !result.relations || !result.legend || result.forbidden) throw new Error(`关系视图异常：${JSON.stringify(result)}`);
-  shots.push(await shot('29-关系-语义边.png'));
+await step('我的树 · 树头（slogan + 绝对数统计）', async () => {
+  await cdp.eval(`closePanel(); setMode('tree')`);
+  const result = JSON.parse(await cdp.eval(`JSON.stringify({mode, treeon:document.getElementById('main').classList.contains('treeon'),
+    slogan:!!document.querySelector('#tree-head .th-slogan'), stat:document.getElementById('tree-stat').textContent.length,
+    hidden:relationStats.hidden, forbidden:relations.filter(r=>r.kind==='co-article'||r.kind==='rejected').length})`));
+  if (result.mode !== 'tree' || !result.treeon || !result.slogan || result.stat < 5 || result.forbidden) throw new Error(`我的树异常：${JSON.stringify(result)}`);
+  shots.push(await shot('29-我的树-树头.png'));
 });
 
 await step('二级 · 全部主题（左栏只剩导航，中间栏 21 条）', async () => { shots.push(await shot('25-主题-首屏.png')); });
@@ -118,8 +121,8 @@ await step('下钻后点「← 全部主题」回二级', async () => {
   shots.push(await shot('25c-主题-返回全部主题.png'));
 });
 
-const rail = await cdp.eval(`JSON.stringify([...document.querySelectorAll('.r-item')].map(b=>b.querySelector('b').textContent+' ‖ '+b.querySelector('i').textContent))`);
-console.log('左栏：', JSON.parse(rail).join('  |  '));
+const rail = await cdp.eval(`JSON.stringify([...document.querySelectorAll('.r-item')].map(b=>b.querySelector('b').textContent+' ‖ '+((b.querySelector('i')||{}).textContent||'—')))`);
+console.log('顶栏：', JSON.parse(rail).join('  |  '));
 
 // 内参（第六格）：**上方日期条 ＋ 中间「内参日报集合」**（2026-09-14 所有者口径：
 // 「在内参的二级页面中排一个日期选择功能，日期放在上方。中间的阅读位置替换为内参日报集合」）。
@@ -171,7 +174,7 @@ await step('内参 · 换一篇 · 阅读原文', async () => {
 
 await step('回到知识体系（阅读区应让位）', async () => {
   await cdp.eval(`setView('graph')`);
-  shots.push(await shot('38-内参-退出后回到图谱.png'));
+  shots.push(await shot('38-内参-退出后回到知识体系.png'));
 });
 
 
@@ -204,9 +207,10 @@ await step('说清楚了才给过', async () => {
 });
 
 
-await step('星球', async () => {
-  await cdp.eval(`closePanel(); setMode('sphere')`);
-  shots.push(await shot('18-壳-星球.png'));
+await step('系统视图（v4 撤 tab：经 hash 直达，入口在更新面板）', async () => {
+  await cdp.eval(`closePanel(); location.hash='graph=map'`);
+  await sleep(1500);   // 总图要拉真实 /api/graph 索引，等它挂上
+  shots.push(await shot('18-壳-系统视图.png'));
 });
 
 console.log('\n截图：');

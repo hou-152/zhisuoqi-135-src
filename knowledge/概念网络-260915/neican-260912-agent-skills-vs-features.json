@@ -1,0 +1,268 @@
+{
+ "version": "v1",
+ "unitId": "neican-260912-agent-skills-vs-features",
+ "unitKind": "article",
+ "period": "260912",
+ "slug": "agent-skills-vs-features",
+ "title": "Claude 官方课程 · Skills 与其他 Claude Code 功能的比较",
+ "source": "https://academy.claude.com/zh-CN/courses/introduction-to-agent-skills/skills-vs-other-claude-code-features",
+ "generatedAt": "2026-09-14T20:33:00.845Z",
+ "generator": "deterministic+llm",
+ "reviewStatus": "generated-unreviewed",
+ "layers": [
+  {
+   "id": "L1",
+   "name": "功能定义"
+  },
+  {
+   "id": "L2",
+   "name": "对比维度"
+  },
+  {
+   "id": "L3",
+   "name": "组合策略"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "n1",
+   "name": "Skills",
+   "full": "Skills（按需加载的特定任务专业知识）",
+   "layer": "L1",
+   "role": "core",
+   "card": 0,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_92cb645b"
+   }
+  },
+  {
+   "id": "n2",
+   "name": "CLAUDE.md",
+   "full": "CLAUDE.md（始终加载的项目标准）",
+   "layer": "L1",
+   "role": "linked",
+   "card": 1,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_b9d1dd66"
+   }
+  },
+  {
+   "id": "n3",
+   "name": "Subagents",
+   "full": "Subagents（隔离的执行上下文）",
+   "layer": "L1",
+   "role": "linked",
+   "card": 2,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_b2c9fd9e"
+   }
+  },
+  {
+   "id": "n4",
+   "name": "Hooks",
+   "full": "Hooks（事件驱动）",
+   "layer": "L1",
+   "role": "linked",
+   "card": 3,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_7e6ba505"
+   }
+  },
+  {
+   "id": "n5",
+   "name": "MCP servers",
+   "full": "MCP servers（外部工具和集成）",
+   "layer": "L1",
+   "role": "linked",
+   "card": 4,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_6db0527f"
+   }
+  },
+  {
+   "id": "n6",
+   "name": "按需加载与始终加载",
+   "full": "按需加载与始终加载（加载模型）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 5,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_a63808b6"
+   }
+  },
+  {
+   "id": "n7",
+   "name": "请求驱动与事件驱动",
+   "full": "请求驱动与事件驱动（触发模型）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 6,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_5a687800"
+   }
+  },
+  {
+   "id": "n8",
+   "name": "功能组合",
+   "full": "功能组合（结合使用，而非硬塞）",
+   "layer": "L3",
+   "role": "linked",
+   "card": 7,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_af4d864f"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "id": "e1",
+   "from": "n1",
+   "to": "n6",
+   "label": "具有按需加载特性",
+   "basis": "quote",
+   "quote": "在以下情况使用 Hooks： 应在每次文件保存时运行的操作 特定工具调用之前的验证 Claude 操作的自动化副作用 在以下情况使用 Skills： 影响 Claude 处理请求方式的知识 影响 Claude 推理过程的指导原则 一个典型的配置可能包括： CLAUDE.md —— 始终生效的项目标准 Skills —— 按需加载的特定任务专业知识 Hooks —— 由事件触发的自动化操作 Subagents —— 用于委派工作的隔离执行上下文 MCP servers —— 外部工具和集成 每种功能都各有专长。",
+   "quoteId": "Q22",
+   "quoteFrom": "原文 · Q22",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e2",
+   "from": "n2",
+   "to": "n6",
+   "label": "具有始终加载特性",
+   "basis": "quote",
+   "quote": "在以下情况使用 Hooks： 应在每次文件保存时运行的操作 特定工具调用之前的验证 Claude 操作的自动化副作用 在以下情况使用 Skills： 影响 Claude 处理请求方式的知识 影响 Claude 推理过程的指导原则 一个典型的配置可能包括： CLAUDE.md —— 始终生效的项目标准 Skills —— 按需加载的特定任务专业知识 Hooks —— 由事件触发的自动化操作 Subagents —— 用于委派工作的隔离执行上下文 MCP servers —— 外部工具和集成 每种功能都各有专长。",
+   "quoteId": "Q22",
+   "quoteFrom": "原文 · Q22",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e3",
+   "from": "n1",
+   "to": "n7",
+   "label": "请求驱动",
+   "basis": "quote",
+   "quote": "Skills 是请求驱动的（根据您的请求内容激活） MCP servers 提供外部工具和集成——这与 skills 完全是不同的类别 每个功能都各有专长——将它们结合使用，而不是把所有事情都硬塞进一种方案中 Claude Code 提供了多种自定义选项：Skills、CLAUDE.md、subagents、hooks 和 MCP servers。",
+   "quoteId": "Q9",
+   "quoteFrom": "原文 · Q9",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e4",
+   "from": "n4",
+   "to": "n7",
+   "label": "事件驱动",
+   "basis": "quote",
+   "quote": "Skills 是请求驱动的（根据您的请求内容激活） MCP servers 提供外部工具和集成——这与 skills 完全是不同的类别 每个功能都各有专长——将它们结合使用，而不是把所有事情都硬塞进一种方案中 Claude Code 提供了多种自定义选项：Skills、CLAUDE.md、subagents、hooks 和 MCP servers。",
+   "quoteId": "Q9",
+   "quoteFrom": "原文 · Q9",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e5",
+   "from": "n6",
+   "to": "n8",
+   "label": "对比结果指导策略",
+   "basis": "quote",
+   "quote": "Skills 是请求驱动的（根据您的请求内容激活） MCP servers 提供外部工具和集成——这与 skills 完全是不同的类别 每个功能都各有专长——将它们结合使用，而不是把所有事情都硬塞进一种方案中 Claude Code 提供了多种自定义选项：Skills、CLAUDE.md、subagents、hooks 和 MCP servers。",
+   "quoteId": "Q9",
+   "quoteFrom": "原文 · Q9",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e6",
+   "from": "n1",
+   "to": "n8",
+   "label": "作为组合元素",
+   "basis": "quote",
+   "quote": "在以下情况使用 Hooks： 应在每次文件保存时运行的操作 特定工具调用之前的验证 Claude 操作的自动化副作用 在以下情况使用 Skills： 影响 Claude 处理请求方式的知识 影响 Claude 推理过程的指导原则 一个典型的配置可能包括： CLAUDE.md —— 始终生效的项目标准 Skills —— 按需加载的特定任务专业知识 Hooks —— 由事件触发的自动化操作 Subagents —— 用于委派工作的隔离执行上下文 MCP servers —— 外部工具和集成 每种功能都各有专长。",
+   "quoteId": "Q22",
+   "quoteFrom": "原文 · Q22",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e7",
+   "from": "n2",
+   "to": "n8",
+   "label": "作为组合元素",
+   "basis": "quote",
+   "quote": "Skills 是请求驱动的（根据您的请求内容激活） MCP servers 提供外部工具和集成——这与 skills 完全是不同的类别 每个功能都各有专长——将它们结合使用，而不是把所有事情都硬塞进一种方案中 Claude Code 提供了多种自定义选项：Skills、CLAUDE.md、subagents、hooks 和 MCP servers。",
+   "quoteId": "Q9",
+   "quoteFrom": "原文 · Q9",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e8",
+   "from": "n3",
+   "to": "n8",
+   "label": "作为组合元素",
+   "basis": "quote",
+   "quote": "Skills 是请求驱动的（根据您的请求内容激活） MCP servers 提供外部工具和集成——这与 skills 完全是不同的类别 每个功能都各有专长——将它们结合使用，而不是把所有事情都硬塞进一种方案中 Claude Code 提供了多种自定义选项：Skills、CLAUDE.md、subagents、hooks 和 MCP servers。",
+   "quoteId": "Q9",
+   "quoteFrom": "原文 · Q9",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e9",
+   "from": "n4",
+   "to": "n8",
+   "label": "作为组合元素",
+   "basis": "quote",
+   "quote": "Skills 是请求驱动的（根据您的请求内容激活） MCP servers 提供外部工具和集成——这与 skills 完全是不同的类别 每个功能都各有专长——将它们结合使用，而不是把所有事情都硬塞进一种方案中 Claude Code 提供了多种自定义选项：Skills、CLAUDE.md、subagents、hooks 和 MCP servers。",
+   "quoteId": "Q9",
+   "quoteFrom": "原文 · Q9",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e10",
+   "from": "n5",
+   "to": "n8",
+   "label": "作为组合元素",
+   "basis": "quote",
+   "quote": "在以下情况使用 Hooks： 应在每次文件保存时运行的操作 特定工具调用之前的验证 Claude 操作的自动化副作用 在以下情况使用 Skills： 影响 Claude 处理请求方式的知识 影响 Claude 推理过程的指导原则 一个典型的配置可能包括： CLAUDE.md —— 始终生效的项目标准 Skills —— 按需加载的特定任务专业知识 Hooks —— 由事件触发的自动化操作 Subagents —— 用于委派工作的隔离执行上下文 MCP servers —— 外部工具和集成 每种功能都各有专长。",
+   "quoteId": "Q22",
+   "quoteFrom": "原文 · Q22",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  }
+ ],
+ "gaps": [
+  "边 请求驱动与事件驱动 → 功能组合（对比结果指导策略）找不到支撑原句 → 按 R1/R2 不进图"
+ ],
+ "llm": {
+  "model": "deepseek-v4-pro",
+  "tokens": 3909,
+  "cached": true
+ },
+ "citedByStats": {
+  "llm": 10,
+  "retrieval": 0
+ }
+}

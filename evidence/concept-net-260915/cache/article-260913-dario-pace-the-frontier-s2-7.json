@@ -1,0 +1,29 @@
+{
+ "at": "2026-09-14T19:29:31.044Z",
+ "model": "deepseek-v4-pro",
+ "tokens": 8368,
+ "parsed": {
+  "picks": [
+   {
+    "i": 7,
+    "j": null
+   },
+   {
+    "i": 8,
+    "j": null
+   },
+   {
+    "i": 9,
+    "j": null
+   },
+   {
+    "i": 10,
+    "j": null
+   },
+   {
+    "i": 11,
+    "j": null
+   }
+  ]
+ }
+}

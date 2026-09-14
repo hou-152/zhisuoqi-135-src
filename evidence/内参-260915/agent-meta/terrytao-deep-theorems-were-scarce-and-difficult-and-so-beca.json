@@ -1,0 +1,10 @@
+{
+  "slug": "terrytao-deep-theorems-were-scarce-and-difficult-and-so-beca",
+  "summary": "作者针对 AI 声称证明纳维-斯托克斯方程有限时间爆破的推导进行反驳，指出 AI 使用了时间反演技巧，但该技巧在具备粘性耗散的不可逆系统中失效，混淆了欧拉方程与真实流体。",
+  "topic": "AI数学证明的物理失效",
+  "stars": 3,
+  "starReason": "揭示AI符号推导忽略真实物理守恒与耗散边界的典型案例",
+  "why": "展示了当前前沿 AI 生成数学证明时典型的形式正确但物理荒谬陷阱：代数符号推导通畅，却在时间反演与耗散性本质上完全失效。",
+  "metaphor": "倒放的录像带",
+  "palette": "heather"
+}

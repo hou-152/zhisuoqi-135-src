@@ -1,0 +1,435 @@
+{
+ "version": "v1",
+ "unitId": "route-agent-loop",
+ "unitKind": "route",
+ "title": "Agent Loop 六步路线 · 概念网络",
+ "entryQuestion": "为什么 AI 能连续做事，而不只回答一次？",
+ "generatedAt": "2026-09-14T20:33:00.775Z",
+ "generator": "deterministic+llm",
+ "reviewStatus": "generated-unreviewed",
+ "layers": [
+  {
+   "id": "L1",
+   "name": "Agent",
+   "chapter": "agent"
+  },
+  {
+   "id": "L2",
+   "name": "工具",
+   "chapter": "tool"
+  },
+  {
+   "id": "L3",
+   "name": "Agent loop",
+   "chapter": "agent-loop"
+  },
+  {
+   "id": "L4",
+   "name": "状态子系统与进度持久化",
+   "chapter": "state-persistence"
+  },
+  {
+   "id": "L5",
+   "name": "Harness",
+   "chapter": "harness"
+  },
+  {
+   "id": "L6",
+   "name": "验证闭环",
+   "chapter": "verification-loop"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "n1",
+   "name": "Agent",
+   "full": "Agent",
+   "layer": "L1",
+   "role": "core",
+   "chapter": "agent",
+   "ref": {
+    "kind": "cm",
+    "id": "cm_0608c405",
+    "unit": "CON-agent"
+   }
+  },
+  {
+   "id": "n2",
+   "name": "工具",
+   "full": "工具",
+   "layer": "L2",
+   "role": "core",
+   "chapter": "tool",
+   "ref": {
+    "kind": "cm",
+    "id": "cm_a72ef18d",
+    "unit": "CON-tool"
+   }
+  },
+  {
+   "id": "n3",
+   "name": "Agent loop",
+   "full": "Agent loop",
+   "layer": "L3",
+   "role": "core",
+   "chapter": "agent-loop",
+   "ref": {
+    "kind": "cm",
+    "id": "cm_1973b1d3",
+    "unit": "CON-agent-loop"
+   }
+  },
+  {
+   "id": "n4",
+   "name": "状态子系统与进度持久化",
+   "full": "状态子系统与进度持久化",
+   "layer": "L4",
+   "role": "core",
+   "chapter": "state-persistence",
+   "ref": {
+    "kind": "cm",
+    "id": "cm_be951649",
+    "unit": "CON-state-management"
+   }
+  },
+  {
+   "id": "n5",
+   "name": "Harness",
+   "full": "Harness",
+   "layer": "L5",
+   "role": "core",
+   "chapter": "harness",
+   "ref": {
+    "kind": "cm",
+    "id": "cm_0a4ca4ce",
+    "unit": "CON-agent-harness"
+   }
+  },
+  {
+   "id": "n6",
+   "name": "验证闭环",
+   "full": "验证闭环",
+   "layer": "L6",
+   "role": "core",
+   "chapter": "verification-loop",
+   "ref": {
+    "kind": "cm",
+    "id": "cm_7cd7335d",
+    "unit": "CON-verification-loop"
+   }
+  },
+  {
+   "id": "n7",
+   "name": "一次工具调用",
+   "full": "一次工具调用",
+   "layer": "L1",
+   "role": "linked",
+   "chapter": "agent",
+   "ref": null
+  },
+  {
+   "id": "n8",
+   "name": "MCP",
+   "full": "MCP",
+   "layer": "L2",
+   "role": "linked",
+   "chapter": "tool",
+   "ref": {
+    "kind": "cm",
+    "id": "cm_c3ecbf70",
+    "unit": null
+   }
+  },
+  {
+   "id": "n9",
+   "name": "退出条件",
+   "full": "退出条件",
+   "layer": "L3",
+   "role": "linked",
+   "chapter": "agent-loop",
+   "ref": null
+  },
+  {
+   "id": "n10",
+   "name": "外层工作流",
+   "full": "外层工作流",
+   "layer": "L3",
+   "role": "linked",
+   "chapter": "agent-loop",
+   "ref": null
+  },
+  {
+   "id": "n11",
+   "name": "状态",
+   "full": "状态",
+   "layer": "L4",
+   "role": "linked",
+   "chapter": "state-persistence",
+   "ref": null
+  },
+  {
+   "id": "n12",
+   "name": "Checkpoint",
+   "full": "Checkpoint",
+   "layer": "L4",
+   "role": "linked",
+   "chapter": "state-persistence",
+   "ref": null
+  },
+  {
+   "id": "n13",
+   "name": "可观测性",
+   "full": "可观测性",
+   "layer": "L6",
+   "role": "linked",
+   "chapter": "verification-loop",
+   "ref": {
+    "kind": "cm",
+    "id": "cm_9f1af4c9",
+    "unit": null
+   }
+  },
+  {
+   "id": "n14",
+   "name": "一次运行",
+   "full": "一次运行",
+   "layer": "L6",
+   "role": "linked",
+   "chapter": "verification-loop",
+   "ref": null
+  }
+ ],
+ "edges": [
+  {
+   "id": "e1",
+   "from": "n1",
+   "to": "n2",
+   "label": "定义里就写着",
+   "sentence": "Agent 的定义里就写着「借助工具行动」：模型提出下一步要做什么，真正伸手的是模型外的系统。所以工具不是 Agent 的外挂，而是它定义的一部分。",
+   "basis": "quote",
+   "quote": "你看到的这种连续行为，通常由模型与外部 Harness 共同产生。",
+   "quoteFrom": "narrative.links · intuition",
+   "source": "chapters.json#agent.narrative.links",
+   "edgeKind": "link",
+   "chapter": "agent"
+  },
+  {
+   "id": "e2",
+   "from": "n1",
+   "to": "n5",
+   "label": "不是同义词",
+   "sentence": "Agent 描述你看到的那个行动系统，Harness 描述让这种行动真正发生并受到约束的运行机器——两者不是同义词。",
+   "basis": "quote",
+   "quote": "Agent 与 Agent Harness 不是同义词；前者描述呈现出来的行动系统，后者强调产生和约束这种行为的运行机器。",
+   "quoteFrom": "narrative.links · boundary",
+   "source": "chapters.json#agent.narrative.links",
+   "edgeKind": "link",
+   "chapter": "agent"
+  },
+  {
+   "id": "e3",
+   "from": "n7",
+   "to": "n1",
+   "label": "只是起点不是终点",
+   "sentence": "「能调用一次工具」是分界线，但不是终点：生产级 Agent 还要错误处理、验证、停止条件与状态管理。",
+   "basis": "quote",
+   "quote": "“能调用一次工具”是重要分界，但生产级 Agent 通常还需要错误处理、验证、停止条件与状态管理。",
+   "quoteFrom": "narrative.links · boundary",
+   "source": "chapters.json#agent.narrative.links",
+   "edgeKind": "link",
+   "chapter": "agent"
+  },
+  {
+   "id": "e4",
+   "from": "n2",
+   "to": "n5",
+   "label": "注册执行归它管",
+   "sentence": "工具以名称、描述和参数类型暴露给模型；注册、校验、执行与结果回传都发生在模型之外的那一层。",
+   "basis": "quote",
+   "quote": "排错时依次检查工具是否注册、描述是否清楚、参数是否通过校验、权限是否允许、执行是否成功、结果是否正确回传。",
+   "quoteFrom": "narrative.links · mechanism",
+   "source": "chapters.json#tool.narrative.links",
+   "edgeKind": "link",
+   "chapter": "tool"
+  },
+  {
+   "id": "e5",
+   "from": "n2",
+   "to": "n8",
+   "label": "接口不等于协议",
+   "sentence": "工具是具体的能力接口，MCP 是连接一组外部能力的标准协议——两者不能互作同义词。",
+   "basis": "quote",
+   "quote": "Tool 是具体能力接口，MCP 是连接一组外部能力的标准协议；二者不能互作同义词。",
+   "quoteFrom": "narrative.links · boundary",
+   "source": "chapters.json#tool.narrative.links",
+   "edgeKind": "link",
+   "chapter": "tool"
+  },
+  {
+   "id": "e6",
+   "from": "n2",
+   "to": "n3",
+   "label": "没它循环是抽象话",
+   "sentence": "循环的每一次迭代都在调工具；不先弄清工具的调用边界，循环就只剩一句抽象的话。",
+   "basis": "quote",
+   "quote": "如果它请求工具，外部系统就执行工具，把结果作为新观察交还模型；模型根据这个新结果决定继续、换一种做法，或给出最终答案。",
+   "quoteFrom": "narrative.links · intuition",
+   "source": "chapters.json#agent-loop.narrative.links",
+   "edgeKind": "link",
+   "chapter": "agent-loop"
+  },
+  {
+   "id": "e7",
+   "from": "n9",
+   "to": "n3",
+   "label": "有它才停得下来",
+   "sentence": "循环的关键不是绕圈，而是每次观察都会影响下一步，并且有明确的退出条件。",
+   "basis": "quote",
+   "quote": "循环的关键不是绕圈，而是每次观察都会影响下一步，并且有明确的退出条件。",
+   "quoteFrom": "narrative.links · intuition",
+   "source": "chapters.json#agent-loop.narrative.links",
+   "edgeKind": "link",
+   "chapter": "agent-loop"
+  },
+  {
+   "id": "e8",
+   "from": "n3",
+   "to": "n10",
+   "label": "不等于外层工作流",
+   "sentence": "它只描述单个 Agent 内部「选择—执行—观察—再选择」的行动心跳，不等于外层持续工作流、多 Agent 编排或 Loop Engineering。",
+   "basis": "quote",
+   "quote": "Agent Loop 只描述单个 Agent 内部“选择—执行—观察—再选择”的行动心跳，不等于外层持续工作流、多 Agent 编排或 Loop Engineering。",
+   "quoteFrom": "narrative.links · boundary",
+   "source": "chapters.json#agent-loop.narrative.links",
+   "edgeKind": "link",
+   "chapter": "agent-loop"
+  },
+  {
+   "id": "e9",
+   "from": "n5",
+   "to": "n3",
+   "label": "循环靠它才跑起来",
+   "sentence": "不是。模型生成的是工具调用请求；执行和结果封装由 Harness 完成——这就是「循环」和「循环跑在一台机器上」的区别。",
+   "basis": "quote",
+   "quote": "模型生成工具调用请求，不是模型亲自执行工具；执行和结果封装由 Harness 完成。",
+   "quoteFrom": "narrative.bridges · boundary",
+   "source": "chapters.json#agent-loop.narrative.bridges",
+   "edgeKind": "bridge",
+   "chapter": "agent-loop"
+  },
+  {
+   "id": "e10",
+   "from": "n11",
+   "to": "n3",
+   "label": "让推进可接续",
+   "sentence": "循环负责推进，状态负责让推进可接续：把任务想成一列沿轨道运行的小车，状态记录的是它停在哪一段、车上有哪些变量。",
+   "basis": "quote",
+   "quote": "没有这些记录，中断后系统只知道“做过事”，却不知道该从哪里接上。",
+   "quoteFrom": "narrative.links · intuition",
+   "source": "chapters.json#state-persistence.narrative.links",
+   "edgeKind": "link",
+   "chapter": "state-persistence"
+  },
+  {
+   "id": "e11",
+   "from": "n11",
+   "to": "n12",
+   "label": "只是一种保存机制",
+   "sentence": "Checkpoint 只是保存某个恢复点的机制之一；有 checkpoint 不代表变量完整、恢复正确或外部副作用安全。",
+   "basis": "quote",
+   "quote": "Checkpoint 只是保存某个恢复点的机制之一；有 checkpoint 不代表变量完整、恢复正确或外部副作用安全。",
+   "quoteFrom": "narrative.links · boundary",
+   "source": "chapters.json#state-persistence.narrative.links",
+   "edgeKind": "link",
+   "chapter": "state-persistence"
+  },
+  {
+   "id": "e12",
+   "from": "n11",
+   "to": "n5",
+   "label": "它每步读写的数据",
+   "sentence": "状态是 Harness 每一步要读写和守护的数据：哪些变量决定下一步、每次状态转换要记什么，都在这里定。",
+   "basis": "quote",
+   "quote": "明确哪些变量决定下一步，并在每次状态转换时原子地记录当前阶段、完成证据和待处理项。",
+   "quoteFrom": "narrative.links · mechanism",
+   "source": "chapters.json#state-persistence.narrative.links",
+   "edgeKind": "link",
+   "chapter": "state-persistence"
+  },
+  {
+   "id": "e13",
+   "from": "n4",
+   "to": "n3",
+   "label": "缺它中断接不上",
+   "sentence": "缺的是记录：任务当前阶段、变量、进度与恢复点。没有它，中断后系统只知道「做过事」，不知道该从哪接上。",
+   "basis": "quote",
+   "quote": "状态管理负责记录任务当前阶段、变量、进度与恢复点，让系统知道做到哪里，并能追踪、暂停、恢复或回溯。",
+   "quoteFrom": "narrative.bridges · definition",
+   "source": "chapters.json#state-persistence.narrative.bridges",
+   "edgeKind": "bridge",
+   "chapter": "state-persistence"
+  },
+  {
+   "id": "e14",
+   "from": "n5",
+   "to": "n6",
+   "label": "先有产出再谈检查",
+   "sentence": "检查挂在产出之后：得先有稳定的产出系统，才谈得上把检查固化成一环；判据要在行动前写清，不能由同一份输出临时改标准。",
+   "basis": "quote",
+   "quote": "在行动前写清检查对象、判据、失败反馈格式和退出条件，避免由同一输出临时改标准。",
+   "quoteFrom": "narrative.links · mechanism",
+   "source": "chapters.json#verification-loop.narrative.links",
+   "edgeKind": "link",
+   "chapter": "verification-loop"
+  },
+  {
+   "id": "e15",
+   "from": "n13",
+   "to": "n6",
+   "label": "采集给验证消费",
+   "sentence": "可观测性负责采集运行事件、轨迹、状态和时延；验证闭环负责消费检查结果，并据此改变当前运行的下一步。",
+   "basis": "quote",
+   "quote": "Observability 负责采集运行事件、轨迹、状态和时延；Verification Loop 负责消费检查结果并改变当前运行的下一步。",
+   "quoteFrom": "narrative.links · boundary",
+   "source": "chapters.json#verification-loop.narrative.links",
+   "edgeKind": "link",
+   "chapter": "verification-loop"
+  },
+  {
+   "id": "e16",
+   "from": "n6",
+   "to": "n14",
+   "label": "作用于单次任务",
+   "sentence": "它通常作用于一次任务里的重试与退出；跨多次运行的比较是另一件事（用共同任务、基线和 verifier 去比）。",
+   "basis": "quote",
+   "quote": "Trace-based Evals 用共同任务、基线和 verifier 比较多次运行；Verification Loop 通常作用于一次任务里的重试与退出。",
+   "quoteFrom": "narrative.links · boundary",
+   "source": "chapters.json#verification-loop.narrative.links",
+   "edgeKind": "link",
+   "chapter": "verification-loop"
+  }
+ ],
+ "gaps": [
+  "边 3 端点不在节点表里（Agent / CON-large-language-model）→ 丢弃",
+  "边 4 端点不在节点表里（Agent / 问题：Agent）→ 丢弃",
+  "边 5（Agent×工具）与已入图的边端点重复 → 只留先入图那条",
+  "边 6（工具×Agent）与已入图的边端点重复 → 只留先入图那条",
+  "边 9（工具×Agent）与已入图的边端点重复 → 只留先入图那条",
+  "边 10（工具×Harness）与已入图的边端点重复 → 只留先入图那条",
+  "边 11（工具×Agent loop，跨章接缝）没有逐字引用 → 按 R1 不进图",
+  "边 15（Agent loop×工具）与已入图的边端点重复 → 只留先入图那条",
+  "边 17（Agent loop×状态子系统与进度持久化，跨章接缝）没有逐字引用 → 按 R1 不进图",
+  "边 22（状态子系统与进度持久化×Harness，跨章接缝）没有逐字引用 → 按 R1 不进图",
+  "边 23（Harness×工具）与已入图的边端点重复 → 只留先入图那条",
+  "边 24（Harness×Agent loop）与已入图的边端点重复 → 只留先入图那条",
+  "边 25 端点不在节点表里（Harness / 状态子系统）→ 丢弃",
+  "边 26（Harness×工具）与已入图的边端点重复 → 只留先入图那条",
+  "边 27（Harness×验证闭环，跨章接缝）没有逐字引用 → 按 R1 不进图",
+  "边 31（验证闭环×Harness）与已入图的边端点重复 → 只留先入图那条"
+ ],
+ "llm": {
+  "cached": true,
+  "model": "deepseek-flash",
+  "tokens": 6361
+ }
+}

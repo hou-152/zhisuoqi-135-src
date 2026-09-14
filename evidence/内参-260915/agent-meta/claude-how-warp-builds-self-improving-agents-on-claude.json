@@ -1,0 +1,10 @@
+{
+  "slug": "claude-how-warp-builds-self-improving-agents-on-claude",
+  "summary": "Warp 揭示了基于 Claude 的双技能自进化架构：内层基础技能负责具体任务，外层改进者技能定期汇总人类在 PR 中的纠错反馈并自动向基础技能提交最小修改 PR，经人工合并后生效。",
+  "topic": "Warp双技能自我进化",
+  "stars": 4,
+  "starReason": "公开了生产级代码代理从无状态反馈闭环提炼技能的实战架构与反脆弱经验",
+  "why": "展示了将 Agent 反馈闭环与标准 Git PR 流程深度融合的工程解法，清晰划定了 Skill（程序性稳定知识）与 Memory（推理期动态状态）的边界。",
+  "metaphor": "带书童校对的活页手册",
+  "palette": "heather"
+}

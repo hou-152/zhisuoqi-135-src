@@ -1,0 +1,263 @@
+{
+ "version": "v1",
+ "unitId": "neican-260912-agent-skills-lesson-6",
+ "unitKind": "article",
+ "period": "260912",
+ "slug": "agent-skills-lesson-6",
+ "title": "Claude 官方课程 · 第 6 课：技能排障",
+ "source": "https://academy.claude.com/zh-CN/courses/introduction-to-agent-skills/troubleshooting-skills",
+ "generatedAt": "2026-09-14T20:33:00.848Z",
+ "generator": "deterministic+llm",
+ "reviewStatus": "generated-unreviewed",
+ "layers": [
+  {
+   "id": "L1",
+   "name": "故障分类框架"
+  },
+  {
+   "id": "L2",
+   "name": "首选排查工具"
+  },
+  {
+   "id": "L3",
+   "name": "触发加载排查"
+  },
+  {
+   "id": "L4",
+   "name": "冲突排查"
+  },
+  {
+   "id": "L5",
+   "name": "运行时排查"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "n1",
+   "name": "四类故障分类框架",
+   "full": "四类故障分类框架",
+   "layer": "L1",
+   "role": "core",
+   "card": 0,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_058c8106"
+   }
+  },
+  {
+   "id": "n2",
+   "name": "技能验证器",
+   "full": "技能验证器（agent skills verifier）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 1,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_2cbdf384"
+   }
+  },
+  {
+   "id": "n3",
+   "name": "语义匹配（semantic …",
+   "full": "语义匹配（semantic matching）与触发短语",
+   "layer": "L3",
+   "role": "linked",
+   "card": 2,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_b0946442"
+   }
+  },
+  {
+   "id": "n4",
+   "name": "SKILL.md 结构性要求",
+   "full": "SKILL.md 结构性要求",
+   "layer": "L3",
+   "role": "linked",
+   "card": 3,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_df8ed356"
+   }
+  },
+  {
+   "id": "n5",
+   "name": "claude --debug",
+   "full": "claude --debug",
+   "layer": "L3",
+   "role": "linked",
+   "card": 4,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_c2266b88"
+   }
+  },
+  {
+   "id": "n6",
+   "name": "描述区分度",
+   "full": "描述区分度",
+   "layer": "L4",
+   "role": "linked",
+   "card": 5,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_bc68c1e9"
+   }
+  },
+  {
+   "id": "n7",
+   "name": "技能优先级层级结构",
+   "full": "技能优先级层级结构",
+   "layer": "L4",
+   "role": "linked",
+   "card": 6,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_43781275"
+   }
+  },
+  {
+   "id": "n8",
+   "name": "运行时失败的三类原因",
+   "full": "运行时失败的三类原因",
+   "layer": "L5",
+   "role": "linked",
+   "card": 7,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_db455b2f"
+   }
+  },
+  {
+   "id": "n9",
+   "name": "插件技能缺失",
+   "full": "插件技能缺失",
+   "layer": "L3",
+   "role": "linked",
+   "card": 8,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_3ff5d50f"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "id": "e1",
+   "from": "n1",
+   "to": "n2",
+   "label": "首选排障步骤",
+   "basis": "quote",
+   "quote": "首先应该尝试的是 agent skills verifier 命令。",
+   "quoteId": "Q10",
+   "quoteFrom": "原文 · Q10",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e2",
+   "from": "n1",
+   "to": "n3",
+   "label": "触发类故障归因",
+   "basis": "quote",
+   "quote": "\"、\"让这个更快一点\" 如果任何变体未能触发，请将这些关键词添加到您的描述中 如果您询问 Claude \"有哪些可用技能\"时，您的技能没有出现，请检查以下结构性要求： SKILL.md 文件必须位于一个命名目录内，而不是在技能根目录下 文件名必须恰好为 SKILL.md——\"SKILL\"全部大写，\"md\"小写 运行 claude --debug 查看加载错误。",
+   "quoteId": "Q17",
+   "quoteFrom": "原文 · Q17",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e3",
+   "from": "n1",
+   "to": "n4",
+   "label": "加载类故障归因",
+   "basis": "quote",
+   "quote": "\"、\"让这个更快一点\" 如果任何变体未能触发，请将这些关键词添加到您的描述中 如果您询问 Claude \"有哪些可用技能\"时，您的技能没有出现，请检查以下结构性要求： SKILL.md 文件必须位于一个命名目录内，而不是在技能根目录下 文件名必须恰好为 SKILL.md——\"SKILL\"全部大写，\"md\"小写 运行 claude --debug 查看加载错误。",
+   "quoteId": "Q17",
+   "quoteFrom": "原文 · Q17",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e4",
+   "from": "n1",
+   "to": "n6",
+   "label": "冲突类故障归因",
+   "basis": "quote",
+   "quote": "如果 Claude 使用了错误的技能，或者在多个技能之间似乎感到困惑，那么您的描述很可能过于相似。",
+   "quoteId": "Q19",
+   "quoteFrom": "原文 · Q19",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e5",
+   "from": "n1",
+   "to": "n7",
+   "label": "优先级冲突归因",
+   "basis": "quote",
+   "quote": "如果您的个人技能被忽略，可能是因为存在一个同名的企业级或更高优先级的技能。",
+   "quoteId": "Q21",
+   "quoteFrom": "原文 · Q21",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e6",
+   "from": "n1",
+   "to": "n8",
+   "label": "运行时故障归因",
+   "basis": "quote",
+   "quote": "几个常见原因： 缺失依赖项： 如果您的技能使用了外部软件包，这些软件包必须已安装。",
+   "quoteId": "Q28",
+   "quoteFrom": "原文 · Q28",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e7",
+   "from": "n1",
+   "to": "n9",
+   "label": "插件加载故障归因",
+   "basis": "quote",
+   "quote": "如果之后技能仍未出现，可能是插件结构有问题。",
+   "quoteId": "Q25",
+   "quoteFrom": "原文 · Q25",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e8",
+   "from": "n2",
+   "to": "n5",
+   "label": "验证失败后用调试",
+   "basis": "quote",
+   "quote": "验证器会在您花时间调试其他问题之前，先捕获结构性问题。",
+   "quoteId": "Q13",
+   "quoteFrom": "原文 · Q13",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  }
+ ],
+ "gaps": [
+  "边 四类故障分类框架 → claude --debug（提供调试命令）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 SKILL.md 结构性要求 → claude --debug（结构错误靠调试发现）找不到支撑原句 → 按 R1/R2 不进图"
+ ],
+ "llm": {
+  "model": "deepseek-v4-pro",
+  "tokens": 7254,
+  "cached": true
+ },
+ "citedByStats": {
+  "llm": 8,
+  "retrieval": 0
+ }
+}

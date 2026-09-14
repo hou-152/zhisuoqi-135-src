@@ -71,22 +71,27 @@ check('并入的机器题逐条标了来源（产物 + 生成器 + 复核）', a
 check('六章人工判据仍是 3 条、机器派生判据另放且不进通过判定', await ex(`LEARN.every(c=>c.feynman.checks.length===3&&c.feynman.required.length===3&&c.feynman.machineChecks.length>=3&&c.feynman.machineChecks.every(x=>x.gate===false&&x.misconceptionSource==='derived'))`), 'true');
 check('费曼要点按章不同、且不含「变量／证据／边界」', await ex(`new Set(LEARN.map(c=>c.feynman.required.join('|'))).size===6 && !LEARN.some(c=>c.feynman.required.some(k=>['变量','证据','边界'].includes(k)))`), 'true');
 
-/* ① 从路径条上的「学习这个」进入 */
-console.log('\n① 路径 → 学习这个');
+/* ① 从实践空间进入（2026-09-15 v4 改准：知识体系撤学习入口——学习只从实践空间进，CONTEXT.md 口径。
+   旧走法「路径条概念卡点学习这个」的入口已撤，进入语义（打开 #learn、隐藏全图/列表/导航）不变。 */
+console.log('\n① 实践空间 → 主线第 1 章');
 await ex('localStorage.removeItem("zss135.learn.v1"); loadLearnState();');
-await ex(`openPanel('${await ex('ROUTES[0].steps[0].conceptId')}')`);
-await sleep(120);
-check('路径第 1 步的按钮改成了「学习这个 · 第 1 章」', await ex(`Array.from(document.querySelectorAll('#pbody .pctx .acts button')).map(b=>b.textContent).join(' | ')`).then(s => s.includes('学习这个 · 第 1 章')), 'true');
+await ex(`openPractice()`);
+await sleep(200);
+check('实践空间主线第 1 章可进入（进入阅读 / 再读一遍）', await ex(`(()=>{const r=Array.from(document.querySelectorAll('#reader .pcard .pu')).find(x=>x.innerText.includes('Agent'));return !!r&&Array.from(r.querySelectorAll('button')).some(b=>/进入阅读|再读一遍/.test(b.textContent))})()`), 'true');
 /* 2026-09-15 改准：一级导航已从左侧整条搬到顶栏（`#topbar > nav.r-list`），`#rail` 这个 id 现在不存在。
    断言的意思一个字没变：**进学习空间之前，图谱 / 主题列表 / 导航都是显示的**。 */
 check('进入前图谱与主题列表与导航是显示的', await ex(`getComputedStyle(document.getElementById('topbar')).display!=='none' && getComputedStyle(document.getElementById('list')).display!=='none' && getComputedStyle(document.getElementById('main')).display!=='none'`), 'true');
-await ex(`Array.from(document.querySelectorAll('#pbody .pctx .acts button')).find(b=>b.textContent.includes('学习这个')).click()`);
+await ex(`practiceEnter('unit:chapter-agent')`);
 await sleep(150);
 check('学习空间已打开', await ex(`document.getElementById('learn').classList.contains('on')`), 'true');
 check('学习时隐藏全量图谱', await ex(`getComputedStyle(document.getElementById('main')).display`), 'none');
 check('学习时隐藏主题列表', await ex(`getComputedStyle(document.getElementById('list')).display`), 'none');
 check('学习时隐藏一级导航', await ex(`getComputedStyle(document.getElementById('topbar')).display`), 'none');
-check('阅读区带出五类材料 ID', await ex(`['QST-','CON-','CAS-','SOL-'].every(p=>document.getElementById('learn-wrap').innerText.includes(p))`), 'true');
+/* 白名单（显式、待内容修订）：authored 正文里有一句「本章定义以 CON-agent 的行为口径为准」——
+   那是负责人审过的材料文字，按「不静默改源材料」纪律，内容修订单列待裁决（见 phase 05 文档）。
+   除这 1 处外，模板渲染的界面文字不得出现五类 ID。 */
+check('阅读明面不带五类材料 ID（人话标签；唯一白名单＝authored 正文那句 CON-agent 行为口径），出处仍在 data-src 数据层',
+  await ex(`(()=>{const w=document.getElementById('learn-wrap');const t=w.innerText;const hit=['QST-','CON-','CAS-','OPI-','SOL-'].filter(p=>t.includes(p));const allowed=hit.length===1&&hit[0]==='CON-'&&t.includes('以 CON-agent 的行为口径为准');return allowed&&w.querySelectorAll('[data-src]').length>=5&&Array.from(w.querySelectorAll('[data-src]')).some(x=>(x.getAttribute('data-src')||'').includes('QST-'))})()`), 'true');
 check('页面显示主案例已由负责人确认', await ex(`document.getElementById('learn-wrap').innerText.includes('主案例已由负责人确认')`), 'true');
 check('显示假设场景标记', await ex(`document.getElementById('learn-wrap').innerText.includes('假设场景')`), 'true');
 await shotOf('.lpair', '50-学习空间-第一章阅读.png');
@@ -250,18 +255,15 @@ check('费曼通过后才解锁第 2 章', await ex(`chapterUnlocked(1)`), 'true
 check('第 2 章按钮解锁', await ex(`document.querySelectorAll('#learn-wrap .lchip')[1].disabled`), 'false');
 check('第 6 章仍未解锁（要逐章过）', await ex(`chapterUnlocked(5)`), 'false');
 
-/* ⑥ 返回知识体系：恢复原路线、原步骤、原概念 */
-console.log('\n⑥ 返回知识体系');
+/* ⑥ 返回：从实践空间进来 → 退回实践空间（2026-09-15 v4 改准：知识体系的学习入口已撤，
+   「退回知识体系并恢复原路线/步骤/概念」的旧语义随入口一起退役；现在返回落点就是实践空间。） */
+console.log('\n⑥ 返回实践空间');
 await ex('exitLearn()');
 await sleep(200);
 check('学习空间已关闭', await ex(`document.getElementById('learn').classList.contains('on')`), 'false');
-check('图谱恢复显示', await ex(`getComputedStyle(document.getElementById('main')).display`), 'block');
-check('主题列表恢复显示', await ex(`getComputedStyle(document.getElementById('list')).display`), 'flex');
-check('恢复原路线', await ex(`activeRoute().routeId`), 'agent-continuous-action-v1');
-check('恢复原步骤（第 1 步）', await ex(`routeStepIdx`), 0);
-check('恢复原概念（Agent 那张卡）', await ex(`selected===ROUTES[0].steps[0].conceptId`), 'true');
-check('恢复为路径模式', await ex(`mode`), 'path');
-await shotOf('#pbody .pctx', '53-学习空间-返回知识体系.png');
+check('退回的是实践空间（不是被丢进知识体系）', await ex(`currentView+'|'+document.getElementById('reader').classList.contains('on')`), 'practice|true');
+check('图谱/主题列表/导航仍在（实践空间不隐藏知识体系）', await ex(`getComputedStyle(document.getElementById('main')).display!=='none'&&getComputedStyle(document.getElementById('list')).display!=='none'&&getComputedStyle(document.getElementById('topbar')).display!=='none'`), 'true');
+await shotOf('#practice-continue', '53-学习空间-返回实践空间.png');
 
 /* ⑦ 地址可复现 + 边界 */
 console.log('\n⑦ 可复现入口与边界');

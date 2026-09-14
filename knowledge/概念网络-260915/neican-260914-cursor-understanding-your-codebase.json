@@ -1,0 +1,259 @@
+{
+ "version": "v1",
+ "unitId": "neican-260914-cursor-understanding-your-codebase",
+ "unitKind": "article",
+ "period": "260914",
+ "slug": "cursor-understanding-your-codebase",
+ "title": "理解您的代码库",
+ "source": "https://cursor.com/cn/learn/understanding-your-codebase",
+ "generatedAt": "2026-09-14T20:48:37.032Z",
+ "generator": "deterministic+llm",
+ "reviewStatus": "generated-unreviewed",
+ "layers": [
+  {
+   "id": "L1",
+   "name": "代理特性"
+  },
+  {
+   "id": "L2",
+   "name": "检索方法"
+  },
+  {
+   "id": "L3",
+   "name": "扩展与上下文"
+  },
+  {
+   "id": "L4",
+   "name": "实践原则"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "n1",
+   "name": "编码 agent / 智能体",
+   "full": "编码 agent / 智能体（coding agent / Agent）",
+   "layer": "L1",
+   "role": "core",
+   "card": 0,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_b8e138f0"
+   }
+  },
+  {
+   "id": "n2",
+   "name": "精确字符串查找 / grep",
+   "full": "精确字符串查找 / grep（grep / ripgrep / Instant Grep）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 1,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_f41e6ffe"
+   }
+  },
+  {
+   "id": "n3",
+   "name": "语义搜索",
+   "full": "语义搜索（semantic search）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 2,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_6f5b5fa0"
+   }
+  },
+  {
+   "id": "n4",
+   "name": "问题的表述方式",
+   "full": "问题的表述方式（从具体到宽泛）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 3,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_ccf2ce24"
+   }
+  },
+  {
+   "id": "n5",
+   "name": "Explore 子代理",
+   "full": "Explore 子代理（Explore subagent）",
+   "layer": "L3",
+   "role": "linked",
+   "card": 4,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_9036fb68"
+   }
+  },
+  {
+   "id": "n6",
+   "name": "上下文用量 / 上下文管理",
+   "full": "上下文用量 / 上下文管理（context usage / context management）",
+   "layer": "L3",
+   "role": "linked",
+   "card": 5,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_d940bf8d"
+   }
+  },
+  {
+   "id": "n7",
+   "name": "架构图",
+   "full": "架构图（Mermaid 图）",
+   "layer": "L3",
+   "role": "linked",
+   "card": 6,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_e7f6fc63"
+   }
+  },
+  {
+   "id": "n8",
+   "name": "修改前先探索",
+   "full": "修改前先探索",
+   "layer": "L4",
+   "role": "linked",
+   "card": 7,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_1dc4c498"
+   }
+  },
+  {
+   "id": "n9",
+   "name": "按字面理解请求 / 意图",
+   "full": "按字面理解请求 / 意图（literal interpretation / intent）",
+   "layer": "L1",
+   "role": "linked",
+   "card": 8,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_de956072"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "id": "e1",
+   "from": "n1",
+   "to": "n2",
+   "label": "提供精确查找",
+   "basis": "quote",
+   "quote": "智能体可以使用 grep 这一精确字符串查找工具，也可以创建更复杂的正则表达式模式或词边界匹配。",
+   "quoteId": "Q12",
+   "quoteFrom": "原文 · Q12",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e2",
+   "from": "n1",
+   "to": "n3",
+   "label": "提供语义搜索",
+   "basis": "quote",
+   "quote": "当您不知道确切的符号或文本时，Agent 可以按语义搜索您的代码库。",
+   "quoteId": "Q19",
+   "quoteFrom": "原文 · Q19",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e3",
+   "from": "n4",
+   "to": "n2",
+   "label": "影响工具选择",
+   "basis": "quote",
+   "quote": "要精确查找某段代码，最直接的方法是寻找完全匹配的内容，例如函数名、变量名或其他代码片段。",
+   "quoteId": "Q11",
+   "quoteFrom": "原文 · Q11",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e4",
+   "from": "n4",
+   "to": "n3",
+   "label": "影响工具选择",
+   "basis": "quote",
+   "quote": "当您不知道确切的符号或文本时，Agent 可以按语义搜索您的代码库。",
+   "quoteId": "Q19",
+   "quoteFrom": "原文 · Q19",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e5",
+   "from": "n5",
+   "to": "n6",
+   "label": "改善上下文管理",
+   "basis": "quote",
+   "quote": "子代理仅返回其发现结果，让主对话保持聚焦，从而显著改善上下文管理。",
+   "quoteId": "Q45",
+   "quoteFrom": "原文 · Q45",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e6",
+   "from": "n1",
+   "to": "n7",
+   "label": "生成架构图",
+   "basis": "quote",
+   "quote": "对于大型或不熟悉的代码库，您可以让智能体生成架构图，例如 Mermaid 图，帮助您直观理解代码库。",
+   "quoteId": "Q46",
+   "quoteFrom": "原文 · Q46",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e7",
+   "from": "n7",
+   "to": "n8",
+   "label": "帮助探索理解",
+   "basis": "quote",
+   "quote": "对于大型或不熟悉的代码库，您可以让智能体生成架构图，例如 Mermaid 图，帮助您直观理解代码库。",
+   "quoteId": "Q46",
+   "quoteFrom": "原文 · Q46",
+   "citedBy": "llm",
+   "evidenceStrength": "indirect",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e8",
+   "from": "n9",
+   "to": "n8",
+   "label": "需要明确表达意图",
+   "basis": "quote",
+   "quote": "但对于需要遵循现有模式的更改，先理解代码库并明确知道该提出什么要求，通常能获得更好的结果。",
+   "quoteId": "Q56",
+   "quoteFrom": "原文 · Q56",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  }
+ ],
+ "gaps": [
+  "边 精确字符串查找 / grep → 语义搜索（语义搜索结合grep）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 编码 agent / 智能体 → Explore 子代理（生成子代理）找不到支撑原句 → 按 R1/R2 不进图"
+ ],
+ "llm": {
+  "model": "deepseek-v4-pro",
+  "tokens": 6257,
+  "cached": true
+ },
+ "citedByStats": {
+  "llm": 8,
+  "retrieval": 0
+ }
+}

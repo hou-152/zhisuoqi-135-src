@@ -112,6 +112,14 @@ html = html.replace('</title>', `</title>\n<!-- 知所栖 135 · 公网快照 ${
      概念地图与内参是烘焙好的静态数据，不依赖服务端。
      公网无服务端时，交卷判定退回机械覆盖检查（只标 mech，不冒充「过了」）。 -->`);
 
+/* 交卷版入口（2026-09-15 所有者裁决入编）：顶栏 main-meta 后挂「完整主流程 →」链到 135.html
+   （离线规则模式）。这步只属于公网产物——本地壳不挂；不在这里注入，每次 build-public 都会
+   把手工加过的入口冲掉（第三十一轮④事故的根因）。 */
+const SUBMIT_ENTRY = '<a href="135.html" title="完整主流程：1 阅读 → 3 决策 → 5 实验 → 费曼验收（公网为离线规则模式）" style="margin-left:10px;font-size:12px;opacity:.75;text-decoration:none;border:1px solid currentColor;border-radius:8px;padding:2px 8px;white-space:nowrap">完整主流程 →</a>';
+if (!html.includes('<span class="mm" id="main-meta"></span>' + SUBMIT_ENTRY)) {
+  html = html.replace('<span class="mm" id="main-meta"></span>', '<span class="mm" id="main-meta"></span>' + SUBMIT_ENTRY);
+}
+
 for (const out of [OUT_REPO, OUT_LOCAL]) {
   fs.mkdirSync(path.dirname(out), { recursive: true });
   fs.writeFileSync(out, html);

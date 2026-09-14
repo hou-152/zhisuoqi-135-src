@@ -1,0 +1,181 @@
+{
+ "version": "v1",
+ "unitId": "neican-260912-agent-skills-lesson-2",
+ "unitKind": "article",
+ "period": "260912",
+ "slug": "agent-skills-lesson-2",
+ "title": "Claude 官方课程 · 第 2 课：技能的结构（SKILL.md 与 frontmatter）",
+ "source": "https://academy.claude.com/courses/introduction-to-agent-skills/creating-your-first-skill",
+ "generatedAt": "2026-09-14T20:33:00.836Z",
+ "generator": "deterministic+llm",
+ "reviewStatus": "generated-unreviewed",
+ "layers": [
+  {
+   "id": "L1",
+   "name": "技能结构"
+  },
+  {
+   "id": "L2",
+   "name": "元数据加载"
+  },
+  {
+   "id": "L3",
+   "name": "冲突与变更"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "n1",
+   "name": "技能与 SKILL.md 结…",
+   "full": "技能与 SKILL.md 结构（Skill / SKILL.md）",
+   "layer": "L1",
+   "role": "core",
+   "card": 0,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_d4a0e687"
+   }
+  },
+  {
+   "id": "n2",
+   "name": "名称与描述",
+   "full": "名称与描述（name / description）",
+   "layer": "L2",
+   "role": "linked",
+   "card": 1,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_4b769318"
+   }
+  },
+  {
+   "id": "n3",
+   "name": "启动时仅加载名称和描述",
+   "full": "启动时仅加载名称和描述",
+   "layer": "L2",
+   "role": "linked",
+   "card": 2,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_28c258d9"
+   }
+  },
+  {
+   "id": "n4",
+   "name": "匹配后的确认与完整加载",
+   "full": "匹配后的确认与完整加载",
+   "layer": "L2",
+   "role": "linked",
+   "card": 3,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_80dfaf37"
+   }
+  },
+  {
+   "id": "n5",
+   "name": "名称冲突优先级与技能作用域",
+   "full": "名称冲突优先级与技能作用域",
+   "layer": "L3",
+   "role": "linked",
+   "card": 4,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_d793c38e"
+   }
+  },
+  {
+   "id": "n6",
+   "name": "技能变更生效条件：编辑、删除…",
+   "full": "技能变更生效条件：编辑、删除、重启",
+   "layer": "L3",
+   "role": "linked",
+   "card": 5,
+   "ref": {
+    "kind": "cm",
+    "id": "cm_325fef11"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "id": "e1",
+   "from": "n1",
+   "to": "n2",
+   "label": "包含名称与描述",
+   "basis": "quote",
+   "quote": "在 YouTube 上观看（在新标签页中打开） 技能是一个目录，其中包含一个SKILL.md文件，该文件的前言部分包含元数据（名称、描述），后言部分包含说明。",
+   "quoteId": "Q6",
+   "quoteFrom": "原文 · Q6",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e2",
+   "from": "n1",
+   "to": "n3",
+   "label": "定义启动加载内容",
+   "basis": "quote",
+   "quote": "Claude在启动时仅加载技能名称和描述，然后使用语义匹配将传入的请求与这些描述进行匹配。",
+   "quoteId": "Q7",
+   "quoteFrom": "原文 · Q7",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e3",
+   "from": "n1",
+   "to": "n4",
+   "label": "匹配后完整加载",
+   "basis": "quote",
+   "quote": "确认后，克劳德会读取整个SKILL.md文件并执行其中的指令。",
+   "quoteId": "Q32",
+   "quoteFrom": "原文 · Q32",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e4",
+   "from": "n2",
+   "to": "n3",
+   "label": "启动时仅加载",
+   "basis": "quote",
+   "quote": "Claude在启动时仅加载技能名称和描述，然后使用语义匹配将传入的请求与这些描述进行匹配。",
+   "quoteId": "Q7",
+   "quoteFrom": "原文 · Q7",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  },
+  {
+   "id": "e5",
+   "from": "n2",
+   "to": "n5",
+   "label": "名称冲突优先级",
+   "basis": "quote",
+   "quote": "优先级顺序很明确： 企业级— 管理设置，最高优先级 个人— 您的主目录 ( ~/.claude/skills) 插件— 已安装的插件，优先级最低 这样一来，企业既可以通过企业级技能来强制执行标准，又可以允许个人进行个性化定制。",
+   "quoteId": "Q34",
+   "quoteFrom": "原文 · Q34",
+   "citedBy": "llm",
+   "evidenceStrength": "weak",
+   "source": "llm+原文索引"
+  }
+ ],
+ "gaps": [
+  "边 技能与 SKILL.md 结 → 技能变更生效条件：编辑、删除（技能变更需编辑配置）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 启动时仅加载名称和描述 → 匹配后的确认与完整加载（匹配后确认加载）找不到支撑原句 → 按 R1/R2 不进图",
+  "边 启动时仅加载名称和描述 → 名称冲突优先级与技能作用域（加载后冲突选择）找不到支撑原句 → 按 R1/R2 不进图"
+ ],
+ "llm": {
+  "model": "deepseek-v4-pro",
+  "tokens": 4347,
+  "cached": true
+ },
+ "citedByStats": {
+  "llm": 5,
+  "retrieval": 0
+ }
+}

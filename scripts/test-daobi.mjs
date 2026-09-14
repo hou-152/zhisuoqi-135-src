@@ -100,7 +100,7 @@ console.log('倒逼 + 分类验收 ' + URL_);
 await ex(`openPanel('${NODE.compute}')`);
 check('打开概念就有复述输入框', await ex(`document.getElementById('said') ? 'OK' : 'NO'`), 'OK');
 check('没有「点一下就变绿」的按钮', await ex(`document.getElementById('pbody').innerHTML.includes('setMark') ? '还在' : 'OK'`), 'OK');
-check('面板写明不能自己标', await ex(`document.getElementById('pbody').innerText.includes('你不能自己标') ? 'OK' : 'NO'`), 'OK');
+check('面板写明不能自己标（讲一遍·我来挑漏）', await ex(`document.getElementById('pbody').innerText.includes('我来挑漏') ? 'OK' : 'NO'`), 'OK');
 
 /* ②③④ 能算的（错误复利）：废话 / 照抄 / 说清机制 */
 await submit(NODE.compute, S('就是一个说法吧，感觉挺有道理的，讲 AI 的一些限制。'), '②');
@@ -139,17 +139,17 @@ await checkPass('⑥ 能判的·写出自己的判据与代价 → 过', NODE.ju
 
 /* ⑦ 只能认的（不可见的劳动）：不设验收，也没有交卷按钮 */
 await ex(`openPanel('${NODE.accept}')`);
-check('⑦ 只能认的·不设验收', await ex(`document.getElementById('pbody').innerText.includes('这一类不设验收') ? 'OK' : 'NO'`), 'OK');
+check('⑦ 只能认的·不用讲一遍', await ex(`document.getElementById('pbody').innerText.includes('这一类不用讲一遍') ? 'OK' : 'NO'`), 'OK');
 check('⑦ 只能认的·没有交卷按钮', await ex(`document.getElementById('pbody').innerText.includes('交卷') ? '还有' : 'OK'`), 'OK');
 await ex(`markRead('${NODE.accept}')`); await sleep(400);
 check('⑦ 只能认的·只记读过，不判过没过', await ex(`marks['${NODE.accept}'].state`), 'read');
 
 /* ⑧ 三栏外壳 + 落盘 + 09-13 减法后的边界 */
-check('⑧ 导航含内参、知识体系、实践空间且内参在上', await ex(`[...document.querySelectorAll('.r-item b')].map(b => b.textContent).join('|')`), '内参|知识体系|实践空间');
+check('⑧ 导航四格：探索/内参/知识体系/实践空间（09-15 v4：探索置顶第一；模块名统一队友前端改回知识体系）', await ex(`[...document.querySelectorAll('.r-item b')].map(b => b.textContent).join('|')`), '探索|内参|知识体系|实践空间');
 check('⑧ 底部那条栏已删', await ex(`document.getElementById('bar') ? '还在' : 'OK'`), 'OK');
 check('⑧ 两栏都在（列表|主区）', await ex(`['list','main'].filter(i => document.getElementById(i)).length`), '2');
-/* 09-15：一级导航（内参/知识体系/实践空间）从左栏搬到顶端；左栏整条撤掉 */
-check('⑧ 一级导航在顶栏（不在左栏）', await ex(`document.querySelectorAll('#topbar .r-item').length + '|' + (document.getElementById('rail') ? '左栏还在' : '左栏已撤')`), '3|左栏已撤');
+/* 09-15 v4：一级导航四格（探索/内参/知识体系/实践空间），仍在顶栏；左栏整条撤掉 */
+check('⑧ 一级导航在顶栏（不在左栏）', await ex(`document.querySelectorAll('#topbar .r-item').length + '|' + (document.getElementById('rail') ? '左栏还在' : '左栏已撤')`), '4|左栏已撤');
 check('⑧ 顶栏横跨整页、贴在最上方', await ex(`(()=>{const t=document.getElementById('topbar').getBoundingClientRect();
   const l=document.getElementById('list').getBoundingClientRect();
   return [Math.round(t.top), Math.round(t.width), (t.bottom<=l.top+1?'在上':'不在上')].join('|');})()`),
@@ -165,7 +165,7 @@ check('⑧ 点一条主题 → 下钻到三级', await ex(`(()=>{const rows=docu
 check('⑧ 三级只列这条主题的概念', await ex(`(()=>{const want=nodes.filter(n=>(n.tags||[])[0]===themeId).length; const got=document.querySelectorAll('#lp-body .row').length; return got + '/' + want + '|' + (got===want && got < nodes.length ? 'OK' : '不对')})()`), 'OK');
 check('⑧ 点「← 全部主题」回到二级', await ex(`(()=>{setView('graph'); return currentView + '|' + String(filter) + '|' + (document.getElementById('lp-back').style.display==='none'?'返回已藏':'还露着') + '|' + document.querySelectorAll('#lp-body .row').length})()`), await ex(`'graph|null|返回已藏|' + groups().length`));
 check('⑧ 顶栏没有多余的底部状态点', await ex(`document.querySelector('#topbar .r-foot, #myrow, #rhint') ? '还在' : 'OK'`), 'OK');
-check('⑧ 顶栏＝三项导航 + 搜索框', await ex(`document.querySelectorAll('#topbar .r-item').length + '|' + (document.getElementById('q-filter') ? 'OK' : 'NO')`), '3|OK');
+check('⑧ 顶栏＝四格导航 + 更新 + 搜索框', await ex(`document.querySelectorAll('#topbar .r-item').length + '|' + (document.getElementById('btn-upd') ? 'OK' : 'NO') + '|' + (document.getElementById('q-filter') ? 'OK' : 'NO')`), '4|OK|OK');
 /* 回归（所有者 2026-09-15 报「内参每次打开都得再刷新一遍」）：
    根因＝实践空间把 #reader 整个 innerHTML 换掉，连 #nei-wrap 一起删了，之后点内参必抛
    Cannot read properties of null。这条断言把「实践空间 → 内参」这条路径钉住。 */
@@ -198,7 +198,7 @@ await ex(`openPanel('${FRESH}')`); await sleep(300);
 check('⑩ 没验过也能看费曼一下（门已拆）', await ex(`document.getElementById('pbody').innerText.includes('随时可看，不用先答') ? 'OK' : 'NO'`), 'OK');
 /* 这条是 2026-09-13 查出来的真 bug：sourceContext 一直在 topics.json 里（919/936），
    却没被 cm-wire 搬进 payload —— 卡上「原文 context」和「别名」两栏一直是空的。 */
-check('⑩ 原文 context 真的有内容（不是空壳）', await ex(`(()=>{const d=[...document.querySelectorAll('#pbody details')].find(x=>x.innerText.includes('原文 context')); if(!d) return 'NO'; d.open=true; const t=d.innerText.replace(/\\s/g,''); return t.length > 80 ? 'OK' : 'NO'})()`), 'OK');
+check('⑩ 原文 context 真的有内容（不是空壳）', await ex(`(()=>{const d=[...document.querySelectorAll('#pbody details')].find(x=>x.innerText.includes('原文里的说法')); if(!d) return 'NO'; d.open=true; const t=d.innerText.replace(/\\s/g,''); return t.length > 80 ? 'OK' : 'NO'})()`), 'OK');
 check('⑩ 拆门不影响倒逼状态机', await ex(`marks['${FRESH}'] ? 'NO（被写了状态）' : 'OK'`), 'OK');
 /* 同一个 bug 的第二半：验收问句里 922/936 条留着没替换的 {{name}}，页面上直接显示「{{name}} 指什么？」 */
 check('⑩ 验收问句没有 {{name}} 占位符', await ex(`String(DATA.nodes.filter(n => /\\{\\{name\\}\\}/.test(String(n.ap || ''))).length)`), '0');
