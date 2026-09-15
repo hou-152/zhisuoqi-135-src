@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>知所栖 135 · AI 时代要学的每一件事</title>
-<!-- 知所栖 135 · 公网快照 2026-9-15 09:00:15
+<!-- 知所栖 135 · 公网快照 2026-9-15 08:45:31
      概念地图与内参是烘焙好的静态数据，不依赖服务端。
      公网无服务端时，交卷判定退回机械覆盖检查（只标 mech，不冒充「过了」）。 -->
 <style>
@@ -490,8 +490,7 @@ code{background:#161719;border:1px solid var(--line);border-radius:4px;padding:1
 .exo-note{font-size:11px;color:var(--fg4)}
 .exp-home .exp-hero{margin:8px 0 22px}
 .exp-starlink{position:relative;overflow:hidden;background:radial-gradient(circle at 75% 20%,rgba(95,104,223,.18),transparent 38%)}.exp-starlink .exp-kicker{color:#aab0ff;font-size:13px;letter-spacing:.08em;margin-bottom:12px}.exp-starlink .exp-orbit{position:absolute;inset:-35%;pointer-events:none;opacity:.65}.exp-starlink .exp-orbit:before,.exp-starlink .exp-orbit:after,.exp-starlink .exp-orbit i{content:"";position:absolute;border:1px solid rgba(112,120,235,.16);border-radius:50%;inset:15%;transform:rotate(22deg)}.exp-starlink .exp-orbit:after{inset:27%;transform:rotate(-38deg)}.exp-starlink .exp-orbit i{inset:auto;width:7px;height:7px;background:#7882ff;border:0;top:30%;left:66%;box-shadow:0 0 18px #7882ff}.exp-starlink .exp-hero,.exp-starlink .exp-question,.exp-starlink .exp-mods,.exp-starlink .exp-note{position:relative;z-index:1}
-.starlink-home-frame{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:0;background:#000}.exp-overlay{position:relative;z-index:2;pointer-events:none}.exp-overlay>*{pointer-events:auto}.starlink-frame-note{position:absolute;z-index:3;right:18px;bottom:12px;color:#888;font-size:11px;background:rgba(0,0,0,.6);padding:4px 8px;border-radius:6px}.app-explore #topbar,.app-explore #list,.app-explore #list-backdrop{display:none}.app-explore #main{position:fixed;inset:0}.app-explore #reader{height:100vh}.app-explore .explore{max-width:none;padding:0;height:100vh}.app-explore .starlink-home-frame{position:fixed}.app-explore .exp-overlay{padding:9vh 7vw}
-.app-explore .exp-overlay .exp-hero,.app-explore .exp-overlay .exp-question,.app-explore .exp-overlay .exp-note{display:none}.app-explore .exp-overlay .exp-mods{position:fixed;top:18vh;right:5vw;width:min(420px,38vw);grid-template-columns:1fr;gap:10px}.app-explore .exp-overlay .exp-mod{background:rgba(10,11,16,.78);backdrop-filter:blur(8px)}
+.starlink-home-frame{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:0;background:#000}.exp-overlay{position:relative;z-index:2;pointer-events:none}.exp-overlay>*{pointer-events:auto}.starlink-frame-note{position:absolute;z-index:3;right:18px;bottom:12px;color:#888;font-size:11px;background:rgba(0,0,0,.6);padding:4px 8px;border-radius:6px}
 .exp-question{display:flex;gap:8px;margin:0 0 22px;max-width:640px}.exp-question input{flex:1;min-width:0;background:var(--panel2);border:1px solid var(--line);border-radius:9px;padding:11px 12px;color:var(--fg);font:inherit}.exp-question button{border:0;border-radius:9px;padding:0 16px;background:#5e6ad2;color:#fff;cursor:pointer}
 .route-crosswalk-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:14px 0;color:#aeb4ff;font-size:12px}.route-crosswalk-grid span{border:1px solid #2b2f4d;border-radius:8px;padding:8px 10px;background:#11131c}
 .exp-hero h2{margin:0 0 8px;font-size:24px;color:var(--fg)}
@@ -835,9 +834,10 @@ body.learning #topbar,body.learning #list,body.learning #main{display:none}
 <div id="app">
   <!-- 顶栏＝一级导航（2026-09-15 按所有者口径从左侧整条搬上来） -->
   <header id="topbar">
-    <div class="r-brand">知所栖<span class="pubtag" id="pubtag" title="公网快照：概念地图与内参都是 2026-9-15 09:00:15 烘焙好的静态数据；静态站上没有服务端，交卷走机械覆盖检查">公网快照</span></div>
+    <div class="r-brand">知所栖<span>135</span><span class="pubtag" id="pubtag" title="公网快照：概念地图与内参都是 2026-9-15 08:45:31 烘焙好的静态数据；静态站上没有服务端，交卷走机械覆盖检查">公网快照</span></div>
     <button class="burger" id="btn-burger" onclick="toggleList()" title="主题 / 日历列表">☰</button>
     <nav class="r-list">
+      <button class="r-item" data-view="explore" onclick="setView('explore')" title="AI 内嵌首页"><span class="ic">✦</span><b>探索</b></button>
       <button class="r-item" data-view="neican" onclick="setView('neican')"><span class="ic">▤</span><b>内参</b><i id="r-nei"></i></button>
       <button class="r-item on" data-view="graph" onclick="setView('graph')"><span class="ic">◧</span><b>知识体系</b><i id="r-all"></i></button>
       <button class="r-item" data-view="practice" onclick="openPractice()"><span class="ic">▷</span><b>实践空间</b><i id="r-practice"></i></button>
@@ -3683,22 +3683,39 @@ function openExplore() {
 }
 window.openExplore = openExplore;
 function exploreOnboard() {
-  // 首页直接展示项目自己的三个模块；不再嵌入队友首页或保留旧探索引导。
-  return exploreHome();
-}
-function exploreHome() {
-  return `<div class="exp-home">
-    <div class="exp-overlay">
-    <div class="exp-hero"><div class="exp-kicker">知所栖 135</div><h2>把好奇心，走成一条路</h2>
-      <p>从一个问题开始，去读内参、连知识、做实践。</p></div>
-    <div class="exp-mods">${EXPLORE_STEPS.map((s, i) => `
-      <button class="exp-mod" onclick="expGo('${s.view}')">
-        <span class="em-ico">${s.icon}</span><b>${esc(s.name)}</b><span>${esc(s.title)}</span><small>${esc(s.text)}</small><strong>${i === 0 ? '下一步 →' : '进入 →'}</strong></button>`).join('')}</div>
+  const s = EXPLORE_STEPS[expStep];
+  return `<div class="exp-onboard">
+    <div class="exo-card">
+      <div class="exo-ico">${s.icon}</div>
+      <h3>${esc(s.name)}</h3>
+      <div class="exo-title">${esc(s.title)}</div>
+      <p>${esc(s.text)}</p>
+      <div class="exo-dots">${EXPLORE_STEPS.map((_, i) => `<i class="${i === expStep ? 'on' : ''}"></i>`).join('')}</div>
+      <div class="exo-acts">
+        ${expStep > 0 ? `<button class="exo-ghost" onclick="expMove(-1)">上一步</button>` : `<button class="exo-ghost" onclick="expDone()">跳过</button>`}
+        <button class="exo-next" onclick="${expStep >= 2 ? 'expDone()' : 'expMove(1)'}">${expStep >= 2 ? '开始用' : '下一步'}</button>
+      </div>
     </div>
+    <div class="exo-note">AI 内嵌 · 首次引导 · 随时可跳过</div>
   </div>`;
 }
-function expMove(d) { if (d > 0) { expGo('neican'); return; } openExplore(); }
-function expDone() { expGo('neican'); }
+function exploreHome() {
+  return `<div class="exp-home exp-starlink">
+    <iframe class="starlink-home-frame" title="队友星链首页" src="starlink-reference-v2.0.0.html"></iframe>
+    <div class="starlink-frame-note">队友星链首页 · 动画与首页交互已接入</div>
+    <div class="exp-overlay">
+    <div class="exp-orbit" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="exp-hero"><div class="exp-kicker">知所栖 135 · 从一个问题开始</div><h2>把好奇心，走成一条路</h2>
+      <p>先提出一个问题，再决定去读、去连接，还是去实践。</p></div>
+    <form class="exp-question" onsubmit="expAsk(event)"><input id="exp-question-input" placeholder="从一个问题开始，例如：AI 怎样持续行动？"><button type="submit">开始探索</button></form>
+    <div class="exp-mods">${EXPLORE_STEPS.map(s => `
+      <button class="exp-mod" onclick="expGo('${s.view}')">
+        <span class="em-ico">${s.icon}</span><b>${esc(s.name)}</b><span>${esc(s.title)}</span></button>`).join('')}</div>
+    <div class="exp-note">可以随时回到这里，换一个入口继续。</div></div>
+  </div>`;
+}
+function expMove(d) { expStep = Math.max(0, Math.min(2, expStep + d)); openExplore(); }
+function expDone() { try { localStorage.setItem('zss135.explore.v1', 'done'); } catch (e) {} expStep = 3; openExplore(); }
 function expAsk(e) {
   if (e) e.preventDefault();
   const q = String((document.getElementById('exp-question-input') || {}).value || '').trim();
@@ -4971,10 +4988,6 @@ window.GV = GV;
 
 function setMode(m) {
   if (!MODES.includes(m)) m = 'tree';   // 旧模式名（grid/relation/sphere）从 hash 进来也落到树，不白屏
-  if (m === 'path' || m === 'tree' || m === 'grid') {
-    currentView = 'graph';
-    document.getElementById('app')?.classList.remove('app-explore');
-  }
   mode = m;
   syncTabs();
   // 总图是「系统视图」小入口：进来才挂载、才去拉真实索引（不把两千个节点塞进单文件页面）
@@ -5112,14 +5125,13 @@ function applyHash() {
   }
   /* 旧视图名（sphere/grid/relation）的地址入口落到**我的树**——入口撤了，别让旧链接白屏 */
   if (h === 'sphere' || h === 'grid' || h === 'relation') setMode('tree');
-  else if (h === 'tree' || h === 'path' || h === 'graph') { setView('graph'); setMode(h); }
+  else if (h === 'tree' || h === 'path' || h === 'graph') setMode(h);
   else if (h === 'explore') setView('explore');
   else if (h && byId.has(h)) openPanel(h);
   else {
     // 浏览器从 #graph=map 后退到空 hash＝离开系统视图的第二条出口（v4.1 根修）
     if (mode === 'graph') setMode('tree');
-    if (!h) setView('explore');
-    else syncPath();
+    syncPath();
   }
 }
 window.applyHash = applyHash;
@@ -5153,7 +5165,7 @@ window.refreshRail = refreshRail;
 /* ══ 列表栏（Linear 的中间那一栏）═════════════════════════════
    之前没有这一栏——所以没有 Linear 的味道。
    它是当前导航项的**可扫列表**：一行一个东西，右边是元信息，点开看详情。 */
-let currentView = 'explore';
+let currentView = 'graph';
 let themeId = null;   // theme 态（三级）当前所在的主题；graph 态恒为 null
 const VIEW_TITLE = { explore: '探索 · AI 内嵌', graph: '主题', theme: '主题', neican: '内参 · 日报集合', practice: '实践空间 · 六章阅读器 + 状态看板' };
 const ST_COLOR = { pass: '#4cb782', fail: '#eb5757', mech: '#f2c94c', read: '#9b7fe8' };
@@ -5201,9 +5213,9 @@ function renderList() {
       html += mine.map(r => `<div class="prow${r.routeId === routeId && mode === 'path' ? ' on' : ''}" onclick="openRoute('${r.routeId}')">
             <span class="rd"></span>
             <span class="rn">学习路线：${esc(r.title)}<i>${esc(r.entryQuestion)}</i></span>
-            <span class="rm">${r.steps.length} 个概念</span></div>`).join('');
+            <span class="rm">${r.steps.length} 步</span></div>`).join('');
     }
-    html += `<div class="browse-route" onclick="setView('theme','${themeId}')">
+    html += `<div class="prow browse-route" onclick="setView('theme','${themeId}')">
       <span class="rd" style="background:#7d86b8"></span>
       <span class="rn">浏览这条主题的概念顺序<i>按前置关系从浅到深查看，不会解锁课程</i></span>
       <span class="rm">${groupCount({id:themeId})} 个概念</span></div>`;
@@ -5724,8 +5736,6 @@ function setView(v, tid) {
   saveQueryInput();
   if (v === 'graph' && mode === 'graph') setMode('tree');
   currentView = v;
-  document.getElementById('app')?.classList.toggle('app-explore', v === 'explore');
-  document.getElementById('app')?.classList.toggle('app-explore', v === 'explore');
   themeId = (v === 'theme' && tid) ? tid : null;
   filter = themeId;                       // 画布只亮这一列；回主题态自动清掉
   if (v !== 'neican' && v !== 'explore') hideReader();

@@ -835,6 +835,7 @@ body.learning #topbar,body.learning #list,body.learning #main{display:none}
     <div class="r-brand">知所栖<span class="pubtag" id="pubtag" style="display:none">公网快照</span></div>
     <button class="burger" id="btn-burger" onclick="toggleList()" title="主题 / 日历列表">☰</button>
     <nav class="r-list">
+      <button class="r-item" data-view="explore" onclick="setView('explore')" title="AI 内嵌首页"><span class="ic">✦</span><b>探索</b></button>
       <button class="r-item" data-view="neican" onclick="setView('neican')"><span class="ic">▤</span><b>内参</b><i id="r-nei"></i></button>
       <button class="r-item on" data-view="graph" onclick="setView('graph')"><span class="ic">◧</span><b>知识体系</b><i id="r-all"></i></button>
       <button class="r-item" data-view="practice" onclick="openPractice()"><span class="ic">▷</span><b>实践空间</b><i id="r-practice"></i></button>
@@ -1255,22 +1256,39 @@ function openExplore() {
 }
 window.openExplore = openExplore;
 function exploreOnboard() {
-  // 首页直接展示项目自己的三个模块；不再嵌入队友首页或保留旧探索引导。
-  return exploreHome();
-}
-function exploreHome() {
-  return `<div class="exp-home">
-    <div class="exp-overlay">
-    <div class="exp-hero"><div class="exp-kicker">知所栖 135</div><h2>把好奇心，走成一条路</h2>
-      <p>从一个问题开始，去读内参、连知识、做实践。</p></div>
-    <div class="exp-mods">${EXPLORE_STEPS.map((s, i) => `
-      <button class="exp-mod" onclick="expGo('${s.view}')">
-        <span class="em-ico">${s.icon}</span><b>${esc(s.name)}</b><span>${esc(s.title)}</span><small>${esc(s.text)}</small><strong>${i === 0 ? '下一步 →' : '进入 →'}</strong></button>`).join('')}</div>
+  const s = EXPLORE_STEPS[expStep];
+  return `<div class="exp-onboard">
+    <div class="exo-card">
+      <div class="exo-ico">${s.icon}</div>
+      <h3>${esc(s.name)}</h3>
+      <div class="exo-title">${esc(s.title)}</div>
+      <p>${esc(s.text)}</p>
+      <div class="exo-dots">${EXPLORE_STEPS.map((_, i) => `<i class="${i === expStep ? 'on' : ''}"></i>`).join('')}</div>
+      <div class="exo-acts">
+        ${expStep > 0 ? `<button class="exo-ghost" onclick="expMove(-1)">上一步</button>` : `<button class="exo-ghost" onclick="expDone()">跳过</button>`}
+        <button class="exo-next" onclick="${expStep >= 2 ? 'expDone()' : 'expMove(1)'}">${expStep >= 2 ? '开始用' : '下一步'}</button>
+      </div>
     </div>
+    <div class="exo-note">AI 内嵌 · 首次引导 · 随时可跳过</div>
   </div>`;
 }
-function expMove(d) { if (d > 0) { expGo('neican'); return; } openExplore(); }
-function expDone() { expGo('neican'); }
+function exploreHome() {
+  return `<div class="exp-home exp-starlink">
+    <iframe class="starlink-home-frame" title="队友星链首页" src="starlink-reference-v2.0.0.html"></iframe>
+    <div class="starlink-frame-note">队友星链首页 · 动画与首页交互已接入</div>
+    <div class="exp-overlay">
+    <div class="exp-orbit" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="exp-hero"><div class="exp-kicker">知所栖 135 · 从一个问题开始</div><h2>把好奇心，走成一条路</h2>
+      <p>先提出一个问题，再决定去读、去连接，还是去实践。</p></div>
+    <form class="exp-question" onsubmit="expAsk(event)"><input id="exp-question-input" placeholder="从一个问题开始，例如：AI 怎样持续行动？"><button type="submit">开始探索</button></form>
+    <div class="exp-mods">${EXPLORE_STEPS.map(s => `
+      <button class="exp-mod" onclick="expGo('${s.view}')">
+        <span class="em-ico">${s.icon}</span><b>${esc(s.name)}</b><span>${esc(s.title)}</span></button>`).join('')}</div>
+    <div class="exp-note">可以随时回到这里，换一个入口继续。</div></div>
+  </div>`;
+}
+function expMove(d) { expStep = Math.max(0, Math.min(2, expStep + d)); openExplore(); }
+function expDone() { try { localStorage.setItem('zss135.explore.v1', 'done'); } catch (e) {} expStep = 3; openExplore(); }
 function expAsk(e) {
   if (e) e.preventDefault();
   const q = String((document.getElementById('exp-question-input') || {}).value || '').trim();
