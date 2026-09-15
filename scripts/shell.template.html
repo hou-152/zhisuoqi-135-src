@@ -486,6 +486,7 @@ code{background:#161719;border:1px solid var(--line);border-radius:4px;padding:1
 .exo-next:hover{background:#6f7be0}
 .exo-note{font-size:11px;color:var(--fg4)}
 .exp-home .exp-hero{margin:8px 0 22px}
+.exp-question{display:flex;gap:8px;margin:0 0 22px;max-width:640px}.exp-question input{flex:1;min-width:0;background:var(--panel2);border:1px solid var(--line);border-radius:9px;padding:11px 12px;color:var(--fg);font:inherit}.exp-question button{border:0;border-radius:9px;padding:0 16px;background:#5e6ad2;color:#fff;cursor:pointer}
 .exp-hero h2{margin:0 0 8px;font-size:24px;color:var(--fg)}
 .exp-hero p{margin:0;font-size:13px;color:var(--fg3);line-height:1.9;max-width:640px}
 .exp-mods{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
@@ -1270,6 +1271,7 @@ function exploreHome() {
   return `<div class="exp-home">
     <div class="exp-hero"><h2>AI 内嵌</h2>
       <p>知所栖的三个模块是一条学习回路：<b>内参</b>给你今天要学的材料，<b>知识体系</b>把材料长成你的知识树，<b>实践空间</b>用一条路带走到会。</p></div>
+    <form class="exp-question" onsubmit="expAsk(event)"><input id="exp-question-input" placeholder="从一个问题开始，例如：AI 怎样持续行动？"><button type="submit">开始探索</button></form>
     <div class="exp-mods">${EXPLORE_STEPS.map(s => `
       <button class="exp-mod" onclick="expGo('${s.view}')">
         <span class="em-ico">${s.icon}</span><b>${esc(s.name)}</b><span>${esc(s.title)}</span></button>`).join('')}</div>
@@ -1278,8 +1280,16 @@ function exploreHome() {
 }
 function expMove(d) { expStep = Math.max(0, Math.min(2, expStep + d)); openExplore(); }
 function expDone() { try { localStorage.setItem('zss135.explore.v1', 'done'); } catch (e) {} expStep = 3; openExplore(); }
+function expAsk(e) {
+  if (e) e.preventDefault();
+  const q = String((document.getElementById('exp-question-input') || {}).value || '').trim();
+  if (!q) return;
+  const n = nodes.find(x => (x.name + ' ' + (x.nameEn || '') + ' ' + (x.aliases || []).join(' ')).toLowerCase().includes(q.toLowerCase()));
+  if (n && n.tags && n.tags[0]) { viewQueries.knowledge = ''; setView('theme', n.tags[0]); openPanel(n.id); }
+  else { viewQueries.knowledge = q; setView('graph'); }
+}
 function expGo(v) { closeUpd(); closePanel(); setView(v); }
-window.expMove = expMove; window.expDone = expDone; window.expGo = expGo;
+window.expMove = expMove; window.expDone = expDone; window.expGo = expGo; window.expAsk = expAsk;
 function renderExploreList(q = '') {
   const list = EXPLORE_STEPS.filter(s => !q || (s.name + s.title + s.text).toLowerCase().includes(q));
   return list.map(s => `<div class="row"><span class="rn">${esc(s.name)}</span><span class="rm">${esc(s.title)}</span></div>`).join('')
