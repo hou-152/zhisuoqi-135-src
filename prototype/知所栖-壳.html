@@ -487,6 +487,7 @@ code{background:#161719;border:1px solid var(--line);border-radius:4px;padding:1
 .exo-note{font-size:11px;color:var(--fg4)}
 .exp-home .exp-hero{margin:8px 0 22px}
 .exp-starlink{position:relative;overflow:hidden;background:radial-gradient(circle at 75% 20%,rgba(95,104,223,.18),transparent 38%)}.exp-starlink .exp-kicker{color:#aab0ff;font-size:13px;letter-spacing:.08em;margin-bottom:12px}.exp-starlink .exp-orbit{position:absolute;inset:-35%;pointer-events:none;opacity:.65}.exp-starlink .exp-orbit:before,.exp-starlink .exp-orbit:after,.exp-starlink .exp-orbit i{content:"";position:absolute;border:1px solid rgba(112,120,235,.16);border-radius:50%;inset:15%;transform:rotate(22deg)}.exp-starlink .exp-orbit:after{inset:27%;transform:rotate(-38deg)}.exp-starlink .exp-orbit i{inset:auto;width:7px;height:7px;background:#7882ff;border:0;top:30%;left:66%;box-shadow:0 0 18px #7882ff}.exp-starlink .exp-hero,.exp-starlink .exp-question,.exp-starlink .exp-mods,.exp-starlink .exp-note{position:relative;z-index:1}
+.starlink-home-frame{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:0;background:#000}.exp-overlay{position:relative;z-index:2;pointer-events:none}.exp-overlay>*{pointer-events:auto}.starlink-frame-note{position:absolute;z-index:3;right:18px;bottom:12px;color:#888;font-size:11px;background:rgba(0,0,0,.6);padding:4px 8px;border-radius:6px}
 .exp-question{display:flex;gap:8px;margin:0 0 22px;max-width:640px}.exp-question input{flex:1;min-width:0;background:var(--panel2);border:1px solid var(--line);border-radius:9px;padding:11px 12px;color:var(--fg);font:inherit}.exp-question button{border:0;border-radius:9px;padding:0 16px;background:#5e6ad2;color:#fff;cursor:pointer}
 .route-crosswalk-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:14px 0;color:#aeb4ff;font-size:12px}.route-crosswalk-grid span{border:1px solid #2b2f4d;border-radius:8px;padding:8px 10px;background:#11131c}
 .exp-hero h2{margin:0 0 8px;font-size:24px;color:var(--fg)}
@@ -3413,7 +3414,7 @@ function saveQueryInput() {
 const neiQ = () => activeQuery('neican');
 const neiPass = (a) => {
   const q = neiQ();
-  return (!neiFilt.tag || (a.tag || '文章') === neiFilt.tag)
+  return (!neiFilt.tag || ((a.tag || a.topic || '文章')) === neiFilt.tag)
     && (!neiFilt.star || (a.stars || 0) >= neiFilt.star)
     && (!q || (String(a.title || '') + String(a.topic || '') + String(a.author || '')).toLowerCase().includes(q));  // 左栏搜索框也管这里
 };
@@ -3697,6 +3698,9 @@ function exploreOnboard() {
 }
 function exploreHome() {
   return `<div class="exp-home exp-starlink">
+    <iframe class="starlink-home-frame" title="队友星链首页" src="starlink-reference-v2.0.0.html"></iframe>
+    <div class="starlink-frame-note">队友星链首页 · 动画与首页交互已接入</div>
+    <div class="exp-overlay">
     <div class="exp-orbit" aria-hidden="true"><i></i><i></i><i></i></div>
     <div class="exp-hero"><div class="exp-kicker">知所栖 135 · 从一个问题开始</div><h2>把好奇心，走成一条路</h2>
       <p>先提出一个问题，再决定去读、去连接，还是去实践。</p></div>
@@ -3704,7 +3708,7 @@ function exploreHome() {
     <div class="exp-mods">${EXPLORE_STEPS.map(s => `
       <button class="exp-mod" onclick="expGo('${s.view}')">
         <span class="em-ico">${s.icon}</span><b>${esc(s.name)}</b><span>${esc(s.title)}</span></button>`).join('')}</div>
-    <div class="exp-note">可以随时回到这里，换一个入口继续。</div>
+    <div class="exp-note">可以随时回到这里，换一个入口继续。</div></div>
   </div>`;
 }
 function expMove(d) { expStep = Math.max(0, Math.min(2, expStep + d)); openExplore(); }
@@ -5805,7 +5809,7 @@ function neiFacets() {
   const inSearch = a => !q || (String(a.title || '') + String(a.topic || '') + String(a.author || '')).toLowerCase().includes(q);
   const all = base.filter(inSearch);
   const tally = (arr) => arr.reduce((m, k) => (m[k] = (m[k] || 0) + 1, m), {});
-  const kinds = Object.entries(tally(all.map(a => a.tag || '文章'))).sort((a, b) => b[1] - a[1]);
+  const kinds = Object.entries(tally(all.map(a => a.tag || a.topic || '文章'))).sort((a, b) => b[1] - a[1]);
   const stars = [5, 4, 3].map(n => [n, all.filter(a => (a.stars || 0) >= n).length])
     .filter(([, c]) => c && c < all.length);
   const group = (key, title, chips) => `<div class="fg">
@@ -5866,7 +5870,7 @@ window.neiTab = neiTab;
 
 function neiBody(a) {
   if (neiTabName === 'dim') {
-    if (!a.dim) return '<div class="mut">这一篇没有五维拆解。</div>';
+    if (!a.dim) return '<div class="mut"><b>这篇暂时没有五维拆解。</b><br>它有三级笔记、概念网络和费曼示范；五维材料只在完成对应拆解的文章上开放。</div>';
     return neiDimBody(a);
   }
   if (neiTabName === 'concept') {
@@ -6056,9 +6060,9 @@ function renderNeican(reset) {
   if (!a) { renderNeicanHome(); return; }
   const iss = issueOfArticle(a.slug) || NEI();
   const tabs = [['notes', '三级笔记'], ['concept', '概念网络'],
-      ['feynman', (a.feynman && (a.feynman.rubric || []).length) ? '费曼 ×3' : '费曼示范'],
-      ['source', '阅读原文']]
-    .concat(a.dim ? [['dim', a.dim.teachingMap ? '五维 · 即时费曼' : '五维']] : []);
+      ['feynman', (a.feynman && ((a.feynman.short || a.feynman.long || '').trim())) ? '费曼示范' : '费曼材料'],
+      ['source', '阅读原文'],
+      ['dim', a.dim ? (a.dim.teachingMap ? '五维 · 即时费曼' : '五维拆解') : '五维（暂无）']];
   wrap.innerHTML = `
     ${neiWhenBar()}
     <div class="nei-crumb"><b>AI 内参</b><span>›</span><span>${esc(iss.period)} 期</span>${a.tag ? `<span>›</span><span>${esc(a.tag)}</span>` : ''}
