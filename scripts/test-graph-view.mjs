@@ -45,6 +45,15 @@ const mouse = (type, x, y) => cdp.send('Input.dispatchMouseEvent', {
   type, x, y, button: 'left', buttons: type === 'mouseReleased' ? 0 : 1, clickCount: 1, pointerType: 'mouse' });
 const shot = name => cdp.screenshot(path.join(OUT, name));
 
+/* 首页 → 知识体系：捕获首页隐藏样式遗留造成的黑屏。 */
+await ex(`setView('explore'); setView('graph')`);
+check('离开首页后画布、视图按钮、树头均可见', await ex(`
+  ['#c', '.mtools', '#tree-head'].every(selector => {
+    const el = document.querySelector(selector), style = getComputedStyle(el);
+    const rect = el.getBoundingClientRect();
+    return style.visibility === 'visible' && style.display !== 'none' && rect.width > 0 && rect.height > 0;
+  })`), 'true');
+
 /* ① 默认入口：我的树；tab 板三格；树头（slogan + 统计）在 */
 console.log('\n① 默认＝我的树');
 check('默认模式＝tree（slogan 落在产品上）', await ex('mode'), 'tree');

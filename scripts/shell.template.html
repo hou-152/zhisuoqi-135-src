@@ -3264,6 +3264,8 @@ function syncListSel() {
 /* setView('theme', tagId) 下钻到三级；setView('graph') 回二级（全部主题）。
    「知识体系」这个导航项在 theme 态也保持高亮——它和主题态属于同一个一级页面。 */
 function setView(v, tid) {
+  // 首页隐藏画布；每次切换都同步解除，避免知识体系留下整块黑屏。
+  document.getElementById('main')?.classList.toggle('explore-active', v === 'explore');
   /* v4.1 根修（对抗性审计发现）：系统视图（mode==='graph'）没有可见退出控件——顶栏导航
      点击后 currentView 换了、画布却停在总图态（graphon 不解除＝「回不去」的根因）。
      总图态的退出闭环就设在这里：任何一次回到知识体系的导航，先把画布从总图归位到我的树。 */
