@@ -836,7 +836,7 @@ body.learning #topbar,body.learning #list,body.learning #main{display:none}
       <button class="r-item" data-view="explore" onclick="setView('explore')" title="AI 内嵌首页"><span class="ic">✦</span><b>探索</b></button>
       <button class="r-item" data-view="neican" onclick="setView('neican')"><span class="ic">▤</span><b>内参</b><i id="r-nei"></i></button>
       <button class="r-item on" data-view="graph" onclick="setView('graph')"><span class="ic">◧</span><b>知识体系</b><i id="r-all"></i></button>
-      <button class="r-item" data-view="practice" onclick="openPractice()"><span class="ic">▷</span><b>实践空间</b><i>1</i></button>
+      <button class="r-item" data-view="practice" onclick="openPractice()"><span class="ic">▷</span><b>实践空间</b><i id="r-practice"></i></button>
     </nav>
     <span class="spacer" style="flex:1"></span>
     <button class="upd-btn" id="btn-upd" onclick="toggleUpd()" title="版本更新记录">更新 <span id="upd-ver"></span></button>
@@ -1237,6 +1237,7 @@ function closeUpd() { const p = document.getElementById('upd-panel'); if (p) p.h
 window.toggleUpd = toggleUpd; window.closeUpd = closeUpd;
 
 function openExplore() {
+  document.getElementById('main')?.classList.add('explore-active');
   const reader = document.getElementById('reader');
   let w = document.getElementById('explore-wrap');
   if (!w && reader) {
@@ -2690,6 +2691,8 @@ function refreshRail() {
   if (e1) e1.textContent = nodes.length;
   const e2 = document.getElementById('r-nei');
   if (e2) e2.textContent = NEI_TOTAL;
+  const ep = document.getElementById('r-practice');
+  if (ep) ep.textContent = String(practiceUnits().filter(u => u.group === '六章').length || 0);
   const mm = document.getElementById('main-meta');
   if (mm) {
     const r = mode === 'path' ? activeRoute() : null;
@@ -2972,7 +2975,7 @@ function practiceRouteRow(ru, i, first) {
   if (ru.superseded) {
     return `<div class="rucard rsup${first ? ' first' : ''}">
       <div class="ru-top"><b>${esc(ru.name)}</b><span class="rutag">在主线六章里</span></div>
-      <div class="ru-line">这一讲和主线六章是同一主题，不重复排两遍。</div>
+      
       <div class="ru-act"><button class="pbtn ghost" onclick="practiceEnter('${esc(ru.replacedBy)}')">去学六章这一章 →</button></div></div>`;
   }
   return `<div class="rucard${cur ? ' cur' : ''}${first ? ' first' : ''}" data-unit="${esc(ru.unitId)}">
@@ -3640,7 +3643,7 @@ function renderNeican(reset) {
       <span class="why">${esc(a.tag || '')}</span>
     </div>
     <div class="nei-hero">${a.hero || ''}</div>
-    <div class="nei-cap">配图 · 按 Anthropic Newsroom 的已验证两层体系程序化绘制（满幅不透明底色 ＋ 不规则象牙白承载形 ＋ 黑色手势线，粗线 22px ＋ 手抖滤镜）· 视觉隐喻「${esc(a.metaphor)}」</div>
+    
     <div class="nei-link">原文：<a href="${esc(a.url)}" target="_blank" rel="noopener">${esc(a.title)} ↗</a></div>
     <div class="nei-card"><h5>原文简介</h5><p>${esc(a.summary)}</p></div>
     <div class="nei-card"><h5>入选理由</h5><p>${esc(a.why)}</p>
@@ -4858,3 +4861,12 @@ refreshRail();
 </script>
 </body>
 </html>
+<style>
+/* 探索是首页，不把知识树画布露在首页下面。 */
+#main.explore-active > canvas,
+#main.explore-active > .mtools,
+#main.explore-active > #tree-head { visibility:hidden; pointer-events:none; }
+#main.explore-active > #reader { z-index:20; inset:0; }
+/* 配图下方的制作说明属于内部记录，不属于学习者界面。 */
+.nei-cap { display:none !important; }
+</style>
