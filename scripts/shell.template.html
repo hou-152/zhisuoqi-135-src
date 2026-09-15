@@ -2953,7 +2953,7 @@ async function bookJudge(id) {
 }
 window.bookOpen = bookOpen; window.bookRerender = bookRerender; window.bookJudge = bookJudge;
 
-/* 第一层 v2（v2-practice-space phase 02）：继续学 → 主线六章 → 七站路线 → 单篇 → 批量说明 → 折叠看板 → 1/3/5。
+/* 第一层 v2（v2-practice-space phase 02）：继续学 → 主线六章 → 七站路线 → 单篇 → 批量说明 → 折叠看板。
    路线顺序来自配置文件（DATA.practice.route），拍板前照实标「草案」；
    开放与否仍由准入门现算（practiceUnit/live.open），配置行不带也不读 open。
    路线行用独立类 .ru（不用 .pu）——「.pu 一行 = 六章/单篇」的既有断言口径保持成立。 */
@@ -3043,6 +3043,7 @@ function practiceIndexHtml() {
     <div class="pcard">
       <h2>主线 · Agent Loop 六章（人工策展 · 已装配）</h2>
       <div class="mut">一个核心概念 → 正文流阅读（原文 context ＋ 定义／直觉／机制／边界）→ 形成性费曼（读完就讲，给一处重点补讲）→ 三道决策（一题一判）→ 章末费曼（通过才解锁下一章）。
+      <div class="mut route-crosswalk"><b>怎么走：</b>六章负责把一个主题学深；七站负责把问题铺开。每章完成后，回到对应的站继续下一问。</div>
         点「进入阅读」打开的就是路径条那套 <code>#learn</code> 阅读器——<b>同一份排版，不是第二套视觉</b>；返回时回到你进来的地方。</div>
       ${chRows}
       <div class="pu"><span class="meta">不知道从哪继续？六章总览会跳到「第一个还没过的章」。</span><span class="sp"></span>
