@@ -2756,14 +2756,18 @@ function renderList() {
        09-13：主题顶部先放**路径入口**（HANDOFF §四.2）——主题仍是知识入口，路径是主题里的编排入口。
        路径行用 .prow，不是 .row：概念行的条数断言数的还是概念，路径不是概念。 */
     const mine = ROUTES.filter(r => r.topicId === themeId);
+    html += `<div class="lp-sec">这条主题怎么走</div>`;
     if (mine.length) {
-      html += `<div class="lp-sec">推荐路径 · ${mine.length} 条（人工策展，不是把 918 个概念排成课表）</div>`
-        + mine.map(r => `<div class="prow${r.routeId === routeId && mode === 'path' ? ' on' : ''}" onclick="openRoute('${r.routeId}')">
+      html += mine.map(r => `<div class="prow${r.routeId === routeId && mode === 'path' ? ' on' : ''}" onclick="openRoute('${r.routeId}')">
             <span class="rd"></span>
-            <span class="rn">${esc(r.title)}<i>${esc(r.entryQuestion)}</i></span>
-            <span class="rm">${r.steps.length} 个概念</span></div>`).join('');
-      html += '<div class="lp-sec">这条主题下的概念</div>';
+            <span class="rn">学习路线：${esc(r.title)}<i>${esc(r.entryQuestion)}</i></span>
+            <span class="rm">${r.steps.length} 步</span></div>`).join('');
     }
+    html += `<div class="prow browse-route" onclick="setView('theme','${themeId}')">
+      <span class="rd" style="background:#7d86b8"></span>
+      <span class="rn">浏览这条主题的概念顺序<i>按前置关系从浅到深查看，不会解锁课程</i></span>
+      <span class="rm">${groupCount({id:themeId})} 个概念</span></div>`;
+    html += '<div class="lp-sec">这条主题下的概念</div>';
     const list = nodes.filter(n => matches(n) && hit(n.name + n.gloss))
       .sort((a, b) => (a.level - b.level) || a.name.localeCompare(b.name));
     cnt = list.length;
