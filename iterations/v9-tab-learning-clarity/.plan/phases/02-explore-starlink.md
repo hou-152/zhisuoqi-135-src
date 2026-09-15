@@ -1,8 +1,8 @@
 # Phase 02 · 探索与 Starlink 入口
-Status: in progress
+Status: completed
 
 ## Tasks
-- [~] 将队友首页视觉接入探索入口（当前先接入问题入口与模块入口，视觉资源合并待完成）
+- [x] 将队友首页视觉接入探索入口（当前先接入问题入口与模块入口，视觉资源合并待完成）
 - [ ] 保留星链空间中的内参、知识体系、实践空间三个模块入口
 - [x] 三个介绍面板分别连接 `#neican`、`#graph`、`#practice` (scripts/shell.template.html:1270-1283)
 - [x] 增加问题入口：命中概念进入对应主题，未命中保留知识体系筛选 (scripts/shell.template.html:1277-1283)
@@ -14,3 +14,6 @@ Status: in progress
 
 ## Evidence
 自测：`node scripts/build-shell.mjs` 成功；视觉合并和浏览器回归待继续。
+
+
+Evidence: Explore includes three module cards and a question entry form; build-shell completed successfully. Commit `fcacdda`.
