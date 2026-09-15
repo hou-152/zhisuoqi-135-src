@@ -486,6 +486,7 @@ code{background:#161719;border:1px solid var(--line);border-radius:4px;padding:1
 .exo-next:hover{background:#6f7be0}
 .exo-note{font-size:11px;color:var(--fg4)}
 .exp-home .exp-hero{margin:8px 0 22px}
+.exp-starlink{position:relative;overflow:hidden;background:radial-gradient(circle at 75% 20%,rgba(95,104,223,.18),transparent 38%)}.exp-starlink .exp-kicker{color:#aab0ff;font-size:13px;letter-spacing:.08em;margin-bottom:12px}.exp-starlink .exp-orbit{position:absolute;inset:-35%;pointer-events:none;opacity:.65}.exp-starlink .exp-orbit:before,.exp-starlink .exp-orbit:after,.exp-starlink .exp-orbit i{content:"";position:absolute;border:1px solid rgba(112,120,235,.16);border-radius:50%;inset:15%;transform:rotate(22deg)}.exp-starlink .exp-orbit:after{inset:27%;transform:rotate(-38deg)}.exp-starlink .exp-orbit i{inset:auto;width:7px;height:7px;background:#7882ff;border:0;top:30%;left:66%;box-shadow:0 0 18px #7882ff}.exp-starlink .exp-hero,.exp-starlink .exp-question,.exp-starlink .exp-mods,.exp-starlink .exp-note{position:relative;z-index:1}
 .exp-question{display:flex;gap:8px;margin:0 0 22px;max-width:640px}.exp-question input{flex:1;min-width:0;background:var(--panel2);border:1px solid var(--line);border-radius:9px;padding:11px 12px;color:var(--fg);font:inherit}.exp-question button{border:0;border-radius:9px;padding:0 16px;background:#5e6ad2;color:#fff;cursor:pointer}
 .route-crosswalk-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:14px 0;color:#aeb4ff;font-size:12px}.route-crosswalk-grid span{border:1px solid #2b2f4d;border-radius:8px;padding:8px 10px;background:#11131c}
 .exp-hero h2{margin:0 0 8px;font-size:24px;color:var(--fg)}
@@ -1269,14 +1270,15 @@ function exploreOnboard() {
   </div>`;
 }
 function exploreHome() {
-  return `<div class="exp-home">
-    <div class="exp-hero"><h2>AI 内嵌</h2>
-      <p>知所栖的三个模块是一条学习回路：<b>内参</b>给你今天要学的材料，<b>知识体系</b>把材料长成你的知识树，<b>实践空间</b>用一条路带走到会。</p></div>
+  return `<div class="exp-home exp-starlink">
+    <div class="exp-orbit" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="exp-hero"><div class="exp-kicker">知所栖 135 · 从一个问题开始</div><h2>把好奇心，走成一条路</h2>
+      <p>先提出一个问题，再决定去读、去连接，还是去实践。</p></div>
     <form class="exp-question" onsubmit="expAsk(event)"><input id="exp-question-input" placeholder="从一个问题开始，例如：AI 怎样持续行动？"><button type="submit">开始探索</button></form>
     <div class="exp-mods">${EXPLORE_STEPS.map(s => `
       <button class="exp-mod" onclick="expGo('${s.view}')">
         <span class="em-ico">${s.icon}</span><b>${esc(s.name)}</b><span>${esc(s.title)}</span></button>`).join('')}</div>
-    <div class="exp-note">对话能力由队友前端模块提供，合并中（iterations/v4-unify phase 07）。</div>
+    <div class="exp-note">可以随时回到这里，换一个入口继续。</div>
   </div>`;
 }
 function expMove(d) { expStep = Math.max(0, Math.min(2, expStep + d)); openExplore(); }
