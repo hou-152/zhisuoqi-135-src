@@ -5190,9 +5190,9 @@ function renderList() {
       html += mine.map(r => `<div class="prow${r.routeId === routeId && mode === 'path' ? ' on' : ''}" onclick="openRoute('${r.routeId}')">
             <span class="rd"></span>
             <span class="rn">学习路线：${esc(r.title)}<i>${esc(r.entryQuestion)}</i></span>
-            <span class="rm">${r.steps.length} 步</span></div>`).join('');
+            <span class="rm">${r.steps.length} 个概念</span></div>`).join('');
     }
-    html += `<div class="prow browse-route" onclick="setView('theme','${themeId}')">
+    html += `<div class="browse-route" onclick="setView('theme','${themeId}')">
       <span class="rd" style="background:#7d86b8"></span>
       <span class="rn">浏览这条主题的概念顺序<i>按前置关系从浅到深查看，不会解锁课程</i></span>
       <span class="rm">${groupCount({id:themeId})} 个概念</span></div>`;
