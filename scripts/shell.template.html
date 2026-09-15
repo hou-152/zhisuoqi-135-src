@@ -487,6 +487,7 @@ code{background:#161719;border:1px solid var(--line);border-radius:4px;padding:1
 .exo-note{font-size:11px;color:var(--fg4)}
 .exp-home .exp-hero{margin:8px 0 22px}
 .exp-question{display:flex;gap:8px;margin:0 0 22px;max-width:640px}.exp-question input{flex:1;min-width:0;background:var(--panel2);border:1px solid var(--line);border-radius:9px;padding:11px 12px;color:var(--fg);font:inherit}.exp-question button{border:0;border-radius:9px;padding:0 16px;background:#5e6ad2;color:#fff;cursor:pointer}
+.route-crosswalk-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:14px 0;color:#aeb4ff;font-size:12px}.route-crosswalk-grid span{border:1px solid #2b2f4d;border-radius:8px;padding:8px 10px;background:#11131c}
 .exp-hero h2{margin:0 0 8px;font-size:24px;color:var(--fg)}
 .exp-hero p{margin:0;font-size:13px;color:var(--fg3);line-height:1.9;max-width:640px}
 .exp-mods{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
@@ -2395,8 +2396,8 @@ function caseMvpLink(n) {
   const ch = chapterOf(n.id);
   const hasCase = n.name === '上下文腐烂';
   return `<div class="case-mvp"><h4>实践空间 · 课程入口</h4>
-    <div class="case-meta">知识体系只浏览；课程学习（主线六章 ＋ 七站路线）在左栏「实践空间」。${ch ? `本概念对应主线第 ${ch.order} 章「${esc(ch.title)}」，已在实践空间装配。` : ''}</div>
-    <button class="jbtn ghost" onclick="openPractice('${n.id}')">去实践空间学习 →</button>
+    <div class="case-meta">知识体系负责浏览；课程学习在「实践空间」。${ch ? `本概念对应主线第 ${ch.order} 章「${esc(ch.title)}」。` : ''}</div>
+    <button class="jbtn ghost" onclick="openPractice('${n.id}')">去实践空间学习（查看课程）→</button>
     ${hasCase ? '<div class="case-meta" style="margin-top:5px">本概念已有 01 案例决策材料。</div>' : (ch ? `<div class="case-meta" style="margin-top:5px">${ch.review.caseState === 'owner-confirmed' ? `主案例已由负责人确认 · 场景类型 ${esc(ch.case.type)}` : `候选装配稿：主案例为${esc(ch.case.type)}、负责人尚未确认`}。</div>` : '<div class="case-meta" style="margin-top:5px">判断材料尚未装配，不计入当前路线进度。完整 135 是独立历史演示。</div>')}
   </div>`;
 }
@@ -3044,6 +3045,7 @@ function practiceIndexHtml() {
       <h2>主线 · Agent Loop 六章（人工策展 · 已装配）</h2>
       <div class="mut">一个核心概念 → 正文流阅读（原文 context ＋ 定义／直觉／机制／边界）→ 形成性费曼（读完就讲，给一处重点补讲）→ 三道决策（一题一判）→ 章末费曼（通过才解锁下一章）。
       <div class="mut route-crosswalk"><b>怎么走：</b>六章负责把一个主题学深；七站负责把问题铺开。每章完成后，回到对应的站继续下一问。</div>
+      <div class="route-crosswalk-grid"><span>Agent → 第 3 站</span><span>工具 → 第 4 站</span><span>Agent loop → 第 3 站</span><span>状态 → 第 2 站</span><span>Harness → 第 3 站</span><span>验证闭环 → 第 7 站</span></div>
         点「进入阅读」打开的就是路径条那套 <code>#learn</code> 阅读器——<b>同一份排版，不是第二套视觉</b>；返回时回到你进来的地方。</div>
       ${chRows}
       <div class="pu"><span class="meta">不知道从哪继续？六章总览会跳到「第一个还没过的章」。</span><span class="sp"></span>
@@ -3976,12 +3978,11 @@ async function nfxSubmit(slug) {
 }
 window.nfxSubmit = nfxSubmit;
 
-/* ── 五维签的正文：阅读梯度 → 即时费曼 → 决策（参考）→ 实验（可折叠） ── */
+/* ── 内参正文：阅读梯度 → 即时费曼 → 决策（参考） ── */
 function neiDimBody(a) {
   const d = a.dim || {}, tm = nfxUnit(a), r = d.reading || {};
   const head = `<div class="nei-card"><h5>五维拆解（学习编译层）</h5>
-    <p>这一篇按 3 概念 / 1 阅读梯度 / 3 决策 / 5 实验 / 费曼要点拆开——<b>不是五个必须按顺序做完的步骤</b>：
-    读完阅读梯度就能直接做下面的即时费曼，决策与实验都只是可回看的参考。</p>
+    <p>这一篇按概念、阅读梯度、即时费曼和决策参考拆开。读完阅读梯度就能直接提交复述，决策题用于回看，不挡住阅读。</p>
     <p class="mut">装配状态：<b>${esc(d.contentStatus || '未标注')}</b>（agent 生成，未经负责人审核）${d.source ? ` · 源 <code>${esc(d.source)}</code>` : ''}
     ${(d.gaps || []).length ? `<br>装配缺口（照实登记，不补齐）：${(d.gaps || []).map(esc).join('；')}` : ''}</p></div>`;
   const concepts = (d.concepts || []).length ? `<div class="nei-card"><h5>这一篇的三个概念</h5>
@@ -4001,14 +4002,7 @@ function neiDimBody(a) {
       <div><b>做法</b>：${esc(x.choice || '')}</div>
       <div class="mut" style="margin-top:6px"><b>适用条件</b>：${esc(x.condition || '')}</div></div>`).join('')}
     ${d.trapNote ? `<div class="mut">${esc(d.trapNote)}</div>` : ''}</details>` : '';
-  const experiments = (d.experiments || []).length ? `<details class="nfx-fold" id="nfx-fold-experiments">
-    <summary>参考实验（${(d.experiments || []).length} 个 · 可折叠 · 不是完成本轮学习的必经操作）</summary>
-    ${(d.experiments || []).map((x, i) => `<div class="fybox" id="${nfxMatId('experiments[' + i + ']')}">
-      <div class="k">实验 ${i + 1}</div>
-      <div><b>做</b>：${esc(x.do || '')}</div>
-      <div><b>看</b>：${esc(x.observe || '')}</div>
-      <div><b>结论</b>：${esc(x.conclude || '')}</div></div>`).join('')}</details>` : '';
-  return [head, concepts, reading, fey, decisions, experiments].join('');
+  return [head, concepts, reading, fey, decisions].join('');
 }
 window.neiDimBody = neiDimBody;
 
