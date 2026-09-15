@@ -969,7 +969,20 @@ let neiCalYM = '';          // 月历显示的月份（YYYY-MM）；默认落在
    只留分类与策展；左栏搜索框仍然管这一栏。 */
 let neiFilt = { tag: '', star: 0 };
 let neiFold = { tag: true, star: false };
-const neiQ = () => String(((document.getElementById('q-filter') || {}).value) || '').trim().toLowerCase();
+/* 一级 tab 各自保存搜索词；知识体系的 graph/theme 共用一个“知识体系”范围，
+   探索、内参、实践空间互不读取它。切 tab 不再把上一个页面的词带进来。 */
+const viewQueries = { explore: '', neican: '', knowledge: '', practice: '' };
+function queryScope(v = currentView) { return (v === 'graph' || v === 'theme') ? 'knowledge' : v; }
+function activeQuery(v = currentView) { return String(viewQueries[queryScope(v)] || '').trim().toLowerCase(); }
+function syncQueryInput() {
+  const input = document.getElementById('q-filter');
+  if (input) input.value = viewQueries[queryScope()] || '';
+}
+function saveQueryInput() {
+  const input = document.getElementById('q-filter');
+  if (input) viewQueries[queryScope()] = String(input.value || '').trim();
+}
+const neiQ = () => activeQuery('neican');
 const neiPass = (a) => {
   const q = neiQ();
   return (!neiFilt.tag || (a.tag || '文章') === neiFilt.tag)
@@ -1267,8 +1280,10 @@ function expMove(d) { expStep = Math.max(0, Math.min(2, expStep + d)); openExplo
 function expDone() { try { localStorage.setItem('zss135.explore.v1', 'done'); } catch (e) {} expStep = 3; openExplore(); }
 function expGo(v) { closeUpd(); closePanel(); setView(v); }
 window.expMove = expMove; window.expDone = expDone; window.expGo = expGo;
-function renderExploreList() {
-  return EXPLORE_STEPS.map(s => `<div class="row"><span class="rn">${esc(s.name)}</span><span class="rm">${esc(s.title)}</span></div>`).join('');
+function renderExploreList(q = '') {
+  const list = EXPLORE_STEPS.filter(s => !q || (s.name + s.title + s.text).toLowerCase().includes(q));
+  return list.map(s => `<div class="row"><span class="rn">${esc(s.name)}</span><span class="rm">${esc(s.title)}</span></div>`).join('')
+    || '<div class="lp-empty">没有符合条件的入口。清空筛选后查看三个模块。</div>';
 }
 function markRead(id) {
   if (marks[id] && marks[id].state === 'read') delete marks[id];
@@ -2693,7 +2708,8 @@ function rowHTML(inner, onclick, on) {
 function renderList() {
   const box = document.getElementById('lp-body');
   if (!box) return;
-  const q = ((document.getElementById('q-filter') || {}).value || '').trim().toLowerCase();
+  saveQueryInput();
+  const q = activeQuery();
   const hit = t => !q || String(t).toLowerCase().includes(q);
   const inTheme = currentView === 'theme' && !!themeId;
   const tagOf = id => (CUR.tags || []).find(t => t.id === id) || {};
@@ -2703,8 +2719,8 @@ function renderList() {
   if (back) back.style.display = inTheme ? '' : 'none';
   const cntEl = document.getElementById('lp-count');
   if (currentView === 'explore') {          // 探索：左栏列三个模块（v4-unify）
-    box.innerHTML = renderExploreList();
-    cntEl.textContent = '3';
+    box.innerHTML = renderExploreList(q);
+    cntEl.textContent = String(EXPLORE_STEPS.filter(s => !q || (s.name + s.title + s.text).toLowerCase().includes(q)).length);
     return;
   }
   let html = '', cnt = 0;
@@ -3185,12 +3201,14 @@ function practiceOriginHtml(origin) {
       <button class="jbtn ghost" onclick="returnToPracticeOrigin('${origin.id}')">${originStep >= 0 ? '返回这一步的路径与概念' : '返回当前概念'}</button></div>`;
 }
 function openPractice(originId = null, panel = 'index') {
+  saveQueryInput();
   currentView = 'practice'; themeId = null; filter = null;
   practiceOriginId = originId || null;
   practicePanel = panel === 'board' ? 'board' : panel === 'book' ? 'book' : panel === 'bookpage' ? 'bookpage' : 'index';
   document.querySelectorAll('.r-item').forEach(b => b.classList.toggle('on', b.dataset.view === 'practice'));
   closePanel();
   practiceRender();
+  syncQueryInput();
   document.getElementById('reader').classList.add('on');
   document.getElementById('lp-title').textContent = VIEW_TITLE.practice;
   document.getElementById('lp-back').style.display = 'none';
@@ -3224,7 +3242,7 @@ function returnToPracticeOrigin(id) {
   currentView = 'graph'; themeId = null; filter = null;
   document.querySelectorAll('.r-item').forEach(b => b.classList.toggle('on', b.dataset.view === 'graph'));
   if (idx >= 0) { routeStepIdx = idx; setMode('path'); }
-  renderList(); openPanel(id); syncPath();
+  syncQueryInput(); renderList(); openPanel(id); syncPath();
 }
 window.returnToPracticeOrigin = returnToPracticeOrigin;
 
@@ -3241,6 +3259,7 @@ function setView(v, tid) {
   /* v4.1 根修（对抗性审计发现）：系统视图（mode==='graph'）没有可见退出控件——顶栏导航
      点击后 currentView 换了、画布却停在总图态（graphon 不解除＝「回不去」的根因）。
      总图态的退出闭环就设在这里：任何一次回到知识体系的导航，先把画布从总图归位到我的树。 */
+  saveQueryInput();
   if (v === 'graph' && mode === 'graph') setMode('tree');
   currentView = v;
   themeId = (v === 'theme' && tid) ? tid : null;
@@ -3254,6 +3273,7 @@ function setView(v, tid) {
   else if (v === 'explore') { closePanel(); openExplore(); }
   else closePanel();
   computeLayout();
+  syncQueryInput();
   refreshRail(); renderList(); syncPath();
 }
 window.setView = setView;
@@ -4099,7 +4119,7 @@ function exitLearn() {
   resize(); computeLayout();
   if (ret.conceptId) { try { location.hash = ret.conceptId; } catch (e) {} }
   setMode('path');
-  renderList(); syncPath();
+  syncQueryInput(); renderList(); syncPath();
   if (fromPractice) { openPractice(ret.conceptId || null); learnReturn = null; return; }   // 从实践空间进来 → 回实践空间
   if (ret.conceptId) openPanel(ret.conceptId);
   learnReturn = null;
